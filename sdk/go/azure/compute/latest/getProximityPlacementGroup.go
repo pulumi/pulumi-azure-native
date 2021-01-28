@@ -28,9 +28,9 @@ type LookupProximityPlacementGroupArgs struct {
 // Specifies information about the proximity placement group.
 type LookupProximityPlacementGroupResult struct {
 	// A list of references to all availability sets in the proximity placement group.
-	AvailabilitySets []SubResourceWithColocationStatusResponse `pulumi:"availabilitySets"`
+	AvailabilitySets []SubResourceWithColocationStatusInvokeResponse `pulumi:"availabilitySets"`
 	// Describes colocation status of the Proximity Placement Group.
-	ColocationStatus *InstanceViewStatusResponse `pulumi:"colocationStatus"`
+	ColocationStatus *InstanceViewStatusInvokeResponse `pulumi:"colocationStatus"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location
@@ -44,7 +44,7 @@ type LookupProximityPlacementGroupResult struct {
 	// Resource type
 	Type string `pulumi:"type"`
 	// A list of references to all virtual machine scale sets in the proximity placement group.
-	VirtualMachineScaleSets []SubResourceWithColocationStatusResponse `pulumi:"virtualMachineScaleSets"`
+	VirtualMachineScaleSets []SubResourceWithColocationStatusInvokeResponse `pulumi:"virtualMachineScaleSets"`
 	// A list of references to all virtual machines in the proximity placement group.
-	VirtualMachines []SubResourceWithColocationStatusResponse `pulumi:"virtualMachines"`
+	VirtualMachines []SubResourceWithColocationStatusInvokeResponse `pulumi:"virtualMachines"`
 }

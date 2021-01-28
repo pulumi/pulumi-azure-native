@@ -34,7 +34,7 @@ type LookupReferenceDataSetResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The list of key properties for the reference data set.
-	KeyProperties []ReferenceDataSetKeyPropertyResponse `pulumi:"keyProperties"`
+	KeyProperties []ReferenceDataSetKeyPropertyInvokeResponse `pulumi:"keyProperties"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

@@ -10,6 +10,58 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type AzureADMetricsPropertiesFormatInvokeResponse struct {
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// AzureADMetricsPropertiesFormatInvokeResponseInput is an input type that accepts AzureADMetricsPropertiesFormatInvokeResponseArgs and AzureADMetricsPropertiesFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureADMetricsPropertiesFormatInvokeResponseInput` via:
+//
+//          AzureADMetricsPropertiesFormatInvokeResponseArgs{...}
+type AzureADMetricsPropertiesFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureADMetricsPropertiesFormatInvokeResponseOutput() AzureADMetricsPropertiesFormatInvokeResponseOutput
+	ToAzureADMetricsPropertiesFormatInvokeResponseOutputWithContext(context.Context) AzureADMetricsPropertiesFormatInvokeResponseOutput
+}
+
+type AzureADMetricsPropertiesFormatInvokeResponseArgs struct {
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (AzureADMetricsPropertiesFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureADMetricsPropertiesFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureADMetricsPropertiesFormatInvokeResponseArgs) ToAzureADMetricsPropertiesFormatInvokeResponseOutput() AzureADMetricsPropertiesFormatInvokeResponseOutput {
+	return i.ToAzureADMetricsPropertiesFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureADMetricsPropertiesFormatInvokeResponseArgs) ToAzureADMetricsPropertiesFormatInvokeResponseOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureADMetricsPropertiesFormatInvokeResponseOutput)
+}
+
+type AzureADMetricsPropertiesFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureADMetricsPropertiesFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureADMetricsPropertiesFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureADMetricsPropertiesFormatInvokeResponseOutput) ToAzureADMetricsPropertiesFormatInvokeResponseOutput() AzureADMetricsPropertiesFormatInvokeResponseOutput {
+	return o
+}
+
+func (o AzureADMetricsPropertiesFormatInvokeResponseOutput) ToAzureADMetricsPropertiesFormatInvokeResponseOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatInvokeResponseOutput {
+	return o
+}
+
+// The provisioning state of the resource.
+func (o AzureADMetricsPropertiesFormatInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureADMetricsPropertiesFormatInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 type AzureADMetricsPropertiesFormatResponse struct {
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -142,6 +194,7 @@ func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ProvisioningState() pul
 }
 
 func init() {
+	pulumi.RegisterOutputType(AzureADMetricsPropertiesFormatInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureADMetricsPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(AzureADMetricsPropertiesFormatResponsePtrOutput{})
 }

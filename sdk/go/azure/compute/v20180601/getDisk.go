@@ -26,7 +26,7 @@ type LookupDiskArgs struct {
 // Disk resource.
 type LookupDiskResult struct {
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponse `pulumi:"creationData"`
+	CreationData CreationDataInvokeResponse `pulumi:"creationData"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
 	DiskIOPSReadWrite *float64 `pulumi:"diskIOPSReadWrite"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
@@ -34,7 +34,7 @@ type LookupDiskResult struct {
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Encryption settings for disk or snapshot
-	EncryptionSettings *EncryptionSettingsResponse `pulumi:"encryptionSettings"`
+	EncryptionSettings *EncryptionSettingsInvokeResponse `pulumi:"encryptionSettings"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location
@@ -48,7 +48,7 @@ type LookupDiskResult struct {
 	// The disk provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-	Sku *DiskSkuResponse `pulumi:"sku"`
+	Sku *DiskSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The time when the disk was created.

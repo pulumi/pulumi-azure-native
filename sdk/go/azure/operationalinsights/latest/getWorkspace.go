@@ -38,7 +38,7 @@ type LookupWorkspaceResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of linked private link scope resources.
-	PrivateLinkScopedResources []PrivateLinkScopedResourceResponse `pulumi:"privateLinkScopedResources"`
+	PrivateLinkScopedResources []PrivateLinkScopedResourceInvokeResponse `pulumi:"privateLinkScopedResources"`
 	// The provisioning state of the workspace.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The network access type for accessing Log Analytics ingestion.
@@ -48,11 +48,11 @@ type LookupWorkspaceResult struct {
 	// The workspace data retention in days, between 30 and 730.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The SKU of the workspace.
-	Sku *WorkspaceSkuResponse `pulumi:"sku"`
+	Sku *WorkspaceSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The daily volume cap for ingestion.
-	WorkspaceCapping *WorkspaceCappingResponse `pulumi:"workspaceCapping"`
+	WorkspaceCapping *WorkspaceCappingInvokeResponse `pulumi:"workspaceCapping"`
 }

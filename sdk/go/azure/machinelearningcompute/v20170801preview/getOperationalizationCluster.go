@@ -26,19 +26,19 @@ type LookupOperationalizationClusterArgs struct {
 // Instance of an Azure ML Operationalization Cluster resource.
 type LookupOperationalizationClusterResult struct {
 	// AppInsights configuration.
-	AppInsights *AppInsightsPropertiesResponse `pulumi:"appInsights"`
+	AppInsights *AppInsightsPropertiesInvokeResponse `pulumi:"appInsights"`
 	// The cluster type.
 	ClusterType string `pulumi:"clusterType"`
 	// Container Registry properties.
-	ContainerRegistry *ContainerRegistryPropertiesResponse `pulumi:"containerRegistry"`
+	ContainerRegistry *ContainerRegistryPropertiesInvokeResponse `pulumi:"containerRegistry"`
 	// Parameters for the Azure Container Service cluster.
-	ContainerService *AcsClusterPropertiesResponse `pulumi:"containerService"`
+	ContainerService *AcsClusterPropertiesInvokeResponse `pulumi:"containerService"`
 	// The date and time when the cluster was created.
 	CreatedOn string `pulumi:"createdOn"`
 	// The description of the cluster.
 	Description *string `pulumi:"description"`
 	// Contains global configuration for the web services in the cluster.
-	GlobalServiceConfiguration *GlobalServiceConfigurationResponse `pulumi:"globalServiceConfiguration"`
+	GlobalServiceConfiguration *GlobalServiceConfigurationInvokeResponse `pulumi:"globalServiceConfiguration"`
 	// Specifies the resource ID.
 	Id string `pulumi:"id"`
 	// Specifies the location of the resource.
@@ -48,11 +48,11 @@ type LookupOperationalizationClusterResult struct {
 	// Specifies the name of the resource.
 	Name string `pulumi:"name"`
 	// List of provisioning errors reported by the resource provider.
-	ProvisioningErrors []ErrorResponseWrapperResponse `pulumi:"provisioningErrors"`
+	ProvisioningErrors []ErrorResponseWrapperInvokeResponse `pulumi:"provisioningErrors"`
 	// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Storage Account properties.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
+	StorageAccount *StorageAccountPropertiesInvokeResponse `pulumi:"storageAccount"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.

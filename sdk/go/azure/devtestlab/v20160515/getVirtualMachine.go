@@ -32,15 +32,15 @@ type LookupVirtualMachineResult struct {
 	// Indicates whether another user can take ownership of the virtual machine
 	AllowClaim *bool `pulumi:"allowClaim"`
 	// The applicable schedule for the virtual machine.
-	ApplicableSchedule *ApplicableScheduleResponse `pulumi:"applicableSchedule"`
+	ApplicableSchedule *ApplicableScheduleInvokeResponse `pulumi:"applicableSchedule"`
 	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus *ArtifactDeploymentStatusPropertiesResponse `pulumi:"artifactDeploymentStatus"`
+	ArtifactDeploymentStatus *ArtifactDeploymentStatusPropertiesInvokeResponse `pulumi:"artifactDeploymentStatus"`
 	// The artifacts to be installed on the virtual machine.
-	Artifacts []ArtifactInstallPropertiesResponse `pulumi:"artifacts"`
+	Artifacts []ArtifactInstallPropertiesInvokeResponse `pulumi:"artifacts"`
 	// The resource identifier (Microsoft.Compute) of the virtual machine.
 	ComputeId string `pulumi:"computeId"`
 	// The compute virtual machine properties.
-	ComputeVm *ComputeVmPropertiesResponse `pulumi:"computeVm"`
+	ComputeVm *ComputeVmPropertiesInvokeResponse `pulumi:"computeVm"`
 	// The email address of creator of the virtual machine.
 	CreatedByUser *string `pulumi:"createdByUser"`
 	// The object identifier of the creator of the virtual machine.
@@ -58,7 +58,7 @@ type LookupVirtualMachineResult struct {
 	// The fully-qualified domain name of the virtual machine.
 	Fqdn *string `pulumi:"fqdn"`
 	// The Microsoft Azure Marketplace image reference of the virtual machine.
-	GalleryImageReference *GalleryImageReferenceResponse `pulumi:"galleryImageReference"`
+	GalleryImageReference *GalleryImageReferenceInvokeResponse `pulumi:"galleryImageReference"`
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
 	// Indicates whether this virtual machine uses an SSH key for authentication.
@@ -72,7 +72,7 @@ type LookupVirtualMachineResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The network interface properties.
-	NetworkInterface *NetworkInterfacePropertiesResponse `pulumi:"networkInterface"`
+	NetworkInterface *NetworkInterfacePropertiesInvokeResponse `pulumi:"networkInterface"`
 	// The notes of the virtual machine.
 	Notes *string `pulumi:"notes"`
 	// The OS type of the virtual machine.

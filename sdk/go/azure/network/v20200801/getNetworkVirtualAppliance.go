@@ -40,15 +40,15 @@ type LookupNetworkVirtualApplianceResult struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The service principal that has read access to cloud-init and config blob.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	Identity *ManagedServiceIdentityInvokeResponse `pulumi:"identity"`
 	// List of references to InboundSecurityRules.
-	InboundSecurityRules []SubResourceResponse `pulumi:"inboundSecurityRules"`
+	InboundSecurityRules []SubResourceInvokeResponse `pulumi:"inboundSecurityRules"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Network Virtual Appliance SKU.
-	NvaSku *VirtualApplianceSkuPropertiesResponse `pulumi:"nvaSku"`
+	NvaSku *VirtualApplianceSkuPropertiesInvokeResponse `pulumi:"nvaSku"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
@@ -58,9 +58,9 @@ type LookupNetworkVirtualApplianceResult struct {
 	// VirtualAppliance ASN.
 	VirtualApplianceAsn *float64 `pulumi:"virtualApplianceAsn"`
 	// List of Virtual Appliance Network Interfaces.
-	VirtualApplianceNics []VirtualApplianceNicPropertiesResponse `pulumi:"virtualApplianceNics"`
+	VirtualApplianceNics []VirtualApplianceNicPropertiesInvokeResponse `pulumi:"virtualApplianceNics"`
 	// List of references to VirtualApplianceSite.
-	VirtualApplianceSites []SubResourceResponse `pulumi:"virtualApplianceSites"`
+	VirtualApplianceSites []SubResourceInvokeResponse `pulumi:"virtualApplianceSites"`
 	// The Virtual Hub where Network Virtual Appliance is being deployed.
-	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
+	VirtualHub *SubResourceInvokeResponse `pulumi:"virtualHub"`
 }

@@ -36,7 +36,7 @@ type LookupReplicationResult struct {
 	// The provisioning state of the replication at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The status of the replication at the time the operation was called.
-	Status StatusResponse `pulumi:"status"`
+	Status StatusInvokeResponse `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

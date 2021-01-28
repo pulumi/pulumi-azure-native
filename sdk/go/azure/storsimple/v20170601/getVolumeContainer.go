@@ -34,7 +34,7 @@ type LookupVolumeContainerResult struct {
 	// The ID of the bandwidth setting associated with the volume container.
 	BandwidthSettingId *string `pulumi:"bandwidthSettingId"`
 	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-	EncryptionKey *AsymmetricEncryptedSecretResponse `pulumi:"encryptionKey"`
+	EncryptionKey *AsymmetricEncryptedSecretInvokeResponse `pulumi:"encryptionKey"`
 	// The flag to denote whether encryption is enabled or not.
 	EncryptionStatus string `pulumi:"encryptionStatus"`
 	// The path ID that uniquely identifies the object.

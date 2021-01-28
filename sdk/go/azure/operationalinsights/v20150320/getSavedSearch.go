@@ -40,7 +40,7 @@ type LookupSavedSearchResult struct {
 	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
 	Query string `pulumi:"query"`
 	// The tags attached to the saved search.
-	Tags []TagResponse `pulumi:"tags"`
+	Tags []TagInvokeResponse `pulumi:"tags"`
 	// The type of the saved search.
 	Type string `pulumi:"type"`
 	// The version number of the query language. The current version is 2 and is the default.

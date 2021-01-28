@@ -28,5 +28,5 @@ type ListDomainRecommendationsResult struct {
 	// Link to next page of resources.
 	NextLink string `pulumi:"nextLink"`
 	// Collection of resources.
-	Value []NameIdentifierResponse `pulumi:"value"`
+	Value []NameIdentifierInvokeResponse `pulumi:"value"`
 }

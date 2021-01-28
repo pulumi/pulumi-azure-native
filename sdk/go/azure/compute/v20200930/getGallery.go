@@ -32,7 +32,7 @@ type LookupGalleryResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Describes the gallery unique name.
-	Identifier *GalleryIdentifierResponse `pulumi:"identifier"`
+	Identifier *GalleryIdentifierInvokeResponse `pulumi:"identifier"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
@@ -40,7 +40,7 @@ type LookupGalleryResult struct {
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Profile for gallery sharing to subscription or tenant
-	SharingProfile *SharingProfileResponse `pulumi:"sharingProfile"`
+	SharingProfile *SharingProfileInvokeResponse `pulumi:"sharingProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

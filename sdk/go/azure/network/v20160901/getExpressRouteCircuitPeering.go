@@ -38,7 +38,7 @@ type LookupExpressRouteCircuitPeeringResult struct {
 	// Gets whether the provider or the customer last modified the peering.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
 	// The Microsoft peering configuration.
-	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
+	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigInvokeResponse `pulumi:"microsoftPeeringConfig"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
@@ -60,7 +60,7 @@ type LookupExpressRouteCircuitPeeringResult struct {
 	// The state of peering. Possible values are: 'Disabled' and 'Enabled'
 	State *string `pulumi:"state"`
 	// Gets peering stats.
-	Stats *ExpressRouteCircuitStatsResponse `pulumi:"stats"`
+	Stats *ExpressRouteCircuitStatsInvokeResponse `pulumi:"stats"`
 	// The VLAN ID.
 	VlanId *int `pulumi:"vlanId"`
 }

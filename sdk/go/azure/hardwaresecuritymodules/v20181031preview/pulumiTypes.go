@@ -145,6 +145,140 @@ func (o ApiEntityReferencePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The API entity reference.
+type ApiEntityReferenceInvokeResponse struct {
+	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+	Id *string `pulumi:"id"`
+}
+
+// ApiEntityReferenceInvokeResponseInput is an input type that accepts ApiEntityReferenceInvokeResponseArgs and ApiEntityReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiEntityReferenceInvokeResponseInput` via:
+//
+//          ApiEntityReferenceInvokeResponseArgs{...}
+type ApiEntityReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApiEntityReferenceInvokeResponseOutput() ApiEntityReferenceInvokeResponseOutput
+	ToApiEntityReferenceInvokeResponseOutputWithContext(context.Context) ApiEntityReferenceInvokeResponseOutput
+}
+
+// The API entity reference.
+type ApiEntityReferenceInvokeResponseArgs struct {
+	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ApiEntityReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEntityReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ApiEntityReferenceInvokeResponseArgs) ToApiEntityReferenceInvokeResponseOutput() ApiEntityReferenceInvokeResponseOutput {
+	return i.ToApiEntityReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApiEntityReferenceInvokeResponseArgs) ToApiEntityReferenceInvokeResponseOutputWithContext(ctx context.Context) ApiEntityReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityReferenceInvokeResponseOutput)
+}
+
+func (i ApiEntityReferenceInvokeResponseArgs) ToApiEntityReferenceInvokeResponsePtrOutput() ApiEntityReferenceInvokeResponsePtrOutput {
+	return i.ToApiEntityReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiEntityReferenceInvokeResponseArgs) ToApiEntityReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ApiEntityReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityReferenceInvokeResponseOutput).ToApiEntityReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ApiEntityReferenceInvokeResponsePtrInput is an input type that accepts ApiEntityReferenceInvokeResponseArgs, ApiEntityReferenceInvokeResponsePtr and ApiEntityReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ApiEntityReferenceInvokeResponsePtrInput` via:
+//
+//          ApiEntityReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiEntityReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiEntityReferenceInvokeResponsePtrOutput() ApiEntityReferenceInvokeResponsePtrOutput
+	ToApiEntityReferenceInvokeResponsePtrOutputWithContext(context.Context) ApiEntityReferenceInvokeResponsePtrOutput
+}
+
+type apiEntityReferenceInvokeResponsePtrType ApiEntityReferenceInvokeResponseArgs
+
+func ApiEntityReferenceInvokeResponsePtr(v *ApiEntityReferenceInvokeResponseArgs) ApiEntityReferenceInvokeResponsePtrInput {
+	return (*apiEntityReferenceInvokeResponsePtrType)(v)
+}
+
+func (*apiEntityReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEntityReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *apiEntityReferenceInvokeResponsePtrType) ToApiEntityReferenceInvokeResponsePtrOutput() ApiEntityReferenceInvokeResponsePtrOutput {
+	return i.ToApiEntityReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiEntityReferenceInvokeResponsePtrType) ToApiEntityReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ApiEntityReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityReferenceInvokeResponsePtrOutput)
+}
+
+// The API entity reference.
+type ApiEntityReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiEntityReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEntityReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiEntityReferenceInvokeResponseOutput) ToApiEntityReferenceInvokeResponseOutput() ApiEntityReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ApiEntityReferenceInvokeResponseOutput) ToApiEntityReferenceInvokeResponseOutputWithContext(ctx context.Context) ApiEntityReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ApiEntityReferenceInvokeResponseOutput) ToApiEntityReferenceInvokeResponsePtrOutput() ApiEntityReferenceInvokeResponsePtrOutput {
+	return o.ToApiEntityReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiEntityReferenceInvokeResponseOutput) ToApiEntityReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ApiEntityReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiEntityReferenceInvokeResponse) *ApiEntityReferenceInvokeResponse {
+		return &v
+	}).(ApiEntityReferenceInvokeResponsePtrOutput)
+}
+
+// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+func (o ApiEntityReferenceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiEntityReferenceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type ApiEntityReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiEntityReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEntityReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiEntityReferenceInvokeResponsePtrOutput) ToApiEntityReferenceInvokeResponsePtrOutput() ApiEntityReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiEntityReferenceInvokeResponsePtrOutput) ToApiEntityReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ApiEntityReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiEntityReferenceInvokeResponsePtrOutput) Elem() ApiEntityReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *ApiEntityReferenceInvokeResponse) ApiEntityReferenceInvokeResponse { return *v }).(ApiEntityReferenceInvokeResponseOutput)
+}
+
+// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+func (o ApiEntityReferenceInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEntityReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The API entity reference.
 type ApiEntityReferenceResponse struct {
 	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
 	Id *string `pulumi:"id"`
@@ -376,6 +510,115 @@ func (o NetworkInterfaceArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterface {
 		return vs[0].([]NetworkInterface)[vs[1].(int)]
 	}).(NetworkInterfaceOutput)
+}
+
+// The network interface definition.
+type NetworkInterfaceInvokeResponse struct {
+	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+	Id string `pulumi:"id"`
+	// Private Ip address of the interface
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+}
+
+// NetworkInterfaceInvokeResponseInput is an input type that accepts NetworkInterfaceInvokeResponseArgs and NetworkInterfaceInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkInterfaceInvokeResponseInput` via:
+//
+//          NetworkInterfaceInvokeResponseArgs{...}
+type NetworkInterfaceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceInvokeResponseOutput() NetworkInterfaceInvokeResponseOutput
+	ToNetworkInterfaceInvokeResponseOutputWithContext(context.Context) NetworkInterfaceInvokeResponseOutput
+}
+
+// The network interface definition.
+type NetworkInterfaceInvokeResponseArgs struct {
+	// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+	Id pulumi.StringInput `pulumi:"id"`
+	// Private Ip address of the interface
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+}
+
+func (NetworkInterfaceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkInterfaceInvokeResponseArgs) ToNetworkInterfaceInvokeResponseOutput() NetworkInterfaceInvokeResponseOutput {
+	return i.ToNetworkInterfaceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceInvokeResponseArgs) ToNetworkInterfaceInvokeResponseOutputWithContext(ctx context.Context) NetworkInterfaceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInvokeResponseOutput)
+}
+
+// NetworkInterfaceInvokeResponseArrayInput is an input type that accepts NetworkInterfaceInvokeResponseArray and NetworkInterfaceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceInvokeResponseArrayInput` via:
+//
+//          NetworkInterfaceInvokeResponseArray{ NetworkInterfaceInvokeResponseArgs{...} }
+type NetworkInterfaceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceInvokeResponseArrayOutput() NetworkInterfaceInvokeResponseArrayOutput
+	ToNetworkInterfaceInvokeResponseArrayOutputWithContext(context.Context) NetworkInterfaceInvokeResponseArrayOutput
+}
+
+type NetworkInterfaceInvokeResponseArray []NetworkInterfaceInvokeResponseInput
+
+func (NetworkInterfaceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkInterfaceInvokeResponseArray) ToNetworkInterfaceInvokeResponseArrayOutput() NetworkInterfaceInvokeResponseArrayOutput {
+	return i.ToNetworkInterfaceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceInvokeResponseArray) ToNetworkInterfaceInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkInterfaceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInvokeResponseArrayOutput)
+}
+
+// The network interface definition.
+type NetworkInterfaceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkInterfaceInvokeResponseOutput) ToNetworkInterfaceInvokeResponseOutput() NetworkInterfaceInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkInterfaceInvokeResponseOutput) ToNetworkInterfaceInvokeResponseOutputWithContext(ctx context.Context) NetworkInterfaceInvokeResponseOutput {
+	return o
+}
+
+// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+func (o NetworkInterfaceInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInterfaceInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Private Ip address of the interface
+func (o NetworkInterfaceInvokeResponseOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceInvokeResponse) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInterfaceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkInterfaceInvokeResponseArrayOutput) ToNetworkInterfaceInvokeResponseArrayOutput() NetworkInterfaceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceInvokeResponseArrayOutput) ToNetworkInterfaceInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkInterfaceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceInvokeResponseArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceInvokeResponse {
+		return vs[0].([]NetworkInterfaceInvokeResponse)[vs[1].(int)]
+	}).(NetworkInterfaceInvokeResponseOutput)
 }
 
 // The network interface definition.
@@ -635,6 +878,67 @@ func (o NetworkProfilePtrOutput) Subnet() ApiEntityReferencePtrOutput {
 		}
 		return v.Subnet
 	}).(ApiEntityReferencePtrOutput)
+}
+
+type NetworkProfileInvokeResponse struct {
+	// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
+	NetworkInterfaces []NetworkInterfaceInvokeResponse `pulumi:"networkInterfaces"`
+	// Specifies the identifier of the subnet.
+	Subnet *ApiEntityReferenceInvokeResponse `pulumi:"subnet"`
+}
+
+// NetworkProfileInvokeResponseInput is an input type that accepts NetworkProfileInvokeResponseArgs and NetworkProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkProfileInvokeResponseInput` via:
+//
+//          NetworkProfileInvokeResponseArgs{...}
+type NetworkProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput
+	ToNetworkProfileInvokeResponseOutputWithContext(context.Context) NetworkProfileInvokeResponseOutput
+}
+
+type NetworkProfileInvokeResponseArgs struct {
+	// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
+	NetworkInterfaces NetworkInterfaceInvokeResponseArrayInput `pulumi:"networkInterfaces"`
+	// Specifies the identifier of the subnet.
+	Subnet ApiEntityReferenceInvokeResponsePtrInput `pulumi:"subnet"`
+}
+
+func (NetworkProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput {
+	return i.ToNetworkProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileInvokeResponseOutput)
+}
+
+type NetworkProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutput {
+	return o
+}
+
+// Specifies the list of resource Ids for the network interfaces associated with the dedicated HSM.
+func (o NetworkProfileInvokeResponseOutput) NetworkInterfaces() NetworkInterfaceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) []NetworkInterfaceInvokeResponse { return v.NetworkInterfaces }).(NetworkInterfaceInvokeResponseArrayOutput)
+}
+
+// Specifies the identifier of the subnet.
+func (o NetworkProfileInvokeResponseOutput) Subnet() ApiEntityReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *ApiEntityReferenceInvokeResponse { return v.Subnet }).(ApiEntityReferenceInvokeResponsePtrOutput)
 }
 
 type NetworkProfileResponse struct {
@@ -918,6 +1222,58 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SkuInvokeResponse struct {
+	// SKU of the dedicated HSM
+	Name *string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+type SkuInvokeResponseArgs struct {
+	// SKU of the dedicated HSM
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// SKU of the dedicated HSM
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 type SkuResponse struct {
 	// SKU of the dedicated HSM
 	Name *string `pulumi:"name"`
@@ -1052,18 +1408,24 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ApiEntityReferenceOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferencePtrOutput{})
+	pulumi.RegisterOutputType(ApiEntityReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApiEntityReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ApiEntityReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkProfileOutput{})
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(NetworkProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

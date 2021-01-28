@@ -34,7 +34,7 @@ type LookupTriggerResult struct {
 	// The object name.
 	Name string `pulumi:"name"`
 	// Trigger in DataBoxEdge Resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

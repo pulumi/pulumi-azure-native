@@ -36,7 +36,7 @@ type LookupJobAgentResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The name and tier of the SKU.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The state of the job agent.
 	State string `pulumi:"state"`
 	// Resource tags.

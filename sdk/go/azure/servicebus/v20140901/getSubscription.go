@@ -34,7 +34,7 @@ type LookupSubscriptionResult struct {
 	// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
 	// Message Count Details.
-	CountDetails MessageCountDetailsResponse `pulumi:"countDetails"`
+	CountDetails MessageCountDetailsInvokeResponse `pulumi:"countDetails"`
 	// Exact time the message was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.

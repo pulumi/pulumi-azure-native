@@ -48,7 +48,7 @@ type LookupAccountResult struct {
 	// The no of users/seats who can access this team account. This property defines the charge on the team account.
 	Seats *string `pulumi:"seats"`
 	// The properties of the storage account for the machine learning team account.
-	StorageAccount StorageAccountPropertiesResponse `pulumi:"storageAccount"`
+	StorageAccount StorageAccountPropertiesInvokeResponse `pulumi:"storageAccount"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

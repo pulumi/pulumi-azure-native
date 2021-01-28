@@ -32,7 +32,7 @@ type LookupSchemaResult struct {
 	// The content.
 	Content *string `pulumi:"content"`
 	// The content link.
-	ContentLink ContentLinkResponse `pulumi:"contentLink"`
+	ContentLink ContentLinkInvokeResponse `pulumi:"contentLink"`
 	// The content type.
 	ContentType *string `pulumi:"contentType"`
 	// The created time.

@@ -30,7 +30,7 @@ type LookupServerFarmResult struct {
 	// Geographical location for the App Service Plan
 	GeoRegion string `pulumi:"geoRegion"`
 	// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
-	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	HostingEnvironmentProfile *HostingEnvironmentProfileInvokeResponse `pulumi:"hostingEnvironmentProfile"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
@@ -51,7 +51,7 @@ type LookupServerFarmResult struct {
 	// Resource group of the server farm
 	ResourceGroup string `pulumi:"resourceGroup"`
 	// Describes a sku for a scalable resource
-	Sku *SkuDescriptionResponse `pulumi:"sku"`
+	Sku *SkuDescriptionInvokeResponse `pulumi:"sku"`
 	// App Service Plan Status
 	Status string `pulumi:"status"`
 	// App Service Plan Subscription

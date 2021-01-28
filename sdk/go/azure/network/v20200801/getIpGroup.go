@@ -30,9 +30,9 @@ type LookupIpGroupResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// List of references to Firewall Policies resources that this IpGroups is associated with.
-	FirewallPolicies []SubResourceResponse `pulumi:"firewallPolicies"`
+	FirewallPolicies []SubResourceInvokeResponse `pulumi:"firewallPolicies"`
 	// List of references to Firewall resources that this IpGroups is associated with.
-	Firewalls []SubResourceResponse `pulumi:"firewalls"`
+	Firewalls []SubResourceInvokeResponse `pulumi:"firewalls"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// IpAddresses/IpAddressPrefixes in the IpGroups resource.

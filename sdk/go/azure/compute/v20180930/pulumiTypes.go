@@ -221,6 +221,97 @@ func (o CreationDataPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 }
 
 // Data used when creating a disk.
+type CreationDataInvokeResponse struct {
+	// This enumerates the possible sources of a disk's creation.
+	CreateOption string `pulumi:"createOption"`
+	// Disk source information.
+	ImageReference *ImageDiskReferenceInvokeResponse `pulumi:"imageReference"`
+	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+	SourceUri *string `pulumi:"sourceUri"`
+	// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
+	StorageAccountId *string `pulumi:"storageAccountId"`
+}
+
+// CreationDataInvokeResponseInput is an input type that accepts CreationDataInvokeResponseArgs and CreationDataInvokeResponseOutput values.
+// You can construct a concrete instance of `CreationDataInvokeResponseInput` via:
+//
+//          CreationDataInvokeResponseArgs{...}
+type CreationDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCreationDataInvokeResponseOutput() CreationDataInvokeResponseOutput
+	ToCreationDataInvokeResponseOutputWithContext(context.Context) CreationDataInvokeResponseOutput
+}
+
+// Data used when creating a disk.
+type CreationDataInvokeResponseArgs struct {
+	// This enumerates the possible sources of a disk's creation.
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	// Disk source information.
+	ImageReference ImageDiskReferenceInvokeResponsePtrInput `pulumi:"imageReference"`
+	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+	SourceUri pulumi.StringPtrInput `pulumi:"sourceUri"`
+	// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+}
+
+func (CreationDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreationDataInvokeResponse)(nil)).Elem()
+}
+
+func (i CreationDataInvokeResponseArgs) ToCreationDataInvokeResponseOutput() CreationDataInvokeResponseOutput {
+	return i.ToCreationDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CreationDataInvokeResponseArgs) ToCreationDataInvokeResponseOutputWithContext(ctx context.Context) CreationDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreationDataInvokeResponseOutput)
+}
+
+// Data used when creating a disk.
+type CreationDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CreationDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreationDataInvokeResponse)(nil)).Elem()
+}
+
+func (o CreationDataInvokeResponseOutput) ToCreationDataInvokeResponseOutput() CreationDataInvokeResponseOutput {
+	return o
+}
+
+func (o CreationDataInvokeResponseOutput) ToCreationDataInvokeResponseOutputWithContext(ctx context.Context) CreationDataInvokeResponseOutput {
+	return o
+}
+
+// This enumerates the possible sources of a disk's creation.
+func (o CreationDataInvokeResponseOutput) CreateOption() pulumi.StringOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) string { return v.CreateOption }).(pulumi.StringOutput)
+}
+
+// Disk source information.
+func (o CreationDataInvokeResponseOutput) ImageReference() ImageDiskReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *ImageDiskReferenceInvokeResponse { return v.ImageReference }).(ImageDiskReferenceInvokeResponsePtrOutput)
+}
+
+// If createOption is Copy, this is the ARM id of the source snapshot or disk.
+func (o CreationDataInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+func (o CreationDataInvokeResponseOutput) SourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *string { return v.SourceUri }).(pulumi.StringPtrOutput)
+}
+
+// If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
+func (o CreationDataInvokeResponseOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Data used when creating a disk.
 type CreationDataResponse struct {
 	// This enumerates the possible sources of a disk's creation.
 	CreateOption string `pulumi:"createOption"`
@@ -565,6 +656,70 @@ func (o DiskSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+type DiskSkuInvokeResponse struct {
+	// The sku name.
+	Name *string `pulumi:"name"`
+	// The sku tier.
+	Tier string `pulumi:"tier"`
+}
+
+// DiskSkuInvokeResponseInput is an input type that accepts DiskSkuInvokeResponseArgs and DiskSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `DiskSkuInvokeResponseInput` via:
+//
+//          DiskSkuInvokeResponseArgs{...}
+type DiskSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDiskSkuInvokeResponseOutput() DiskSkuInvokeResponseOutput
+	ToDiskSkuInvokeResponseOutputWithContext(context.Context) DiskSkuInvokeResponseOutput
+}
+
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+type DiskSkuInvokeResponseArgs struct {
+	// The sku name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The sku tier.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (DiskSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i DiskSkuInvokeResponseArgs) ToDiskSkuInvokeResponseOutput() DiskSkuInvokeResponseOutput {
+	return i.ToDiskSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DiskSkuInvokeResponseArgs) ToDiskSkuInvokeResponseOutputWithContext(ctx context.Context) DiskSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskSkuInvokeResponseOutput)
+}
+
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+type DiskSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DiskSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o DiskSkuInvokeResponseOutput) ToDiskSkuInvokeResponseOutput() DiskSkuInvokeResponseOutput {
+	return o
+}
+
+func (o DiskSkuInvokeResponseOutput) ToDiskSkuInvokeResponseOutputWithContext(ctx context.Context) DiskSkuInvokeResponseOutput {
+	return o
+}
+
+// The sku name.
+func (o DiskSkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskSkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The sku tier.
+func (o DiskSkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskSkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
 type DiskSkuResponse struct {
 	// The sku name.
 	Name *string `pulumi:"name"`
@@ -871,6 +1026,72 @@ func (o EncryptionSettingsCollectionPtrOutput) EncryptionSettings() EncryptionSe
 }
 
 // Encryption settings for disk or snapshot
+type EncryptionSettingsCollectionInvokeResponse struct {
+	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+	Enabled bool `pulumi:"enabled"`
+	// A collection of encryption settings, one for each disk volume.
+	EncryptionSettings []EncryptionSettingsElementInvokeResponse `pulumi:"encryptionSettings"`
+}
+
+// EncryptionSettingsCollectionInvokeResponseInput is an input type that accepts EncryptionSettingsCollectionInvokeResponseArgs and EncryptionSettingsCollectionInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionSettingsCollectionInvokeResponseInput` via:
+//
+//          EncryptionSettingsCollectionInvokeResponseArgs{...}
+type EncryptionSettingsCollectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionSettingsCollectionInvokeResponseOutput() EncryptionSettingsCollectionInvokeResponseOutput
+	ToEncryptionSettingsCollectionInvokeResponseOutputWithContext(context.Context) EncryptionSettingsCollectionInvokeResponseOutput
+}
+
+// Encryption settings for disk or snapshot
+type EncryptionSettingsCollectionInvokeResponseArgs struct {
+	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A collection of encryption settings, one for each disk volume.
+	EncryptionSettings EncryptionSettingsElementInvokeResponseArrayInput `pulumi:"encryptionSettings"`
+}
+
+func (EncryptionSettingsCollectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionSettingsCollectionInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionSettingsCollectionInvokeResponseArgs) ToEncryptionSettingsCollectionInvokeResponseOutput() EncryptionSettingsCollectionInvokeResponseOutput {
+	return i.ToEncryptionSettingsCollectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionSettingsCollectionInvokeResponseArgs) ToEncryptionSettingsCollectionInvokeResponseOutputWithContext(ctx context.Context) EncryptionSettingsCollectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsCollectionInvokeResponseOutput)
+}
+
+// Encryption settings for disk or snapshot
+type EncryptionSettingsCollectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionSettingsCollectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionSettingsCollectionInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionSettingsCollectionInvokeResponseOutput) ToEncryptionSettingsCollectionInvokeResponseOutput() EncryptionSettingsCollectionInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionSettingsCollectionInvokeResponseOutput) ToEncryptionSettingsCollectionInvokeResponseOutputWithContext(ctx context.Context) EncryptionSettingsCollectionInvokeResponseOutput {
+	return o
+}
+
+// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+func (o EncryptionSettingsCollectionInvokeResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v EncryptionSettingsCollectionInvokeResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A collection of encryption settings, one for each disk volume.
+func (o EncryptionSettingsCollectionInvokeResponseOutput) EncryptionSettings() EncryptionSettingsElementInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EncryptionSettingsCollectionInvokeResponse) []EncryptionSettingsElementInvokeResponse {
+		return v.EncryptionSettings
+	}).(EncryptionSettingsElementInvokeResponseArrayOutput)
+}
+
+// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponse struct {
 	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 	Enabled bool `pulumi:"enabled"`
@@ -1135,6 +1356,119 @@ func (o EncryptionSettingsElementArrayOutput) Index(i pulumi.IntInput) Encryptio
 }
 
 // Encryption settings for one disk volume.
+type EncryptionSettingsElementInvokeResponse struct {
+	// Key Vault Secret Url and vault id of the disk encryption key
+	DiskEncryptionKey *KeyVaultAndSecretReferenceInvokeResponse `pulumi:"diskEncryptionKey"`
+	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+	KeyEncryptionKey *KeyVaultAndKeyReferenceInvokeResponse `pulumi:"keyEncryptionKey"`
+}
+
+// EncryptionSettingsElementInvokeResponseInput is an input type that accepts EncryptionSettingsElementInvokeResponseArgs and EncryptionSettingsElementInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionSettingsElementInvokeResponseInput` via:
+//
+//          EncryptionSettingsElementInvokeResponseArgs{...}
+type EncryptionSettingsElementInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionSettingsElementInvokeResponseOutput() EncryptionSettingsElementInvokeResponseOutput
+	ToEncryptionSettingsElementInvokeResponseOutputWithContext(context.Context) EncryptionSettingsElementInvokeResponseOutput
+}
+
+// Encryption settings for one disk volume.
+type EncryptionSettingsElementInvokeResponseArgs struct {
+	// Key Vault Secret Url and vault id of the disk encryption key
+	DiskEncryptionKey KeyVaultAndSecretReferenceInvokeResponsePtrInput `pulumi:"diskEncryptionKey"`
+	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+	KeyEncryptionKey KeyVaultAndKeyReferenceInvokeResponsePtrInput `pulumi:"keyEncryptionKey"`
+}
+
+func (EncryptionSettingsElementInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionSettingsElementInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionSettingsElementInvokeResponseArgs) ToEncryptionSettingsElementInvokeResponseOutput() EncryptionSettingsElementInvokeResponseOutput {
+	return i.ToEncryptionSettingsElementInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionSettingsElementInvokeResponseArgs) ToEncryptionSettingsElementInvokeResponseOutputWithContext(ctx context.Context) EncryptionSettingsElementInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsElementInvokeResponseOutput)
+}
+
+// EncryptionSettingsElementInvokeResponseArrayInput is an input type that accepts EncryptionSettingsElementInvokeResponseArray and EncryptionSettingsElementInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EncryptionSettingsElementInvokeResponseArrayInput` via:
+//
+//          EncryptionSettingsElementInvokeResponseArray{ EncryptionSettingsElementInvokeResponseArgs{...} }
+type EncryptionSettingsElementInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEncryptionSettingsElementInvokeResponseArrayOutput() EncryptionSettingsElementInvokeResponseArrayOutput
+	ToEncryptionSettingsElementInvokeResponseArrayOutputWithContext(context.Context) EncryptionSettingsElementInvokeResponseArrayOutput
+}
+
+type EncryptionSettingsElementInvokeResponseArray []EncryptionSettingsElementInvokeResponseInput
+
+func (EncryptionSettingsElementInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EncryptionSettingsElementInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionSettingsElementInvokeResponseArray) ToEncryptionSettingsElementInvokeResponseArrayOutput() EncryptionSettingsElementInvokeResponseArrayOutput {
+	return i.ToEncryptionSettingsElementInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EncryptionSettingsElementInvokeResponseArray) ToEncryptionSettingsElementInvokeResponseArrayOutputWithContext(ctx context.Context) EncryptionSettingsElementInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsElementInvokeResponseArrayOutput)
+}
+
+// Encryption settings for one disk volume.
+type EncryptionSettingsElementInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionSettingsElementInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionSettingsElementInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionSettingsElementInvokeResponseOutput) ToEncryptionSettingsElementInvokeResponseOutput() EncryptionSettingsElementInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionSettingsElementInvokeResponseOutput) ToEncryptionSettingsElementInvokeResponseOutputWithContext(ctx context.Context) EncryptionSettingsElementInvokeResponseOutput {
+	return o
+}
+
+// Key Vault Secret Url and vault id of the disk encryption key
+func (o EncryptionSettingsElementInvokeResponseOutput) DiskEncryptionKey() KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionSettingsElementInvokeResponse) *KeyVaultAndSecretReferenceInvokeResponse {
+		return v.DiskEncryptionKey
+	}).(KeyVaultAndSecretReferenceInvokeResponsePtrOutput)
+}
+
+// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+func (o EncryptionSettingsElementInvokeResponseOutput) KeyEncryptionKey() KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionSettingsElementInvokeResponse) *KeyVaultAndKeyReferenceInvokeResponse {
+		return v.KeyEncryptionKey
+	}).(KeyVaultAndKeyReferenceInvokeResponsePtrOutput)
+}
+
+type EncryptionSettingsElementInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EncryptionSettingsElementInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EncryptionSettingsElementInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionSettingsElementInvokeResponseArrayOutput) ToEncryptionSettingsElementInvokeResponseArrayOutput() EncryptionSettingsElementInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EncryptionSettingsElementInvokeResponseArrayOutput) ToEncryptionSettingsElementInvokeResponseArrayOutputWithContext(ctx context.Context) EncryptionSettingsElementInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EncryptionSettingsElementInvokeResponseArrayOutput) Index(i pulumi.IntInput) EncryptionSettingsElementInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EncryptionSettingsElementInvokeResponse {
+		return vs[0].([]EncryptionSettingsElementInvokeResponse)[vs[1].(int)]
+	}).(EncryptionSettingsElementInvokeResponseOutput)
+}
+
+// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponse struct {
 	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey *KeyVaultAndSecretReferenceResponse `pulumi:"diskEncryptionKey"`
@@ -1391,6 +1725,159 @@ func (o ImageDiskReferencePtrOutput) Id() pulumi.StringPtrOutput {
 // If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 func (o ImageDiskReferencePtrOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageDiskReference) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Lun
+	}).(pulumi.IntPtrOutput)
+}
+
+// The source image used for creating the disk.
+type ImageDiskReferenceInvokeResponse struct {
+	// A relative uri containing either a Platform Image Repository or user image reference.
+	Id string `pulumi:"id"`
+	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+	Lun *int `pulumi:"lun"`
+}
+
+// ImageDiskReferenceInvokeResponseInput is an input type that accepts ImageDiskReferenceInvokeResponseArgs and ImageDiskReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ImageDiskReferenceInvokeResponseInput` via:
+//
+//          ImageDiskReferenceInvokeResponseArgs{...}
+type ImageDiskReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToImageDiskReferenceInvokeResponseOutput() ImageDiskReferenceInvokeResponseOutput
+	ToImageDiskReferenceInvokeResponseOutputWithContext(context.Context) ImageDiskReferenceInvokeResponseOutput
+}
+
+// The source image used for creating the disk.
+type ImageDiskReferenceInvokeResponseArgs struct {
+	// A relative uri containing either a Platform Image Repository or user image reference.
+	Id pulumi.StringInput `pulumi:"id"`
+	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+	Lun pulumi.IntPtrInput `pulumi:"lun"`
+}
+
+func (ImageDiskReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageDiskReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ImageDiskReferenceInvokeResponseArgs) ToImageDiskReferenceInvokeResponseOutput() ImageDiskReferenceInvokeResponseOutput {
+	return i.ToImageDiskReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ImageDiskReferenceInvokeResponseArgs) ToImageDiskReferenceInvokeResponseOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferenceInvokeResponseOutput)
+}
+
+func (i ImageDiskReferenceInvokeResponseArgs) ToImageDiskReferenceInvokeResponsePtrOutput() ImageDiskReferenceInvokeResponsePtrOutput {
+	return i.ToImageDiskReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ImageDiskReferenceInvokeResponseArgs) ToImageDiskReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferenceInvokeResponseOutput).ToImageDiskReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ImageDiskReferenceInvokeResponsePtrInput is an input type that accepts ImageDiskReferenceInvokeResponseArgs, ImageDiskReferenceInvokeResponsePtr and ImageDiskReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ImageDiskReferenceInvokeResponsePtrInput` via:
+//
+//          ImageDiskReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageDiskReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToImageDiskReferenceInvokeResponsePtrOutput() ImageDiskReferenceInvokeResponsePtrOutput
+	ToImageDiskReferenceInvokeResponsePtrOutputWithContext(context.Context) ImageDiskReferenceInvokeResponsePtrOutput
+}
+
+type imageDiskReferenceInvokeResponsePtrType ImageDiskReferenceInvokeResponseArgs
+
+func ImageDiskReferenceInvokeResponsePtr(v *ImageDiskReferenceInvokeResponseArgs) ImageDiskReferenceInvokeResponsePtrInput {
+	return (*imageDiskReferenceInvokeResponsePtrType)(v)
+}
+
+func (*imageDiskReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageDiskReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *imageDiskReferenceInvokeResponsePtrType) ToImageDiskReferenceInvokeResponsePtrOutput() ImageDiskReferenceInvokeResponsePtrOutput {
+	return i.ToImageDiskReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *imageDiskReferenceInvokeResponsePtrType) ToImageDiskReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferenceInvokeResponsePtrOutput)
+}
+
+// The source image used for creating the disk.
+type ImageDiskReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageDiskReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageDiskReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ImageDiskReferenceInvokeResponseOutput) ToImageDiskReferenceInvokeResponseOutput() ImageDiskReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ImageDiskReferenceInvokeResponseOutput) ToImageDiskReferenceInvokeResponseOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ImageDiskReferenceInvokeResponseOutput) ToImageDiskReferenceInvokeResponsePtrOutput() ImageDiskReferenceInvokeResponsePtrOutput {
+	return o.ToImageDiskReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ImageDiskReferenceInvokeResponseOutput) ToImageDiskReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ImageDiskReferenceInvokeResponse) *ImageDiskReferenceInvokeResponse {
+		return &v
+	}).(ImageDiskReferenceInvokeResponsePtrOutput)
+}
+
+// A relative uri containing either a Platform Image Repository or user image reference.
+func (o ImageDiskReferenceInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageDiskReferenceInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+func (o ImageDiskReferenceInvokeResponseOutput) Lun() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImageDiskReferenceInvokeResponse) *int { return v.Lun }).(pulumi.IntPtrOutput)
+}
+
+type ImageDiskReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageDiskReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageDiskReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ImageDiskReferenceInvokeResponsePtrOutput) ToImageDiskReferenceInvokeResponsePtrOutput() ImageDiskReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ImageDiskReferenceInvokeResponsePtrOutput) ToImageDiskReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ImageDiskReferenceInvokeResponsePtrOutput) Elem() ImageDiskReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *ImageDiskReferenceInvokeResponse) ImageDiskReferenceInvokeResponse { return *v }).(ImageDiskReferenceInvokeResponseOutput)
+}
+
+// A relative uri containing either a Platform Image Repository or user image reference.
+func (o ImageDiskReferenceInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDiskReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+func (o ImageDiskReferenceInvokeResponsePtrOutput) Lun() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImageDiskReferenceInvokeResponse) *int {
 		if v == nil {
 			return nil
 		}
@@ -1705,6 +2192,159 @@ func (o KeyVaultAndKeyReferencePtrOutput) SourceVault() SourceVaultPtrOutput {
 }
 
 // Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
+type KeyVaultAndKeyReferenceInvokeResponse struct {
+	// Url pointing to a key or secret in KeyVault
+	KeyUrl string `pulumi:"keyUrl"`
+	// Resource id of the KeyVault containing the key or secret
+	SourceVault SourceVaultInvokeResponse `pulumi:"sourceVault"`
+}
+
+// KeyVaultAndKeyReferenceInvokeResponseInput is an input type that accepts KeyVaultAndKeyReferenceInvokeResponseArgs and KeyVaultAndKeyReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultAndKeyReferenceInvokeResponseInput` via:
+//
+//          KeyVaultAndKeyReferenceInvokeResponseArgs{...}
+type KeyVaultAndKeyReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultAndKeyReferenceInvokeResponseOutput() KeyVaultAndKeyReferenceInvokeResponseOutput
+	ToKeyVaultAndKeyReferenceInvokeResponseOutputWithContext(context.Context) KeyVaultAndKeyReferenceInvokeResponseOutput
+}
+
+// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
+type KeyVaultAndKeyReferenceInvokeResponseArgs struct {
+	// Url pointing to a key or secret in KeyVault
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// Resource id of the KeyVault containing the key or secret
+	SourceVault SourceVaultInvokeResponseInput `pulumi:"sourceVault"`
+}
+
+func (KeyVaultAndKeyReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultAndKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultAndKeyReferenceInvokeResponseArgs) ToKeyVaultAndKeyReferenceInvokeResponseOutput() KeyVaultAndKeyReferenceInvokeResponseOutput {
+	return i.ToKeyVaultAndKeyReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultAndKeyReferenceInvokeResponseArgs) ToKeyVaultAndKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceInvokeResponseOutput)
+}
+
+func (i KeyVaultAndKeyReferenceInvokeResponseArgs) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutput() KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultAndKeyReferenceInvokeResponseArgs) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceInvokeResponseOutput).ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultAndKeyReferenceInvokeResponsePtrInput is an input type that accepts KeyVaultAndKeyReferenceInvokeResponseArgs, KeyVaultAndKeyReferenceInvokeResponsePtr and KeyVaultAndKeyReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultAndKeyReferenceInvokeResponsePtrInput` via:
+//
+//          KeyVaultAndKeyReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultAndKeyReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultAndKeyReferenceInvokeResponsePtrOutput() KeyVaultAndKeyReferenceInvokeResponsePtrOutput
+	ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(context.Context) KeyVaultAndKeyReferenceInvokeResponsePtrOutput
+}
+
+type keyVaultAndKeyReferenceInvokeResponsePtrType KeyVaultAndKeyReferenceInvokeResponseArgs
+
+func KeyVaultAndKeyReferenceInvokeResponsePtr(v *KeyVaultAndKeyReferenceInvokeResponseArgs) KeyVaultAndKeyReferenceInvokeResponsePtrInput {
+	return (*keyVaultAndKeyReferenceInvokeResponsePtrType)(v)
+}
+
+func (*keyVaultAndKeyReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultAndKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *keyVaultAndKeyReferenceInvokeResponsePtrType) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutput() KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultAndKeyReferenceInvokeResponsePtrType) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceInvokeResponsePtrOutput)
+}
+
+// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
+type KeyVaultAndKeyReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultAndKeyReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultAndKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) ToKeyVaultAndKeyReferenceInvokeResponseOutput() KeyVaultAndKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) ToKeyVaultAndKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutput() KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return o.ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultAndKeyReferenceInvokeResponse) *KeyVaultAndKeyReferenceInvokeResponse {
+		return &v
+	}).(KeyVaultAndKeyReferenceInvokeResponsePtrOutput)
+}
+
+// Url pointing to a key or secret in KeyVault
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultAndKeyReferenceInvokeResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) SourceVault() SourceVaultInvokeResponseOutput {
+	return o.ApplyT(func(v KeyVaultAndKeyReferenceInvokeResponse) SourceVaultInvokeResponse { return v.SourceVault }).(SourceVaultInvokeResponseOutput)
+}
+
+type KeyVaultAndKeyReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultAndKeyReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultAndKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponsePtrOutput) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutput() KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponsePtrOutput) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponsePtrOutput) Elem() KeyVaultAndKeyReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *KeyVaultAndKeyReferenceInvokeResponse) KeyVaultAndKeyReferenceInvokeResponse { return *v }).(KeyVaultAndKeyReferenceInvokeResponseOutput)
+}
+
+// Url pointing to a key or secret in KeyVault
+func (o KeyVaultAndKeyReferenceInvokeResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultAndKeyReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret
+func (o KeyVaultAndKeyReferenceInvokeResponsePtrOutput) SourceVault() SourceVaultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *KeyVaultAndKeyReferenceInvokeResponse) *SourceVaultInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVault
+	}).(SourceVaultInvokeResponsePtrOutput)
+}
+
+// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponse struct {
 	// Url pointing to a key or secret in KeyVault
 	KeyUrl string `pulumi:"keyUrl"`
@@ -2011,6 +2651,159 @@ func (o KeyVaultAndSecretReferencePtrOutput) SourceVault() SourceVaultPtrOutput 
 }
 
 // Key Vault Secret Url and vault id of the encryption key
+type KeyVaultAndSecretReferenceInvokeResponse struct {
+	// Url pointing to a key or secret in KeyVault
+	SecretUrl string `pulumi:"secretUrl"`
+	// Resource id of the KeyVault containing the key or secret
+	SourceVault SourceVaultInvokeResponse `pulumi:"sourceVault"`
+}
+
+// KeyVaultAndSecretReferenceInvokeResponseInput is an input type that accepts KeyVaultAndSecretReferenceInvokeResponseArgs and KeyVaultAndSecretReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultAndSecretReferenceInvokeResponseInput` via:
+//
+//          KeyVaultAndSecretReferenceInvokeResponseArgs{...}
+type KeyVaultAndSecretReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultAndSecretReferenceInvokeResponseOutput() KeyVaultAndSecretReferenceInvokeResponseOutput
+	ToKeyVaultAndSecretReferenceInvokeResponseOutputWithContext(context.Context) KeyVaultAndSecretReferenceInvokeResponseOutput
+}
+
+// Key Vault Secret Url and vault id of the encryption key
+type KeyVaultAndSecretReferenceInvokeResponseArgs struct {
+	// Url pointing to a key or secret in KeyVault
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// Resource id of the KeyVault containing the key or secret
+	SourceVault SourceVaultInvokeResponseInput `pulumi:"sourceVault"`
+}
+
+func (KeyVaultAndSecretReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultAndSecretReferenceInvokeResponseArgs) ToKeyVaultAndSecretReferenceInvokeResponseOutput() KeyVaultAndSecretReferenceInvokeResponseOutput {
+	return i.ToKeyVaultAndSecretReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultAndSecretReferenceInvokeResponseArgs) ToKeyVaultAndSecretReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferenceInvokeResponseOutput)
+}
+
+func (i KeyVaultAndSecretReferenceInvokeResponseArgs) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutput() KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultAndSecretReferenceInvokeResponseArgs) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferenceInvokeResponseOutput).ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultAndSecretReferenceInvokeResponsePtrInput is an input type that accepts KeyVaultAndSecretReferenceInvokeResponseArgs, KeyVaultAndSecretReferenceInvokeResponsePtr and KeyVaultAndSecretReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultAndSecretReferenceInvokeResponsePtrInput` via:
+//
+//          KeyVaultAndSecretReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultAndSecretReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultAndSecretReferenceInvokeResponsePtrOutput() KeyVaultAndSecretReferenceInvokeResponsePtrOutput
+	ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Context) KeyVaultAndSecretReferenceInvokeResponsePtrOutput
+}
+
+type keyVaultAndSecretReferenceInvokeResponsePtrType KeyVaultAndSecretReferenceInvokeResponseArgs
+
+func KeyVaultAndSecretReferenceInvokeResponsePtr(v *KeyVaultAndSecretReferenceInvokeResponseArgs) KeyVaultAndSecretReferenceInvokeResponsePtrInput {
+	return (*keyVaultAndSecretReferenceInvokeResponsePtrType)(v)
+}
+
+func (*keyVaultAndSecretReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *keyVaultAndSecretReferenceInvokeResponsePtrType) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutput() KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultAndSecretReferenceInvokeResponsePtrType) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferenceInvokeResponsePtrOutput)
+}
+
+// Key Vault Secret Url and vault id of the encryption key
+type KeyVaultAndSecretReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultAndSecretReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) ToKeyVaultAndSecretReferenceInvokeResponseOutput() KeyVaultAndSecretReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) ToKeyVaultAndSecretReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutput() KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o.ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultAndSecretReferenceInvokeResponse) *KeyVaultAndSecretReferenceInvokeResponse {
+		return &v
+	}).(KeyVaultAndSecretReferenceInvokeResponsePtrOutput)
+}
+
+// Url pointing to a key or secret in KeyVault
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultAndSecretReferenceInvokeResponse) string { return v.SecretUrl }).(pulumi.StringOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) SourceVault() SourceVaultInvokeResponseOutput {
+	return o.ApplyT(func(v KeyVaultAndSecretReferenceInvokeResponse) SourceVaultInvokeResponse { return v.SourceVault }).(SourceVaultInvokeResponseOutput)
+}
+
+type KeyVaultAndSecretReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultAndSecretReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponsePtrOutput) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutput() KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponsePtrOutput) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponsePtrOutput) Elem() KeyVaultAndSecretReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *KeyVaultAndSecretReferenceInvokeResponse) KeyVaultAndSecretReferenceInvokeResponse { return *v }).(KeyVaultAndSecretReferenceInvokeResponseOutput)
+}
+
+// Url pointing to a key or secret in KeyVault
+func (o KeyVaultAndSecretReferenceInvokeResponsePtrOutput) SecretUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultAndSecretReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret
+func (o KeyVaultAndSecretReferenceInvokeResponsePtrOutput) SourceVault() SourceVaultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *KeyVaultAndSecretReferenceInvokeResponse) *SourceVaultInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVault
+	}).(SourceVaultInvokeResponsePtrOutput)
+}
+
+// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponse struct {
 	// Url pointing to a key or secret in KeyVault
 	SecretUrl string `pulumi:"secretUrl"`
@@ -2295,6 +3088,70 @@ func (o SnapshotSkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+type SnapshotSkuInvokeResponse struct {
+	// The sku name.
+	Name *string `pulumi:"name"`
+	// The sku tier.
+	Tier string `pulumi:"tier"`
+}
+
+// SnapshotSkuInvokeResponseInput is an input type that accepts SnapshotSkuInvokeResponseArgs and SnapshotSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SnapshotSkuInvokeResponseInput` via:
+//
+//          SnapshotSkuInvokeResponseArgs{...}
+type SnapshotSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSnapshotSkuInvokeResponseOutput() SnapshotSkuInvokeResponseOutput
+	ToSnapshotSkuInvokeResponseOutputWithContext(context.Context) SnapshotSkuInvokeResponseOutput
+}
+
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+type SnapshotSkuInvokeResponseArgs struct {
+	// The sku name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The sku tier.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SnapshotSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SnapshotSkuInvokeResponseArgs) ToSnapshotSkuInvokeResponseOutput() SnapshotSkuInvokeResponseOutput {
+	return i.ToSnapshotSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SnapshotSkuInvokeResponseArgs) ToSnapshotSkuInvokeResponseOutputWithContext(ctx context.Context) SnapshotSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSkuInvokeResponseOutput)
+}
+
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+type SnapshotSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SnapshotSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SnapshotSkuInvokeResponseOutput) ToSnapshotSkuInvokeResponseOutput() SnapshotSkuInvokeResponseOutput {
+	return o
+}
+
+func (o SnapshotSkuInvokeResponseOutput) ToSnapshotSkuInvokeResponseOutputWithContext(ctx context.Context) SnapshotSkuInvokeResponseOutput {
+	return o
+}
+
+// The sku name.
+func (o SnapshotSkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotSkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The sku tier.
+func (o SnapshotSkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotSkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 // The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
@@ -2585,6 +3442,140 @@ func (o SourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
+type SourceVaultInvokeResponse struct {
+	// Resource Id
+	Id *string `pulumi:"id"`
+}
+
+// SourceVaultInvokeResponseInput is an input type that accepts SourceVaultInvokeResponseArgs and SourceVaultInvokeResponseOutput values.
+// You can construct a concrete instance of `SourceVaultInvokeResponseInput` via:
+//
+//          SourceVaultInvokeResponseArgs{...}
+type SourceVaultInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSourceVaultInvokeResponseOutput() SourceVaultInvokeResponseOutput
+	ToSourceVaultInvokeResponseOutputWithContext(context.Context) SourceVaultInvokeResponseOutput
+}
+
+// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
+type SourceVaultInvokeResponseArgs struct {
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SourceVaultInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceVaultInvokeResponse)(nil)).Elem()
+}
+
+func (i SourceVaultInvokeResponseArgs) ToSourceVaultInvokeResponseOutput() SourceVaultInvokeResponseOutput {
+	return i.ToSourceVaultInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SourceVaultInvokeResponseArgs) ToSourceVaultInvokeResponseOutputWithContext(ctx context.Context) SourceVaultInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultInvokeResponseOutput)
+}
+
+func (i SourceVaultInvokeResponseArgs) ToSourceVaultInvokeResponsePtrOutput() SourceVaultInvokeResponsePtrOutput {
+	return i.ToSourceVaultInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SourceVaultInvokeResponseArgs) ToSourceVaultInvokeResponsePtrOutputWithContext(ctx context.Context) SourceVaultInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultInvokeResponseOutput).ToSourceVaultInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SourceVaultInvokeResponsePtrInput is an input type that accepts SourceVaultInvokeResponseArgs, SourceVaultInvokeResponsePtr and SourceVaultInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SourceVaultInvokeResponsePtrInput` via:
+//
+//          SourceVaultInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SourceVaultInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSourceVaultInvokeResponsePtrOutput() SourceVaultInvokeResponsePtrOutput
+	ToSourceVaultInvokeResponsePtrOutputWithContext(context.Context) SourceVaultInvokeResponsePtrOutput
+}
+
+type sourceVaultInvokeResponsePtrType SourceVaultInvokeResponseArgs
+
+func SourceVaultInvokeResponsePtr(v *SourceVaultInvokeResponseArgs) SourceVaultInvokeResponsePtrInput {
+	return (*sourceVaultInvokeResponsePtrType)(v)
+}
+
+func (*sourceVaultInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceVaultInvokeResponse)(nil)).Elem()
+}
+
+func (i *sourceVaultInvokeResponsePtrType) ToSourceVaultInvokeResponsePtrOutput() SourceVaultInvokeResponsePtrOutput {
+	return i.ToSourceVaultInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sourceVaultInvokeResponsePtrType) ToSourceVaultInvokeResponsePtrOutputWithContext(ctx context.Context) SourceVaultInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultInvokeResponsePtrOutput)
+}
+
+// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
+type SourceVaultInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceVaultInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceVaultInvokeResponse)(nil)).Elem()
+}
+
+func (o SourceVaultInvokeResponseOutput) ToSourceVaultInvokeResponseOutput() SourceVaultInvokeResponseOutput {
+	return o
+}
+
+func (o SourceVaultInvokeResponseOutput) ToSourceVaultInvokeResponseOutputWithContext(ctx context.Context) SourceVaultInvokeResponseOutput {
+	return o
+}
+
+func (o SourceVaultInvokeResponseOutput) ToSourceVaultInvokeResponsePtrOutput() SourceVaultInvokeResponsePtrOutput {
+	return o.ToSourceVaultInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SourceVaultInvokeResponseOutput) ToSourceVaultInvokeResponsePtrOutputWithContext(ctx context.Context) SourceVaultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SourceVaultInvokeResponse) *SourceVaultInvokeResponse {
+		return &v
+	}).(SourceVaultInvokeResponsePtrOutput)
+}
+
+// Resource Id
+func (o SourceVaultInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceVaultInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SourceVaultInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceVaultInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceVaultInvokeResponse)(nil)).Elem()
+}
+
+func (o SourceVaultInvokeResponsePtrOutput) ToSourceVaultInvokeResponsePtrOutput() SourceVaultInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SourceVaultInvokeResponsePtrOutput) ToSourceVaultInvokeResponsePtrOutputWithContext(ctx context.Context) SourceVaultInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SourceVaultInvokeResponsePtrOutput) Elem() SourceVaultInvokeResponseOutput {
+	return o.ApplyT(func(v *SourceVaultInvokeResponse) SourceVaultInvokeResponse { return *v }).(SourceVaultInvokeResponseOutput)
+}
+
+// Resource Id
+func (o SourceVaultInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceVaultInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponse struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -2721,38 +3712,52 @@ func (o SourceVaultResponsePtrOutput) Id() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(CreationDataOutput{})
 	pulumi.RegisterOutputType(CreationDataPtrOutput{})
+	pulumi.RegisterOutputType(CreationDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CreationDataResponseOutput{})
 	pulumi.RegisterOutputType(CreationDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskSkuOutput{})
 	pulumi.RegisterOutputType(DiskSkuPtrOutput{})
+	pulumi.RegisterOutputType(DiskSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DiskSkuResponseOutput{})
 	pulumi.RegisterOutputType(DiskSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsCollectionOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsCollectionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionSettingsCollectionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsCollectionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsCollectionResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsElementOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsElementArrayOutput{})
+	pulumi.RegisterOutputType(EncryptionSettingsElementInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionSettingsElementInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsElementResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsElementResponseArrayOutput{})
 	pulumi.RegisterOutputType(ImageDiskReferenceOutput{})
 	pulumi.RegisterOutputType(ImageDiskReferencePtrOutput{})
+	pulumi.RegisterOutputType(ImageDiskReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ImageDiskReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImageDiskReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ImageDiskReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferencePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferencePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuResponseOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceVaultOutput{})
 	pulumi.RegisterOutputType(SourceVaultPtrOutput{})
+	pulumi.RegisterOutputType(SourceVaultInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SourceVaultInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceVaultResponseOutput{})
 	pulumi.RegisterOutputType(SourceVaultResponsePtrOutput{})
 }

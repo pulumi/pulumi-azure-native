@@ -32,5 +32,5 @@ type ListBuildStepBuildArgumentsResult struct {
 	// The URI that can be used to request the next set of paged results.
 	NextLink *string `pulumi:"nextLink"`
 	// The collection value.
-	Value []BuildArgumentResponse `pulumi:"value"`
+	Value []BuildArgumentInvokeResponse `pulumi:"value"`
 }

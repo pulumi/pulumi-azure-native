@@ -48,9 +48,9 @@ type LookupScheduledQueryRuleResult struct {
 	// Provisioning state of the scheduled query rule
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-	Schedule *ScheduleResponse `pulumi:"schedule"`
+	Schedule *ScheduleInvokeResponse `pulumi:"schedule"`
 	// Data Source against which rule will Query Data
-	Source SourceResponse `pulumi:"source"`
+	Source SourceInvokeResponse `pulumi:"source"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type

@@ -500,6 +500,70 @@ func (o EncryptionConfigPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The encryption configuration for the account.
+type EncryptionConfigInvokeResponse struct {
+	// The Key Vault information for connecting to user managed encryption keys.
+	KeyVaultMetaInfo *KeyVaultMetaInfoInvokeResponse `pulumi:"keyVaultMetaInfo"`
+	// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
+	Type string `pulumi:"type"`
+}
+
+// EncryptionConfigInvokeResponseInput is an input type that accepts EncryptionConfigInvokeResponseArgs and EncryptionConfigInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionConfigInvokeResponseInput` via:
+//
+//          EncryptionConfigInvokeResponseArgs{...}
+type EncryptionConfigInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionConfigInvokeResponseOutput() EncryptionConfigInvokeResponseOutput
+	ToEncryptionConfigInvokeResponseOutputWithContext(context.Context) EncryptionConfigInvokeResponseOutput
+}
+
+// The encryption configuration for the account.
+type EncryptionConfigInvokeResponseArgs struct {
+	// The Key Vault information for connecting to user managed encryption keys.
+	KeyVaultMetaInfo KeyVaultMetaInfoInvokeResponsePtrInput `pulumi:"keyVaultMetaInfo"`
+	// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EncryptionConfigInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfigInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionConfigInvokeResponseArgs) ToEncryptionConfigInvokeResponseOutput() EncryptionConfigInvokeResponseOutput {
+	return i.ToEncryptionConfigInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionConfigInvokeResponseArgs) ToEncryptionConfigInvokeResponseOutputWithContext(ctx context.Context) EncryptionConfigInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigInvokeResponseOutput)
+}
+
+// The encryption configuration for the account.
+type EncryptionConfigInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionConfigInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionConfigInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionConfigInvokeResponseOutput) ToEncryptionConfigInvokeResponseOutput() EncryptionConfigInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionConfigInvokeResponseOutput) ToEncryptionConfigInvokeResponseOutputWithContext(ctx context.Context) EncryptionConfigInvokeResponseOutput {
+	return o
+}
+
+// The Key Vault information for connecting to user managed encryption keys.
+func (o EncryptionConfigInvokeResponseOutput) KeyVaultMetaInfo() KeyVaultMetaInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionConfigInvokeResponse) *KeyVaultMetaInfoInvokeResponse { return v.KeyVaultMetaInfo }).(KeyVaultMetaInfoInvokeResponsePtrOutput)
+}
+
+// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
+func (o EncryptionConfigInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionConfigInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The encryption configuration for the account.
 type EncryptionConfigResponse struct {
 	// The Key Vault information for connecting to user managed encryption keys.
 	KeyVaultMetaInfo *KeyVaultMetaInfoResponse `pulumi:"keyVaultMetaInfo"`
@@ -787,6 +851,79 @@ func (o EncryptionIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The encryption identity properties.
+type EncryptionIdentityInvokeResponse struct {
+	// The principal identifier associated with the encryption.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant identifier associated with the encryption.
+	TenantId string `pulumi:"tenantId"`
+	// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
+	Type string `pulumi:"type"`
+}
+
+// EncryptionIdentityInvokeResponseInput is an input type that accepts EncryptionIdentityInvokeResponseArgs and EncryptionIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionIdentityInvokeResponseInput` via:
+//
+//          EncryptionIdentityInvokeResponseArgs{...}
+type EncryptionIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionIdentityInvokeResponseOutput() EncryptionIdentityInvokeResponseOutput
+	ToEncryptionIdentityInvokeResponseOutputWithContext(context.Context) EncryptionIdentityInvokeResponseOutput
+}
+
+// The encryption identity properties.
+type EncryptionIdentityInvokeResponseArgs struct {
+	// The principal identifier associated with the encryption.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant identifier associated with the encryption.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EncryptionIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionIdentityInvokeResponseArgs) ToEncryptionIdentityInvokeResponseOutput() EncryptionIdentityInvokeResponseOutput {
+	return i.ToEncryptionIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionIdentityInvokeResponseArgs) ToEncryptionIdentityInvokeResponseOutputWithContext(ctx context.Context) EncryptionIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityInvokeResponseOutput)
+}
+
+// The encryption identity properties.
+type EncryptionIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionIdentityInvokeResponseOutput) ToEncryptionIdentityInvokeResponseOutput() EncryptionIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionIdentityInvokeResponseOutput) ToEncryptionIdentityInvokeResponseOutputWithContext(ctx context.Context) EncryptionIdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal identifier associated with the encryption.
+func (o EncryptionIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant identifier associated with the encryption.
+func (o EncryptionIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
+func (o EncryptionIdentityInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionIdentityInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The encryption identity properties.
 type EncryptionIdentityResponse struct {
 	// The principal identifier associated with the encryption.
 	PrincipalId string `pulumi:"principalId"`
@@ -956,6 +1093,142 @@ func (o EncryptionIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Data Lake Store firewall rule information.
+type FirewallRuleInvokeResponse struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress string `pulumi:"endIpAddress"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress string `pulumi:"startIpAddress"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// FirewallRuleInvokeResponseInput is an input type that accepts FirewallRuleInvokeResponseArgs and FirewallRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `FirewallRuleInvokeResponseInput` via:
+//
+//          FirewallRuleInvokeResponseArgs{...}
+type FirewallRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFirewallRuleInvokeResponseOutput() FirewallRuleInvokeResponseOutput
+	ToFirewallRuleInvokeResponseOutputWithContext(context.Context) FirewallRuleInvokeResponseOutput
+}
+
+// Data Lake Store firewall rule information.
+type FirewallRuleInvokeResponseArgs struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirewallRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i FirewallRuleInvokeResponseArgs) ToFirewallRuleInvokeResponseOutput() FirewallRuleInvokeResponseOutput {
+	return i.ToFirewallRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleInvokeResponseArgs) ToFirewallRuleInvokeResponseOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleInvokeResponseOutput)
+}
+
+// FirewallRuleInvokeResponseArrayInput is an input type that accepts FirewallRuleInvokeResponseArray and FirewallRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FirewallRuleInvokeResponseArrayInput` via:
+//
+//          FirewallRuleInvokeResponseArray{ FirewallRuleInvokeResponseArgs{...} }
+type FirewallRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFirewallRuleInvokeResponseArrayOutput() FirewallRuleInvokeResponseArrayOutput
+	ToFirewallRuleInvokeResponseArrayOutputWithContext(context.Context) FirewallRuleInvokeResponseArrayOutput
+}
+
+type FirewallRuleInvokeResponseArray []FirewallRuleInvokeResponseInput
+
+func (FirewallRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i FirewallRuleInvokeResponseArray) ToFirewallRuleInvokeResponseArrayOutput() FirewallRuleInvokeResponseArrayOutput {
+	return i.ToFirewallRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleInvokeResponseArray) ToFirewallRuleInvokeResponseArrayOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleInvokeResponseArrayOutput)
+}
+
+// Data Lake Store firewall rule information.
+type FirewallRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o FirewallRuleInvokeResponseOutput) ToFirewallRuleInvokeResponseOutput() FirewallRuleInvokeResponseOutput {
+	return o
+}
+
+func (o FirewallRuleInvokeResponseOutput) ToFirewallRuleInvokeResponseOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseOutput {
+	return o
+}
+
+// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o FirewallRuleInvokeResponseOutput) EndIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) string { return v.EndIpAddress }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o FirewallRuleInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o FirewallRuleInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o FirewallRuleInvokeResponseOutput) StartIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) string { return v.StartIpAddress }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o FirewallRuleInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FirewallRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o FirewallRuleInvokeResponseArrayOutput) ToFirewallRuleInvokeResponseArrayOutput() FirewallRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FirewallRuleInvokeResponseArrayOutput) ToFirewallRuleInvokeResponseArrayOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FirewallRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) FirewallRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallRuleInvokeResponse {
+		return vs[0].([]FirewallRuleInvokeResponse)[vs[1].(int)]
+	}).(FirewallRuleInvokeResponseOutput)
 }
 
 // Data Lake Store firewall rule information.
@@ -1267,6 +1540,178 @@ func (o KeyVaultMetaInfoPtrOutput) KeyVaultResourceId() pulumi.StringPtrOutput {
 }
 
 // Metadata information used by account encryption.
+type KeyVaultMetaInfoInvokeResponse struct {
+	// The name of the user managed encryption key.
+	EncryptionKeyName string `pulumi:"encryptionKeyName"`
+	// The version of the user managed encryption key.
+	EncryptionKeyVersion string `pulumi:"encryptionKeyVersion"`
+	// The resource identifier for the user managed Key Vault being used to encrypt.
+	KeyVaultResourceId string `pulumi:"keyVaultResourceId"`
+}
+
+// KeyVaultMetaInfoInvokeResponseInput is an input type that accepts KeyVaultMetaInfoInvokeResponseArgs and KeyVaultMetaInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultMetaInfoInvokeResponseInput` via:
+//
+//          KeyVaultMetaInfoInvokeResponseArgs{...}
+type KeyVaultMetaInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultMetaInfoInvokeResponseOutput() KeyVaultMetaInfoInvokeResponseOutput
+	ToKeyVaultMetaInfoInvokeResponseOutputWithContext(context.Context) KeyVaultMetaInfoInvokeResponseOutput
+}
+
+// Metadata information used by account encryption.
+type KeyVaultMetaInfoInvokeResponseArgs struct {
+	// The name of the user managed encryption key.
+	EncryptionKeyName pulumi.StringInput `pulumi:"encryptionKeyName"`
+	// The version of the user managed encryption key.
+	EncryptionKeyVersion pulumi.StringInput `pulumi:"encryptionKeyVersion"`
+	// The resource identifier for the user managed Key Vault being used to encrypt.
+	KeyVaultResourceId pulumi.StringInput `pulumi:"keyVaultResourceId"`
+}
+
+func (KeyVaultMetaInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultMetaInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultMetaInfoInvokeResponseArgs) ToKeyVaultMetaInfoInvokeResponseOutput() KeyVaultMetaInfoInvokeResponseOutput {
+	return i.ToKeyVaultMetaInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultMetaInfoInvokeResponseArgs) ToKeyVaultMetaInfoInvokeResponseOutputWithContext(ctx context.Context) KeyVaultMetaInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMetaInfoInvokeResponseOutput)
+}
+
+func (i KeyVaultMetaInfoInvokeResponseArgs) ToKeyVaultMetaInfoInvokeResponsePtrOutput() KeyVaultMetaInfoInvokeResponsePtrOutput {
+	return i.ToKeyVaultMetaInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultMetaInfoInvokeResponseArgs) ToKeyVaultMetaInfoInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultMetaInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMetaInfoInvokeResponseOutput).ToKeyVaultMetaInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultMetaInfoInvokeResponsePtrInput is an input type that accepts KeyVaultMetaInfoInvokeResponseArgs, KeyVaultMetaInfoInvokeResponsePtr and KeyVaultMetaInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultMetaInfoInvokeResponsePtrInput` via:
+//
+//          KeyVaultMetaInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultMetaInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultMetaInfoInvokeResponsePtrOutput() KeyVaultMetaInfoInvokeResponsePtrOutput
+	ToKeyVaultMetaInfoInvokeResponsePtrOutputWithContext(context.Context) KeyVaultMetaInfoInvokeResponsePtrOutput
+}
+
+type keyVaultMetaInfoInvokeResponsePtrType KeyVaultMetaInfoInvokeResponseArgs
+
+func KeyVaultMetaInfoInvokeResponsePtr(v *KeyVaultMetaInfoInvokeResponseArgs) KeyVaultMetaInfoInvokeResponsePtrInput {
+	return (*keyVaultMetaInfoInvokeResponsePtrType)(v)
+}
+
+func (*keyVaultMetaInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultMetaInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *keyVaultMetaInfoInvokeResponsePtrType) ToKeyVaultMetaInfoInvokeResponsePtrOutput() KeyVaultMetaInfoInvokeResponsePtrOutput {
+	return i.ToKeyVaultMetaInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultMetaInfoInvokeResponsePtrType) ToKeyVaultMetaInfoInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultMetaInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMetaInfoInvokeResponsePtrOutput)
+}
+
+// Metadata information used by account encryption.
+type KeyVaultMetaInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultMetaInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultMetaInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultMetaInfoInvokeResponseOutput) ToKeyVaultMetaInfoInvokeResponseOutput() KeyVaultMetaInfoInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultMetaInfoInvokeResponseOutput) ToKeyVaultMetaInfoInvokeResponseOutputWithContext(ctx context.Context) KeyVaultMetaInfoInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultMetaInfoInvokeResponseOutput) ToKeyVaultMetaInfoInvokeResponsePtrOutput() KeyVaultMetaInfoInvokeResponsePtrOutput {
+	return o.ToKeyVaultMetaInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultMetaInfoInvokeResponseOutput) ToKeyVaultMetaInfoInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultMetaInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultMetaInfoInvokeResponse) *KeyVaultMetaInfoInvokeResponse {
+		return &v
+	}).(KeyVaultMetaInfoInvokeResponsePtrOutput)
+}
+
+// The name of the user managed encryption key.
+func (o KeyVaultMetaInfoInvokeResponseOutput) EncryptionKeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultMetaInfoInvokeResponse) string { return v.EncryptionKeyName }).(pulumi.StringOutput)
+}
+
+// The version of the user managed encryption key.
+func (o KeyVaultMetaInfoInvokeResponseOutput) EncryptionKeyVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultMetaInfoInvokeResponse) string { return v.EncryptionKeyVersion }).(pulumi.StringOutput)
+}
+
+// The resource identifier for the user managed Key Vault being used to encrypt.
+func (o KeyVaultMetaInfoInvokeResponseOutput) KeyVaultResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultMetaInfoInvokeResponse) string { return v.KeyVaultResourceId }).(pulumi.StringOutput)
+}
+
+type KeyVaultMetaInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultMetaInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultMetaInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultMetaInfoInvokeResponsePtrOutput) ToKeyVaultMetaInfoInvokeResponsePtrOutput() KeyVaultMetaInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultMetaInfoInvokeResponsePtrOutput) ToKeyVaultMetaInfoInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultMetaInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultMetaInfoInvokeResponsePtrOutput) Elem() KeyVaultMetaInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *KeyVaultMetaInfoInvokeResponse) KeyVaultMetaInfoInvokeResponse { return *v }).(KeyVaultMetaInfoInvokeResponseOutput)
+}
+
+// The name of the user managed encryption key.
+func (o KeyVaultMetaInfoInvokeResponsePtrOutput) EncryptionKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultMetaInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionKeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the user managed encryption key.
+func (o KeyVaultMetaInfoInvokeResponsePtrOutput) EncryptionKeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultMetaInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionKeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource identifier for the user managed Key Vault being used to encrypt.
+func (o KeyVaultMetaInfoInvokeResponsePtrOutput) KeyVaultResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultMetaInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata information used by account encryption.
 type KeyVaultMetaInfoResponse struct {
 	// The name of the user managed encryption key.
 	EncryptionKeyName string `pulumi:"encryptionKeyName"`
@@ -1439,6 +1884,133 @@ func (o KeyVaultMetaInfoResponsePtrOutput) KeyVaultResourceId() pulumi.StringPtr
 }
 
 // Data Lake Store trusted identity provider information.
+type TrustedIdProviderInvokeResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The URL of this trusted identity provider.
+	IdProvider string `pulumi:"idProvider"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// TrustedIdProviderInvokeResponseInput is an input type that accepts TrustedIdProviderInvokeResponseArgs and TrustedIdProviderInvokeResponseOutput values.
+// You can construct a concrete instance of `TrustedIdProviderInvokeResponseInput` via:
+//
+//          TrustedIdProviderInvokeResponseArgs{...}
+type TrustedIdProviderInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTrustedIdProviderInvokeResponseOutput() TrustedIdProviderInvokeResponseOutput
+	ToTrustedIdProviderInvokeResponseOutputWithContext(context.Context) TrustedIdProviderInvokeResponseOutput
+}
+
+// Data Lake Store trusted identity provider information.
+type TrustedIdProviderInvokeResponseArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The URL of this trusted identity provider.
+	IdProvider pulumi.StringInput `pulumi:"idProvider"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TrustedIdProviderInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedIdProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i TrustedIdProviderInvokeResponseArgs) ToTrustedIdProviderInvokeResponseOutput() TrustedIdProviderInvokeResponseOutput {
+	return i.ToTrustedIdProviderInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TrustedIdProviderInvokeResponseArgs) ToTrustedIdProviderInvokeResponseOutputWithContext(ctx context.Context) TrustedIdProviderInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedIdProviderInvokeResponseOutput)
+}
+
+// TrustedIdProviderInvokeResponseArrayInput is an input type that accepts TrustedIdProviderInvokeResponseArray and TrustedIdProviderInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TrustedIdProviderInvokeResponseArrayInput` via:
+//
+//          TrustedIdProviderInvokeResponseArray{ TrustedIdProviderInvokeResponseArgs{...} }
+type TrustedIdProviderInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTrustedIdProviderInvokeResponseArrayOutput() TrustedIdProviderInvokeResponseArrayOutput
+	ToTrustedIdProviderInvokeResponseArrayOutputWithContext(context.Context) TrustedIdProviderInvokeResponseArrayOutput
+}
+
+type TrustedIdProviderInvokeResponseArray []TrustedIdProviderInvokeResponseInput
+
+func (TrustedIdProviderInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustedIdProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i TrustedIdProviderInvokeResponseArray) ToTrustedIdProviderInvokeResponseArrayOutput() TrustedIdProviderInvokeResponseArrayOutput {
+	return i.ToTrustedIdProviderInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TrustedIdProviderInvokeResponseArray) ToTrustedIdProviderInvokeResponseArrayOutputWithContext(ctx context.Context) TrustedIdProviderInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedIdProviderInvokeResponseArrayOutput)
+}
+
+// Data Lake Store trusted identity provider information.
+type TrustedIdProviderInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TrustedIdProviderInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedIdProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o TrustedIdProviderInvokeResponseOutput) ToTrustedIdProviderInvokeResponseOutput() TrustedIdProviderInvokeResponseOutput {
+	return o
+}
+
+func (o TrustedIdProviderInvokeResponseOutput) ToTrustedIdProviderInvokeResponseOutputWithContext(ctx context.Context) TrustedIdProviderInvokeResponseOutput {
+	return o
+}
+
+// The resource identifier.
+func (o TrustedIdProviderInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustedIdProviderInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The URL of this trusted identity provider.
+func (o TrustedIdProviderInvokeResponseOutput) IdProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustedIdProviderInvokeResponse) string { return v.IdProvider }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o TrustedIdProviderInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustedIdProviderInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o TrustedIdProviderInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustedIdProviderInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TrustedIdProviderInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TrustedIdProviderInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustedIdProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o TrustedIdProviderInvokeResponseArrayOutput) ToTrustedIdProviderInvokeResponseArrayOutput() TrustedIdProviderInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TrustedIdProviderInvokeResponseArrayOutput) ToTrustedIdProviderInvokeResponseArrayOutputWithContext(ctx context.Context) TrustedIdProviderInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TrustedIdProviderInvokeResponseArrayOutput) Index(i pulumi.IntInput) TrustedIdProviderInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrustedIdProviderInvokeResponse {
+		return vs[0].([]TrustedIdProviderInvokeResponse)[vs[1].(int)]
+	}).(TrustedIdProviderInvokeResponseOutput)
+}
+
+// Data Lake Store trusted identity provider information.
 type TrustedIdProviderResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
@@ -1563,6 +2135,133 @@ func (o TrustedIdProviderResponseArrayOutput) Index(i pulumi.IntInput) TrustedId
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrustedIdProviderResponse {
 		return vs[0].([]TrustedIdProviderResponse)[vs[1].(int)]
 	}).(TrustedIdProviderResponseOutput)
+}
+
+// Data Lake Store virtual network rule information.
+type VirtualNetworkRuleInvokeResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The resource identifier for the subnet.
+	SubnetId string `pulumi:"subnetId"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// VirtualNetworkRuleInvokeResponseInput is an input type that accepts VirtualNetworkRuleInvokeResponseArgs and VirtualNetworkRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualNetworkRuleInvokeResponseInput` via:
+//
+//          VirtualNetworkRuleInvokeResponseArgs{...}
+type VirtualNetworkRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput
+	ToVirtualNetworkRuleInvokeResponseOutputWithContext(context.Context) VirtualNetworkRuleInvokeResponseOutput
+}
+
+// Data Lake Store virtual network rule information.
+type VirtualNetworkRuleInvokeResponseArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource identifier for the subnet.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VirtualNetworkRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkRuleInvokeResponseArgs) ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput {
+	return i.ToVirtualNetworkRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRuleInvokeResponseArgs) ToVirtualNetworkRuleInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleInvokeResponseOutput)
+}
+
+// VirtualNetworkRuleInvokeResponseArrayInput is an input type that accepts VirtualNetworkRuleInvokeResponseArray and VirtualNetworkRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkRuleInvokeResponseArrayInput` via:
+//
+//          VirtualNetworkRuleInvokeResponseArray{ VirtualNetworkRuleInvokeResponseArgs{...} }
+type VirtualNetworkRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput
+	ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(context.Context) VirtualNetworkRuleInvokeResponseArrayOutput
+}
+
+type VirtualNetworkRuleInvokeResponseArray []VirtualNetworkRuleInvokeResponseInput
+
+func (VirtualNetworkRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkRuleInvokeResponseArray) ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput {
+	return i.ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRuleInvokeResponseArray) ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleInvokeResponseArrayOutput)
+}
+
+// Data Lake Store virtual network rule information.
+type VirtualNetworkRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleInvokeResponseOutput) ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseOutput) ToVirtualNetworkRuleInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseOutput {
+	return o
+}
+
+// The resource identifier.
+func (o VirtualNetworkRuleInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o VirtualNetworkRuleInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource identifier for the subnet.
+func (o VirtualNetworkRuleInvokeResponseOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o VirtualNetworkRuleInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkRuleInvokeResponse {
+		return vs[0].([]VirtualNetworkRuleInvokeResponse)[vs[1].(int)]
+	}).(VirtualNetworkRuleInvokeResponseOutput)
 }
 
 // Data Lake Store virtual network rule information.
@@ -1701,20 +2400,30 @@ func init() {
 	pulumi.RegisterOutputType(CreateVirtualNetworkRuleWithAccountParametersArrayOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionConfigInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionIdentityOutput{})
 	pulumi.RegisterOutputType(EncryptionIdentityPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionIdentityResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(FirewallRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FirewallRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultMetaInfoOutput{})
 	pulumi.RegisterOutputType(KeyVaultMetaInfoPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultMetaInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultMetaInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultMetaInfoResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultMetaInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(TrustedIdProviderInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TrustedIdProviderInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TrustedIdProviderResponseOutput{})
 	pulumi.RegisterOutputType(TrustedIdProviderResponseArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseArrayOutput{})
 }

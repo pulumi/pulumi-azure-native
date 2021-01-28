@@ -62,7 +62,7 @@ type LookupAgentPoolResult struct {
 	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
 	OsType *string `pulumi:"osType"`
 	// Describes whether the Agent Pool is Running or Stopped
-	PowerState PowerStateResponse `pulumi:"powerState"`
+	PowerState PowerStateInvokeResponse `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The ID for Proximity Placement Group.
@@ -78,7 +78,7 @@ type LookupAgentPoolResult struct {
 	// AgentPoolType represents types of an agent pool
 	Type string `pulumi:"type"`
 	// Settings for upgrading the agentpool
-	UpgradeSettings *AgentPoolUpgradeSettingsResponse `pulumi:"upgradeSettings"`
+	UpgradeSettings *AgentPoolUpgradeSettingsInvokeResponse `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize *string `pulumi:"vmSize"`
 	// VNet SubnetID specifies the VNet's subnet identifier.

@@ -36,7 +36,7 @@ type LookupEnvironmentResult struct {
 	// The creator of the environment.
 	CreatedByUser string `pulumi:"createdByUser"`
 	// The deployment properties of the environment.
-	DeploymentProperties *EnvironmentDeploymentPropertiesResponse `pulumi:"deploymentProperties"`
+	DeploymentProperties *EnvironmentDeploymentPropertiesInvokeResponse `pulumi:"deploymentProperties"`
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
 	// The location of the resource.

@@ -145,6 +145,61 @@ func (o FailoverGroupReadOnlyEndpointPtrOutput) FailoverPolicy() pulumi.StringPt
 }
 
 // Read-only endpoint of the failover group instance.
+type FailoverGroupReadOnlyEndpointInvokeResponse struct {
+	// Failover policy of the read-only endpoint for the failover group.
+	FailoverPolicy *string `pulumi:"failoverPolicy"`
+}
+
+// FailoverGroupReadOnlyEndpointInvokeResponseInput is an input type that accepts FailoverGroupReadOnlyEndpointInvokeResponseArgs and FailoverGroupReadOnlyEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `FailoverGroupReadOnlyEndpointInvokeResponseInput` via:
+//
+//          FailoverGroupReadOnlyEndpointInvokeResponseArgs{...}
+type FailoverGroupReadOnlyEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFailoverGroupReadOnlyEndpointInvokeResponseOutput() FailoverGroupReadOnlyEndpointInvokeResponseOutput
+	ToFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(context.Context) FailoverGroupReadOnlyEndpointInvokeResponseOutput
+}
+
+// Read-only endpoint of the failover group instance.
+type FailoverGroupReadOnlyEndpointInvokeResponseArgs struct {
+	// Failover policy of the read-only endpoint for the failover group.
+	FailoverPolicy pulumi.StringPtrInput `pulumi:"failoverPolicy"`
+}
+
+func (FailoverGroupReadOnlyEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReadOnlyEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i FailoverGroupReadOnlyEndpointInvokeResponseArgs) ToFailoverGroupReadOnlyEndpointInvokeResponseOutput() FailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return i.ToFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FailoverGroupReadOnlyEndpointInvokeResponseArgs) ToFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(ctx context.Context) FailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadOnlyEndpointInvokeResponseOutput)
+}
+
+// Read-only endpoint of the failover group instance.
+type FailoverGroupReadOnlyEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FailoverGroupReadOnlyEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReadOnlyEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o FailoverGroupReadOnlyEndpointInvokeResponseOutput) ToFailoverGroupReadOnlyEndpointInvokeResponseOutput() FailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o FailoverGroupReadOnlyEndpointInvokeResponseOutput) ToFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(ctx context.Context) FailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return o
+}
+
+// Failover policy of the read-only endpoint for the failover group.
+func (o FailoverGroupReadOnlyEndpointInvokeResponseOutput) FailoverPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverGroupReadOnlyEndpointInvokeResponse) *string { return v.FailoverPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Read-only endpoint of the failover group instance.
 type FailoverGroupReadOnlyEndpointResponse struct {
 	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy *string `pulumi:"failoverPolicy"`
@@ -432,6 +487,72 @@ func (o FailoverGroupReadWriteEndpointPtrOutput) FailoverWithDataLossGracePeriod
 }
 
 // Read-write endpoint of the failover group instance.
+type FailoverGroupReadWriteEndpointInvokeResponse struct {
+	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy string `pulumi:"failoverPolicy"`
+	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverWithDataLossGracePeriodMinutes *int `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+}
+
+// FailoverGroupReadWriteEndpointInvokeResponseInput is an input type that accepts FailoverGroupReadWriteEndpointInvokeResponseArgs and FailoverGroupReadWriteEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `FailoverGroupReadWriteEndpointInvokeResponseInput` via:
+//
+//          FailoverGroupReadWriteEndpointInvokeResponseArgs{...}
+type FailoverGroupReadWriteEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFailoverGroupReadWriteEndpointInvokeResponseOutput() FailoverGroupReadWriteEndpointInvokeResponseOutput
+	ToFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(context.Context) FailoverGroupReadWriteEndpointInvokeResponseOutput
+}
+
+// Read-write endpoint of the failover group instance.
+type FailoverGroupReadWriteEndpointInvokeResponseArgs struct {
+	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy pulumi.StringInput `pulumi:"failoverPolicy"`
+	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverWithDataLossGracePeriodMinutes pulumi.IntPtrInput `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+}
+
+func (FailoverGroupReadWriteEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReadWriteEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i FailoverGroupReadWriteEndpointInvokeResponseArgs) ToFailoverGroupReadWriteEndpointInvokeResponseOutput() FailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return i.ToFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FailoverGroupReadWriteEndpointInvokeResponseArgs) ToFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointInvokeResponseOutput)
+}
+
+// Read-write endpoint of the failover group instance.
+type FailoverGroupReadWriteEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FailoverGroupReadWriteEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReadWriteEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o FailoverGroupReadWriteEndpointInvokeResponseOutput) ToFailoverGroupReadWriteEndpointInvokeResponseOutput() FailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o FailoverGroupReadWriteEndpointInvokeResponseOutput) ToFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return o
+}
+
+// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+func (o FailoverGroupReadWriteEndpointInvokeResponseOutput) FailoverPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v FailoverGroupReadWriteEndpointInvokeResponse) string { return v.FailoverPolicy }).(pulumi.StringOutput)
+}
+
+// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+func (o FailoverGroupReadWriteEndpointInvokeResponseOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FailoverGroupReadWriteEndpointInvokeResponse) *int {
+		return v.FailoverWithDataLossGracePeriodMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Read-write endpoint of the failover group instance.
 type FailoverGroupReadWriteEndpointResponse struct {
 	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
 	FailoverPolicy string `pulumi:"failoverPolicy"`
@@ -685,6 +806,124 @@ func (o PartnerInfoArrayOutput) Index(i pulumi.IntInput) PartnerInfoOutput {
 }
 
 // Partner server information for the failover group.
+type PartnerInfoInvokeResponse struct {
+	// Resource identifier of the partner server.
+	Id string `pulumi:"id"`
+	// Geo location of the partner server.
+	Location string `pulumi:"location"`
+	// Replication role of the partner server.
+	ReplicationRole string `pulumi:"replicationRole"`
+}
+
+// PartnerInfoInvokeResponseInput is an input type that accepts PartnerInfoInvokeResponseArgs and PartnerInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `PartnerInfoInvokeResponseInput` via:
+//
+//          PartnerInfoInvokeResponseArgs{...}
+type PartnerInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPartnerInfoInvokeResponseOutput() PartnerInfoInvokeResponseOutput
+	ToPartnerInfoInvokeResponseOutputWithContext(context.Context) PartnerInfoInvokeResponseOutput
+}
+
+// Partner server information for the failover group.
+type PartnerInfoInvokeResponseArgs struct {
+	// Resource identifier of the partner server.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Geo location of the partner server.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Replication role of the partner server.
+	ReplicationRole pulumi.StringInput `pulumi:"replicationRole"`
+}
+
+func (PartnerInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i PartnerInfoInvokeResponseArgs) ToPartnerInfoInvokeResponseOutput() PartnerInfoInvokeResponseOutput {
+	return i.ToPartnerInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PartnerInfoInvokeResponseArgs) ToPartnerInfoInvokeResponseOutputWithContext(ctx context.Context) PartnerInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerInfoInvokeResponseOutput)
+}
+
+// PartnerInfoInvokeResponseArrayInput is an input type that accepts PartnerInfoInvokeResponseArray and PartnerInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PartnerInfoInvokeResponseArrayInput` via:
+//
+//          PartnerInfoInvokeResponseArray{ PartnerInfoInvokeResponseArgs{...} }
+type PartnerInfoInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPartnerInfoInvokeResponseArrayOutput() PartnerInfoInvokeResponseArrayOutput
+	ToPartnerInfoInvokeResponseArrayOutputWithContext(context.Context) PartnerInfoInvokeResponseArrayOutput
+}
+
+type PartnerInfoInvokeResponseArray []PartnerInfoInvokeResponseInput
+
+func (PartnerInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartnerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i PartnerInfoInvokeResponseArray) ToPartnerInfoInvokeResponseArrayOutput() PartnerInfoInvokeResponseArrayOutput {
+	return i.ToPartnerInfoInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PartnerInfoInvokeResponseArray) ToPartnerInfoInvokeResponseArrayOutputWithContext(ctx context.Context) PartnerInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerInfoInvokeResponseArrayOutput)
+}
+
+// Partner server information for the failover group.
+type PartnerInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PartnerInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o PartnerInfoInvokeResponseOutput) ToPartnerInfoInvokeResponseOutput() PartnerInfoInvokeResponseOutput {
+	return o
+}
+
+func (o PartnerInfoInvokeResponseOutput) ToPartnerInfoInvokeResponseOutputWithContext(ctx context.Context) PartnerInfoInvokeResponseOutput {
+	return o
+}
+
+// Resource identifier of the partner server.
+func (o PartnerInfoInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PartnerInfoInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Geo location of the partner server.
+func (o PartnerInfoInvokeResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v PartnerInfoInvokeResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Replication role of the partner server.
+func (o PartnerInfoInvokeResponseOutput) ReplicationRole() pulumi.StringOutput {
+	return o.ApplyT(func(v PartnerInfoInvokeResponse) string { return v.ReplicationRole }).(pulumi.StringOutput)
+}
+
+type PartnerInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PartnerInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartnerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o PartnerInfoInvokeResponseArrayOutput) ToPartnerInfoInvokeResponseArrayOutput() PartnerInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PartnerInfoInvokeResponseArrayOutput) ToPartnerInfoInvokeResponseArrayOutputWithContext(ctx context.Context) PartnerInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PartnerInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) PartnerInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartnerInfoInvokeResponse {
+		return vs[0].([]PartnerInfoInvokeResponse)[vs[1].(int)]
+	}).(PartnerInfoInvokeResponseOutput)
+}
+
+// Partner server information for the failover group.
 type PartnerInfoResponse struct {
 	// Resource identifier of the partner server.
 	Id string `pulumi:"id"`
@@ -934,6 +1173,79 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponse struct {
+	// The Azure Active Directory principal id.
+	PrincipalId string `pulumi:"principalId"`
+	// The Azure Active Directory tenant id.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+	Type *string `pulumi:"type"`
+}
+
+// ResourceIdentityInvokeResponseInput is an input type that accepts ResourceIdentityInvokeResponseArgs and ResourceIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceIdentityInvokeResponseInput` via:
+//
+//          ResourceIdentityInvokeResponseArgs{...}
+type ResourceIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput
+	ToResourceIdentityInvokeResponseOutputWithContext(context.Context) ResourceIdentityInvokeResponseOutput
+}
+
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponseArgs struct {
+	// The Azure Active Directory principal id.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Azure Active Directory tenant id.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return i.ToResourceIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityInvokeResponseOutput)
+}
+
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+// The Azure Active Directory principal id.
+func (o ResourceIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory tenant id.
+func (o ResourceIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+func (o ResourceIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Azure Active Directory identity configuration for a resource.
@@ -1319,6 +1631,97 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // An ARM Resource SKU.
+type SkuInvokeResponse struct {
+	// Capacity of the particular SKU.
+	Capacity *int `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family *string `pulumi:"family"`
+	// The name of the SKU, typically, a letter + Number code, e.g. P3.
+	Name string `pulumi:"name"`
+	// Size of the particular SKU
+	Size *string `pulumi:"size"`
+	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// An ARM Resource SKU.
+type SkuInvokeResponseArgs struct {
+	// Capacity of the particular SKU.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the SKU, typically, a letter + Number code, e.g. P3.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Size of the particular SKU
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// An ARM Resource SKU.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Capacity of the particular SKU.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU, typically, a letter + Number code, e.g. P3.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Size of the particular SKU
+func (o SkuInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The tier or edition of the particular SKU, e.g. Basic, Premium.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// An ARM Resource SKU.
 type SkuResponse struct {
 	// Capacity of the particular SKU.
 	Capacity *int `pulumi:"capacity"`
@@ -1679,6 +2082,70 @@ func (o SyncGroupSchemaPtrOutput) Tables() SyncGroupSchemaTableArrayOutput {
 		}
 		return v.Tables
 	}).(SyncGroupSchemaTableArrayOutput)
+}
+
+// Properties of sync group schema.
+type SyncGroupSchemaInvokeResponse struct {
+	// Name of master sync member where the schema is from.
+	MasterSyncMemberName *string `pulumi:"masterSyncMemberName"`
+	// List of tables in sync group schema.
+	Tables []SyncGroupSchemaTableInvokeResponse `pulumi:"tables"`
+}
+
+// SyncGroupSchemaInvokeResponseInput is an input type that accepts SyncGroupSchemaInvokeResponseArgs and SyncGroupSchemaInvokeResponseOutput values.
+// You can construct a concrete instance of `SyncGroupSchemaInvokeResponseInput` via:
+//
+//          SyncGroupSchemaInvokeResponseArgs{...}
+type SyncGroupSchemaInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSyncGroupSchemaInvokeResponseOutput() SyncGroupSchemaInvokeResponseOutput
+	ToSyncGroupSchemaInvokeResponseOutputWithContext(context.Context) SyncGroupSchemaInvokeResponseOutput
+}
+
+// Properties of sync group schema.
+type SyncGroupSchemaInvokeResponseArgs struct {
+	// Name of master sync member where the schema is from.
+	MasterSyncMemberName pulumi.StringPtrInput `pulumi:"masterSyncMemberName"`
+	// List of tables in sync group schema.
+	Tables SyncGroupSchemaTableInvokeResponseArrayInput `pulumi:"tables"`
+}
+
+func (SyncGroupSchemaInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaInvokeResponse)(nil)).Elem()
+}
+
+func (i SyncGroupSchemaInvokeResponseArgs) ToSyncGroupSchemaInvokeResponseOutput() SyncGroupSchemaInvokeResponseOutput {
+	return i.ToSyncGroupSchemaInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SyncGroupSchemaInvokeResponseArgs) ToSyncGroupSchemaInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaInvokeResponseOutput)
+}
+
+// Properties of sync group schema.
+type SyncGroupSchemaInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SyncGroupSchemaInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaInvokeResponse)(nil)).Elem()
+}
+
+func (o SyncGroupSchemaInvokeResponseOutput) ToSyncGroupSchemaInvokeResponseOutput() SyncGroupSchemaInvokeResponseOutput {
+	return o
+}
+
+func (o SyncGroupSchemaInvokeResponseOutput) ToSyncGroupSchemaInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaInvokeResponseOutput {
+	return o
+}
+
+// Name of master sync member where the schema is from.
+func (o SyncGroupSchemaInvokeResponseOutput) MasterSyncMemberName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyncGroupSchemaInvokeResponse) *string { return v.MasterSyncMemberName }).(pulumi.StringPtrOutput)
+}
+
+// List of tables in sync group schema.
+func (o SyncGroupSchemaInvokeResponseOutput) Tables() SyncGroupSchemaTableInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SyncGroupSchemaInvokeResponse) []SyncGroupSchemaTableInvokeResponse { return v.Tables }).(SyncGroupSchemaTableInvokeResponseArrayOutput)
 }
 
 // Properties of sync group schema.
@@ -2062,6 +2529,124 @@ func (o SyncGroupSchemaTableColumnArrayOutput) Index(i pulumi.IntInput) SyncGrou
 }
 
 // Properties of column in sync group table.
+type SyncGroupSchemaTableColumnInvokeResponse struct {
+	// Data size of the column.
+	DataSize *string `pulumi:"dataSize"`
+	// Data type of the column.
+	DataType *string `pulumi:"dataType"`
+	// Quoted name of sync group table column.
+	QuotedName *string `pulumi:"quotedName"`
+}
+
+// SyncGroupSchemaTableColumnInvokeResponseInput is an input type that accepts SyncGroupSchemaTableColumnInvokeResponseArgs and SyncGroupSchemaTableColumnInvokeResponseOutput values.
+// You can construct a concrete instance of `SyncGroupSchemaTableColumnInvokeResponseInput` via:
+//
+//          SyncGroupSchemaTableColumnInvokeResponseArgs{...}
+type SyncGroupSchemaTableColumnInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSyncGroupSchemaTableColumnInvokeResponseOutput() SyncGroupSchemaTableColumnInvokeResponseOutput
+	ToSyncGroupSchemaTableColumnInvokeResponseOutputWithContext(context.Context) SyncGroupSchemaTableColumnInvokeResponseOutput
+}
+
+// Properties of column in sync group table.
+type SyncGroupSchemaTableColumnInvokeResponseArgs struct {
+	// Data size of the column.
+	DataSize pulumi.StringPtrInput `pulumi:"dataSize"`
+	// Data type of the column.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// Quoted name of sync group table column.
+	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
+}
+
+func (SyncGroupSchemaTableColumnInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaTableColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i SyncGroupSchemaTableColumnInvokeResponseArgs) ToSyncGroupSchemaTableColumnInvokeResponseOutput() SyncGroupSchemaTableColumnInvokeResponseOutput {
+	return i.ToSyncGroupSchemaTableColumnInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SyncGroupSchemaTableColumnInvokeResponseArgs) ToSyncGroupSchemaTableColumnInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaTableColumnInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableColumnInvokeResponseOutput)
+}
+
+// SyncGroupSchemaTableColumnInvokeResponseArrayInput is an input type that accepts SyncGroupSchemaTableColumnInvokeResponseArray and SyncGroupSchemaTableColumnInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SyncGroupSchemaTableColumnInvokeResponseArrayInput` via:
+//
+//          SyncGroupSchemaTableColumnInvokeResponseArray{ SyncGroupSchemaTableColumnInvokeResponseArgs{...} }
+type SyncGroupSchemaTableColumnInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSyncGroupSchemaTableColumnInvokeResponseArrayOutput() SyncGroupSchemaTableColumnInvokeResponseArrayOutput
+	ToSyncGroupSchemaTableColumnInvokeResponseArrayOutputWithContext(context.Context) SyncGroupSchemaTableColumnInvokeResponseArrayOutput
+}
+
+type SyncGroupSchemaTableColumnInvokeResponseArray []SyncGroupSchemaTableColumnInvokeResponseInput
+
+func (SyncGroupSchemaTableColumnInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyncGroupSchemaTableColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i SyncGroupSchemaTableColumnInvokeResponseArray) ToSyncGroupSchemaTableColumnInvokeResponseArrayOutput() SyncGroupSchemaTableColumnInvokeResponseArrayOutput {
+	return i.ToSyncGroupSchemaTableColumnInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SyncGroupSchemaTableColumnInvokeResponseArray) ToSyncGroupSchemaTableColumnInvokeResponseArrayOutputWithContext(ctx context.Context) SyncGroupSchemaTableColumnInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableColumnInvokeResponseArrayOutput)
+}
+
+// Properties of column in sync group table.
+type SyncGroupSchemaTableColumnInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SyncGroupSchemaTableColumnInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaTableColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o SyncGroupSchemaTableColumnInvokeResponseOutput) ToSyncGroupSchemaTableColumnInvokeResponseOutput() SyncGroupSchemaTableColumnInvokeResponseOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableColumnInvokeResponseOutput) ToSyncGroupSchemaTableColumnInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaTableColumnInvokeResponseOutput {
+	return o
+}
+
+// Data size of the column.
+func (o SyncGroupSchemaTableColumnInvokeResponseOutput) DataSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyncGroupSchemaTableColumnInvokeResponse) *string { return v.DataSize }).(pulumi.StringPtrOutput)
+}
+
+// Data type of the column.
+func (o SyncGroupSchemaTableColumnInvokeResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyncGroupSchemaTableColumnInvokeResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// Quoted name of sync group table column.
+func (o SyncGroupSchemaTableColumnInvokeResponseOutput) QuotedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyncGroupSchemaTableColumnInvokeResponse) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
+}
+
+type SyncGroupSchemaTableColumnInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SyncGroupSchemaTableColumnInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyncGroupSchemaTableColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o SyncGroupSchemaTableColumnInvokeResponseArrayOutput) ToSyncGroupSchemaTableColumnInvokeResponseArrayOutput() SyncGroupSchemaTableColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableColumnInvokeResponseArrayOutput) ToSyncGroupSchemaTableColumnInvokeResponseArrayOutputWithContext(ctx context.Context) SyncGroupSchemaTableColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableColumnInvokeResponseArrayOutput) Index(i pulumi.IntInput) SyncGroupSchemaTableColumnInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyncGroupSchemaTableColumnInvokeResponse {
+		return vs[0].([]SyncGroupSchemaTableColumnInvokeResponse)[vs[1].(int)]
+	}).(SyncGroupSchemaTableColumnInvokeResponseOutput)
+}
+
+// Properties of column in sync group table.
 type SyncGroupSchemaTableColumnResponse struct {
 	// Data size of the column.
 	DataSize *string `pulumi:"dataSize"`
@@ -2180,6 +2765,117 @@ func (o SyncGroupSchemaTableColumnResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 // Properties of table in sync group schema.
+type SyncGroupSchemaTableInvokeResponse struct {
+	// List of columns in sync group schema.
+	Columns []SyncGroupSchemaTableColumnInvokeResponse `pulumi:"columns"`
+	// Quoted name of sync group schema table.
+	QuotedName *string `pulumi:"quotedName"`
+}
+
+// SyncGroupSchemaTableInvokeResponseInput is an input type that accepts SyncGroupSchemaTableInvokeResponseArgs and SyncGroupSchemaTableInvokeResponseOutput values.
+// You can construct a concrete instance of `SyncGroupSchemaTableInvokeResponseInput` via:
+//
+//          SyncGroupSchemaTableInvokeResponseArgs{...}
+type SyncGroupSchemaTableInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSyncGroupSchemaTableInvokeResponseOutput() SyncGroupSchemaTableInvokeResponseOutput
+	ToSyncGroupSchemaTableInvokeResponseOutputWithContext(context.Context) SyncGroupSchemaTableInvokeResponseOutput
+}
+
+// Properties of table in sync group schema.
+type SyncGroupSchemaTableInvokeResponseArgs struct {
+	// List of columns in sync group schema.
+	Columns SyncGroupSchemaTableColumnInvokeResponseArrayInput `pulumi:"columns"`
+	// Quoted name of sync group schema table.
+	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
+}
+
+func (SyncGroupSchemaTableInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaTableInvokeResponse)(nil)).Elem()
+}
+
+func (i SyncGroupSchemaTableInvokeResponseArgs) ToSyncGroupSchemaTableInvokeResponseOutput() SyncGroupSchemaTableInvokeResponseOutput {
+	return i.ToSyncGroupSchemaTableInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SyncGroupSchemaTableInvokeResponseArgs) ToSyncGroupSchemaTableInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaTableInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableInvokeResponseOutput)
+}
+
+// SyncGroupSchemaTableInvokeResponseArrayInput is an input type that accepts SyncGroupSchemaTableInvokeResponseArray and SyncGroupSchemaTableInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SyncGroupSchemaTableInvokeResponseArrayInput` via:
+//
+//          SyncGroupSchemaTableInvokeResponseArray{ SyncGroupSchemaTableInvokeResponseArgs{...} }
+type SyncGroupSchemaTableInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSyncGroupSchemaTableInvokeResponseArrayOutput() SyncGroupSchemaTableInvokeResponseArrayOutput
+	ToSyncGroupSchemaTableInvokeResponseArrayOutputWithContext(context.Context) SyncGroupSchemaTableInvokeResponseArrayOutput
+}
+
+type SyncGroupSchemaTableInvokeResponseArray []SyncGroupSchemaTableInvokeResponseInput
+
+func (SyncGroupSchemaTableInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyncGroupSchemaTableInvokeResponse)(nil)).Elem()
+}
+
+func (i SyncGroupSchemaTableInvokeResponseArray) ToSyncGroupSchemaTableInvokeResponseArrayOutput() SyncGroupSchemaTableInvokeResponseArrayOutput {
+	return i.ToSyncGroupSchemaTableInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SyncGroupSchemaTableInvokeResponseArray) ToSyncGroupSchemaTableInvokeResponseArrayOutputWithContext(ctx context.Context) SyncGroupSchemaTableInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableInvokeResponseArrayOutput)
+}
+
+// Properties of table in sync group schema.
+type SyncGroupSchemaTableInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SyncGroupSchemaTableInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaTableInvokeResponse)(nil)).Elem()
+}
+
+func (o SyncGroupSchemaTableInvokeResponseOutput) ToSyncGroupSchemaTableInvokeResponseOutput() SyncGroupSchemaTableInvokeResponseOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableInvokeResponseOutput) ToSyncGroupSchemaTableInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaTableInvokeResponseOutput {
+	return o
+}
+
+// List of columns in sync group schema.
+func (o SyncGroupSchemaTableInvokeResponseOutput) Columns() SyncGroupSchemaTableColumnInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SyncGroupSchemaTableInvokeResponse) []SyncGroupSchemaTableColumnInvokeResponse {
+		return v.Columns
+	}).(SyncGroupSchemaTableColumnInvokeResponseArrayOutput)
+}
+
+// Quoted name of sync group schema table.
+func (o SyncGroupSchemaTableInvokeResponseOutput) QuotedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyncGroupSchemaTableInvokeResponse) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
+}
+
+type SyncGroupSchemaTableInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SyncGroupSchemaTableInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyncGroupSchemaTableInvokeResponse)(nil)).Elem()
+}
+
+func (o SyncGroupSchemaTableInvokeResponseArrayOutput) ToSyncGroupSchemaTableInvokeResponseArrayOutput() SyncGroupSchemaTableInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableInvokeResponseArrayOutput) ToSyncGroupSchemaTableInvokeResponseArrayOutputWithContext(ctx context.Context) SyncGroupSchemaTableInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableInvokeResponseArrayOutput) Index(i pulumi.IntInput) SyncGroupSchemaTableInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyncGroupSchemaTableInvokeResponse {
+		return vs[0].([]SyncGroupSchemaTableInvokeResponse)[vs[1].(int)]
+	}).(SyncGroupSchemaTableInvokeResponseOutput)
+}
+
+// Properties of table in sync group schema.
 type SyncGroupSchemaTableResponse struct {
 	// List of columns in sync group schema.
 	Columns []SyncGroupSchemaTableColumnResponse `pulumi:"columns"`
@@ -2291,34 +2987,45 @@ func (o SyncGroupSchemaTableResponseArrayOutput) Index(i pulumi.IntInput) SyncGr
 func init() {
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointPtrOutput{})
+	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointInvokeResponseOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointResponseOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointPtrOutput{})
+	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointInvokeResponseOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointResponseOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PartnerInfoOutput{})
 	pulumi.RegisterOutputType(PartnerInfoArrayOutput{})
+	pulumi.RegisterOutputType(PartnerInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PartnerInfoInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PartnerInfoResponseOutput{})
 	pulumi.RegisterOutputType(PartnerInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaPtrOutput{})
+	pulumi.RegisterOutputType(SyncGroupSchemaInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaResponseOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaResponsePtrOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableArrayOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnArrayOutput{})
+	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnResponseOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnResponseArrayOutput{})
+	pulumi.RegisterOutputType(SyncGroupSchemaTableInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SyncGroupSchemaTableInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableResponseOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableResponseArrayOutput{})
 }

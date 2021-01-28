@@ -26,7 +26,7 @@ type LookupOrderByNameArgs struct {
 // Represents order contract
 type LookupOrderByNameResult struct {
 	// Represents shipping and return address for order
-	AddressDetails AddressDetailsResponse `pulumi:"addressDetails"`
+	AddressDetails AddressDetailsInvokeResponse `pulumi:"addressDetails"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
@@ -36,11 +36,11 @@ type LookupOrderByNameResult struct {
 	// Id of the order collection to which order belongs to
 	OrderCollectionId string `pulumi:"orderCollectionId"`
 	// Represents order details.
-	OrderDetails OrderDetailsResponse `pulumi:"orderDetails"`
+	OrderDetails OrderDetailsInvokeResponse `pulumi:"orderDetails"`
 	// Start time of order
 	StartTime string `pulumi:"startTime"`
 	// Represents resource creation and update time
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -38,5 +38,5 @@ type LookupVirtualHubRouteTableV2Result struct {
 	// The provisioning state of the virtual hub route table v2 resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// List of all routes.
-	Routes []VirtualHubRouteV2Response `pulumi:"routes"`
+	Routes []VirtualHubRouteV2InvokeResponse `pulumi:"routes"`
 }

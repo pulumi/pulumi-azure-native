@@ -31,7 +31,7 @@ type LookupJobResult struct {
 	// Gets the job resource name.
 	Name string `pulumi:"name"`
 	// Gets or sets the job properties.
-	Properties JobPropertiesResponse `pulumi:"properties"`
+	Properties JobPropertiesInvokeResponse `pulumi:"properties"`
 	// Gets the job resource type.
 	Type string `pulumi:"type"`
 }

@@ -26,7 +26,7 @@ type LookupManagerArgs struct {
 // The StorSimple Manager.
 type LookupManagerResult struct {
 	// Represents the type of StorSimple Manager.
-	CisIntrinsicSettings *ManagerIntrinsicSettingsResponse `pulumi:"cisIntrinsicSettings"`
+	CisIntrinsicSettings *ManagerIntrinsicSettingsInvokeResponse `pulumi:"cisIntrinsicSettings"`
 	// The etag of the manager.
 	Etag *string `pulumi:"etag"`
 	// The resource ID.
@@ -38,7 +38,7 @@ type LookupManagerResult struct {
 	// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Specifies the Sku.
-	Sku *ManagerSkuResponse `pulumi:"sku"`
+	Sku *ManagerSkuInvokeResponse `pulumi:"sku"`
 	// The tags attached to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

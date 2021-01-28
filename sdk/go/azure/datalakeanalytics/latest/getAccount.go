@@ -28,13 +28,13 @@ type LookupAccountResult struct {
 	// The unique identifier associated with this Data Lake Analytics account.
 	AccountId string `pulumi:"accountId"`
 	// The list of compute policies associated with this account.
-	ComputePolicies []ComputePolicyResponse `pulumi:"computePolicies"`
+	ComputePolicies []ComputePolicyInvokeResponse `pulumi:"computePolicies"`
 	// The account creation time.
 	CreationTime string `pulumi:"creationTime"`
 	// The commitment tier in use for the current month.
 	CurrentTier string `pulumi:"currentTier"`
 	// The list of Data Lake Store accounts associated with this account.
-	DataLakeStoreAccounts []DataLakeStoreAccountInformationResponse `pulumi:"dataLakeStoreAccounts"`
+	DataLakeStoreAccounts []DataLakeStoreAccountInformationInvokeResponse `pulumi:"dataLakeStoreAccounts"`
 	// The current state of the DebugDataAccessLevel for this account.
 	DebugDataAccessLevel string `pulumi:"debugDataAccessLevel"`
 	// The default Data Lake Store account associated with this account.
@@ -44,11 +44,11 @@ type LookupAccountResult struct {
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
 	FirewallAllowAzureIps string `pulumi:"firewallAllowAzureIps"`
 	// The list of firewall rules associated with this account.
-	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
+	FirewallRules []FirewallRuleInvokeResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState string `pulumi:"firewallState"`
 	// The list of hiveMetastores associated with this account.
-	HiveMetastores []HiveMetastoreResponse `pulumi:"hiveMetastores"`
+	HiveMetastores []HiveMetastoreInvokeResponse `pulumi:"hiveMetastores"`
 	// The resource identifer.
 	Id string `pulumi:"id"`
 	// The account last modified time.
@@ -74,7 +74,7 @@ type LookupAccountResult struct {
 	// The state of the Data Lake Analytics account.
 	State string `pulumi:"state"`
 	// The list of Azure Blob Storage accounts associated with this account.
-	StorageAccounts []StorageAccountInformationResponse `pulumi:"storageAccounts"`
+	StorageAccounts []StorageAccountInformationInvokeResponse `pulumi:"storageAccounts"`
 	// The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
 	SystemMaxDegreeOfParallelism int `pulumi:"systemMaxDegreeOfParallelism"`
 	// The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
@@ -84,5 +84,5 @@ type LookupAccountResult struct {
 	// The resource type.
 	Type string `pulumi:"type"`
 	// The list of virtualNetwork rules associated with this account.
-	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
+	VirtualNetworkRules []VirtualNetworkRuleInvokeResponse `pulumi:"virtualNetworkRules"`
 }

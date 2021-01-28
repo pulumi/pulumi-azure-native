@@ -28,5 +28,5 @@ type LookupComponentCurrentBillingFeatureResult struct {
 	// Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
 	CurrentBillingFeatures []string `pulumi:"currentBillingFeatures"`
 	// An Application Insights component daily data volume cap
-	DataVolumeCap *ApplicationInsightsComponentDataVolumeCapResponse `pulumi:"dataVolumeCap"`
+	DataVolumeCap *ApplicationInsightsComponentDataVolumeCapInvokeResponse `pulumi:"dataVolumeCap"`
 }

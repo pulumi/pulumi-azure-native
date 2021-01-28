@@ -38,7 +38,7 @@ type LookupReplicationNetworkMappingResult struct {
 	// Resource Name
 	Name string `pulumi:"name"`
 	// The Network Mapping Properties.
-	Properties NetworkMappingPropertiesResponse `pulumi:"properties"`
+	Properties NetworkMappingPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
 }

@@ -34,8 +34,8 @@ type LookupServerResult struct {
 	// Status showing whether the data encryption is enabled with customer-managed keys.
 	ByokEnforcement string `pulumi:"byokEnforcement"`
 	// The mode to create a new PostgreSQL server.
-	CreateMode               *string                                           `pulumi:"createMode"`
-	DelegatedSubnetArguments *ServerPropertiesResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
+	CreateMode               *string                                                 `pulumi:"createMode"`
+	DelegatedSubnetArguments *ServerPropertiesInvokeResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
 	// The display name of a server.
 	DisplayName *string `pulumi:"displayName"`
 	// The fully qualified domain name of a server.
@@ -47,11 +47,11 @@ type LookupServerResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Maintenance window of a server.
-	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
+	MaintenanceWindow *MaintenanceWindowInvokeResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -59,7 +59,7 @@ type LookupServerResult struct {
 	// public network access is enabled or not
 	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 	// The SKU (pricing tier) of the server.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The source PostgreSQL server name to restore from.
 	SourceServerName *string `pulumi:"sourceServerName"`
 	// availability Zone information of the server.
@@ -67,7 +67,7 @@ type LookupServerResult struct {
 	// A state of a server that is visible to user.
 	State string `pulumi:"state"`
 	// Storage profile of a server.
-	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
+	StorageProfile *StorageProfileInvokeResponse `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

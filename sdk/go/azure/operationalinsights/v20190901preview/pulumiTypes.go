@@ -11,6 +11,79 @@ import (
 )
 
 // The related metadata items for the function.
+type LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelated struct {
+	// The related categories for the function.
+	Categories []string `pulumi:"categories"`
+	// The related resource types for the function.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+	// The related Log Analytics solutions for the function.
+	Solutions []string `pulumi:"solutions"`
+}
+
+// LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedInput is an input type that accepts LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedArgs and LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput values.
+// You can construct a concrete instance of `LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedInput` via:
+//
+//          LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedArgs{...}
+type LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedInput interface {
+	pulumi.Input
+
+	ToLogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput() LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput
+	ToLogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutputWithContext(context.Context) LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput
+}
+
+// The related metadata items for the function.
+type LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedArgs struct {
+	// The related categories for the function.
+	Categories pulumi.StringArrayInput `pulumi:"categories"`
+	// The related resource types for the function.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	// The related Log Analytics solutions for the function.
+	Solutions pulumi.StringArrayInput `pulumi:"solutions"`
+}
+
+func (LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelated)(nil)).Elem()
+}
+
+func (i LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedArgs) ToLogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput() LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput {
+	return i.ToLogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutputWithContext(context.Background())
+}
+
+func (i LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedArgs) ToLogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutputWithContext(ctx context.Context) LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput)
+}
+
+// The related metadata items for the function.
+type LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput struct{ *pulumi.OutputState }
+
+func (LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelated)(nil)).Elem()
+}
+
+func (o LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput) ToLogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput() LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput {
+	return o
+}
+
+func (o LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput) ToLogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutputWithContext(ctx context.Context) LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput {
+	return o
+}
+
+// The related categories for the function.
+func (o LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput) Categories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelated) []string { return v.Categories }).(pulumi.StringArrayOutput)
+}
+
+// The related resource types for the function.
+func (o LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelated) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// The related Log Analytics solutions for the function.
+func (o LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput) Solutions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelated) []string { return v.Solutions }).(pulumi.StringArrayOutput)
+}
+
+// The related metadata items for the function.
 type LogAnalyticsQueryPackQueryPropertiesRelated struct {
 	// The related categories for the function.
 	Categories []string `pulumi:"categories"`
@@ -359,6 +432,106 @@ func (o LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput) Solutions(
 }
 
 // Read only system data
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC)
+	CreatedAt *string `pulumi:"createdAt"`
+	// An identifier for the identity that created the resource
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// An identifier for the identity that last modified the resource
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Read only system data
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC)
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// An identifier for the identity that created the resource
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// An identifier for the identity that last modified the resource
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Read only system data
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC)
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// An identifier for the identity that created the resource
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// An identifier for the identity that last modified the resource
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// Read only system data
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC)
 	CreatedAt *string `pulumi:"createdAt"`
@@ -588,10 +761,12 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelatedOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsQueryPackQueryPropertiesRelatedOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsQueryPackQueryPropertiesRelatedPtrOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsQueryPackQueryPropertiesResponseRelatedOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

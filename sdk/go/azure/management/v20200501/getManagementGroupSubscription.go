@@ -32,7 +32,7 @@ type LookupManagementGroupSubscriptionResult struct {
 	// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
 	Name string `pulumi:"name"`
 	// The ID of the parent management group.
-	Parent *DescendantParentGroupInfoResponse `pulumi:"parent"`
+	Parent *DescendantParentGroupInfoInvokeResponse `pulumi:"parent"`
 	// The state of the subscription.
 	State *string `pulumi:"state"`
 	// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000

@@ -30,7 +30,7 @@ type LookupViewResult struct {
 	// Date the user created this view.
 	CreatedOn string `pulumi:"createdOn"`
 	// Has definition for data in this report config.
-	Dataset *ReportConfigDatasetResponse `pulumi:"dataset"`
+	Dataset *ReportConfigDatasetInvokeResponse `pulumi:"dataset"`
 	// User input name of the view. Required.
 	DisplayName *string `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -38,7 +38,7 @@ type LookupViewResult struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// List of KPIs to show in Cost Analysis UI.
-	Kpis []KpiPropertiesResponse `pulumi:"kpis"`
+	Kpis []KpiPropertiesInvokeResponse `pulumi:"kpis"`
 	// Metric to use when displaying costs.
 	Metric *string `pulumi:"metric"`
 	// Date when the user last modified this view.
@@ -46,11 +46,11 @@ type LookupViewResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Configuration of 3 sub-views in the Cost Analysis UI.
-	Pivots []PivotPropertiesResponse `pulumi:"pivots"`
+	Pivots []PivotPropertiesInvokeResponse `pulumi:"pivots"`
 	// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
 	Scope *string `pulumi:"scope"`
 	// Has time period for pulling data for the report.
-	TimePeriod *ReportConfigTimePeriodResponse `pulumi:"timePeriod"`
+	TimePeriod *ReportConfigTimePeriodInvokeResponse `pulumi:"timePeriod"`
 	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
 	Timeframe string `pulumi:"timeframe"`
 	// Resource type.

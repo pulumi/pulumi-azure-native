@@ -26,7 +26,7 @@ type LookupCapacityDetailsArgs struct {
 // Represents an instance of a Dedicated Capacity resource.
 type LookupCapacityDetailsResult struct {
 	// A collection of Dedicated capacity administrators
-	Administration *DedicatedCapacityAdministratorsResponse `pulumi:"administration"`
+	Administration *DedicatedCapacityAdministratorsInvokeResponse `pulumi:"administration"`
 	// An identifier that represents the PowerBI Dedicated resource.
 	Id string `pulumi:"id"`
 	// Location of the PowerBI Dedicated resource.
@@ -36,7 +36,7 @@ type LookupCapacityDetailsResult struct {
 	// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSkuResponse `pulumi:"sku"`
+	Sku ResourceSkuInvokeResponse `pulumi:"sku"`
 	// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
 	State string `pulumi:"state"`
 	// Key-value pairs of additional resource provisioning properties.

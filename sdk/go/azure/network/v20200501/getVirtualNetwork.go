@@ -28,13 +28,13 @@ type LookupVirtualNetworkArgs struct {
 // Virtual Network resource.
 type LookupVirtualNetworkResult struct {
 	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
+	AddressSpace *AddressSpaceInvokeResponse `pulumi:"addressSpace"`
 	// Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
-	BgpCommunities *VirtualNetworkBgpCommunitiesResponse `pulumi:"bgpCommunities"`
+	BgpCommunities *VirtualNetworkBgpCommunitiesInvokeResponse `pulumi:"bgpCommunities"`
 	// The DDoS protection plan associated with the virtual network.
-	DdosProtectionPlan *SubResourceResponse `pulumi:"ddosProtectionPlan"`
+	DdosProtectionPlan *SubResourceInvokeResponse `pulumi:"ddosProtectionPlan"`
 	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-	DhcpOptions *DhcpOptionsResponse `pulumi:"dhcpOptions"`
+	DhcpOptions *DhcpOptionsInvokeResponse `pulumi:"dhcpOptions"`
 	// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
 	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
 	// Indicates if VM protection is enabled for all the subnets in the virtual network.
@@ -44,7 +44,7 @@ type LookupVirtualNetworkResult struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Array of IpAllocation which reference this VNET.
-	IpAllocations []SubResourceResponse `pulumi:"ipAllocations"`
+	IpAllocations []SubResourceInvokeResponse `pulumi:"ipAllocations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -54,11 +54,11 @@ type LookupVirtualNetworkResult struct {
 	// The resourceGuid property of the Virtual Network resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// A list of subnets in a Virtual Network.
-	Subnets []SubnetResponse `pulumi:"subnets"`
+	Subnets []SubnetInvokeResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// A list of peerings in a Virtual Network.
-	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"virtualNetworkPeerings"`
+	VirtualNetworkPeerings []VirtualNetworkPeeringInvokeResponse `pulumi:"virtualNetworkPeerings"`
 }

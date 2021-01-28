@@ -145,6 +145,140 @@ func (o CustomProfilePtrOutput) MetadataConfigurationPath() pulumi.StringPtrOutp
 }
 
 // Specifies the custom settings for the virtual machine.
+type CustomProfileInvokeResponse struct {
+	// Path for metadata configuration.
+	MetadataConfigurationPath *string `pulumi:"metadataConfigurationPath"`
+}
+
+// CustomProfileInvokeResponseInput is an input type that accepts CustomProfileInvokeResponseArgs and CustomProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `CustomProfileInvokeResponseInput` via:
+//
+//          CustomProfileInvokeResponseArgs{...}
+type CustomProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCustomProfileInvokeResponseOutput() CustomProfileInvokeResponseOutput
+	ToCustomProfileInvokeResponseOutputWithContext(context.Context) CustomProfileInvokeResponseOutput
+}
+
+// Specifies the custom settings for the virtual machine.
+type CustomProfileInvokeResponseArgs struct {
+	// Path for metadata configuration.
+	MetadataConfigurationPath pulumi.StringPtrInput `pulumi:"metadataConfigurationPath"`
+}
+
+func (CustomProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomProfileInvokeResponseArgs) ToCustomProfileInvokeResponseOutput() CustomProfileInvokeResponseOutput {
+	return i.ToCustomProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CustomProfileInvokeResponseArgs) ToCustomProfileInvokeResponseOutputWithContext(ctx context.Context) CustomProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProfileInvokeResponseOutput)
+}
+
+func (i CustomProfileInvokeResponseArgs) ToCustomProfileInvokeResponsePtrOutput() CustomProfileInvokeResponsePtrOutput {
+	return i.ToCustomProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CustomProfileInvokeResponseArgs) ToCustomProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CustomProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProfileInvokeResponseOutput).ToCustomProfileInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CustomProfileInvokeResponsePtrInput is an input type that accepts CustomProfileInvokeResponseArgs, CustomProfileInvokeResponsePtr and CustomProfileInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CustomProfileInvokeResponsePtrInput` via:
+//
+//          CustomProfileInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CustomProfileInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCustomProfileInvokeResponsePtrOutput() CustomProfileInvokeResponsePtrOutput
+	ToCustomProfileInvokeResponsePtrOutputWithContext(context.Context) CustomProfileInvokeResponsePtrOutput
+}
+
+type customProfileInvokeResponsePtrType CustomProfileInvokeResponseArgs
+
+func CustomProfileInvokeResponsePtr(v *CustomProfileInvokeResponseArgs) CustomProfileInvokeResponsePtrInput {
+	return (*customProfileInvokeResponsePtrType)(v)
+}
+
+func (*customProfileInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i *customProfileInvokeResponsePtrType) ToCustomProfileInvokeResponsePtrOutput() CustomProfileInvokeResponsePtrOutput {
+	return i.ToCustomProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *customProfileInvokeResponsePtrType) ToCustomProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CustomProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomProfileInvokeResponsePtrOutput)
+}
+
+// Specifies the custom settings for the virtual machine.
+type CustomProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomProfileInvokeResponseOutput) ToCustomProfileInvokeResponseOutput() CustomProfileInvokeResponseOutput {
+	return o
+}
+
+func (o CustomProfileInvokeResponseOutput) ToCustomProfileInvokeResponseOutputWithContext(ctx context.Context) CustomProfileInvokeResponseOutput {
+	return o
+}
+
+func (o CustomProfileInvokeResponseOutput) ToCustomProfileInvokeResponsePtrOutput() CustomProfileInvokeResponsePtrOutput {
+	return o.ToCustomProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CustomProfileInvokeResponseOutput) ToCustomProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CustomProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CustomProfileInvokeResponse) *CustomProfileInvokeResponse {
+		return &v
+	}).(CustomProfileInvokeResponsePtrOutput)
+}
+
+// Path for metadata configuration.
+func (o CustomProfileInvokeResponseOutput) MetadataConfigurationPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomProfileInvokeResponse) *string { return v.MetadataConfigurationPath }).(pulumi.StringPtrOutput)
+}
+
+type CustomProfileInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CustomProfileInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomProfileInvokeResponsePtrOutput) ToCustomProfileInvokeResponsePtrOutput() CustomProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CustomProfileInvokeResponsePtrOutput) ToCustomProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CustomProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CustomProfileInvokeResponsePtrOutput) Elem() CustomProfileInvokeResponseOutput {
+	return o.ApplyT(func(v *CustomProfileInvokeResponse) CustomProfileInvokeResponse { return *v }).(CustomProfileInvokeResponseOutput)
+}
+
+// Path for metadata configuration.
+func (o CustomProfileInvokeResponsePtrOutput) MetadataConfigurationPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomProfileInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataConfigurationPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the custom settings for the virtual machine.
 type CustomProfileResponse struct {
 	// Path for metadata configuration.
 	MetadataConfigurationPath *string `pulumi:"metadataConfigurationPath"`
@@ -394,6 +528,124 @@ func (o DataDiskArrayOutput) Index(i pulumi.IntInput) DataDiskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataDisk {
 		return vs[0].([]DataDisk)[vs[1].(int)]
 	}).(DataDiskOutput)
+}
+
+// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+type DataDiskInvokeResponse struct {
+	// Specifies how the virtual machine should be created.
+	CreateOption *string `pulumi:"createOption"`
+	// Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
+	DiskSizeGB *int `pulumi:"diskSizeGB"`
+	// The name of data disk.
+	Name *string `pulumi:"name"`
+}
+
+// DataDiskInvokeResponseInput is an input type that accepts DataDiskInvokeResponseArgs and DataDiskInvokeResponseOutput values.
+// You can construct a concrete instance of `DataDiskInvokeResponseInput` via:
+//
+//          DataDiskInvokeResponseArgs{...}
+type DataDiskInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataDiskInvokeResponseOutput() DataDiskInvokeResponseOutput
+	ToDataDiskInvokeResponseOutputWithContext(context.Context) DataDiskInvokeResponseOutput
+}
+
+// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+type DataDiskInvokeResponseArgs struct {
+	// Specifies how the virtual machine should be created.
+	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
+	// Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
+	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
+	// The name of data disk.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DataDiskInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i DataDiskInvokeResponseArgs) ToDataDiskInvokeResponseOutput() DataDiskInvokeResponseOutput {
+	return i.ToDataDiskInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataDiskInvokeResponseArgs) ToDataDiskInvokeResponseOutputWithContext(ctx context.Context) DataDiskInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataDiskInvokeResponseOutput)
+}
+
+// DataDiskInvokeResponseArrayInput is an input type that accepts DataDiskInvokeResponseArray and DataDiskInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataDiskInvokeResponseArrayInput` via:
+//
+//          DataDiskInvokeResponseArray{ DataDiskInvokeResponseArgs{...} }
+type DataDiskInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataDiskInvokeResponseArrayOutput() DataDiskInvokeResponseArrayOutput
+	ToDataDiskInvokeResponseArrayOutputWithContext(context.Context) DataDiskInvokeResponseArrayOutput
+}
+
+type DataDiskInvokeResponseArray []DataDiskInvokeResponseInput
+
+func (DataDiskInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i DataDiskInvokeResponseArray) ToDataDiskInvokeResponseArrayOutput() DataDiskInvokeResponseArrayOutput {
+	return i.ToDataDiskInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataDiskInvokeResponseArray) ToDataDiskInvokeResponseArrayOutputWithContext(ctx context.Context) DataDiskInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataDiskInvokeResponseArrayOutput)
+}
+
+// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+type DataDiskInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataDiskInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o DataDiskInvokeResponseOutput) ToDataDiskInvokeResponseOutput() DataDiskInvokeResponseOutput {
+	return o
+}
+
+func (o DataDiskInvokeResponseOutput) ToDataDiskInvokeResponseOutputWithContext(ctx context.Context) DataDiskInvokeResponseOutput {
+	return o
+}
+
+// Specifies how the virtual machine should be created.
+func (o DataDiskInvokeResponseOutput) CreateOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataDiskInvokeResponse) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
+func (o DataDiskInvokeResponseOutput) DiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataDiskInvokeResponse) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// The name of data disk.
+func (o DataDiskInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataDiskInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DataDiskInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataDiskInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o DataDiskInvokeResponseArrayOutput) ToDataDiskInvokeResponseArrayOutput() DataDiskInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataDiskInvokeResponseArrayOutput) ToDataDiskInvokeResponseArrayOutputWithContext(ctx context.Context) DataDiskInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataDiskInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataDiskInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataDiskInvokeResponse {
+		return vs[0].([]DataDiskInvokeResponse)[vs[1].(int)]
+	}).(DataDiskInvokeResponseOutput)
 }
 
 // Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -717,6 +969,216 @@ func (o ImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 // Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
 func (o ImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image reference properties.
+type ImageReferenceInvokeResponse struct {
+	// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
+	ExactVersion *string `pulumi:"exactVersion"`
+	// Specifies the offer of the image used to create the virtual machine.
+	Offer *string `pulumi:"offer"`
+	// The image publisher.
+	Publisher *string `pulumi:"publisher"`
+	// The image SKU.
+	Sku *string `pulumi:"sku"`
+	// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+	Version *string `pulumi:"version"`
+}
+
+// ImageReferenceInvokeResponseInput is an input type that accepts ImageReferenceInvokeResponseArgs and ImageReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ImageReferenceInvokeResponseInput` via:
+//
+//          ImageReferenceInvokeResponseArgs{...}
+type ImageReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToImageReferenceInvokeResponseOutput() ImageReferenceInvokeResponseOutput
+	ToImageReferenceInvokeResponseOutputWithContext(context.Context) ImageReferenceInvokeResponseOutput
+}
+
+// The image reference properties.
+type ImageReferenceInvokeResponseArgs struct {
+	// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
+	ExactVersion pulumi.StringPtrInput `pulumi:"exactVersion"`
+	// Specifies the offer of the image used to create the virtual machine.
+	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// The image publisher.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// The image SKU.
+	Sku pulumi.StringPtrInput `pulumi:"sku"`
+	// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ImageReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ImageReferenceInvokeResponseArgs) ToImageReferenceInvokeResponseOutput() ImageReferenceInvokeResponseOutput {
+	return i.ToImageReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ImageReferenceInvokeResponseArgs) ToImageReferenceInvokeResponseOutputWithContext(ctx context.Context) ImageReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageReferenceInvokeResponseOutput)
+}
+
+func (i ImageReferenceInvokeResponseArgs) ToImageReferenceInvokeResponsePtrOutput() ImageReferenceInvokeResponsePtrOutput {
+	return i.ToImageReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ImageReferenceInvokeResponseArgs) ToImageReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageReferenceInvokeResponseOutput).ToImageReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ImageReferenceInvokeResponsePtrInput is an input type that accepts ImageReferenceInvokeResponseArgs, ImageReferenceInvokeResponsePtr and ImageReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ImageReferenceInvokeResponsePtrInput` via:
+//
+//          ImageReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToImageReferenceInvokeResponsePtrOutput() ImageReferenceInvokeResponsePtrOutput
+	ToImageReferenceInvokeResponsePtrOutputWithContext(context.Context) ImageReferenceInvokeResponsePtrOutput
+}
+
+type imageReferenceInvokeResponsePtrType ImageReferenceInvokeResponseArgs
+
+func ImageReferenceInvokeResponsePtr(v *ImageReferenceInvokeResponseArgs) ImageReferenceInvokeResponsePtrInput {
+	return (*imageReferenceInvokeResponsePtrType)(v)
+}
+
+func (*imageReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *imageReferenceInvokeResponsePtrType) ToImageReferenceInvokeResponsePtrOutput() ImageReferenceInvokeResponsePtrOutput {
+	return i.ToImageReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *imageReferenceInvokeResponsePtrType) ToImageReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageReferenceInvokeResponsePtrOutput)
+}
+
+// The image reference properties.
+type ImageReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ImageReferenceInvokeResponseOutput) ToImageReferenceInvokeResponseOutput() ImageReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ImageReferenceInvokeResponseOutput) ToImageReferenceInvokeResponseOutputWithContext(ctx context.Context) ImageReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ImageReferenceInvokeResponseOutput) ToImageReferenceInvokeResponsePtrOutput() ImageReferenceInvokeResponsePtrOutput {
+	return o.ToImageReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ImageReferenceInvokeResponseOutput) ToImageReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ImageReferenceInvokeResponse) *ImageReferenceInvokeResponse {
+		return &v
+	}).(ImageReferenceInvokeResponsePtrOutput)
+}
+
+// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
+func (o ImageReferenceInvokeResponseOutput) ExactVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReferenceInvokeResponse) *string { return v.ExactVersion }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the offer of the image used to create the virtual machine.
+func (o ImageReferenceInvokeResponseOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReferenceInvokeResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
+}
+
+// The image publisher.
+func (o ImageReferenceInvokeResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReferenceInvokeResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// The image SKU.
+func (o ImageReferenceInvokeResponseOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReferenceInvokeResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+func (o ImageReferenceInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageReferenceInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ImageReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ImageReferenceInvokeResponsePtrOutput) ToImageReferenceInvokeResponsePtrOutput() ImageReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ImageReferenceInvokeResponsePtrOutput) ToImageReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ImageReferenceInvokeResponsePtrOutput) Elem() ImageReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *ImageReferenceInvokeResponse) ImageReferenceInvokeResponse { return *v }).(ImageReferenceInvokeResponseOutput)
+}
+
+// Specifies in decimal numbers, the exact version of image used to create the virtual machine.
+func (o ImageReferenceInvokeResponsePtrOutput) ExactVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExactVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the offer of the image used to create the virtual machine.
+func (o ImageReferenceInvokeResponsePtrOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Offer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image publisher.
+func (o ImageReferenceInvokeResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image SKU.
+func (o ImageReferenceInvokeResponsePtrOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sku
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+func (o ImageReferenceInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageReferenceInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1069,6 +1531,140 @@ func (o LinuxConfigurationPtrOutput) Ssh() SshConfigurationPtrOutput {
 }
 
 // Specifies the Linux operating system settings on the virtual machine.
+type LinuxConfigurationInvokeResponse struct {
+	// Specifies the ssh key configuration for a Linux OS.
+	Ssh *SshConfigurationInvokeResponse `pulumi:"ssh"`
+}
+
+// LinuxConfigurationInvokeResponseInput is an input type that accepts LinuxConfigurationInvokeResponseArgs and LinuxConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `LinuxConfigurationInvokeResponseInput` via:
+//
+//          LinuxConfigurationInvokeResponseArgs{...}
+type LinuxConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLinuxConfigurationInvokeResponseOutput() LinuxConfigurationInvokeResponseOutput
+	ToLinuxConfigurationInvokeResponseOutputWithContext(context.Context) LinuxConfigurationInvokeResponseOutput
+}
+
+// Specifies the Linux operating system settings on the virtual machine.
+type LinuxConfigurationInvokeResponseArgs struct {
+	// Specifies the ssh key configuration for a Linux OS.
+	Ssh SshConfigurationInvokeResponsePtrInput `pulumi:"ssh"`
+}
+
+func (LinuxConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i LinuxConfigurationInvokeResponseArgs) ToLinuxConfigurationInvokeResponseOutput() LinuxConfigurationInvokeResponseOutput {
+	return i.ToLinuxConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LinuxConfigurationInvokeResponseArgs) ToLinuxConfigurationInvokeResponseOutputWithContext(ctx context.Context) LinuxConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxConfigurationInvokeResponseOutput)
+}
+
+func (i LinuxConfigurationInvokeResponseArgs) ToLinuxConfigurationInvokeResponsePtrOutput() LinuxConfigurationInvokeResponsePtrOutput {
+	return i.ToLinuxConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LinuxConfigurationInvokeResponseArgs) ToLinuxConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxConfigurationInvokeResponseOutput).ToLinuxConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// LinuxConfigurationInvokeResponsePtrInput is an input type that accepts LinuxConfigurationInvokeResponseArgs, LinuxConfigurationInvokeResponsePtr and LinuxConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `LinuxConfigurationInvokeResponsePtrInput` via:
+//
+//          LinuxConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LinuxConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToLinuxConfigurationInvokeResponsePtrOutput() LinuxConfigurationInvokeResponsePtrOutput
+	ToLinuxConfigurationInvokeResponsePtrOutputWithContext(context.Context) LinuxConfigurationInvokeResponsePtrOutput
+}
+
+type linuxConfigurationInvokeResponsePtrType LinuxConfigurationInvokeResponseArgs
+
+func LinuxConfigurationInvokeResponsePtr(v *LinuxConfigurationInvokeResponseArgs) LinuxConfigurationInvokeResponsePtrInput {
+	return (*linuxConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*linuxConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *linuxConfigurationInvokeResponsePtrType) ToLinuxConfigurationInvokeResponsePtrOutput() LinuxConfigurationInvokeResponsePtrOutput {
+	return i.ToLinuxConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *linuxConfigurationInvokeResponsePtrType) ToLinuxConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxConfigurationInvokeResponsePtrOutput)
+}
+
+// Specifies the Linux operating system settings on the virtual machine.
+type LinuxConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LinuxConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o LinuxConfigurationInvokeResponseOutput) ToLinuxConfigurationInvokeResponseOutput() LinuxConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o LinuxConfigurationInvokeResponseOutput) ToLinuxConfigurationInvokeResponseOutputWithContext(ctx context.Context) LinuxConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o LinuxConfigurationInvokeResponseOutput) ToLinuxConfigurationInvokeResponsePtrOutput() LinuxConfigurationInvokeResponsePtrOutput {
+	return o.ToLinuxConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LinuxConfigurationInvokeResponseOutput) ToLinuxConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LinuxConfigurationInvokeResponse) *LinuxConfigurationInvokeResponse {
+		return &v
+	}).(LinuxConfigurationInvokeResponsePtrOutput)
+}
+
+// Specifies the ssh key configuration for a Linux OS.
+func (o LinuxConfigurationInvokeResponseOutput) Ssh() SshConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LinuxConfigurationInvokeResponse) *SshConfigurationInvokeResponse { return v.Ssh }).(SshConfigurationInvokeResponsePtrOutput)
+}
+
+type LinuxConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o LinuxConfigurationInvokeResponsePtrOutput) ToLinuxConfigurationInvokeResponsePtrOutput() LinuxConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LinuxConfigurationInvokeResponsePtrOutput) ToLinuxConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LinuxConfigurationInvokeResponsePtrOutput) Elem() LinuxConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *LinuxConfigurationInvokeResponse) LinuxConfigurationInvokeResponse { return *v }).(LinuxConfigurationInvokeResponseOutput)
+}
+
+// Specifies the ssh key configuration for a Linux OS.
+func (o LinuxConfigurationInvokeResponsePtrOutput) Ssh() SshConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *LinuxConfigurationInvokeResponse) *SshConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Ssh
+	}).(SshConfigurationInvokeResponsePtrOutput)
+}
+
+// Specifies the Linux operating system settings on the virtual machine.
 type LinuxConfigurationResponse struct {
 	// Specifies the ssh key configuration for a Linux OS.
 	Ssh *SshConfigurationResponse `pulumi:"ssh"`
@@ -1372,6 +1968,184 @@ func (o NetworkFunctionRoleConfigurationArrayOutput) Index(i pulumi.IntInput) Ne
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkFunctionRoleConfiguration {
 		return vs[0].([]NetworkFunctionRoleConfiguration)[vs[1].(int)]
 	}).(NetworkFunctionRoleConfigurationOutput)
+}
+
+// Network function role configuration.
+type NetworkFunctionRoleConfigurationInvokeResponse struct {
+	// Specifies the custom settings for the virtual machine.
+	CustomProfile *CustomProfileInvokeResponse `pulumi:"customProfile"`
+	// The network interface configurations.
+	NetworkInterfaces []NetworkInterfaceInvokeResponse `pulumi:"networkInterfaces"`
+	// Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
+	OsProfile *OsProfileInvokeResponse `pulumi:"osProfile"`
+	// The name of the network function role.
+	RoleName *string `pulumi:"roleName"`
+	// Role type.
+	RoleType *string `pulumi:"roleType"`
+	// Specifies the storage settings for the virtual machine disks.
+	StorageProfile *StorageProfileInvokeResponse `pulumi:"storageProfile"`
+	// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
+	UserDataParameters interface{} `pulumi:"userDataParameters"`
+	// The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
+	UserDataTemplate interface{} `pulumi:"userDataTemplate"`
+	// The size of the virtual machine.
+	VirtualMachineSize *string `pulumi:"virtualMachineSize"`
+}
+
+// NetworkFunctionRoleConfigurationInvokeResponseInput is an input type that accepts NetworkFunctionRoleConfigurationInvokeResponseArgs and NetworkFunctionRoleConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkFunctionRoleConfigurationInvokeResponseInput` via:
+//
+//          NetworkFunctionRoleConfigurationInvokeResponseArgs{...}
+type NetworkFunctionRoleConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkFunctionRoleConfigurationInvokeResponseOutput() NetworkFunctionRoleConfigurationInvokeResponseOutput
+	ToNetworkFunctionRoleConfigurationInvokeResponseOutputWithContext(context.Context) NetworkFunctionRoleConfigurationInvokeResponseOutput
+}
+
+// Network function role configuration.
+type NetworkFunctionRoleConfigurationInvokeResponseArgs struct {
+	// Specifies the custom settings for the virtual machine.
+	CustomProfile CustomProfileInvokeResponsePtrInput `pulumi:"customProfile"`
+	// The network interface configurations.
+	NetworkInterfaces NetworkInterfaceInvokeResponseArrayInput `pulumi:"networkInterfaces"`
+	// Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
+	OsProfile OsProfileInvokeResponsePtrInput `pulumi:"osProfile"`
+	// The name of the network function role.
+	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
+	// Role type.
+	RoleType pulumi.StringPtrInput `pulumi:"roleType"`
+	// Specifies the storage settings for the virtual machine disks.
+	StorageProfile StorageProfileInvokeResponsePtrInput `pulumi:"storageProfile"`
+	// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
+	UserDataParameters pulumi.Input `pulumi:"userDataParameters"`
+	// The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
+	UserDataTemplate pulumi.Input `pulumi:"userDataTemplate"`
+	// The size of the virtual machine.
+	VirtualMachineSize pulumi.StringPtrInput `pulumi:"virtualMachineSize"`
+}
+
+func (NetworkFunctionRoleConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunctionRoleConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkFunctionRoleConfigurationInvokeResponseArgs) ToNetworkFunctionRoleConfigurationInvokeResponseOutput() NetworkFunctionRoleConfigurationInvokeResponseOutput {
+	return i.ToNetworkFunctionRoleConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkFunctionRoleConfigurationInvokeResponseArgs) ToNetworkFunctionRoleConfigurationInvokeResponseOutputWithContext(ctx context.Context) NetworkFunctionRoleConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionRoleConfigurationInvokeResponseOutput)
+}
+
+// NetworkFunctionRoleConfigurationInvokeResponseArrayInput is an input type that accepts NetworkFunctionRoleConfigurationInvokeResponseArray and NetworkFunctionRoleConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NetworkFunctionRoleConfigurationInvokeResponseArrayInput` via:
+//
+//          NetworkFunctionRoleConfigurationInvokeResponseArray{ NetworkFunctionRoleConfigurationInvokeResponseArgs{...} }
+type NetworkFunctionRoleConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNetworkFunctionRoleConfigurationInvokeResponseArrayOutput() NetworkFunctionRoleConfigurationInvokeResponseArrayOutput
+	ToNetworkFunctionRoleConfigurationInvokeResponseArrayOutputWithContext(context.Context) NetworkFunctionRoleConfigurationInvokeResponseArrayOutput
+}
+
+type NetworkFunctionRoleConfigurationInvokeResponseArray []NetworkFunctionRoleConfigurationInvokeResponseInput
+
+func (NetworkFunctionRoleConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkFunctionRoleConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkFunctionRoleConfigurationInvokeResponseArray) ToNetworkFunctionRoleConfigurationInvokeResponseArrayOutput() NetworkFunctionRoleConfigurationInvokeResponseArrayOutput {
+	return i.ToNetworkFunctionRoleConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkFunctionRoleConfigurationInvokeResponseArray) ToNetworkFunctionRoleConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkFunctionRoleConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionRoleConfigurationInvokeResponseArrayOutput)
+}
+
+// Network function role configuration.
+type NetworkFunctionRoleConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkFunctionRoleConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunctionRoleConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) ToNetworkFunctionRoleConfigurationInvokeResponseOutput() NetworkFunctionRoleConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) ToNetworkFunctionRoleConfigurationInvokeResponseOutputWithContext(ctx context.Context) NetworkFunctionRoleConfigurationInvokeResponseOutput {
+	return o
+}
+
+// Specifies the custom settings for the virtual machine.
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) CustomProfile() CustomProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NetworkFunctionRoleConfigurationInvokeResponse) *CustomProfileInvokeResponse {
+		return v.CustomProfile
+	}).(CustomProfileInvokeResponsePtrOutput)
+}
+
+// The network interface configurations.
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) NetworkInterfaces() NetworkInterfaceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NetworkFunctionRoleConfigurationInvokeResponse) []NetworkInterfaceInvokeResponse {
+		return v.NetworkInterfaces
+	}).(NetworkInterfaceInvokeResponseArrayOutput)
+}
+
+// Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) OsProfile() OsProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NetworkFunctionRoleConfigurationInvokeResponse) *OsProfileInvokeResponse { return v.OsProfile }).(OsProfileInvokeResponsePtrOutput)
+}
+
+// The name of the network function role.
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkFunctionRoleConfigurationInvokeResponse) *string { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// Role type.
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) RoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkFunctionRoleConfigurationInvokeResponse) *string { return v.RoleType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the storage settings for the virtual machine disks.
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) StorageProfile() StorageProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NetworkFunctionRoleConfigurationInvokeResponse) *StorageProfileInvokeResponse {
+		return v.StorageProfile
+	}).(StorageProfileInvokeResponsePtrOutput)
+}
+
+// The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) UserDataParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v NetworkFunctionRoleConfigurationInvokeResponse) interface{} { return v.UserDataParameters }).(pulumi.AnyOutput)
+}
+
+// The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) UserDataTemplate() pulumi.AnyOutput {
+	return o.ApplyT(func(v NetworkFunctionRoleConfigurationInvokeResponse) interface{} { return v.UserDataTemplate }).(pulumi.AnyOutput)
+}
+
+// The size of the virtual machine.
+func (o NetworkFunctionRoleConfigurationInvokeResponseOutput) VirtualMachineSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkFunctionRoleConfigurationInvokeResponse) *string { return v.VirtualMachineSize }).(pulumi.StringPtrOutput)
+}
+
+type NetworkFunctionRoleConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkFunctionRoleConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkFunctionRoleConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkFunctionRoleConfigurationInvokeResponseArrayOutput) ToNetworkFunctionRoleConfigurationInvokeResponseArrayOutput() NetworkFunctionRoleConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkFunctionRoleConfigurationInvokeResponseArrayOutput) ToNetworkFunctionRoleConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkFunctionRoleConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkFunctionRoleConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) NetworkFunctionRoleConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkFunctionRoleConfigurationInvokeResponse {
+		return vs[0].([]NetworkFunctionRoleConfigurationInvokeResponse)[vs[1].(int)]
+	}).(NetworkFunctionRoleConfigurationInvokeResponseOutput)
 }
 
 // Network function role configuration.
@@ -1685,6 +2459,63 @@ func (o NetworkFunctionTemplatePtrOutput) NetworkFunctionRoleConfigurations() Ne
 }
 
 // The network function template.
+type NetworkFunctionTemplateInvokeResponse struct {
+	// An array of network function role definitions.
+	NetworkFunctionRoleConfigurations []NetworkFunctionRoleConfigurationInvokeResponse `pulumi:"networkFunctionRoleConfigurations"`
+}
+
+// NetworkFunctionTemplateInvokeResponseInput is an input type that accepts NetworkFunctionTemplateInvokeResponseArgs and NetworkFunctionTemplateInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkFunctionTemplateInvokeResponseInput` via:
+//
+//          NetworkFunctionTemplateInvokeResponseArgs{...}
+type NetworkFunctionTemplateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkFunctionTemplateInvokeResponseOutput() NetworkFunctionTemplateInvokeResponseOutput
+	ToNetworkFunctionTemplateInvokeResponseOutputWithContext(context.Context) NetworkFunctionTemplateInvokeResponseOutput
+}
+
+// The network function template.
+type NetworkFunctionTemplateInvokeResponseArgs struct {
+	// An array of network function role definitions.
+	NetworkFunctionRoleConfigurations NetworkFunctionRoleConfigurationInvokeResponseArrayInput `pulumi:"networkFunctionRoleConfigurations"`
+}
+
+func (NetworkFunctionTemplateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunctionTemplateInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkFunctionTemplateInvokeResponseArgs) ToNetworkFunctionTemplateInvokeResponseOutput() NetworkFunctionTemplateInvokeResponseOutput {
+	return i.ToNetworkFunctionTemplateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkFunctionTemplateInvokeResponseArgs) ToNetworkFunctionTemplateInvokeResponseOutputWithContext(ctx context.Context) NetworkFunctionTemplateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionTemplateInvokeResponseOutput)
+}
+
+// The network function template.
+type NetworkFunctionTemplateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkFunctionTemplateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunctionTemplateInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkFunctionTemplateInvokeResponseOutput) ToNetworkFunctionTemplateInvokeResponseOutput() NetworkFunctionTemplateInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkFunctionTemplateInvokeResponseOutput) ToNetworkFunctionTemplateInvokeResponseOutputWithContext(ctx context.Context) NetworkFunctionTemplateInvokeResponseOutput {
+	return o
+}
+
+// An array of network function role definitions.
+func (o NetworkFunctionTemplateInvokeResponseOutput) NetworkFunctionRoleConfigurations() NetworkFunctionRoleConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NetworkFunctionTemplateInvokeResponse) []NetworkFunctionRoleConfigurationInvokeResponse {
+		return v.NetworkFunctionRoleConfigurations
+	}).(NetworkFunctionRoleConfigurationInvokeResponseArrayOutput)
+}
+
+// The network function template.
 type NetworkFunctionTemplateResponse struct {
 	// An array of network function role definitions.
 	NetworkFunctionRoleConfigurations []NetworkFunctionRoleConfigurationResponse `pulumi:"networkFunctionRoleConfigurations"`
@@ -1947,6 +2778,273 @@ func (o NetworkFunctionUserConfigurationArrayOutput) Index(i pulumi.IntInput) Ne
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkFunctionUserConfiguration {
 		return vs[0].([]NetworkFunctionUserConfiguration)[vs[1].(int)]
 	}).(NetworkFunctionUserConfigurationOutput)
+}
+
+// The network function user configuration.
+type NetworkFunctionUserConfigurationInvokeResponse struct {
+	// The network interface configuration.
+	NetworkInterfaces []NetworkInterfaceInvokeResponse `pulumi:"networkInterfaces"`
+	// Specifies the operating system settings for the role instance.
+	OsProfile *NetworkFunctionUserConfigurationInvokeResponseOsProfile `pulumi:"osProfile"`
+	// The name of the network function role.
+	RoleName *string `pulumi:"roleName"`
+	// The user data parameters from the customer.
+	UserDataParameters interface{} `pulumi:"userDataParameters"`
+}
+
+// NetworkFunctionUserConfigurationInvokeResponseInput is an input type that accepts NetworkFunctionUserConfigurationInvokeResponseArgs and NetworkFunctionUserConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkFunctionUserConfigurationInvokeResponseInput` via:
+//
+//          NetworkFunctionUserConfigurationInvokeResponseArgs{...}
+type NetworkFunctionUserConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkFunctionUserConfigurationInvokeResponseOutput() NetworkFunctionUserConfigurationInvokeResponseOutput
+	ToNetworkFunctionUserConfigurationInvokeResponseOutputWithContext(context.Context) NetworkFunctionUserConfigurationInvokeResponseOutput
+}
+
+// The network function user configuration.
+type NetworkFunctionUserConfigurationInvokeResponseArgs struct {
+	// The network interface configuration.
+	NetworkInterfaces NetworkInterfaceInvokeResponseArrayInput `pulumi:"networkInterfaces"`
+	// Specifies the operating system settings for the role instance.
+	OsProfile NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrInput `pulumi:"osProfile"`
+	// The name of the network function role.
+	RoleName pulumi.StringPtrInput `pulumi:"roleName"`
+	// The user data parameters from the customer.
+	UserDataParameters pulumi.Input `pulumi:"userDataParameters"`
+}
+
+func (NetworkFunctionUserConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunctionUserConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkFunctionUserConfigurationInvokeResponseArgs) ToNetworkFunctionUserConfigurationInvokeResponseOutput() NetworkFunctionUserConfigurationInvokeResponseOutput {
+	return i.ToNetworkFunctionUserConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkFunctionUserConfigurationInvokeResponseArgs) ToNetworkFunctionUserConfigurationInvokeResponseOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionUserConfigurationInvokeResponseOutput)
+}
+
+// NetworkFunctionUserConfigurationInvokeResponseArrayInput is an input type that accepts NetworkFunctionUserConfigurationInvokeResponseArray and NetworkFunctionUserConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NetworkFunctionUserConfigurationInvokeResponseArrayInput` via:
+//
+//          NetworkFunctionUserConfigurationInvokeResponseArray{ NetworkFunctionUserConfigurationInvokeResponseArgs{...} }
+type NetworkFunctionUserConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNetworkFunctionUserConfigurationInvokeResponseArrayOutput() NetworkFunctionUserConfigurationInvokeResponseArrayOutput
+	ToNetworkFunctionUserConfigurationInvokeResponseArrayOutputWithContext(context.Context) NetworkFunctionUserConfigurationInvokeResponseArrayOutput
+}
+
+type NetworkFunctionUserConfigurationInvokeResponseArray []NetworkFunctionUserConfigurationInvokeResponseInput
+
+func (NetworkFunctionUserConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkFunctionUserConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkFunctionUserConfigurationInvokeResponseArray) ToNetworkFunctionUserConfigurationInvokeResponseArrayOutput() NetworkFunctionUserConfigurationInvokeResponseArrayOutput {
+	return i.ToNetworkFunctionUserConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkFunctionUserConfigurationInvokeResponseArray) ToNetworkFunctionUserConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionUserConfigurationInvokeResponseArrayOutput)
+}
+
+// The network function user configuration.
+type NetworkFunctionUserConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkFunctionUserConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunctionUserConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseOutput) ToNetworkFunctionUserConfigurationInvokeResponseOutput() NetworkFunctionUserConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseOutput) ToNetworkFunctionUserConfigurationInvokeResponseOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The network interface configuration.
+func (o NetworkFunctionUserConfigurationInvokeResponseOutput) NetworkInterfaces() NetworkInterfaceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NetworkFunctionUserConfigurationInvokeResponse) []NetworkInterfaceInvokeResponse {
+		return v.NetworkInterfaces
+	}).(NetworkInterfaceInvokeResponseArrayOutput)
+}
+
+// Specifies the operating system settings for the role instance.
+func (o NetworkFunctionUserConfigurationInvokeResponseOutput) OsProfile() NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput {
+	return o.ApplyT(func(v NetworkFunctionUserConfigurationInvokeResponse) *NetworkFunctionUserConfigurationInvokeResponseOsProfile {
+		return v.OsProfile
+	}).(NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput)
+}
+
+// The name of the network function role.
+func (o NetworkFunctionUserConfigurationInvokeResponseOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkFunctionUserConfigurationInvokeResponse) *string { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// The user data parameters from the customer.
+func (o NetworkFunctionUserConfigurationInvokeResponseOutput) UserDataParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v NetworkFunctionUserConfigurationInvokeResponse) interface{} { return v.UserDataParameters }).(pulumi.AnyOutput)
+}
+
+type NetworkFunctionUserConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkFunctionUserConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkFunctionUserConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseArrayOutput) ToNetworkFunctionUserConfigurationInvokeResponseArrayOutput() NetworkFunctionUserConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseArrayOutput) ToNetworkFunctionUserConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) NetworkFunctionUserConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkFunctionUserConfigurationInvokeResponse {
+		return vs[0].([]NetworkFunctionUserConfigurationInvokeResponse)[vs[1].(int)]
+	}).(NetworkFunctionUserConfigurationInvokeResponseOutput)
+}
+
+// Specifies the operating system settings for the role instance.
+type NetworkFunctionUserConfigurationInvokeResponseOsProfile struct {
+	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+	CustomData *string `pulumi:"customData"`
+}
+
+// NetworkFunctionUserConfigurationInvokeResponseOsProfileInput is an input type that accepts NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs and NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput values.
+// You can construct a concrete instance of `NetworkFunctionUserConfigurationInvokeResponseOsProfileInput` via:
+//
+//          NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs{...}
+type NetworkFunctionUserConfigurationInvokeResponseOsProfileInput interface {
+	pulumi.Input
+
+	ToNetworkFunctionUserConfigurationInvokeResponseOsProfileOutput() NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput
+	ToNetworkFunctionUserConfigurationInvokeResponseOsProfileOutputWithContext(context.Context) NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput
+}
+
+// Specifies the operating system settings for the role instance.
+type NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs struct {
+	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+	CustomData pulumi.StringPtrInput `pulumi:"customData"`
+}
+
+func (NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunctionUserConfigurationInvokeResponseOsProfile)(nil)).Elem()
+}
+
+func (i NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs) ToNetworkFunctionUserConfigurationInvokeResponseOsProfileOutput() NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput {
+	return i.ToNetworkFunctionUserConfigurationInvokeResponseOsProfileOutputWithContext(context.Background())
+}
+
+func (i NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs) ToNetworkFunctionUserConfigurationInvokeResponseOsProfileOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput)
+}
+
+func (i NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs) ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput() NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput {
+	return i.ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs) ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput).ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutputWithContext(ctx)
+}
+
+// NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrInput is an input type that accepts NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs, NetworkFunctionUserConfigurationInvokeResponseOsProfilePtr and NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput values.
+// You can construct a concrete instance of `NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrInput` via:
+//
+//          NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrInput interface {
+	pulumi.Input
+
+	ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput() NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput
+	ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutputWithContext(context.Context) NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput
+}
+
+type networkFunctionUserConfigurationInvokeResponseOsProfilePtrType NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs
+
+func NetworkFunctionUserConfigurationInvokeResponseOsProfilePtr(v *NetworkFunctionUserConfigurationInvokeResponseOsProfileArgs) NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrInput {
+	return (*networkFunctionUserConfigurationInvokeResponseOsProfilePtrType)(v)
+}
+
+func (*networkFunctionUserConfigurationInvokeResponseOsProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkFunctionUserConfigurationInvokeResponseOsProfile)(nil)).Elem()
+}
+
+func (i *networkFunctionUserConfigurationInvokeResponseOsProfilePtrType) ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput() NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput {
+	return i.ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *networkFunctionUserConfigurationInvokeResponseOsProfilePtrType) ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput)
+}
+
+// Specifies the operating system settings for the role instance.
+type NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput struct{ *pulumi.OutputState }
+
+func (NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkFunctionUserConfigurationInvokeResponseOsProfile)(nil)).Elem()
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput) ToNetworkFunctionUserConfigurationInvokeResponseOsProfileOutput() NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput {
+	return o
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput) ToNetworkFunctionUserConfigurationInvokeResponseOsProfileOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput {
+	return o
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput) ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput() NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput {
+	return o.ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput) ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput {
+	return o.ApplyT(func(v NetworkFunctionUserConfigurationInvokeResponseOsProfile) *NetworkFunctionUserConfigurationInvokeResponseOsProfile {
+		return &v
+	}).(NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput)
+}
+
+// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+func (o NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput) CustomData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkFunctionUserConfigurationInvokeResponseOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+}
+
+type NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkFunctionUserConfigurationInvokeResponseOsProfile)(nil)).Elem()
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput) ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput() NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput {
+	return o
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput) ToNetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput {
+	return o
+}
+
+func (o NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput) Elem() NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput {
+	return o.ApplyT(func(v *NetworkFunctionUserConfigurationInvokeResponseOsProfile) NetworkFunctionUserConfigurationInvokeResponseOsProfile {
+		return *v
+	}).(NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput)
+}
+
+// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+func (o NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkFunctionUserConfigurationInvokeResponseOsProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomData
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the operating system settings for the role instance.
@@ -2625,6 +3723,151 @@ func (o NetworkInterfaceIPConfigurationArrayOutput) Index(i pulumi.IntInput) Net
 }
 
 // Network interface IP configuration properties.
+type NetworkInterfaceIPConfigurationInvokeResponse struct {
+	// The list of DNS servers IP addresses.
+	DnsServers []string `pulumi:"dnsServers"`
+	// The value of the gateway.
+	Gateway *string `pulumi:"gateway"`
+	// The value of the IP address.
+	IpAddress *string `pulumi:"ipAddress"`
+	// IP address allocation method.
+	IpAllocationMethod *string `pulumi:"ipAllocationMethod"`
+	// IP address version.
+	IpVersion *string `pulumi:"ipVersion"`
+	// The value of the subnet.
+	Subnet *string `pulumi:"subnet"`
+}
+
+// NetworkInterfaceIPConfigurationInvokeResponseInput is an input type that accepts NetworkInterfaceIPConfigurationInvokeResponseArgs and NetworkInterfaceIPConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkInterfaceIPConfigurationInvokeResponseInput` via:
+//
+//          NetworkInterfaceIPConfigurationInvokeResponseArgs{...}
+type NetworkInterfaceIPConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceIPConfigurationInvokeResponseOutput() NetworkInterfaceIPConfigurationInvokeResponseOutput
+	ToNetworkInterfaceIPConfigurationInvokeResponseOutputWithContext(context.Context) NetworkInterfaceIPConfigurationInvokeResponseOutput
+}
+
+// Network interface IP configuration properties.
+type NetworkInterfaceIPConfigurationInvokeResponseArgs struct {
+	// The list of DNS servers IP addresses.
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// The value of the gateway.
+	Gateway pulumi.StringPtrInput `pulumi:"gateway"`
+	// The value of the IP address.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// IP address allocation method.
+	IpAllocationMethod pulumi.StringPtrInput `pulumi:"ipAllocationMethod"`
+	// IP address version.
+	IpVersion pulumi.StringPtrInput `pulumi:"ipVersion"`
+	// The value of the subnet.
+	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+}
+
+func (NetworkInterfaceIPConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceIPConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkInterfaceIPConfigurationInvokeResponseArgs) ToNetworkInterfaceIPConfigurationInvokeResponseOutput() NetworkInterfaceIPConfigurationInvokeResponseOutput {
+	return i.ToNetworkInterfaceIPConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceIPConfigurationInvokeResponseArgs) ToNetworkInterfaceIPConfigurationInvokeResponseOutputWithContext(ctx context.Context) NetworkInterfaceIPConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIPConfigurationInvokeResponseOutput)
+}
+
+// NetworkInterfaceIPConfigurationInvokeResponseArrayInput is an input type that accepts NetworkInterfaceIPConfigurationInvokeResponseArray and NetworkInterfaceIPConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceIPConfigurationInvokeResponseArrayInput` via:
+//
+//          NetworkInterfaceIPConfigurationInvokeResponseArray{ NetworkInterfaceIPConfigurationInvokeResponseArgs{...} }
+type NetworkInterfaceIPConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceIPConfigurationInvokeResponseArrayOutput() NetworkInterfaceIPConfigurationInvokeResponseArrayOutput
+	ToNetworkInterfaceIPConfigurationInvokeResponseArrayOutputWithContext(context.Context) NetworkInterfaceIPConfigurationInvokeResponseArrayOutput
+}
+
+type NetworkInterfaceIPConfigurationInvokeResponseArray []NetworkInterfaceIPConfigurationInvokeResponseInput
+
+func (NetworkInterfaceIPConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceIPConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkInterfaceIPConfigurationInvokeResponseArray) ToNetworkInterfaceIPConfigurationInvokeResponseArrayOutput() NetworkInterfaceIPConfigurationInvokeResponseArrayOutput {
+	return i.ToNetworkInterfaceIPConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceIPConfigurationInvokeResponseArray) ToNetworkInterfaceIPConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkInterfaceIPConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceIPConfigurationInvokeResponseArrayOutput)
+}
+
+// Network interface IP configuration properties.
+type NetworkInterfaceIPConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceIPConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceIPConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkInterfaceIPConfigurationInvokeResponseOutput) ToNetworkInterfaceIPConfigurationInvokeResponseOutput() NetworkInterfaceIPConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkInterfaceIPConfigurationInvokeResponseOutput) ToNetworkInterfaceIPConfigurationInvokeResponseOutputWithContext(ctx context.Context) NetworkInterfaceIPConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The list of DNS servers IP addresses.
+func (o NetworkInterfaceIPConfigurationInvokeResponseOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkInterfaceIPConfigurationInvokeResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// The value of the gateway.
+func (o NetworkInterfaceIPConfigurationInvokeResponseOutput) Gateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceIPConfigurationInvokeResponse) *string { return v.Gateway }).(pulumi.StringPtrOutput)
+}
+
+// The value of the IP address.
+func (o NetworkInterfaceIPConfigurationInvokeResponseOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceIPConfigurationInvokeResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// IP address allocation method.
+func (o NetworkInterfaceIPConfigurationInvokeResponseOutput) IpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceIPConfigurationInvokeResponse) *string { return v.IpAllocationMethod }).(pulumi.StringPtrOutput)
+}
+
+// IP address version.
+func (o NetworkInterfaceIPConfigurationInvokeResponseOutput) IpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceIPConfigurationInvokeResponse) *string { return v.IpVersion }).(pulumi.StringPtrOutput)
+}
+
+// The value of the subnet.
+func (o NetworkInterfaceIPConfigurationInvokeResponseOutput) Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceIPConfigurationInvokeResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInterfaceIPConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceIPConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceIPConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkInterfaceIPConfigurationInvokeResponseArrayOutput) ToNetworkInterfaceIPConfigurationInvokeResponseArrayOutput() NetworkInterfaceIPConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceIPConfigurationInvokeResponseArrayOutput) ToNetworkInterfaceIPConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkInterfaceIPConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceIPConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceIPConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceIPConfigurationInvokeResponse {
+		return vs[0].([]NetworkInterfaceIPConfigurationInvokeResponse)[vs[1].(int)]
+	}).(NetworkInterfaceIPConfigurationInvokeResponseOutput)
+}
+
+// Network interface IP configuration properties.
 type NetworkInterfaceIPConfigurationResponse struct {
 	// The list of DNS servers IP addresses.
 	DnsServers []string `pulumi:"dnsServers"`
@@ -2767,6 +4010,135 @@ func (o NetworkInterfaceIPConfigurationResponseArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceIPConfigurationResponse {
 		return vs[0].([]NetworkInterfaceIPConfigurationResponse)[vs[1].(int)]
 	}).(NetworkInterfaceIPConfigurationResponseOutput)
+}
+
+// Network interface properties.
+type NetworkInterfaceInvokeResponse struct {
+	// A list of IP configurations of the network interface.
+	IpConfigurations []NetworkInterfaceIPConfigurationInvokeResponse `pulumi:"ipConfigurations"`
+	// The MAC address of the network interface.
+	MacAddress *string `pulumi:"macAddress"`
+	// The name of the network interface.
+	NetworkInterfaceName *string `pulumi:"networkInterfaceName"`
+	// The type of the VM switch.
+	VmSwitchType *string `pulumi:"vmSwitchType"`
+}
+
+// NetworkInterfaceInvokeResponseInput is an input type that accepts NetworkInterfaceInvokeResponseArgs and NetworkInterfaceInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkInterfaceInvokeResponseInput` via:
+//
+//          NetworkInterfaceInvokeResponseArgs{...}
+type NetworkInterfaceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceInvokeResponseOutput() NetworkInterfaceInvokeResponseOutput
+	ToNetworkInterfaceInvokeResponseOutputWithContext(context.Context) NetworkInterfaceInvokeResponseOutput
+}
+
+// Network interface properties.
+type NetworkInterfaceInvokeResponseArgs struct {
+	// A list of IP configurations of the network interface.
+	IpConfigurations NetworkInterfaceIPConfigurationInvokeResponseArrayInput `pulumi:"ipConfigurations"`
+	// The MAC address of the network interface.
+	MacAddress pulumi.StringPtrInput `pulumi:"macAddress"`
+	// The name of the network interface.
+	NetworkInterfaceName pulumi.StringPtrInput `pulumi:"networkInterfaceName"`
+	// The type of the VM switch.
+	VmSwitchType pulumi.StringPtrInput `pulumi:"vmSwitchType"`
+}
+
+func (NetworkInterfaceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkInterfaceInvokeResponseArgs) ToNetworkInterfaceInvokeResponseOutput() NetworkInterfaceInvokeResponseOutput {
+	return i.ToNetworkInterfaceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceInvokeResponseArgs) ToNetworkInterfaceInvokeResponseOutputWithContext(ctx context.Context) NetworkInterfaceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInvokeResponseOutput)
+}
+
+// NetworkInterfaceInvokeResponseArrayInput is an input type that accepts NetworkInterfaceInvokeResponseArray and NetworkInterfaceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceInvokeResponseArrayInput` via:
+//
+//          NetworkInterfaceInvokeResponseArray{ NetworkInterfaceInvokeResponseArgs{...} }
+type NetworkInterfaceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceInvokeResponseArrayOutput() NetworkInterfaceInvokeResponseArrayOutput
+	ToNetworkInterfaceInvokeResponseArrayOutputWithContext(context.Context) NetworkInterfaceInvokeResponseArrayOutput
+}
+
+type NetworkInterfaceInvokeResponseArray []NetworkInterfaceInvokeResponseInput
+
+func (NetworkInterfaceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkInterfaceInvokeResponseArray) ToNetworkInterfaceInvokeResponseArrayOutput() NetworkInterfaceInvokeResponseArrayOutput {
+	return i.ToNetworkInterfaceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceInvokeResponseArray) ToNetworkInterfaceInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkInterfaceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInvokeResponseArrayOutput)
+}
+
+// Network interface properties.
+type NetworkInterfaceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkInterfaceInvokeResponseOutput) ToNetworkInterfaceInvokeResponseOutput() NetworkInterfaceInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkInterfaceInvokeResponseOutput) ToNetworkInterfaceInvokeResponseOutputWithContext(ctx context.Context) NetworkInterfaceInvokeResponseOutput {
+	return o
+}
+
+// A list of IP configurations of the network interface.
+func (o NetworkInterfaceInvokeResponseOutput) IpConfigurations() NetworkInterfaceIPConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NetworkInterfaceInvokeResponse) []NetworkInterfaceIPConfigurationInvokeResponse {
+		return v.IpConfigurations
+	}).(NetworkInterfaceIPConfigurationInvokeResponseArrayOutput)
+}
+
+// The MAC address of the network interface.
+func (o NetworkInterfaceInvokeResponseOutput) MacAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceInvokeResponse) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name of the network interface.
+func (o NetworkInterfaceInvokeResponseOutput) NetworkInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceInvokeResponse) *string { return v.NetworkInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// The type of the VM switch.
+func (o NetworkInterfaceInvokeResponseOutput) VmSwitchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceInvokeResponse) *string { return v.VmSwitchType }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInterfaceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkInterfaceInvokeResponseArrayOutput) ToNetworkInterfaceInvokeResponseArrayOutput() NetworkInterfaceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceInvokeResponseArrayOutput) ToNetworkInterfaceInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkInterfaceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceInvokeResponseArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceInvokeResponse {
+		return vs[0].([]NetworkInterfaceInvokeResponse)[vs[1].(int)]
+	}).(NetworkInterfaceInvokeResponseOutput)
 }
 
 // Network interface properties.
@@ -3085,6 +4457,197 @@ func (o OsDiskPtrOutput) Vhd() VirtualHardDiskPtrOutput {
 		}
 		return v.Vhd
 	}).(VirtualHardDiskPtrOutput)
+}
+
+// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+type OsDiskInvokeResponse struct {
+	// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
+	DiskSizeGB *int `pulumi:"diskSizeGB"`
+	// The VHD name.
+	Name *string `pulumi:"name"`
+	// The OS type.
+	OsType *string `pulumi:"osType"`
+	// The virtual hard disk.
+	Vhd *VirtualHardDiskInvokeResponse `pulumi:"vhd"`
+}
+
+// OsDiskInvokeResponseInput is an input type that accepts OsDiskInvokeResponseArgs and OsDiskInvokeResponseOutput values.
+// You can construct a concrete instance of `OsDiskInvokeResponseInput` via:
+//
+//          OsDiskInvokeResponseArgs{...}
+type OsDiskInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOsDiskInvokeResponseOutput() OsDiskInvokeResponseOutput
+	ToOsDiskInvokeResponseOutputWithContext(context.Context) OsDiskInvokeResponseOutput
+}
+
+// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+type OsDiskInvokeResponseArgs struct {
+	// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
+	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
+	// The VHD name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The OS type.
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// The virtual hard disk.
+	Vhd VirtualHardDiskInvokeResponsePtrInput `pulumi:"vhd"`
+}
+
+func (OsDiskInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OsDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i OsDiskInvokeResponseArgs) ToOsDiskInvokeResponseOutput() OsDiskInvokeResponseOutput {
+	return i.ToOsDiskInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OsDiskInvokeResponseArgs) ToOsDiskInvokeResponseOutputWithContext(ctx context.Context) OsDiskInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OsDiskInvokeResponseOutput)
+}
+
+func (i OsDiskInvokeResponseArgs) ToOsDiskInvokeResponsePtrOutput() OsDiskInvokeResponsePtrOutput {
+	return i.ToOsDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OsDiskInvokeResponseArgs) ToOsDiskInvokeResponsePtrOutputWithContext(ctx context.Context) OsDiskInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OsDiskInvokeResponseOutput).ToOsDiskInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// OsDiskInvokeResponsePtrInput is an input type that accepts OsDiskInvokeResponseArgs, OsDiskInvokeResponsePtr and OsDiskInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `OsDiskInvokeResponsePtrInput` via:
+//
+//          OsDiskInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OsDiskInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToOsDiskInvokeResponsePtrOutput() OsDiskInvokeResponsePtrOutput
+	ToOsDiskInvokeResponsePtrOutputWithContext(context.Context) OsDiskInvokeResponsePtrOutput
+}
+
+type osDiskInvokeResponsePtrType OsDiskInvokeResponseArgs
+
+func OsDiskInvokeResponsePtr(v *OsDiskInvokeResponseArgs) OsDiskInvokeResponsePtrInput {
+	return (*osDiskInvokeResponsePtrType)(v)
+}
+
+func (*osDiskInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OsDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i *osDiskInvokeResponsePtrType) ToOsDiskInvokeResponsePtrOutput() OsDiskInvokeResponsePtrOutput {
+	return i.ToOsDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *osDiskInvokeResponsePtrType) ToOsDiskInvokeResponsePtrOutputWithContext(ctx context.Context) OsDiskInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OsDiskInvokeResponsePtrOutput)
+}
+
+// Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+type OsDiskInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OsDiskInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OsDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o OsDiskInvokeResponseOutput) ToOsDiskInvokeResponseOutput() OsDiskInvokeResponseOutput {
+	return o
+}
+
+func (o OsDiskInvokeResponseOutput) ToOsDiskInvokeResponseOutputWithContext(ctx context.Context) OsDiskInvokeResponseOutput {
+	return o
+}
+
+func (o OsDiskInvokeResponseOutput) ToOsDiskInvokeResponsePtrOutput() OsDiskInvokeResponsePtrOutput {
+	return o.ToOsDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OsDiskInvokeResponseOutput) ToOsDiskInvokeResponsePtrOutputWithContext(ctx context.Context) OsDiskInvokeResponsePtrOutput {
+	return o.ApplyT(func(v OsDiskInvokeResponse) *OsDiskInvokeResponse {
+		return &v
+	}).(OsDiskInvokeResponsePtrOutput)
+}
+
+// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
+func (o OsDiskInvokeResponseOutput) DiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OsDiskInvokeResponse) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// The VHD name.
+func (o OsDiskInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OsDiskInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The OS type.
+func (o OsDiskInvokeResponseOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OsDiskInvokeResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The virtual hard disk.
+func (o OsDiskInvokeResponseOutput) Vhd() VirtualHardDiskInvokeResponsePtrOutput {
+	return o.ApplyT(func(v OsDiskInvokeResponse) *VirtualHardDiskInvokeResponse { return v.Vhd }).(VirtualHardDiskInvokeResponsePtrOutput)
+}
+
+type OsDiskInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OsDiskInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OsDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o OsDiskInvokeResponsePtrOutput) ToOsDiskInvokeResponsePtrOutput() OsDiskInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OsDiskInvokeResponsePtrOutput) ToOsDiskInvokeResponsePtrOutputWithContext(ctx context.Context) OsDiskInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OsDiskInvokeResponsePtrOutput) Elem() OsDiskInvokeResponseOutput {
+	return o.ApplyT(func(v *OsDiskInvokeResponse) OsDiskInvokeResponse { return *v }).(OsDiskInvokeResponseOutput)
+}
+
+// Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
+func (o OsDiskInvokeResponsePtrOutput) DiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OsDiskInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DiskSizeGB
+	}).(pulumi.IntPtrOutput)
+}
+
+// The VHD name.
+func (o OsDiskInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OsDiskInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OS type.
+func (o OsDiskInvokeResponsePtrOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OsDiskInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OsType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The virtual hard disk.
+func (o OsDiskInvokeResponsePtrOutput) Vhd() VirtualHardDiskInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *OsDiskInvokeResponse) *VirtualHardDiskInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Vhd
+	}).(VirtualHardDiskInvokeResponsePtrOutput)
 }
 
 // Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -3470,6 +5033,197 @@ func (o OsProfilePtrOutput) LinuxConfiguration() LinuxConfigurationPtrOutput {
 }
 
 // Specifies the operating system settings for the role instance.
+type OsProfileInvokeResponse struct {
+	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+	AdminUsername *string `pulumi:"adminUsername"`
+	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+	CustomData *string `pulumi:"customData"`
+	// Indicates if custom data is required to deploy this role.
+	CustomDataRequired *bool `pulumi:"customDataRequired"`
+	// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+	LinuxConfiguration *LinuxConfigurationInvokeResponse `pulumi:"linuxConfiguration"`
+}
+
+// OsProfileInvokeResponseInput is an input type that accepts OsProfileInvokeResponseArgs and OsProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `OsProfileInvokeResponseInput` via:
+//
+//          OsProfileInvokeResponseArgs{...}
+type OsProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOsProfileInvokeResponseOutput() OsProfileInvokeResponseOutput
+	ToOsProfileInvokeResponseOutputWithContext(context.Context) OsProfileInvokeResponseOutput
+}
+
+// Specifies the operating system settings for the role instance.
+type OsProfileInvokeResponseArgs struct {
+	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+	AdminUsername pulumi.StringPtrInput `pulumi:"adminUsername"`
+	// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+	CustomData pulumi.StringPtrInput `pulumi:"customData"`
+	// Indicates if custom data is required to deploy this role.
+	CustomDataRequired pulumi.BoolPtrInput `pulumi:"customDataRequired"`
+	// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+	LinuxConfiguration LinuxConfigurationInvokeResponsePtrInput `pulumi:"linuxConfiguration"`
+}
+
+func (OsProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OsProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i OsProfileInvokeResponseArgs) ToOsProfileInvokeResponseOutput() OsProfileInvokeResponseOutput {
+	return i.ToOsProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OsProfileInvokeResponseArgs) ToOsProfileInvokeResponseOutputWithContext(ctx context.Context) OsProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OsProfileInvokeResponseOutput)
+}
+
+func (i OsProfileInvokeResponseArgs) ToOsProfileInvokeResponsePtrOutput() OsProfileInvokeResponsePtrOutput {
+	return i.ToOsProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OsProfileInvokeResponseArgs) ToOsProfileInvokeResponsePtrOutputWithContext(ctx context.Context) OsProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OsProfileInvokeResponseOutput).ToOsProfileInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// OsProfileInvokeResponsePtrInput is an input type that accepts OsProfileInvokeResponseArgs, OsProfileInvokeResponsePtr and OsProfileInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `OsProfileInvokeResponsePtrInput` via:
+//
+//          OsProfileInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OsProfileInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToOsProfileInvokeResponsePtrOutput() OsProfileInvokeResponsePtrOutput
+	ToOsProfileInvokeResponsePtrOutputWithContext(context.Context) OsProfileInvokeResponsePtrOutput
+}
+
+type osProfileInvokeResponsePtrType OsProfileInvokeResponseArgs
+
+func OsProfileInvokeResponsePtr(v *OsProfileInvokeResponseArgs) OsProfileInvokeResponsePtrInput {
+	return (*osProfileInvokeResponsePtrType)(v)
+}
+
+func (*osProfileInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OsProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i *osProfileInvokeResponsePtrType) ToOsProfileInvokeResponsePtrOutput() OsProfileInvokeResponsePtrOutput {
+	return i.ToOsProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *osProfileInvokeResponsePtrType) ToOsProfileInvokeResponsePtrOutputWithContext(ctx context.Context) OsProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OsProfileInvokeResponsePtrOutput)
+}
+
+// Specifies the operating system settings for the role instance.
+type OsProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OsProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OsProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OsProfileInvokeResponseOutput) ToOsProfileInvokeResponseOutput() OsProfileInvokeResponseOutput {
+	return o
+}
+
+func (o OsProfileInvokeResponseOutput) ToOsProfileInvokeResponseOutputWithContext(ctx context.Context) OsProfileInvokeResponseOutput {
+	return o
+}
+
+func (o OsProfileInvokeResponseOutput) ToOsProfileInvokeResponsePtrOutput() OsProfileInvokeResponsePtrOutput {
+	return o.ToOsProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OsProfileInvokeResponseOutput) ToOsProfileInvokeResponsePtrOutputWithContext(ctx context.Context) OsProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v OsProfileInvokeResponse) *OsProfileInvokeResponse {
+		return &v
+	}).(OsProfileInvokeResponsePtrOutput)
+}
+
+// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+func (o OsProfileInvokeResponseOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OsProfileInvokeResponse) *string { return v.AdminUsername }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+func (o OsProfileInvokeResponseOutput) CustomData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OsProfileInvokeResponse) *string { return v.CustomData }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if custom data is required to deploy this role.
+func (o OsProfileInvokeResponseOutput) CustomDataRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OsProfileInvokeResponse) *bool { return v.CustomDataRequired }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+func (o OsProfileInvokeResponseOutput) LinuxConfiguration() LinuxConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v OsProfileInvokeResponse) *LinuxConfigurationInvokeResponse { return v.LinuxConfiguration }).(LinuxConfigurationInvokeResponsePtrOutput)
+}
+
+type OsProfileInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OsProfileInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OsProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OsProfileInvokeResponsePtrOutput) ToOsProfileInvokeResponsePtrOutput() OsProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OsProfileInvokeResponsePtrOutput) ToOsProfileInvokeResponsePtrOutputWithContext(ctx context.Context) OsProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OsProfileInvokeResponsePtrOutput) Elem() OsProfileInvokeResponseOutput {
+	return o.ApplyT(func(v *OsProfileInvokeResponse) OsProfileInvokeResponse { return *v }).(OsProfileInvokeResponseOutput)
+}
+
+// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+func (o OsProfileInvokeResponsePtrOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OsProfileInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+func (o OsProfileInvokeResponsePtrOutput) CustomData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OsProfileInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomData
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates if custom data is required to deploy this role.
+func (o OsProfileInvokeResponsePtrOutput) CustomDataRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OsProfileInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomDataRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+func (o OsProfileInvokeResponsePtrOutput) LinuxConfiguration() LinuxConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *OsProfileInvokeResponse) *LinuxConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxConfiguration
+	}).(LinuxConfigurationInvokeResponsePtrOutput)
+}
+
+// Specifies the operating system settings for the role instance.
 type OsProfileResponse struct {
 	// Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 	AdminUsername *string `pulumi:"adminUsername"`
@@ -3795,6 +5549,140 @@ func (o SshConfigurationPtrOutput) PublicKeys() SshPublicKeyArrayOutput {
 }
 
 // SSH configuration for Linux based VMs running on Azure
+type SshConfigurationInvokeResponse struct {
+	// The list of SSH public keys used to authenticate with linux based VMs.
+	PublicKeys []SshPublicKeyInvokeResponse `pulumi:"publicKeys"`
+}
+
+// SshConfigurationInvokeResponseInput is an input type that accepts SshConfigurationInvokeResponseArgs and SshConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `SshConfigurationInvokeResponseInput` via:
+//
+//          SshConfigurationInvokeResponseArgs{...}
+type SshConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSshConfigurationInvokeResponseOutput() SshConfigurationInvokeResponseOutput
+	ToSshConfigurationInvokeResponseOutputWithContext(context.Context) SshConfigurationInvokeResponseOutput
+}
+
+// SSH configuration for Linux based VMs running on Azure
+type SshConfigurationInvokeResponseArgs struct {
+	// The list of SSH public keys used to authenticate with linux based VMs.
+	PublicKeys SshPublicKeyInvokeResponseArrayInput `pulumi:"publicKeys"`
+}
+
+func (SshConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SshConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i SshConfigurationInvokeResponseArgs) ToSshConfigurationInvokeResponseOutput() SshConfigurationInvokeResponseOutput {
+	return i.ToSshConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SshConfigurationInvokeResponseArgs) ToSshConfigurationInvokeResponseOutputWithContext(ctx context.Context) SshConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationInvokeResponseOutput)
+}
+
+func (i SshConfigurationInvokeResponseArgs) ToSshConfigurationInvokeResponsePtrOutput() SshConfigurationInvokeResponsePtrOutput {
+	return i.ToSshConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SshConfigurationInvokeResponseArgs) ToSshConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) SshConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationInvokeResponseOutput).ToSshConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SshConfigurationInvokeResponsePtrInput is an input type that accepts SshConfigurationInvokeResponseArgs, SshConfigurationInvokeResponsePtr and SshConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SshConfigurationInvokeResponsePtrInput` via:
+//
+//          SshConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SshConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSshConfigurationInvokeResponsePtrOutput() SshConfigurationInvokeResponsePtrOutput
+	ToSshConfigurationInvokeResponsePtrOutputWithContext(context.Context) SshConfigurationInvokeResponsePtrOutput
+}
+
+type sshConfigurationInvokeResponsePtrType SshConfigurationInvokeResponseArgs
+
+func SshConfigurationInvokeResponsePtr(v *SshConfigurationInvokeResponseArgs) SshConfigurationInvokeResponsePtrInput {
+	return (*sshConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*sshConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SshConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *sshConfigurationInvokeResponsePtrType) ToSshConfigurationInvokeResponsePtrOutput() SshConfigurationInvokeResponsePtrOutput {
+	return i.ToSshConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sshConfigurationInvokeResponsePtrType) ToSshConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) SshConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SshConfigurationInvokeResponsePtrOutput)
+}
+
+// SSH configuration for Linux based VMs running on Azure
+type SshConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SshConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SshConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o SshConfigurationInvokeResponseOutput) ToSshConfigurationInvokeResponseOutput() SshConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o SshConfigurationInvokeResponseOutput) ToSshConfigurationInvokeResponseOutputWithContext(ctx context.Context) SshConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o SshConfigurationInvokeResponseOutput) ToSshConfigurationInvokeResponsePtrOutput() SshConfigurationInvokeResponsePtrOutput {
+	return o.ToSshConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SshConfigurationInvokeResponseOutput) ToSshConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) SshConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SshConfigurationInvokeResponse) *SshConfigurationInvokeResponse {
+		return &v
+	}).(SshConfigurationInvokeResponsePtrOutput)
+}
+
+// The list of SSH public keys used to authenticate with linux based VMs.
+func (o SshConfigurationInvokeResponseOutput) PublicKeys() SshPublicKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SshConfigurationInvokeResponse) []SshPublicKeyInvokeResponse { return v.PublicKeys }).(SshPublicKeyInvokeResponseArrayOutput)
+}
+
+type SshConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SshConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SshConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o SshConfigurationInvokeResponsePtrOutput) ToSshConfigurationInvokeResponsePtrOutput() SshConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SshConfigurationInvokeResponsePtrOutput) ToSshConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) SshConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SshConfigurationInvokeResponsePtrOutput) Elem() SshConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *SshConfigurationInvokeResponse) SshConfigurationInvokeResponse { return *v }).(SshConfigurationInvokeResponseOutput)
+}
+
+// The list of SSH public keys used to authenticate with linux based VMs.
+func (o SshConfigurationInvokeResponsePtrOutput) PublicKeys() SshPublicKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *SshConfigurationInvokeResponse) []SshPublicKeyInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PublicKeys
+	}).(SshPublicKeyInvokeResponseArrayOutput)
+}
+
+// SSH configuration for Linux based VMs running on Azure
 type SshConfigurationResponse struct {
 	// The list of SSH public keys used to authenticate with linux based VMs.
 	PublicKeys []SshPublicKeyResponse `pulumi:"publicKeys"`
@@ -4035,6 +5923,115 @@ func (o SshPublicKeyArrayOutput) Index(i pulumi.IntInput) SshPublicKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SshPublicKey {
 		return vs[0].([]SshPublicKey)[vs[1].(int)]
 	}).(SshPublicKeyOutput)
+}
+
+// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+type SshPublicKeyInvokeResponse struct {
+	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+	KeyData *string `pulumi:"keyData"`
+	// Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+	Path *string `pulumi:"path"`
+}
+
+// SshPublicKeyInvokeResponseInput is an input type that accepts SshPublicKeyInvokeResponseArgs and SshPublicKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `SshPublicKeyInvokeResponseInput` via:
+//
+//          SshPublicKeyInvokeResponseArgs{...}
+type SshPublicKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSshPublicKeyInvokeResponseOutput() SshPublicKeyInvokeResponseOutput
+	ToSshPublicKeyInvokeResponseOutputWithContext(context.Context) SshPublicKeyInvokeResponseOutput
+}
+
+// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+type SshPublicKeyInvokeResponseArgs struct {
+	// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+	KeyData pulumi.StringPtrInput `pulumi:"keyData"`
+	// Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (SshPublicKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i SshPublicKeyInvokeResponseArgs) ToSshPublicKeyInvokeResponseOutput() SshPublicKeyInvokeResponseOutput {
+	return i.ToSshPublicKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SshPublicKeyInvokeResponseArgs) ToSshPublicKeyInvokeResponseOutputWithContext(ctx context.Context) SshPublicKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyInvokeResponseOutput)
+}
+
+// SshPublicKeyInvokeResponseArrayInput is an input type that accepts SshPublicKeyInvokeResponseArray and SshPublicKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SshPublicKeyInvokeResponseArrayInput` via:
+//
+//          SshPublicKeyInvokeResponseArray{ SshPublicKeyInvokeResponseArgs{...} }
+type SshPublicKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSshPublicKeyInvokeResponseArrayOutput() SshPublicKeyInvokeResponseArrayOutput
+	ToSshPublicKeyInvokeResponseArrayOutputWithContext(context.Context) SshPublicKeyInvokeResponseArrayOutput
+}
+
+type SshPublicKeyInvokeResponseArray []SshPublicKeyInvokeResponseInput
+
+func (SshPublicKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i SshPublicKeyInvokeResponseArray) ToSshPublicKeyInvokeResponseArrayOutput() SshPublicKeyInvokeResponseArrayOutput {
+	return i.ToSshPublicKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SshPublicKeyInvokeResponseArray) ToSshPublicKeyInvokeResponseArrayOutputWithContext(ctx context.Context) SshPublicKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyInvokeResponseArrayOutput)
+}
+
+// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+type SshPublicKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SshPublicKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o SshPublicKeyInvokeResponseOutput) ToSshPublicKeyInvokeResponseOutput() SshPublicKeyInvokeResponseOutput {
+	return o
+}
+
+func (o SshPublicKeyInvokeResponseOutput) ToSshPublicKeyInvokeResponseOutputWithContext(ctx context.Context) SshPublicKeyInvokeResponseOutput {
+	return o
+}
+
+// SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+func (o SshPublicKeyInvokeResponseOutput) KeyData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SshPublicKeyInvokeResponse) *string { return v.KeyData }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+func (o SshPublicKeyInvokeResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SshPublicKeyInvokeResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type SshPublicKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SshPublicKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o SshPublicKeyInvokeResponseArrayOutput) ToSshPublicKeyInvokeResponseArrayOutput() SshPublicKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SshPublicKeyInvokeResponseArrayOutput) ToSshPublicKeyInvokeResponseArrayOutputWithContext(ctx context.Context) SshPublicKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SshPublicKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) SshPublicKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SshPublicKeyInvokeResponse {
+		return vs[0].([]SshPublicKeyInvokeResponse)[vs[1].(int)]
+	}).(SshPublicKeyInvokeResponseOutput)
 }
 
 // Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
@@ -4316,6 +6313,178 @@ func (o StorageProfilePtrOutput) OsDisk() OsDiskPtrOutput {
 		}
 		return v.OsDisk
 	}).(OsDiskPtrOutput)
+}
+
+// Specifies the storage settings for the virtual machine disks.
+type StorageProfileInvokeResponse struct {
+	// Specifies the parameters that are used to add a data disk to a virtual machine.
+	DataDisks []DataDiskInvokeResponse `pulumi:"dataDisks"`
+	// The image reference properties.
+	ImageReference *ImageReferenceInvokeResponse `pulumi:"imageReference"`
+	// Specifies information about the operating system disk used by the virtual machine.
+	OsDisk *OsDiskInvokeResponse `pulumi:"osDisk"`
+}
+
+// StorageProfileInvokeResponseInput is an input type that accepts StorageProfileInvokeResponseArgs and StorageProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageProfileInvokeResponseInput` via:
+//
+//          StorageProfileInvokeResponseArgs{...}
+type StorageProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput
+	ToStorageProfileInvokeResponseOutputWithContext(context.Context) StorageProfileInvokeResponseOutput
+}
+
+// Specifies the storage settings for the virtual machine disks.
+type StorageProfileInvokeResponseArgs struct {
+	// Specifies the parameters that are used to add a data disk to a virtual machine.
+	DataDisks DataDiskInvokeResponseArrayInput `pulumi:"dataDisks"`
+	// The image reference properties.
+	ImageReference ImageReferenceInvokeResponsePtrInput `pulumi:"imageReference"`
+	// Specifies information about the operating system disk used by the virtual machine.
+	OsDisk OsDiskInvokeResponsePtrInput `pulumi:"osDisk"`
+}
+
+func (StorageProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput {
+	return i.ToStorageProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponseOutputWithContext(ctx context.Context) StorageProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileInvokeResponseOutput)
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponsePtrOutput() StorageProfileInvokeResponsePtrOutput {
+	return i.ToStorageProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponsePtrOutputWithContext(ctx context.Context) StorageProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileInvokeResponseOutput).ToStorageProfileInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// StorageProfileInvokeResponsePtrInput is an input type that accepts StorageProfileInvokeResponseArgs, StorageProfileInvokeResponsePtr and StorageProfileInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `StorageProfileInvokeResponsePtrInput` via:
+//
+//          StorageProfileInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageProfileInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToStorageProfileInvokeResponsePtrOutput() StorageProfileInvokeResponsePtrOutput
+	ToStorageProfileInvokeResponsePtrOutputWithContext(context.Context) StorageProfileInvokeResponsePtrOutput
+}
+
+type storageProfileInvokeResponsePtrType StorageProfileInvokeResponseArgs
+
+func StorageProfileInvokeResponsePtr(v *StorageProfileInvokeResponseArgs) StorageProfileInvokeResponsePtrInput {
+	return (*storageProfileInvokeResponsePtrType)(v)
+}
+
+func (*storageProfileInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i *storageProfileInvokeResponsePtrType) ToStorageProfileInvokeResponsePtrOutput() StorageProfileInvokeResponsePtrOutput {
+	return i.ToStorageProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *storageProfileInvokeResponsePtrType) ToStorageProfileInvokeResponsePtrOutputWithContext(ctx context.Context) StorageProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileInvokeResponsePtrOutput)
+}
+
+// Specifies the storage settings for the virtual machine disks.
+type StorageProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput {
+	return o
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponseOutputWithContext(ctx context.Context) StorageProfileInvokeResponseOutput {
+	return o
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponsePtrOutput() StorageProfileInvokeResponsePtrOutput {
+	return o.ToStorageProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponsePtrOutputWithContext(ctx context.Context) StorageProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *StorageProfileInvokeResponse {
+		return &v
+	}).(StorageProfileInvokeResponsePtrOutput)
+}
+
+// Specifies the parameters that are used to add a data disk to a virtual machine.
+func (o StorageProfileInvokeResponseOutput) DataDisks() DataDiskInvokeResponseArrayOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) []DataDiskInvokeResponse { return v.DataDisks }).(DataDiskInvokeResponseArrayOutput)
+}
+
+// The image reference properties.
+func (o StorageProfileInvokeResponseOutput) ImageReference() ImageReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *ImageReferenceInvokeResponse { return v.ImageReference }).(ImageReferenceInvokeResponsePtrOutput)
+}
+
+// Specifies information about the operating system disk used by the virtual machine.
+func (o StorageProfileInvokeResponseOutput) OsDisk() OsDiskInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *OsDiskInvokeResponse { return v.OsDisk }).(OsDiskInvokeResponsePtrOutput)
+}
+
+type StorageProfileInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageProfileInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageProfileInvokeResponsePtrOutput) ToStorageProfileInvokeResponsePtrOutput() StorageProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StorageProfileInvokeResponsePtrOutput) ToStorageProfileInvokeResponsePtrOutputWithContext(ctx context.Context) StorageProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StorageProfileInvokeResponsePtrOutput) Elem() StorageProfileInvokeResponseOutput {
+	return o.ApplyT(func(v *StorageProfileInvokeResponse) StorageProfileInvokeResponse { return *v }).(StorageProfileInvokeResponseOutput)
+}
+
+// Specifies the parameters that are used to add a data disk to a virtual machine.
+func (o StorageProfileInvokeResponsePtrOutput) DataDisks() DataDiskInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *StorageProfileInvokeResponse) []DataDiskInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DataDisks
+	}).(DataDiskInvokeResponseArrayOutput)
+}
+
+// The image reference properties.
+func (o StorageProfileInvokeResponsePtrOutput) ImageReference() ImageReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *StorageProfileInvokeResponse) *ImageReferenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ImageReference
+	}).(ImageReferenceInvokeResponsePtrOutput)
+}
+
+// Specifies information about the operating system disk used by the virtual machine.
+func (o StorageProfileInvokeResponsePtrOutput) OsDisk() OsDiskInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *StorageProfileInvokeResponse) *OsDiskInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.OsDisk
+	}).(OsDiskInvokeResponsePtrOutput)
 }
 
 // Specifies the storage settings for the virtual machine disks.
@@ -4622,6 +6791,106 @@ func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// Reference to another sub resource.
+type SubResourceInvokeResponse struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// SubResourceInvokeResponseInput is an input type that accepts SubResourceInvokeResponseArgs and SubResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `SubResourceInvokeResponseInput` via:
+//
+//          SubResourceInvokeResponseArgs{...}
+type SubResourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput
+	ToSubResourceInvokeResponseOutputWithContext(context.Context) SubResourceInvokeResponseOutput
+}
+
+// Reference to another sub resource.
+type SubResourceInvokeResponseArgs struct {
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SubResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput {
+	return i.ToSubResourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponseOutputWithContext(ctx context.Context) SubResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceInvokeResponseOutput)
+}
+
+// SubResourceInvokeResponseArrayInput is an input type that accepts SubResourceInvokeResponseArray and SubResourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SubResourceInvokeResponseArrayInput` via:
+//
+//          SubResourceInvokeResponseArray{ SubResourceInvokeResponseArgs{...} }
+type SubResourceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSubResourceInvokeResponseArrayOutput() SubResourceInvokeResponseArrayOutput
+	ToSubResourceInvokeResponseArrayOutputWithContext(context.Context) SubResourceInvokeResponseArrayOutput
+}
+
+type SubResourceInvokeResponseArray []SubResourceInvokeResponseInput
+
+func (SubResourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i SubResourceInvokeResponseArray) ToSubResourceInvokeResponseArrayOutput() SubResourceInvokeResponseArrayOutput {
+	return i.ToSubResourceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SubResourceInvokeResponseArray) ToSubResourceInvokeResponseArrayOutputWithContext(ctx context.Context) SubResourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceInvokeResponseArrayOutput)
+}
+
+// Reference to another sub resource.
+type SubResourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponseOutputWithContext(ctx context.Context) SubResourceInvokeResponseOutput {
+	return o
+}
+
+// Resource ID.
+func (o SubResourceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubResourceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SubResourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SubResourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o SubResourceInvokeResponseArrayOutput) ToSubResourceInvokeResponseArrayOutput() SubResourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponseArrayOutput) ToSubResourceInvokeResponseArrayOutputWithContext(ctx context.Context) SubResourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) SubResourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubResourceInvokeResponse {
+		return vs[0].([]SubResourceInvokeResponse)[vs[1].(int)]
+	}).(SubResourceInvokeResponseOutput)
 }
 
 // Reference to another sub resource.
@@ -4938,6 +7207,140 @@ func (o VirtualHardDiskPtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 // Describes the uri of a disk.
+type VirtualHardDiskInvokeResponse struct {
+	// Specifies the virtual hard disk's uri.
+	Uri *string `pulumi:"uri"`
+}
+
+// VirtualHardDiskInvokeResponseInput is an input type that accepts VirtualHardDiskInvokeResponseArgs and VirtualHardDiskInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualHardDiskInvokeResponseInput` via:
+//
+//          VirtualHardDiskInvokeResponseArgs{...}
+type VirtualHardDiskInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualHardDiskInvokeResponseOutput() VirtualHardDiskInvokeResponseOutput
+	ToVirtualHardDiskInvokeResponseOutputWithContext(context.Context) VirtualHardDiskInvokeResponseOutput
+}
+
+// Describes the uri of a disk.
+type VirtualHardDiskInvokeResponseArgs struct {
+	// Specifies the virtual hard disk's uri.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (VirtualHardDiskInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHardDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualHardDiskInvokeResponseArgs) ToVirtualHardDiskInvokeResponseOutput() VirtualHardDiskInvokeResponseOutput {
+	return i.ToVirtualHardDiskInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualHardDiskInvokeResponseArgs) ToVirtualHardDiskInvokeResponseOutputWithContext(ctx context.Context) VirtualHardDiskInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHardDiskInvokeResponseOutput)
+}
+
+func (i VirtualHardDiskInvokeResponseArgs) ToVirtualHardDiskInvokeResponsePtrOutput() VirtualHardDiskInvokeResponsePtrOutput {
+	return i.ToVirtualHardDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualHardDiskInvokeResponseArgs) ToVirtualHardDiskInvokeResponsePtrOutputWithContext(ctx context.Context) VirtualHardDiskInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHardDiskInvokeResponseOutput).ToVirtualHardDiskInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// VirtualHardDiskInvokeResponsePtrInput is an input type that accepts VirtualHardDiskInvokeResponseArgs, VirtualHardDiskInvokeResponsePtr and VirtualHardDiskInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `VirtualHardDiskInvokeResponsePtrInput` via:
+//
+//          VirtualHardDiskInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualHardDiskInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToVirtualHardDiskInvokeResponsePtrOutput() VirtualHardDiskInvokeResponsePtrOutput
+	ToVirtualHardDiskInvokeResponsePtrOutputWithContext(context.Context) VirtualHardDiskInvokeResponsePtrOutput
+}
+
+type virtualHardDiskInvokeResponsePtrType VirtualHardDiskInvokeResponseArgs
+
+func VirtualHardDiskInvokeResponsePtr(v *VirtualHardDiskInvokeResponseArgs) VirtualHardDiskInvokeResponsePtrInput {
+	return (*virtualHardDiskInvokeResponsePtrType)(v)
+}
+
+func (*virtualHardDiskInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualHardDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i *virtualHardDiskInvokeResponsePtrType) ToVirtualHardDiskInvokeResponsePtrOutput() VirtualHardDiskInvokeResponsePtrOutput {
+	return i.ToVirtualHardDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualHardDiskInvokeResponsePtrType) ToVirtualHardDiskInvokeResponsePtrOutputWithContext(ctx context.Context) VirtualHardDiskInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualHardDiskInvokeResponsePtrOutput)
+}
+
+// Describes the uri of a disk.
+type VirtualHardDiskInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualHardDiskInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualHardDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualHardDiskInvokeResponseOutput) ToVirtualHardDiskInvokeResponseOutput() VirtualHardDiskInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualHardDiskInvokeResponseOutput) ToVirtualHardDiskInvokeResponseOutputWithContext(ctx context.Context) VirtualHardDiskInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualHardDiskInvokeResponseOutput) ToVirtualHardDiskInvokeResponsePtrOutput() VirtualHardDiskInvokeResponsePtrOutput {
+	return o.ToVirtualHardDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualHardDiskInvokeResponseOutput) ToVirtualHardDiskInvokeResponsePtrOutputWithContext(ctx context.Context) VirtualHardDiskInvokeResponsePtrOutput {
+	return o.ApplyT(func(v VirtualHardDiskInvokeResponse) *VirtualHardDiskInvokeResponse {
+		return &v
+	}).(VirtualHardDiskInvokeResponsePtrOutput)
+}
+
+// Specifies the virtual hard disk's uri.
+func (o VirtualHardDiskInvokeResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualHardDiskInvokeResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type VirtualHardDiskInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualHardDiskInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualHardDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualHardDiskInvokeResponsePtrOutput) ToVirtualHardDiskInvokeResponsePtrOutput() VirtualHardDiskInvokeResponsePtrOutput {
+	return o
+}
+
+func (o VirtualHardDiskInvokeResponsePtrOutput) ToVirtualHardDiskInvokeResponsePtrOutputWithContext(ctx context.Context) VirtualHardDiskInvokeResponsePtrOutput {
+	return o
+}
+
+func (o VirtualHardDiskInvokeResponsePtrOutput) Elem() VirtualHardDiskInvokeResponseOutput {
+	return o.ApplyT(func(v *VirtualHardDiskInvokeResponse) VirtualHardDiskInvokeResponse { return *v }).(VirtualHardDiskInvokeResponseOutput)
+}
+
+// Specifies the virtual hard disk's uri.
+func (o VirtualHardDiskInvokeResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHardDiskInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the uri of a disk.
 type VirtualHardDiskResponse struct {
 	// Specifies the virtual hard disk's uri.
 	Uri *string `pulumi:"uri"`
@@ -5074,30 +7477,45 @@ func (o VirtualHardDiskResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(CustomProfileOutput{})
 	pulumi.RegisterOutputType(CustomProfilePtrOutput{})
+	pulumi.RegisterOutputType(CustomProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CustomProfileInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomProfileResponseOutput{})
 	pulumi.RegisterOutputType(CustomProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataDiskOutput{})
 	pulumi.RegisterOutputType(DataDiskArrayOutput{})
+	pulumi.RegisterOutputType(DataDiskInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataDiskInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataDiskResponseOutput{})
 	pulumi.RegisterOutputType(DataDiskResponseArrayOutput{})
 	pulumi.RegisterOutputType(ImageReferenceOutput{})
 	pulumi.RegisterOutputType(ImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(ImageReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ImageReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImageReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ImageReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LinuxConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LinuxConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionRoleConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionRoleConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkFunctionRoleConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NetworkFunctionRoleConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionRoleConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionRoleConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionTemplateOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionTemplatePtrOutput{})
+	pulumi.RegisterOutputType(NetworkFunctionTemplateInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionTemplateResponseOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionTemplateResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionUserConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionUserConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkFunctionUserConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NetworkFunctionUserConfigurationInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(NetworkFunctionUserConfigurationInvokeResponseOsProfileOutput{})
+	pulumi.RegisterOutputType(NetworkFunctionUserConfigurationInvokeResponseOsProfilePtrOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionUserConfigurationOsProfileOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionUserConfigurationOsProfilePtrOutput{})
 	pulumi.RegisterOutputType(NetworkFunctionUserConfigurationResponseOutput{})
@@ -5108,37 +7526,55 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIPConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIPConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceIPConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceIPConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIPConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceIPConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponseArrayOutput{})
 	pulumi.RegisterOutputType(OsDiskOutput{})
 	pulumi.RegisterOutputType(OsDiskPtrOutput{})
+	pulumi.RegisterOutputType(OsDiskInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OsDiskInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(OsDiskResponseOutput{})
 	pulumi.RegisterOutputType(OsDiskResponsePtrOutput{})
 	pulumi.RegisterOutputType(OsProfileOutput{})
 	pulumi.RegisterOutputType(OsProfilePtrOutput{})
+	pulumi.RegisterOutputType(OsProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OsProfileInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(OsProfileResponseOutput{})
 	pulumi.RegisterOutputType(OsProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(SshConfigurationOutput{})
 	pulumi.RegisterOutputType(SshConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SshConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SshConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SshConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(SshConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(SshPublicKeyOutput{})
 	pulumi.RegisterOutputType(SshPublicKeyArrayOutput{})
+	pulumi.RegisterOutputType(SshPublicKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SshPublicKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SshPublicKeyResponseOutput{})
 	pulumi.RegisterOutputType(SshPublicKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageProfileOutput{})
 	pulumi.RegisterOutputType(StorageProfilePtrOutput{})
+	pulumi.RegisterOutputType(StorageProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StorageProfileInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceOutput{})
 	pulumi.RegisterOutputType(SubResourcePtrOutput{})
+	pulumi.RegisterOutputType(SubResourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SubResourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseOutput{})
 	pulumi.RegisterOutputType(SubResourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualHardDiskOutput{})
 	pulumi.RegisterOutputType(VirtualHardDiskPtrOutput{})
+	pulumi.RegisterOutputType(VirtualHardDiskInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VirtualHardDiskInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualHardDiskResponseOutput{})
 	pulumi.RegisterOutputType(VirtualHardDiskResponsePtrOutput{})
 }

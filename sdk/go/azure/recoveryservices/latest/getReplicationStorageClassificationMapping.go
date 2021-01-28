@@ -38,7 +38,7 @@ type LookupReplicationStorageClassificationMappingResult struct {
 	// Resource Name
 	Name string `pulumi:"name"`
 	// Properties of the storage mapping object.
-	Properties StorageClassificationMappingPropertiesResponse `pulumi:"properties"`
+	Properties StorageClassificationMappingPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
 }

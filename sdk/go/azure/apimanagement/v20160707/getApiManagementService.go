@@ -26,7 +26,7 @@ type LookupApiManagementServiceArgs struct {
 // Description of an API Management service resource.
 type LookupApiManagementServiceResult struct {
 	// Additional datacenter locations of the API Management service.
-	AdditionalLocations []AdditionalRegionResponse `pulumi:"additionalLocations"`
+	AdditionalLocations []AdditionalRegionInvokeResponse `pulumi:"additionalLocations"`
 	// Addresser email.
 	AddresserEmail *string `pulumi:"addresserEmail"`
 	// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
@@ -36,7 +36,7 @@ type LookupApiManagementServiceResult struct {
 	// ETag of the resource.
 	Etag *string `pulumi:"etag"`
 	// Custom hostname configuration of the API Management service.
-	HostnameConfigurations []HostnameConfigurationResponse `pulumi:"hostnameConfigurations"`
+	HostnameConfigurations []HostnameConfigurationInvokeResponse `pulumi:"hostnameConfigurations"`
 	// The ID of the created API Management service.
 	Id string `pulumi:"id"`
 	// Datacenter location of the API Management service.
@@ -58,7 +58,7 @@ type LookupApiManagementServiceResult struct {
 	// SCM endpoint URL of the API Management service.
 	ScmUrl string `pulumi:"scmUrl"`
 	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
+	Sku ApiManagementServiceSkuPropertiesInvokeResponse `pulumi:"sku"`
 	// Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
 	StaticIPs []string `pulumi:"staticIPs"`
 	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
@@ -70,5 +70,5 @@ type LookupApiManagementServiceResult struct {
 	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
 	VpnType *string `pulumi:"vpnType"`
 	// Virtual network configuration of the API Management service.
-	Vpnconfiguration *VirtualNetworkConfigurationResponse `pulumi:"vpnconfiguration"`
+	Vpnconfiguration *VirtualNetworkConfigurationInvokeResponse `pulumi:"vpnconfiguration"`
 }

@@ -141,6 +141,136 @@ func (o MediaGraphAssetSinkArrayOutput) Index(i pulumi.IntInput) MediaGraphAsset
 }
 
 // Asset sink
+type MediaGraphAssetSinkInvokeResponse struct {
+	// Asset name
+	AssetName string `pulumi:"assetName"`
+	// Sink inputs
+	Inputs []string `pulumi:"inputs"`
+	// Sink name
+	Name string `pulumi:"name"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// MediaGraphAssetSinkInvokeResponseInput is an input type that accepts MediaGraphAssetSinkInvokeResponseArgs and MediaGraphAssetSinkInvokeResponseOutput values.
+// You can construct a concrete instance of `MediaGraphAssetSinkInvokeResponseInput` via:
+//
+//          MediaGraphAssetSinkInvokeResponseArgs{...}
+type MediaGraphAssetSinkInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMediaGraphAssetSinkInvokeResponseOutput() MediaGraphAssetSinkInvokeResponseOutput
+	ToMediaGraphAssetSinkInvokeResponseOutputWithContext(context.Context) MediaGraphAssetSinkInvokeResponseOutput
+}
+
+// Asset sink
+type MediaGraphAssetSinkInvokeResponseArgs struct {
+	// Asset name
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// Sink inputs
+	Inputs pulumi.StringArrayInput `pulumi:"inputs"`
+	// Sink name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (MediaGraphAssetSinkInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaGraphAssetSinkInvokeResponse)(nil)).Elem()
+}
+
+func (i MediaGraphAssetSinkInvokeResponseArgs) ToMediaGraphAssetSinkInvokeResponseOutput() MediaGraphAssetSinkInvokeResponseOutput {
+	return i.ToMediaGraphAssetSinkInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MediaGraphAssetSinkInvokeResponseArgs) ToMediaGraphAssetSinkInvokeResponseOutputWithContext(ctx context.Context) MediaGraphAssetSinkInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphAssetSinkInvokeResponseOutput)
+}
+
+// MediaGraphAssetSinkInvokeResponseArrayInput is an input type that accepts MediaGraphAssetSinkInvokeResponseArray and MediaGraphAssetSinkInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MediaGraphAssetSinkInvokeResponseArrayInput` via:
+//
+//          MediaGraphAssetSinkInvokeResponseArray{ MediaGraphAssetSinkInvokeResponseArgs{...} }
+type MediaGraphAssetSinkInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMediaGraphAssetSinkInvokeResponseArrayOutput() MediaGraphAssetSinkInvokeResponseArrayOutput
+	ToMediaGraphAssetSinkInvokeResponseArrayOutputWithContext(context.Context) MediaGraphAssetSinkInvokeResponseArrayOutput
+}
+
+type MediaGraphAssetSinkInvokeResponseArray []MediaGraphAssetSinkInvokeResponseInput
+
+func (MediaGraphAssetSinkInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MediaGraphAssetSinkInvokeResponse)(nil)).Elem()
+}
+
+func (i MediaGraphAssetSinkInvokeResponseArray) ToMediaGraphAssetSinkInvokeResponseArrayOutput() MediaGraphAssetSinkInvokeResponseArrayOutput {
+	return i.ToMediaGraphAssetSinkInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MediaGraphAssetSinkInvokeResponseArray) ToMediaGraphAssetSinkInvokeResponseArrayOutputWithContext(ctx context.Context) MediaGraphAssetSinkInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphAssetSinkInvokeResponseArrayOutput)
+}
+
+// Asset sink
+type MediaGraphAssetSinkInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MediaGraphAssetSinkInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaGraphAssetSinkInvokeResponse)(nil)).Elem()
+}
+
+func (o MediaGraphAssetSinkInvokeResponseOutput) ToMediaGraphAssetSinkInvokeResponseOutput() MediaGraphAssetSinkInvokeResponseOutput {
+	return o
+}
+
+func (o MediaGraphAssetSinkInvokeResponseOutput) ToMediaGraphAssetSinkInvokeResponseOutputWithContext(ctx context.Context) MediaGraphAssetSinkInvokeResponseOutput {
+	return o
+}
+
+// Asset name
+func (o MediaGraphAssetSinkInvokeResponseOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaGraphAssetSinkInvokeResponse) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// Sink inputs
+func (o MediaGraphAssetSinkInvokeResponseOutput) Inputs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MediaGraphAssetSinkInvokeResponse) []string { return v.Inputs }).(pulumi.StringArrayOutput)
+}
+
+// Sink name
+func (o MediaGraphAssetSinkInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaGraphAssetSinkInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
+func (o MediaGraphAssetSinkInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaGraphAssetSinkInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+type MediaGraphAssetSinkInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MediaGraphAssetSinkInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MediaGraphAssetSinkInvokeResponse)(nil)).Elem()
+}
+
+func (o MediaGraphAssetSinkInvokeResponseArrayOutput) ToMediaGraphAssetSinkInvokeResponseArrayOutput() MediaGraphAssetSinkInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MediaGraphAssetSinkInvokeResponseArrayOutput) ToMediaGraphAssetSinkInvokeResponseArrayOutputWithContext(ctx context.Context) MediaGraphAssetSinkInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MediaGraphAssetSinkInvokeResponseArrayOutput) Index(i pulumi.IntInput) MediaGraphAssetSinkInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MediaGraphAssetSinkInvokeResponse {
+		return vs[0].([]MediaGraphAssetSinkInvokeResponse)[vs[1].(int)]
+	}).(MediaGraphAssetSinkInvokeResponseOutput)
+}
+
+// Asset sink
 type MediaGraphAssetSinkResponse struct {
 	// Asset name
 	AssetName string `pulumi:"assetName"`
@@ -398,6 +528,138 @@ func (o MediaGraphRtspSourceArrayOutput) Index(i pulumi.IntInput) MediaGraphRtsp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MediaGraphRtspSource {
 		return vs[0].([]MediaGraphRtspSource)[vs[1].(int)]
 	}).(MediaGraphRtspSourceOutput)
+}
+
+// RTSP source
+type MediaGraphRtspSourceInvokeResponse struct {
+	// RTSP Credentials
+	Credentials *MediaGraphUserCredentialsInvokeResponse `pulumi:"credentials"`
+	// Source name
+	Name string `pulumi:"name"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
+	OdataType string `pulumi:"odataType"`
+	// RTSP URL
+	RtspUrl string `pulumi:"rtspUrl"`
+}
+
+// MediaGraphRtspSourceInvokeResponseInput is an input type that accepts MediaGraphRtspSourceInvokeResponseArgs and MediaGraphRtspSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `MediaGraphRtspSourceInvokeResponseInput` via:
+//
+//          MediaGraphRtspSourceInvokeResponseArgs{...}
+type MediaGraphRtspSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMediaGraphRtspSourceInvokeResponseOutput() MediaGraphRtspSourceInvokeResponseOutput
+	ToMediaGraphRtspSourceInvokeResponseOutputWithContext(context.Context) MediaGraphRtspSourceInvokeResponseOutput
+}
+
+// RTSP source
+type MediaGraphRtspSourceInvokeResponseArgs struct {
+	// RTSP Credentials
+	Credentials MediaGraphUserCredentialsInvokeResponsePtrInput `pulumi:"credentials"`
+	// Source name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// RTSP URL
+	RtspUrl pulumi.StringInput `pulumi:"rtspUrl"`
+}
+
+func (MediaGraphRtspSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaGraphRtspSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i MediaGraphRtspSourceInvokeResponseArgs) ToMediaGraphRtspSourceInvokeResponseOutput() MediaGraphRtspSourceInvokeResponseOutput {
+	return i.ToMediaGraphRtspSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MediaGraphRtspSourceInvokeResponseArgs) ToMediaGraphRtspSourceInvokeResponseOutputWithContext(ctx context.Context) MediaGraphRtspSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphRtspSourceInvokeResponseOutput)
+}
+
+// MediaGraphRtspSourceInvokeResponseArrayInput is an input type that accepts MediaGraphRtspSourceInvokeResponseArray and MediaGraphRtspSourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MediaGraphRtspSourceInvokeResponseArrayInput` via:
+//
+//          MediaGraphRtspSourceInvokeResponseArray{ MediaGraphRtspSourceInvokeResponseArgs{...} }
+type MediaGraphRtspSourceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMediaGraphRtspSourceInvokeResponseArrayOutput() MediaGraphRtspSourceInvokeResponseArrayOutput
+	ToMediaGraphRtspSourceInvokeResponseArrayOutputWithContext(context.Context) MediaGraphRtspSourceInvokeResponseArrayOutput
+}
+
+type MediaGraphRtspSourceInvokeResponseArray []MediaGraphRtspSourceInvokeResponseInput
+
+func (MediaGraphRtspSourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MediaGraphRtspSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i MediaGraphRtspSourceInvokeResponseArray) ToMediaGraphRtspSourceInvokeResponseArrayOutput() MediaGraphRtspSourceInvokeResponseArrayOutput {
+	return i.ToMediaGraphRtspSourceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MediaGraphRtspSourceInvokeResponseArray) ToMediaGraphRtspSourceInvokeResponseArrayOutputWithContext(ctx context.Context) MediaGraphRtspSourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphRtspSourceInvokeResponseArrayOutput)
+}
+
+// RTSP source
+type MediaGraphRtspSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MediaGraphRtspSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaGraphRtspSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o MediaGraphRtspSourceInvokeResponseOutput) ToMediaGraphRtspSourceInvokeResponseOutput() MediaGraphRtspSourceInvokeResponseOutput {
+	return o
+}
+
+func (o MediaGraphRtspSourceInvokeResponseOutput) ToMediaGraphRtspSourceInvokeResponseOutputWithContext(ctx context.Context) MediaGraphRtspSourceInvokeResponseOutput {
+	return o
+}
+
+// RTSP Credentials
+func (o MediaGraphRtspSourceInvokeResponseOutput) Credentials() MediaGraphUserCredentialsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MediaGraphRtspSourceInvokeResponse) *MediaGraphUserCredentialsInvokeResponse {
+		return v.Credentials
+	}).(MediaGraphUserCredentialsInvokeResponsePtrOutput)
+}
+
+// Source name
+func (o MediaGraphRtspSourceInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaGraphRtspSourceInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
+func (o MediaGraphRtspSourceInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaGraphRtspSourceInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// RTSP URL
+func (o MediaGraphRtspSourceInvokeResponseOutput) RtspUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaGraphRtspSourceInvokeResponse) string { return v.RtspUrl }).(pulumi.StringOutput)
+}
+
+type MediaGraphRtspSourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MediaGraphRtspSourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MediaGraphRtspSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o MediaGraphRtspSourceInvokeResponseArrayOutput) ToMediaGraphRtspSourceInvokeResponseArrayOutput() MediaGraphRtspSourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MediaGraphRtspSourceInvokeResponseArrayOutput) ToMediaGraphRtspSourceInvokeResponseArrayOutputWithContext(ctx context.Context) MediaGraphRtspSourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MediaGraphRtspSourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) MediaGraphRtspSourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MediaGraphRtspSourceInvokeResponse {
+		return vs[0].([]MediaGraphRtspSourceInvokeResponse)[vs[1].(int)]
+	}).(MediaGraphRtspSourceInvokeResponseOutput)
 }
 
 // RTSP source
@@ -684,6 +946,159 @@ func (o MediaGraphUserCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 // Credentials to authenticate to Media Graph sources
+type MediaGraphUserCredentialsInvokeResponse struct {
+	// Password credential
+	Password string `pulumi:"password"`
+	// User name
+	Username string `pulumi:"username"`
+}
+
+// MediaGraphUserCredentialsInvokeResponseInput is an input type that accepts MediaGraphUserCredentialsInvokeResponseArgs and MediaGraphUserCredentialsInvokeResponseOutput values.
+// You can construct a concrete instance of `MediaGraphUserCredentialsInvokeResponseInput` via:
+//
+//          MediaGraphUserCredentialsInvokeResponseArgs{...}
+type MediaGraphUserCredentialsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMediaGraphUserCredentialsInvokeResponseOutput() MediaGraphUserCredentialsInvokeResponseOutput
+	ToMediaGraphUserCredentialsInvokeResponseOutputWithContext(context.Context) MediaGraphUserCredentialsInvokeResponseOutput
+}
+
+// Credentials to authenticate to Media Graph sources
+type MediaGraphUserCredentialsInvokeResponseArgs struct {
+	// Password credential
+	Password pulumi.StringInput `pulumi:"password"`
+	// User name
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (MediaGraphUserCredentialsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaGraphUserCredentialsInvokeResponse)(nil)).Elem()
+}
+
+func (i MediaGraphUserCredentialsInvokeResponseArgs) ToMediaGraphUserCredentialsInvokeResponseOutput() MediaGraphUserCredentialsInvokeResponseOutput {
+	return i.ToMediaGraphUserCredentialsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MediaGraphUserCredentialsInvokeResponseArgs) ToMediaGraphUserCredentialsInvokeResponseOutputWithContext(ctx context.Context) MediaGraphUserCredentialsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphUserCredentialsInvokeResponseOutput)
+}
+
+func (i MediaGraphUserCredentialsInvokeResponseArgs) ToMediaGraphUserCredentialsInvokeResponsePtrOutput() MediaGraphUserCredentialsInvokeResponsePtrOutput {
+	return i.ToMediaGraphUserCredentialsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MediaGraphUserCredentialsInvokeResponseArgs) ToMediaGraphUserCredentialsInvokeResponsePtrOutputWithContext(ctx context.Context) MediaGraphUserCredentialsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphUserCredentialsInvokeResponseOutput).ToMediaGraphUserCredentialsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MediaGraphUserCredentialsInvokeResponsePtrInput is an input type that accepts MediaGraphUserCredentialsInvokeResponseArgs, MediaGraphUserCredentialsInvokeResponsePtr and MediaGraphUserCredentialsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MediaGraphUserCredentialsInvokeResponsePtrInput` via:
+//
+//          MediaGraphUserCredentialsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MediaGraphUserCredentialsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMediaGraphUserCredentialsInvokeResponsePtrOutput() MediaGraphUserCredentialsInvokeResponsePtrOutput
+	ToMediaGraphUserCredentialsInvokeResponsePtrOutputWithContext(context.Context) MediaGraphUserCredentialsInvokeResponsePtrOutput
+}
+
+type mediaGraphUserCredentialsInvokeResponsePtrType MediaGraphUserCredentialsInvokeResponseArgs
+
+func MediaGraphUserCredentialsInvokeResponsePtr(v *MediaGraphUserCredentialsInvokeResponseArgs) MediaGraphUserCredentialsInvokeResponsePtrInput {
+	return (*mediaGraphUserCredentialsInvokeResponsePtrType)(v)
+}
+
+func (*mediaGraphUserCredentialsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaGraphUserCredentialsInvokeResponse)(nil)).Elem()
+}
+
+func (i *mediaGraphUserCredentialsInvokeResponsePtrType) ToMediaGraphUserCredentialsInvokeResponsePtrOutput() MediaGraphUserCredentialsInvokeResponsePtrOutput {
+	return i.ToMediaGraphUserCredentialsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mediaGraphUserCredentialsInvokeResponsePtrType) ToMediaGraphUserCredentialsInvokeResponsePtrOutputWithContext(ctx context.Context) MediaGraphUserCredentialsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaGraphUserCredentialsInvokeResponsePtrOutput)
+}
+
+// Credentials to authenticate to Media Graph sources
+type MediaGraphUserCredentialsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MediaGraphUserCredentialsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaGraphUserCredentialsInvokeResponse)(nil)).Elem()
+}
+
+func (o MediaGraphUserCredentialsInvokeResponseOutput) ToMediaGraphUserCredentialsInvokeResponseOutput() MediaGraphUserCredentialsInvokeResponseOutput {
+	return o
+}
+
+func (o MediaGraphUserCredentialsInvokeResponseOutput) ToMediaGraphUserCredentialsInvokeResponseOutputWithContext(ctx context.Context) MediaGraphUserCredentialsInvokeResponseOutput {
+	return o
+}
+
+func (o MediaGraphUserCredentialsInvokeResponseOutput) ToMediaGraphUserCredentialsInvokeResponsePtrOutput() MediaGraphUserCredentialsInvokeResponsePtrOutput {
+	return o.ToMediaGraphUserCredentialsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MediaGraphUserCredentialsInvokeResponseOutput) ToMediaGraphUserCredentialsInvokeResponsePtrOutputWithContext(ctx context.Context) MediaGraphUserCredentialsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MediaGraphUserCredentialsInvokeResponse) *MediaGraphUserCredentialsInvokeResponse {
+		return &v
+	}).(MediaGraphUserCredentialsInvokeResponsePtrOutput)
+}
+
+// Password credential
+func (o MediaGraphUserCredentialsInvokeResponseOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaGraphUserCredentialsInvokeResponse) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// User name
+func (o MediaGraphUserCredentialsInvokeResponseOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaGraphUserCredentialsInvokeResponse) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type MediaGraphUserCredentialsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MediaGraphUserCredentialsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaGraphUserCredentialsInvokeResponse)(nil)).Elem()
+}
+
+func (o MediaGraphUserCredentialsInvokeResponsePtrOutput) ToMediaGraphUserCredentialsInvokeResponsePtrOutput() MediaGraphUserCredentialsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MediaGraphUserCredentialsInvokeResponsePtrOutput) ToMediaGraphUserCredentialsInvokeResponsePtrOutputWithContext(ctx context.Context) MediaGraphUserCredentialsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MediaGraphUserCredentialsInvokeResponsePtrOutput) Elem() MediaGraphUserCredentialsInvokeResponseOutput {
+	return o.ApplyT(func(v *MediaGraphUserCredentialsInvokeResponse) MediaGraphUserCredentialsInvokeResponse { return *v }).(MediaGraphUserCredentialsInvokeResponseOutput)
+}
+
+// Password credential
+func (o MediaGraphUserCredentialsInvokeResponsePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaGraphUserCredentialsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// User name
+func (o MediaGraphUserCredentialsInvokeResponsePtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaGraphUserCredentialsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// Credentials to authenticate to Media Graph sources
 type MediaGraphUserCredentialsResponse struct {
 	// Password credential
 	Password string `pulumi:"password"`
@@ -839,14 +1254,20 @@ func (o MediaGraphUserCredentialsResponsePtrOutput) Username() pulumi.StringPtrO
 func init() {
 	pulumi.RegisterOutputType(MediaGraphAssetSinkOutput{})
 	pulumi.RegisterOutputType(MediaGraphAssetSinkArrayOutput{})
+	pulumi.RegisterOutputType(MediaGraphAssetSinkInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MediaGraphAssetSinkInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MediaGraphAssetSinkResponseOutput{})
 	pulumi.RegisterOutputType(MediaGraphAssetSinkResponseArrayOutput{})
 	pulumi.RegisterOutputType(MediaGraphRtspSourceOutput{})
 	pulumi.RegisterOutputType(MediaGraphRtspSourceArrayOutput{})
+	pulumi.RegisterOutputType(MediaGraphRtspSourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MediaGraphRtspSourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MediaGraphRtspSourceResponseOutput{})
 	pulumi.RegisterOutputType(MediaGraphRtspSourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(MediaGraphUserCredentialsOutput{})
 	pulumi.RegisterOutputType(MediaGraphUserCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(MediaGraphUserCredentialsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MediaGraphUserCredentialsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MediaGraphUserCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(MediaGraphUserCredentialsResponsePtrOutput{})
 }

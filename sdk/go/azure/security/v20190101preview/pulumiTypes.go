@@ -11,6 +11,61 @@ import (
 )
 
 // Links relevant to the assessment
+type AssessmentLinksInvokeResponse struct {
+	// Link to assessment in Azure Portal
+	AzurePortalUri string `pulumi:"azurePortalUri"`
+}
+
+// AssessmentLinksInvokeResponseInput is an input type that accepts AssessmentLinksInvokeResponseArgs and AssessmentLinksInvokeResponseOutput values.
+// You can construct a concrete instance of `AssessmentLinksInvokeResponseInput` via:
+//
+//          AssessmentLinksInvokeResponseArgs{...}
+type AssessmentLinksInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAssessmentLinksInvokeResponseOutput() AssessmentLinksInvokeResponseOutput
+	ToAssessmentLinksInvokeResponseOutputWithContext(context.Context) AssessmentLinksInvokeResponseOutput
+}
+
+// Links relevant to the assessment
+type AssessmentLinksInvokeResponseArgs struct {
+	// Link to assessment in Azure Portal
+	AzurePortalUri pulumi.StringInput `pulumi:"azurePortalUri"`
+}
+
+func (AssessmentLinksInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentLinksInvokeResponse)(nil)).Elem()
+}
+
+func (i AssessmentLinksInvokeResponseArgs) ToAssessmentLinksInvokeResponseOutput() AssessmentLinksInvokeResponseOutput {
+	return i.ToAssessmentLinksInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AssessmentLinksInvokeResponseArgs) ToAssessmentLinksInvokeResponseOutputWithContext(ctx context.Context) AssessmentLinksInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksInvokeResponseOutput)
+}
+
+// Links relevant to the assessment
+type AssessmentLinksInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AssessmentLinksInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentLinksInvokeResponse)(nil)).Elem()
+}
+
+func (o AssessmentLinksInvokeResponseOutput) ToAssessmentLinksInvokeResponseOutput() AssessmentLinksInvokeResponseOutput {
+	return o
+}
+
+func (o AssessmentLinksInvokeResponseOutput) ToAssessmentLinksInvokeResponseOutputWithContext(ctx context.Context) AssessmentLinksInvokeResponseOutput {
+	return o
+}
+
+// Link to assessment in Azure Portal
+func (o AssessmentLinksInvokeResponseOutput) AzurePortalUri() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentLinksInvokeResponse) string { return v.AzurePortalUri }).(pulumi.StringOutput)
+}
+
+// Links relevant to the assessment
 type AssessmentLinksResponse struct {
 	// Link to assessment in Azure Portal
 	AzurePortalUri string `pulumi:"azurePortalUri"`
@@ -317,6 +372,79 @@ func (o AssessmentStatusPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The result of the assessment
+type AssessmentStatusInvokeResponse struct {
+	// Programmatic code for the cause of the assessment status
+	Cause *string `pulumi:"cause"`
+	// Programmatic code for the status of the assessment
+	Code string `pulumi:"code"`
+	// Human readable description of the assessment status
+	Description *string `pulumi:"description"`
+}
+
+// AssessmentStatusInvokeResponseInput is an input type that accepts AssessmentStatusInvokeResponseArgs and AssessmentStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `AssessmentStatusInvokeResponseInput` via:
+//
+//          AssessmentStatusInvokeResponseArgs{...}
+type AssessmentStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAssessmentStatusInvokeResponseOutput() AssessmentStatusInvokeResponseOutput
+	ToAssessmentStatusInvokeResponseOutputWithContext(context.Context) AssessmentStatusInvokeResponseOutput
+}
+
+// The result of the assessment
+type AssessmentStatusInvokeResponseArgs struct {
+	// Programmatic code for the cause of the assessment status
+	Cause pulumi.StringPtrInput `pulumi:"cause"`
+	// Programmatic code for the status of the assessment
+	Code pulumi.StringInput `pulumi:"code"`
+	// Human readable description of the assessment status
+	Description pulumi.StringPtrInput `pulumi:"description"`
+}
+
+func (AssessmentStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i AssessmentStatusInvokeResponseArgs) ToAssessmentStatusInvokeResponseOutput() AssessmentStatusInvokeResponseOutput {
+	return i.ToAssessmentStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AssessmentStatusInvokeResponseArgs) ToAssessmentStatusInvokeResponseOutputWithContext(ctx context.Context) AssessmentStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusInvokeResponseOutput)
+}
+
+// The result of the assessment
+type AssessmentStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AssessmentStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o AssessmentStatusInvokeResponseOutput) ToAssessmentStatusInvokeResponseOutput() AssessmentStatusInvokeResponseOutput {
+	return o
+}
+
+func (o AssessmentStatusInvokeResponseOutput) ToAssessmentStatusInvokeResponseOutputWithContext(ctx context.Context) AssessmentStatusInvokeResponseOutput {
+	return o
+}
+
+// Programmatic code for the cause of the assessment status
+func (o AssessmentStatusInvokeResponseOutput) Cause() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentStatusInvokeResponse) *string { return v.Cause }).(pulumi.StringPtrOutput)
+}
+
+// Programmatic code for the status of the assessment
+func (o AssessmentStatusInvokeResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentStatusInvokeResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Human readable description of the assessment status
+func (o AssessmentStatusInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentStatusInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The result of the assessment
 type AssessmentStatusResponse struct {
 	// Programmatic code for the cause of the assessment status
 	Cause *string `pulumi:"cause"`
@@ -565,6 +693,91 @@ func (o AutomationActionEventHubOutput) EventHubResourceId() pulumi.StringPtrOut
 }
 
 // The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionEventHubInvokeResponse struct {
+	// The type of the action that will be triggered by the Automation
+	// Expected value is 'EventHub'.
+	ActionType string `pulumi:"actionType"`
+	// The target Event Hub connection string (it will not be included in any response).
+	ConnectionString *string `pulumi:"connectionString"`
+	// The target Event Hub Azure Resource ID.
+	EventHubResourceId *string `pulumi:"eventHubResourceId"`
+	// The target Event Hub SAS policy name.
+	SasPolicyName string `pulumi:"sasPolicyName"`
+}
+
+// AutomationActionEventHubInvokeResponseInput is an input type that accepts AutomationActionEventHubInvokeResponseArgs and AutomationActionEventHubInvokeResponseOutput values.
+// You can construct a concrete instance of `AutomationActionEventHubInvokeResponseInput` via:
+//
+//          AutomationActionEventHubInvokeResponseArgs{...}
+type AutomationActionEventHubInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutomationActionEventHubInvokeResponseOutput() AutomationActionEventHubInvokeResponseOutput
+	ToAutomationActionEventHubInvokeResponseOutputWithContext(context.Context) AutomationActionEventHubInvokeResponseOutput
+}
+
+// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionEventHubInvokeResponseArgs struct {
+	// The type of the action that will be triggered by the Automation
+	// Expected value is 'EventHub'.
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The target Event Hub connection string (it will not be included in any response).
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
+	// The target Event Hub Azure Resource ID.
+	EventHubResourceId pulumi.StringPtrInput `pulumi:"eventHubResourceId"`
+	// The target Event Hub SAS policy name.
+	SasPolicyName pulumi.StringInput `pulumi:"sasPolicyName"`
+}
+
+func (AutomationActionEventHubInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionEventHubInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationActionEventHubInvokeResponseArgs) ToAutomationActionEventHubInvokeResponseOutput() AutomationActionEventHubInvokeResponseOutput {
+	return i.ToAutomationActionEventHubInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationActionEventHubInvokeResponseArgs) ToAutomationActionEventHubInvokeResponseOutputWithContext(ctx context.Context) AutomationActionEventHubInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionEventHubInvokeResponseOutput)
+}
+
+// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionEventHubInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionEventHubInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionEventHubInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationActionEventHubInvokeResponseOutput) ToAutomationActionEventHubInvokeResponseOutput() AutomationActionEventHubInvokeResponseOutput {
+	return o
+}
+
+func (o AutomationActionEventHubInvokeResponseOutput) ToAutomationActionEventHubInvokeResponseOutputWithContext(ctx context.Context) AutomationActionEventHubInvokeResponseOutput {
+	return o
+}
+
+// The type of the action that will be triggered by the Automation
+// Expected value is 'EventHub'.
+func (o AutomationActionEventHubInvokeResponseOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionEventHubInvokeResponse) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The target Event Hub connection string (it will not be included in any response).
+func (o AutomationActionEventHubInvokeResponseOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionEventHubInvokeResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The target Event Hub Azure Resource ID.
+func (o AutomationActionEventHubInvokeResponseOutput) EventHubResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionEventHubInvokeResponse) *string { return v.EventHubResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The target Event Hub SAS policy name.
+func (o AutomationActionEventHubInvokeResponseOutput) SasPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionEventHubInvokeResponse) string { return v.SasPolicyName }).(pulumi.StringOutput)
+}
+
+// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponse struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'EventHub'.
@@ -726,6 +939,82 @@ func (o AutomationActionLogicAppOutput) Uri() pulumi.StringPtrOutput {
 }
 
 // The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+type AutomationActionLogicAppInvokeResponse struct {
+	// The type of the action that will be triggered by the Automation
+	// Expected value is 'LogicApp'.
+	ActionType string `pulumi:"actionType"`
+	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
+	// The Logic App trigger URI endpoint (it will not be included in any response).
+	Uri *string `pulumi:"uri"`
+}
+
+// AutomationActionLogicAppInvokeResponseInput is an input type that accepts AutomationActionLogicAppInvokeResponseArgs and AutomationActionLogicAppInvokeResponseOutput values.
+// You can construct a concrete instance of `AutomationActionLogicAppInvokeResponseInput` via:
+//
+//          AutomationActionLogicAppInvokeResponseArgs{...}
+type AutomationActionLogicAppInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutomationActionLogicAppInvokeResponseOutput() AutomationActionLogicAppInvokeResponseOutput
+	ToAutomationActionLogicAppInvokeResponseOutputWithContext(context.Context) AutomationActionLogicAppInvokeResponseOutput
+}
+
+// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+type AutomationActionLogicAppInvokeResponseArgs struct {
+	// The type of the action that will be triggered by the Automation
+	// Expected value is 'LogicApp'.
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+	LogicAppResourceId pulumi.StringPtrInput `pulumi:"logicAppResourceId"`
+	// The Logic App trigger URI endpoint (it will not be included in any response).
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (AutomationActionLogicAppInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionLogicAppInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationActionLogicAppInvokeResponseArgs) ToAutomationActionLogicAppInvokeResponseOutput() AutomationActionLogicAppInvokeResponseOutput {
+	return i.ToAutomationActionLogicAppInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationActionLogicAppInvokeResponseArgs) ToAutomationActionLogicAppInvokeResponseOutputWithContext(ctx context.Context) AutomationActionLogicAppInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionLogicAppInvokeResponseOutput)
+}
+
+// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+type AutomationActionLogicAppInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionLogicAppInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionLogicAppInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationActionLogicAppInvokeResponseOutput) ToAutomationActionLogicAppInvokeResponseOutput() AutomationActionLogicAppInvokeResponseOutput {
+	return o
+}
+
+func (o AutomationActionLogicAppInvokeResponseOutput) ToAutomationActionLogicAppInvokeResponseOutputWithContext(ctx context.Context) AutomationActionLogicAppInvokeResponseOutput {
+	return o
+}
+
+// The type of the action that will be triggered by the Automation
+// Expected value is 'LogicApp'.
+func (o AutomationActionLogicAppInvokeResponseOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionLogicAppInvokeResponse) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
+func (o AutomationActionLogicAppInvokeResponseOutput) LogicAppResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionLogicAppInvokeResponse) *string { return v.LogicAppResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The Logic App trigger URI endpoint (it will not be included in any response).
+func (o AutomationActionLogicAppInvokeResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionLogicAppInvokeResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponse struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'LogicApp'.
@@ -866,6 +1155,73 @@ func (o AutomationActionWorkspaceOutput) ActionType() pulumi.StringOutput {
 // The fully qualified Log Analytics Workspace Azure Resource ID.
 func (o AutomationActionWorkspaceOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationActionWorkspace) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionWorkspaceInvokeResponse struct {
+	// The type of the action that will be triggered by the Automation
+	// Expected value is 'Workspace'.
+	ActionType string `pulumi:"actionType"`
+	// The fully qualified Log Analytics Workspace Azure Resource ID.
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
+}
+
+// AutomationActionWorkspaceInvokeResponseInput is an input type that accepts AutomationActionWorkspaceInvokeResponseArgs and AutomationActionWorkspaceInvokeResponseOutput values.
+// You can construct a concrete instance of `AutomationActionWorkspaceInvokeResponseInput` via:
+//
+//          AutomationActionWorkspaceInvokeResponseArgs{...}
+type AutomationActionWorkspaceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutomationActionWorkspaceInvokeResponseOutput() AutomationActionWorkspaceInvokeResponseOutput
+	ToAutomationActionWorkspaceInvokeResponseOutputWithContext(context.Context) AutomationActionWorkspaceInvokeResponseOutput
+}
+
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionWorkspaceInvokeResponseArgs struct {
+	// The type of the action that will be triggered by the Automation
+	// Expected value is 'Workspace'.
+	ActionType pulumi.StringInput `pulumi:"actionType"`
+	// The fully qualified Log Analytics Workspace Azure Resource ID.
+	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
+}
+
+func (AutomationActionWorkspaceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionWorkspaceInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationActionWorkspaceInvokeResponseArgs) ToAutomationActionWorkspaceInvokeResponseOutput() AutomationActionWorkspaceInvokeResponseOutput {
+	return i.ToAutomationActionWorkspaceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationActionWorkspaceInvokeResponseArgs) ToAutomationActionWorkspaceInvokeResponseOutputWithContext(ctx context.Context) AutomationActionWorkspaceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionWorkspaceInvokeResponseOutput)
+}
+
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+type AutomationActionWorkspaceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationActionWorkspaceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationActionWorkspaceInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationActionWorkspaceInvokeResponseOutput) ToAutomationActionWorkspaceInvokeResponseOutput() AutomationActionWorkspaceInvokeResponseOutput {
+	return o
+}
+
+func (o AutomationActionWorkspaceInvokeResponseOutput) ToAutomationActionWorkspaceInvokeResponseOutputWithContext(ctx context.Context) AutomationActionWorkspaceInvokeResponseOutput {
+	return o
+}
+
+// The type of the action that will be triggered by the Automation
+// Expected value is 'Workspace'.
+func (o AutomationActionWorkspaceInvokeResponseOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationActionWorkspaceInvokeResponse) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+// The fully qualified Log Analytics Workspace Azure Resource ID.
+func (o AutomationActionWorkspaceInvokeResponseOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationActionWorkspaceInvokeResponse) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
 
 // The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
@@ -1030,6 +1386,103 @@ func (o AutomationRuleSetArrayOutput) Index(i pulumi.IntInput) AutomationRuleSet
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleSet {
 		return vs[0].([]AutomationRuleSet)[vs[1].(int)]
 	}).(AutomationRuleSetOutput)
+}
+
+// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+type AutomationRuleSetInvokeResponse struct {
+	Rules []AutomationTriggeringRuleInvokeResponse `pulumi:"rules"`
+}
+
+// AutomationRuleSetInvokeResponseInput is an input type that accepts AutomationRuleSetInvokeResponseArgs and AutomationRuleSetInvokeResponseOutput values.
+// You can construct a concrete instance of `AutomationRuleSetInvokeResponseInput` via:
+//
+//          AutomationRuleSetInvokeResponseArgs{...}
+type AutomationRuleSetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutomationRuleSetInvokeResponseOutput() AutomationRuleSetInvokeResponseOutput
+	ToAutomationRuleSetInvokeResponseOutputWithContext(context.Context) AutomationRuleSetInvokeResponseOutput
+}
+
+// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+type AutomationRuleSetInvokeResponseArgs struct {
+	Rules AutomationTriggeringRuleInvokeResponseArrayInput `pulumi:"rules"`
+}
+
+func (AutomationRuleSetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationRuleSetInvokeResponseArgs) ToAutomationRuleSetInvokeResponseOutput() AutomationRuleSetInvokeResponseOutput {
+	return i.ToAutomationRuleSetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleSetInvokeResponseArgs) ToAutomationRuleSetInvokeResponseOutputWithContext(ctx context.Context) AutomationRuleSetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetInvokeResponseOutput)
+}
+
+// AutomationRuleSetInvokeResponseArrayInput is an input type that accepts AutomationRuleSetInvokeResponseArray and AutomationRuleSetInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleSetInvokeResponseArrayInput` via:
+//
+//          AutomationRuleSetInvokeResponseArray{ AutomationRuleSetInvokeResponseArgs{...} }
+type AutomationRuleSetInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleSetInvokeResponseArrayOutput() AutomationRuleSetInvokeResponseArrayOutput
+	ToAutomationRuleSetInvokeResponseArrayOutputWithContext(context.Context) AutomationRuleSetInvokeResponseArrayOutput
+}
+
+type AutomationRuleSetInvokeResponseArray []AutomationRuleSetInvokeResponseInput
+
+func (AutomationRuleSetInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationRuleSetInvokeResponseArray) ToAutomationRuleSetInvokeResponseArrayOutput() AutomationRuleSetInvokeResponseArrayOutput {
+	return i.ToAutomationRuleSetInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleSetInvokeResponseArray) ToAutomationRuleSetInvokeResponseArrayOutputWithContext(ctx context.Context) AutomationRuleSetInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSetInvokeResponseArrayOutput)
+}
+
+// A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
+type AutomationRuleSetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleSetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationRuleSetInvokeResponseOutput) ToAutomationRuleSetInvokeResponseOutput() AutomationRuleSetInvokeResponseOutput {
+	return o
+}
+
+func (o AutomationRuleSetInvokeResponseOutput) ToAutomationRuleSetInvokeResponseOutputWithContext(ctx context.Context) AutomationRuleSetInvokeResponseOutput {
+	return o
+}
+
+func (o AutomationRuleSetInvokeResponseOutput) Rules() AutomationTriggeringRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AutomationRuleSetInvokeResponse) []AutomationTriggeringRuleInvokeResponse { return v.Rules }).(AutomationTriggeringRuleInvokeResponseArrayOutput)
+}
+
+type AutomationRuleSetInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleSetInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationRuleSetInvokeResponseArrayOutput) ToAutomationRuleSetInvokeResponseArrayOutput() AutomationRuleSetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AutomationRuleSetInvokeResponseArrayOutput) ToAutomationRuleSetInvokeResponseArrayOutputWithContext(ctx context.Context) AutomationRuleSetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AutomationRuleSetInvokeResponseArrayOutput) Index(i pulumi.IntInput) AutomationRuleSetInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleSetInvokeResponse {
+		return vs[0].([]AutomationRuleSetInvokeResponse)[vs[1].(int)]
+	}).(AutomationRuleSetInvokeResponseOutput)
 }
 
 // A rule set which evaluates all its rules upon an event interception. Only when all the included rules in the rule set will be evaluated as 'true', will the event trigger the defined actions.
@@ -1236,6 +1689,115 @@ func (o AutomationScopeArrayOutput) Index(i pulumi.IntInput) AutomationScopeOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationScope {
 		return vs[0].([]AutomationScope)[vs[1].(int)]
 	}).(AutomationScopeOutput)
+}
+
+// A single automation scope.
+type AutomationScopeInvokeResponse struct {
+	// The resources scope description.
+	Description *string `pulumi:"description"`
+	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+	ScopePath *string `pulumi:"scopePath"`
+}
+
+// AutomationScopeInvokeResponseInput is an input type that accepts AutomationScopeInvokeResponseArgs and AutomationScopeInvokeResponseOutput values.
+// You can construct a concrete instance of `AutomationScopeInvokeResponseInput` via:
+//
+//          AutomationScopeInvokeResponseArgs{...}
+type AutomationScopeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutomationScopeInvokeResponseOutput() AutomationScopeInvokeResponseOutput
+	ToAutomationScopeInvokeResponseOutputWithContext(context.Context) AutomationScopeInvokeResponseOutput
+}
+
+// A single automation scope.
+type AutomationScopeInvokeResponseArgs struct {
+	// The resources scope description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+	ScopePath pulumi.StringPtrInput `pulumi:"scopePath"`
+}
+
+func (AutomationScopeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationScopeInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationScopeInvokeResponseArgs) ToAutomationScopeInvokeResponseOutput() AutomationScopeInvokeResponseOutput {
+	return i.ToAutomationScopeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationScopeInvokeResponseArgs) ToAutomationScopeInvokeResponseOutputWithContext(ctx context.Context) AutomationScopeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeInvokeResponseOutput)
+}
+
+// AutomationScopeInvokeResponseArrayInput is an input type that accepts AutomationScopeInvokeResponseArray and AutomationScopeInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AutomationScopeInvokeResponseArrayInput` via:
+//
+//          AutomationScopeInvokeResponseArray{ AutomationScopeInvokeResponseArgs{...} }
+type AutomationScopeInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAutomationScopeInvokeResponseArrayOutput() AutomationScopeInvokeResponseArrayOutput
+	ToAutomationScopeInvokeResponseArrayOutputWithContext(context.Context) AutomationScopeInvokeResponseArrayOutput
+}
+
+type AutomationScopeInvokeResponseArray []AutomationScopeInvokeResponseInput
+
+func (AutomationScopeInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationScopeInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationScopeInvokeResponseArray) ToAutomationScopeInvokeResponseArrayOutput() AutomationScopeInvokeResponseArrayOutput {
+	return i.ToAutomationScopeInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationScopeInvokeResponseArray) ToAutomationScopeInvokeResponseArrayOutputWithContext(ctx context.Context) AutomationScopeInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationScopeInvokeResponseArrayOutput)
+}
+
+// A single automation scope.
+type AutomationScopeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationScopeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationScopeInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationScopeInvokeResponseOutput) ToAutomationScopeInvokeResponseOutput() AutomationScopeInvokeResponseOutput {
+	return o
+}
+
+func (o AutomationScopeInvokeResponseOutput) ToAutomationScopeInvokeResponseOutputWithContext(ctx context.Context) AutomationScopeInvokeResponseOutput {
+	return o
+}
+
+// The resources scope description.
+func (o AutomationScopeInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationScopeInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The resources scope path. Can be the subscription on which the automation is defined on or a resource group under that subscription (fully qualified Azure resource IDs).
+func (o AutomationScopeInvokeResponseOutput) ScopePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationScopeInvokeResponse) *string { return v.ScopePath }).(pulumi.StringPtrOutput)
+}
+
+type AutomationScopeInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationScopeInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationScopeInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationScopeInvokeResponseArrayOutput) ToAutomationScopeInvokeResponseArrayOutput() AutomationScopeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AutomationScopeInvokeResponseArrayOutput) ToAutomationScopeInvokeResponseArrayOutputWithContext(ctx context.Context) AutomationScopeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AutomationScopeInvokeResponseArrayOutput) Index(i pulumi.IntInput) AutomationScopeInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationScopeInvokeResponse {
+		return vs[0].([]AutomationScopeInvokeResponse)[vs[1].(int)]
+	}).(AutomationScopeInvokeResponseOutput)
 }
 
 // A single automation scope.
@@ -1454,6 +2016,115 @@ func (o AutomationSourceArrayOutput) Index(i pulumi.IntInput) AutomationSourceOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationSource {
 		return vs[0].([]AutomationSource)[vs[1].(int)]
 	}).(AutomationSourceOutput)
+}
+
+// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+type AutomationSourceInvokeResponse struct {
+	// A valid event source type.
+	EventSource *string `pulumi:"eventSource"`
+	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+	RuleSets []AutomationRuleSetInvokeResponse `pulumi:"ruleSets"`
+}
+
+// AutomationSourceInvokeResponseInput is an input type that accepts AutomationSourceInvokeResponseArgs and AutomationSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `AutomationSourceInvokeResponseInput` via:
+//
+//          AutomationSourceInvokeResponseArgs{...}
+type AutomationSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutomationSourceInvokeResponseOutput() AutomationSourceInvokeResponseOutput
+	ToAutomationSourceInvokeResponseOutputWithContext(context.Context) AutomationSourceInvokeResponseOutput
+}
+
+// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+type AutomationSourceInvokeResponseArgs struct {
+	// A valid event source type.
+	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
+	// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+	RuleSets AutomationRuleSetInvokeResponseArrayInput `pulumi:"ruleSets"`
+}
+
+func (AutomationSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationSourceInvokeResponseArgs) ToAutomationSourceInvokeResponseOutput() AutomationSourceInvokeResponseOutput {
+	return i.ToAutomationSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationSourceInvokeResponseArgs) ToAutomationSourceInvokeResponseOutputWithContext(ctx context.Context) AutomationSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceInvokeResponseOutput)
+}
+
+// AutomationSourceInvokeResponseArrayInput is an input type that accepts AutomationSourceInvokeResponseArray and AutomationSourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AutomationSourceInvokeResponseArrayInput` via:
+//
+//          AutomationSourceInvokeResponseArray{ AutomationSourceInvokeResponseArgs{...} }
+type AutomationSourceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAutomationSourceInvokeResponseArrayOutput() AutomationSourceInvokeResponseArrayOutput
+	ToAutomationSourceInvokeResponseArrayOutputWithContext(context.Context) AutomationSourceInvokeResponseArrayOutput
+}
+
+type AutomationSourceInvokeResponseArray []AutomationSourceInvokeResponseInput
+
+func (AutomationSourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationSourceInvokeResponseArray) ToAutomationSourceInvokeResponseArrayOutput() AutomationSourceInvokeResponseArrayOutput {
+	return i.ToAutomationSourceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationSourceInvokeResponseArray) ToAutomationSourceInvokeResponseArrayOutputWithContext(ctx context.Context) AutomationSourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceInvokeResponseArrayOutput)
+}
+
+// The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
+type AutomationSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationSourceInvokeResponseOutput) ToAutomationSourceInvokeResponseOutput() AutomationSourceInvokeResponseOutput {
+	return o
+}
+
+func (o AutomationSourceInvokeResponseOutput) ToAutomationSourceInvokeResponseOutputWithContext(ctx context.Context) AutomationSourceInvokeResponseOutput {
+	return o
+}
+
+// A valid event source type.
+func (o AutomationSourceInvokeResponseOutput) EventSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationSourceInvokeResponse) *string { return v.EventSource }).(pulumi.StringPtrOutput)
+}
+
+// A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
+func (o AutomationSourceInvokeResponseOutput) RuleSets() AutomationRuleSetInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AutomationSourceInvokeResponse) []AutomationRuleSetInvokeResponse { return v.RuleSets }).(AutomationRuleSetInvokeResponseArrayOutput)
+}
+
+type AutomationSourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationSourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationSourceInvokeResponseArrayOutput) ToAutomationSourceInvokeResponseArrayOutput() AutomationSourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AutomationSourceInvokeResponseArrayOutput) ToAutomationSourceInvokeResponseArrayOutputWithContext(ctx context.Context) AutomationSourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AutomationSourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) AutomationSourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationSourceInvokeResponse {
+		return vs[0].([]AutomationSourceInvokeResponse)[vs[1].(int)]
+	}).(AutomationSourceInvokeResponseOutput)
 }
 
 // The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
@@ -1693,6 +2364,133 @@ func (o AutomationTriggeringRuleArrayOutput) Index(i pulumi.IntInput) Automation
 }
 
 // A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+type AutomationTriggeringRuleInvokeResponse struct {
+	// The expected value.
+	ExpectedValue *string `pulumi:"expectedValue"`
+	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+	Operator *string `pulumi:"operator"`
+	// The JPath of the entity model property that should be checked.
+	PropertyJPath *string `pulumi:"propertyJPath"`
+	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+	PropertyType *string `pulumi:"propertyType"`
+}
+
+// AutomationTriggeringRuleInvokeResponseInput is an input type that accepts AutomationTriggeringRuleInvokeResponseArgs and AutomationTriggeringRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `AutomationTriggeringRuleInvokeResponseInput` via:
+//
+//          AutomationTriggeringRuleInvokeResponseArgs{...}
+type AutomationTriggeringRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutomationTriggeringRuleInvokeResponseOutput() AutomationTriggeringRuleInvokeResponseOutput
+	ToAutomationTriggeringRuleInvokeResponseOutputWithContext(context.Context) AutomationTriggeringRuleInvokeResponseOutput
+}
+
+// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+type AutomationTriggeringRuleInvokeResponseArgs struct {
+	// The expected value.
+	ExpectedValue pulumi.StringPtrInput `pulumi:"expectedValue"`
+	// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The JPath of the entity model property that should be checked.
+	PropertyJPath pulumi.StringPtrInput `pulumi:"propertyJPath"`
+	// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+	PropertyType pulumi.StringPtrInput `pulumi:"propertyType"`
+}
+
+func (AutomationTriggeringRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationTriggeringRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationTriggeringRuleInvokeResponseArgs) ToAutomationTriggeringRuleInvokeResponseOutput() AutomationTriggeringRuleInvokeResponseOutput {
+	return i.ToAutomationTriggeringRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutomationTriggeringRuleInvokeResponseArgs) ToAutomationTriggeringRuleInvokeResponseOutputWithContext(ctx context.Context) AutomationTriggeringRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleInvokeResponseOutput)
+}
+
+// AutomationTriggeringRuleInvokeResponseArrayInput is an input type that accepts AutomationTriggeringRuleInvokeResponseArray and AutomationTriggeringRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AutomationTriggeringRuleInvokeResponseArrayInput` via:
+//
+//          AutomationTriggeringRuleInvokeResponseArray{ AutomationTriggeringRuleInvokeResponseArgs{...} }
+type AutomationTriggeringRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAutomationTriggeringRuleInvokeResponseArrayOutput() AutomationTriggeringRuleInvokeResponseArrayOutput
+	ToAutomationTriggeringRuleInvokeResponseArrayOutputWithContext(context.Context) AutomationTriggeringRuleInvokeResponseArrayOutput
+}
+
+type AutomationTriggeringRuleInvokeResponseArray []AutomationTriggeringRuleInvokeResponseInput
+
+func (AutomationTriggeringRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationTriggeringRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i AutomationTriggeringRuleInvokeResponseArray) ToAutomationTriggeringRuleInvokeResponseArrayOutput() AutomationTriggeringRuleInvokeResponseArrayOutput {
+	return i.ToAutomationTriggeringRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationTriggeringRuleInvokeResponseArray) ToAutomationTriggeringRuleInvokeResponseArrayOutputWithContext(ctx context.Context) AutomationTriggeringRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationTriggeringRuleInvokeResponseArrayOutput)
+}
+
+// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+type AutomationTriggeringRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationTriggeringRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationTriggeringRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationTriggeringRuleInvokeResponseOutput) ToAutomationTriggeringRuleInvokeResponseOutput() AutomationTriggeringRuleInvokeResponseOutput {
+	return o
+}
+
+func (o AutomationTriggeringRuleInvokeResponseOutput) ToAutomationTriggeringRuleInvokeResponseOutputWithContext(ctx context.Context) AutomationTriggeringRuleInvokeResponseOutput {
+	return o
+}
+
+// The expected value.
+func (o AutomationTriggeringRuleInvokeResponseOutput) ExpectedValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRuleInvokeResponse) *string { return v.ExpectedValue }).(pulumi.StringPtrOutput)
+}
+
+// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+func (o AutomationTriggeringRuleInvokeResponseOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRuleInvokeResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The JPath of the entity model property that should be checked.
+func (o AutomationTriggeringRuleInvokeResponseOutput) PropertyJPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRuleInvokeResponse) *string { return v.PropertyJPath }).(pulumi.StringPtrOutput)
+}
+
+// The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+func (o AutomationTriggeringRuleInvokeResponseOutput) PropertyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationTriggeringRuleInvokeResponse) *string { return v.PropertyType }).(pulumi.StringPtrOutput)
+}
+
+type AutomationTriggeringRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationTriggeringRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationTriggeringRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o AutomationTriggeringRuleInvokeResponseArrayOutput) ToAutomationTriggeringRuleInvokeResponseArrayOutput() AutomationTriggeringRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AutomationTriggeringRuleInvokeResponseArrayOutput) ToAutomationTriggeringRuleInvokeResponseArrayOutputWithContext(ctx context.Context) AutomationTriggeringRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AutomationTriggeringRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) AutomationTriggeringRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationTriggeringRuleInvokeResponse {
+		return vs[0].([]AutomationTriggeringRuleInvokeResponse)[vs[1].(int)]
+	}).(AutomationTriggeringRuleInvokeResponseOutput)
+}
+
+// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
 type AutomationTriggeringRuleResponse struct {
 	// The expected value.
 	ExpectedValue *string `pulumi:"expectedValue"`
@@ -1878,6 +2676,73 @@ func (o AzureResourceDetailsOutput) Source() pulumi.StringOutput {
 }
 
 // Details of the Azure resource that was assessed
+type AzureResourceDetailsInvokeResponse struct {
+	// Azure resource Id of the assessed resource
+	Id string `pulumi:"id"`
+	// The platform where the assessed resource resides
+	// Expected value is 'Azure'.
+	Source string `pulumi:"source"`
+}
+
+// AzureResourceDetailsInvokeResponseInput is an input type that accepts AzureResourceDetailsInvokeResponseArgs and AzureResourceDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureResourceDetailsInvokeResponseInput` via:
+//
+//          AzureResourceDetailsInvokeResponseArgs{...}
+type AzureResourceDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureResourceDetailsInvokeResponseOutput() AzureResourceDetailsInvokeResponseOutput
+	ToAzureResourceDetailsInvokeResponseOutputWithContext(context.Context) AzureResourceDetailsInvokeResponseOutput
+}
+
+// Details of the Azure resource that was assessed
+type AzureResourceDetailsInvokeResponseArgs struct {
+	// Azure resource Id of the assessed resource
+	Id pulumi.StringInput `pulumi:"id"`
+	// The platform where the assessed resource resides
+	// Expected value is 'Azure'.
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (AzureResourceDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureResourceDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureResourceDetailsInvokeResponseArgs) ToAzureResourceDetailsInvokeResponseOutput() AzureResourceDetailsInvokeResponseOutput {
+	return i.ToAzureResourceDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureResourceDetailsInvokeResponseArgs) ToAzureResourceDetailsInvokeResponseOutputWithContext(ctx context.Context) AzureResourceDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceDetailsInvokeResponseOutput)
+}
+
+// Details of the Azure resource that was assessed
+type AzureResourceDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureResourceDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureResourceDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureResourceDetailsInvokeResponseOutput) ToAzureResourceDetailsInvokeResponseOutput() AzureResourceDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o AzureResourceDetailsInvokeResponseOutput) ToAzureResourceDetailsInvokeResponseOutputWithContext(ctx context.Context) AzureResourceDetailsInvokeResponseOutput {
+	return o
+}
+
+// Azure resource Id of the assessed resource
+func (o AzureResourceDetailsInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceDetailsInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The platform where the assessed resource resides
+// Expected value is 'Azure'.
+func (o AzureResourceDetailsInvokeResponseOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceDetailsInvokeResponse) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// Details of the Azure resource that was assessed
 type AzureResourceDetailsResponse struct {
 	// Azure resource Id of the assessed resource
 	Id string `pulumi:"id"`
@@ -2036,6 +2901,100 @@ func (o OnPremiseResourceDetailsOutput) Vmuuid() pulumi.StringOutput {
 // Azure resource Id of the workspace the machine is attached to
 func (o OnPremiseResourceDetailsOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseResourceDetails) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// Details of the On Premise resource that was assessed
+type OnPremiseResourceDetailsInvokeResponse struct {
+	// The name of the machine
+	MachineName string `pulumi:"machineName"`
+	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
+	Source string `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId string `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid string `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId string `pulumi:"workspaceId"`
+}
+
+// OnPremiseResourceDetailsInvokeResponseInput is an input type that accepts OnPremiseResourceDetailsInvokeResponseArgs and OnPremiseResourceDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `OnPremiseResourceDetailsInvokeResponseInput` via:
+//
+//          OnPremiseResourceDetailsInvokeResponseArgs{...}
+type OnPremiseResourceDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOnPremiseResourceDetailsInvokeResponseOutput() OnPremiseResourceDetailsInvokeResponseOutput
+	ToOnPremiseResourceDetailsInvokeResponseOutputWithContext(context.Context) OnPremiseResourceDetailsInvokeResponseOutput
+}
+
+// Details of the On Premise resource that was assessed
+type OnPremiseResourceDetailsInvokeResponseArgs struct {
+	// The name of the machine
+	MachineName pulumi.StringInput `pulumi:"machineName"`
+	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+}
+
+func (OnPremiseResourceDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseResourceDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i OnPremiseResourceDetailsInvokeResponseArgs) ToOnPremiseResourceDetailsInvokeResponseOutput() OnPremiseResourceDetailsInvokeResponseOutput {
+	return i.ToOnPremiseResourceDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OnPremiseResourceDetailsInvokeResponseArgs) ToOnPremiseResourceDetailsInvokeResponseOutputWithContext(ctx context.Context) OnPremiseResourceDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseResourceDetailsInvokeResponseOutput)
+}
+
+// Details of the On Premise resource that was assessed
+type OnPremiseResourceDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OnPremiseResourceDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseResourceDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o OnPremiseResourceDetailsInvokeResponseOutput) ToOnPremiseResourceDetailsInvokeResponseOutput() OnPremiseResourceDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o OnPremiseResourceDetailsInvokeResponseOutput) ToOnPremiseResourceDetailsInvokeResponseOutputWithContext(ctx context.Context) OnPremiseResourceDetailsInvokeResponseOutput {
+	return o
+}
+
+// The name of the machine
+func (o OnPremiseResourceDetailsInvokeResponseOutput) MachineName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetailsInvokeResponse) string { return v.MachineName }).(pulumi.StringOutput)
+}
+
+// The platform where the assessed resource resides
+// Expected value is 'OnPremise'.
+func (o OnPremiseResourceDetailsInvokeResponseOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetailsInvokeResponse) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The oms agent Id installed on the machine
+func (o OnPremiseResourceDetailsInvokeResponseOutput) SourceComputerId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetailsInvokeResponse) string { return v.SourceComputerId }).(pulumi.StringOutput)
+}
+
+// The unique Id of the machine
+func (o OnPremiseResourceDetailsInvokeResponseOutput) Vmuuid() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetailsInvokeResponse) string { return v.Vmuuid }).(pulumi.StringOutput)
+}
+
+// Azure resource Id of the workspace the machine is attached to
+func (o OnPremiseResourceDetailsInvokeResponseOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseResourceDetailsInvokeResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
 // Details of the On Premise resource that was assessed
@@ -2242,6 +3201,118 @@ func (o OnPremiseSqlResourceDetailsOutput) Vmuuid() pulumi.StringOutput {
 // Azure resource Id of the workspace the machine is attached to
 func (o OnPremiseSqlResourceDetailsOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnPremiseSqlResourceDetails) string { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// Details of the On Premise Sql resource that was assessed
+type OnPremiseSqlResourceDetailsInvokeResponse struct {
+	// The Sql database name installed on the machine
+	DatabaseName string `pulumi:"databaseName"`
+	// The name of the machine
+	MachineName string `pulumi:"machineName"`
+	// The Sql server name installed on the machine
+	ServerName string `pulumi:"serverName"`
+	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
+	Source string `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId string `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid string `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId string `pulumi:"workspaceId"`
+}
+
+// OnPremiseSqlResourceDetailsInvokeResponseInput is an input type that accepts OnPremiseSqlResourceDetailsInvokeResponseArgs and OnPremiseSqlResourceDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `OnPremiseSqlResourceDetailsInvokeResponseInput` via:
+//
+//          OnPremiseSqlResourceDetailsInvokeResponseArgs{...}
+type OnPremiseSqlResourceDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOnPremiseSqlResourceDetailsInvokeResponseOutput() OnPremiseSqlResourceDetailsInvokeResponseOutput
+	ToOnPremiseSqlResourceDetailsInvokeResponseOutputWithContext(context.Context) OnPremiseSqlResourceDetailsInvokeResponseOutput
+}
+
+// Details of the On Premise Sql resource that was assessed
+type OnPremiseSqlResourceDetailsInvokeResponseArgs struct {
+	// The Sql database name installed on the machine
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The name of the machine
+	MachineName pulumi.StringInput `pulumi:"machineName"`
+	// The Sql server name installed on the machine
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The platform where the assessed resource resides
+	// Expected value is 'OnPremise'.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The oms agent Id installed on the machine
+	SourceComputerId pulumi.StringInput `pulumi:"sourceComputerId"`
+	// The unique Id of the machine
+	Vmuuid pulumi.StringInput `pulumi:"vmuuid"`
+	// Azure resource Id of the workspace the machine is attached to
+	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
+}
+
+func (OnPremiseSqlResourceDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseSqlResourceDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i OnPremiseSqlResourceDetailsInvokeResponseArgs) ToOnPremiseSqlResourceDetailsInvokeResponseOutput() OnPremiseSqlResourceDetailsInvokeResponseOutput {
+	return i.ToOnPremiseSqlResourceDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OnPremiseSqlResourceDetailsInvokeResponseArgs) ToOnPremiseSqlResourceDetailsInvokeResponseOutputWithContext(ctx context.Context) OnPremiseSqlResourceDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnPremiseSqlResourceDetailsInvokeResponseOutput)
+}
+
+// Details of the On Premise Sql resource that was assessed
+type OnPremiseSqlResourceDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OnPremiseSqlResourceDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremiseSqlResourceDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o OnPremiseSqlResourceDetailsInvokeResponseOutput) ToOnPremiseSqlResourceDetailsInvokeResponseOutput() OnPremiseSqlResourceDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o OnPremiseSqlResourceDetailsInvokeResponseOutput) ToOnPremiseSqlResourceDetailsInvokeResponseOutputWithContext(ctx context.Context) OnPremiseSqlResourceDetailsInvokeResponseOutput {
+	return o
+}
+
+// The Sql database name installed on the machine
+func (o OnPremiseSqlResourceDetailsInvokeResponseOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsInvokeResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The name of the machine
+func (o OnPremiseSqlResourceDetailsInvokeResponseOutput) MachineName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsInvokeResponse) string { return v.MachineName }).(pulumi.StringOutput)
+}
+
+// The Sql server name installed on the machine
+func (o OnPremiseSqlResourceDetailsInvokeResponseOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsInvokeResponse) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// The platform where the assessed resource resides
+// Expected value is 'OnPremise'.
+func (o OnPremiseSqlResourceDetailsInvokeResponseOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsInvokeResponse) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The oms agent Id installed on the machine
+func (o OnPremiseSqlResourceDetailsInvokeResponseOutput) SourceComputerId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsInvokeResponse) string { return v.SourceComputerId }).(pulumi.StringOutput)
+}
+
+// The unique Id of the machine
+func (o OnPremiseSqlResourceDetailsInvokeResponseOutput) Vmuuid() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsInvokeResponse) string { return v.Vmuuid }).(pulumi.StringOutput)
+}
+
+// Azure resource Id of the workspace the machine is attached to
+func (o OnPremiseSqlResourceDetailsInvokeResponseOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremiseSqlResourceDetailsInvokeResponse) string { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
 // Details of the On Premise Sql resource that was assessed
@@ -2454,6 +3525,106 @@ func (o ScopeElementArrayOutput) Index(i pulumi.IntInput) ScopeElementOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScopeElement {
 		return vs[0].([]ScopeElement)[vs[1].(int)]
 	}).(ScopeElementOutput)
+}
+
+// A more specific scope used to identify the alerts to suppress.
+type ScopeElementInvokeResponse struct {
+	// The alert entity type to suppress by.
+	Field *string `pulumi:"field"`
+}
+
+// ScopeElementInvokeResponseInput is an input type that accepts ScopeElementInvokeResponseArgs and ScopeElementInvokeResponseOutput values.
+// You can construct a concrete instance of `ScopeElementInvokeResponseInput` via:
+//
+//          ScopeElementInvokeResponseArgs{...}
+type ScopeElementInvokeResponseInput interface {
+	pulumi.Input
+
+	ToScopeElementInvokeResponseOutput() ScopeElementInvokeResponseOutput
+	ToScopeElementInvokeResponseOutputWithContext(context.Context) ScopeElementInvokeResponseOutput
+}
+
+// A more specific scope used to identify the alerts to suppress.
+type ScopeElementInvokeResponseArgs struct {
+	// The alert entity type to suppress by.
+	Field pulumi.StringPtrInput `pulumi:"field"`
+}
+
+func (ScopeElementInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeElementInvokeResponse)(nil)).Elem()
+}
+
+func (i ScopeElementInvokeResponseArgs) ToScopeElementInvokeResponseOutput() ScopeElementInvokeResponseOutput {
+	return i.ToScopeElementInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ScopeElementInvokeResponseArgs) ToScopeElementInvokeResponseOutputWithContext(ctx context.Context) ScopeElementInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementInvokeResponseOutput)
+}
+
+// ScopeElementInvokeResponseArrayInput is an input type that accepts ScopeElementInvokeResponseArray and ScopeElementInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ScopeElementInvokeResponseArrayInput` via:
+//
+//          ScopeElementInvokeResponseArray{ ScopeElementInvokeResponseArgs{...} }
+type ScopeElementInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToScopeElementInvokeResponseArrayOutput() ScopeElementInvokeResponseArrayOutput
+	ToScopeElementInvokeResponseArrayOutputWithContext(context.Context) ScopeElementInvokeResponseArrayOutput
+}
+
+type ScopeElementInvokeResponseArray []ScopeElementInvokeResponseInput
+
+func (ScopeElementInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScopeElementInvokeResponse)(nil)).Elem()
+}
+
+func (i ScopeElementInvokeResponseArray) ToScopeElementInvokeResponseArrayOutput() ScopeElementInvokeResponseArrayOutput {
+	return i.ToScopeElementInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ScopeElementInvokeResponseArray) ToScopeElementInvokeResponseArrayOutputWithContext(ctx context.Context) ScopeElementInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeElementInvokeResponseArrayOutput)
+}
+
+// A more specific scope used to identify the alerts to suppress.
+type ScopeElementInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScopeElementInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeElementInvokeResponse)(nil)).Elem()
+}
+
+func (o ScopeElementInvokeResponseOutput) ToScopeElementInvokeResponseOutput() ScopeElementInvokeResponseOutput {
+	return o
+}
+
+func (o ScopeElementInvokeResponseOutput) ToScopeElementInvokeResponseOutputWithContext(ctx context.Context) ScopeElementInvokeResponseOutput {
+	return o
+}
+
+// The alert entity type to suppress by.
+func (o ScopeElementInvokeResponseOutput) Field() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScopeElementInvokeResponse) *string { return v.Field }).(pulumi.StringPtrOutput)
+}
+
+type ScopeElementInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ScopeElementInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScopeElementInvokeResponse)(nil)).Elem()
+}
+
+func (o ScopeElementInvokeResponseArrayOutput) ToScopeElementInvokeResponseArrayOutput() ScopeElementInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ScopeElementInvokeResponseArrayOutput) ToScopeElementInvokeResponseArrayOutputWithContext(ctx context.Context) ScopeElementInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ScopeElementInvokeResponseArrayOutput) Index(i pulumi.IntInput) ScopeElementInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScopeElementInvokeResponse {
+		return vs[0].([]ScopeElementInvokeResponse)[vs[1].(int)]
+	}).(ScopeElementInvokeResponseOutput)
 }
 
 // A more specific scope used to identify the alerts to suppress.
@@ -2687,6 +3858,58 @@ func (o SuppressionAlertsScopePtrOutput) AllOf() ScopeElementArrayOutput {
 	}).(ScopeElementArrayOutput)
 }
 
+type SuppressionAlertsScopeInvokeResponse struct {
+	// All the conditions inside need to be true in order to suppress the alert
+	AllOf []ScopeElementInvokeResponse `pulumi:"allOf"`
+}
+
+// SuppressionAlertsScopeInvokeResponseInput is an input type that accepts SuppressionAlertsScopeInvokeResponseArgs and SuppressionAlertsScopeInvokeResponseOutput values.
+// You can construct a concrete instance of `SuppressionAlertsScopeInvokeResponseInput` via:
+//
+//          SuppressionAlertsScopeInvokeResponseArgs{...}
+type SuppressionAlertsScopeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSuppressionAlertsScopeInvokeResponseOutput() SuppressionAlertsScopeInvokeResponseOutput
+	ToSuppressionAlertsScopeInvokeResponseOutputWithContext(context.Context) SuppressionAlertsScopeInvokeResponseOutput
+}
+
+type SuppressionAlertsScopeInvokeResponseArgs struct {
+	// All the conditions inside need to be true in order to suppress the alert
+	AllOf ScopeElementInvokeResponseArrayInput `pulumi:"allOf"`
+}
+
+func (SuppressionAlertsScopeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionAlertsScopeInvokeResponse)(nil)).Elem()
+}
+
+func (i SuppressionAlertsScopeInvokeResponseArgs) ToSuppressionAlertsScopeInvokeResponseOutput() SuppressionAlertsScopeInvokeResponseOutput {
+	return i.ToSuppressionAlertsScopeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SuppressionAlertsScopeInvokeResponseArgs) ToSuppressionAlertsScopeInvokeResponseOutputWithContext(ctx context.Context) SuppressionAlertsScopeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionAlertsScopeInvokeResponseOutput)
+}
+
+type SuppressionAlertsScopeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SuppressionAlertsScopeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionAlertsScopeInvokeResponse)(nil)).Elem()
+}
+
+func (o SuppressionAlertsScopeInvokeResponseOutput) ToSuppressionAlertsScopeInvokeResponseOutput() SuppressionAlertsScopeInvokeResponseOutput {
+	return o
+}
+
+func (o SuppressionAlertsScopeInvokeResponseOutput) ToSuppressionAlertsScopeInvokeResponseOutputWithContext(ctx context.Context) SuppressionAlertsScopeInvokeResponseOutput {
+	return o
+}
+
+// All the conditions inside need to be true in order to suppress the alert
+func (o SuppressionAlertsScopeInvokeResponseOutput) AllOf() ScopeElementInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SuppressionAlertsScopeInvokeResponse) []ScopeElementInvokeResponse { return v.AllOf }).(ScopeElementInvokeResponseArrayOutput)
+}
+
 type SuppressionAlertsScopeResponse struct {
 	// All the conditions inside need to be true in order to suppress the alert
 	AllOf []ScopeElementResponse `pulumi:"allOf"`
@@ -2819,46 +4042,65 @@ func (o SuppressionAlertsScopeResponsePtrOutput) AllOf() ScopeElementResponseArr
 }
 
 func init() {
+	pulumi.RegisterOutputType(AssessmentLinksInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentLinksResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentLinksResponsePtrOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusPtrOutput{})
+	pulumi.RegisterOutputType(AssessmentStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutomationActionEventHubOutput{})
+	pulumi.RegisterOutputType(AutomationActionEventHubInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AutomationActionEventHubResponseOutput{})
 	pulumi.RegisterOutputType(AutomationActionLogicAppOutput{})
+	pulumi.RegisterOutputType(AutomationActionLogicAppInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AutomationActionLogicAppResponseOutput{})
 	pulumi.RegisterOutputType(AutomationActionWorkspaceOutput{})
+	pulumi.RegisterOutputType(AutomationActionWorkspaceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AutomationActionWorkspaceResponseOutput{})
 	pulumi.RegisterOutputType(AutomationRuleSetOutput{})
 	pulumi.RegisterOutputType(AutomationRuleSetArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleSetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AutomationRuleSetInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AutomationRuleSetResponseOutput{})
 	pulumi.RegisterOutputType(AutomationRuleSetResponseArrayOutput{})
 	pulumi.RegisterOutputType(AutomationScopeOutput{})
 	pulumi.RegisterOutputType(AutomationScopeArrayOutput{})
+	pulumi.RegisterOutputType(AutomationScopeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AutomationScopeInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AutomationScopeResponseOutput{})
 	pulumi.RegisterOutputType(AutomationScopeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AutomationSourceOutput{})
 	pulumi.RegisterOutputType(AutomationSourceArrayOutput{})
+	pulumi.RegisterOutputType(AutomationSourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AutomationSourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AutomationSourceResponseOutput{})
 	pulumi.RegisterOutputType(AutomationSourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(AutomationTriggeringRuleOutput{})
 	pulumi.RegisterOutputType(AutomationTriggeringRuleArrayOutput{})
+	pulumi.RegisterOutputType(AutomationTriggeringRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AutomationTriggeringRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AutomationTriggeringRuleResponseOutput{})
 	pulumi.RegisterOutputType(AutomationTriggeringRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureResourceDetailsOutput{})
+	pulumi.RegisterOutputType(AzureResourceDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureResourceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(OnPremiseResourceDetailsOutput{})
+	pulumi.RegisterOutputType(OnPremiseResourceDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(OnPremiseResourceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(OnPremiseSqlResourceDetailsOutput{})
+	pulumi.RegisterOutputType(OnPremiseSqlResourceDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(OnPremiseSqlResourceDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ScopeElementOutput{})
 	pulumi.RegisterOutputType(ScopeElementArrayOutput{})
+	pulumi.RegisterOutputType(ScopeElementInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ScopeElementInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScopeElementResponseOutput{})
 	pulumi.RegisterOutputType(ScopeElementResponseArrayOutput{})
 	pulumi.RegisterOutputType(SuppressionAlertsScopeOutput{})
 	pulumi.RegisterOutputType(SuppressionAlertsScopePtrOutput{})
+	pulumi.RegisterOutputType(SuppressionAlertsScopeInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SuppressionAlertsScopeResponseOutput{})
 	pulumi.RegisterOutputType(SuppressionAlertsScopeResponsePtrOutput{})
 }

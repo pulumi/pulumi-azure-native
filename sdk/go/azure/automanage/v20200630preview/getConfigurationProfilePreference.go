@@ -32,7 +32,7 @@ type LookupConfigurationProfilePreferenceResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Properties of the configuration profile preference.
-	Properties ConfigurationProfilePreferencePropertiesResponse `pulumi:"properties"`
+	Properties ConfigurationProfilePreferencePropertiesInvokeResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

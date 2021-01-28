@@ -36,7 +36,7 @@ type LookupRedisEnterpriseResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of private endpoint connections associated with the specified RedisEnterprise cluster
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Current provisioning status of the cluster
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Version of redis the cluster supports, e.g. '6'
@@ -44,7 +44,7 @@ type LookupRedisEnterpriseResult struct {
 	// Current resource status of the cluster
 	ResourceState string `pulumi:"resourceState"`
 	// The SKU to create, which affects price, performance, and features.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

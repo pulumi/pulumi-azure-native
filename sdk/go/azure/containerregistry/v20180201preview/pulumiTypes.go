@@ -11,6 +11,142 @@ import (
 )
 
 // Properties that describe a base image dependency.
+type BaseImageDependencyInvokeResponse struct {
+	// The sha256-based digest of the image manifest.
+	Digest *string `pulumi:"digest"`
+	// The registry login server.
+	Registry *string `pulumi:"registry"`
+	// The repository name.
+	Repository *string `pulumi:"repository"`
+	// The tag name.
+	Tag *string `pulumi:"tag"`
+	// The type of the base image dependency.
+	Type *string `pulumi:"type"`
+}
+
+// BaseImageDependencyInvokeResponseInput is an input type that accepts BaseImageDependencyInvokeResponseArgs and BaseImageDependencyInvokeResponseOutput values.
+// You can construct a concrete instance of `BaseImageDependencyInvokeResponseInput` via:
+//
+//          BaseImageDependencyInvokeResponseArgs{...}
+type BaseImageDependencyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBaseImageDependencyInvokeResponseOutput() BaseImageDependencyInvokeResponseOutput
+	ToBaseImageDependencyInvokeResponseOutputWithContext(context.Context) BaseImageDependencyInvokeResponseOutput
+}
+
+// Properties that describe a base image dependency.
+type BaseImageDependencyInvokeResponseArgs struct {
+	// The sha256-based digest of the image manifest.
+	Digest pulumi.StringPtrInput `pulumi:"digest"`
+	// The registry login server.
+	Registry pulumi.StringPtrInput `pulumi:"registry"`
+	// The repository name.
+	Repository pulumi.StringPtrInput `pulumi:"repository"`
+	// The tag name.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// The type of the base image dependency.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (BaseImageDependencyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaseImageDependencyInvokeResponse)(nil)).Elem()
+}
+
+func (i BaseImageDependencyInvokeResponseArgs) ToBaseImageDependencyInvokeResponseOutput() BaseImageDependencyInvokeResponseOutput {
+	return i.ToBaseImageDependencyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BaseImageDependencyInvokeResponseArgs) ToBaseImageDependencyInvokeResponseOutputWithContext(ctx context.Context) BaseImageDependencyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaseImageDependencyInvokeResponseOutput)
+}
+
+// BaseImageDependencyInvokeResponseArrayInput is an input type that accepts BaseImageDependencyInvokeResponseArray and BaseImageDependencyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `BaseImageDependencyInvokeResponseArrayInput` via:
+//
+//          BaseImageDependencyInvokeResponseArray{ BaseImageDependencyInvokeResponseArgs{...} }
+type BaseImageDependencyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToBaseImageDependencyInvokeResponseArrayOutput() BaseImageDependencyInvokeResponseArrayOutput
+	ToBaseImageDependencyInvokeResponseArrayOutputWithContext(context.Context) BaseImageDependencyInvokeResponseArrayOutput
+}
+
+type BaseImageDependencyInvokeResponseArray []BaseImageDependencyInvokeResponseInput
+
+func (BaseImageDependencyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BaseImageDependencyInvokeResponse)(nil)).Elem()
+}
+
+func (i BaseImageDependencyInvokeResponseArray) ToBaseImageDependencyInvokeResponseArrayOutput() BaseImageDependencyInvokeResponseArrayOutput {
+	return i.ToBaseImageDependencyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BaseImageDependencyInvokeResponseArray) ToBaseImageDependencyInvokeResponseArrayOutputWithContext(ctx context.Context) BaseImageDependencyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaseImageDependencyInvokeResponseArrayOutput)
+}
+
+// Properties that describe a base image dependency.
+type BaseImageDependencyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BaseImageDependencyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaseImageDependencyInvokeResponse)(nil)).Elem()
+}
+
+func (o BaseImageDependencyInvokeResponseOutput) ToBaseImageDependencyInvokeResponseOutput() BaseImageDependencyInvokeResponseOutput {
+	return o
+}
+
+func (o BaseImageDependencyInvokeResponseOutput) ToBaseImageDependencyInvokeResponseOutputWithContext(ctx context.Context) BaseImageDependencyInvokeResponseOutput {
+	return o
+}
+
+// The sha256-based digest of the image manifest.
+func (o BaseImageDependencyInvokeResponseOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageDependencyInvokeResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
+}
+
+// The registry login server.
+func (o BaseImageDependencyInvokeResponseOutput) Registry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageDependencyInvokeResponse) *string { return v.Registry }).(pulumi.StringPtrOutput)
+}
+
+// The repository name.
+func (o BaseImageDependencyInvokeResponseOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageDependencyInvokeResponse) *string { return v.Repository }).(pulumi.StringPtrOutput)
+}
+
+// The tag name.
+func (o BaseImageDependencyInvokeResponseOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageDependencyInvokeResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// The type of the base image dependency.
+func (o BaseImageDependencyInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaseImageDependencyInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type BaseImageDependencyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BaseImageDependencyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BaseImageDependencyInvokeResponse)(nil)).Elem()
+}
+
+func (o BaseImageDependencyInvokeResponseArrayOutput) ToBaseImageDependencyInvokeResponseArrayOutput() BaseImageDependencyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BaseImageDependencyInvokeResponseArrayOutput) ToBaseImageDependencyInvokeResponseArrayOutputWithContext(ctx context.Context) BaseImageDependencyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BaseImageDependencyInvokeResponseArrayOutput) Index(i pulumi.IntInput) BaseImageDependencyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BaseImageDependencyInvokeResponse {
+		return vs[0].([]BaseImageDependencyInvokeResponse)[vs[1].(int)]
+	}).(BaseImageDependencyInvokeResponseOutput)
+}
+
+// Properties that describe a base image dependency.
 type BaseImageDependencyResponse struct {
 	// The sha256-based digest of the image manifest.
 	Digest *string `pulumi:"digest"`
@@ -147,6 +283,133 @@ func (o BaseImageDependencyResponseArrayOutput) Index(i pulumi.IntInput) BaseIma
 }
 
 // Properties of a build argument.
+type BuildArgumentInvokeResponse struct {
+	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+	IsSecret *bool `pulumi:"isSecret"`
+	// The name of the argument.
+	Name string `pulumi:"name"`
+	// The type of the argument.
+	Type string `pulumi:"type"`
+	// The value of the argument.
+	Value string `pulumi:"value"`
+}
+
+// BuildArgumentInvokeResponseInput is an input type that accepts BuildArgumentInvokeResponseArgs and BuildArgumentInvokeResponseOutput values.
+// You can construct a concrete instance of `BuildArgumentInvokeResponseInput` via:
+//
+//          BuildArgumentInvokeResponseArgs{...}
+type BuildArgumentInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBuildArgumentInvokeResponseOutput() BuildArgumentInvokeResponseOutput
+	ToBuildArgumentInvokeResponseOutputWithContext(context.Context) BuildArgumentInvokeResponseOutput
+}
+
+// Properties of a build argument.
+type BuildArgumentInvokeResponseArgs struct {
+	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
+	// The name of the argument.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the argument.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value of the argument.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BuildArgumentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildArgumentInvokeResponse)(nil)).Elem()
+}
+
+func (i BuildArgumentInvokeResponseArgs) ToBuildArgumentInvokeResponseOutput() BuildArgumentInvokeResponseOutput {
+	return i.ToBuildArgumentInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BuildArgumentInvokeResponseArgs) ToBuildArgumentInvokeResponseOutputWithContext(ctx context.Context) BuildArgumentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildArgumentInvokeResponseOutput)
+}
+
+// BuildArgumentInvokeResponseArrayInput is an input type that accepts BuildArgumentInvokeResponseArray and BuildArgumentInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `BuildArgumentInvokeResponseArrayInput` via:
+//
+//          BuildArgumentInvokeResponseArray{ BuildArgumentInvokeResponseArgs{...} }
+type BuildArgumentInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToBuildArgumentInvokeResponseArrayOutput() BuildArgumentInvokeResponseArrayOutput
+	ToBuildArgumentInvokeResponseArrayOutputWithContext(context.Context) BuildArgumentInvokeResponseArrayOutput
+}
+
+type BuildArgumentInvokeResponseArray []BuildArgumentInvokeResponseInput
+
+func (BuildArgumentInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildArgumentInvokeResponse)(nil)).Elem()
+}
+
+func (i BuildArgumentInvokeResponseArray) ToBuildArgumentInvokeResponseArrayOutput() BuildArgumentInvokeResponseArrayOutput {
+	return i.ToBuildArgumentInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BuildArgumentInvokeResponseArray) ToBuildArgumentInvokeResponseArrayOutputWithContext(ctx context.Context) BuildArgumentInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildArgumentInvokeResponseArrayOutput)
+}
+
+// Properties of a build argument.
+type BuildArgumentInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BuildArgumentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildArgumentInvokeResponse)(nil)).Elem()
+}
+
+func (o BuildArgumentInvokeResponseOutput) ToBuildArgumentInvokeResponseOutput() BuildArgumentInvokeResponseOutput {
+	return o
+}
+
+func (o BuildArgumentInvokeResponseOutput) ToBuildArgumentInvokeResponseOutputWithContext(ctx context.Context) BuildArgumentInvokeResponseOutput {
+	return o
+}
+
+// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
+func (o BuildArgumentInvokeResponseOutput) IsSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BuildArgumentInvokeResponse) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the argument.
+func (o BuildArgumentInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildArgumentInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the argument.
+func (o BuildArgumentInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildArgumentInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value of the argument.
+func (o BuildArgumentInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildArgumentInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BuildArgumentInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildArgumentInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildArgumentInvokeResponse)(nil)).Elem()
+}
+
+func (o BuildArgumentInvokeResponseArrayOutput) ToBuildArgumentInvokeResponseArrayOutput() BuildArgumentInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BuildArgumentInvokeResponseArrayOutput) ToBuildArgumentInvokeResponseArrayOutputWithContext(ctx context.Context) BuildArgumentInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BuildArgumentInvokeResponseArrayOutput) Index(i pulumi.IntInput) BuildArgumentInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildArgumentInvokeResponse {
+		return vs[0].([]BuildArgumentInvokeResponse)[vs[1].(int)]
+	}).(BuildArgumentInvokeResponseOutput)
+}
+
+// Properties of a build argument.
 type BuildArgumentResponse struct {
 	// Flag to indicate whether the argument represents a secret and want to be removed from build logs.
 	IsSecret *bool `pulumi:"isSecret"`
@@ -271,6 +534,156 @@ func (o BuildArgumentResponseArrayOutput) Index(i pulumi.IntInput) BuildArgument
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildArgumentResponse {
 		return vs[0].([]BuildArgumentResponse)[vs[1].(int)]
 	}).(BuildArgumentResponseOutput)
+}
+
+// The Docker build step.
+type DockerBuildStepInvokeResponse struct {
+	// List of base image dependencies for a step.
+	BaseImageDependencies []BaseImageDependencyInvokeResponse `pulumi:"baseImageDependencies"`
+	// The type of the auto trigger for base image dependency updates.
+	BaseImageTrigger *string `pulumi:"baseImageTrigger"`
+	// The repository branch name.
+	Branch *string `pulumi:"branch"`
+	// The custom arguments for building this build step.
+	BuildArguments []BuildArgumentInvokeResponse `pulumi:"buildArguments"`
+	// The relative context path for a docker build in the source.
+	ContextPath *string `pulumi:"contextPath"`
+	// The Docker file path relative to the source control root.
+	DockerFilePath *string `pulumi:"dockerFilePath"`
+	// The fully qualified image names including the repository and tag.
+	ImageNames []string `pulumi:"imageNames"`
+	// The value of this property indicates whether the image built should be pushed to the registry or not.
+	IsPushEnabled *bool `pulumi:"isPushEnabled"`
+	// The value of this property indicates whether the image cache is enabled or not.
+	NoCache *bool `pulumi:"noCache"`
+	// The provisioning state of the build step.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The type of the step.
+	// Expected value is 'Docker'.
+	Type string `pulumi:"type"`
+}
+
+// DockerBuildStepInvokeResponseInput is an input type that accepts DockerBuildStepInvokeResponseArgs and DockerBuildStepInvokeResponseOutput values.
+// You can construct a concrete instance of `DockerBuildStepInvokeResponseInput` via:
+//
+//          DockerBuildStepInvokeResponseArgs{...}
+type DockerBuildStepInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDockerBuildStepInvokeResponseOutput() DockerBuildStepInvokeResponseOutput
+	ToDockerBuildStepInvokeResponseOutputWithContext(context.Context) DockerBuildStepInvokeResponseOutput
+}
+
+// The Docker build step.
+type DockerBuildStepInvokeResponseArgs struct {
+	// List of base image dependencies for a step.
+	BaseImageDependencies BaseImageDependencyInvokeResponseArrayInput `pulumi:"baseImageDependencies"`
+	// The type of the auto trigger for base image dependency updates.
+	BaseImageTrigger pulumi.StringPtrInput `pulumi:"baseImageTrigger"`
+	// The repository branch name.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// The custom arguments for building this build step.
+	BuildArguments BuildArgumentInvokeResponseArrayInput `pulumi:"buildArguments"`
+	// The relative context path for a docker build in the source.
+	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+	// The Docker file path relative to the source control root.
+	DockerFilePath pulumi.StringPtrInput `pulumi:"dockerFilePath"`
+	// The fully qualified image names including the repository and tag.
+	ImageNames pulumi.StringArrayInput `pulumi:"imageNames"`
+	// The value of this property indicates whether the image built should be pushed to the registry or not.
+	IsPushEnabled pulumi.BoolPtrInput `pulumi:"isPushEnabled"`
+	// The value of this property indicates whether the image cache is enabled or not.
+	NoCache pulumi.BoolPtrInput `pulumi:"noCache"`
+	// The provisioning state of the build step.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The type of the step.
+	// Expected value is 'Docker'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DockerBuildStepInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerBuildStepInvokeResponse)(nil)).Elem()
+}
+
+func (i DockerBuildStepInvokeResponseArgs) ToDockerBuildStepInvokeResponseOutput() DockerBuildStepInvokeResponseOutput {
+	return i.ToDockerBuildStepInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DockerBuildStepInvokeResponseArgs) ToDockerBuildStepInvokeResponseOutputWithContext(ctx context.Context) DockerBuildStepInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerBuildStepInvokeResponseOutput)
+}
+
+// The Docker build step.
+type DockerBuildStepInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DockerBuildStepInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerBuildStepInvokeResponse)(nil)).Elem()
+}
+
+func (o DockerBuildStepInvokeResponseOutput) ToDockerBuildStepInvokeResponseOutput() DockerBuildStepInvokeResponseOutput {
+	return o
+}
+
+func (o DockerBuildStepInvokeResponseOutput) ToDockerBuildStepInvokeResponseOutputWithContext(ctx context.Context) DockerBuildStepInvokeResponseOutput {
+	return o
+}
+
+// List of base image dependencies for a step.
+func (o DockerBuildStepInvokeResponseOutput) BaseImageDependencies() BaseImageDependencyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) []BaseImageDependencyInvokeResponse {
+		return v.BaseImageDependencies
+	}).(BaseImageDependencyInvokeResponseArrayOutput)
+}
+
+// The type of the auto trigger for base image dependency updates.
+func (o DockerBuildStepInvokeResponseOutput) BaseImageTrigger() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) *string { return v.BaseImageTrigger }).(pulumi.StringPtrOutput)
+}
+
+// The repository branch name.
+func (o DockerBuildStepInvokeResponseOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// The custom arguments for building this build step.
+func (o DockerBuildStepInvokeResponseOutput) BuildArguments() BuildArgumentInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) []BuildArgumentInvokeResponse { return v.BuildArguments }).(BuildArgumentInvokeResponseArrayOutput)
+}
+
+// The relative context path for a docker build in the source.
+func (o DockerBuildStepInvokeResponseOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// The Docker file path relative to the source control root.
+func (o DockerBuildStepInvokeResponseOutput) DockerFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) *string { return v.DockerFilePath }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified image names including the repository and tag.
+func (o DockerBuildStepInvokeResponseOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
+}
+
+// The value of this property indicates whether the image built should be pushed to the registry or not.
+func (o DockerBuildStepInvokeResponseOutput) IsPushEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) *bool { return v.IsPushEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The value of this property indicates whether the image cache is enabled or not.
+func (o DockerBuildStepInvokeResponseOutput) NoCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) *bool { return v.NoCache }).(pulumi.BoolPtrOutput)
+}
+
+// The provisioning state of the build step.
+func (o DockerBuildStepInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the step.
+// Expected value is 'Docker'.
+func (o DockerBuildStepInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DockerBuildStepInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The Docker build step.
@@ -755,6 +1168,70 @@ func (o PlatformPropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
 }
 
 // The platform properties against which the build has to happen.
+type PlatformPropertiesInvokeResponse struct {
+	// The CPU configuration in terms of number of cores required for the build.
+	Cpu *int `pulumi:"cpu"`
+	// The operating system type required for the build.
+	OsType string `pulumi:"osType"`
+}
+
+// PlatformPropertiesInvokeResponseInput is an input type that accepts PlatformPropertiesInvokeResponseArgs and PlatformPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `PlatformPropertiesInvokeResponseInput` via:
+//
+//          PlatformPropertiesInvokeResponseArgs{...}
+type PlatformPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPlatformPropertiesInvokeResponseOutput() PlatformPropertiesInvokeResponseOutput
+	ToPlatformPropertiesInvokeResponseOutputWithContext(context.Context) PlatformPropertiesInvokeResponseOutput
+}
+
+// The platform properties against which the build has to happen.
+type PlatformPropertiesInvokeResponseArgs struct {
+	// The CPU configuration in terms of number of cores required for the build.
+	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
+	// The operating system type required for the build.
+	OsType pulumi.StringInput `pulumi:"osType"`
+}
+
+func (PlatformPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlatformPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i PlatformPropertiesInvokeResponseArgs) ToPlatformPropertiesInvokeResponseOutput() PlatformPropertiesInvokeResponseOutput {
+	return i.ToPlatformPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PlatformPropertiesInvokeResponseArgs) ToPlatformPropertiesInvokeResponseOutputWithContext(ctx context.Context) PlatformPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlatformPropertiesInvokeResponseOutput)
+}
+
+// The platform properties against which the build has to happen.
+type PlatformPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PlatformPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlatformPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o PlatformPropertiesInvokeResponseOutput) ToPlatformPropertiesInvokeResponseOutput() PlatformPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o PlatformPropertiesInvokeResponseOutput) ToPlatformPropertiesInvokeResponseOutputWithContext(ctx context.Context) PlatformPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The CPU configuration in terms of number of cores required for the build.
+func (o PlatformPropertiesInvokeResponseOutput) Cpu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlatformPropertiesInvokeResponse) *int { return v.Cpu }).(pulumi.IntPtrOutput)
+}
+
+// The operating system type required for the build.
+func (o PlatformPropertiesInvokeResponseOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v PlatformPropertiesInvokeResponse) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// The platform properties against which the build has to happen.
 type PlatformPropertiesResponse struct {
 	// The CPU configuration in terms of number of cores required for the build.
 	Cpu *int `pulumi:"cpu"`
@@ -1110,6 +1587,216 @@ func (o SourceControlAuthInfoPtrOutput) Token() pulumi.StringPtrOutput {
 // The type of Auth token.
 func (o SourceControlAuthInfoPtrOutput) TokenType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SourceControlAuthInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+type SourceControlAuthInfoInvokeResponse struct {
+	// Time in seconds that the token remains valid
+	ExpiresIn *int `pulumi:"expiresIn"`
+	// The refresh token used to refresh the access token.
+	RefreshToken *string `pulumi:"refreshToken"`
+	// The scope of the access token.
+	Scope *string `pulumi:"scope"`
+	// The access token used to access the source control provider.
+	Token string `pulumi:"token"`
+	// The type of Auth token.
+	TokenType *string `pulumi:"tokenType"`
+}
+
+// SourceControlAuthInfoInvokeResponseInput is an input type that accepts SourceControlAuthInfoInvokeResponseArgs and SourceControlAuthInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `SourceControlAuthInfoInvokeResponseInput` via:
+//
+//          SourceControlAuthInfoInvokeResponseArgs{...}
+type SourceControlAuthInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSourceControlAuthInfoInvokeResponseOutput() SourceControlAuthInfoInvokeResponseOutput
+	ToSourceControlAuthInfoInvokeResponseOutputWithContext(context.Context) SourceControlAuthInfoInvokeResponseOutput
+}
+
+// The authorization properties for accessing the source code repository.
+type SourceControlAuthInfoInvokeResponseArgs struct {
+	// Time in seconds that the token remains valid
+	ExpiresIn pulumi.IntPtrInput `pulumi:"expiresIn"`
+	// The refresh token used to refresh the access token.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+	// The scope of the access token.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// The access token used to access the source control provider.
+	Token pulumi.StringInput `pulumi:"token"`
+	// The type of Auth token.
+	TokenType pulumi.StringPtrInput `pulumi:"tokenType"`
+}
+
+func (SourceControlAuthInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlAuthInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i SourceControlAuthInfoInvokeResponseArgs) ToSourceControlAuthInfoInvokeResponseOutput() SourceControlAuthInfoInvokeResponseOutput {
+	return i.ToSourceControlAuthInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SourceControlAuthInfoInvokeResponseArgs) ToSourceControlAuthInfoInvokeResponseOutputWithContext(ctx context.Context) SourceControlAuthInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoInvokeResponseOutput)
+}
+
+func (i SourceControlAuthInfoInvokeResponseArgs) ToSourceControlAuthInfoInvokeResponsePtrOutput() SourceControlAuthInfoInvokeResponsePtrOutput {
+	return i.ToSourceControlAuthInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SourceControlAuthInfoInvokeResponseArgs) ToSourceControlAuthInfoInvokeResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoInvokeResponseOutput).ToSourceControlAuthInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SourceControlAuthInfoInvokeResponsePtrInput is an input type that accepts SourceControlAuthInfoInvokeResponseArgs, SourceControlAuthInfoInvokeResponsePtr and SourceControlAuthInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SourceControlAuthInfoInvokeResponsePtrInput` via:
+//
+//          SourceControlAuthInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SourceControlAuthInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSourceControlAuthInfoInvokeResponsePtrOutput() SourceControlAuthInfoInvokeResponsePtrOutput
+	ToSourceControlAuthInfoInvokeResponsePtrOutputWithContext(context.Context) SourceControlAuthInfoInvokeResponsePtrOutput
+}
+
+type sourceControlAuthInfoInvokeResponsePtrType SourceControlAuthInfoInvokeResponseArgs
+
+func SourceControlAuthInfoInvokeResponsePtr(v *SourceControlAuthInfoInvokeResponseArgs) SourceControlAuthInfoInvokeResponsePtrInput {
+	return (*sourceControlAuthInfoInvokeResponsePtrType)(v)
+}
+
+func (*sourceControlAuthInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlAuthInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *sourceControlAuthInfoInvokeResponsePtrType) ToSourceControlAuthInfoInvokeResponsePtrOutput() SourceControlAuthInfoInvokeResponsePtrOutput {
+	return i.ToSourceControlAuthInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sourceControlAuthInfoInvokeResponsePtrType) ToSourceControlAuthInfoInvokeResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlAuthInfoInvokeResponsePtrOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+type SourceControlAuthInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceControlAuthInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlAuthInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o SourceControlAuthInfoInvokeResponseOutput) ToSourceControlAuthInfoInvokeResponseOutput() SourceControlAuthInfoInvokeResponseOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoInvokeResponseOutput) ToSourceControlAuthInfoInvokeResponseOutputWithContext(ctx context.Context) SourceControlAuthInfoInvokeResponseOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoInvokeResponseOutput) ToSourceControlAuthInfoInvokeResponsePtrOutput() SourceControlAuthInfoInvokeResponsePtrOutput {
+	return o.ToSourceControlAuthInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SourceControlAuthInfoInvokeResponseOutput) ToSourceControlAuthInfoInvokeResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoInvokeResponse) *SourceControlAuthInfoInvokeResponse {
+		return &v
+	}).(SourceControlAuthInfoInvokeResponsePtrOutput)
+}
+
+// Time in seconds that the token remains valid
+func (o SourceControlAuthInfoInvokeResponseOutput) ExpiresIn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoInvokeResponse) *int { return v.ExpiresIn }).(pulumi.IntPtrOutput)
+}
+
+// The refresh token used to refresh the access token.
+func (o SourceControlAuthInfoInvokeResponseOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoInvokeResponse) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+// The scope of the access token.
+func (o SourceControlAuthInfoInvokeResponseOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoInvokeResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The access token used to access the source control provider.
+func (o SourceControlAuthInfoInvokeResponseOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoInvokeResponse) string { return v.Token }).(pulumi.StringOutput)
+}
+
+// The type of Auth token.
+func (o SourceControlAuthInfoInvokeResponseOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceControlAuthInfoInvokeResponse) *string { return v.TokenType }).(pulumi.StringPtrOutput)
+}
+
+type SourceControlAuthInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceControlAuthInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlAuthInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o SourceControlAuthInfoInvokeResponsePtrOutput) ToSourceControlAuthInfoInvokeResponsePtrOutput() SourceControlAuthInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoInvokeResponsePtrOutput) ToSourceControlAuthInfoInvokeResponsePtrOutputWithContext(ctx context.Context) SourceControlAuthInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SourceControlAuthInfoInvokeResponsePtrOutput) Elem() SourceControlAuthInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoInvokeResponse) SourceControlAuthInfoInvokeResponse { return *v }).(SourceControlAuthInfoInvokeResponseOutput)
+}
+
+// Time in seconds that the token remains valid
+func (o SourceControlAuthInfoInvokeResponsePtrOutput) ExpiresIn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpiresIn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The refresh token used to refresh the access token.
+func (o SourceControlAuthInfoInvokeResponsePtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The scope of the access token.
+func (o SourceControlAuthInfoInvokeResponsePtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The access token used to access the source control provider.
+func (o SourceControlAuthInfoInvokeResponsePtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of Auth token.
+func (o SourceControlAuthInfoInvokeResponsePtrOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlAuthInfoInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1519,6 +2206,90 @@ func (o SourceRepositoryPropertiesPtrOutput) SourceControlType() pulumi.StringPt
 }
 
 // The properties of the source code repository.
+type SourceRepositoryPropertiesInvokeResponse struct {
+	// The value of this property indicates whether the source control commit trigger is enabled or not.
+	IsCommitTriggerEnabled *bool `pulumi:"isCommitTriggerEnabled"`
+	// The full URL to the source code repository
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+	// The authorization properties for accessing the source code repository.
+	SourceControlAuthProperties *SourceControlAuthInfoInvokeResponse `pulumi:"sourceControlAuthProperties"`
+	// The type of source control service.
+	SourceControlType string `pulumi:"sourceControlType"`
+}
+
+// SourceRepositoryPropertiesInvokeResponseInput is an input type that accepts SourceRepositoryPropertiesInvokeResponseArgs and SourceRepositoryPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SourceRepositoryPropertiesInvokeResponseInput` via:
+//
+//          SourceRepositoryPropertiesInvokeResponseArgs{...}
+type SourceRepositoryPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSourceRepositoryPropertiesInvokeResponseOutput() SourceRepositoryPropertiesInvokeResponseOutput
+	ToSourceRepositoryPropertiesInvokeResponseOutputWithContext(context.Context) SourceRepositoryPropertiesInvokeResponseOutput
+}
+
+// The properties of the source code repository.
+type SourceRepositoryPropertiesInvokeResponseArgs struct {
+	// The value of this property indicates whether the source control commit trigger is enabled or not.
+	IsCommitTriggerEnabled pulumi.BoolPtrInput `pulumi:"isCommitTriggerEnabled"`
+	// The full URL to the source code repository
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+	// The authorization properties for accessing the source code repository.
+	SourceControlAuthProperties SourceControlAuthInfoInvokeResponsePtrInput `pulumi:"sourceControlAuthProperties"`
+	// The type of source control service.
+	SourceControlType pulumi.StringInput `pulumi:"sourceControlType"`
+}
+
+func (SourceRepositoryPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceRepositoryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SourceRepositoryPropertiesInvokeResponseArgs) ToSourceRepositoryPropertiesInvokeResponseOutput() SourceRepositoryPropertiesInvokeResponseOutput {
+	return i.ToSourceRepositoryPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SourceRepositoryPropertiesInvokeResponseArgs) ToSourceRepositoryPropertiesInvokeResponseOutputWithContext(ctx context.Context) SourceRepositoryPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryPropertiesInvokeResponseOutput)
+}
+
+// The properties of the source code repository.
+type SourceRepositoryPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceRepositoryPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceRepositoryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SourceRepositoryPropertiesInvokeResponseOutput) ToSourceRepositoryPropertiesInvokeResponseOutput() SourceRepositoryPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SourceRepositoryPropertiesInvokeResponseOutput) ToSourceRepositoryPropertiesInvokeResponseOutputWithContext(ctx context.Context) SourceRepositoryPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The value of this property indicates whether the source control commit trigger is enabled or not.
+func (o SourceRepositoryPropertiesInvokeResponseOutput) IsCommitTriggerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SourceRepositoryPropertiesInvokeResponse) *bool { return v.IsCommitTriggerEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The full URL to the source code repository
+func (o SourceRepositoryPropertiesInvokeResponseOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceRepositoryPropertiesInvokeResponse) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+}
+
+// The authorization properties for accessing the source code repository.
+func (o SourceRepositoryPropertiesInvokeResponseOutput) SourceControlAuthProperties() SourceControlAuthInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SourceRepositoryPropertiesInvokeResponse) *SourceControlAuthInfoInvokeResponse {
+		return v.SourceControlAuthProperties
+	}).(SourceControlAuthInfoInvokeResponsePtrOutput)
+}
+
+// The type of source control service.
+func (o SourceRepositoryPropertiesInvokeResponseOutput) SourceControlType() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceRepositoryPropertiesInvokeResponse) string { return v.SourceControlType }).(pulumi.StringOutput)
+}
+
+// The properties of the source code repository.
 type SourceRepositoryPropertiesResponse struct {
 	// The value of this property indicates whether the source control commit trigger is enabled or not.
 	IsCommitTriggerEnabled *bool `pulumi:"isCommitTriggerEnabled"`
@@ -1712,22 +2483,31 @@ func (o SourceRepositoryPropertiesResponsePtrOutput) SourceControlType() pulumi.
 }
 
 func init() {
+	pulumi.RegisterOutputType(BaseImageDependencyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BaseImageDependencyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(BaseImageDependencyResponseOutput{})
 	pulumi.RegisterOutputType(BaseImageDependencyResponseArrayOutput{})
+	pulumi.RegisterOutputType(BuildArgumentInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BuildArgumentInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(BuildArgumentResponseOutput{})
 	pulumi.RegisterOutputType(BuildArgumentResponseArrayOutput{})
+	pulumi.RegisterOutputType(DockerBuildStepInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DockerBuildStepResponseOutput{})
 	pulumi.RegisterOutputType(DockerBuildStepResponsePtrOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PlatformPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PlatformPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceControlAuthInfoOutput{})
 	pulumi.RegisterOutputType(SourceControlAuthInfoPtrOutput{})
+	pulumi.RegisterOutputType(SourceControlAuthInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SourceControlAuthInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceControlAuthInfoResponseOutput{})
 	pulumi.RegisterOutputType(SourceControlAuthInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceRepositoryPropertiesOutput{})
 	pulumi.RegisterOutputType(SourceRepositoryPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SourceRepositoryPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SourceRepositoryPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SourceRepositoryPropertiesResponsePtrOutput{})
 }

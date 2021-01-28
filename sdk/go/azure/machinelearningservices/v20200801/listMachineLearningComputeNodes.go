@@ -33,5 +33,5 @@ type ListMachineLearningComputeNodesResult struct {
 	// The continuation token.
 	NextLink string `pulumi:"nextLink"`
 	// The collection of returned AmlCompute nodes details.
-	Nodes []AmlComputeNodeInformationResponse `pulumi:"nodes"`
+	Nodes []AmlComputeNodeInformationInvokeResponse `pulumi:"nodes"`
 }

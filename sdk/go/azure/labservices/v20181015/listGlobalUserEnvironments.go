@@ -26,5 +26,5 @@ type ListGlobalUserEnvironmentsArgs struct {
 // Represents the list of environments owned by a user
 type ListGlobalUserEnvironmentsResult struct {
 	// List of all the environments
-	Environments []EnvironmentDetailsResponse `pulumi:"environments"`
+	Environments []EnvironmentDetailsInvokeResponse `pulumi:"environments"`
 }

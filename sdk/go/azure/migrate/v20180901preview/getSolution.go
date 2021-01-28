@@ -34,7 +34,7 @@ type LookupSolutionResult struct {
 	// Gets the name of this REST resource.
 	Name string `pulumi:"name"`
 	// Gets or sets the properties of the solution.
-	Properties SolutionPropertiesResponse `pulumi:"properties"`
+	Properties SolutionPropertiesInvokeResponse `pulumi:"properties"`
 	// Gets the type of this REST resource.
 	Type string `pulumi:"type"`
 }

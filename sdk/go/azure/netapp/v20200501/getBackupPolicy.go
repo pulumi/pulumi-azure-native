@@ -46,7 +46,7 @@ type LookupBackupPolicyResult struct {
 	// Resource type
 	Type string `pulumi:"type"`
 	// A list of volumes assigned to this policy
-	VolumeBackups []VolumeBackupsResponse `pulumi:"volumeBackups"`
+	VolumeBackups []VolumeBackupsInvokeResponse `pulumi:"volumeBackups"`
 	// Volumes using current backup policy
 	VolumesAssigned *int `pulumi:"volumesAssigned"`
 	// Weekly backups count to keep

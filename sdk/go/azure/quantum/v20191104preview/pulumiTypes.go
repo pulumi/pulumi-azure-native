@@ -156,6 +156,151 @@ func (o ProviderArrayOutput) Index(i pulumi.IntInput) ProviderOutput {
 }
 
 // Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
+type ProviderInvokeResponse struct {
+	// The provider's marketplace application display name.
+	ApplicationName *string `pulumi:"applicationName"`
+	// A Uri identifying the specific instance of this provider.
+	InstanceUri *string `pulumi:"instanceUri"`
+	// Unique id of this provider.
+	ProviderId *string `pulumi:"providerId"`
+	// The sku associated with pricing information for this provider.
+	ProviderSku *string `pulumi:"providerSku"`
+	// Provisioning status field
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Id to track resource usage for the provider.
+	ResourceUsageId *string `pulumi:"resourceUsageId"`
+}
+
+// ProviderInvokeResponseInput is an input type that accepts ProviderInvokeResponseArgs and ProviderInvokeResponseOutput values.
+// You can construct a concrete instance of `ProviderInvokeResponseInput` via:
+//
+//          ProviderInvokeResponseArgs{...}
+type ProviderInvokeResponseInput interface {
+	pulumi.Input
+
+	ToProviderInvokeResponseOutput() ProviderInvokeResponseOutput
+	ToProviderInvokeResponseOutputWithContext(context.Context) ProviderInvokeResponseOutput
+}
+
+// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
+type ProviderInvokeResponseArgs struct {
+	// The provider's marketplace application display name.
+	ApplicationName pulumi.StringPtrInput `pulumi:"applicationName"`
+	// A Uri identifying the specific instance of this provider.
+	InstanceUri pulumi.StringPtrInput `pulumi:"instanceUri"`
+	// Unique id of this provider.
+	ProviderId pulumi.StringPtrInput `pulumi:"providerId"`
+	// The sku associated with pricing information for this provider.
+	ProviderSku pulumi.StringPtrInput `pulumi:"providerSku"`
+	// Provisioning status field
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Id to track resource usage for the provider.
+	ResourceUsageId pulumi.StringPtrInput `pulumi:"resourceUsageId"`
+}
+
+func (ProviderInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i ProviderInvokeResponseArgs) ToProviderInvokeResponseOutput() ProviderInvokeResponseOutput {
+	return i.ToProviderInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ProviderInvokeResponseArgs) ToProviderInvokeResponseOutputWithContext(ctx context.Context) ProviderInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderInvokeResponseOutput)
+}
+
+// ProviderInvokeResponseArrayInput is an input type that accepts ProviderInvokeResponseArray and ProviderInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ProviderInvokeResponseArrayInput` via:
+//
+//          ProviderInvokeResponseArray{ ProviderInvokeResponseArgs{...} }
+type ProviderInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToProviderInvokeResponseArrayOutput() ProviderInvokeResponseArrayOutput
+	ToProviderInvokeResponseArrayOutputWithContext(context.Context) ProviderInvokeResponseArrayOutput
+}
+
+type ProviderInvokeResponseArray []ProviderInvokeResponseInput
+
+func (ProviderInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i ProviderInvokeResponseArray) ToProviderInvokeResponseArrayOutput() ProviderInvokeResponseArrayOutput {
+	return i.ToProviderInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ProviderInvokeResponseArray) ToProviderInvokeResponseArrayOutputWithContext(ctx context.Context) ProviderInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderInvokeResponseArrayOutput)
+}
+
+// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
+type ProviderInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ProviderInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o ProviderInvokeResponseOutput) ToProviderInvokeResponseOutput() ProviderInvokeResponseOutput {
+	return o
+}
+
+func (o ProviderInvokeResponseOutput) ToProviderInvokeResponseOutputWithContext(ctx context.Context) ProviderInvokeResponseOutput {
+	return o
+}
+
+// The provider's marketplace application display name.
+func (o ProviderInvokeResponseOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderInvokeResponse) *string { return v.ApplicationName }).(pulumi.StringPtrOutput)
+}
+
+// A Uri identifying the specific instance of this provider.
+func (o ProviderInvokeResponseOutput) InstanceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderInvokeResponse) *string { return v.InstanceUri }).(pulumi.StringPtrOutput)
+}
+
+// Unique id of this provider.
+func (o ProviderInvokeResponseOutput) ProviderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderInvokeResponse) *string { return v.ProviderId }).(pulumi.StringPtrOutput)
+}
+
+// The sku associated with pricing information for this provider.
+func (o ProviderInvokeResponseOutput) ProviderSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderInvokeResponse) *string { return v.ProviderSku }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning status field
+func (o ProviderInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Id to track resource usage for the provider.
+func (o ProviderInvokeResponseOutput) ResourceUsageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderInvokeResponse) *string { return v.ResourceUsageId }).(pulumi.StringPtrOutput)
+}
+
+type ProviderInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProviderInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o ProviderInvokeResponseArrayOutput) ToProviderInvokeResponseArrayOutput() ProviderInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ProviderInvokeResponseArrayOutput) ToProviderInvokeResponseArrayOutputWithContext(ctx context.Context) ProviderInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ProviderInvokeResponseArrayOutput) Index(i pulumi.IntInput) ProviderInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderInvokeResponse {
+		return vs[0].([]ProviderInvokeResponse)[vs[1].(int)]
+	}).(ProviderInvokeResponseOutput)
+}
+
+// Information about a Provider. A Provider is an entity that offers Targets to run Azure Quantum Jobs.
 type ProviderResponse struct {
 	// The provider's marketplace application display name.
 	ApplicationName *string `pulumi:"applicationName"`
@@ -435,6 +580,79 @@ func (o QuantumWorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Managed Identity information.
+type QuantumWorkspaceInvokeResponseIdentity struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// QuantumWorkspaceInvokeResponseIdentityInput is an input type that accepts QuantumWorkspaceInvokeResponseIdentityArgs and QuantumWorkspaceInvokeResponseIdentityOutput values.
+// You can construct a concrete instance of `QuantumWorkspaceInvokeResponseIdentityInput` via:
+//
+//          QuantumWorkspaceInvokeResponseIdentityArgs{...}
+type QuantumWorkspaceInvokeResponseIdentityInput interface {
+	pulumi.Input
+
+	ToQuantumWorkspaceInvokeResponseIdentityOutput() QuantumWorkspaceInvokeResponseIdentityOutput
+	ToQuantumWorkspaceInvokeResponseIdentityOutputWithContext(context.Context) QuantumWorkspaceInvokeResponseIdentityOutput
+}
+
+// Managed Identity information.
+type QuantumWorkspaceInvokeResponseIdentityArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (QuantumWorkspaceInvokeResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuantumWorkspaceInvokeResponseIdentity)(nil)).Elem()
+}
+
+func (i QuantumWorkspaceInvokeResponseIdentityArgs) ToQuantumWorkspaceInvokeResponseIdentityOutput() QuantumWorkspaceInvokeResponseIdentityOutput {
+	return i.ToQuantumWorkspaceInvokeResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i QuantumWorkspaceInvokeResponseIdentityArgs) ToQuantumWorkspaceInvokeResponseIdentityOutputWithContext(ctx context.Context) QuantumWorkspaceInvokeResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuantumWorkspaceInvokeResponseIdentityOutput)
+}
+
+// Managed Identity information.
+type QuantumWorkspaceInvokeResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (QuantumWorkspaceInvokeResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuantumWorkspaceInvokeResponseIdentity)(nil)).Elem()
+}
+
+func (o QuantumWorkspaceInvokeResponseIdentityOutput) ToQuantumWorkspaceInvokeResponseIdentityOutput() QuantumWorkspaceInvokeResponseIdentityOutput {
+	return o
+}
+
+func (o QuantumWorkspaceInvokeResponseIdentityOutput) ToQuantumWorkspaceInvokeResponseIdentityOutputWithContext(ctx context.Context) QuantumWorkspaceInvokeResponseIdentityOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o QuantumWorkspaceInvokeResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v QuantumWorkspaceInvokeResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o QuantumWorkspaceInvokeResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v QuantumWorkspaceInvokeResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o QuantumWorkspaceInvokeResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QuantumWorkspaceInvokeResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Managed Identity information.
 type QuantumWorkspaceResponseIdentity struct {
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -609,10 +827,13 @@ func (o QuantumWorkspaceResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(ProviderOutput{})
 	pulumi.RegisterOutputType(ProviderArrayOutput{})
+	pulumi.RegisterOutputType(ProviderInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ProviderInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProviderResponseOutput{})
 	pulumi.RegisterOutputType(ProviderResponseArrayOutput{})
 	pulumi.RegisterOutputType(QuantumWorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(QuantumWorkspaceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(QuantumWorkspaceInvokeResponseIdentityOutput{})
 	pulumi.RegisterOutputType(QuantumWorkspaceResponseIdentityOutput{})
 	pulumi.RegisterOutputType(QuantumWorkspaceResponseIdentityPtrOutput{})
 }

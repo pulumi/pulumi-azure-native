@@ -30,9 +30,9 @@ type LookupGlobalScheduleResult struct {
 	// The creation date of the schedule.
 	CreatedDate string `pulumi:"createdDate"`
 	// If the schedule will occur once each day of the week, specify the daily recurrence.
-	DailyRecurrence *DayDetailsResponse `pulumi:"dailyRecurrence"`
+	DailyRecurrence *DayDetailsInvokeResponse `pulumi:"dailyRecurrence"`
 	// If the schedule will occur multiple times a day, specify the hourly recurrence.
-	HourlyRecurrence *HourDetailsResponse `pulumi:"hourlyRecurrence"`
+	HourlyRecurrence *HourDetailsInvokeResponse `pulumi:"hourlyRecurrence"`
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
 	// The location of the resource.
@@ -40,7 +40,7 @@ type LookupGlobalScheduleResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Notification settings.
-	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
+	NotificationSettings *NotificationSettingsInvokeResponse `pulumi:"notificationSettings"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The status of the schedule (i.e. Enabled, Disabled)
@@ -58,5 +58,5 @@ type LookupGlobalScheduleResult struct {
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 	// If the schedule will occur only some days of the week, specify the weekly recurrence.
-	WeeklyRecurrence *WeekDetailsResponse `pulumi:"weeklyRecurrence"`
+	WeeklyRecurrence *WeekDetailsInvokeResponse `pulumi:"weeklyRecurrence"`
 }

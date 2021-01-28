@@ -38,7 +38,7 @@ type LookupManagementAssociationResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
-	Properties ManagementAssociationPropertiesResponse `pulumi:"properties"`
+	Properties ManagementAssociationPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

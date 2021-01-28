@@ -32,7 +32,7 @@ type LookupJobResult struct {
 	// Details of a job run. This field will only be sent for expand details filter.
 	Details interface{} `pulumi:"details"`
 	// Top level error for the job.
-	Error ErrorResponse `pulumi:"error"`
+	Error ErrorInvokeResponse `pulumi:"error"`
 	// Id of the object.
 	Id string `pulumi:"id"`
 	// Describes whether the job is cancellable or not.
@@ -46,7 +46,7 @@ type LookupJobResult struct {
 	// Name of the object.
 	Name string `pulumi:"name"`
 	// The sku type.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Time at which the job was started in UTC ISO 8601 format.
 	StartTime string `pulumi:"startTime"`
 	// Name of the stage which is in progress.

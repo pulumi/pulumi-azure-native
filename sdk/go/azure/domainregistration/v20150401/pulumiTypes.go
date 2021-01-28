@@ -240,6 +240,235 @@ func (o AddressPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 // Address information for domain registration.
+type AddressInvokeResponse struct {
+	// First line of an Address.
+	Address1 string `pulumi:"address1"`
+	// The second line of the Address. Optional.
+	Address2 *string `pulumi:"address2"`
+	// The city for the address.
+	City string `pulumi:"city"`
+	// The country for the address.
+	Country string `pulumi:"country"`
+	// The postal code for the address.
+	PostalCode string `pulumi:"postalCode"`
+	// The state or province for the address.
+	State string `pulumi:"state"`
+}
+
+// AddressInvokeResponseInput is an input type that accepts AddressInvokeResponseArgs and AddressInvokeResponseOutput values.
+// You can construct a concrete instance of `AddressInvokeResponseInput` via:
+//
+//          AddressInvokeResponseArgs{...}
+type AddressInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAddressInvokeResponseOutput() AddressInvokeResponseOutput
+	ToAddressInvokeResponseOutputWithContext(context.Context) AddressInvokeResponseOutput
+}
+
+// Address information for domain registration.
+type AddressInvokeResponseArgs struct {
+	// First line of an Address.
+	Address1 pulumi.StringInput `pulumi:"address1"`
+	// The second line of the Address. Optional.
+	Address2 pulumi.StringPtrInput `pulumi:"address2"`
+	// The city for the address.
+	City pulumi.StringInput `pulumi:"city"`
+	// The country for the address.
+	Country pulumi.StringInput `pulumi:"country"`
+	// The postal code for the address.
+	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	// The state or province for the address.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (AddressInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddressInvokeResponse)(nil)).Elem()
+}
+
+func (i AddressInvokeResponseArgs) ToAddressInvokeResponseOutput() AddressInvokeResponseOutput {
+	return i.ToAddressInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AddressInvokeResponseArgs) ToAddressInvokeResponseOutputWithContext(ctx context.Context) AddressInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddressInvokeResponseOutput)
+}
+
+func (i AddressInvokeResponseArgs) ToAddressInvokeResponsePtrOutput() AddressInvokeResponsePtrOutput {
+	return i.ToAddressInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AddressInvokeResponseArgs) ToAddressInvokeResponsePtrOutputWithContext(ctx context.Context) AddressInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddressInvokeResponseOutput).ToAddressInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AddressInvokeResponsePtrInput is an input type that accepts AddressInvokeResponseArgs, AddressInvokeResponsePtr and AddressInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AddressInvokeResponsePtrInput` via:
+//
+//          AddressInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AddressInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAddressInvokeResponsePtrOutput() AddressInvokeResponsePtrOutput
+	ToAddressInvokeResponsePtrOutputWithContext(context.Context) AddressInvokeResponsePtrOutput
+}
+
+type addressInvokeResponsePtrType AddressInvokeResponseArgs
+
+func AddressInvokeResponsePtr(v *AddressInvokeResponseArgs) AddressInvokeResponsePtrInput {
+	return (*addressInvokeResponsePtrType)(v)
+}
+
+func (*addressInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AddressInvokeResponse)(nil)).Elem()
+}
+
+func (i *addressInvokeResponsePtrType) ToAddressInvokeResponsePtrOutput() AddressInvokeResponsePtrOutput {
+	return i.ToAddressInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *addressInvokeResponsePtrType) ToAddressInvokeResponsePtrOutputWithContext(ctx context.Context) AddressInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddressInvokeResponsePtrOutput)
+}
+
+// Address information for domain registration.
+type AddressInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AddressInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddressInvokeResponse)(nil)).Elem()
+}
+
+func (o AddressInvokeResponseOutput) ToAddressInvokeResponseOutput() AddressInvokeResponseOutput {
+	return o
+}
+
+func (o AddressInvokeResponseOutput) ToAddressInvokeResponseOutputWithContext(ctx context.Context) AddressInvokeResponseOutput {
+	return o
+}
+
+func (o AddressInvokeResponseOutput) ToAddressInvokeResponsePtrOutput() AddressInvokeResponsePtrOutput {
+	return o.ToAddressInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AddressInvokeResponseOutput) ToAddressInvokeResponsePtrOutputWithContext(ctx context.Context) AddressInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) *AddressInvokeResponse {
+		return &v
+	}).(AddressInvokeResponsePtrOutput)
+}
+
+// First line of an Address.
+func (o AddressInvokeResponseOutput) Address1() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) string { return v.Address1 }).(pulumi.StringOutput)
+}
+
+// The second line of the Address. Optional.
+func (o AddressInvokeResponseOutput) Address2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) *string { return v.Address2 }).(pulumi.StringPtrOutput)
+}
+
+// The city for the address.
+func (o AddressInvokeResponseOutput) City() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) string { return v.City }).(pulumi.StringOutput)
+}
+
+// The country for the address.
+func (o AddressInvokeResponseOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) string { return v.Country }).(pulumi.StringOutput)
+}
+
+// The postal code for the address.
+func (o AddressInvokeResponseOutput) PostalCode() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) string { return v.PostalCode }).(pulumi.StringOutput)
+}
+
+// The state or province for the address.
+func (o AddressInvokeResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+type AddressInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AddressInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AddressInvokeResponse)(nil)).Elem()
+}
+
+func (o AddressInvokeResponsePtrOutput) ToAddressInvokeResponsePtrOutput() AddressInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AddressInvokeResponsePtrOutput) ToAddressInvokeResponsePtrOutputWithContext(ctx context.Context) AddressInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AddressInvokeResponsePtrOutput) Elem() AddressInvokeResponseOutput {
+	return o.ApplyT(func(v *AddressInvokeResponse) AddressInvokeResponse { return *v }).(AddressInvokeResponseOutput)
+}
+
+// First line of an Address.
+func (o AddressInvokeResponsePtrOutput) Address1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Address1
+	}).(pulumi.StringPtrOutput)
+}
+
+// The second line of the Address. Optional.
+func (o AddressInvokeResponsePtrOutput) Address2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The city for the address.
+func (o AddressInvokeResponsePtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+// The country for the address.
+func (o AddressInvokeResponsePtrOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Country
+	}).(pulumi.StringPtrOutput)
+}
+
+// The postal code for the address.
+func (o AddressInvokeResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PostalCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state or province for the address.
+func (o AddressInvokeResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Address information for domain registration.
 type AddressResponse struct {
 	// First line of an Address.
 	Address1 string `pulumi:"address1"`
@@ -759,6 +988,136 @@ func (o ContactPtrOutput) Phone() pulumi.StringPtrOutput {
 
 // Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
 // directories as per ICANN requirements.
+type ContactInvokeResponse struct {
+	// Mailing address.
+	AddressMailing *AddressInvokeResponse `pulumi:"addressMailing"`
+	// Email address.
+	Email string `pulumi:"email"`
+	// Fax number.
+	Fax *string `pulumi:"fax"`
+	// Job title.
+	JobTitle *string `pulumi:"jobTitle"`
+	// First name.
+	NameFirst string `pulumi:"nameFirst"`
+	// Last name.
+	NameLast string `pulumi:"nameLast"`
+	// Middle name.
+	NameMiddle *string `pulumi:"nameMiddle"`
+	// Organization contact belongs to.
+	Organization *string `pulumi:"organization"`
+	// Phone number.
+	Phone string `pulumi:"phone"`
+}
+
+// ContactInvokeResponseInput is an input type that accepts ContactInvokeResponseArgs and ContactInvokeResponseOutput values.
+// You can construct a concrete instance of `ContactInvokeResponseInput` via:
+//
+//          ContactInvokeResponseArgs{...}
+type ContactInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContactInvokeResponseOutput() ContactInvokeResponseOutput
+	ToContactInvokeResponseOutputWithContext(context.Context) ContactInvokeResponseOutput
+}
+
+// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
+// directories as per ICANN requirements.
+type ContactInvokeResponseArgs struct {
+	// Mailing address.
+	AddressMailing AddressInvokeResponsePtrInput `pulumi:"addressMailing"`
+	// Email address.
+	Email pulumi.StringInput `pulumi:"email"`
+	// Fax number.
+	Fax pulumi.StringPtrInput `pulumi:"fax"`
+	// Job title.
+	JobTitle pulumi.StringPtrInput `pulumi:"jobTitle"`
+	// First name.
+	NameFirst pulumi.StringInput `pulumi:"nameFirst"`
+	// Last name.
+	NameLast pulumi.StringInput `pulumi:"nameLast"`
+	// Middle name.
+	NameMiddle pulumi.StringPtrInput `pulumi:"nameMiddle"`
+	// Organization contact belongs to.
+	Organization pulumi.StringPtrInput `pulumi:"organization"`
+	// Phone number.
+	Phone pulumi.StringInput `pulumi:"phone"`
+}
+
+func (ContactInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactInvokeResponse)(nil)).Elem()
+}
+
+func (i ContactInvokeResponseArgs) ToContactInvokeResponseOutput() ContactInvokeResponseOutput {
+	return i.ToContactInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContactInvokeResponseArgs) ToContactInvokeResponseOutputWithContext(ctx context.Context) ContactInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactInvokeResponseOutput)
+}
+
+// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
+// directories as per ICANN requirements.
+type ContactInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContactInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactInvokeResponse)(nil)).Elem()
+}
+
+func (o ContactInvokeResponseOutput) ToContactInvokeResponseOutput() ContactInvokeResponseOutput {
+	return o
+}
+
+func (o ContactInvokeResponseOutput) ToContactInvokeResponseOutputWithContext(ctx context.Context) ContactInvokeResponseOutput {
+	return o
+}
+
+// Mailing address.
+func (o ContactInvokeResponseOutput) AddressMailing() AddressInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContactInvokeResponse) *AddressInvokeResponse { return v.AddressMailing }).(AddressInvokeResponsePtrOutput)
+}
+
+// Email address.
+func (o ContactInvokeResponseOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactInvokeResponse) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// Fax number.
+func (o ContactInvokeResponseOutput) Fax() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactInvokeResponse) *string { return v.Fax }).(pulumi.StringPtrOutput)
+}
+
+// Job title.
+func (o ContactInvokeResponseOutput) JobTitle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactInvokeResponse) *string { return v.JobTitle }).(pulumi.StringPtrOutput)
+}
+
+// First name.
+func (o ContactInvokeResponseOutput) NameFirst() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactInvokeResponse) string { return v.NameFirst }).(pulumi.StringOutput)
+}
+
+// Last name.
+func (o ContactInvokeResponseOutput) NameLast() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactInvokeResponse) string { return v.NameLast }).(pulumi.StringOutput)
+}
+
+// Middle name.
+func (o ContactInvokeResponseOutput) NameMiddle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactInvokeResponse) *string { return v.NameMiddle }).(pulumi.StringPtrOutput)
+}
+
+// Organization contact belongs to.
+func (o ContactInvokeResponseOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactInvokeResponse) *string { return v.Organization }).(pulumi.StringPtrOutput)
+}
+
+// Phone number.
+func (o ContactInvokeResponseOutput) Phone() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactInvokeResponse) string { return v.Phone }).(pulumi.StringOutput)
+}
+
+// Contact information for domain registration. If 'Domain Privacy' option is not selected then the contact information is made publicly available through the Whois
+// directories as per ICANN requirements.
 type ContactResponse struct {
 	// Mailing address.
 	AddressMailing *AddressResponse `pulumi:"addressMailing"`
@@ -1219,6 +1578,79 @@ func (o DomainPurchaseConsentPtrOutput) AgreementKeys() pulumi.StringArrayOutput
 }
 
 // Domain purchase consent object, representing acceptance of applicable legal agreements.
+type DomainPurchaseConsentInvokeResponse struct {
+	// Timestamp when the agreements were accepted.
+	AgreedAt *string `pulumi:"agreedAt"`
+	// Client IP address.
+	AgreedBy *string `pulumi:"agreedBy"`
+	// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+	AgreementKeys []string `pulumi:"agreementKeys"`
+}
+
+// DomainPurchaseConsentInvokeResponseInput is an input type that accepts DomainPurchaseConsentInvokeResponseArgs and DomainPurchaseConsentInvokeResponseOutput values.
+// You can construct a concrete instance of `DomainPurchaseConsentInvokeResponseInput` via:
+//
+//          DomainPurchaseConsentInvokeResponseArgs{...}
+type DomainPurchaseConsentInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDomainPurchaseConsentInvokeResponseOutput() DomainPurchaseConsentInvokeResponseOutput
+	ToDomainPurchaseConsentInvokeResponseOutputWithContext(context.Context) DomainPurchaseConsentInvokeResponseOutput
+}
+
+// Domain purchase consent object, representing acceptance of applicable legal agreements.
+type DomainPurchaseConsentInvokeResponseArgs struct {
+	// Timestamp when the agreements were accepted.
+	AgreedAt pulumi.StringPtrInput `pulumi:"agreedAt"`
+	// Client IP address.
+	AgreedBy pulumi.StringPtrInput `pulumi:"agreedBy"`
+	// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+	AgreementKeys pulumi.StringArrayInput `pulumi:"agreementKeys"`
+}
+
+func (DomainPurchaseConsentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainPurchaseConsentInvokeResponse)(nil)).Elem()
+}
+
+func (i DomainPurchaseConsentInvokeResponseArgs) ToDomainPurchaseConsentInvokeResponseOutput() DomainPurchaseConsentInvokeResponseOutput {
+	return i.ToDomainPurchaseConsentInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DomainPurchaseConsentInvokeResponseArgs) ToDomainPurchaseConsentInvokeResponseOutputWithContext(ctx context.Context) DomainPurchaseConsentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainPurchaseConsentInvokeResponseOutput)
+}
+
+// Domain purchase consent object, representing acceptance of applicable legal agreements.
+type DomainPurchaseConsentInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DomainPurchaseConsentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainPurchaseConsentInvokeResponse)(nil)).Elem()
+}
+
+func (o DomainPurchaseConsentInvokeResponseOutput) ToDomainPurchaseConsentInvokeResponseOutput() DomainPurchaseConsentInvokeResponseOutput {
+	return o
+}
+
+func (o DomainPurchaseConsentInvokeResponseOutput) ToDomainPurchaseConsentInvokeResponseOutputWithContext(ctx context.Context) DomainPurchaseConsentInvokeResponseOutput {
+	return o
+}
+
+// Timestamp when the agreements were accepted.
+func (o DomainPurchaseConsentInvokeResponseOutput) AgreedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainPurchaseConsentInvokeResponse) *string { return v.AgreedAt }).(pulumi.StringPtrOutput)
+}
+
+// Client IP address.
+func (o DomainPurchaseConsentInvokeResponseOutput) AgreedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainPurchaseConsentInvokeResponse) *string { return v.AgreedBy }).(pulumi.StringPtrOutput)
+}
+
+// List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+func (o DomainPurchaseConsentInvokeResponseOutput) AgreementKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainPurchaseConsentInvokeResponse) []string { return v.AgreementKeys }).(pulumi.StringArrayOutput)
+}
+
+// Domain purchase consent object, representing acceptance of applicable legal agreements.
 type DomainPurchaseConsentResponse struct {
 	// Timestamp when the agreements were accepted.
 	AgreedAt *string `pulumi:"agreedAt"`
@@ -1391,6 +1823,151 @@ func (o DomainPurchaseConsentResponsePtrOutput) AgreementKeys() pulumi.StringArr
 }
 
 // Details of a hostname derived from a domain.
+type HostNameInvokeResponse struct {
+	// Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
+	AzureResourceName *string `pulumi:"azureResourceName"`
+	// Type of the Azure resource the hostname is assigned to.
+	AzureResourceType *string `pulumi:"azureResourceType"`
+	// Type of the DNS record.
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
+	// Type of the hostname.
+	HostNameType *string `pulumi:"hostNameType"`
+	// Name of the hostname.
+	Name *string `pulumi:"name"`
+	// List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
+	SiteNames []string `pulumi:"siteNames"`
+}
+
+// HostNameInvokeResponseInput is an input type that accepts HostNameInvokeResponseArgs and HostNameInvokeResponseOutput values.
+// You can construct a concrete instance of `HostNameInvokeResponseInput` via:
+//
+//          HostNameInvokeResponseArgs{...}
+type HostNameInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHostNameInvokeResponseOutput() HostNameInvokeResponseOutput
+	ToHostNameInvokeResponseOutputWithContext(context.Context) HostNameInvokeResponseOutput
+}
+
+// Details of a hostname derived from a domain.
+type HostNameInvokeResponseArgs struct {
+	// Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
+	AzureResourceName pulumi.StringPtrInput `pulumi:"azureResourceName"`
+	// Type of the Azure resource the hostname is assigned to.
+	AzureResourceType pulumi.StringPtrInput `pulumi:"azureResourceType"`
+	// Type of the DNS record.
+	CustomHostNameDnsRecordType pulumi.StringPtrInput `pulumi:"customHostNameDnsRecordType"`
+	// Type of the hostname.
+	HostNameType pulumi.StringPtrInput `pulumi:"hostNameType"`
+	// Name of the hostname.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
+	SiteNames pulumi.StringArrayInput `pulumi:"siteNames"`
+}
+
+func (HostNameInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostNameInvokeResponse)(nil)).Elem()
+}
+
+func (i HostNameInvokeResponseArgs) ToHostNameInvokeResponseOutput() HostNameInvokeResponseOutput {
+	return i.ToHostNameInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HostNameInvokeResponseArgs) ToHostNameInvokeResponseOutputWithContext(ctx context.Context) HostNameInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostNameInvokeResponseOutput)
+}
+
+// HostNameInvokeResponseArrayInput is an input type that accepts HostNameInvokeResponseArray and HostNameInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `HostNameInvokeResponseArrayInput` via:
+//
+//          HostNameInvokeResponseArray{ HostNameInvokeResponseArgs{...} }
+type HostNameInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToHostNameInvokeResponseArrayOutput() HostNameInvokeResponseArrayOutput
+	ToHostNameInvokeResponseArrayOutputWithContext(context.Context) HostNameInvokeResponseArrayOutput
+}
+
+type HostNameInvokeResponseArray []HostNameInvokeResponseInput
+
+func (HostNameInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostNameInvokeResponse)(nil)).Elem()
+}
+
+func (i HostNameInvokeResponseArray) ToHostNameInvokeResponseArrayOutput() HostNameInvokeResponseArrayOutput {
+	return i.ToHostNameInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HostNameInvokeResponseArray) ToHostNameInvokeResponseArrayOutputWithContext(ctx context.Context) HostNameInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostNameInvokeResponseArrayOutput)
+}
+
+// Details of a hostname derived from a domain.
+type HostNameInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HostNameInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostNameInvokeResponse)(nil)).Elem()
+}
+
+func (o HostNameInvokeResponseOutput) ToHostNameInvokeResponseOutput() HostNameInvokeResponseOutput {
+	return o
+}
+
+func (o HostNameInvokeResponseOutput) ToHostNameInvokeResponseOutputWithContext(ctx context.Context) HostNameInvokeResponseOutput {
+	return o
+}
+
+// Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
+func (o HostNameInvokeResponseOutput) AzureResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostNameInvokeResponse) *string { return v.AzureResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Type of the Azure resource the hostname is assigned to.
+func (o HostNameInvokeResponseOutput) AzureResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostNameInvokeResponse) *string { return v.AzureResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the DNS record.
+func (o HostNameInvokeResponseOutput) CustomHostNameDnsRecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostNameInvokeResponse) *string { return v.CustomHostNameDnsRecordType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the hostname.
+func (o HostNameInvokeResponseOutput) HostNameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostNameInvokeResponse) *string { return v.HostNameType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the hostname.
+func (o HostNameInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostNameInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.
+func (o HostNameInvokeResponseOutput) SiteNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HostNameInvokeResponse) []string { return v.SiteNames }).(pulumi.StringArrayOutput)
+}
+
+type HostNameInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HostNameInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostNameInvokeResponse)(nil)).Elem()
+}
+
+func (o HostNameInvokeResponseArrayOutput) ToHostNameInvokeResponseArrayOutput() HostNameInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HostNameInvokeResponseArrayOutput) ToHostNameInvokeResponseArrayOutputWithContext(ctx context.Context) HostNameInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HostNameInvokeResponseArrayOutput) Index(i pulumi.IntInput) HostNameInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostNameInvokeResponse {
+		return vs[0].([]HostNameInvokeResponse)[vs[1].(int)]
+	}).(HostNameInvokeResponseOutput)
+}
+
+// Details of a hostname derived from a domain.
 type HostNameResponse struct {
 	// Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.
 	AzureResourceName *string `pulumi:"azureResourceName"`
@@ -1536,107 +2113,107 @@ func (o HostNameResponseArrayOutput) Index(i pulumi.IntInput) HostNameResponseOu
 }
 
 // Identifies an object.
-type NameIdentifierResponse struct {
+type NameIdentifierInvokeResponse struct {
 	// Name of the object.
 	Name *string `pulumi:"name"`
 }
 
-// NameIdentifierResponseInput is an input type that accepts NameIdentifierResponseArgs and NameIdentifierResponseOutput values.
-// You can construct a concrete instance of `NameIdentifierResponseInput` via:
+// NameIdentifierInvokeResponseInput is an input type that accepts NameIdentifierInvokeResponseArgs and NameIdentifierInvokeResponseOutput values.
+// You can construct a concrete instance of `NameIdentifierInvokeResponseInput` via:
 //
-//          NameIdentifierResponseArgs{...}
-type NameIdentifierResponseInput interface {
+//          NameIdentifierInvokeResponseArgs{...}
+type NameIdentifierInvokeResponseInput interface {
 	pulumi.Input
 
-	ToNameIdentifierResponseOutput() NameIdentifierResponseOutput
-	ToNameIdentifierResponseOutputWithContext(context.Context) NameIdentifierResponseOutput
+	ToNameIdentifierInvokeResponseOutput() NameIdentifierInvokeResponseOutput
+	ToNameIdentifierInvokeResponseOutputWithContext(context.Context) NameIdentifierInvokeResponseOutput
 }
 
 // Identifies an object.
-type NameIdentifierResponseArgs struct {
+type NameIdentifierInvokeResponseArgs struct {
 	// Name of the object.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (NameIdentifierResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NameIdentifierResponse)(nil)).Elem()
+func (NameIdentifierInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NameIdentifierInvokeResponse)(nil)).Elem()
 }
 
-func (i NameIdentifierResponseArgs) ToNameIdentifierResponseOutput() NameIdentifierResponseOutput {
-	return i.ToNameIdentifierResponseOutputWithContext(context.Background())
+func (i NameIdentifierInvokeResponseArgs) ToNameIdentifierInvokeResponseOutput() NameIdentifierInvokeResponseOutput {
+	return i.ToNameIdentifierInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i NameIdentifierResponseArgs) ToNameIdentifierResponseOutputWithContext(ctx context.Context) NameIdentifierResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NameIdentifierResponseOutput)
+func (i NameIdentifierInvokeResponseArgs) ToNameIdentifierInvokeResponseOutputWithContext(ctx context.Context) NameIdentifierInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NameIdentifierInvokeResponseOutput)
 }
 
-// NameIdentifierResponseArrayInput is an input type that accepts NameIdentifierResponseArray and NameIdentifierResponseArrayOutput values.
-// You can construct a concrete instance of `NameIdentifierResponseArrayInput` via:
+// NameIdentifierInvokeResponseArrayInput is an input type that accepts NameIdentifierInvokeResponseArray and NameIdentifierInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NameIdentifierInvokeResponseArrayInput` via:
 //
-//          NameIdentifierResponseArray{ NameIdentifierResponseArgs{...} }
-type NameIdentifierResponseArrayInput interface {
+//          NameIdentifierInvokeResponseArray{ NameIdentifierInvokeResponseArgs{...} }
+type NameIdentifierInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToNameIdentifierResponseArrayOutput() NameIdentifierResponseArrayOutput
-	ToNameIdentifierResponseArrayOutputWithContext(context.Context) NameIdentifierResponseArrayOutput
+	ToNameIdentifierInvokeResponseArrayOutput() NameIdentifierInvokeResponseArrayOutput
+	ToNameIdentifierInvokeResponseArrayOutputWithContext(context.Context) NameIdentifierInvokeResponseArrayOutput
 }
 
-type NameIdentifierResponseArray []NameIdentifierResponseInput
+type NameIdentifierInvokeResponseArray []NameIdentifierInvokeResponseInput
 
-func (NameIdentifierResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NameIdentifierResponse)(nil)).Elem()
+func (NameIdentifierInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NameIdentifierInvokeResponse)(nil)).Elem()
 }
 
-func (i NameIdentifierResponseArray) ToNameIdentifierResponseArrayOutput() NameIdentifierResponseArrayOutput {
-	return i.ToNameIdentifierResponseArrayOutputWithContext(context.Background())
+func (i NameIdentifierInvokeResponseArray) ToNameIdentifierInvokeResponseArrayOutput() NameIdentifierInvokeResponseArrayOutput {
+	return i.ToNameIdentifierInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i NameIdentifierResponseArray) ToNameIdentifierResponseArrayOutputWithContext(ctx context.Context) NameIdentifierResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NameIdentifierResponseArrayOutput)
+func (i NameIdentifierInvokeResponseArray) ToNameIdentifierInvokeResponseArrayOutputWithContext(ctx context.Context) NameIdentifierInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NameIdentifierInvokeResponseArrayOutput)
 }
 
 // Identifies an object.
-type NameIdentifierResponseOutput struct{ *pulumi.OutputState }
+type NameIdentifierInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (NameIdentifierResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NameIdentifierResponse)(nil)).Elem()
+func (NameIdentifierInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NameIdentifierInvokeResponse)(nil)).Elem()
 }
 
-func (o NameIdentifierResponseOutput) ToNameIdentifierResponseOutput() NameIdentifierResponseOutput {
+func (o NameIdentifierInvokeResponseOutput) ToNameIdentifierInvokeResponseOutput() NameIdentifierInvokeResponseOutput {
 	return o
 }
 
-func (o NameIdentifierResponseOutput) ToNameIdentifierResponseOutputWithContext(ctx context.Context) NameIdentifierResponseOutput {
+func (o NameIdentifierInvokeResponseOutput) ToNameIdentifierInvokeResponseOutputWithContext(ctx context.Context) NameIdentifierInvokeResponseOutput {
 	return o
 }
 
 // Name of the object.
-func (o NameIdentifierResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NameIdentifierResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o NameIdentifierInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NameIdentifierInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type NameIdentifierResponseArrayOutput struct{ *pulumi.OutputState }
+type NameIdentifierInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (NameIdentifierResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NameIdentifierResponse)(nil)).Elem()
+func (NameIdentifierInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NameIdentifierInvokeResponse)(nil)).Elem()
 }
 
-func (o NameIdentifierResponseArrayOutput) ToNameIdentifierResponseArrayOutput() NameIdentifierResponseArrayOutput {
+func (o NameIdentifierInvokeResponseArrayOutput) ToNameIdentifierInvokeResponseArrayOutput() NameIdentifierInvokeResponseArrayOutput {
 	return o
 }
 
-func (o NameIdentifierResponseArrayOutput) ToNameIdentifierResponseArrayOutputWithContext(ctx context.Context) NameIdentifierResponseArrayOutput {
+func (o NameIdentifierInvokeResponseArrayOutput) ToNameIdentifierInvokeResponseArrayOutputWithContext(ctx context.Context) NameIdentifierInvokeResponseArrayOutput {
 	return o
 }
 
-func (o NameIdentifierResponseArrayOutput) Index(i pulumi.IntInput) NameIdentifierResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NameIdentifierResponse {
-		return vs[0].([]NameIdentifierResponse)[vs[1].(int)]
-	}).(NameIdentifierResponseOutput)
+func (o NameIdentifierInvokeResponseArrayOutput) Index(i pulumi.IntInput) NameIdentifierInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NameIdentifierInvokeResponse {
+		return vs[0].([]NameIdentifierInvokeResponse)[vs[1].(int)]
+	}).(NameIdentifierInvokeResponseOutput)
 }
 
 // Legal agreement for a top level domain.
-type TldLegalAgreementResponse struct {
+type TldLegalAgreementInvokeResponse struct {
 	// Unique identifier for the agreement.
 	AgreementKey string `pulumi:"agreementKey"`
 	// Agreement details.
@@ -1647,19 +2224,19 @@ type TldLegalAgreementResponse struct {
 	Url *string `pulumi:"url"`
 }
 
-// TldLegalAgreementResponseInput is an input type that accepts TldLegalAgreementResponseArgs and TldLegalAgreementResponseOutput values.
-// You can construct a concrete instance of `TldLegalAgreementResponseInput` via:
+// TldLegalAgreementInvokeResponseInput is an input type that accepts TldLegalAgreementInvokeResponseArgs and TldLegalAgreementInvokeResponseOutput values.
+// You can construct a concrete instance of `TldLegalAgreementInvokeResponseInput` via:
 //
-//          TldLegalAgreementResponseArgs{...}
-type TldLegalAgreementResponseInput interface {
+//          TldLegalAgreementInvokeResponseArgs{...}
+type TldLegalAgreementInvokeResponseInput interface {
 	pulumi.Input
 
-	ToTldLegalAgreementResponseOutput() TldLegalAgreementResponseOutput
-	ToTldLegalAgreementResponseOutputWithContext(context.Context) TldLegalAgreementResponseOutput
+	ToTldLegalAgreementInvokeResponseOutput() TldLegalAgreementInvokeResponseOutput
+	ToTldLegalAgreementInvokeResponseOutputWithContext(context.Context) TldLegalAgreementInvokeResponseOutput
 }
 
 // Legal agreement for a top level domain.
-type TldLegalAgreementResponseArgs struct {
+type TldLegalAgreementInvokeResponseArgs struct {
 	// Unique identifier for the agreement.
 	AgreementKey pulumi.StringInput `pulumi:"agreementKey"`
 	// Agreement details.
@@ -1670,115 +2247,121 @@ type TldLegalAgreementResponseArgs struct {
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
-func (TldLegalAgreementResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TldLegalAgreementResponse)(nil)).Elem()
+func (TldLegalAgreementInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TldLegalAgreementInvokeResponse)(nil)).Elem()
 }
 
-func (i TldLegalAgreementResponseArgs) ToTldLegalAgreementResponseOutput() TldLegalAgreementResponseOutput {
-	return i.ToTldLegalAgreementResponseOutputWithContext(context.Background())
+func (i TldLegalAgreementInvokeResponseArgs) ToTldLegalAgreementInvokeResponseOutput() TldLegalAgreementInvokeResponseOutput {
+	return i.ToTldLegalAgreementInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i TldLegalAgreementResponseArgs) ToTldLegalAgreementResponseOutputWithContext(ctx context.Context) TldLegalAgreementResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TldLegalAgreementResponseOutput)
+func (i TldLegalAgreementInvokeResponseArgs) ToTldLegalAgreementInvokeResponseOutputWithContext(ctx context.Context) TldLegalAgreementInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TldLegalAgreementInvokeResponseOutput)
 }
 
-// TldLegalAgreementResponseArrayInput is an input type that accepts TldLegalAgreementResponseArray and TldLegalAgreementResponseArrayOutput values.
-// You can construct a concrete instance of `TldLegalAgreementResponseArrayInput` via:
+// TldLegalAgreementInvokeResponseArrayInput is an input type that accepts TldLegalAgreementInvokeResponseArray and TldLegalAgreementInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TldLegalAgreementInvokeResponseArrayInput` via:
 //
-//          TldLegalAgreementResponseArray{ TldLegalAgreementResponseArgs{...} }
-type TldLegalAgreementResponseArrayInput interface {
+//          TldLegalAgreementInvokeResponseArray{ TldLegalAgreementInvokeResponseArgs{...} }
+type TldLegalAgreementInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToTldLegalAgreementResponseArrayOutput() TldLegalAgreementResponseArrayOutput
-	ToTldLegalAgreementResponseArrayOutputWithContext(context.Context) TldLegalAgreementResponseArrayOutput
+	ToTldLegalAgreementInvokeResponseArrayOutput() TldLegalAgreementInvokeResponseArrayOutput
+	ToTldLegalAgreementInvokeResponseArrayOutputWithContext(context.Context) TldLegalAgreementInvokeResponseArrayOutput
 }
 
-type TldLegalAgreementResponseArray []TldLegalAgreementResponseInput
+type TldLegalAgreementInvokeResponseArray []TldLegalAgreementInvokeResponseInput
 
-func (TldLegalAgreementResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TldLegalAgreementResponse)(nil)).Elem()
+func (TldLegalAgreementInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TldLegalAgreementInvokeResponse)(nil)).Elem()
 }
 
-func (i TldLegalAgreementResponseArray) ToTldLegalAgreementResponseArrayOutput() TldLegalAgreementResponseArrayOutput {
-	return i.ToTldLegalAgreementResponseArrayOutputWithContext(context.Background())
+func (i TldLegalAgreementInvokeResponseArray) ToTldLegalAgreementInvokeResponseArrayOutput() TldLegalAgreementInvokeResponseArrayOutput {
+	return i.ToTldLegalAgreementInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i TldLegalAgreementResponseArray) ToTldLegalAgreementResponseArrayOutputWithContext(ctx context.Context) TldLegalAgreementResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TldLegalAgreementResponseArrayOutput)
+func (i TldLegalAgreementInvokeResponseArray) ToTldLegalAgreementInvokeResponseArrayOutputWithContext(ctx context.Context) TldLegalAgreementInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TldLegalAgreementInvokeResponseArrayOutput)
 }
 
 // Legal agreement for a top level domain.
-type TldLegalAgreementResponseOutput struct{ *pulumi.OutputState }
+type TldLegalAgreementInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (TldLegalAgreementResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TldLegalAgreementResponse)(nil)).Elem()
+func (TldLegalAgreementInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TldLegalAgreementInvokeResponse)(nil)).Elem()
 }
 
-func (o TldLegalAgreementResponseOutput) ToTldLegalAgreementResponseOutput() TldLegalAgreementResponseOutput {
+func (o TldLegalAgreementInvokeResponseOutput) ToTldLegalAgreementInvokeResponseOutput() TldLegalAgreementInvokeResponseOutput {
 	return o
 }
 
-func (o TldLegalAgreementResponseOutput) ToTldLegalAgreementResponseOutputWithContext(ctx context.Context) TldLegalAgreementResponseOutput {
+func (o TldLegalAgreementInvokeResponseOutput) ToTldLegalAgreementInvokeResponseOutputWithContext(ctx context.Context) TldLegalAgreementInvokeResponseOutput {
 	return o
 }
 
 // Unique identifier for the agreement.
-func (o TldLegalAgreementResponseOutput) AgreementKey() pulumi.StringOutput {
-	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.AgreementKey }).(pulumi.StringOutput)
+func (o TldLegalAgreementInvokeResponseOutput) AgreementKey() pulumi.StringOutput {
+	return o.ApplyT(func(v TldLegalAgreementInvokeResponse) string { return v.AgreementKey }).(pulumi.StringOutput)
 }
 
 // Agreement details.
-func (o TldLegalAgreementResponseOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.Content }).(pulumi.StringOutput)
+func (o TldLegalAgreementInvokeResponseOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v TldLegalAgreementInvokeResponse) string { return v.Content }).(pulumi.StringOutput)
 }
 
 // Agreement title.
-func (o TldLegalAgreementResponseOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v TldLegalAgreementResponse) string { return v.Title }).(pulumi.StringOutput)
+func (o TldLegalAgreementInvokeResponseOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v TldLegalAgreementInvokeResponse) string { return v.Title }).(pulumi.StringOutput)
 }
 
 // URL where a copy of the agreement details is hosted.
-func (o TldLegalAgreementResponseOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TldLegalAgreementResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+func (o TldLegalAgreementInvokeResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TldLegalAgreementInvokeResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-type TldLegalAgreementResponseArrayOutput struct{ *pulumi.OutputState }
+type TldLegalAgreementInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (TldLegalAgreementResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TldLegalAgreementResponse)(nil)).Elem()
+func (TldLegalAgreementInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TldLegalAgreementInvokeResponse)(nil)).Elem()
 }
 
-func (o TldLegalAgreementResponseArrayOutput) ToTldLegalAgreementResponseArrayOutput() TldLegalAgreementResponseArrayOutput {
+func (o TldLegalAgreementInvokeResponseArrayOutput) ToTldLegalAgreementInvokeResponseArrayOutput() TldLegalAgreementInvokeResponseArrayOutput {
 	return o
 }
 
-func (o TldLegalAgreementResponseArrayOutput) ToTldLegalAgreementResponseArrayOutputWithContext(ctx context.Context) TldLegalAgreementResponseArrayOutput {
+func (o TldLegalAgreementInvokeResponseArrayOutput) ToTldLegalAgreementInvokeResponseArrayOutputWithContext(ctx context.Context) TldLegalAgreementInvokeResponseArrayOutput {
 	return o
 }
 
-func (o TldLegalAgreementResponseArrayOutput) Index(i pulumi.IntInput) TldLegalAgreementResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TldLegalAgreementResponse {
-		return vs[0].([]TldLegalAgreementResponse)[vs[1].(int)]
-	}).(TldLegalAgreementResponseOutput)
+func (o TldLegalAgreementInvokeResponseArrayOutput) Index(i pulumi.IntInput) TldLegalAgreementInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TldLegalAgreementInvokeResponse {
+		return vs[0].([]TldLegalAgreementInvokeResponse)[vs[1].(int)]
+	}).(TldLegalAgreementInvokeResponseOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(AddressOutput{})
 	pulumi.RegisterOutputType(AddressPtrOutput{})
+	pulumi.RegisterOutputType(AddressInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AddressInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AddressResponseOutput{})
 	pulumi.RegisterOutputType(AddressResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContactOutput{})
 	pulumi.RegisterOutputType(ContactPtrOutput{})
+	pulumi.RegisterOutputType(ContactInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContactResponseOutput{})
 	pulumi.RegisterOutputType(ContactResponsePtrOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentPtrOutput{})
+	pulumi.RegisterOutputType(DomainPurchaseConsentInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentResponseOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentResponsePtrOutput{})
+	pulumi.RegisterOutputType(HostNameInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HostNameInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(HostNameResponseOutput{})
 	pulumi.RegisterOutputType(HostNameResponseArrayOutput{})
-	pulumi.RegisterOutputType(NameIdentifierResponseOutput{})
-	pulumi.RegisterOutputType(NameIdentifierResponseArrayOutput{})
-	pulumi.RegisterOutputType(TldLegalAgreementResponseOutput{})
-	pulumi.RegisterOutputType(TldLegalAgreementResponseArrayOutput{})
+	pulumi.RegisterOutputType(NameIdentifierInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NameIdentifierInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(TldLegalAgreementInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TldLegalAgreementInvokeResponseArrayOutput{})
 }

@@ -44,7 +44,7 @@ type LookupPolicyAssignmentResult struct {
 	// The scope for the policy assignment.
 	Scope *string `pulumi:"scope"`
 	// The policy sku.
-	Sku *PolicySkuResponse `pulumi:"sku"`
+	Sku *PolicySkuInvokeResponse `pulumi:"sku"`
 	// The type of the policy assignment.
 	Type string `pulumi:"type"`
 }

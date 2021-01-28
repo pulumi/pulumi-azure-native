@@ -28,5 +28,5 @@ type GetActiveSessionsResult struct {
 	// Gets or sets the URL to get the next set of results.
 	NextLink *string `pulumi:"nextLink"`
 	// List of active sessions on the bastion.
-	Value []BastionActiveSessionResponse `pulumi:"value"`
+	Value []BastionActiveSessionInvokeResponse `pulumi:"value"`
 }

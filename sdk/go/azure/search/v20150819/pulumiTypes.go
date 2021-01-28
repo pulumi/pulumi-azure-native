@@ -145,6 +145,79 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Identity for the resource.
+type IdentityInvokeResponse struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type string `pulumi:"type"`
+}
+
+// IdentityInvokeResponseInput is an input type that accepts IdentityInvokeResponseArgs and IdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentityInvokeResponseInput` via:
+//
+//          IdentityInvokeResponseArgs{...}
+type IdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput
+	ToIdentityInvokeResponseOutputWithContext(context.Context) IdentityInvokeResponseOutput
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return i.ToIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityInvokeResponseOutput)
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o IdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o IdentityInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -317,112 +390,112 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
-type QueryKeyResponse struct {
+type QueryKeyInvokeResponse struct {
 	// The value of the query API key.
 	Key string `pulumi:"key"`
 	// The name of the query API key; may be empty.
 	Name string `pulumi:"name"`
 }
 
-// QueryKeyResponseInput is an input type that accepts QueryKeyResponseArgs and QueryKeyResponseOutput values.
-// You can construct a concrete instance of `QueryKeyResponseInput` via:
+// QueryKeyInvokeResponseInput is an input type that accepts QueryKeyInvokeResponseArgs and QueryKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `QueryKeyInvokeResponseInput` via:
 //
-//          QueryKeyResponseArgs{...}
-type QueryKeyResponseInput interface {
+//          QueryKeyInvokeResponseArgs{...}
+type QueryKeyInvokeResponseInput interface {
 	pulumi.Input
 
-	ToQueryKeyResponseOutput() QueryKeyResponseOutput
-	ToQueryKeyResponseOutputWithContext(context.Context) QueryKeyResponseOutput
+	ToQueryKeyInvokeResponseOutput() QueryKeyInvokeResponseOutput
+	ToQueryKeyInvokeResponseOutputWithContext(context.Context) QueryKeyInvokeResponseOutput
 }
 
 // Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
-type QueryKeyResponseArgs struct {
+type QueryKeyInvokeResponseArgs struct {
 	// The value of the query API key.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The name of the query API key; may be empty.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
-func (QueryKeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryKeyResponse)(nil)).Elem()
+func (QueryKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryKeyInvokeResponse)(nil)).Elem()
 }
 
-func (i QueryKeyResponseArgs) ToQueryKeyResponseOutput() QueryKeyResponseOutput {
-	return i.ToQueryKeyResponseOutputWithContext(context.Background())
+func (i QueryKeyInvokeResponseArgs) ToQueryKeyInvokeResponseOutput() QueryKeyInvokeResponseOutput {
+	return i.ToQueryKeyInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i QueryKeyResponseArgs) ToQueryKeyResponseOutputWithContext(ctx context.Context) QueryKeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyResponseOutput)
+func (i QueryKeyInvokeResponseArgs) ToQueryKeyInvokeResponseOutputWithContext(ctx context.Context) QueryKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyInvokeResponseOutput)
 }
 
-// QueryKeyResponseArrayInput is an input type that accepts QueryKeyResponseArray and QueryKeyResponseArrayOutput values.
-// You can construct a concrete instance of `QueryKeyResponseArrayInput` via:
+// QueryKeyInvokeResponseArrayInput is an input type that accepts QueryKeyInvokeResponseArray and QueryKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `QueryKeyInvokeResponseArrayInput` via:
 //
-//          QueryKeyResponseArray{ QueryKeyResponseArgs{...} }
-type QueryKeyResponseArrayInput interface {
+//          QueryKeyInvokeResponseArray{ QueryKeyInvokeResponseArgs{...} }
+type QueryKeyInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToQueryKeyResponseArrayOutput() QueryKeyResponseArrayOutput
-	ToQueryKeyResponseArrayOutputWithContext(context.Context) QueryKeyResponseArrayOutput
+	ToQueryKeyInvokeResponseArrayOutput() QueryKeyInvokeResponseArrayOutput
+	ToQueryKeyInvokeResponseArrayOutputWithContext(context.Context) QueryKeyInvokeResponseArrayOutput
 }
 
-type QueryKeyResponseArray []QueryKeyResponseInput
+type QueryKeyInvokeResponseArray []QueryKeyInvokeResponseInput
 
-func (QueryKeyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]QueryKeyResponse)(nil)).Elem()
+func (QueryKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryKeyInvokeResponse)(nil)).Elem()
 }
 
-func (i QueryKeyResponseArray) ToQueryKeyResponseArrayOutput() QueryKeyResponseArrayOutput {
-	return i.ToQueryKeyResponseArrayOutputWithContext(context.Background())
+func (i QueryKeyInvokeResponseArray) ToQueryKeyInvokeResponseArrayOutput() QueryKeyInvokeResponseArrayOutput {
+	return i.ToQueryKeyInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i QueryKeyResponseArray) ToQueryKeyResponseArrayOutputWithContext(ctx context.Context) QueryKeyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyResponseArrayOutput)
+func (i QueryKeyInvokeResponseArray) ToQueryKeyInvokeResponseArrayOutputWithContext(ctx context.Context) QueryKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyInvokeResponseArrayOutput)
 }
 
 // Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
-type QueryKeyResponseOutput struct{ *pulumi.OutputState }
+type QueryKeyInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (QueryKeyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryKeyResponse)(nil)).Elem()
+func (QueryKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryKeyInvokeResponse)(nil)).Elem()
 }
 
-func (o QueryKeyResponseOutput) ToQueryKeyResponseOutput() QueryKeyResponseOutput {
+func (o QueryKeyInvokeResponseOutput) ToQueryKeyInvokeResponseOutput() QueryKeyInvokeResponseOutput {
 	return o
 }
 
-func (o QueryKeyResponseOutput) ToQueryKeyResponseOutputWithContext(ctx context.Context) QueryKeyResponseOutput {
+func (o QueryKeyInvokeResponseOutput) ToQueryKeyInvokeResponseOutputWithContext(ctx context.Context) QueryKeyInvokeResponseOutput {
 	return o
 }
 
 // The value of the query API key.
-func (o QueryKeyResponseOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v QueryKeyResponse) string { return v.Key }).(pulumi.StringOutput)
+func (o QueryKeyInvokeResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryKeyInvokeResponse) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The name of the query API key; may be empty.
-func (o QueryKeyResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v QueryKeyResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o QueryKeyInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryKeyInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type QueryKeyResponseArrayOutput struct{ *pulumi.OutputState }
+type QueryKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (QueryKeyResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]QueryKeyResponse)(nil)).Elem()
+func (QueryKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryKeyInvokeResponse)(nil)).Elem()
 }
 
-func (o QueryKeyResponseArrayOutput) ToQueryKeyResponseArrayOutput() QueryKeyResponseArrayOutput {
+func (o QueryKeyInvokeResponseArrayOutput) ToQueryKeyInvokeResponseArrayOutput() QueryKeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o QueryKeyResponseArrayOutput) ToQueryKeyResponseArrayOutputWithContext(ctx context.Context) QueryKeyResponseArrayOutput {
+func (o QueryKeyInvokeResponseArrayOutput) ToQueryKeyInvokeResponseArrayOutputWithContext(ctx context.Context) QueryKeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o QueryKeyResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueryKeyResponse {
-		return vs[0].([]QueryKeyResponse)[vs[1].(int)]
-	}).(QueryKeyResponseOutput)
+func (o QueryKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueryKeyInvokeResponse {
+		return vs[0].([]QueryKeyInvokeResponse)[vs[1].(int)]
+	}).(QueryKeyInvokeResponseOutput)
 }
 
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
@@ -557,6 +630,61 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+type SkuInvokeResponse struct {
+	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+	Name *string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+type SkuInvokeResponseArgs struct {
+	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
@@ -696,12 +824,14 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(QueryKeyResponseOutput{})
-	pulumi.RegisterOutputType(QueryKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(QueryKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(QueryKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

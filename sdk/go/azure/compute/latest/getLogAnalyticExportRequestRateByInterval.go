@@ -42,5 +42,5 @@ type GetLogAnalyticExportRequestRateByIntervalArgs struct {
 // LogAnalytics operation status response
 type GetLogAnalyticExportRequestRateByIntervalResult struct {
 	// LogAnalyticsOutput
-	Properties LogAnalyticsOutputResponse `pulumi:"properties"`
+	Properties LogAnalyticsOutputInvokeResponse `pulumi:"properties"`
 }

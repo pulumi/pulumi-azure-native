@@ -278,6 +278,133 @@ func (o CreationDataPtrOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
 }
 
 // Data used when creating a disk.
+type CreationDataInvokeResponse struct {
+	// This enumerates the possible sources of a disk's creation.
+	CreateOption string `pulumi:"createOption"`
+	// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+	GalleryImageReference *ImageDiskReferenceInvokeResponse `pulumi:"galleryImageReference"`
+	// Disk source information.
+	ImageReference *ImageDiskReferenceInvokeResponse `pulumi:"imageReference"`
+	// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
+	LogicalSectorSize *int `pulumi:"logicalSectorSize"`
+	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// If this field is set, this is the unique id identifying the source of this resource.
+	SourceUniqueId string `pulumi:"sourceUniqueId"`
+	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+	SourceUri *string `pulumi:"sourceUri"`
+	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+	UploadSizeBytes *float64 `pulumi:"uploadSizeBytes"`
+}
+
+// CreationDataInvokeResponseInput is an input type that accepts CreationDataInvokeResponseArgs and CreationDataInvokeResponseOutput values.
+// You can construct a concrete instance of `CreationDataInvokeResponseInput` via:
+//
+//          CreationDataInvokeResponseArgs{...}
+type CreationDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCreationDataInvokeResponseOutput() CreationDataInvokeResponseOutput
+	ToCreationDataInvokeResponseOutputWithContext(context.Context) CreationDataInvokeResponseOutput
+}
+
+// Data used when creating a disk.
+type CreationDataInvokeResponseArgs struct {
+	// This enumerates the possible sources of a disk's creation.
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+	GalleryImageReference ImageDiskReferenceInvokeResponsePtrInput `pulumi:"galleryImageReference"`
+	// Disk source information.
+	ImageReference ImageDiskReferenceInvokeResponsePtrInput `pulumi:"imageReference"`
+	// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
+	LogicalSectorSize pulumi.IntPtrInput `pulumi:"logicalSectorSize"`
+	// If createOption is Copy, this is the ARM id of the source snapshot or disk.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// If this field is set, this is the unique id identifying the source of this resource.
+	SourceUniqueId pulumi.StringInput `pulumi:"sourceUniqueId"`
+	// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+	SourceUri pulumi.StringPtrInput `pulumi:"sourceUri"`
+	// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+	// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+	UploadSizeBytes pulumi.Float64PtrInput `pulumi:"uploadSizeBytes"`
+}
+
+func (CreationDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreationDataInvokeResponse)(nil)).Elem()
+}
+
+func (i CreationDataInvokeResponseArgs) ToCreationDataInvokeResponseOutput() CreationDataInvokeResponseOutput {
+	return i.ToCreationDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CreationDataInvokeResponseArgs) ToCreationDataInvokeResponseOutputWithContext(ctx context.Context) CreationDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreationDataInvokeResponseOutput)
+}
+
+// Data used when creating a disk.
+type CreationDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CreationDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreationDataInvokeResponse)(nil)).Elem()
+}
+
+func (o CreationDataInvokeResponseOutput) ToCreationDataInvokeResponseOutput() CreationDataInvokeResponseOutput {
+	return o
+}
+
+func (o CreationDataInvokeResponseOutput) ToCreationDataInvokeResponseOutputWithContext(ctx context.Context) CreationDataInvokeResponseOutput {
+	return o
+}
+
+// This enumerates the possible sources of a disk's creation.
+func (o CreationDataInvokeResponseOutput) CreateOption() pulumi.StringOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) string { return v.CreateOption }).(pulumi.StringOutput)
+}
+
+// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+func (o CreationDataInvokeResponseOutput) GalleryImageReference() ImageDiskReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *ImageDiskReferenceInvokeResponse { return v.GalleryImageReference }).(ImageDiskReferenceInvokeResponsePtrOutput)
+}
+
+// Disk source information.
+func (o CreationDataInvokeResponseOutput) ImageReference() ImageDiskReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *ImageDiskReferenceInvokeResponse { return v.ImageReference }).(ImageDiskReferenceInvokeResponsePtrOutput)
+}
+
+// Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
+func (o CreationDataInvokeResponseOutput) LogicalSectorSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *int { return v.LogicalSectorSize }).(pulumi.IntPtrOutput)
+}
+
+// If createOption is Copy, this is the ARM id of the source snapshot or disk.
+func (o CreationDataInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// If this field is set, this is the unique id identifying the source of this resource.
+func (o CreationDataInvokeResponseOutput) SourceUniqueId() pulumi.StringOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) string { return v.SourceUniqueId }).(pulumi.StringOutput)
+}
+
+// If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+func (o CreationDataInvokeResponseOutput) SourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *string { return v.SourceUri }).(pulumi.StringPtrOutput)
+}
+
+// Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
+func (o CreationDataInvokeResponseOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+func (o CreationDataInvokeResponseOutput) UploadSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CreationDataInvokeResponse) *float64 { return v.UploadSizeBytes }).(pulumi.Float64PtrOutput)
+}
+
+// Data used when creating a disk.
 type CreationDataResponse struct {
 	// This enumerates the possible sources of a disk's creation.
 	CreateOption string `pulumi:"createOption"`
@@ -673,6 +800,115 @@ func (o DataDiskImageEncryptionArrayOutput) Index(i pulumi.IntInput) DataDiskIma
 }
 
 // Contains encryption settings for a data disk image.
+type DataDiskImageEncryptionInvokeResponse struct {
+	// A relative URI containing the resource ID of the disk encryption set.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+	Lun int `pulumi:"lun"`
+}
+
+// DataDiskImageEncryptionInvokeResponseInput is an input type that accepts DataDiskImageEncryptionInvokeResponseArgs and DataDiskImageEncryptionInvokeResponseOutput values.
+// You can construct a concrete instance of `DataDiskImageEncryptionInvokeResponseInput` via:
+//
+//          DataDiskImageEncryptionInvokeResponseArgs{...}
+type DataDiskImageEncryptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataDiskImageEncryptionInvokeResponseOutput() DataDiskImageEncryptionInvokeResponseOutput
+	ToDataDiskImageEncryptionInvokeResponseOutputWithContext(context.Context) DataDiskImageEncryptionInvokeResponseOutput
+}
+
+// Contains encryption settings for a data disk image.
+type DataDiskImageEncryptionInvokeResponseArgs struct {
+	// A relative URI containing the resource ID of the disk encryption set.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+	Lun pulumi.IntInput `pulumi:"lun"`
+}
+
+func (DataDiskImageEncryptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataDiskImageEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i DataDiskImageEncryptionInvokeResponseArgs) ToDataDiskImageEncryptionInvokeResponseOutput() DataDiskImageEncryptionInvokeResponseOutput {
+	return i.ToDataDiskImageEncryptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataDiskImageEncryptionInvokeResponseArgs) ToDataDiskImageEncryptionInvokeResponseOutputWithContext(ctx context.Context) DataDiskImageEncryptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageEncryptionInvokeResponseOutput)
+}
+
+// DataDiskImageEncryptionInvokeResponseArrayInput is an input type that accepts DataDiskImageEncryptionInvokeResponseArray and DataDiskImageEncryptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataDiskImageEncryptionInvokeResponseArrayInput` via:
+//
+//          DataDiskImageEncryptionInvokeResponseArray{ DataDiskImageEncryptionInvokeResponseArgs{...} }
+type DataDiskImageEncryptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataDiskImageEncryptionInvokeResponseArrayOutput() DataDiskImageEncryptionInvokeResponseArrayOutput
+	ToDataDiskImageEncryptionInvokeResponseArrayOutputWithContext(context.Context) DataDiskImageEncryptionInvokeResponseArrayOutput
+}
+
+type DataDiskImageEncryptionInvokeResponseArray []DataDiskImageEncryptionInvokeResponseInput
+
+func (DataDiskImageEncryptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataDiskImageEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i DataDiskImageEncryptionInvokeResponseArray) ToDataDiskImageEncryptionInvokeResponseArrayOutput() DataDiskImageEncryptionInvokeResponseArrayOutput {
+	return i.ToDataDiskImageEncryptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataDiskImageEncryptionInvokeResponseArray) ToDataDiskImageEncryptionInvokeResponseArrayOutputWithContext(ctx context.Context) DataDiskImageEncryptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageEncryptionInvokeResponseArrayOutput)
+}
+
+// Contains encryption settings for a data disk image.
+type DataDiskImageEncryptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataDiskImageEncryptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataDiskImageEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o DataDiskImageEncryptionInvokeResponseOutput) ToDataDiskImageEncryptionInvokeResponseOutput() DataDiskImageEncryptionInvokeResponseOutput {
+	return o
+}
+
+func (o DataDiskImageEncryptionInvokeResponseOutput) ToDataDiskImageEncryptionInvokeResponseOutputWithContext(ctx context.Context) DataDiskImageEncryptionInvokeResponseOutput {
+	return o
+}
+
+// A relative URI containing the resource ID of the disk encryption set.
+func (o DataDiskImageEncryptionInvokeResponseOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataDiskImageEncryptionInvokeResponse) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+func (o DataDiskImageEncryptionInvokeResponseOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v DataDiskImageEncryptionInvokeResponse) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+type DataDiskImageEncryptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataDiskImageEncryptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataDiskImageEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o DataDiskImageEncryptionInvokeResponseArrayOutput) ToDataDiskImageEncryptionInvokeResponseArrayOutput() DataDiskImageEncryptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataDiskImageEncryptionInvokeResponseArrayOutput) ToDataDiskImageEncryptionInvokeResponseArrayOutputWithContext(ctx context.Context) DataDiskImageEncryptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataDiskImageEncryptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataDiskImageEncryptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataDiskImageEncryptionInvokeResponse {
+		return vs[0].([]DataDiskImageEncryptionInvokeResponse)[vs[1].(int)]
+	}).(DataDiskImageEncryptionInvokeResponseOutput)
+}
+
+// Contains encryption settings for a data disk image.
 type DataDiskImageEncryptionResponse struct {
 	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -913,6 +1149,61 @@ func (o DisallowedPtrOutput) DiskTypes() pulumi.StringArrayOutput {
 		}
 		return v.DiskTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+// Describes the disallowed disk types.
+type DisallowedInvokeResponse struct {
+	// A list of disk types.
+	DiskTypes []string `pulumi:"diskTypes"`
+}
+
+// DisallowedInvokeResponseInput is an input type that accepts DisallowedInvokeResponseArgs and DisallowedInvokeResponseOutput values.
+// You can construct a concrete instance of `DisallowedInvokeResponseInput` via:
+//
+//          DisallowedInvokeResponseArgs{...}
+type DisallowedInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDisallowedInvokeResponseOutput() DisallowedInvokeResponseOutput
+	ToDisallowedInvokeResponseOutputWithContext(context.Context) DisallowedInvokeResponseOutput
+}
+
+// Describes the disallowed disk types.
+type DisallowedInvokeResponseArgs struct {
+	// A list of disk types.
+	DiskTypes pulumi.StringArrayInput `pulumi:"diskTypes"`
+}
+
+func (DisallowedInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisallowedInvokeResponse)(nil)).Elem()
+}
+
+func (i DisallowedInvokeResponseArgs) ToDisallowedInvokeResponseOutput() DisallowedInvokeResponseOutput {
+	return i.ToDisallowedInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DisallowedInvokeResponseArgs) ToDisallowedInvokeResponseOutputWithContext(ctx context.Context) DisallowedInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DisallowedInvokeResponseOutput)
+}
+
+// Describes the disallowed disk types.
+type DisallowedInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DisallowedInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DisallowedInvokeResponse)(nil)).Elem()
+}
+
+func (o DisallowedInvokeResponseOutput) ToDisallowedInvokeResponseOutput() DisallowedInvokeResponseOutput {
+	return o
+}
+
+func (o DisallowedInvokeResponseOutput) ToDisallowedInvokeResponseOutputWithContext(ctx context.Context) DisallowedInvokeResponseOutput {
+	return o
+}
+
+// A list of disk types.
+func (o DisallowedInvokeResponseOutput) DiskTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DisallowedInvokeResponse) []string { return v.DiskTypes }).(pulumi.StringArrayOutput)
 }
 
 // Describes the disallowed disk types.
@@ -1181,6 +1472,70 @@ func (o DiskSkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+type DiskSkuInvokeResponse struct {
+	// The sku name.
+	Name *string `pulumi:"name"`
+	// The sku tier.
+	Tier string `pulumi:"tier"`
+}
+
+// DiskSkuInvokeResponseInput is an input type that accepts DiskSkuInvokeResponseArgs and DiskSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `DiskSkuInvokeResponseInput` via:
+//
+//          DiskSkuInvokeResponseArgs{...}
+type DiskSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDiskSkuInvokeResponseOutput() DiskSkuInvokeResponseOutput
+	ToDiskSkuInvokeResponseOutputWithContext(context.Context) DiskSkuInvokeResponseOutput
+}
+
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+type DiskSkuInvokeResponseArgs struct {
+	// The sku name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The sku tier.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (DiskSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i DiskSkuInvokeResponseArgs) ToDiskSkuInvokeResponseOutput() DiskSkuInvokeResponseOutput {
+	return i.ToDiskSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DiskSkuInvokeResponseArgs) ToDiskSkuInvokeResponseOutputWithContext(ctx context.Context) DiskSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskSkuInvokeResponseOutput)
+}
+
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+type DiskSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DiskSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o DiskSkuInvokeResponseOutput) ToDiskSkuInvokeResponseOutput() DiskSkuInvokeResponseOutput {
+	return o
+}
+
+func (o DiskSkuInvokeResponseOutput) ToDiskSkuInvokeResponseOutputWithContext(ctx context.Context) DiskSkuInvokeResponseOutput {
+	return o
+}
+
+// The sku name.
+func (o DiskSkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskSkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The sku tier.
+func (o DiskSkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskSkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 // The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
@@ -1643,6 +1998,161 @@ func (o EncryptionImagesPtrOutput) OsDiskImage() OSDiskImageEncryptionPtrOutput 
 }
 
 // Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+type EncryptionImagesInvokeResponse struct {
+	// A list of encryption specifications for data disk images.
+	DataDiskImages []DataDiskImageEncryptionInvokeResponse `pulumi:"dataDiskImages"`
+	// Contains encryption settings for an OS disk image.
+	OsDiskImage *OSDiskImageEncryptionInvokeResponse `pulumi:"osDiskImage"`
+}
+
+// EncryptionImagesInvokeResponseInput is an input type that accepts EncryptionImagesInvokeResponseArgs and EncryptionImagesInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionImagesInvokeResponseInput` via:
+//
+//          EncryptionImagesInvokeResponseArgs{...}
+type EncryptionImagesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionImagesInvokeResponseOutput() EncryptionImagesInvokeResponseOutput
+	ToEncryptionImagesInvokeResponseOutputWithContext(context.Context) EncryptionImagesInvokeResponseOutput
+}
+
+// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+type EncryptionImagesInvokeResponseArgs struct {
+	// A list of encryption specifications for data disk images.
+	DataDiskImages DataDiskImageEncryptionInvokeResponseArrayInput `pulumi:"dataDiskImages"`
+	// Contains encryption settings for an OS disk image.
+	OsDiskImage OSDiskImageEncryptionInvokeResponsePtrInput `pulumi:"osDiskImage"`
+}
+
+func (EncryptionImagesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionImagesInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionImagesInvokeResponseArgs) ToEncryptionImagesInvokeResponseOutput() EncryptionImagesInvokeResponseOutput {
+	return i.ToEncryptionImagesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionImagesInvokeResponseArgs) ToEncryptionImagesInvokeResponseOutputWithContext(ctx context.Context) EncryptionImagesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionImagesInvokeResponseOutput)
+}
+
+func (i EncryptionImagesInvokeResponseArgs) ToEncryptionImagesInvokeResponsePtrOutput() EncryptionImagesInvokeResponsePtrOutput {
+	return i.ToEncryptionImagesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionImagesInvokeResponseArgs) ToEncryptionImagesInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionImagesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionImagesInvokeResponseOutput).ToEncryptionImagesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionImagesInvokeResponsePtrInput is an input type that accepts EncryptionImagesInvokeResponseArgs, EncryptionImagesInvokeResponsePtr and EncryptionImagesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionImagesInvokeResponsePtrInput` via:
+//
+//          EncryptionImagesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionImagesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionImagesInvokeResponsePtrOutput() EncryptionImagesInvokeResponsePtrOutput
+	ToEncryptionImagesInvokeResponsePtrOutputWithContext(context.Context) EncryptionImagesInvokeResponsePtrOutput
+}
+
+type encryptionImagesInvokeResponsePtrType EncryptionImagesInvokeResponseArgs
+
+func EncryptionImagesInvokeResponsePtr(v *EncryptionImagesInvokeResponseArgs) EncryptionImagesInvokeResponsePtrInput {
+	return (*encryptionImagesInvokeResponsePtrType)(v)
+}
+
+func (*encryptionImagesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionImagesInvokeResponse)(nil)).Elem()
+}
+
+func (i *encryptionImagesInvokeResponsePtrType) ToEncryptionImagesInvokeResponsePtrOutput() EncryptionImagesInvokeResponsePtrOutput {
+	return i.ToEncryptionImagesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionImagesInvokeResponsePtrType) ToEncryptionImagesInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionImagesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionImagesInvokeResponsePtrOutput)
+}
+
+// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+type EncryptionImagesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionImagesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionImagesInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionImagesInvokeResponseOutput) ToEncryptionImagesInvokeResponseOutput() EncryptionImagesInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionImagesInvokeResponseOutput) ToEncryptionImagesInvokeResponseOutputWithContext(ctx context.Context) EncryptionImagesInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionImagesInvokeResponseOutput) ToEncryptionImagesInvokeResponsePtrOutput() EncryptionImagesInvokeResponsePtrOutput {
+	return o.ToEncryptionImagesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionImagesInvokeResponseOutput) ToEncryptionImagesInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionImagesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionImagesInvokeResponse) *EncryptionImagesInvokeResponse {
+		return &v
+	}).(EncryptionImagesInvokeResponsePtrOutput)
+}
+
+// A list of encryption specifications for data disk images.
+func (o EncryptionImagesInvokeResponseOutput) DataDiskImages() DataDiskImageEncryptionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EncryptionImagesInvokeResponse) []DataDiskImageEncryptionInvokeResponse {
+		return v.DataDiskImages
+	}).(DataDiskImageEncryptionInvokeResponseArrayOutput)
+}
+
+// Contains encryption settings for an OS disk image.
+func (o EncryptionImagesInvokeResponseOutput) OsDiskImage() OSDiskImageEncryptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionImagesInvokeResponse) *OSDiskImageEncryptionInvokeResponse { return v.OsDiskImage }).(OSDiskImageEncryptionInvokeResponsePtrOutput)
+}
+
+type EncryptionImagesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionImagesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionImagesInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionImagesInvokeResponsePtrOutput) ToEncryptionImagesInvokeResponsePtrOutput() EncryptionImagesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionImagesInvokeResponsePtrOutput) ToEncryptionImagesInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionImagesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionImagesInvokeResponsePtrOutput) Elem() EncryptionImagesInvokeResponseOutput {
+	return o.ApplyT(func(v *EncryptionImagesInvokeResponse) EncryptionImagesInvokeResponse { return *v }).(EncryptionImagesInvokeResponseOutput)
+}
+
+// A list of encryption specifications for data disk images.
+func (o EncryptionImagesInvokeResponsePtrOutput) DataDiskImages() DataDiskImageEncryptionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *EncryptionImagesInvokeResponse) []DataDiskImageEncryptionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DataDiskImages
+	}).(DataDiskImageEncryptionInvokeResponseArrayOutput)
+}
+
+// Contains encryption settings for an OS disk image.
+func (o EncryptionImagesInvokeResponsePtrOutput) OsDiskImage() OSDiskImageEncryptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionImagesInvokeResponse) *OSDiskImageEncryptionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.OsDiskImage
+	}).(OSDiskImageEncryptionInvokeResponsePtrOutput)
+}
+
+// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
 type EncryptionImagesResponse struct {
 	// A list of encryption specifications for data disk images.
 	DataDiskImages []DataDiskImageEncryptionResponse `pulumi:"dataDiskImages"`
@@ -1793,6 +2303,70 @@ func (o EncryptionImagesResponsePtrOutput) OsDiskImage() OSDiskImageEncryptionRe
 		}
 		return v.OsDiskImage
 	}).(OSDiskImageEncryptionResponsePtrOutput)
+}
+
+// Encryption at rest settings for disk or snapshot
+type EncryptionInvokeResponse struct {
+	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The type of key used to encrypt the data of the disk.
+	Type *string `pulumi:"type"`
+}
+
+// EncryptionInvokeResponseInput is an input type that accepts EncryptionInvokeResponseArgs and EncryptionInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionInvokeResponseInput` via:
+//
+//          EncryptionInvokeResponseArgs{...}
+type EncryptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionInvokeResponseOutput() EncryptionInvokeResponseOutput
+	ToEncryptionInvokeResponseOutputWithContext(context.Context) EncryptionInvokeResponseOutput
+}
+
+// Encryption at rest settings for disk or snapshot
+type EncryptionInvokeResponseArgs struct {
+	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// The type of key used to encrypt the data of the disk.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (EncryptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionInvokeResponseArgs) ToEncryptionInvokeResponseOutput() EncryptionInvokeResponseOutput {
+	return i.ToEncryptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionInvokeResponseArgs) ToEncryptionInvokeResponseOutputWithContext(ctx context.Context) EncryptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInvokeResponseOutput)
+}
+
+// Encryption at rest settings for disk or snapshot
+type EncryptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionInvokeResponseOutput) ToEncryptionInvokeResponseOutput() EncryptionInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionInvokeResponseOutput) ToEncryptionInvokeResponseOutputWithContext(ctx context.Context) EncryptionInvokeResponseOutput {
+	return o
+}
+
+// ResourceId of the disk encryption set to use for enabling encryption at rest.
+func (o EncryptionInvokeResponseOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionInvokeResponse) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// The type of key used to encrypt the data of the disk.
+func (o EncryptionInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Encryption at rest settings for disk or snapshot
@@ -2080,6 +2654,79 @@ func (o EncryptionSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
+type EncryptionSetIdentityInvokeResponse struct {
+	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+	Type *string `pulumi:"type"`
+}
+
+// EncryptionSetIdentityInvokeResponseInput is an input type that accepts EncryptionSetIdentityInvokeResponseArgs and EncryptionSetIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionSetIdentityInvokeResponseInput` via:
+//
+//          EncryptionSetIdentityInvokeResponseArgs{...}
+type EncryptionSetIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionSetIdentityInvokeResponseOutput() EncryptionSetIdentityInvokeResponseOutput
+	ToEncryptionSetIdentityInvokeResponseOutputWithContext(context.Context) EncryptionSetIdentityInvokeResponseOutput
+}
+
+// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
+type EncryptionSetIdentityInvokeResponseArgs struct {
+	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (EncryptionSetIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionSetIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionSetIdentityInvokeResponseArgs) ToEncryptionSetIdentityInvokeResponseOutput() EncryptionSetIdentityInvokeResponseOutput {
+	return i.ToEncryptionSetIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionSetIdentityInvokeResponseArgs) ToEncryptionSetIdentityInvokeResponseOutputWithContext(ctx context.Context) EncryptionSetIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSetIdentityInvokeResponseOutput)
+}
+
+// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
+type EncryptionSetIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionSetIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionSetIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionSetIdentityInvokeResponseOutput) ToEncryptionSetIdentityInvokeResponseOutput() EncryptionSetIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionSetIdentityInvokeResponseOutput) ToEncryptionSetIdentityInvokeResponseOutputWithContext(ctx context.Context) EncryptionSetIdentityInvokeResponseOutput {
+	return o
+}
+
+// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+func (o EncryptionSetIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionSetIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+func (o EncryptionSetIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionSetIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+func (o EncryptionSetIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionSetIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
@@ -2427,6 +3074,81 @@ func (o EncryptionSettingsCollectionPtrOutput) EncryptionSettingsVersion() pulum
 }
 
 // Encryption settings for disk or snapshot
+type EncryptionSettingsCollectionInvokeResponse struct {
+	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+	Enabled bool `pulumi:"enabled"`
+	// A collection of encryption settings, one for each disk volume.
+	EncryptionSettings []EncryptionSettingsElementInvokeResponse `pulumi:"encryptionSettings"`
+	// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
+	EncryptionSettingsVersion *string `pulumi:"encryptionSettingsVersion"`
+}
+
+// EncryptionSettingsCollectionInvokeResponseInput is an input type that accepts EncryptionSettingsCollectionInvokeResponseArgs and EncryptionSettingsCollectionInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionSettingsCollectionInvokeResponseInput` via:
+//
+//          EncryptionSettingsCollectionInvokeResponseArgs{...}
+type EncryptionSettingsCollectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionSettingsCollectionInvokeResponseOutput() EncryptionSettingsCollectionInvokeResponseOutput
+	ToEncryptionSettingsCollectionInvokeResponseOutputWithContext(context.Context) EncryptionSettingsCollectionInvokeResponseOutput
+}
+
+// Encryption settings for disk or snapshot
+type EncryptionSettingsCollectionInvokeResponseArgs struct {
+	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A collection of encryption settings, one for each disk volume.
+	EncryptionSettings EncryptionSettingsElementInvokeResponseArrayInput `pulumi:"encryptionSettings"`
+	// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
+	EncryptionSettingsVersion pulumi.StringPtrInput `pulumi:"encryptionSettingsVersion"`
+}
+
+func (EncryptionSettingsCollectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionSettingsCollectionInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionSettingsCollectionInvokeResponseArgs) ToEncryptionSettingsCollectionInvokeResponseOutput() EncryptionSettingsCollectionInvokeResponseOutput {
+	return i.ToEncryptionSettingsCollectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionSettingsCollectionInvokeResponseArgs) ToEncryptionSettingsCollectionInvokeResponseOutputWithContext(ctx context.Context) EncryptionSettingsCollectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsCollectionInvokeResponseOutput)
+}
+
+// Encryption settings for disk or snapshot
+type EncryptionSettingsCollectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionSettingsCollectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionSettingsCollectionInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionSettingsCollectionInvokeResponseOutput) ToEncryptionSettingsCollectionInvokeResponseOutput() EncryptionSettingsCollectionInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionSettingsCollectionInvokeResponseOutput) ToEncryptionSettingsCollectionInvokeResponseOutputWithContext(ctx context.Context) EncryptionSettingsCollectionInvokeResponseOutput {
+	return o
+}
+
+// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+func (o EncryptionSettingsCollectionInvokeResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v EncryptionSettingsCollectionInvokeResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A collection of encryption settings, one for each disk volume.
+func (o EncryptionSettingsCollectionInvokeResponseOutput) EncryptionSettings() EncryptionSettingsElementInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EncryptionSettingsCollectionInvokeResponse) []EncryptionSettingsElementInvokeResponse {
+		return v.EncryptionSettings
+	}).(EncryptionSettingsElementInvokeResponseArrayOutput)
+}
+
+// Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
+func (o EncryptionSettingsCollectionInvokeResponseOutput) EncryptionSettingsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionSettingsCollectionInvokeResponse) *string { return v.EncryptionSettingsVersion }).(pulumi.StringPtrOutput)
+}
+
+// Encryption settings for disk or snapshot
 type EncryptionSettingsCollectionResponse struct {
 	// Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
 	Enabled bool `pulumi:"enabled"`
@@ -2710,6 +3432,119 @@ func (o EncryptionSettingsElementArrayOutput) Index(i pulumi.IntInput) Encryptio
 }
 
 // Encryption settings for one disk volume.
+type EncryptionSettingsElementInvokeResponse struct {
+	// Key Vault Secret Url and vault id of the disk encryption key
+	DiskEncryptionKey *KeyVaultAndSecretReferenceInvokeResponse `pulumi:"diskEncryptionKey"`
+	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+	KeyEncryptionKey *KeyVaultAndKeyReferenceInvokeResponse `pulumi:"keyEncryptionKey"`
+}
+
+// EncryptionSettingsElementInvokeResponseInput is an input type that accepts EncryptionSettingsElementInvokeResponseArgs and EncryptionSettingsElementInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionSettingsElementInvokeResponseInput` via:
+//
+//          EncryptionSettingsElementInvokeResponseArgs{...}
+type EncryptionSettingsElementInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionSettingsElementInvokeResponseOutput() EncryptionSettingsElementInvokeResponseOutput
+	ToEncryptionSettingsElementInvokeResponseOutputWithContext(context.Context) EncryptionSettingsElementInvokeResponseOutput
+}
+
+// Encryption settings for one disk volume.
+type EncryptionSettingsElementInvokeResponseArgs struct {
+	// Key Vault Secret Url and vault id of the disk encryption key
+	DiskEncryptionKey KeyVaultAndSecretReferenceInvokeResponsePtrInput `pulumi:"diskEncryptionKey"`
+	// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+	KeyEncryptionKey KeyVaultAndKeyReferenceInvokeResponsePtrInput `pulumi:"keyEncryptionKey"`
+}
+
+func (EncryptionSettingsElementInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionSettingsElementInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionSettingsElementInvokeResponseArgs) ToEncryptionSettingsElementInvokeResponseOutput() EncryptionSettingsElementInvokeResponseOutput {
+	return i.ToEncryptionSettingsElementInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionSettingsElementInvokeResponseArgs) ToEncryptionSettingsElementInvokeResponseOutputWithContext(ctx context.Context) EncryptionSettingsElementInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsElementInvokeResponseOutput)
+}
+
+// EncryptionSettingsElementInvokeResponseArrayInput is an input type that accepts EncryptionSettingsElementInvokeResponseArray and EncryptionSettingsElementInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EncryptionSettingsElementInvokeResponseArrayInput` via:
+//
+//          EncryptionSettingsElementInvokeResponseArray{ EncryptionSettingsElementInvokeResponseArgs{...} }
+type EncryptionSettingsElementInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEncryptionSettingsElementInvokeResponseArrayOutput() EncryptionSettingsElementInvokeResponseArrayOutput
+	ToEncryptionSettingsElementInvokeResponseArrayOutputWithContext(context.Context) EncryptionSettingsElementInvokeResponseArrayOutput
+}
+
+type EncryptionSettingsElementInvokeResponseArray []EncryptionSettingsElementInvokeResponseInput
+
+func (EncryptionSettingsElementInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EncryptionSettingsElementInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionSettingsElementInvokeResponseArray) ToEncryptionSettingsElementInvokeResponseArrayOutput() EncryptionSettingsElementInvokeResponseArrayOutput {
+	return i.ToEncryptionSettingsElementInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EncryptionSettingsElementInvokeResponseArray) ToEncryptionSettingsElementInvokeResponseArrayOutputWithContext(ctx context.Context) EncryptionSettingsElementInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSettingsElementInvokeResponseArrayOutput)
+}
+
+// Encryption settings for one disk volume.
+type EncryptionSettingsElementInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionSettingsElementInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionSettingsElementInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionSettingsElementInvokeResponseOutput) ToEncryptionSettingsElementInvokeResponseOutput() EncryptionSettingsElementInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionSettingsElementInvokeResponseOutput) ToEncryptionSettingsElementInvokeResponseOutputWithContext(ctx context.Context) EncryptionSettingsElementInvokeResponseOutput {
+	return o
+}
+
+// Key Vault Secret Url and vault id of the disk encryption key
+func (o EncryptionSettingsElementInvokeResponseOutput) DiskEncryptionKey() KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionSettingsElementInvokeResponse) *KeyVaultAndSecretReferenceInvokeResponse {
+		return v.DiskEncryptionKey
+	}).(KeyVaultAndSecretReferenceInvokeResponsePtrOutput)
+}
+
+// Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+func (o EncryptionSettingsElementInvokeResponseOutput) KeyEncryptionKey() KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionSettingsElementInvokeResponse) *KeyVaultAndKeyReferenceInvokeResponse {
+		return v.KeyEncryptionKey
+	}).(KeyVaultAndKeyReferenceInvokeResponsePtrOutput)
+}
+
+type EncryptionSettingsElementInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EncryptionSettingsElementInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EncryptionSettingsElementInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionSettingsElementInvokeResponseArrayOutput) ToEncryptionSettingsElementInvokeResponseArrayOutput() EncryptionSettingsElementInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EncryptionSettingsElementInvokeResponseArrayOutput) ToEncryptionSettingsElementInvokeResponseArrayOutputWithContext(ctx context.Context) EncryptionSettingsElementInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EncryptionSettingsElementInvokeResponseArrayOutput) Index(i pulumi.IntInput) EncryptionSettingsElementInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EncryptionSettingsElementInvokeResponse {
+		return vs[0].([]EncryptionSettingsElementInvokeResponse)[vs[1].(int)]
+	}).(EncryptionSettingsElementInvokeResponseOutput)
+}
+
+// Encryption settings for one disk volume.
 type EncryptionSettingsElementResponse struct {
 	// Key Vault Secret Url and vault id of the disk encryption key
 	DiskEncryptionKey *KeyVaultAndSecretReferenceResponse `pulumi:"diskEncryptionKey"`
@@ -2971,6 +3806,70 @@ func (o ExtendedLocationPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationInvokeResponse struct {
+	// The name of the extended location.
+	Name *string `pulumi:"name"`
+	// The type of the extended location.
+	Type *string `pulumi:"type"`
+}
+
+// ExtendedLocationInvokeResponseInput is an input type that accepts ExtendedLocationInvokeResponseArgs and ExtendedLocationInvokeResponseOutput values.
+// You can construct a concrete instance of `ExtendedLocationInvokeResponseInput` via:
+//
+//          ExtendedLocationInvokeResponseArgs{...}
+type ExtendedLocationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToExtendedLocationInvokeResponseOutput() ExtendedLocationInvokeResponseOutput
+	ToExtendedLocationInvokeResponseOutputWithContext(context.Context) ExtendedLocationInvokeResponseOutput
+}
+
+// The complex type of the extended location.
+type ExtendedLocationInvokeResponseArgs struct {
+	// The name of the extended location.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the extended location.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExtendedLocationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationInvokeResponse)(nil)).Elem()
+}
+
+func (i ExtendedLocationInvokeResponseArgs) ToExtendedLocationInvokeResponseOutput() ExtendedLocationInvokeResponseOutput {
+	return i.ToExtendedLocationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ExtendedLocationInvokeResponseArgs) ToExtendedLocationInvokeResponseOutputWithContext(ctx context.Context) ExtendedLocationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationInvokeResponseOutput)
+}
+
+// The complex type of the extended location.
+type ExtendedLocationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtendedLocationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedLocationInvokeResponse)(nil)).Elem()
+}
+
+func (o ExtendedLocationInvokeResponseOutput) ToExtendedLocationInvokeResponseOutput() ExtendedLocationInvokeResponseOutput {
+	return o
+}
+
+func (o ExtendedLocationInvokeResponseOutput) ToExtendedLocationInvokeResponseOutputWithContext(ctx context.Context) ExtendedLocationInvokeResponseOutput {
+	return o
+}
+
+// The name of the extended location.
+func (o ExtendedLocationInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the extended location.
+func (o ExtendedLocationInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedLocationInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The complex type of the extended location.
@@ -3389,6 +4288,136 @@ func (o GalleryApplicationVersionPublishingProfilePtrOutput) TargetRegions() Tar
 		}
 		return v.TargetRegions
 	}).(TargetRegionArrayOutput)
+}
+
+// The publishing profile of a gallery image version.
+type GalleryApplicationVersionPublishingProfileInvokeResponse struct {
+	// Optional. Whether or not this application reports health.
+	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
+	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+	ExcludeFromLatest *bool                             `pulumi:"excludeFromLatest"`
+	ManageActions     *UserArtifactManageInvokeResponse `pulumi:"manageActions"`
+	// The timestamp for when the gallery image version is published.
+	PublishedDate string `pulumi:"publishedDate"`
+	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+	ReplicaCount *int `pulumi:"replicaCount"`
+	// The source image from which the Image Version is going to be created.
+	Source UserArtifactSourceInvokeResponse `pulumi:"source"`
+	// Specifies the storage account type to be used to store the image. This property is not updatable.
+	StorageAccountType *string `pulumi:"storageAccountType"`
+	// The target regions where the Image Version is going to be replicated to. This property is updatable.
+	TargetRegions []TargetRegionInvokeResponse `pulumi:"targetRegions"`
+}
+
+// GalleryApplicationVersionPublishingProfileInvokeResponseInput is an input type that accepts GalleryApplicationVersionPublishingProfileInvokeResponseArgs and GalleryApplicationVersionPublishingProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `GalleryApplicationVersionPublishingProfileInvokeResponseInput` via:
+//
+//          GalleryApplicationVersionPublishingProfileInvokeResponseArgs{...}
+type GalleryApplicationVersionPublishingProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGalleryApplicationVersionPublishingProfileInvokeResponseOutput() GalleryApplicationVersionPublishingProfileInvokeResponseOutput
+	ToGalleryApplicationVersionPublishingProfileInvokeResponseOutputWithContext(context.Context) GalleryApplicationVersionPublishingProfileInvokeResponseOutput
+}
+
+// The publishing profile of a gallery image version.
+type GalleryApplicationVersionPublishingProfileInvokeResponseArgs struct {
+	// Optional. Whether or not this application reports health.
+	EnableHealthCheck pulumi.BoolPtrInput `pulumi:"enableHealthCheck"`
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
+	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+	ExcludeFromLatest pulumi.BoolPtrInput                      `pulumi:"excludeFromLatest"`
+	ManageActions     UserArtifactManageInvokeResponsePtrInput `pulumi:"manageActions"`
+	// The timestamp for when the gallery image version is published.
+	PublishedDate pulumi.StringInput `pulumi:"publishedDate"`
+	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
+	// The source image from which the Image Version is going to be created.
+	Source UserArtifactSourceInvokeResponseInput `pulumi:"source"`
+	// Specifies the storage account type to be used to store the image. This property is not updatable.
+	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
+	// The target regions where the Image Version is going to be replicated to. This property is updatable.
+	TargetRegions TargetRegionInvokeResponseArrayInput `pulumi:"targetRegions"`
+}
+
+func (GalleryApplicationVersionPublishingProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryApplicationVersionPublishingProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryApplicationVersionPublishingProfileInvokeResponseArgs) ToGalleryApplicationVersionPublishingProfileInvokeResponseOutput() GalleryApplicationVersionPublishingProfileInvokeResponseOutput {
+	return i.ToGalleryApplicationVersionPublishingProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryApplicationVersionPublishingProfileInvokeResponseArgs) ToGalleryApplicationVersionPublishingProfileInvokeResponseOutputWithContext(ctx context.Context) GalleryApplicationVersionPublishingProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionPublishingProfileInvokeResponseOutput)
+}
+
+// The publishing profile of a gallery image version.
+type GalleryApplicationVersionPublishingProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryApplicationVersionPublishingProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryApplicationVersionPublishingProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) ToGalleryApplicationVersionPublishingProfileInvokeResponseOutput() GalleryApplicationVersionPublishingProfileInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) ToGalleryApplicationVersionPublishingProfileInvokeResponseOutputWithContext(ctx context.Context) GalleryApplicationVersionPublishingProfileInvokeResponseOutput {
+	return o
+}
+
+// Optional. Whether or not this application reports health.
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) EnableHealthCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileInvokeResponse) *bool { return v.EnableHealthCheck }).(pulumi.BoolPtrOutput)
+}
+
+// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) EndOfLifeDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileInvokeResponse) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
+}
+
+// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileInvokeResponse) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
+}
+
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) ManageActions() UserArtifactManageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileInvokeResponse) *UserArtifactManageInvokeResponse {
+		return v.ManageActions
+	}).(UserArtifactManageInvokeResponsePtrOutput)
+}
+
+// The timestamp for when the gallery image version is published.
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) PublishedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileInvokeResponse) string { return v.PublishedDate }).(pulumi.StringOutput)
+}
+
+// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) ReplicaCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileInvokeResponse) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
+}
+
+// The source image from which the Image Version is going to be created.
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) Source() UserArtifactSourceInvokeResponseOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileInvokeResponse) UserArtifactSourceInvokeResponse {
+		return v.Source
+	}).(UserArtifactSourceInvokeResponseOutput)
+}
+
+// Specifies the storage account type to be used to store the image. This property is not updatable.
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileInvokeResponse) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+// The target regions where the Image Version is going to be replicated to. This property is updatable.
+func (o GalleryApplicationVersionPublishingProfileInvokeResponseOutput) TargetRegions() TargetRegionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionPublishingProfileInvokeResponse) []TargetRegionInvokeResponse {
+		return v.TargetRegions
+	}).(TargetRegionInvokeResponseArrayOutput)
 }
 
 // The publishing profile of a gallery image version.
@@ -3833,6 +4862,161 @@ func (o GalleryArtifactVersionSourcePtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 // The gallery artifact version source.
+type GalleryArtifactVersionSourceInvokeResponse struct {
+	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+	Id *string `pulumi:"id"`
+	// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+	Uri *string `pulumi:"uri"`
+}
+
+// GalleryArtifactVersionSourceInvokeResponseInput is an input type that accepts GalleryArtifactVersionSourceInvokeResponseArgs and GalleryArtifactVersionSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `GalleryArtifactVersionSourceInvokeResponseInput` via:
+//
+//          GalleryArtifactVersionSourceInvokeResponseArgs{...}
+type GalleryArtifactVersionSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGalleryArtifactVersionSourceInvokeResponseOutput() GalleryArtifactVersionSourceInvokeResponseOutput
+	ToGalleryArtifactVersionSourceInvokeResponseOutputWithContext(context.Context) GalleryArtifactVersionSourceInvokeResponseOutput
+}
+
+// The gallery artifact version source.
+type GalleryArtifactVersionSourceInvokeResponseArgs struct {
+	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (GalleryArtifactVersionSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryArtifactVersionSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryArtifactVersionSourceInvokeResponseArgs) ToGalleryArtifactVersionSourceInvokeResponseOutput() GalleryArtifactVersionSourceInvokeResponseOutput {
+	return i.ToGalleryArtifactVersionSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryArtifactVersionSourceInvokeResponseArgs) ToGalleryArtifactVersionSourceInvokeResponseOutputWithContext(ctx context.Context) GalleryArtifactVersionSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryArtifactVersionSourceInvokeResponseOutput)
+}
+
+func (i GalleryArtifactVersionSourceInvokeResponseArgs) ToGalleryArtifactVersionSourceInvokeResponsePtrOutput() GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return i.ToGalleryArtifactVersionSourceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GalleryArtifactVersionSourceInvokeResponseArgs) ToGalleryArtifactVersionSourceInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryArtifactVersionSourceInvokeResponseOutput).ToGalleryArtifactVersionSourceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// GalleryArtifactVersionSourceInvokeResponsePtrInput is an input type that accepts GalleryArtifactVersionSourceInvokeResponseArgs, GalleryArtifactVersionSourceInvokeResponsePtr and GalleryArtifactVersionSourceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `GalleryArtifactVersionSourceInvokeResponsePtrInput` via:
+//
+//          GalleryArtifactVersionSourceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GalleryArtifactVersionSourceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToGalleryArtifactVersionSourceInvokeResponsePtrOutput() GalleryArtifactVersionSourceInvokeResponsePtrOutput
+	ToGalleryArtifactVersionSourceInvokeResponsePtrOutputWithContext(context.Context) GalleryArtifactVersionSourceInvokeResponsePtrOutput
+}
+
+type galleryArtifactVersionSourceInvokeResponsePtrType GalleryArtifactVersionSourceInvokeResponseArgs
+
+func GalleryArtifactVersionSourceInvokeResponsePtr(v *GalleryArtifactVersionSourceInvokeResponseArgs) GalleryArtifactVersionSourceInvokeResponsePtrInput {
+	return (*galleryArtifactVersionSourceInvokeResponsePtrType)(v)
+}
+
+func (*galleryArtifactVersionSourceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GalleryArtifactVersionSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i *galleryArtifactVersionSourceInvokeResponsePtrType) ToGalleryArtifactVersionSourceInvokeResponsePtrOutput() GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return i.ToGalleryArtifactVersionSourceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *galleryArtifactVersionSourceInvokeResponsePtrType) ToGalleryArtifactVersionSourceInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryArtifactVersionSourceInvokeResponsePtrOutput)
+}
+
+// The gallery artifact version source.
+type GalleryArtifactVersionSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryArtifactVersionSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryArtifactVersionSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryArtifactVersionSourceInvokeResponseOutput) ToGalleryArtifactVersionSourceInvokeResponseOutput() GalleryArtifactVersionSourceInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryArtifactVersionSourceInvokeResponseOutput) ToGalleryArtifactVersionSourceInvokeResponseOutputWithContext(ctx context.Context) GalleryArtifactVersionSourceInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryArtifactVersionSourceInvokeResponseOutput) ToGalleryArtifactVersionSourceInvokeResponsePtrOutput() GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return o.ToGalleryArtifactVersionSourceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GalleryArtifactVersionSourceInvokeResponseOutput) ToGalleryArtifactVersionSourceInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GalleryArtifactVersionSourceInvokeResponse) *GalleryArtifactVersionSourceInvokeResponse {
+		return &v
+	}).(GalleryArtifactVersionSourceInvokeResponsePtrOutput)
+}
+
+// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+func (o GalleryArtifactVersionSourceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryArtifactVersionSourceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+func (o GalleryArtifactVersionSourceInvokeResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryArtifactVersionSourceInvokeResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type GalleryArtifactVersionSourceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GalleryArtifactVersionSourceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GalleryArtifactVersionSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryArtifactVersionSourceInvokeResponsePtrOutput) ToGalleryArtifactVersionSourceInvokeResponsePtrOutput() GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GalleryArtifactVersionSourceInvokeResponsePtrOutput) ToGalleryArtifactVersionSourceInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GalleryArtifactVersionSourceInvokeResponsePtrOutput) Elem() GalleryArtifactVersionSourceInvokeResponseOutput {
+	return o.ApplyT(func(v *GalleryArtifactVersionSourceInvokeResponse) GalleryArtifactVersionSourceInvokeResponse {
+		return *v
+	}).(GalleryArtifactVersionSourceInvokeResponseOutput)
+}
+
+// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+func (o GalleryArtifactVersionSourceInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryArtifactVersionSourceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The uri of the gallery artifact version source. Currently used to specify vhd/blob source.
+func (o GalleryArtifactVersionSourceInvokeResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryArtifactVersionSourceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The gallery artifact version source.
 type GalleryArtifactVersionSourceResponse struct {
 	// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
 	Id *string `pulumi:"id"`
@@ -4104,6 +5288,135 @@ func (o GalleryDataDiskImageArrayOutput) Index(i pulumi.IntInput) GalleryDataDis
 }
 
 // This is the data disk image.
+type GalleryDataDiskImageInvokeResponse struct {
+	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+	HostCaching *string `pulumi:"hostCaching"`
+	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+	Lun int `pulumi:"lun"`
+	// This property indicates the size of the VHD to be created.
+	SizeInGB int `pulumi:"sizeInGB"`
+	// The gallery artifact version source.
+	Source *GalleryArtifactVersionSourceInvokeResponse `pulumi:"source"`
+}
+
+// GalleryDataDiskImageInvokeResponseInput is an input type that accepts GalleryDataDiskImageInvokeResponseArgs and GalleryDataDiskImageInvokeResponseOutput values.
+// You can construct a concrete instance of `GalleryDataDiskImageInvokeResponseInput` via:
+//
+//          GalleryDataDiskImageInvokeResponseArgs{...}
+type GalleryDataDiskImageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGalleryDataDiskImageInvokeResponseOutput() GalleryDataDiskImageInvokeResponseOutput
+	ToGalleryDataDiskImageInvokeResponseOutputWithContext(context.Context) GalleryDataDiskImageInvokeResponseOutput
+}
+
+// This is the data disk image.
+type GalleryDataDiskImageInvokeResponseArgs struct {
+	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+	HostCaching pulumi.StringPtrInput `pulumi:"hostCaching"`
+	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+	Lun pulumi.IntInput `pulumi:"lun"`
+	// This property indicates the size of the VHD to be created.
+	SizeInGB pulumi.IntInput `pulumi:"sizeInGB"`
+	// The gallery artifact version source.
+	Source GalleryArtifactVersionSourceInvokeResponsePtrInput `pulumi:"source"`
+}
+
+func (GalleryDataDiskImageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryDataDiskImageInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryDataDiskImageInvokeResponseArgs) ToGalleryDataDiskImageInvokeResponseOutput() GalleryDataDiskImageInvokeResponseOutput {
+	return i.ToGalleryDataDiskImageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryDataDiskImageInvokeResponseArgs) ToGalleryDataDiskImageInvokeResponseOutputWithContext(ctx context.Context) GalleryDataDiskImageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryDataDiskImageInvokeResponseOutput)
+}
+
+// GalleryDataDiskImageInvokeResponseArrayInput is an input type that accepts GalleryDataDiskImageInvokeResponseArray and GalleryDataDiskImageInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `GalleryDataDiskImageInvokeResponseArrayInput` via:
+//
+//          GalleryDataDiskImageInvokeResponseArray{ GalleryDataDiskImageInvokeResponseArgs{...} }
+type GalleryDataDiskImageInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToGalleryDataDiskImageInvokeResponseArrayOutput() GalleryDataDiskImageInvokeResponseArrayOutput
+	ToGalleryDataDiskImageInvokeResponseArrayOutputWithContext(context.Context) GalleryDataDiskImageInvokeResponseArrayOutput
+}
+
+type GalleryDataDiskImageInvokeResponseArray []GalleryDataDiskImageInvokeResponseInput
+
+func (GalleryDataDiskImageInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GalleryDataDiskImageInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryDataDiskImageInvokeResponseArray) ToGalleryDataDiskImageInvokeResponseArrayOutput() GalleryDataDiskImageInvokeResponseArrayOutput {
+	return i.ToGalleryDataDiskImageInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GalleryDataDiskImageInvokeResponseArray) ToGalleryDataDiskImageInvokeResponseArrayOutputWithContext(ctx context.Context) GalleryDataDiskImageInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryDataDiskImageInvokeResponseArrayOutput)
+}
+
+// This is the data disk image.
+type GalleryDataDiskImageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryDataDiskImageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryDataDiskImageInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryDataDiskImageInvokeResponseOutput) ToGalleryDataDiskImageInvokeResponseOutput() GalleryDataDiskImageInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryDataDiskImageInvokeResponseOutput) ToGalleryDataDiskImageInvokeResponseOutputWithContext(ctx context.Context) GalleryDataDiskImageInvokeResponseOutput {
+	return o
+}
+
+// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+func (o GalleryDataDiskImageInvokeResponseOutput) HostCaching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryDataDiskImageInvokeResponse) *string { return v.HostCaching }).(pulumi.StringPtrOutput)
+}
+
+// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+func (o GalleryDataDiskImageInvokeResponseOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v GalleryDataDiskImageInvokeResponse) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+// This property indicates the size of the VHD to be created.
+func (o GalleryDataDiskImageInvokeResponseOutput) SizeInGB() pulumi.IntOutput {
+	return o.ApplyT(func(v GalleryDataDiskImageInvokeResponse) int { return v.SizeInGB }).(pulumi.IntOutput)
+}
+
+// The gallery artifact version source.
+func (o GalleryDataDiskImageInvokeResponseOutput) Source() GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GalleryDataDiskImageInvokeResponse) *GalleryArtifactVersionSourceInvokeResponse {
+		return v.Source
+	}).(GalleryArtifactVersionSourceInvokeResponsePtrOutput)
+}
+
+type GalleryDataDiskImageInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GalleryDataDiskImageInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GalleryDataDiskImageInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryDataDiskImageInvokeResponseArrayOutput) ToGalleryDataDiskImageInvokeResponseArrayOutput() GalleryDataDiskImageInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GalleryDataDiskImageInvokeResponseArrayOutput) ToGalleryDataDiskImageInvokeResponseArrayOutputWithContext(ctx context.Context) GalleryDataDiskImageInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GalleryDataDiskImageInvokeResponseArrayOutput) Index(i pulumi.IntInput) GalleryDataDiskImageInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GalleryDataDiskImageInvokeResponse {
+		return vs[0].([]GalleryDataDiskImageInvokeResponse)[vs[1].(int)]
+	}).(GalleryDataDiskImageInvokeResponseOutput)
+}
+
+// This is the data disk image.
 type GalleryDataDiskImageResponse struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 	HostCaching *string `pulumi:"hostCaching"`
@@ -4228,6 +5541,61 @@ func (o GalleryDataDiskImageResponseArrayOutput) Index(i pulumi.IntInput) Galler
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GalleryDataDiskImageResponse {
 		return vs[0].([]GalleryDataDiskImageResponse)[vs[1].(int)]
 	}).(GalleryDataDiskImageResponseOutput)
+}
+
+// Describes the gallery unique name.
+type GalleryIdentifierInvokeResponse struct {
+	// The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
+	UniqueName string `pulumi:"uniqueName"`
+}
+
+// GalleryIdentifierInvokeResponseInput is an input type that accepts GalleryIdentifierInvokeResponseArgs and GalleryIdentifierInvokeResponseOutput values.
+// You can construct a concrete instance of `GalleryIdentifierInvokeResponseInput` via:
+//
+//          GalleryIdentifierInvokeResponseArgs{...}
+type GalleryIdentifierInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGalleryIdentifierInvokeResponseOutput() GalleryIdentifierInvokeResponseOutput
+	ToGalleryIdentifierInvokeResponseOutputWithContext(context.Context) GalleryIdentifierInvokeResponseOutput
+}
+
+// Describes the gallery unique name.
+type GalleryIdentifierInvokeResponseArgs struct {
+	// The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
+	UniqueName pulumi.StringInput `pulumi:"uniqueName"`
+}
+
+func (GalleryIdentifierInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryIdentifierInvokeResponseArgs) ToGalleryIdentifierInvokeResponseOutput() GalleryIdentifierInvokeResponseOutput {
+	return i.ToGalleryIdentifierInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryIdentifierInvokeResponseArgs) ToGalleryIdentifierInvokeResponseOutputWithContext(ctx context.Context) GalleryIdentifierInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryIdentifierInvokeResponseOutput)
+}
+
+// Describes the gallery unique name.
+type GalleryIdentifierInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryIdentifierInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryIdentifierInvokeResponseOutput) ToGalleryIdentifierInvokeResponseOutput() GalleryIdentifierInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryIdentifierInvokeResponseOutput) ToGalleryIdentifierInvokeResponseOutputWithContext(ctx context.Context) GalleryIdentifierInvokeResponseOutput {
+	return o
+}
+
+// The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
+func (o GalleryIdentifierInvokeResponseOutput) UniqueName() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryIdentifierInvokeResponse) string { return v.UniqueName }).(pulumi.StringOutput)
 }
 
 // Describes the gallery unique name.
@@ -4471,6 +5839,115 @@ func (o GalleryImageFeatureArrayOutput) Index(i pulumi.IntInput) GalleryImageFea
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GalleryImageFeature {
 		return vs[0].([]GalleryImageFeature)[vs[1].(int)]
 	}).(GalleryImageFeatureOutput)
+}
+
+// A feature for gallery image.
+type GalleryImageFeatureInvokeResponse struct {
+	// The name of the gallery image feature.
+	Name *string `pulumi:"name"`
+	// The value of the gallery image feature.
+	Value *string `pulumi:"value"`
+}
+
+// GalleryImageFeatureInvokeResponseInput is an input type that accepts GalleryImageFeatureInvokeResponseArgs and GalleryImageFeatureInvokeResponseOutput values.
+// You can construct a concrete instance of `GalleryImageFeatureInvokeResponseInput` via:
+//
+//          GalleryImageFeatureInvokeResponseArgs{...}
+type GalleryImageFeatureInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGalleryImageFeatureInvokeResponseOutput() GalleryImageFeatureInvokeResponseOutput
+	ToGalleryImageFeatureInvokeResponseOutputWithContext(context.Context) GalleryImageFeatureInvokeResponseOutput
+}
+
+// A feature for gallery image.
+type GalleryImageFeatureInvokeResponseArgs struct {
+	// The name of the gallery image feature.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the gallery image feature.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GalleryImageFeatureInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageFeatureInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryImageFeatureInvokeResponseArgs) ToGalleryImageFeatureInvokeResponseOutput() GalleryImageFeatureInvokeResponseOutput {
+	return i.ToGalleryImageFeatureInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryImageFeatureInvokeResponseArgs) ToGalleryImageFeatureInvokeResponseOutputWithContext(ctx context.Context) GalleryImageFeatureInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageFeatureInvokeResponseOutput)
+}
+
+// GalleryImageFeatureInvokeResponseArrayInput is an input type that accepts GalleryImageFeatureInvokeResponseArray and GalleryImageFeatureInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `GalleryImageFeatureInvokeResponseArrayInput` via:
+//
+//          GalleryImageFeatureInvokeResponseArray{ GalleryImageFeatureInvokeResponseArgs{...} }
+type GalleryImageFeatureInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToGalleryImageFeatureInvokeResponseArrayOutput() GalleryImageFeatureInvokeResponseArrayOutput
+	ToGalleryImageFeatureInvokeResponseArrayOutputWithContext(context.Context) GalleryImageFeatureInvokeResponseArrayOutput
+}
+
+type GalleryImageFeatureInvokeResponseArray []GalleryImageFeatureInvokeResponseInput
+
+func (GalleryImageFeatureInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GalleryImageFeatureInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryImageFeatureInvokeResponseArray) ToGalleryImageFeatureInvokeResponseArrayOutput() GalleryImageFeatureInvokeResponseArrayOutput {
+	return i.ToGalleryImageFeatureInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GalleryImageFeatureInvokeResponseArray) ToGalleryImageFeatureInvokeResponseArrayOutputWithContext(ctx context.Context) GalleryImageFeatureInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageFeatureInvokeResponseArrayOutput)
+}
+
+// A feature for gallery image.
+type GalleryImageFeatureInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageFeatureInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageFeatureInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryImageFeatureInvokeResponseOutput) ToGalleryImageFeatureInvokeResponseOutput() GalleryImageFeatureInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryImageFeatureInvokeResponseOutput) ToGalleryImageFeatureInvokeResponseOutputWithContext(ctx context.Context) GalleryImageFeatureInvokeResponseOutput {
+	return o
+}
+
+// The name of the gallery image feature.
+func (o GalleryImageFeatureInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageFeatureInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of the gallery image feature.
+func (o GalleryImageFeatureInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageFeatureInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GalleryImageFeatureInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageFeatureInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GalleryImageFeatureInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryImageFeatureInvokeResponseArrayOutput) ToGalleryImageFeatureInvokeResponseArrayOutput() GalleryImageFeatureInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GalleryImageFeatureInvokeResponseArrayOutput) ToGalleryImageFeatureInvokeResponseArrayOutputWithContext(ctx context.Context) GalleryImageFeatureInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GalleryImageFeatureInvokeResponseArrayOutput) Index(i pulumi.IntInput) GalleryImageFeatureInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GalleryImageFeatureInvokeResponse {
+		return vs[0].([]GalleryImageFeatureInvokeResponse)[vs[1].(int)]
+	}).(GalleryImageFeatureInvokeResponseOutput)
 }
 
 // A feature for gallery image.
@@ -4752,6 +6229,79 @@ func (o GalleryImageIdentifierPtrOutput) Sku() pulumi.StringPtrOutput {
 		}
 		return &v.Sku
 	}).(pulumi.StringPtrOutput)
+}
+
+// This is the gallery image definition identifier.
+type GalleryImageIdentifierInvokeResponse struct {
+	// The name of the gallery image definition offer.
+	Offer string `pulumi:"offer"`
+	// The name of the gallery image definition publisher.
+	Publisher string `pulumi:"publisher"`
+	// The name of the gallery image definition SKU.
+	Sku string `pulumi:"sku"`
+}
+
+// GalleryImageIdentifierInvokeResponseInput is an input type that accepts GalleryImageIdentifierInvokeResponseArgs and GalleryImageIdentifierInvokeResponseOutput values.
+// You can construct a concrete instance of `GalleryImageIdentifierInvokeResponseInput` via:
+//
+//          GalleryImageIdentifierInvokeResponseArgs{...}
+type GalleryImageIdentifierInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGalleryImageIdentifierInvokeResponseOutput() GalleryImageIdentifierInvokeResponseOutput
+	ToGalleryImageIdentifierInvokeResponseOutputWithContext(context.Context) GalleryImageIdentifierInvokeResponseOutput
+}
+
+// This is the gallery image definition identifier.
+type GalleryImageIdentifierInvokeResponseArgs struct {
+	// The name of the gallery image definition offer.
+	Offer pulumi.StringInput `pulumi:"offer"`
+	// The name of the gallery image definition publisher.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The name of the gallery image definition SKU.
+	Sku pulumi.StringInput `pulumi:"sku"`
+}
+
+func (GalleryImageIdentifierInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryImageIdentifierInvokeResponseArgs) ToGalleryImageIdentifierInvokeResponseOutput() GalleryImageIdentifierInvokeResponseOutput {
+	return i.ToGalleryImageIdentifierInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryImageIdentifierInvokeResponseArgs) ToGalleryImageIdentifierInvokeResponseOutputWithContext(ctx context.Context) GalleryImageIdentifierInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageIdentifierInvokeResponseOutput)
+}
+
+// This is the gallery image definition identifier.
+type GalleryImageIdentifierInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageIdentifierInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryImageIdentifierInvokeResponseOutput) ToGalleryImageIdentifierInvokeResponseOutput() GalleryImageIdentifierInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryImageIdentifierInvokeResponseOutput) ToGalleryImageIdentifierInvokeResponseOutputWithContext(ctx context.Context) GalleryImageIdentifierInvokeResponseOutput {
+	return o
+}
+
+// The name of the gallery image definition offer.
+func (o GalleryImageIdentifierInvokeResponseOutput) Offer() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryImageIdentifierInvokeResponse) string { return v.Offer }).(pulumi.StringOutput)
+}
+
+// The name of the gallery image definition publisher.
+func (o GalleryImageIdentifierInvokeResponseOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryImageIdentifierInvokeResponse) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The name of the gallery image definition SKU.
+func (o GalleryImageIdentifierInvokeResponseOutput) Sku() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryImageIdentifierInvokeResponse) string { return v.Sku }).(pulumi.StringOutput)
 }
 
 // This is the gallery image definition identifier.
@@ -5134,6 +6684,108 @@ func (o GalleryImageVersionPublishingProfilePtrOutput) TargetRegions() TargetReg
 		}
 		return v.TargetRegions
 	}).(TargetRegionArrayOutput)
+}
+
+// The publishing profile of a gallery image Version.
+type GalleryImageVersionPublishingProfileInvokeResponse struct {
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
+	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
+	// The timestamp for when the gallery image version is published.
+	PublishedDate string `pulumi:"publishedDate"`
+	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+	ReplicaCount *int `pulumi:"replicaCount"`
+	// Specifies the storage account type to be used to store the image. This property is not updatable.
+	StorageAccountType *string `pulumi:"storageAccountType"`
+	// The target regions where the Image Version is going to be replicated to. This property is updatable.
+	TargetRegions []TargetRegionInvokeResponse `pulumi:"targetRegions"`
+}
+
+// GalleryImageVersionPublishingProfileInvokeResponseInput is an input type that accepts GalleryImageVersionPublishingProfileInvokeResponseArgs and GalleryImageVersionPublishingProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `GalleryImageVersionPublishingProfileInvokeResponseInput` via:
+//
+//          GalleryImageVersionPublishingProfileInvokeResponseArgs{...}
+type GalleryImageVersionPublishingProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGalleryImageVersionPublishingProfileInvokeResponseOutput() GalleryImageVersionPublishingProfileInvokeResponseOutput
+	ToGalleryImageVersionPublishingProfileInvokeResponseOutputWithContext(context.Context) GalleryImageVersionPublishingProfileInvokeResponseOutput
+}
+
+// The publishing profile of a gallery image Version.
+type GalleryImageVersionPublishingProfileInvokeResponseArgs struct {
+	// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
+	// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+	ExcludeFromLatest pulumi.BoolPtrInput `pulumi:"excludeFromLatest"`
+	// The timestamp for when the gallery image version is published.
+	PublishedDate pulumi.StringInput `pulumi:"publishedDate"`
+	// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
+	// Specifies the storage account type to be used to store the image. This property is not updatable.
+	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
+	// The target regions where the Image Version is going to be replicated to. This property is updatable.
+	TargetRegions TargetRegionInvokeResponseArrayInput `pulumi:"targetRegions"`
+}
+
+func (GalleryImageVersionPublishingProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageVersionPublishingProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryImageVersionPublishingProfileInvokeResponseArgs) ToGalleryImageVersionPublishingProfileInvokeResponseOutput() GalleryImageVersionPublishingProfileInvokeResponseOutput {
+	return i.ToGalleryImageVersionPublishingProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryImageVersionPublishingProfileInvokeResponseArgs) ToGalleryImageVersionPublishingProfileInvokeResponseOutputWithContext(ctx context.Context) GalleryImageVersionPublishingProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionPublishingProfileInvokeResponseOutput)
+}
+
+// The publishing profile of a gallery image Version.
+type GalleryImageVersionPublishingProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageVersionPublishingProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageVersionPublishingProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryImageVersionPublishingProfileInvokeResponseOutput) ToGalleryImageVersionPublishingProfileInvokeResponseOutput() GalleryImageVersionPublishingProfileInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryImageVersionPublishingProfileInvokeResponseOutput) ToGalleryImageVersionPublishingProfileInvokeResponseOutputWithContext(ctx context.Context) GalleryImageVersionPublishingProfileInvokeResponseOutput {
+	return o
+}
+
+// The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
+func (o GalleryImageVersionPublishingProfileInvokeResponseOutput) EndOfLifeDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageVersionPublishingProfileInvokeResponse) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
+}
+
+// If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+func (o GalleryImageVersionPublishingProfileInvokeResponseOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GalleryImageVersionPublishingProfileInvokeResponse) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
+}
+
+// The timestamp for when the gallery image version is published.
+func (o GalleryImageVersionPublishingProfileInvokeResponseOutput) PublishedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GalleryImageVersionPublishingProfileInvokeResponse) string { return v.PublishedDate }).(pulumi.StringOutput)
+}
+
+// The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+func (o GalleryImageVersionPublishingProfileInvokeResponseOutput) ReplicaCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GalleryImageVersionPublishingProfileInvokeResponse) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the storage account type to be used to store the image. This property is not updatable.
+func (o GalleryImageVersionPublishingProfileInvokeResponseOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageVersionPublishingProfileInvokeResponse) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+// The target regions where the Image Version is going to be replicated to. This property is updatable.
+func (o GalleryImageVersionPublishingProfileInvokeResponseOutput) TargetRegions() TargetRegionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v GalleryImageVersionPublishingProfileInvokeResponse) []TargetRegionInvokeResponse {
+		return v.TargetRegions
+	}).(TargetRegionInvokeResponseArrayOutput)
 }
 
 // The publishing profile of a gallery image Version.
@@ -5540,6 +7192,85 @@ func (o GalleryImageVersionStorageProfilePtrOutput) Source() GalleryArtifactVers
 }
 
 // This is the storage profile of a Gallery Image Version.
+type GalleryImageVersionStorageProfileInvokeResponse struct {
+	// A list of data disk images.
+	DataDiskImages []GalleryDataDiskImageInvokeResponse `pulumi:"dataDiskImages"`
+	// This is the OS disk image.
+	OsDiskImage *GalleryOSDiskImageInvokeResponse `pulumi:"osDiskImage"`
+	// The gallery artifact version source.
+	Source *GalleryArtifactVersionSourceInvokeResponse `pulumi:"source"`
+}
+
+// GalleryImageVersionStorageProfileInvokeResponseInput is an input type that accepts GalleryImageVersionStorageProfileInvokeResponseArgs and GalleryImageVersionStorageProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `GalleryImageVersionStorageProfileInvokeResponseInput` via:
+//
+//          GalleryImageVersionStorageProfileInvokeResponseArgs{...}
+type GalleryImageVersionStorageProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGalleryImageVersionStorageProfileInvokeResponseOutput() GalleryImageVersionStorageProfileInvokeResponseOutput
+	ToGalleryImageVersionStorageProfileInvokeResponseOutputWithContext(context.Context) GalleryImageVersionStorageProfileInvokeResponseOutput
+}
+
+// This is the storage profile of a Gallery Image Version.
+type GalleryImageVersionStorageProfileInvokeResponseArgs struct {
+	// A list of data disk images.
+	DataDiskImages GalleryDataDiskImageInvokeResponseArrayInput `pulumi:"dataDiskImages"`
+	// This is the OS disk image.
+	OsDiskImage GalleryOSDiskImageInvokeResponsePtrInput `pulumi:"osDiskImage"`
+	// The gallery artifact version source.
+	Source GalleryArtifactVersionSourceInvokeResponsePtrInput `pulumi:"source"`
+}
+
+func (GalleryImageVersionStorageProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageVersionStorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryImageVersionStorageProfileInvokeResponseArgs) ToGalleryImageVersionStorageProfileInvokeResponseOutput() GalleryImageVersionStorageProfileInvokeResponseOutput {
+	return i.ToGalleryImageVersionStorageProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryImageVersionStorageProfileInvokeResponseArgs) ToGalleryImageVersionStorageProfileInvokeResponseOutputWithContext(ctx context.Context) GalleryImageVersionStorageProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionStorageProfileInvokeResponseOutput)
+}
+
+// This is the storage profile of a Gallery Image Version.
+type GalleryImageVersionStorageProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageVersionStorageProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageVersionStorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryImageVersionStorageProfileInvokeResponseOutput) ToGalleryImageVersionStorageProfileInvokeResponseOutput() GalleryImageVersionStorageProfileInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryImageVersionStorageProfileInvokeResponseOutput) ToGalleryImageVersionStorageProfileInvokeResponseOutputWithContext(ctx context.Context) GalleryImageVersionStorageProfileInvokeResponseOutput {
+	return o
+}
+
+// A list of data disk images.
+func (o GalleryImageVersionStorageProfileInvokeResponseOutput) DataDiskImages() GalleryDataDiskImageInvokeResponseArrayOutput {
+	return o.ApplyT(func(v GalleryImageVersionStorageProfileInvokeResponse) []GalleryDataDiskImageInvokeResponse {
+		return v.DataDiskImages
+	}).(GalleryDataDiskImageInvokeResponseArrayOutput)
+}
+
+// This is the OS disk image.
+func (o GalleryImageVersionStorageProfileInvokeResponseOutput) OsDiskImage() GalleryOSDiskImageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GalleryImageVersionStorageProfileInvokeResponse) *GalleryOSDiskImageInvokeResponse {
+		return v.OsDiskImage
+	}).(GalleryOSDiskImageInvokeResponsePtrOutput)
+}
+
+// The gallery artifact version source.
+func (o GalleryImageVersionStorageProfileInvokeResponseOutput) Source() GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GalleryImageVersionStorageProfileInvokeResponse) *GalleryArtifactVersionSourceInvokeResponse {
+		return v.Source
+	}).(GalleryArtifactVersionSourceInvokeResponsePtrOutput)
+}
+
+// This is the storage profile of a Gallery Image Version.
 type GalleryImageVersionStorageProfileResponse struct {
 	// A list of data disk images.
 	DataDiskImages []GalleryDataDiskImageResponse `pulumi:"dataDiskImages"`
@@ -5871,6 +7602,178 @@ func (o GalleryOSDiskImagePtrOutput) Source() GalleryArtifactVersionSourcePtrOut
 }
 
 // This is the OS disk image.
+type GalleryOSDiskImageInvokeResponse struct {
+	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+	HostCaching *string `pulumi:"hostCaching"`
+	// This property indicates the size of the VHD to be created.
+	SizeInGB int `pulumi:"sizeInGB"`
+	// The gallery artifact version source.
+	Source *GalleryArtifactVersionSourceInvokeResponse `pulumi:"source"`
+}
+
+// GalleryOSDiskImageInvokeResponseInput is an input type that accepts GalleryOSDiskImageInvokeResponseArgs and GalleryOSDiskImageInvokeResponseOutput values.
+// You can construct a concrete instance of `GalleryOSDiskImageInvokeResponseInput` via:
+//
+//          GalleryOSDiskImageInvokeResponseArgs{...}
+type GalleryOSDiskImageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGalleryOSDiskImageInvokeResponseOutput() GalleryOSDiskImageInvokeResponseOutput
+	ToGalleryOSDiskImageInvokeResponseOutputWithContext(context.Context) GalleryOSDiskImageInvokeResponseOutput
+}
+
+// This is the OS disk image.
+type GalleryOSDiskImageInvokeResponseArgs struct {
+	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+	HostCaching pulumi.StringPtrInput `pulumi:"hostCaching"`
+	// This property indicates the size of the VHD to be created.
+	SizeInGB pulumi.IntInput `pulumi:"sizeInGB"`
+	// The gallery artifact version source.
+	Source GalleryArtifactVersionSourceInvokeResponsePtrInput `pulumi:"source"`
+}
+
+func (GalleryOSDiskImageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryOSDiskImageInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryOSDiskImageInvokeResponseArgs) ToGalleryOSDiskImageInvokeResponseOutput() GalleryOSDiskImageInvokeResponseOutput {
+	return i.ToGalleryOSDiskImageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryOSDiskImageInvokeResponseArgs) ToGalleryOSDiskImageInvokeResponseOutputWithContext(ctx context.Context) GalleryOSDiskImageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryOSDiskImageInvokeResponseOutput)
+}
+
+func (i GalleryOSDiskImageInvokeResponseArgs) ToGalleryOSDiskImageInvokeResponsePtrOutput() GalleryOSDiskImageInvokeResponsePtrOutput {
+	return i.ToGalleryOSDiskImageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GalleryOSDiskImageInvokeResponseArgs) ToGalleryOSDiskImageInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryOSDiskImageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryOSDiskImageInvokeResponseOutput).ToGalleryOSDiskImageInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// GalleryOSDiskImageInvokeResponsePtrInput is an input type that accepts GalleryOSDiskImageInvokeResponseArgs, GalleryOSDiskImageInvokeResponsePtr and GalleryOSDiskImageInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `GalleryOSDiskImageInvokeResponsePtrInput` via:
+//
+//          GalleryOSDiskImageInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GalleryOSDiskImageInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToGalleryOSDiskImageInvokeResponsePtrOutput() GalleryOSDiskImageInvokeResponsePtrOutput
+	ToGalleryOSDiskImageInvokeResponsePtrOutputWithContext(context.Context) GalleryOSDiskImageInvokeResponsePtrOutput
+}
+
+type galleryOSDiskImageInvokeResponsePtrType GalleryOSDiskImageInvokeResponseArgs
+
+func GalleryOSDiskImageInvokeResponsePtr(v *GalleryOSDiskImageInvokeResponseArgs) GalleryOSDiskImageInvokeResponsePtrInput {
+	return (*galleryOSDiskImageInvokeResponsePtrType)(v)
+}
+
+func (*galleryOSDiskImageInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GalleryOSDiskImageInvokeResponse)(nil)).Elem()
+}
+
+func (i *galleryOSDiskImageInvokeResponsePtrType) ToGalleryOSDiskImageInvokeResponsePtrOutput() GalleryOSDiskImageInvokeResponsePtrOutput {
+	return i.ToGalleryOSDiskImageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *galleryOSDiskImageInvokeResponsePtrType) ToGalleryOSDiskImageInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryOSDiskImageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryOSDiskImageInvokeResponsePtrOutput)
+}
+
+// This is the OS disk image.
+type GalleryOSDiskImageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryOSDiskImageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryOSDiskImageInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryOSDiskImageInvokeResponseOutput) ToGalleryOSDiskImageInvokeResponseOutput() GalleryOSDiskImageInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryOSDiskImageInvokeResponseOutput) ToGalleryOSDiskImageInvokeResponseOutputWithContext(ctx context.Context) GalleryOSDiskImageInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryOSDiskImageInvokeResponseOutput) ToGalleryOSDiskImageInvokeResponsePtrOutput() GalleryOSDiskImageInvokeResponsePtrOutput {
+	return o.ToGalleryOSDiskImageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GalleryOSDiskImageInvokeResponseOutput) ToGalleryOSDiskImageInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryOSDiskImageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GalleryOSDiskImageInvokeResponse) *GalleryOSDiskImageInvokeResponse {
+		return &v
+	}).(GalleryOSDiskImageInvokeResponsePtrOutput)
+}
+
+// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+func (o GalleryOSDiskImageInvokeResponseOutput) HostCaching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryOSDiskImageInvokeResponse) *string { return v.HostCaching }).(pulumi.StringPtrOutput)
+}
+
+// This property indicates the size of the VHD to be created.
+func (o GalleryOSDiskImageInvokeResponseOutput) SizeInGB() pulumi.IntOutput {
+	return o.ApplyT(func(v GalleryOSDiskImageInvokeResponse) int { return v.SizeInGB }).(pulumi.IntOutput)
+}
+
+// The gallery artifact version source.
+func (o GalleryOSDiskImageInvokeResponseOutput) Source() GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GalleryOSDiskImageInvokeResponse) *GalleryArtifactVersionSourceInvokeResponse { return v.Source }).(GalleryArtifactVersionSourceInvokeResponsePtrOutput)
+}
+
+type GalleryOSDiskImageInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GalleryOSDiskImageInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GalleryOSDiskImageInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryOSDiskImageInvokeResponsePtrOutput) ToGalleryOSDiskImageInvokeResponsePtrOutput() GalleryOSDiskImageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GalleryOSDiskImageInvokeResponsePtrOutput) ToGalleryOSDiskImageInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryOSDiskImageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GalleryOSDiskImageInvokeResponsePtrOutput) Elem() GalleryOSDiskImageInvokeResponseOutput {
+	return o.ApplyT(func(v *GalleryOSDiskImageInvokeResponse) GalleryOSDiskImageInvokeResponse { return *v }).(GalleryOSDiskImageInvokeResponseOutput)
+}
+
+// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+func (o GalleryOSDiskImageInvokeResponsePtrOutput) HostCaching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryOSDiskImageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostCaching
+	}).(pulumi.StringPtrOutput)
+}
+
+// This property indicates the size of the VHD to be created.
+func (o GalleryOSDiskImageInvokeResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GalleryOSDiskImageInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SizeInGB
+	}).(pulumi.IntPtrOutput)
+}
+
+// The gallery artifact version source.
+func (o GalleryOSDiskImageInvokeResponsePtrOutput) Source() GalleryArtifactVersionSourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *GalleryOSDiskImageInvokeResponse) *GalleryArtifactVersionSourceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(GalleryArtifactVersionSourceInvokeResponsePtrOutput)
+}
+
+// This is the OS disk image.
 type GalleryOSDiskImageResponse struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
 	HostCaching *string `pulumi:"hostCaching"`
@@ -6188,6 +8091,159 @@ func (o ImageDiskReferencePtrOutput) Id() pulumi.StringPtrOutput {
 // If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 func (o ImageDiskReferencePtrOutput) Lun() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageDiskReference) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Lun
+	}).(pulumi.IntPtrOutput)
+}
+
+// The source image used for creating the disk.
+type ImageDiskReferenceInvokeResponse struct {
+	// A relative uri containing either a Platform Image Repository or user image reference.
+	Id string `pulumi:"id"`
+	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+	Lun *int `pulumi:"lun"`
+}
+
+// ImageDiskReferenceInvokeResponseInput is an input type that accepts ImageDiskReferenceInvokeResponseArgs and ImageDiskReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ImageDiskReferenceInvokeResponseInput` via:
+//
+//          ImageDiskReferenceInvokeResponseArgs{...}
+type ImageDiskReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToImageDiskReferenceInvokeResponseOutput() ImageDiskReferenceInvokeResponseOutput
+	ToImageDiskReferenceInvokeResponseOutputWithContext(context.Context) ImageDiskReferenceInvokeResponseOutput
+}
+
+// The source image used for creating the disk.
+type ImageDiskReferenceInvokeResponseArgs struct {
+	// A relative uri containing either a Platform Image Repository or user image reference.
+	Id pulumi.StringInput `pulumi:"id"`
+	// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+	Lun pulumi.IntPtrInput `pulumi:"lun"`
+}
+
+func (ImageDiskReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageDiskReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ImageDiskReferenceInvokeResponseArgs) ToImageDiskReferenceInvokeResponseOutput() ImageDiskReferenceInvokeResponseOutput {
+	return i.ToImageDiskReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ImageDiskReferenceInvokeResponseArgs) ToImageDiskReferenceInvokeResponseOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferenceInvokeResponseOutput)
+}
+
+func (i ImageDiskReferenceInvokeResponseArgs) ToImageDiskReferenceInvokeResponsePtrOutput() ImageDiskReferenceInvokeResponsePtrOutput {
+	return i.ToImageDiskReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ImageDiskReferenceInvokeResponseArgs) ToImageDiskReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferenceInvokeResponseOutput).ToImageDiskReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ImageDiskReferenceInvokeResponsePtrInput is an input type that accepts ImageDiskReferenceInvokeResponseArgs, ImageDiskReferenceInvokeResponsePtr and ImageDiskReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ImageDiskReferenceInvokeResponsePtrInput` via:
+//
+//          ImageDiskReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageDiskReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToImageDiskReferenceInvokeResponsePtrOutput() ImageDiskReferenceInvokeResponsePtrOutput
+	ToImageDiskReferenceInvokeResponsePtrOutputWithContext(context.Context) ImageDiskReferenceInvokeResponsePtrOutput
+}
+
+type imageDiskReferenceInvokeResponsePtrType ImageDiskReferenceInvokeResponseArgs
+
+func ImageDiskReferenceInvokeResponsePtr(v *ImageDiskReferenceInvokeResponseArgs) ImageDiskReferenceInvokeResponsePtrInput {
+	return (*imageDiskReferenceInvokeResponsePtrType)(v)
+}
+
+func (*imageDiskReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageDiskReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *imageDiskReferenceInvokeResponsePtrType) ToImageDiskReferenceInvokeResponsePtrOutput() ImageDiskReferenceInvokeResponsePtrOutput {
+	return i.ToImageDiskReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *imageDiskReferenceInvokeResponsePtrType) ToImageDiskReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageDiskReferenceInvokeResponsePtrOutput)
+}
+
+// The source image used for creating the disk.
+type ImageDiskReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageDiskReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageDiskReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ImageDiskReferenceInvokeResponseOutput) ToImageDiskReferenceInvokeResponseOutput() ImageDiskReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ImageDiskReferenceInvokeResponseOutput) ToImageDiskReferenceInvokeResponseOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ImageDiskReferenceInvokeResponseOutput) ToImageDiskReferenceInvokeResponsePtrOutput() ImageDiskReferenceInvokeResponsePtrOutput {
+	return o.ToImageDiskReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ImageDiskReferenceInvokeResponseOutput) ToImageDiskReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ImageDiskReferenceInvokeResponse) *ImageDiskReferenceInvokeResponse {
+		return &v
+	}).(ImageDiskReferenceInvokeResponsePtrOutput)
+}
+
+// A relative uri containing either a Platform Image Repository or user image reference.
+func (o ImageDiskReferenceInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageDiskReferenceInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+func (o ImageDiskReferenceInvokeResponseOutput) Lun() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ImageDiskReferenceInvokeResponse) *int { return v.Lun }).(pulumi.IntPtrOutput)
+}
+
+type ImageDiskReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageDiskReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageDiskReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ImageDiskReferenceInvokeResponsePtrOutput) ToImageDiskReferenceInvokeResponsePtrOutput() ImageDiskReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ImageDiskReferenceInvokeResponsePtrOutput) ToImageDiskReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ImageDiskReferenceInvokeResponsePtrOutput) Elem() ImageDiskReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *ImageDiskReferenceInvokeResponse) ImageDiskReferenceInvokeResponse { return *v }).(ImageDiskReferenceInvokeResponseOutput)
+}
+
+// A relative uri containing either a Platform Image Repository or user image reference.
+func (o ImageDiskReferenceInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageDiskReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+func (o ImageDiskReferenceInvokeResponsePtrOutput) Lun() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ImageDiskReferenceInvokeResponse) *int {
 		if v == nil {
 			return nil
 		}
@@ -6521,6 +8577,79 @@ func (o ImagePurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 // Describes the gallery image definition purchase plan. This is used by marketplace images.
+type ImagePurchasePlanInvokeResponse struct {
+	// The plan ID.
+	Name *string `pulumi:"name"`
+	// The product ID.
+	Product *string `pulumi:"product"`
+	// The publisher ID.
+	Publisher *string `pulumi:"publisher"`
+}
+
+// ImagePurchasePlanInvokeResponseInput is an input type that accepts ImagePurchasePlanInvokeResponseArgs and ImagePurchasePlanInvokeResponseOutput values.
+// You can construct a concrete instance of `ImagePurchasePlanInvokeResponseInput` via:
+//
+//          ImagePurchasePlanInvokeResponseArgs{...}
+type ImagePurchasePlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToImagePurchasePlanInvokeResponseOutput() ImagePurchasePlanInvokeResponseOutput
+	ToImagePurchasePlanInvokeResponseOutputWithContext(context.Context) ImagePurchasePlanInvokeResponseOutput
+}
+
+// Describes the gallery image definition purchase plan. This is used by marketplace images.
+type ImagePurchasePlanInvokeResponseArgs struct {
+	// The plan ID.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The product ID.
+	Product pulumi.StringPtrInput `pulumi:"product"`
+	// The publisher ID.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+}
+
+func (ImagePurchasePlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePurchasePlanInvokeResponse)(nil)).Elem()
+}
+
+func (i ImagePurchasePlanInvokeResponseArgs) ToImagePurchasePlanInvokeResponseOutput() ImagePurchasePlanInvokeResponseOutput {
+	return i.ToImagePurchasePlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ImagePurchasePlanInvokeResponseArgs) ToImagePurchasePlanInvokeResponseOutputWithContext(ctx context.Context) ImagePurchasePlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePurchasePlanInvokeResponseOutput)
+}
+
+// Describes the gallery image definition purchase plan. This is used by marketplace images.
+type ImagePurchasePlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ImagePurchasePlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePurchasePlanInvokeResponse)(nil)).Elem()
+}
+
+func (o ImagePurchasePlanInvokeResponseOutput) ToImagePurchasePlanInvokeResponseOutput() ImagePurchasePlanInvokeResponseOutput {
+	return o
+}
+
+func (o ImagePurchasePlanInvokeResponseOutput) ToImagePurchasePlanInvokeResponseOutputWithContext(ctx context.Context) ImagePurchasePlanInvokeResponseOutput {
+	return o
+}
+
+// The plan ID.
+func (o ImagePurchasePlanInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePurchasePlanInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The product ID.
+func (o ImagePurchasePlanInvokeResponseOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePurchasePlanInvokeResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID.
+func (o ImagePurchasePlanInvokeResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePurchasePlanInvokeResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Describes the gallery image definition purchase plan. This is used by marketplace images.
 type ImagePurchasePlanResponse struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -6843,6 +8972,115 @@ func (o KeyForDiskEncryptionSetPtrOutput) SourceVault() SourceVaultPtrOutput {
 		}
 		return v.SourceVault
 	}).(SourceVaultPtrOutput)
+}
+
+// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+type KeyForDiskEncryptionSetInvokeResponse struct {
+	// Fully versioned Key Url pointing to a key in KeyVault
+	KeyUrl string `pulumi:"keyUrl"`
+	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+	SourceVault *SourceVaultInvokeResponse `pulumi:"sourceVault"`
+}
+
+// KeyForDiskEncryptionSetInvokeResponseInput is an input type that accepts KeyForDiskEncryptionSetInvokeResponseArgs and KeyForDiskEncryptionSetInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyForDiskEncryptionSetInvokeResponseInput` via:
+//
+//          KeyForDiskEncryptionSetInvokeResponseArgs{...}
+type KeyForDiskEncryptionSetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyForDiskEncryptionSetInvokeResponseOutput() KeyForDiskEncryptionSetInvokeResponseOutput
+	ToKeyForDiskEncryptionSetInvokeResponseOutputWithContext(context.Context) KeyForDiskEncryptionSetInvokeResponseOutput
+}
+
+// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+type KeyForDiskEncryptionSetInvokeResponseArgs struct {
+	// Fully versioned Key Url pointing to a key in KeyVault
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+	SourceVault SourceVaultInvokeResponsePtrInput `pulumi:"sourceVault"`
+}
+
+func (KeyForDiskEncryptionSetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyForDiskEncryptionSetInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyForDiskEncryptionSetInvokeResponseArgs) ToKeyForDiskEncryptionSetInvokeResponseOutput() KeyForDiskEncryptionSetInvokeResponseOutput {
+	return i.ToKeyForDiskEncryptionSetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyForDiskEncryptionSetInvokeResponseArgs) ToKeyForDiskEncryptionSetInvokeResponseOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetInvokeResponseOutput)
+}
+
+// KeyForDiskEncryptionSetInvokeResponseArrayInput is an input type that accepts KeyForDiskEncryptionSetInvokeResponseArray and KeyForDiskEncryptionSetInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `KeyForDiskEncryptionSetInvokeResponseArrayInput` via:
+//
+//          KeyForDiskEncryptionSetInvokeResponseArray{ KeyForDiskEncryptionSetInvokeResponseArgs{...} }
+type KeyForDiskEncryptionSetInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToKeyForDiskEncryptionSetInvokeResponseArrayOutput() KeyForDiskEncryptionSetInvokeResponseArrayOutput
+	ToKeyForDiskEncryptionSetInvokeResponseArrayOutputWithContext(context.Context) KeyForDiskEncryptionSetInvokeResponseArrayOutput
+}
+
+type KeyForDiskEncryptionSetInvokeResponseArray []KeyForDiskEncryptionSetInvokeResponseInput
+
+func (KeyForDiskEncryptionSetInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyForDiskEncryptionSetInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyForDiskEncryptionSetInvokeResponseArray) ToKeyForDiskEncryptionSetInvokeResponseArrayOutput() KeyForDiskEncryptionSetInvokeResponseArrayOutput {
+	return i.ToKeyForDiskEncryptionSetInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KeyForDiskEncryptionSetInvokeResponseArray) ToKeyForDiskEncryptionSetInvokeResponseArrayOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyForDiskEncryptionSetInvokeResponseArrayOutput)
+}
+
+// Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
+type KeyForDiskEncryptionSetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyForDiskEncryptionSetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyForDiskEncryptionSetInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyForDiskEncryptionSetInvokeResponseOutput) ToKeyForDiskEncryptionSetInvokeResponseOutput() KeyForDiskEncryptionSetInvokeResponseOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetInvokeResponseOutput) ToKeyForDiskEncryptionSetInvokeResponseOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetInvokeResponseOutput {
+	return o
+}
+
+// Fully versioned Key Url pointing to a key in KeyVault
+func (o KeyForDiskEncryptionSetInvokeResponseOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyForDiskEncryptionSetInvokeResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret. This property is optional and cannot be used if the KeyVault subscription is not the same as the Disk Encryption Set subscription.
+func (o KeyForDiskEncryptionSetInvokeResponseOutput) SourceVault() SourceVaultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KeyForDiskEncryptionSetInvokeResponse) *SourceVaultInvokeResponse { return v.SourceVault }).(SourceVaultInvokeResponsePtrOutput)
+}
+
+type KeyForDiskEncryptionSetInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyForDiskEncryptionSetInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyForDiskEncryptionSetInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyForDiskEncryptionSetInvokeResponseArrayOutput) ToKeyForDiskEncryptionSetInvokeResponseArrayOutput() KeyForDiskEncryptionSetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetInvokeResponseArrayOutput) ToKeyForDiskEncryptionSetInvokeResponseArrayOutputWithContext(ctx context.Context) KeyForDiskEncryptionSetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KeyForDiskEncryptionSetInvokeResponseArrayOutput) Index(i pulumi.IntInput) KeyForDiskEncryptionSetInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyForDiskEncryptionSetInvokeResponse {
+		return vs[0].([]KeyForDiskEncryptionSetInvokeResponse)[vs[1].(int)]
+	}).(KeyForDiskEncryptionSetInvokeResponseOutput)
 }
 
 // Key Vault Key Url to be used for server side encryption of Managed Disks and Snapshots
@@ -7197,6 +9435,159 @@ func (o KeyVaultAndKeyReferencePtrOutput) SourceVault() SourceVaultPtrOutput {
 }
 
 // Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
+type KeyVaultAndKeyReferenceInvokeResponse struct {
+	// Url pointing to a key or secret in KeyVault
+	KeyUrl string `pulumi:"keyUrl"`
+	// Resource id of the KeyVault containing the key or secret
+	SourceVault SourceVaultInvokeResponse `pulumi:"sourceVault"`
+}
+
+// KeyVaultAndKeyReferenceInvokeResponseInput is an input type that accepts KeyVaultAndKeyReferenceInvokeResponseArgs and KeyVaultAndKeyReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultAndKeyReferenceInvokeResponseInput` via:
+//
+//          KeyVaultAndKeyReferenceInvokeResponseArgs{...}
+type KeyVaultAndKeyReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultAndKeyReferenceInvokeResponseOutput() KeyVaultAndKeyReferenceInvokeResponseOutput
+	ToKeyVaultAndKeyReferenceInvokeResponseOutputWithContext(context.Context) KeyVaultAndKeyReferenceInvokeResponseOutput
+}
+
+// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
+type KeyVaultAndKeyReferenceInvokeResponseArgs struct {
+	// Url pointing to a key or secret in KeyVault
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// Resource id of the KeyVault containing the key or secret
+	SourceVault SourceVaultInvokeResponseInput `pulumi:"sourceVault"`
+}
+
+func (KeyVaultAndKeyReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultAndKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultAndKeyReferenceInvokeResponseArgs) ToKeyVaultAndKeyReferenceInvokeResponseOutput() KeyVaultAndKeyReferenceInvokeResponseOutput {
+	return i.ToKeyVaultAndKeyReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultAndKeyReferenceInvokeResponseArgs) ToKeyVaultAndKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceInvokeResponseOutput)
+}
+
+func (i KeyVaultAndKeyReferenceInvokeResponseArgs) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutput() KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultAndKeyReferenceInvokeResponseArgs) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceInvokeResponseOutput).ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultAndKeyReferenceInvokeResponsePtrInput is an input type that accepts KeyVaultAndKeyReferenceInvokeResponseArgs, KeyVaultAndKeyReferenceInvokeResponsePtr and KeyVaultAndKeyReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultAndKeyReferenceInvokeResponsePtrInput` via:
+//
+//          KeyVaultAndKeyReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultAndKeyReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultAndKeyReferenceInvokeResponsePtrOutput() KeyVaultAndKeyReferenceInvokeResponsePtrOutput
+	ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(context.Context) KeyVaultAndKeyReferenceInvokeResponsePtrOutput
+}
+
+type keyVaultAndKeyReferenceInvokeResponsePtrType KeyVaultAndKeyReferenceInvokeResponseArgs
+
+func KeyVaultAndKeyReferenceInvokeResponsePtr(v *KeyVaultAndKeyReferenceInvokeResponseArgs) KeyVaultAndKeyReferenceInvokeResponsePtrInput {
+	return (*keyVaultAndKeyReferenceInvokeResponsePtrType)(v)
+}
+
+func (*keyVaultAndKeyReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultAndKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *keyVaultAndKeyReferenceInvokeResponsePtrType) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutput() KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultAndKeyReferenceInvokeResponsePtrType) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndKeyReferenceInvokeResponsePtrOutput)
+}
+
+// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
+type KeyVaultAndKeyReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultAndKeyReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultAndKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) ToKeyVaultAndKeyReferenceInvokeResponseOutput() KeyVaultAndKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) ToKeyVaultAndKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutput() KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return o.ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultAndKeyReferenceInvokeResponse) *KeyVaultAndKeyReferenceInvokeResponse {
+		return &v
+	}).(KeyVaultAndKeyReferenceInvokeResponsePtrOutput)
+}
+
+// Url pointing to a key or secret in KeyVault
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultAndKeyReferenceInvokeResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret
+func (o KeyVaultAndKeyReferenceInvokeResponseOutput) SourceVault() SourceVaultInvokeResponseOutput {
+	return o.ApplyT(func(v KeyVaultAndKeyReferenceInvokeResponse) SourceVaultInvokeResponse { return v.SourceVault }).(SourceVaultInvokeResponseOutput)
+}
+
+type KeyVaultAndKeyReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultAndKeyReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultAndKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponsePtrOutput) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutput() KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponsePtrOutput) ToKeyVaultAndKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultAndKeyReferenceInvokeResponsePtrOutput) Elem() KeyVaultAndKeyReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *KeyVaultAndKeyReferenceInvokeResponse) KeyVaultAndKeyReferenceInvokeResponse { return *v }).(KeyVaultAndKeyReferenceInvokeResponseOutput)
+}
+
+// Url pointing to a key or secret in KeyVault
+func (o KeyVaultAndKeyReferenceInvokeResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultAndKeyReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret
+func (o KeyVaultAndKeyReferenceInvokeResponsePtrOutput) SourceVault() SourceVaultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *KeyVaultAndKeyReferenceInvokeResponse) *SourceVaultInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVault
+	}).(SourceVaultInvokeResponsePtrOutput)
+}
+
+// Key Vault Key Url and vault id of KeK, KeK is optional and when provided is used to unwrap the encryptionKey
 type KeyVaultAndKeyReferenceResponse struct {
 	// Url pointing to a key or secret in KeyVault
 	KeyUrl string `pulumi:"keyUrl"`
@@ -7503,6 +9894,159 @@ func (o KeyVaultAndSecretReferencePtrOutput) SourceVault() SourceVaultPtrOutput 
 }
 
 // Key Vault Secret Url and vault id of the encryption key
+type KeyVaultAndSecretReferenceInvokeResponse struct {
+	// Url pointing to a key or secret in KeyVault
+	SecretUrl string `pulumi:"secretUrl"`
+	// Resource id of the KeyVault containing the key or secret
+	SourceVault SourceVaultInvokeResponse `pulumi:"sourceVault"`
+}
+
+// KeyVaultAndSecretReferenceInvokeResponseInput is an input type that accepts KeyVaultAndSecretReferenceInvokeResponseArgs and KeyVaultAndSecretReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultAndSecretReferenceInvokeResponseInput` via:
+//
+//          KeyVaultAndSecretReferenceInvokeResponseArgs{...}
+type KeyVaultAndSecretReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultAndSecretReferenceInvokeResponseOutput() KeyVaultAndSecretReferenceInvokeResponseOutput
+	ToKeyVaultAndSecretReferenceInvokeResponseOutputWithContext(context.Context) KeyVaultAndSecretReferenceInvokeResponseOutput
+}
+
+// Key Vault Secret Url and vault id of the encryption key
+type KeyVaultAndSecretReferenceInvokeResponseArgs struct {
+	// Url pointing to a key or secret in KeyVault
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// Resource id of the KeyVault containing the key or secret
+	SourceVault SourceVaultInvokeResponseInput `pulumi:"sourceVault"`
+}
+
+func (KeyVaultAndSecretReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultAndSecretReferenceInvokeResponseArgs) ToKeyVaultAndSecretReferenceInvokeResponseOutput() KeyVaultAndSecretReferenceInvokeResponseOutput {
+	return i.ToKeyVaultAndSecretReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultAndSecretReferenceInvokeResponseArgs) ToKeyVaultAndSecretReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferenceInvokeResponseOutput)
+}
+
+func (i KeyVaultAndSecretReferenceInvokeResponseArgs) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutput() KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultAndSecretReferenceInvokeResponseArgs) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferenceInvokeResponseOutput).ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultAndSecretReferenceInvokeResponsePtrInput is an input type that accepts KeyVaultAndSecretReferenceInvokeResponseArgs, KeyVaultAndSecretReferenceInvokeResponsePtr and KeyVaultAndSecretReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultAndSecretReferenceInvokeResponsePtrInput` via:
+//
+//          KeyVaultAndSecretReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultAndSecretReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultAndSecretReferenceInvokeResponsePtrOutput() KeyVaultAndSecretReferenceInvokeResponsePtrOutput
+	ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Context) KeyVaultAndSecretReferenceInvokeResponsePtrOutput
+}
+
+type keyVaultAndSecretReferenceInvokeResponsePtrType KeyVaultAndSecretReferenceInvokeResponseArgs
+
+func KeyVaultAndSecretReferenceInvokeResponsePtr(v *KeyVaultAndSecretReferenceInvokeResponseArgs) KeyVaultAndSecretReferenceInvokeResponsePtrInput {
+	return (*keyVaultAndSecretReferenceInvokeResponsePtrType)(v)
+}
+
+func (*keyVaultAndSecretReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *keyVaultAndSecretReferenceInvokeResponsePtrType) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutput() KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultAndSecretReferenceInvokeResponsePtrType) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAndSecretReferenceInvokeResponsePtrOutput)
+}
+
+// Key Vault Secret Url and vault id of the encryption key
+type KeyVaultAndSecretReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultAndSecretReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) ToKeyVaultAndSecretReferenceInvokeResponseOutput() KeyVaultAndSecretReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) ToKeyVaultAndSecretReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutput() KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o.ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultAndSecretReferenceInvokeResponse) *KeyVaultAndSecretReferenceInvokeResponse {
+		return &v
+	}).(KeyVaultAndSecretReferenceInvokeResponsePtrOutput)
+}
+
+// Url pointing to a key or secret in KeyVault
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultAndSecretReferenceInvokeResponse) string { return v.SecretUrl }).(pulumi.StringOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret
+func (o KeyVaultAndSecretReferenceInvokeResponseOutput) SourceVault() SourceVaultInvokeResponseOutput {
+	return o.ApplyT(func(v KeyVaultAndSecretReferenceInvokeResponse) SourceVaultInvokeResponse { return v.SourceVault }).(SourceVaultInvokeResponseOutput)
+}
+
+type KeyVaultAndSecretReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultAndSecretReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponsePtrOutput) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutput() KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponsePtrOutput) ToKeyVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultAndSecretReferenceInvokeResponsePtrOutput) Elem() KeyVaultAndSecretReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *KeyVaultAndSecretReferenceInvokeResponse) KeyVaultAndSecretReferenceInvokeResponse { return *v }).(KeyVaultAndSecretReferenceInvokeResponseOutput)
+}
+
+// Url pointing to a key or secret in KeyVault
+func (o KeyVaultAndSecretReferenceInvokeResponsePtrOutput) SecretUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultAndSecretReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the KeyVault containing the key or secret
+func (o KeyVaultAndSecretReferenceInvokeResponsePtrOutput) SourceVault() SourceVaultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *KeyVaultAndSecretReferenceInvokeResponse) *SourceVaultInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVault
+	}).(SourceVaultInvokeResponsePtrOutput)
+}
+
+// Key Vault Secret Url and vault id of the encryption key
 type KeyVaultAndSecretReferenceResponse struct {
 	// Url pointing to a key or secret in KeyVault
 	SecretUrl string `pulumi:"secretUrl"`
@@ -7790,6 +10334,140 @@ func (o OSDiskImageEncryptionPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOu
 }
 
 // Contains encryption settings for an OS disk image.
+type OSDiskImageEncryptionInvokeResponse struct {
+	// A relative URI containing the resource ID of the disk encryption set.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+}
+
+// OSDiskImageEncryptionInvokeResponseInput is an input type that accepts OSDiskImageEncryptionInvokeResponseArgs and OSDiskImageEncryptionInvokeResponseOutput values.
+// You can construct a concrete instance of `OSDiskImageEncryptionInvokeResponseInput` via:
+//
+//          OSDiskImageEncryptionInvokeResponseArgs{...}
+type OSDiskImageEncryptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOSDiskImageEncryptionInvokeResponseOutput() OSDiskImageEncryptionInvokeResponseOutput
+	ToOSDiskImageEncryptionInvokeResponseOutputWithContext(context.Context) OSDiskImageEncryptionInvokeResponseOutput
+}
+
+// Contains encryption settings for an OS disk image.
+type OSDiskImageEncryptionInvokeResponseArgs struct {
+	// A relative URI containing the resource ID of the disk encryption set.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+}
+
+func (OSDiskImageEncryptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSDiskImageEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i OSDiskImageEncryptionInvokeResponseArgs) ToOSDiskImageEncryptionInvokeResponseOutput() OSDiskImageEncryptionInvokeResponseOutput {
+	return i.ToOSDiskImageEncryptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OSDiskImageEncryptionInvokeResponseArgs) ToOSDiskImageEncryptionInvokeResponseOutputWithContext(ctx context.Context) OSDiskImageEncryptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OSDiskImageEncryptionInvokeResponseOutput)
+}
+
+func (i OSDiskImageEncryptionInvokeResponseArgs) ToOSDiskImageEncryptionInvokeResponsePtrOutput() OSDiskImageEncryptionInvokeResponsePtrOutput {
+	return i.ToOSDiskImageEncryptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OSDiskImageEncryptionInvokeResponseArgs) ToOSDiskImageEncryptionInvokeResponsePtrOutputWithContext(ctx context.Context) OSDiskImageEncryptionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OSDiskImageEncryptionInvokeResponseOutput).ToOSDiskImageEncryptionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// OSDiskImageEncryptionInvokeResponsePtrInput is an input type that accepts OSDiskImageEncryptionInvokeResponseArgs, OSDiskImageEncryptionInvokeResponsePtr and OSDiskImageEncryptionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `OSDiskImageEncryptionInvokeResponsePtrInput` via:
+//
+//          OSDiskImageEncryptionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OSDiskImageEncryptionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToOSDiskImageEncryptionInvokeResponsePtrOutput() OSDiskImageEncryptionInvokeResponsePtrOutput
+	ToOSDiskImageEncryptionInvokeResponsePtrOutputWithContext(context.Context) OSDiskImageEncryptionInvokeResponsePtrOutput
+}
+
+type osdiskImageEncryptionInvokeResponsePtrType OSDiskImageEncryptionInvokeResponseArgs
+
+func OSDiskImageEncryptionInvokeResponsePtr(v *OSDiskImageEncryptionInvokeResponseArgs) OSDiskImageEncryptionInvokeResponsePtrInput {
+	return (*osdiskImageEncryptionInvokeResponsePtrType)(v)
+}
+
+func (*osdiskImageEncryptionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OSDiskImageEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i *osdiskImageEncryptionInvokeResponsePtrType) ToOSDiskImageEncryptionInvokeResponsePtrOutput() OSDiskImageEncryptionInvokeResponsePtrOutput {
+	return i.ToOSDiskImageEncryptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *osdiskImageEncryptionInvokeResponsePtrType) ToOSDiskImageEncryptionInvokeResponsePtrOutputWithContext(ctx context.Context) OSDiskImageEncryptionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OSDiskImageEncryptionInvokeResponsePtrOutput)
+}
+
+// Contains encryption settings for an OS disk image.
+type OSDiskImageEncryptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OSDiskImageEncryptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSDiskImageEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o OSDiskImageEncryptionInvokeResponseOutput) ToOSDiskImageEncryptionInvokeResponseOutput() OSDiskImageEncryptionInvokeResponseOutput {
+	return o
+}
+
+func (o OSDiskImageEncryptionInvokeResponseOutput) ToOSDiskImageEncryptionInvokeResponseOutputWithContext(ctx context.Context) OSDiskImageEncryptionInvokeResponseOutput {
+	return o
+}
+
+func (o OSDiskImageEncryptionInvokeResponseOutput) ToOSDiskImageEncryptionInvokeResponsePtrOutput() OSDiskImageEncryptionInvokeResponsePtrOutput {
+	return o.ToOSDiskImageEncryptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OSDiskImageEncryptionInvokeResponseOutput) ToOSDiskImageEncryptionInvokeResponsePtrOutputWithContext(ctx context.Context) OSDiskImageEncryptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v OSDiskImageEncryptionInvokeResponse) *OSDiskImageEncryptionInvokeResponse {
+		return &v
+	}).(OSDiskImageEncryptionInvokeResponsePtrOutput)
+}
+
+// A relative URI containing the resource ID of the disk encryption set.
+func (o OSDiskImageEncryptionInvokeResponseOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OSDiskImageEncryptionInvokeResponse) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+type OSDiskImageEncryptionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OSDiskImageEncryptionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OSDiskImageEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o OSDiskImageEncryptionInvokeResponsePtrOutput) ToOSDiskImageEncryptionInvokeResponsePtrOutput() OSDiskImageEncryptionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OSDiskImageEncryptionInvokeResponsePtrOutput) ToOSDiskImageEncryptionInvokeResponsePtrOutputWithContext(ctx context.Context) OSDiskImageEncryptionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OSDiskImageEncryptionInvokeResponsePtrOutput) Elem() OSDiskImageEncryptionInvokeResponseOutput {
+	return o.ApplyT(func(v *OSDiskImageEncryptionInvokeResponse) OSDiskImageEncryptionInvokeResponse { return *v }).(OSDiskImageEncryptionInvokeResponseOutput)
+}
+
+// A relative URI containing the resource ID of the disk encryption set.
+func (o OSDiskImageEncryptionInvokeResponsePtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OSDiskImageEncryptionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskEncryptionSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains encryption settings for an OS disk image.
 type OSDiskImageEncryptionResponse struct {
 	// A relative URI containing the resource ID of the disk encryption set.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -7921,6 +10599,155 @@ func (o OSDiskImageEncryptionResponsePtrOutput) DiskEncryptionSetId() pulumi.Str
 		}
 		return v.DiskEncryptionSetId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionInvokeResponse struct {
+	// private endpoint connection Id
+	Id string `pulumi:"id"`
+	// private endpoint connection name
+	Name string `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointInvokeResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// private endpoint connection type
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionInvokeResponseInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArgs and PrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArgs{...}
+type PrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput
+	ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseOutput
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionInvokeResponseArgs struct {
+	// private endpoint connection Id
+	Id pulumi.StringInput `pulumi:"id"`
+	// private endpoint connection name
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointInvokeResponsePtrInput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponseInput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// private endpoint connection type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// PrivateEndpointConnectionInvokeResponseArrayInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArray and PrivateEndpointConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArray{ PrivateEndpointConnectionInvokeResponseArgs{...} }
+type PrivateEndpointConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput
+	ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput
+}
+
+type PrivateEndpointConnectionInvokeResponseArray []PrivateEndpointConnectionInvokeResponseInput
+
+func (PrivateEndpointConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// private endpoint connection Id
+func (o PrivateEndpointConnectionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// private endpoint connection name
+func (o PrivateEndpointConnectionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateEndpoint() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *PrivateEndpointInvokeResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) PrivateLinkServiceConnectionStateInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// private endpoint connection type
+func (o PrivateEndpointConnectionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionInvokeResponse {
+		return vs[0].([]PrivateEndpointConnectionInvokeResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionInvokeResponseOutput)
 }
 
 // The Private Endpoint Connection resource.
@@ -8068,6 +10895,140 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
 		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
 	}).(PrivateEndpointConnectionResponseOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointInvokeResponse struct {
+	// The ARM identifier for Private Endpoint
+	Id string `pulumi:"id"`
+}
+
+// PrivateEndpointInvokeResponseInput is an input type that accepts PrivateEndpointInvokeResponseArgs and PrivateEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponseInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+type PrivateEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput
+	ToPrivateEndpointInvokeResponseOutputWithContext(context.Context) PrivateEndpointInvokeResponseOutput
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointInvokeResponseArgs struct {
+	// The ARM identifier for Private Endpoint
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PrivateEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return i.ToPrivateEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput)
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput).ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointInvokeResponsePtrInput is an input type that accepts PrivateEndpointInvokeResponseArgs, PrivateEndpointInvokeResponsePtr and PrivateEndpointInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponsePtrInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput
+	ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Context) PrivateEndpointInvokeResponsePtrOutput
+}
+
+type privateEndpointInvokeResponsePtrType PrivateEndpointInvokeResponseArgs
+
+func PrivateEndpointInvokeResponsePtr(v *PrivateEndpointInvokeResponseArgs) PrivateEndpointInvokeResponsePtrInput {
+	return (*privateEndpointInvokeResponsePtrType)(v)
+}
+
+func (*privateEndpointInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) *PrivateEndpointInvokeResponse {
+		return &v
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// The ARM identifier for Private Endpoint
+func (o PrivateEndpointInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) Elem() PrivateEndpointInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) PrivateEndpointInvokeResponse { return *v }).(PrivateEndpointInvokeResponseOutput)
+}
+
+// The ARM identifier for Private Endpoint
+func (o PrivateEndpointInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Private Endpoint resource.
@@ -8374,6 +11335,79 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 		}
 		return v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateInvokeResponse struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionStateInvokeResponseArgs and PrivateLinkServiceConnectionStateInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStateInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionStateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateInvokeResponseArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // A collection of information about the state of the connection between service consumer and provider.
@@ -8742,6 +11776,88 @@ func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 // Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanInvokeResponse struct {
+	// The plan ID.
+	Name string `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+	Product string `pulumi:"product"`
+	// The Offer Promotion Code.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher string `pulumi:"publisher"`
+}
+
+// PurchasePlanInvokeResponseInput is an input type that accepts PurchasePlanInvokeResponseArgs and PurchasePlanInvokeResponseOutput values.
+// You can construct a concrete instance of `PurchasePlanInvokeResponseInput` via:
+//
+//          PurchasePlanInvokeResponseArgs{...}
+type PurchasePlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPurchasePlanInvokeResponseOutput() PurchasePlanInvokeResponseOutput
+	ToPurchasePlanInvokeResponseOutputWithContext(context.Context) PurchasePlanInvokeResponseOutput
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanInvokeResponseArgs struct {
+	// The plan ID.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+	Product pulumi.StringInput `pulumi:"product"`
+	// The Offer Promotion Code.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+}
+
+func (PurchasePlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurchasePlanInvokeResponse)(nil)).Elem()
+}
+
+func (i PurchasePlanInvokeResponseArgs) ToPurchasePlanInvokeResponseOutput() PurchasePlanInvokeResponseOutput {
+	return i.ToPurchasePlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PurchasePlanInvokeResponseArgs) ToPurchasePlanInvokeResponseOutputWithContext(ctx context.Context) PurchasePlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanInvokeResponseOutput)
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PurchasePlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurchasePlanInvokeResponse)(nil)).Elem()
+}
+
+func (o PurchasePlanInvokeResponseOutput) ToPurchasePlanInvokeResponseOutput() PurchasePlanInvokeResponseOutput {
+	return o
+}
+
+func (o PurchasePlanInvokeResponseOutput) ToPurchasePlanInvokeResponseOutputWithContext(ctx context.Context) PurchasePlanInvokeResponseOutput {
+	return o
+}
+
+// The plan ID.
+func (o PurchasePlanInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchasePlanInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+func (o PurchasePlanInvokeResponseOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchasePlanInvokeResponse) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// The Offer Promotion Code.
+func (o PurchasePlanInvokeResponseOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurchasePlanInvokeResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID.
+func (o PurchasePlanInvokeResponseOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v PurchasePlanInvokeResponse) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponse struct {
 	// The plan ID.
 	Name string `pulumi:"name"`
@@ -9086,6 +12202,70 @@ func (o RecommendedMachineConfigurationPtrOutput) VCPUs() ResourceRangePtrOutput
 }
 
 // The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+type RecommendedMachineConfigurationInvokeResponse struct {
+	// Describes the resource range.
+	Memory *ResourceRangeInvokeResponse `pulumi:"memory"`
+	// Describes the resource range.
+	VCPUs *ResourceRangeInvokeResponse `pulumi:"vCPUs"`
+}
+
+// RecommendedMachineConfigurationInvokeResponseInput is an input type that accepts RecommendedMachineConfigurationInvokeResponseArgs and RecommendedMachineConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `RecommendedMachineConfigurationInvokeResponseInput` via:
+//
+//          RecommendedMachineConfigurationInvokeResponseArgs{...}
+type RecommendedMachineConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRecommendedMachineConfigurationInvokeResponseOutput() RecommendedMachineConfigurationInvokeResponseOutput
+	ToRecommendedMachineConfigurationInvokeResponseOutputWithContext(context.Context) RecommendedMachineConfigurationInvokeResponseOutput
+}
+
+// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+type RecommendedMachineConfigurationInvokeResponseArgs struct {
+	// Describes the resource range.
+	Memory ResourceRangeInvokeResponsePtrInput `pulumi:"memory"`
+	// Describes the resource range.
+	VCPUs ResourceRangeInvokeResponsePtrInput `pulumi:"vCPUs"`
+}
+
+func (RecommendedMachineConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedMachineConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i RecommendedMachineConfigurationInvokeResponseArgs) ToRecommendedMachineConfigurationInvokeResponseOutput() RecommendedMachineConfigurationInvokeResponseOutput {
+	return i.ToRecommendedMachineConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RecommendedMachineConfigurationInvokeResponseArgs) ToRecommendedMachineConfigurationInvokeResponseOutputWithContext(ctx context.Context) RecommendedMachineConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedMachineConfigurationInvokeResponseOutput)
+}
+
+// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+type RecommendedMachineConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RecommendedMachineConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedMachineConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o RecommendedMachineConfigurationInvokeResponseOutput) ToRecommendedMachineConfigurationInvokeResponseOutput() RecommendedMachineConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o RecommendedMachineConfigurationInvokeResponseOutput) ToRecommendedMachineConfigurationInvokeResponseOutputWithContext(ctx context.Context) RecommendedMachineConfigurationInvokeResponseOutput {
+	return o
+}
+
+// Describes the resource range.
+func (o RecommendedMachineConfigurationInvokeResponseOutput) Memory() ResourceRangeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RecommendedMachineConfigurationInvokeResponse) *ResourceRangeInvokeResponse { return v.Memory }).(ResourceRangeInvokeResponsePtrOutput)
+}
+
+// Describes the resource range.
+func (o RecommendedMachineConfigurationInvokeResponseOutput) VCPUs() ResourceRangeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RecommendedMachineConfigurationInvokeResponse) *ResourceRangeInvokeResponse { return v.VCPUs }).(ResourceRangeInvokeResponsePtrOutput)
+}
+
+// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
 type RecommendedMachineConfigurationResponse struct {
 	// Describes the resource range.
 	Memory *ResourceRangeResponse `pulumi:"memory"`
@@ -9239,6 +12419,133 @@ func (o RecommendedMachineConfigurationResponsePtrOutput) VCPUs() ResourceRangeR
 }
 
 // This is the regional replication status.
+type RegionalReplicationStatusInvokeResponse struct {
+	// The details of the replication status.
+	Details string `pulumi:"details"`
+	// It indicates progress of the replication job.
+	Progress int `pulumi:"progress"`
+	// The region to which the gallery image version is being replicated to.
+	Region string `pulumi:"region"`
+	// This is the regional replication state.
+	State string `pulumi:"state"`
+}
+
+// RegionalReplicationStatusInvokeResponseInput is an input type that accepts RegionalReplicationStatusInvokeResponseArgs and RegionalReplicationStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `RegionalReplicationStatusInvokeResponseInput` via:
+//
+//          RegionalReplicationStatusInvokeResponseArgs{...}
+type RegionalReplicationStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRegionalReplicationStatusInvokeResponseOutput() RegionalReplicationStatusInvokeResponseOutput
+	ToRegionalReplicationStatusInvokeResponseOutputWithContext(context.Context) RegionalReplicationStatusInvokeResponseOutput
+}
+
+// This is the regional replication status.
+type RegionalReplicationStatusInvokeResponseArgs struct {
+	// The details of the replication status.
+	Details pulumi.StringInput `pulumi:"details"`
+	// It indicates progress of the replication job.
+	Progress pulumi.IntInput `pulumi:"progress"`
+	// The region to which the gallery image version is being replicated to.
+	Region pulumi.StringInput `pulumi:"region"`
+	// This is the regional replication state.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (RegionalReplicationStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegionalReplicationStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i RegionalReplicationStatusInvokeResponseArgs) ToRegionalReplicationStatusInvokeResponseOutput() RegionalReplicationStatusInvokeResponseOutput {
+	return i.ToRegionalReplicationStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RegionalReplicationStatusInvokeResponseArgs) ToRegionalReplicationStatusInvokeResponseOutputWithContext(ctx context.Context) RegionalReplicationStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionalReplicationStatusInvokeResponseOutput)
+}
+
+// RegionalReplicationStatusInvokeResponseArrayInput is an input type that accepts RegionalReplicationStatusInvokeResponseArray and RegionalReplicationStatusInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RegionalReplicationStatusInvokeResponseArrayInput` via:
+//
+//          RegionalReplicationStatusInvokeResponseArray{ RegionalReplicationStatusInvokeResponseArgs{...} }
+type RegionalReplicationStatusInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToRegionalReplicationStatusInvokeResponseArrayOutput() RegionalReplicationStatusInvokeResponseArrayOutput
+	ToRegionalReplicationStatusInvokeResponseArrayOutputWithContext(context.Context) RegionalReplicationStatusInvokeResponseArrayOutput
+}
+
+type RegionalReplicationStatusInvokeResponseArray []RegionalReplicationStatusInvokeResponseInput
+
+func (RegionalReplicationStatusInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegionalReplicationStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i RegionalReplicationStatusInvokeResponseArray) ToRegionalReplicationStatusInvokeResponseArrayOutput() RegionalReplicationStatusInvokeResponseArrayOutput {
+	return i.ToRegionalReplicationStatusInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RegionalReplicationStatusInvokeResponseArray) ToRegionalReplicationStatusInvokeResponseArrayOutputWithContext(ctx context.Context) RegionalReplicationStatusInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionalReplicationStatusInvokeResponseArrayOutput)
+}
+
+// This is the regional replication status.
+type RegionalReplicationStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RegionalReplicationStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegionalReplicationStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o RegionalReplicationStatusInvokeResponseOutput) ToRegionalReplicationStatusInvokeResponseOutput() RegionalReplicationStatusInvokeResponseOutput {
+	return o
+}
+
+func (o RegionalReplicationStatusInvokeResponseOutput) ToRegionalReplicationStatusInvokeResponseOutputWithContext(ctx context.Context) RegionalReplicationStatusInvokeResponseOutput {
+	return o
+}
+
+// The details of the replication status.
+func (o RegionalReplicationStatusInvokeResponseOutput) Details() pulumi.StringOutput {
+	return o.ApplyT(func(v RegionalReplicationStatusInvokeResponse) string { return v.Details }).(pulumi.StringOutput)
+}
+
+// It indicates progress of the replication job.
+func (o RegionalReplicationStatusInvokeResponseOutput) Progress() pulumi.IntOutput {
+	return o.ApplyT(func(v RegionalReplicationStatusInvokeResponse) int { return v.Progress }).(pulumi.IntOutput)
+}
+
+// The region to which the gallery image version is being replicated to.
+func (o RegionalReplicationStatusInvokeResponseOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v RegionalReplicationStatusInvokeResponse) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// This is the regional replication state.
+func (o RegionalReplicationStatusInvokeResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v RegionalReplicationStatusInvokeResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+type RegionalReplicationStatusInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RegionalReplicationStatusInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegionalReplicationStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o RegionalReplicationStatusInvokeResponseArrayOutput) ToRegionalReplicationStatusInvokeResponseArrayOutput() RegionalReplicationStatusInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RegionalReplicationStatusInvokeResponseArrayOutput) ToRegionalReplicationStatusInvokeResponseArrayOutputWithContext(ctx context.Context) RegionalReplicationStatusInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RegionalReplicationStatusInvokeResponseArrayOutput) Index(i pulumi.IntInput) RegionalReplicationStatusInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegionalReplicationStatusInvokeResponse {
+		return vs[0].([]RegionalReplicationStatusInvokeResponse)[vs[1].(int)]
+	}).(RegionalReplicationStatusInvokeResponseOutput)
+}
+
+// This is the regional replication status.
 type RegionalReplicationStatusResponse struct {
 	// The details of the replication status.
 	Details string `pulumi:"details"`
@@ -9363,6 +12670,70 @@ func (o RegionalReplicationStatusResponseArrayOutput) Index(i pulumi.IntInput) R
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegionalReplicationStatusResponse {
 		return vs[0].([]RegionalReplicationStatusResponse)[vs[1].(int)]
 	}).(RegionalReplicationStatusResponseOutput)
+}
+
+// This is the replication status of the gallery image version.
+type ReplicationStatusInvokeResponse struct {
+	// This is the aggregated replication status based on all the regional replication status flags.
+	AggregatedState string `pulumi:"aggregatedState"`
+	// This is a summary of replication status for each region.
+	Summary []RegionalReplicationStatusInvokeResponse `pulumi:"summary"`
+}
+
+// ReplicationStatusInvokeResponseInput is an input type that accepts ReplicationStatusInvokeResponseArgs and ReplicationStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `ReplicationStatusInvokeResponseInput` via:
+//
+//          ReplicationStatusInvokeResponseArgs{...}
+type ReplicationStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToReplicationStatusInvokeResponseOutput() ReplicationStatusInvokeResponseOutput
+	ToReplicationStatusInvokeResponseOutputWithContext(context.Context) ReplicationStatusInvokeResponseOutput
+}
+
+// This is the replication status of the gallery image version.
+type ReplicationStatusInvokeResponseArgs struct {
+	// This is the aggregated replication status based on all the regional replication status flags.
+	AggregatedState pulumi.StringInput `pulumi:"aggregatedState"`
+	// This is a summary of replication status for each region.
+	Summary RegionalReplicationStatusInvokeResponseArrayInput `pulumi:"summary"`
+}
+
+func (ReplicationStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i ReplicationStatusInvokeResponseArgs) ToReplicationStatusInvokeResponseOutput() ReplicationStatusInvokeResponseOutput {
+	return i.ToReplicationStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ReplicationStatusInvokeResponseArgs) ToReplicationStatusInvokeResponseOutputWithContext(ctx context.Context) ReplicationStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationStatusInvokeResponseOutput)
+}
+
+// This is the replication status of the gallery image version.
+type ReplicationStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ReplicationStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o ReplicationStatusInvokeResponseOutput) ToReplicationStatusInvokeResponseOutput() ReplicationStatusInvokeResponseOutput {
+	return o
+}
+
+func (o ReplicationStatusInvokeResponseOutput) ToReplicationStatusInvokeResponseOutputWithContext(ctx context.Context) ReplicationStatusInvokeResponseOutput {
+	return o
+}
+
+// This is the aggregated replication status based on all the regional replication status flags.
+func (o ReplicationStatusInvokeResponseOutput) AggregatedState() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationStatusInvokeResponse) string { return v.AggregatedState }).(pulumi.StringOutput)
+}
+
+// This is a summary of replication status for each region.
+func (o ReplicationStatusInvokeResponseOutput) Summary() RegionalReplicationStatusInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ReplicationStatusInvokeResponse) []RegionalReplicationStatusInvokeResponse { return v.Summary }).(RegionalReplicationStatusInvokeResponseArrayOutput)
 }
 
 // This is the replication status of the gallery image version.
@@ -9672,6 +13043,159 @@ func (o ResourceRangePtrOutput) Min() pulumi.IntPtrOutput {
 }
 
 // Describes the resource range.
+type ResourceRangeInvokeResponse struct {
+	// The maximum number of the resource.
+	Max *int `pulumi:"max"`
+	// The minimum number of the resource.
+	Min *int `pulumi:"min"`
+}
+
+// ResourceRangeInvokeResponseInput is an input type that accepts ResourceRangeInvokeResponseArgs and ResourceRangeInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceRangeInvokeResponseInput` via:
+//
+//          ResourceRangeInvokeResponseArgs{...}
+type ResourceRangeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceRangeInvokeResponseOutput() ResourceRangeInvokeResponseOutput
+	ToResourceRangeInvokeResponseOutputWithContext(context.Context) ResourceRangeInvokeResponseOutput
+}
+
+// Describes the resource range.
+type ResourceRangeInvokeResponseArgs struct {
+	// The maximum number of the resource.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// The minimum number of the resource.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (ResourceRangeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceRangeInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceRangeInvokeResponseArgs) ToResourceRangeInvokeResponseOutput() ResourceRangeInvokeResponseOutput {
+	return i.ToResourceRangeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceRangeInvokeResponseArgs) ToResourceRangeInvokeResponseOutputWithContext(ctx context.Context) ResourceRangeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceRangeInvokeResponseOutput)
+}
+
+func (i ResourceRangeInvokeResponseArgs) ToResourceRangeInvokeResponsePtrOutput() ResourceRangeInvokeResponsePtrOutput {
+	return i.ToResourceRangeInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceRangeInvokeResponseArgs) ToResourceRangeInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceRangeInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceRangeInvokeResponseOutput).ToResourceRangeInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceRangeInvokeResponsePtrInput is an input type that accepts ResourceRangeInvokeResponseArgs, ResourceRangeInvokeResponsePtr and ResourceRangeInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceRangeInvokeResponsePtrInput` via:
+//
+//          ResourceRangeInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceRangeInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceRangeInvokeResponsePtrOutput() ResourceRangeInvokeResponsePtrOutput
+	ToResourceRangeInvokeResponsePtrOutputWithContext(context.Context) ResourceRangeInvokeResponsePtrOutput
+}
+
+type resourceRangeInvokeResponsePtrType ResourceRangeInvokeResponseArgs
+
+func ResourceRangeInvokeResponsePtr(v *ResourceRangeInvokeResponseArgs) ResourceRangeInvokeResponsePtrInput {
+	return (*resourceRangeInvokeResponsePtrType)(v)
+}
+
+func (*resourceRangeInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceRangeInvokeResponse)(nil)).Elem()
+}
+
+func (i *resourceRangeInvokeResponsePtrType) ToResourceRangeInvokeResponsePtrOutput() ResourceRangeInvokeResponsePtrOutput {
+	return i.ToResourceRangeInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceRangeInvokeResponsePtrType) ToResourceRangeInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceRangeInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceRangeInvokeResponsePtrOutput)
+}
+
+// Describes the resource range.
+type ResourceRangeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceRangeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceRangeInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceRangeInvokeResponseOutput) ToResourceRangeInvokeResponseOutput() ResourceRangeInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceRangeInvokeResponseOutput) ToResourceRangeInvokeResponseOutputWithContext(ctx context.Context) ResourceRangeInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceRangeInvokeResponseOutput) ToResourceRangeInvokeResponsePtrOutput() ResourceRangeInvokeResponsePtrOutput {
+	return o.ToResourceRangeInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceRangeInvokeResponseOutput) ToResourceRangeInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceRangeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ResourceRangeInvokeResponse) *ResourceRangeInvokeResponse {
+		return &v
+	}).(ResourceRangeInvokeResponsePtrOutput)
+}
+
+// The maximum number of the resource.
+func (o ResourceRangeInvokeResponseOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceRangeInvokeResponse) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of the resource.
+func (o ResourceRangeInvokeResponseOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceRangeInvokeResponse) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type ResourceRangeInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceRangeInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceRangeInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceRangeInvokeResponsePtrOutput) ToResourceRangeInvokeResponsePtrOutput() ResourceRangeInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResourceRangeInvokeResponsePtrOutput) ToResourceRangeInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceRangeInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResourceRangeInvokeResponsePtrOutput) Elem() ResourceRangeInvokeResponseOutput {
+	return o.ApplyT(func(v *ResourceRangeInvokeResponse) ResourceRangeInvokeResponse { return *v }).(ResourceRangeInvokeResponseOutput)
+}
+
+// The maximum number of the resource.
+func (o ResourceRangeInvokeResponsePtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceRangeInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of the resource.
+func (o ResourceRangeInvokeResponsePtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceRangeInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+// Describes the resource range.
 type ResourceRangeResponse struct {
 	// The maximum number of the resource.
 	Max *int `pulumi:"max"`
@@ -9822,6 +13346,103 @@ func (o ResourceRangeResponsePtrOutput) Min() pulumi.IntPtrOutput {
 		}
 		return v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type ShareInfoElementInvokeResponse struct {
+	// A relative URI containing the ID of the VM that has the disk attached.
+	VmUri string `pulumi:"vmUri"`
+}
+
+// ShareInfoElementInvokeResponseInput is an input type that accepts ShareInfoElementInvokeResponseArgs and ShareInfoElementInvokeResponseOutput values.
+// You can construct a concrete instance of `ShareInfoElementInvokeResponseInput` via:
+//
+//          ShareInfoElementInvokeResponseArgs{...}
+type ShareInfoElementInvokeResponseInput interface {
+	pulumi.Input
+
+	ToShareInfoElementInvokeResponseOutput() ShareInfoElementInvokeResponseOutput
+	ToShareInfoElementInvokeResponseOutputWithContext(context.Context) ShareInfoElementInvokeResponseOutput
+}
+
+type ShareInfoElementInvokeResponseArgs struct {
+	// A relative URI containing the ID of the VM that has the disk attached.
+	VmUri pulumi.StringInput `pulumi:"vmUri"`
+}
+
+func (ShareInfoElementInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareInfoElementInvokeResponse)(nil)).Elem()
+}
+
+func (i ShareInfoElementInvokeResponseArgs) ToShareInfoElementInvokeResponseOutput() ShareInfoElementInvokeResponseOutput {
+	return i.ToShareInfoElementInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ShareInfoElementInvokeResponseArgs) ToShareInfoElementInvokeResponseOutputWithContext(ctx context.Context) ShareInfoElementInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareInfoElementInvokeResponseOutput)
+}
+
+// ShareInfoElementInvokeResponseArrayInput is an input type that accepts ShareInfoElementInvokeResponseArray and ShareInfoElementInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ShareInfoElementInvokeResponseArrayInput` via:
+//
+//          ShareInfoElementInvokeResponseArray{ ShareInfoElementInvokeResponseArgs{...} }
+type ShareInfoElementInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToShareInfoElementInvokeResponseArrayOutput() ShareInfoElementInvokeResponseArrayOutput
+	ToShareInfoElementInvokeResponseArrayOutputWithContext(context.Context) ShareInfoElementInvokeResponseArrayOutput
+}
+
+type ShareInfoElementInvokeResponseArray []ShareInfoElementInvokeResponseInput
+
+func (ShareInfoElementInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ShareInfoElementInvokeResponse)(nil)).Elem()
+}
+
+func (i ShareInfoElementInvokeResponseArray) ToShareInfoElementInvokeResponseArrayOutput() ShareInfoElementInvokeResponseArrayOutput {
+	return i.ToShareInfoElementInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ShareInfoElementInvokeResponseArray) ToShareInfoElementInvokeResponseArrayOutputWithContext(ctx context.Context) ShareInfoElementInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareInfoElementInvokeResponseArrayOutput)
+}
+
+type ShareInfoElementInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ShareInfoElementInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareInfoElementInvokeResponse)(nil)).Elem()
+}
+
+func (o ShareInfoElementInvokeResponseOutput) ToShareInfoElementInvokeResponseOutput() ShareInfoElementInvokeResponseOutput {
+	return o
+}
+
+func (o ShareInfoElementInvokeResponseOutput) ToShareInfoElementInvokeResponseOutputWithContext(ctx context.Context) ShareInfoElementInvokeResponseOutput {
+	return o
+}
+
+// A relative URI containing the ID of the VM that has the disk attached.
+func (o ShareInfoElementInvokeResponseOutput) VmUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareInfoElementInvokeResponse) string { return v.VmUri }).(pulumi.StringOutput)
+}
+
+type ShareInfoElementInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ShareInfoElementInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ShareInfoElementInvokeResponse)(nil)).Elem()
+}
+
+func (o ShareInfoElementInvokeResponseArrayOutput) ToShareInfoElementInvokeResponseArrayOutput() ShareInfoElementInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ShareInfoElementInvokeResponseArrayOutput) ToShareInfoElementInvokeResponseArrayOutputWithContext(ctx context.Context) ShareInfoElementInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ShareInfoElementInvokeResponseArrayOutput) Index(i pulumi.IntInput) ShareInfoElementInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareInfoElementInvokeResponse {
+		return vs[0].([]ShareInfoElementInvokeResponse)[vs[1].(int)]
+	}).(ShareInfoElementInvokeResponseOutput)
 }
 
 type ShareInfoElementResponse struct {
@@ -10056,6 +13677,115 @@ func (o SharingProfilePtrOutput) Permissions() pulumi.StringPtrOutput {
 }
 
 // Group of the gallery sharing profile
+type SharingProfileGroupInvokeResponse struct {
+	// A list of subscription/tenant ids the gallery is aimed to be shared to.
+	Ids []string `pulumi:"ids"`
+	// This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
+	Type *string `pulumi:"type"`
+}
+
+// SharingProfileGroupInvokeResponseInput is an input type that accepts SharingProfileGroupInvokeResponseArgs and SharingProfileGroupInvokeResponseOutput values.
+// You can construct a concrete instance of `SharingProfileGroupInvokeResponseInput` via:
+//
+//          SharingProfileGroupInvokeResponseArgs{...}
+type SharingProfileGroupInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSharingProfileGroupInvokeResponseOutput() SharingProfileGroupInvokeResponseOutput
+	ToSharingProfileGroupInvokeResponseOutputWithContext(context.Context) SharingProfileGroupInvokeResponseOutput
+}
+
+// Group of the gallery sharing profile
+type SharingProfileGroupInvokeResponseArgs struct {
+	// A list of subscription/tenant ids the gallery is aimed to be shared to.
+	Ids pulumi.StringArrayInput `pulumi:"ids"`
+	// This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (SharingProfileGroupInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharingProfileGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i SharingProfileGroupInvokeResponseArgs) ToSharingProfileGroupInvokeResponseOutput() SharingProfileGroupInvokeResponseOutput {
+	return i.ToSharingProfileGroupInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SharingProfileGroupInvokeResponseArgs) ToSharingProfileGroupInvokeResponseOutputWithContext(ctx context.Context) SharingProfileGroupInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileGroupInvokeResponseOutput)
+}
+
+// SharingProfileGroupInvokeResponseArrayInput is an input type that accepts SharingProfileGroupInvokeResponseArray and SharingProfileGroupInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SharingProfileGroupInvokeResponseArrayInput` via:
+//
+//          SharingProfileGroupInvokeResponseArray{ SharingProfileGroupInvokeResponseArgs{...} }
+type SharingProfileGroupInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSharingProfileGroupInvokeResponseArrayOutput() SharingProfileGroupInvokeResponseArrayOutput
+	ToSharingProfileGroupInvokeResponseArrayOutputWithContext(context.Context) SharingProfileGroupInvokeResponseArrayOutput
+}
+
+type SharingProfileGroupInvokeResponseArray []SharingProfileGroupInvokeResponseInput
+
+func (SharingProfileGroupInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharingProfileGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i SharingProfileGroupInvokeResponseArray) ToSharingProfileGroupInvokeResponseArrayOutput() SharingProfileGroupInvokeResponseArrayOutput {
+	return i.ToSharingProfileGroupInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SharingProfileGroupInvokeResponseArray) ToSharingProfileGroupInvokeResponseArrayOutputWithContext(ctx context.Context) SharingProfileGroupInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileGroupInvokeResponseArrayOutput)
+}
+
+// Group of the gallery sharing profile
+type SharingProfileGroupInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SharingProfileGroupInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharingProfileGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o SharingProfileGroupInvokeResponseOutput) ToSharingProfileGroupInvokeResponseOutput() SharingProfileGroupInvokeResponseOutput {
+	return o
+}
+
+func (o SharingProfileGroupInvokeResponseOutput) ToSharingProfileGroupInvokeResponseOutputWithContext(ctx context.Context) SharingProfileGroupInvokeResponseOutput {
+	return o
+}
+
+// A list of subscription/tenant ids the gallery is aimed to be shared to.
+func (o SharingProfileGroupInvokeResponseOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharingProfileGroupInvokeResponse) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+// This property allows you to specify the type of sharing group. <br><br> Possible values are: <br><br> **Subscriptions** <br><br> **AADTenants**
+func (o SharingProfileGroupInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharingProfileGroupInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type SharingProfileGroupInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SharingProfileGroupInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharingProfileGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o SharingProfileGroupInvokeResponseArrayOutput) ToSharingProfileGroupInvokeResponseArrayOutput() SharingProfileGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharingProfileGroupInvokeResponseArrayOutput) ToSharingProfileGroupInvokeResponseArrayOutputWithContext(ctx context.Context) SharingProfileGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharingProfileGroupInvokeResponseArrayOutput) Index(i pulumi.IntInput) SharingProfileGroupInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharingProfileGroupInvokeResponse {
+		return vs[0].([]SharingProfileGroupInvokeResponse)[vs[1].(int)]
+	}).(SharingProfileGroupInvokeResponseOutput)
+}
+
+// Group of the gallery sharing profile
 type SharingProfileGroupResponse struct {
 	// A list of subscription/tenant ids the gallery is aimed to be shared to.
 	Ids []string `pulumi:"ids"`
@@ -10162,6 +13892,70 @@ func (o SharingProfileGroupResponseArrayOutput) Index(i pulumi.IntInput) Sharing
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharingProfileGroupResponse {
 		return vs[0].([]SharingProfileGroupResponse)[vs[1].(int)]
 	}).(SharingProfileGroupResponseOutput)
+}
+
+// Profile for gallery sharing to subscription or tenant
+type SharingProfileInvokeResponse struct {
+	// A list of sharing profile groups.
+	Groups []SharingProfileGroupInvokeResponse `pulumi:"groups"`
+	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+	Permissions *string `pulumi:"permissions"`
+}
+
+// SharingProfileInvokeResponseInput is an input type that accepts SharingProfileInvokeResponseArgs and SharingProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `SharingProfileInvokeResponseInput` via:
+//
+//          SharingProfileInvokeResponseArgs{...}
+type SharingProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSharingProfileInvokeResponseOutput() SharingProfileInvokeResponseOutput
+	ToSharingProfileInvokeResponseOutputWithContext(context.Context) SharingProfileInvokeResponseOutput
+}
+
+// Profile for gallery sharing to subscription or tenant
+type SharingProfileInvokeResponseArgs struct {
+	// A list of sharing profile groups.
+	Groups SharingProfileGroupInvokeResponseArrayInput `pulumi:"groups"`
+	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+	Permissions pulumi.StringPtrInput `pulumi:"permissions"`
+}
+
+func (SharingProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharingProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i SharingProfileInvokeResponseArgs) ToSharingProfileInvokeResponseOutput() SharingProfileInvokeResponseOutput {
+	return i.ToSharingProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SharingProfileInvokeResponseArgs) ToSharingProfileInvokeResponseOutputWithContext(ctx context.Context) SharingProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharingProfileInvokeResponseOutput)
+}
+
+// Profile for gallery sharing to subscription or tenant
+type SharingProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SharingProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharingProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o SharingProfileInvokeResponseOutput) ToSharingProfileInvokeResponseOutput() SharingProfileInvokeResponseOutput {
+	return o
+}
+
+func (o SharingProfileInvokeResponseOutput) ToSharingProfileInvokeResponseOutputWithContext(ctx context.Context) SharingProfileInvokeResponseOutput {
+	return o
+}
+
+// A list of sharing profile groups.
+func (o SharingProfileInvokeResponseOutput) Groups() SharingProfileGroupInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SharingProfileInvokeResponse) []SharingProfileGroupInvokeResponse { return v.Groups }).(SharingProfileGroupInvokeResponseArrayOutput)
+}
+
+// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+func (o SharingProfileInvokeResponseOutput) Permissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharingProfileInvokeResponse) *string { return v.Permissions }).(pulumi.StringPtrOutput)
 }
 
 // Profile for gallery sharing to subscription or tenant
@@ -10452,6 +14246,70 @@ func (o SnapshotSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
+type SnapshotSkuInvokeResponse struct {
+	// The sku name.
+	Name *string `pulumi:"name"`
+	// The sku tier.
+	Tier string `pulumi:"tier"`
+}
+
+// SnapshotSkuInvokeResponseInput is an input type that accepts SnapshotSkuInvokeResponseArgs and SnapshotSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SnapshotSkuInvokeResponseInput` via:
+//
+//          SnapshotSkuInvokeResponseArgs{...}
+type SnapshotSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSnapshotSkuInvokeResponseOutput() SnapshotSkuInvokeResponseOutput
+	ToSnapshotSkuInvokeResponseOutputWithContext(context.Context) SnapshotSkuInvokeResponseOutput
+}
+
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
+type SnapshotSkuInvokeResponseArgs struct {
+	// The sku name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The sku tier.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SnapshotSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SnapshotSkuInvokeResponseArgs) ToSnapshotSkuInvokeResponseOutput() SnapshotSkuInvokeResponseOutput {
+	return i.ToSnapshotSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SnapshotSkuInvokeResponseArgs) ToSnapshotSkuInvokeResponseOutputWithContext(ctx context.Context) SnapshotSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSkuInvokeResponseOutput)
+}
+
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
+type SnapshotSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SnapshotSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SnapshotSkuInvokeResponseOutput) ToSnapshotSkuInvokeResponseOutput() SnapshotSkuInvokeResponseOutput {
+	return o
+}
+
+func (o SnapshotSkuInvokeResponseOutput) ToSnapshotSkuInvokeResponseOutputWithContext(ctx context.Context) SnapshotSkuInvokeResponseOutput {
+	return o
+}
+
+// The sku name.
+func (o SnapshotSkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotSkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The sku tier.
+func (o SnapshotSkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SnapshotSkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
 type SnapshotSkuResponse struct {
 	// The sku name.
 	Name *string `pulumi:"name"`
@@ -10739,6 +14597,140 @@ func (o SourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
+type SourceVaultInvokeResponse struct {
+	// Resource Id
+	Id *string `pulumi:"id"`
+}
+
+// SourceVaultInvokeResponseInput is an input type that accepts SourceVaultInvokeResponseArgs and SourceVaultInvokeResponseOutput values.
+// You can construct a concrete instance of `SourceVaultInvokeResponseInput` via:
+//
+//          SourceVaultInvokeResponseArgs{...}
+type SourceVaultInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSourceVaultInvokeResponseOutput() SourceVaultInvokeResponseOutput
+	ToSourceVaultInvokeResponseOutputWithContext(context.Context) SourceVaultInvokeResponseOutput
+}
+
+// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
+type SourceVaultInvokeResponseArgs struct {
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SourceVaultInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceVaultInvokeResponse)(nil)).Elem()
+}
+
+func (i SourceVaultInvokeResponseArgs) ToSourceVaultInvokeResponseOutput() SourceVaultInvokeResponseOutput {
+	return i.ToSourceVaultInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SourceVaultInvokeResponseArgs) ToSourceVaultInvokeResponseOutputWithContext(ctx context.Context) SourceVaultInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultInvokeResponseOutput)
+}
+
+func (i SourceVaultInvokeResponseArgs) ToSourceVaultInvokeResponsePtrOutput() SourceVaultInvokeResponsePtrOutput {
+	return i.ToSourceVaultInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SourceVaultInvokeResponseArgs) ToSourceVaultInvokeResponsePtrOutputWithContext(ctx context.Context) SourceVaultInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultInvokeResponseOutput).ToSourceVaultInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SourceVaultInvokeResponsePtrInput is an input type that accepts SourceVaultInvokeResponseArgs, SourceVaultInvokeResponsePtr and SourceVaultInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SourceVaultInvokeResponsePtrInput` via:
+//
+//          SourceVaultInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SourceVaultInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSourceVaultInvokeResponsePtrOutput() SourceVaultInvokeResponsePtrOutput
+	ToSourceVaultInvokeResponsePtrOutputWithContext(context.Context) SourceVaultInvokeResponsePtrOutput
+}
+
+type sourceVaultInvokeResponsePtrType SourceVaultInvokeResponseArgs
+
+func SourceVaultInvokeResponsePtr(v *SourceVaultInvokeResponseArgs) SourceVaultInvokeResponsePtrInput {
+	return (*sourceVaultInvokeResponsePtrType)(v)
+}
+
+func (*sourceVaultInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceVaultInvokeResponse)(nil)).Elem()
+}
+
+func (i *sourceVaultInvokeResponsePtrType) ToSourceVaultInvokeResponsePtrOutput() SourceVaultInvokeResponsePtrOutput {
+	return i.ToSourceVaultInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sourceVaultInvokeResponsePtrType) ToSourceVaultInvokeResponsePtrOutputWithContext(ctx context.Context) SourceVaultInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceVaultInvokeResponsePtrOutput)
+}
+
+// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
+type SourceVaultInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceVaultInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceVaultInvokeResponse)(nil)).Elem()
+}
+
+func (o SourceVaultInvokeResponseOutput) ToSourceVaultInvokeResponseOutput() SourceVaultInvokeResponseOutput {
+	return o
+}
+
+func (o SourceVaultInvokeResponseOutput) ToSourceVaultInvokeResponseOutputWithContext(ctx context.Context) SourceVaultInvokeResponseOutput {
+	return o
+}
+
+func (o SourceVaultInvokeResponseOutput) ToSourceVaultInvokeResponsePtrOutput() SourceVaultInvokeResponsePtrOutput {
+	return o.ToSourceVaultInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SourceVaultInvokeResponseOutput) ToSourceVaultInvokeResponsePtrOutputWithContext(ctx context.Context) SourceVaultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SourceVaultInvokeResponse) *SourceVaultInvokeResponse {
+		return &v
+	}).(SourceVaultInvokeResponsePtrOutput)
+}
+
+// Resource Id
+func (o SourceVaultInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceVaultInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SourceVaultInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceVaultInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceVaultInvokeResponse)(nil)).Elem()
+}
+
+func (o SourceVaultInvokeResponsePtrOutput) ToSourceVaultInvokeResponsePtrOutput() SourceVaultInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SourceVaultInvokeResponsePtrOutput) ToSourceVaultInvokeResponsePtrOutputWithContext(ctx context.Context) SourceVaultInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SourceVaultInvokeResponsePtrOutput) Elem() SourceVaultInvokeResponseOutput {
+	return o.ApplyT(func(v *SourceVaultInvokeResponse) SourceVaultInvokeResponse { return *v }).(SourceVaultInvokeResponseOutput)
+}
+
+// Resource Id
+func (o SourceVaultInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceVaultInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The vault id is an Azure Resource Manager Resource id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}
 type SourceVaultResponse struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -10997,6 +14989,133 @@ func (o TargetRegionArrayOutput) Index(i pulumi.IntInput) TargetRegionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetRegion {
 		return vs[0].([]TargetRegion)[vs[1].(int)]
 	}).(TargetRegionOutput)
+}
+
+// Describes the target region information.
+type TargetRegionInvokeResponse struct {
+	// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+	Encryption *EncryptionImagesInvokeResponse `pulumi:"encryption"`
+	// The name of the region.
+	Name string `pulumi:"name"`
+	// The number of replicas of the Image Version to be created per region. This property is updatable.
+	RegionalReplicaCount *int `pulumi:"regionalReplicaCount"`
+	// Specifies the storage account type to be used to store the image. This property is not updatable.
+	StorageAccountType *string `pulumi:"storageAccountType"`
+}
+
+// TargetRegionInvokeResponseInput is an input type that accepts TargetRegionInvokeResponseArgs and TargetRegionInvokeResponseOutput values.
+// You can construct a concrete instance of `TargetRegionInvokeResponseInput` via:
+//
+//          TargetRegionInvokeResponseArgs{...}
+type TargetRegionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTargetRegionInvokeResponseOutput() TargetRegionInvokeResponseOutput
+	ToTargetRegionInvokeResponseOutputWithContext(context.Context) TargetRegionInvokeResponseOutput
+}
+
+// Describes the target region information.
+type TargetRegionInvokeResponseArgs struct {
+	// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+	Encryption EncryptionImagesInvokeResponsePtrInput `pulumi:"encryption"`
+	// The name of the region.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The number of replicas of the Image Version to be created per region. This property is updatable.
+	RegionalReplicaCount pulumi.IntPtrInput `pulumi:"regionalReplicaCount"`
+	// Specifies the storage account type to be used to store the image. This property is not updatable.
+	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
+}
+
+func (TargetRegionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetRegionInvokeResponse)(nil)).Elem()
+}
+
+func (i TargetRegionInvokeResponseArgs) ToTargetRegionInvokeResponseOutput() TargetRegionInvokeResponseOutput {
+	return i.ToTargetRegionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TargetRegionInvokeResponseArgs) ToTargetRegionInvokeResponseOutputWithContext(ctx context.Context) TargetRegionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetRegionInvokeResponseOutput)
+}
+
+// TargetRegionInvokeResponseArrayInput is an input type that accepts TargetRegionInvokeResponseArray and TargetRegionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TargetRegionInvokeResponseArrayInput` via:
+//
+//          TargetRegionInvokeResponseArray{ TargetRegionInvokeResponseArgs{...} }
+type TargetRegionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTargetRegionInvokeResponseArrayOutput() TargetRegionInvokeResponseArrayOutput
+	ToTargetRegionInvokeResponseArrayOutputWithContext(context.Context) TargetRegionInvokeResponseArrayOutput
+}
+
+type TargetRegionInvokeResponseArray []TargetRegionInvokeResponseInput
+
+func (TargetRegionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetRegionInvokeResponse)(nil)).Elem()
+}
+
+func (i TargetRegionInvokeResponseArray) ToTargetRegionInvokeResponseArrayOutput() TargetRegionInvokeResponseArrayOutput {
+	return i.ToTargetRegionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TargetRegionInvokeResponseArray) ToTargetRegionInvokeResponseArrayOutputWithContext(ctx context.Context) TargetRegionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetRegionInvokeResponseArrayOutput)
+}
+
+// Describes the target region information.
+type TargetRegionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TargetRegionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetRegionInvokeResponse)(nil)).Elem()
+}
+
+func (o TargetRegionInvokeResponseOutput) ToTargetRegionInvokeResponseOutput() TargetRegionInvokeResponseOutput {
+	return o
+}
+
+func (o TargetRegionInvokeResponseOutput) ToTargetRegionInvokeResponseOutputWithContext(ctx context.Context) TargetRegionInvokeResponseOutput {
+	return o
+}
+
+// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+func (o TargetRegionInvokeResponseOutput) Encryption() EncryptionImagesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TargetRegionInvokeResponse) *EncryptionImagesInvokeResponse { return v.Encryption }).(EncryptionImagesInvokeResponsePtrOutput)
+}
+
+// The name of the region.
+func (o TargetRegionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetRegionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of replicas of the Image Version to be created per region. This property is updatable.
+func (o TargetRegionInvokeResponseOutput) RegionalReplicaCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetRegionInvokeResponse) *int { return v.RegionalReplicaCount }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the storage account type to be used to store the image. This property is not updatable.
+func (o TargetRegionInvokeResponseOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetRegionInvokeResponse) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+type TargetRegionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetRegionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetRegionInvokeResponse)(nil)).Elem()
+}
+
+func (o TargetRegionInvokeResponseArrayOutput) ToTargetRegionInvokeResponseArrayOutput() TargetRegionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TargetRegionInvokeResponseArrayOutput) ToTargetRegionInvokeResponseArrayOutputWithContext(ctx context.Context) TargetRegionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TargetRegionInvokeResponseArrayOutput) Index(i pulumi.IntInput) TargetRegionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetRegionInvokeResponse {
+		return vs[0].([]TargetRegionInvokeResponse)[vs[1].(int)]
+	}).(TargetRegionInvokeResponseOutput)
 }
 
 // Describes the target region information.
@@ -11288,6 +15407,175 @@ func (o UserArtifactManagePtrOutput) Remove() pulumi.StringPtrOutput {
 // Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
 func (o UserArtifactManagePtrOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserArtifactManage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserArtifactManageInvokeResponse struct {
+	// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+	Install string `pulumi:"install"`
+	// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+	Remove string `pulumi:"remove"`
+	// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+	Update *string `pulumi:"update"`
+}
+
+// UserArtifactManageInvokeResponseInput is an input type that accepts UserArtifactManageInvokeResponseArgs and UserArtifactManageInvokeResponseOutput values.
+// You can construct a concrete instance of `UserArtifactManageInvokeResponseInput` via:
+//
+//          UserArtifactManageInvokeResponseArgs{...}
+type UserArtifactManageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserArtifactManageInvokeResponseOutput() UserArtifactManageInvokeResponseOutput
+	ToUserArtifactManageInvokeResponseOutputWithContext(context.Context) UserArtifactManageInvokeResponseOutput
+}
+
+type UserArtifactManageInvokeResponseArgs struct {
+	// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+	Install pulumi.StringInput `pulumi:"install"`
+	// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+	Remove pulumi.StringInput `pulumi:"remove"`
+	// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (UserArtifactManageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserArtifactManageInvokeResponse)(nil)).Elem()
+}
+
+func (i UserArtifactManageInvokeResponseArgs) ToUserArtifactManageInvokeResponseOutput() UserArtifactManageInvokeResponseOutput {
+	return i.ToUserArtifactManageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserArtifactManageInvokeResponseArgs) ToUserArtifactManageInvokeResponseOutputWithContext(ctx context.Context) UserArtifactManageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactManageInvokeResponseOutput)
+}
+
+func (i UserArtifactManageInvokeResponseArgs) ToUserArtifactManageInvokeResponsePtrOutput() UserArtifactManageInvokeResponsePtrOutput {
+	return i.ToUserArtifactManageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UserArtifactManageInvokeResponseArgs) ToUserArtifactManageInvokeResponsePtrOutputWithContext(ctx context.Context) UserArtifactManageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactManageInvokeResponseOutput).ToUserArtifactManageInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// UserArtifactManageInvokeResponsePtrInput is an input type that accepts UserArtifactManageInvokeResponseArgs, UserArtifactManageInvokeResponsePtr and UserArtifactManageInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `UserArtifactManageInvokeResponsePtrInput` via:
+//
+//          UserArtifactManageInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UserArtifactManageInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToUserArtifactManageInvokeResponsePtrOutput() UserArtifactManageInvokeResponsePtrOutput
+	ToUserArtifactManageInvokeResponsePtrOutputWithContext(context.Context) UserArtifactManageInvokeResponsePtrOutput
+}
+
+type userArtifactManageInvokeResponsePtrType UserArtifactManageInvokeResponseArgs
+
+func UserArtifactManageInvokeResponsePtr(v *UserArtifactManageInvokeResponseArgs) UserArtifactManageInvokeResponsePtrInput {
+	return (*userArtifactManageInvokeResponsePtrType)(v)
+}
+
+func (*userArtifactManageInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserArtifactManageInvokeResponse)(nil)).Elem()
+}
+
+func (i *userArtifactManageInvokeResponsePtrType) ToUserArtifactManageInvokeResponsePtrOutput() UserArtifactManageInvokeResponsePtrOutput {
+	return i.ToUserArtifactManageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *userArtifactManageInvokeResponsePtrType) ToUserArtifactManageInvokeResponsePtrOutputWithContext(ctx context.Context) UserArtifactManageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactManageInvokeResponsePtrOutput)
+}
+
+type UserArtifactManageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserArtifactManageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserArtifactManageInvokeResponse)(nil)).Elem()
+}
+
+func (o UserArtifactManageInvokeResponseOutput) ToUserArtifactManageInvokeResponseOutput() UserArtifactManageInvokeResponseOutput {
+	return o
+}
+
+func (o UserArtifactManageInvokeResponseOutput) ToUserArtifactManageInvokeResponseOutputWithContext(ctx context.Context) UserArtifactManageInvokeResponseOutput {
+	return o
+}
+
+func (o UserArtifactManageInvokeResponseOutput) ToUserArtifactManageInvokeResponsePtrOutput() UserArtifactManageInvokeResponsePtrOutput {
+	return o.ToUserArtifactManageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UserArtifactManageInvokeResponseOutput) ToUserArtifactManageInvokeResponsePtrOutputWithContext(ctx context.Context) UserArtifactManageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v UserArtifactManageInvokeResponse) *UserArtifactManageInvokeResponse {
+		return &v
+	}).(UserArtifactManageInvokeResponsePtrOutput)
+}
+
+// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageInvokeResponseOutput) Install() pulumi.StringOutput {
+	return o.ApplyT(func(v UserArtifactManageInvokeResponse) string { return v.Install }).(pulumi.StringOutput)
+}
+
+// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageInvokeResponseOutput) Remove() pulumi.StringOutput {
+	return o.ApplyT(func(v UserArtifactManageInvokeResponse) string { return v.Remove }).(pulumi.StringOutput)
+}
+
+// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageInvokeResponseOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserArtifactManageInvokeResponse) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type UserArtifactManageInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserArtifactManageInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserArtifactManageInvokeResponse)(nil)).Elem()
+}
+
+func (o UserArtifactManageInvokeResponsePtrOutput) ToUserArtifactManageInvokeResponsePtrOutput() UserArtifactManageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o UserArtifactManageInvokeResponsePtrOutput) ToUserArtifactManageInvokeResponsePtrOutputWithContext(ctx context.Context) UserArtifactManageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o UserArtifactManageInvokeResponsePtrOutput) Elem() UserArtifactManageInvokeResponseOutput {
+	return o.ApplyT(func(v *UserArtifactManageInvokeResponse) UserArtifactManageInvokeResponse { return *v }).(UserArtifactManageInvokeResponseOutput)
+}
+
+// Required. The path and arguments to install the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageInvokeResponsePtrOutput) Install() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserArtifactManageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Install
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required. The path and arguments to remove the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageInvokeResponsePtrOutput) Remove() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserArtifactManageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Remove
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional. The path and arguments to update the gallery application. If not present, then update operation will invoke remove command on the previous version and install command on the current version of the gallery application. This is limited to 4096 characters.
+func (o UserArtifactManageInvokeResponsePtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserArtifactManageInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -11618,6 +15906,70 @@ func (o UserArtifactSourcePtrOutput) MediaLink() pulumi.StringPtrOutput {
 }
 
 // The source image from which the Image Version is going to be created.
+type UserArtifactSourceInvokeResponse struct {
+	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+	DefaultConfigurationLink *string `pulumi:"defaultConfigurationLink"`
+	// Required. The mediaLink of the artifact, must be a readable storage page blob.
+	MediaLink string `pulumi:"mediaLink"`
+}
+
+// UserArtifactSourceInvokeResponseInput is an input type that accepts UserArtifactSourceInvokeResponseArgs and UserArtifactSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `UserArtifactSourceInvokeResponseInput` via:
+//
+//          UserArtifactSourceInvokeResponseArgs{...}
+type UserArtifactSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserArtifactSourceInvokeResponseOutput() UserArtifactSourceInvokeResponseOutput
+	ToUserArtifactSourceInvokeResponseOutputWithContext(context.Context) UserArtifactSourceInvokeResponseOutput
+}
+
+// The source image from which the Image Version is going to be created.
+type UserArtifactSourceInvokeResponseArgs struct {
+	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+	DefaultConfigurationLink pulumi.StringPtrInput `pulumi:"defaultConfigurationLink"`
+	// Required. The mediaLink of the artifact, must be a readable storage page blob.
+	MediaLink pulumi.StringInput `pulumi:"mediaLink"`
+}
+
+func (UserArtifactSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserArtifactSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i UserArtifactSourceInvokeResponseArgs) ToUserArtifactSourceInvokeResponseOutput() UserArtifactSourceInvokeResponseOutput {
+	return i.ToUserArtifactSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserArtifactSourceInvokeResponseArgs) ToUserArtifactSourceInvokeResponseOutputWithContext(ctx context.Context) UserArtifactSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserArtifactSourceInvokeResponseOutput)
+}
+
+// The source image from which the Image Version is going to be created.
+type UserArtifactSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserArtifactSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserArtifactSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o UserArtifactSourceInvokeResponseOutput) ToUserArtifactSourceInvokeResponseOutput() UserArtifactSourceInvokeResponseOutput {
+	return o
+}
+
+func (o UserArtifactSourceInvokeResponseOutput) ToUserArtifactSourceInvokeResponseOutputWithContext(ctx context.Context) UserArtifactSourceInvokeResponseOutput {
+	return o
+}
+
+// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
+func (o UserArtifactSourceInvokeResponseOutput) DefaultConfigurationLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserArtifactSourceInvokeResponse) *string { return v.DefaultConfigurationLink }).(pulumi.StringPtrOutput)
+}
+
+// Required. The mediaLink of the artifact, must be a readable storage page blob.
+func (o UserArtifactSourceInvokeResponseOutput) MediaLink() pulumi.StringOutput {
+	return o.ApplyT(func(v UserArtifactSourceInvokeResponse) string { return v.MediaLink }).(pulumi.StringOutput)
+}
+
+// The source image from which the Image Version is going to be created.
 type UserArtifactSourceResponse struct {
 	// Optional. The defaultConfigurationLink of the artifact, must be a readable storage page blob.
 	DefaultConfigurationLink *string `pulumi:"defaultConfigurationLink"`
@@ -11773,153 +16125,215 @@ func (o UserArtifactSourceResponsePtrOutput) MediaLink() pulumi.StringPtrOutput 
 func init() {
 	pulumi.RegisterOutputType(CreationDataOutput{})
 	pulumi.RegisterOutputType(CreationDataPtrOutput{})
+	pulumi.RegisterOutputType(CreationDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CreationDataResponseOutput{})
 	pulumi.RegisterOutputType(CreationDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataDiskImageEncryptionOutput{})
 	pulumi.RegisterOutputType(DataDiskImageEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(DataDiskImageEncryptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataDiskImageEncryptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataDiskImageEncryptionResponseOutput{})
 	pulumi.RegisterOutputType(DataDiskImageEncryptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(DisallowedOutput{})
 	pulumi.RegisterOutputType(DisallowedPtrOutput{})
+	pulumi.RegisterOutputType(DisallowedInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DisallowedResponseOutput{})
 	pulumi.RegisterOutputType(DisallowedResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskSkuOutput{})
 	pulumi.RegisterOutputType(DiskSkuPtrOutput{})
+	pulumi.RegisterOutputType(DiskSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DiskSkuResponseOutput{})
 	pulumi.RegisterOutputType(DiskSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionImagesOutput{})
 	pulumi.RegisterOutputType(EncryptionImagesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionImagesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionImagesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionImagesResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionImagesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionSetIdentityOutput{})
 	pulumi.RegisterOutputType(EncryptionSetIdentityPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionSetIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSetIdentityResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSetIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsCollectionOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsCollectionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionSettingsCollectionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsCollectionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsCollectionResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsElementOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsElementArrayOutput{})
+	pulumi.RegisterOutputType(EncryptionSettingsElementInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionSettingsElementInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsElementResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsElementResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
+	pulumi.RegisterOutputType(ExtendedLocationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfileOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfilePtrOutput{})
+	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfileResponseOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryArtifactVersionSourceOutput{})
 	pulumi.RegisterOutputType(GalleryArtifactVersionSourcePtrOutput{})
+	pulumi.RegisterOutputType(GalleryArtifactVersionSourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GalleryArtifactVersionSourceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryArtifactVersionSourceResponseOutput{})
 	pulumi.RegisterOutputType(GalleryArtifactVersionSourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryDataDiskImageOutput{})
 	pulumi.RegisterOutputType(GalleryDataDiskImageArrayOutput{})
+	pulumi.RegisterOutputType(GalleryDataDiskImageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GalleryDataDiskImageInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(GalleryDataDiskImageResponseOutput{})
 	pulumi.RegisterOutputType(GalleryDataDiskImageResponseArrayOutput{})
+	pulumi.RegisterOutputType(GalleryIdentifierInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GalleryIdentifierResponseOutput{})
 	pulumi.RegisterOutputType(GalleryIdentifierResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageFeatureOutput{})
 	pulumi.RegisterOutputType(GalleryImageFeatureArrayOutput{})
+	pulumi.RegisterOutputType(GalleryImageFeatureInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GalleryImageFeatureInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(GalleryImageFeatureResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageFeatureResponseArrayOutput{})
 	pulumi.RegisterOutputType(GalleryImageIdentifierOutput{})
 	pulumi.RegisterOutputType(GalleryImageIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(GalleryImageIdentifierInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageIdentifierResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageIdentifierResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionPublishingProfileOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionPublishingProfilePtrOutput{})
+	pulumi.RegisterOutputType(GalleryImageVersionPublishingProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionPublishingProfileResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionPublishingProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionStorageProfileOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionStorageProfilePtrOutput{})
+	pulumi.RegisterOutputType(GalleryImageVersionStorageProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionStorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionStorageProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryOSDiskImageOutput{})
 	pulumi.RegisterOutputType(GalleryOSDiskImagePtrOutput{})
+	pulumi.RegisterOutputType(GalleryOSDiskImageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GalleryOSDiskImageInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryOSDiskImageResponseOutput{})
 	pulumi.RegisterOutputType(GalleryOSDiskImageResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImageDiskReferenceOutput{})
 	pulumi.RegisterOutputType(ImageDiskReferencePtrOutput{})
+	pulumi.RegisterOutputType(ImageDiskReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ImageDiskReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImageDiskReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ImageDiskReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImagePurchasePlanOutput{})
 	pulumi.RegisterOutputType(ImagePurchasePlanPtrOutput{})
+	pulumi.RegisterOutputType(ImagePurchasePlanInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ImagePurchasePlanResponseOutput{})
 	pulumi.RegisterOutputType(ImagePurchasePlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyForDiskEncryptionSetOutput{})
 	pulumi.RegisterOutputType(KeyForDiskEncryptionSetPtrOutput{})
+	pulumi.RegisterOutputType(KeyForDiskEncryptionSetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyForDiskEncryptionSetInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyForDiskEncryptionSetResponseOutput{})
 	pulumi.RegisterOutputType(KeyForDiskEncryptionSetResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyForDiskEncryptionSetResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferencePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndKeyReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferencePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(OSDiskImageEncryptionOutput{})
 	pulumi.RegisterOutputType(OSDiskImageEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(OSDiskImageEncryptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OSDiskImageEncryptionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(OSDiskImageEncryptionResponseOutput{})
 	pulumi.RegisterOutputType(OSDiskImageEncryptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(PurchasePlanOutput{})
 	pulumi.RegisterOutputType(PurchasePlanPtrOutput{})
+	pulumi.RegisterOutputType(PurchasePlanInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PurchasePlanResponseOutput{})
 	pulumi.RegisterOutputType(PurchasePlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(RecommendedMachineConfigurationOutput{})
 	pulumi.RegisterOutputType(RecommendedMachineConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RecommendedMachineConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RecommendedMachineConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(RecommendedMachineConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(RegionalReplicationStatusInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RegionalReplicationStatusInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(RegionalReplicationStatusResponseOutput{})
 	pulumi.RegisterOutputType(RegionalReplicationStatusResponseArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ReplicationStatusResponseOutput{})
 	pulumi.RegisterOutputType(ReplicationStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceRangeOutput{})
 	pulumi.RegisterOutputType(ResourceRangePtrOutput{})
+	pulumi.RegisterOutputType(ResourceRangeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResourceRangeInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceRangeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceRangeResponsePtrOutput{})
+	pulumi.RegisterOutputType(ShareInfoElementInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ShareInfoElementInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ShareInfoElementResponseOutput{})
 	pulumi.RegisterOutputType(ShareInfoElementResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharingProfileOutput{})
 	pulumi.RegisterOutputType(SharingProfilePtrOutput{})
+	pulumi.RegisterOutputType(SharingProfileGroupInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SharingProfileGroupInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharingProfileGroupResponseOutput{})
 	pulumi.RegisterOutputType(SharingProfileGroupResponseArrayOutput{})
+	pulumi.RegisterOutputType(SharingProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SharingProfileResponseOutput{})
 	pulumi.RegisterOutputType(SharingProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuResponseOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceVaultOutput{})
 	pulumi.RegisterOutputType(SourceVaultPtrOutput{})
+	pulumi.RegisterOutputType(SourceVaultInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SourceVaultInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceVaultResponseOutput{})
 	pulumi.RegisterOutputType(SourceVaultResponsePtrOutput{})
 	pulumi.RegisterOutputType(TargetRegionOutput{})
 	pulumi.RegisterOutputType(TargetRegionArrayOutput{})
+	pulumi.RegisterOutputType(TargetRegionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TargetRegionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TargetRegionResponseOutput{})
 	pulumi.RegisterOutputType(TargetRegionResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserArtifactManageOutput{})
 	pulumi.RegisterOutputType(UserArtifactManagePtrOutput{})
+	pulumi.RegisterOutputType(UserArtifactManageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UserArtifactManageInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserArtifactManageResponseOutput{})
 	pulumi.RegisterOutputType(UserArtifactManageResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserArtifactSourceOutput{})
 	pulumi.RegisterOutputType(UserArtifactSourcePtrOutput{})
+	pulumi.RegisterOutputType(UserArtifactSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UserArtifactSourceResponseOutput{})
 	pulumi.RegisterOutputType(UserArtifactSourceResponsePtrOutput{})
 }

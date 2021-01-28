@@ -34,7 +34,7 @@ type LookupGroupResult struct {
 	// Name of the group.
 	Name string `pulumi:"name"`
 	// Properties of the group.
-	Properties GroupPropertiesResponse `pulumi:"properties"`
+	Properties GroupPropertiesInvokeResponse `pulumi:"properties"`
 	// Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
 	Type string `pulumi:"type"`
 }

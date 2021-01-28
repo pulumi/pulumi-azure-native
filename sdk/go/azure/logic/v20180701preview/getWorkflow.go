@@ -36,17 +36,17 @@ type LookupWorkflowResult struct {
 	// The resource id.
 	Id string `pulumi:"id"`
 	// The integration account.
-	IntegrationAccount *ResourceReferenceResponse `pulumi:"integrationAccount"`
+	IntegrationAccount *ResourceReferenceInvokeResponse `pulumi:"integrationAccount"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The parameters.
-	Parameters map[string]WorkflowParameterResponse `pulumi:"parameters"`
+	Parameters map[string]WorkflowParameterInvokeResponse `pulumi:"parameters"`
 	// Gets the provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The state.
 	State *string `pulumi:"state"`
 	// The resource tags.

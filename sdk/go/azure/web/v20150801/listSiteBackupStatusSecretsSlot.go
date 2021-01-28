@@ -20,9 +20,9 @@ type ListSiteBackupStatusSecretsSlotArgs struct {
 	// Id of backup
 	BackupId string `pulumi:"backupId"`
 	// Schedule for the backup if it is executed periodically
-	BackupSchedule *BackupSchedule `pulumi:"backupSchedule"`
+	BackupSchedule *BackupScheduleInvoke `pulumi:"backupSchedule"`
 	// Databases included in the backup
-	Databases []DatabaseBackupSetting `pulumi:"databases"`
+	Databases []DatabaseBackupSettingInvoke `pulumi:"databases"`
 	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id
@@ -54,7 +54,7 @@ type ListSiteBackupStatusSecretsSlotResult struct {
 	// Timestamp of the backup creation
 	Created *string `pulumi:"created"`
 	// List of databases included in the backup
-	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
+	Databases []DatabaseBackupSettingInvokeResponse `pulumi:"databases"`
 	// Timestamp when this backup finished.
 	FinishedTimeStamp *string `pulumi:"finishedTimeStamp"`
 	// Resource Id

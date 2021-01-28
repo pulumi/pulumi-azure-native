@@ -34,9 +34,9 @@ type LookupDiagnosticSettingResult struct {
 	// A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
 	LogAnalyticsDestinationType *string `pulumi:"logAnalyticsDestinationType"`
 	// The list of logs settings.
-	Logs []LogSettingsResponse `pulumi:"logs"`
+	Logs []LogSettingsInvokeResponse `pulumi:"logs"`
 	// The list of metric settings.
-	Metrics []MetricSettingsResponse `pulumi:"metrics"`
+	Metrics []MetricSettingsInvokeResponse `pulumi:"metrics"`
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.

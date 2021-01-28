@@ -32,7 +32,7 @@ type LookupBastionHostResult struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// IP configuration of the Bastion Host resource.
-	IpConfigurations []BastionHostIPConfigurationResponse `pulumi:"ipConfigurations"`
+	IpConfigurations []BastionHostIPConfigurationInvokeResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

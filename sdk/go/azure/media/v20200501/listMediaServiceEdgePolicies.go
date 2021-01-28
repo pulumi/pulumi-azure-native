@@ -26,5 +26,5 @@ type ListMediaServiceEdgePoliciesArgs struct {
 }
 
 type ListMediaServiceEdgePoliciesResult struct {
-	UsageDataCollectionPolicy *EdgeUsageDataCollectionPolicyResponse `pulumi:"usageDataCollectionPolicy"`
+	UsageDataCollectionPolicy *EdgeUsageDataCollectionPolicyInvokeResponse `pulumi:"usageDataCollectionPolicy"`
 }

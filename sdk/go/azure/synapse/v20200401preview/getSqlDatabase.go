@@ -42,7 +42,7 @@ type LookupSqlDatabaseResult struct {
 	// Status of the database.
 	Status string `pulumi:"status"`
 	// SystemData of SqlDatabase.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

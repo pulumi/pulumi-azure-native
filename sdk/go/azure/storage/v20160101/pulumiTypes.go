@@ -164,6 +164,70 @@ func (o CustomDomainPtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 }
 
 // The custom domain assigned to this storage account. This can be set via Update.
+type CustomDomainInvokeResponse struct {
+	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
+	Name string `pulumi:"name"`
+	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+	UseSubDomainName *bool `pulumi:"useSubDomainName"`
+}
+
+// CustomDomainInvokeResponseInput is an input type that accepts CustomDomainInvokeResponseArgs and CustomDomainInvokeResponseOutput values.
+// You can construct a concrete instance of `CustomDomainInvokeResponseInput` via:
+//
+//          CustomDomainInvokeResponseArgs{...}
+type CustomDomainInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCustomDomainInvokeResponseOutput() CustomDomainInvokeResponseOutput
+	ToCustomDomainInvokeResponseOutputWithContext(context.Context) CustomDomainInvokeResponseOutput
+}
+
+// The custom domain assigned to this storage account. This can be set via Update.
+type CustomDomainInvokeResponseArgs struct {
+	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+	UseSubDomainName pulumi.BoolPtrInput `pulumi:"useSubDomainName"`
+}
+
+func (CustomDomainInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomDomainInvokeResponseArgs) ToCustomDomainInvokeResponseOutput() CustomDomainInvokeResponseOutput {
+	return i.ToCustomDomainInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CustomDomainInvokeResponseArgs) ToCustomDomainInvokeResponseOutputWithContext(ctx context.Context) CustomDomainInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainInvokeResponseOutput)
+}
+
+// The custom domain assigned to this storage account. This can be set via Update.
+type CustomDomainInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomDomainInvokeResponseOutput) ToCustomDomainInvokeResponseOutput() CustomDomainInvokeResponseOutput {
+	return o
+}
+
+func (o CustomDomainInvokeResponseOutput) ToCustomDomainInvokeResponseOutputWithContext(ctx context.Context) CustomDomainInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
+func (o CustomDomainInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDomainInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+func (o CustomDomainInvokeResponseOutput) UseSubDomainName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomDomainInvokeResponse) *bool { return v.UseSubDomainName }).(pulumi.BoolPtrOutput)
+}
+
+// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponse struct {
 	// Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
 	Name string `pulumi:"name"`
@@ -470,6 +534,70 @@ func (o EncryptionPtrOutput) Services() EncryptionServicesPtrOutput {
 }
 
 // The encryption settings on the storage account.
+type EncryptionInvokeResponse struct {
+	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
+	KeySource string `pulumi:"keySource"`
+	// List of services which support encryption.
+	Services *EncryptionServicesInvokeResponse `pulumi:"services"`
+}
+
+// EncryptionInvokeResponseInput is an input type that accepts EncryptionInvokeResponseArgs and EncryptionInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionInvokeResponseInput` via:
+//
+//          EncryptionInvokeResponseArgs{...}
+type EncryptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionInvokeResponseOutput() EncryptionInvokeResponseOutput
+	ToEncryptionInvokeResponseOutputWithContext(context.Context) EncryptionInvokeResponseOutput
+}
+
+// The encryption settings on the storage account.
+type EncryptionInvokeResponseArgs struct {
+	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
+	KeySource pulumi.StringInput `pulumi:"keySource"`
+	// List of services which support encryption.
+	Services EncryptionServicesInvokeResponsePtrInput `pulumi:"services"`
+}
+
+func (EncryptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionInvokeResponseArgs) ToEncryptionInvokeResponseOutput() EncryptionInvokeResponseOutput {
+	return i.ToEncryptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionInvokeResponseArgs) ToEncryptionInvokeResponseOutputWithContext(ctx context.Context) EncryptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInvokeResponseOutput)
+}
+
+// The encryption settings on the storage account.
+type EncryptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionInvokeResponseOutput) ToEncryptionInvokeResponseOutput() EncryptionInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionInvokeResponseOutput) ToEncryptionInvokeResponseOutputWithContext(ctx context.Context) EncryptionInvokeResponseOutput {
+	return o
+}
+
+// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
+func (o EncryptionInvokeResponseOutput) KeySource() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionInvokeResponse) string { return v.KeySource }).(pulumi.StringOutput)
+}
+
+// List of services which support encryption.
+func (o EncryptionInvokeResponseOutput) Services() EncryptionServicesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionInvokeResponse) *EncryptionServicesInvokeResponse { return v.Services }).(EncryptionServicesInvokeResponsePtrOutput)
+}
+
+// The encryption settings on the storage account.
 type EncryptionResponse struct {
 	// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
 	KeySource string `pulumi:"keySource"`
@@ -754,6 +882,159 @@ func (o EncryptionServicePtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// A service that allows server-side encryption to be used.
+type EncryptionServiceInvokeResponse struct {
+	// A boolean indicating whether or not the service encrypts the data as it is stored.
+	Enabled *bool `pulumi:"enabled"`
+	// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+	LastEnabledTime string `pulumi:"lastEnabledTime"`
+}
+
+// EncryptionServiceInvokeResponseInput is an input type that accepts EncryptionServiceInvokeResponseArgs and EncryptionServiceInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionServiceInvokeResponseInput` via:
+//
+//          EncryptionServiceInvokeResponseArgs{...}
+type EncryptionServiceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionServiceInvokeResponseOutput() EncryptionServiceInvokeResponseOutput
+	ToEncryptionServiceInvokeResponseOutputWithContext(context.Context) EncryptionServiceInvokeResponseOutput
+}
+
+// A service that allows server-side encryption to be used.
+type EncryptionServiceInvokeResponseArgs struct {
+	// A boolean indicating whether or not the service encrypts the data as it is stored.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+	LastEnabledTime pulumi.StringInput `pulumi:"lastEnabledTime"`
+}
+
+func (EncryptionServiceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionServiceInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionServiceInvokeResponseArgs) ToEncryptionServiceInvokeResponseOutput() EncryptionServiceInvokeResponseOutput {
+	return i.ToEncryptionServiceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionServiceInvokeResponseArgs) ToEncryptionServiceInvokeResponseOutputWithContext(ctx context.Context) EncryptionServiceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServiceInvokeResponseOutput)
+}
+
+func (i EncryptionServiceInvokeResponseArgs) ToEncryptionServiceInvokeResponsePtrOutput() EncryptionServiceInvokeResponsePtrOutput {
+	return i.ToEncryptionServiceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionServiceInvokeResponseArgs) ToEncryptionServiceInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionServiceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServiceInvokeResponseOutput).ToEncryptionServiceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionServiceInvokeResponsePtrInput is an input type that accepts EncryptionServiceInvokeResponseArgs, EncryptionServiceInvokeResponsePtr and EncryptionServiceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionServiceInvokeResponsePtrInput` via:
+//
+//          EncryptionServiceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionServiceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionServiceInvokeResponsePtrOutput() EncryptionServiceInvokeResponsePtrOutput
+	ToEncryptionServiceInvokeResponsePtrOutputWithContext(context.Context) EncryptionServiceInvokeResponsePtrOutput
+}
+
+type encryptionServiceInvokeResponsePtrType EncryptionServiceInvokeResponseArgs
+
+func EncryptionServiceInvokeResponsePtr(v *EncryptionServiceInvokeResponseArgs) EncryptionServiceInvokeResponsePtrInput {
+	return (*encryptionServiceInvokeResponsePtrType)(v)
+}
+
+func (*encryptionServiceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionServiceInvokeResponse)(nil)).Elem()
+}
+
+func (i *encryptionServiceInvokeResponsePtrType) ToEncryptionServiceInvokeResponsePtrOutput() EncryptionServiceInvokeResponsePtrOutput {
+	return i.ToEncryptionServiceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionServiceInvokeResponsePtrType) ToEncryptionServiceInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionServiceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServiceInvokeResponsePtrOutput)
+}
+
+// A service that allows server-side encryption to be used.
+type EncryptionServiceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionServiceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionServiceInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionServiceInvokeResponseOutput) ToEncryptionServiceInvokeResponseOutput() EncryptionServiceInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionServiceInvokeResponseOutput) ToEncryptionServiceInvokeResponseOutputWithContext(ctx context.Context) EncryptionServiceInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionServiceInvokeResponseOutput) ToEncryptionServiceInvokeResponsePtrOutput() EncryptionServiceInvokeResponsePtrOutput {
+	return o.ToEncryptionServiceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionServiceInvokeResponseOutput) ToEncryptionServiceInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionServiceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionServiceInvokeResponse) *EncryptionServiceInvokeResponse {
+		return &v
+	}).(EncryptionServiceInvokeResponsePtrOutput)
+}
+
+// A boolean indicating whether or not the service encrypts the data as it is stored.
+func (o EncryptionServiceInvokeResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EncryptionServiceInvokeResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+func (o EncryptionServiceInvokeResponseOutput) LastEnabledTime() pulumi.StringOutput {
+	return o.ApplyT(func(v EncryptionServiceInvokeResponse) string { return v.LastEnabledTime }).(pulumi.StringOutput)
+}
+
+type EncryptionServiceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionServiceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionServiceInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionServiceInvokeResponsePtrOutput) ToEncryptionServiceInvokeResponsePtrOutput() EncryptionServiceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionServiceInvokeResponsePtrOutput) ToEncryptionServiceInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionServiceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionServiceInvokeResponsePtrOutput) Elem() EncryptionServiceInvokeResponseOutput {
+	return o.ApplyT(func(v *EncryptionServiceInvokeResponse) EncryptionServiceInvokeResponse { return *v }).(EncryptionServiceInvokeResponseOutput)
+}
+
+// A boolean indicating whether or not the service encrypts the data as it is stored.
+func (o EncryptionServiceInvokeResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EncryptionServiceInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+func (o EncryptionServiceInvokeResponsePtrOutput) LastEnabledTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionServiceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastEnabledTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // A service that allows server-side encryption to be used.
@@ -1044,6 +1325,140 @@ func (o EncryptionServicesPtrOutput) Blob() EncryptionServicePtrOutput {
 }
 
 // A list of services that support encryption.
+type EncryptionServicesInvokeResponse struct {
+	// The encryption function of the blob storage service.
+	Blob *EncryptionServiceInvokeResponse `pulumi:"blob"`
+}
+
+// EncryptionServicesInvokeResponseInput is an input type that accepts EncryptionServicesInvokeResponseArgs and EncryptionServicesInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionServicesInvokeResponseInput` via:
+//
+//          EncryptionServicesInvokeResponseArgs{...}
+type EncryptionServicesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionServicesInvokeResponseOutput() EncryptionServicesInvokeResponseOutput
+	ToEncryptionServicesInvokeResponseOutputWithContext(context.Context) EncryptionServicesInvokeResponseOutput
+}
+
+// A list of services that support encryption.
+type EncryptionServicesInvokeResponseArgs struct {
+	// The encryption function of the blob storage service.
+	Blob EncryptionServiceInvokeResponsePtrInput `pulumi:"blob"`
+}
+
+func (EncryptionServicesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionServicesInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionServicesInvokeResponseArgs) ToEncryptionServicesInvokeResponseOutput() EncryptionServicesInvokeResponseOutput {
+	return i.ToEncryptionServicesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionServicesInvokeResponseArgs) ToEncryptionServicesInvokeResponseOutputWithContext(ctx context.Context) EncryptionServicesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServicesInvokeResponseOutput)
+}
+
+func (i EncryptionServicesInvokeResponseArgs) ToEncryptionServicesInvokeResponsePtrOutput() EncryptionServicesInvokeResponsePtrOutput {
+	return i.ToEncryptionServicesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionServicesInvokeResponseArgs) ToEncryptionServicesInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionServicesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServicesInvokeResponseOutput).ToEncryptionServicesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionServicesInvokeResponsePtrInput is an input type that accepts EncryptionServicesInvokeResponseArgs, EncryptionServicesInvokeResponsePtr and EncryptionServicesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionServicesInvokeResponsePtrInput` via:
+//
+//          EncryptionServicesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionServicesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionServicesInvokeResponsePtrOutput() EncryptionServicesInvokeResponsePtrOutput
+	ToEncryptionServicesInvokeResponsePtrOutputWithContext(context.Context) EncryptionServicesInvokeResponsePtrOutput
+}
+
+type encryptionServicesInvokeResponsePtrType EncryptionServicesInvokeResponseArgs
+
+func EncryptionServicesInvokeResponsePtr(v *EncryptionServicesInvokeResponseArgs) EncryptionServicesInvokeResponsePtrInput {
+	return (*encryptionServicesInvokeResponsePtrType)(v)
+}
+
+func (*encryptionServicesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionServicesInvokeResponse)(nil)).Elem()
+}
+
+func (i *encryptionServicesInvokeResponsePtrType) ToEncryptionServicesInvokeResponsePtrOutput() EncryptionServicesInvokeResponsePtrOutput {
+	return i.ToEncryptionServicesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionServicesInvokeResponsePtrType) ToEncryptionServicesInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionServicesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionServicesInvokeResponsePtrOutput)
+}
+
+// A list of services that support encryption.
+type EncryptionServicesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionServicesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionServicesInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionServicesInvokeResponseOutput) ToEncryptionServicesInvokeResponseOutput() EncryptionServicesInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionServicesInvokeResponseOutput) ToEncryptionServicesInvokeResponseOutputWithContext(ctx context.Context) EncryptionServicesInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionServicesInvokeResponseOutput) ToEncryptionServicesInvokeResponsePtrOutput() EncryptionServicesInvokeResponsePtrOutput {
+	return o.ToEncryptionServicesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionServicesInvokeResponseOutput) ToEncryptionServicesInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionServicesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionServicesInvokeResponse) *EncryptionServicesInvokeResponse {
+		return &v
+	}).(EncryptionServicesInvokeResponsePtrOutput)
+}
+
+// The encryption function of the blob storage service.
+func (o EncryptionServicesInvokeResponseOutput) Blob() EncryptionServiceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionServicesInvokeResponse) *EncryptionServiceInvokeResponse { return v.Blob }).(EncryptionServiceInvokeResponsePtrOutput)
+}
+
+type EncryptionServicesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionServicesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionServicesInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionServicesInvokeResponsePtrOutput) ToEncryptionServicesInvokeResponsePtrOutput() EncryptionServicesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionServicesInvokeResponsePtrOutput) ToEncryptionServicesInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionServicesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionServicesInvokeResponsePtrOutput) Elem() EncryptionServicesInvokeResponseOutput {
+	return o.ApplyT(func(v *EncryptionServicesInvokeResponse) EncryptionServicesInvokeResponse { return *v }).(EncryptionServicesInvokeResponseOutput)
+}
+
+// The encryption function of the blob storage service.
+func (o EncryptionServicesInvokeResponsePtrOutput) Blob() EncryptionServiceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionServicesInvokeResponse) *EncryptionServiceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Blob
+	}).(EncryptionServiceInvokeResponsePtrOutput)
+}
+
+// A list of services that support encryption.
 type EncryptionServicesResponse struct {
 	// The encryption function of the blob storage service.
 	Blob *EncryptionServiceResponse `pulumi:"blob"`
@@ -1175,6 +1590,88 @@ func (o EncryptionServicesResponsePtrOutput) Blob() EncryptionServiceResponsePtr
 		}
 		return v.Blob
 	}).(EncryptionServiceResponsePtrOutput)
+}
+
+// The URIs that are used to perform a retrieval of a public blob, queue, or table object.
+type EndpointsInvokeResponse struct {
+	// Gets the blob endpoint.
+	Blob string `pulumi:"blob"`
+	// Gets the file endpoint.
+	File string `pulumi:"file"`
+	// Gets the queue endpoint.
+	Queue string `pulumi:"queue"`
+	// Gets the table endpoint.
+	Table string `pulumi:"table"`
+}
+
+// EndpointsInvokeResponseInput is an input type that accepts EndpointsInvokeResponseArgs and EndpointsInvokeResponseOutput values.
+// You can construct a concrete instance of `EndpointsInvokeResponseInput` via:
+//
+//          EndpointsInvokeResponseArgs{...}
+type EndpointsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEndpointsInvokeResponseOutput() EndpointsInvokeResponseOutput
+	ToEndpointsInvokeResponseOutputWithContext(context.Context) EndpointsInvokeResponseOutput
+}
+
+// The URIs that are used to perform a retrieval of a public blob, queue, or table object.
+type EndpointsInvokeResponseArgs struct {
+	// Gets the blob endpoint.
+	Blob pulumi.StringInput `pulumi:"blob"`
+	// Gets the file endpoint.
+	File pulumi.StringInput `pulumi:"file"`
+	// Gets the queue endpoint.
+	Queue pulumi.StringInput `pulumi:"queue"`
+	// Gets the table endpoint.
+	Table pulumi.StringInput `pulumi:"table"`
+}
+
+func (EndpointsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointsInvokeResponse)(nil)).Elem()
+}
+
+func (i EndpointsInvokeResponseArgs) ToEndpointsInvokeResponseOutput() EndpointsInvokeResponseOutput {
+	return i.ToEndpointsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EndpointsInvokeResponseArgs) ToEndpointsInvokeResponseOutputWithContext(ctx context.Context) EndpointsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointsInvokeResponseOutput)
+}
+
+// The URIs that are used to perform a retrieval of a public blob, queue, or table object.
+type EndpointsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EndpointsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointsInvokeResponse)(nil)).Elem()
+}
+
+func (o EndpointsInvokeResponseOutput) ToEndpointsInvokeResponseOutput() EndpointsInvokeResponseOutput {
+	return o
+}
+
+func (o EndpointsInvokeResponseOutput) ToEndpointsInvokeResponseOutputWithContext(ctx context.Context) EndpointsInvokeResponseOutput {
+	return o
+}
+
+// Gets the blob endpoint.
+func (o EndpointsInvokeResponseOutput) Blob() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointsInvokeResponse) string { return v.Blob }).(pulumi.StringOutput)
+}
+
+// Gets the file endpoint.
+func (o EndpointsInvokeResponseOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointsInvokeResponse) string { return v.File }).(pulumi.StringOutput)
+}
+
+// Gets the queue endpoint.
+func (o EndpointsInvokeResponseOutput) Queue() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointsInvokeResponse) string { return v.Queue }).(pulumi.StringOutput)
+}
+
+// Gets the table endpoint.
+func (o EndpointsInvokeResponseOutput) Table() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointsInvokeResponse) string { return v.Table }).(pulumi.StringOutput)
 }
 
 // The URIs that are used to perform a retrieval of a public blob, queue, or table object.
@@ -1503,6 +2000,70 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The SKU of the storage account.
+type SkuInvokeResponse struct {
+	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
+	Name string `pulumi:"name"`
+	// Gets the sku tier. This is based on the SKU name.
+	Tier string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The SKU of the storage account.
+type SkuInvokeResponseArgs struct {
+	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gets the sku tier. This is based on the SKU name.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The SKU of the storage account.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the sku tier. This is based on the SKU name.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// The SKU of the storage account.
 type SkuResponse struct {
 	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
 	Name string `pulumi:"name"`
@@ -1656,7 +2217,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // An access key for the storage account.
-type StorageAccountKeyResponse struct {
+type StorageAccountKeyInvokeResponse struct {
 	// Name of the key.
 	KeyName string `pulumi:"keyName"`
 	// Permissions for the key -- read-only or full permissions.
@@ -1665,19 +2226,19 @@ type StorageAccountKeyResponse struct {
 	Value string `pulumi:"value"`
 }
 
-// StorageAccountKeyResponseInput is an input type that accepts StorageAccountKeyResponseArgs and StorageAccountKeyResponseOutput values.
-// You can construct a concrete instance of `StorageAccountKeyResponseInput` via:
+// StorageAccountKeyInvokeResponseInput is an input type that accepts StorageAccountKeyInvokeResponseArgs and StorageAccountKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountKeyInvokeResponseInput` via:
 //
-//          StorageAccountKeyResponseArgs{...}
-type StorageAccountKeyResponseInput interface {
+//          StorageAccountKeyInvokeResponseArgs{...}
+type StorageAccountKeyInvokeResponseInput interface {
 	pulumi.Input
 
-	ToStorageAccountKeyResponseOutput() StorageAccountKeyResponseOutput
-	ToStorageAccountKeyResponseOutputWithContext(context.Context) StorageAccountKeyResponseOutput
+	ToStorageAccountKeyInvokeResponseOutput() StorageAccountKeyInvokeResponseOutput
+	ToStorageAccountKeyInvokeResponseOutputWithContext(context.Context) StorageAccountKeyInvokeResponseOutput
 }
 
 // An access key for the storage account.
-type StorageAccountKeyResponseArgs struct {
+type StorageAccountKeyInvokeResponseArgs struct {
 	// Name of the key.
 	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// Permissions for the key -- read-only or full permissions.
@@ -1686,116 +2247,124 @@ type StorageAccountKeyResponseArgs struct {
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (StorageAccountKeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountKeyResponse)(nil)).Elem()
+func (StorageAccountKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountKeyInvokeResponse)(nil)).Elem()
 }
 
-func (i StorageAccountKeyResponseArgs) ToStorageAccountKeyResponseOutput() StorageAccountKeyResponseOutput {
-	return i.ToStorageAccountKeyResponseOutputWithContext(context.Background())
+func (i StorageAccountKeyInvokeResponseArgs) ToStorageAccountKeyInvokeResponseOutput() StorageAccountKeyInvokeResponseOutput {
+	return i.ToStorageAccountKeyInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i StorageAccountKeyResponseArgs) ToStorageAccountKeyResponseOutputWithContext(ctx context.Context) StorageAccountKeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountKeyResponseOutput)
+func (i StorageAccountKeyInvokeResponseArgs) ToStorageAccountKeyInvokeResponseOutputWithContext(ctx context.Context) StorageAccountKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountKeyInvokeResponseOutput)
 }
 
-// StorageAccountKeyResponseArrayInput is an input type that accepts StorageAccountKeyResponseArray and StorageAccountKeyResponseArrayOutput values.
-// You can construct a concrete instance of `StorageAccountKeyResponseArrayInput` via:
+// StorageAccountKeyInvokeResponseArrayInput is an input type that accepts StorageAccountKeyInvokeResponseArray and StorageAccountKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `StorageAccountKeyInvokeResponseArrayInput` via:
 //
-//          StorageAccountKeyResponseArray{ StorageAccountKeyResponseArgs{...} }
-type StorageAccountKeyResponseArrayInput interface {
+//          StorageAccountKeyInvokeResponseArray{ StorageAccountKeyInvokeResponseArgs{...} }
+type StorageAccountKeyInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToStorageAccountKeyResponseArrayOutput() StorageAccountKeyResponseArrayOutput
-	ToStorageAccountKeyResponseArrayOutputWithContext(context.Context) StorageAccountKeyResponseArrayOutput
+	ToStorageAccountKeyInvokeResponseArrayOutput() StorageAccountKeyInvokeResponseArrayOutput
+	ToStorageAccountKeyInvokeResponseArrayOutputWithContext(context.Context) StorageAccountKeyInvokeResponseArrayOutput
 }
 
-type StorageAccountKeyResponseArray []StorageAccountKeyResponseInput
+type StorageAccountKeyInvokeResponseArray []StorageAccountKeyInvokeResponseInput
 
-func (StorageAccountKeyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageAccountKeyResponse)(nil)).Elem()
+func (StorageAccountKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountKeyInvokeResponse)(nil)).Elem()
 }
 
-func (i StorageAccountKeyResponseArray) ToStorageAccountKeyResponseArrayOutput() StorageAccountKeyResponseArrayOutput {
-	return i.ToStorageAccountKeyResponseArrayOutputWithContext(context.Background())
+func (i StorageAccountKeyInvokeResponseArray) ToStorageAccountKeyInvokeResponseArrayOutput() StorageAccountKeyInvokeResponseArrayOutput {
+	return i.ToStorageAccountKeyInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i StorageAccountKeyResponseArray) ToStorageAccountKeyResponseArrayOutputWithContext(ctx context.Context) StorageAccountKeyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountKeyResponseArrayOutput)
+func (i StorageAccountKeyInvokeResponseArray) ToStorageAccountKeyInvokeResponseArrayOutputWithContext(ctx context.Context) StorageAccountKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountKeyInvokeResponseArrayOutput)
 }
 
 // An access key for the storage account.
-type StorageAccountKeyResponseOutput struct{ *pulumi.OutputState }
+type StorageAccountKeyInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (StorageAccountKeyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountKeyResponse)(nil)).Elem()
+func (StorageAccountKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountKeyInvokeResponse)(nil)).Elem()
 }
 
-func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutput() StorageAccountKeyResponseOutput {
+func (o StorageAccountKeyInvokeResponseOutput) ToStorageAccountKeyInvokeResponseOutput() StorageAccountKeyInvokeResponseOutput {
 	return o
 }
 
-func (o StorageAccountKeyResponseOutput) ToStorageAccountKeyResponseOutputWithContext(ctx context.Context) StorageAccountKeyResponseOutput {
+func (o StorageAccountKeyInvokeResponseOutput) ToStorageAccountKeyInvokeResponseOutputWithContext(ctx context.Context) StorageAccountKeyInvokeResponseOutput {
 	return o
 }
 
 // Name of the key.
-func (o StorageAccountKeyResponseOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
+func (o StorageAccountKeyInvokeResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyInvokeResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
 // Permissions for the key -- read-only or full permissions.
-func (o StorageAccountKeyResponseOutput) Permissions() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
+func (o StorageAccountKeyInvokeResponseOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyInvokeResponse) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
 // Base 64-encoded value of the key.
-func (o StorageAccountKeyResponseOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountKeyResponse) string { return v.Value }).(pulumi.StringOutput)
+func (o StorageAccountKeyInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountKeyInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type StorageAccountKeyResponseArrayOutput struct{ *pulumi.OutputState }
+type StorageAccountKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (StorageAccountKeyResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageAccountKeyResponse)(nil)).Elem()
+func (StorageAccountKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountKeyInvokeResponse)(nil)).Elem()
 }
 
-func (o StorageAccountKeyResponseArrayOutput) ToStorageAccountKeyResponseArrayOutput() StorageAccountKeyResponseArrayOutput {
+func (o StorageAccountKeyInvokeResponseArrayOutput) ToStorageAccountKeyInvokeResponseArrayOutput() StorageAccountKeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o StorageAccountKeyResponseArrayOutput) ToStorageAccountKeyResponseArrayOutputWithContext(ctx context.Context) StorageAccountKeyResponseArrayOutput {
+func (o StorageAccountKeyInvokeResponseArrayOutput) ToStorageAccountKeyInvokeResponseArrayOutputWithContext(ctx context.Context) StorageAccountKeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o StorageAccountKeyResponseArrayOutput) Index(i pulumi.IntInput) StorageAccountKeyResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountKeyResponse {
-		return vs[0].([]StorageAccountKeyResponse)[vs[1].(int)]
-	}).(StorageAccountKeyResponseOutput)
+func (o StorageAccountKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) StorageAccountKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountKeyInvokeResponse {
+		return vs[0].([]StorageAccountKeyInvokeResponse)[vs[1].(int)]
+	}).(StorageAccountKeyInvokeResponseOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(CustomDomainOutput{})
 	pulumi.RegisterOutputType(CustomDomainPtrOutput{})
+	pulumi.RegisterOutputType(CustomDomainInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionServiceOutput{})
 	pulumi.RegisterOutputType(EncryptionServicePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionServiceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionServiceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionServiceResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionServiceResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionServicesOutput{})
 	pulumi.RegisterOutputType(EncryptionServicesPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionServicesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionServicesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionServicesResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionServicesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EndpointsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountKeyResponseOutput{})
-	pulumi.RegisterOutputType(StorageAccountKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(StorageAccountKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountKeyInvokeResponseArrayOutput{})
 }

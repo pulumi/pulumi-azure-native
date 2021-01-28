@@ -28,5 +28,5 @@ type ListIotDpsResourceKeysResult struct {
 	// The next link.
 	NextLink string `pulumi:"nextLink"`
 	// The list of shared access policies.
-	Value []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse `pulumi:"value"`
+	Value []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse `pulumi:"value"`
 }

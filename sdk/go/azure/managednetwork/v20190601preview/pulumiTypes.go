@@ -11,6 +11,72 @@ import (
 )
 
 // The collection of Connectivity related groups and policies within the Managed Network
+type ConnectivityCollectionInvokeResponse struct {
+	// The collection of connectivity related Managed Network Groups within the Managed Network
+	Groups []ManagedNetworkGroupInvokeResponse `pulumi:"groups"`
+	// The collection of Managed Network Peering Policies within the Managed Network
+	Peerings []ManagedNetworkPeeringPolicyInvokeResponse `pulumi:"peerings"`
+}
+
+// ConnectivityCollectionInvokeResponseInput is an input type that accepts ConnectivityCollectionInvokeResponseArgs and ConnectivityCollectionInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectivityCollectionInvokeResponseInput` via:
+//
+//          ConnectivityCollectionInvokeResponseArgs{...}
+type ConnectivityCollectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectivityCollectionInvokeResponseOutput() ConnectivityCollectionInvokeResponseOutput
+	ToConnectivityCollectionInvokeResponseOutputWithContext(context.Context) ConnectivityCollectionInvokeResponseOutput
+}
+
+// The collection of Connectivity related groups and policies within the Managed Network
+type ConnectivityCollectionInvokeResponseArgs struct {
+	// The collection of connectivity related Managed Network Groups within the Managed Network
+	Groups ManagedNetworkGroupInvokeResponseArrayInput `pulumi:"groups"`
+	// The collection of Managed Network Peering Policies within the Managed Network
+	Peerings ManagedNetworkPeeringPolicyInvokeResponseArrayInput `pulumi:"peerings"`
+}
+
+func (ConnectivityCollectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectivityCollectionInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectivityCollectionInvokeResponseArgs) ToConnectivityCollectionInvokeResponseOutput() ConnectivityCollectionInvokeResponseOutput {
+	return i.ToConnectivityCollectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectivityCollectionInvokeResponseArgs) ToConnectivityCollectionInvokeResponseOutputWithContext(ctx context.Context) ConnectivityCollectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityCollectionInvokeResponseOutput)
+}
+
+// The collection of Connectivity related groups and policies within the Managed Network
+type ConnectivityCollectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectivityCollectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectivityCollectionInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectivityCollectionInvokeResponseOutput) ToConnectivityCollectionInvokeResponseOutput() ConnectivityCollectionInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectivityCollectionInvokeResponseOutput) ToConnectivityCollectionInvokeResponseOutputWithContext(ctx context.Context) ConnectivityCollectionInvokeResponseOutput {
+	return o
+}
+
+// The collection of connectivity related Managed Network Groups within the Managed Network
+func (o ConnectivityCollectionInvokeResponseOutput) Groups() ManagedNetworkGroupInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ConnectivityCollectionInvokeResponse) []ManagedNetworkGroupInvokeResponse { return v.Groups }).(ManagedNetworkGroupInvokeResponseArrayOutput)
+}
+
+// The collection of Managed Network Peering Policies within the Managed Network
+func (o ConnectivityCollectionInvokeResponseOutput) Peerings() ManagedNetworkPeeringPolicyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ConnectivityCollectionInvokeResponse) []ManagedNetworkPeeringPolicyInvokeResponse {
+		return v.Peerings
+	}).(ManagedNetworkPeeringPolicyInvokeResponseArrayOutput)
+}
+
+// The collection of Connectivity related groups and policies within the Managed Network
 type ConnectivityCollectionResponse struct {
 	// The collection of connectivity related Managed Network Groups within the Managed Network
 	Groups []ManagedNetworkGroupResponse `pulumi:"groups"`
@@ -161,6 +227,196 @@ func (o ConnectivityCollectionResponsePtrOutput) Peerings() ManagedNetworkPeerin
 		}
 		return v.Peerings
 	}).(ManagedNetworkPeeringPolicyResponseArrayOutput)
+}
+
+// The Managed Network Group resource
+type ManagedNetworkGroupInvokeResponse struct {
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// Responsibility role under which this Managed Network Group will be created
+	Kind *string `pulumi:"kind"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The collection of management groups covered by the Managed Network
+	ManagementGroups []ResourceIdInvokeResponse `pulumi:"managementGroups"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Provisioning state of the ManagedNetwork resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The collection of  subnets covered by the Managed Network
+	Subnets []ResourceIdInvokeResponse `pulumi:"subnets"`
+	// The collection of subscriptions covered by the Managed Network
+	Subscriptions []ResourceIdInvokeResponse `pulumi:"subscriptions"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+	// The collection of virtual nets covered by the Managed Network
+	VirtualNetworks []ResourceIdInvokeResponse `pulumi:"virtualNetworks"`
+}
+
+// ManagedNetworkGroupInvokeResponseInput is an input type that accepts ManagedNetworkGroupInvokeResponseArgs and ManagedNetworkGroupInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedNetworkGroupInvokeResponseInput` via:
+//
+//          ManagedNetworkGroupInvokeResponseArgs{...}
+type ManagedNetworkGroupInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedNetworkGroupInvokeResponseOutput() ManagedNetworkGroupInvokeResponseOutput
+	ToManagedNetworkGroupInvokeResponseOutputWithContext(context.Context) ManagedNetworkGroupInvokeResponseOutput
+}
+
+// The Managed Network Group resource
+type ManagedNetworkGroupInvokeResponseArgs struct {
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id pulumi.StringInput `pulumi:"id"`
+	// Responsibility role under which this Managed Network Group will be created
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The collection of management groups covered by the Managed Network
+	ManagementGroups ResourceIdInvokeResponseArrayInput `pulumi:"managementGroups"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Provisioning state of the ManagedNetwork resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The collection of  subnets covered by the Managed Network
+	Subnets ResourceIdInvokeResponseArrayInput `pulumi:"subnets"`
+	// The collection of subscriptions covered by the Managed Network
+	Subscriptions ResourceIdInvokeResponseArrayInput `pulumi:"subscriptions"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The collection of virtual nets covered by the Managed Network
+	VirtualNetworks ResourceIdInvokeResponseArrayInput `pulumi:"virtualNetworks"`
+}
+
+func (ManagedNetworkGroupInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedNetworkGroupInvokeResponseArgs) ToManagedNetworkGroupInvokeResponseOutput() ManagedNetworkGroupInvokeResponseOutput {
+	return i.ToManagedNetworkGroupInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedNetworkGroupInvokeResponseArgs) ToManagedNetworkGroupInvokeResponseOutputWithContext(ctx context.Context) ManagedNetworkGroupInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkGroupInvokeResponseOutput)
+}
+
+// ManagedNetworkGroupInvokeResponseArrayInput is an input type that accepts ManagedNetworkGroupInvokeResponseArray and ManagedNetworkGroupInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedNetworkGroupInvokeResponseArrayInput` via:
+//
+//          ManagedNetworkGroupInvokeResponseArray{ ManagedNetworkGroupInvokeResponseArgs{...} }
+type ManagedNetworkGroupInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedNetworkGroupInvokeResponseArrayOutput() ManagedNetworkGroupInvokeResponseArrayOutput
+	ToManagedNetworkGroupInvokeResponseArrayOutputWithContext(context.Context) ManagedNetworkGroupInvokeResponseArrayOutput
+}
+
+type ManagedNetworkGroupInvokeResponseArray []ManagedNetworkGroupInvokeResponseInput
+
+func (ManagedNetworkGroupInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedNetworkGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedNetworkGroupInvokeResponseArray) ToManagedNetworkGroupInvokeResponseArrayOutput() ManagedNetworkGroupInvokeResponseArrayOutput {
+	return i.ToManagedNetworkGroupInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedNetworkGroupInvokeResponseArray) ToManagedNetworkGroupInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedNetworkGroupInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkGroupInvokeResponseArrayOutput)
+}
+
+// The Managed Network Group resource
+type ManagedNetworkGroupInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedNetworkGroupInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedNetworkGroupInvokeResponseOutput) ToManagedNetworkGroupInvokeResponseOutput() ManagedNetworkGroupInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedNetworkGroupInvokeResponseOutput) ToManagedNetworkGroupInvokeResponseOutputWithContext(ctx context.Context) ManagedNetworkGroupInvokeResponseOutput {
+	return o
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ManagedNetworkGroupInvokeResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o ManagedNetworkGroupInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Responsibility role under which this Managed Network Group will be created
+func (o ManagedNetworkGroupInvokeResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ManagedNetworkGroupInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The collection of management groups covered by the Managed Network
+func (o ManagedNetworkGroupInvokeResponseOutput) ManagementGroups() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) []ResourceIdInvokeResponse { return v.ManagementGroups }).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// The name of the resource
+func (o ManagedNetworkGroupInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the ManagedNetwork resource.
+func (o ManagedNetworkGroupInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The collection of  subnets covered by the Managed Network
+func (o ManagedNetworkGroupInvokeResponseOutput) Subnets() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) []ResourceIdInvokeResponse { return v.Subnets }).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// The collection of subscriptions covered by the Managed Network
+func (o ManagedNetworkGroupInvokeResponseOutput) Subscriptions() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) []ResourceIdInvokeResponse { return v.Subscriptions }).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o ManagedNetworkGroupInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The collection of virtual nets covered by the Managed Network
+func (o ManagedNetworkGroupInvokeResponseOutput) VirtualNetworks() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedNetworkGroupInvokeResponse) []ResourceIdInvokeResponse { return v.VirtualNetworks }).(ResourceIdInvokeResponseArrayOutput)
+}
+
+type ManagedNetworkGroupInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedNetworkGroupInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedNetworkGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedNetworkGroupInvokeResponseArrayOutput) ToManagedNetworkGroupInvokeResponseArrayOutput() ManagedNetworkGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedNetworkGroupInvokeResponseArrayOutput) ToManagedNetworkGroupInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedNetworkGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedNetworkGroupInvokeResponseArrayOutput) Index(i pulumi.IntInput) ManagedNetworkGroupInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedNetworkGroupInvokeResponse {
+		return vs[0].([]ManagedNetworkGroupInvokeResponse)[vs[1].(int)]
+	}).(ManagedNetworkGroupInvokeResponseOutput)
 }
 
 // The Managed Network Group resource
@@ -353,6 +609,144 @@ func (o ManagedNetworkGroupResponseArrayOutput) Index(i pulumi.IntInput) Managed
 	}).(ManagedNetworkGroupResponseOutput)
 }
 
+// The Managed Network Peering Policy resource
+type ManagedNetworkPeeringPolicyInvokeResponse struct {
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// Gets or sets the properties of a Managed Network Policy
+	Properties *ManagedNetworkPeeringPolicyPropertiesInvokeResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type string `pulumi:"type"`
+}
+
+// ManagedNetworkPeeringPolicyInvokeResponseInput is an input type that accepts ManagedNetworkPeeringPolicyInvokeResponseArgs and ManagedNetworkPeeringPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedNetworkPeeringPolicyInvokeResponseInput` via:
+//
+//          ManagedNetworkPeeringPolicyInvokeResponseArgs{...}
+type ManagedNetworkPeeringPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedNetworkPeeringPolicyInvokeResponseOutput() ManagedNetworkPeeringPolicyInvokeResponseOutput
+	ToManagedNetworkPeeringPolicyInvokeResponseOutputWithContext(context.Context) ManagedNetworkPeeringPolicyInvokeResponseOutput
+}
+
+// The Managed Network Peering Policy resource
+type ManagedNetworkPeeringPolicyInvokeResponseArgs struct {
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id pulumi.StringInput `pulumi:"id"`
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gets or sets the properties of a Managed Network Policy
+	Properties ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedNetworkPeeringPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkPeeringPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedNetworkPeeringPolicyInvokeResponseArgs) ToManagedNetworkPeeringPolicyInvokeResponseOutput() ManagedNetworkPeeringPolicyInvokeResponseOutput {
+	return i.ToManagedNetworkPeeringPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedNetworkPeeringPolicyInvokeResponseArgs) ToManagedNetworkPeeringPolicyInvokeResponseOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyInvokeResponseOutput)
+}
+
+// ManagedNetworkPeeringPolicyInvokeResponseArrayInput is an input type that accepts ManagedNetworkPeeringPolicyInvokeResponseArray and ManagedNetworkPeeringPolicyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedNetworkPeeringPolicyInvokeResponseArrayInput` via:
+//
+//          ManagedNetworkPeeringPolicyInvokeResponseArray{ ManagedNetworkPeeringPolicyInvokeResponseArgs{...} }
+type ManagedNetworkPeeringPolicyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedNetworkPeeringPolicyInvokeResponseArrayOutput() ManagedNetworkPeeringPolicyInvokeResponseArrayOutput
+	ToManagedNetworkPeeringPolicyInvokeResponseArrayOutputWithContext(context.Context) ManagedNetworkPeeringPolicyInvokeResponseArrayOutput
+}
+
+type ManagedNetworkPeeringPolicyInvokeResponseArray []ManagedNetworkPeeringPolicyInvokeResponseInput
+
+func (ManagedNetworkPeeringPolicyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedNetworkPeeringPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedNetworkPeeringPolicyInvokeResponseArray) ToManagedNetworkPeeringPolicyInvokeResponseArrayOutput() ManagedNetworkPeeringPolicyInvokeResponseArrayOutput {
+	return i.ToManagedNetworkPeeringPolicyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedNetworkPeeringPolicyInvokeResponseArray) ToManagedNetworkPeeringPolicyInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyInvokeResponseArrayOutput)
+}
+
+// The Managed Network Peering Policy resource
+type ManagedNetworkPeeringPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedNetworkPeeringPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkPeeringPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedNetworkPeeringPolicyInvokeResponseOutput) ToManagedNetworkPeeringPolicyInvokeResponseOutput() ManagedNetworkPeeringPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedNetworkPeeringPolicyInvokeResponseOutput) ToManagedNetworkPeeringPolicyInvokeResponseOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyInvokeResponseOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o ManagedNetworkPeeringPolicyInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ManagedNetworkPeeringPolicyInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ManagedNetworkPeeringPolicyInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the properties of a Managed Network Policy
+func (o ManagedNetworkPeeringPolicyInvokeResponseOutput) Properties() ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyInvokeResponse) *ManagedNetworkPeeringPolicyPropertiesInvokeResponse {
+		return v.Properties
+	}).(ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o ManagedNetworkPeeringPolicyInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ManagedNetworkPeeringPolicyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedNetworkPeeringPolicyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedNetworkPeeringPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedNetworkPeeringPolicyInvokeResponseArrayOutput) ToManagedNetworkPeeringPolicyInvokeResponseArrayOutput() ManagedNetworkPeeringPolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedNetworkPeeringPolicyInvokeResponseArrayOutput) ToManagedNetworkPeeringPolicyInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedNetworkPeeringPolicyInvokeResponseArrayOutput) Index(i pulumi.IntInput) ManagedNetworkPeeringPolicyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedNetworkPeeringPolicyInvokeResponse {
+		return vs[0].([]ManagedNetworkPeeringPolicyInvokeResponse)[vs[1].(int)]
+	}).(ManagedNetworkPeeringPolicyInvokeResponseOutput)
+}
+
 // Properties of a Managed Network Peering Policy
 type ManagedNetworkPeeringPolicyProperties struct {
 	// Gets or sets the hub virtual network ID
@@ -537,6 +931,239 @@ func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Spokes() ResourceIdArray
 // Gets or sets the connectivity type of a network structure policy
 func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a Managed Network Peering Policy
+type ManagedNetworkPeeringPolicyPropertiesInvokeResponse struct {
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag string `pulumi:"etag"`
+	// Gets or sets the hub virtual network ID
+	Hub *ResourceIdInvokeResponse `pulumi:"hub"`
+	// Gets or sets the mesh group IDs
+	Mesh []ResourceIdInvokeResponse `pulumi:"mesh"`
+	// Provisioning state of the ManagedNetwork resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Gets or sets the spokes group IDs
+	Spokes []ResourceIdInvokeResponse `pulumi:"spokes"`
+	// Gets or sets the connectivity type of a network structure policy
+	Type string `pulumi:"type"`
+}
+
+// ManagedNetworkPeeringPolicyPropertiesInvokeResponseInput is an input type that accepts ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs and ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedNetworkPeeringPolicyPropertiesInvokeResponseInput` via:
+//
+//          ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs{...}
+type ManagedNetworkPeeringPolicyPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput() ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput
+	ToManagedNetworkPeeringPolicyPropertiesInvokeResponseOutputWithContext(context.Context) ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput
+}
+
+// Properties of a Managed Network Peering Policy
+type ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs struct {
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Gets or sets the hub virtual network ID
+	Hub ResourceIdInvokeResponsePtrInput `pulumi:"hub"`
+	// Gets or sets the mesh group IDs
+	Mesh ResourceIdInvokeResponseArrayInput `pulumi:"mesh"`
+	// Provisioning state of the ManagedNetwork resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Gets or sets the spokes group IDs
+	Spokes ResourceIdInvokeResponseArrayInput `pulumi:"spokes"`
+	// Gets or sets the connectivity type of a network structure policy
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkPeeringPolicyPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs) ToManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput() ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput {
+	return i.ToManagedNetworkPeeringPolicyPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs) ToManagedNetworkPeeringPolicyPropertiesInvokeResponseOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput)
+}
+
+func (i ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs) ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput() ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput {
+	return i.ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs) ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput).ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrInput is an input type that accepts ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs, ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtr and ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrInput` via:
+//
+//          ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput() ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput
+	ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutputWithContext(context.Context) ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput
+}
+
+type managedNetworkPeeringPolicyPropertiesInvokeResponsePtrType ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs
+
+func ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtr(v *ManagedNetworkPeeringPolicyPropertiesInvokeResponseArgs) ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrInput {
+	return (*managedNetworkPeeringPolicyPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*managedNetworkPeeringPolicyPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedNetworkPeeringPolicyPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *managedNetworkPeeringPolicyPropertiesInvokeResponsePtrType) ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput() ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput {
+	return i.ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedNetworkPeeringPolicyPropertiesInvokeResponsePtrType) ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput)
+}
+
+// Properties of a Managed Network Peering Policy
+type ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedNetworkPeeringPolicyPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) ToManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput() ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) ToManagedNetworkPeeringPolicyPropertiesInvokeResponseOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput() ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput {
+	return o.ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesInvokeResponse) *ManagedNetworkPeeringPolicyPropertiesInvokeResponse {
+		return &v
+	}).(ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesInvokeResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Gets or sets the hub virtual network ID
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) Hub() ResourceIdInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesInvokeResponse) *ResourceIdInvokeResponse { return v.Hub }).(ResourceIdInvokeResponsePtrOutput)
+}
+
+// Gets or sets the mesh group IDs
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) Mesh() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesInvokeResponse) []ResourceIdInvokeResponse { return v.Mesh }).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// Provisioning state of the ManagedNetwork resource.
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets or sets the spokes group IDs
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) Spokes() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesInvokeResponse) []ResourceIdInvokeResponse {
+		return v.Spokes
+	}).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// Gets or sets the connectivity type of a network structure policy
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedNetworkPeeringPolicyPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput) ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput() ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput) ToManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput) Elem() ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesInvokeResponse) ManagedNetworkPeeringPolicyPropertiesInvokeResponse {
+		return *v
+	}).(ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the hub virtual network ID
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput) Hub() ResourceIdInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesInvokeResponse) *ResourceIdInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Hub
+	}).(ResourceIdInvokeResponsePtrOutput)
+}
+
+// Gets or sets the mesh group IDs
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput) Mesh() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesInvokeResponse) []ResourceIdInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Mesh
+	}).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// Provisioning state of the ManagedNetwork resource.
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the spokes group IDs
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput) Spokes() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesInvokeResponse) []ResourceIdInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Spokes
+	}).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// Gets or sets the connectivity type of a network structure policy
+func (o ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1093,6 +1720,185 @@ func (o ResourceIdArrayOutput) Index(i pulumi.IntInput) ResourceIdOutput {
 }
 
 // Generic pointer to a resource
+type ResourceIdInvokeResponse struct {
+	// Resource Id
+	Id *string `pulumi:"id"`
+}
+
+// ResourceIdInvokeResponseInput is an input type that accepts ResourceIdInvokeResponseArgs and ResourceIdInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceIdInvokeResponseInput` via:
+//
+//          ResourceIdInvokeResponseArgs{...}
+type ResourceIdInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceIdInvokeResponseOutput() ResourceIdInvokeResponseOutput
+	ToResourceIdInvokeResponseOutputWithContext(context.Context) ResourceIdInvokeResponseOutput
+}
+
+// Generic pointer to a resource
+type ResourceIdInvokeResponseArgs struct {
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ResourceIdInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceIdInvokeResponseArgs) ToResourceIdInvokeResponseOutput() ResourceIdInvokeResponseOutput {
+	return i.ToResourceIdInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceIdInvokeResponseArgs) ToResourceIdInvokeResponseOutputWithContext(ctx context.Context) ResourceIdInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdInvokeResponseOutput)
+}
+
+func (i ResourceIdInvokeResponseArgs) ToResourceIdInvokeResponsePtrOutput() ResourceIdInvokeResponsePtrOutput {
+	return i.ToResourceIdInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceIdInvokeResponseArgs) ToResourceIdInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceIdInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdInvokeResponseOutput).ToResourceIdInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceIdInvokeResponsePtrInput is an input type that accepts ResourceIdInvokeResponseArgs, ResourceIdInvokeResponsePtr and ResourceIdInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceIdInvokeResponsePtrInput` via:
+//
+//          ResourceIdInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceIdInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceIdInvokeResponsePtrOutput() ResourceIdInvokeResponsePtrOutput
+	ToResourceIdInvokeResponsePtrOutputWithContext(context.Context) ResourceIdInvokeResponsePtrOutput
+}
+
+type resourceIdInvokeResponsePtrType ResourceIdInvokeResponseArgs
+
+func ResourceIdInvokeResponsePtr(v *ResourceIdInvokeResponseArgs) ResourceIdInvokeResponsePtrInput {
+	return (*resourceIdInvokeResponsePtrType)(v)
+}
+
+func (*resourceIdInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdInvokeResponse)(nil)).Elem()
+}
+
+func (i *resourceIdInvokeResponsePtrType) ToResourceIdInvokeResponsePtrOutput() ResourceIdInvokeResponsePtrOutput {
+	return i.ToResourceIdInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceIdInvokeResponsePtrType) ToResourceIdInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceIdInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdInvokeResponsePtrOutput)
+}
+
+// ResourceIdInvokeResponseArrayInput is an input type that accepts ResourceIdInvokeResponseArray and ResourceIdInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ResourceIdInvokeResponseArrayInput` via:
+//
+//          ResourceIdInvokeResponseArray{ ResourceIdInvokeResponseArgs{...} }
+type ResourceIdInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToResourceIdInvokeResponseArrayOutput() ResourceIdInvokeResponseArrayOutput
+	ToResourceIdInvokeResponseArrayOutputWithContext(context.Context) ResourceIdInvokeResponseArrayOutput
+}
+
+type ResourceIdInvokeResponseArray []ResourceIdInvokeResponseInput
+
+func (ResourceIdInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceIdInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceIdInvokeResponseArray) ToResourceIdInvokeResponseArrayOutput() ResourceIdInvokeResponseArrayOutput {
+	return i.ToResourceIdInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceIdInvokeResponseArray) ToResourceIdInvokeResponseArrayOutputWithContext(ctx context.Context) ResourceIdInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// Generic pointer to a resource
+type ResourceIdInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceIdInvokeResponseOutput) ToResourceIdInvokeResponseOutput() ResourceIdInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceIdInvokeResponseOutput) ToResourceIdInvokeResponseOutputWithContext(ctx context.Context) ResourceIdInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceIdInvokeResponseOutput) ToResourceIdInvokeResponsePtrOutput() ResourceIdInvokeResponsePtrOutput {
+	return o.ToResourceIdInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdInvokeResponseOutput) ToResourceIdInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceIdInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ResourceIdInvokeResponse) *ResourceIdInvokeResponse {
+		return &v
+	}).(ResourceIdInvokeResponsePtrOutput)
+}
+
+// Resource Id
+func (o ResourceIdInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceIdInvokeResponsePtrOutput) ToResourceIdInvokeResponsePtrOutput() ResourceIdInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdInvokeResponsePtrOutput) ToResourceIdInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceIdInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdInvokeResponsePtrOutput) Elem() ResourceIdInvokeResponseOutput {
+	return o.ApplyT(func(v *ResourceIdInvokeResponse) ResourceIdInvokeResponse { return *v }).(ResourceIdInvokeResponseOutput)
+}
+
+// Resource Id
+func (o ResourceIdInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceIdInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceIdInvokeResponseArrayOutput) ToResourceIdInvokeResponseArrayOutput() ResourceIdInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ResourceIdInvokeResponseArrayOutput) ToResourceIdInvokeResponseArrayOutputWithContext(ctx context.Context) ResourceIdInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ResourceIdInvokeResponseArrayOutput) Index(i pulumi.IntInput) ResourceIdInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceIdInvokeResponse {
+		return vs[0].([]ResourceIdInvokeResponse)[vs[1].(int)]
+	}).(ResourceIdInvokeResponseOutput)
+}
+
+// Generic pointer to a resource
 type ResourceIdResponse struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -1463,6 +2269,88 @@ func (o ScopePtrOutput) VirtualNetworks() ResourceIdArrayOutput {
 }
 
 // Scope of a Managed Network
+type ScopeInvokeResponse struct {
+	// The collection of management groups covered by the Managed Network
+	ManagementGroups []ResourceIdInvokeResponse `pulumi:"managementGroups"`
+	// The collection of  subnets covered by the Managed Network
+	Subnets []ResourceIdInvokeResponse `pulumi:"subnets"`
+	// The collection of subscriptions covered by the Managed Network
+	Subscriptions []ResourceIdInvokeResponse `pulumi:"subscriptions"`
+	// The collection of virtual nets covered by the Managed Network
+	VirtualNetworks []ResourceIdInvokeResponse `pulumi:"virtualNetworks"`
+}
+
+// ScopeInvokeResponseInput is an input type that accepts ScopeInvokeResponseArgs and ScopeInvokeResponseOutput values.
+// You can construct a concrete instance of `ScopeInvokeResponseInput` via:
+//
+//          ScopeInvokeResponseArgs{...}
+type ScopeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToScopeInvokeResponseOutput() ScopeInvokeResponseOutput
+	ToScopeInvokeResponseOutputWithContext(context.Context) ScopeInvokeResponseOutput
+}
+
+// Scope of a Managed Network
+type ScopeInvokeResponseArgs struct {
+	// The collection of management groups covered by the Managed Network
+	ManagementGroups ResourceIdInvokeResponseArrayInput `pulumi:"managementGroups"`
+	// The collection of  subnets covered by the Managed Network
+	Subnets ResourceIdInvokeResponseArrayInput `pulumi:"subnets"`
+	// The collection of subscriptions covered by the Managed Network
+	Subscriptions ResourceIdInvokeResponseArrayInput `pulumi:"subscriptions"`
+	// The collection of virtual nets covered by the Managed Network
+	VirtualNetworks ResourceIdInvokeResponseArrayInput `pulumi:"virtualNetworks"`
+}
+
+func (ScopeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeInvokeResponse)(nil)).Elem()
+}
+
+func (i ScopeInvokeResponseArgs) ToScopeInvokeResponseOutput() ScopeInvokeResponseOutput {
+	return i.ToScopeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ScopeInvokeResponseArgs) ToScopeInvokeResponseOutputWithContext(ctx context.Context) ScopeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeInvokeResponseOutput)
+}
+
+// Scope of a Managed Network
+type ScopeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScopeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeInvokeResponse)(nil)).Elem()
+}
+
+func (o ScopeInvokeResponseOutput) ToScopeInvokeResponseOutput() ScopeInvokeResponseOutput {
+	return o
+}
+
+func (o ScopeInvokeResponseOutput) ToScopeInvokeResponseOutputWithContext(ctx context.Context) ScopeInvokeResponseOutput {
+	return o
+}
+
+// The collection of management groups covered by the Managed Network
+func (o ScopeInvokeResponseOutput) ManagementGroups() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ScopeInvokeResponse) []ResourceIdInvokeResponse { return v.ManagementGroups }).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// The collection of  subnets covered by the Managed Network
+func (o ScopeInvokeResponseOutput) Subnets() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ScopeInvokeResponse) []ResourceIdInvokeResponse { return v.Subnets }).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// The collection of subscriptions covered by the Managed Network
+func (o ScopeInvokeResponseOutput) Subscriptions() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ScopeInvokeResponse) []ResourceIdInvokeResponse { return v.Subscriptions }).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// The collection of virtual nets covered by the Managed Network
+func (o ScopeInvokeResponseOutput) VirtualNetworks() ResourceIdInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ScopeInvokeResponse) []ResourceIdInvokeResponse { return v.VirtualNetworks }).(ResourceIdInvokeResponseArrayOutput)
+}
+
+// Scope of a Managed Network
 type ScopeResponse struct {
 	// The collection of management groups covered by the Managed Network
 	ManagementGroups []ResourceIdResponse `pulumi:"managementGroups"`
@@ -1654,12 +2542,19 @@ func (o ScopeResponsePtrOutput) VirtualNetworks() ResourceIdResponseArrayOutput 
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConnectivityCollectionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConnectivityCollectionResponseOutput{})
 	pulumi.RegisterOutputType(ConnectivityCollectionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedNetworkGroupInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedNetworkGroupInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedNetworkGroupResponseOutput{})
 	pulumi.RegisterOutputType(ManagedNetworkGroupResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyResponseOutput{})
@@ -1667,11 +2562,15 @@ func init() {
 	pulumi.RegisterOutputType(ResourceIdOutput{})
 	pulumi.RegisterOutputType(ResourceIdPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdArrayOutput{})
+	pulumi.RegisterOutputType(ResourceIdInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceIdResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScopeOutput{})
 	pulumi.RegisterOutputType(ScopePtrOutput{})
+	pulumi.RegisterOutputType(ScopeInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ScopeResponseOutput{})
 	pulumi.RegisterOutputType(ScopeResponsePtrOutput{})
 }

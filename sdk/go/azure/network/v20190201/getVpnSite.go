@@ -26,11 +26,11 @@ type LookupVpnSiteArgs struct {
 // VpnSite Resource.
 type LookupVpnSiteResult struct {
 	// The AddressSpace that contains an array of IP address ranges.
-	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
+	AddressSpace *AddressSpaceInvokeResponse `pulumi:"addressSpace"`
 	// The set of bgp properties.
-	BgpProperties *BgpSettingsResponse `pulumi:"bgpProperties"`
+	BgpProperties *BgpSettingsInvokeResponse `pulumi:"bgpProperties"`
 	// The device properties
-	DeviceProperties *DevicePropertiesResponse `pulumi:"deviceProperties"`
+	DeviceProperties *DevicePropertiesInvokeResponse `pulumi:"deviceProperties"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource ID.
@@ -52,5 +52,5 @@ type LookupVpnSiteResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The VirtualWAN to which the vpnSite belongs
-	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
+	VirtualWan *SubResourceInvokeResponse `pulumi:"virtualWan"`
 }

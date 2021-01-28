@@ -34,7 +34,7 @@ type LookupBackupScheduleGroupResult struct {
 	// The name.
 	Name string `pulumi:"name"`
 	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
-	StartTime TimeResponse `pulumi:"startTime"`
+	StartTime TimeInvokeResponse `pulumi:"startTime"`
 	// The type.
 	Type string `pulumi:"type"`
 }

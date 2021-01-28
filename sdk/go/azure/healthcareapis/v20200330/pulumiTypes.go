@@ -113,6 +113,155 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 }
 
 // The Private Endpoint Connection resource.
+type PrivateEndpointConnectionInvokeResponse struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointInvokeResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionInvokeResponseInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArgs and PrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArgs{...}
+type PrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput
+	ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseOutput
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionInvokeResponseArgs struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointInvokeResponsePtrInput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponseInput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// PrivateEndpointConnectionInvokeResponseArrayInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArray and PrivateEndpointConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArray{ PrivateEndpointConnectionInvokeResponseArgs{...} }
+type PrivateEndpointConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput
+	ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput
+}
+
+type PrivateEndpointConnectionInvokeResponseArray []PrivateEndpointConnectionInvokeResponseInput
+
+func (PrivateEndpointConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o PrivateEndpointConnectionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateEndpoint() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *PrivateEndpointInvokeResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) PrivateLinkServiceConnectionStateInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionInvokeResponse {
+		return vs[0].([]PrivateEndpointConnectionInvokeResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// The Private Endpoint Connection resource.
 type PrivateEndpointConnectionResponse struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
@@ -257,6 +406,140 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
 		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
 	}).(PrivateEndpointConnectionResponseOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointInvokeResponse struct {
+	// The ARM identifier for Private Endpoint
+	Id string `pulumi:"id"`
+}
+
+// PrivateEndpointInvokeResponseInput is an input type that accepts PrivateEndpointInvokeResponseArgs and PrivateEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponseInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+type PrivateEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput
+	ToPrivateEndpointInvokeResponseOutputWithContext(context.Context) PrivateEndpointInvokeResponseOutput
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointInvokeResponseArgs struct {
+	// The ARM identifier for Private Endpoint
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PrivateEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return i.ToPrivateEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput)
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput).ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointInvokeResponsePtrInput is an input type that accepts PrivateEndpointInvokeResponseArgs, PrivateEndpointInvokeResponsePtr and PrivateEndpointInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponsePtrInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput
+	ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Context) PrivateEndpointInvokeResponsePtrOutput
+}
+
+type privateEndpointInvokeResponsePtrType PrivateEndpointInvokeResponseArgs
+
+func PrivateEndpointInvokeResponsePtr(v *PrivateEndpointInvokeResponseArgs) PrivateEndpointInvokeResponsePtrInput {
+	return (*privateEndpointInvokeResponsePtrType)(v)
+}
+
+func (*privateEndpointInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) *PrivateEndpointInvokeResponse {
+		return &v
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// The ARM identifier for Private Endpoint
+func (o PrivateEndpointInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) Elem() PrivateEndpointInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) PrivateEndpointInvokeResponse { return *v }).(PrivateEndpointInvokeResponseOutput)
+}
+
+// The ARM identifier for Private Endpoint
+func (o PrivateEndpointInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Private Endpoint resource.
@@ -566,6 +849,79 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 // A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateInvokeResponse struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionStateInvokeResponseArgs and PrivateLinkServiceConnectionStateInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStateInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionStateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateInvokeResponseArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -840,6 +1196,106 @@ func (o ServiceAccessPolicyEntryArrayOutput) Index(i pulumi.IntInput) ServiceAcc
 }
 
 // An access policy entry.
+type ServiceAccessPolicyEntryInvokeResponse struct {
+	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+	ObjectId string `pulumi:"objectId"`
+}
+
+// ServiceAccessPolicyEntryInvokeResponseInput is an input type that accepts ServiceAccessPolicyEntryInvokeResponseArgs and ServiceAccessPolicyEntryInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceAccessPolicyEntryInvokeResponseInput` via:
+//
+//          ServiceAccessPolicyEntryInvokeResponseArgs{...}
+type ServiceAccessPolicyEntryInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceAccessPolicyEntryInvokeResponseOutput() ServiceAccessPolicyEntryInvokeResponseOutput
+	ToServiceAccessPolicyEntryInvokeResponseOutputWithContext(context.Context) ServiceAccessPolicyEntryInvokeResponseOutput
+}
+
+// An access policy entry.
+type ServiceAccessPolicyEntryInvokeResponseArgs struct {
+	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+}
+
+func (ServiceAccessPolicyEntryInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccessPolicyEntryInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceAccessPolicyEntryInvokeResponseArgs) ToServiceAccessPolicyEntryInvokeResponseOutput() ServiceAccessPolicyEntryInvokeResponseOutput {
+	return i.ToServiceAccessPolicyEntryInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceAccessPolicyEntryInvokeResponseArgs) ToServiceAccessPolicyEntryInvokeResponseOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPolicyEntryInvokeResponseOutput)
+}
+
+// ServiceAccessPolicyEntryInvokeResponseArrayInput is an input type that accepts ServiceAccessPolicyEntryInvokeResponseArray and ServiceAccessPolicyEntryInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ServiceAccessPolicyEntryInvokeResponseArrayInput` via:
+//
+//          ServiceAccessPolicyEntryInvokeResponseArray{ ServiceAccessPolicyEntryInvokeResponseArgs{...} }
+type ServiceAccessPolicyEntryInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToServiceAccessPolicyEntryInvokeResponseArrayOutput() ServiceAccessPolicyEntryInvokeResponseArrayOutput
+	ToServiceAccessPolicyEntryInvokeResponseArrayOutputWithContext(context.Context) ServiceAccessPolicyEntryInvokeResponseArrayOutput
+}
+
+type ServiceAccessPolicyEntryInvokeResponseArray []ServiceAccessPolicyEntryInvokeResponseInput
+
+func (ServiceAccessPolicyEntryInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceAccessPolicyEntryInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceAccessPolicyEntryInvokeResponseArray) ToServiceAccessPolicyEntryInvokeResponseArrayOutput() ServiceAccessPolicyEntryInvokeResponseArrayOutput {
+	return i.ToServiceAccessPolicyEntryInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceAccessPolicyEntryInvokeResponseArray) ToServiceAccessPolicyEntryInvokeResponseArrayOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPolicyEntryInvokeResponseArrayOutput)
+}
+
+// An access policy entry.
+type ServiceAccessPolicyEntryInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccessPolicyEntryInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccessPolicyEntryInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceAccessPolicyEntryInvokeResponseOutput) ToServiceAccessPolicyEntryInvokeResponseOutput() ServiceAccessPolicyEntryInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceAccessPolicyEntryInvokeResponseOutput) ToServiceAccessPolicyEntryInvokeResponseOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryInvokeResponseOutput {
+	return o
+}
+
+// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+func (o ServiceAccessPolicyEntryInvokeResponseOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAccessPolicyEntryInvokeResponse) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+type ServiceAccessPolicyEntryInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccessPolicyEntryInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceAccessPolicyEntryInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceAccessPolicyEntryInvokeResponseArrayOutput) ToServiceAccessPolicyEntryInvokeResponseArrayOutput() ServiceAccessPolicyEntryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServiceAccessPolicyEntryInvokeResponseArrayOutput) ToServiceAccessPolicyEntryInvokeResponseArrayOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServiceAccessPolicyEntryInvokeResponseArrayOutput) Index(i pulumi.IntInput) ServiceAccessPolicyEntryInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceAccessPolicyEntryInvokeResponse {
+		return vs[0].([]ServiceAccessPolicyEntryInvokeResponse)[vs[1].(int)]
+	}).(ServiceAccessPolicyEntryInvokeResponseOutput)
+}
+
+// An access policy entry.
 type ServiceAccessPolicyEntryResponse struct {
 	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
 	ObjectId string `pulumi:"objectId"`
@@ -1104,6 +1560,180 @@ func (o ServiceAuthenticationConfigurationInfoPtrOutput) Authority() pulumi.Stri
 // If the SMART on FHIR proxy is enabled
 func (o ServiceAuthenticationConfigurationInfoPtrOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceAuthenticationConfigurationInfo) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SmartProxyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Authentication configuration information
+type ServiceAuthenticationConfigurationInfoInvokeResponse struct {
+	// The audience url for the service
+	Audience *string `pulumi:"audience"`
+	// The authority url for the service
+	Authority *string `pulumi:"authority"`
+	// If the SMART on FHIR proxy is enabled
+	SmartProxyEnabled *bool `pulumi:"smartProxyEnabled"`
+}
+
+// ServiceAuthenticationConfigurationInfoInvokeResponseInput is an input type that accepts ServiceAuthenticationConfigurationInfoInvokeResponseArgs and ServiceAuthenticationConfigurationInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceAuthenticationConfigurationInfoInvokeResponseInput` via:
+//
+//          ServiceAuthenticationConfigurationInfoInvokeResponseArgs{...}
+type ServiceAuthenticationConfigurationInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceAuthenticationConfigurationInfoInvokeResponseOutput() ServiceAuthenticationConfigurationInfoInvokeResponseOutput
+	ToServiceAuthenticationConfigurationInfoInvokeResponseOutputWithContext(context.Context) ServiceAuthenticationConfigurationInfoInvokeResponseOutput
+}
+
+// Authentication configuration information
+type ServiceAuthenticationConfigurationInfoInvokeResponseArgs struct {
+	// The audience url for the service
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// The authority url for the service
+	Authority pulumi.StringPtrInput `pulumi:"authority"`
+	// If the SMART on FHIR proxy is enabled
+	SmartProxyEnabled pulumi.BoolPtrInput `pulumi:"smartProxyEnabled"`
+}
+
+func (ServiceAuthenticationConfigurationInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAuthenticationConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceAuthenticationConfigurationInfoInvokeResponseArgs) ToServiceAuthenticationConfigurationInfoInvokeResponseOutput() ServiceAuthenticationConfigurationInfoInvokeResponseOutput {
+	return i.ToServiceAuthenticationConfigurationInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceAuthenticationConfigurationInfoInvokeResponseArgs) ToServiceAuthenticationConfigurationInfoInvokeResponseOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthenticationConfigurationInfoInvokeResponseOutput)
+}
+
+func (i ServiceAuthenticationConfigurationInfoInvokeResponseArgs) ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput() ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput {
+	return i.ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAuthenticationConfigurationInfoInvokeResponseArgs) ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthenticationConfigurationInfoInvokeResponseOutput).ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceAuthenticationConfigurationInfoInvokeResponsePtrInput is an input type that accepts ServiceAuthenticationConfigurationInfoInvokeResponseArgs, ServiceAuthenticationConfigurationInfoInvokeResponsePtr and ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceAuthenticationConfigurationInfoInvokeResponsePtrInput` via:
+//
+//          ServiceAuthenticationConfigurationInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceAuthenticationConfigurationInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput() ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput
+	ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutputWithContext(context.Context) ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput
+}
+
+type serviceAuthenticationConfigurationInfoInvokeResponsePtrType ServiceAuthenticationConfigurationInfoInvokeResponseArgs
+
+func ServiceAuthenticationConfigurationInfoInvokeResponsePtr(v *ServiceAuthenticationConfigurationInfoInvokeResponseArgs) ServiceAuthenticationConfigurationInfoInvokeResponsePtrInput {
+	return (*serviceAuthenticationConfigurationInfoInvokeResponsePtrType)(v)
+}
+
+func (*serviceAuthenticationConfigurationInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAuthenticationConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *serviceAuthenticationConfigurationInfoInvokeResponsePtrType) ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput() ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput {
+	return i.ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAuthenticationConfigurationInfoInvokeResponsePtrType) ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// Authentication configuration information
+type ServiceAuthenticationConfigurationInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceAuthenticationConfigurationInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAuthenticationConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceAuthenticationConfigurationInfoInvokeResponseOutput) ToServiceAuthenticationConfigurationInfoInvokeResponseOutput() ServiceAuthenticationConfigurationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceAuthenticationConfigurationInfoInvokeResponseOutput) ToServiceAuthenticationConfigurationInfoInvokeResponseOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceAuthenticationConfigurationInfoInvokeResponseOutput) ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput() ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput {
+	return o.ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAuthenticationConfigurationInfoInvokeResponseOutput) ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceAuthenticationConfigurationInfoInvokeResponse) *ServiceAuthenticationConfigurationInfoInvokeResponse {
+		return &v
+	}).(ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// The audience url for the service
+func (o ServiceAuthenticationConfigurationInfoInvokeResponseOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAuthenticationConfigurationInfoInvokeResponse) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// The authority url for the service
+func (o ServiceAuthenticationConfigurationInfoInvokeResponseOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAuthenticationConfigurationInfoInvokeResponse) *string { return v.Authority }).(pulumi.StringPtrOutput)
+}
+
+// If the SMART on FHIR proxy is enabled
+func (o ServiceAuthenticationConfigurationInfoInvokeResponseOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceAuthenticationConfigurationInfoInvokeResponse) *bool { return v.SmartProxyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAuthenticationConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput) ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput() ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput) ToServiceAuthenticationConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput) Elem() ServiceAuthenticationConfigurationInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceAuthenticationConfigurationInfoInvokeResponse) ServiceAuthenticationConfigurationInfoInvokeResponse {
+		return *v
+	}).(ServiceAuthenticationConfigurationInfoInvokeResponseOutput)
+}
+
+// The audience url for the service
+func (o ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAuthenticationConfigurationInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authority url for the service
+func (o ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAuthenticationConfigurationInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authority
+	}).(pulumi.StringPtrOutput)
+}
+
+// If the SMART on FHIR proxy is enabled
+func (o ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceAuthenticationConfigurationInfoInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1496,6 +2126,218 @@ func (o ServiceCorsConfigurationInfoPtrOutput) Origins() pulumi.StringArrayOutpu
 }
 
 // The settings for the CORS configuration of the service instance.
+type ServiceCorsConfigurationInfoInvokeResponse struct {
+	// If credentials are allowed via CORS.
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	// The headers to be allowed via CORS.
+	Headers []string `pulumi:"headers"`
+	// The max age to be allowed via CORS.
+	MaxAge *int `pulumi:"maxAge"`
+	// The methods to be allowed via CORS.
+	Methods []string `pulumi:"methods"`
+	// The origins to be allowed via CORS.
+	Origins []string `pulumi:"origins"`
+}
+
+// ServiceCorsConfigurationInfoInvokeResponseInput is an input type that accepts ServiceCorsConfigurationInfoInvokeResponseArgs and ServiceCorsConfigurationInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceCorsConfigurationInfoInvokeResponseInput` via:
+//
+//          ServiceCorsConfigurationInfoInvokeResponseArgs{...}
+type ServiceCorsConfigurationInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceCorsConfigurationInfoInvokeResponseOutput() ServiceCorsConfigurationInfoInvokeResponseOutput
+	ToServiceCorsConfigurationInfoInvokeResponseOutputWithContext(context.Context) ServiceCorsConfigurationInfoInvokeResponseOutput
+}
+
+// The settings for the CORS configuration of the service instance.
+type ServiceCorsConfigurationInfoInvokeResponseArgs struct {
+	// If credentials are allowed via CORS.
+	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
+	// The headers to be allowed via CORS.
+	Headers pulumi.StringArrayInput `pulumi:"headers"`
+	// The max age to be allowed via CORS.
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
+	// The methods to be allowed via CORS.
+	Methods pulumi.StringArrayInput `pulumi:"methods"`
+	// The origins to be allowed via CORS.
+	Origins pulumi.StringArrayInput `pulumi:"origins"`
+}
+
+func (ServiceCorsConfigurationInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCorsConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceCorsConfigurationInfoInvokeResponseArgs) ToServiceCorsConfigurationInfoInvokeResponseOutput() ServiceCorsConfigurationInfoInvokeResponseOutput {
+	return i.ToServiceCorsConfigurationInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceCorsConfigurationInfoInvokeResponseArgs) ToServiceCorsConfigurationInfoInvokeResponseOutputWithContext(ctx context.Context) ServiceCorsConfigurationInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorsConfigurationInfoInvokeResponseOutput)
+}
+
+func (i ServiceCorsConfigurationInfoInvokeResponseArgs) ToServiceCorsConfigurationInfoInvokeResponsePtrOutput() ServiceCorsConfigurationInfoInvokeResponsePtrOutput {
+	return i.ToServiceCorsConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceCorsConfigurationInfoInvokeResponseArgs) ToServiceCorsConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceCorsConfigurationInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorsConfigurationInfoInvokeResponseOutput).ToServiceCorsConfigurationInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceCorsConfigurationInfoInvokeResponsePtrInput is an input type that accepts ServiceCorsConfigurationInfoInvokeResponseArgs, ServiceCorsConfigurationInfoInvokeResponsePtr and ServiceCorsConfigurationInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceCorsConfigurationInfoInvokeResponsePtrInput` via:
+//
+//          ServiceCorsConfigurationInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceCorsConfigurationInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceCorsConfigurationInfoInvokeResponsePtrOutput() ServiceCorsConfigurationInfoInvokeResponsePtrOutput
+	ToServiceCorsConfigurationInfoInvokeResponsePtrOutputWithContext(context.Context) ServiceCorsConfigurationInfoInvokeResponsePtrOutput
+}
+
+type serviceCorsConfigurationInfoInvokeResponsePtrType ServiceCorsConfigurationInfoInvokeResponseArgs
+
+func ServiceCorsConfigurationInfoInvokeResponsePtr(v *ServiceCorsConfigurationInfoInvokeResponseArgs) ServiceCorsConfigurationInfoInvokeResponsePtrInput {
+	return (*serviceCorsConfigurationInfoInvokeResponsePtrType)(v)
+}
+
+func (*serviceCorsConfigurationInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCorsConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *serviceCorsConfigurationInfoInvokeResponsePtrType) ToServiceCorsConfigurationInfoInvokeResponsePtrOutput() ServiceCorsConfigurationInfoInvokeResponsePtrOutput {
+	return i.ToServiceCorsConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceCorsConfigurationInfoInvokeResponsePtrType) ToServiceCorsConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceCorsConfigurationInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorsConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// The settings for the CORS configuration of the service instance.
+type ServiceCorsConfigurationInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceCorsConfigurationInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCorsConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceCorsConfigurationInfoInvokeResponseOutput) ToServiceCorsConfigurationInfoInvokeResponseOutput() ServiceCorsConfigurationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceCorsConfigurationInfoInvokeResponseOutput) ToServiceCorsConfigurationInfoInvokeResponseOutputWithContext(ctx context.Context) ServiceCorsConfigurationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceCorsConfigurationInfoInvokeResponseOutput) ToServiceCorsConfigurationInfoInvokeResponsePtrOutput() ServiceCorsConfigurationInfoInvokeResponsePtrOutput {
+	return o.ToServiceCorsConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceCorsConfigurationInfoInvokeResponseOutput) ToServiceCorsConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceCorsConfigurationInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceCorsConfigurationInfoInvokeResponse) *ServiceCorsConfigurationInfoInvokeResponse {
+		return &v
+	}).(ServiceCorsConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o ServiceCorsConfigurationInfoInvokeResponseOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceCorsConfigurationInfoInvokeResponse) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// The headers to be allowed via CORS.
+func (o ServiceCorsConfigurationInfoInvokeResponseOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceCorsConfigurationInfoInvokeResponse) []string { return v.Headers }).(pulumi.StringArrayOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o ServiceCorsConfigurationInfoInvokeResponseOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceCorsConfigurationInfoInvokeResponse) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o ServiceCorsConfigurationInfoInvokeResponseOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceCorsConfigurationInfoInvokeResponse) []string { return v.Methods }).(pulumi.StringArrayOutput)
+}
+
+// The origins to be allowed via CORS.
+func (o ServiceCorsConfigurationInfoInvokeResponseOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceCorsConfigurationInfoInvokeResponse) []string { return v.Origins }).(pulumi.StringArrayOutput)
+}
+
+type ServiceCorsConfigurationInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceCorsConfigurationInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCorsConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceCorsConfigurationInfoInvokeResponsePtrOutput) ToServiceCorsConfigurationInfoInvokeResponsePtrOutput() ServiceCorsConfigurationInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceCorsConfigurationInfoInvokeResponsePtrOutput) ToServiceCorsConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceCorsConfigurationInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceCorsConfigurationInfoInvokeResponsePtrOutput) Elem() ServiceCorsConfigurationInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceCorsConfigurationInfoInvokeResponse) ServiceCorsConfigurationInfoInvokeResponse {
+		return *v
+	}).(ServiceCorsConfigurationInfoInvokeResponseOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o ServiceCorsConfigurationInfoInvokeResponsePtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceCorsConfigurationInfoInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The headers to be allowed via CORS.
+func (o ServiceCorsConfigurationInfoInvokeResponsePtrOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceCorsConfigurationInfoInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o ServiceCorsConfigurationInfoInvokeResponsePtrOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceCorsConfigurationInfoInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAge
+	}).(pulumi.IntPtrOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o ServiceCorsConfigurationInfoInvokeResponsePtrOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceCorsConfigurationInfoInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Methods
+	}).(pulumi.StringArrayOutput)
+}
+
+// The origins to be allowed via CORS.
+func (o ServiceCorsConfigurationInfoInvokeResponsePtrOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceCorsConfigurationInfoInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Origins
+	}).(pulumi.StringArrayOutput)
+}
+
+// The settings for the CORS configuration of the service instance.
 type ServiceCorsConfigurationInfoResponse struct {
 	// If credentials are allowed via CORS.
 	AllowCredentials *bool `pulumi:"allowCredentials"`
@@ -1859,6 +2701,161 @@ func (o ServiceCosmosDbConfigurationInfoPtrOutput) OfferThroughput() pulumi.IntP
 }
 
 // The settings for the Cosmos DB database backing the service.
+type ServiceCosmosDbConfigurationInfoInvokeResponse struct {
+	// The URI of the customer-managed key for the backing database.
+	KeyVaultKeyUri *string `pulumi:"keyVaultKeyUri"`
+	// The provisioned throughput for the backing database.
+	OfferThroughput *int `pulumi:"offerThroughput"`
+}
+
+// ServiceCosmosDbConfigurationInfoInvokeResponseInput is an input type that accepts ServiceCosmosDbConfigurationInfoInvokeResponseArgs and ServiceCosmosDbConfigurationInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceCosmosDbConfigurationInfoInvokeResponseInput` via:
+//
+//          ServiceCosmosDbConfigurationInfoInvokeResponseArgs{...}
+type ServiceCosmosDbConfigurationInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceCosmosDbConfigurationInfoInvokeResponseOutput() ServiceCosmosDbConfigurationInfoInvokeResponseOutput
+	ToServiceCosmosDbConfigurationInfoInvokeResponseOutputWithContext(context.Context) ServiceCosmosDbConfigurationInfoInvokeResponseOutput
+}
+
+// The settings for the Cosmos DB database backing the service.
+type ServiceCosmosDbConfigurationInfoInvokeResponseArgs struct {
+	// The URI of the customer-managed key for the backing database.
+	KeyVaultKeyUri pulumi.StringPtrInput `pulumi:"keyVaultKeyUri"`
+	// The provisioned throughput for the backing database.
+	OfferThroughput pulumi.IntPtrInput `pulumi:"offerThroughput"`
+}
+
+func (ServiceCosmosDbConfigurationInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCosmosDbConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceCosmosDbConfigurationInfoInvokeResponseArgs) ToServiceCosmosDbConfigurationInfoInvokeResponseOutput() ServiceCosmosDbConfigurationInfoInvokeResponseOutput {
+	return i.ToServiceCosmosDbConfigurationInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceCosmosDbConfigurationInfoInvokeResponseArgs) ToServiceCosmosDbConfigurationInfoInvokeResponseOutputWithContext(ctx context.Context) ServiceCosmosDbConfigurationInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCosmosDbConfigurationInfoInvokeResponseOutput)
+}
+
+func (i ServiceCosmosDbConfigurationInfoInvokeResponseArgs) ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput() ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput {
+	return i.ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceCosmosDbConfigurationInfoInvokeResponseArgs) ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCosmosDbConfigurationInfoInvokeResponseOutput).ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceCosmosDbConfigurationInfoInvokeResponsePtrInput is an input type that accepts ServiceCosmosDbConfigurationInfoInvokeResponseArgs, ServiceCosmosDbConfigurationInfoInvokeResponsePtr and ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceCosmosDbConfigurationInfoInvokeResponsePtrInput` via:
+//
+//          ServiceCosmosDbConfigurationInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceCosmosDbConfigurationInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput() ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput
+	ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutputWithContext(context.Context) ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput
+}
+
+type serviceCosmosDbConfigurationInfoInvokeResponsePtrType ServiceCosmosDbConfigurationInfoInvokeResponseArgs
+
+func ServiceCosmosDbConfigurationInfoInvokeResponsePtr(v *ServiceCosmosDbConfigurationInfoInvokeResponseArgs) ServiceCosmosDbConfigurationInfoInvokeResponsePtrInput {
+	return (*serviceCosmosDbConfigurationInfoInvokeResponsePtrType)(v)
+}
+
+func (*serviceCosmosDbConfigurationInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCosmosDbConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *serviceCosmosDbConfigurationInfoInvokeResponsePtrType) ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput() ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput {
+	return i.ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceCosmosDbConfigurationInfoInvokeResponsePtrType) ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// The settings for the Cosmos DB database backing the service.
+type ServiceCosmosDbConfigurationInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceCosmosDbConfigurationInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCosmosDbConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceCosmosDbConfigurationInfoInvokeResponseOutput) ToServiceCosmosDbConfigurationInfoInvokeResponseOutput() ServiceCosmosDbConfigurationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceCosmosDbConfigurationInfoInvokeResponseOutput) ToServiceCosmosDbConfigurationInfoInvokeResponseOutputWithContext(ctx context.Context) ServiceCosmosDbConfigurationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceCosmosDbConfigurationInfoInvokeResponseOutput) ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput() ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput {
+	return o.ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceCosmosDbConfigurationInfoInvokeResponseOutput) ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceCosmosDbConfigurationInfoInvokeResponse) *ServiceCosmosDbConfigurationInfoInvokeResponse {
+		return &v
+	}).(ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// The URI of the customer-managed key for the backing database.
+func (o ServiceCosmosDbConfigurationInfoInvokeResponseOutput) KeyVaultKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceCosmosDbConfigurationInfoInvokeResponse) *string { return v.KeyVaultKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// The provisioned throughput for the backing database.
+func (o ServiceCosmosDbConfigurationInfoInvokeResponseOutput) OfferThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceCosmosDbConfigurationInfoInvokeResponse) *int { return v.OfferThroughput }).(pulumi.IntPtrOutput)
+}
+
+type ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceCosmosDbConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput) ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput() ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput) ToServiceCosmosDbConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput) Elem() ServiceCosmosDbConfigurationInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfoInvokeResponse) ServiceCosmosDbConfigurationInfoInvokeResponse {
+		return *v
+	}).(ServiceCosmosDbConfigurationInfoInvokeResponseOutput)
+}
+
+// The URI of the customer-managed key for the backing database.
+func (o ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput) KeyVaultKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultKeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provisioned throughput for the backing database.
+func (o ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput) OfferThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceCosmosDbConfigurationInfoInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OfferThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
+// The settings for the Cosmos DB database backing the service.
 type ServiceCosmosDbConfigurationInfoResponse struct {
 	// The URI of the customer-managed key for the backing database.
 	KeyVaultKeyUri *string `pulumi:"keyVaultKeyUri"`
@@ -2138,6 +3135,142 @@ func (o ServiceExportConfigurationInfoPtrOutput) Elem() ServiceExportConfigurati
 // The name of the default export storage account.
 func (o ServiceExportConfigurationInfoPtrOutput) StorageAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceExportConfigurationInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Export operation configuration information
+type ServiceExportConfigurationInfoInvokeResponse struct {
+	// The name of the default export storage account.
+	StorageAccountName *string `pulumi:"storageAccountName"`
+}
+
+// ServiceExportConfigurationInfoInvokeResponseInput is an input type that accepts ServiceExportConfigurationInfoInvokeResponseArgs and ServiceExportConfigurationInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceExportConfigurationInfoInvokeResponseInput` via:
+//
+//          ServiceExportConfigurationInfoInvokeResponseArgs{...}
+type ServiceExportConfigurationInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceExportConfigurationInfoInvokeResponseOutput() ServiceExportConfigurationInfoInvokeResponseOutput
+	ToServiceExportConfigurationInfoInvokeResponseOutputWithContext(context.Context) ServiceExportConfigurationInfoInvokeResponseOutput
+}
+
+// Export operation configuration information
+type ServiceExportConfigurationInfoInvokeResponseArgs struct {
+	// The name of the default export storage account.
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+}
+
+func (ServiceExportConfigurationInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceExportConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceExportConfigurationInfoInvokeResponseArgs) ToServiceExportConfigurationInfoInvokeResponseOutput() ServiceExportConfigurationInfoInvokeResponseOutput {
+	return i.ToServiceExportConfigurationInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceExportConfigurationInfoInvokeResponseArgs) ToServiceExportConfigurationInfoInvokeResponseOutputWithContext(ctx context.Context) ServiceExportConfigurationInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceExportConfigurationInfoInvokeResponseOutput)
+}
+
+func (i ServiceExportConfigurationInfoInvokeResponseArgs) ToServiceExportConfigurationInfoInvokeResponsePtrOutput() ServiceExportConfigurationInfoInvokeResponsePtrOutput {
+	return i.ToServiceExportConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceExportConfigurationInfoInvokeResponseArgs) ToServiceExportConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceExportConfigurationInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceExportConfigurationInfoInvokeResponseOutput).ToServiceExportConfigurationInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceExportConfigurationInfoInvokeResponsePtrInput is an input type that accepts ServiceExportConfigurationInfoInvokeResponseArgs, ServiceExportConfigurationInfoInvokeResponsePtr and ServiceExportConfigurationInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceExportConfigurationInfoInvokeResponsePtrInput` via:
+//
+//          ServiceExportConfigurationInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceExportConfigurationInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceExportConfigurationInfoInvokeResponsePtrOutput() ServiceExportConfigurationInfoInvokeResponsePtrOutput
+	ToServiceExportConfigurationInfoInvokeResponsePtrOutputWithContext(context.Context) ServiceExportConfigurationInfoInvokeResponsePtrOutput
+}
+
+type serviceExportConfigurationInfoInvokeResponsePtrType ServiceExportConfigurationInfoInvokeResponseArgs
+
+func ServiceExportConfigurationInfoInvokeResponsePtr(v *ServiceExportConfigurationInfoInvokeResponseArgs) ServiceExportConfigurationInfoInvokeResponsePtrInput {
+	return (*serviceExportConfigurationInfoInvokeResponsePtrType)(v)
+}
+
+func (*serviceExportConfigurationInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceExportConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *serviceExportConfigurationInfoInvokeResponsePtrType) ToServiceExportConfigurationInfoInvokeResponsePtrOutput() ServiceExportConfigurationInfoInvokeResponsePtrOutput {
+	return i.ToServiceExportConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceExportConfigurationInfoInvokeResponsePtrType) ToServiceExportConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceExportConfigurationInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceExportConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// Export operation configuration information
+type ServiceExportConfigurationInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceExportConfigurationInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceExportConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceExportConfigurationInfoInvokeResponseOutput) ToServiceExportConfigurationInfoInvokeResponseOutput() ServiceExportConfigurationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceExportConfigurationInfoInvokeResponseOutput) ToServiceExportConfigurationInfoInvokeResponseOutputWithContext(ctx context.Context) ServiceExportConfigurationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceExportConfigurationInfoInvokeResponseOutput) ToServiceExportConfigurationInfoInvokeResponsePtrOutput() ServiceExportConfigurationInfoInvokeResponsePtrOutput {
+	return o.ToServiceExportConfigurationInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceExportConfigurationInfoInvokeResponseOutput) ToServiceExportConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceExportConfigurationInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceExportConfigurationInfoInvokeResponse) *ServiceExportConfigurationInfoInvokeResponse {
+		return &v
+	}).(ServiceExportConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// The name of the default export storage account.
+func (o ServiceExportConfigurationInfoInvokeResponseOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceExportConfigurationInfoInvokeResponse) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+type ServiceExportConfigurationInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceExportConfigurationInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceExportConfigurationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceExportConfigurationInfoInvokeResponsePtrOutput) ToServiceExportConfigurationInfoInvokeResponsePtrOutput() ServiceExportConfigurationInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceExportConfigurationInfoInvokeResponsePtrOutput) ToServiceExportConfigurationInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceExportConfigurationInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceExportConfigurationInfoInvokeResponsePtrOutput) Elem() ServiceExportConfigurationInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceExportConfigurationInfoInvokeResponse) ServiceExportConfigurationInfoInvokeResponse {
+		return *v
+	}).(ServiceExportConfigurationInfoInvokeResponseOutput)
+}
+
+// The name of the default export storage account.
+func (o ServiceExportConfigurationInfoInvokeResponsePtrOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceExportConfigurationInfoInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2527,6 +3660,136 @@ func (o ServicesPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutpu
 		}
 		return v.PublicNetworkAccess
 	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of a service instance.
+type ServicesPropertiesInvokeResponse struct {
+	// The access policies of the service instance.
+	AccessPolicies []ServiceAccessPolicyEntryInvokeResponse `pulumi:"accessPolicies"`
+	// The authentication configuration for the service instance.
+	AuthenticationConfiguration *ServiceAuthenticationConfigurationInfoInvokeResponse `pulumi:"authenticationConfiguration"`
+	// The settings for the CORS configuration of the service instance.
+	CorsConfiguration *ServiceCorsConfigurationInfoInvokeResponse `pulumi:"corsConfiguration"`
+	// The settings for the Cosmos DB database backing the service.
+	CosmosDbConfiguration *ServiceCosmosDbConfigurationInfoInvokeResponse `pulumi:"cosmosDbConfiguration"`
+	// The settings for the export operation of the service instance.
+	ExportConfiguration *ServiceExportConfigurationInfoInvokeResponse `pulumi:"exportConfiguration"`
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+}
+
+// ServicesPropertiesInvokeResponseInput is an input type that accepts ServicesPropertiesInvokeResponseArgs and ServicesPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ServicesPropertiesInvokeResponseInput` via:
+//
+//          ServicesPropertiesInvokeResponseArgs{...}
+type ServicesPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServicesPropertiesInvokeResponseOutput() ServicesPropertiesInvokeResponseOutput
+	ToServicesPropertiesInvokeResponseOutputWithContext(context.Context) ServicesPropertiesInvokeResponseOutput
+}
+
+// The properties of a service instance.
+type ServicesPropertiesInvokeResponseArgs struct {
+	// The access policies of the service instance.
+	AccessPolicies ServiceAccessPolicyEntryInvokeResponseArrayInput `pulumi:"accessPolicies"`
+	// The authentication configuration for the service instance.
+	AuthenticationConfiguration ServiceAuthenticationConfigurationInfoInvokeResponsePtrInput `pulumi:"authenticationConfiguration"`
+	// The settings for the CORS configuration of the service instance.
+	CorsConfiguration ServiceCorsConfigurationInfoInvokeResponsePtrInput `pulumi:"corsConfiguration"`
+	// The settings for the Cosmos DB database backing the service.
+	CosmosDbConfiguration ServiceCosmosDbConfigurationInfoInvokeResponsePtrInput `pulumi:"cosmosDbConfiguration"`
+	// The settings for the export operation of the service instance.
+	ExportConfiguration ServiceExportConfigurationInfoInvokeResponsePtrInput `pulumi:"exportConfiguration"`
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections PrivateEndpointConnectionInvokeResponseArrayInput `pulumi:"privateEndpointConnections"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+}
+
+func (ServicesPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicesPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ServicesPropertiesInvokeResponseArgs) ToServicesPropertiesInvokeResponseOutput() ServicesPropertiesInvokeResponseOutput {
+	return i.ToServicesPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServicesPropertiesInvokeResponseArgs) ToServicesPropertiesInvokeResponseOutputWithContext(ctx context.Context) ServicesPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicesPropertiesInvokeResponseOutput)
+}
+
+// The properties of a service instance.
+type ServicesPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServicesPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicesPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ServicesPropertiesInvokeResponseOutput) ToServicesPropertiesInvokeResponseOutput() ServicesPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ServicesPropertiesInvokeResponseOutput) ToServicesPropertiesInvokeResponseOutputWithContext(ctx context.Context) ServicesPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The access policies of the service instance.
+func (o ServicesPropertiesInvokeResponseOutput) AccessPolicies() ServiceAccessPolicyEntryInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ServicesPropertiesInvokeResponse) []ServiceAccessPolicyEntryInvokeResponse {
+		return v.AccessPolicies
+	}).(ServiceAccessPolicyEntryInvokeResponseArrayOutput)
+}
+
+// The authentication configuration for the service instance.
+func (o ServicesPropertiesInvokeResponseOutput) AuthenticationConfiguration() ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServicesPropertiesInvokeResponse) *ServiceAuthenticationConfigurationInfoInvokeResponse {
+		return v.AuthenticationConfiguration
+	}).(ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// The settings for the CORS configuration of the service instance.
+func (o ServicesPropertiesInvokeResponseOutput) CorsConfiguration() ServiceCorsConfigurationInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServicesPropertiesInvokeResponse) *ServiceCorsConfigurationInfoInvokeResponse {
+		return v.CorsConfiguration
+	}).(ServiceCorsConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// The settings for the Cosmos DB database backing the service.
+func (o ServicesPropertiesInvokeResponseOutput) CosmosDbConfiguration() ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServicesPropertiesInvokeResponse) *ServiceCosmosDbConfigurationInfoInvokeResponse {
+		return v.CosmosDbConfiguration
+	}).(ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// The settings for the export operation of the service instance.
+func (o ServicesPropertiesInvokeResponseOutput) ExportConfiguration() ServiceExportConfigurationInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServicesPropertiesInvokeResponse) *ServiceExportConfigurationInfoInvokeResponse {
+		return v.ExportConfiguration
+	}).(ServiceExportConfigurationInfoInvokeResponsePtrOutput)
+}
+
+// The list of private endpoint connections that are set up for this resource.
+func (o ServicesPropertiesInvokeResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ServicesPropertiesInvokeResponse) []PrivateEndpointConnectionInvokeResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// The provisioning state.
+func (o ServicesPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ServicesPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+func (o ServicesPropertiesInvokeResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicesPropertiesInvokeResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // The properties of a service instance.
@@ -2939,6 +4202,79 @@ func (o ServicesResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Setting indicating whether the service has a managed identity associated with it.
+type ServicesResourceInvokeResponseIdentity struct {
+	// The principal ID of the resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of the resource.
+	TenantId string `pulumi:"tenantId"`
+	// Type of identity being specified, currently SystemAssigned and None are allowed.
+	Type *string `pulumi:"type"`
+}
+
+// ServicesResourceInvokeResponseIdentityInput is an input type that accepts ServicesResourceInvokeResponseIdentityArgs and ServicesResourceInvokeResponseIdentityOutput values.
+// You can construct a concrete instance of `ServicesResourceInvokeResponseIdentityInput` via:
+//
+//          ServicesResourceInvokeResponseIdentityArgs{...}
+type ServicesResourceInvokeResponseIdentityInput interface {
+	pulumi.Input
+
+	ToServicesResourceInvokeResponseIdentityOutput() ServicesResourceInvokeResponseIdentityOutput
+	ToServicesResourceInvokeResponseIdentityOutputWithContext(context.Context) ServicesResourceInvokeResponseIdentityOutput
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ServicesResourceInvokeResponseIdentityArgs struct {
+	// The principal ID of the resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of the resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Type of identity being specified, currently SystemAssigned and None are allowed.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ServicesResourceInvokeResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicesResourceInvokeResponseIdentity)(nil)).Elem()
+}
+
+func (i ServicesResourceInvokeResponseIdentityArgs) ToServicesResourceInvokeResponseIdentityOutput() ServicesResourceInvokeResponseIdentityOutput {
+	return i.ToServicesResourceInvokeResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i ServicesResourceInvokeResponseIdentityArgs) ToServicesResourceInvokeResponseIdentityOutputWithContext(ctx context.Context) ServicesResourceInvokeResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicesResourceInvokeResponseIdentityOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ServicesResourceInvokeResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (ServicesResourceInvokeResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicesResourceInvokeResponseIdentity)(nil)).Elem()
+}
+
+func (o ServicesResourceInvokeResponseIdentityOutput) ToServicesResourceInvokeResponseIdentityOutput() ServicesResourceInvokeResponseIdentityOutput {
+	return o
+}
+
+func (o ServicesResourceInvokeResponseIdentityOutput) ToServicesResourceInvokeResponseIdentityOutputWithContext(ctx context.Context) ServicesResourceInvokeResponseIdentityOutput {
+	return o
+}
+
+// The principal ID of the resource identity.
+func (o ServicesResourceInvokeResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServicesResourceInvokeResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of the resource.
+func (o ServicesResourceInvokeResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServicesResourceInvokeResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Type of identity being specified, currently SystemAssigned and None are allowed.
+func (o ServicesResourceInvokeResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicesResourceInvokeResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
 type ServicesResourceResponseIdentity struct {
 	// The principal ID of the resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -3113,40 +4449,57 @@ func (o ServicesResourceResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceAccessPolicyEntryInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceAccessPolicyEntryInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryResponseOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoPtrOutput{})
+	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoResponseOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationInfoOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationInfoPtrOutput{})
+	pulumi.RegisterOutputType(ServiceCorsConfigurationInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceCorsConfigurationInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationInfoResponseOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceCosmosDbConfigurationInfoOutput{})
 	pulumi.RegisterOutputType(ServiceCosmosDbConfigurationInfoPtrOutput{})
+	pulumi.RegisterOutputType(ServiceCosmosDbConfigurationInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceCosmosDbConfigurationInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceCosmosDbConfigurationInfoResponseOutput{})
 	pulumi.RegisterOutputType(ServiceCosmosDbConfigurationInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceExportConfigurationInfoOutput{})
 	pulumi.RegisterOutputType(ServiceExportConfigurationInfoPtrOutput{})
+	pulumi.RegisterOutputType(ServiceExportConfigurationInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceExportConfigurationInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceExportConfigurationInfoResponseOutput{})
 	pulumi.RegisterOutputType(ServiceExportConfigurationInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServicesPropertiesOutput{})
 	pulumi.RegisterOutputType(ServicesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ServicesPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServicesPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServicesPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServicesResourceIdentityOutput{})
 	pulumi.RegisterOutputType(ServicesResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ServicesResourceInvokeResponseIdentityOutput{})
 	pulumi.RegisterOutputType(ServicesResourceResponseIdentityOutput{})
 	pulumi.RegisterOutputType(ServicesResourceResponseIdentityPtrOutput{})
 }

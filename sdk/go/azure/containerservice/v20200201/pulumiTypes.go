@@ -164,6 +164,72 @@ func (o ContainerServiceLinuxProfilePtrOutput) Ssh() ContainerServiceSshConfigur
 }
 
 // Profile for Linux VMs in the container service cluster.
+type ContainerServiceLinuxProfileInvokeResponse struct {
+	// The administrator username to use for Linux VMs.
+	AdminUsername string `pulumi:"adminUsername"`
+	// SSH configuration for Linux-based VMs running on Azure.
+	Ssh ContainerServiceSshConfigurationInvokeResponse `pulumi:"ssh"`
+}
+
+// ContainerServiceLinuxProfileInvokeResponseInput is an input type that accepts ContainerServiceLinuxProfileInvokeResponseArgs and ContainerServiceLinuxProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerServiceLinuxProfileInvokeResponseInput` via:
+//
+//          ContainerServiceLinuxProfileInvokeResponseArgs{...}
+type ContainerServiceLinuxProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerServiceLinuxProfileInvokeResponseOutput() ContainerServiceLinuxProfileInvokeResponseOutput
+	ToContainerServiceLinuxProfileInvokeResponseOutputWithContext(context.Context) ContainerServiceLinuxProfileInvokeResponseOutput
+}
+
+// Profile for Linux VMs in the container service cluster.
+type ContainerServiceLinuxProfileInvokeResponseArgs struct {
+	// The administrator username to use for Linux VMs.
+	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	// SSH configuration for Linux-based VMs running on Azure.
+	Ssh ContainerServiceSshConfigurationInvokeResponseInput `pulumi:"ssh"`
+}
+
+func (ContainerServiceLinuxProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceLinuxProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceLinuxProfileInvokeResponseArgs) ToContainerServiceLinuxProfileInvokeResponseOutput() ContainerServiceLinuxProfileInvokeResponseOutput {
+	return i.ToContainerServiceLinuxProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceLinuxProfileInvokeResponseArgs) ToContainerServiceLinuxProfileInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileInvokeResponseOutput)
+}
+
+// Profile for Linux VMs in the container service cluster.
+type ContainerServiceLinuxProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceLinuxProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceLinuxProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceLinuxProfileInvokeResponseOutput) ToContainerServiceLinuxProfileInvokeResponseOutput() ContainerServiceLinuxProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerServiceLinuxProfileInvokeResponseOutput) ToContainerServiceLinuxProfileInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileInvokeResponseOutput {
+	return o
+}
+
+// The administrator username to use for Linux VMs.
+func (o ContainerServiceLinuxProfileInvokeResponseOutput) AdminUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceLinuxProfileInvokeResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
+}
+
+// SSH configuration for Linux-based VMs running on Azure.
+func (o ContainerServiceLinuxProfileInvokeResponseOutput) Ssh() ContainerServiceSshConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v ContainerServiceLinuxProfileInvokeResponse) ContainerServiceSshConfigurationInvokeResponse {
+		return v.Ssh
+	}).(ContainerServiceSshConfigurationInvokeResponseOutput)
+}
+
+// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponse struct {
 	// The administrator username to use for Linux VMs.
 	AdminUsername string `pulumi:"adminUsername"`
@@ -624,6 +690,144 @@ func (o ContainerServiceNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrO
 }
 
 // Profile of network configuration.
+type ContainerServiceNetworkProfileInvokeResponse struct {
+	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+	DnsServiceIP *string `pulumi:"dnsServiceIP"`
+	// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
+	// Profile of the cluster load balancer.
+	LoadBalancerProfile *ManagedClusterLoadBalancerProfileInvokeResponse `pulumi:"loadBalancerProfile"`
+	// The load balancer sku for the managed cluster.
+	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
+	// Network mode used for building Kubernetes network.
+	NetworkMode *string `pulumi:"networkMode"`
+	// Network plugin used for building Kubernetes network.
+	NetworkPlugin *string `pulumi:"networkPlugin"`
+	// Network policy used for building Kubernetes network.
+	NetworkPolicy *string `pulumi:"networkPolicy"`
+	// The outbound (egress) routing method.
+	OutboundType *string `pulumi:"outboundType"`
+	// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+	PodCidr *string `pulumi:"podCidr"`
+	// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+	ServiceCidr *string `pulumi:"serviceCidr"`
+}
+
+// ContainerServiceNetworkProfileInvokeResponseInput is an input type that accepts ContainerServiceNetworkProfileInvokeResponseArgs and ContainerServiceNetworkProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerServiceNetworkProfileInvokeResponseInput` via:
+//
+//          ContainerServiceNetworkProfileInvokeResponseArgs{...}
+type ContainerServiceNetworkProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerServiceNetworkProfileInvokeResponseOutput() ContainerServiceNetworkProfileInvokeResponseOutput
+	ToContainerServiceNetworkProfileInvokeResponseOutputWithContext(context.Context) ContainerServiceNetworkProfileInvokeResponseOutput
+}
+
+// Profile of network configuration.
+type ContainerServiceNetworkProfileInvokeResponseArgs struct {
+	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+	DnsServiceIP pulumi.StringPtrInput `pulumi:"dnsServiceIP"`
+	// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
+	// Profile of the cluster load balancer.
+	LoadBalancerProfile ManagedClusterLoadBalancerProfileInvokeResponsePtrInput `pulumi:"loadBalancerProfile"`
+	// The load balancer sku for the managed cluster.
+	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
+	// Network mode used for building Kubernetes network.
+	NetworkMode pulumi.StringPtrInput `pulumi:"networkMode"`
+	// Network plugin used for building Kubernetes network.
+	NetworkPlugin pulumi.StringPtrInput `pulumi:"networkPlugin"`
+	// Network policy used for building Kubernetes network.
+	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
+	// The outbound (egress) routing method.
+	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
+	// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
+	// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
+}
+
+func (ContainerServiceNetworkProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceNetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceNetworkProfileInvokeResponseArgs) ToContainerServiceNetworkProfileInvokeResponseOutput() ContainerServiceNetworkProfileInvokeResponseOutput {
+	return i.ToContainerServiceNetworkProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceNetworkProfileInvokeResponseArgs) ToContainerServiceNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceNetworkProfileInvokeResponseOutput)
+}
+
+// Profile of network configuration.
+type ContainerServiceNetworkProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceNetworkProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceNetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) ToContainerServiceNetworkProfileInvokeResponseOutput() ContainerServiceNetworkProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) ToContainerServiceNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileInvokeResponseOutput {
+	return o
+}
+
+// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) DnsServiceIP() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileInvokeResponse) *string { return v.DnsServiceIP }).(pulumi.StringPtrOutput)
+}
+
+// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) DockerBridgeCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileInvokeResponse) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
+}
+
+// Profile of the cluster load balancer.
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) LoadBalancerProfile() ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileInvokeResponse) *ManagedClusterLoadBalancerProfileInvokeResponse {
+		return v.LoadBalancerProfile
+	}).(ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput)
+}
+
+// The load balancer sku for the managed cluster.
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) LoadBalancerSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileInvokeResponse) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
+}
+
+// Network mode used for building Kubernetes network.
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileInvokeResponse) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
+}
+
+// Network plugin used for building Kubernetes network.
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) NetworkPlugin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileInvokeResponse) *string { return v.NetworkPlugin }).(pulumi.StringPtrOutput)
+}
+
+// Network policy used for building Kubernetes network.
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) NetworkPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileInvokeResponse) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The outbound (egress) routing method.
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) OutboundType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileInvokeResponse) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
+}
+
+// A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) PodCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileInvokeResponse) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
+}
+
+// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+func (o ContainerServiceNetworkProfileInvokeResponseOutput) ServiceCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceNetworkProfileInvokeResponse) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
+}
+
+// Profile of network configuration.
 type ContainerServiceNetworkProfileResponse struct {
 	// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
 	DnsServiceIP *string `pulumi:"dnsServiceIP"`
@@ -1065,6 +1269,63 @@ func (o ContainerServiceSshConfigurationPtrOutput) PublicKeys() ContainerService
 }
 
 // SSH configuration for Linux-based VMs running on Azure.
+type ContainerServiceSshConfigurationInvokeResponse struct {
+	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+	PublicKeys []ContainerServiceSshPublicKeyInvokeResponse `pulumi:"publicKeys"`
+}
+
+// ContainerServiceSshConfigurationInvokeResponseInput is an input type that accepts ContainerServiceSshConfigurationInvokeResponseArgs and ContainerServiceSshConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerServiceSshConfigurationInvokeResponseInput` via:
+//
+//          ContainerServiceSshConfigurationInvokeResponseArgs{...}
+type ContainerServiceSshConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerServiceSshConfigurationInvokeResponseOutput() ContainerServiceSshConfigurationInvokeResponseOutput
+	ToContainerServiceSshConfigurationInvokeResponseOutputWithContext(context.Context) ContainerServiceSshConfigurationInvokeResponseOutput
+}
+
+// SSH configuration for Linux-based VMs running on Azure.
+type ContainerServiceSshConfigurationInvokeResponseArgs struct {
+	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+	PublicKeys ContainerServiceSshPublicKeyInvokeResponseArrayInput `pulumi:"publicKeys"`
+}
+
+func (ContainerServiceSshConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceSshConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceSshConfigurationInvokeResponseArgs) ToContainerServiceSshConfigurationInvokeResponseOutput() ContainerServiceSshConfigurationInvokeResponseOutput {
+	return i.ToContainerServiceSshConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceSshConfigurationInvokeResponseArgs) ToContainerServiceSshConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationInvokeResponseOutput)
+}
+
+// SSH configuration for Linux-based VMs running on Azure.
+type ContainerServiceSshConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceSshConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceSshConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceSshConfigurationInvokeResponseOutput) ToContainerServiceSshConfigurationInvokeResponseOutput() ContainerServiceSshConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerServiceSshConfigurationInvokeResponseOutput) ToContainerServiceSshConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+func (o ContainerServiceSshConfigurationInvokeResponseOutput) PublicKeys() ContainerServiceSshPublicKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ContainerServiceSshConfigurationInvokeResponse) []ContainerServiceSshPublicKeyInvokeResponse {
+		return v.PublicKeys
+	}).(ContainerServiceSshPublicKeyInvokeResponseArrayOutput)
+}
+
+// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponse struct {
 	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys []ContainerServiceSshPublicKeyResponse `pulumi:"publicKeys"`
@@ -1301,6 +1562,106 @@ func (o ContainerServiceSshPublicKeyArrayOutput) Index(i pulumi.IntInput) Contai
 }
 
 // Contains information about SSH certificate public key data.
+type ContainerServiceSshPublicKeyInvokeResponse struct {
+	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+	KeyData string `pulumi:"keyData"`
+}
+
+// ContainerServiceSshPublicKeyInvokeResponseInput is an input type that accepts ContainerServiceSshPublicKeyInvokeResponseArgs and ContainerServiceSshPublicKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerServiceSshPublicKeyInvokeResponseInput` via:
+//
+//          ContainerServiceSshPublicKeyInvokeResponseArgs{...}
+type ContainerServiceSshPublicKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerServiceSshPublicKeyInvokeResponseOutput() ContainerServiceSshPublicKeyInvokeResponseOutput
+	ToContainerServiceSshPublicKeyInvokeResponseOutputWithContext(context.Context) ContainerServiceSshPublicKeyInvokeResponseOutput
+}
+
+// Contains information about SSH certificate public key data.
+type ContainerServiceSshPublicKeyInvokeResponseArgs struct {
+	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+	KeyData pulumi.StringInput `pulumi:"keyData"`
+}
+
+func (ContainerServiceSshPublicKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceSshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceSshPublicKeyInvokeResponseArgs) ToContainerServiceSshPublicKeyInvokeResponseOutput() ContainerServiceSshPublicKeyInvokeResponseOutput {
+	return i.ToContainerServiceSshPublicKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceSshPublicKeyInvokeResponseArgs) ToContainerServiceSshPublicKeyInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyInvokeResponseOutput)
+}
+
+// ContainerServiceSshPublicKeyInvokeResponseArrayInput is an input type that accepts ContainerServiceSshPublicKeyInvokeResponseArray and ContainerServiceSshPublicKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ContainerServiceSshPublicKeyInvokeResponseArrayInput` via:
+//
+//          ContainerServiceSshPublicKeyInvokeResponseArray{ ContainerServiceSshPublicKeyInvokeResponseArgs{...} }
+type ContainerServiceSshPublicKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToContainerServiceSshPublicKeyInvokeResponseArrayOutput() ContainerServiceSshPublicKeyInvokeResponseArrayOutput
+	ToContainerServiceSshPublicKeyInvokeResponseArrayOutputWithContext(context.Context) ContainerServiceSshPublicKeyInvokeResponseArrayOutput
+}
+
+type ContainerServiceSshPublicKeyInvokeResponseArray []ContainerServiceSshPublicKeyInvokeResponseInput
+
+func (ContainerServiceSshPublicKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerServiceSshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceSshPublicKeyInvokeResponseArray) ToContainerServiceSshPublicKeyInvokeResponseArrayOutput() ContainerServiceSshPublicKeyInvokeResponseArrayOutput {
+	return i.ToContainerServiceSshPublicKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceSshPublicKeyInvokeResponseArray) ToContainerServiceSshPublicKeyInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyInvokeResponseArrayOutput)
+}
+
+// Contains information about SSH certificate public key data.
+type ContainerServiceSshPublicKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceSshPublicKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceSshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceSshPublicKeyInvokeResponseOutput) ToContainerServiceSshPublicKeyInvokeResponseOutput() ContainerServiceSshPublicKeyInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerServiceSshPublicKeyInvokeResponseOutput) ToContainerServiceSshPublicKeyInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyInvokeResponseOutput {
+	return o
+}
+
+// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+func (o ContainerServiceSshPublicKeyInvokeResponseOutput) KeyData() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceSshPublicKeyInvokeResponse) string { return v.KeyData }).(pulumi.StringOutput)
+}
+
+type ContainerServiceSshPublicKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceSshPublicKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerServiceSshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceSshPublicKeyInvokeResponseArrayOutput) ToContainerServiceSshPublicKeyInvokeResponseArrayOutput() ContainerServiceSshPublicKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerServiceSshPublicKeyInvokeResponseArrayOutput) ToContainerServiceSshPublicKeyInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerServiceSshPublicKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) ContainerServiceSshPublicKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerServiceSshPublicKeyInvokeResponse {
+		return vs[0].([]ContainerServiceSshPublicKeyInvokeResponse)[vs[1].(int)]
+	}).(ContainerServiceSshPublicKeyInvokeResponseOutput)
+}
+
+// Contains information about SSH certificate public key data.
 type ContainerServiceSshPublicKeyResponse struct {
 	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 	KeyData string `pulumi:"keyData"`
@@ -1401,112 +1762,112 @@ func (o ContainerServiceSshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput
 }
 
 // The credential result response.
-type CredentialResultResponse struct {
+type CredentialResultInvokeResponse struct {
 	// The name of the credential.
 	Name string `pulumi:"name"`
 	// Base64-encoded Kubernetes configuration file.
 	Value string `pulumi:"value"`
 }
 
-// CredentialResultResponseInput is an input type that accepts CredentialResultResponseArgs and CredentialResultResponseOutput values.
-// You can construct a concrete instance of `CredentialResultResponseInput` via:
+// CredentialResultInvokeResponseInput is an input type that accepts CredentialResultInvokeResponseArgs and CredentialResultInvokeResponseOutput values.
+// You can construct a concrete instance of `CredentialResultInvokeResponseInput` via:
 //
-//          CredentialResultResponseArgs{...}
-type CredentialResultResponseInput interface {
+//          CredentialResultInvokeResponseArgs{...}
+type CredentialResultInvokeResponseInput interface {
 	pulumi.Input
 
-	ToCredentialResultResponseOutput() CredentialResultResponseOutput
-	ToCredentialResultResponseOutputWithContext(context.Context) CredentialResultResponseOutput
+	ToCredentialResultInvokeResponseOutput() CredentialResultInvokeResponseOutput
+	ToCredentialResultInvokeResponseOutputWithContext(context.Context) CredentialResultInvokeResponseOutput
 }
 
 // The credential result response.
-type CredentialResultResponseArgs struct {
+type CredentialResultInvokeResponseArgs struct {
 	// The name of the credential.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Base64-encoded Kubernetes configuration file.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (CredentialResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
+func (CredentialResultInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialResultInvokeResponse)(nil)).Elem()
 }
 
-func (i CredentialResultResponseArgs) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
-	return i.ToCredentialResultResponseOutputWithContext(context.Background())
+func (i CredentialResultInvokeResponseArgs) ToCredentialResultInvokeResponseOutput() CredentialResultInvokeResponseOutput {
+	return i.ToCredentialResultInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i CredentialResultResponseArgs) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseOutput)
+func (i CredentialResultInvokeResponseArgs) ToCredentialResultInvokeResponseOutputWithContext(ctx context.Context) CredentialResultInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultInvokeResponseOutput)
 }
 
-// CredentialResultResponseArrayInput is an input type that accepts CredentialResultResponseArray and CredentialResultResponseArrayOutput values.
-// You can construct a concrete instance of `CredentialResultResponseArrayInput` via:
+// CredentialResultInvokeResponseArrayInput is an input type that accepts CredentialResultInvokeResponseArray and CredentialResultInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CredentialResultInvokeResponseArrayInput` via:
 //
-//          CredentialResultResponseArray{ CredentialResultResponseArgs{...} }
-type CredentialResultResponseArrayInput interface {
+//          CredentialResultInvokeResponseArray{ CredentialResultInvokeResponseArgs{...} }
+type CredentialResultInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput
-	ToCredentialResultResponseArrayOutputWithContext(context.Context) CredentialResultResponseArrayOutput
+	ToCredentialResultInvokeResponseArrayOutput() CredentialResultInvokeResponseArrayOutput
+	ToCredentialResultInvokeResponseArrayOutputWithContext(context.Context) CredentialResultInvokeResponseArrayOutput
 }
 
-type CredentialResultResponseArray []CredentialResultResponseInput
+type CredentialResultInvokeResponseArray []CredentialResultInvokeResponseInput
 
-func (CredentialResultResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
+func (CredentialResultInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CredentialResultInvokeResponse)(nil)).Elem()
 }
 
-func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
-	return i.ToCredentialResultResponseArrayOutputWithContext(context.Background())
+func (i CredentialResultInvokeResponseArray) ToCredentialResultInvokeResponseArrayOutput() CredentialResultInvokeResponseArrayOutput {
+	return i.ToCredentialResultInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseArrayOutput)
+func (i CredentialResultInvokeResponseArray) ToCredentialResultInvokeResponseArrayOutputWithContext(ctx context.Context) CredentialResultInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultInvokeResponseArrayOutput)
 }
 
 // The credential result response.
-type CredentialResultResponseOutput struct{ *pulumi.OutputState }
+type CredentialResultInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (CredentialResultResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
+func (CredentialResultInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CredentialResultInvokeResponse)(nil)).Elem()
 }
 
-func (o CredentialResultResponseOutput) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
+func (o CredentialResultInvokeResponseOutput) ToCredentialResultInvokeResponseOutput() CredentialResultInvokeResponseOutput {
 	return o
 }
 
-func (o CredentialResultResponseOutput) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
+func (o CredentialResultInvokeResponseOutput) ToCredentialResultInvokeResponseOutputWithContext(ctx context.Context) CredentialResultInvokeResponseOutput {
 	return o
 }
 
 // The name of the credential.
-func (o CredentialResultResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CredentialResultResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o CredentialResultInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialResultInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Base64-encoded Kubernetes configuration file.
-func (o CredentialResultResponseOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CredentialResultResponse) string { return v.Value }).(pulumi.StringOutput)
+func (o CredentialResultInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CredentialResultInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type CredentialResultResponseArrayOutput struct{ *pulumi.OutputState }
+type CredentialResultInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (CredentialResultResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
+func (CredentialResultInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CredentialResultInvokeResponse)(nil)).Elem()
 }
 
-func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
+func (o CredentialResultInvokeResponseArrayOutput) ToCredentialResultInvokeResponseArrayOutput() CredentialResultInvokeResponseArrayOutput {
 	return o
 }
 
-func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
+func (o CredentialResultInvokeResponseArrayOutput) ToCredentialResultInvokeResponseArrayOutputWithContext(ctx context.Context) CredentialResultInvokeResponseArrayOutput {
 	return o
 }
 
-func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) CredentialResultResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultResponse {
-		return vs[0].([]CredentialResultResponse)[vs[1].(int)]
-	}).(CredentialResultResponseOutput)
+func (o CredentialResultInvokeResponseArrayOutput) Index(i pulumi.IntInput) CredentialResultInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultInvokeResponse {
+		return vs[0].([]CredentialResultInvokeResponse)[vs[1].(int)]
+	}).(CredentialResultInvokeResponseOutput)
 }
 
 // AADProfile specifies attributes for Azure Active Directory integration.
@@ -1698,6 +2059,88 @@ func (o ManagedClusterAADProfilePtrOutput) TenantID() pulumi.StringPtrOutput {
 		}
 		return v.TenantID
 	}).(pulumi.StringPtrOutput)
+}
+
+// AADProfile specifies attributes for Azure Active Directory integration.
+type ManagedClusterAADProfileInvokeResponse struct {
+	// The client AAD application ID.
+	ClientAppID string `pulumi:"clientAppID"`
+	// The server AAD application ID.
+	ServerAppID string `pulumi:"serverAppID"`
+	// The server AAD application secret.
+	ServerAppSecret *string `pulumi:"serverAppSecret"`
+	// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+	TenantID *string `pulumi:"tenantID"`
+}
+
+// ManagedClusterAADProfileInvokeResponseInput is an input type that accepts ManagedClusterAADProfileInvokeResponseArgs and ManagedClusterAADProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterAADProfileInvokeResponseInput` via:
+//
+//          ManagedClusterAADProfileInvokeResponseArgs{...}
+type ManagedClusterAADProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterAADProfileInvokeResponseOutput() ManagedClusterAADProfileInvokeResponseOutput
+	ToManagedClusterAADProfileInvokeResponseOutputWithContext(context.Context) ManagedClusterAADProfileInvokeResponseOutput
+}
+
+// AADProfile specifies attributes for Azure Active Directory integration.
+type ManagedClusterAADProfileInvokeResponseArgs struct {
+	// The client AAD application ID.
+	ClientAppID pulumi.StringInput `pulumi:"clientAppID"`
+	// The server AAD application ID.
+	ServerAppID pulumi.StringInput `pulumi:"serverAppID"`
+	// The server AAD application secret.
+	ServerAppSecret pulumi.StringPtrInput `pulumi:"serverAppSecret"`
+	// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+	TenantID pulumi.StringPtrInput `pulumi:"tenantID"`
+}
+
+func (ManagedClusterAADProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAADProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAADProfileInvokeResponseArgs) ToManagedClusterAADProfileInvokeResponseOutput() ManagedClusterAADProfileInvokeResponseOutput {
+	return i.ToManagedClusterAADProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAADProfileInvokeResponseArgs) ToManagedClusterAADProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterAADProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAADProfileInvokeResponseOutput)
+}
+
+// AADProfile specifies attributes for Azure Active Directory integration.
+type ManagedClusterAADProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAADProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAADProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAADProfileInvokeResponseOutput) ToManagedClusterAADProfileInvokeResponseOutput() ManagedClusterAADProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedClusterAADProfileInvokeResponseOutput) ToManagedClusterAADProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterAADProfileInvokeResponseOutput {
+	return o
+}
+
+// The client AAD application ID.
+func (o ManagedClusterAADProfileInvokeResponseOutput) ClientAppID() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterAADProfileInvokeResponse) string { return v.ClientAppID }).(pulumi.StringOutput)
+}
+
+// The server AAD application ID.
+func (o ManagedClusterAADProfileInvokeResponseOutput) ServerAppID() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterAADProfileInvokeResponse) string { return v.ServerAppID }).(pulumi.StringOutput)
+}
+
+// The server AAD application secret.
+func (o ManagedClusterAADProfileInvokeResponseOutput) ServerAppSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAADProfileInvokeResponse) *string { return v.ServerAppSecret }).(pulumi.StringPtrOutput)
+}
+
+// The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+func (o ManagedClusterAADProfileInvokeResponseOutput) TenantID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAADProfileInvokeResponse) *string { return v.TenantID }).(pulumi.StringPtrOutput)
 }
 
 // AADProfile specifies attributes for Azure Active Directory integration.
@@ -2045,6 +2488,70 @@ func (o ManagedClusterAPIServerAccessProfilePtrOutput) EnablePrivateCluster() pu
 }
 
 // Access profile for managed cluster API server.
+type ManagedClusterAPIServerAccessProfileInvokeResponse struct {
+	// Authorized IP Ranges to kubernetes API server.
+	AuthorizedIPRanges []string `pulumi:"authorizedIPRanges"`
+	// Whether to create the cluster as a private cluster or not.
+	EnablePrivateCluster *bool `pulumi:"enablePrivateCluster"`
+}
+
+// ManagedClusterAPIServerAccessProfileInvokeResponseInput is an input type that accepts ManagedClusterAPIServerAccessProfileInvokeResponseArgs and ManagedClusterAPIServerAccessProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterAPIServerAccessProfileInvokeResponseInput` via:
+//
+//          ManagedClusterAPIServerAccessProfileInvokeResponseArgs{...}
+type ManagedClusterAPIServerAccessProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterAPIServerAccessProfileInvokeResponseOutput() ManagedClusterAPIServerAccessProfileInvokeResponseOutput
+	ToManagedClusterAPIServerAccessProfileInvokeResponseOutputWithContext(context.Context) ManagedClusterAPIServerAccessProfileInvokeResponseOutput
+}
+
+// Access profile for managed cluster API server.
+type ManagedClusterAPIServerAccessProfileInvokeResponseArgs struct {
+	// Authorized IP Ranges to kubernetes API server.
+	AuthorizedIPRanges pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
+	// Whether to create the cluster as a private cluster or not.
+	EnablePrivateCluster pulumi.BoolPtrInput `pulumi:"enablePrivateCluster"`
+}
+
+func (ManagedClusterAPIServerAccessProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAPIServerAccessProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAPIServerAccessProfileInvokeResponseArgs) ToManagedClusterAPIServerAccessProfileInvokeResponseOutput() ManagedClusterAPIServerAccessProfileInvokeResponseOutput {
+	return i.ToManagedClusterAPIServerAccessProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAPIServerAccessProfileInvokeResponseArgs) ToManagedClusterAPIServerAccessProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterAPIServerAccessProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAPIServerAccessProfileInvokeResponseOutput)
+}
+
+// Access profile for managed cluster API server.
+type ManagedClusterAPIServerAccessProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAPIServerAccessProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAPIServerAccessProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAPIServerAccessProfileInvokeResponseOutput) ToManagedClusterAPIServerAccessProfileInvokeResponseOutput() ManagedClusterAPIServerAccessProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedClusterAPIServerAccessProfileInvokeResponseOutput) ToManagedClusterAPIServerAccessProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterAPIServerAccessProfileInvokeResponseOutput {
+	return o
+}
+
+// Authorized IP Ranges to kubernetes API server.
+func (o ManagedClusterAPIServerAccessProfileInvokeResponseOutput) AuthorizedIPRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileInvokeResponse) []string { return v.AuthorizedIPRanges }).(pulumi.StringArrayOutput)
+}
+
+// Whether to create the cluster as a private cluster or not.
+func (o ManagedClusterAPIServerAccessProfileInvokeResponseOutput) EnablePrivateCluster() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileInvokeResponse) *bool { return v.EnablePrivateCluster }).(pulumi.BoolPtrOutput)
+}
+
+// Access profile for managed cluster API server.
 type ManagedClusterAPIServerAccessProfileResponse struct {
 	// Authorized IP Ranges to kubernetes API server.
 	AuthorizedIPRanges []string `pulumi:"authorizedIPRanges"`
@@ -2306,6 +2813,199 @@ func (o ManagedClusterAddonProfileMapOutput) MapIndex(k pulumi.StringInput) Mana
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterAddonProfile {
 		return vs[0].(map[string]ManagedClusterAddonProfile)[vs[1].(string)]
 	}).(ManagedClusterAddonProfileOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileInvokeResponse struct {
+	// Key-value pairs for configuring an add-on.
+	Config map[string]string `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// Information of user assigned identity used by this add-on.
+	Identity ManagedClusterAddonProfileInvokeResponseIdentity `pulumi:"identity"`
+}
+
+// ManagedClusterAddonProfileInvokeResponseInput is an input type that accepts ManagedClusterAddonProfileInvokeResponseArgs and ManagedClusterAddonProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileInvokeResponseInput` via:
+//
+//          ManagedClusterAddonProfileInvokeResponseArgs{...}
+type ManagedClusterAddonProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileInvokeResponseOutput() ManagedClusterAddonProfileInvokeResponseOutput
+	ToManagedClusterAddonProfileInvokeResponseOutputWithContext(context.Context) ManagedClusterAddonProfileInvokeResponseOutput
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileInvokeResponseArgs struct {
+	// Key-value pairs for configuring an add-on.
+	Config pulumi.StringMapInput `pulumi:"config"`
+	// Whether the add-on is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Information of user assigned identity used by this add-on.
+	Identity ManagedClusterAddonProfileInvokeResponseIdentityInput `pulumi:"identity"`
+}
+
+func (ManagedClusterAddonProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileInvokeResponseArgs) ToManagedClusterAddonProfileInvokeResponseOutput() ManagedClusterAddonProfileInvokeResponseOutput {
+	return i.ToManagedClusterAddonProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileInvokeResponseArgs) ToManagedClusterAddonProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterAddonProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileInvokeResponseOutput)
+}
+
+// ManagedClusterAddonProfileInvokeResponseMapInput is an input type that accepts ManagedClusterAddonProfileInvokeResponseMap and ManagedClusterAddonProfileInvokeResponseMapOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileInvokeResponseMapInput` via:
+//
+//          ManagedClusterAddonProfileInvokeResponseMap{ "key": ManagedClusterAddonProfileInvokeResponseArgs{...} }
+type ManagedClusterAddonProfileInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileInvokeResponseMapOutput() ManagedClusterAddonProfileInvokeResponseMapOutput
+	ToManagedClusterAddonProfileInvokeResponseMapOutputWithContext(context.Context) ManagedClusterAddonProfileInvokeResponseMapOutput
+}
+
+type ManagedClusterAddonProfileInvokeResponseMap map[string]ManagedClusterAddonProfileInvokeResponseInput
+
+func (ManagedClusterAddonProfileInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileInvokeResponseMap) ToManagedClusterAddonProfileInvokeResponseMapOutput() ManagedClusterAddonProfileInvokeResponseMapOutput {
+	return i.ToManagedClusterAddonProfileInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileInvokeResponseMap) ToManagedClusterAddonProfileInvokeResponseMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileInvokeResponseMapOutput)
+}
+
+// A Kubernetes add-on profile for a managed cluster.
+type ManagedClusterAddonProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileInvokeResponseOutput) ToManagedClusterAddonProfileInvokeResponseOutput() ManagedClusterAddonProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileInvokeResponseOutput) ToManagedClusterAddonProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterAddonProfileInvokeResponseOutput {
+	return o
+}
+
+// Key-value pairs for configuring an add-on.
+func (o ManagedClusterAddonProfileInvokeResponseOutput) Config() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileInvokeResponse) map[string]string { return v.Config }).(pulumi.StringMapOutput)
+}
+
+// Whether the add-on is enabled or not.
+func (o ManagedClusterAddonProfileInvokeResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileInvokeResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Information of user assigned identity used by this add-on.
+func (o ManagedClusterAddonProfileInvokeResponseOutput) Identity() ManagedClusterAddonProfileInvokeResponseIdentityOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileInvokeResponse) ManagedClusterAddonProfileInvokeResponseIdentity {
+		return v.Identity
+	}).(ManagedClusterAddonProfileInvokeResponseIdentityOutput)
+}
+
+type ManagedClusterAddonProfileInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterAddonProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileInvokeResponseMapOutput) ToManagedClusterAddonProfileInvokeResponseMapOutput() ManagedClusterAddonProfileInvokeResponseMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileInvokeResponseMapOutput) ToManagedClusterAddonProfileInvokeResponseMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileInvokeResponseMapOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterAddonProfileInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterAddonProfileInvokeResponse {
+		return vs[0].(map[string]ManagedClusterAddonProfileInvokeResponse)[vs[1].(string)]
+	}).(ManagedClusterAddonProfileInvokeResponseOutput)
+}
+
+// Information of user assigned identity used by this add-on.
+type ManagedClusterAddonProfileInvokeResponseIdentity struct {
+	// The client id of the user assigned identity.
+	ClientId *string `pulumi:"clientId"`
+	// The object id of the user assigned identity.
+	ObjectId *string `pulumi:"objectId"`
+	// The resource id of the user assigned identity.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// ManagedClusterAddonProfileInvokeResponseIdentityInput is an input type that accepts ManagedClusterAddonProfileInvokeResponseIdentityArgs and ManagedClusterAddonProfileInvokeResponseIdentityOutput values.
+// You can construct a concrete instance of `ManagedClusterAddonProfileInvokeResponseIdentityInput` via:
+//
+//          ManagedClusterAddonProfileInvokeResponseIdentityArgs{...}
+type ManagedClusterAddonProfileInvokeResponseIdentityInput interface {
+	pulumi.Input
+
+	ToManagedClusterAddonProfileInvokeResponseIdentityOutput() ManagedClusterAddonProfileInvokeResponseIdentityOutput
+	ToManagedClusterAddonProfileInvokeResponseIdentityOutputWithContext(context.Context) ManagedClusterAddonProfileInvokeResponseIdentityOutput
+}
+
+// Information of user assigned identity used by this add-on.
+type ManagedClusterAddonProfileInvokeResponseIdentityArgs struct {
+	// The client id of the user assigned identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The object id of the user assigned identity.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The resource id of the user assigned identity.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (ManagedClusterAddonProfileInvokeResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfileInvokeResponseIdentity)(nil)).Elem()
+}
+
+func (i ManagedClusterAddonProfileInvokeResponseIdentityArgs) ToManagedClusterAddonProfileInvokeResponseIdentityOutput() ManagedClusterAddonProfileInvokeResponseIdentityOutput {
+	return i.ToManagedClusterAddonProfileInvokeResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAddonProfileInvokeResponseIdentityArgs) ToManagedClusterAddonProfileInvokeResponseIdentityOutputWithContext(ctx context.Context) ManagedClusterAddonProfileInvokeResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileInvokeResponseIdentityOutput)
+}
+
+// Information of user assigned identity used by this add-on.
+type ManagedClusterAddonProfileInvokeResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAddonProfileInvokeResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAddonProfileInvokeResponseIdentity)(nil)).Elem()
+}
+
+func (o ManagedClusterAddonProfileInvokeResponseIdentityOutput) ToManagedClusterAddonProfileInvokeResponseIdentityOutput() ManagedClusterAddonProfileInvokeResponseIdentityOutput {
+	return o
+}
+
+func (o ManagedClusterAddonProfileInvokeResponseIdentityOutput) ToManagedClusterAddonProfileInvokeResponseIdentityOutputWithContext(ctx context.Context) ManagedClusterAddonProfileInvokeResponseIdentityOutput {
+	return o
+}
+
+// The client id of the user assigned identity.
+func (o ManagedClusterAddonProfileInvokeResponseIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileInvokeResponseIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user assigned identity.
+func (o ManagedClusterAddonProfileInvokeResponseIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileInvokeResponseIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the user assigned identity.
+func (o ManagedClusterAddonProfileInvokeResponseIdentityOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAddonProfileInvokeResponseIdentity) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 // A Kubernetes add-on profile for a managed cluster.
@@ -2773,6 +3473,286 @@ func (o ManagedClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) Mana
 }
 
 // Profile for the container service agent pool.
+type ManagedClusterAgentPoolProfileInvokeResponse struct {
+	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+	Count *int `pulumi:"count"`
+	// Whether to enable auto-scaler
+	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Enable public IP for nodes
+	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// Maximum number of nodes for auto-scaling
+	MaxCount *int `pulumi:"maxCount"`
+	// Maximum number of pods that can run on a node.
+	MaxPods *int `pulumi:"maxPods"`
+	// Minimum number of nodes for auto-scaling
+	MinCount *int `pulumi:"minCount"`
+	// Unique name of the agent pool profile in the context of the subscription and resource group.
+	Name string `pulumi:"name"`
+	// Agent pool node labels to be persisted across all nodes in agent pool.
+	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+	NodeTaints []string `pulumi:"nodeTaints"`
+	// Version of orchestrator specified when creating the managed cluster.
+	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
+	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType *string `pulumi:"osType"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
+	ScaleSetEvictionPolicy *string `pulumi:"scaleSetEvictionPolicy"`
+	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
+	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
+	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+	Tags map[string]string `pulumi:"tags"`
+	// AgentPoolType represents types of an agent pool
+	Type *string `pulumi:"type"`
+	// Size of agent VMs.
+	VmSize *string `pulumi:"vmSize"`
+	// VNet SubnetID specifies the VNet's subnet identifier.
+	VnetSubnetID *string `pulumi:"vnetSubnetID"`
+}
+
+// ManagedClusterAgentPoolProfileInvokeResponseInput is an input type that accepts ManagedClusterAgentPoolProfileInvokeResponseArgs and ManagedClusterAgentPoolProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterAgentPoolProfileInvokeResponseInput` via:
+//
+//          ManagedClusterAgentPoolProfileInvokeResponseArgs{...}
+type ManagedClusterAgentPoolProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterAgentPoolProfileInvokeResponseOutput() ManagedClusterAgentPoolProfileInvokeResponseOutput
+	ToManagedClusterAgentPoolProfileInvokeResponseOutputWithContext(context.Context) ManagedClusterAgentPoolProfileInvokeResponseOutput
+}
+
+// Profile for the container service agent pool.
+type ManagedClusterAgentPoolProfileInvokeResponseArgs struct {
+	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Whether to enable auto-scaler
+	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
+	// Enable public IP for nodes
+	EnableNodePublicIP pulumi.BoolPtrInput `pulumi:"enableNodePublicIP"`
+	// Maximum number of nodes for auto-scaling
+	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
+	// Maximum number of pods that can run on a node.
+	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
+	// Minimum number of nodes for auto-scaling
+	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
+	// Unique name of the agent pool profile in the context of the subscription and resource group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Agent pool node labels to be persisted across all nodes in agent pool.
+	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
+	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	// Version of orchestrator specified when creating the managed cluster.
+	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
+	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
+	ScaleSetEvictionPolicy pulumi.StringPtrInput `pulumi:"scaleSetEvictionPolicy"`
+	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+	ScaleSetPriority pulumi.StringPtrInput `pulumi:"scaleSetPriority"`
+	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+	SpotMaxPrice pulumi.Float64PtrInput `pulumi:"spotMaxPrice"`
+	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// AgentPoolType represents types of an agent pool
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Size of agent VMs.
+	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
+	// VNet SubnetID specifies the VNet's subnet identifier.
+	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
+}
+
+func (ManagedClusterAgentPoolProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAgentPoolProfileInvokeResponseArgs) ToManagedClusterAgentPoolProfileInvokeResponseOutput() ManagedClusterAgentPoolProfileInvokeResponseOutput {
+	return i.ToManagedClusterAgentPoolProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAgentPoolProfileInvokeResponseArgs) ToManagedClusterAgentPoolProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterAgentPoolProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAgentPoolProfileInvokeResponseOutput)
+}
+
+// ManagedClusterAgentPoolProfileInvokeResponseArrayInput is an input type that accepts ManagedClusterAgentPoolProfileInvokeResponseArray and ManagedClusterAgentPoolProfileInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedClusterAgentPoolProfileInvokeResponseArrayInput` via:
+//
+//          ManagedClusterAgentPoolProfileInvokeResponseArray{ ManagedClusterAgentPoolProfileInvokeResponseArgs{...} }
+type ManagedClusterAgentPoolProfileInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedClusterAgentPoolProfileInvokeResponseArrayOutput() ManagedClusterAgentPoolProfileInvokeResponseArrayOutput
+	ToManagedClusterAgentPoolProfileInvokeResponseArrayOutputWithContext(context.Context) ManagedClusterAgentPoolProfileInvokeResponseArrayOutput
+}
+
+type ManagedClusterAgentPoolProfileInvokeResponseArray []ManagedClusterAgentPoolProfileInvokeResponseInput
+
+func (ManagedClusterAgentPoolProfileInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterAgentPoolProfileInvokeResponseArray) ToManagedClusterAgentPoolProfileInvokeResponseArrayOutput() ManagedClusterAgentPoolProfileInvokeResponseArrayOutput {
+	return i.ToManagedClusterAgentPoolProfileInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterAgentPoolProfileInvokeResponseArray) ToManagedClusterAgentPoolProfileInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedClusterAgentPoolProfileInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAgentPoolProfileInvokeResponseArrayOutput)
+}
+
+// Profile for the container service agent pool.
+type ManagedClusterAgentPoolProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAgentPoolProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) ToManagedClusterAgentPoolProfileInvokeResponseOutput() ManagedClusterAgentPoolProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) ToManagedClusterAgentPoolProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterAgentPoolProfileInvokeResponseOutput {
+	return o
+}
+
+// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Whether to enable auto-scaler
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *bool { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
+}
+
+// Enable public IP for nodes
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *bool { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
+}
+
+// Maximum number of nodes for auto-scaling
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) MaxCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of pods that can run on a node.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) MaxPods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of nodes for auto-scaling
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) MinCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *int { return v.MinCount }).(pulumi.IntPtrOutput)
+}
+
+// Unique name of the agent pool profile in the context of the subscription and resource group.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Agent pool node labels to be persisted across all nodes in agent pool.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) NodeLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
+// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) NodeTaints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
+}
+
+// Version of orchestrator specified when creating the managed cluster.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) OrchestratorVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *string { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
+}
+
+// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot or low priority virtual machine scale set. Default to Delete.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) ScaleSetEvictionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *string { return v.ScaleSetEvictionPolicy }).(pulumi.StringPtrOutput)
+}
+
+// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) ScaleSetPriority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *string { return v.ScaleSetPriority }).(pulumi.StringPtrOutput)
+}
+
+// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) SpotMaxPrice() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *float64 { return v.SpotMaxPrice }).(pulumi.Float64PtrOutput)
+}
+
+// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// AgentPoolType represents types of an agent pool
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Size of agent VMs.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
+}
+
+// VNet SubnetID specifies the VNet's subnet identifier.
+func (o ManagedClusterAgentPoolProfileInvokeResponseOutput) VnetSubnetID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterAgentPoolProfileInvokeResponse) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterAgentPoolProfileInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterAgentPoolProfileInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedClusterAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterAgentPoolProfileInvokeResponseArrayOutput) ToManagedClusterAgentPoolProfileInvokeResponseArrayOutput() ManagedClusterAgentPoolProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedClusterAgentPoolProfileInvokeResponseArrayOutput) ToManagedClusterAgentPoolProfileInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedClusterAgentPoolProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedClusterAgentPoolProfileInvokeResponseArrayOutput) Index(i pulumi.IntInput) ManagedClusterAgentPoolProfileInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedClusterAgentPoolProfileInvokeResponse {
+		return vs[0].([]ManagedClusterAgentPoolProfileInvokeResponse)[vs[1].(int)]
+	}).(ManagedClusterAgentPoolProfileInvokeResponseOutput)
+}
+
+// Profile for the container service agent pool.
 type ManagedClusterAgentPoolProfileResponse struct {
 	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -3187,6 +4167,79 @@ func (o ManagedClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Identity for the managed cluster.
+type ManagedClusterIdentityInvokeResponse struct {
+	// The principal id of the system assigned identity which is used by master components.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of the system assigned identity which is used by master components.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
+	Type *string `pulumi:"type"`
+}
+
+// ManagedClusterIdentityInvokeResponseInput is an input type that accepts ManagedClusterIdentityInvokeResponseArgs and ManagedClusterIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterIdentityInvokeResponseInput` via:
+//
+//          ManagedClusterIdentityInvokeResponseArgs{...}
+type ManagedClusterIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterIdentityInvokeResponseOutput() ManagedClusterIdentityInvokeResponseOutput
+	ToManagedClusterIdentityInvokeResponseOutputWithContext(context.Context) ManagedClusterIdentityInvokeResponseOutput
+}
+
+// Identity for the managed cluster.
+type ManagedClusterIdentityInvokeResponseArgs struct {
+	// The principal id of the system assigned identity which is used by master components.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of the system assigned identity which is used by master components.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ManagedClusterIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterIdentityInvokeResponseArgs) ToManagedClusterIdentityInvokeResponseOutput() ManagedClusterIdentityInvokeResponseOutput {
+	return i.ToManagedClusterIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterIdentityInvokeResponseArgs) ToManagedClusterIdentityInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityInvokeResponseOutput)
+}
+
+// Identity for the managed cluster.
+type ManagedClusterIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterIdentityInvokeResponseOutput) ToManagedClusterIdentityInvokeResponseOutput() ManagedClusterIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedClusterIdentityInvokeResponseOutput) ToManagedClusterIdentityInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterIdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal id of the system assigned identity which is used by master components.
+func (o ManagedClusterIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the system assigned identity which is used by master components.
+func (o ManagedClusterIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
+func (o ManagedClusterIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Identity for the managed cluster.
 type ManagedClusterIdentityResponse struct {
 	// The principal id of the system assigned identity which is used by master components.
 	PrincipalId string `pulumi:"principalId"`
@@ -3591,6 +4644,657 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPs() ManagedCluster
 		}
 		return v.OutboundIPs
 	}).(ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput)
+}
+
+// Profile of the managed cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponse struct {
+	// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+	AllocatedOutboundPorts *int `pulumi:"allocatedOutboundPorts"`
+	// The effective outbound IP resources of the cluster load balancer.
+	EffectiveOutboundIPs []ResourceReferenceInvokeResponse `pulumi:"effectiveOutboundIPs"`
+	// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Desired managed outbound IPs for the cluster load balancer.
+	ManagedOutboundIPs *ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs `pulumi:"managedOutboundIPs"`
+	// Desired outbound IP Prefix resources for the cluster load balancer.
+	OutboundIPPrefixes *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes `pulumi:"outboundIPPrefixes"`
+	// Desired outbound IP resources for the cluster load balancer.
+	OutboundIPs *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs `pulumi:"outboundIPs"`
+}
+
+// ManagedClusterLoadBalancerProfileInvokeResponseInput is an input type that accepts ManagedClusterLoadBalancerProfileInvokeResponseArgs and ManagedClusterLoadBalancerProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileInvokeResponseInput` via:
+//
+//          ManagedClusterLoadBalancerProfileInvokeResponseArgs{...}
+type ManagedClusterLoadBalancerProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileInvokeResponseOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutput
+	ToManagedClusterLoadBalancerProfileInvokeResponseOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutput
+}
+
+// Profile of the managed cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseArgs struct {
+	// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+	AllocatedOutboundPorts pulumi.IntPtrInput `pulumi:"allocatedOutboundPorts"`
+	// The effective outbound IP resources of the cluster load balancer.
+	EffectiveOutboundIPs ResourceReferenceInvokeResponseArrayInput `pulumi:"effectiveOutboundIPs"`
+	// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// Desired managed outbound IPs for the cluster load balancer.
+	ManagedOutboundIPs ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrInput `pulumi:"managedOutboundIPs"`
+	// Desired outbound IP Prefix resources for the cluster load balancer.
+	OutboundIPPrefixes ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrInput `pulumi:"outboundIPPrefixes"`
+	// Desired outbound IP resources for the cluster load balancer.
+	OutboundIPs ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrInput `pulumi:"outboundIPs"`
+}
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseArgs) ToManagedClusterLoadBalancerProfileInvokeResponseOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseArgs) ToManagedClusterLoadBalancerProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseOutput)
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseArgs) ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutput() ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseArgs) ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseOutput).ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedClusterLoadBalancerProfileInvokeResponsePtrInput is an input type that accepts ManagedClusterLoadBalancerProfileInvokeResponseArgs, ManagedClusterLoadBalancerProfileInvokeResponsePtr and ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileInvokeResponsePtrInput` via:
+//
+//          ManagedClusterLoadBalancerProfileInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterLoadBalancerProfileInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutput() ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput
+	ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput
+}
+
+type managedClusterLoadBalancerProfileInvokeResponsePtrType ManagedClusterLoadBalancerProfileInvokeResponseArgs
+
+func ManagedClusterLoadBalancerProfileInvokeResponsePtr(v *ManagedClusterLoadBalancerProfileInvokeResponseArgs) ManagedClusterLoadBalancerProfileInvokeResponsePtrInput {
+	return (*managedClusterLoadBalancerProfileInvokeResponsePtrType)(v)
+}
+
+func (*managedClusterLoadBalancerProfileInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i *managedClusterLoadBalancerProfileInvokeResponsePtrType) ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutput() ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterLoadBalancerProfileInvokeResponsePtrType) ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput)
+}
+
+// Profile of the managed cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutput) ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutput() ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput {
+	return o.ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutput) ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponse) *ManagedClusterLoadBalancerProfileInvokeResponse {
+		return &v
+	}).(ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput)
+}
+
+// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutput) AllocatedOutboundPorts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponse) *int { return v.AllocatedOutboundPorts }).(pulumi.IntPtrOutput)
+}
+
+// The effective outbound IP resources of the cluster load balancer.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutput) EffectiveOutboundIPs() ResourceReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponse) []ResourceReferenceInvokeResponse {
+		return v.EffectiveOutboundIPs
+	}).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponse) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Desired managed outbound IPs for the cluster load balancer.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponse) *ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs {
+		return v.ManagedOutboundIPs
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput)
+}
+
+// Desired outbound IP Prefix resources for the cluster load balancer.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponse) *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes {
+		return v.OutboundIPPrefixes
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput)
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutput) OutboundIPs() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponse) *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs {
+		return v.OutboundIPs
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput)
+}
+
+type ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput) ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutput() ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput) ToManagedClusterLoadBalancerProfileInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput) Elem() ManagedClusterLoadBalancerProfileInvokeResponseOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponse) ManagedClusterLoadBalancerProfileInvokeResponse {
+		return *v
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseOutput)
+}
+
+// Desired number of allocated SNAT ports per VM. Allowed values must be in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+func (o ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput) AllocatedOutboundPorts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AllocatedOutboundPorts
+	}).(pulumi.IntPtrOutput)
+}
+
+// The effective outbound IP resources of the cluster load balancer.
+func (o ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput) EffectiveOutboundIPs() ResourceReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponse) []ResourceReferenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveOutboundIPs
+	}).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+// Desired outbound flow idle timeout in minutes. Allowed values must be in the range of 4 to 120 (inclusive). The default value is 30 minutes.
+func (o ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Desired managed outbound IPs for the cluster load balancer.
+func (o ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponse) *ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedOutboundIPs
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput)
+}
+
+// Desired outbound IP Prefix resources for the cluster load balancer.
+func (o ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponse) *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundIPPrefixes
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput)
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+func (o ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput) OutboundIPs() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponse) *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundIPs
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput)
+}
+
+// Desired managed outbound IPs for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs struct {
+	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+	Count *int `pulumi:"count"`
+}
+
+// ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsInput is an input type that accepts ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs and ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsInput` via:
+//
+//          ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs{...}
+type ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput
+	ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput
+}
+
+// Desired managed outbound IPs for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs struct {
+	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+}
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs)(nil)).Elem()
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput)
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput).ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutputWithContext(ctx)
+}
+
+// ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs, ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtr and ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrInput` via:
+//
+//          ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput
+	ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput
+}
+
+type managedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrType ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs
+
+func ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtr(v *ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsArgs) ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrInput {
+	return (*managedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrType)(v)
+}
+
+func (*managedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs)(nil)).Elem()
+}
+
+func (i *managedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput)
+}
+
+// Desired managed outbound IPs for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput {
+	return o.ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs) *ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs {
+		return &v
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput)
+}
+
+// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+type ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput) Elem() ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs) ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs {
+		return *v
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput)
+}
+
+// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// Desired outbound IP Prefix resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes struct {
+	// A list of public IP prefix resources.
+	PublicIPPrefixes []ResourceReferenceInvokeResponse `pulumi:"publicIPPrefixes"`
+}
+
+// ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesInput is an input type that accepts ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs and ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesInput` via:
+//
+//          ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs{...}
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput
+	ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput
+}
+
+// Desired outbound IP Prefix resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs struct {
+	// A list of public IP prefix resources.
+	PublicIPPrefixes ResourceReferenceInvokeResponseArrayInput `pulumi:"publicIPPrefixes"`
+}
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput)
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput).ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutputWithContext(ctx)
+}
+
+// ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs, ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtr and ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrInput` via:
+//
+//          ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput
+	ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput
+}
+
+type managedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrType ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs
+
+func ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtr(v *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesArgs) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrInput {
+	return (*managedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrType)(v)
+}
+
+func (*managedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (i *managedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrType) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrType) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput)
+}
+
+// Desired outbound IP Prefix resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput {
+	return o.ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes) *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes {
+		return &v
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput)
+}
+
+// A list of public IP prefix resources.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput) PublicIPPrefixes() ResourceReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes) []ResourceReferenceInvokeResponse {
+		return v.PublicIPPrefixes
+	}).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput) Elem() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes {
+		return *v
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput)
+}
+
+// A list of public IP prefix resources.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput) PublicIPPrefixes() ResourceReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixes) []ResourceReferenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIPPrefixes
+	}).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs struct {
+	// A list of public IP resources.
+	PublicIPs []ResourceReferenceInvokeResponse `pulumi:"publicIPs"`
+}
+
+// ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsInput is an input type that accepts ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs and ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsInput` via:
+//
+//          ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs{...}
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput
+	ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs struct {
+	// A list of public IP resources.
+	PublicIPs ResourceReferenceInvokeResponseArrayInput `pulumi:"publicIPs"`
+}
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs)(nil)).Elem()
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput)
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput).ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutputWithContext(ctx)
+}
+
+// ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs, ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtr and ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrInput` via:
+//
+//          ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput
+	ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput
+}
+
+type managedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrType ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs
+
+func ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtr(v *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsArgs) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrInput {
+	return (*managedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrType)(v)
+}
+
+func (*managedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs)(nil)).Elem()
+}
+
+func (i *managedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput)
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput {
+	return o.ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs) *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs {
+		return &v
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput)
+}
+
+// A list of public IP resources.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput) PublicIPs() ResourceReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs) []ResourceReferenceInvokeResponse {
+		return v.PublicIPs
+	}).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+type ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput) Elem() ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs) ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs {
+		return *v
+	}).(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput)
+}
+
+// A list of public IP resources.
+func (o ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput) PublicIPs() ResourceReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPs) []ResourceReferenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIPs
+	}).(ResourceReferenceInvokeResponseArrayOutput)
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
@@ -5006,6 +6710,227 @@ func (o ManagedClusterPropertiesIdentityProfileMapOutput) MapIndex(k pulumi.Stri
 }
 
 // Parameters to be applied to the cluster-autoscaler when enabled
+type ManagedClusterPropertiesInvokeResponseAutoScalerProfile struct {
+	MaxGracefulTerminationSec     *string `pulumi:"maxGracefulTerminationSec"`
+	ScaleDownDelayAfterAdd        *string `pulumi:"scaleDownDelayAfterAdd"`
+	ScaleDownDelayAfterDelete     *string `pulumi:"scaleDownDelayAfterDelete"`
+	ScaleDownDelayAfterFailure    *string `pulumi:"scaleDownDelayAfterFailure"`
+	ScaleDownUnneededTime         *string `pulumi:"scaleDownUnneededTime"`
+	ScaleDownUnreadyTime          *string `pulumi:"scaleDownUnreadyTime"`
+	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
+	ScanInterval                  *string `pulumi:"scanInterval"`
+}
+
+// ManagedClusterPropertiesInvokeResponseAutoScalerProfileInput is an input type that accepts ManagedClusterPropertiesInvokeResponseAutoScalerProfileArgs and ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput values.
+// You can construct a concrete instance of `ManagedClusterPropertiesInvokeResponseAutoScalerProfileInput` via:
+//
+//          ManagedClusterPropertiesInvokeResponseAutoScalerProfileArgs{...}
+type ManagedClusterPropertiesInvokeResponseAutoScalerProfileInput interface {
+	pulumi.Input
+
+	ToManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput() ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput
+	ToManagedClusterPropertiesInvokeResponseAutoScalerProfileOutputWithContext(context.Context) ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput
+}
+
+// Parameters to be applied to the cluster-autoscaler when enabled
+type ManagedClusterPropertiesInvokeResponseAutoScalerProfileArgs struct {
+	MaxGracefulTerminationSec     pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	ScaleDownDelayAfterAdd        pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterAdd"`
+	ScaleDownDelayAfterDelete     pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterDelete"`
+	ScaleDownDelayAfterFailure    pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterFailure"`
+	ScaleDownUnneededTime         pulumi.StringPtrInput `pulumi:"scaleDownUnneededTime"`
+	ScaleDownUnreadyTime          pulumi.StringPtrInput `pulumi:"scaleDownUnreadyTime"`
+	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
+	ScanInterval                  pulumi.StringPtrInput `pulumi:"scanInterval"`
+}
+
+func (ManagedClusterPropertiesInvokeResponseAutoScalerProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPropertiesInvokeResponseAutoScalerProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterPropertiesInvokeResponseAutoScalerProfileArgs) ToManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput() ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput {
+	return i.ToManagedClusterPropertiesInvokeResponseAutoScalerProfileOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPropertiesInvokeResponseAutoScalerProfileArgs) ToManagedClusterPropertiesInvokeResponseAutoScalerProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput)
+}
+
+// Parameters to be applied to the cluster-autoscaler when enabled
+type ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPropertiesInvokeResponseAutoScalerProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) ToManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput() ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) ToManagedClusterPropertiesInvokeResponseAutoScalerProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseAutoScalerProfile) *string {
+		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseAutoScalerProfile) *string {
+		return v.ScaleDownDelayAfterAdd
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) ScaleDownDelayAfterDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseAutoScalerProfile) *string {
+		return v.ScaleDownDelayAfterDelete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) ScaleDownDelayAfterFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseAutoScalerProfile) *string {
+		return v.ScaleDownDelayAfterFailure
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) ScaleDownUnneededTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseAutoScalerProfile) *string {
+		return v.ScaleDownUnneededTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) ScaleDownUnreadyTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseAutoScalerProfile) *string { return v.ScaleDownUnreadyTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) ScaleDownUtilizationThreshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseAutoScalerProfile) *string {
+		return v.ScaleDownUtilizationThreshold
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput) ScanInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterPropertiesInvokeResponseIdentityProfile struct {
+	// The client id of the user assigned identity.
+	ClientId *string `pulumi:"clientId"`
+	// The object id of the user assigned identity.
+	ObjectId *string `pulumi:"objectId"`
+	// The resource id of the user assigned identity.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// ManagedClusterPropertiesInvokeResponseIdentityProfileInput is an input type that accepts ManagedClusterPropertiesInvokeResponseIdentityProfileArgs and ManagedClusterPropertiesInvokeResponseIdentityProfileOutput values.
+// You can construct a concrete instance of `ManagedClusterPropertiesInvokeResponseIdentityProfileInput` via:
+//
+//          ManagedClusterPropertiesInvokeResponseIdentityProfileArgs{...}
+type ManagedClusterPropertiesInvokeResponseIdentityProfileInput interface {
+	pulumi.Input
+
+	ToManagedClusterPropertiesInvokeResponseIdentityProfileOutput() ManagedClusterPropertiesInvokeResponseIdentityProfileOutput
+	ToManagedClusterPropertiesInvokeResponseIdentityProfileOutputWithContext(context.Context) ManagedClusterPropertiesInvokeResponseIdentityProfileOutput
+}
+
+type ManagedClusterPropertiesInvokeResponseIdentityProfileArgs struct {
+	// The client id of the user assigned identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The object id of the user assigned identity.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The resource id of the user assigned identity.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (ManagedClusterPropertiesInvokeResponseIdentityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPropertiesInvokeResponseIdentityProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterPropertiesInvokeResponseIdentityProfileArgs) ToManagedClusterPropertiesInvokeResponseIdentityProfileOutput() ManagedClusterPropertiesInvokeResponseIdentityProfileOutput {
+	return i.ToManagedClusterPropertiesInvokeResponseIdentityProfileOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPropertiesInvokeResponseIdentityProfileArgs) ToManagedClusterPropertiesInvokeResponseIdentityProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesInvokeResponseIdentityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesInvokeResponseIdentityProfileOutput)
+}
+
+// ManagedClusterPropertiesInvokeResponseIdentityProfileMapInput is an input type that accepts ManagedClusterPropertiesInvokeResponseIdentityProfileMap and ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput values.
+// You can construct a concrete instance of `ManagedClusterPropertiesInvokeResponseIdentityProfileMapInput` via:
+//
+//          ManagedClusterPropertiesInvokeResponseIdentityProfileMap{ "key": ManagedClusterPropertiesInvokeResponseIdentityProfileArgs{...} }
+type ManagedClusterPropertiesInvokeResponseIdentityProfileMapInput interface {
+	pulumi.Input
+
+	ToManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput() ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput
+	ToManagedClusterPropertiesInvokeResponseIdentityProfileMapOutputWithContext(context.Context) ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput
+}
+
+type ManagedClusterPropertiesInvokeResponseIdentityProfileMap map[string]ManagedClusterPropertiesInvokeResponseIdentityProfileInput
+
+func (ManagedClusterPropertiesInvokeResponseIdentityProfileMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterPropertiesInvokeResponseIdentityProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterPropertiesInvokeResponseIdentityProfileMap) ToManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput() ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput {
+	return i.ToManagedClusterPropertiesInvokeResponseIdentityProfileMapOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPropertiesInvokeResponseIdentityProfileMap) ToManagedClusterPropertiesInvokeResponseIdentityProfileMapOutputWithContext(ctx context.Context) ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput)
+}
+
+type ManagedClusterPropertiesInvokeResponseIdentityProfileOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPropertiesInvokeResponseIdentityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPropertiesInvokeResponseIdentityProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterPropertiesInvokeResponseIdentityProfileOutput) ToManagedClusterPropertiesInvokeResponseIdentityProfileOutput() ManagedClusterPropertiesInvokeResponseIdentityProfileOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesInvokeResponseIdentityProfileOutput) ToManagedClusterPropertiesInvokeResponseIdentityProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesInvokeResponseIdentityProfileOutput {
+	return o
+}
+
+// The client id of the user assigned identity.
+func (o ManagedClusterPropertiesInvokeResponseIdentityProfileOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseIdentityProfile) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The object id of the user assigned identity.
+func (o ManagedClusterPropertiesInvokeResponseIdentityProfileOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseIdentityProfile) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the user assigned identity.
+func (o ManagedClusterPropertiesInvokeResponseIdentityProfileOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesInvokeResponseIdentityProfile) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ManagedClusterPropertiesInvokeResponseIdentityProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput) ToManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput() ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput) ToManagedClusterPropertiesInvokeResponseIdentityProfileMapOutputWithContext(ctx context.Context) ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput) MapIndex(k pulumi.StringInput) ManagedClusterPropertiesInvokeResponseIdentityProfileOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterPropertiesInvokeResponseIdentityProfile {
+		return vs[0].(map[string]ManagedClusterPropertiesInvokeResponseIdentityProfile)[vs[1].(string)]
+	}).(ManagedClusterPropertiesInvokeResponseIdentityProfileOutput)
+}
+
+// Parameters to be applied to the cluster-autoscaler when enabled
 type ManagedClusterPropertiesResponseAutoScalerProfile struct {
 	MaxGracefulTerminationSec     *string `pulumi:"maxGracefulTerminationSec"`
 	ScaleDownDelayAfterAdd        *string `pulumi:"scaleDownDelayAfterAdd"`
@@ -5512,6 +7437,70 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) Secret() pulumi.StringPt
 }
 
 // Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+type ManagedClusterServicePrincipalProfileInvokeResponse struct {
+	// The ID for the service principal.
+	ClientId string `pulumi:"clientId"`
+	// The secret password associated with the service principal in plain text.
+	Secret *string `pulumi:"secret"`
+}
+
+// ManagedClusterServicePrincipalProfileInvokeResponseInput is an input type that accepts ManagedClusterServicePrincipalProfileInvokeResponseArgs and ManagedClusterServicePrincipalProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterServicePrincipalProfileInvokeResponseInput` via:
+//
+//          ManagedClusterServicePrincipalProfileInvokeResponseArgs{...}
+type ManagedClusterServicePrincipalProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterServicePrincipalProfileInvokeResponseOutput() ManagedClusterServicePrincipalProfileInvokeResponseOutput
+	ToManagedClusterServicePrincipalProfileInvokeResponseOutputWithContext(context.Context) ManagedClusterServicePrincipalProfileInvokeResponseOutput
+}
+
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+type ManagedClusterServicePrincipalProfileInvokeResponseArgs struct {
+	// The ID for the service principal.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The secret password associated with the service principal in plain text.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+}
+
+func (ManagedClusterServicePrincipalProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterServicePrincipalProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterServicePrincipalProfileInvokeResponseArgs) ToManagedClusterServicePrincipalProfileInvokeResponseOutput() ManagedClusterServicePrincipalProfileInvokeResponseOutput {
+	return i.ToManagedClusterServicePrincipalProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterServicePrincipalProfileInvokeResponseArgs) ToManagedClusterServicePrincipalProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterServicePrincipalProfileInvokeResponseOutput)
+}
+
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+type ManagedClusterServicePrincipalProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterServicePrincipalProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterServicePrincipalProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterServicePrincipalProfileInvokeResponseOutput) ToManagedClusterServicePrincipalProfileInvokeResponseOutput() ManagedClusterServicePrincipalProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedClusterServicePrincipalProfileInvokeResponseOutput) ToManagedClusterServicePrincipalProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileInvokeResponseOutput {
+	return o
+}
+
+// The ID for the service principal.
+func (o ManagedClusterServicePrincipalProfileInvokeResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterServicePrincipalProfileInvokeResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The secret password associated with the service principal in plain text.
+func (o ManagedClusterServicePrincipalProfileInvokeResponseOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterServicePrincipalProfileInvokeResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
 type ManagedClusterServicePrincipalProfileResponse struct {
 	// The ID for the service principal.
 	ClientId string `pulumi:"clientId"`
@@ -5820,6 +7809,70 @@ func (o ManagedClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringPtrO
 }
 
 // Profile for Windows VMs in the container service cluster.
+type ManagedClusterWindowsProfileInvokeResponse struct {
+	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
+	AdminPassword *string `pulumi:"adminPassword"`
+	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
+	AdminUsername string `pulumi:"adminUsername"`
+}
+
+// ManagedClusterWindowsProfileInvokeResponseInput is an input type that accepts ManagedClusterWindowsProfileInvokeResponseArgs and ManagedClusterWindowsProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedClusterWindowsProfileInvokeResponseInput` via:
+//
+//          ManagedClusterWindowsProfileInvokeResponseArgs{...}
+type ManagedClusterWindowsProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedClusterWindowsProfileInvokeResponseOutput() ManagedClusterWindowsProfileInvokeResponseOutput
+	ToManagedClusterWindowsProfileInvokeResponseOutputWithContext(context.Context) ManagedClusterWindowsProfileInvokeResponseOutput
+}
+
+// Profile for Windows VMs in the container service cluster.
+type ManagedClusterWindowsProfileInvokeResponseArgs struct {
+	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
+	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
+	// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
+	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+}
+
+func (ManagedClusterWindowsProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterWindowsProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedClusterWindowsProfileInvokeResponseArgs) ToManagedClusterWindowsProfileInvokeResponseOutput() ManagedClusterWindowsProfileInvokeResponseOutput {
+	return i.ToManagedClusterWindowsProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterWindowsProfileInvokeResponseArgs) ToManagedClusterWindowsProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterWindowsProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterWindowsProfileInvokeResponseOutput)
+}
+
+// Profile for Windows VMs in the container service cluster.
+type ManagedClusterWindowsProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterWindowsProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterWindowsProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterWindowsProfileInvokeResponseOutput) ToManagedClusterWindowsProfileInvokeResponseOutput() ManagedClusterWindowsProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedClusterWindowsProfileInvokeResponseOutput) ToManagedClusterWindowsProfileInvokeResponseOutputWithContext(ctx context.Context) ManagedClusterWindowsProfileInvokeResponseOutput {
+	return o
+}
+
+// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
+func (o ManagedClusterWindowsProfileInvokeResponseOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterWindowsProfileInvokeResponse) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the administrator account. <br><br> **restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
+func (o ManagedClusterWindowsProfileInvokeResponseOutput) AdminUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedClusterWindowsProfileInvokeResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
+}
+
+// Profile for Windows VMs in the container service cluster.
 type ManagedClusterWindowsProfileResponse struct {
 	// Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
 	AdminPassword *string `pulumi:"adminPassword"`
@@ -6073,6 +8126,106 @@ func (o ResourceReferenceArrayOutput) Index(i pulumi.IntInput) ResourceReference
 }
 
 // A reference to an Azure resource.
+type ResourceReferenceInvokeResponse struct {
+	// The fully qualified Azure resource id.
+	Id *string `pulumi:"id"`
+}
+
+// ResourceReferenceInvokeResponseInput is an input type that accepts ResourceReferenceInvokeResponseArgs and ResourceReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceReferenceInvokeResponseInput` via:
+//
+//          ResourceReferenceInvokeResponseArgs{...}
+type ResourceReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput
+	ToResourceReferenceInvokeResponseOutputWithContext(context.Context) ResourceReferenceInvokeResponseOutput
+}
+
+// A reference to an Azure resource.
+type ResourceReferenceInvokeResponseArgs struct {
+	// The fully qualified Azure resource id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ResourceReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput {
+	return i.ToResourceReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponseOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponseOutput)
+}
+
+// ResourceReferenceInvokeResponseArrayInput is an input type that accepts ResourceReferenceInvokeResponseArray and ResourceReferenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ResourceReferenceInvokeResponseArrayInput` via:
+//
+//          ResourceReferenceInvokeResponseArray{ ResourceReferenceInvokeResponseArgs{...} }
+type ResourceReferenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToResourceReferenceInvokeResponseArrayOutput() ResourceReferenceInvokeResponseArrayOutput
+	ToResourceReferenceInvokeResponseArrayOutputWithContext(context.Context) ResourceReferenceInvokeResponseArrayOutput
+}
+
+type ResourceReferenceInvokeResponseArray []ResourceReferenceInvokeResponseInput
+
+func (ResourceReferenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceReferenceInvokeResponseArray) ToResourceReferenceInvokeResponseArrayOutput() ResourceReferenceInvokeResponseArrayOutput {
+	return i.ToResourceReferenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceReferenceInvokeResponseArray) ToResourceReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+// A reference to an Azure resource.
+type ResourceReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponseOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseOutput {
+	return o
+}
+
+// The fully qualified Azure resource id.
+func (o ResourceReferenceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceReferenceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type ResourceReferenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceInvokeResponseArrayOutput) ToResourceReferenceInvokeResponseArrayOutput() ResourceReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseArrayOutput) ToResourceReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) ResourceReferenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceReferenceInvokeResponse {
+		return vs[0].([]ResourceReferenceInvokeResponse)[vs[1].(int)]
+	}).(ResourceReferenceInvokeResponseOutput)
+}
+
+// A reference to an Azure resource.
 type ResourceReferenceResponse struct {
 	// The fully qualified Azure resource id.
 	Id *string `pulumi:"id"`
@@ -6175,45 +8328,66 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 func init() {
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfilePtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceLinuxProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceNetworkProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceNetworkProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceNetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceNetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceSshConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyArrayOutput{})
+	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
-	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
+	pulumi.RegisterOutputType(CredentialResultInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CredentialResultInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfilePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAADProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfilePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAPIServerAccessProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAddonProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAddonProfileMapOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileInvokeResponseMapOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAddonProfileInvokeResponseIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAddonProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAddonProfileResponseMapOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAddonProfileResponseIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileArrayOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAgentPoolProfileResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfilePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileInvokeResponseManagedOutboundIPsPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPPrefixesPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileInvokeResponseOutboundIPsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput{})
@@ -6232,20 +8406,27 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterPropertiesAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesIdentityProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesIdentityProfileMapOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPropertiesInvokeResponseAutoScalerProfileOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPropertiesInvokeResponseIdentityProfileOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPropertiesInvokeResponseIdentityProfileMapOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesResponseAutoScalerProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesResponseIdentityProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesResponseIdentityProfileMapOutput{})
 	pulumi.RegisterOutputType(ManagedClusterServicePrincipalProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterServicePrincipalProfilePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterServicePrincipalProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterServicePrincipalProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterServicePrincipalProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterWindowsProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterWindowsProfilePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterWindowsProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterWindowsProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterWindowsProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceArrayOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseArrayOutput{})
 }

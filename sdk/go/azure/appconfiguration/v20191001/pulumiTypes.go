@@ -160,6 +160,87 @@ func (o ResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 	}).(pulumi.MapOutput)
 }
 
+type ResourceIdentityInvokeResponse struct {
+	// The principal id of the identity. This property will only be provided for a system-assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
+	TenantId string `pulumi:"tenantId"`
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+	Type *string `pulumi:"type"`
+	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]UserIdentityInvokeResponse `pulumi:"userAssignedIdentities"`
+}
+
+// ResourceIdentityInvokeResponseInput is an input type that accepts ResourceIdentityInvokeResponseArgs and ResourceIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceIdentityInvokeResponseInput` via:
+//
+//          ResourceIdentityInvokeResponseArgs{...}
+type ResourceIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput
+	ToResourceIdentityInvokeResponseOutputWithContext(context.Context) ResourceIdentityInvokeResponseOutput
+}
+
+type ResourceIdentityInvokeResponseArgs struct {
+	// The principal id of the identity. This property will only be provided for a system-assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities UserIdentityInvokeResponseMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ResourceIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return i.ToResourceIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityInvokeResponseOutput)
+}
+
+type ResourceIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal id of the identity. This property will only be provided for a system-assigned identity.
+func (o ResourceIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
+func (o ResourceIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+func (o ResourceIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o ResourceIdentityInvokeResponseOutput) UserAssignedIdentities() UserIdentityInvokeResponseMapOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) map[string]UserIdentityInvokeResponse {
+		return v.UserAssignedIdentities
+	}).(UserIdentityInvokeResponseMapOutput)
+}
+
 type ResourceIdentityResponse struct {
 	// The principal id of the identity. This property will only be provided for a system-assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -483,6 +564,61 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Describes a configuration store SKU.
+type SkuInvokeResponse struct {
+	// The SKU name of the configuration store.
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Describes a configuration store SKU.
+type SkuInvokeResponseArgs struct {
+	// The SKU name of the configuration store.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Describes a configuration store SKU.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The SKU name of the configuration store.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes a configuration store SKU.
 type SkuResponse struct {
 	// The SKU name of the configuration store.
 	Name string `pulumi:"name"`
@@ -616,6 +752,112 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserIdentityInvokeResponse struct {
+	// The client ID of the user-assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID of the user-assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// UserIdentityInvokeResponseInput is an input type that accepts UserIdentityInvokeResponseArgs and UserIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `UserIdentityInvokeResponseInput` via:
+//
+//          UserIdentityInvokeResponseArgs{...}
+type UserIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserIdentityInvokeResponseOutput() UserIdentityInvokeResponseOutput
+	ToUserIdentityInvokeResponseOutputWithContext(context.Context) UserIdentityInvokeResponseOutput
+}
+
+type UserIdentityInvokeResponseArgs struct {
+	// The client ID of the user-assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal ID of the user-assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i UserIdentityInvokeResponseArgs) ToUserIdentityInvokeResponseOutput() UserIdentityInvokeResponseOutput {
+	return i.ToUserIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserIdentityInvokeResponseArgs) ToUserIdentityInvokeResponseOutputWithContext(ctx context.Context) UserIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityInvokeResponseOutput)
+}
+
+// UserIdentityInvokeResponseMapInput is an input type that accepts UserIdentityInvokeResponseMap and UserIdentityInvokeResponseMapOutput values.
+// You can construct a concrete instance of `UserIdentityInvokeResponseMapInput` via:
+//
+//          UserIdentityInvokeResponseMap{ "key": UserIdentityInvokeResponseArgs{...} }
+type UserIdentityInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToUserIdentityInvokeResponseMapOutput() UserIdentityInvokeResponseMapOutput
+	ToUserIdentityInvokeResponseMapOutputWithContext(context.Context) UserIdentityInvokeResponseMapOutput
+}
+
+type UserIdentityInvokeResponseMap map[string]UserIdentityInvokeResponseInput
+
+func (UserIdentityInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i UserIdentityInvokeResponseMap) ToUserIdentityInvokeResponseMapOutput() UserIdentityInvokeResponseMapOutput {
+	return i.ToUserIdentityInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserIdentityInvokeResponseMap) ToUserIdentityInvokeResponseMapOutputWithContext(ctx context.Context) UserIdentityInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityInvokeResponseMapOutput)
+}
+
+type UserIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o UserIdentityInvokeResponseOutput) ToUserIdentityInvokeResponseOutput() UserIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o UserIdentityInvokeResponseOutput) ToUserIdentityInvokeResponseOutputWithContext(ctx context.Context) UserIdentityInvokeResponseOutput {
+	return o
+}
+
+// The client ID of the user-assigned identity.
+func (o UserIdentityInvokeResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserIdentityInvokeResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID of the user-assigned identity.
+func (o UserIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserIdentityInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserIdentityInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o UserIdentityInvokeResponseMapOutput) ToUserIdentityInvokeResponseMapOutput() UserIdentityInvokeResponseMapOutput {
+	return o
+}
+
+func (o UserIdentityInvokeResponseMapOutput) ToUserIdentityInvokeResponseMapOutputWithContext(ctx context.Context) UserIdentityInvokeResponseMapOutput {
+	return o
+}
+
+func (o UserIdentityInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdentityInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserIdentityInvokeResponse {
+		return vs[0].(map[string]UserIdentityInvokeResponse)[vs[1].(string)]
+	}).(UserIdentityInvokeResponseOutput)
+}
+
 type UserIdentityResponse struct {
 	// The client ID of the user-assigned identity.
 	ClientId string `pulumi:"clientId"`
@@ -725,12 +967,16 @@ func (o UserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdenti
 func init() {
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserIdentityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UserIdentityInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponseMapOutput{})
 }

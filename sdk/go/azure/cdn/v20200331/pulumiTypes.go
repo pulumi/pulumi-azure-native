@@ -90,6 +90,85 @@ func (o CacheExpirationActionParametersOutput) OdataType() pulumi.StringOutput {
 }
 
 // Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersInvokeResponse struct {
+	// Caching behavior for the requests
+	CacheBehavior string `pulumi:"cacheBehavior"`
+	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheDuration *string `pulumi:"cacheDuration"`
+	// The level at which the content needs to be cached.
+	CacheType string `pulumi:"cacheType"`
+	OdataType string `pulumi:"odataType"`
+}
+
+// CacheExpirationActionParametersInvokeResponseInput is an input type that accepts CacheExpirationActionParametersInvokeResponseArgs and CacheExpirationActionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheExpirationActionParametersInvokeResponseInput` via:
+//
+//          CacheExpirationActionParametersInvokeResponseArgs{...}
+type CacheExpirationActionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheExpirationActionParametersInvokeResponseOutput() CacheExpirationActionParametersInvokeResponseOutput
+	ToCacheExpirationActionParametersInvokeResponseOutputWithContext(context.Context) CacheExpirationActionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersInvokeResponseArgs struct {
+	// Caching behavior for the requests
+	CacheBehavior pulumi.StringInput `pulumi:"cacheBehavior"`
+	// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+	CacheDuration pulumi.StringPtrInput `pulumi:"cacheDuration"`
+	// The level at which the content needs to be cached.
+	CacheType pulumi.StringInput `pulumi:"cacheType"`
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (CacheExpirationActionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheExpirationActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheExpirationActionParametersInvokeResponseArgs) ToCacheExpirationActionParametersInvokeResponseOutput() CacheExpirationActionParametersInvokeResponseOutput {
+	return i.ToCacheExpirationActionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheExpirationActionParametersInvokeResponseArgs) ToCacheExpirationActionParametersInvokeResponseOutputWithContext(ctx context.Context) CacheExpirationActionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheExpirationActionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for the cache expiration action.
+type CacheExpirationActionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheExpirationActionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheExpirationActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheExpirationActionParametersInvokeResponseOutput) ToCacheExpirationActionParametersInvokeResponseOutput() CacheExpirationActionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o CacheExpirationActionParametersInvokeResponseOutput) ToCacheExpirationActionParametersInvokeResponseOutputWithContext(ctx context.Context) CacheExpirationActionParametersInvokeResponseOutput {
+	return o
+}
+
+// Caching behavior for the requests
+func (o CacheExpirationActionParametersInvokeResponseOutput) CacheBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersInvokeResponse) string { return v.CacheBehavior }).(pulumi.StringOutput)
+}
+
+// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
+func (o CacheExpirationActionParametersInvokeResponseOutput) CacheDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersInvokeResponse) *string { return v.CacheDuration }).(pulumi.StringPtrOutput)
+}
+
+// The level at which the content needs to be cached.
+func (o CacheExpirationActionParametersInvokeResponseOutput) CacheType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersInvokeResponse) string { return v.CacheType }).(pulumi.StringOutput)
+}
+
+func (o CacheExpirationActionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheExpirationActionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the cache expiration action.
 type CacheExpirationActionParametersResponse struct {
 	// Caching behavior for the requests
 	CacheBehavior string `pulumi:"cacheBehavior"`
@@ -239,6 +318,76 @@ func (o CacheKeyQueryStringActionParametersOutput) QueryStringBehavior() pulumi.
 }
 
 // Defines the parameters for the cache-key query string action.
+type CacheKeyQueryStringActionParametersInvokeResponse struct {
+	OdataType string `pulumi:"odataType"`
+	// query parameters to include or exclude (comma separated).
+	QueryParameters *string `pulumi:"queryParameters"`
+	// Caching behavior for the requests
+	QueryStringBehavior string `pulumi:"queryStringBehavior"`
+}
+
+// CacheKeyQueryStringActionParametersInvokeResponseInput is an input type that accepts CacheKeyQueryStringActionParametersInvokeResponseArgs and CacheKeyQueryStringActionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheKeyQueryStringActionParametersInvokeResponseInput` via:
+//
+//          CacheKeyQueryStringActionParametersInvokeResponseArgs{...}
+type CacheKeyQueryStringActionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheKeyQueryStringActionParametersInvokeResponseOutput() CacheKeyQueryStringActionParametersInvokeResponseOutput
+	ToCacheKeyQueryStringActionParametersInvokeResponseOutputWithContext(context.Context) CacheKeyQueryStringActionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for the cache-key query string action.
+type CacheKeyQueryStringActionParametersInvokeResponseArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// query parameters to include or exclude (comma separated).
+	QueryParameters pulumi.StringPtrInput `pulumi:"queryParameters"`
+	// Caching behavior for the requests
+	QueryStringBehavior pulumi.StringInput `pulumi:"queryStringBehavior"`
+}
+
+func (CacheKeyQueryStringActionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheKeyQueryStringActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheKeyQueryStringActionParametersInvokeResponseArgs) ToCacheKeyQueryStringActionParametersInvokeResponseOutput() CacheKeyQueryStringActionParametersInvokeResponseOutput {
+	return i.ToCacheKeyQueryStringActionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheKeyQueryStringActionParametersInvokeResponseArgs) ToCacheKeyQueryStringActionParametersInvokeResponseOutputWithContext(ctx context.Context) CacheKeyQueryStringActionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheKeyQueryStringActionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for the cache-key query string action.
+type CacheKeyQueryStringActionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheKeyQueryStringActionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheKeyQueryStringActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheKeyQueryStringActionParametersInvokeResponseOutput) ToCacheKeyQueryStringActionParametersInvokeResponseOutput() CacheKeyQueryStringActionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o CacheKeyQueryStringActionParametersInvokeResponseOutput) ToCacheKeyQueryStringActionParametersInvokeResponseOutputWithContext(ctx context.Context) CacheKeyQueryStringActionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o CacheKeyQueryStringActionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheKeyQueryStringActionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// query parameters to include or exclude (comma separated).
+func (o CacheKeyQueryStringActionParametersInvokeResponseOutput) QueryParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheKeyQueryStringActionParametersInvokeResponse) *string { return v.QueryParameters }).(pulumi.StringPtrOutput)
+}
+
+// Caching behavior for the requests
+func (o CacheKeyQueryStringActionParametersInvokeResponseOutput) QueryStringBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheKeyQueryStringActionParametersInvokeResponse) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the cache-key query string action.
 type CacheKeyQueryStringActionParametersResponse struct {
 	OdataType string `pulumi:"odataType"`
 	// query parameters to include or exclude (comma separated).
@@ -306,6 +455,106 @@ func (o CacheKeyQueryStringActionParametersResponseOutput) QueryParameters() pul
 // Caching behavior for the requests
 func (o CacheKeyQueryStringActionParametersResponseOutput) QueryStringBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheKeyQueryStringActionParametersResponse) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
+}
+
+// Defines the ARM Resource ID for the linked endpoints
+type CdnEndpointInvokeResponse struct {
+	// ARM Resource ID string.
+	Id *string `pulumi:"id"`
+}
+
+// CdnEndpointInvokeResponseInput is an input type that accepts CdnEndpointInvokeResponseArgs and CdnEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `CdnEndpointInvokeResponseInput` via:
+//
+//          CdnEndpointInvokeResponseArgs{...}
+type CdnEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCdnEndpointInvokeResponseOutput() CdnEndpointInvokeResponseOutput
+	ToCdnEndpointInvokeResponseOutputWithContext(context.Context) CdnEndpointInvokeResponseOutput
+}
+
+// Defines the ARM Resource ID for the linked endpoints
+type CdnEndpointInvokeResponseArgs struct {
+	// ARM Resource ID string.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (CdnEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CdnEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i CdnEndpointInvokeResponseArgs) ToCdnEndpointInvokeResponseOutput() CdnEndpointInvokeResponseOutput {
+	return i.ToCdnEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CdnEndpointInvokeResponseArgs) ToCdnEndpointInvokeResponseOutputWithContext(ctx context.Context) CdnEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CdnEndpointInvokeResponseOutput)
+}
+
+// CdnEndpointInvokeResponseArrayInput is an input type that accepts CdnEndpointInvokeResponseArray and CdnEndpointInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CdnEndpointInvokeResponseArrayInput` via:
+//
+//          CdnEndpointInvokeResponseArray{ CdnEndpointInvokeResponseArgs{...} }
+type CdnEndpointInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCdnEndpointInvokeResponseArrayOutput() CdnEndpointInvokeResponseArrayOutput
+	ToCdnEndpointInvokeResponseArrayOutputWithContext(context.Context) CdnEndpointInvokeResponseArrayOutput
+}
+
+type CdnEndpointInvokeResponseArray []CdnEndpointInvokeResponseInput
+
+func (CdnEndpointInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CdnEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i CdnEndpointInvokeResponseArray) ToCdnEndpointInvokeResponseArrayOutput() CdnEndpointInvokeResponseArrayOutput {
+	return i.ToCdnEndpointInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CdnEndpointInvokeResponseArray) ToCdnEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) CdnEndpointInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CdnEndpointInvokeResponseArrayOutput)
+}
+
+// Defines the ARM Resource ID for the linked endpoints
+type CdnEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CdnEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CdnEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o CdnEndpointInvokeResponseOutput) ToCdnEndpointInvokeResponseOutput() CdnEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o CdnEndpointInvokeResponseOutput) ToCdnEndpointInvokeResponseOutputWithContext(ctx context.Context) CdnEndpointInvokeResponseOutput {
+	return o
+}
+
+// ARM Resource ID string.
+func (o CdnEndpointInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CdnEndpointInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type CdnEndpointInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CdnEndpointInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CdnEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o CdnEndpointInvokeResponseArrayOutput) ToCdnEndpointInvokeResponseArrayOutput() CdnEndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CdnEndpointInvokeResponseArrayOutput) ToCdnEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) CdnEndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CdnEndpointInvokeResponseArrayOutput) Index(i pulumi.IntInput) CdnEndpointInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CdnEndpointInvokeResponse {
+		return vs[0].([]CdnEndpointInvokeResponse)[vs[1].(int)]
+	}).(CdnEndpointInvokeResponseOutput)
 }
 
 // Defines the ARM Resource ID for the linked endpoints
@@ -503,6 +752,103 @@ func (o CookiesMatchConditionParametersOutput) Selector() pulumi.StringPtrOutput
 // List of transforms
 func (o CookiesMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CookiesMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for Cookies match conditions
+type CookiesMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// Name of Cookies to be matched
+	Selector *string `pulumi:"selector"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// CookiesMatchConditionParametersInvokeResponseInput is an input type that accepts CookiesMatchConditionParametersInvokeResponseArgs and CookiesMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `CookiesMatchConditionParametersInvokeResponseInput` via:
+//
+//          CookiesMatchConditionParametersInvokeResponseArgs{...}
+type CookiesMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCookiesMatchConditionParametersInvokeResponseOutput() CookiesMatchConditionParametersInvokeResponseOutput
+	ToCookiesMatchConditionParametersInvokeResponseOutputWithContext(context.Context) CookiesMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for Cookies match conditions
+type CookiesMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of Cookies to be matched
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (CookiesMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CookiesMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i CookiesMatchConditionParametersInvokeResponseArgs) ToCookiesMatchConditionParametersInvokeResponseOutput() CookiesMatchConditionParametersInvokeResponseOutput {
+	return i.ToCookiesMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CookiesMatchConditionParametersInvokeResponseArgs) ToCookiesMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) CookiesMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CookiesMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for Cookies match conditions
+type CookiesMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CookiesMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CookiesMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o CookiesMatchConditionParametersInvokeResponseOutput) ToCookiesMatchConditionParametersInvokeResponseOutput() CookiesMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o CookiesMatchConditionParametersInvokeResponseOutput) ToCookiesMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) CookiesMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o CookiesMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o CookiesMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o CookiesMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o CookiesMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of Cookies to be matched
+func (o CookiesMatchConditionParametersInvokeResponseOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersInvokeResponse) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// List of transforms
+func (o CookiesMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CookiesMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
 // Defines the parameters for Cookies match conditions
@@ -738,6 +1084,142 @@ func (o CustomRuleArrayOutput) Index(i pulumi.IntInput) CustomRuleOutput {
 	}).(CustomRuleOutput)
 }
 
+// Defines the common attributes for a custom rule that can be included in a waf policy
+type CustomRuleInvokeResponse struct {
+	// Describes what action to be applied when rule matches
+	Action string `pulumi:"action"`
+	// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+	EnabledState *string `pulumi:"enabledState"`
+	// List of match conditions.
+	MatchConditions []MatchConditionInvokeResponse `pulumi:"matchConditions"`
+	// Defines the name of the custom rule
+	Name string `pulumi:"name"`
+	// Defines in what order this rule be evaluated in the overall list of custom rules
+	Priority int `pulumi:"priority"`
+}
+
+// CustomRuleInvokeResponseInput is an input type that accepts CustomRuleInvokeResponseArgs and CustomRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `CustomRuleInvokeResponseInput` via:
+//
+//          CustomRuleInvokeResponseArgs{...}
+type CustomRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCustomRuleInvokeResponseOutput() CustomRuleInvokeResponseOutput
+	ToCustomRuleInvokeResponseOutputWithContext(context.Context) CustomRuleInvokeResponseOutput
+}
+
+// Defines the common attributes for a custom rule that can be included in a waf policy
+type CustomRuleInvokeResponseArgs struct {
+	// Describes what action to be applied when rule matches
+	Action pulumi.StringInput `pulumi:"action"`
+	// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
+	// List of match conditions.
+	MatchConditions MatchConditionInvokeResponseArrayInput `pulumi:"matchConditions"`
+	// Defines the name of the custom rule
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines in what order this rule be evaluated in the overall list of custom rules
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (CustomRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomRuleInvokeResponseArgs) ToCustomRuleInvokeResponseOutput() CustomRuleInvokeResponseOutput {
+	return i.ToCustomRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CustomRuleInvokeResponseArgs) ToCustomRuleInvokeResponseOutputWithContext(ctx context.Context) CustomRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleInvokeResponseOutput)
+}
+
+// CustomRuleInvokeResponseArrayInput is an input type that accepts CustomRuleInvokeResponseArray and CustomRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CustomRuleInvokeResponseArrayInput` via:
+//
+//          CustomRuleInvokeResponseArray{ CustomRuleInvokeResponseArgs{...} }
+type CustomRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCustomRuleInvokeResponseArrayOutput() CustomRuleInvokeResponseArrayOutput
+	ToCustomRuleInvokeResponseArrayOutputWithContext(context.Context) CustomRuleInvokeResponseArrayOutput
+}
+
+type CustomRuleInvokeResponseArray []CustomRuleInvokeResponseInput
+
+func (CustomRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomRuleInvokeResponseArray) ToCustomRuleInvokeResponseArrayOutput() CustomRuleInvokeResponseArrayOutput {
+	return i.ToCustomRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CustomRuleInvokeResponseArray) ToCustomRuleInvokeResponseArrayOutputWithContext(ctx context.Context) CustomRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleInvokeResponseArrayOutput)
+}
+
+// Defines the common attributes for a custom rule that can be included in a waf policy
+type CustomRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomRuleInvokeResponseOutput) ToCustomRuleInvokeResponseOutput() CustomRuleInvokeResponseOutput {
+	return o
+}
+
+func (o CustomRuleInvokeResponseOutput) ToCustomRuleInvokeResponseOutputWithContext(ctx context.Context) CustomRuleInvokeResponseOutput {
+	return o
+}
+
+// Describes what action to be applied when rule matches
+func (o CustomRuleInvokeResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomRuleInvokeResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+func (o CustomRuleInvokeResponseOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomRuleInvokeResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// List of match conditions.
+func (o CustomRuleInvokeResponseOutput) MatchConditions() MatchConditionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CustomRuleInvokeResponse) []MatchConditionInvokeResponse { return v.MatchConditions }).(MatchConditionInvokeResponseArrayOutput)
+}
+
+// Defines the name of the custom rule
+func (o CustomRuleInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomRuleInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines in what order this rule be evaluated in the overall list of custom rules
+func (o CustomRuleInvokeResponseOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v CustomRuleInvokeResponse) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type CustomRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomRuleInvokeResponseArrayOutput) ToCustomRuleInvokeResponseArrayOutput() CustomRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CustomRuleInvokeResponseArrayOutput) ToCustomRuleInvokeResponseArrayOutputWithContext(ctx context.Context) CustomRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CustomRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) CustomRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomRuleInvokeResponse {
+		return vs[0].([]CustomRuleInvokeResponse)[vs[1].(int)]
+	}).(CustomRuleInvokeResponseOutput)
+}
+
 // Defines contents of custom rules
 type CustomRuleList struct {
 	// List of rules
@@ -870,6 +1352,61 @@ func (o CustomRuleListPtrOutput) Rules() CustomRuleArrayOutput {
 		}
 		return v.Rules
 	}).(CustomRuleArrayOutput)
+}
+
+// Defines contents of custom rules
+type CustomRuleListInvokeResponse struct {
+	// List of rules
+	Rules []CustomRuleInvokeResponse `pulumi:"rules"`
+}
+
+// CustomRuleListInvokeResponseInput is an input type that accepts CustomRuleListInvokeResponseArgs and CustomRuleListInvokeResponseOutput values.
+// You can construct a concrete instance of `CustomRuleListInvokeResponseInput` via:
+//
+//          CustomRuleListInvokeResponseArgs{...}
+type CustomRuleListInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCustomRuleListInvokeResponseOutput() CustomRuleListInvokeResponseOutput
+	ToCustomRuleListInvokeResponseOutputWithContext(context.Context) CustomRuleListInvokeResponseOutput
+}
+
+// Defines contents of custom rules
+type CustomRuleListInvokeResponseArgs struct {
+	// List of rules
+	Rules CustomRuleInvokeResponseArrayInput `pulumi:"rules"`
+}
+
+func (CustomRuleListInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRuleListInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomRuleListInvokeResponseArgs) ToCustomRuleListInvokeResponseOutput() CustomRuleListInvokeResponseOutput {
+	return i.ToCustomRuleListInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CustomRuleListInvokeResponseArgs) ToCustomRuleListInvokeResponseOutputWithContext(ctx context.Context) CustomRuleListInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomRuleListInvokeResponseOutput)
+}
+
+// Defines contents of custom rules
+type CustomRuleListInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomRuleListInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRuleListInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomRuleListInvokeResponseOutput) ToCustomRuleListInvokeResponseOutput() CustomRuleListInvokeResponseOutput {
+	return o
+}
+
+func (o CustomRuleListInvokeResponseOutput) ToCustomRuleListInvokeResponseOutputWithContext(ctx context.Context) CustomRuleListInvokeResponseOutput {
+	return o
+}
+
+// List of rules
+func (o CustomRuleListInvokeResponseOutput) Rules() CustomRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CustomRuleListInvokeResponse) []CustomRuleInvokeResponse { return v.Rules }).(CustomRuleInvokeResponseArrayOutput)
 }
 
 // Defines contents of custom rules
@@ -1444,6 +1981,148 @@ func (o DeepCreatedOriginGroupArrayOutput) Index(i pulumi.IntInput) DeepCreatedO
 }
 
 // The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
+type DeepCreatedOriginGroupInvokeResponse struct {
+	// Health probe settings to the origin that is used to determine the health of the origin.
+	HealthProbeSettings *HealthProbeParametersInvokeResponse `pulumi:"healthProbeSettings"`
+	// Origin group name which must be unique within the endpoint.
+	Name string `pulumi:"name"`
+	// The source of the content being delivered via CDN within given origin group.
+	Origins []ResourceReferenceInvokeResponse `pulumi:"origins"`
+	// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+	ResponseBasedOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersInvokeResponse `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
+}
+
+// DeepCreatedOriginGroupInvokeResponseInput is an input type that accepts DeepCreatedOriginGroupInvokeResponseArgs and DeepCreatedOriginGroupInvokeResponseOutput values.
+// You can construct a concrete instance of `DeepCreatedOriginGroupInvokeResponseInput` via:
+//
+//          DeepCreatedOriginGroupInvokeResponseArgs{...}
+type DeepCreatedOriginGroupInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeepCreatedOriginGroupInvokeResponseOutput() DeepCreatedOriginGroupInvokeResponseOutput
+	ToDeepCreatedOriginGroupInvokeResponseOutputWithContext(context.Context) DeepCreatedOriginGroupInvokeResponseOutput
+}
+
+// The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
+type DeepCreatedOriginGroupInvokeResponseArgs struct {
+	// Health probe settings to the origin that is used to determine the health of the origin.
+	HealthProbeSettings HealthProbeParametersInvokeResponsePtrInput `pulumi:"healthProbeSettings"`
+	// Origin group name which must be unique within the endpoint.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The source of the content being delivered via CDN within given origin group.
+	Origins ResourceReferenceInvokeResponseArrayInput `pulumi:"origins"`
+	// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+	ResponseBasedOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrInput `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrInput `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
+}
+
+func (DeepCreatedOriginGroupInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeepCreatedOriginGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i DeepCreatedOriginGroupInvokeResponseArgs) ToDeepCreatedOriginGroupInvokeResponseOutput() DeepCreatedOriginGroupInvokeResponseOutput {
+	return i.ToDeepCreatedOriginGroupInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeepCreatedOriginGroupInvokeResponseArgs) ToDeepCreatedOriginGroupInvokeResponseOutputWithContext(ctx context.Context) DeepCreatedOriginGroupInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginGroupInvokeResponseOutput)
+}
+
+// DeepCreatedOriginGroupInvokeResponseArrayInput is an input type that accepts DeepCreatedOriginGroupInvokeResponseArray and DeepCreatedOriginGroupInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DeepCreatedOriginGroupInvokeResponseArrayInput` via:
+//
+//          DeepCreatedOriginGroupInvokeResponseArray{ DeepCreatedOriginGroupInvokeResponseArgs{...} }
+type DeepCreatedOriginGroupInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDeepCreatedOriginGroupInvokeResponseArrayOutput() DeepCreatedOriginGroupInvokeResponseArrayOutput
+	ToDeepCreatedOriginGroupInvokeResponseArrayOutputWithContext(context.Context) DeepCreatedOriginGroupInvokeResponseArrayOutput
+}
+
+type DeepCreatedOriginGroupInvokeResponseArray []DeepCreatedOriginGroupInvokeResponseInput
+
+func (DeepCreatedOriginGroupInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeepCreatedOriginGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i DeepCreatedOriginGroupInvokeResponseArray) ToDeepCreatedOriginGroupInvokeResponseArrayOutput() DeepCreatedOriginGroupInvokeResponseArrayOutput {
+	return i.ToDeepCreatedOriginGroupInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DeepCreatedOriginGroupInvokeResponseArray) ToDeepCreatedOriginGroupInvokeResponseArrayOutputWithContext(ctx context.Context) DeepCreatedOriginGroupInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginGroupInvokeResponseArrayOutput)
+}
+
+// The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
+type DeepCreatedOriginGroupInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeepCreatedOriginGroupInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeepCreatedOriginGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o DeepCreatedOriginGroupInvokeResponseOutput) ToDeepCreatedOriginGroupInvokeResponseOutput() DeepCreatedOriginGroupInvokeResponseOutput {
+	return o
+}
+
+func (o DeepCreatedOriginGroupInvokeResponseOutput) ToDeepCreatedOriginGroupInvokeResponseOutputWithContext(ctx context.Context) DeepCreatedOriginGroupInvokeResponseOutput {
+	return o
+}
+
+// Health probe settings to the origin that is used to determine the health of the origin.
+func (o DeepCreatedOriginGroupInvokeResponseOutput) HealthProbeSettings() HealthProbeParametersInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginGroupInvokeResponse) *HealthProbeParametersInvokeResponse {
+		return v.HealthProbeSettings
+	}).(HealthProbeParametersInvokeResponsePtrOutput)
+}
+
+// Origin group name which must be unique within the endpoint.
+func (o DeepCreatedOriginGroupInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeepCreatedOriginGroupInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The source of the content being delivered via CDN within given origin group.
+func (o DeepCreatedOriginGroupInvokeResponseOutput) Origins() ResourceReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DeepCreatedOriginGroupInvokeResponse) []ResourceReferenceInvokeResponse { return v.Origins }).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+func (o DeepCreatedOriginGroupInvokeResponseOutput) ResponseBasedOriginErrorDetectionSettings() ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginGroupInvokeResponse) *ResponseBasedOriginErrorDetectionParametersInvokeResponse {
+		return v.ResponseBasedOriginErrorDetectionSettings
+	}).(ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput)
+}
+
+// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+func (o DeepCreatedOriginGroupInvokeResponseOutput) TrafficRestorationTimeToHealedOrNewEndpointsInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginGroupInvokeResponse) *int {
+		return v.TrafficRestorationTimeToHealedOrNewEndpointsInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type DeepCreatedOriginGroupInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DeepCreatedOriginGroupInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeepCreatedOriginGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o DeepCreatedOriginGroupInvokeResponseArrayOutput) ToDeepCreatedOriginGroupInvokeResponseArrayOutput() DeepCreatedOriginGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DeepCreatedOriginGroupInvokeResponseArrayOutput) ToDeepCreatedOriginGroupInvokeResponseArrayOutputWithContext(ctx context.Context) DeepCreatedOriginGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DeepCreatedOriginGroupInvokeResponseArrayOutput) Index(i pulumi.IntInput) DeepCreatedOriginGroupInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeepCreatedOriginGroupInvokeResponse {
+		return vs[0].([]DeepCreatedOriginGroupInvokeResponse)[vs[1].(int)]
+	}).(DeepCreatedOriginGroupInvokeResponseOutput)
+}
+
+// The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
 type DeepCreatedOriginGroupResponse struct {
 	// Health probe settings to the origin that is used to determine the health of the origin.
 	HealthProbeSettings *HealthProbeParametersResponse `pulumi:"healthProbeSettings"`
@@ -1581,6 +2260,169 @@ func (o DeepCreatedOriginGroupResponseArrayOutput) Index(i pulumi.IntInput) Deep
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeepCreatedOriginGroupResponse {
 		return vs[0].([]DeepCreatedOriginGroupResponse)[vs[1].(int)]
 	}).(DeepCreatedOriginGroupResponseOutput)
+}
+
+// The main origin of CDN content which is added when creating a CDN endpoint.
+type DeepCreatedOriginInvokeResponse struct {
+	// Origin is enabled for load balancing or not. By default, origin is always enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
+	HostName string `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort *int `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535.
+	HttpsPort *int `pulumi:"httpsPort"`
+	// Origin name which must be unique within the endpoint.
+	Name string `pulumi:"name"`
+	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+	OriginHostHeader *string `pulumi:"originHostHeader"`
+	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+	Priority *int `pulumi:"priority"`
+	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+	Weight *int `pulumi:"weight"`
+}
+
+// DeepCreatedOriginInvokeResponseInput is an input type that accepts DeepCreatedOriginInvokeResponseArgs and DeepCreatedOriginInvokeResponseOutput values.
+// You can construct a concrete instance of `DeepCreatedOriginInvokeResponseInput` via:
+//
+//          DeepCreatedOriginInvokeResponseArgs{...}
+type DeepCreatedOriginInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeepCreatedOriginInvokeResponseOutput() DeepCreatedOriginInvokeResponseOutput
+	ToDeepCreatedOriginInvokeResponseOutputWithContext(context.Context) DeepCreatedOriginInvokeResponseOutput
+}
+
+// The main origin of CDN content which is added when creating a CDN endpoint.
+type DeepCreatedOriginInvokeResponseArgs struct {
+	// Origin is enabled for load balancing or not. By default, origin is always enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535.
+	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
+	// Origin name which must be unique within the endpoint.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+	OriginHostHeader pulumi.StringPtrInput `pulumi:"originHostHeader"`
+	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (DeepCreatedOriginInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeepCreatedOriginInvokeResponse)(nil)).Elem()
+}
+
+func (i DeepCreatedOriginInvokeResponseArgs) ToDeepCreatedOriginInvokeResponseOutput() DeepCreatedOriginInvokeResponseOutput {
+	return i.ToDeepCreatedOriginInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeepCreatedOriginInvokeResponseArgs) ToDeepCreatedOriginInvokeResponseOutputWithContext(ctx context.Context) DeepCreatedOriginInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginInvokeResponseOutput)
+}
+
+// DeepCreatedOriginInvokeResponseArrayInput is an input type that accepts DeepCreatedOriginInvokeResponseArray and DeepCreatedOriginInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DeepCreatedOriginInvokeResponseArrayInput` via:
+//
+//          DeepCreatedOriginInvokeResponseArray{ DeepCreatedOriginInvokeResponseArgs{...} }
+type DeepCreatedOriginInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDeepCreatedOriginInvokeResponseArrayOutput() DeepCreatedOriginInvokeResponseArrayOutput
+	ToDeepCreatedOriginInvokeResponseArrayOutputWithContext(context.Context) DeepCreatedOriginInvokeResponseArrayOutput
+}
+
+type DeepCreatedOriginInvokeResponseArray []DeepCreatedOriginInvokeResponseInput
+
+func (DeepCreatedOriginInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeepCreatedOriginInvokeResponse)(nil)).Elem()
+}
+
+func (i DeepCreatedOriginInvokeResponseArray) ToDeepCreatedOriginInvokeResponseArrayOutput() DeepCreatedOriginInvokeResponseArrayOutput {
+	return i.ToDeepCreatedOriginInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DeepCreatedOriginInvokeResponseArray) ToDeepCreatedOriginInvokeResponseArrayOutputWithContext(ctx context.Context) DeepCreatedOriginInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginInvokeResponseArrayOutput)
+}
+
+// The main origin of CDN content which is added when creating a CDN endpoint.
+type DeepCreatedOriginInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeepCreatedOriginInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeepCreatedOriginInvokeResponse)(nil)).Elem()
+}
+
+func (o DeepCreatedOriginInvokeResponseOutput) ToDeepCreatedOriginInvokeResponseOutput() DeepCreatedOriginInvokeResponseOutput {
+	return o
+}
+
+func (o DeepCreatedOriginInvokeResponseOutput) ToDeepCreatedOriginInvokeResponseOutputWithContext(ctx context.Context) DeepCreatedOriginInvokeResponseOutput {
+	return o
+}
+
+// Origin is enabled for load balancing or not. By default, origin is always enabled.
+func (o DeepCreatedOriginInvokeResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
+func (o DeepCreatedOriginInvokeResponseOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP port. Must be between 1 and 65535.
+func (o DeepCreatedOriginInvokeResponseOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
+}
+
+// The value of the HTTPS port. Must be between 1 and 65535.
+func (o DeepCreatedOriginInvokeResponseOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
+}
+
+// Origin name which must be unique within the endpoint.
+func (o DeepCreatedOriginInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+func (o DeepCreatedOriginInvokeResponseOutput) OriginHostHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) *string { return v.OriginHostHeader }).(pulumi.StringPtrOutput)
+}
+
+// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+func (o DeepCreatedOriginInvokeResponseOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+func (o DeepCreatedOriginInvokeResponseOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type DeepCreatedOriginInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DeepCreatedOriginInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeepCreatedOriginInvokeResponse)(nil)).Elem()
+}
+
+func (o DeepCreatedOriginInvokeResponseArrayOutput) ToDeepCreatedOriginInvokeResponseArrayOutput() DeepCreatedOriginInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DeepCreatedOriginInvokeResponseArrayOutput) ToDeepCreatedOriginInvokeResponseArrayOutputWithContext(ctx context.Context) DeepCreatedOriginInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DeepCreatedOriginInvokeResponseArrayOutput) Index(i pulumi.IntInput) DeepCreatedOriginInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeepCreatedOriginInvokeResponse {
+		return vs[0].([]DeepCreatedOriginInvokeResponse)[vs[1].(int)]
+	}).(DeepCreatedOriginInvokeResponseOutput)
 }
 
 // The main origin of CDN content which is added when creating a CDN endpoint.
@@ -1941,6 +2783,75 @@ func (o DeliveryRuleCacheExpirationActionOutput) Parameters() CacheExpirationAct
 }
 
 // Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionInvokeResponse struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'CacheExpiration'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheExpirationActionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleCacheExpirationActionInvokeResponseInput is an input type that accepts DeliveryRuleCacheExpirationActionInvokeResponseArgs and DeliveryRuleCacheExpirationActionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleCacheExpirationActionInvokeResponseInput` via:
+//
+//          DeliveryRuleCacheExpirationActionInvokeResponseArgs{...}
+type DeliveryRuleCacheExpirationActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleCacheExpirationActionInvokeResponseOutput() DeliveryRuleCacheExpirationActionInvokeResponseOutput
+	ToDeliveryRuleCacheExpirationActionInvokeResponseOutputWithContext(context.Context) DeliveryRuleCacheExpirationActionInvokeResponseOutput
+}
+
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionInvokeResponseArgs struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'CacheExpiration'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheExpirationActionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleCacheExpirationActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheExpirationActionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleCacheExpirationActionInvokeResponseArgs) ToDeliveryRuleCacheExpirationActionInvokeResponseOutput() DeliveryRuleCacheExpirationActionInvokeResponseOutput {
+	return i.ToDeliveryRuleCacheExpirationActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleCacheExpirationActionInvokeResponseArgs) ToDeliveryRuleCacheExpirationActionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheExpirationActionInvokeResponseOutput)
+}
+
+// Defines the cache expiration action for the delivery rule.
+type DeliveryRuleCacheExpirationActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleCacheExpirationActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheExpirationActionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleCacheExpirationActionInvokeResponseOutput) ToDeliveryRuleCacheExpirationActionInvokeResponseOutput() DeliveryRuleCacheExpirationActionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleCacheExpirationActionInvokeResponseOutput) ToDeliveryRuleCacheExpirationActionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheExpirationActionInvokeResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+// Expected value is 'CacheExpiration'.
+func (o DeliveryRuleCacheExpirationActionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheExpirationActionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o DeliveryRuleCacheExpirationActionInvokeResponseOutput) Parameters() CacheExpirationActionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheExpirationActionInvokeResponse) CacheExpirationActionParametersInvokeResponse {
+		return v.Parameters
+	}).(CacheExpirationActionParametersInvokeResponseOutput)
+}
+
+// Defines the cache expiration action for the delivery rule.
 type DeliveryRuleCacheExpirationActionResponse struct {
 	// The name of the action for the delivery rule.
 	// Expected value is 'CacheExpiration'.
@@ -2074,6 +2985,75 @@ func (o DeliveryRuleCacheKeyQueryStringActionOutput) Name() pulumi.StringOutput 
 // Defines the parameters for the action.
 func (o DeliveryRuleCacheKeyQueryStringActionOutput) Parameters() CacheKeyQueryStringActionParametersOutput {
 	return o.ApplyT(func(v DeliveryRuleCacheKeyQueryStringAction) CacheKeyQueryStringActionParameters { return v.Parameters }).(CacheKeyQueryStringActionParametersOutput)
+}
+
+// Defines the cache-key query string action for the delivery rule.
+type DeliveryRuleCacheKeyQueryStringActionInvokeResponse struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'CacheKeyQueryString'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheKeyQueryStringActionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleCacheKeyQueryStringActionInvokeResponseInput is an input type that accepts DeliveryRuleCacheKeyQueryStringActionInvokeResponseArgs and DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleCacheKeyQueryStringActionInvokeResponseInput` via:
+//
+//          DeliveryRuleCacheKeyQueryStringActionInvokeResponseArgs{...}
+type DeliveryRuleCacheKeyQueryStringActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput() DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput
+	ToDeliveryRuleCacheKeyQueryStringActionInvokeResponseOutputWithContext(context.Context) DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput
+}
+
+// Defines the cache-key query string action for the delivery rule.
+type DeliveryRuleCacheKeyQueryStringActionInvokeResponseArgs struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'CacheKeyQueryString'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters CacheKeyQueryStringActionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleCacheKeyQueryStringActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheKeyQueryStringActionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleCacheKeyQueryStringActionInvokeResponseArgs) ToDeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput() DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput {
+	return i.ToDeliveryRuleCacheKeyQueryStringActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleCacheKeyQueryStringActionInvokeResponseArgs) ToDeliveryRuleCacheKeyQueryStringActionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput)
+}
+
+// Defines the cache-key query string action for the delivery rule.
+type DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCacheKeyQueryStringActionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput) ToDeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput() DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput) ToDeliveryRuleCacheKeyQueryStringActionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+// Expected value is 'CacheKeyQueryString'.
+func (o DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheKeyQueryStringActionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput) Parameters() CacheKeyQueryStringActionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleCacheKeyQueryStringActionInvokeResponse) CacheKeyQueryStringActionParametersInvokeResponse {
+		return v.Parameters
+	}).(CacheKeyQueryStringActionParametersInvokeResponseOutput)
 }
 
 // Defines the cache-key query string action for the delivery rule.
@@ -2213,6 +3193,75 @@ func (o DeliveryRuleCookiesConditionOutput) Parameters() CookiesMatchConditionPa
 }
 
 // Defines the Cookies condition for the delivery rule.
+type DeliveryRuleCookiesConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'Cookies'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters CookiesMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleCookiesConditionInvokeResponseInput is an input type that accepts DeliveryRuleCookiesConditionInvokeResponseArgs and DeliveryRuleCookiesConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleCookiesConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleCookiesConditionInvokeResponseArgs{...}
+type DeliveryRuleCookiesConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleCookiesConditionInvokeResponseOutput() DeliveryRuleCookiesConditionInvokeResponseOutput
+	ToDeliveryRuleCookiesConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleCookiesConditionInvokeResponseOutput
+}
+
+// Defines the Cookies condition for the delivery rule.
+type DeliveryRuleCookiesConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'Cookies'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters CookiesMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleCookiesConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCookiesConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleCookiesConditionInvokeResponseArgs) ToDeliveryRuleCookiesConditionInvokeResponseOutput() DeliveryRuleCookiesConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleCookiesConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleCookiesConditionInvokeResponseArgs) ToDeliveryRuleCookiesConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleCookiesConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleCookiesConditionInvokeResponseOutput)
+}
+
+// Defines the Cookies condition for the delivery rule.
+type DeliveryRuleCookiesConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleCookiesConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleCookiesConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleCookiesConditionInvokeResponseOutput) ToDeliveryRuleCookiesConditionInvokeResponseOutput() DeliveryRuleCookiesConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleCookiesConditionInvokeResponseOutput) ToDeliveryRuleCookiesConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleCookiesConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'Cookies'.
+func (o DeliveryRuleCookiesConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleCookiesConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleCookiesConditionInvokeResponseOutput) Parameters() CookiesMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleCookiesConditionInvokeResponse) CookiesMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(CookiesMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the Cookies condition for the delivery rule.
 type DeliveryRuleCookiesConditionResponse struct {
 	// The name of the condition for the delivery rule.
 	// Expected value is 'Cookies'.
@@ -2349,6 +3398,75 @@ func (o DeliveryRuleHttpVersionConditionOutput) Parameters() HttpVersionMatchCon
 }
 
 // Defines the HttpVersion condition for the delivery rule.
+type DeliveryRuleHttpVersionConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'HttpVersion'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters HttpVersionMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleHttpVersionConditionInvokeResponseInput is an input type that accepts DeliveryRuleHttpVersionConditionInvokeResponseArgs and DeliveryRuleHttpVersionConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleHttpVersionConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleHttpVersionConditionInvokeResponseArgs{...}
+type DeliveryRuleHttpVersionConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleHttpVersionConditionInvokeResponseOutput() DeliveryRuleHttpVersionConditionInvokeResponseOutput
+	ToDeliveryRuleHttpVersionConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleHttpVersionConditionInvokeResponseOutput
+}
+
+// Defines the HttpVersion condition for the delivery rule.
+type DeliveryRuleHttpVersionConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'HttpVersion'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters HttpVersionMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleHttpVersionConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleHttpVersionConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleHttpVersionConditionInvokeResponseArgs) ToDeliveryRuleHttpVersionConditionInvokeResponseOutput() DeliveryRuleHttpVersionConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleHttpVersionConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleHttpVersionConditionInvokeResponseArgs) ToDeliveryRuleHttpVersionConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleHttpVersionConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleHttpVersionConditionInvokeResponseOutput)
+}
+
+// Defines the HttpVersion condition for the delivery rule.
+type DeliveryRuleHttpVersionConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleHttpVersionConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleHttpVersionConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleHttpVersionConditionInvokeResponseOutput) ToDeliveryRuleHttpVersionConditionInvokeResponseOutput() DeliveryRuleHttpVersionConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleHttpVersionConditionInvokeResponseOutput) ToDeliveryRuleHttpVersionConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleHttpVersionConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'HttpVersion'.
+func (o DeliveryRuleHttpVersionConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleHttpVersionConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleHttpVersionConditionInvokeResponseOutput) Parameters() HttpVersionMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleHttpVersionConditionInvokeResponse) HttpVersionMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(HttpVersionMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the HttpVersion condition for the delivery rule.
 type DeliveryRuleHttpVersionConditionResponse struct {
 	// The name of the condition for the delivery rule.
 	// Expected value is 'HttpVersion'.
@@ -2417,6 +3535,133 @@ func (o DeliveryRuleHttpVersionConditionResponseOutput) Parameters() HttpVersion
 	}).(HttpVersionMatchConditionParametersResponseOutput)
 }
 
+// A rule that specifies a set of actions and conditions
+type DeliveryRuleInvokeResponse struct {
+	// A list of actions that are executed when all the conditions of a rule are satisfied.
+	Actions []interface{} `pulumi:"actions"`
+	// A list of conditions that must be matched for the actions to be executed
+	Conditions []interface{} `pulumi:"conditions"`
+	// Name of the rule
+	Name *string `pulumi:"name"`
+	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+	Order int `pulumi:"order"`
+}
+
+// DeliveryRuleInvokeResponseInput is an input type that accepts DeliveryRuleInvokeResponseArgs and DeliveryRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleInvokeResponseInput` via:
+//
+//          DeliveryRuleInvokeResponseArgs{...}
+type DeliveryRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleInvokeResponseOutput() DeliveryRuleInvokeResponseOutput
+	ToDeliveryRuleInvokeResponseOutputWithContext(context.Context) DeliveryRuleInvokeResponseOutput
+}
+
+// A rule that specifies a set of actions and conditions
+type DeliveryRuleInvokeResponseArgs struct {
+	// A list of actions that are executed when all the conditions of a rule are satisfied.
+	Actions pulumi.ArrayInput `pulumi:"actions"`
+	// A list of conditions that must be matched for the actions to be executed
+	Conditions pulumi.ArrayInput `pulumi:"conditions"`
+	// Name of the rule
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+	Order pulumi.IntInput `pulumi:"order"`
+}
+
+func (DeliveryRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleInvokeResponseArgs) ToDeliveryRuleInvokeResponseOutput() DeliveryRuleInvokeResponseOutput {
+	return i.ToDeliveryRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleInvokeResponseArgs) ToDeliveryRuleInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleInvokeResponseOutput)
+}
+
+// DeliveryRuleInvokeResponseArrayInput is an input type that accepts DeliveryRuleInvokeResponseArray and DeliveryRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DeliveryRuleInvokeResponseArrayInput` via:
+//
+//          DeliveryRuleInvokeResponseArray{ DeliveryRuleInvokeResponseArgs{...} }
+type DeliveryRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleInvokeResponseArrayOutput() DeliveryRuleInvokeResponseArrayOutput
+	ToDeliveryRuleInvokeResponseArrayOutputWithContext(context.Context) DeliveryRuleInvokeResponseArrayOutput
+}
+
+type DeliveryRuleInvokeResponseArray []DeliveryRuleInvokeResponseInput
+
+func (DeliveryRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleInvokeResponseArray) ToDeliveryRuleInvokeResponseArrayOutput() DeliveryRuleInvokeResponseArrayOutput {
+	return i.ToDeliveryRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleInvokeResponseArray) ToDeliveryRuleInvokeResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleInvokeResponseArrayOutput)
+}
+
+// A rule that specifies a set of actions and conditions
+type DeliveryRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleInvokeResponseOutput) ToDeliveryRuleInvokeResponseOutput() DeliveryRuleInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleInvokeResponseOutput) ToDeliveryRuleInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleInvokeResponseOutput {
+	return o
+}
+
+// A list of actions that are executed when all the conditions of a rule are satisfied.
+func (o DeliveryRuleInvokeResponseOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DeliveryRuleInvokeResponse) []interface{} { return v.Actions }).(pulumi.ArrayOutput)
+}
+
+// A list of conditions that must be matched for the actions to be executed
+func (o DeliveryRuleInvokeResponseOutput) Conditions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DeliveryRuleInvokeResponse) []interface{} { return v.Conditions }).(pulumi.ArrayOutput)
+}
+
+// Name of the rule
+func (o DeliveryRuleInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryRuleInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+func (o DeliveryRuleInvokeResponseOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v DeliveryRuleInvokeResponse) int { return v.Order }).(pulumi.IntOutput)
+}
+
+type DeliveryRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleInvokeResponseArrayOutput) ToDeliveryRuleInvokeResponseArrayOutput() DeliveryRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DeliveryRuleInvokeResponseArrayOutput) ToDeliveryRuleInvokeResponseArrayOutputWithContext(ctx context.Context) DeliveryRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DeliveryRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleInvokeResponse {
+		return vs[0].([]DeliveryRuleInvokeResponse)[vs[1].(int)]
+	}).(DeliveryRuleInvokeResponseOutput)
+}
+
 // Defines the IsDevice condition for the delivery rule.
 type DeliveryRuleIsDeviceCondition struct {
 	// The name of the condition for the delivery rule.
@@ -2482,6 +3727,75 @@ func (o DeliveryRuleIsDeviceConditionOutput) Name() pulumi.StringOutput {
 // Defines the parameters for the condition.
 func (o DeliveryRuleIsDeviceConditionOutput) Parameters() IsDeviceMatchConditionParametersOutput {
 	return o.ApplyT(func(v DeliveryRuleIsDeviceCondition) IsDeviceMatchConditionParameters { return v.Parameters }).(IsDeviceMatchConditionParametersOutput)
+}
+
+// Defines the IsDevice condition for the delivery rule.
+type DeliveryRuleIsDeviceConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'IsDevice'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters IsDeviceMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleIsDeviceConditionInvokeResponseInput is an input type that accepts DeliveryRuleIsDeviceConditionInvokeResponseArgs and DeliveryRuleIsDeviceConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleIsDeviceConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleIsDeviceConditionInvokeResponseArgs{...}
+type DeliveryRuleIsDeviceConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleIsDeviceConditionInvokeResponseOutput() DeliveryRuleIsDeviceConditionInvokeResponseOutput
+	ToDeliveryRuleIsDeviceConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleIsDeviceConditionInvokeResponseOutput
+}
+
+// Defines the IsDevice condition for the delivery rule.
+type DeliveryRuleIsDeviceConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'IsDevice'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters IsDeviceMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleIsDeviceConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleIsDeviceConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleIsDeviceConditionInvokeResponseArgs) ToDeliveryRuleIsDeviceConditionInvokeResponseOutput() DeliveryRuleIsDeviceConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleIsDeviceConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleIsDeviceConditionInvokeResponseArgs) ToDeliveryRuleIsDeviceConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleIsDeviceConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleIsDeviceConditionInvokeResponseOutput)
+}
+
+// Defines the IsDevice condition for the delivery rule.
+type DeliveryRuleIsDeviceConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleIsDeviceConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleIsDeviceConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleIsDeviceConditionInvokeResponseOutput) ToDeliveryRuleIsDeviceConditionInvokeResponseOutput() DeliveryRuleIsDeviceConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleIsDeviceConditionInvokeResponseOutput) ToDeliveryRuleIsDeviceConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleIsDeviceConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'IsDevice'.
+func (o DeliveryRuleIsDeviceConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleIsDeviceConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleIsDeviceConditionInvokeResponseOutput) Parameters() IsDeviceMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleIsDeviceConditionInvokeResponse) IsDeviceMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(IsDeviceMatchConditionParametersInvokeResponseOutput)
 }
 
 // Defines the IsDevice condition for the delivery rule.
@@ -2621,6 +3935,75 @@ func (o DeliveryRulePostArgsConditionOutput) Parameters() PostArgsMatchCondition
 }
 
 // Defines the PostArgs condition for the delivery rule.
+type DeliveryRulePostArgsConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'PostArgs'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters PostArgsMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRulePostArgsConditionInvokeResponseInput is an input type that accepts DeliveryRulePostArgsConditionInvokeResponseArgs and DeliveryRulePostArgsConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRulePostArgsConditionInvokeResponseInput` via:
+//
+//          DeliveryRulePostArgsConditionInvokeResponseArgs{...}
+type DeliveryRulePostArgsConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRulePostArgsConditionInvokeResponseOutput() DeliveryRulePostArgsConditionInvokeResponseOutput
+	ToDeliveryRulePostArgsConditionInvokeResponseOutputWithContext(context.Context) DeliveryRulePostArgsConditionInvokeResponseOutput
+}
+
+// Defines the PostArgs condition for the delivery rule.
+type DeliveryRulePostArgsConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'PostArgs'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters PostArgsMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRulePostArgsConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRulePostArgsConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRulePostArgsConditionInvokeResponseArgs) ToDeliveryRulePostArgsConditionInvokeResponseOutput() DeliveryRulePostArgsConditionInvokeResponseOutput {
+	return i.ToDeliveryRulePostArgsConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRulePostArgsConditionInvokeResponseArgs) ToDeliveryRulePostArgsConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRulePostArgsConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRulePostArgsConditionInvokeResponseOutput)
+}
+
+// Defines the PostArgs condition for the delivery rule.
+type DeliveryRulePostArgsConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRulePostArgsConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRulePostArgsConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRulePostArgsConditionInvokeResponseOutput) ToDeliveryRulePostArgsConditionInvokeResponseOutput() DeliveryRulePostArgsConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRulePostArgsConditionInvokeResponseOutput) ToDeliveryRulePostArgsConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRulePostArgsConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'PostArgs'.
+func (o DeliveryRulePostArgsConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRulePostArgsConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRulePostArgsConditionInvokeResponseOutput) Parameters() PostArgsMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRulePostArgsConditionInvokeResponse) PostArgsMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(PostArgsMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the PostArgs condition for the delivery rule.
 type DeliveryRulePostArgsConditionResponse struct {
 	// The name of the condition for the delivery rule.
 	// Expected value is 'PostArgs'.
@@ -2754,6 +4137,75 @@ func (o DeliveryRuleQueryStringConditionOutput) Name() pulumi.StringOutput {
 // Defines the parameters for the condition.
 func (o DeliveryRuleQueryStringConditionOutput) Parameters() QueryStringMatchConditionParametersOutput {
 	return o.ApplyT(func(v DeliveryRuleQueryStringCondition) QueryStringMatchConditionParameters { return v.Parameters }).(QueryStringMatchConditionParametersOutput)
+}
+
+// Defines the QueryString condition for the delivery rule.
+type DeliveryRuleQueryStringConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'QueryString'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters QueryStringMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleQueryStringConditionInvokeResponseInput is an input type that accepts DeliveryRuleQueryStringConditionInvokeResponseArgs and DeliveryRuleQueryStringConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleQueryStringConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleQueryStringConditionInvokeResponseArgs{...}
+type DeliveryRuleQueryStringConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleQueryStringConditionInvokeResponseOutput() DeliveryRuleQueryStringConditionInvokeResponseOutput
+	ToDeliveryRuleQueryStringConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleQueryStringConditionInvokeResponseOutput
+}
+
+// Defines the QueryString condition for the delivery rule.
+type DeliveryRuleQueryStringConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'QueryString'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters QueryStringMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleQueryStringConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleQueryStringConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleQueryStringConditionInvokeResponseArgs) ToDeliveryRuleQueryStringConditionInvokeResponseOutput() DeliveryRuleQueryStringConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleQueryStringConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleQueryStringConditionInvokeResponseArgs) ToDeliveryRuleQueryStringConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleQueryStringConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleQueryStringConditionInvokeResponseOutput)
+}
+
+// Defines the QueryString condition for the delivery rule.
+type DeliveryRuleQueryStringConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleQueryStringConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleQueryStringConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleQueryStringConditionInvokeResponseOutput) ToDeliveryRuleQueryStringConditionInvokeResponseOutput() DeliveryRuleQueryStringConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleQueryStringConditionInvokeResponseOutput) ToDeliveryRuleQueryStringConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleQueryStringConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'QueryString'.
+func (o DeliveryRuleQueryStringConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleQueryStringConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleQueryStringConditionInvokeResponseOutput) Parameters() QueryStringMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleQueryStringConditionInvokeResponse) QueryStringMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(QueryStringMatchConditionParametersInvokeResponseOutput)
 }
 
 // Defines the QueryString condition for the delivery rule.
@@ -2893,6 +4345,75 @@ func (o DeliveryRuleRemoteAddressConditionOutput) Parameters() RemoteAddressMatc
 }
 
 // Defines the RemoteAddress condition for the delivery rule.
+type DeliveryRuleRemoteAddressConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RemoteAddress'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RemoteAddressMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRemoteAddressConditionInvokeResponseInput is an input type that accepts DeliveryRuleRemoteAddressConditionInvokeResponseArgs and DeliveryRuleRemoteAddressConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRemoteAddressConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleRemoteAddressConditionInvokeResponseArgs{...}
+type DeliveryRuleRemoteAddressConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRemoteAddressConditionInvokeResponseOutput() DeliveryRuleRemoteAddressConditionInvokeResponseOutput
+	ToDeliveryRuleRemoteAddressConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleRemoteAddressConditionInvokeResponseOutput
+}
+
+// Defines the RemoteAddress condition for the delivery rule.
+type DeliveryRuleRemoteAddressConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RemoteAddress'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RemoteAddressMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRemoteAddressConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRemoteAddressConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRemoteAddressConditionInvokeResponseArgs) ToDeliveryRuleRemoteAddressConditionInvokeResponseOutput() DeliveryRuleRemoteAddressConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleRemoteAddressConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRemoteAddressConditionInvokeResponseArgs) ToDeliveryRuleRemoteAddressConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRemoteAddressConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRemoteAddressConditionInvokeResponseOutput)
+}
+
+// Defines the RemoteAddress condition for the delivery rule.
+type DeliveryRuleRemoteAddressConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRemoteAddressConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRemoteAddressConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRemoteAddressConditionInvokeResponseOutput) ToDeliveryRuleRemoteAddressConditionInvokeResponseOutput() DeliveryRuleRemoteAddressConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRemoteAddressConditionInvokeResponseOutput) ToDeliveryRuleRemoteAddressConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRemoteAddressConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'RemoteAddress'.
+func (o DeliveryRuleRemoteAddressConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRemoteAddressConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRemoteAddressConditionInvokeResponseOutput) Parameters() RemoteAddressMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRemoteAddressConditionInvokeResponse) RemoteAddressMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(RemoteAddressMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the RemoteAddress condition for the delivery rule.
 type DeliveryRuleRemoteAddressConditionResponse struct {
 	// The name of the condition for the delivery rule.
 	// Expected value is 'RemoteAddress'.
@@ -3026,6 +4547,75 @@ func (o DeliveryRuleRequestBodyConditionOutput) Name() pulumi.StringOutput {
 // Defines the parameters for the condition.
 func (o DeliveryRuleRequestBodyConditionOutput) Parameters() RequestBodyMatchConditionParametersOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestBodyCondition) RequestBodyMatchConditionParameters { return v.Parameters }).(RequestBodyMatchConditionParametersOutput)
+}
+
+// Defines the RequestBody condition for the delivery rule.
+type DeliveryRuleRequestBodyConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestBody'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestBodyMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestBodyConditionInvokeResponseInput is an input type that accepts DeliveryRuleRequestBodyConditionInvokeResponseArgs and DeliveryRuleRequestBodyConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestBodyConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleRequestBodyConditionInvokeResponseArgs{...}
+type DeliveryRuleRequestBodyConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestBodyConditionInvokeResponseOutput() DeliveryRuleRequestBodyConditionInvokeResponseOutput
+	ToDeliveryRuleRequestBodyConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleRequestBodyConditionInvokeResponseOutput
+}
+
+// Defines the RequestBody condition for the delivery rule.
+type DeliveryRuleRequestBodyConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestBody'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestBodyMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestBodyConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestBodyConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestBodyConditionInvokeResponseArgs) ToDeliveryRuleRequestBodyConditionInvokeResponseOutput() DeliveryRuleRequestBodyConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleRequestBodyConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestBodyConditionInvokeResponseArgs) ToDeliveryRuleRequestBodyConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestBodyConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestBodyConditionInvokeResponseOutput)
+}
+
+// Defines the RequestBody condition for the delivery rule.
+type DeliveryRuleRequestBodyConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestBodyConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestBodyConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestBodyConditionInvokeResponseOutput) ToDeliveryRuleRequestBodyConditionInvokeResponseOutput() DeliveryRuleRequestBodyConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestBodyConditionInvokeResponseOutput) ToDeliveryRuleRequestBodyConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestBodyConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'RequestBody'.
+func (o DeliveryRuleRequestBodyConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestBodyConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestBodyConditionInvokeResponseOutput) Parameters() RequestBodyMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestBodyConditionInvokeResponse) RequestBodyMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(RequestBodyMatchConditionParametersInvokeResponseOutput)
 }
 
 // Defines the RequestBody condition for the delivery rule.
@@ -3165,6 +4755,75 @@ func (o DeliveryRuleRequestHeaderActionOutput) Parameters() HeaderActionParamete
 }
 
 // Defines the request header action for the delivery rule.
+type DeliveryRuleRequestHeaderActionInvokeResponse struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyRequestHeader'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestHeaderActionInvokeResponseInput is an input type that accepts DeliveryRuleRequestHeaderActionInvokeResponseArgs and DeliveryRuleRequestHeaderActionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestHeaderActionInvokeResponseInput` via:
+//
+//          DeliveryRuleRequestHeaderActionInvokeResponseArgs{...}
+type DeliveryRuleRequestHeaderActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestHeaderActionInvokeResponseOutput() DeliveryRuleRequestHeaderActionInvokeResponseOutput
+	ToDeliveryRuleRequestHeaderActionInvokeResponseOutputWithContext(context.Context) DeliveryRuleRequestHeaderActionInvokeResponseOutput
+}
+
+// Defines the request header action for the delivery rule.
+type DeliveryRuleRequestHeaderActionInvokeResponseArgs struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyRequestHeader'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestHeaderActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderActionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestHeaderActionInvokeResponseArgs) ToDeliveryRuleRequestHeaderActionInvokeResponseOutput() DeliveryRuleRequestHeaderActionInvokeResponseOutput {
+	return i.ToDeliveryRuleRequestHeaderActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestHeaderActionInvokeResponseArgs) ToDeliveryRuleRequestHeaderActionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestHeaderActionInvokeResponseOutput)
+}
+
+// Defines the request header action for the delivery rule.
+type DeliveryRuleRequestHeaderActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestHeaderActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderActionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestHeaderActionInvokeResponseOutput) ToDeliveryRuleRequestHeaderActionInvokeResponseOutput() DeliveryRuleRequestHeaderActionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestHeaderActionInvokeResponseOutput) ToDeliveryRuleRequestHeaderActionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderActionInvokeResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+// Expected value is 'ModifyRequestHeader'.
+func (o DeliveryRuleRequestHeaderActionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderActionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o DeliveryRuleRequestHeaderActionInvokeResponseOutput) Parameters() HeaderActionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderActionInvokeResponse) HeaderActionParametersInvokeResponse {
+		return v.Parameters
+	}).(HeaderActionParametersInvokeResponseOutput)
+}
+
+// Defines the request header action for the delivery rule.
 type DeliveryRuleRequestHeaderActionResponse struct {
 	// The name of the action for the delivery rule.
 	// Expected value is 'ModifyRequestHeader'.
@@ -3296,6 +4955,75 @@ func (o DeliveryRuleRequestHeaderConditionOutput) Name() pulumi.StringOutput {
 // Defines the parameters for the condition.
 func (o DeliveryRuleRequestHeaderConditionOutput) Parameters() RequestHeaderMatchConditionParametersOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestHeaderCondition) RequestHeaderMatchConditionParameters { return v.Parameters }).(RequestHeaderMatchConditionParametersOutput)
+}
+
+// Defines the RequestHeader condition for the delivery rule.
+type DeliveryRuleRequestHeaderConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestHeader'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestHeaderMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestHeaderConditionInvokeResponseInput is an input type that accepts DeliveryRuleRequestHeaderConditionInvokeResponseArgs and DeliveryRuleRequestHeaderConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestHeaderConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleRequestHeaderConditionInvokeResponseArgs{...}
+type DeliveryRuleRequestHeaderConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestHeaderConditionInvokeResponseOutput() DeliveryRuleRequestHeaderConditionInvokeResponseOutput
+	ToDeliveryRuleRequestHeaderConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleRequestHeaderConditionInvokeResponseOutput
+}
+
+// Defines the RequestHeader condition for the delivery rule.
+type DeliveryRuleRequestHeaderConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestHeader'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestHeaderMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestHeaderConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestHeaderConditionInvokeResponseArgs) ToDeliveryRuleRequestHeaderConditionInvokeResponseOutput() DeliveryRuleRequestHeaderConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleRequestHeaderConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestHeaderConditionInvokeResponseArgs) ToDeliveryRuleRequestHeaderConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestHeaderConditionInvokeResponseOutput)
+}
+
+// Defines the RequestHeader condition for the delivery rule.
+type DeliveryRuleRequestHeaderConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestHeaderConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestHeaderConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestHeaderConditionInvokeResponseOutput) ToDeliveryRuleRequestHeaderConditionInvokeResponseOutput() DeliveryRuleRequestHeaderConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestHeaderConditionInvokeResponseOutput) ToDeliveryRuleRequestHeaderConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestHeaderConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'RequestHeader'.
+func (o DeliveryRuleRequestHeaderConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestHeaderConditionInvokeResponseOutput) Parameters() RequestHeaderMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestHeaderConditionInvokeResponse) RequestHeaderMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(RequestHeaderMatchConditionParametersInvokeResponseOutput)
 }
 
 // Defines the RequestHeader condition for the delivery rule.
@@ -3435,6 +5163,75 @@ func (o DeliveryRuleRequestMethodConditionOutput) Parameters() RequestMethodMatc
 }
 
 // Defines the RequestMethod condition for the delivery rule.
+type DeliveryRuleRequestMethodConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestMethod'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestMethodMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestMethodConditionInvokeResponseInput is an input type that accepts DeliveryRuleRequestMethodConditionInvokeResponseArgs and DeliveryRuleRequestMethodConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestMethodConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleRequestMethodConditionInvokeResponseArgs{...}
+type DeliveryRuleRequestMethodConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestMethodConditionInvokeResponseOutput() DeliveryRuleRequestMethodConditionInvokeResponseOutput
+	ToDeliveryRuleRequestMethodConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleRequestMethodConditionInvokeResponseOutput
+}
+
+// Defines the RequestMethod condition for the delivery rule.
+type DeliveryRuleRequestMethodConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestMethod'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestMethodMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestMethodConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestMethodConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestMethodConditionInvokeResponseArgs) ToDeliveryRuleRequestMethodConditionInvokeResponseOutput() DeliveryRuleRequestMethodConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleRequestMethodConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestMethodConditionInvokeResponseArgs) ToDeliveryRuleRequestMethodConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestMethodConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestMethodConditionInvokeResponseOutput)
+}
+
+// Defines the RequestMethod condition for the delivery rule.
+type DeliveryRuleRequestMethodConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestMethodConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestMethodConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestMethodConditionInvokeResponseOutput) ToDeliveryRuleRequestMethodConditionInvokeResponseOutput() DeliveryRuleRequestMethodConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestMethodConditionInvokeResponseOutput) ToDeliveryRuleRequestMethodConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestMethodConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'RequestMethod'.
+func (o DeliveryRuleRequestMethodConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestMethodConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestMethodConditionInvokeResponseOutput) Parameters() RequestMethodMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestMethodConditionInvokeResponse) RequestMethodMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(RequestMethodMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the RequestMethod condition for the delivery rule.
 type DeliveryRuleRequestMethodConditionResponse struct {
 	// The name of the condition for the delivery rule.
 	// Expected value is 'RequestMethod'.
@@ -3571,6 +5368,75 @@ func (o DeliveryRuleRequestSchemeConditionOutput) Parameters() RequestSchemeMatc
 }
 
 // Defines the RequestScheme condition for the delivery rule.
+type DeliveryRuleRequestSchemeConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestScheme'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestSchemeMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestSchemeConditionInvokeResponseInput is an input type that accepts DeliveryRuleRequestSchemeConditionInvokeResponseArgs and DeliveryRuleRequestSchemeConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestSchemeConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleRequestSchemeConditionInvokeResponseArgs{...}
+type DeliveryRuleRequestSchemeConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestSchemeConditionInvokeResponseOutput() DeliveryRuleRequestSchemeConditionInvokeResponseOutput
+	ToDeliveryRuleRequestSchemeConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleRequestSchemeConditionInvokeResponseOutput
+}
+
+// Defines the RequestScheme condition for the delivery rule.
+type DeliveryRuleRequestSchemeConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestScheme'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestSchemeMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestSchemeConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestSchemeConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestSchemeConditionInvokeResponseArgs) ToDeliveryRuleRequestSchemeConditionInvokeResponseOutput() DeliveryRuleRequestSchemeConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleRequestSchemeConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestSchemeConditionInvokeResponseArgs) ToDeliveryRuleRequestSchemeConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestSchemeConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestSchemeConditionInvokeResponseOutput)
+}
+
+// Defines the RequestScheme condition for the delivery rule.
+type DeliveryRuleRequestSchemeConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestSchemeConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestSchemeConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestSchemeConditionInvokeResponseOutput) ToDeliveryRuleRequestSchemeConditionInvokeResponseOutput() DeliveryRuleRequestSchemeConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestSchemeConditionInvokeResponseOutput) ToDeliveryRuleRequestSchemeConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestSchemeConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'RequestScheme'.
+func (o DeliveryRuleRequestSchemeConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestSchemeConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestSchemeConditionInvokeResponseOutput) Parameters() RequestSchemeMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestSchemeConditionInvokeResponse) RequestSchemeMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(RequestSchemeMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the RequestScheme condition for the delivery rule.
 type DeliveryRuleRequestSchemeConditionResponse struct {
 	// The name of the condition for the delivery rule.
 	// Expected value is 'RequestScheme'.
@@ -3704,6 +5570,75 @@ func (o DeliveryRuleRequestUriConditionOutput) Name() pulumi.StringOutput {
 // Defines the parameters for the condition.
 func (o DeliveryRuleRequestUriConditionOutput) Parameters() RequestUriMatchConditionParametersOutput {
 	return o.ApplyT(func(v DeliveryRuleRequestUriCondition) RequestUriMatchConditionParameters { return v.Parameters }).(RequestUriMatchConditionParametersOutput)
+}
+
+// Defines the RequestUri condition for the delivery rule.
+type DeliveryRuleRequestUriConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestUri'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestUriMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleRequestUriConditionInvokeResponseInput is an input type that accepts DeliveryRuleRequestUriConditionInvokeResponseArgs and DeliveryRuleRequestUriConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleRequestUriConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleRequestUriConditionInvokeResponseArgs{...}
+type DeliveryRuleRequestUriConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleRequestUriConditionInvokeResponseOutput() DeliveryRuleRequestUriConditionInvokeResponseOutput
+	ToDeliveryRuleRequestUriConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleRequestUriConditionInvokeResponseOutput
+}
+
+// Defines the RequestUri condition for the delivery rule.
+type DeliveryRuleRequestUriConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'RequestUri'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters RequestUriMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleRequestUriConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestUriConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleRequestUriConditionInvokeResponseArgs) ToDeliveryRuleRequestUriConditionInvokeResponseOutput() DeliveryRuleRequestUriConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleRequestUriConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleRequestUriConditionInvokeResponseArgs) ToDeliveryRuleRequestUriConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestUriConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleRequestUriConditionInvokeResponseOutput)
+}
+
+// Defines the RequestUri condition for the delivery rule.
+type DeliveryRuleRequestUriConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleRequestUriConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleRequestUriConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleRequestUriConditionInvokeResponseOutput) ToDeliveryRuleRequestUriConditionInvokeResponseOutput() DeliveryRuleRequestUriConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleRequestUriConditionInvokeResponseOutput) ToDeliveryRuleRequestUriConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleRequestUriConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'RequestUri'.
+func (o DeliveryRuleRequestUriConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestUriConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleRequestUriConditionInvokeResponseOutput) Parameters() RequestUriMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleRequestUriConditionInvokeResponse) RequestUriMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(RequestUriMatchConditionParametersInvokeResponseOutput)
 }
 
 // Defines the RequestUri condition for the delivery rule.
@@ -3970,6 +5905,75 @@ func (o DeliveryRuleResponseHeaderActionOutput) Parameters() HeaderActionParamet
 }
 
 // Defines the response header action for the delivery rule.
+type DeliveryRuleResponseHeaderActionInvokeResponse struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyResponseHeader'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleResponseHeaderActionInvokeResponseInput is an input type that accepts DeliveryRuleResponseHeaderActionInvokeResponseArgs and DeliveryRuleResponseHeaderActionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleResponseHeaderActionInvokeResponseInput` via:
+//
+//          DeliveryRuleResponseHeaderActionInvokeResponseArgs{...}
+type DeliveryRuleResponseHeaderActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleResponseHeaderActionInvokeResponseOutput() DeliveryRuleResponseHeaderActionInvokeResponseOutput
+	ToDeliveryRuleResponseHeaderActionInvokeResponseOutputWithContext(context.Context) DeliveryRuleResponseHeaderActionInvokeResponseOutput
+}
+
+// Defines the response header action for the delivery rule.
+type DeliveryRuleResponseHeaderActionInvokeResponseArgs struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'ModifyResponseHeader'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters HeaderActionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleResponseHeaderActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleResponseHeaderActionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleResponseHeaderActionInvokeResponseArgs) ToDeliveryRuleResponseHeaderActionInvokeResponseOutput() DeliveryRuleResponseHeaderActionInvokeResponseOutput {
+	return i.ToDeliveryRuleResponseHeaderActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleResponseHeaderActionInvokeResponseArgs) ToDeliveryRuleResponseHeaderActionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleResponseHeaderActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleResponseHeaderActionInvokeResponseOutput)
+}
+
+// Defines the response header action for the delivery rule.
+type DeliveryRuleResponseHeaderActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleResponseHeaderActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleResponseHeaderActionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleResponseHeaderActionInvokeResponseOutput) ToDeliveryRuleResponseHeaderActionInvokeResponseOutput() DeliveryRuleResponseHeaderActionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleResponseHeaderActionInvokeResponseOutput) ToDeliveryRuleResponseHeaderActionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleResponseHeaderActionInvokeResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+// Expected value is 'ModifyResponseHeader'.
+func (o DeliveryRuleResponseHeaderActionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleResponseHeaderActionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o DeliveryRuleResponseHeaderActionInvokeResponseOutput) Parameters() HeaderActionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleResponseHeaderActionInvokeResponse) HeaderActionParametersInvokeResponse {
+		return v.Parameters
+	}).(HeaderActionParametersInvokeResponseOutput)
+}
+
+// Defines the response header action for the delivery rule.
 type DeliveryRuleResponseHeaderActionResponse struct {
 	// The name of the action for the delivery rule.
 	// Expected value is 'ModifyResponseHeader'.
@@ -4103,6 +6107,75 @@ func (o DeliveryRuleUrlFileExtensionConditionOutput) Parameters() UrlFileExtensi
 	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionCondition) UrlFileExtensionMatchConditionParameters {
 		return v.Parameters
 	}).(UrlFileExtensionMatchConditionParametersOutput)
+}
+
+// Defines the UrlFileExtension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileExtension'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileExtensionMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlFileExtensionConditionInvokeResponseInput is an input type that accepts DeliveryRuleUrlFileExtensionConditionInvokeResponseArgs and DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlFileExtensionConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleUrlFileExtensionConditionInvokeResponseArgs{...}
+type DeliveryRuleUrlFileExtensionConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlFileExtensionConditionInvokeResponseOutput() DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput
+	ToDeliveryRuleUrlFileExtensionConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput
+}
+
+// Defines the UrlFileExtension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileExtension'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileExtensionMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlFileExtensionConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlFileExtensionConditionInvokeResponseArgs) ToDeliveryRuleUrlFileExtensionConditionInvokeResponseOutput() DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleUrlFileExtensionConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlFileExtensionConditionInvokeResponseArgs) ToDeliveryRuleUrlFileExtensionConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput)
+}
+
+// Defines the UrlFileExtension condition for the delivery rule.
+type DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileExtensionConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput) ToDeliveryRuleUrlFileExtensionConditionInvokeResponseOutput() DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput) ToDeliveryRuleUrlFileExtensionConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'UrlFileExtension'.
+func (o DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput) Parameters() UrlFileExtensionMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileExtensionConditionInvokeResponse) UrlFileExtensionMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(UrlFileExtensionMatchConditionParametersInvokeResponseOutput)
 }
 
 // Defines the UrlFileExtension condition for the delivery rule.
@@ -4242,6 +6315,75 @@ func (o DeliveryRuleUrlFileNameConditionOutput) Parameters() UrlFileNameMatchCon
 }
 
 // Defines the UrlFileName condition for the delivery rule.
+type DeliveryRuleUrlFileNameConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileName'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileNameMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlFileNameConditionInvokeResponseInput is an input type that accepts DeliveryRuleUrlFileNameConditionInvokeResponseArgs and DeliveryRuleUrlFileNameConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlFileNameConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleUrlFileNameConditionInvokeResponseArgs{...}
+type DeliveryRuleUrlFileNameConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlFileNameConditionInvokeResponseOutput() DeliveryRuleUrlFileNameConditionInvokeResponseOutput
+	ToDeliveryRuleUrlFileNameConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleUrlFileNameConditionInvokeResponseOutput
+}
+
+// Defines the UrlFileName condition for the delivery rule.
+type DeliveryRuleUrlFileNameConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlFileName'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlFileNameMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlFileNameConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileNameConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlFileNameConditionInvokeResponseArgs) ToDeliveryRuleUrlFileNameConditionInvokeResponseOutput() DeliveryRuleUrlFileNameConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleUrlFileNameConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlFileNameConditionInvokeResponseArgs) ToDeliveryRuleUrlFileNameConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileNameConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlFileNameConditionInvokeResponseOutput)
+}
+
+// Defines the UrlFileName condition for the delivery rule.
+type DeliveryRuleUrlFileNameConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlFileNameConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlFileNameConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlFileNameConditionInvokeResponseOutput) ToDeliveryRuleUrlFileNameConditionInvokeResponseOutput() DeliveryRuleUrlFileNameConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlFileNameConditionInvokeResponseOutput) ToDeliveryRuleUrlFileNameConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlFileNameConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'UrlFileName'.
+func (o DeliveryRuleUrlFileNameConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileNameConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlFileNameConditionInvokeResponseOutput) Parameters() UrlFileNameMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlFileNameConditionInvokeResponse) UrlFileNameMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(UrlFileNameMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the UrlFileName condition for the delivery rule.
 type DeliveryRuleUrlFileNameConditionResponse struct {
 	// The name of the condition for the delivery rule.
 	// Expected value is 'UrlFileName'.
@@ -4375,6 +6517,75 @@ func (o DeliveryRuleUrlPathConditionOutput) Name() pulumi.StringOutput {
 // Defines the parameters for the condition.
 func (o DeliveryRuleUrlPathConditionOutput) Parameters() UrlPathMatchConditionParametersOutput {
 	return o.ApplyT(func(v DeliveryRuleUrlPathCondition) UrlPathMatchConditionParameters { return v.Parameters }).(UrlPathMatchConditionParametersOutput)
+}
+
+// Defines the UrlPath condition for the delivery rule.
+type DeliveryRuleUrlPathConditionInvokeResponse struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlPath'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlPathMatchConditionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// DeliveryRuleUrlPathConditionInvokeResponseInput is an input type that accepts DeliveryRuleUrlPathConditionInvokeResponseArgs and DeliveryRuleUrlPathConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DeliveryRuleUrlPathConditionInvokeResponseInput` via:
+//
+//          DeliveryRuleUrlPathConditionInvokeResponseArgs{...}
+type DeliveryRuleUrlPathConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeliveryRuleUrlPathConditionInvokeResponseOutput() DeliveryRuleUrlPathConditionInvokeResponseOutput
+	ToDeliveryRuleUrlPathConditionInvokeResponseOutputWithContext(context.Context) DeliveryRuleUrlPathConditionInvokeResponseOutput
+}
+
+// Defines the UrlPath condition for the delivery rule.
+type DeliveryRuleUrlPathConditionInvokeResponseArgs struct {
+	// The name of the condition for the delivery rule.
+	// Expected value is 'UrlPath'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the condition.
+	Parameters UrlPathMatchConditionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (DeliveryRuleUrlPathConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlPathConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DeliveryRuleUrlPathConditionInvokeResponseArgs) ToDeliveryRuleUrlPathConditionInvokeResponseOutput() DeliveryRuleUrlPathConditionInvokeResponseOutput {
+	return i.ToDeliveryRuleUrlPathConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeliveryRuleUrlPathConditionInvokeResponseArgs) ToDeliveryRuleUrlPathConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryRuleUrlPathConditionInvokeResponseOutput)
+}
+
+// Defines the UrlPath condition for the delivery rule.
+type DeliveryRuleUrlPathConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeliveryRuleUrlPathConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryRuleUrlPathConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DeliveryRuleUrlPathConditionInvokeResponseOutput) ToDeliveryRuleUrlPathConditionInvokeResponseOutput() DeliveryRuleUrlPathConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DeliveryRuleUrlPathConditionInvokeResponseOutput) ToDeliveryRuleUrlPathConditionInvokeResponseOutputWithContext(ctx context.Context) DeliveryRuleUrlPathConditionInvokeResponseOutput {
+	return o
+}
+
+// The name of the condition for the delivery rule.
+// Expected value is 'UrlPath'.
+func (o DeliveryRuleUrlPathConditionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlPathConditionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the condition.
+func (o DeliveryRuleUrlPathConditionInvokeResponseOutput) Parameters() UrlPathMatchConditionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v DeliveryRuleUrlPathConditionInvokeResponse) UrlPathMatchConditionParametersInvokeResponse {
+		return v.Parameters
+	}).(UrlPathMatchConditionParametersInvokeResponseOutput)
 }
 
 // Defines the UrlPath condition for the delivery rule.
@@ -4599,6 +6810,129 @@ func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Rules() Deliv
 		}
 		return v.Rules
 	}).(DeliveryRuleArrayOutput)
+}
+
+// A policy that specifies the delivery rules to be used for an endpoint.
+type EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicy struct {
+	// User-friendly description of the policy.
+	Description *string `pulumi:"description"`
+	// A list of the delivery rules.
+	Rules []DeliveryRuleInvokeResponse `pulumi:"rules"`
+}
+
+// EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyInput is an input type that accepts EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyArgs and EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput values.
+// You can construct a concrete instance of `EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyInput` via:
+//
+//          EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyArgs{...}
+type EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyInput interface {
+	pulumi.Input
+
+	ToEndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput() EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput
+	ToEndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutputWithContext(context.Context) EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput
+}
+
+// A policy that specifies the delivery rules to be used for an endpoint.
+type EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyArgs struct {
+	// User-friendly description of the policy.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A list of the delivery rules.
+	Rules DeliveryRuleInvokeResponseArrayInput `pulumi:"rules"`
+}
+
+func (EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicy)(nil)).Elem()
+}
+
+func (i EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput() EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput {
+	return i.ToEndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutputWithContext(context.Background())
+}
+
+func (i EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput)
+}
+
+// A policy that specifies the delivery rules to be used for an endpoint.
+type EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput struct{ *pulumi.OutputState }
+
+func (EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicy)(nil)).Elem()
+}
+
+func (o EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput() EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput {
+	return o
+}
+
+func (o EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput {
+	return o
+}
+
+// User-friendly description of the policy.
+func (o EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicy) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A list of the delivery rules.
+func (o EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput) Rules() DeliveryRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicy) []DeliveryRuleInvokeResponse {
+		return v.Rules
+	}).(DeliveryRuleInvokeResponseArrayOutput)
+}
+
+// Defines the Web Application Firewall policy for the endpoint (if applicable)
+type EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLink struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkInput is an input type that accepts EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkArgs and EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput values.
+// You can construct a concrete instance of `EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkInput` via:
+//
+//          EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkArgs{...}
+type EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkInput interface {
+	pulumi.Input
+
+	ToEndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput() EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput
+	ToEndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutputWithContext(context.Context) EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput
+}
+
+// Defines the Web Application Firewall policy for the endpoint (if applicable)
+type EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkArgs struct {
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLink)(nil)).Elem()
+}
+
+func (i EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkArgs) ToEndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput() EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput {
+	return i.ToEndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutputWithContext(context.Background())
+}
+
+func (i EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkArgs) ToEndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput)
+}
+
+// Defines the Web Application Firewall policy for the endpoint (if applicable)
+type EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput struct{ *pulumi.OutputState }
+
+func (EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLink)(nil)).Elem()
+}
+
+func (o EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput) ToEndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput() EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput {
+	return o
+}
+
+func (o EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput) ToEndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput {
+	return o
+}
+
+// Resource ID.
+func (o EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLink) *string {
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
@@ -5151,6 +7485,124 @@ func (o GeoFilterArrayOutput) Index(i pulumi.IntInput) GeoFilterOutput {
 }
 
 // Rules defining user's geo access within a CDN endpoint.
+type GeoFilterInvokeResponse struct {
+	// Action of the geo filter, i.e. allow or block access.
+	Action string `pulumi:"action"`
+	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+	CountryCodes []string `pulumi:"countryCodes"`
+	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+	RelativePath string `pulumi:"relativePath"`
+}
+
+// GeoFilterInvokeResponseInput is an input type that accepts GeoFilterInvokeResponseArgs and GeoFilterInvokeResponseOutput values.
+// You can construct a concrete instance of `GeoFilterInvokeResponseInput` via:
+//
+//          GeoFilterInvokeResponseArgs{...}
+type GeoFilterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGeoFilterInvokeResponseOutput() GeoFilterInvokeResponseOutput
+	ToGeoFilterInvokeResponseOutputWithContext(context.Context) GeoFilterInvokeResponseOutput
+}
+
+// Rules defining user's geo access within a CDN endpoint.
+type GeoFilterInvokeResponseArgs struct {
+	// Action of the geo filter, i.e. allow or block access.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
+	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+	RelativePath pulumi.StringInput `pulumi:"relativePath"`
+}
+
+func (GeoFilterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeoFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i GeoFilterInvokeResponseArgs) ToGeoFilterInvokeResponseOutput() GeoFilterInvokeResponseOutput {
+	return i.ToGeoFilterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GeoFilterInvokeResponseArgs) ToGeoFilterInvokeResponseOutputWithContext(ctx context.Context) GeoFilterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GeoFilterInvokeResponseOutput)
+}
+
+// GeoFilterInvokeResponseArrayInput is an input type that accepts GeoFilterInvokeResponseArray and GeoFilterInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `GeoFilterInvokeResponseArrayInput` via:
+//
+//          GeoFilterInvokeResponseArray{ GeoFilterInvokeResponseArgs{...} }
+type GeoFilterInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToGeoFilterInvokeResponseArrayOutput() GeoFilterInvokeResponseArrayOutput
+	ToGeoFilterInvokeResponseArrayOutputWithContext(context.Context) GeoFilterInvokeResponseArrayOutput
+}
+
+type GeoFilterInvokeResponseArray []GeoFilterInvokeResponseInput
+
+func (GeoFilterInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GeoFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i GeoFilterInvokeResponseArray) ToGeoFilterInvokeResponseArrayOutput() GeoFilterInvokeResponseArrayOutput {
+	return i.ToGeoFilterInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GeoFilterInvokeResponseArray) ToGeoFilterInvokeResponseArrayOutputWithContext(ctx context.Context) GeoFilterInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GeoFilterInvokeResponseArrayOutput)
+}
+
+// Rules defining user's geo access within a CDN endpoint.
+type GeoFilterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GeoFilterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeoFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o GeoFilterInvokeResponseOutput) ToGeoFilterInvokeResponseOutput() GeoFilterInvokeResponseOutput {
+	return o
+}
+
+func (o GeoFilterInvokeResponseOutput) ToGeoFilterInvokeResponseOutputWithContext(ctx context.Context) GeoFilterInvokeResponseOutput {
+	return o
+}
+
+// Action of the geo filter, i.e. allow or block access.
+func (o GeoFilterInvokeResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GeoFilterInvokeResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+func (o GeoFilterInvokeResponseOutput) CountryCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GeoFilterInvokeResponse) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
+}
+
+// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+func (o GeoFilterInvokeResponseOutput) RelativePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GeoFilterInvokeResponse) string { return v.RelativePath }).(pulumi.StringOutput)
+}
+
+type GeoFilterInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GeoFilterInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GeoFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o GeoFilterInvokeResponseArrayOutput) ToGeoFilterInvokeResponseArrayOutput() GeoFilterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GeoFilterInvokeResponseArrayOutput) ToGeoFilterInvokeResponseArrayOutputWithContext(ctx context.Context) GeoFilterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GeoFilterInvokeResponseArrayOutput) Index(i pulumi.IntInput) GeoFilterInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GeoFilterInvokeResponse {
+		return vs[0].([]GeoFilterInvokeResponse)[vs[1].(int)]
+	}).(GeoFilterInvokeResponseOutput)
+}
+
+// Rules defining user's geo access within a CDN endpoint.
 type GeoFilterResponse struct {
 	// Action of the geo filter, i.e. allow or block access.
 	Action string `pulumi:"action"`
@@ -5345,6 +7797,85 @@ func (o HeaderActionParametersOutput) OdataType() pulumi.StringOutput {
 // Value for the specified action
 func (o HeaderActionParametersOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HeaderActionParameters) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// Defines the parameters for the request header action.
+type HeaderActionParametersInvokeResponse struct {
+	// Action to perform
+	HeaderAction string `pulumi:"headerAction"`
+	// Name of the header to modify
+	HeaderName string `pulumi:"headerName"`
+	OdataType  string `pulumi:"odataType"`
+	// Value for the specified action
+	Value *string `pulumi:"value"`
+}
+
+// HeaderActionParametersInvokeResponseInput is an input type that accepts HeaderActionParametersInvokeResponseArgs and HeaderActionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `HeaderActionParametersInvokeResponseInput` via:
+//
+//          HeaderActionParametersInvokeResponseArgs{...}
+type HeaderActionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHeaderActionParametersInvokeResponseOutput() HeaderActionParametersInvokeResponseOutput
+	ToHeaderActionParametersInvokeResponseOutputWithContext(context.Context) HeaderActionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for the request header action.
+type HeaderActionParametersInvokeResponseArgs struct {
+	// Action to perform
+	HeaderAction pulumi.StringInput `pulumi:"headerAction"`
+	// Name of the header to modify
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	OdataType  pulumi.StringInput `pulumi:"odataType"`
+	// Value for the specified action
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (HeaderActionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HeaderActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i HeaderActionParametersInvokeResponseArgs) ToHeaderActionParametersInvokeResponseOutput() HeaderActionParametersInvokeResponseOutput {
+	return i.ToHeaderActionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HeaderActionParametersInvokeResponseArgs) ToHeaderActionParametersInvokeResponseOutputWithContext(ctx context.Context) HeaderActionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HeaderActionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for the request header action.
+type HeaderActionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HeaderActionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HeaderActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o HeaderActionParametersInvokeResponseOutput) ToHeaderActionParametersInvokeResponseOutput() HeaderActionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o HeaderActionParametersInvokeResponseOutput) ToHeaderActionParametersInvokeResponseOutputWithContext(ctx context.Context) HeaderActionParametersInvokeResponseOutput {
+	return o
+}
+
+// Action to perform
+func (o HeaderActionParametersInvokeResponseOutput) HeaderAction() pulumi.StringOutput {
+	return o.ApplyT(func(v HeaderActionParametersInvokeResponse) string { return v.HeaderAction }).(pulumi.StringOutput)
+}
+
+// Name of the header to modify
+func (o HeaderActionParametersInvokeResponseOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v HeaderActionParametersInvokeResponse) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+func (o HeaderActionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v HeaderActionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Value for the specified action
+func (o HeaderActionParametersInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HeaderActionParametersInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 // Defines the parameters for the request header action.
@@ -5610,6 +8141,197 @@ func (o HealthProbeParametersPtrOutput) ProbeProtocol() pulumi.StringPtrOutput {
 // The type of health probe request that is made.
 func (o HealthProbeParametersPtrOutput) ProbeRequestType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthProbeParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbeRequestType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The JSON object that contains the properties to send health probes to origin.
+type HealthProbeParametersInvokeResponse struct {
+	// The number of seconds between health probes.Default is 240sec.
+	ProbeIntervalInSeconds *int `pulumi:"probeIntervalInSeconds"`
+	// The path relative to the origin that is used to determine the health of the origin.
+	ProbePath *string `pulumi:"probePath"`
+	// Protocol to use for health probe.
+	ProbeProtocol *string `pulumi:"probeProtocol"`
+	// The type of health probe request that is made.
+	ProbeRequestType *string `pulumi:"probeRequestType"`
+}
+
+// HealthProbeParametersInvokeResponseInput is an input type that accepts HealthProbeParametersInvokeResponseArgs and HealthProbeParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `HealthProbeParametersInvokeResponseInput` via:
+//
+//          HealthProbeParametersInvokeResponseArgs{...}
+type HealthProbeParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHealthProbeParametersInvokeResponseOutput() HealthProbeParametersInvokeResponseOutput
+	ToHealthProbeParametersInvokeResponseOutputWithContext(context.Context) HealthProbeParametersInvokeResponseOutput
+}
+
+// The JSON object that contains the properties to send health probes to origin.
+type HealthProbeParametersInvokeResponseArgs struct {
+	// The number of seconds between health probes.Default is 240sec.
+	ProbeIntervalInSeconds pulumi.IntPtrInput `pulumi:"probeIntervalInSeconds"`
+	// The path relative to the origin that is used to determine the health of the origin.
+	ProbePath pulumi.StringPtrInput `pulumi:"probePath"`
+	// Protocol to use for health probe.
+	ProbeProtocol pulumi.StringPtrInput `pulumi:"probeProtocol"`
+	// The type of health probe request that is made.
+	ProbeRequestType pulumi.StringPtrInput `pulumi:"probeRequestType"`
+}
+
+func (HealthProbeParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthProbeParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i HealthProbeParametersInvokeResponseArgs) ToHealthProbeParametersInvokeResponseOutput() HealthProbeParametersInvokeResponseOutput {
+	return i.ToHealthProbeParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HealthProbeParametersInvokeResponseArgs) ToHealthProbeParametersInvokeResponseOutputWithContext(ctx context.Context) HealthProbeParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthProbeParametersInvokeResponseOutput)
+}
+
+func (i HealthProbeParametersInvokeResponseArgs) ToHealthProbeParametersInvokeResponsePtrOutput() HealthProbeParametersInvokeResponsePtrOutput {
+	return i.ToHealthProbeParametersInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i HealthProbeParametersInvokeResponseArgs) ToHealthProbeParametersInvokeResponsePtrOutputWithContext(ctx context.Context) HealthProbeParametersInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthProbeParametersInvokeResponseOutput).ToHealthProbeParametersInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// HealthProbeParametersInvokeResponsePtrInput is an input type that accepts HealthProbeParametersInvokeResponseArgs, HealthProbeParametersInvokeResponsePtr and HealthProbeParametersInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `HealthProbeParametersInvokeResponsePtrInput` via:
+//
+//          HealthProbeParametersInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type HealthProbeParametersInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToHealthProbeParametersInvokeResponsePtrOutput() HealthProbeParametersInvokeResponsePtrOutput
+	ToHealthProbeParametersInvokeResponsePtrOutputWithContext(context.Context) HealthProbeParametersInvokeResponsePtrOutput
+}
+
+type healthProbeParametersInvokeResponsePtrType HealthProbeParametersInvokeResponseArgs
+
+func HealthProbeParametersInvokeResponsePtr(v *HealthProbeParametersInvokeResponseArgs) HealthProbeParametersInvokeResponsePtrInput {
+	return (*healthProbeParametersInvokeResponsePtrType)(v)
+}
+
+func (*healthProbeParametersInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthProbeParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i *healthProbeParametersInvokeResponsePtrType) ToHealthProbeParametersInvokeResponsePtrOutput() HealthProbeParametersInvokeResponsePtrOutput {
+	return i.ToHealthProbeParametersInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *healthProbeParametersInvokeResponsePtrType) ToHealthProbeParametersInvokeResponsePtrOutputWithContext(ctx context.Context) HealthProbeParametersInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthProbeParametersInvokeResponsePtrOutput)
+}
+
+// The JSON object that contains the properties to send health probes to origin.
+type HealthProbeParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HealthProbeParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthProbeParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthProbeParametersInvokeResponseOutput) ToHealthProbeParametersInvokeResponseOutput() HealthProbeParametersInvokeResponseOutput {
+	return o
+}
+
+func (o HealthProbeParametersInvokeResponseOutput) ToHealthProbeParametersInvokeResponseOutputWithContext(ctx context.Context) HealthProbeParametersInvokeResponseOutput {
+	return o
+}
+
+func (o HealthProbeParametersInvokeResponseOutput) ToHealthProbeParametersInvokeResponsePtrOutput() HealthProbeParametersInvokeResponsePtrOutput {
+	return o.ToHealthProbeParametersInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o HealthProbeParametersInvokeResponseOutput) ToHealthProbeParametersInvokeResponsePtrOutputWithContext(ctx context.Context) HealthProbeParametersInvokeResponsePtrOutput {
+	return o.ApplyT(func(v HealthProbeParametersInvokeResponse) *HealthProbeParametersInvokeResponse {
+		return &v
+	}).(HealthProbeParametersInvokeResponsePtrOutput)
+}
+
+// The number of seconds between health probes.Default is 240sec.
+func (o HealthProbeParametersInvokeResponseOutput) ProbeIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HealthProbeParametersInvokeResponse) *int { return v.ProbeIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The path relative to the origin that is used to determine the health of the origin.
+func (o HealthProbeParametersInvokeResponseOutput) ProbePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthProbeParametersInvokeResponse) *string { return v.ProbePath }).(pulumi.StringPtrOutput)
+}
+
+// Protocol to use for health probe.
+func (o HealthProbeParametersInvokeResponseOutput) ProbeProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthProbeParametersInvokeResponse) *string { return v.ProbeProtocol }).(pulumi.StringPtrOutput)
+}
+
+// The type of health probe request that is made.
+func (o HealthProbeParametersInvokeResponseOutput) ProbeRequestType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthProbeParametersInvokeResponse) *string { return v.ProbeRequestType }).(pulumi.StringPtrOutput)
+}
+
+type HealthProbeParametersInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (HealthProbeParametersInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthProbeParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthProbeParametersInvokeResponsePtrOutput) ToHealthProbeParametersInvokeResponsePtrOutput() HealthProbeParametersInvokeResponsePtrOutput {
+	return o
+}
+
+func (o HealthProbeParametersInvokeResponsePtrOutput) ToHealthProbeParametersInvokeResponsePtrOutputWithContext(ctx context.Context) HealthProbeParametersInvokeResponsePtrOutput {
+	return o
+}
+
+func (o HealthProbeParametersInvokeResponsePtrOutput) Elem() HealthProbeParametersInvokeResponseOutput {
+	return o.ApplyT(func(v *HealthProbeParametersInvokeResponse) HealthProbeParametersInvokeResponse { return *v }).(HealthProbeParametersInvokeResponseOutput)
+}
+
+// The number of seconds between health probes.Default is 240sec.
+func (o HealthProbeParametersInvokeResponsePtrOutput) ProbeIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HealthProbeParametersInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProbeIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The path relative to the origin that is used to determine the health of the origin.
+func (o HealthProbeParametersInvokeResponsePtrOutput) ProbePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthProbeParametersInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Protocol to use for health probe.
+func (o HealthProbeParametersInvokeResponsePtrOutput) ProbeProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthProbeParametersInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbeProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of health probe request that is made.
+func (o HealthProbeParametersInvokeResponsePtrOutput) ProbeRequestType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthProbeParametersInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5918,6 +8640,115 @@ func (o HttpErrorRangeParametersArrayOutput) Index(i pulumi.IntInput) HttpErrorR
 }
 
 // The JSON object that represents the range for http status codes
+type HttpErrorRangeParametersInvokeResponse struct {
+	// The inclusive start of the http status code range.
+	Begin *int `pulumi:"begin"`
+	// The inclusive end of the http status code range.
+	End *int `pulumi:"end"`
+}
+
+// HttpErrorRangeParametersInvokeResponseInput is an input type that accepts HttpErrorRangeParametersInvokeResponseArgs and HttpErrorRangeParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `HttpErrorRangeParametersInvokeResponseInput` via:
+//
+//          HttpErrorRangeParametersInvokeResponseArgs{...}
+type HttpErrorRangeParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHttpErrorRangeParametersInvokeResponseOutput() HttpErrorRangeParametersInvokeResponseOutput
+	ToHttpErrorRangeParametersInvokeResponseOutputWithContext(context.Context) HttpErrorRangeParametersInvokeResponseOutput
+}
+
+// The JSON object that represents the range for http status codes
+type HttpErrorRangeParametersInvokeResponseArgs struct {
+	// The inclusive start of the http status code range.
+	Begin pulumi.IntPtrInput `pulumi:"begin"`
+	// The inclusive end of the http status code range.
+	End pulumi.IntPtrInput `pulumi:"end"`
+}
+
+func (HttpErrorRangeParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpErrorRangeParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i HttpErrorRangeParametersInvokeResponseArgs) ToHttpErrorRangeParametersInvokeResponseOutput() HttpErrorRangeParametersInvokeResponseOutput {
+	return i.ToHttpErrorRangeParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HttpErrorRangeParametersInvokeResponseArgs) ToHttpErrorRangeParametersInvokeResponseOutputWithContext(ctx context.Context) HttpErrorRangeParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpErrorRangeParametersInvokeResponseOutput)
+}
+
+// HttpErrorRangeParametersInvokeResponseArrayInput is an input type that accepts HttpErrorRangeParametersInvokeResponseArray and HttpErrorRangeParametersInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `HttpErrorRangeParametersInvokeResponseArrayInput` via:
+//
+//          HttpErrorRangeParametersInvokeResponseArray{ HttpErrorRangeParametersInvokeResponseArgs{...} }
+type HttpErrorRangeParametersInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToHttpErrorRangeParametersInvokeResponseArrayOutput() HttpErrorRangeParametersInvokeResponseArrayOutput
+	ToHttpErrorRangeParametersInvokeResponseArrayOutputWithContext(context.Context) HttpErrorRangeParametersInvokeResponseArrayOutput
+}
+
+type HttpErrorRangeParametersInvokeResponseArray []HttpErrorRangeParametersInvokeResponseInput
+
+func (HttpErrorRangeParametersInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HttpErrorRangeParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i HttpErrorRangeParametersInvokeResponseArray) ToHttpErrorRangeParametersInvokeResponseArrayOutput() HttpErrorRangeParametersInvokeResponseArrayOutput {
+	return i.ToHttpErrorRangeParametersInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HttpErrorRangeParametersInvokeResponseArray) ToHttpErrorRangeParametersInvokeResponseArrayOutputWithContext(ctx context.Context) HttpErrorRangeParametersInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpErrorRangeParametersInvokeResponseArrayOutput)
+}
+
+// The JSON object that represents the range for http status codes
+type HttpErrorRangeParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HttpErrorRangeParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpErrorRangeParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o HttpErrorRangeParametersInvokeResponseOutput) ToHttpErrorRangeParametersInvokeResponseOutput() HttpErrorRangeParametersInvokeResponseOutput {
+	return o
+}
+
+func (o HttpErrorRangeParametersInvokeResponseOutput) ToHttpErrorRangeParametersInvokeResponseOutputWithContext(ctx context.Context) HttpErrorRangeParametersInvokeResponseOutput {
+	return o
+}
+
+// The inclusive start of the http status code range.
+func (o HttpErrorRangeParametersInvokeResponseOutput) Begin() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HttpErrorRangeParametersInvokeResponse) *int { return v.Begin }).(pulumi.IntPtrOutput)
+}
+
+// The inclusive end of the http status code range.
+func (o HttpErrorRangeParametersInvokeResponseOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HttpErrorRangeParametersInvokeResponse) *int { return v.End }).(pulumi.IntPtrOutput)
+}
+
+type HttpErrorRangeParametersInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HttpErrorRangeParametersInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HttpErrorRangeParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o HttpErrorRangeParametersInvokeResponseArrayOutput) ToHttpErrorRangeParametersInvokeResponseArrayOutput() HttpErrorRangeParametersInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HttpErrorRangeParametersInvokeResponseArrayOutput) ToHttpErrorRangeParametersInvokeResponseArrayOutputWithContext(ctx context.Context) HttpErrorRangeParametersInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HttpErrorRangeParametersInvokeResponseArrayOutput) Index(i pulumi.IntInput) HttpErrorRangeParametersInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HttpErrorRangeParametersInvokeResponse {
+		return vs[0].([]HttpErrorRangeParametersInvokeResponse)[vs[1].(int)]
+	}).(HttpErrorRangeParametersInvokeResponseOutput)
+}
+
+// The JSON object that represents the range for http status codes
 type HttpErrorRangeParametersResponse struct {
 	// The inclusive start of the http status code range.
 	Begin *int `pulumi:"begin"`
@@ -6106,6 +8937,85 @@ func (o HttpVersionMatchConditionParametersOutput) Operator() pulumi.StringOutpu
 }
 
 // Defines the parameters for HttpVersion match conditions
+type HttpVersionMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+}
+
+// HttpVersionMatchConditionParametersInvokeResponseInput is an input type that accepts HttpVersionMatchConditionParametersInvokeResponseArgs and HttpVersionMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `HttpVersionMatchConditionParametersInvokeResponseInput` via:
+//
+//          HttpVersionMatchConditionParametersInvokeResponseArgs{...}
+type HttpVersionMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHttpVersionMatchConditionParametersInvokeResponseOutput() HttpVersionMatchConditionParametersInvokeResponseOutput
+	ToHttpVersionMatchConditionParametersInvokeResponseOutputWithContext(context.Context) HttpVersionMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for HttpVersion match conditions
+type HttpVersionMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (HttpVersionMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpVersionMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i HttpVersionMatchConditionParametersInvokeResponseArgs) ToHttpVersionMatchConditionParametersInvokeResponseOutput() HttpVersionMatchConditionParametersInvokeResponseOutput {
+	return i.ToHttpVersionMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HttpVersionMatchConditionParametersInvokeResponseArgs) ToHttpVersionMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) HttpVersionMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpVersionMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for HttpVersion match conditions
+type HttpVersionMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HttpVersionMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpVersionMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o HttpVersionMatchConditionParametersInvokeResponseOutput) ToHttpVersionMatchConditionParametersInvokeResponseOutput() HttpVersionMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o HttpVersionMatchConditionParametersInvokeResponseOutput) ToHttpVersionMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) HttpVersionMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o HttpVersionMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o HttpVersionMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o HttpVersionMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o HttpVersionMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v HttpVersionMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for HttpVersion match conditions
 type HttpVersionMatchConditionParametersResponse struct {
 	// The match value for the condition of the delivery rule
 	MatchValues []string `pulumi:"matchValues"`
@@ -6270,6 +9180,94 @@ func (o IsDeviceMatchConditionParametersOutput) Operator() pulumi.StringOutput {
 // List of transforms
 func (o IsDeviceMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IsDeviceMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for IsDevice match conditions
+type IsDeviceMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// IsDeviceMatchConditionParametersInvokeResponseInput is an input type that accepts IsDeviceMatchConditionParametersInvokeResponseArgs and IsDeviceMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `IsDeviceMatchConditionParametersInvokeResponseInput` via:
+//
+//          IsDeviceMatchConditionParametersInvokeResponseArgs{...}
+type IsDeviceMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIsDeviceMatchConditionParametersInvokeResponseOutput() IsDeviceMatchConditionParametersInvokeResponseOutput
+	ToIsDeviceMatchConditionParametersInvokeResponseOutputWithContext(context.Context) IsDeviceMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for IsDevice match conditions
+type IsDeviceMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (IsDeviceMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsDeviceMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i IsDeviceMatchConditionParametersInvokeResponseArgs) ToIsDeviceMatchConditionParametersInvokeResponseOutput() IsDeviceMatchConditionParametersInvokeResponseOutput {
+	return i.ToIsDeviceMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IsDeviceMatchConditionParametersInvokeResponseArgs) ToIsDeviceMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) IsDeviceMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IsDeviceMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for IsDevice match conditions
+type IsDeviceMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IsDeviceMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsDeviceMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o IsDeviceMatchConditionParametersInvokeResponseOutput) ToIsDeviceMatchConditionParametersInvokeResponseOutput() IsDeviceMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o IsDeviceMatchConditionParametersInvokeResponseOutput) ToIsDeviceMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) IsDeviceMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o IsDeviceMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o IsDeviceMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o IsDeviceMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o IsDeviceMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o IsDeviceMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IsDeviceMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
 // Defines the parameters for IsDevice match conditions
@@ -6455,6 +9453,103 @@ func (o KeyVaultSigningKeyParametersOutput) SubscriptionId() pulumi.StringOutput
 // The name of the user's Key Vault containing the secret
 func (o KeyVaultSigningKeyParametersOutput) VaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultSigningKeyParameters) string { return v.VaultName }).(pulumi.StringOutput)
+}
+
+// Describes the parameters for using a user's KeyVault for URL Signing Key.
+type KeyVaultSigningKeyParametersInvokeResponse struct {
+	OdataType string `pulumi:"odataType"`
+	// Resource group of the user's Key Vault containing the secret
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of secret in Key Vault.
+	SecretName string `pulumi:"secretName"`
+	// The version(GUID) of secret in Key Vault.
+	SecretVersion string `pulumi:"secretVersion"`
+	// Subscription Id of the user's Key Vault containing the secret
+	SubscriptionId string `pulumi:"subscriptionId"`
+	// The name of the user's Key Vault containing the secret
+	VaultName string `pulumi:"vaultName"`
+}
+
+// KeyVaultSigningKeyParametersInvokeResponseInput is an input type that accepts KeyVaultSigningKeyParametersInvokeResponseArgs and KeyVaultSigningKeyParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultSigningKeyParametersInvokeResponseInput` via:
+//
+//          KeyVaultSigningKeyParametersInvokeResponseArgs{...}
+type KeyVaultSigningKeyParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultSigningKeyParametersInvokeResponseOutput() KeyVaultSigningKeyParametersInvokeResponseOutput
+	ToKeyVaultSigningKeyParametersInvokeResponseOutputWithContext(context.Context) KeyVaultSigningKeyParametersInvokeResponseOutput
+}
+
+// Describes the parameters for using a user's KeyVault for URL Signing Key.
+type KeyVaultSigningKeyParametersInvokeResponseArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Resource group of the user's Key Vault containing the secret
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// The name of secret in Key Vault.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// The version(GUID) of secret in Key Vault.
+	SecretVersion pulumi.StringInput `pulumi:"secretVersion"`
+	// Subscription Id of the user's Key Vault containing the secret
+	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
+	// The name of the user's Key Vault containing the secret
+	VaultName pulumi.StringInput `pulumi:"vaultName"`
+}
+
+func (KeyVaultSigningKeyParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultSigningKeyParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultSigningKeyParametersInvokeResponseArgs) ToKeyVaultSigningKeyParametersInvokeResponseOutput() KeyVaultSigningKeyParametersInvokeResponseOutput {
+	return i.ToKeyVaultSigningKeyParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultSigningKeyParametersInvokeResponseArgs) ToKeyVaultSigningKeyParametersInvokeResponseOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSigningKeyParametersInvokeResponseOutput)
+}
+
+// Describes the parameters for using a user's KeyVault for URL Signing Key.
+type KeyVaultSigningKeyParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultSigningKeyParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultSigningKeyParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultSigningKeyParametersInvokeResponseOutput) ToKeyVaultSigningKeyParametersInvokeResponseOutput() KeyVaultSigningKeyParametersInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultSigningKeyParametersInvokeResponseOutput) ToKeyVaultSigningKeyParametersInvokeResponseOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultSigningKeyParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultSigningKeyParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Resource group of the user's Key Vault containing the secret
+func (o KeyVaultSigningKeyParametersInvokeResponseOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultSigningKeyParametersInvokeResponse) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The name of secret in Key Vault.
+func (o KeyVaultSigningKeyParametersInvokeResponseOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultSigningKeyParametersInvokeResponse) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// The version(GUID) of secret in Key Vault.
+func (o KeyVaultSigningKeyParametersInvokeResponseOutput) SecretVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultSigningKeyParametersInvokeResponse) string { return v.SecretVersion }).(pulumi.StringOutput)
+}
+
+// Subscription Id of the user's Key Vault containing the secret
+func (o KeyVaultSigningKeyParametersInvokeResponseOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultSigningKeyParametersInvokeResponse) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// The name of the user's Key Vault containing the secret
+func (o KeyVaultSigningKeyParametersInvokeResponseOutput) VaultName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultSigningKeyParametersInvokeResponse) string { return v.VaultName }).(pulumi.StringOutput)
 }
 
 // Describes the parameters for using a user's KeyVault for URL Signing Key.
@@ -6661,6 +9756,115 @@ func (o ManagedRuleGroupOverrideArrayOutput) Index(i pulumi.IntInput) ManagedRul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleGroupOverride {
 		return vs[0].([]ManagedRuleGroupOverride)[vs[1].(int)]
 	}).(ManagedRuleGroupOverrideOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleGroupOverrideInvokeResponse struct {
+	// Describes the managed rule group within the rule set to override
+	RuleGroupName string `pulumi:"ruleGroupName"`
+	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+	Rules []ManagedRuleOverrideInvokeResponse `pulumi:"rules"`
+}
+
+// ManagedRuleGroupOverrideInvokeResponseInput is an input type that accepts ManagedRuleGroupOverrideInvokeResponseArgs and ManagedRuleGroupOverrideInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedRuleGroupOverrideInvokeResponseInput` via:
+//
+//          ManagedRuleGroupOverrideInvokeResponseArgs{...}
+type ManagedRuleGroupOverrideInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedRuleGroupOverrideInvokeResponseOutput() ManagedRuleGroupOverrideInvokeResponseOutput
+	ToManagedRuleGroupOverrideInvokeResponseOutputWithContext(context.Context) ManagedRuleGroupOverrideInvokeResponseOutput
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleGroupOverrideInvokeResponseArgs struct {
+	// Describes the managed rule group within the rule set to override
+	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+	Rules ManagedRuleOverrideInvokeResponseArrayInput `pulumi:"rules"`
+}
+
+func (ManagedRuleGroupOverrideInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleGroupOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleGroupOverrideInvokeResponseArgs) ToManagedRuleGroupOverrideInvokeResponseOutput() ManagedRuleGroupOverrideInvokeResponseOutput {
+	return i.ToManagedRuleGroupOverrideInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleGroupOverrideInvokeResponseArgs) ToManagedRuleGroupOverrideInvokeResponseOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleGroupOverrideInvokeResponseOutput)
+}
+
+// ManagedRuleGroupOverrideInvokeResponseArrayInput is an input type that accepts ManagedRuleGroupOverrideInvokeResponseArray and ManagedRuleGroupOverrideInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedRuleGroupOverrideInvokeResponseArrayInput` via:
+//
+//          ManagedRuleGroupOverrideInvokeResponseArray{ ManagedRuleGroupOverrideInvokeResponseArgs{...} }
+type ManagedRuleGroupOverrideInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedRuleGroupOverrideInvokeResponseArrayOutput() ManagedRuleGroupOverrideInvokeResponseArrayOutput
+	ToManagedRuleGroupOverrideInvokeResponseArrayOutputWithContext(context.Context) ManagedRuleGroupOverrideInvokeResponseArrayOutput
+}
+
+type ManagedRuleGroupOverrideInvokeResponseArray []ManagedRuleGroupOverrideInvokeResponseInput
+
+func (ManagedRuleGroupOverrideInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleGroupOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleGroupOverrideInvokeResponseArray) ToManagedRuleGroupOverrideInvokeResponseArrayOutput() ManagedRuleGroupOverrideInvokeResponseArrayOutput {
+	return i.ToManagedRuleGroupOverrideInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleGroupOverrideInvokeResponseArray) ToManagedRuleGroupOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleGroupOverrideInvokeResponseArrayOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleGroupOverrideInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleGroupOverrideInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleGroupOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleGroupOverrideInvokeResponseOutput) ToManagedRuleGroupOverrideInvokeResponseOutput() ManagedRuleGroupOverrideInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedRuleGroupOverrideInvokeResponseOutput) ToManagedRuleGroupOverrideInvokeResponseOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideInvokeResponseOutput {
+	return o
+}
+
+// Describes the managed rule group within the rule set to override
+func (o ManagedRuleGroupOverrideInvokeResponseOutput) RuleGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleGroupOverrideInvokeResponse) string { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+func (o ManagedRuleGroupOverrideInvokeResponseOutput) Rules() ManagedRuleOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedRuleGroupOverrideInvokeResponse) []ManagedRuleOverrideInvokeResponse { return v.Rules }).(ManagedRuleOverrideInvokeResponseArrayOutput)
+}
+
+type ManagedRuleGroupOverrideInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleGroupOverrideInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleGroupOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleGroupOverrideInvokeResponseArrayOutput) ToManagedRuleGroupOverrideInvokeResponseArrayOutput() ManagedRuleGroupOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleGroupOverrideInvokeResponseArrayOutput) ToManagedRuleGroupOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedRuleGroupOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleGroupOverrideInvokeResponseArrayOutput) Index(i pulumi.IntInput) ManagedRuleGroupOverrideInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleGroupOverrideInvokeResponse {
+		return vs[0].([]ManagedRuleGroupOverrideInvokeResponse)[vs[1].(int)]
+	}).(ManagedRuleGroupOverrideInvokeResponseOutput)
 }
 
 // Defines a managed rule group override setting.
@@ -6888,6 +10092,124 @@ func (o ManagedRuleOverrideArrayOutput) Index(i pulumi.IntInput) ManagedRuleOver
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleOverride {
 		return vs[0].([]ManagedRuleOverride)[vs[1].(int)]
 	}).(ManagedRuleOverrideOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleOverrideInvokeResponse struct {
+	// Describes the override action to be applied when rule matches.
+	Action *string `pulumi:"action"`
+	// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+	EnabledState *string `pulumi:"enabledState"`
+	// Identifier for the managed rule.
+	RuleId string `pulumi:"ruleId"`
+}
+
+// ManagedRuleOverrideInvokeResponseInput is an input type that accepts ManagedRuleOverrideInvokeResponseArgs and ManagedRuleOverrideInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedRuleOverrideInvokeResponseInput` via:
+//
+//          ManagedRuleOverrideInvokeResponseArgs{...}
+type ManagedRuleOverrideInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedRuleOverrideInvokeResponseOutput() ManagedRuleOverrideInvokeResponseOutput
+	ToManagedRuleOverrideInvokeResponseOutputWithContext(context.Context) ManagedRuleOverrideInvokeResponseOutput
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleOverrideInvokeResponseArgs struct {
+	// Describes the override action to be applied when rule matches.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
+	// Identifier for the managed rule.
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+}
+
+func (ManagedRuleOverrideInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleOverrideInvokeResponseArgs) ToManagedRuleOverrideInvokeResponseOutput() ManagedRuleOverrideInvokeResponseOutput {
+	return i.ToManagedRuleOverrideInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleOverrideInvokeResponseArgs) ToManagedRuleOverrideInvokeResponseOutputWithContext(ctx context.Context) ManagedRuleOverrideInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleOverrideInvokeResponseOutput)
+}
+
+// ManagedRuleOverrideInvokeResponseArrayInput is an input type that accepts ManagedRuleOverrideInvokeResponseArray and ManagedRuleOverrideInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedRuleOverrideInvokeResponseArrayInput` via:
+//
+//          ManagedRuleOverrideInvokeResponseArray{ ManagedRuleOverrideInvokeResponseArgs{...} }
+type ManagedRuleOverrideInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedRuleOverrideInvokeResponseArrayOutput() ManagedRuleOverrideInvokeResponseArrayOutput
+	ToManagedRuleOverrideInvokeResponseArrayOutputWithContext(context.Context) ManagedRuleOverrideInvokeResponseArrayOutput
+}
+
+type ManagedRuleOverrideInvokeResponseArray []ManagedRuleOverrideInvokeResponseInput
+
+func (ManagedRuleOverrideInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleOverrideInvokeResponseArray) ToManagedRuleOverrideInvokeResponseArrayOutput() ManagedRuleOverrideInvokeResponseArrayOutput {
+	return i.ToManagedRuleOverrideInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleOverrideInvokeResponseArray) ToManagedRuleOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedRuleOverrideInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleOverrideInvokeResponseArrayOutput)
+}
+
+// Defines a managed rule group override setting.
+type ManagedRuleOverrideInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleOverrideInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleOverrideInvokeResponseOutput) ToManagedRuleOverrideInvokeResponseOutput() ManagedRuleOverrideInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedRuleOverrideInvokeResponseOutput) ToManagedRuleOverrideInvokeResponseOutputWithContext(ctx context.Context) ManagedRuleOverrideInvokeResponseOutput {
+	return o
+}
+
+// Describes the override action to be applied when rule matches.
+func (o ManagedRuleOverrideInvokeResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedRuleOverrideInvokeResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+func (o ManagedRuleOverrideInvokeResponseOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedRuleOverrideInvokeResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// Identifier for the managed rule.
+func (o ManagedRuleOverrideInvokeResponseOutput) RuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleOverrideInvokeResponse) string { return v.RuleId }).(pulumi.StringOutput)
+}
+
+type ManagedRuleOverrideInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleOverrideInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleOverrideInvokeResponseArrayOutput) ToManagedRuleOverrideInvokeResponseArrayOutput() ManagedRuleOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleOverrideInvokeResponseArrayOutput) ToManagedRuleOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedRuleOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleOverrideInvokeResponseArrayOutput) Index(i pulumi.IntInput) ManagedRuleOverrideInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleOverrideInvokeResponse {
+		return vs[0].([]ManagedRuleOverrideInvokeResponse)[vs[1].(int)]
+	}).(ManagedRuleOverrideInvokeResponseOutput)
 }
 
 // Defines a managed rule group override setting.
@@ -7135,6 +10457,135 @@ func (o ManagedRuleSetArrayOutput) Index(i pulumi.IntInput) ManagedRuleSetOutput
 	}).(ManagedRuleSetOutput)
 }
 
+// Defines a managed rule set.
+type ManagedRuleSetInvokeResponse struct {
+	// Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
+	AnomalyScore *int `pulumi:"anomalyScore"`
+	// Defines the rule overrides to apply to the rule set.
+	RuleGroupOverrides []ManagedRuleGroupOverrideInvokeResponse `pulumi:"ruleGroupOverrides"`
+	// Defines the rule set type to use.
+	RuleSetType string `pulumi:"ruleSetType"`
+	// Defines the version of the rule set to use.
+	RuleSetVersion string `pulumi:"ruleSetVersion"`
+}
+
+// ManagedRuleSetInvokeResponseInput is an input type that accepts ManagedRuleSetInvokeResponseArgs and ManagedRuleSetInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedRuleSetInvokeResponseInput` via:
+//
+//          ManagedRuleSetInvokeResponseArgs{...}
+type ManagedRuleSetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedRuleSetInvokeResponseOutput() ManagedRuleSetInvokeResponseOutput
+	ToManagedRuleSetInvokeResponseOutputWithContext(context.Context) ManagedRuleSetInvokeResponseOutput
+}
+
+// Defines a managed rule set.
+type ManagedRuleSetInvokeResponseArgs struct {
+	// Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
+	AnomalyScore pulumi.IntPtrInput `pulumi:"anomalyScore"`
+	// Defines the rule overrides to apply to the rule set.
+	RuleGroupOverrides ManagedRuleGroupOverrideInvokeResponseArrayInput `pulumi:"ruleGroupOverrides"`
+	// Defines the rule set type to use.
+	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
+	// Defines the version of the rule set to use.
+	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
+}
+
+func (ManagedRuleSetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleSetInvokeResponseArgs) ToManagedRuleSetInvokeResponseOutput() ManagedRuleSetInvokeResponseOutput {
+	return i.ToManagedRuleSetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleSetInvokeResponseArgs) ToManagedRuleSetInvokeResponseOutputWithContext(ctx context.Context) ManagedRuleSetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetInvokeResponseOutput)
+}
+
+// ManagedRuleSetInvokeResponseArrayInput is an input type that accepts ManagedRuleSetInvokeResponseArray and ManagedRuleSetInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedRuleSetInvokeResponseArrayInput` via:
+//
+//          ManagedRuleSetInvokeResponseArray{ ManagedRuleSetInvokeResponseArgs{...} }
+type ManagedRuleSetInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedRuleSetInvokeResponseArrayOutput() ManagedRuleSetInvokeResponseArrayOutput
+	ToManagedRuleSetInvokeResponseArrayOutputWithContext(context.Context) ManagedRuleSetInvokeResponseArrayOutput
+}
+
+type ManagedRuleSetInvokeResponseArray []ManagedRuleSetInvokeResponseInput
+
+func (ManagedRuleSetInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleSetInvokeResponseArray) ToManagedRuleSetInvokeResponseArrayOutput() ManagedRuleSetInvokeResponseArrayOutput {
+	return i.ToManagedRuleSetInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleSetInvokeResponseArray) ToManagedRuleSetInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedRuleSetInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetInvokeResponseArrayOutput)
+}
+
+// Defines a managed rule set.
+type ManagedRuleSetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleSetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleSetInvokeResponseOutput) ToManagedRuleSetInvokeResponseOutput() ManagedRuleSetInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedRuleSetInvokeResponseOutput) ToManagedRuleSetInvokeResponseOutputWithContext(ctx context.Context) ManagedRuleSetInvokeResponseOutput {
+	return o
+}
+
+// Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
+func (o ManagedRuleSetInvokeResponseOutput) AnomalyScore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedRuleSetInvokeResponse) *int { return v.AnomalyScore }).(pulumi.IntPtrOutput)
+}
+
+// Defines the rule overrides to apply to the rule set.
+func (o ManagedRuleSetInvokeResponseOutput) RuleGroupOverrides() ManagedRuleGroupOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedRuleSetInvokeResponse) []ManagedRuleGroupOverrideInvokeResponse {
+		return v.RuleGroupOverrides
+	}).(ManagedRuleGroupOverrideInvokeResponseArrayOutput)
+}
+
+// Defines the rule set type to use.
+func (o ManagedRuleSetInvokeResponseOutput) RuleSetType() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleSetInvokeResponse) string { return v.RuleSetType }).(pulumi.StringOutput)
+}
+
+// Defines the version of the rule set to use.
+func (o ManagedRuleSetInvokeResponseOutput) RuleSetVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedRuleSetInvokeResponse) string { return v.RuleSetVersion }).(pulumi.StringOutput)
+}
+
+type ManagedRuleSetInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleSetInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleSetInvokeResponseArrayOutput) ToManagedRuleSetInvokeResponseArrayOutput() ManagedRuleSetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleSetInvokeResponseArrayOutput) ToManagedRuleSetInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedRuleSetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedRuleSetInvokeResponseArrayOutput) Index(i pulumi.IntInput) ManagedRuleSetInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedRuleSetInvokeResponse {
+		return vs[0].([]ManagedRuleSetInvokeResponse)[vs[1].(int)]
+	}).(ManagedRuleSetInvokeResponseOutput)
+}
+
 // Defines the list of managed rule sets for the policy.
 type ManagedRuleSetList struct {
 	// List of rule sets.
@@ -7267,6 +10718,61 @@ func (o ManagedRuleSetListPtrOutput) ManagedRuleSets() ManagedRuleSetArrayOutput
 		}
 		return v.ManagedRuleSets
 	}).(ManagedRuleSetArrayOutput)
+}
+
+// Defines the list of managed rule sets for the policy.
+type ManagedRuleSetListInvokeResponse struct {
+	// List of rule sets.
+	ManagedRuleSets []ManagedRuleSetInvokeResponse `pulumi:"managedRuleSets"`
+}
+
+// ManagedRuleSetListInvokeResponseInput is an input type that accepts ManagedRuleSetListInvokeResponseArgs and ManagedRuleSetListInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedRuleSetListInvokeResponseInput` via:
+//
+//          ManagedRuleSetListInvokeResponseArgs{...}
+type ManagedRuleSetListInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedRuleSetListInvokeResponseOutput() ManagedRuleSetListInvokeResponseOutput
+	ToManagedRuleSetListInvokeResponseOutputWithContext(context.Context) ManagedRuleSetListInvokeResponseOutput
+}
+
+// Defines the list of managed rule sets for the policy.
+type ManagedRuleSetListInvokeResponseArgs struct {
+	// List of rule sets.
+	ManagedRuleSets ManagedRuleSetInvokeResponseArrayInput `pulumi:"managedRuleSets"`
+}
+
+func (ManagedRuleSetListInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleSetListInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedRuleSetListInvokeResponseArgs) ToManagedRuleSetListInvokeResponseOutput() ManagedRuleSetListInvokeResponseOutput {
+	return i.ToManagedRuleSetListInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedRuleSetListInvokeResponseArgs) ToManagedRuleSetListInvokeResponseOutputWithContext(ctx context.Context) ManagedRuleSetListInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedRuleSetListInvokeResponseOutput)
+}
+
+// Defines the list of managed rule sets for the policy.
+type ManagedRuleSetListInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleSetListInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleSetListInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedRuleSetListInvokeResponseOutput) ToManagedRuleSetListInvokeResponseOutput() ManagedRuleSetListInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedRuleSetListInvokeResponseOutput) ToManagedRuleSetListInvokeResponseOutputWithContext(ctx context.Context) ManagedRuleSetListInvokeResponseOutput {
+	return o
+}
+
+// List of rule sets.
+func (o ManagedRuleSetListInvokeResponseOutput) ManagedRuleSets() ManagedRuleSetInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagedRuleSetListInvokeResponse) []ManagedRuleSetInvokeResponse { return v.ManagedRuleSets }).(ManagedRuleSetInvokeResponseArrayOutput)
 }
 
 // Defines the list of managed rule sets for the policy.
@@ -7676,6 +11182,151 @@ func (o MatchConditionArrayOutput) Index(i pulumi.IntInput) MatchConditionOutput
 }
 
 // Define match conditions
+type MatchConditionInvokeResponse struct {
+	// List of possible match values.
+	MatchValue []string `pulumi:"matchValue"`
+	// Match variable to compare against.
+	MatchVariable string `pulumi:"matchVariable"`
+	// Describes if the result of this condition should be negated.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
+	Selector *string `pulumi:"selector"`
+	// List of transforms.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// MatchConditionInvokeResponseInput is an input type that accepts MatchConditionInvokeResponseArgs and MatchConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `MatchConditionInvokeResponseInput` via:
+//
+//          MatchConditionInvokeResponseArgs{...}
+type MatchConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMatchConditionInvokeResponseOutput() MatchConditionInvokeResponseOutput
+	ToMatchConditionInvokeResponseOutputWithContext(context.Context) MatchConditionInvokeResponseOutput
+}
+
+// Define match conditions
+type MatchConditionInvokeResponseArgs struct {
+	// List of possible match values.
+	MatchValue pulumi.StringArrayInput `pulumi:"matchValue"`
+	// Match variable to compare against.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Describes if the result of this condition should be negated.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// List of transforms.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (MatchConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i MatchConditionInvokeResponseArgs) ToMatchConditionInvokeResponseOutput() MatchConditionInvokeResponseOutput {
+	return i.ToMatchConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MatchConditionInvokeResponseArgs) ToMatchConditionInvokeResponseOutputWithContext(ctx context.Context) MatchConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchConditionInvokeResponseOutput)
+}
+
+// MatchConditionInvokeResponseArrayInput is an input type that accepts MatchConditionInvokeResponseArray and MatchConditionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MatchConditionInvokeResponseArrayInput` via:
+//
+//          MatchConditionInvokeResponseArray{ MatchConditionInvokeResponseArgs{...} }
+type MatchConditionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMatchConditionInvokeResponseArrayOutput() MatchConditionInvokeResponseArrayOutput
+	ToMatchConditionInvokeResponseArrayOutputWithContext(context.Context) MatchConditionInvokeResponseArrayOutput
+}
+
+type MatchConditionInvokeResponseArray []MatchConditionInvokeResponseInput
+
+func (MatchConditionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i MatchConditionInvokeResponseArray) ToMatchConditionInvokeResponseArrayOutput() MatchConditionInvokeResponseArrayOutput {
+	return i.ToMatchConditionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MatchConditionInvokeResponseArray) ToMatchConditionInvokeResponseArrayOutputWithContext(ctx context.Context) MatchConditionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchConditionInvokeResponseArrayOutput)
+}
+
+// Define match conditions
+type MatchConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MatchConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o MatchConditionInvokeResponseOutput) ToMatchConditionInvokeResponseOutput() MatchConditionInvokeResponseOutput {
+	return o
+}
+
+func (o MatchConditionInvokeResponseOutput) ToMatchConditionInvokeResponseOutputWithContext(ctx context.Context) MatchConditionInvokeResponseOutput {
+	return o
+}
+
+// List of possible match values.
+func (o MatchConditionInvokeResponseOutput) MatchValue() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MatchConditionInvokeResponse) []string { return v.MatchValue }).(pulumi.StringArrayOutput)
+}
+
+// Match variable to compare against.
+func (o MatchConditionInvokeResponseOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchConditionInvokeResponse) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// Describes if the result of this condition should be negated.
+func (o MatchConditionInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MatchConditionInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Describes operator to be matched
+func (o MatchConditionInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchConditionInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
+func (o MatchConditionInvokeResponseOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MatchConditionInvokeResponse) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// List of transforms.
+func (o MatchConditionInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MatchConditionInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type MatchConditionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MatchConditionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o MatchConditionInvokeResponseArrayOutput) ToMatchConditionInvokeResponseArrayOutput() MatchConditionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MatchConditionInvokeResponseArrayOutput) ToMatchConditionInvokeResponseArrayOutputWithContext(ctx context.Context) MatchConditionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MatchConditionInvokeResponseArrayOutput) Index(i pulumi.IntInput) MatchConditionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchConditionInvokeResponse {
+		return vs[0].([]MatchConditionInvokeResponse)[vs[1].(int)]
+	}).(MatchConditionInvokeResponseOutput)
+}
+
+// Define match conditions
 type MatchConditionResponse struct {
 	// List of possible match values.
 	MatchValue []string `pulumi:"matchValue"`
@@ -8031,6 +11682,97 @@ func (o PolicySettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // Defines contents of a web application firewall global configuration
+type PolicySettingsInvokeResponse struct {
+	// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+	DefaultCustomBlockResponseBody *string `pulumi:"defaultCustomBlockResponseBody"`
+	// If the action type is block, this field defines the default customer overridable http response status code.
+	DefaultCustomBlockResponseStatusCode *int `pulumi:"defaultCustomBlockResponseStatusCode"`
+	// If action type is redirect, this field represents the default redirect URL for the client.
+	DefaultRedirectUrl *string `pulumi:"defaultRedirectUrl"`
+	// describes if the policy is in enabled state or disabled state
+	EnabledState *string `pulumi:"enabledState"`
+	// Describes if it is in detection mode or prevention mode at policy level.
+	Mode *string `pulumi:"mode"`
+}
+
+// PolicySettingsInvokeResponseInput is an input type that accepts PolicySettingsInvokeResponseArgs and PolicySettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `PolicySettingsInvokeResponseInput` via:
+//
+//          PolicySettingsInvokeResponseArgs{...}
+type PolicySettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPolicySettingsInvokeResponseOutput() PolicySettingsInvokeResponseOutput
+	ToPolicySettingsInvokeResponseOutputWithContext(context.Context) PolicySettingsInvokeResponseOutput
+}
+
+// Defines contents of a web application firewall global configuration
+type PolicySettingsInvokeResponseArgs struct {
+	// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+	DefaultCustomBlockResponseBody pulumi.StringPtrInput `pulumi:"defaultCustomBlockResponseBody"`
+	// If the action type is block, this field defines the default customer overridable http response status code.
+	DefaultCustomBlockResponseStatusCode pulumi.IntPtrInput `pulumi:"defaultCustomBlockResponseStatusCode"`
+	// If action type is redirect, this field represents the default redirect URL for the client.
+	DefaultRedirectUrl pulumi.StringPtrInput `pulumi:"defaultRedirectUrl"`
+	// describes if the policy is in enabled state or disabled state
+	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
+	// Describes if it is in detection mode or prevention mode at policy level.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (PolicySettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i PolicySettingsInvokeResponseArgs) ToPolicySettingsInvokeResponseOutput() PolicySettingsInvokeResponseOutput {
+	return i.ToPolicySettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PolicySettingsInvokeResponseArgs) ToPolicySettingsInvokeResponseOutputWithContext(ctx context.Context) PolicySettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySettingsInvokeResponseOutput)
+}
+
+// Defines contents of a web application firewall global configuration
+type PolicySettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PolicySettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o PolicySettingsInvokeResponseOutput) ToPolicySettingsInvokeResponseOutput() PolicySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o PolicySettingsInvokeResponseOutput) ToPolicySettingsInvokeResponseOutputWithContext(ctx context.Context) PolicySettingsInvokeResponseOutput {
+	return o
+}
+
+// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+func (o PolicySettingsInvokeResponseOutput) DefaultCustomBlockResponseBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettingsInvokeResponse) *string { return v.DefaultCustomBlockResponseBody }).(pulumi.StringPtrOutput)
+}
+
+// If the action type is block, this field defines the default customer overridable http response status code.
+func (o PolicySettingsInvokeResponseOutput) DefaultCustomBlockResponseStatusCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicySettingsInvokeResponse) *int { return v.DefaultCustomBlockResponseStatusCode }).(pulumi.IntPtrOutput)
+}
+
+// If action type is redirect, this field represents the default redirect URL for the client.
+func (o PolicySettingsInvokeResponseOutput) DefaultRedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettingsInvokeResponse) *string { return v.DefaultRedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// describes if the policy is in enabled state or disabled state
+func (o PolicySettingsInvokeResponseOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettingsInvokeResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// Describes if it is in detection mode or prevention mode at policy level.
+func (o PolicySettingsInvokeResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySettingsInvokeResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Defines contents of a web application firewall global configuration
 type PolicySettingsResponse struct {
 	// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
 	DefaultCustomBlockResponseBody *string `pulumi:"defaultCustomBlockResponseBody"`
@@ -8338,6 +12080,103 @@ func (o PostArgsMatchConditionParametersOutput) Transforms() pulumi.StringArrayO
 }
 
 // Defines the parameters for PostArgs match conditions
+type PostArgsMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// Name of PostArg to be matched
+	Selector *string `pulumi:"selector"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// PostArgsMatchConditionParametersInvokeResponseInput is an input type that accepts PostArgsMatchConditionParametersInvokeResponseArgs and PostArgsMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `PostArgsMatchConditionParametersInvokeResponseInput` via:
+//
+//          PostArgsMatchConditionParametersInvokeResponseArgs{...}
+type PostArgsMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPostArgsMatchConditionParametersInvokeResponseOutput() PostArgsMatchConditionParametersInvokeResponseOutput
+	ToPostArgsMatchConditionParametersInvokeResponseOutputWithContext(context.Context) PostArgsMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for PostArgs match conditions
+type PostArgsMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of PostArg to be matched
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (PostArgsMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostArgsMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i PostArgsMatchConditionParametersInvokeResponseArgs) ToPostArgsMatchConditionParametersInvokeResponseOutput() PostArgsMatchConditionParametersInvokeResponseOutput {
+	return i.ToPostArgsMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PostArgsMatchConditionParametersInvokeResponseArgs) ToPostArgsMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) PostArgsMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PostArgsMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for PostArgs match conditions
+type PostArgsMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PostArgsMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostArgsMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o PostArgsMatchConditionParametersInvokeResponseOutput) ToPostArgsMatchConditionParametersInvokeResponseOutput() PostArgsMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o PostArgsMatchConditionParametersInvokeResponseOutput) ToPostArgsMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) PostArgsMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o PostArgsMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o PostArgsMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o PostArgsMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o PostArgsMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of PostArg to be matched
+func (o PostArgsMatchConditionParametersInvokeResponseOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersInvokeResponse) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// List of transforms
+func (o PostArgsMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PostArgsMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for PostArgs match conditions
 type PostArgsMatchConditionParametersResponse struct {
 	// The match value for the condition of the delivery rule
 	MatchValues []string `pulumi:"matchValues"`
@@ -8520,6 +12359,94 @@ func (o QueryStringMatchConditionParametersOutput) Operator() pulumi.StringOutpu
 // List of transforms
 func (o QueryStringMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v QueryStringMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for QueryString match conditions
+type QueryStringMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// QueryStringMatchConditionParametersInvokeResponseInput is an input type that accepts QueryStringMatchConditionParametersInvokeResponseArgs and QueryStringMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `QueryStringMatchConditionParametersInvokeResponseInput` via:
+//
+//          QueryStringMatchConditionParametersInvokeResponseArgs{...}
+type QueryStringMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToQueryStringMatchConditionParametersInvokeResponseOutput() QueryStringMatchConditionParametersInvokeResponseOutput
+	ToQueryStringMatchConditionParametersInvokeResponseOutputWithContext(context.Context) QueryStringMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for QueryString match conditions
+type QueryStringMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (QueryStringMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryStringMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i QueryStringMatchConditionParametersInvokeResponseArgs) ToQueryStringMatchConditionParametersInvokeResponseOutput() QueryStringMatchConditionParametersInvokeResponseOutput {
+	return i.ToQueryStringMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i QueryStringMatchConditionParametersInvokeResponseArgs) ToQueryStringMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) QueryStringMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryStringMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for QueryString match conditions
+type QueryStringMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (QueryStringMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryStringMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o QueryStringMatchConditionParametersInvokeResponseOutput) ToQueryStringMatchConditionParametersInvokeResponseOutput() QueryStringMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o QueryStringMatchConditionParametersInvokeResponseOutput) ToQueryStringMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) QueryStringMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o QueryStringMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o QueryStringMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o QueryStringMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o QueryStringMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o QueryStringMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v QueryStringMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
 // Defines the parameters for QueryString match conditions
@@ -8764,6 +12691,160 @@ func (o RateLimitRuleArrayOutput) Index(i pulumi.IntInput) RateLimitRuleOutput {
 	}).(RateLimitRuleOutput)
 }
 
+// Defines a rate limiting rule that can be included in a waf policy
+type RateLimitRuleInvokeResponse struct {
+	// Describes what action to be applied when rule matches
+	Action string `pulumi:"action"`
+	// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+	EnabledState *string `pulumi:"enabledState"`
+	// List of match conditions.
+	MatchConditions []MatchConditionInvokeResponse `pulumi:"matchConditions"`
+	// Defines the name of the custom rule
+	Name string `pulumi:"name"`
+	// Defines in what order this rule be evaluated in the overall list of custom rules
+	Priority int `pulumi:"priority"`
+	// Defines rate limit duration. Default is 1 minute.
+	RateLimitDurationInMinutes int `pulumi:"rateLimitDurationInMinutes"`
+	// Defines rate limit threshold.
+	RateLimitThreshold int `pulumi:"rateLimitThreshold"`
+}
+
+// RateLimitRuleInvokeResponseInput is an input type that accepts RateLimitRuleInvokeResponseArgs and RateLimitRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `RateLimitRuleInvokeResponseInput` via:
+//
+//          RateLimitRuleInvokeResponseArgs{...}
+type RateLimitRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRateLimitRuleInvokeResponseOutput() RateLimitRuleInvokeResponseOutput
+	ToRateLimitRuleInvokeResponseOutputWithContext(context.Context) RateLimitRuleInvokeResponseOutput
+}
+
+// Defines a rate limiting rule that can be included in a waf policy
+type RateLimitRuleInvokeResponseArgs struct {
+	// Describes what action to be applied when rule matches
+	Action pulumi.StringInput `pulumi:"action"`
+	// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+	EnabledState pulumi.StringPtrInput `pulumi:"enabledState"`
+	// List of match conditions.
+	MatchConditions MatchConditionInvokeResponseArrayInput `pulumi:"matchConditions"`
+	// Defines the name of the custom rule
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines in what order this rule be evaluated in the overall list of custom rules
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Defines rate limit duration. Default is 1 minute.
+	RateLimitDurationInMinutes pulumi.IntInput `pulumi:"rateLimitDurationInMinutes"`
+	// Defines rate limit threshold.
+	RateLimitThreshold pulumi.IntInput `pulumi:"rateLimitThreshold"`
+}
+
+func (RateLimitRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RateLimitRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i RateLimitRuleInvokeResponseArgs) ToRateLimitRuleInvokeResponseOutput() RateLimitRuleInvokeResponseOutput {
+	return i.ToRateLimitRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RateLimitRuleInvokeResponseArgs) ToRateLimitRuleInvokeResponseOutputWithContext(ctx context.Context) RateLimitRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateLimitRuleInvokeResponseOutput)
+}
+
+// RateLimitRuleInvokeResponseArrayInput is an input type that accepts RateLimitRuleInvokeResponseArray and RateLimitRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RateLimitRuleInvokeResponseArrayInput` via:
+//
+//          RateLimitRuleInvokeResponseArray{ RateLimitRuleInvokeResponseArgs{...} }
+type RateLimitRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToRateLimitRuleInvokeResponseArrayOutput() RateLimitRuleInvokeResponseArrayOutput
+	ToRateLimitRuleInvokeResponseArrayOutputWithContext(context.Context) RateLimitRuleInvokeResponseArrayOutput
+}
+
+type RateLimitRuleInvokeResponseArray []RateLimitRuleInvokeResponseInput
+
+func (RateLimitRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RateLimitRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i RateLimitRuleInvokeResponseArray) ToRateLimitRuleInvokeResponseArrayOutput() RateLimitRuleInvokeResponseArrayOutput {
+	return i.ToRateLimitRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RateLimitRuleInvokeResponseArray) ToRateLimitRuleInvokeResponseArrayOutputWithContext(ctx context.Context) RateLimitRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateLimitRuleInvokeResponseArrayOutput)
+}
+
+// Defines a rate limiting rule that can be included in a waf policy
+type RateLimitRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RateLimitRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RateLimitRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o RateLimitRuleInvokeResponseOutput) ToRateLimitRuleInvokeResponseOutput() RateLimitRuleInvokeResponseOutput {
+	return o
+}
+
+func (o RateLimitRuleInvokeResponseOutput) ToRateLimitRuleInvokeResponseOutputWithContext(ctx context.Context) RateLimitRuleInvokeResponseOutput {
+	return o
+}
+
+// Describes what action to be applied when rule matches
+func (o RateLimitRuleInvokeResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v RateLimitRuleInvokeResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+func (o RateLimitRuleInvokeResponseOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RateLimitRuleInvokeResponse) *string { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// List of match conditions.
+func (o RateLimitRuleInvokeResponseOutput) MatchConditions() MatchConditionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v RateLimitRuleInvokeResponse) []MatchConditionInvokeResponse { return v.MatchConditions }).(MatchConditionInvokeResponseArrayOutput)
+}
+
+// Defines the name of the custom rule
+func (o RateLimitRuleInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RateLimitRuleInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines in what order this rule be evaluated in the overall list of custom rules
+func (o RateLimitRuleInvokeResponseOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v RateLimitRuleInvokeResponse) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Defines rate limit duration. Default is 1 minute.
+func (o RateLimitRuleInvokeResponseOutput) RateLimitDurationInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v RateLimitRuleInvokeResponse) int { return v.RateLimitDurationInMinutes }).(pulumi.IntOutput)
+}
+
+// Defines rate limit threshold.
+func (o RateLimitRuleInvokeResponseOutput) RateLimitThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v RateLimitRuleInvokeResponse) int { return v.RateLimitThreshold }).(pulumi.IntOutput)
+}
+
+type RateLimitRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RateLimitRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RateLimitRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o RateLimitRuleInvokeResponseArrayOutput) ToRateLimitRuleInvokeResponseArrayOutput() RateLimitRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RateLimitRuleInvokeResponseArrayOutput) ToRateLimitRuleInvokeResponseArrayOutputWithContext(ctx context.Context) RateLimitRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RateLimitRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) RateLimitRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RateLimitRuleInvokeResponse {
+		return vs[0].([]RateLimitRuleInvokeResponse)[vs[1].(int)]
+	}).(RateLimitRuleInvokeResponseOutput)
+}
+
 // Defines contents of rate limit rules
 type RateLimitRuleList struct {
 	// List of rules
@@ -8896,6 +12977,61 @@ func (o RateLimitRuleListPtrOutput) Rules() RateLimitRuleArrayOutput {
 		}
 		return v.Rules
 	}).(RateLimitRuleArrayOutput)
+}
+
+// Defines contents of rate limit rules
+type RateLimitRuleListInvokeResponse struct {
+	// List of rules
+	Rules []RateLimitRuleInvokeResponse `pulumi:"rules"`
+}
+
+// RateLimitRuleListInvokeResponseInput is an input type that accepts RateLimitRuleListInvokeResponseArgs and RateLimitRuleListInvokeResponseOutput values.
+// You can construct a concrete instance of `RateLimitRuleListInvokeResponseInput` via:
+//
+//          RateLimitRuleListInvokeResponseArgs{...}
+type RateLimitRuleListInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRateLimitRuleListInvokeResponseOutput() RateLimitRuleListInvokeResponseOutput
+	ToRateLimitRuleListInvokeResponseOutputWithContext(context.Context) RateLimitRuleListInvokeResponseOutput
+}
+
+// Defines contents of rate limit rules
+type RateLimitRuleListInvokeResponseArgs struct {
+	// List of rules
+	Rules RateLimitRuleInvokeResponseArrayInput `pulumi:"rules"`
+}
+
+func (RateLimitRuleListInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RateLimitRuleListInvokeResponse)(nil)).Elem()
+}
+
+func (i RateLimitRuleListInvokeResponseArgs) ToRateLimitRuleListInvokeResponseOutput() RateLimitRuleListInvokeResponseOutput {
+	return i.ToRateLimitRuleListInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RateLimitRuleListInvokeResponseArgs) ToRateLimitRuleListInvokeResponseOutputWithContext(ctx context.Context) RateLimitRuleListInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RateLimitRuleListInvokeResponseOutput)
+}
+
+// Defines contents of rate limit rules
+type RateLimitRuleListInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RateLimitRuleListInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RateLimitRuleListInvokeResponse)(nil)).Elem()
+}
+
+func (o RateLimitRuleListInvokeResponseOutput) ToRateLimitRuleListInvokeResponseOutput() RateLimitRuleListInvokeResponseOutput {
+	return o
+}
+
+func (o RateLimitRuleListInvokeResponseOutput) ToRateLimitRuleListInvokeResponseOutputWithContext(ctx context.Context) RateLimitRuleListInvokeResponseOutput {
+	return o
+}
+
+// List of rules
+func (o RateLimitRuleListInvokeResponseOutput) Rules() RateLimitRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v RateLimitRuleListInvokeResponse) []RateLimitRuleInvokeResponse { return v.Rules }).(RateLimitRuleInvokeResponseArrayOutput)
 }
 
 // Defines contents of rate limit rules
@@ -9275,6 +13411,94 @@ func (o RemoteAddressMatchConditionParametersOutput) Transforms() pulumi.StringA
 }
 
 // Defines the parameters for RemoteAddress match conditions
+type RemoteAddressMatchConditionParametersInvokeResponse struct {
+	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RemoteAddressMatchConditionParametersInvokeResponseInput is an input type that accepts RemoteAddressMatchConditionParametersInvokeResponseArgs and RemoteAddressMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `RemoteAddressMatchConditionParametersInvokeResponseInput` via:
+//
+//          RemoteAddressMatchConditionParametersInvokeResponseArgs{...}
+type RemoteAddressMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRemoteAddressMatchConditionParametersInvokeResponseOutput() RemoteAddressMatchConditionParametersInvokeResponseOutput
+	ToRemoteAddressMatchConditionParametersInvokeResponseOutputWithContext(context.Context) RemoteAddressMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for RemoteAddress match conditions
+type RemoteAddressMatchConditionParametersInvokeResponseArgs struct {
+	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RemoteAddressMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAddressMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i RemoteAddressMatchConditionParametersInvokeResponseArgs) ToRemoteAddressMatchConditionParametersInvokeResponseOutput() RemoteAddressMatchConditionParametersInvokeResponseOutput {
+	return i.ToRemoteAddressMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RemoteAddressMatchConditionParametersInvokeResponseArgs) ToRemoteAddressMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RemoteAddressMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteAddressMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for RemoteAddress match conditions
+type RemoteAddressMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RemoteAddressMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteAddressMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o RemoteAddressMatchConditionParametersInvokeResponseOutput) ToRemoteAddressMatchConditionParametersInvokeResponseOutput() RemoteAddressMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o RemoteAddressMatchConditionParametersInvokeResponseOutput) ToRemoteAddressMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RemoteAddressMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
+func (o RemoteAddressMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RemoteAddressMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteAddressMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RemoteAddressMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RemoteAddressMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RemoteAddressMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RemoteAddress match conditions
 type RemoteAddressMatchConditionParametersResponse struct {
 	// Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
 	MatchValues []string `pulumi:"matchValues"`
@@ -9448,6 +13672,94 @@ func (o RequestBodyMatchConditionParametersOutput) Operator() pulumi.StringOutpu
 // List of transforms
 func (o RequestBodyMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RequestBodyMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RequestBody match conditions
+type RequestBodyMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RequestBodyMatchConditionParametersInvokeResponseInput is an input type that accepts RequestBodyMatchConditionParametersInvokeResponseArgs and RequestBodyMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `RequestBodyMatchConditionParametersInvokeResponseInput` via:
+//
+//          RequestBodyMatchConditionParametersInvokeResponseArgs{...}
+type RequestBodyMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRequestBodyMatchConditionParametersInvokeResponseOutput() RequestBodyMatchConditionParametersInvokeResponseOutput
+	ToRequestBodyMatchConditionParametersInvokeResponseOutputWithContext(context.Context) RequestBodyMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for RequestBody match conditions
+type RequestBodyMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RequestBodyMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestBodyMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i RequestBodyMatchConditionParametersInvokeResponseArgs) ToRequestBodyMatchConditionParametersInvokeResponseOutput() RequestBodyMatchConditionParametersInvokeResponseOutput {
+	return i.ToRequestBodyMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RequestBodyMatchConditionParametersInvokeResponseArgs) ToRequestBodyMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RequestBodyMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestBodyMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for RequestBody match conditions
+type RequestBodyMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestBodyMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestBodyMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o RequestBodyMatchConditionParametersInvokeResponseOutput) ToRequestBodyMatchConditionParametersInvokeResponseOutput() RequestBodyMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o RequestBodyMatchConditionParametersInvokeResponseOutput) ToRequestBodyMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RequestBodyMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestBodyMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestBodyMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestBodyMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestBodyMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RequestBodyMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestBodyMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
 // Defines the parameters for RequestBody match conditions
@@ -9636,6 +13948,103 @@ func (o RequestHeaderMatchConditionParametersOutput) Transforms() pulumi.StringA
 }
 
 // Defines the parameters for RequestHeader match conditions
+type RequestHeaderMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// Name of Header to be matched
+	Selector *string `pulumi:"selector"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RequestHeaderMatchConditionParametersInvokeResponseInput is an input type that accepts RequestHeaderMatchConditionParametersInvokeResponseArgs and RequestHeaderMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `RequestHeaderMatchConditionParametersInvokeResponseInput` via:
+//
+//          RequestHeaderMatchConditionParametersInvokeResponseArgs{...}
+type RequestHeaderMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRequestHeaderMatchConditionParametersInvokeResponseOutput() RequestHeaderMatchConditionParametersInvokeResponseOutput
+	ToRequestHeaderMatchConditionParametersInvokeResponseOutputWithContext(context.Context) RequestHeaderMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for RequestHeader match conditions
+type RequestHeaderMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Name of Header to be matched
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RequestHeaderMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestHeaderMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i RequestHeaderMatchConditionParametersInvokeResponseArgs) ToRequestHeaderMatchConditionParametersInvokeResponseOutput() RequestHeaderMatchConditionParametersInvokeResponseOutput {
+	return i.ToRequestHeaderMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RequestHeaderMatchConditionParametersInvokeResponseArgs) ToRequestHeaderMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RequestHeaderMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestHeaderMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for RequestHeader match conditions
+type RequestHeaderMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestHeaderMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestHeaderMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o RequestHeaderMatchConditionParametersInvokeResponseOutput) ToRequestHeaderMatchConditionParametersInvokeResponseOutput() RequestHeaderMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o RequestHeaderMatchConditionParametersInvokeResponseOutput) ToRequestHeaderMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RequestHeaderMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestHeaderMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestHeaderMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestHeaderMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestHeaderMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Name of Header to be matched
+func (o RequestHeaderMatchConditionParametersInvokeResponseOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersInvokeResponse) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// List of transforms
+func (o RequestHeaderMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestHeaderMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RequestHeader match conditions
 type RequestHeaderMatchConditionParametersResponse struct {
 	// The match value for the condition of the delivery rule
 	MatchValues []string `pulumi:"matchValues"`
@@ -9812,6 +14221,85 @@ func (o RequestMethodMatchConditionParametersOutput) Operator() pulumi.StringOut
 }
 
 // Defines the parameters for RequestMethod match conditions
+type RequestMethodMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+}
+
+// RequestMethodMatchConditionParametersInvokeResponseInput is an input type that accepts RequestMethodMatchConditionParametersInvokeResponseArgs and RequestMethodMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `RequestMethodMatchConditionParametersInvokeResponseInput` via:
+//
+//          RequestMethodMatchConditionParametersInvokeResponseArgs{...}
+type RequestMethodMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRequestMethodMatchConditionParametersInvokeResponseOutput() RequestMethodMatchConditionParametersInvokeResponseOutput
+	ToRequestMethodMatchConditionParametersInvokeResponseOutputWithContext(context.Context) RequestMethodMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for RequestMethod match conditions
+type RequestMethodMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (RequestMethodMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestMethodMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i RequestMethodMatchConditionParametersInvokeResponseArgs) ToRequestMethodMatchConditionParametersInvokeResponseOutput() RequestMethodMatchConditionParametersInvokeResponseOutput {
+	return i.ToRequestMethodMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RequestMethodMatchConditionParametersInvokeResponseArgs) ToRequestMethodMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RequestMethodMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestMethodMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for RequestMethod match conditions
+type RequestMethodMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestMethodMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestMethodMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o RequestMethodMatchConditionParametersInvokeResponseOutput) ToRequestMethodMatchConditionParametersInvokeResponseOutput() RequestMethodMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o RequestMethodMatchConditionParametersInvokeResponseOutput) ToRequestMethodMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RequestMethodMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestMethodMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestMethodMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestMethodMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestMethodMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestMethodMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for RequestMethod match conditions
 type RequestMethodMatchConditionParametersResponse struct {
 	// The match value for the condition of the delivery rule
 	MatchValues []string `pulumi:"matchValues"`
@@ -9967,6 +14455,85 @@ func (o RequestSchemeMatchConditionParametersOutput) OdataType() pulumi.StringOu
 // Describes operator to be matched
 func (o RequestSchemeMatchConditionParametersOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v RequestSchemeMatchConditionParameters) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for RequestScheme match conditions
+type RequestSchemeMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+}
+
+// RequestSchemeMatchConditionParametersInvokeResponseInput is an input type that accepts RequestSchemeMatchConditionParametersInvokeResponseArgs and RequestSchemeMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `RequestSchemeMatchConditionParametersInvokeResponseInput` via:
+//
+//          RequestSchemeMatchConditionParametersInvokeResponseArgs{...}
+type RequestSchemeMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRequestSchemeMatchConditionParametersInvokeResponseOutput() RequestSchemeMatchConditionParametersInvokeResponseOutput
+	ToRequestSchemeMatchConditionParametersInvokeResponseOutputWithContext(context.Context) RequestSchemeMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for RequestScheme match conditions
+type RequestSchemeMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (RequestSchemeMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSchemeMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i RequestSchemeMatchConditionParametersInvokeResponseArgs) ToRequestSchemeMatchConditionParametersInvokeResponseOutput() RequestSchemeMatchConditionParametersInvokeResponseOutput {
+	return i.ToRequestSchemeMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RequestSchemeMatchConditionParametersInvokeResponseArgs) ToRequestSchemeMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RequestSchemeMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestSchemeMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for RequestScheme match conditions
+type RequestSchemeMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestSchemeMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSchemeMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o RequestSchemeMatchConditionParametersInvokeResponseOutput) ToRequestSchemeMatchConditionParametersInvokeResponseOutput() RequestSchemeMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o RequestSchemeMatchConditionParametersInvokeResponseOutput) ToRequestSchemeMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RequestSchemeMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestSchemeMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestSchemeMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestSchemeMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestSchemeMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestSchemeMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 // Defines the parameters for RequestScheme match conditions
@@ -10134,6 +14701,94 @@ func (o RequestUriMatchConditionParametersOutput) Operator() pulumi.StringOutput
 // List of transforms
 func (o RequestUriMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RequestUriMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for RequestUri match conditions
+type RequestUriMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// RequestUriMatchConditionParametersInvokeResponseInput is an input type that accepts RequestUriMatchConditionParametersInvokeResponseArgs and RequestUriMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `RequestUriMatchConditionParametersInvokeResponseInput` via:
+//
+//          RequestUriMatchConditionParametersInvokeResponseArgs{...}
+type RequestUriMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRequestUriMatchConditionParametersInvokeResponseOutput() RequestUriMatchConditionParametersInvokeResponseOutput
+	ToRequestUriMatchConditionParametersInvokeResponseOutputWithContext(context.Context) RequestUriMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for RequestUri match conditions
+type RequestUriMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (RequestUriMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestUriMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i RequestUriMatchConditionParametersInvokeResponseArgs) ToRequestUriMatchConditionParametersInvokeResponseOutput() RequestUriMatchConditionParametersInvokeResponseOutput {
+	return i.ToRequestUriMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RequestUriMatchConditionParametersInvokeResponseArgs) ToRequestUriMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RequestUriMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestUriMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for RequestUri match conditions
+type RequestUriMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RequestUriMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestUriMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o RequestUriMatchConditionParametersInvokeResponseOutput) ToRequestUriMatchConditionParametersInvokeResponseOutput() RequestUriMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o RequestUriMatchConditionParametersInvokeResponseOutput) ToRequestUriMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) RequestUriMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o RequestUriMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o RequestUriMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o RequestUriMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o RequestUriMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o RequestUriMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RequestUriMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
 // Defines the parameters for RequestUri match conditions
@@ -10401,6 +15056,106 @@ func (o ResourceReferenceArrayOutput) Index(i pulumi.IntInput) ResourceReference
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceReference {
 		return vs[0].([]ResourceReference)[vs[1].(int)]
 	}).(ResourceReferenceOutput)
+}
+
+// Reference to another resource.
+type ResourceReferenceInvokeResponse struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// ResourceReferenceInvokeResponseInput is an input type that accepts ResourceReferenceInvokeResponseArgs and ResourceReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceReferenceInvokeResponseInput` via:
+//
+//          ResourceReferenceInvokeResponseArgs{...}
+type ResourceReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput
+	ToResourceReferenceInvokeResponseOutputWithContext(context.Context) ResourceReferenceInvokeResponseOutput
+}
+
+// Reference to another resource.
+type ResourceReferenceInvokeResponseArgs struct {
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ResourceReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput {
+	return i.ToResourceReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponseOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponseOutput)
+}
+
+// ResourceReferenceInvokeResponseArrayInput is an input type that accepts ResourceReferenceInvokeResponseArray and ResourceReferenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ResourceReferenceInvokeResponseArrayInput` via:
+//
+//          ResourceReferenceInvokeResponseArray{ ResourceReferenceInvokeResponseArgs{...} }
+type ResourceReferenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToResourceReferenceInvokeResponseArrayOutput() ResourceReferenceInvokeResponseArrayOutput
+	ToResourceReferenceInvokeResponseArrayOutputWithContext(context.Context) ResourceReferenceInvokeResponseArrayOutput
+}
+
+type ResourceReferenceInvokeResponseArray []ResourceReferenceInvokeResponseInput
+
+func (ResourceReferenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceReferenceInvokeResponseArray) ToResourceReferenceInvokeResponseArrayOutput() ResourceReferenceInvokeResponseArrayOutput {
+	return i.ToResourceReferenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceReferenceInvokeResponseArray) ToResourceReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+// Reference to another resource.
+type ResourceReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponseOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseOutput {
+	return o
+}
+
+// Resource ID.
+func (o ResourceReferenceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceReferenceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type ResourceReferenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceInvokeResponseArrayOutput) ToResourceReferenceInvokeResponseArrayOutput() ResourceReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseArrayOutput) ToResourceReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) ResourceReferenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceReferenceInvokeResponse {
+		return vs[0].([]ResourceReferenceInvokeResponse)[vs[1].(int)]
+	}).(ResourceReferenceInvokeResponseOutput)
 }
 
 // Reference to another resource.
@@ -10761,6 +15516,186 @@ func (o ResponseBasedOriginErrorDetectionParametersPtrOutput) ResponseBasedFailo
 }
 
 // The JSON object that contains the properties to determine origin health using real requests/responses.
+type ResponseBasedOriginErrorDetectionParametersInvokeResponse struct {
+	// The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+	HttpErrorRanges []HttpErrorRangeParametersInvokeResponse `pulumi:"httpErrorRanges"`
+	// Type of response errors for real user requests for which origin will be deemed unhealthy
+	ResponseBasedDetectedErrorTypes *string `pulumi:"responseBasedDetectedErrorTypes"`
+	// The percentage of failed requests in the sample where failover should trigger.
+	ResponseBasedFailoverThresholdPercentage *int `pulumi:"responseBasedFailoverThresholdPercentage"`
+}
+
+// ResponseBasedOriginErrorDetectionParametersInvokeResponseInput is an input type that accepts ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs and ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `ResponseBasedOriginErrorDetectionParametersInvokeResponseInput` via:
+//
+//          ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs{...}
+type ResponseBasedOriginErrorDetectionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResponseBasedOriginErrorDetectionParametersInvokeResponseOutput() ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput
+	ToResponseBasedOriginErrorDetectionParametersInvokeResponseOutputWithContext(context.Context) ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput
+}
+
+// The JSON object that contains the properties to determine origin health using real requests/responses.
+type ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs struct {
+	// The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+	HttpErrorRanges HttpErrorRangeParametersInvokeResponseArrayInput `pulumi:"httpErrorRanges"`
+	// Type of response errors for real user requests for which origin will be deemed unhealthy
+	ResponseBasedDetectedErrorTypes pulumi.StringPtrInput `pulumi:"responseBasedDetectedErrorTypes"`
+	// The percentage of failed requests in the sample where failover should trigger.
+	ResponseBasedFailoverThresholdPercentage pulumi.IntPtrInput `pulumi:"responseBasedFailoverThresholdPercentage"`
+}
+
+func (ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseBasedOriginErrorDetectionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs) ToResponseBasedOriginErrorDetectionParametersInvokeResponseOutput() ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput {
+	return i.ToResponseBasedOriginErrorDetectionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs) ToResponseBasedOriginErrorDetectionParametersInvokeResponseOutputWithContext(ctx context.Context) ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput)
+}
+
+func (i ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs) ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput() ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput {
+	return i.ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs) ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutputWithContext(ctx context.Context) ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput).ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrInput is an input type that accepts ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs, ResponseBasedOriginErrorDetectionParametersInvokeResponsePtr and ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrInput` via:
+//
+//          ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput() ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput
+	ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutputWithContext(context.Context) ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput
+}
+
+type responseBasedOriginErrorDetectionParametersInvokeResponsePtrType ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs
+
+func ResponseBasedOriginErrorDetectionParametersInvokeResponsePtr(v *ResponseBasedOriginErrorDetectionParametersInvokeResponseArgs) ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrInput {
+	return (*responseBasedOriginErrorDetectionParametersInvokeResponsePtrType)(v)
+}
+
+func (*responseBasedOriginErrorDetectionParametersInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseBasedOriginErrorDetectionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i *responseBasedOriginErrorDetectionParametersInvokeResponsePtrType) ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput() ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput {
+	return i.ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *responseBasedOriginErrorDetectionParametersInvokeResponsePtrType) ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutputWithContext(ctx context.Context) ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput)
+}
+
+// The JSON object that contains the properties to determine origin health using real requests/responses.
+type ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseBasedOriginErrorDetectionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput) ToResponseBasedOriginErrorDetectionParametersInvokeResponseOutput() ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput) ToResponseBasedOriginErrorDetectionParametersInvokeResponseOutputWithContext(ctx context.Context) ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput) ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput() ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput {
+	return o.ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput) ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutputWithContext(ctx context.Context) ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ResponseBasedOriginErrorDetectionParametersInvokeResponse) *ResponseBasedOriginErrorDetectionParametersInvokeResponse {
+		return &v
+	}).(ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput)
+}
+
+// The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput) HttpErrorRanges() HttpErrorRangeParametersInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ResponseBasedOriginErrorDetectionParametersInvokeResponse) []HttpErrorRangeParametersInvokeResponse {
+		return v.HttpErrorRanges
+	}).(HttpErrorRangeParametersInvokeResponseArrayOutput)
+}
+
+// Type of response errors for real user requests for which origin will be deemed unhealthy
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput) ResponseBasedDetectedErrorTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResponseBasedOriginErrorDetectionParametersInvokeResponse) *string {
+		return v.ResponseBasedDetectedErrorTypes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The percentage of failed requests in the sample where failover should trigger.
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput) ResponseBasedFailoverThresholdPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResponseBasedOriginErrorDetectionParametersInvokeResponse) *int {
+		return v.ResponseBasedFailoverThresholdPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+type ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseBasedOriginErrorDetectionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput) ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput() ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput) ToResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutputWithContext(ctx context.Context) ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput) Elem() ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v *ResponseBasedOriginErrorDetectionParametersInvokeResponse) ResponseBasedOriginErrorDetectionParametersInvokeResponse {
+		return *v
+	}).(ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput)
+}
+
+// The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput) HttpErrorRanges() HttpErrorRangeParametersInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *ResponseBasedOriginErrorDetectionParametersInvokeResponse) []HttpErrorRangeParametersInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.HttpErrorRanges
+	}).(HttpErrorRangeParametersInvokeResponseArrayOutput)
+}
+
+// Type of response errors for real user requests for which origin will be deemed unhealthy
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput) ResponseBasedDetectedErrorTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponseBasedOriginErrorDetectionParametersInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseBasedDetectedErrorTypes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The percentage of failed requests in the sample where failover should trigger.
+func (o ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput) ResponseBasedFailoverThresholdPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResponseBasedOriginErrorDetectionParametersInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseBasedFailoverThresholdPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// The JSON object that contains the properties to determine origin health using real requests/responses.
 type ResponseBasedOriginErrorDetectionParametersResponse struct {
 	// The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
 	HttpErrorRanges []HttpErrorRangeParametersResponse `pulumi:"httpErrorRanges"`
@@ -11075,6 +16010,61 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+type SkuInvokeResponse struct {
+	// Name of the pricing tier.
+	Name *string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+type SkuInvokeResponseArgs struct {
+	// Name of the pricing tier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Name of the pricing tier.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuResponse struct {
 	// Name of the pricing tier.
 	Name *string `pulumi:"name"`
@@ -11297,6 +16287,94 @@ func (o UrlFileExtensionMatchConditionParametersOutput) Transforms() pulumi.Stri
 }
 
 // Defines the parameters for UrlFileExtension match conditions
+type UrlFileExtensionMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// UrlFileExtensionMatchConditionParametersInvokeResponseInput is an input type that accepts UrlFileExtensionMatchConditionParametersInvokeResponseArgs and UrlFileExtensionMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlFileExtensionMatchConditionParametersInvokeResponseInput` via:
+//
+//          UrlFileExtensionMatchConditionParametersInvokeResponseArgs{...}
+type UrlFileExtensionMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlFileExtensionMatchConditionParametersInvokeResponseOutput() UrlFileExtensionMatchConditionParametersInvokeResponseOutput
+	ToUrlFileExtensionMatchConditionParametersInvokeResponseOutputWithContext(context.Context) UrlFileExtensionMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for UrlFileExtension match conditions
+type UrlFileExtensionMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (UrlFileExtensionMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileExtensionMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlFileExtensionMatchConditionParametersInvokeResponseArgs) ToUrlFileExtensionMatchConditionParametersInvokeResponseOutput() UrlFileExtensionMatchConditionParametersInvokeResponseOutput {
+	return i.ToUrlFileExtensionMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlFileExtensionMatchConditionParametersInvokeResponseArgs) ToUrlFileExtensionMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlFileExtensionMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlFileExtensionMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for UrlFileExtension match conditions
+type UrlFileExtensionMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlFileExtensionMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileExtensionMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlFileExtensionMatchConditionParametersInvokeResponseOutput) ToUrlFileExtensionMatchConditionParametersInvokeResponseOutput() UrlFileExtensionMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o UrlFileExtensionMatchConditionParametersInvokeResponseOutput) ToUrlFileExtensionMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlFileExtensionMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o UrlFileExtensionMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o UrlFileExtensionMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o UrlFileExtensionMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o UrlFileExtensionMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o UrlFileExtensionMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileExtensionMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for UrlFileExtension match conditions
 type UrlFileExtensionMatchConditionParametersResponse struct {
 	// The match value for the condition of the delivery rule
 	MatchValues []string `pulumi:"matchValues"`
@@ -11470,6 +16548,94 @@ func (o UrlFileNameMatchConditionParametersOutput) Operator() pulumi.StringOutpu
 // List of transforms
 func (o UrlFileNameMatchConditionParametersOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UrlFileNameMatchConditionParameters) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for UrlFilename match conditions
+type UrlFileNameMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// UrlFileNameMatchConditionParametersInvokeResponseInput is an input type that accepts UrlFileNameMatchConditionParametersInvokeResponseArgs and UrlFileNameMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlFileNameMatchConditionParametersInvokeResponseInput` via:
+//
+//          UrlFileNameMatchConditionParametersInvokeResponseArgs{...}
+type UrlFileNameMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlFileNameMatchConditionParametersInvokeResponseOutput() UrlFileNameMatchConditionParametersInvokeResponseOutput
+	ToUrlFileNameMatchConditionParametersInvokeResponseOutputWithContext(context.Context) UrlFileNameMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for UrlFilename match conditions
+type UrlFileNameMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (UrlFileNameMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileNameMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlFileNameMatchConditionParametersInvokeResponseArgs) ToUrlFileNameMatchConditionParametersInvokeResponseOutput() UrlFileNameMatchConditionParametersInvokeResponseOutput {
+	return i.ToUrlFileNameMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlFileNameMatchConditionParametersInvokeResponseArgs) ToUrlFileNameMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlFileNameMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlFileNameMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for UrlFilename match conditions
+type UrlFileNameMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlFileNameMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlFileNameMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlFileNameMatchConditionParametersInvokeResponseOutput) ToUrlFileNameMatchConditionParametersInvokeResponseOutput() UrlFileNameMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o UrlFileNameMatchConditionParametersInvokeResponseOutput) ToUrlFileNameMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlFileNameMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o UrlFileNameMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o UrlFileNameMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o UrlFileNameMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o UrlFileNameMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o UrlFileNameMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlFileNameMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
 
 // Defines the parameters for UrlFilename match conditions
@@ -11649,6 +16815,94 @@ func (o UrlPathMatchConditionParametersOutput) Transforms() pulumi.StringArrayOu
 }
 
 // Defines the parameters for UrlPath match conditions
+type UrlPathMatchConditionParametersInvokeResponse struct {
+	// The match value for the condition of the delivery rule
+	MatchValues []string `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition *bool  `pulumi:"negateCondition"`
+	OdataType       string `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator string `pulumi:"operator"`
+	// List of transforms
+	Transforms []string `pulumi:"transforms"`
+}
+
+// UrlPathMatchConditionParametersInvokeResponseInput is an input type that accepts UrlPathMatchConditionParametersInvokeResponseArgs and UrlPathMatchConditionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlPathMatchConditionParametersInvokeResponseInput` via:
+//
+//          UrlPathMatchConditionParametersInvokeResponseArgs{...}
+type UrlPathMatchConditionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlPathMatchConditionParametersInvokeResponseOutput() UrlPathMatchConditionParametersInvokeResponseOutput
+	ToUrlPathMatchConditionParametersInvokeResponseOutputWithContext(context.Context) UrlPathMatchConditionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for UrlPath match conditions
+type UrlPathMatchConditionParametersInvokeResponseArgs struct {
+	// The match value for the condition of the delivery rule
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// Describes if this is negate condition or not
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	OdataType       pulumi.StringInput  `pulumi:"odataType"`
+	// Describes operator to be matched
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of transforms
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (UrlPathMatchConditionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlPathMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlPathMatchConditionParametersInvokeResponseArgs) ToUrlPathMatchConditionParametersInvokeResponseOutput() UrlPathMatchConditionParametersInvokeResponseOutput {
+	return i.ToUrlPathMatchConditionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlPathMatchConditionParametersInvokeResponseArgs) ToUrlPathMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlPathMatchConditionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlPathMatchConditionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for UrlPath match conditions
+type UrlPathMatchConditionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlPathMatchConditionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlPathMatchConditionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlPathMatchConditionParametersInvokeResponseOutput) ToUrlPathMatchConditionParametersInvokeResponseOutput() UrlPathMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o UrlPathMatchConditionParametersInvokeResponseOutput) ToUrlPathMatchConditionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlPathMatchConditionParametersInvokeResponseOutput {
+	return o
+}
+
+// The match value for the condition of the delivery rule
+func (o UrlPathMatchConditionParametersInvokeResponseOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParametersInvokeResponse) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// Describes if this is negate condition or not
+func (o UrlPathMatchConditionParametersInvokeResponseOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParametersInvokeResponse) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+func (o UrlPathMatchConditionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes operator to be matched
+func (o UrlPathMatchConditionParametersInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParametersInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of transforms
+func (o UrlPathMatchConditionParametersInvokeResponseOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlPathMatchConditionParametersInvokeResponse) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+// Defines the parameters for UrlPath match conditions
 type UrlPathMatchConditionParametersResponse struct {
 	// The match value for the condition of the delivery rule
 	MatchValues []string `pulumi:"matchValues"`
@@ -11803,6 +17057,73 @@ func (o UrlRedirectActionOutput) Parameters() UrlRedirectActionParametersOutput 
 	return o.ApplyT(func(v UrlRedirectAction) UrlRedirectActionParameters { return v.Parameters }).(UrlRedirectActionParametersOutput)
 }
 
+// Defines the url redirect action for the delivery rule.
+type UrlRedirectActionInvokeResponse struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRedirect'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRedirectActionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// UrlRedirectActionInvokeResponseInput is an input type that accepts UrlRedirectActionInvokeResponseArgs and UrlRedirectActionInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlRedirectActionInvokeResponseInput` via:
+//
+//          UrlRedirectActionInvokeResponseArgs{...}
+type UrlRedirectActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlRedirectActionInvokeResponseOutput() UrlRedirectActionInvokeResponseOutput
+	ToUrlRedirectActionInvokeResponseOutputWithContext(context.Context) UrlRedirectActionInvokeResponseOutput
+}
+
+// Defines the url redirect action for the delivery rule.
+type UrlRedirectActionInvokeResponseArgs struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRedirect'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRedirectActionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (UrlRedirectActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectActionInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlRedirectActionInvokeResponseArgs) ToUrlRedirectActionInvokeResponseOutput() UrlRedirectActionInvokeResponseOutput {
+	return i.ToUrlRedirectActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlRedirectActionInvokeResponseArgs) ToUrlRedirectActionInvokeResponseOutputWithContext(ctx context.Context) UrlRedirectActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRedirectActionInvokeResponseOutput)
+}
+
+// Defines the url redirect action for the delivery rule.
+type UrlRedirectActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlRedirectActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectActionInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlRedirectActionInvokeResponseOutput) ToUrlRedirectActionInvokeResponseOutput() UrlRedirectActionInvokeResponseOutput {
+	return o
+}
+
+func (o UrlRedirectActionInvokeResponseOutput) ToUrlRedirectActionInvokeResponseOutputWithContext(ctx context.Context) UrlRedirectActionInvokeResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+// Expected value is 'UrlRedirect'.
+func (o UrlRedirectActionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRedirectActionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o UrlRedirectActionInvokeResponseOutput) Parameters() UrlRedirectActionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v UrlRedirectActionInvokeResponse) UrlRedirectActionParametersInvokeResponse { return v.Parameters }).(UrlRedirectActionParametersInvokeResponseOutput)
+}
+
 // Defines the parameters for the url redirect action.
 type UrlRedirectActionParameters struct {
 	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
@@ -11907,6 +17228,112 @@ func (o UrlRedirectActionParametersOutput) OdataType() pulumi.StringOutput {
 // The redirect type the rule will use when redirecting traffic.
 func (o UrlRedirectActionParametersOutput) RedirectType() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlRedirectActionParameters) string { return v.RedirectType }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the url redirect action.
+type UrlRedirectActionParametersInvokeResponse struct {
+	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+	CustomFragment *string `pulumi:"customFragment"`
+	// Host to redirect. Leave empty to use the incoming host as the destination host.
+	CustomHostname *string `pulumi:"customHostname"`
+	// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+	CustomPath *string `pulumi:"customPath"`
+	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+	CustomQueryString *string `pulumi:"customQueryString"`
+	// Protocol to use for the redirect. The default value is MatchRequest
+	DestinationProtocol *string `pulumi:"destinationProtocol"`
+	OdataType           string  `pulumi:"odataType"`
+	// The redirect type the rule will use when redirecting traffic.
+	RedirectType string `pulumi:"redirectType"`
+}
+
+// UrlRedirectActionParametersInvokeResponseInput is an input type that accepts UrlRedirectActionParametersInvokeResponseArgs and UrlRedirectActionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlRedirectActionParametersInvokeResponseInput` via:
+//
+//          UrlRedirectActionParametersInvokeResponseArgs{...}
+type UrlRedirectActionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlRedirectActionParametersInvokeResponseOutput() UrlRedirectActionParametersInvokeResponseOutput
+	ToUrlRedirectActionParametersInvokeResponseOutputWithContext(context.Context) UrlRedirectActionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for the url redirect action.
+type UrlRedirectActionParametersInvokeResponseArgs struct {
+	// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+	CustomFragment pulumi.StringPtrInput `pulumi:"customFragment"`
+	// Host to redirect. Leave empty to use the incoming host as the destination host.
+	CustomHostname pulumi.StringPtrInput `pulumi:"customHostname"`
+	// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
+	// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+	CustomQueryString pulumi.StringPtrInput `pulumi:"customQueryString"`
+	// Protocol to use for the redirect. The default value is MatchRequest
+	DestinationProtocol pulumi.StringPtrInput `pulumi:"destinationProtocol"`
+	OdataType           pulumi.StringInput    `pulumi:"odataType"`
+	// The redirect type the rule will use when redirecting traffic.
+	RedirectType pulumi.StringInput `pulumi:"redirectType"`
+}
+
+func (UrlRedirectActionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlRedirectActionParametersInvokeResponseArgs) ToUrlRedirectActionParametersInvokeResponseOutput() UrlRedirectActionParametersInvokeResponseOutput {
+	return i.ToUrlRedirectActionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlRedirectActionParametersInvokeResponseArgs) ToUrlRedirectActionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlRedirectActionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRedirectActionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for the url redirect action.
+type UrlRedirectActionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlRedirectActionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRedirectActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlRedirectActionParametersInvokeResponseOutput) ToUrlRedirectActionParametersInvokeResponseOutput() UrlRedirectActionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o UrlRedirectActionParametersInvokeResponseOutput) ToUrlRedirectActionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlRedirectActionParametersInvokeResponseOutput {
+	return o
+}
+
+// Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
+func (o UrlRedirectActionParametersInvokeResponseOutput) CustomFragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersInvokeResponse) *string { return v.CustomFragment }).(pulumi.StringPtrOutput)
+}
+
+// Host to redirect. Leave empty to use the incoming host as the destination host.
+func (o UrlRedirectActionParametersInvokeResponseOutput) CustomHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersInvokeResponse) *string { return v.CustomHostname }).(pulumi.StringPtrOutput)
+}
+
+// The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
+func (o UrlRedirectActionParametersInvokeResponseOutput) CustomPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersInvokeResponse) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
+}
+
+// The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+func (o UrlRedirectActionParametersInvokeResponseOutput) CustomQueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersInvokeResponse) *string { return v.CustomQueryString }).(pulumi.StringPtrOutput)
+}
+
+// Protocol to use for the redirect. The default value is MatchRequest
+func (o UrlRedirectActionParametersInvokeResponseOutput) DestinationProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersInvokeResponse) *string { return v.DestinationProtocol }).(pulumi.StringPtrOutput)
+}
+
+func (o UrlRedirectActionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The redirect type the rule will use when redirecting traffic.
+func (o UrlRedirectActionParametersInvokeResponseOutput) RedirectType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRedirectActionParametersInvokeResponse) string { return v.RedirectType }).(pulumi.StringOutput)
 }
 
 // Defines the parameters for the url redirect action.
@@ -12149,6 +17576,73 @@ func (o UrlRewriteActionOutput) Parameters() UrlRewriteActionParametersOutput {
 	return o.ApplyT(func(v UrlRewriteAction) UrlRewriteActionParameters { return v.Parameters }).(UrlRewriteActionParametersOutput)
 }
 
+// Defines the url rewrite action for the delivery rule.
+type UrlRewriteActionInvokeResponse struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRewrite'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRewriteActionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// UrlRewriteActionInvokeResponseInput is an input type that accepts UrlRewriteActionInvokeResponseArgs and UrlRewriteActionInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlRewriteActionInvokeResponseInput` via:
+//
+//          UrlRewriteActionInvokeResponseArgs{...}
+type UrlRewriteActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlRewriteActionInvokeResponseOutput() UrlRewriteActionInvokeResponseOutput
+	ToUrlRewriteActionInvokeResponseOutputWithContext(context.Context) UrlRewriteActionInvokeResponseOutput
+}
+
+// Defines the url rewrite action for the delivery rule.
+type UrlRewriteActionInvokeResponseArgs struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'UrlRewrite'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlRewriteActionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (UrlRewriteActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteActionInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlRewriteActionInvokeResponseArgs) ToUrlRewriteActionInvokeResponseOutput() UrlRewriteActionInvokeResponseOutput {
+	return i.ToUrlRewriteActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlRewriteActionInvokeResponseArgs) ToUrlRewriteActionInvokeResponseOutputWithContext(ctx context.Context) UrlRewriteActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRewriteActionInvokeResponseOutput)
+}
+
+// Defines the url rewrite action for the delivery rule.
+type UrlRewriteActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlRewriteActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteActionInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlRewriteActionInvokeResponseOutput) ToUrlRewriteActionInvokeResponseOutput() UrlRewriteActionInvokeResponseOutput {
+	return o
+}
+
+func (o UrlRewriteActionInvokeResponseOutput) ToUrlRewriteActionInvokeResponseOutputWithContext(ctx context.Context) UrlRewriteActionInvokeResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+// Expected value is 'UrlRewrite'.
+func (o UrlRewriteActionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o UrlRewriteActionInvokeResponseOutput) Parameters() UrlRewriteActionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v UrlRewriteActionInvokeResponse) UrlRewriteActionParametersInvokeResponse { return v.Parameters }).(UrlRewriteActionParametersInvokeResponseOutput)
+}
+
 // Defines the parameters for the url rewrite action.
 type UrlRewriteActionParameters struct {
 	// Define the relative URL to which the above requests will be rewritten by.
@@ -12226,6 +17720,85 @@ func (o UrlRewriteActionParametersOutput) PreserveUnmatchedPath() pulumi.BoolPtr
 // define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
 func (o UrlRewriteActionParametersOutput) SourcePattern() pulumi.StringOutput {
 	return o.ApplyT(func(v UrlRewriteActionParameters) string { return v.SourcePattern }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the url rewrite action.
+type UrlRewriteActionParametersInvokeResponse struct {
+	// Define the relative URL to which the above requests will be rewritten by.
+	Destination string `pulumi:"destination"`
+	OdataType   string `pulumi:"odataType"`
+	// Whether to preserve unmatched path. Default value is true.
+	PreserveUnmatchedPath *bool `pulumi:"preserveUnmatchedPath"`
+	// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+	SourcePattern string `pulumi:"sourcePattern"`
+}
+
+// UrlRewriteActionParametersInvokeResponseInput is an input type that accepts UrlRewriteActionParametersInvokeResponseArgs and UrlRewriteActionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlRewriteActionParametersInvokeResponseInput` via:
+//
+//          UrlRewriteActionParametersInvokeResponseArgs{...}
+type UrlRewriteActionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlRewriteActionParametersInvokeResponseOutput() UrlRewriteActionParametersInvokeResponseOutput
+	ToUrlRewriteActionParametersInvokeResponseOutputWithContext(context.Context) UrlRewriteActionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for the url rewrite action.
+type UrlRewriteActionParametersInvokeResponseArgs struct {
+	// Define the relative URL to which the above requests will be rewritten by.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	OdataType   pulumi.StringInput `pulumi:"odataType"`
+	// Whether to preserve unmatched path. Default value is true.
+	PreserveUnmatchedPath pulumi.BoolPtrInput `pulumi:"preserveUnmatchedPath"`
+	// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+	SourcePattern pulumi.StringInput `pulumi:"sourcePattern"`
+}
+
+func (UrlRewriteActionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlRewriteActionParametersInvokeResponseArgs) ToUrlRewriteActionParametersInvokeResponseOutput() UrlRewriteActionParametersInvokeResponseOutput {
+	return i.ToUrlRewriteActionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlRewriteActionParametersInvokeResponseArgs) ToUrlRewriteActionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlRewriteActionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlRewriteActionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for the url rewrite action.
+type UrlRewriteActionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlRewriteActionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlRewriteActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlRewriteActionParametersInvokeResponseOutput) ToUrlRewriteActionParametersInvokeResponseOutput() UrlRewriteActionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o UrlRewriteActionParametersInvokeResponseOutput) ToUrlRewriteActionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlRewriteActionParametersInvokeResponseOutput {
+	return o
+}
+
+// Define the relative URL to which the above requests will be rewritten by.
+func (o UrlRewriteActionParametersInvokeResponseOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionParametersInvokeResponse) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o UrlRewriteActionParametersInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionParametersInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Whether to preserve unmatched path. Default value is true.
+func (o UrlRewriteActionParametersInvokeResponseOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UrlRewriteActionParametersInvokeResponse) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
+}
+
+// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
+func (o UrlRewriteActionParametersInvokeResponseOutput) SourcePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlRewriteActionParametersInvokeResponse) string { return v.SourcePattern }).(pulumi.StringOutput)
 }
 
 // Defines the parameters for the url rewrite action.
@@ -12441,6 +18014,73 @@ func (o UrlSigningActionOutput) Parameters() UrlSigningActionParametersOutput {
 	return o.ApplyT(func(v UrlSigningAction) UrlSigningActionParameters { return v.Parameters }).(UrlSigningActionParametersOutput)
 }
 
+// Defines the url signing action for the delivery rule.
+type UrlSigningActionInvokeResponse struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'UrlSigning'.
+	Name string `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlSigningActionParametersInvokeResponse `pulumi:"parameters"`
+}
+
+// UrlSigningActionInvokeResponseInput is an input type that accepts UrlSigningActionInvokeResponseArgs and UrlSigningActionInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlSigningActionInvokeResponseInput` via:
+//
+//          UrlSigningActionInvokeResponseArgs{...}
+type UrlSigningActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlSigningActionInvokeResponseOutput() UrlSigningActionInvokeResponseOutput
+	ToUrlSigningActionInvokeResponseOutputWithContext(context.Context) UrlSigningActionInvokeResponseOutput
+}
+
+// Defines the url signing action for the delivery rule.
+type UrlSigningActionInvokeResponseArgs struct {
+	// The name of the action for the delivery rule.
+	// Expected value is 'UrlSigning'.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Defines the parameters for the action.
+	Parameters UrlSigningActionParametersInvokeResponseInput `pulumi:"parameters"`
+}
+
+func (UrlSigningActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningActionInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlSigningActionInvokeResponseArgs) ToUrlSigningActionInvokeResponseOutput() UrlSigningActionInvokeResponseOutput {
+	return i.ToUrlSigningActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlSigningActionInvokeResponseArgs) ToUrlSigningActionInvokeResponseOutputWithContext(ctx context.Context) UrlSigningActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningActionInvokeResponseOutput)
+}
+
+// Defines the url signing action for the delivery rule.
+type UrlSigningActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlSigningActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningActionInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlSigningActionInvokeResponseOutput) ToUrlSigningActionInvokeResponseOutput() UrlSigningActionInvokeResponseOutput {
+	return o
+}
+
+func (o UrlSigningActionInvokeResponseOutput) ToUrlSigningActionInvokeResponseOutputWithContext(ctx context.Context) UrlSigningActionInvokeResponseOutput {
+	return o
+}
+
+// The name of the action for the delivery rule.
+// Expected value is 'UrlSigning'.
+func (o UrlSigningActionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningActionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for the action.
+func (o UrlSigningActionInvokeResponseOutput) Parameters() UrlSigningActionParametersInvokeResponseOutput {
+	return o.ApplyT(func(v UrlSigningActionInvokeResponse) UrlSigningActionParametersInvokeResponse { return v.Parameters }).(UrlSigningActionParametersInvokeResponseOutput)
+}
+
 // Defines the parameters for the Url Signing action.
 type UrlSigningActionParameters struct {
 	// Algorithm to use for URL signing
@@ -12527,6 +18167,96 @@ func (o UrlSigningActionParametersOutput) OdataType() pulumi.StringPtrOutput {
 // Defines which query string parameters in the url to be considered for expires, key id etc.
 func (o UrlSigningActionParametersOutput) ParameterNameOverride() UrlSigningParamIdentifierArrayOutput {
 	return o.ApplyT(func(v UrlSigningActionParameters) []UrlSigningParamIdentifier { return v.ParameterNameOverride }).(UrlSigningParamIdentifierArrayOutput)
+}
+
+// Defines the parameters for the Url Signing action.
+type UrlSigningActionParametersInvokeResponse struct {
+	// Algorithm to use for URL signing
+	Algorithm *string `pulumi:"algorithm"`
+	// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
+	IpSubnets []string `pulumi:"ipSubnets"`
+	// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
+	KeyId     string  `pulumi:"keyId"`
+	OdataType *string `pulumi:"odataType"`
+	// Defines which query string parameters in the url to be considered for expires, key id etc.
+	ParameterNameOverride []UrlSigningParamIdentifierInvokeResponse `pulumi:"parameterNameOverride"`
+}
+
+// UrlSigningActionParametersInvokeResponseInput is an input type that accepts UrlSigningActionParametersInvokeResponseArgs and UrlSigningActionParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlSigningActionParametersInvokeResponseInput` via:
+//
+//          UrlSigningActionParametersInvokeResponseArgs{...}
+type UrlSigningActionParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlSigningActionParametersInvokeResponseOutput() UrlSigningActionParametersInvokeResponseOutput
+	ToUrlSigningActionParametersInvokeResponseOutputWithContext(context.Context) UrlSigningActionParametersInvokeResponseOutput
+}
+
+// Defines the parameters for the Url Signing action.
+type UrlSigningActionParametersInvokeResponseArgs struct {
+	// Algorithm to use for URL signing
+	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
+	// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
+	IpSubnets pulumi.StringArrayInput `pulumi:"ipSubnets"`
+	// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
+	KeyId     pulumi.StringInput    `pulumi:"keyId"`
+	OdataType pulumi.StringPtrInput `pulumi:"odataType"`
+	// Defines which query string parameters in the url to be considered for expires, key id etc.
+	ParameterNameOverride UrlSigningParamIdentifierInvokeResponseArrayInput `pulumi:"parameterNameOverride"`
+}
+
+func (UrlSigningActionParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlSigningActionParametersInvokeResponseArgs) ToUrlSigningActionParametersInvokeResponseOutput() UrlSigningActionParametersInvokeResponseOutput {
+	return i.ToUrlSigningActionParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlSigningActionParametersInvokeResponseArgs) ToUrlSigningActionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlSigningActionParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningActionParametersInvokeResponseOutput)
+}
+
+// Defines the parameters for the Url Signing action.
+type UrlSigningActionParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlSigningActionParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningActionParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlSigningActionParametersInvokeResponseOutput) ToUrlSigningActionParametersInvokeResponseOutput() UrlSigningActionParametersInvokeResponseOutput {
+	return o
+}
+
+func (o UrlSigningActionParametersInvokeResponseOutput) ToUrlSigningActionParametersInvokeResponseOutputWithContext(ctx context.Context) UrlSigningActionParametersInvokeResponseOutput {
+	return o
+}
+
+// Algorithm to use for URL signing
+func (o UrlSigningActionParametersInvokeResponseOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlSigningActionParametersInvokeResponse) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
+}
+
+// Match values to match against. Supports CIDR ranges (both IPv4 and IPv6).
+func (o UrlSigningActionParametersInvokeResponseOutput) IpSubnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UrlSigningActionParametersInvokeResponse) []string { return v.IpSubnets }).(pulumi.StringArrayOutput)
+}
+
+// Id reference of the key to be used to verify the hash and should be defined in UrlSigningKeys
+func (o UrlSigningActionParametersInvokeResponseOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningActionParametersInvokeResponse) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+func (o UrlSigningActionParametersInvokeResponseOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UrlSigningActionParametersInvokeResponse) *string { return v.OdataType }).(pulumi.StringPtrOutput)
+}
+
+// Defines which query string parameters in the url to be considered for expires, key id etc.
+func (o UrlSigningActionParametersInvokeResponseOutput) ParameterNameOverride() UrlSigningParamIdentifierInvokeResponseArrayOutput {
+	return o.ApplyT(func(v UrlSigningActionParametersInvokeResponse) []UrlSigningParamIdentifierInvokeResponse {
+		return v.ParameterNameOverride
+	}).(UrlSigningParamIdentifierInvokeResponseArrayOutput)
 }
 
 // Defines the parameters for the Url Signing action.
@@ -12796,6 +18526,117 @@ func (o UrlSigningKeyArrayOutput) Index(i pulumi.IntInput) UrlSigningKeyOutput {
 }
 
 // Url signing key
+type UrlSigningKeyInvokeResponse struct {
+	// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+	KeyId string `pulumi:"keyId"`
+	// Defines the parameters for using customer key vault for Url Signing Key.
+	KeySourceParameters KeyVaultSigningKeyParametersInvokeResponse `pulumi:"keySourceParameters"`
+}
+
+// UrlSigningKeyInvokeResponseInput is an input type that accepts UrlSigningKeyInvokeResponseArgs and UrlSigningKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlSigningKeyInvokeResponseInput` via:
+//
+//          UrlSigningKeyInvokeResponseArgs{...}
+type UrlSigningKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlSigningKeyInvokeResponseOutput() UrlSigningKeyInvokeResponseOutput
+	ToUrlSigningKeyInvokeResponseOutputWithContext(context.Context) UrlSigningKeyInvokeResponseOutput
+}
+
+// Url signing key
+type UrlSigningKeyInvokeResponseArgs struct {
+	// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// Defines the parameters for using customer key vault for Url Signing Key.
+	KeySourceParameters KeyVaultSigningKeyParametersInvokeResponseInput `pulumi:"keySourceParameters"`
+}
+
+func (UrlSigningKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlSigningKeyInvokeResponseArgs) ToUrlSigningKeyInvokeResponseOutput() UrlSigningKeyInvokeResponseOutput {
+	return i.ToUrlSigningKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlSigningKeyInvokeResponseArgs) ToUrlSigningKeyInvokeResponseOutputWithContext(ctx context.Context) UrlSigningKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyInvokeResponseOutput)
+}
+
+// UrlSigningKeyInvokeResponseArrayInput is an input type that accepts UrlSigningKeyInvokeResponseArray and UrlSigningKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `UrlSigningKeyInvokeResponseArrayInput` via:
+//
+//          UrlSigningKeyInvokeResponseArray{ UrlSigningKeyInvokeResponseArgs{...} }
+type UrlSigningKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToUrlSigningKeyInvokeResponseArrayOutput() UrlSigningKeyInvokeResponseArrayOutput
+	ToUrlSigningKeyInvokeResponseArrayOutputWithContext(context.Context) UrlSigningKeyInvokeResponseArrayOutput
+}
+
+type UrlSigningKeyInvokeResponseArray []UrlSigningKeyInvokeResponseInput
+
+func (UrlSigningKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UrlSigningKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlSigningKeyInvokeResponseArray) ToUrlSigningKeyInvokeResponseArrayOutput() UrlSigningKeyInvokeResponseArrayOutput {
+	return i.ToUrlSigningKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i UrlSigningKeyInvokeResponseArray) ToUrlSigningKeyInvokeResponseArrayOutputWithContext(ctx context.Context) UrlSigningKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningKeyInvokeResponseArrayOutput)
+}
+
+// Url signing key
+type UrlSigningKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlSigningKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlSigningKeyInvokeResponseOutput) ToUrlSigningKeyInvokeResponseOutput() UrlSigningKeyInvokeResponseOutput {
+	return o
+}
+
+func (o UrlSigningKeyInvokeResponseOutput) ToUrlSigningKeyInvokeResponseOutputWithContext(ctx context.Context) UrlSigningKeyInvokeResponseOutput {
+	return o
+}
+
+// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
+func (o UrlSigningKeyInvokeResponseOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningKeyInvokeResponse) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+// Defines the parameters for using customer key vault for Url Signing Key.
+func (o UrlSigningKeyInvokeResponseOutput) KeySourceParameters() KeyVaultSigningKeyParametersInvokeResponseOutput {
+	return o.ApplyT(func(v UrlSigningKeyInvokeResponse) KeyVaultSigningKeyParametersInvokeResponse {
+		return v.KeySourceParameters
+	}).(KeyVaultSigningKeyParametersInvokeResponseOutput)
+}
+
+type UrlSigningKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UrlSigningKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UrlSigningKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlSigningKeyInvokeResponseArrayOutput) ToUrlSigningKeyInvokeResponseArrayOutput() UrlSigningKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UrlSigningKeyInvokeResponseArrayOutput) ToUrlSigningKeyInvokeResponseArrayOutputWithContext(ctx context.Context) UrlSigningKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UrlSigningKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) UrlSigningKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UrlSigningKeyInvokeResponse {
+		return vs[0].([]UrlSigningKeyInvokeResponse)[vs[1].(int)]
+	}).(UrlSigningKeyInvokeResponseOutput)
+}
+
+// Url signing key
 type UrlSigningKeyResponse struct {
 	// Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
 	KeyId string `pulumi:"keyId"`
@@ -13014,6 +18855,115 @@ func (o UrlSigningParamIdentifierArrayOutput) Index(i pulumi.IntInput) UrlSignin
 }
 
 // Defines how to identify a parameter for a specific purpose e.g. expires
+type UrlSigningParamIdentifierInvokeResponse struct {
+	// Indicates the purpose of the parameter
+	ParamIndicator string `pulumi:"paramIndicator"`
+	// Parameter name
+	ParamName string `pulumi:"paramName"`
+}
+
+// UrlSigningParamIdentifierInvokeResponseInput is an input type that accepts UrlSigningParamIdentifierInvokeResponseArgs and UrlSigningParamIdentifierInvokeResponseOutput values.
+// You can construct a concrete instance of `UrlSigningParamIdentifierInvokeResponseInput` via:
+//
+//          UrlSigningParamIdentifierInvokeResponseArgs{...}
+type UrlSigningParamIdentifierInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUrlSigningParamIdentifierInvokeResponseOutput() UrlSigningParamIdentifierInvokeResponseOutput
+	ToUrlSigningParamIdentifierInvokeResponseOutputWithContext(context.Context) UrlSigningParamIdentifierInvokeResponseOutput
+}
+
+// Defines how to identify a parameter for a specific purpose e.g. expires
+type UrlSigningParamIdentifierInvokeResponseArgs struct {
+	// Indicates the purpose of the parameter
+	ParamIndicator pulumi.StringInput `pulumi:"paramIndicator"`
+	// Parameter name
+	ParamName pulumi.StringInput `pulumi:"paramName"`
+}
+
+func (UrlSigningParamIdentifierInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningParamIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlSigningParamIdentifierInvokeResponseArgs) ToUrlSigningParamIdentifierInvokeResponseOutput() UrlSigningParamIdentifierInvokeResponseOutput {
+	return i.ToUrlSigningParamIdentifierInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UrlSigningParamIdentifierInvokeResponseArgs) ToUrlSigningParamIdentifierInvokeResponseOutputWithContext(ctx context.Context) UrlSigningParamIdentifierInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningParamIdentifierInvokeResponseOutput)
+}
+
+// UrlSigningParamIdentifierInvokeResponseArrayInput is an input type that accepts UrlSigningParamIdentifierInvokeResponseArray and UrlSigningParamIdentifierInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `UrlSigningParamIdentifierInvokeResponseArrayInput` via:
+//
+//          UrlSigningParamIdentifierInvokeResponseArray{ UrlSigningParamIdentifierInvokeResponseArgs{...} }
+type UrlSigningParamIdentifierInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToUrlSigningParamIdentifierInvokeResponseArrayOutput() UrlSigningParamIdentifierInvokeResponseArrayOutput
+	ToUrlSigningParamIdentifierInvokeResponseArrayOutputWithContext(context.Context) UrlSigningParamIdentifierInvokeResponseArrayOutput
+}
+
+type UrlSigningParamIdentifierInvokeResponseArray []UrlSigningParamIdentifierInvokeResponseInput
+
+func (UrlSigningParamIdentifierInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UrlSigningParamIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (i UrlSigningParamIdentifierInvokeResponseArray) ToUrlSigningParamIdentifierInvokeResponseArrayOutput() UrlSigningParamIdentifierInvokeResponseArrayOutput {
+	return i.ToUrlSigningParamIdentifierInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i UrlSigningParamIdentifierInvokeResponseArray) ToUrlSigningParamIdentifierInvokeResponseArrayOutputWithContext(ctx context.Context) UrlSigningParamIdentifierInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UrlSigningParamIdentifierInvokeResponseArrayOutput)
+}
+
+// Defines how to identify a parameter for a specific purpose e.g. expires
+type UrlSigningParamIdentifierInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UrlSigningParamIdentifierInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UrlSigningParamIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlSigningParamIdentifierInvokeResponseOutput) ToUrlSigningParamIdentifierInvokeResponseOutput() UrlSigningParamIdentifierInvokeResponseOutput {
+	return o
+}
+
+func (o UrlSigningParamIdentifierInvokeResponseOutput) ToUrlSigningParamIdentifierInvokeResponseOutputWithContext(ctx context.Context) UrlSigningParamIdentifierInvokeResponseOutput {
+	return o
+}
+
+// Indicates the purpose of the parameter
+func (o UrlSigningParamIdentifierInvokeResponseOutput) ParamIndicator() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningParamIdentifierInvokeResponse) string { return v.ParamIndicator }).(pulumi.StringOutput)
+}
+
+// Parameter name
+func (o UrlSigningParamIdentifierInvokeResponseOutput) ParamName() pulumi.StringOutput {
+	return o.ApplyT(func(v UrlSigningParamIdentifierInvokeResponse) string { return v.ParamName }).(pulumi.StringOutput)
+}
+
+type UrlSigningParamIdentifierInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UrlSigningParamIdentifierInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UrlSigningParamIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (o UrlSigningParamIdentifierInvokeResponseArrayOutput) ToUrlSigningParamIdentifierInvokeResponseArrayOutput() UrlSigningParamIdentifierInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UrlSigningParamIdentifierInvokeResponseArrayOutput) ToUrlSigningParamIdentifierInvokeResponseArrayOutputWithContext(ctx context.Context) UrlSigningParamIdentifierInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UrlSigningParamIdentifierInvokeResponseArrayOutput) Index(i pulumi.IntInput) UrlSigningParamIdentifierInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UrlSigningParamIdentifierInvokeResponse {
+		return vs[0].([]UrlSigningParamIdentifierInvokeResponse)[vs[1].(int)]
+	}).(UrlSigningParamIdentifierInvokeResponseOutput)
+}
+
+// Defines how to identify a parameter for a specific purpose e.g. expires
 type UrlSigningParamIdentifierResponse struct {
 	// Indicates the purpose of the parameter
 	ParamIndicator string `pulumi:"paramIndicator"`
@@ -13124,17 +19074,25 @@ func (o UrlSigningParamIdentifierResponseArrayOutput) Index(i pulumi.IntInput) U
 
 func init() {
 	pulumi.RegisterOutputType(CacheExpirationActionParametersOutput{})
+	pulumi.RegisterOutputType(CacheExpirationActionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheExpirationActionParametersResponseOutput{})
 	pulumi.RegisterOutputType(CacheKeyQueryStringActionParametersOutput{})
+	pulumi.RegisterOutputType(CacheKeyQueryStringActionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheKeyQueryStringActionParametersResponseOutput{})
+	pulumi.RegisterOutputType(CdnEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CdnEndpointInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CdnEndpointResponseOutput{})
 	pulumi.RegisterOutputType(CdnEndpointResponseArrayOutput{})
 	pulumi.RegisterOutputType(CookiesMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(CookiesMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CookiesMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(CustomRuleOutput{})
 	pulumi.RegisterOutputType(CustomRuleArrayOutput{})
+	pulumi.RegisterOutputType(CustomRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CustomRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CustomRuleListOutput{})
 	pulumi.RegisterOutputType(CustomRuleListPtrOutput{})
+	pulumi.RegisterOutputType(CustomRuleListInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CustomRuleListResponseOutput{})
 	pulumi.RegisterOutputType(CustomRuleListResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomRuleResponseOutput{})
@@ -13143,52 +19101,78 @@ func init() {
 	pulumi.RegisterOutputType(DeepCreatedOriginArrayOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginGroupOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginGroupArrayOutput{})
+	pulumi.RegisterOutputType(DeepCreatedOriginGroupInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DeepCreatedOriginGroupInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginGroupResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginGroupResponseArrayOutput{})
+	pulumi.RegisterOutputType(DeepCreatedOriginInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DeepCreatedOriginInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleCacheExpirationActionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCacheExpirationActionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleCacheExpirationActionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleCacheKeyQueryStringActionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCacheKeyQueryStringActionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleCacheKeyQueryStringActionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleCookiesConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleCookiesConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleCookiesConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleHttpVersionConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleHttpVersionConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleHttpVersionConditionResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleIsDeviceConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleIsDeviceConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleIsDeviceConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRulePostArgsConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRulePostArgsConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRulePostArgsConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleQueryStringConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleQueryStringConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleQueryStringConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRemoteAddressConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRemoteAddressConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRemoteAddressConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestBodyConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestBodyConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestBodyConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestHeaderActionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestHeaderActionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestHeaderActionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestHeaderConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestHeaderConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestHeaderConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestMethodConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestMethodConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestMethodConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestSchemeConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestSchemeConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestSchemeConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestUriConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleRequestUriConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleRequestUriConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseHeaderActionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleResponseHeaderActionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseHeaderActionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleUrlFileExtensionConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlFileExtensionConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleUrlFileExtensionConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleUrlFileNameConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlFileNameConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleUrlFileNameConditionResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionOutput{})
+	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleUrlPathConditionResponseOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput{})
+	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicyOutput{})
+	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersInvokeResponseWebApplicationFirewallPolicyLinkOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput{})
@@ -13197,110 +19181,159 @@ func init() {
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput{})
 	pulumi.RegisterOutputType(GeoFilterOutput{})
 	pulumi.RegisterOutputType(GeoFilterArrayOutput{})
+	pulumi.RegisterOutputType(GeoFilterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GeoFilterInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(GeoFilterResponseOutput{})
 	pulumi.RegisterOutputType(GeoFilterResponseArrayOutput{})
 	pulumi.RegisterOutputType(HeaderActionParametersOutput{})
+	pulumi.RegisterOutputType(HeaderActionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HeaderActionParametersResponseOutput{})
 	pulumi.RegisterOutputType(HealthProbeParametersOutput{})
 	pulumi.RegisterOutputType(HealthProbeParametersPtrOutput{})
+	pulumi.RegisterOutputType(HealthProbeParametersInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HealthProbeParametersInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(HealthProbeParametersResponseOutput{})
 	pulumi.RegisterOutputType(HealthProbeParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(HttpErrorRangeParametersOutput{})
 	pulumi.RegisterOutputType(HttpErrorRangeParametersArrayOutput{})
+	pulumi.RegisterOutputType(HttpErrorRangeParametersInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HttpErrorRangeParametersInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(HttpErrorRangeParametersResponseOutput{})
 	pulumi.RegisterOutputType(HttpErrorRangeParametersResponseArrayOutput{})
 	pulumi.RegisterOutputType(HttpVersionMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(HttpVersionMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HttpVersionMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(IsDeviceMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(IsDeviceMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IsDeviceMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersOutput{})
+	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultSigningKeyParametersResponseOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideArrayOutput{})
+	pulumi.RegisterOutputType(ManagedRuleGroupOverrideInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedRuleGroupOverrideInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideResponseOutput{})
 	pulumi.RegisterOutputType(ManagedRuleGroupOverrideResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleOverrideOutput{})
 	pulumi.RegisterOutputType(ManagedRuleOverrideArrayOutput{})
+	pulumi.RegisterOutputType(ManagedRuleOverrideInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedRuleOverrideInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleOverrideResponseOutput{})
 	pulumi.RegisterOutputType(ManagedRuleOverrideResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetArrayOutput{})
+	pulumi.RegisterOutputType(ManagedRuleSetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedRuleSetInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetListOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetListPtrOutput{})
+	pulumi.RegisterOutputType(ManagedRuleSetListInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetListResponseOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetListResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetResponseOutput{})
 	pulumi.RegisterOutputType(ManagedRuleSetResponseArrayOutput{})
 	pulumi.RegisterOutputType(MatchConditionOutput{})
 	pulumi.RegisterOutputType(MatchConditionArrayOutput{})
+	pulumi.RegisterOutputType(MatchConditionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MatchConditionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MatchConditionResponseOutput{})
 	pulumi.RegisterOutputType(MatchConditionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PolicySettingsOutput{})
 	pulumi.RegisterOutputType(PolicySettingsPtrOutput{})
+	pulumi.RegisterOutputType(PolicySettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PolicySettingsResponseOutput{})
 	pulumi.RegisterOutputType(PolicySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PostArgsMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(PostArgsMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PostArgsMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(QueryStringMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(QueryStringMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(QueryStringMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(RateLimitRuleOutput{})
 	pulumi.RegisterOutputType(RateLimitRuleArrayOutput{})
+	pulumi.RegisterOutputType(RateLimitRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RateLimitRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(RateLimitRuleListOutput{})
 	pulumi.RegisterOutputType(RateLimitRuleListPtrOutput{})
+	pulumi.RegisterOutputType(RateLimitRuleListInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RateLimitRuleListResponseOutput{})
 	pulumi.RegisterOutputType(RateLimitRuleListResponsePtrOutput{})
 	pulumi.RegisterOutputType(RateLimitRuleResponseOutput{})
 	pulumi.RegisterOutputType(RateLimitRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(RemoteAddressMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RemoteAddressMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RemoteAddressMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(RequestBodyMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RequestBodyMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RequestBodyMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(RequestHeaderMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RequestHeaderMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RequestHeaderMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(RequestMethodMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RequestMethodMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RequestMethodMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(RequestSchemeMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RequestSchemeMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RequestSchemeMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(RequestUriMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(RequestUriMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RequestUriMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceOutput{})
 	pulumi.RegisterOutputType(ResourceReferencePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceArrayOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResponseBasedOriginErrorDetectionParametersOutput{})
 	pulumi.RegisterOutputType(ResponseBasedOriginErrorDetectionParametersPtrOutput{})
+	pulumi.RegisterOutputType(ResponseBasedOriginErrorDetectionParametersInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResponseBasedOriginErrorDetectionParametersInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResponseBasedOriginErrorDetectionParametersResponseOutput{})
 	pulumi.RegisterOutputType(ResponseBasedOriginErrorDetectionParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(UrlFileExtensionMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(UrlFileExtensionMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UrlFileExtensionMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(UrlFileNameMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(UrlFileNameMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UrlFileNameMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(UrlPathMatchConditionParametersOutput{})
+	pulumi.RegisterOutputType(UrlPathMatchConditionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UrlPathMatchConditionParametersResponseOutput{})
 	pulumi.RegisterOutputType(UrlRedirectActionOutput{})
+	pulumi.RegisterOutputType(UrlRedirectActionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UrlRedirectActionParametersOutput{})
+	pulumi.RegisterOutputType(UrlRedirectActionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UrlRedirectActionParametersResponseOutput{})
 	pulumi.RegisterOutputType(UrlRedirectActionResponseOutput{})
 	pulumi.RegisterOutputType(UrlRewriteActionOutput{})
+	pulumi.RegisterOutputType(UrlRewriteActionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UrlRewriteActionParametersOutput{})
+	pulumi.RegisterOutputType(UrlRewriteActionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UrlRewriteActionParametersResponseOutput{})
 	pulumi.RegisterOutputType(UrlRewriteActionResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningActionOutput{})
+	pulumi.RegisterOutputType(UrlSigningActionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningActionParametersOutput{})
+	pulumi.RegisterOutputType(UrlSigningActionParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningActionParametersResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningActionResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyArrayOutput{})
+	pulumi.RegisterOutputType(UrlSigningKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UrlSigningKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(UrlSigningParamIdentifierOutput{})
 	pulumi.RegisterOutputType(UrlSigningParamIdentifierArrayOutput{})
+	pulumi.RegisterOutputType(UrlSigningParamIdentifierInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UrlSigningParamIdentifierInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(UrlSigningParamIdentifierResponseOutput{})
 	pulumi.RegisterOutputType(UrlSigningParamIdentifierResponseArrayOutput{})
 }

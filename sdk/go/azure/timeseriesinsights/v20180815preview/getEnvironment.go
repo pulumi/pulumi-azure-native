@@ -36,7 +36,7 @@ type LookupEnvironmentResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

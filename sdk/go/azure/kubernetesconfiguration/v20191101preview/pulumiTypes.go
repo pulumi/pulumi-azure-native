@@ -11,6 +11,88 @@ import (
 )
 
 // Compliance Status details
+type ComplianceStatusInvokeResponse struct {
+	// The compliance state of the configuration.
+	ComplianceState string `pulumi:"complianceState"`
+	// Datetime the configuration was last applied.
+	LastConfigApplied *string `pulumi:"lastConfigApplied"`
+	// Message from when the configuration was applied.
+	Message *string `pulumi:"message"`
+	// Level of the message.
+	MessageLevel *string `pulumi:"messageLevel"`
+}
+
+// ComplianceStatusInvokeResponseInput is an input type that accepts ComplianceStatusInvokeResponseArgs and ComplianceStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `ComplianceStatusInvokeResponseInput` via:
+//
+//          ComplianceStatusInvokeResponseArgs{...}
+type ComplianceStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToComplianceStatusInvokeResponseOutput() ComplianceStatusInvokeResponseOutput
+	ToComplianceStatusInvokeResponseOutputWithContext(context.Context) ComplianceStatusInvokeResponseOutput
+}
+
+// Compliance Status details
+type ComplianceStatusInvokeResponseArgs struct {
+	// The compliance state of the configuration.
+	ComplianceState pulumi.StringInput `pulumi:"complianceState"`
+	// Datetime the configuration was last applied.
+	LastConfigApplied pulumi.StringPtrInput `pulumi:"lastConfigApplied"`
+	// Message from when the configuration was applied.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Level of the message.
+	MessageLevel pulumi.StringPtrInput `pulumi:"messageLevel"`
+}
+
+func (ComplianceStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComplianceStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i ComplianceStatusInvokeResponseArgs) ToComplianceStatusInvokeResponseOutput() ComplianceStatusInvokeResponseOutput {
+	return i.ToComplianceStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ComplianceStatusInvokeResponseArgs) ToComplianceStatusInvokeResponseOutputWithContext(ctx context.Context) ComplianceStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComplianceStatusInvokeResponseOutput)
+}
+
+// Compliance Status details
+type ComplianceStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ComplianceStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComplianceStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o ComplianceStatusInvokeResponseOutput) ToComplianceStatusInvokeResponseOutput() ComplianceStatusInvokeResponseOutput {
+	return o
+}
+
+func (o ComplianceStatusInvokeResponseOutput) ToComplianceStatusInvokeResponseOutputWithContext(ctx context.Context) ComplianceStatusInvokeResponseOutput {
+	return o
+}
+
+// The compliance state of the configuration.
+func (o ComplianceStatusInvokeResponseOutput) ComplianceState() pulumi.StringOutput {
+	return o.ApplyT(func(v ComplianceStatusInvokeResponse) string { return v.ComplianceState }).(pulumi.StringOutput)
+}
+
+// Datetime the configuration was last applied.
+func (o ComplianceStatusInvokeResponseOutput) LastConfigApplied() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComplianceStatusInvokeResponse) *string { return v.LastConfigApplied }).(pulumi.StringPtrOutput)
+}
+
+// Message from when the configuration was applied.
+func (o ComplianceStatusInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComplianceStatusInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Level of the message.
+func (o ComplianceStatusInvokeResponseOutput) MessageLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComplianceStatusInvokeResponse) *string { return v.MessageLevel }).(pulumi.StringPtrOutput)
+}
+
+// Compliance Status details
 type ComplianceStatusResponse struct {
 	// The compliance state of the configuration.
 	ComplianceState string `pulumi:"complianceState"`
@@ -355,6 +437,70 @@ func (o HelmOperatorPropertiesPtrOutput) ChartVersion() pulumi.StringPtrOutput {
 }
 
 // Properties for Helm operator.
+type HelmOperatorPropertiesInvokeResponse struct {
+	// Values override for the operator Helm chart.
+	ChartValues *string `pulumi:"chartValues"`
+	// Version of the operator Helm chart.
+	ChartVersion *string `pulumi:"chartVersion"`
+}
+
+// HelmOperatorPropertiesInvokeResponseInput is an input type that accepts HelmOperatorPropertiesInvokeResponseArgs and HelmOperatorPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `HelmOperatorPropertiesInvokeResponseInput` via:
+//
+//          HelmOperatorPropertiesInvokeResponseArgs{...}
+type HelmOperatorPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHelmOperatorPropertiesInvokeResponseOutput() HelmOperatorPropertiesInvokeResponseOutput
+	ToHelmOperatorPropertiesInvokeResponseOutputWithContext(context.Context) HelmOperatorPropertiesInvokeResponseOutput
+}
+
+// Properties for Helm operator.
+type HelmOperatorPropertiesInvokeResponseArgs struct {
+	// Values override for the operator Helm chart.
+	ChartValues pulumi.StringPtrInput `pulumi:"chartValues"`
+	// Version of the operator Helm chart.
+	ChartVersion pulumi.StringPtrInput `pulumi:"chartVersion"`
+}
+
+func (HelmOperatorPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmOperatorPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i HelmOperatorPropertiesInvokeResponseArgs) ToHelmOperatorPropertiesInvokeResponseOutput() HelmOperatorPropertiesInvokeResponseOutput {
+	return i.ToHelmOperatorPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HelmOperatorPropertiesInvokeResponseArgs) ToHelmOperatorPropertiesInvokeResponseOutputWithContext(ctx context.Context) HelmOperatorPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmOperatorPropertiesInvokeResponseOutput)
+}
+
+// Properties for Helm operator.
+type HelmOperatorPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HelmOperatorPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmOperatorPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o HelmOperatorPropertiesInvokeResponseOutput) ToHelmOperatorPropertiesInvokeResponseOutput() HelmOperatorPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o HelmOperatorPropertiesInvokeResponseOutput) ToHelmOperatorPropertiesInvokeResponseOutputWithContext(ctx context.Context) HelmOperatorPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Values override for the operator Helm chart.
+func (o HelmOperatorPropertiesInvokeResponseOutput) ChartValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmOperatorPropertiesInvokeResponse) *string { return v.ChartValues }).(pulumi.StringPtrOutput)
+}
+
+// Version of the operator Helm chart.
+func (o HelmOperatorPropertiesInvokeResponseOutput) ChartVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmOperatorPropertiesInvokeResponse) *string { return v.ChartVersion }).(pulumi.StringPtrOutput)
+}
+
+// Properties for Helm operator.
 type HelmOperatorPropertiesResponse struct {
 	// Values override for the operator Helm chart.
 	ChartValues *string `pulumi:"chartValues"`
@@ -508,10 +654,12 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ChartVersion() pulumi.StringPtr
 }
 
 func init() {
+	pulumi.RegisterOutputType(ComplianceStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ComplianceStatusResponseOutput{})
 	pulumi.RegisterOutputType(ComplianceStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(HelmOperatorPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesResponsePtrOutput{})
 }

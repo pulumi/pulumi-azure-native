@@ -26,31 +26,31 @@ type LookupContainerServiceArgs struct {
 // Container service.
 type LookupContainerServiceResult struct {
 	// Properties of the agent pool.
-	AgentPoolProfiles []ContainerServiceAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
+	AgentPoolProfiles []ContainerServiceAgentPoolProfileInvokeResponse `pulumi:"agentPoolProfiles"`
 	// Properties for custom clusters.
-	CustomProfile *ContainerServiceCustomProfileResponse `pulumi:"customProfile"`
+	CustomProfile *ContainerServiceCustomProfileInvokeResponse `pulumi:"customProfile"`
 	// Properties of the diagnostic agent.
-	DiagnosticsProfile *ContainerServiceDiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
+	DiagnosticsProfile *ContainerServiceDiagnosticsProfileInvokeResponse `pulumi:"diagnosticsProfile"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Properties of Linux VMs.
-	LinuxProfile ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
+	LinuxProfile ContainerServiceLinuxProfileInvokeResponse `pulumi:"linuxProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Properties of master agents.
-	MasterProfile ContainerServiceMasterProfileResponse `pulumi:"masterProfile"`
+	MasterProfile ContainerServiceMasterProfileInvokeResponse `pulumi:"masterProfile"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Properties of the orchestrator.
-	OrchestratorProfile *ContainerServiceOrchestratorProfileResponse `pulumi:"orchestratorProfile"`
+	OrchestratorProfile *ContainerServiceOrchestratorProfileInvokeResponse `pulumi:"orchestratorProfile"`
 	// the current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Properties for cluster service principals.
-	ServicePrincipalProfile *ContainerServiceServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
+	ServicePrincipalProfile *ContainerServiceServicePrincipalProfileInvokeResponse `pulumi:"servicePrincipalProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// Properties of Windows VMs.
-	WindowsProfile *ContainerServiceWindowsProfileResponse `pulumi:"windowsProfile"`
+	WindowsProfile *ContainerServiceWindowsProfileInvokeResponse `pulumi:"windowsProfile"`
 }

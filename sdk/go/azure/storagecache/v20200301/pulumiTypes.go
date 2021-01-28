@@ -145,6 +145,63 @@ func (o CacheEncryptionSettingsPtrOutput) KeyEncryptionKey() KeyVaultKeyReferenc
 }
 
 // Cache encryption settings.
+type CacheEncryptionSettingsInvokeResponse struct {
+	// Specifies the location of the key encryption key in Key Vault.
+	KeyEncryptionKey *KeyVaultKeyReferenceInvokeResponse `pulumi:"keyEncryptionKey"`
+}
+
+// CacheEncryptionSettingsInvokeResponseInput is an input type that accepts CacheEncryptionSettingsInvokeResponseArgs and CacheEncryptionSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheEncryptionSettingsInvokeResponseInput` via:
+//
+//          CacheEncryptionSettingsInvokeResponseArgs{...}
+type CacheEncryptionSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheEncryptionSettingsInvokeResponseOutput() CacheEncryptionSettingsInvokeResponseOutput
+	ToCacheEncryptionSettingsInvokeResponseOutputWithContext(context.Context) CacheEncryptionSettingsInvokeResponseOutput
+}
+
+// Cache encryption settings.
+type CacheEncryptionSettingsInvokeResponseArgs struct {
+	// Specifies the location of the key encryption key in Key Vault.
+	KeyEncryptionKey KeyVaultKeyReferenceInvokeResponsePtrInput `pulumi:"keyEncryptionKey"`
+}
+
+func (CacheEncryptionSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheEncryptionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheEncryptionSettingsInvokeResponseArgs) ToCacheEncryptionSettingsInvokeResponseOutput() CacheEncryptionSettingsInvokeResponseOutput {
+	return i.ToCacheEncryptionSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheEncryptionSettingsInvokeResponseArgs) ToCacheEncryptionSettingsInvokeResponseOutputWithContext(ctx context.Context) CacheEncryptionSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsInvokeResponseOutput)
+}
+
+// Cache encryption settings.
+type CacheEncryptionSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheEncryptionSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheEncryptionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheEncryptionSettingsInvokeResponseOutput) ToCacheEncryptionSettingsInvokeResponseOutput() CacheEncryptionSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheEncryptionSettingsInvokeResponseOutput) ToCacheEncryptionSettingsInvokeResponseOutputWithContext(ctx context.Context) CacheEncryptionSettingsInvokeResponseOutput {
+	return o
+}
+
+// Specifies the location of the key encryption key in Key Vault.
+func (o CacheEncryptionSettingsInvokeResponseOutput) KeyEncryptionKey() KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CacheEncryptionSettingsInvokeResponse) *KeyVaultKeyReferenceInvokeResponse {
+		return v.KeyEncryptionKey
+	}).(KeyVaultKeyReferenceInvokeResponsePtrOutput)
+}
+
+// Cache encryption settings.
 type CacheEncryptionSettingsResponse struct {
 	// Specifies the location of the key encryption key in Key Vault.
 	KeyEncryptionKey *KeyVaultKeyReferenceResponse `pulumi:"keyEncryptionKey"`
@@ -276,6 +333,70 @@ func (o CacheEncryptionSettingsResponsePtrOutput) KeyEncryptionKey() KeyVaultKey
 		}
 		return v.KeyEncryptionKey
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+// An indication of Cache health. Gives more information about health than just that related to provisioning.
+type CacheHealthInvokeResponse struct {
+	// List of Cache health states.
+	State *string `pulumi:"state"`
+	// Describes explanation of state.
+	StatusDescription *string `pulumi:"statusDescription"`
+}
+
+// CacheHealthInvokeResponseInput is an input type that accepts CacheHealthInvokeResponseArgs and CacheHealthInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheHealthInvokeResponseInput` via:
+//
+//          CacheHealthInvokeResponseArgs{...}
+type CacheHealthInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheHealthInvokeResponseOutput() CacheHealthInvokeResponseOutput
+	ToCacheHealthInvokeResponseOutputWithContext(context.Context) CacheHealthInvokeResponseOutput
+}
+
+// An indication of Cache health. Gives more information about health than just that related to provisioning.
+type CacheHealthInvokeResponseArgs struct {
+	// List of Cache health states.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Describes explanation of state.
+	StatusDescription pulumi.StringPtrInput `pulumi:"statusDescription"`
+}
+
+func (CacheHealthInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheHealthInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheHealthInvokeResponseArgs) ToCacheHealthInvokeResponseOutput() CacheHealthInvokeResponseOutput {
+	return i.ToCacheHealthInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheHealthInvokeResponseArgs) ToCacheHealthInvokeResponseOutputWithContext(ctx context.Context) CacheHealthInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheHealthInvokeResponseOutput)
+}
+
+// An indication of Cache health. Gives more information about health than just that related to provisioning.
+type CacheHealthInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheHealthInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheHealthInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheHealthInvokeResponseOutput) ToCacheHealthInvokeResponseOutput() CacheHealthInvokeResponseOutput {
+	return o
+}
+
+func (o CacheHealthInvokeResponseOutput) ToCacheHealthInvokeResponseOutputWithContext(ctx context.Context) CacheHealthInvokeResponseOutput {
+	return o
+}
+
+// List of Cache health states.
+func (o CacheHealthInvokeResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheHealthInvokeResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Describes explanation of state.
+func (o CacheHealthInvokeResponseOutput) StatusDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheHealthInvokeResponse) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
 }
 
 // An indication of Cache health. Gives more information about health than just that related to provisioning.
@@ -566,6 +687,79 @@ func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Cache identity properties.
+type CacheIdentityInvokeResponse struct {
+	// The principal id of the cache.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id associated with the cache.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the cache
+	Type *string `pulumi:"type"`
+}
+
+// CacheIdentityInvokeResponseInput is an input type that accepts CacheIdentityInvokeResponseArgs and CacheIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheIdentityInvokeResponseInput` via:
+//
+//          CacheIdentityInvokeResponseArgs{...}
+type CacheIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheIdentityInvokeResponseOutput() CacheIdentityInvokeResponseOutput
+	ToCacheIdentityInvokeResponseOutputWithContext(context.Context) CacheIdentityInvokeResponseOutput
+}
+
+// Cache identity properties.
+type CacheIdentityInvokeResponseArgs struct {
+	// The principal id of the cache.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id associated with the cache.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the cache
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CacheIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheIdentityInvokeResponseArgs) ToCacheIdentityInvokeResponseOutput() CacheIdentityInvokeResponseOutput {
+	return i.ToCacheIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheIdentityInvokeResponseArgs) ToCacheIdentityInvokeResponseOutputWithContext(ctx context.Context) CacheIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityInvokeResponseOutput)
+}
+
+// Cache identity properties.
+type CacheIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheIdentityInvokeResponseOutput) ToCacheIdentityInvokeResponseOutput() CacheIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o CacheIdentityInvokeResponseOutput) ToCacheIdentityInvokeResponseOutputWithContext(ctx context.Context) CacheIdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal id of the cache.
+func (o CacheIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id associated with the cache.
+func (o CacheIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the cache
+func (o CacheIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Cache identity properties.
 type CacheIdentityResponse struct {
 	// The principal id of the cache.
 	PrincipalId string `pulumi:"principalId"`
@@ -737,6 +931,61 @@ func (o CacheIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// SKU for the Cache.
+type CacheInvokeResponseSku struct {
+	// SKU name for this Cache.
+	Name *string `pulumi:"name"`
+}
+
+// CacheInvokeResponseSkuInput is an input type that accepts CacheInvokeResponseSkuArgs and CacheInvokeResponseSkuOutput values.
+// You can construct a concrete instance of `CacheInvokeResponseSkuInput` via:
+//
+//          CacheInvokeResponseSkuArgs{...}
+type CacheInvokeResponseSkuInput interface {
+	pulumi.Input
+
+	ToCacheInvokeResponseSkuOutput() CacheInvokeResponseSkuOutput
+	ToCacheInvokeResponseSkuOutputWithContext(context.Context) CacheInvokeResponseSkuOutput
+}
+
+// SKU for the Cache.
+type CacheInvokeResponseSkuArgs struct {
+	// SKU name for this Cache.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (CacheInvokeResponseSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheInvokeResponseSku)(nil)).Elem()
+}
+
+func (i CacheInvokeResponseSkuArgs) ToCacheInvokeResponseSkuOutput() CacheInvokeResponseSkuOutput {
+	return i.ToCacheInvokeResponseSkuOutputWithContext(context.Background())
+}
+
+func (i CacheInvokeResponseSkuArgs) ToCacheInvokeResponseSkuOutputWithContext(ctx context.Context) CacheInvokeResponseSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheInvokeResponseSkuOutput)
+}
+
+// SKU for the Cache.
+type CacheInvokeResponseSkuOutput struct{ *pulumi.OutputState }
+
+func (CacheInvokeResponseSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheInvokeResponseSku)(nil)).Elem()
+}
+
+func (o CacheInvokeResponseSkuOutput) ToCacheInvokeResponseSkuOutput() CacheInvokeResponseSkuOutput {
+	return o
+}
+
+func (o CacheInvokeResponseSkuOutput) ToCacheInvokeResponseSkuOutputWithContext(ctx context.Context) CacheInvokeResponseSkuOutput {
+	return o
+}
+
+// SKU name for this Cache.
+func (o CacheInvokeResponseSkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheInvokeResponseSku) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 // Cache network settings.
 type CacheNetworkSettings struct {
 	// The IPv4 maximum transmission unit configured for the subnet.
@@ -869,6 +1118,70 @@ func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
 		}
 		return v.Mtu
 	}).(pulumi.IntPtrOutput)
+}
+
+// Cache network settings.
+type CacheNetworkSettingsInvokeResponse struct {
+	// The IPv4 maximum transmission unit configured for the subnet.
+	Mtu *int `pulumi:"mtu"`
+	// Array of additional IP addresses used by this Cache.
+	UtilityAddresses []string `pulumi:"utilityAddresses"`
+}
+
+// CacheNetworkSettingsInvokeResponseInput is an input type that accepts CacheNetworkSettingsInvokeResponseArgs and CacheNetworkSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheNetworkSettingsInvokeResponseInput` via:
+//
+//          CacheNetworkSettingsInvokeResponseArgs{...}
+type CacheNetworkSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheNetworkSettingsInvokeResponseOutput() CacheNetworkSettingsInvokeResponseOutput
+	ToCacheNetworkSettingsInvokeResponseOutputWithContext(context.Context) CacheNetworkSettingsInvokeResponseOutput
+}
+
+// Cache network settings.
+type CacheNetworkSettingsInvokeResponseArgs struct {
+	// The IPv4 maximum transmission unit configured for the subnet.
+	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
+	// Array of additional IP addresses used by this Cache.
+	UtilityAddresses pulumi.StringArrayInput `pulumi:"utilityAddresses"`
+}
+
+func (CacheNetworkSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNetworkSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheNetworkSettingsInvokeResponseArgs) ToCacheNetworkSettingsInvokeResponseOutput() CacheNetworkSettingsInvokeResponseOutput {
+	return i.ToCacheNetworkSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheNetworkSettingsInvokeResponseArgs) ToCacheNetworkSettingsInvokeResponseOutputWithContext(ctx context.Context) CacheNetworkSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsInvokeResponseOutput)
+}
+
+// Cache network settings.
+type CacheNetworkSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheNetworkSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNetworkSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheNetworkSettingsInvokeResponseOutput) ToCacheNetworkSettingsInvokeResponseOutput() CacheNetworkSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheNetworkSettingsInvokeResponseOutput) ToCacheNetworkSettingsInvokeResponseOutputWithContext(ctx context.Context) CacheNetworkSettingsInvokeResponseOutput {
+	return o
+}
+
+// The IPv4 maximum transmission unit configured for the subnet.
+func (o CacheNetworkSettingsInvokeResponseOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CacheNetworkSettingsInvokeResponse) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+// Array of additional IP addresses used by this Cache.
+func (o CacheNetworkSettingsInvokeResponseOutput) UtilityAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CacheNetworkSettingsInvokeResponse) []string { return v.UtilityAddresses }).(pulumi.StringArrayOutput)
 }
 
 // Cache network settings.
@@ -1293,6 +1606,61 @@ func (o CacheSecuritySettingsPtrOutput) RootSquash() pulumi.BoolPtrOutput {
 }
 
 // Cache security settings.
+type CacheSecuritySettingsInvokeResponse struct {
+	// root squash of cache property.
+	RootSquash *bool `pulumi:"rootSquash"`
+}
+
+// CacheSecuritySettingsInvokeResponseInput is an input type that accepts CacheSecuritySettingsInvokeResponseArgs and CacheSecuritySettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheSecuritySettingsInvokeResponseInput` via:
+//
+//          CacheSecuritySettingsInvokeResponseArgs{...}
+type CacheSecuritySettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheSecuritySettingsInvokeResponseOutput() CacheSecuritySettingsInvokeResponseOutput
+	ToCacheSecuritySettingsInvokeResponseOutputWithContext(context.Context) CacheSecuritySettingsInvokeResponseOutput
+}
+
+// Cache security settings.
+type CacheSecuritySettingsInvokeResponseArgs struct {
+	// root squash of cache property.
+	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
+}
+
+func (CacheSecuritySettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheSecuritySettingsInvokeResponseArgs) ToCacheSecuritySettingsInvokeResponseOutput() CacheSecuritySettingsInvokeResponseOutput {
+	return i.ToCacheSecuritySettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheSecuritySettingsInvokeResponseArgs) ToCacheSecuritySettingsInvokeResponseOutputWithContext(ctx context.Context) CacheSecuritySettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsInvokeResponseOutput)
+}
+
+// Cache security settings.
+type CacheSecuritySettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheSecuritySettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheSecuritySettingsInvokeResponseOutput) ToCacheSecuritySettingsInvokeResponseOutput() CacheSecuritySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheSecuritySettingsInvokeResponseOutput) ToCacheSecuritySettingsInvokeResponseOutputWithContext(ctx context.Context) CacheSecuritySettingsInvokeResponseOutput {
+	return o
+}
+
+// root squash of cache property.
+func (o CacheSecuritySettingsInvokeResponseOutput) RootSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheSecuritySettingsInvokeResponse) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
+}
+
+// Cache security settings.
 type CacheSecuritySettingsResponse struct {
 	// root squash of cache property.
 	RootSquash *bool `pulumi:"rootSquash"`
@@ -1558,6 +1926,97 @@ func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// Properties describing the software upgrade state of the Cache.
+type CacheUpgradeStatusInvokeResponse struct {
+	// Version string of the firmware currently installed on this Cache.
+	CurrentFirmwareVersion string `pulumi:"currentFirmwareVersion"`
+	// Time at which the pending firmware update will automatically be installed on the Cache.
+	FirmwareUpdateDeadline string `pulumi:"firmwareUpdateDeadline"`
+	// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+	FirmwareUpdateStatus string `pulumi:"firmwareUpdateStatus"`
+	// Time of the last successful firmware update.
+	LastFirmwareUpdate string `pulumi:"lastFirmwareUpdate"`
+	// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+	PendingFirmwareVersion string `pulumi:"pendingFirmwareVersion"`
+}
+
+// CacheUpgradeStatusInvokeResponseInput is an input type that accepts CacheUpgradeStatusInvokeResponseArgs and CacheUpgradeStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheUpgradeStatusInvokeResponseInput` via:
+//
+//          CacheUpgradeStatusInvokeResponseArgs{...}
+type CacheUpgradeStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheUpgradeStatusInvokeResponseOutput() CacheUpgradeStatusInvokeResponseOutput
+	ToCacheUpgradeStatusInvokeResponseOutputWithContext(context.Context) CacheUpgradeStatusInvokeResponseOutput
+}
+
+// Properties describing the software upgrade state of the Cache.
+type CacheUpgradeStatusInvokeResponseArgs struct {
+	// Version string of the firmware currently installed on this Cache.
+	CurrentFirmwareVersion pulumi.StringInput `pulumi:"currentFirmwareVersion"`
+	// Time at which the pending firmware update will automatically be installed on the Cache.
+	FirmwareUpdateDeadline pulumi.StringInput `pulumi:"firmwareUpdateDeadline"`
+	// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+	FirmwareUpdateStatus pulumi.StringInput `pulumi:"firmwareUpdateStatus"`
+	// Time of the last successful firmware update.
+	LastFirmwareUpdate pulumi.StringInput `pulumi:"lastFirmwareUpdate"`
+	// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+	PendingFirmwareVersion pulumi.StringInput `pulumi:"pendingFirmwareVersion"`
+}
+
+func (CacheUpgradeStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUpgradeStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheUpgradeStatusInvokeResponseArgs) ToCacheUpgradeStatusInvokeResponseOutput() CacheUpgradeStatusInvokeResponseOutput {
+	return i.ToCacheUpgradeStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheUpgradeStatusInvokeResponseArgs) ToCacheUpgradeStatusInvokeResponseOutputWithContext(ctx context.Context) CacheUpgradeStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusInvokeResponseOutput)
+}
+
+// Properties describing the software upgrade state of the Cache.
+type CacheUpgradeStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheUpgradeStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUpgradeStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheUpgradeStatusInvokeResponseOutput) ToCacheUpgradeStatusInvokeResponseOutput() CacheUpgradeStatusInvokeResponseOutput {
+	return o
+}
+
+func (o CacheUpgradeStatusInvokeResponseOutput) ToCacheUpgradeStatusInvokeResponseOutputWithContext(ctx context.Context) CacheUpgradeStatusInvokeResponseOutput {
+	return o
+}
+
+// Version string of the firmware currently installed on this Cache.
+func (o CacheUpgradeStatusInvokeResponseOutput) CurrentFirmwareVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusInvokeResponse) string { return v.CurrentFirmwareVersion }).(pulumi.StringOutput)
+}
+
+// Time at which the pending firmware update will automatically be installed on the Cache.
+func (o CacheUpgradeStatusInvokeResponseOutput) FirmwareUpdateDeadline() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusInvokeResponse) string { return v.FirmwareUpdateDeadline }).(pulumi.StringOutput)
+}
+
+// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+func (o CacheUpgradeStatusInvokeResponseOutput) FirmwareUpdateStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusInvokeResponse) string { return v.FirmwareUpdateStatus }).(pulumi.StringOutput)
+}
+
+// Time of the last successful firmware update.
+func (o CacheUpgradeStatusInvokeResponseOutput) LastFirmwareUpdate() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusInvokeResponse) string { return v.LastFirmwareUpdate }).(pulumi.StringOutput)
+}
+
+// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+func (o CacheUpgradeStatusInvokeResponseOutput) PendingFirmwareVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusInvokeResponse) string { return v.PendingFirmwareVersion }).(pulumi.StringOutput)
 }
 
 // Properties describing the software upgrade state of the Cache.
@@ -1905,6 +2364,61 @@ func (o ClfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 }
 
 // Properties pertained to ClfsTarget
+type ClfsTargetInvokeResponse struct {
+	// Resource ID of storage container.
+	Target *string `pulumi:"target"`
+}
+
+// ClfsTargetInvokeResponseInput is an input type that accepts ClfsTargetInvokeResponseArgs and ClfsTargetInvokeResponseOutput values.
+// You can construct a concrete instance of `ClfsTargetInvokeResponseInput` via:
+//
+//          ClfsTargetInvokeResponseArgs{...}
+type ClfsTargetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClfsTargetInvokeResponseOutput() ClfsTargetInvokeResponseOutput
+	ToClfsTargetInvokeResponseOutputWithContext(context.Context) ClfsTargetInvokeResponseOutput
+}
+
+// Properties pertained to ClfsTarget
+type ClfsTargetInvokeResponseArgs struct {
+	// Resource ID of storage container.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ClfsTargetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClfsTargetInvokeResponse)(nil)).Elem()
+}
+
+func (i ClfsTargetInvokeResponseArgs) ToClfsTargetInvokeResponseOutput() ClfsTargetInvokeResponseOutput {
+	return i.ToClfsTargetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClfsTargetInvokeResponseArgs) ToClfsTargetInvokeResponseOutputWithContext(ctx context.Context) ClfsTargetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetInvokeResponseOutput)
+}
+
+// Properties pertained to ClfsTarget
+type ClfsTargetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClfsTargetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClfsTargetInvokeResponse)(nil)).Elem()
+}
+
+func (o ClfsTargetInvokeResponseOutput) ToClfsTargetInvokeResponseOutput() ClfsTargetInvokeResponseOutput {
+	return o
+}
+
+func (o ClfsTargetInvokeResponseOutput) ToClfsTargetInvokeResponseOutputWithContext(ctx context.Context) ClfsTargetInvokeResponseOutput {
+	return o
+}
+
+// Resource ID of storage container.
+func (o ClfsTargetInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClfsTargetInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Properties pertained to ClfsTarget
 type ClfsTargetResponse struct {
 	// Resource ID of storage container.
 	Target *string `pulumi:"target"`
@@ -2189,6 +2703,297 @@ func (o KeyVaultKeyReferencePtrOutput) SourceVault() KeyVaultKeyReferenceSourceV
 		}
 		return &v.SourceVault
 	}).(KeyVaultKeyReferenceSourceVaultPtrOutput)
+}
+
+// Describes a reference to Key Vault Key.
+type KeyVaultKeyReferenceInvokeResponse struct {
+	// The URL referencing a key encryption key in Key Vault.
+	KeyUrl string `pulumi:"keyUrl"`
+	// Describes a resource Id to source Key Vault.
+	SourceVault KeyVaultKeyReferenceInvokeResponseSourceVault `pulumi:"sourceVault"`
+}
+
+// KeyVaultKeyReferenceInvokeResponseInput is an input type that accepts KeyVaultKeyReferenceInvokeResponseArgs and KeyVaultKeyReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceInvokeResponseInput` via:
+//
+//          KeyVaultKeyReferenceInvokeResponseArgs{...}
+type KeyVaultKeyReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceInvokeResponseOutput() KeyVaultKeyReferenceInvokeResponseOutput
+	ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(context.Context) KeyVaultKeyReferenceInvokeResponseOutput
+}
+
+// Describes a reference to Key Vault Key.
+type KeyVaultKeyReferenceInvokeResponseArgs struct {
+	// The URL referencing a key encryption key in Key Vault.
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// Describes a resource Id to source Key Vault.
+	SourceVault KeyVaultKeyReferenceInvokeResponseSourceVaultInput `pulumi:"sourceVault"`
+}
+
+func (KeyVaultKeyReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseArgs) ToKeyVaultKeyReferenceInvokeResponseOutput() KeyVaultKeyReferenceInvokeResponseOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseArgs) ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseOutput)
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseArgs) ToKeyVaultKeyReferenceInvokeResponsePtrOutput() KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseArgs) ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseOutput).ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultKeyReferenceInvokeResponsePtrInput is an input type that accepts KeyVaultKeyReferenceInvokeResponseArgs, KeyVaultKeyReferenceInvokeResponsePtr and KeyVaultKeyReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceInvokeResponsePtrInput` via:
+//
+//          KeyVaultKeyReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultKeyReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceInvokeResponsePtrOutput() KeyVaultKeyReferenceInvokeResponsePtrOutput
+	ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(context.Context) KeyVaultKeyReferenceInvokeResponsePtrOutput
+}
+
+type keyVaultKeyReferenceInvokeResponsePtrType KeyVaultKeyReferenceInvokeResponseArgs
+
+func KeyVaultKeyReferenceInvokeResponsePtr(v *KeyVaultKeyReferenceInvokeResponseArgs) KeyVaultKeyReferenceInvokeResponsePtrInput {
+	return (*keyVaultKeyReferenceInvokeResponsePtrType)(v)
+}
+
+func (*keyVaultKeyReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *keyVaultKeyReferenceInvokeResponsePtrType) ToKeyVaultKeyReferenceInvokeResponsePtrOutput() KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultKeyReferenceInvokeResponsePtrType) ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponsePtrOutput)
+}
+
+// Describes a reference to Key Vault Key.
+type KeyVaultKeyReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseOutput) ToKeyVaultKeyReferenceInvokeResponseOutput() KeyVaultKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseOutput) ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseOutput) ToKeyVaultKeyReferenceInvokeResponsePtrOutput() KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return o.ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseOutput) ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponse) *KeyVaultKeyReferenceInvokeResponse {
+		return &v
+	}).(KeyVaultKeyReferenceInvokeResponsePtrOutput)
+}
+
+// The URL referencing a key encryption key in Key Vault.
+func (o KeyVaultKeyReferenceInvokeResponseOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// Describes a resource Id to source Key Vault.
+func (o KeyVaultKeyReferenceInvokeResponseOutput) SourceVault() KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponse) KeyVaultKeyReferenceInvokeResponseSourceVault {
+		return v.SourceVault
+	}).(KeyVaultKeyReferenceInvokeResponseSourceVaultOutput)
+}
+
+type KeyVaultKeyReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceInvokeResponsePtrOutput) ToKeyVaultKeyReferenceInvokeResponsePtrOutput() KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponsePtrOutput) ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponsePtrOutput) Elem() KeyVaultKeyReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceInvokeResponse) KeyVaultKeyReferenceInvokeResponse { return *v }).(KeyVaultKeyReferenceInvokeResponseOutput)
+}
+
+// The URL referencing a key encryption key in Key Vault.
+func (o KeyVaultKeyReferenceInvokeResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a resource Id to source Key Vault.
+func (o KeyVaultKeyReferenceInvokeResponsePtrOutput) SourceVault() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceInvokeResponse) *KeyVaultKeyReferenceInvokeResponseSourceVault {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVault
+	}).(KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput)
+}
+
+// Describes a resource Id to source Key Vault.
+type KeyVaultKeyReferenceInvokeResponseSourceVault struct {
+	// Resource Id.
+	Id *string `pulumi:"id"`
+}
+
+// KeyVaultKeyReferenceInvokeResponseSourceVaultInput is an input type that accepts KeyVaultKeyReferenceInvokeResponseSourceVaultArgs and KeyVaultKeyReferenceInvokeResponseSourceVaultOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceInvokeResponseSourceVaultInput` via:
+//
+//          KeyVaultKeyReferenceInvokeResponseSourceVaultArgs{...}
+type KeyVaultKeyReferenceInvokeResponseSourceVaultInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultOutput
+	ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutputWithContext(context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultOutput
+}
+
+// Describes a resource Id to source Key Vault.
+type KeyVaultKeyReferenceInvokeResponseSourceVaultArgs struct {
+	// Resource Id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponseSourceVault)(nil)).Elem()
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseSourceVaultOutput)
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseSourceVaultOutput).ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(ctx)
+}
+
+// KeyVaultKeyReferenceInvokeResponseSourceVaultPtrInput is an input type that accepts KeyVaultKeyReferenceInvokeResponseSourceVaultArgs, KeyVaultKeyReferenceInvokeResponseSourceVaultPtr and KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceInvokeResponseSourceVaultPtrInput` via:
+//
+//          KeyVaultKeyReferenceInvokeResponseSourceVaultArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultKeyReferenceInvokeResponseSourceVaultPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput
+	ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput
+}
+
+type keyVaultKeyReferenceInvokeResponseSourceVaultPtrType KeyVaultKeyReferenceInvokeResponseSourceVaultArgs
+
+func KeyVaultKeyReferenceInvokeResponseSourceVaultPtr(v *KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrInput {
+	return (*keyVaultKeyReferenceInvokeResponseSourceVaultPtrType)(v)
+}
+
+func (*keyVaultKeyReferenceInvokeResponseSourceVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceInvokeResponseSourceVault)(nil)).Elem()
+}
+
+func (i *keyVaultKeyReferenceInvokeResponseSourceVaultPtrType) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultKeyReferenceInvokeResponseSourceVaultPtrType) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput)
+}
+
+// Describes a resource Id to source Key Vault.
+type KeyVaultKeyReferenceInvokeResponseSourceVaultOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponseSourceVault)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return o.ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponseSourceVault) *KeyVaultKeyReferenceInvokeResponseSourceVault {
+		return &v
+	}).(KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput)
+}
+
+// Resource Id.
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponseSourceVault) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceInvokeResponseSourceVault)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceInvokeResponseSourceVault) KeyVaultKeyReferenceInvokeResponseSourceVault {
+		return *v
+	}).(KeyVaultKeyReferenceInvokeResponseSourceVaultOutput)
+}
+
+// Resource Id.
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceInvokeResponseSourceVault) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes a reference to Key Vault Key.
@@ -2731,6 +3536,124 @@ func (o NamespaceJunctionArrayOutput) Index(i pulumi.IntInput) NamespaceJunction
 }
 
 // A namespace junction.
+type NamespaceJunctionInvokeResponse struct {
+	// Namespace path on a Cache for a Storage Target.
+	NamespacePath *string `pulumi:"namespacePath"`
+	// NFS export where targetPath exists.
+	NfsExport *string `pulumi:"nfsExport"`
+	// Path in Storage Target to which namespacePath points.
+	TargetPath *string `pulumi:"targetPath"`
+}
+
+// NamespaceJunctionInvokeResponseInput is an input type that accepts NamespaceJunctionInvokeResponseArgs and NamespaceJunctionInvokeResponseOutput values.
+// You can construct a concrete instance of `NamespaceJunctionInvokeResponseInput` via:
+//
+//          NamespaceJunctionInvokeResponseArgs{...}
+type NamespaceJunctionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNamespaceJunctionInvokeResponseOutput() NamespaceJunctionInvokeResponseOutput
+	ToNamespaceJunctionInvokeResponseOutputWithContext(context.Context) NamespaceJunctionInvokeResponseOutput
+}
+
+// A namespace junction.
+type NamespaceJunctionInvokeResponseArgs struct {
+	// Namespace path on a Cache for a Storage Target.
+	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
+	// NFS export where targetPath exists.
+	NfsExport pulumi.StringPtrInput `pulumi:"nfsExport"`
+	// Path in Storage Target to which namespacePath points.
+	TargetPath pulumi.StringPtrInput `pulumi:"targetPath"`
+}
+
+func (NamespaceJunctionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceJunctionInvokeResponse)(nil)).Elem()
+}
+
+func (i NamespaceJunctionInvokeResponseArgs) ToNamespaceJunctionInvokeResponseOutput() NamespaceJunctionInvokeResponseOutput {
+	return i.ToNamespaceJunctionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NamespaceJunctionInvokeResponseArgs) ToNamespaceJunctionInvokeResponseOutputWithContext(ctx context.Context) NamespaceJunctionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionInvokeResponseOutput)
+}
+
+// NamespaceJunctionInvokeResponseArrayInput is an input type that accepts NamespaceJunctionInvokeResponseArray and NamespaceJunctionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NamespaceJunctionInvokeResponseArrayInput` via:
+//
+//          NamespaceJunctionInvokeResponseArray{ NamespaceJunctionInvokeResponseArgs{...} }
+type NamespaceJunctionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceJunctionInvokeResponseArrayOutput() NamespaceJunctionInvokeResponseArrayOutput
+	ToNamespaceJunctionInvokeResponseArrayOutputWithContext(context.Context) NamespaceJunctionInvokeResponseArrayOutput
+}
+
+type NamespaceJunctionInvokeResponseArray []NamespaceJunctionInvokeResponseInput
+
+func (NamespaceJunctionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceJunctionInvokeResponse)(nil)).Elem()
+}
+
+func (i NamespaceJunctionInvokeResponseArray) ToNamespaceJunctionInvokeResponseArrayOutput() NamespaceJunctionInvokeResponseArrayOutput {
+	return i.ToNamespaceJunctionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceJunctionInvokeResponseArray) ToNamespaceJunctionInvokeResponseArrayOutputWithContext(ctx context.Context) NamespaceJunctionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionInvokeResponseArrayOutput)
+}
+
+// A namespace junction.
+type NamespaceJunctionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NamespaceJunctionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceJunctionInvokeResponse)(nil)).Elem()
+}
+
+func (o NamespaceJunctionInvokeResponseOutput) ToNamespaceJunctionInvokeResponseOutput() NamespaceJunctionInvokeResponseOutput {
+	return o
+}
+
+func (o NamespaceJunctionInvokeResponseOutput) ToNamespaceJunctionInvokeResponseOutputWithContext(ctx context.Context) NamespaceJunctionInvokeResponseOutput {
+	return o
+}
+
+// Namespace path on a Cache for a Storage Target.
+func (o NamespaceJunctionInvokeResponseOutput) NamespacePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionInvokeResponse) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
+}
+
+// NFS export where targetPath exists.
+func (o NamespaceJunctionInvokeResponseOutput) NfsExport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionInvokeResponse) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
+}
+
+// Path in Storage Target to which namespacePath points.
+func (o NamespaceJunctionInvokeResponseOutput) TargetPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionInvokeResponse) *string { return v.TargetPath }).(pulumi.StringPtrOutput)
+}
+
+type NamespaceJunctionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceJunctionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceJunctionInvokeResponse)(nil)).Elem()
+}
+
+func (o NamespaceJunctionInvokeResponseArrayOutput) ToNamespaceJunctionInvokeResponseArrayOutput() NamespaceJunctionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NamespaceJunctionInvokeResponseArrayOutput) ToNamespaceJunctionInvokeResponseArrayOutputWithContext(ctx context.Context) NamespaceJunctionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NamespaceJunctionInvokeResponseArrayOutput) Index(i pulumi.IntInput) NamespaceJunctionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceJunctionInvokeResponse {
+		return vs[0].([]NamespaceJunctionInvokeResponse)[vs[1].(int)]
+	}).(NamespaceJunctionInvokeResponseOutput)
+}
+
+// A namespace junction.
 type NamespaceJunctionResponse struct {
 	// Namespace path on a Cache for a Storage Target.
 	NamespacePath *string `pulumi:"namespacePath"`
@@ -3002,6 +3925,70 @@ func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 }
 
 // Properties pertained to Nfs3Target
+type Nfs3TargetInvokeResponse struct {
+	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
+	Target *string `pulumi:"target"`
+	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	UsageModel *string `pulumi:"usageModel"`
+}
+
+// Nfs3TargetInvokeResponseInput is an input type that accepts Nfs3TargetInvokeResponseArgs and Nfs3TargetInvokeResponseOutput values.
+// You can construct a concrete instance of `Nfs3TargetInvokeResponseInput` via:
+//
+//          Nfs3TargetInvokeResponseArgs{...}
+type Nfs3TargetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNfs3TargetInvokeResponseOutput() Nfs3TargetInvokeResponseOutput
+	ToNfs3TargetInvokeResponseOutputWithContext(context.Context) Nfs3TargetInvokeResponseOutput
+}
+
+// Properties pertained to Nfs3Target
+type Nfs3TargetInvokeResponseArgs struct {
+	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
+}
+
+func (Nfs3TargetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Nfs3TargetInvokeResponse)(nil)).Elem()
+}
+
+func (i Nfs3TargetInvokeResponseArgs) ToNfs3TargetInvokeResponseOutput() Nfs3TargetInvokeResponseOutput {
+	return i.ToNfs3TargetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i Nfs3TargetInvokeResponseArgs) ToNfs3TargetInvokeResponseOutputWithContext(ctx context.Context) Nfs3TargetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetInvokeResponseOutput)
+}
+
+// Properties pertained to Nfs3Target
+type Nfs3TargetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (Nfs3TargetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Nfs3TargetInvokeResponse)(nil)).Elem()
+}
+
+func (o Nfs3TargetInvokeResponseOutput) ToNfs3TargetInvokeResponseOutput() Nfs3TargetInvokeResponseOutput {
+	return o
+}
+
+func (o Nfs3TargetInvokeResponseOutput) ToNfs3TargetInvokeResponseOutputWithContext(ctx context.Context) Nfs3TargetInvokeResponseOutput {
+	return o
+}
+
+// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
+func (o Nfs3TargetInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Nfs3TargetInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the primary usage model to be used for this Storage Target. Get choices from .../usageModels
+func (o Nfs3TargetInvokeResponseOutput) UsageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Nfs3TargetInvokeResponse) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
+}
+
+// Properties pertained to Nfs3Target
 type Nfs3TargetResponse struct {
 	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 	Target *string `pulumi:"target"`
@@ -3152,6 +4139,106 @@ func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 		}
 		return v.UsageModel
 	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -3518,6 +4605,61 @@ func (o UnknownTargetPtrOutput) UnknownMap() pulumi.StringMapOutput {
 }
 
 // Properties pertained to UnknownTarget
+type UnknownTargetInvokeResponse struct {
+	// Dictionary of string->string pairs containing information about the Storage Target.
+	UnknownMap map[string]string `pulumi:"unknownMap"`
+}
+
+// UnknownTargetInvokeResponseInput is an input type that accepts UnknownTargetInvokeResponseArgs and UnknownTargetInvokeResponseOutput values.
+// You can construct a concrete instance of `UnknownTargetInvokeResponseInput` via:
+//
+//          UnknownTargetInvokeResponseArgs{...}
+type UnknownTargetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUnknownTargetInvokeResponseOutput() UnknownTargetInvokeResponseOutput
+	ToUnknownTargetInvokeResponseOutputWithContext(context.Context) UnknownTargetInvokeResponseOutput
+}
+
+// Properties pertained to UnknownTarget
+type UnknownTargetInvokeResponseArgs struct {
+	// Dictionary of string->string pairs containing information about the Storage Target.
+	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
+}
+
+func (UnknownTargetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnknownTargetInvokeResponse)(nil)).Elem()
+}
+
+func (i UnknownTargetInvokeResponseArgs) ToUnknownTargetInvokeResponseOutput() UnknownTargetInvokeResponseOutput {
+	return i.ToUnknownTargetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UnknownTargetInvokeResponseArgs) ToUnknownTargetInvokeResponseOutputWithContext(ctx context.Context) UnknownTargetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetInvokeResponseOutput)
+}
+
+// Properties pertained to UnknownTarget
+type UnknownTargetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UnknownTargetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnknownTargetInvokeResponse)(nil)).Elem()
+}
+
+func (o UnknownTargetInvokeResponseOutput) ToUnknownTargetInvokeResponseOutput() UnknownTargetInvokeResponseOutput {
+	return o
+}
+
+func (o UnknownTargetInvokeResponseOutput) ToUnknownTargetInvokeResponseOutputWithContext(ctx context.Context) UnknownTargetInvokeResponseOutput {
+	return o
+}
+
+// Dictionary of string->string pairs containing information about the Storage Target.
+func (o UnknownTargetInvokeResponseOutput) UnknownMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UnknownTargetInvokeResponse) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
+}
+
+// Properties pertained to UnknownTarget
 type UnknownTargetResponse struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap map[string]string `pulumi:"unknownMap"`
@@ -3654,34 +4796,46 @@ func (o UnknownTargetResponsePtrOutput) UnknownMap() pulumi.StringMapOutput {
 func init() {
 	pulumi.RegisterOutputType(CacheEncryptionSettingsOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheEncryptionSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsResponseOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheHealthInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheHealthResponseOutput{})
 	pulumi.RegisterOutputType(CacheHealthResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheIdentityOutput{})
 	pulumi.RegisterOutputType(CacheIdentityPtrOutput{})
+	pulumi.RegisterOutputType(CacheIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheIdentityResponseOutput{})
 	pulumi.RegisterOutputType(CacheIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheInvokeResponseSkuOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheNetworkSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsResponseOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheResponseSkuOutput{})
 	pulumi.RegisterOutputType(CacheResponseSkuPtrOutput{})
 	pulumi.RegisterOutputType(CacheSecuritySettingsOutput{})
 	pulumi.RegisterOutputType(CacheSecuritySettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheSecuritySettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheSecuritySettingsResponseOutput{})
 	pulumi.RegisterOutputType(CacheSecuritySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheSkuOutput{})
 	pulumi.RegisterOutputType(CacheSkuPtrOutput{})
+	pulumi.RegisterOutputType(CacheUpgradeStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheUpgradeStatusResponseOutput{})
 	pulumi.RegisterOutputType(CacheUpgradeStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClfsTargetOutput{})
 	pulumi.RegisterOutputType(ClfsTargetPtrOutput{})
+	pulumi.RegisterOutputType(ClfsTargetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClfsTargetResponseOutput{})
 	pulumi.RegisterOutputType(ClfsTargetResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferencePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceInvokeResponseSourceVaultOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseSourceVaultOutput{})
@@ -3690,16 +4844,21 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceSourceVaultPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceJunctionOutput{})
 	pulumi.RegisterOutputType(NamespaceJunctionArrayOutput{})
+	pulumi.RegisterOutputType(NamespaceJunctionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NamespaceJunctionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NamespaceJunctionResponseOutput{})
 	pulumi.RegisterOutputType(NamespaceJunctionResponseArrayOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetPtrOutput{})
+	pulumi.RegisterOutputType(Nfs3TargetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponseOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UnknownTargetOutput{})
 	pulumi.RegisterOutputType(UnknownTargetPtrOutput{})
+	pulumi.RegisterOutputType(UnknownTargetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UnknownTargetResponseOutput{})
 	pulumi.RegisterOutputType(UnknownTargetResponsePtrOutput{})
 }

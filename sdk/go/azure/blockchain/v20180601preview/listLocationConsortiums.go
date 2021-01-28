@@ -24,5 +24,5 @@ type ListLocationConsortiumsArgs struct {
 // Collection of the consortium payload.
 type ListLocationConsortiumsResult struct {
 	// Gets or sets the collection of consortiums.
-	Value []ConsortiumResponse `pulumi:"value"`
+	Value []ConsortiumInvokeResponse `pulumi:"value"`
 }

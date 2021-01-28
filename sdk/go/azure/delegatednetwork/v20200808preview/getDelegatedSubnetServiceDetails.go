@@ -26,7 +26,7 @@ type LookupDelegatedSubnetServiceDetailsArgs struct {
 // Represents an instance of a orchestrator.
 type LookupDelegatedSubnetServiceDetailsResult struct {
 	// controller details
-	ControllerDetails *ControllerDetailsResponse `pulumi:"controllerDetails"`
+	ControllerDetails *ControllerDetailsInvokeResponse `pulumi:"controllerDetails"`
 	// An identifier that represents the resource.
 	Id string `pulumi:"id"`
 	// Location of the resource.
@@ -38,7 +38,7 @@ type LookupDelegatedSubnetServiceDetailsResult struct {
 	// Resource guid.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// orchestrator details
-	SubnetDetails *SubnetDetailsResponse `pulumi:"subnetDetails"`
+	SubnetDetails *SubnetDetailsInvokeResponse `pulumi:"subnetDetails"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of resource.

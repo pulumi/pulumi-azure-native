@@ -26,9 +26,9 @@ type LookupOpenShiftManagedClusterArgs struct {
 // OpenShift Managed cluster.
 type LookupOpenShiftManagedClusterResult struct {
 	// Configuration of OpenShift cluster VMs.
-	AgentPoolProfiles []OpenShiftManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
+	AgentPoolProfiles []OpenShiftManagedClusterAgentPoolProfileInvokeResponse `pulumi:"agentPoolProfiles"`
 	// Configures OpenShift authentication.
-	AuthProfile *OpenShiftManagedClusterAuthProfileResponse `pulumi:"authProfile"`
+	AuthProfile *OpenShiftManagedClusterAuthProfileInvokeResponse `pulumi:"authProfile"`
 	// Version of OpenShift specified when creating the cluster.
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// Service generated FQDN for OpenShift API server loadbalancer internal hostname.
@@ -38,17 +38,17 @@ type LookupOpenShiftManagedClusterResult struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// Configuration for OpenShift master VMs.
-	MasterPoolProfile *OpenShiftManagedClusterMasterPoolProfileResponse `pulumi:"masterPoolProfile"`
+	MasterPoolProfile *OpenShiftManagedClusterMasterPoolProfileInvokeResponse `pulumi:"masterPoolProfile"`
 	// Configures Log Analytics integration.
-	MonitorProfile *OpenShiftManagedClusterMonitorProfileResponse `pulumi:"monitorProfile"`
+	MonitorProfile *OpenShiftManagedClusterMonitorProfileInvokeResponse `pulumi:"monitorProfile"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Configuration for OpenShift networking.
-	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
+	NetworkProfile *NetworkProfileInvokeResponse `pulumi:"networkProfile"`
 	// Version of OpenShift specified when creating the cluster.
 	OpenShiftVersion string `pulumi:"openShiftVersion"`
 	// Define the resource plan as required by ARM for billing purposes
-	Plan *PurchasePlanResponse `pulumi:"plan"`
+	Plan *PurchasePlanInvokeResponse `pulumi:"plan"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Service generated FQDN or private IP for OpenShift API server.
@@ -56,7 +56,7 @@ type LookupOpenShiftManagedClusterResult struct {
 	// Allows node rotation
 	RefreshCluster *bool `pulumi:"refreshCluster"`
 	// Configuration for OpenShift router(s).
-	RouterProfiles []OpenShiftRouterProfileResponse `pulumi:"routerProfiles"`
+	RouterProfiles []OpenShiftRouterProfileInvokeResponse `pulumi:"routerProfiles"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

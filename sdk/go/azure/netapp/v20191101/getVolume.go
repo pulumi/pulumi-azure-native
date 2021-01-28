@@ -34,9 +34,9 @@ type LookupVolumeResult struct {
 	// A unique file path for the volume. Used when creating mount targets
 	CreationToken string `pulumi:"creationToken"`
 	// DataProtection type volumes include an object containing details of the replication
-	DataProtection *VolumePropertiesResponseDataProtection `pulumi:"dataProtection"`
+	DataProtection *VolumePropertiesInvokeResponseDataProtection `pulumi:"dataProtection"`
 	// Set of export policy rules
-	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
+	ExportPolicy *VolumePropertiesInvokeResponseExportPolicy `pulumi:"exportPolicy"`
 	// Unique FileSystem Identifier.
 	FileSystemId string `pulumi:"fileSystemId"`
 	// Resource Id
@@ -46,7 +46,7 @@ type LookupVolumeResult struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// List of mount targets
-	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
+	MountTargets []MountTargetPropertiesInvokeResponse `pulumi:"mountTargets"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Set of protocol types

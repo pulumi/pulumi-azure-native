@@ -26,5 +26,5 @@ type ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult struc
 	// The link (url) to the next page of results.
 	NextLink string `pulumi:"nextLink"`
 	// The list of invoice section properties with create subscription permission.
-	Value []InvoiceSectionWithCreateSubPermissionResponse `pulumi:"value"`
+	Value []InvoiceSectionWithCreateSubPermissionInvokeResponse `pulumi:"value"`
 }

@@ -32,9 +32,9 @@ type LookupConnectionMonitorResult struct {
 	// Type of connection monitor.
 	ConnectionMonitorType string `pulumi:"connectionMonitorType"`
 	// Describes the destination of connection monitor.
-	Destination *ConnectionMonitorDestinationResponse `pulumi:"destination"`
+	Destination *ConnectionMonitorDestinationInvokeResponse `pulumi:"destination"`
 	// List of connection monitor endpoints.
-	Endpoints []ConnectionMonitorEndpointResponse `pulumi:"endpoints"`
+	Endpoints []ConnectionMonitorEndpointInvokeResponse `pulumi:"endpoints"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// ID of the connection monitor.
@@ -50,19 +50,19 @@ type LookupConnectionMonitorResult struct {
 	// Optional notes to be associated with the connection monitor.
 	Notes *string `pulumi:"notes"`
 	// List of connection monitor outputs.
-	Outputs []ConnectionMonitorOutputResponse `pulumi:"outputs"`
+	Outputs []ConnectionMonitorOutputInvokeResponse `pulumi:"outputs"`
 	// The provisioning state of the connection monitor.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Describes the source of connection monitor.
-	Source *ConnectionMonitorSourceResponse `pulumi:"source"`
+	Source *ConnectionMonitorSourceInvokeResponse `pulumi:"source"`
 	// The date and time when the connection monitor was started.
 	StartTime string `pulumi:"startTime"`
 	// Connection monitor tags.
 	Tags map[string]string `pulumi:"tags"`
 	// List of connection monitor test configurations.
-	TestConfigurations []ConnectionMonitorTestConfigurationResponse `pulumi:"testConfigurations"`
+	TestConfigurations []ConnectionMonitorTestConfigurationInvokeResponse `pulumi:"testConfigurations"`
 	// List of connection monitor test groups.
-	TestGroups []ConnectionMonitorTestGroupResponse `pulumi:"testGroups"`
+	TestGroups []ConnectionMonitorTestGroupInvokeResponse `pulumi:"testGroups"`
 	// Connection monitor type.
 	Type string `pulumi:"type"`
 }

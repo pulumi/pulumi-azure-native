@@ -129,6 +129,124 @@ func (o LogSettingsArrayOutput) Index(i pulumi.IntInput) LogSettingsOutput {
 }
 
 // Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+type LogSettingsInvokeResponse struct {
+	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+	Category *string `pulumi:"category"`
+	// a value indicating whether this log is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// the retention policy for this log.
+	RetentionPolicy *RetentionPolicyInvokeResponse `pulumi:"retentionPolicy"`
+}
+
+// LogSettingsInvokeResponseInput is an input type that accepts LogSettingsInvokeResponseArgs and LogSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `LogSettingsInvokeResponseInput` via:
+//
+//          LogSettingsInvokeResponseArgs{...}
+type LogSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLogSettingsInvokeResponseOutput() LogSettingsInvokeResponseOutput
+	ToLogSettingsInvokeResponseOutputWithContext(context.Context) LogSettingsInvokeResponseOutput
+}
+
+// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+type LogSettingsInvokeResponseArgs struct {
+	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// a value indicating whether this log is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// the retention policy for this log.
+	RetentionPolicy RetentionPolicyInvokeResponsePtrInput `pulumi:"retentionPolicy"`
+}
+
+func (LogSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i LogSettingsInvokeResponseArgs) ToLogSettingsInvokeResponseOutput() LogSettingsInvokeResponseOutput {
+	return i.ToLogSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LogSettingsInvokeResponseArgs) ToLogSettingsInvokeResponseOutputWithContext(ctx context.Context) LogSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsInvokeResponseOutput)
+}
+
+// LogSettingsInvokeResponseArrayInput is an input type that accepts LogSettingsInvokeResponseArray and LogSettingsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LogSettingsInvokeResponseArrayInput` via:
+//
+//          LogSettingsInvokeResponseArray{ LogSettingsInvokeResponseArgs{...} }
+type LogSettingsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLogSettingsInvokeResponseArrayOutput() LogSettingsInvokeResponseArrayOutput
+	ToLogSettingsInvokeResponseArrayOutputWithContext(context.Context) LogSettingsInvokeResponseArrayOutput
+}
+
+type LogSettingsInvokeResponseArray []LogSettingsInvokeResponseInput
+
+func (LogSettingsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i LogSettingsInvokeResponseArray) ToLogSettingsInvokeResponseArrayOutput() LogSettingsInvokeResponseArrayOutput {
+	return i.ToLogSettingsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LogSettingsInvokeResponseArray) ToLogSettingsInvokeResponseArrayOutputWithContext(ctx context.Context) LogSettingsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsInvokeResponseArrayOutput)
+}
+
+// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
+type LogSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LogSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o LogSettingsInvokeResponseOutput) ToLogSettingsInvokeResponseOutput() LogSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o LogSettingsInvokeResponseOutput) ToLogSettingsInvokeResponseOutputWithContext(ctx context.Context) LogSettingsInvokeResponseOutput {
+	return o
+}
+
+// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+func (o LogSettingsInvokeResponseOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogSettingsInvokeResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// a value indicating whether this log is enabled.
+func (o LogSettingsInvokeResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LogSettingsInvokeResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// the retention policy for this log.
+func (o LogSettingsInvokeResponseOutput) RetentionPolicy() RetentionPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LogSettingsInvokeResponse) *RetentionPolicyInvokeResponse { return v.RetentionPolicy }).(RetentionPolicyInvokeResponsePtrOutput)
+}
+
+type LogSettingsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LogSettingsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o LogSettingsInvokeResponseArrayOutput) ToLogSettingsInvokeResponseArrayOutput() LogSettingsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LogSettingsInvokeResponseArrayOutput) ToLogSettingsInvokeResponseArrayOutputWithContext(ctx context.Context) LogSettingsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LogSettingsInvokeResponseArrayOutput) Index(i pulumi.IntInput) LogSettingsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogSettingsInvokeResponse {
+		return vs[0].([]LogSettingsInvokeResponse)[vs[1].(int)]
+	}).(LogSettingsInvokeResponseOutput)
+}
+
+// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
 type LogSettingsResponse struct {
 	// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
 	Category *string `pulumi:"category"`
@@ -371,6 +489,133 @@ func (o MetricSettingsArrayOutput) Index(i pulumi.IntInput) MetricSettingsOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricSettings {
 		return vs[0].([]MetricSettings)[vs[1].(int)]
 	}).(MetricSettingsOutput)
+}
+
+// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+type MetricSettingsInvokeResponse struct {
+	// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+	Category *string `pulumi:"category"`
+	// a value indicating whether this category is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// the retention policy for this category.
+	RetentionPolicy *RetentionPolicyInvokeResponse `pulumi:"retentionPolicy"`
+	// the timegrain of the metric in ISO8601 format.
+	TimeGrain *string `pulumi:"timeGrain"`
+}
+
+// MetricSettingsInvokeResponseInput is an input type that accepts MetricSettingsInvokeResponseArgs and MetricSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `MetricSettingsInvokeResponseInput` via:
+//
+//          MetricSettingsInvokeResponseArgs{...}
+type MetricSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMetricSettingsInvokeResponseOutput() MetricSettingsInvokeResponseOutput
+	ToMetricSettingsInvokeResponseOutputWithContext(context.Context) MetricSettingsInvokeResponseOutput
+}
+
+// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+type MetricSettingsInvokeResponseArgs struct {
+	// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// a value indicating whether this category is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// the retention policy for this category.
+	RetentionPolicy RetentionPolicyInvokeResponsePtrInput `pulumi:"retentionPolicy"`
+	// the timegrain of the metric in ISO8601 format.
+	TimeGrain pulumi.StringPtrInput `pulumi:"timeGrain"`
+}
+
+func (MetricSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i MetricSettingsInvokeResponseArgs) ToMetricSettingsInvokeResponseOutput() MetricSettingsInvokeResponseOutput {
+	return i.ToMetricSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MetricSettingsInvokeResponseArgs) ToMetricSettingsInvokeResponseOutputWithContext(ctx context.Context) MetricSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricSettingsInvokeResponseOutput)
+}
+
+// MetricSettingsInvokeResponseArrayInput is an input type that accepts MetricSettingsInvokeResponseArray and MetricSettingsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MetricSettingsInvokeResponseArrayInput` via:
+//
+//          MetricSettingsInvokeResponseArray{ MetricSettingsInvokeResponseArgs{...} }
+type MetricSettingsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMetricSettingsInvokeResponseArrayOutput() MetricSettingsInvokeResponseArrayOutput
+	ToMetricSettingsInvokeResponseArrayOutputWithContext(context.Context) MetricSettingsInvokeResponseArrayOutput
+}
+
+type MetricSettingsInvokeResponseArray []MetricSettingsInvokeResponseInput
+
+func (MetricSettingsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i MetricSettingsInvokeResponseArray) ToMetricSettingsInvokeResponseArrayOutput() MetricSettingsInvokeResponseArrayOutput {
+	return i.ToMetricSettingsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MetricSettingsInvokeResponseArray) ToMetricSettingsInvokeResponseArrayOutputWithContext(ctx context.Context) MetricSettingsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricSettingsInvokeResponseArrayOutput)
+}
+
+// Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
+type MetricSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MetricSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o MetricSettingsInvokeResponseOutput) ToMetricSettingsInvokeResponseOutput() MetricSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o MetricSettingsInvokeResponseOutput) ToMetricSettingsInvokeResponseOutputWithContext(ctx context.Context) MetricSettingsInvokeResponseOutput {
+	return o
+}
+
+// Name of a Diagnostic Metric category for a resource type this setting is applied to. To obtain the list of Diagnostic metric categories for a resource, first perform a GET diagnostic settings operation.
+func (o MetricSettingsInvokeResponseOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricSettingsInvokeResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// a value indicating whether this category is enabled.
+func (o MetricSettingsInvokeResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v MetricSettingsInvokeResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// the retention policy for this category.
+func (o MetricSettingsInvokeResponseOutput) RetentionPolicy() RetentionPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MetricSettingsInvokeResponse) *RetentionPolicyInvokeResponse { return v.RetentionPolicy }).(RetentionPolicyInvokeResponsePtrOutput)
+}
+
+// the timegrain of the metric in ISO8601 format.
+func (o MetricSettingsInvokeResponseOutput) TimeGrain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricSettingsInvokeResponse) *string { return v.TimeGrain }).(pulumi.StringPtrOutput)
+}
+
+type MetricSettingsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricSettingsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o MetricSettingsInvokeResponseArrayOutput) ToMetricSettingsInvokeResponseArrayOutput() MetricSettingsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MetricSettingsInvokeResponseArrayOutput) ToMetricSettingsInvokeResponseArrayOutputWithContext(ctx context.Context) MetricSettingsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MetricSettingsInvokeResponseArrayOutput) Index(i pulumi.IntInput) MetricSettingsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricSettingsInvokeResponse {
+		return vs[0].([]MetricSettingsInvokeResponse)[vs[1].(int)]
+	}).(MetricSettingsInvokeResponseOutput)
 }
 
 // Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular metric.
@@ -654,6 +899,159 @@ func (o RetentionPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Specifies the retention policy for the log.
+type RetentionPolicyInvokeResponse struct {
+	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+	Days int `pulumi:"days"`
+	// a value indicating whether the retention policy is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// RetentionPolicyInvokeResponseInput is an input type that accepts RetentionPolicyInvokeResponseArgs and RetentionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `RetentionPolicyInvokeResponseInput` via:
+//
+//          RetentionPolicyInvokeResponseArgs{...}
+type RetentionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRetentionPolicyInvokeResponseOutput() RetentionPolicyInvokeResponseOutput
+	ToRetentionPolicyInvokeResponseOutputWithContext(context.Context) RetentionPolicyInvokeResponseOutput
+}
+
+// Specifies the retention policy for the log.
+type RetentionPolicyInvokeResponseArgs struct {
+	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+	Days pulumi.IntInput `pulumi:"days"`
+	// a value indicating whether the retention policy is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (RetentionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i RetentionPolicyInvokeResponseArgs) ToRetentionPolicyInvokeResponseOutput() RetentionPolicyInvokeResponseOutput {
+	return i.ToRetentionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RetentionPolicyInvokeResponseArgs) ToRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyInvokeResponseOutput)
+}
+
+func (i RetentionPolicyInvokeResponseArgs) ToRetentionPolicyInvokeResponsePtrOutput() RetentionPolicyInvokeResponsePtrOutput {
+	return i.ToRetentionPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RetentionPolicyInvokeResponseArgs) ToRetentionPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyInvokeResponseOutput).ToRetentionPolicyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// RetentionPolicyInvokeResponsePtrInput is an input type that accepts RetentionPolicyInvokeResponseArgs, RetentionPolicyInvokeResponsePtr and RetentionPolicyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `RetentionPolicyInvokeResponsePtrInput` via:
+//
+//          RetentionPolicyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RetentionPolicyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToRetentionPolicyInvokeResponsePtrOutput() RetentionPolicyInvokeResponsePtrOutput
+	ToRetentionPolicyInvokeResponsePtrOutputWithContext(context.Context) RetentionPolicyInvokeResponsePtrOutput
+}
+
+type retentionPolicyInvokeResponsePtrType RetentionPolicyInvokeResponseArgs
+
+func RetentionPolicyInvokeResponsePtr(v *RetentionPolicyInvokeResponseArgs) RetentionPolicyInvokeResponsePtrInput {
+	return (*retentionPolicyInvokeResponsePtrType)(v)
+}
+
+func (*retentionPolicyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i *retentionPolicyInvokeResponsePtrType) ToRetentionPolicyInvokeResponsePtrOutput() RetentionPolicyInvokeResponsePtrOutput {
+	return i.ToRetentionPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *retentionPolicyInvokeResponsePtrType) ToRetentionPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyInvokeResponsePtrOutput)
+}
+
+// Specifies the retention policy for the log.
+type RetentionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RetentionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o RetentionPolicyInvokeResponseOutput) ToRetentionPolicyInvokeResponseOutput() RetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o RetentionPolicyInvokeResponseOutput) ToRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o RetentionPolicyInvokeResponseOutput) ToRetentionPolicyInvokeResponsePtrOutput() RetentionPolicyInvokeResponsePtrOutput {
+	return o.ToRetentionPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RetentionPolicyInvokeResponseOutput) ToRetentionPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RetentionPolicyInvokeResponse) *RetentionPolicyInvokeResponse {
+		return &v
+	}).(RetentionPolicyInvokeResponsePtrOutput)
+}
+
+// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+func (o RetentionPolicyInvokeResponseOutput) Days() pulumi.IntOutput {
+	return o.ApplyT(func(v RetentionPolicyInvokeResponse) int { return v.Days }).(pulumi.IntOutput)
+}
+
+// a value indicating whether the retention policy is enabled.
+func (o RetentionPolicyInvokeResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v RetentionPolicyInvokeResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type RetentionPolicyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RetentionPolicyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o RetentionPolicyInvokeResponsePtrOutput) ToRetentionPolicyInvokeResponsePtrOutput() RetentionPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RetentionPolicyInvokeResponsePtrOutput) ToRetentionPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RetentionPolicyInvokeResponsePtrOutput) Elem() RetentionPolicyInvokeResponseOutput {
+	return o.ApplyT(func(v *RetentionPolicyInvokeResponse) RetentionPolicyInvokeResponse { return *v }).(RetentionPolicyInvokeResponseOutput)
+}
+
+// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+func (o RetentionPolicyInvokeResponsePtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RetentionPolicyInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// a value indicating whether the retention policy is enabled.
+func (o RetentionPolicyInvokeResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RetentionPolicyInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the retention policy for the log.
 type RetentionPolicyResponse struct {
 	// the number of days for the retention in days. A value of 0 will retain the events indefinitely.
 	Days int `pulumi:"days"`
@@ -916,6 +1314,115 @@ func (o SubscriptionLogSettingsArrayOutput) Index(i pulumi.IntInput) Subscriptio
 }
 
 // Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+type SubscriptionLogSettingsInvokeResponse struct {
+	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
+	Category *string `pulumi:"category"`
+	// a value indicating whether this log is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// SubscriptionLogSettingsInvokeResponseInput is an input type that accepts SubscriptionLogSettingsInvokeResponseArgs and SubscriptionLogSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `SubscriptionLogSettingsInvokeResponseInput` via:
+//
+//          SubscriptionLogSettingsInvokeResponseArgs{...}
+type SubscriptionLogSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubscriptionLogSettingsInvokeResponseOutput() SubscriptionLogSettingsInvokeResponseOutput
+	ToSubscriptionLogSettingsInvokeResponseOutputWithContext(context.Context) SubscriptionLogSettingsInvokeResponseOutput
+}
+
+// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+type SubscriptionLogSettingsInvokeResponseArgs struct {
+	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// a value indicating whether this log is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (SubscriptionLogSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionLogSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i SubscriptionLogSettingsInvokeResponseArgs) ToSubscriptionLogSettingsInvokeResponseOutput() SubscriptionLogSettingsInvokeResponseOutput {
+	return i.ToSubscriptionLogSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubscriptionLogSettingsInvokeResponseArgs) ToSubscriptionLogSettingsInvokeResponseOutputWithContext(ctx context.Context) SubscriptionLogSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionLogSettingsInvokeResponseOutput)
+}
+
+// SubscriptionLogSettingsInvokeResponseArrayInput is an input type that accepts SubscriptionLogSettingsInvokeResponseArray and SubscriptionLogSettingsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SubscriptionLogSettingsInvokeResponseArrayInput` via:
+//
+//          SubscriptionLogSettingsInvokeResponseArray{ SubscriptionLogSettingsInvokeResponseArgs{...} }
+type SubscriptionLogSettingsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSubscriptionLogSettingsInvokeResponseArrayOutput() SubscriptionLogSettingsInvokeResponseArrayOutput
+	ToSubscriptionLogSettingsInvokeResponseArrayOutputWithContext(context.Context) SubscriptionLogSettingsInvokeResponseArrayOutput
+}
+
+type SubscriptionLogSettingsInvokeResponseArray []SubscriptionLogSettingsInvokeResponseInput
+
+func (SubscriptionLogSettingsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionLogSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i SubscriptionLogSettingsInvokeResponseArray) ToSubscriptionLogSettingsInvokeResponseArrayOutput() SubscriptionLogSettingsInvokeResponseArrayOutput {
+	return i.ToSubscriptionLogSettingsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SubscriptionLogSettingsInvokeResponseArray) ToSubscriptionLogSettingsInvokeResponseArrayOutputWithContext(ctx context.Context) SubscriptionLogSettingsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionLogSettingsInvokeResponseArrayOutput)
+}
+
+// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
+type SubscriptionLogSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionLogSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionLogSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SubscriptionLogSettingsInvokeResponseOutput) ToSubscriptionLogSettingsInvokeResponseOutput() SubscriptionLogSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SubscriptionLogSettingsInvokeResponseOutput) ToSubscriptionLogSettingsInvokeResponseOutputWithContext(ctx context.Context) SubscriptionLogSettingsInvokeResponseOutput {
+	return o
+}
+
+// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
+func (o SubscriptionLogSettingsInvokeResponseOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionLogSettingsInvokeResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// a value indicating whether this log is enabled.
+func (o SubscriptionLogSettingsInvokeResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SubscriptionLogSettingsInvokeResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type SubscriptionLogSettingsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionLogSettingsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriptionLogSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SubscriptionLogSettingsInvokeResponseArrayOutput) ToSubscriptionLogSettingsInvokeResponseArrayOutput() SubscriptionLogSettingsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SubscriptionLogSettingsInvokeResponseArrayOutput) ToSubscriptionLogSettingsInvokeResponseArrayOutputWithContext(ctx context.Context) SubscriptionLogSettingsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SubscriptionLogSettingsInvokeResponseArrayOutput) Index(i pulumi.IntInput) SubscriptionLogSettingsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriptionLogSettingsInvokeResponse {
+		return vs[0].([]SubscriptionLogSettingsInvokeResponse)[vs[1].(int)]
+	}).(SubscriptionLogSettingsInvokeResponseOutput)
+}
+
+// Part of Subscription diagnostic setting. Specifies the settings for a particular log.
 type SubscriptionLogSettingsResponse struct {
 	// Name of a Subscription Diagnostic Log category for a resource type this setting is applied to.
 	Category *string `pulumi:"category"`
@@ -1027,18 +1534,26 @@ func (o SubscriptionLogSettingsResponseArrayOutput) Index(i pulumi.IntInput) Sub
 func init() {
 	pulumi.RegisterOutputType(LogSettingsOutput{})
 	pulumi.RegisterOutputType(LogSettingsArrayOutput{})
+	pulumi.RegisterOutputType(LogSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LogSettingsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LogSettingsResponseOutput{})
 	pulumi.RegisterOutputType(LogSettingsResponseArrayOutput{})
 	pulumi.RegisterOutputType(MetricSettingsOutput{})
 	pulumi.RegisterOutputType(MetricSettingsArrayOutput{})
+	pulumi.RegisterOutputType(MetricSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MetricSettingsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MetricSettingsResponseOutput{})
 	pulumi.RegisterOutputType(MetricSettingsResponseArrayOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RetentionPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RetentionPolicyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionLogSettingsOutput{})
 	pulumi.RegisterOutputType(SubscriptionLogSettingsArrayOutput{})
+	pulumi.RegisterOutputType(SubscriptionLogSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SubscriptionLogSettingsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionLogSettingsResponseOutput{})
 	pulumi.RegisterOutputType(SubscriptionLogSettingsResponseArrayOutput{})
 }

@@ -28,5 +28,5 @@ type GetGlobalUserEnvironmentArgs struct {
 // Represents the environments details
 type GetGlobalUserEnvironmentResult struct {
 	// Details of the environment
-	Environment EnvironmentDetailsResponse `pulumi:"environment"`
+	Environment EnvironmentDetailsInvokeResponse `pulumi:"environment"`
 }

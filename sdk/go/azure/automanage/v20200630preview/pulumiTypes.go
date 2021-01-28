@@ -145,6 +145,79 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Identity for the Automanage account.
+type AccountIdentityInvokeResponse struct {
+	// The principal id of Automanage account identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id associated with the Automanage account.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+	Type *string `pulumi:"type"`
+}
+
+// AccountIdentityInvokeResponseInput is an input type that accepts AccountIdentityInvokeResponseArgs and AccountIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `AccountIdentityInvokeResponseInput` via:
+//
+//          AccountIdentityInvokeResponseArgs{...}
+type AccountIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAccountIdentityInvokeResponseOutput() AccountIdentityInvokeResponseOutput
+	ToAccountIdentityInvokeResponseOutputWithContext(context.Context) AccountIdentityInvokeResponseOutput
+}
+
+// Identity for the Automanage account.
+type AccountIdentityInvokeResponseArgs struct {
+	// The principal id of Automanage account identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id associated with the Automanage account.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (AccountIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i AccountIdentityInvokeResponseArgs) ToAccountIdentityInvokeResponseOutput() AccountIdentityInvokeResponseOutput {
+	return i.ToAccountIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AccountIdentityInvokeResponseArgs) ToAccountIdentityInvokeResponseOutputWithContext(ctx context.Context) AccountIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityInvokeResponseOutput)
+}
+
+// Identity for the Automanage account.
+type AccountIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AccountIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o AccountIdentityInvokeResponseOutput) ToAccountIdentityInvokeResponseOutput() AccountIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o AccountIdentityInvokeResponseOutput) ToAccountIdentityInvokeResponseOutputWithContext(ctx context.Context) AccountIdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal id of Automanage account identity.
+func (o AccountIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id associated with the Automanage account.
+func (o AccountIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+func (o AccountIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Identity for the Automanage account.
 type AccountIdentityResponse struct {
 	// The principal id of Automanage account identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -313,6 +386,142 @@ func (o AccountIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The compliance status for the configuration profile assignment.
+type ConfigurationProfileAssignmentComplianceInvokeResponse struct {
+	// The state of compliance, which only appears in the response.
+	UpdateStatus string `pulumi:"updateStatus"`
+}
+
+// ConfigurationProfileAssignmentComplianceInvokeResponseInput is an input type that accepts ConfigurationProfileAssignmentComplianceInvokeResponseArgs and ConfigurationProfileAssignmentComplianceInvokeResponseOutput values.
+// You can construct a concrete instance of `ConfigurationProfileAssignmentComplianceInvokeResponseInput` via:
+//
+//          ConfigurationProfileAssignmentComplianceInvokeResponseArgs{...}
+type ConfigurationProfileAssignmentComplianceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileAssignmentComplianceInvokeResponseOutput() ConfigurationProfileAssignmentComplianceInvokeResponseOutput
+	ToConfigurationProfileAssignmentComplianceInvokeResponseOutputWithContext(context.Context) ConfigurationProfileAssignmentComplianceInvokeResponseOutput
+}
+
+// The compliance status for the configuration profile assignment.
+type ConfigurationProfileAssignmentComplianceInvokeResponseArgs struct {
+	// The state of compliance, which only appears in the response.
+	UpdateStatus pulumi.StringInput `pulumi:"updateStatus"`
+}
+
+func (ConfigurationProfileAssignmentComplianceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignmentComplianceInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfigurationProfileAssignmentComplianceInvokeResponseArgs) ToConfigurationProfileAssignmentComplianceInvokeResponseOutput() ConfigurationProfileAssignmentComplianceInvokeResponseOutput {
+	return i.ToConfigurationProfileAssignmentComplianceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfileAssignmentComplianceInvokeResponseArgs) ToConfigurationProfileAssignmentComplianceInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentComplianceInvokeResponseOutput)
+}
+
+func (i ConfigurationProfileAssignmentComplianceInvokeResponseArgs) ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput() ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput {
+	return i.ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfileAssignmentComplianceInvokeResponseArgs) ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentComplianceInvokeResponseOutput).ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ConfigurationProfileAssignmentComplianceInvokeResponsePtrInput is an input type that accepts ConfigurationProfileAssignmentComplianceInvokeResponseArgs, ConfigurationProfileAssignmentComplianceInvokeResponsePtr and ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ConfigurationProfileAssignmentComplianceInvokeResponsePtrInput` via:
+//
+//          ConfigurationProfileAssignmentComplianceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationProfileAssignmentComplianceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput() ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput
+	ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutputWithContext(context.Context) ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput
+}
+
+type configurationProfileAssignmentComplianceInvokeResponsePtrType ConfigurationProfileAssignmentComplianceInvokeResponseArgs
+
+func ConfigurationProfileAssignmentComplianceInvokeResponsePtr(v *ConfigurationProfileAssignmentComplianceInvokeResponseArgs) ConfigurationProfileAssignmentComplianceInvokeResponsePtrInput {
+	return (*configurationProfileAssignmentComplianceInvokeResponsePtrType)(v)
+}
+
+func (*configurationProfileAssignmentComplianceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfileAssignmentComplianceInvokeResponse)(nil)).Elem()
+}
+
+func (i *configurationProfileAssignmentComplianceInvokeResponsePtrType) ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput() ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput {
+	return i.ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationProfileAssignmentComplianceInvokeResponsePtrType) ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput)
+}
+
+// The compliance status for the configuration profile assignment.
+type ConfigurationProfileAssignmentComplianceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfileAssignmentComplianceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignmentComplianceInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfileAssignmentComplianceInvokeResponseOutput) ToConfigurationProfileAssignmentComplianceInvokeResponseOutput() ConfigurationProfileAssignmentComplianceInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentComplianceInvokeResponseOutput) ToConfigurationProfileAssignmentComplianceInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentComplianceInvokeResponseOutput) ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput() ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput {
+	return o.ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfileAssignmentComplianceInvokeResponseOutput) ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentComplianceInvokeResponse) *ConfigurationProfileAssignmentComplianceInvokeResponse {
+		return &v
+	}).(ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput)
+}
+
+// The state of compliance, which only appears in the response.
+func (o ConfigurationProfileAssignmentComplianceInvokeResponseOutput) UpdateStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentComplianceInvokeResponse) string { return v.UpdateStatus }).(pulumi.StringOutput)
+}
+
+type ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfileAssignmentComplianceInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput) ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput() ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput) ToConfigurationProfileAssignmentComplianceInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput) Elem() ConfigurationProfileAssignmentComplianceInvokeResponseOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentComplianceInvokeResponse) ConfigurationProfileAssignmentComplianceInvokeResponse {
+		return *v
+	}).(ConfigurationProfileAssignmentComplianceInvokeResponseOutput)
+}
+
+// The state of compliance, which only appears in the response.
+func (o ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput) UpdateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentComplianceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpdateStatus
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -641,6 +850,110 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) TargetId() pulumi.Str
 		}
 		return v.TargetId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Automanage configuration profile assignment properties.
+type ConfigurationProfileAssignmentPropertiesInvokeResponse struct {
+	// The Automanage account ARM Resource URI
+	AccountId *string `pulumi:"accountId"`
+	// The configuration setting for the configuration profile.
+	Compliance *ConfigurationProfileAssignmentComplianceInvokeResponse `pulumi:"compliance"`
+	// A value indicating configuration profile.
+	ConfigurationProfile *string `pulumi:"configurationProfile"`
+	// The configuration profile custom preferences ARM resource URI
+	ConfigurationProfilePreferenceId *string `pulumi:"configurationProfilePreferenceId"`
+	// The state of onboarding, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The target VM resource URI
+	TargetId *string `pulumi:"targetId"`
+}
+
+// ConfigurationProfileAssignmentPropertiesInvokeResponseInput is an input type that accepts ConfigurationProfileAssignmentPropertiesInvokeResponseArgs and ConfigurationProfileAssignmentPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ConfigurationProfileAssignmentPropertiesInvokeResponseInput` via:
+//
+//          ConfigurationProfileAssignmentPropertiesInvokeResponseArgs{...}
+type ConfigurationProfileAssignmentPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileAssignmentPropertiesInvokeResponseOutput() ConfigurationProfileAssignmentPropertiesInvokeResponseOutput
+	ToConfigurationProfileAssignmentPropertiesInvokeResponseOutputWithContext(context.Context) ConfigurationProfileAssignmentPropertiesInvokeResponseOutput
+}
+
+// Automanage configuration profile assignment properties.
+type ConfigurationProfileAssignmentPropertiesInvokeResponseArgs struct {
+	// The Automanage account ARM Resource URI
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// The configuration setting for the configuration profile.
+	Compliance ConfigurationProfileAssignmentComplianceInvokeResponsePtrInput `pulumi:"compliance"`
+	// A value indicating configuration profile.
+	ConfigurationProfile pulumi.StringPtrInput `pulumi:"configurationProfile"`
+	// The configuration profile custom preferences ARM resource URI
+	ConfigurationProfilePreferenceId pulumi.StringPtrInput `pulumi:"configurationProfilePreferenceId"`
+	// The state of onboarding, which only appears in the response.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The target VM resource URI
+	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
+}
+
+func (ConfigurationProfileAssignmentPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfigurationProfileAssignmentPropertiesInvokeResponseArgs) ToConfigurationProfileAssignmentPropertiesInvokeResponseOutput() ConfigurationProfileAssignmentPropertiesInvokeResponseOutput {
+	return i.ToConfigurationProfileAssignmentPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfileAssignmentPropertiesInvokeResponseArgs) ToConfigurationProfileAssignmentPropertiesInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentPropertiesInvokeResponseOutput)
+}
+
+// Automanage configuration profile assignment properties.
+type ConfigurationProfileAssignmentPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfileAssignmentPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfileAssignmentPropertiesInvokeResponseOutput) ToConfigurationProfileAssignmentPropertiesInvokeResponseOutput() ConfigurationProfileAssignmentPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentPropertiesInvokeResponseOutput) ToConfigurationProfileAssignmentPropertiesInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The Automanage account ARM Resource URI
+func (o ConfigurationProfileAssignmentPropertiesInvokeResponseOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesInvokeResponse) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// The configuration setting for the configuration profile.
+func (o ConfigurationProfileAssignmentPropertiesInvokeResponseOutput) Compliance() ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesInvokeResponse) *ConfigurationProfileAssignmentComplianceInvokeResponse {
+		return v.Compliance
+	}).(ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput)
+}
+
+// A value indicating configuration profile.
+func (o ConfigurationProfileAssignmentPropertiesInvokeResponseOutput) ConfigurationProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesInvokeResponse) *string { return v.ConfigurationProfile }).(pulumi.StringPtrOutput)
+}
+
+// The configuration profile custom preferences ARM resource URI
+func (o ConfigurationProfileAssignmentPropertiesInvokeResponseOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesInvokeResponse) *string {
+		return v.ConfigurationProfilePreferenceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of onboarding, which only appears in the response.
+func (o ConfigurationProfileAssignmentPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The target VM resource URI
+func (o ConfigurationProfileAssignmentPropertiesInvokeResponseOutput) TargetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesInvokeResponse) *string { return v.TargetId }).(pulumi.StringPtrOutput)
 }
 
 // Automanage configuration profile assignment properties.
@@ -1110,6 +1423,239 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) ScanType() pulumi.St
 }
 
 // Automanage configuration profile Antimalware preferences.
+type ConfigurationProfilePreferenceAntiMalwareInvokeResponse struct {
+	// Enables or disables Real Time Protection
+	EnableRealTimeProtection *string `pulumi:"enableRealTimeProtection"`
+	// Extensions, Paths and Processes that must be excluded from scan
+	Exclusions interface{} `pulumi:"exclusions"`
+	// Enables or disables a periodic scan for antimalware
+	RunScheduledScan *string `pulumi:"runScheduledScan"`
+	// Schedule scan settings day
+	ScanDay *string `pulumi:"scanDay"`
+	// Schedule scan settings time
+	ScanTimeInMinutes *string `pulumi:"scanTimeInMinutes"`
+	// Type of scheduled scan
+	ScanType *string `pulumi:"scanType"`
+}
+
+// ConfigurationProfilePreferenceAntiMalwareInvokeResponseInput is an input type that accepts ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs and ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput values.
+// You can construct a concrete instance of `ConfigurationProfilePreferenceAntiMalwareInvokeResponseInput` via:
+//
+//          ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs{...}
+type ConfigurationProfilePreferenceAntiMalwareInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput() ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput
+	ToConfigurationProfilePreferenceAntiMalwareInvokeResponseOutputWithContext(context.Context) ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput
+}
+
+// Automanage configuration profile Antimalware preferences.
+type ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs struct {
+	// Enables or disables Real Time Protection
+	EnableRealTimeProtection pulumi.StringPtrInput `pulumi:"enableRealTimeProtection"`
+	// Extensions, Paths and Processes that must be excluded from scan
+	Exclusions pulumi.Input `pulumi:"exclusions"`
+	// Enables or disables a periodic scan for antimalware
+	RunScheduledScan pulumi.StringPtrInput `pulumi:"runScheduledScan"`
+	// Schedule scan settings day
+	ScanDay pulumi.StringPtrInput `pulumi:"scanDay"`
+	// Schedule scan settings time
+	ScanTimeInMinutes pulumi.StringPtrInput `pulumi:"scanTimeInMinutes"`
+	// Type of scheduled scan
+	ScanType pulumi.StringPtrInput `pulumi:"scanType"`
+}
+
+func (ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfilePreferenceAntiMalwareInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs) ToConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput() ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput {
+	return i.ToConfigurationProfilePreferenceAntiMalwareInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs) ToConfigurationProfilePreferenceAntiMalwareInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput)
+}
+
+func (i ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs) ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput() ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput {
+	return i.ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs) ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput).ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrInput is an input type that accepts ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs, ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtr and ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrInput` via:
+//
+//          ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput() ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput
+	ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutputWithContext(context.Context) ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput
+}
+
+type configurationProfilePreferenceAntiMalwareInvokeResponsePtrType ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs
+
+func ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtr(v *ConfigurationProfilePreferenceAntiMalwareInvokeResponseArgs) ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrInput {
+	return (*configurationProfilePreferenceAntiMalwareInvokeResponsePtrType)(v)
+}
+
+func (*configurationProfilePreferenceAntiMalwareInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfilePreferenceAntiMalwareInvokeResponse)(nil)).Elem()
+}
+
+func (i *configurationProfilePreferenceAntiMalwareInvokeResponsePtrType) ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput() ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput {
+	return i.ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationProfilePreferenceAntiMalwareInvokeResponsePtrType) ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput)
+}
+
+// Automanage configuration profile Antimalware preferences.
+type ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfilePreferenceAntiMalwareInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) ToConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput() ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) ToConfigurationProfilePreferenceAntiMalwareInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput() ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput {
+	return o.ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *ConfigurationProfilePreferenceAntiMalwareInvokeResponse {
+		return &v
+	}).(ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput)
+}
+
+// Enables or disables Real Time Protection
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) EnableRealTimeProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *string {
+		return v.EnableRealTimeProtection
+	}).(pulumi.StringPtrOutput)
+}
+
+// Extensions, Paths and Processes that must be excluded from scan
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) Exclusions() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareInvokeResponse) interface{} { return v.Exclusions }).(pulumi.AnyOutput)
+}
+
+// Enables or disables a periodic scan for antimalware
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) RunScheduledScan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *string { return v.RunScheduledScan }).(pulumi.StringPtrOutput)
+}
+
+// Schedule scan settings day
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) ScanDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *string { return v.ScanDay }).(pulumi.StringPtrOutput)
+}
+
+// Schedule scan settings time
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) ScanTimeInMinutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *string { return v.ScanTimeInMinutes }).(pulumi.StringPtrOutput)
+}
+
+// Type of scheduled scan
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput) ScanType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *string { return v.ScanType }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfilePreferenceAntiMalwareInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput) ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput() ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput) ToConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput) Elem() ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareInvokeResponse) ConfigurationProfilePreferenceAntiMalwareInvokeResponse {
+		return *v
+	}).(ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput)
+}
+
+// Enables or disables Real Time Protection
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput) EnableRealTimeProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnableRealTimeProtection
+	}).(pulumi.StringPtrOutput)
+}
+
+// Extensions, Paths and Processes that must be excluded from scan
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput) Exclusions() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareInvokeResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Exclusions
+	}).(pulumi.AnyOutput)
+}
+
+// Enables or disables a periodic scan for antimalware
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput) RunScheduledScan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunScheduledScan
+	}).(pulumi.StringPtrOutput)
+}
+
+// Schedule scan settings day
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput) ScanDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScanDay
+	}).(pulumi.StringPtrOutput)
+}
+
+// Schedule scan settings time
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput) ScanTimeInMinutes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScanTimeInMinutes
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of scheduled scan
+func (o ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput) ScanType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScanType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Automanage configuration profile Antimalware preferences.
 type ConfigurationProfilePreferenceAntiMalwareResponse struct {
 	// Enables or disables Real Time Protection
 	EnableRealTimeProtection *string `pulumi:"enableRealTimeProtection"`
@@ -1498,6 +2044,74 @@ func (o ConfigurationProfilePreferencePropertiesPtrOutput) VmBackup() Configurat
 }
 
 // Automanage configuration profile preference properties.
+type ConfigurationProfilePreferencePropertiesInvokeResponse struct {
+	// The custom preferences for Azure Antimalware.
+	AntiMalware *ConfigurationProfilePreferenceAntiMalwareInvokeResponse `pulumi:"antiMalware"`
+	// The custom preferences for Azure VM Backup.
+	VmBackup *ConfigurationProfilePreferenceVmBackupInvokeResponse `pulumi:"vmBackup"`
+}
+
+// ConfigurationProfilePreferencePropertiesInvokeResponseInput is an input type that accepts ConfigurationProfilePreferencePropertiesInvokeResponseArgs and ConfigurationProfilePreferencePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ConfigurationProfilePreferencePropertiesInvokeResponseInput` via:
+//
+//          ConfigurationProfilePreferencePropertiesInvokeResponseArgs{...}
+type ConfigurationProfilePreferencePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationProfilePreferencePropertiesInvokeResponseOutput() ConfigurationProfilePreferencePropertiesInvokeResponseOutput
+	ToConfigurationProfilePreferencePropertiesInvokeResponseOutputWithContext(context.Context) ConfigurationProfilePreferencePropertiesInvokeResponseOutput
+}
+
+// Automanage configuration profile preference properties.
+type ConfigurationProfilePreferencePropertiesInvokeResponseArgs struct {
+	// The custom preferences for Azure Antimalware.
+	AntiMalware ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrInput `pulumi:"antiMalware"`
+	// The custom preferences for Azure VM Backup.
+	VmBackup ConfigurationProfilePreferenceVmBackupInvokeResponsePtrInput `pulumi:"vmBackup"`
+}
+
+func (ConfigurationProfilePreferencePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfilePreferencePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfigurationProfilePreferencePropertiesInvokeResponseArgs) ToConfigurationProfilePreferencePropertiesInvokeResponseOutput() ConfigurationProfilePreferencePropertiesInvokeResponseOutput {
+	return i.ToConfigurationProfilePreferencePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfilePreferencePropertiesInvokeResponseArgs) ToConfigurationProfilePreferencePropertiesInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferencePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferencePropertiesInvokeResponseOutput)
+}
+
+// Automanage configuration profile preference properties.
+type ConfigurationProfilePreferencePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfilePreferencePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfilePreferencePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfilePreferencePropertiesInvokeResponseOutput) ToConfigurationProfilePreferencePropertiesInvokeResponseOutput() ConfigurationProfilePreferencePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfilePreferencePropertiesInvokeResponseOutput) ToConfigurationProfilePreferencePropertiesInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferencePropertiesInvokeResponseOutput {
+	return o
+}
+
+// The custom preferences for Azure Antimalware.
+func (o ConfigurationProfilePreferencePropertiesInvokeResponseOutput) AntiMalware() ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferencePropertiesInvokeResponse) *ConfigurationProfilePreferenceAntiMalwareInvokeResponse {
+		return v.AntiMalware
+	}).(ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput)
+}
+
+// The custom preferences for Azure VM Backup.
+func (o ConfigurationProfilePreferencePropertiesInvokeResponseOutput) VmBackup() ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferencePropertiesInvokeResponse) *ConfigurationProfilePreferenceVmBackupInvokeResponse {
+		return v.VmBackup
+	}).(ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput)
+}
+
+// Automanage configuration profile preference properties.
 type ConfigurationProfilePreferencePropertiesResponse struct {
 	// The custom preferences for Azure Antimalware.
 	AntiMalware *ConfigurationProfilePreferenceAntiMalwareResponse `pulumi:"antiMalware"`
@@ -1848,6 +2462,201 @@ func (o ConfigurationProfilePreferenceVmBackupPtrOutput) TimeZone() pulumi.Strin
 }
 
 // Automanage configuration profile VM Backup preferences.
+type ConfigurationProfilePreferenceVmBackupInvokeResponse struct {
+	// Instant RP retention policy range in days
+	InstantRpRetentionRangeInDays *int `pulumi:"instantRpRetentionRangeInDays"`
+	// Retention policy with the details on backup copy retention ranges.
+	RetentionPolicy *string `pulumi:"retentionPolicy"`
+	// Backup schedule specified as part of backup policy.
+	SchedulePolicy *string `pulumi:"schedulePolicy"`
+	// TimeZone optional input as string. For example: Pacific Standard Time
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// ConfigurationProfilePreferenceVmBackupInvokeResponseInput is an input type that accepts ConfigurationProfilePreferenceVmBackupInvokeResponseArgs and ConfigurationProfilePreferenceVmBackupInvokeResponseOutput values.
+// You can construct a concrete instance of `ConfigurationProfilePreferenceVmBackupInvokeResponseInput` via:
+//
+//          ConfigurationProfilePreferenceVmBackupInvokeResponseArgs{...}
+type ConfigurationProfilePreferenceVmBackupInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationProfilePreferenceVmBackupInvokeResponseOutput() ConfigurationProfilePreferenceVmBackupInvokeResponseOutput
+	ToConfigurationProfilePreferenceVmBackupInvokeResponseOutputWithContext(context.Context) ConfigurationProfilePreferenceVmBackupInvokeResponseOutput
+}
+
+// Automanage configuration profile VM Backup preferences.
+type ConfigurationProfilePreferenceVmBackupInvokeResponseArgs struct {
+	// Instant RP retention policy range in days
+	InstantRpRetentionRangeInDays pulumi.IntPtrInput `pulumi:"instantRpRetentionRangeInDays"`
+	// Retention policy with the details on backup copy retention ranges.
+	RetentionPolicy pulumi.StringPtrInput `pulumi:"retentionPolicy"`
+	// Backup schedule specified as part of backup policy.
+	SchedulePolicy pulumi.StringPtrInput `pulumi:"schedulePolicy"`
+	// TimeZone optional input as string. For example: Pacific Standard Time
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (ConfigurationProfilePreferenceVmBackupInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfilePreferenceVmBackupInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfigurationProfilePreferenceVmBackupInvokeResponseArgs) ToConfigurationProfilePreferenceVmBackupInvokeResponseOutput() ConfigurationProfilePreferenceVmBackupInvokeResponseOutput {
+	return i.ToConfigurationProfilePreferenceVmBackupInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfilePreferenceVmBackupInvokeResponseArgs) ToConfigurationProfilePreferenceVmBackupInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceVmBackupInvokeResponseOutput)
+}
+
+func (i ConfigurationProfilePreferenceVmBackupInvokeResponseArgs) ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput() ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput {
+	return i.ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfilePreferenceVmBackupInvokeResponseArgs) ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceVmBackupInvokeResponseOutput).ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ConfigurationProfilePreferenceVmBackupInvokeResponsePtrInput is an input type that accepts ConfigurationProfilePreferenceVmBackupInvokeResponseArgs, ConfigurationProfilePreferenceVmBackupInvokeResponsePtr and ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ConfigurationProfilePreferenceVmBackupInvokeResponsePtrInput` via:
+//
+//          ConfigurationProfilePreferenceVmBackupInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationProfilePreferenceVmBackupInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput() ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput
+	ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutputWithContext(context.Context) ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput
+}
+
+type configurationProfilePreferenceVmBackupInvokeResponsePtrType ConfigurationProfilePreferenceVmBackupInvokeResponseArgs
+
+func ConfigurationProfilePreferenceVmBackupInvokeResponsePtr(v *ConfigurationProfilePreferenceVmBackupInvokeResponseArgs) ConfigurationProfilePreferenceVmBackupInvokeResponsePtrInput {
+	return (*configurationProfilePreferenceVmBackupInvokeResponsePtrType)(v)
+}
+
+func (*configurationProfilePreferenceVmBackupInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfilePreferenceVmBackupInvokeResponse)(nil)).Elem()
+}
+
+func (i *configurationProfilePreferenceVmBackupInvokeResponsePtrType) ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput() ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput {
+	return i.ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationProfilePreferenceVmBackupInvokeResponsePtrType) ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput)
+}
+
+// Automanage configuration profile VM Backup preferences.
+type ConfigurationProfilePreferenceVmBackupInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfilePreferenceVmBackupInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfilePreferenceVmBackupInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponseOutput) ToConfigurationProfilePreferenceVmBackupInvokeResponseOutput() ConfigurationProfilePreferenceVmBackupInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponseOutput) ToConfigurationProfilePreferenceVmBackupInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponseOutput) ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput() ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput {
+	return o.ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponseOutput) ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackupInvokeResponse) *ConfigurationProfilePreferenceVmBackupInvokeResponse {
+		return &v
+	}).(ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput)
+}
+
+// Instant RP retention policy range in days
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponseOutput) InstantRpRetentionRangeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackupInvokeResponse) *int {
+		return v.InstantRpRetentionRangeInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Retention policy with the details on backup copy retention ranges.
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponseOutput) RetentionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackupInvokeResponse) *string { return v.RetentionPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Backup schedule specified as part of backup policy.
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponseOutput) SchedulePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackupInvokeResponse) *string { return v.SchedulePolicy }).(pulumi.StringPtrOutput)
+}
+
+// TimeZone optional input as string. For example: Pacific Standard Time
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponseOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackupInvokeResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfilePreferenceVmBackupInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput) ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput() ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput) ToConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput) Elem() ConfigurationProfilePreferenceVmBackupInvokeResponseOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackupInvokeResponse) ConfigurationProfilePreferenceVmBackupInvokeResponse {
+		return *v
+	}).(ConfigurationProfilePreferenceVmBackupInvokeResponseOutput)
+}
+
+// Instant RP retention policy range in days
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput) InstantRpRetentionRangeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackupInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstantRpRetentionRangeInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Retention policy with the details on backup copy retention ranges.
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput) RetentionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackupInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Backup schedule specified as part of backup policy.
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput) SchedulePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackupInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchedulePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// TimeZone optional input as string. For example: Pacific Standard Time
+func (o ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackupInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Automanage configuration profile VM Backup preferences.
 type ConfigurationProfilePreferenceVmBackupResponse struct {
 	// Instant RP retention policy range in days
 	InstantRpRetentionRangeInDays *int `pulumi:"instantRpRetentionRangeInDays"`
@@ -2043,24 +2852,33 @@ func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) TimeZone() pulu
 func init() {
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
+	pulumi.RegisterOutputType(AccountIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AccountIdentityResponseOutput{})
 	pulumi.RegisterOutputType(AccountIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfileAssignmentComplianceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfileAssignmentComplianceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentComplianceResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentComplianceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceAntiMalwareOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceAntiMalwarePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfilePreferenceAntiMalwareInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfilePreferenceAntiMalwareInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceAntiMalwareResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferencePropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferencePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfilePreferencePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferencePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferencePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupResponsePtrOutput{})
 }

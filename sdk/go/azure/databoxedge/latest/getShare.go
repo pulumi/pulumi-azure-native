@@ -30,9 +30,9 @@ type LookupShareResult struct {
 	// Access protocol to be used by the share.
 	AccessProtocol string `pulumi:"accessProtocol"`
 	// Azure container mapping for the share.
-	AzureContainerInfo *AzureContainerInfoResponse `pulumi:"azureContainerInfo"`
+	AzureContainerInfo *AzureContainerInfoInvokeResponse `pulumi:"azureContainerInfo"`
 	// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-	ClientAccessRights []ClientAccessRightResponse `pulumi:"clientAccessRights"`
+	ClientAccessRights []ClientAccessRightInvokeResponse `pulumi:"clientAccessRights"`
 	// Data policy of the share.
 	DataPolicy *string `pulumi:"dataPolicy"`
 	// Description for the share.
@@ -44,15 +44,15 @@ type LookupShareResult struct {
 	// The object name.
 	Name string `pulumi:"name"`
 	// Details of the refresh job on this share.
-	RefreshDetails *RefreshDetailsResponse `pulumi:"refreshDetails"`
+	RefreshDetails *RefreshDetailsInvokeResponse `pulumi:"refreshDetails"`
 	// Share mount point to the role.
-	ShareMappings []MountPointMapResponse `pulumi:"shareMappings"`
+	ShareMappings []MountPointMapInvokeResponse `pulumi:"shareMappings"`
 	// Current status of the share.
 	ShareStatus string `pulumi:"shareStatus"`
 	// Share on ASE device
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 	// Mapping of users and corresponding access rights on the share (required for SMB protocol).
-	UserAccessRights []UserAccessRightResponse `pulumi:"userAccessRights"`
+	UserAccessRights []UserAccessRightInvokeResponse `pulumi:"userAccessRights"`
 }

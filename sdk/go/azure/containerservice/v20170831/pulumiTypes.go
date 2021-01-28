@@ -183,6 +183,187 @@ func (o ContainerServiceAgentPoolProfileArrayOutput) Index(i pulumi.IntInput) Co
 }
 
 // Profile for the container service agent pool.
+type ContainerServiceAgentPoolProfileInvokeResponse struct {
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+	Count *int `pulumi:"count"`
+	// DNS prefix to be used to create the FQDN for the agent pool.
+	DnsPrefix *string `pulumi:"dnsPrefix"`
+	// FQDN for the agent pool.
+	Fqdn string `pulumi:"fqdn"`
+	// Unique name of the agent pool profile in the context of the subscription and resource group.
+	Name string `pulumi:"name"`
+	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType *string `pulumi:"osType"`
+	// Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
+	Ports []int `pulumi:"ports"`
+	// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
+	StorageProfile *string `pulumi:"storageProfile"`
+	// Size of agent VMs.
+	VmSize string `pulumi:"vmSize"`
+	// VNet SubnetID specifies the VNet's subnet identifier.
+	VnetSubnetID *string `pulumi:"vnetSubnetID"`
+}
+
+// ContainerServiceAgentPoolProfileInvokeResponseInput is an input type that accepts ContainerServiceAgentPoolProfileInvokeResponseArgs and ContainerServiceAgentPoolProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerServiceAgentPoolProfileInvokeResponseInput` via:
+//
+//          ContainerServiceAgentPoolProfileInvokeResponseArgs{...}
+type ContainerServiceAgentPoolProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerServiceAgentPoolProfileInvokeResponseOutput() ContainerServiceAgentPoolProfileInvokeResponseOutput
+	ToContainerServiceAgentPoolProfileInvokeResponseOutputWithContext(context.Context) ContainerServiceAgentPoolProfileInvokeResponseOutput
+}
+
+// Profile for the container service agent pool.
+type ContainerServiceAgentPoolProfileInvokeResponseArgs struct {
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// DNS prefix to be used to create the FQDN for the agent pool.
+	DnsPrefix pulumi.StringPtrInput `pulumi:"dnsPrefix"`
+	// FQDN for the agent pool.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// Unique name of the agent pool profile in the context of the subscription and resource group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	OsDiskSizeGB pulumi.IntPtrInput `pulumi:"osDiskSizeGB"`
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
+	Ports pulumi.IntArrayInput `pulumi:"ports"`
+	// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
+	StorageProfile pulumi.StringPtrInput `pulumi:"storageProfile"`
+	// Size of agent VMs.
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+	// VNet SubnetID specifies the VNet's subnet identifier.
+	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
+}
+
+func (ContainerServiceAgentPoolProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceAgentPoolProfileInvokeResponseArgs) ToContainerServiceAgentPoolProfileInvokeResponseOutput() ContainerServiceAgentPoolProfileInvokeResponseOutput {
+	return i.ToContainerServiceAgentPoolProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceAgentPoolProfileInvokeResponseArgs) ToContainerServiceAgentPoolProfileInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceAgentPoolProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceAgentPoolProfileInvokeResponseOutput)
+}
+
+// ContainerServiceAgentPoolProfileInvokeResponseArrayInput is an input type that accepts ContainerServiceAgentPoolProfileInvokeResponseArray and ContainerServiceAgentPoolProfileInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ContainerServiceAgentPoolProfileInvokeResponseArrayInput` via:
+//
+//          ContainerServiceAgentPoolProfileInvokeResponseArray{ ContainerServiceAgentPoolProfileInvokeResponseArgs{...} }
+type ContainerServiceAgentPoolProfileInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToContainerServiceAgentPoolProfileInvokeResponseArrayOutput() ContainerServiceAgentPoolProfileInvokeResponseArrayOutput
+	ToContainerServiceAgentPoolProfileInvokeResponseArrayOutputWithContext(context.Context) ContainerServiceAgentPoolProfileInvokeResponseArrayOutput
+}
+
+type ContainerServiceAgentPoolProfileInvokeResponseArray []ContainerServiceAgentPoolProfileInvokeResponseInput
+
+func (ContainerServiceAgentPoolProfileInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerServiceAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceAgentPoolProfileInvokeResponseArray) ToContainerServiceAgentPoolProfileInvokeResponseArrayOutput() ContainerServiceAgentPoolProfileInvokeResponseArrayOutput {
+	return i.ToContainerServiceAgentPoolProfileInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceAgentPoolProfileInvokeResponseArray) ToContainerServiceAgentPoolProfileInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerServiceAgentPoolProfileInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceAgentPoolProfileInvokeResponseArrayOutput)
+}
+
+// Profile for the container service agent pool.
+type ContainerServiceAgentPoolProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceAgentPoolProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) ToContainerServiceAgentPoolProfileInvokeResponseOutput() ContainerServiceAgentPoolProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) ToContainerServiceAgentPoolProfileInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceAgentPoolProfileInvokeResponseOutput {
+	return o
+}
+
+// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileInvokeResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// DNS prefix to be used to create the FQDN for the agent pool.
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) DnsPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileInvokeResponse) *string { return v.DnsPrefix }).(pulumi.StringPtrOutput)
+}
+
+// FQDN for the agent pool.
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileInvokeResponse) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Unique name of the agent pool profile in the context of the subscription and resource group.
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileInvokeResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileInvokeResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) Ports() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileInvokeResponse) []int { return v.Ports }).(pulumi.IntArrayOutput)
+}
+
+// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) StorageProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileInvokeResponse) *string { return v.StorageProfile }).(pulumi.StringPtrOutput)
+}
+
+// Size of agent VMs.
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) VmSize() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileInvokeResponse) string { return v.VmSize }).(pulumi.StringOutput)
+}
+
+// VNet SubnetID specifies the VNet's subnet identifier.
+func (o ContainerServiceAgentPoolProfileInvokeResponseOutput) VnetSubnetID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceAgentPoolProfileInvokeResponse) *string { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
+}
+
+type ContainerServiceAgentPoolProfileInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceAgentPoolProfileInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerServiceAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceAgentPoolProfileInvokeResponseArrayOutput) ToContainerServiceAgentPoolProfileInvokeResponseArrayOutput() ContainerServiceAgentPoolProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerServiceAgentPoolProfileInvokeResponseArrayOutput) ToContainerServiceAgentPoolProfileInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerServiceAgentPoolProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerServiceAgentPoolProfileInvokeResponseArrayOutput) Index(i pulumi.IntInput) ContainerServiceAgentPoolProfileInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerServiceAgentPoolProfileInvokeResponse {
+		return vs[0].([]ContainerServiceAgentPoolProfileInvokeResponse)[vs[1].(int)]
+	}).(ContainerServiceAgentPoolProfileInvokeResponseOutput)
+}
+
+// Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfileResponse struct {
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count *int `pulumi:"count"`
@@ -517,6 +698,72 @@ func (o ContainerServiceLinuxProfilePtrOutput) Ssh() ContainerServiceSshConfigur
 }
 
 // Profile for Linux VMs in the container service cluster.
+type ContainerServiceLinuxProfileInvokeResponse struct {
+	// The administrator username to use for Linux VMs.
+	AdminUsername string `pulumi:"adminUsername"`
+	// SSH configuration for Linux-based VMs running on Azure.
+	Ssh ContainerServiceSshConfigurationInvokeResponse `pulumi:"ssh"`
+}
+
+// ContainerServiceLinuxProfileInvokeResponseInput is an input type that accepts ContainerServiceLinuxProfileInvokeResponseArgs and ContainerServiceLinuxProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerServiceLinuxProfileInvokeResponseInput` via:
+//
+//          ContainerServiceLinuxProfileInvokeResponseArgs{...}
+type ContainerServiceLinuxProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerServiceLinuxProfileInvokeResponseOutput() ContainerServiceLinuxProfileInvokeResponseOutput
+	ToContainerServiceLinuxProfileInvokeResponseOutputWithContext(context.Context) ContainerServiceLinuxProfileInvokeResponseOutput
+}
+
+// Profile for Linux VMs in the container service cluster.
+type ContainerServiceLinuxProfileInvokeResponseArgs struct {
+	// The administrator username to use for Linux VMs.
+	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	// SSH configuration for Linux-based VMs running on Azure.
+	Ssh ContainerServiceSshConfigurationInvokeResponseInput `pulumi:"ssh"`
+}
+
+func (ContainerServiceLinuxProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceLinuxProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceLinuxProfileInvokeResponseArgs) ToContainerServiceLinuxProfileInvokeResponseOutput() ContainerServiceLinuxProfileInvokeResponseOutput {
+	return i.ToContainerServiceLinuxProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceLinuxProfileInvokeResponseArgs) ToContainerServiceLinuxProfileInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileInvokeResponseOutput)
+}
+
+// Profile for Linux VMs in the container service cluster.
+type ContainerServiceLinuxProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceLinuxProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceLinuxProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceLinuxProfileInvokeResponseOutput) ToContainerServiceLinuxProfileInvokeResponseOutput() ContainerServiceLinuxProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerServiceLinuxProfileInvokeResponseOutput) ToContainerServiceLinuxProfileInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileInvokeResponseOutput {
+	return o
+}
+
+// The administrator username to use for Linux VMs.
+func (o ContainerServiceLinuxProfileInvokeResponseOutput) AdminUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceLinuxProfileInvokeResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
+}
+
+// SSH configuration for Linux-based VMs running on Azure.
+func (o ContainerServiceLinuxProfileInvokeResponseOutput) Ssh() ContainerServiceSshConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v ContainerServiceLinuxProfileInvokeResponse) ContainerServiceSshConfigurationInvokeResponse {
+		return v.Ssh
+	}).(ContainerServiceSshConfigurationInvokeResponseOutput)
+}
+
+// Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfileResponse struct {
 	// The administrator username to use for Linux VMs.
 	AdminUsername string `pulumi:"adminUsername"`
@@ -842,6 +1089,81 @@ func (o ContainerServiceServicePrincipalProfilePtrOutput) Secret() pulumi.String
 }
 
 // Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+type ContainerServiceServicePrincipalProfileInvokeResponse struct {
+	// The ID for the service principal.
+	ClientId string `pulumi:"clientId"`
+	// Reference to a secret stored in Azure Key Vault.
+	KeyVaultSecretRef *KeyVaultSecretRefInvokeResponse `pulumi:"keyVaultSecretRef"`
+	// The secret password associated with the service principal in plain text.
+	Secret *string `pulumi:"secret"`
+}
+
+// ContainerServiceServicePrincipalProfileInvokeResponseInput is an input type that accepts ContainerServiceServicePrincipalProfileInvokeResponseArgs and ContainerServiceServicePrincipalProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerServiceServicePrincipalProfileInvokeResponseInput` via:
+//
+//          ContainerServiceServicePrincipalProfileInvokeResponseArgs{...}
+type ContainerServiceServicePrincipalProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerServiceServicePrincipalProfileInvokeResponseOutput() ContainerServiceServicePrincipalProfileInvokeResponseOutput
+	ToContainerServiceServicePrincipalProfileInvokeResponseOutputWithContext(context.Context) ContainerServiceServicePrincipalProfileInvokeResponseOutput
+}
+
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+type ContainerServiceServicePrincipalProfileInvokeResponseArgs struct {
+	// The ID for the service principal.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Reference to a secret stored in Azure Key Vault.
+	KeyVaultSecretRef KeyVaultSecretRefInvokeResponsePtrInput `pulumi:"keyVaultSecretRef"`
+	// The secret password associated with the service principal in plain text.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+}
+
+func (ContainerServiceServicePrincipalProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceServicePrincipalProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceServicePrincipalProfileInvokeResponseArgs) ToContainerServiceServicePrincipalProfileInvokeResponseOutput() ContainerServiceServicePrincipalProfileInvokeResponseOutput {
+	return i.ToContainerServiceServicePrincipalProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceServicePrincipalProfileInvokeResponseArgs) ToContainerServiceServicePrincipalProfileInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceServicePrincipalProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceServicePrincipalProfileInvokeResponseOutput)
+}
+
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+type ContainerServiceServicePrincipalProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceServicePrincipalProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceServicePrincipalProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceServicePrincipalProfileInvokeResponseOutput) ToContainerServiceServicePrincipalProfileInvokeResponseOutput() ContainerServiceServicePrincipalProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerServiceServicePrincipalProfileInvokeResponseOutput) ToContainerServiceServicePrincipalProfileInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceServicePrincipalProfileInvokeResponseOutput {
+	return o
+}
+
+// The ID for the service principal.
+func (o ContainerServiceServicePrincipalProfileInvokeResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceServicePrincipalProfileInvokeResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Reference to a secret stored in Azure Key Vault.
+func (o ContainerServiceServicePrincipalProfileInvokeResponseOutput) KeyVaultSecretRef() KeyVaultSecretRefInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContainerServiceServicePrincipalProfileInvokeResponse) *KeyVaultSecretRefInvokeResponse {
+		return v.KeyVaultSecretRef
+	}).(KeyVaultSecretRefInvokeResponsePtrOutput)
+}
+
+// The secret password associated with the service principal in plain text.
+func (o ContainerServiceServicePrincipalProfileInvokeResponseOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceServicePrincipalProfileInvokeResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
 type ContainerServiceServicePrincipalProfileResponse struct {
 	// The ID for the service principal.
 	ClientId string `pulumi:"clientId"`
@@ -1152,6 +1474,63 @@ func (o ContainerServiceSshConfigurationPtrOutput) PublicKeys() ContainerService
 }
 
 // SSH configuration for Linux-based VMs running on Azure.
+type ContainerServiceSshConfigurationInvokeResponse struct {
+	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+	PublicKeys []ContainerServiceSshPublicKeyInvokeResponse `pulumi:"publicKeys"`
+}
+
+// ContainerServiceSshConfigurationInvokeResponseInput is an input type that accepts ContainerServiceSshConfigurationInvokeResponseArgs and ContainerServiceSshConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerServiceSshConfigurationInvokeResponseInput` via:
+//
+//          ContainerServiceSshConfigurationInvokeResponseArgs{...}
+type ContainerServiceSshConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerServiceSshConfigurationInvokeResponseOutput() ContainerServiceSshConfigurationInvokeResponseOutput
+	ToContainerServiceSshConfigurationInvokeResponseOutputWithContext(context.Context) ContainerServiceSshConfigurationInvokeResponseOutput
+}
+
+// SSH configuration for Linux-based VMs running on Azure.
+type ContainerServiceSshConfigurationInvokeResponseArgs struct {
+	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+	PublicKeys ContainerServiceSshPublicKeyInvokeResponseArrayInput `pulumi:"publicKeys"`
+}
+
+func (ContainerServiceSshConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceSshConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceSshConfigurationInvokeResponseArgs) ToContainerServiceSshConfigurationInvokeResponseOutput() ContainerServiceSshConfigurationInvokeResponseOutput {
+	return i.ToContainerServiceSshConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceSshConfigurationInvokeResponseArgs) ToContainerServiceSshConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationInvokeResponseOutput)
+}
+
+// SSH configuration for Linux-based VMs running on Azure.
+type ContainerServiceSshConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceSshConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceSshConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceSshConfigurationInvokeResponseOutput) ToContainerServiceSshConfigurationInvokeResponseOutput() ContainerServiceSshConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerServiceSshConfigurationInvokeResponseOutput) ToContainerServiceSshConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+func (o ContainerServiceSshConfigurationInvokeResponseOutput) PublicKeys() ContainerServiceSshPublicKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ContainerServiceSshConfigurationInvokeResponse) []ContainerServiceSshPublicKeyInvokeResponse {
+		return v.PublicKeys
+	}).(ContainerServiceSshPublicKeyInvokeResponseArrayOutput)
+}
+
+// SSH configuration for Linux-based VMs running on Azure.
 type ContainerServiceSshConfigurationResponse struct {
 	// The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
 	PublicKeys []ContainerServiceSshPublicKeyResponse `pulumi:"publicKeys"`
@@ -1385,6 +1764,106 @@ func (o ContainerServiceSshPublicKeyArrayOutput) Index(i pulumi.IntInput) Contai
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerServiceSshPublicKey {
 		return vs[0].([]ContainerServiceSshPublicKey)[vs[1].(int)]
 	}).(ContainerServiceSshPublicKeyOutput)
+}
+
+// Contains information about SSH certificate public key data.
+type ContainerServiceSshPublicKeyInvokeResponse struct {
+	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+	KeyData string `pulumi:"keyData"`
+}
+
+// ContainerServiceSshPublicKeyInvokeResponseInput is an input type that accepts ContainerServiceSshPublicKeyInvokeResponseArgs and ContainerServiceSshPublicKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerServiceSshPublicKeyInvokeResponseInput` via:
+//
+//          ContainerServiceSshPublicKeyInvokeResponseArgs{...}
+type ContainerServiceSshPublicKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerServiceSshPublicKeyInvokeResponseOutput() ContainerServiceSshPublicKeyInvokeResponseOutput
+	ToContainerServiceSshPublicKeyInvokeResponseOutputWithContext(context.Context) ContainerServiceSshPublicKeyInvokeResponseOutput
+}
+
+// Contains information about SSH certificate public key data.
+type ContainerServiceSshPublicKeyInvokeResponseArgs struct {
+	// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+	KeyData pulumi.StringInput `pulumi:"keyData"`
+}
+
+func (ContainerServiceSshPublicKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceSshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceSshPublicKeyInvokeResponseArgs) ToContainerServiceSshPublicKeyInvokeResponseOutput() ContainerServiceSshPublicKeyInvokeResponseOutput {
+	return i.ToContainerServiceSshPublicKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceSshPublicKeyInvokeResponseArgs) ToContainerServiceSshPublicKeyInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyInvokeResponseOutput)
+}
+
+// ContainerServiceSshPublicKeyInvokeResponseArrayInput is an input type that accepts ContainerServiceSshPublicKeyInvokeResponseArray and ContainerServiceSshPublicKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ContainerServiceSshPublicKeyInvokeResponseArrayInput` via:
+//
+//          ContainerServiceSshPublicKeyInvokeResponseArray{ ContainerServiceSshPublicKeyInvokeResponseArgs{...} }
+type ContainerServiceSshPublicKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToContainerServiceSshPublicKeyInvokeResponseArrayOutput() ContainerServiceSshPublicKeyInvokeResponseArrayOutput
+	ToContainerServiceSshPublicKeyInvokeResponseArrayOutputWithContext(context.Context) ContainerServiceSshPublicKeyInvokeResponseArrayOutput
+}
+
+type ContainerServiceSshPublicKeyInvokeResponseArray []ContainerServiceSshPublicKeyInvokeResponseInput
+
+func (ContainerServiceSshPublicKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerServiceSshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerServiceSshPublicKeyInvokeResponseArray) ToContainerServiceSshPublicKeyInvokeResponseArrayOutput() ContainerServiceSshPublicKeyInvokeResponseArrayOutput {
+	return i.ToContainerServiceSshPublicKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceSshPublicKeyInvokeResponseArray) ToContainerServiceSshPublicKeyInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyInvokeResponseArrayOutput)
+}
+
+// Contains information about SSH certificate public key data.
+type ContainerServiceSshPublicKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceSshPublicKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceSshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceSshPublicKeyInvokeResponseOutput) ToContainerServiceSshPublicKeyInvokeResponseOutput() ContainerServiceSshPublicKeyInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerServiceSshPublicKeyInvokeResponseOutput) ToContainerServiceSshPublicKeyInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyInvokeResponseOutput {
+	return o
+}
+
+// Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+func (o ContainerServiceSshPublicKeyInvokeResponseOutput) KeyData() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceSshPublicKeyInvokeResponse) string { return v.KeyData }).(pulumi.StringOutput)
+}
+
+type ContainerServiceSshPublicKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceSshPublicKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerServiceSshPublicKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerServiceSshPublicKeyInvokeResponseArrayOutput) ToContainerServiceSshPublicKeyInvokeResponseArrayOutput() ContainerServiceSshPublicKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerServiceSshPublicKeyInvokeResponseArrayOutput) ToContainerServiceSshPublicKeyInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerServiceSshPublicKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) ContainerServiceSshPublicKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerServiceSshPublicKeyInvokeResponse {
+		return vs[0].([]ContainerServiceSshPublicKeyInvokeResponse)[vs[1].(int)]
+	}).(ContainerServiceSshPublicKeyInvokeResponseOutput)
 }
 
 // Contains information about SSH certificate public key data.
@@ -1660,6 +2139,178 @@ func (o KeyVaultSecretRefPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 // Reference to a secret stored in Azure Key Vault.
+type KeyVaultSecretRefInvokeResponse struct {
+	// The secret name.
+	SecretName string `pulumi:"secretName"`
+	// Key vault identifier.
+	VaultID string `pulumi:"vaultID"`
+	// The secret version.
+	Version *string `pulumi:"version"`
+}
+
+// KeyVaultSecretRefInvokeResponseInput is an input type that accepts KeyVaultSecretRefInvokeResponseArgs and KeyVaultSecretRefInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultSecretRefInvokeResponseInput` via:
+//
+//          KeyVaultSecretRefInvokeResponseArgs{...}
+type KeyVaultSecretRefInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultSecretRefInvokeResponseOutput() KeyVaultSecretRefInvokeResponseOutput
+	ToKeyVaultSecretRefInvokeResponseOutputWithContext(context.Context) KeyVaultSecretRefInvokeResponseOutput
+}
+
+// Reference to a secret stored in Azure Key Vault.
+type KeyVaultSecretRefInvokeResponseArgs struct {
+	// The secret name.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// Key vault identifier.
+	VaultID pulumi.StringInput `pulumi:"vaultID"`
+	// The secret version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (KeyVaultSecretRefInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultSecretRefInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultSecretRefInvokeResponseArgs) ToKeyVaultSecretRefInvokeResponseOutput() KeyVaultSecretRefInvokeResponseOutput {
+	return i.ToKeyVaultSecretRefInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultSecretRefInvokeResponseArgs) ToKeyVaultSecretRefInvokeResponseOutputWithContext(ctx context.Context) KeyVaultSecretRefInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretRefInvokeResponseOutput)
+}
+
+func (i KeyVaultSecretRefInvokeResponseArgs) ToKeyVaultSecretRefInvokeResponsePtrOutput() KeyVaultSecretRefInvokeResponsePtrOutput {
+	return i.ToKeyVaultSecretRefInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultSecretRefInvokeResponseArgs) ToKeyVaultSecretRefInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultSecretRefInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretRefInvokeResponseOutput).ToKeyVaultSecretRefInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultSecretRefInvokeResponsePtrInput is an input type that accepts KeyVaultSecretRefInvokeResponseArgs, KeyVaultSecretRefInvokeResponsePtr and KeyVaultSecretRefInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultSecretRefInvokeResponsePtrInput` via:
+//
+//          KeyVaultSecretRefInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultSecretRefInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultSecretRefInvokeResponsePtrOutput() KeyVaultSecretRefInvokeResponsePtrOutput
+	ToKeyVaultSecretRefInvokeResponsePtrOutputWithContext(context.Context) KeyVaultSecretRefInvokeResponsePtrOutput
+}
+
+type keyVaultSecretRefInvokeResponsePtrType KeyVaultSecretRefInvokeResponseArgs
+
+func KeyVaultSecretRefInvokeResponsePtr(v *KeyVaultSecretRefInvokeResponseArgs) KeyVaultSecretRefInvokeResponsePtrInput {
+	return (*keyVaultSecretRefInvokeResponsePtrType)(v)
+}
+
+func (*keyVaultSecretRefInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultSecretRefInvokeResponse)(nil)).Elem()
+}
+
+func (i *keyVaultSecretRefInvokeResponsePtrType) ToKeyVaultSecretRefInvokeResponsePtrOutput() KeyVaultSecretRefInvokeResponsePtrOutput {
+	return i.ToKeyVaultSecretRefInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultSecretRefInvokeResponsePtrType) ToKeyVaultSecretRefInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultSecretRefInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultSecretRefInvokeResponsePtrOutput)
+}
+
+// Reference to a secret stored in Azure Key Vault.
+type KeyVaultSecretRefInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultSecretRefInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultSecretRefInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultSecretRefInvokeResponseOutput) ToKeyVaultSecretRefInvokeResponseOutput() KeyVaultSecretRefInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultSecretRefInvokeResponseOutput) ToKeyVaultSecretRefInvokeResponseOutputWithContext(ctx context.Context) KeyVaultSecretRefInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultSecretRefInvokeResponseOutput) ToKeyVaultSecretRefInvokeResponsePtrOutput() KeyVaultSecretRefInvokeResponsePtrOutput {
+	return o.ToKeyVaultSecretRefInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultSecretRefInvokeResponseOutput) ToKeyVaultSecretRefInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultSecretRefInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultSecretRefInvokeResponse) *KeyVaultSecretRefInvokeResponse {
+		return &v
+	}).(KeyVaultSecretRefInvokeResponsePtrOutput)
+}
+
+// The secret name.
+func (o KeyVaultSecretRefInvokeResponseOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultSecretRefInvokeResponse) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// Key vault identifier.
+func (o KeyVaultSecretRefInvokeResponseOutput) VaultID() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultSecretRefInvokeResponse) string { return v.VaultID }).(pulumi.StringOutput)
+}
+
+// The secret version.
+func (o KeyVaultSecretRefInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultSecretRefInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultSecretRefInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultSecretRefInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultSecretRefInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultSecretRefInvokeResponsePtrOutput) ToKeyVaultSecretRefInvokeResponsePtrOutput() KeyVaultSecretRefInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultSecretRefInvokeResponsePtrOutput) ToKeyVaultSecretRefInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultSecretRefInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultSecretRefInvokeResponsePtrOutput) Elem() KeyVaultSecretRefInvokeResponseOutput {
+	return o.ApplyT(func(v *KeyVaultSecretRefInvokeResponse) KeyVaultSecretRefInvokeResponse { return *v }).(KeyVaultSecretRefInvokeResponseOutput)
+}
+
+// The secret name.
+func (o KeyVaultSecretRefInvokeResponsePtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultSecretRefInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key vault identifier.
+func (o KeyVaultSecretRefInvokeResponsePtrOutput) VaultID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultSecretRefInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VaultID
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secret version.
+func (o KeyVaultSecretRefInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultSecretRefInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// Reference to a secret stored in Azure Key Vault.
 type KeyVaultSecretRefResponse struct {
 	// The secret name.
 	SecretName string `pulumi:"secretName"`
@@ -1834,26 +2485,35 @@ func (o KeyVaultSecretRefResponsePtrOutput) Version() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileArrayOutput{})
+	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfilePtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceLinuxProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceServicePrincipalProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceServicePrincipalProfilePtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceServicePrincipalProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceServicePrincipalProfileResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceServicePrincipalProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceSshConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyArrayOutput{})
+	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretRefOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretRefPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultSecretRefInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultSecretRefInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretRefResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretRefResponsePtrOutput{})
 }

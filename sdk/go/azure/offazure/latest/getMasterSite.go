@@ -34,7 +34,7 @@ type LookupMasterSiteResult struct {
 	// Name of the Master site.
 	Name *string `pulumi:"name"`
 	// Nested properties of Master site.
-	Properties MasterSitePropertiesResponse `pulumi:"properties"`
+	Properties MasterSitePropertiesInvokeResponse `pulumi:"properties"`
 	// Type of resource. Type = Microsoft.OffAzure/MasterSites.
 	Type string `pulumi:"type"`
 }

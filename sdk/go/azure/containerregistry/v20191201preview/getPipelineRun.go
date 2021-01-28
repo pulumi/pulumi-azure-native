@@ -36,11 +36,11 @@ type LookupPipelineRunResult struct {
 	// The provisioning state of a pipeline run.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The request parameters for a pipeline run.
-	Request *PipelineRunRequestResponse `pulumi:"request"`
+	Request *PipelineRunRequestInvokeResponse `pulumi:"request"`
 	// The response of a pipeline run.
-	Response PipelineRunResponseResponse `pulumi:"response"`
+	Response PipelineRunResponseInvokeResponse `pulumi:"response"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

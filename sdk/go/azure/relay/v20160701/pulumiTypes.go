@@ -164,6 +164,70 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Sku of the Namespace.
+type SkuInvokeResponse struct {
+	// Name of this Sku
+	Name string `pulumi:"name"`
+	// The tier of this particular SKU
+	Tier string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Sku of the Namespace.
+type SkuInvokeResponseArgs struct {
+	// Name of this Sku
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tier of this particular SKU
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Sku of the Namespace.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Name of this Sku
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tier of this particular SKU
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// Sku of the Namespace.
 type SkuResponse struct {
 	// Name of this Sku
 	Name string `pulumi:"name"`
@@ -319,6 +383,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

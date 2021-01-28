@@ -30,9 +30,9 @@ type LookupDiagnosticResult struct {
 	// Specifies for what type of messages sampling settings should not apply.
 	AlwaysLog *string `pulumi:"alwaysLog"`
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
-	Backend *PipelineDiagnosticSettingsResponse `pulumi:"backend"`
+	Backend *PipelineDiagnosticSettingsInvokeResponse `pulumi:"backend"`
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
-	Frontend *PipelineDiagnosticSettingsResponse `pulumi:"frontend"`
+	Frontend *PipelineDiagnosticSettingsInvokeResponse `pulumi:"frontend"`
 	// Sets correlation protocol to use for Application Insights diagnostics.
 	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
 	// Resource ID.
@@ -46,7 +46,7 @@ type LookupDiagnosticResult struct {
 	// The format of the Operation Name for Application Insights telemetries. Default is Name.
 	OperationNameFormat *string `pulumi:"operationNameFormat"`
 	// Sampling settings for Diagnostic.
-	Sampling *SamplingSettingsResponse `pulumi:"sampling"`
+	Sampling *SamplingSettingsInvokeResponse `pulumi:"sampling"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 	// The verbosity level applied to traces emitted by trace policies.

@@ -44,11 +44,11 @@ type LookupElasticPoolResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The per database settings for the elastic pool.
-	PerDatabaseSettings *ElasticPoolPerDatabaseSettingsResponse `pulumi:"perDatabaseSettings"`
+	PerDatabaseSettings *ElasticPoolPerDatabaseSettingsInvokeResponse `pulumi:"perDatabaseSettings"`
 	// The elastic pool SKU.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The state of the elastic pool.
 	State string `pulumi:"state"`
 	// Resource tags.

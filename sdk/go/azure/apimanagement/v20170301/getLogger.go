@@ -41,7 +41,7 @@ type LookupLoggerResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Sampling settings for an ApplicationInsights logger.
-	Sampling *LoggerSamplingContractResponse `pulumi:"sampling"`
+	Sampling *LoggerSamplingContractInvokeResponse `pulumi:"sampling"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

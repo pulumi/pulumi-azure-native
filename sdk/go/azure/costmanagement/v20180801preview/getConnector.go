@@ -26,7 +26,7 @@ type LookupConnectorArgs struct {
 // The Connector model definition
 type LookupConnectorResult struct {
 	// Collection information
-	Collection ConnectorCollectionInfoResponse `pulumi:"collection"`
+	Collection ConnectorCollectionInfoInvokeResponse `pulumi:"collection"`
 	// Connector definition creation datetime
 	CreatedOn string `pulumi:"createdOn"`
 	// Credentials authentication key (eg AWS ARN)

@@ -147,6 +147,142 @@ func (o AkamaiAccessControlPtrOutput) AkamaiSignatureHeaderAuthenticationKeyList
 }
 
 // Akamai access control
+type AkamaiAccessControlInvokeResponse struct {
+	// authentication key list
+	AkamaiSignatureHeaderAuthenticationKeyList []AkamaiSignatureHeaderAuthenticationKeyInvokeResponse `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
+}
+
+// AkamaiAccessControlInvokeResponseInput is an input type that accepts AkamaiAccessControlInvokeResponseArgs and AkamaiAccessControlInvokeResponseOutput values.
+// You can construct a concrete instance of `AkamaiAccessControlInvokeResponseInput` via:
+//
+//          AkamaiAccessControlInvokeResponseArgs{...}
+type AkamaiAccessControlInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAkamaiAccessControlInvokeResponseOutput() AkamaiAccessControlInvokeResponseOutput
+	ToAkamaiAccessControlInvokeResponseOutputWithContext(context.Context) AkamaiAccessControlInvokeResponseOutput
+}
+
+// Akamai access control
+type AkamaiAccessControlInvokeResponseArgs struct {
+	// authentication key list
+	AkamaiSignatureHeaderAuthenticationKeyList AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayInput `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
+}
+
+func (AkamaiAccessControlInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AkamaiAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i AkamaiAccessControlInvokeResponseArgs) ToAkamaiAccessControlInvokeResponseOutput() AkamaiAccessControlInvokeResponseOutput {
+	return i.ToAkamaiAccessControlInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AkamaiAccessControlInvokeResponseArgs) ToAkamaiAccessControlInvokeResponseOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlInvokeResponseOutput)
+}
+
+func (i AkamaiAccessControlInvokeResponseArgs) ToAkamaiAccessControlInvokeResponsePtrOutput() AkamaiAccessControlInvokeResponsePtrOutput {
+	return i.ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AkamaiAccessControlInvokeResponseArgs) ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlInvokeResponseOutput).ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AkamaiAccessControlInvokeResponsePtrInput is an input type that accepts AkamaiAccessControlInvokeResponseArgs, AkamaiAccessControlInvokeResponsePtr and AkamaiAccessControlInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AkamaiAccessControlInvokeResponsePtrInput` via:
+//
+//          AkamaiAccessControlInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AkamaiAccessControlInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAkamaiAccessControlInvokeResponsePtrOutput() AkamaiAccessControlInvokeResponsePtrOutput
+	ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(context.Context) AkamaiAccessControlInvokeResponsePtrOutput
+}
+
+type akamaiAccessControlInvokeResponsePtrType AkamaiAccessControlInvokeResponseArgs
+
+func AkamaiAccessControlInvokeResponsePtr(v *AkamaiAccessControlInvokeResponseArgs) AkamaiAccessControlInvokeResponsePtrInput {
+	return (*akamaiAccessControlInvokeResponsePtrType)(v)
+}
+
+func (*akamaiAccessControlInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AkamaiAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i *akamaiAccessControlInvokeResponsePtrType) ToAkamaiAccessControlInvokeResponsePtrOutput() AkamaiAccessControlInvokeResponsePtrOutput {
+	return i.ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *akamaiAccessControlInvokeResponsePtrType) ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlInvokeResponsePtrOutput)
+}
+
+// Akamai access control
+type AkamaiAccessControlInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AkamaiAccessControlInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AkamaiAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o AkamaiAccessControlInvokeResponseOutput) ToAkamaiAccessControlInvokeResponseOutput() AkamaiAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o AkamaiAccessControlInvokeResponseOutput) ToAkamaiAccessControlInvokeResponseOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o AkamaiAccessControlInvokeResponseOutput) ToAkamaiAccessControlInvokeResponsePtrOutput() AkamaiAccessControlInvokeResponsePtrOutput {
+	return o.ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AkamaiAccessControlInvokeResponseOutput) ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AkamaiAccessControlInvokeResponse) *AkamaiAccessControlInvokeResponse {
+		return &v
+	}).(AkamaiAccessControlInvokeResponsePtrOutput)
+}
+
+// authentication key list
+func (o AkamaiAccessControlInvokeResponseOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AkamaiAccessControlInvokeResponse) []AkamaiSignatureHeaderAuthenticationKeyInvokeResponse {
+		return v.AkamaiSignatureHeaderAuthenticationKeyList
+	}).(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput)
+}
+
+type AkamaiAccessControlInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AkamaiAccessControlInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AkamaiAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o AkamaiAccessControlInvokeResponsePtrOutput) ToAkamaiAccessControlInvokeResponsePtrOutput() AkamaiAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AkamaiAccessControlInvokeResponsePtrOutput) ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AkamaiAccessControlInvokeResponsePtrOutput) Elem() AkamaiAccessControlInvokeResponseOutput {
+	return o.ApplyT(func(v *AkamaiAccessControlInvokeResponse) AkamaiAccessControlInvokeResponse { return *v }).(AkamaiAccessControlInvokeResponseOutput)
+}
+
+// authentication key list
+func (o AkamaiAccessControlInvokeResponsePtrOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *AkamaiAccessControlInvokeResponse) []AkamaiSignatureHeaderAuthenticationKeyInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AkamaiSignatureHeaderAuthenticationKeyList
+	}).(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput)
+}
+
+// Akamai access control
 type AkamaiAccessControlResponse struct {
 	// authentication key list
 	AkamaiSignatureHeaderAuthenticationKeyList []AkamaiSignatureHeaderAuthenticationKeyResponse `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
@@ -398,6 +534,124 @@ func (o AkamaiSignatureHeaderAuthenticationKeyArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AkamaiSignatureHeaderAuthenticationKey {
 		return vs[0].([]AkamaiSignatureHeaderAuthenticationKey)[vs[1].(int)]
 	}).(AkamaiSignatureHeaderAuthenticationKeyOutput)
+}
+
+// Akamai Signature Header authentication key.
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponse struct {
+	// authentication key
+	Base64Key *string `pulumi:"base64Key"`
+	// The expiration time of the authentication key.
+	Expiration *string `pulumi:"expiration"`
+	// identifier of the key
+	Identifier *string `pulumi:"identifier"`
+}
+
+// AkamaiSignatureHeaderAuthenticationKeyInvokeResponseInput is an input type that accepts AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs and AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `AkamaiSignatureHeaderAuthenticationKeyInvokeResponseInput` via:
+//
+//          AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs{...}
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput
+	ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutputWithContext(context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput
+}
+
+// Akamai Signature Header authentication key.
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs struct {
+	// authentication key
+	Base64Key pulumi.StringPtrInput `pulumi:"base64Key"`
+	// The expiration time of the authentication key.
+	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
+	// identifier of the key
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+}
+
+func (AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AkamaiSignatureHeaderAuthenticationKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput {
+	return i.ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutputWithContext(ctx context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput)
+}
+
+// AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayInput is an input type that accepts AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray and AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayInput` via:
+//
+//          AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray{ AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs{...} }
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput
+	ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutputWithContext(context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput
+}
+
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray []AkamaiSignatureHeaderAuthenticationKeyInvokeResponseInput
+
+func (AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AkamaiSignatureHeaderAuthenticationKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return i.ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutputWithContext(ctx context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput)
+}
+
+// Akamai Signature Header authentication key.
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AkamaiSignatureHeaderAuthenticationKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput {
+	return o
+}
+
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutputWithContext(ctx context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput {
+	return o
+}
+
+// authentication key
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) Base64Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyInvokeResponse) *string { return v.Base64Key }).(pulumi.StringPtrOutput)
+}
+
+// The expiration time of the authentication key.
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyInvokeResponse) *string { return v.Expiration }).(pulumi.StringPtrOutput)
+}
+
+// identifier of the key
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyInvokeResponse) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AkamaiSignatureHeaderAuthenticationKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutputWithContext(ctx context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AkamaiSignatureHeaderAuthenticationKeyInvokeResponse {
+		return vs[0].([]AkamaiSignatureHeaderAuthenticationKeyInvokeResponse)[vs[1].(int)]
+	}).(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput)
 }
 
 // Akamai Signature Header authentication key.
@@ -669,6 +923,70 @@ func (o CrossSiteAccessPoliciesPtrOutput) CrossDomainPolicy() pulumi.StringPtrOu
 		}
 		return v.CrossDomainPolicy
 	}).(pulumi.StringPtrOutput)
+}
+
+// The client access policy.
+type CrossSiteAccessPoliciesInvokeResponse struct {
+	// The content of clientaccesspolicy.xml used by Silverlight.
+	ClientAccessPolicy *string `pulumi:"clientAccessPolicy"`
+	// The content of crossdomain.xml used by Silverlight.
+	CrossDomainPolicy *string `pulumi:"crossDomainPolicy"`
+}
+
+// CrossSiteAccessPoliciesInvokeResponseInput is an input type that accepts CrossSiteAccessPoliciesInvokeResponseArgs and CrossSiteAccessPoliciesInvokeResponseOutput values.
+// You can construct a concrete instance of `CrossSiteAccessPoliciesInvokeResponseInput` via:
+//
+//          CrossSiteAccessPoliciesInvokeResponseArgs{...}
+type CrossSiteAccessPoliciesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCrossSiteAccessPoliciesInvokeResponseOutput() CrossSiteAccessPoliciesInvokeResponseOutput
+	ToCrossSiteAccessPoliciesInvokeResponseOutputWithContext(context.Context) CrossSiteAccessPoliciesInvokeResponseOutput
+}
+
+// The client access policy.
+type CrossSiteAccessPoliciesInvokeResponseArgs struct {
+	// The content of clientaccesspolicy.xml used by Silverlight.
+	ClientAccessPolicy pulumi.StringPtrInput `pulumi:"clientAccessPolicy"`
+	// The content of crossdomain.xml used by Silverlight.
+	CrossDomainPolicy pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
+}
+
+func (CrossSiteAccessPoliciesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrossSiteAccessPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (i CrossSiteAccessPoliciesInvokeResponseArgs) ToCrossSiteAccessPoliciesInvokeResponseOutput() CrossSiteAccessPoliciesInvokeResponseOutput {
+	return i.ToCrossSiteAccessPoliciesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CrossSiteAccessPoliciesInvokeResponseArgs) ToCrossSiteAccessPoliciesInvokeResponseOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrossSiteAccessPoliciesInvokeResponseOutput)
+}
+
+// The client access policy.
+type CrossSiteAccessPoliciesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CrossSiteAccessPoliciesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrossSiteAccessPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (o CrossSiteAccessPoliciesInvokeResponseOutput) ToCrossSiteAccessPoliciesInvokeResponseOutput() CrossSiteAccessPoliciesInvokeResponseOutput {
+	return o
+}
+
+func (o CrossSiteAccessPoliciesInvokeResponseOutput) ToCrossSiteAccessPoliciesInvokeResponseOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesInvokeResponseOutput {
+	return o
+}
+
+// The content of clientaccesspolicy.xml used by Silverlight.
+func (o CrossSiteAccessPoliciesInvokeResponseOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrossSiteAccessPoliciesInvokeResponse) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The content of crossdomain.xml used by Silverlight.
+func (o CrossSiteAccessPoliciesInvokeResponseOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrossSiteAccessPoliciesInvokeResponse) *string { return v.CrossDomainPolicy }).(pulumi.StringPtrOutput)
 }
 
 // The client access policy.
@@ -959,6 +1277,61 @@ func (o HlsPtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 }
 
 // The HLS configuration.
+type HlsInvokeResponse struct {
+	// The amount of fragments per HTTP Live Streaming (HLS) segment.
+	FragmentsPerTsSegment *int `pulumi:"fragmentsPerTsSegment"`
+}
+
+// HlsInvokeResponseInput is an input type that accepts HlsInvokeResponseArgs and HlsInvokeResponseOutput values.
+// You can construct a concrete instance of `HlsInvokeResponseInput` via:
+//
+//          HlsInvokeResponseArgs{...}
+type HlsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHlsInvokeResponseOutput() HlsInvokeResponseOutput
+	ToHlsInvokeResponseOutputWithContext(context.Context) HlsInvokeResponseOutput
+}
+
+// The HLS configuration.
+type HlsInvokeResponseArgs struct {
+	// The amount of fragments per HTTP Live Streaming (HLS) segment.
+	FragmentsPerTsSegment pulumi.IntPtrInput `pulumi:"fragmentsPerTsSegment"`
+}
+
+func (HlsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HlsInvokeResponse)(nil)).Elem()
+}
+
+func (i HlsInvokeResponseArgs) ToHlsInvokeResponseOutput() HlsInvokeResponseOutput {
+	return i.ToHlsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HlsInvokeResponseArgs) ToHlsInvokeResponseOutputWithContext(ctx context.Context) HlsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HlsInvokeResponseOutput)
+}
+
+// The HLS configuration.
+type HlsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HlsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HlsInvokeResponse)(nil)).Elem()
+}
+
+func (o HlsInvokeResponseOutput) ToHlsInvokeResponseOutput() HlsInvokeResponseOutput {
+	return o
+}
+
+func (o HlsInvokeResponseOutput) ToHlsInvokeResponseOutputWithContext(ctx context.Context) HlsInvokeResponseOutput {
+	return o
+}
+
+// The amount of fragments per HTTP Live Streaming (HLS) segment.
+func (o HlsInvokeResponseOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HlsInvokeResponse) *int { return v.FragmentsPerTsSegment }).(pulumi.IntPtrOutput)
+}
+
+// The HLS configuration.
 type HlsResponse struct {
 	// The amount of fragments per HTTP Live Streaming (HLS) segment.
 	FragmentsPerTsSegment *int `pulumi:"fragmentsPerTsSegment"`
@@ -1227,6 +1600,140 @@ func (o IPAccessControlPtrOutput) Allow() IPRangeArrayOutput {
 }
 
 // The IP access control.
+type IPAccessControlInvokeResponse struct {
+	// The IP allow list.
+	Allow []IPRangeInvokeResponse `pulumi:"allow"`
+}
+
+// IPAccessControlInvokeResponseInput is an input type that accepts IPAccessControlInvokeResponseArgs and IPAccessControlInvokeResponseOutput values.
+// You can construct a concrete instance of `IPAccessControlInvokeResponseInput` via:
+//
+//          IPAccessControlInvokeResponseArgs{...}
+type IPAccessControlInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIPAccessControlInvokeResponseOutput() IPAccessControlInvokeResponseOutput
+	ToIPAccessControlInvokeResponseOutputWithContext(context.Context) IPAccessControlInvokeResponseOutput
+}
+
+// The IP access control.
+type IPAccessControlInvokeResponseArgs struct {
+	// The IP allow list.
+	Allow IPRangeInvokeResponseArrayInput `pulumi:"allow"`
+}
+
+func (IPAccessControlInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i IPAccessControlInvokeResponseArgs) ToIPAccessControlInvokeResponseOutput() IPAccessControlInvokeResponseOutput {
+	return i.ToIPAccessControlInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IPAccessControlInvokeResponseArgs) ToIPAccessControlInvokeResponseOutputWithContext(ctx context.Context) IPAccessControlInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlInvokeResponseOutput)
+}
+
+func (i IPAccessControlInvokeResponseArgs) ToIPAccessControlInvokeResponsePtrOutput() IPAccessControlInvokeResponsePtrOutput {
+	return i.ToIPAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IPAccessControlInvokeResponseArgs) ToIPAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) IPAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlInvokeResponseOutput).ToIPAccessControlInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// IPAccessControlInvokeResponsePtrInput is an input type that accepts IPAccessControlInvokeResponseArgs, IPAccessControlInvokeResponsePtr and IPAccessControlInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `IPAccessControlInvokeResponsePtrInput` via:
+//
+//          IPAccessControlInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IPAccessControlInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToIPAccessControlInvokeResponsePtrOutput() IPAccessControlInvokeResponsePtrOutput
+	ToIPAccessControlInvokeResponsePtrOutputWithContext(context.Context) IPAccessControlInvokeResponsePtrOutput
+}
+
+type ipaccessControlInvokeResponsePtrType IPAccessControlInvokeResponseArgs
+
+func IPAccessControlInvokeResponsePtr(v *IPAccessControlInvokeResponseArgs) IPAccessControlInvokeResponsePtrInput {
+	return (*ipaccessControlInvokeResponsePtrType)(v)
+}
+
+func (*ipaccessControlInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i *ipaccessControlInvokeResponsePtrType) ToIPAccessControlInvokeResponsePtrOutput() IPAccessControlInvokeResponsePtrOutput {
+	return i.ToIPAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *ipaccessControlInvokeResponsePtrType) ToIPAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) IPAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control.
+type IPAccessControlInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IPAccessControlInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o IPAccessControlInvokeResponseOutput) ToIPAccessControlInvokeResponseOutput() IPAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o IPAccessControlInvokeResponseOutput) ToIPAccessControlInvokeResponseOutputWithContext(ctx context.Context) IPAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o IPAccessControlInvokeResponseOutput) ToIPAccessControlInvokeResponsePtrOutput() IPAccessControlInvokeResponsePtrOutput {
+	return o.ToIPAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IPAccessControlInvokeResponseOutput) ToIPAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IPAccessControlInvokeResponse) *IPAccessControlInvokeResponse {
+		return &v
+	}).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP allow list.
+func (o IPAccessControlInvokeResponseOutput) Allow() IPRangeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IPAccessControlInvokeResponse) []IPRangeInvokeResponse { return v.Allow }).(IPRangeInvokeResponseArrayOutput)
+}
+
+type IPAccessControlInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IPAccessControlInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o IPAccessControlInvokeResponsePtrOutput) ToIPAccessControlInvokeResponsePtrOutput() IPAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IPAccessControlInvokeResponsePtrOutput) ToIPAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) IPAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IPAccessControlInvokeResponsePtrOutput) Elem() IPAccessControlInvokeResponseOutput {
+	return o.ApplyT(func(v *IPAccessControlInvokeResponse) IPAccessControlInvokeResponse { return *v }).(IPAccessControlInvokeResponseOutput)
+}
+
+// The IP allow list.
+func (o IPAccessControlInvokeResponsePtrOutput) Allow() IPRangeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *IPAccessControlInvokeResponse) []IPRangeInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Allow
+	}).(IPRangeInvokeResponseArrayOutput)
+}
+
+// The IP access control.
 type IPAccessControlResponse struct {
 	// The IP allow list.
 	Allow []IPRangeResponse `pulumi:"allow"`
@@ -1476,6 +1983,124 @@ func (o IPRangeArrayOutput) Index(i pulumi.IntInput) IPRangeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPRange {
 		return vs[0].([]IPRange)[vs[1].(int)]
 	}).(IPRangeOutput)
+}
+
+// The IP address range in the CIDR scheme.
+type IPRangeInvokeResponse struct {
+	// The IP address.
+	Address *string `pulumi:"address"`
+	// The friendly name for the IP address range.
+	Name *string `pulumi:"name"`
+	// The subnet mask prefix length (see CIDR notation).
+	SubnetPrefixLength *int `pulumi:"subnetPrefixLength"`
+}
+
+// IPRangeInvokeResponseInput is an input type that accepts IPRangeInvokeResponseArgs and IPRangeInvokeResponseOutput values.
+// You can construct a concrete instance of `IPRangeInvokeResponseInput` via:
+//
+//          IPRangeInvokeResponseArgs{...}
+type IPRangeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIPRangeInvokeResponseOutput() IPRangeInvokeResponseOutput
+	ToIPRangeInvokeResponseOutputWithContext(context.Context) IPRangeInvokeResponseOutput
+}
+
+// The IP address range in the CIDR scheme.
+type IPRangeInvokeResponseArgs struct {
+	// The IP address.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// The friendly name for the IP address range.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The subnet mask prefix length (see CIDR notation).
+	SubnetPrefixLength pulumi.IntPtrInput `pulumi:"subnetPrefixLength"`
+}
+
+func (IPRangeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPRangeInvokeResponse)(nil)).Elem()
+}
+
+func (i IPRangeInvokeResponseArgs) ToIPRangeInvokeResponseOutput() IPRangeInvokeResponseOutput {
+	return i.ToIPRangeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IPRangeInvokeResponseArgs) ToIPRangeInvokeResponseOutputWithContext(ctx context.Context) IPRangeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPRangeInvokeResponseOutput)
+}
+
+// IPRangeInvokeResponseArrayInput is an input type that accepts IPRangeInvokeResponseArray and IPRangeInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IPRangeInvokeResponseArrayInput` via:
+//
+//          IPRangeInvokeResponseArray{ IPRangeInvokeResponseArgs{...} }
+type IPRangeInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIPRangeInvokeResponseArrayOutput() IPRangeInvokeResponseArrayOutput
+	ToIPRangeInvokeResponseArrayOutputWithContext(context.Context) IPRangeInvokeResponseArrayOutput
+}
+
+type IPRangeInvokeResponseArray []IPRangeInvokeResponseInput
+
+func (IPRangeInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPRangeInvokeResponse)(nil)).Elem()
+}
+
+func (i IPRangeInvokeResponseArray) ToIPRangeInvokeResponseArrayOutput() IPRangeInvokeResponseArrayOutput {
+	return i.ToIPRangeInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IPRangeInvokeResponseArray) ToIPRangeInvokeResponseArrayOutputWithContext(ctx context.Context) IPRangeInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPRangeInvokeResponseArrayOutput)
+}
+
+// The IP address range in the CIDR scheme.
+type IPRangeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IPRangeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPRangeInvokeResponse)(nil)).Elem()
+}
+
+func (o IPRangeInvokeResponseOutput) ToIPRangeInvokeResponseOutput() IPRangeInvokeResponseOutput {
+	return o
+}
+
+func (o IPRangeInvokeResponseOutput) ToIPRangeInvokeResponseOutputWithContext(ctx context.Context) IPRangeInvokeResponseOutput {
+	return o
+}
+
+// The IP address.
+func (o IPRangeInvokeResponseOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPRangeInvokeResponse) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// The friendly name for the IP address range.
+func (o IPRangeInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPRangeInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The subnet mask prefix length (see CIDR notation).
+func (o IPRangeInvokeResponseOutput) SubnetPrefixLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IPRangeInvokeResponse) *int { return v.SubnetPrefixLength }).(pulumi.IntPtrOutput)
+}
+
+type IPRangeInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IPRangeInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPRangeInvokeResponse)(nil)).Elem()
+}
+
+func (o IPRangeInvokeResponseArrayOutput) ToIPRangeInvokeResponseArrayOutput() IPRangeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IPRangeInvokeResponseArrayOutput) ToIPRangeInvokeResponseArrayOutputWithContext(ctx context.Context) IPRangeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IPRangeInvokeResponseArrayOutput) Index(i pulumi.IntInput) IPRangeInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPRangeInvokeResponse {
+		return vs[0].([]IPRangeInvokeResponse)[vs[1].(int)]
+	}).(IPRangeInvokeResponseOutput)
 }
 
 // The IP address range in the CIDR scheme.
@@ -1750,6 +2375,70 @@ func (o LiveEventEncodingPtrOutput) PresetName() pulumi.StringPtrOutput {
 }
 
 // The Live Event encoding.
+type LiveEventEncodingInvokeResponse struct {
+	// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+	EncodingType *string `pulumi:"encodingType"`
+	// The encoding preset name.  This value is specified at creation time and cannot be updated.
+	PresetName *string `pulumi:"presetName"`
+}
+
+// LiveEventEncodingInvokeResponseInput is an input type that accepts LiveEventEncodingInvokeResponseArgs and LiveEventEncodingInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventEncodingInvokeResponseInput` via:
+//
+//          LiveEventEncodingInvokeResponseArgs{...}
+type LiveEventEncodingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventEncodingInvokeResponseOutput() LiveEventEncodingInvokeResponseOutput
+	ToLiveEventEncodingInvokeResponseOutputWithContext(context.Context) LiveEventEncodingInvokeResponseOutput
+}
+
+// The Live Event encoding.
+type LiveEventEncodingInvokeResponseArgs struct {
+	// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
+	// The encoding preset name.  This value is specified at creation time and cannot be updated.
+	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
+}
+
+func (LiveEventEncodingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventEncodingInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventEncodingInvokeResponseArgs) ToLiveEventEncodingInvokeResponseOutput() LiveEventEncodingInvokeResponseOutput {
+	return i.ToLiveEventEncodingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventEncodingInvokeResponseArgs) ToLiveEventEncodingInvokeResponseOutputWithContext(ctx context.Context) LiveEventEncodingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingInvokeResponseOutput)
+}
+
+// The Live Event encoding.
+type LiveEventEncodingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventEncodingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventEncodingInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventEncodingInvokeResponseOutput) ToLiveEventEncodingInvokeResponseOutput() LiveEventEncodingInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventEncodingInvokeResponseOutput) ToLiveEventEncodingInvokeResponseOutputWithContext(ctx context.Context) LiveEventEncodingInvokeResponseOutput {
+	return o
+}
+
+// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+func (o LiveEventEncodingInvokeResponseOutput) EncodingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncodingInvokeResponse) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
+}
+
+// The encoding preset name.  This value is specified at creation time and cannot be updated.
+func (o LiveEventEncodingInvokeResponseOutput) PresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncodingInvokeResponse) *string { return v.PresetName }).(pulumi.StringPtrOutput)
+}
+
+// The Live Event encoding.
 type LiveEventEncodingResponse struct {
 	// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
 	EncodingType *string `pulumi:"encodingType"`
@@ -2009,6 +2698,115 @@ func (o LiveEventEndpointArrayOutput) Index(i pulumi.IntInput) LiveEventEndpoint
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventEndpoint {
 		return vs[0].([]LiveEventEndpoint)[vs[1].(int)]
 	}).(LiveEventEndpointOutput)
+}
+
+// The Live Event endpoint.
+type LiveEventEndpointInvokeResponse struct {
+	// The endpoint protocol.
+	Protocol *string `pulumi:"protocol"`
+	// The endpoint URL.
+	Url *string `pulumi:"url"`
+}
+
+// LiveEventEndpointInvokeResponseInput is an input type that accepts LiveEventEndpointInvokeResponseArgs and LiveEventEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventEndpointInvokeResponseInput` via:
+//
+//          LiveEventEndpointInvokeResponseArgs{...}
+type LiveEventEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventEndpointInvokeResponseOutput() LiveEventEndpointInvokeResponseOutput
+	ToLiveEventEndpointInvokeResponseOutputWithContext(context.Context) LiveEventEndpointInvokeResponseOutput
+}
+
+// The Live Event endpoint.
+type LiveEventEndpointInvokeResponseArgs struct {
+	// The endpoint protocol.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The endpoint URL.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (LiveEventEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventEndpointInvokeResponseArgs) ToLiveEventEndpointInvokeResponseOutput() LiveEventEndpointInvokeResponseOutput {
+	return i.ToLiveEventEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventEndpointInvokeResponseArgs) ToLiveEventEndpointInvokeResponseOutputWithContext(ctx context.Context) LiveEventEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointInvokeResponseOutput)
+}
+
+// LiveEventEndpointInvokeResponseArrayInput is an input type that accepts LiveEventEndpointInvokeResponseArray and LiveEventEndpointInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LiveEventEndpointInvokeResponseArrayInput` via:
+//
+//          LiveEventEndpointInvokeResponseArray{ LiveEventEndpointInvokeResponseArgs{...} }
+type LiveEventEndpointInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventEndpointInvokeResponseArrayOutput() LiveEventEndpointInvokeResponseArrayOutput
+	ToLiveEventEndpointInvokeResponseArrayOutputWithContext(context.Context) LiveEventEndpointInvokeResponseArrayOutput
+}
+
+type LiveEventEndpointInvokeResponseArray []LiveEventEndpointInvokeResponseInput
+
+func (LiveEventEndpointInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventEndpointInvokeResponseArray) ToLiveEventEndpointInvokeResponseArrayOutput() LiveEventEndpointInvokeResponseArrayOutput {
+	return i.ToLiveEventEndpointInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventEndpointInvokeResponseArray) ToLiveEventEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) LiveEventEndpointInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointInvokeResponseArrayOutput)
+}
+
+// The Live Event endpoint.
+type LiveEventEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventEndpointInvokeResponseOutput) ToLiveEventEndpointInvokeResponseOutput() LiveEventEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventEndpointInvokeResponseOutput) ToLiveEventEndpointInvokeResponseOutputWithContext(ctx context.Context) LiveEventEndpointInvokeResponseOutput {
+	return o
+}
+
+// The endpoint protocol.
+func (o LiveEventEndpointInvokeResponseOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEndpointInvokeResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The endpoint URL.
+func (o LiveEventEndpointInvokeResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEndpointInvokeResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventEndpointInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventEndpointInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventEndpointInvokeResponseArrayOutput) ToLiveEventEndpointInvokeResponseArrayOutput() LiveEventEndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventEndpointInvokeResponseArrayOutput) ToLiveEventEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) LiveEventEndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventEndpointInvokeResponseArrayOutput) Index(i pulumi.IntInput) LiveEventEndpointInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventEndpointInvokeResponse {
+		return vs[0].([]LiveEventEndpointInvokeResponse)[vs[1].(int)]
+	}).(LiveEventEndpointInvokeResponseOutput)
 }
 
 // The Live Event endpoint.
@@ -2465,6 +3263,142 @@ func (o LiveEventInputAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 }
 
 // The IP access control for Live Event Input.
+type LiveEventInputAccessControlInvokeResponse struct {
+	// The IP access control properties.
+	Ip *IPAccessControlInvokeResponse `pulumi:"ip"`
+}
+
+// LiveEventInputAccessControlInvokeResponseInput is an input type that accepts LiveEventInputAccessControlInvokeResponseArgs and LiveEventInputAccessControlInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventInputAccessControlInvokeResponseInput` via:
+//
+//          LiveEventInputAccessControlInvokeResponseArgs{...}
+type LiveEventInputAccessControlInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventInputAccessControlInvokeResponseOutput() LiveEventInputAccessControlInvokeResponseOutput
+	ToLiveEventInputAccessControlInvokeResponseOutputWithContext(context.Context) LiveEventInputAccessControlInvokeResponseOutput
+}
+
+// The IP access control for Live Event Input.
+type LiveEventInputAccessControlInvokeResponseArgs struct {
+	// The IP access control properties.
+	Ip IPAccessControlInvokeResponsePtrInput `pulumi:"ip"`
+}
+
+func (LiveEventInputAccessControlInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventInputAccessControlInvokeResponseArgs) ToLiveEventInputAccessControlInvokeResponseOutput() LiveEventInputAccessControlInvokeResponseOutput {
+	return i.ToLiveEventInputAccessControlInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputAccessControlInvokeResponseArgs) ToLiveEventInputAccessControlInvokeResponseOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlInvokeResponseOutput)
+}
+
+func (i LiveEventInputAccessControlInvokeResponseArgs) ToLiveEventInputAccessControlInvokeResponsePtrOutput() LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return i.ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputAccessControlInvokeResponseArgs) ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlInvokeResponseOutput).ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// LiveEventInputAccessControlInvokeResponsePtrInput is an input type that accepts LiveEventInputAccessControlInvokeResponseArgs, LiveEventInputAccessControlInvokeResponsePtr and LiveEventInputAccessControlInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `LiveEventInputAccessControlInvokeResponsePtrInput` via:
+//
+//          LiveEventInputAccessControlInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventInputAccessControlInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToLiveEventInputAccessControlInvokeResponsePtrOutput() LiveEventInputAccessControlInvokeResponsePtrOutput
+	ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(context.Context) LiveEventInputAccessControlInvokeResponsePtrOutput
+}
+
+type liveEventInputAccessControlInvokeResponsePtrType LiveEventInputAccessControlInvokeResponseArgs
+
+func LiveEventInputAccessControlInvokeResponsePtr(v *LiveEventInputAccessControlInvokeResponseArgs) LiveEventInputAccessControlInvokeResponsePtrInput {
+	return (*liveEventInputAccessControlInvokeResponsePtrType)(v)
+}
+
+func (*liveEventInputAccessControlInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventInputAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i *liveEventInputAccessControlInvokeResponsePtrType) ToLiveEventInputAccessControlInvokeResponsePtrOutput() LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return i.ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventInputAccessControlInvokeResponsePtrType) ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control for Live Event Input.
+type LiveEventInputAccessControlInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputAccessControlInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventInputAccessControlInvokeResponseOutput) ToLiveEventInputAccessControlInvokeResponseOutput() LiveEventInputAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventInputAccessControlInvokeResponseOutput) ToLiveEventInputAccessControlInvokeResponseOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventInputAccessControlInvokeResponseOutput) ToLiveEventInputAccessControlInvokeResponsePtrOutput() LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return o.ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventInputAccessControlInvokeResponseOutput) ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventInputAccessControlInvokeResponse) *LiveEventInputAccessControlInvokeResponse {
+		return &v
+	}).(LiveEventInputAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control properties.
+func (o LiveEventInputAccessControlInvokeResponseOutput) Ip() IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventInputAccessControlInvokeResponse) *IPAccessControlInvokeResponse { return v.Ip }).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+type LiveEventInputAccessControlInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputAccessControlInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventInputAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventInputAccessControlInvokeResponsePtrOutput) ToLiveEventInputAccessControlInvokeResponsePtrOutput() LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventInputAccessControlInvokeResponsePtrOutput) ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventInputAccessControlInvokeResponsePtrOutput) Elem() LiveEventInputAccessControlInvokeResponseOutput {
+	return o.ApplyT(func(v *LiveEventInputAccessControlInvokeResponse) LiveEventInputAccessControlInvokeResponse {
+		return *v
+	}).(LiveEventInputAccessControlInvokeResponseOutput)
+}
+
+// The IP access control properties.
+func (o LiveEventInputAccessControlInvokeResponsePtrOutput) Ip() IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *LiveEventInputAccessControlInvokeResponse) *IPAccessControlInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Ip
+	}).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control for Live Event Input.
 type LiveEventInputAccessControlResponse struct {
 	// The IP access control properties.
 	Ip *IPAccessControlResponse `pulumi:"ip"`
@@ -2596,6 +3530,99 @@ func (o LiveEventInputAccessControlResponsePtrOutput) Ip() IPAccessControlRespon
 		}
 		return v.Ip
 	}).(IPAccessControlResponsePtrOutput)
+}
+
+// The Live Event input.
+type LiveEventInputInvokeResponse struct {
+	// The access control for LiveEvent Input.
+	AccessControl *LiveEventInputAccessControlInvokeResponse `pulumi:"accessControl"`
+	// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+	AccessToken *string `pulumi:"accessToken"`
+	// The input endpoints for the Live Event.
+	Endpoints []LiveEventEndpointInvokeResponse `pulumi:"endpoints"`
+	// ISO 8601 timespan duration of the key frame interval duration.
+	KeyFrameIntervalDuration *string `pulumi:"keyFrameIntervalDuration"`
+	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+	StreamingProtocol string `pulumi:"streamingProtocol"`
+}
+
+// LiveEventInputInvokeResponseInput is an input type that accepts LiveEventInputInvokeResponseArgs and LiveEventInputInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventInputInvokeResponseInput` via:
+//
+//          LiveEventInputInvokeResponseArgs{...}
+type LiveEventInputInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventInputInvokeResponseOutput() LiveEventInputInvokeResponseOutput
+	ToLiveEventInputInvokeResponseOutputWithContext(context.Context) LiveEventInputInvokeResponseOutput
+}
+
+// The Live Event input.
+type LiveEventInputInvokeResponseArgs struct {
+	// The access control for LiveEvent Input.
+	AccessControl LiveEventInputAccessControlInvokeResponsePtrInput `pulumi:"accessControl"`
+	// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// The input endpoints for the Live Event.
+	Endpoints LiveEventEndpointInvokeResponseArrayInput `pulumi:"endpoints"`
+	// ISO 8601 timespan duration of the key frame interval duration.
+	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
+	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
+}
+
+func (LiveEventInputInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventInputInvokeResponseArgs) ToLiveEventInputInvokeResponseOutput() LiveEventInputInvokeResponseOutput {
+	return i.ToLiveEventInputInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputInvokeResponseArgs) ToLiveEventInputInvokeResponseOutputWithContext(ctx context.Context) LiveEventInputInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputInvokeResponseOutput)
+}
+
+// The Live Event input.
+type LiveEventInputInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventInputInvokeResponseOutput) ToLiveEventInputInvokeResponseOutput() LiveEventInputInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventInputInvokeResponseOutput) ToLiveEventInputInvokeResponseOutputWithContext(ctx context.Context) LiveEventInputInvokeResponseOutput {
+	return o
+}
+
+// The access control for LiveEvent Input.
+func (o LiveEventInputInvokeResponseOutput) AccessControl() LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventInputInvokeResponse) *LiveEventInputAccessControlInvokeResponse {
+		return v.AccessControl
+	}).(LiveEventInputAccessControlInvokeResponsePtrOutput)
+}
+
+// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+func (o LiveEventInputInvokeResponseOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputInvokeResponse) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The input endpoints for the Live Event.
+func (o LiveEventInputInvokeResponseOutput) Endpoints() LiveEventEndpointInvokeResponseArrayOutput {
+	return o.ApplyT(func(v LiveEventInputInvokeResponse) []LiveEventEndpointInvokeResponse { return v.Endpoints }).(LiveEventEndpointInvokeResponseArrayOutput)
+}
+
+// ISO 8601 timespan duration of the key frame interval duration.
+func (o LiveEventInputInvokeResponseOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputInvokeResponse) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
+}
+
+// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+func (o LiveEventInputInvokeResponseOutput) StreamingProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveEventInputInvokeResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
 
 // The Live Event input.
@@ -2927,6 +3954,124 @@ func (o LiveEventInputTrackSelectionArrayOutput) Index(i pulumi.IntInput) LiveEv
 }
 
 // A track selection condition.
+type LiveEventInputTrackSelectionInvokeResponse struct {
+	// Comparing operation.
+	Operation *string `pulumi:"operation"`
+	// Property name to select.
+	Property *string `pulumi:"property"`
+	// Property value to select.
+	Value *string `pulumi:"value"`
+}
+
+// LiveEventInputTrackSelectionInvokeResponseInput is an input type that accepts LiveEventInputTrackSelectionInvokeResponseArgs and LiveEventInputTrackSelectionInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventInputTrackSelectionInvokeResponseInput` via:
+//
+//          LiveEventInputTrackSelectionInvokeResponseArgs{...}
+type LiveEventInputTrackSelectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventInputTrackSelectionInvokeResponseOutput() LiveEventInputTrackSelectionInvokeResponseOutput
+	ToLiveEventInputTrackSelectionInvokeResponseOutputWithContext(context.Context) LiveEventInputTrackSelectionInvokeResponseOutput
+}
+
+// A track selection condition.
+type LiveEventInputTrackSelectionInvokeResponseArgs struct {
+	// Comparing operation.
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	// Property name to select.
+	Property pulumi.StringPtrInput `pulumi:"property"`
+	// Property value to select.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LiveEventInputTrackSelectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputTrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventInputTrackSelectionInvokeResponseArgs) ToLiveEventInputTrackSelectionInvokeResponseOutput() LiveEventInputTrackSelectionInvokeResponseOutput {
+	return i.ToLiveEventInputTrackSelectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputTrackSelectionInvokeResponseArgs) ToLiveEventInputTrackSelectionInvokeResponseOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTrackSelectionInvokeResponseOutput)
+}
+
+// LiveEventInputTrackSelectionInvokeResponseArrayInput is an input type that accepts LiveEventInputTrackSelectionInvokeResponseArray and LiveEventInputTrackSelectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LiveEventInputTrackSelectionInvokeResponseArrayInput` via:
+//
+//          LiveEventInputTrackSelectionInvokeResponseArray{ LiveEventInputTrackSelectionInvokeResponseArgs{...} }
+type LiveEventInputTrackSelectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventInputTrackSelectionInvokeResponseArrayOutput() LiveEventInputTrackSelectionInvokeResponseArrayOutput
+	ToLiveEventInputTrackSelectionInvokeResponseArrayOutputWithContext(context.Context) LiveEventInputTrackSelectionInvokeResponseArrayOutput
+}
+
+type LiveEventInputTrackSelectionInvokeResponseArray []LiveEventInputTrackSelectionInvokeResponseInput
+
+func (LiveEventInputTrackSelectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventInputTrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventInputTrackSelectionInvokeResponseArray) ToLiveEventInputTrackSelectionInvokeResponseArrayOutput() LiveEventInputTrackSelectionInvokeResponseArrayOutput {
+	return i.ToLiveEventInputTrackSelectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputTrackSelectionInvokeResponseArray) ToLiveEventInputTrackSelectionInvokeResponseArrayOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTrackSelectionInvokeResponseArrayOutput)
+}
+
+// A track selection condition.
+type LiveEventInputTrackSelectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputTrackSelectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputTrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventInputTrackSelectionInvokeResponseOutput) ToLiveEventInputTrackSelectionInvokeResponseOutput() LiveEventInputTrackSelectionInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventInputTrackSelectionInvokeResponseOutput) ToLiveEventInputTrackSelectionInvokeResponseOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionInvokeResponseOutput {
+	return o
+}
+
+// Comparing operation.
+func (o LiveEventInputTrackSelectionInvokeResponseOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputTrackSelectionInvokeResponse) *string { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
+// Property name to select.
+func (o LiveEventInputTrackSelectionInvokeResponseOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputTrackSelectionInvokeResponse) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+// Property value to select.
+func (o LiveEventInputTrackSelectionInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputTrackSelectionInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventInputTrackSelectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputTrackSelectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventInputTrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventInputTrackSelectionInvokeResponseArrayOutput) ToLiveEventInputTrackSelectionInvokeResponseArrayOutput() LiveEventInputTrackSelectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventInputTrackSelectionInvokeResponseArrayOutput) ToLiveEventInputTrackSelectionInvokeResponseArrayOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventInputTrackSelectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) LiveEventInputTrackSelectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventInputTrackSelectionInvokeResponse {
+		return vs[0].([]LiveEventInputTrackSelectionInvokeResponse)[vs[1].(int)]
+	}).(LiveEventInputTrackSelectionInvokeResponseOutput)
+}
+
+// A track selection condition.
 type LiveEventInputTrackSelectionResponse struct {
 	// Comparing operation.
 	Operation *string `pulumi:"operation"`
@@ -3171,6 +4316,142 @@ func (o LiveEventOutputTranscriptionTrackPtrOutput) Elem() LiveEventOutputTransc
 // The output track name.
 func (o LiveEventOutputTranscriptionTrackPtrOutput) TrackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrack) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrackName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+type LiveEventOutputTranscriptionTrackInvokeResponse struct {
+	// The output track name.
+	TrackName string `pulumi:"trackName"`
+}
+
+// LiveEventOutputTranscriptionTrackInvokeResponseInput is an input type that accepts LiveEventOutputTranscriptionTrackInvokeResponseArgs and LiveEventOutputTranscriptionTrackInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventOutputTranscriptionTrackInvokeResponseInput` via:
+//
+//          LiveEventOutputTranscriptionTrackInvokeResponseArgs{...}
+type LiveEventOutputTranscriptionTrackInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventOutputTranscriptionTrackInvokeResponseOutput() LiveEventOutputTranscriptionTrackInvokeResponseOutput
+	ToLiveEventOutputTranscriptionTrackInvokeResponseOutputWithContext(context.Context) LiveEventOutputTranscriptionTrackInvokeResponseOutput
+}
+
+// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+type LiveEventOutputTranscriptionTrackInvokeResponseArgs struct {
+	// The output track name.
+	TrackName pulumi.StringInput `pulumi:"trackName"`
+}
+
+func (LiveEventOutputTranscriptionTrackInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventOutputTranscriptionTrackInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventOutputTranscriptionTrackInvokeResponseArgs) ToLiveEventOutputTranscriptionTrackInvokeResponseOutput() LiveEventOutputTranscriptionTrackInvokeResponseOutput {
+	return i.ToLiveEventOutputTranscriptionTrackInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventOutputTranscriptionTrackInvokeResponseArgs) ToLiveEventOutputTranscriptionTrackInvokeResponseOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackInvokeResponseOutput)
+}
+
+func (i LiveEventOutputTranscriptionTrackInvokeResponseArgs) ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutput() LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput {
+	return i.ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventOutputTranscriptionTrackInvokeResponseArgs) ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackInvokeResponseOutput).ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// LiveEventOutputTranscriptionTrackInvokeResponsePtrInput is an input type that accepts LiveEventOutputTranscriptionTrackInvokeResponseArgs, LiveEventOutputTranscriptionTrackInvokeResponsePtr and LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `LiveEventOutputTranscriptionTrackInvokeResponsePtrInput` via:
+//
+//          LiveEventOutputTranscriptionTrackInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventOutputTranscriptionTrackInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutput() LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput
+	ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutputWithContext(context.Context) LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput
+}
+
+type liveEventOutputTranscriptionTrackInvokeResponsePtrType LiveEventOutputTranscriptionTrackInvokeResponseArgs
+
+func LiveEventOutputTranscriptionTrackInvokeResponsePtr(v *LiveEventOutputTranscriptionTrackInvokeResponseArgs) LiveEventOutputTranscriptionTrackInvokeResponsePtrInput {
+	return (*liveEventOutputTranscriptionTrackInvokeResponsePtrType)(v)
+}
+
+func (*liveEventOutputTranscriptionTrackInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventOutputTranscriptionTrackInvokeResponse)(nil)).Elem()
+}
+
+func (i *liveEventOutputTranscriptionTrackInvokeResponsePtrType) ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutput() LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput {
+	return i.ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventOutputTranscriptionTrackInvokeResponsePtrType) ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput)
+}
+
+// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+type LiveEventOutputTranscriptionTrackInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventOutputTranscriptionTrackInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventOutputTranscriptionTrackInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventOutputTranscriptionTrackInvokeResponseOutput) ToLiveEventOutputTranscriptionTrackInvokeResponseOutput() LiveEventOutputTranscriptionTrackInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackInvokeResponseOutput) ToLiveEventOutputTranscriptionTrackInvokeResponseOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackInvokeResponseOutput) ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutput() LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput {
+	return o.ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventOutputTranscriptionTrackInvokeResponseOutput) ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventOutputTranscriptionTrackInvokeResponse) *LiveEventOutputTranscriptionTrackInvokeResponse {
+		return &v
+	}).(LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput)
+}
+
+// The output track name.
+func (o LiveEventOutputTranscriptionTrackInvokeResponseOutput) TrackName() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveEventOutputTranscriptionTrackInvokeResponse) string { return v.TrackName }).(pulumi.StringOutput)
+}
+
+type LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventOutputTranscriptionTrackInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput) ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutput() LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput) ToLiveEventOutputTranscriptionTrackInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput) Elem() LiveEventOutputTranscriptionTrackInvokeResponseOutput {
+	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrackInvokeResponse) LiveEventOutputTranscriptionTrackInvokeResponse {
+		return *v
+	}).(LiveEventOutputTranscriptionTrackInvokeResponseOutput)
+}
+
+// The output track name.
+func (o LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput) TrackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventOutputTranscriptionTrackInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3659,6 +4940,142 @@ func (o LiveEventPreviewAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 }
 
 // The IP access control for Live Event preview.
+type LiveEventPreviewAccessControlInvokeResponse struct {
+	// The IP access control properties.
+	Ip *IPAccessControlInvokeResponse `pulumi:"ip"`
+}
+
+// LiveEventPreviewAccessControlInvokeResponseInput is an input type that accepts LiveEventPreviewAccessControlInvokeResponseArgs and LiveEventPreviewAccessControlInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventPreviewAccessControlInvokeResponseInput` via:
+//
+//          LiveEventPreviewAccessControlInvokeResponseArgs{...}
+type LiveEventPreviewAccessControlInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewAccessControlInvokeResponseOutput() LiveEventPreviewAccessControlInvokeResponseOutput
+	ToLiveEventPreviewAccessControlInvokeResponseOutputWithContext(context.Context) LiveEventPreviewAccessControlInvokeResponseOutput
+}
+
+// The IP access control for Live Event preview.
+type LiveEventPreviewAccessControlInvokeResponseArgs struct {
+	// The IP access control properties.
+	Ip IPAccessControlInvokeResponsePtrInput `pulumi:"ip"`
+}
+
+func (LiveEventPreviewAccessControlInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventPreviewAccessControlInvokeResponseArgs) ToLiveEventPreviewAccessControlInvokeResponseOutput() LiveEventPreviewAccessControlInvokeResponseOutput {
+	return i.ToLiveEventPreviewAccessControlInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewAccessControlInvokeResponseArgs) ToLiveEventPreviewAccessControlInvokeResponseOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlInvokeResponseOutput)
+}
+
+func (i LiveEventPreviewAccessControlInvokeResponseArgs) ToLiveEventPreviewAccessControlInvokeResponsePtrOutput() LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return i.ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewAccessControlInvokeResponseArgs) ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlInvokeResponseOutput).ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// LiveEventPreviewAccessControlInvokeResponsePtrInput is an input type that accepts LiveEventPreviewAccessControlInvokeResponseArgs, LiveEventPreviewAccessControlInvokeResponsePtr and LiveEventPreviewAccessControlInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `LiveEventPreviewAccessControlInvokeResponsePtrInput` via:
+//
+//          LiveEventPreviewAccessControlInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventPreviewAccessControlInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewAccessControlInvokeResponsePtrOutput() LiveEventPreviewAccessControlInvokeResponsePtrOutput
+	ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(context.Context) LiveEventPreviewAccessControlInvokeResponsePtrOutput
+}
+
+type liveEventPreviewAccessControlInvokeResponsePtrType LiveEventPreviewAccessControlInvokeResponseArgs
+
+func LiveEventPreviewAccessControlInvokeResponsePtr(v *LiveEventPreviewAccessControlInvokeResponseArgs) LiveEventPreviewAccessControlInvokeResponsePtrInput {
+	return (*liveEventPreviewAccessControlInvokeResponsePtrType)(v)
+}
+
+func (*liveEventPreviewAccessControlInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventPreviewAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i *liveEventPreviewAccessControlInvokeResponsePtrType) ToLiveEventPreviewAccessControlInvokeResponsePtrOutput() LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return i.ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventPreviewAccessControlInvokeResponsePtrType) ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control for Live Event preview.
+type LiveEventPreviewAccessControlInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewAccessControlInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponseOutput) ToLiveEventPreviewAccessControlInvokeResponseOutput() LiveEventPreviewAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponseOutput) ToLiveEventPreviewAccessControlInvokeResponseOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponseOutput) ToLiveEventPreviewAccessControlInvokeResponsePtrOutput() LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return o.ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponseOutput) ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewAccessControlInvokeResponse) *LiveEventPreviewAccessControlInvokeResponse {
+		return &v
+	}).(LiveEventPreviewAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control properties.
+func (o LiveEventPreviewAccessControlInvokeResponseOutput) Ip() IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewAccessControlInvokeResponse) *IPAccessControlInvokeResponse { return v.Ip }).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+type LiveEventPreviewAccessControlInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewAccessControlInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventPreviewAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponsePtrOutput) ToLiveEventPreviewAccessControlInvokeResponsePtrOutput() LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponsePtrOutput) ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponsePtrOutput) Elem() LiveEventPreviewAccessControlInvokeResponseOutput {
+	return o.ApplyT(func(v *LiveEventPreviewAccessControlInvokeResponse) LiveEventPreviewAccessControlInvokeResponse {
+		return *v
+	}).(LiveEventPreviewAccessControlInvokeResponseOutput)
+}
+
+// The IP access control properties.
+func (o LiveEventPreviewAccessControlInvokeResponsePtrOutput) Ip() IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *LiveEventPreviewAccessControlInvokeResponse) *IPAccessControlInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Ip
+	}).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlResponse struct {
 	// The IP access control properties.
 	Ip *IPAccessControlResponse `pulumi:"ip"`
@@ -3790,6 +5207,99 @@ func (o LiveEventPreviewAccessControlResponsePtrOutput) Ip() IPAccessControlResp
 		}
 		return v.Ip
 	}).(IPAccessControlResponsePtrOutput)
+}
+
+// The Live Event preview.
+type LiveEventPreviewInvokeResponse struct {
+	// The access control for LiveEvent preview.
+	AccessControl *LiveEventPreviewAccessControlInvokeResponse `pulumi:"accessControl"`
+	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
+	// The endpoints for preview.
+	Endpoints []LiveEventEndpointInvokeResponse `pulumi:"endpoints"`
+	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+	PreviewLocator *string `pulumi:"previewLocator"`
+	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
+}
+
+// LiveEventPreviewInvokeResponseInput is an input type that accepts LiveEventPreviewInvokeResponseArgs and LiveEventPreviewInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventPreviewInvokeResponseInput` via:
+//
+//          LiveEventPreviewInvokeResponseArgs{...}
+type LiveEventPreviewInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewInvokeResponseOutput() LiveEventPreviewInvokeResponseOutput
+	ToLiveEventPreviewInvokeResponseOutputWithContext(context.Context) LiveEventPreviewInvokeResponseOutput
+}
+
+// The Live Event preview.
+type LiveEventPreviewInvokeResponseArgs struct {
+	// The access control for LiveEvent preview.
+	AccessControl LiveEventPreviewAccessControlInvokeResponsePtrInput `pulumi:"accessControl"`
+	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+	AlternativeMediaId pulumi.StringPtrInput `pulumi:"alternativeMediaId"`
+	// The endpoints for preview.
+	Endpoints LiveEventEndpointInvokeResponseArrayInput `pulumi:"endpoints"`
+	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+	PreviewLocator pulumi.StringPtrInput `pulumi:"previewLocator"`
+	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+	StreamingPolicyName pulumi.StringPtrInput `pulumi:"streamingPolicyName"`
+}
+
+func (LiveEventPreviewInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventPreviewInvokeResponseArgs) ToLiveEventPreviewInvokeResponseOutput() LiveEventPreviewInvokeResponseOutput {
+	return i.ToLiveEventPreviewInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewInvokeResponseArgs) ToLiveEventPreviewInvokeResponseOutputWithContext(ctx context.Context) LiveEventPreviewInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewInvokeResponseOutput)
+}
+
+// The Live Event preview.
+type LiveEventPreviewInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventPreviewInvokeResponseOutput) ToLiveEventPreviewInvokeResponseOutput() LiveEventPreviewInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventPreviewInvokeResponseOutput) ToLiveEventPreviewInvokeResponseOutputWithContext(ctx context.Context) LiveEventPreviewInvokeResponseOutput {
+	return o
+}
+
+// The access control for LiveEvent preview.
+func (o LiveEventPreviewInvokeResponseOutput) AccessControl() LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewInvokeResponse) *LiveEventPreviewAccessControlInvokeResponse {
+		return v.AccessControl
+	}).(LiveEventPreviewAccessControlInvokeResponsePtrOutput)
+}
+
+// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+func (o LiveEventPreviewInvokeResponseOutput) AlternativeMediaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewInvokeResponse) *string { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
+}
+
+// The endpoints for preview.
+func (o LiveEventPreviewInvokeResponseOutput) Endpoints() LiveEventEndpointInvokeResponseArrayOutput {
+	return o.ApplyT(func(v LiveEventPreviewInvokeResponse) []LiveEventEndpointInvokeResponse { return v.Endpoints }).(LiveEventEndpointInvokeResponseArrayOutput)
+}
+
+// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+func (o LiveEventPreviewInvokeResponseOutput) PreviewLocator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewInvokeResponse) *string { return v.PreviewLocator }).(pulumi.StringPtrOutput)
+}
+
+// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+func (o LiveEventPreviewInvokeResponseOutput) StreamingPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewInvokeResponse) *string { return v.StreamingPolicyName }).(pulumi.StringPtrOutput)
 }
 
 // The Live Event preview.
@@ -4121,6 +5631,128 @@ func (o LiveEventTranscriptionArrayOutput) Index(i pulumi.IntInput) LiveEventTra
 }
 
 // Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
+type LiveEventTranscriptionInvokeResponse struct {
+	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
+	InputTrackSelection []LiveEventInputTrackSelectionInvokeResponse `pulumi:"inputTrackSelection"`
+	// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+	Language *string `pulumi:"language"`
+	// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+	OutputTranscriptionTrack *LiveEventOutputTranscriptionTrackInvokeResponse `pulumi:"outputTranscriptionTrack"`
+}
+
+// LiveEventTranscriptionInvokeResponseInput is an input type that accepts LiveEventTranscriptionInvokeResponseArgs and LiveEventTranscriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventTranscriptionInvokeResponseInput` via:
+//
+//          LiveEventTranscriptionInvokeResponseArgs{...}
+type LiveEventTranscriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventTranscriptionInvokeResponseOutput() LiveEventTranscriptionInvokeResponseOutput
+	ToLiveEventTranscriptionInvokeResponseOutputWithContext(context.Context) LiveEventTranscriptionInvokeResponseOutput
+}
+
+// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
+type LiveEventTranscriptionInvokeResponseArgs struct {
+	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
+	InputTrackSelection LiveEventInputTrackSelectionInvokeResponseArrayInput `pulumi:"inputTrackSelection"`
+	// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+	Language pulumi.StringPtrInput `pulumi:"language"`
+	// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+	OutputTranscriptionTrack LiveEventOutputTranscriptionTrackInvokeResponsePtrInput `pulumi:"outputTranscriptionTrack"`
+}
+
+func (LiveEventTranscriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventTranscriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventTranscriptionInvokeResponseArgs) ToLiveEventTranscriptionInvokeResponseOutput() LiveEventTranscriptionInvokeResponseOutput {
+	return i.ToLiveEventTranscriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventTranscriptionInvokeResponseArgs) ToLiveEventTranscriptionInvokeResponseOutputWithContext(ctx context.Context) LiveEventTranscriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTranscriptionInvokeResponseOutput)
+}
+
+// LiveEventTranscriptionInvokeResponseArrayInput is an input type that accepts LiveEventTranscriptionInvokeResponseArray and LiveEventTranscriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LiveEventTranscriptionInvokeResponseArrayInput` via:
+//
+//          LiveEventTranscriptionInvokeResponseArray{ LiveEventTranscriptionInvokeResponseArgs{...} }
+type LiveEventTranscriptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventTranscriptionInvokeResponseArrayOutput() LiveEventTranscriptionInvokeResponseArrayOutput
+	ToLiveEventTranscriptionInvokeResponseArrayOutputWithContext(context.Context) LiveEventTranscriptionInvokeResponseArrayOutput
+}
+
+type LiveEventTranscriptionInvokeResponseArray []LiveEventTranscriptionInvokeResponseInput
+
+func (LiveEventTranscriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventTranscriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventTranscriptionInvokeResponseArray) ToLiveEventTranscriptionInvokeResponseArrayOutput() LiveEventTranscriptionInvokeResponseArrayOutput {
+	return i.ToLiveEventTranscriptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventTranscriptionInvokeResponseArray) ToLiveEventTranscriptionInvokeResponseArrayOutputWithContext(ctx context.Context) LiveEventTranscriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTranscriptionInvokeResponseArrayOutput)
+}
+
+// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
+type LiveEventTranscriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventTranscriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventTranscriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventTranscriptionInvokeResponseOutput) ToLiveEventTranscriptionInvokeResponseOutput() LiveEventTranscriptionInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventTranscriptionInvokeResponseOutput) ToLiveEventTranscriptionInvokeResponseOutputWithContext(ctx context.Context) LiveEventTranscriptionInvokeResponseOutput {
+	return o
+}
+
+// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
+func (o LiveEventTranscriptionInvokeResponseOutput) InputTrackSelection() LiveEventInputTrackSelectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v LiveEventTranscriptionInvokeResponse) []LiveEventInputTrackSelectionInvokeResponse {
+		return v.InputTrackSelection
+	}).(LiveEventInputTrackSelectionInvokeResponseArrayOutput)
+}
+
+// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+func (o LiveEventTranscriptionInvokeResponseOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventTranscriptionInvokeResponse) *string { return v.Language }).(pulumi.StringPtrOutput)
+}
+
+// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
+func (o LiveEventTranscriptionInvokeResponseOutput) OutputTranscriptionTrack() LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventTranscriptionInvokeResponse) *LiveEventOutputTranscriptionTrackInvokeResponse {
+		return v.OutputTranscriptionTrack
+	}).(LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput)
+}
+
+type LiveEventTranscriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventTranscriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventTranscriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventTranscriptionInvokeResponseArrayOutput) ToLiveEventTranscriptionInvokeResponseArrayOutput() LiveEventTranscriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventTranscriptionInvokeResponseArrayOutput) ToLiveEventTranscriptionInvokeResponseArrayOutputWithContext(ctx context.Context) LiveEventTranscriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventTranscriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) LiveEventTranscriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventTranscriptionInvokeResponse {
+		return vs[0].([]LiveEventTranscriptionInvokeResponse)[vs[1].(int)]
+	}).(LiveEventTranscriptionInvokeResponseOutput)
+}
+
+// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
 type LiveEventTranscriptionResponse struct {
 	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
 	InputTrackSelection []LiveEventInputTrackSelectionResponse `pulumi:"inputTrackSelection"`
@@ -4396,6 +6028,72 @@ func (o StreamingEndpointAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 }
 
 // StreamingEndpoint access control definition.
+type StreamingEndpointAccessControlInvokeResponse struct {
+	// The access control of Akamai
+	Akamai *AkamaiAccessControlInvokeResponse `pulumi:"akamai"`
+	// The IP access control of the StreamingEndpoint.
+	Ip *IPAccessControlInvokeResponse `pulumi:"ip"`
+}
+
+// StreamingEndpointAccessControlInvokeResponseInput is an input type that accepts StreamingEndpointAccessControlInvokeResponseArgs and StreamingEndpointAccessControlInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamingEndpointAccessControlInvokeResponseInput` via:
+//
+//          StreamingEndpointAccessControlInvokeResponseArgs{...}
+type StreamingEndpointAccessControlInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointAccessControlInvokeResponseOutput() StreamingEndpointAccessControlInvokeResponseOutput
+	ToStreamingEndpointAccessControlInvokeResponseOutputWithContext(context.Context) StreamingEndpointAccessControlInvokeResponseOutput
+}
+
+// StreamingEndpoint access control definition.
+type StreamingEndpointAccessControlInvokeResponseArgs struct {
+	// The access control of Akamai
+	Akamai AkamaiAccessControlInvokeResponsePtrInput `pulumi:"akamai"`
+	// The IP access control of the StreamingEndpoint.
+	Ip IPAccessControlInvokeResponsePtrInput `pulumi:"ip"`
+}
+
+func (StreamingEndpointAccessControlInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingEndpointAccessControlInvokeResponseArgs) ToStreamingEndpointAccessControlInvokeResponseOutput() StreamingEndpointAccessControlInvokeResponseOutput {
+	return i.ToStreamingEndpointAccessControlInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointAccessControlInvokeResponseArgs) ToStreamingEndpointAccessControlInvokeResponseOutputWithContext(ctx context.Context) StreamingEndpointAccessControlInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlInvokeResponseOutput)
+}
+
+// StreamingEndpoint access control definition.
+type StreamingEndpointAccessControlInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointAccessControlInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingEndpointAccessControlInvokeResponseOutput) ToStreamingEndpointAccessControlInvokeResponseOutput() StreamingEndpointAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlInvokeResponseOutput) ToStreamingEndpointAccessControlInvokeResponseOutputWithContext(ctx context.Context) StreamingEndpointAccessControlInvokeResponseOutput {
+	return o
+}
+
+// The access control of Akamai
+func (o StreamingEndpointAccessControlInvokeResponseOutput) Akamai() AkamaiAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControlInvokeResponse) *AkamaiAccessControlInvokeResponse {
+		return v.Akamai
+	}).(AkamaiAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control of the StreamingEndpoint.
+func (o StreamingEndpointAccessControlInvokeResponseOutput) Ip() IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControlInvokeResponse) *IPAccessControlInvokeResponse { return v.Ip }).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+// StreamingEndpoint access control definition.
 type StreamingEndpointAccessControlResponse struct {
 	// The access control of Akamai
 	Akamai *AkamaiAccessControlResponse `pulumi:"akamai"`
@@ -4551,66 +6249,92 @@ func (o StreamingEndpointAccessControlResponsePtrOutput) Ip() IPAccessControlRes
 func init() {
 	pulumi.RegisterOutputType(AkamaiAccessControlOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(AkamaiAccessControlInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AkamaiAccessControlInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyArrayOutput{})
+	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(CrossSiteAccessPoliciesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesResponseOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesResponsePtrOutput{})
 	pulumi.RegisterOutputType(HlsOutput{})
 	pulumi.RegisterOutputType(HlsPtrOutput{})
+	pulumi.RegisterOutputType(HlsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HlsResponseOutput{})
 	pulumi.RegisterOutputType(HlsResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPAccessControlOutput{})
 	pulumi.RegisterOutputType(IPAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(IPAccessControlInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IPAccessControlInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(IPAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPRangeOutput{})
 	pulumi.RegisterOutputType(IPRangeArrayOutput{})
+	pulumi.RegisterOutputType(IPRangeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IPRangeInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IPRangeResponseOutput{})
 	pulumi.RegisterOutputType(IPRangeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventEncodingInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventEndpointInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventInputOutput{})
 	pulumi.RegisterOutputType(LiveEventInputPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventInputAccessControlInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventInputAccessControlInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlResponsePtrOutput{})
+	pulumi.RegisterOutputType(LiveEventInputInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventInputResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventInputResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputTrackSelectionOutput{})
 	pulumi.RegisterOutputType(LiveEventInputTrackSelectionArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventInputTrackSelectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventInputTrackSelectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventInputTrackSelectionResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventInputTrackSelectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventOutputTranscriptionTrackOutput{})
 	pulumi.RegisterOutputType(LiveEventOutputTranscriptionTrackPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventOutputTranscriptionTrackInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventOutputTranscriptionTrackInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventOutputTranscriptionTrackResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventOutputTranscriptionTrackResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewAccessControlInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewAccessControlInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlResponsePtrOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventTranscriptionOutput{})
 	pulumi.RegisterOutputType(LiveEventTranscriptionArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventTranscriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventTranscriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventTranscriptionResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventTranscriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointAccessControlInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlResponsePtrOutput{})
 }

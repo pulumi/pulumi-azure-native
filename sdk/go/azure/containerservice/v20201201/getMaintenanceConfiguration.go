@@ -32,11 +32,11 @@ type LookupMaintenanceConfigurationResult struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name string `pulumi:"name"`
 	// Time slots on which upgrade is not allowed.
-	NotAllowedTime []TimeSpanResponse `pulumi:"notAllowedTime"`
+	NotAllowedTime []TimeSpanInvokeResponse `pulumi:"notAllowedTime"`
 	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Weekday time slots allowed to upgrade.
-	TimeInWeek []TimeInWeekResponse `pulumi:"timeInWeek"`
+	TimeInWeek []TimeInWeekInvokeResponse `pulumi:"timeInWeek"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

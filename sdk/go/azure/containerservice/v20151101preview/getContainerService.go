@@ -26,21 +26,21 @@ type LookupContainerServiceArgs struct {
 // Container service
 type LookupContainerServiceResult struct {
 	// Properties of agent pools
-	AgentPoolProfiles []ContainerServiceAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
+	AgentPoolProfiles []ContainerServiceAgentPoolProfileInvokeResponse `pulumi:"agentPoolProfiles"`
 	// Properties for Diagnostic Agent
-	DiagnosticsProfile *ContainerServiceDiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
+	DiagnosticsProfile *ContainerServiceDiagnosticsProfileInvokeResponse `pulumi:"diagnosticsProfile"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Properties for Linux VMs
-	LinuxProfile ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
+	LinuxProfile ContainerServiceLinuxProfileInvokeResponse `pulumi:"linuxProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Properties of master agents
-	MasterProfile ContainerServiceMasterProfileResponse `pulumi:"masterProfile"`
+	MasterProfile ContainerServiceMasterProfileInvokeResponse `pulumi:"masterProfile"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Properties of orchestrator
-	OrchestratorProfile *ContainerServiceOrchestratorProfileResponse `pulumi:"orchestratorProfile"`
+	OrchestratorProfile *ContainerServiceOrchestratorProfileInvokeResponse `pulumi:"orchestratorProfile"`
 	// Gets the provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags
@@ -48,5 +48,5 @@ type LookupContainerServiceResult struct {
 	// Resource type
 	Type string `pulumi:"type"`
 	// Properties of Windows VMs
-	WindowsProfile *ContainerServiceWindowsProfileResponse `pulumi:"windowsProfile"`
+	WindowsProfile *ContainerServiceWindowsProfileInvokeResponse `pulumi:"windowsProfile"`
 }

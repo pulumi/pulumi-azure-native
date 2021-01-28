@@ -26,19 +26,19 @@ type LookupApplicationGatewayArgs struct {
 // Application gateway resource
 type LookupApplicationGatewayResult struct {
 	// Backend address pool of the application gateway resource.
-	BackendAddressPools []ApplicationGatewayBackendAddressPoolResponse `pulumi:"backendAddressPools"`
+	BackendAddressPools []ApplicationGatewayBackendAddressPoolInvokeResponse `pulumi:"backendAddressPools"`
 	// Backend http settings of the application gateway resource.
-	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsResponse `pulumi:"backendHttpSettingsCollection"`
+	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsInvokeResponse `pulumi:"backendHttpSettingsCollection"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Frontend IP addresses of the application gateway resource.
-	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
+	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfigurationInvokeResponse `pulumi:"frontendIPConfigurations"`
 	// Frontend ports of the application gateway resource.
-	FrontendPorts []ApplicationGatewayFrontendPortResponse `pulumi:"frontendPorts"`
+	FrontendPorts []ApplicationGatewayFrontendPortInvokeResponse `pulumi:"frontendPorts"`
 	// Gets or sets subnets of application gateway resource
-	GatewayIPConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"gatewayIPConfigurations"`
+	GatewayIPConfigurations []ApplicationGatewayIPConfigurationInvokeResponse `pulumi:"gatewayIPConfigurations"`
 	// Http listeners of the application gateway resource.
-	HttpListeners []ApplicationGatewayHttpListenerResponse `pulumi:"httpListeners"`
+	HttpListeners []ApplicationGatewayHttpListenerInvokeResponse `pulumi:"httpListeners"`
 	// Resource Identifier.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -48,21 +48,21 @@ type LookupApplicationGatewayResult struct {
 	// Operational state of the application gateway resource. Possible values are: 'Stopped', 'Started', 'Running', and 'Stopping'.
 	OperationalState string `pulumi:"operationalState"`
 	// Probes of the application gateway resource.
-	Probes []ApplicationGatewayProbeResponse `pulumi:"probes"`
+	Probes []ApplicationGatewayProbeInvokeResponse `pulumi:"probes"`
 	// Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Request routing rules of the application gateway resource.
-	RequestRoutingRules []ApplicationGatewayRequestRoutingRuleResponse `pulumi:"requestRoutingRules"`
+	RequestRoutingRules []ApplicationGatewayRequestRoutingRuleInvokeResponse `pulumi:"requestRoutingRules"`
 	// Resource GUID property of the application gateway resource.
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// SKU of the application gateway resource.
-	Sku *ApplicationGatewaySkuResponse `pulumi:"sku"`
+	Sku *ApplicationGatewaySkuInvokeResponse `pulumi:"sku"`
 	// SSL certificates of the application gateway resource.
-	SslCertificates []ApplicationGatewaySslCertificateResponse `pulumi:"sslCertificates"`
+	SslCertificates []ApplicationGatewaySslCertificateInvokeResponse `pulumi:"sslCertificates"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// URL path map of the application gateway resource.
-	UrlPathMaps []ApplicationGatewayUrlPathMapResponse `pulumi:"urlPathMaps"`
+	UrlPathMaps []ApplicationGatewayUrlPathMapInvokeResponse `pulumi:"urlPathMaps"`
 }

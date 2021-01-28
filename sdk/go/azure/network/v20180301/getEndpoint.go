@@ -30,7 +30,7 @@ type LookupEndpointArgs struct {
 // Class representing a Traffic Manager endpoint.
 type LookupEndpointResult struct {
 	// List of custom headers.
-	CustomHeaders []EndpointPropertiesResponseCustomHeaders `pulumi:"customHeaders"`
+	CustomHeaders []EndpointPropertiesInvokeResponseCustomHeaders `pulumi:"customHeaders"`
 	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
 	// The monitoring status of the endpoint.

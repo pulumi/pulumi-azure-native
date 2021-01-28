@@ -30,13 +30,13 @@ type LookupMoveCollectionResult struct {
 	// Fully qualified resource Id for the resource.
 	Id string `pulumi:"id"`
 	// Defines the MSI properties of the Move Collection.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// The geo-location where the resource lives.
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Defines the move collection properties.
-	Properties MoveCollectionPropertiesResponse `pulumi:"properties"`
+	Properties MoveCollectionPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

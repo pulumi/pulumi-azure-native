@@ -84,7 +84,7 @@ type LookupDatabaseResult struct {
 	// The name of the sample schema to apply when creating this database.
 	SampleName *string `pulumi:"sampleName"`
 	// The name and tier of the SKU.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Specifies the time that the database was deleted.
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
 	// The resource identifier of the source database associated with create operation of this database.

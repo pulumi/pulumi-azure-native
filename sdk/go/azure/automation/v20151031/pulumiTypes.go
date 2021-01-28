@@ -182,6 +182,81 @@ func (o AdvancedSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The properties of the create Advanced Schedule.
+type AdvancedScheduleInvokeResponse struct {
+	// Days of the month that the job should execute on. Must be between 1 and 31.
+	MonthDays []int `pulumi:"monthDays"`
+	// Occurrences of days within a month.
+	MonthlyOccurrences []AdvancedScheduleMonthlyOccurrenceInvokeResponse `pulumi:"monthlyOccurrences"`
+	// Days of the week that the job should execute on.
+	WeekDays []string `pulumi:"weekDays"`
+}
+
+// AdvancedScheduleInvokeResponseInput is an input type that accepts AdvancedScheduleInvokeResponseArgs and AdvancedScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `AdvancedScheduleInvokeResponseInput` via:
+//
+//          AdvancedScheduleInvokeResponseArgs{...}
+type AdvancedScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdvancedScheduleInvokeResponseOutput() AdvancedScheduleInvokeResponseOutput
+	ToAdvancedScheduleInvokeResponseOutputWithContext(context.Context) AdvancedScheduleInvokeResponseOutput
+}
+
+// The properties of the create Advanced Schedule.
+type AdvancedScheduleInvokeResponseArgs struct {
+	// Days of the month that the job should execute on. Must be between 1 and 31.
+	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
+	// Occurrences of days within a month.
+	MonthlyOccurrences AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayInput `pulumi:"monthlyOccurrences"`
+	// Days of the week that the job should execute on.
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+}
+
+func (AdvancedScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdvancedScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i AdvancedScheduleInvokeResponseArgs) ToAdvancedScheduleInvokeResponseOutput() AdvancedScheduleInvokeResponseOutput {
+	return i.ToAdvancedScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdvancedScheduleInvokeResponseArgs) ToAdvancedScheduleInvokeResponseOutputWithContext(ctx context.Context) AdvancedScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleInvokeResponseOutput)
+}
+
+// The properties of the create Advanced Schedule.
+type AdvancedScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdvancedScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdvancedScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o AdvancedScheduleInvokeResponseOutput) ToAdvancedScheduleInvokeResponseOutput() AdvancedScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o AdvancedScheduleInvokeResponseOutput) ToAdvancedScheduleInvokeResponseOutputWithContext(ctx context.Context) AdvancedScheduleInvokeResponseOutput {
+	return o
+}
+
+// Days of the month that the job should execute on. Must be between 1 and 31.
+func (o AdvancedScheduleInvokeResponseOutput) MonthDays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v AdvancedScheduleInvokeResponse) []int { return v.MonthDays }).(pulumi.IntArrayOutput)
+}
+
+// Occurrences of days within a month.
+func (o AdvancedScheduleInvokeResponseOutput) MonthlyOccurrences() AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AdvancedScheduleInvokeResponse) []AdvancedScheduleMonthlyOccurrenceInvokeResponse {
+		return v.MonthlyOccurrences
+	}).(AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput)
+}
+
+// Days of the week that the job should execute on.
+func (o AdvancedScheduleInvokeResponseOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdvancedScheduleInvokeResponse) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+}
+
 // The properties of the create advanced schedule monthly occurrence.
 type AdvancedScheduleMonthlyOccurrence struct {
 	// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
@@ -289,6 +364,115 @@ func (o AdvancedScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) A
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdvancedScheduleMonthlyOccurrence {
 		return vs[0].([]AdvancedScheduleMonthlyOccurrence)[vs[1].(int)]
 	}).(AdvancedScheduleMonthlyOccurrenceOutput)
+}
+
+// The properties of the create advanced schedule monthly occurrence.
+type AdvancedScheduleMonthlyOccurrenceInvokeResponse struct {
+	// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+	Day *string `pulumi:"day"`
+	// Occurrence of the week within the month. Must be between 1 and 5
+	Occurrence *int `pulumi:"occurrence"`
+}
+
+// AdvancedScheduleMonthlyOccurrenceInvokeResponseInput is an input type that accepts AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs and AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput values.
+// You can construct a concrete instance of `AdvancedScheduleMonthlyOccurrenceInvokeResponseInput` via:
+//
+//          AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs{...}
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput
+	ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput
+}
+
+// The properties of the create advanced schedule monthly occurrence.
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs struct {
+	// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+	Day pulumi.StringPtrInput `pulumi:"day"`
+	// Occurrence of the week within the month. Must be between 1 and 5
+	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
+}
+
+func (AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdvancedScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return i.ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(ctx context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput)
+}
+
+// AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayInput is an input type that accepts AdvancedScheduleMonthlyOccurrenceInvokeResponseArray and AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayInput` via:
+//
+//          AdvancedScheduleMonthlyOccurrenceInvokeResponseArray{ AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs{...} }
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput
+	ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput
+}
+
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseArray []AdvancedScheduleMonthlyOccurrenceInvokeResponseInput
+
+func (AdvancedScheduleMonthlyOccurrenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdvancedScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i AdvancedScheduleMonthlyOccurrenceInvokeResponseArray) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return i.ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AdvancedScheduleMonthlyOccurrenceInvokeResponseArray) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(ctx context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput)
+}
+
+// The properties of the create advanced schedule monthly occurrence.
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdvancedScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(ctx context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return o
+}
+
+// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdvancedScheduleMonthlyOccurrenceInvokeResponse) *string { return v.Day }).(pulumi.StringPtrOutput)
+}
+
+// Occurrence of the week within the month. Must be between 1 and 5
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput) Occurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AdvancedScheduleMonthlyOccurrenceInvokeResponse) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
+}
+
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdvancedScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(ctx context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdvancedScheduleMonthlyOccurrenceInvokeResponse {
+		return vs[0].([]AdvancedScheduleMonthlyOccurrenceInvokeResponse)[vs[1].(int)]
+	}).(AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput)
 }
 
 // The properties of the create advanced schedule monthly occurrence.
@@ -709,6 +893,61 @@ func (o ConnectionTypeAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutpu
 }
 
 // The connection type property associated with the entity.
+type ConnectionTypeAssociationPropertyInvokeResponse struct {
+	// Gets or sets the name of the connection type.
+	Name *string `pulumi:"name"`
+}
+
+// ConnectionTypeAssociationPropertyInvokeResponseInput is an input type that accepts ConnectionTypeAssociationPropertyInvokeResponseArgs and ConnectionTypeAssociationPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectionTypeAssociationPropertyInvokeResponseInput` via:
+//
+//          ConnectionTypeAssociationPropertyInvokeResponseArgs{...}
+type ConnectionTypeAssociationPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectionTypeAssociationPropertyInvokeResponseOutput() ConnectionTypeAssociationPropertyInvokeResponseOutput
+	ToConnectionTypeAssociationPropertyInvokeResponseOutputWithContext(context.Context) ConnectionTypeAssociationPropertyInvokeResponseOutput
+}
+
+// The connection type property associated with the entity.
+type ConnectionTypeAssociationPropertyInvokeResponseArgs struct {
+	// Gets or sets the name of the connection type.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ConnectionTypeAssociationPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeAssociationPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectionTypeAssociationPropertyInvokeResponseArgs) ToConnectionTypeAssociationPropertyInvokeResponseOutput() ConnectionTypeAssociationPropertyInvokeResponseOutput {
+	return i.ToConnectionTypeAssociationPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectionTypeAssociationPropertyInvokeResponseArgs) ToConnectionTypeAssociationPropertyInvokeResponseOutputWithContext(ctx context.Context) ConnectionTypeAssociationPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeAssociationPropertyInvokeResponseOutput)
+}
+
+// The connection type property associated with the entity.
+type ConnectionTypeAssociationPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeAssociationPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeAssociationPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectionTypeAssociationPropertyInvokeResponseOutput) ToConnectionTypeAssociationPropertyInvokeResponseOutput() ConnectionTypeAssociationPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectionTypeAssociationPropertyInvokeResponseOutput) ToConnectionTypeAssociationPropertyInvokeResponseOutputWithContext(ctx context.Context) ConnectionTypeAssociationPropertyInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the name of the connection type.
+func (o ConnectionTypeAssociationPropertyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionTypeAssociationPropertyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The connection type property associated with the entity.
 type ConnectionTypeAssociationPropertyResponse struct {
 	// Gets or sets the name of the connection type.
 	Name *string `pulumi:"name"`
@@ -990,6 +1229,159 @@ func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 // Gets or sets expected hash value of the content.
 func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// Definition of the runbook property type.
+type ContentHashInvokeResponse struct {
+	// Gets or sets the content hash algorithm used to hash the content.
+	Algorithm string `pulumi:"algorithm"`
+	// Gets or sets expected hash value of the content.
+	Value string `pulumi:"value"`
+}
+
+// ContentHashInvokeResponseInput is an input type that accepts ContentHashInvokeResponseArgs and ContentHashInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentHashInvokeResponseInput` via:
+//
+//          ContentHashInvokeResponseArgs{...}
+type ContentHashInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput
+	ToContentHashInvokeResponseOutputWithContext(context.Context) ContentHashInvokeResponseOutput
+}
+
+// Definition of the runbook property type.
+type ContentHashInvokeResponseArgs struct {
+	// Gets or sets the content hash algorithm used to hash the content.
+	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	// Gets or sets expected hash value of the content.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ContentHashInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput {
+	return i.ToContentHashInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponseOutputWithContext(ctx context.Context) ContentHashInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponseOutput)
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return i.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponseOutput).ToContentHashInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContentHashInvokeResponsePtrInput is an input type that accepts ContentHashInvokeResponseArgs, ContentHashInvokeResponsePtr and ContentHashInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContentHashInvokeResponsePtrInput` via:
+//
+//          ContentHashInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentHashInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput
+	ToContentHashInvokeResponsePtrOutputWithContext(context.Context) ContentHashInvokeResponsePtrOutput
+}
+
+type contentHashInvokeResponsePtrType ContentHashInvokeResponseArgs
+
+func ContentHashInvokeResponsePtr(v *ContentHashInvokeResponseArgs) ContentHashInvokeResponsePtrInput {
+	return (*contentHashInvokeResponsePtrType)(v)
+}
+
+func (*contentHashInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (i *contentHashInvokeResponsePtrType) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return i.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentHashInvokeResponsePtrType) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Definition of the runbook property type.
+type ContentHashInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentHashInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponseOutputWithContext(ctx context.Context) ContentHashInvokeResponseOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return o.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) *ContentHashInvokeResponse {
+		return &v
+	}).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Gets or sets the content hash algorithm used to hash the content.
+func (o ContentHashInvokeResponseOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) string { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// Gets or sets expected hash value of the content.
+func (o ContentHashInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ContentHashInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentHashInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentHashInvokeResponsePtrOutput) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponsePtrOutput) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponsePtrOutput) Elem() ContentHashInvokeResponseOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) ContentHashInvokeResponse { return *v }).(ContentHashInvokeResponseOutput)
+}
+
+// Gets or sets the content hash algorithm used to hash the content.
+func (o ContentHashInvokeResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets expected hash value of the content.
+func (o ContentHashInvokeResponsePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1315,6 +1707,178 @@ func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 // Gets or sets the version of the content.
 func (o ContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// Definition of the content link.
+type ContentLinkInvokeResponse struct {
+	// Gets or sets the hash.
+	ContentHash *ContentHashInvokeResponse `pulumi:"contentHash"`
+	// Gets or sets the uri of the runbook content.
+	Uri *string `pulumi:"uri"`
+	// Gets or sets the version of the content.
+	Version *string `pulumi:"version"`
+}
+
+// ContentLinkInvokeResponseInput is an input type that accepts ContentLinkInvokeResponseArgs and ContentLinkInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentLinkInvokeResponseInput` via:
+//
+//          ContentLinkInvokeResponseArgs{...}
+type ContentLinkInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput
+	ToContentLinkInvokeResponseOutputWithContext(context.Context) ContentLinkInvokeResponseOutput
+}
+
+// Definition of the content link.
+type ContentLinkInvokeResponseArgs struct {
+	// Gets or sets the hash.
+	ContentHash ContentHashInvokeResponsePtrInput `pulumi:"contentHash"`
+	// Gets or sets the uri of the runbook content.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	// Gets or sets the version of the content.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ContentLinkInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput {
+	return i.ToContentLinkInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponseOutputWithContext(ctx context.Context) ContentLinkInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkInvokeResponseOutput)
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return i.ToContentLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkInvokeResponseOutput).ToContentLinkInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContentLinkInvokeResponsePtrInput is an input type that accepts ContentLinkInvokeResponseArgs, ContentLinkInvokeResponsePtr and ContentLinkInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContentLinkInvokeResponsePtrInput` via:
+//
+//          ContentLinkInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentLinkInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput
+	ToContentLinkInvokeResponsePtrOutputWithContext(context.Context) ContentLinkInvokeResponsePtrOutput
+}
+
+type contentLinkInvokeResponsePtrType ContentLinkInvokeResponseArgs
+
+func ContentLinkInvokeResponsePtr(v *ContentLinkInvokeResponseArgs) ContentLinkInvokeResponsePtrInput {
+	return (*contentLinkInvokeResponsePtrType)(v)
+}
+
+func (*contentLinkInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i *contentLinkInvokeResponsePtrType) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return i.ToContentLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentLinkInvokeResponsePtrType) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkInvokeResponsePtrOutput)
+}
+
+// Definition of the content link.
+type ContentLinkInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentLinkInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponseOutputWithContext(ctx context.Context) ContentLinkInvokeResponseOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return o.ToContentLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *ContentLinkInvokeResponse {
+		return &v
+	}).(ContentLinkInvokeResponsePtrOutput)
+}
+
+// Gets or sets the hash.
+func (o ContentLinkInvokeResponseOutput) ContentHash() ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *ContentHashInvokeResponse { return v.ContentHash }).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Gets or sets the uri of the runbook content.
+func (o ContentLinkInvokeResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the version of the content.
+func (o ContentLinkInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ContentLinkInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentLinkInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentLinkInvokeResponsePtrOutput) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponsePtrOutput) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponsePtrOutput) Elem() ContentLinkInvokeResponseOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) ContentLinkInvokeResponse { return *v }).(ContentLinkInvokeResponseOutput)
+}
+
+// Gets or sets the hash.
+func (o ContentLinkInvokeResponsePtrOutput) ContentHash() ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) *ContentHashInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ContentHash
+	}).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Gets or sets the uri of the runbook content.
+func (o ContentLinkInvokeResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the version of the content.
+func (o ContentLinkInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1686,6 +2250,88 @@ func (o ContentSourcePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 // Definition of the content source.
+type ContentSourceInvokeResponse struct {
+	// Gets or sets the hash.
+	Hash *ContentHashInvokeResponse `pulumi:"hash"`
+	// Gets or sets the content source type.
+	Type *string `pulumi:"type"`
+	// Gets or sets the value of the content. This is based on the content source type.
+	Value *string `pulumi:"value"`
+	// Gets or sets the version of the content.
+	Version *string `pulumi:"version"`
+}
+
+// ContentSourceInvokeResponseInput is an input type that accepts ContentSourceInvokeResponseArgs and ContentSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentSourceInvokeResponseInput` via:
+//
+//          ContentSourceInvokeResponseArgs{...}
+type ContentSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentSourceInvokeResponseOutput() ContentSourceInvokeResponseOutput
+	ToContentSourceInvokeResponseOutputWithContext(context.Context) ContentSourceInvokeResponseOutput
+}
+
+// Definition of the content source.
+type ContentSourceInvokeResponseArgs struct {
+	// Gets or sets the hash.
+	Hash ContentHashInvokeResponsePtrInput `pulumi:"hash"`
+	// Gets or sets the content source type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Gets or sets the value of the content. This is based on the content source type.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// Gets or sets the version of the content.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ContentSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentSourceInvokeResponseArgs) ToContentSourceInvokeResponseOutput() ContentSourceInvokeResponseOutput {
+	return i.ToContentSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentSourceInvokeResponseArgs) ToContentSourceInvokeResponseOutputWithContext(ctx context.Context) ContentSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentSourceInvokeResponseOutput)
+}
+
+// Definition of the content source.
+type ContentSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentSourceInvokeResponseOutput) ToContentSourceInvokeResponseOutput() ContentSourceInvokeResponseOutput {
+	return o
+}
+
+func (o ContentSourceInvokeResponseOutput) ToContentSourceInvokeResponseOutputWithContext(ctx context.Context) ContentSourceInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the hash.
+func (o ContentSourceInvokeResponseOutput) Hash() ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentSourceInvokeResponse) *ContentHashInvokeResponse { return v.Hash }).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Gets or sets the content source type.
+func (o ContentSourceInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentSourceInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the value of the content. This is based on the content source type.
+func (o ContentSourceInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentSourceInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the version of the content.
+func (o ContentSourceInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentSourceInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// Definition of the content source.
 type ContentSourceResponse struct {
 	// Gets or sets the hash.
 	Hash *ContentHashResponse `pulumi:"hash"`
@@ -2011,6 +2657,61 @@ func (o DscConfigurationAssociationPropertyPtrOutput) Name() pulumi.StringPtrOut
 }
 
 // The Dsc configuration property associated with the entity.
+type DscConfigurationAssociationPropertyInvokeResponse struct {
+	// Gets or sets the name of the Dsc configuration.
+	Name *string `pulumi:"name"`
+}
+
+// DscConfigurationAssociationPropertyInvokeResponseInput is an input type that accepts DscConfigurationAssociationPropertyInvokeResponseArgs and DscConfigurationAssociationPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `DscConfigurationAssociationPropertyInvokeResponseInput` via:
+//
+//          DscConfigurationAssociationPropertyInvokeResponseArgs{...}
+type DscConfigurationAssociationPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDscConfigurationAssociationPropertyInvokeResponseOutput() DscConfigurationAssociationPropertyInvokeResponseOutput
+	ToDscConfigurationAssociationPropertyInvokeResponseOutputWithContext(context.Context) DscConfigurationAssociationPropertyInvokeResponseOutput
+}
+
+// The Dsc configuration property associated with the entity.
+type DscConfigurationAssociationPropertyInvokeResponseArgs struct {
+	// Gets or sets the name of the Dsc configuration.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DscConfigurationAssociationPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfigurationAssociationPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i DscConfigurationAssociationPropertyInvokeResponseArgs) ToDscConfigurationAssociationPropertyInvokeResponseOutput() DscConfigurationAssociationPropertyInvokeResponseOutput {
+	return i.ToDscConfigurationAssociationPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DscConfigurationAssociationPropertyInvokeResponseArgs) ToDscConfigurationAssociationPropertyInvokeResponseOutputWithContext(ctx context.Context) DscConfigurationAssociationPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationAssociationPropertyInvokeResponseOutput)
+}
+
+// The Dsc configuration property associated with the entity.
+type DscConfigurationAssociationPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DscConfigurationAssociationPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfigurationAssociationPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o DscConfigurationAssociationPropertyInvokeResponseOutput) ToDscConfigurationAssociationPropertyInvokeResponseOutput() DscConfigurationAssociationPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o DscConfigurationAssociationPropertyInvokeResponseOutput) ToDscConfigurationAssociationPropertyInvokeResponseOutputWithContext(ctx context.Context) DscConfigurationAssociationPropertyInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the name of the Dsc configuration.
+func (o DscConfigurationAssociationPropertyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DscConfigurationAssociationPropertyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The Dsc configuration property associated with the entity.
 type DscConfigurationAssociationPropertyResponse struct {
 	// Gets or sets the name of the Dsc configuration.
 	Name *string `pulumi:"name"`
@@ -2274,6 +2975,133 @@ func (o DscConfigurationParameterMapOutput) MapIndex(k pulumi.StringInput) DscCo
 }
 
 // Definition of the configuration parameter type.
+type DscConfigurationParameterInvokeResponse struct {
+	// Gets or sets the default value of parameter.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+	IsMandatory *bool `pulumi:"isMandatory"`
+	// Get or sets the position of the parameter.
+	Position *int `pulumi:"position"`
+	// Gets or sets the type of the parameter.
+	Type *string `pulumi:"type"`
+}
+
+// DscConfigurationParameterInvokeResponseInput is an input type that accepts DscConfigurationParameterInvokeResponseArgs and DscConfigurationParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `DscConfigurationParameterInvokeResponseInput` via:
+//
+//          DscConfigurationParameterInvokeResponseArgs{...}
+type DscConfigurationParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDscConfigurationParameterInvokeResponseOutput() DscConfigurationParameterInvokeResponseOutput
+	ToDscConfigurationParameterInvokeResponseOutputWithContext(context.Context) DscConfigurationParameterInvokeResponseOutput
+}
+
+// Definition of the configuration parameter type.
+type DscConfigurationParameterInvokeResponseArgs struct {
+	// Gets or sets the default value of parameter.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
+	// Get or sets the position of the parameter.
+	Position pulumi.IntPtrInput `pulumi:"position"`
+	// Gets or sets the type of the parameter.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DscConfigurationParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfigurationParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i DscConfigurationParameterInvokeResponseArgs) ToDscConfigurationParameterInvokeResponseOutput() DscConfigurationParameterInvokeResponseOutput {
+	return i.ToDscConfigurationParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DscConfigurationParameterInvokeResponseArgs) ToDscConfigurationParameterInvokeResponseOutputWithContext(ctx context.Context) DscConfigurationParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationParameterInvokeResponseOutput)
+}
+
+// DscConfigurationParameterInvokeResponseMapInput is an input type that accepts DscConfigurationParameterInvokeResponseMap and DscConfigurationParameterInvokeResponseMapOutput values.
+// You can construct a concrete instance of `DscConfigurationParameterInvokeResponseMapInput` via:
+//
+//          DscConfigurationParameterInvokeResponseMap{ "key": DscConfigurationParameterInvokeResponseArgs{...} }
+type DscConfigurationParameterInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToDscConfigurationParameterInvokeResponseMapOutput() DscConfigurationParameterInvokeResponseMapOutput
+	ToDscConfigurationParameterInvokeResponseMapOutputWithContext(context.Context) DscConfigurationParameterInvokeResponseMapOutput
+}
+
+type DscConfigurationParameterInvokeResponseMap map[string]DscConfigurationParameterInvokeResponseInput
+
+func (DscConfigurationParameterInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DscConfigurationParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i DscConfigurationParameterInvokeResponseMap) ToDscConfigurationParameterInvokeResponseMapOutput() DscConfigurationParameterInvokeResponseMapOutput {
+	return i.ToDscConfigurationParameterInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i DscConfigurationParameterInvokeResponseMap) ToDscConfigurationParameterInvokeResponseMapOutputWithContext(ctx context.Context) DscConfigurationParameterInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationParameterInvokeResponseMapOutput)
+}
+
+// Definition of the configuration parameter type.
+type DscConfigurationParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DscConfigurationParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfigurationParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o DscConfigurationParameterInvokeResponseOutput) ToDscConfigurationParameterInvokeResponseOutput() DscConfigurationParameterInvokeResponseOutput {
+	return o
+}
+
+func (o DscConfigurationParameterInvokeResponseOutput) ToDscConfigurationParameterInvokeResponseOutputWithContext(ctx context.Context) DscConfigurationParameterInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the default value of parameter.
+func (o DscConfigurationParameterInvokeResponseOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DscConfigurationParameterInvokeResponse) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+func (o DscConfigurationParameterInvokeResponseOutput) IsMandatory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DscConfigurationParameterInvokeResponse) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
+}
+
+// Get or sets the position of the parameter.
+func (o DscConfigurationParameterInvokeResponseOutput) Position() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DscConfigurationParameterInvokeResponse) *int { return v.Position }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the type of the parameter.
+func (o DscConfigurationParameterInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DscConfigurationParameterInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DscConfigurationParameterInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (DscConfigurationParameterInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DscConfigurationParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o DscConfigurationParameterInvokeResponseMapOutput) ToDscConfigurationParameterInvokeResponseMapOutput() DscConfigurationParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o DscConfigurationParameterInvokeResponseMapOutput) ToDscConfigurationParameterInvokeResponseMapOutputWithContext(ctx context.Context) DscConfigurationParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o DscConfigurationParameterInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) DscConfigurationParameterInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DscConfigurationParameterInvokeResponse {
+		return vs[0].(map[string]DscConfigurationParameterInvokeResponse)[vs[1].(string)]
+	}).(DscConfigurationParameterInvokeResponseOutput)
+}
+
+// Definition of the configuration parameter type.
 type DscConfigurationParameterResponse struct {
 	// Gets or sets the default value of parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
@@ -2519,6 +3347,124 @@ func (o FieldDefinitionMapOutput) MapIndex(k pulumi.StringInput) FieldDefinition
 }
 
 // Definition of the connection fields.
+type FieldDefinitionInvokeResponse struct {
+	// Gets or sets the isEncrypted flag of the connection field definition.
+	IsEncrypted *bool `pulumi:"isEncrypted"`
+	// Gets or sets the isOptional flag of the connection field definition.
+	IsOptional *bool `pulumi:"isOptional"`
+	// Gets or sets the type of the connection field definition.
+	Type string `pulumi:"type"`
+}
+
+// FieldDefinitionInvokeResponseInput is an input type that accepts FieldDefinitionInvokeResponseArgs and FieldDefinitionInvokeResponseOutput values.
+// You can construct a concrete instance of `FieldDefinitionInvokeResponseInput` via:
+//
+//          FieldDefinitionInvokeResponseArgs{...}
+type FieldDefinitionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFieldDefinitionInvokeResponseOutput() FieldDefinitionInvokeResponseOutput
+	ToFieldDefinitionInvokeResponseOutputWithContext(context.Context) FieldDefinitionInvokeResponseOutput
+}
+
+// Definition of the connection fields.
+type FieldDefinitionInvokeResponseArgs struct {
+	// Gets or sets the isEncrypted flag of the connection field definition.
+	IsEncrypted pulumi.BoolPtrInput `pulumi:"isEncrypted"`
+	// Gets or sets the isOptional flag of the connection field definition.
+	IsOptional pulumi.BoolPtrInput `pulumi:"isOptional"`
+	// Gets or sets the type of the connection field definition.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FieldDefinitionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i FieldDefinitionInvokeResponseArgs) ToFieldDefinitionInvokeResponseOutput() FieldDefinitionInvokeResponseOutput {
+	return i.ToFieldDefinitionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FieldDefinitionInvokeResponseArgs) ToFieldDefinitionInvokeResponseOutputWithContext(ctx context.Context) FieldDefinitionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldDefinitionInvokeResponseOutput)
+}
+
+// FieldDefinitionInvokeResponseMapInput is an input type that accepts FieldDefinitionInvokeResponseMap and FieldDefinitionInvokeResponseMapOutput values.
+// You can construct a concrete instance of `FieldDefinitionInvokeResponseMapInput` via:
+//
+//          FieldDefinitionInvokeResponseMap{ "key": FieldDefinitionInvokeResponseArgs{...} }
+type FieldDefinitionInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToFieldDefinitionInvokeResponseMapOutput() FieldDefinitionInvokeResponseMapOutput
+	ToFieldDefinitionInvokeResponseMapOutputWithContext(context.Context) FieldDefinitionInvokeResponseMapOutput
+}
+
+type FieldDefinitionInvokeResponseMap map[string]FieldDefinitionInvokeResponseInput
+
+func (FieldDefinitionInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FieldDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i FieldDefinitionInvokeResponseMap) ToFieldDefinitionInvokeResponseMapOutput() FieldDefinitionInvokeResponseMapOutput {
+	return i.ToFieldDefinitionInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i FieldDefinitionInvokeResponseMap) ToFieldDefinitionInvokeResponseMapOutputWithContext(ctx context.Context) FieldDefinitionInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldDefinitionInvokeResponseMapOutput)
+}
+
+// Definition of the connection fields.
+type FieldDefinitionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FieldDefinitionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o FieldDefinitionInvokeResponseOutput) ToFieldDefinitionInvokeResponseOutput() FieldDefinitionInvokeResponseOutput {
+	return o
+}
+
+func (o FieldDefinitionInvokeResponseOutput) ToFieldDefinitionInvokeResponseOutputWithContext(ctx context.Context) FieldDefinitionInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the isEncrypted flag of the connection field definition.
+func (o FieldDefinitionInvokeResponseOutput) IsEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FieldDefinitionInvokeResponse) *bool { return v.IsEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the isOptional flag of the connection field definition.
+func (o FieldDefinitionInvokeResponseOutput) IsOptional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FieldDefinitionInvokeResponse) *bool { return v.IsOptional }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the type of the connection field definition.
+func (o FieldDefinitionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldDefinitionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FieldDefinitionInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (FieldDefinitionInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]FieldDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o FieldDefinitionInvokeResponseMapOutput) ToFieldDefinitionInvokeResponseMapOutput() FieldDefinitionInvokeResponseMapOutput {
+	return o
+}
+
+func (o FieldDefinitionInvokeResponseMapOutput) ToFieldDefinitionInvokeResponseMapOutputWithContext(ctx context.Context) FieldDefinitionInvokeResponseMapOutput {
+	return o
+}
+
+func (o FieldDefinitionInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) FieldDefinitionInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FieldDefinitionInvokeResponse {
+		return vs[0].(map[string]FieldDefinitionInvokeResponse)[vs[1].(string)]
+	}).(FieldDefinitionInvokeResponseOutput)
+}
+
+// Definition of the connection fields.
 type FieldDefinitionResponse struct {
 	// Gets or sets the isEncrypted flag of the connection field definition.
 	IsEncrypted *bool `pulumi:"isEncrypted"`
@@ -2637,7 +3583,7 @@ func (o FieldDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput) FieldDe
 }
 
 // Automation key which is used to register a DSC Node
-type KeyResponse struct {
+type KeyInvokeResponse struct {
 	// Automation key name.
 	KeyName string `pulumi:"keyName"`
 	// Automation key permissions.
@@ -2646,19 +3592,19 @@ type KeyResponse struct {
 	Value string `pulumi:"value"`
 }
 
-// KeyResponseInput is an input type that accepts KeyResponseArgs and KeyResponseOutput values.
-// You can construct a concrete instance of `KeyResponseInput` via:
+// KeyInvokeResponseInput is an input type that accepts KeyInvokeResponseArgs and KeyInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyInvokeResponseInput` via:
 //
-//          KeyResponseArgs{...}
-type KeyResponseInput interface {
+//          KeyInvokeResponseArgs{...}
+type KeyInvokeResponseInput interface {
 	pulumi.Input
 
-	ToKeyResponseOutput() KeyResponseOutput
-	ToKeyResponseOutputWithContext(context.Context) KeyResponseOutput
+	ToKeyInvokeResponseOutput() KeyInvokeResponseOutput
+	ToKeyInvokeResponseOutputWithContext(context.Context) KeyInvokeResponseOutput
 }
 
 // Automation key which is used to register a DSC Node
-type KeyResponseArgs struct {
+type KeyInvokeResponseArgs struct {
 	// Automation key name.
 	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// Automation key permissions.
@@ -2667,91 +3613,155 @@ type KeyResponseArgs struct {
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (KeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyResponse)(nil)).Elem()
+func (KeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyInvokeResponse)(nil)).Elem()
 }
 
-func (i KeyResponseArgs) ToKeyResponseOutput() KeyResponseOutput {
-	return i.ToKeyResponseOutputWithContext(context.Background())
+func (i KeyInvokeResponseArgs) ToKeyInvokeResponseOutput() KeyInvokeResponseOutput {
+	return i.ToKeyInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i KeyResponseArgs) ToKeyResponseOutputWithContext(ctx context.Context) KeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyResponseOutput)
+func (i KeyInvokeResponseArgs) ToKeyInvokeResponseOutputWithContext(ctx context.Context) KeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyInvokeResponseOutput)
 }
 
-// KeyResponseArrayInput is an input type that accepts KeyResponseArray and KeyResponseArrayOutput values.
-// You can construct a concrete instance of `KeyResponseArrayInput` via:
+// KeyInvokeResponseArrayInput is an input type that accepts KeyInvokeResponseArray and KeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `KeyInvokeResponseArrayInput` via:
 //
-//          KeyResponseArray{ KeyResponseArgs{...} }
-type KeyResponseArrayInput interface {
+//          KeyInvokeResponseArray{ KeyInvokeResponseArgs{...} }
+type KeyInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToKeyResponseArrayOutput() KeyResponseArrayOutput
-	ToKeyResponseArrayOutputWithContext(context.Context) KeyResponseArrayOutput
+	ToKeyInvokeResponseArrayOutput() KeyInvokeResponseArrayOutput
+	ToKeyInvokeResponseArrayOutputWithContext(context.Context) KeyInvokeResponseArrayOutput
 }
 
-type KeyResponseArray []KeyResponseInput
+type KeyInvokeResponseArray []KeyInvokeResponseInput
 
-func (KeyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyResponse)(nil)).Elem()
+func (KeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyInvokeResponse)(nil)).Elem()
 }
 
-func (i KeyResponseArray) ToKeyResponseArrayOutput() KeyResponseArrayOutput {
-	return i.ToKeyResponseArrayOutputWithContext(context.Background())
+func (i KeyInvokeResponseArray) ToKeyInvokeResponseArrayOutput() KeyInvokeResponseArrayOutput {
+	return i.ToKeyInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i KeyResponseArray) ToKeyResponseArrayOutputWithContext(ctx context.Context) KeyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyResponseArrayOutput)
+func (i KeyInvokeResponseArray) ToKeyInvokeResponseArrayOutputWithContext(ctx context.Context) KeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyInvokeResponseArrayOutput)
 }
 
 // Automation key which is used to register a DSC Node
-type KeyResponseOutput struct{ *pulumi.OutputState }
+type KeyInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (KeyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyResponse)(nil)).Elem()
+func (KeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyInvokeResponse)(nil)).Elem()
 }
 
-func (o KeyResponseOutput) ToKeyResponseOutput() KeyResponseOutput {
+func (o KeyInvokeResponseOutput) ToKeyInvokeResponseOutput() KeyInvokeResponseOutput {
 	return o
 }
 
-func (o KeyResponseOutput) ToKeyResponseOutputWithContext(ctx context.Context) KeyResponseOutput {
+func (o KeyInvokeResponseOutput) ToKeyInvokeResponseOutputWithContext(ctx context.Context) KeyInvokeResponseOutput {
 	return o
 }
 
 // Automation key name.
-func (o KeyResponseOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyResponse) string { return v.KeyName }).(pulumi.StringOutput)
+func (o KeyInvokeResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyInvokeResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
 // Automation key permissions.
-func (o KeyResponseOutput) Permissions() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyResponse) string { return v.Permissions }).(pulumi.StringOutput)
+func (o KeyInvokeResponseOutput) Permissions() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyInvokeResponse) string { return v.Permissions }).(pulumi.StringOutput)
 }
 
 // Value of the Automation Key used for registration.
-func (o KeyResponseOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyResponse) string { return v.Value }).(pulumi.StringOutput)
+func (o KeyInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type KeyResponseArrayOutput struct{ *pulumi.OutputState }
+type KeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (KeyResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyResponse)(nil)).Elem()
+func (KeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyInvokeResponse)(nil)).Elem()
 }
 
-func (o KeyResponseArrayOutput) ToKeyResponseArrayOutput() KeyResponseArrayOutput {
+func (o KeyInvokeResponseArrayOutput) ToKeyInvokeResponseArrayOutput() KeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o KeyResponseArrayOutput) ToKeyResponseArrayOutputWithContext(ctx context.Context) KeyResponseArrayOutput {
+func (o KeyInvokeResponseArrayOutput) ToKeyInvokeResponseArrayOutputWithContext(ctx context.Context) KeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o KeyResponseArrayOutput) Index(i pulumi.IntInput) KeyResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyResponse {
-		return vs[0].([]KeyResponse)[vs[1].(int)]
-	}).(KeyResponseOutput)
+func (o KeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) KeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyInvokeResponse {
+		return vs[0].([]KeyInvokeResponse)[vs[1].(int)]
+	}).(KeyInvokeResponseOutput)
+}
+
+// Definition of the module error info type.
+type ModuleErrorInfoInvokeResponse struct {
+	// Gets or sets the error code.
+	Code *string `pulumi:"code"`
+	// Gets or sets the error message.
+	Message *string `pulumi:"message"`
+}
+
+// ModuleErrorInfoInvokeResponseInput is an input type that accepts ModuleErrorInfoInvokeResponseArgs and ModuleErrorInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ModuleErrorInfoInvokeResponseInput` via:
+//
+//          ModuleErrorInfoInvokeResponseArgs{...}
+type ModuleErrorInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToModuleErrorInfoInvokeResponseOutput() ModuleErrorInfoInvokeResponseOutput
+	ToModuleErrorInfoInvokeResponseOutputWithContext(context.Context) ModuleErrorInfoInvokeResponseOutput
+}
+
+// Definition of the module error info type.
+type ModuleErrorInfoInvokeResponseArgs struct {
+	// Gets or sets the error code.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// Gets or sets the error message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+}
+
+func (ModuleErrorInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ModuleErrorInfoInvokeResponseArgs) ToModuleErrorInfoInvokeResponseOutput() ModuleErrorInfoInvokeResponseOutput {
+	return i.ToModuleErrorInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ModuleErrorInfoInvokeResponseArgs) ToModuleErrorInfoInvokeResponseOutputWithContext(ctx context.Context) ModuleErrorInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleErrorInfoInvokeResponseOutput)
+}
+
+// Definition of the module error info type.
+type ModuleErrorInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ModuleErrorInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ModuleErrorInfoInvokeResponseOutput) ToModuleErrorInfoInvokeResponseOutput() ModuleErrorInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ModuleErrorInfoInvokeResponseOutput) ToModuleErrorInfoInvokeResponseOutputWithContext(ctx context.Context) ModuleErrorInfoInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the error code.
+func (o ModuleErrorInfoInvokeResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleErrorInfoInvokeResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the error message.
+func (o ModuleErrorInfoInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleErrorInfoInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
 // Definition of the module error info type.
@@ -3039,6 +4049,61 @@ func (o RunbookAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The runbook property associated with the entity.
+type RunbookAssociationPropertyInvokeResponse struct {
+	// Gets or sets the name of the runbook.
+	Name *string `pulumi:"name"`
+}
+
+// RunbookAssociationPropertyInvokeResponseInput is an input type that accepts RunbookAssociationPropertyInvokeResponseArgs and RunbookAssociationPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `RunbookAssociationPropertyInvokeResponseInput` via:
+//
+//          RunbookAssociationPropertyInvokeResponseArgs{...}
+type RunbookAssociationPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRunbookAssociationPropertyInvokeResponseOutput() RunbookAssociationPropertyInvokeResponseOutput
+	ToRunbookAssociationPropertyInvokeResponseOutputWithContext(context.Context) RunbookAssociationPropertyInvokeResponseOutput
+}
+
+// The runbook property associated with the entity.
+type RunbookAssociationPropertyInvokeResponseArgs struct {
+	// Gets or sets the name of the runbook.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (RunbookAssociationPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookAssociationPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i RunbookAssociationPropertyInvokeResponseArgs) ToRunbookAssociationPropertyInvokeResponseOutput() RunbookAssociationPropertyInvokeResponseOutput {
+	return i.ToRunbookAssociationPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RunbookAssociationPropertyInvokeResponseArgs) ToRunbookAssociationPropertyInvokeResponseOutputWithContext(ctx context.Context) RunbookAssociationPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookAssociationPropertyInvokeResponseOutput)
+}
+
+// The runbook property associated with the entity.
+type RunbookAssociationPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RunbookAssociationPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookAssociationPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o RunbookAssociationPropertyInvokeResponseOutput) ToRunbookAssociationPropertyInvokeResponseOutput() RunbookAssociationPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o RunbookAssociationPropertyInvokeResponseOutput) ToRunbookAssociationPropertyInvokeResponseOutputWithContext(ctx context.Context) RunbookAssociationPropertyInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the name of the runbook.
+func (o RunbookAssociationPropertyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookAssociationPropertyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The runbook property associated with the entity.
@@ -3401,6 +4466,103 @@ func (o RunbookDraftPtrOutput) Parameters() RunbookParameterMapOutput {
 	}).(RunbookParameterMapOutput)
 }
 
+type RunbookDraftInvokeResponse struct {
+	// Gets or sets the creation time of the runbook draft.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the draft runbook content link.
+	DraftContentLink *ContentLinkInvokeResponse `pulumi:"draftContentLink"`
+	// Gets or sets whether runbook is in edit mode.
+	InEdit *bool `pulumi:"inEdit"`
+	// Gets or sets the last modified time of the runbook draft.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// Gets or sets the runbook output types.
+	OutputTypes []string `pulumi:"outputTypes"`
+	// Gets or sets the runbook draft parameters.
+	Parameters map[string]RunbookParameterInvokeResponse `pulumi:"parameters"`
+}
+
+// RunbookDraftInvokeResponseInput is an input type that accepts RunbookDraftInvokeResponseArgs and RunbookDraftInvokeResponseOutput values.
+// You can construct a concrete instance of `RunbookDraftInvokeResponseInput` via:
+//
+//          RunbookDraftInvokeResponseArgs{...}
+type RunbookDraftInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRunbookDraftInvokeResponseOutput() RunbookDraftInvokeResponseOutput
+	ToRunbookDraftInvokeResponseOutputWithContext(context.Context) RunbookDraftInvokeResponseOutput
+}
+
+type RunbookDraftInvokeResponseArgs struct {
+	// Gets or sets the creation time of the runbook draft.
+	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
+	// Gets or sets the draft runbook content link.
+	DraftContentLink ContentLinkInvokeResponsePtrInput `pulumi:"draftContentLink"`
+	// Gets or sets whether runbook is in edit mode.
+	InEdit pulumi.BoolPtrInput `pulumi:"inEdit"`
+	// Gets or sets the last modified time of the runbook draft.
+	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
+	// Gets or sets the runbook output types.
+	OutputTypes pulumi.StringArrayInput `pulumi:"outputTypes"`
+	// Gets or sets the runbook draft parameters.
+	Parameters RunbookParameterInvokeResponseMapInput `pulumi:"parameters"`
+}
+
+func (RunbookDraftInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookDraftInvokeResponse)(nil)).Elem()
+}
+
+func (i RunbookDraftInvokeResponseArgs) ToRunbookDraftInvokeResponseOutput() RunbookDraftInvokeResponseOutput {
+	return i.ToRunbookDraftInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RunbookDraftInvokeResponseArgs) ToRunbookDraftInvokeResponseOutputWithContext(ctx context.Context) RunbookDraftInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookDraftInvokeResponseOutput)
+}
+
+type RunbookDraftInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RunbookDraftInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookDraftInvokeResponse)(nil)).Elem()
+}
+
+func (o RunbookDraftInvokeResponseOutput) ToRunbookDraftInvokeResponseOutput() RunbookDraftInvokeResponseOutput {
+	return o
+}
+
+func (o RunbookDraftInvokeResponseOutput) ToRunbookDraftInvokeResponseOutputWithContext(ctx context.Context) RunbookDraftInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the creation time of the runbook draft.
+func (o RunbookDraftInvokeResponseOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the draft runbook content link.
+func (o RunbookDraftInvokeResponseOutput) DraftContentLink() ContentLinkInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) *ContentLinkInvokeResponse { return v.DraftContentLink }).(ContentLinkInvokeResponsePtrOutput)
+}
+
+// Gets or sets whether runbook is in edit mode.
+func (o RunbookDraftInvokeResponseOutput) InEdit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) *bool { return v.InEdit }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the last modified time of the runbook draft.
+func (o RunbookDraftInvokeResponseOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the runbook output types.
+func (o RunbookDraftInvokeResponseOutput) OutputTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) []string { return v.OutputTypes }).(pulumi.StringArrayOutput)
+}
+
+// Gets or sets the runbook draft parameters.
+func (o RunbookDraftInvokeResponseOutput) Parameters() RunbookParameterInvokeResponseMapOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) map[string]RunbookParameterInvokeResponse { return v.Parameters }).(RunbookParameterInvokeResponseMapOutput)
+}
+
 type RunbookDraftResponse struct {
 	// Gets or sets the creation time of the runbook draft.
 	CreationTime *string `pulumi:"creationTime"`
@@ -3755,6 +4917,133 @@ func (o RunbookParameterMapOutput) MapIndex(k pulumi.StringInput) RunbookParamet
 }
 
 // Definition of the runbook parameter type.
+type RunbookParameterInvokeResponse struct {
+	// Gets or sets the default value of parameter.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+	IsMandatory *bool `pulumi:"isMandatory"`
+	// Get or sets the position of the parameter.
+	Position *int `pulumi:"position"`
+	// Gets or sets the type of the parameter.
+	Type *string `pulumi:"type"`
+}
+
+// RunbookParameterInvokeResponseInput is an input type that accepts RunbookParameterInvokeResponseArgs and RunbookParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `RunbookParameterInvokeResponseInput` via:
+//
+//          RunbookParameterInvokeResponseArgs{...}
+type RunbookParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRunbookParameterInvokeResponseOutput() RunbookParameterInvokeResponseOutput
+	ToRunbookParameterInvokeResponseOutputWithContext(context.Context) RunbookParameterInvokeResponseOutput
+}
+
+// Definition of the runbook parameter type.
+type RunbookParameterInvokeResponseArgs struct {
+	// Gets or sets the default value of parameter.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
+	// Get or sets the position of the parameter.
+	Position pulumi.IntPtrInput `pulumi:"position"`
+	// Gets or sets the type of the parameter.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RunbookParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i RunbookParameterInvokeResponseArgs) ToRunbookParameterInvokeResponseOutput() RunbookParameterInvokeResponseOutput {
+	return i.ToRunbookParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RunbookParameterInvokeResponseArgs) ToRunbookParameterInvokeResponseOutputWithContext(ctx context.Context) RunbookParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookParameterInvokeResponseOutput)
+}
+
+// RunbookParameterInvokeResponseMapInput is an input type that accepts RunbookParameterInvokeResponseMap and RunbookParameterInvokeResponseMapOutput values.
+// You can construct a concrete instance of `RunbookParameterInvokeResponseMapInput` via:
+//
+//          RunbookParameterInvokeResponseMap{ "key": RunbookParameterInvokeResponseArgs{...} }
+type RunbookParameterInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToRunbookParameterInvokeResponseMapOutput() RunbookParameterInvokeResponseMapOutput
+	ToRunbookParameterInvokeResponseMapOutputWithContext(context.Context) RunbookParameterInvokeResponseMapOutput
+}
+
+type RunbookParameterInvokeResponseMap map[string]RunbookParameterInvokeResponseInput
+
+func (RunbookParameterInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RunbookParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i RunbookParameterInvokeResponseMap) ToRunbookParameterInvokeResponseMapOutput() RunbookParameterInvokeResponseMapOutput {
+	return i.ToRunbookParameterInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i RunbookParameterInvokeResponseMap) ToRunbookParameterInvokeResponseMapOutputWithContext(ctx context.Context) RunbookParameterInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookParameterInvokeResponseMapOutput)
+}
+
+// Definition of the runbook parameter type.
+type RunbookParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RunbookParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o RunbookParameterInvokeResponseOutput) ToRunbookParameterInvokeResponseOutput() RunbookParameterInvokeResponseOutput {
+	return o
+}
+
+func (o RunbookParameterInvokeResponseOutput) ToRunbookParameterInvokeResponseOutputWithContext(ctx context.Context) RunbookParameterInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the default value of parameter.
+func (o RunbookParameterInvokeResponseOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookParameterInvokeResponse) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+func (o RunbookParameterInvokeResponseOutput) IsMandatory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RunbookParameterInvokeResponse) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
+}
+
+// Get or sets the position of the parameter.
+func (o RunbookParameterInvokeResponseOutput) Position() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RunbookParameterInvokeResponse) *int { return v.Position }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the type of the parameter.
+func (o RunbookParameterInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookParameterInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RunbookParameterInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (RunbookParameterInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RunbookParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o RunbookParameterInvokeResponseMapOutput) ToRunbookParameterInvokeResponseMapOutput() RunbookParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o RunbookParameterInvokeResponseMapOutput) ToRunbookParameterInvokeResponseMapOutputWithContext(ctx context.Context) RunbookParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o RunbookParameterInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) RunbookParameterInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RunbookParameterInvokeResponse {
+		return vs[0].(map[string]RunbookParameterInvokeResponse)[vs[1].(string)]
+	}).(RunbookParameterInvokeResponseOutput)
+}
+
+// Definition of the runbook parameter type.
 type RunbookParameterResponse struct {
 	// Gets or sets the default value of parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
@@ -4013,6 +5302,61 @@ func (o ScheduleAssociationPropertyPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The schedule property associated with the entity.
+type ScheduleAssociationPropertyInvokeResponse struct {
+	// Gets or sets the name of the Schedule.
+	Name *string `pulumi:"name"`
+}
+
+// ScheduleAssociationPropertyInvokeResponseInput is an input type that accepts ScheduleAssociationPropertyInvokeResponseArgs and ScheduleAssociationPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `ScheduleAssociationPropertyInvokeResponseInput` via:
+//
+//          ScheduleAssociationPropertyInvokeResponseArgs{...}
+type ScheduleAssociationPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToScheduleAssociationPropertyInvokeResponseOutput() ScheduleAssociationPropertyInvokeResponseOutput
+	ToScheduleAssociationPropertyInvokeResponseOutputWithContext(context.Context) ScheduleAssociationPropertyInvokeResponseOutput
+}
+
+// The schedule property associated with the entity.
+type ScheduleAssociationPropertyInvokeResponseArgs struct {
+	// Gets or sets the name of the Schedule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ScheduleAssociationPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleAssociationPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i ScheduleAssociationPropertyInvokeResponseArgs) ToScheduleAssociationPropertyInvokeResponseOutput() ScheduleAssociationPropertyInvokeResponseOutput {
+	return i.ToScheduleAssociationPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ScheduleAssociationPropertyInvokeResponseArgs) ToScheduleAssociationPropertyInvokeResponseOutputWithContext(ctx context.Context) ScheduleAssociationPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleAssociationPropertyInvokeResponseOutput)
+}
+
+// The schedule property associated with the entity.
+type ScheduleAssociationPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScheduleAssociationPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleAssociationPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ScheduleAssociationPropertyInvokeResponseOutput) ToScheduleAssociationPropertyInvokeResponseOutput() ScheduleAssociationPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o ScheduleAssociationPropertyInvokeResponseOutput) ToScheduleAssociationPropertyInvokeResponseOutputWithContext(ctx context.Context) ScheduleAssociationPropertyInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the name of the Schedule.
+func (o ScheduleAssociationPropertyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleAssociationPropertyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The schedule property associated with the entity.
@@ -4322,6 +5666,79 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The account SKU.
+type SkuInvokeResponse struct {
+	// Gets or sets the SKU capacity.
+	Capacity *int `pulumi:"capacity"`
+	// Gets or sets the SKU family.
+	Family *string `pulumi:"family"`
+	// Gets or sets the SKU name of the account.
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The account SKU.
+type SkuInvokeResponseArgs struct {
+	// Gets or sets the SKU capacity.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Gets or sets the SKU family.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// Gets or sets the SKU name of the account.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The account SKU.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the SKU capacity.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the SKU family.
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the SKU name of the account.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The account SKU.
 type SkuResponse struct {
 	// Gets or sets the SKU capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -4496,62 +5913,83 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(AdvancedScheduleOutput{})
 	pulumi.RegisterOutputType(AdvancedSchedulePtrOutput{})
+	pulumi.RegisterOutputType(AdvancedScheduleInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceArrayOutput{})
+	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceResponseOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleResponseOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionTypeAssociationPropertyOutput{})
 	pulumi.RegisterOutputType(ConnectionTypeAssociationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeAssociationPropertyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionTypeAssociationPropertyResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionTypeAssociationPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentHashOutput{})
 	pulumi.RegisterOutputType(ContentHashPtrOutput{})
+	pulumi.RegisterOutputType(ContentHashInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentHashInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentHashResponseOutput{})
 	pulumi.RegisterOutputType(ContentHashResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentLinkOutput{})
 	pulumi.RegisterOutputType(ContentLinkPtrOutput{})
+	pulumi.RegisterOutputType(ContentLinkInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentLinkInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentLinkResponseOutput{})
 	pulumi.RegisterOutputType(ContentLinkResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentSourceOutput{})
 	pulumi.RegisterOutputType(ContentSourcePtrOutput{})
+	pulumi.RegisterOutputType(ContentSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentSourceResponseOutput{})
 	pulumi.RegisterOutputType(ContentSourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyResponseOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(DscConfigurationParameterOutput{})
 	pulumi.RegisterOutputType(DscConfigurationParameterMapOutput{})
+	pulumi.RegisterOutputType(DscConfigurationParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DscConfigurationParameterInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(DscConfigurationParameterResponseOutput{})
 	pulumi.RegisterOutputType(DscConfigurationParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionMapOutput{})
+	pulumi.RegisterOutputType(FieldDefinitionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FieldDefinitionInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionResponseMapOutput{})
-	pulumi.RegisterOutputType(KeyResponseOutput{})
-	pulumi.RegisterOutputType(KeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ModuleErrorInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ModuleErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(ModuleErrorInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(RunbookAssociationPropertyOutput{})
 	pulumi.RegisterOutputType(RunbookAssociationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(RunbookAssociationPropertyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RunbookAssociationPropertyResponseOutput{})
 	pulumi.RegisterOutputType(RunbookAssociationPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(RunbookDraftOutput{})
 	pulumi.RegisterOutputType(RunbookDraftPtrOutput{})
+	pulumi.RegisterOutputType(RunbookDraftInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RunbookDraftResponseOutput{})
 	pulumi.RegisterOutputType(RunbookDraftResponsePtrOutput{})
 	pulumi.RegisterOutputType(RunbookParameterOutput{})
 	pulumi.RegisterOutputType(RunbookParameterMapOutput{})
+	pulumi.RegisterOutputType(RunbookParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RunbookParameterInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(RunbookParameterResponseOutput{})
 	pulumi.RegisterOutputType(RunbookParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(ScheduleAssociationPropertyOutput{})
 	pulumi.RegisterOutputType(ScheduleAssociationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(ScheduleAssociationPropertyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleAssociationPropertyResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleAssociationPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

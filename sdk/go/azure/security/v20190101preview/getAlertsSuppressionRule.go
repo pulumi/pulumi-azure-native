@@ -40,7 +40,7 @@ type LookupAlertsSuppressionRuleResult struct {
 	// Possible states of the rule
 	State string `pulumi:"state"`
 	// The suppression conditions
-	SuppressionAlertsScope *SuppressionAlertsScopeResponse `pulumi:"suppressionAlertsScope"`
+	SuppressionAlertsScope *SuppressionAlertsScopeInvokeResponse `pulumi:"suppressionAlertsScope"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

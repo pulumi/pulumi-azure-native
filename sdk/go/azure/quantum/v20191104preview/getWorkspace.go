@@ -30,13 +30,13 @@ type LookupWorkspaceResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Managed Identity information.
-	Identity *QuantumWorkspaceResponseIdentity `pulumi:"identity"`
+	Identity *QuantumWorkspaceInvokeResponseIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of Providers selected for this Workspace
-	Providers []ProviderResponse `pulumi:"providers"`
+	Providers []ProviderInvokeResponse `pulumi:"providers"`
 	// Provisioning status field
 	ProvisioningState string `pulumi:"provisioningState"`
 	// ARM Resource Id of the storage account associated with this workspace.

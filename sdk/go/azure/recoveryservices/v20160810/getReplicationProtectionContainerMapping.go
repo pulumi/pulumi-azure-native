@@ -38,7 +38,7 @@ type LookupReplicationProtectionContainerMappingResult struct {
 	// Resource Name
 	Name string `pulumi:"name"`
 	// The custom data.
-	Properties ProtectionContainerMappingPropertiesResponse `pulumi:"properties"`
+	Properties ProtectionContainerMappingPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
 }

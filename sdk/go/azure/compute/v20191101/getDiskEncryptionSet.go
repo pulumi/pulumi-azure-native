@@ -26,17 +26,17 @@ type LookupDiskEncryptionSetArgs struct {
 // disk encryption set resource.
 type LookupDiskEncryptionSetResult struct {
 	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey *KeyVaultAndKeyReferenceResponse `pulumi:"activeKey"`
+	ActiveKey *KeyVaultAndKeyReferenceInvokeResponse `pulumi:"activeKey"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity *EncryptionSetIdentityResponse `pulumi:"identity"`
+	Identity *EncryptionSetIdentityInvokeResponse `pulumi:"identity"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys []KeyVaultAndKeyReferenceResponse `pulumi:"previousKeys"`
+	PreviousKeys []KeyVaultAndKeyReferenceInvokeResponse `pulumi:"previousKeys"`
 	// The disk encryption set provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags

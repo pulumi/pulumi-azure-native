@@ -40,13 +40,13 @@ type LookupSqlPoolsV3Result struct {
 	// The requested service level objective name of the sql pool.
 	RequestedServiceObjectiveName string `pulumi:"requestedServiceObjectiveName"`
 	// The sql pool SKU. The list of SKUs may vary by region and support offer.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The Guid of the sql pool.
 	SqlPoolGuid string `pulumi:"sqlPoolGuid"`
 	// The status of the sql pool.
 	Status string `pulumi:"status"`
 	// SystemData of SqlPool.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -11,6 +11,124 @@ import (
 )
 
 // Container Account Description
+type ContainerAccountInvokeResponse struct {
+	// The account name
+	AccountName *string `pulumi:"accountName"`
+	// The account password
+	Password *string `pulumi:"password"`
+	// The account spn
+	Spn *string `pulumi:"spn"`
+}
+
+// ContainerAccountInvokeResponseInput is an input type that accepts ContainerAccountInvokeResponseArgs and ContainerAccountInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerAccountInvokeResponseInput` via:
+//
+//          ContainerAccountInvokeResponseArgs{...}
+type ContainerAccountInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerAccountInvokeResponseOutput() ContainerAccountInvokeResponseOutput
+	ToContainerAccountInvokeResponseOutputWithContext(context.Context) ContainerAccountInvokeResponseOutput
+}
+
+// Container Account Description
+type ContainerAccountInvokeResponseArgs struct {
+	// The account name
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// The account password
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The account spn
+	Spn pulumi.StringPtrInput `pulumi:"spn"`
+}
+
+func (ContainerAccountInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerAccountInvokeResponseArgs) ToContainerAccountInvokeResponseOutput() ContainerAccountInvokeResponseOutput {
+	return i.ToContainerAccountInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerAccountInvokeResponseArgs) ToContainerAccountInvokeResponseOutputWithContext(ctx context.Context) ContainerAccountInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAccountInvokeResponseOutput)
+}
+
+// ContainerAccountInvokeResponseArrayInput is an input type that accepts ContainerAccountInvokeResponseArray and ContainerAccountInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ContainerAccountInvokeResponseArrayInput` via:
+//
+//          ContainerAccountInvokeResponseArray{ ContainerAccountInvokeResponseArgs{...} }
+type ContainerAccountInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToContainerAccountInvokeResponseArrayOutput() ContainerAccountInvokeResponseArrayOutput
+	ToContainerAccountInvokeResponseArrayOutputWithContext(context.Context) ContainerAccountInvokeResponseArrayOutput
+}
+
+type ContainerAccountInvokeResponseArray []ContainerAccountInvokeResponseInput
+
+func (ContainerAccountInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerAccountInvokeResponseArray) ToContainerAccountInvokeResponseArrayOutput() ContainerAccountInvokeResponseArrayOutput {
+	return i.ToContainerAccountInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerAccountInvokeResponseArray) ToContainerAccountInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerAccountInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAccountInvokeResponseArrayOutput)
+}
+
+// Container Account Description
+type ContainerAccountInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerAccountInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerAccountInvokeResponseOutput) ToContainerAccountInvokeResponseOutput() ContainerAccountInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerAccountInvokeResponseOutput) ToContainerAccountInvokeResponseOutputWithContext(ctx context.Context) ContainerAccountInvokeResponseOutput {
+	return o
+}
+
+// The account name
+func (o ContainerAccountInvokeResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerAccountInvokeResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// The account password
+func (o ContainerAccountInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerAccountInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The account spn
+func (o ContainerAccountInvokeResponseOutput) Spn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerAccountInvokeResponse) *string { return v.Spn }).(pulumi.StringPtrOutput)
+}
+
+type ContainerAccountInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerAccountInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerAccountInvokeResponseArrayOutput) ToContainerAccountInvokeResponseArrayOutput() ContainerAccountInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerAccountInvokeResponseArrayOutput) ToContainerAccountInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerAccountInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerAccountInvokeResponseArrayOutput) Index(i pulumi.IntInput) ContainerAccountInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerAccountInvokeResponse {
+		return vs[0].([]ContainerAccountInvokeResponse)[vs[1].(int)]
+	}).(ContainerAccountInvokeResponseOutput)
+}
+
+// Container Account Description
 type ContainerAccountResponse struct {
 	// The account name
 	AccountName *string `pulumi:"accountName"`
@@ -336,6 +454,97 @@ func (o DomainSecuritySettingsPtrOutput) TlsV1() pulumi.StringPtrOutput {
 		}
 		return v.TlsV1
 	}).(pulumi.StringPtrOutput)
+}
+
+// Domain Security Settings
+type DomainSecuritySettingsInvokeResponse struct {
+	// A flag to determine whether or not NtlmV1 is enabled or disabled.
+	NtlmV1 *string `pulumi:"ntlmV1"`
+	// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+	SyncKerberosPasswords *string `pulumi:"syncKerberosPasswords"`
+	// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+	SyncNtlmPasswords *string `pulumi:"syncNtlmPasswords"`
+	// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+	SyncOnPremPasswords *string `pulumi:"syncOnPremPasswords"`
+	// A flag to determine whether or not TlsV1 is enabled or disabled.
+	TlsV1 *string `pulumi:"tlsV1"`
+}
+
+// DomainSecuritySettingsInvokeResponseInput is an input type that accepts DomainSecuritySettingsInvokeResponseArgs and DomainSecuritySettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `DomainSecuritySettingsInvokeResponseInput` via:
+//
+//          DomainSecuritySettingsInvokeResponseArgs{...}
+type DomainSecuritySettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDomainSecuritySettingsInvokeResponseOutput() DomainSecuritySettingsInvokeResponseOutput
+	ToDomainSecuritySettingsInvokeResponseOutputWithContext(context.Context) DomainSecuritySettingsInvokeResponseOutput
+}
+
+// Domain Security Settings
+type DomainSecuritySettingsInvokeResponseArgs struct {
+	// A flag to determine whether or not NtlmV1 is enabled or disabled.
+	NtlmV1 pulumi.StringPtrInput `pulumi:"ntlmV1"`
+	// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+	SyncKerberosPasswords pulumi.StringPtrInput `pulumi:"syncKerberosPasswords"`
+	// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+	SyncNtlmPasswords pulumi.StringPtrInput `pulumi:"syncNtlmPasswords"`
+	// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+	SyncOnPremPasswords pulumi.StringPtrInput `pulumi:"syncOnPremPasswords"`
+	// A flag to determine whether or not TlsV1 is enabled or disabled.
+	TlsV1 pulumi.StringPtrInput `pulumi:"tlsV1"`
+}
+
+func (DomainSecuritySettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i DomainSecuritySettingsInvokeResponseArgs) ToDomainSecuritySettingsInvokeResponseOutput() DomainSecuritySettingsInvokeResponseOutput {
+	return i.ToDomainSecuritySettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DomainSecuritySettingsInvokeResponseArgs) ToDomainSecuritySettingsInvokeResponseOutputWithContext(ctx context.Context) DomainSecuritySettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSecuritySettingsInvokeResponseOutput)
+}
+
+// Domain Security Settings
+type DomainSecuritySettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DomainSecuritySettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o DomainSecuritySettingsInvokeResponseOutput) ToDomainSecuritySettingsInvokeResponseOutput() DomainSecuritySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o DomainSecuritySettingsInvokeResponseOutput) ToDomainSecuritySettingsInvokeResponseOutputWithContext(ctx context.Context) DomainSecuritySettingsInvokeResponseOutput {
+	return o
+}
+
+// A flag to determine whether or not NtlmV1 is enabled or disabled.
+func (o DomainSecuritySettingsInvokeResponseOutput) NtlmV1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettingsInvokeResponse) *string { return v.NtlmV1 }).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+func (o DomainSecuritySettingsInvokeResponseOutput) SyncKerberosPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettingsInvokeResponse) *string { return v.SyncKerberosPasswords }).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+func (o DomainSecuritySettingsInvokeResponseOutput) SyncNtlmPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettingsInvokeResponse) *string { return v.SyncNtlmPasswords }).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+func (o DomainSecuritySettingsInvokeResponseOutput) SyncOnPremPasswords() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettingsInvokeResponse) *string { return v.SyncOnPremPasswords }).(pulumi.StringPtrOutput)
+}
+
+// A flag to determine whether or not TlsV1 is enabled or disabled.
+func (o DomainSecuritySettingsInvokeResponseOutput) TlsV1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSecuritySettingsInvokeResponse) *string { return v.TlsV1 }).(pulumi.StringPtrOutput)
 }
 
 // Domain Security Settings
@@ -685,6 +894,142 @@ func (o ForestTrustArrayOutput) Index(i pulumi.IntInput) ForestTrustOutput {
 }
 
 // Forest Trust Setting
+type ForestTrustInvokeResponse struct {
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Remote Dns ips
+	RemoteDnsIps *string `pulumi:"remoteDnsIps"`
+	// Trust Direction
+	TrustDirection *string `pulumi:"trustDirection"`
+	// Trust Password
+	TrustPassword *string `pulumi:"trustPassword"`
+	// Trusted Domain FQDN
+	TrustedDomainFqdn *string `pulumi:"trustedDomainFqdn"`
+}
+
+// ForestTrustInvokeResponseInput is an input type that accepts ForestTrustInvokeResponseArgs and ForestTrustInvokeResponseOutput values.
+// You can construct a concrete instance of `ForestTrustInvokeResponseInput` via:
+//
+//          ForestTrustInvokeResponseArgs{...}
+type ForestTrustInvokeResponseInput interface {
+	pulumi.Input
+
+	ToForestTrustInvokeResponseOutput() ForestTrustInvokeResponseOutput
+	ToForestTrustInvokeResponseOutputWithContext(context.Context) ForestTrustInvokeResponseOutput
+}
+
+// Forest Trust Setting
+type ForestTrustInvokeResponseArgs struct {
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Remote Dns ips
+	RemoteDnsIps pulumi.StringPtrInput `pulumi:"remoteDnsIps"`
+	// Trust Direction
+	TrustDirection pulumi.StringPtrInput `pulumi:"trustDirection"`
+	// Trust Password
+	TrustPassword pulumi.StringPtrInput `pulumi:"trustPassword"`
+	// Trusted Domain FQDN
+	TrustedDomainFqdn pulumi.StringPtrInput `pulumi:"trustedDomainFqdn"`
+}
+
+func (ForestTrustInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ForestTrustInvokeResponse)(nil)).Elem()
+}
+
+func (i ForestTrustInvokeResponseArgs) ToForestTrustInvokeResponseOutput() ForestTrustInvokeResponseOutput {
+	return i.ToForestTrustInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ForestTrustInvokeResponseArgs) ToForestTrustInvokeResponseOutputWithContext(ctx context.Context) ForestTrustInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ForestTrustInvokeResponseOutput)
+}
+
+// ForestTrustInvokeResponseArrayInput is an input type that accepts ForestTrustInvokeResponseArray and ForestTrustInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ForestTrustInvokeResponseArrayInput` via:
+//
+//          ForestTrustInvokeResponseArray{ ForestTrustInvokeResponseArgs{...} }
+type ForestTrustInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToForestTrustInvokeResponseArrayOutput() ForestTrustInvokeResponseArrayOutput
+	ToForestTrustInvokeResponseArrayOutputWithContext(context.Context) ForestTrustInvokeResponseArrayOutput
+}
+
+type ForestTrustInvokeResponseArray []ForestTrustInvokeResponseInput
+
+func (ForestTrustInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ForestTrustInvokeResponse)(nil)).Elem()
+}
+
+func (i ForestTrustInvokeResponseArray) ToForestTrustInvokeResponseArrayOutput() ForestTrustInvokeResponseArrayOutput {
+	return i.ToForestTrustInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ForestTrustInvokeResponseArray) ToForestTrustInvokeResponseArrayOutputWithContext(ctx context.Context) ForestTrustInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ForestTrustInvokeResponseArrayOutput)
+}
+
+// Forest Trust Setting
+type ForestTrustInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ForestTrustInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ForestTrustInvokeResponse)(nil)).Elem()
+}
+
+func (o ForestTrustInvokeResponseOutput) ToForestTrustInvokeResponseOutput() ForestTrustInvokeResponseOutput {
+	return o
+}
+
+func (o ForestTrustInvokeResponseOutput) ToForestTrustInvokeResponseOutputWithContext(ctx context.Context) ForestTrustInvokeResponseOutput {
+	return o
+}
+
+// Friendly Name
+func (o ForestTrustInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrustInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Remote Dns ips
+func (o ForestTrustInvokeResponseOutput) RemoteDnsIps() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrustInvokeResponse) *string { return v.RemoteDnsIps }).(pulumi.StringPtrOutput)
+}
+
+// Trust Direction
+func (o ForestTrustInvokeResponseOutput) TrustDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrustInvokeResponse) *string { return v.TrustDirection }).(pulumi.StringPtrOutput)
+}
+
+// Trust Password
+func (o ForestTrustInvokeResponseOutput) TrustPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrustInvokeResponse) *string { return v.TrustPassword }).(pulumi.StringPtrOutput)
+}
+
+// Trusted Domain FQDN
+func (o ForestTrustInvokeResponseOutput) TrustedDomainFqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ForestTrustInvokeResponse) *string { return v.TrustedDomainFqdn }).(pulumi.StringPtrOutput)
+}
+
+type ForestTrustInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ForestTrustInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ForestTrustInvokeResponse)(nil)).Elem()
+}
+
+func (o ForestTrustInvokeResponseArrayOutput) ToForestTrustInvokeResponseArrayOutput() ForestTrustInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ForestTrustInvokeResponseArrayOutput) ToForestTrustInvokeResponseArrayOutputWithContext(ctx context.Context) ForestTrustInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ForestTrustInvokeResponseArrayOutput) Index(i pulumi.IntInput) ForestTrustInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ForestTrustInvokeResponse {
+		return vs[0].([]ForestTrustInvokeResponse)[vs[1].(int)]
+	}).(ForestTrustInvokeResponseOutput)
+}
+
+// Forest Trust Setting
 type ForestTrustResponse struct {
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -818,6 +1163,160 @@ func (o ForestTrustResponseArrayOutput) Index(i pulumi.IntInput) ForestTrustResp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ForestTrustResponse {
 		return vs[0].([]ForestTrustResponse)[vs[1].(int)]
 	}).(ForestTrustResponseOutput)
+}
+
+// Health Alert Description
+type HealthAlertInvokeResponse struct {
+	// Health Alert Id
+	Id string `pulumi:"id"`
+	// Health Alert Issue
+	Issue string `pulumi:"issue"`
+	// Health Alert Last Detected DateTime
+	LastDetected string `pulumi:"lastDetected"`
+	// Health Alert Name
+	Name string `pulumi:"name"`
+	// Health Alert Raised DateTime
+	Raised string `pulumi:"raised"`
+	// Health Alert TSG Link
+	ResolutionUri string `pulumi:"resolutionUri"`
+	// Health Alert Severity
+	Severity string `pulumi:"severity"`
+}
+
+// HealthAlertInvokeResponseInput is an input type that accepts HealthAlertInvokeResponseArgs and HealthAlertInvokeResponseOutput values.
+// You can construct a concrete instance of `HealthAlertInvokeResponseInput` via:
+//
+//          HealthAlertInvokeResponseArgs{...}
+type HealthAlertInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHealthAlertInvokeResponseOutput() HealthAlertInvokeResponseOutput
+	ToHealthAlertInvokeResponseOutputWithContext(context.Context) HealthAlertInvokeResponseOutput
+}
+
+// Health Alert Description
+type HealthAlertInvokeResponseArgs struct {
+	// Health Alert Id
+	Id pulumi.StringInput `pulumi:"id"`
+	// Health Alert Issue
+	Issue pulumi.StringInput `pulumi:"issue"`
+	// Health Alert Last Detected DateTime
+	LastDetected pulumi.StringInput `pulumi:"lastDetected"`
+	// Health Alert Name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Health Alert Raised DateTime
+	Raised pulumi.StringInput `pulumi:"raised"`
+	// Health Alert TSG Link
+	ResolutionUri pulumi.StringInput `pulumi:"resolutionUri"`
+	// Health Alert Severity
+	Severity pulumi.StringInput `pulumi:"severity"`
+}
+
+func (HealthAlertInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthAlertInvokeResponse)(nil)).Elem()
+}
+
+func (i HealthAlertInvokeResponseArgs) ToHealthAlertInvokeResponseOutput() HealthAlertInvokeResponseOutput {
+	return i.ToHealthAlertInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HealthAlertInvokeResponseArgs) ToHealthAlertInvokeResponseOutputWithContext(ctx context.Context) HealthAlertInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertInvokeResponseOutput)
+}
+
+// HealthAlertInvokeResponseArrayInput is an input type that accepts HealthAlertInvokeResponseArray and HealthAlertInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `HealthAlertInvokeResponseArrayInput` via:
+//
+//          HealthAlertInvokeResponseArray{ HealthAlertInvokeResponseArgs{...} }
+type HealthAlertInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToHealthAlertInvokeResponseArrayOutput() HealthAlertInvokeResponseArrayOutput
+	ToHealthAlertInvokeResponseArrayOutputWithContext(context.Context) HealthAlertInvokeResponseArrayOutput
+}
+
+type HealthAlertInvokeResponseArray []HealthAlertInvokeResponseInput
+
+func (HealthAlertInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthAlertInvokeResponse)(nil)).Elem()
+}
+
+func (i HealthAlertInvokeResponseArray) ToHealthAlertInvokeResponseArrayOutput() HealthAlertInvokeResponseArrayOutput {
+	return i.ToHealthAlertInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HealthAlertInvokeResponseArray) ToHealthAlertInvokeResponseArrayOutputWithContext(ctx context.Context) HealthAlertInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertInvokeResponseArrayOutput)
+}
+
+// Health Alert Description
+type HealthAlertInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HealthAlertInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthAlertInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthAlertInvokeResponseOutput) ToHealthAlertInvokeResponseOutput() HealthAlertInvokeResponseOutput {
+	return o
+}
+
+func (o HealthAlertInvokeResponseOutput) ToHealthAlertInvokeResponseOutputWithContext(ctx context.Context) HealthAlertInvokeResponseOutput {
+	return o
+}
+
+// Health Alert Id
+func (o HealthAlertInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthAlertInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Health Alert Issue
+func (o HealthAlertInvokeResponseOutput) Issue() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthAlertInvokeResponse) string { return v.Issue }).(pulumi.StringOutput)
+}
+
+// Health Alert Last Detected DateTime
+func (o HealthAlertInvokeResponseOutput) LastDetected() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthAlertInvokeResponse) string { return v.LastDetected }).(pulumi.StringOutput)
+}
+
+// Health Alert Name
+func (o HealthAlertInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthAlertInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Health Alert Raised DateTime
+func (o HealthAlertInvokeResponseOutput) Raised() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthAlertInvokeResponse) string { return v.Raised }).(pulumi.StringOutput)
+}
+
+// Health Alert TSG Link
+func (o HealthAlertInvokeResponseOutput) ResolutionUri() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthAlertInvokeResponse) string { return v.ResolutionUri }).(pulumi.StringOutput)
+}
+
+// Health Alert Severity
+func (o HealthAlertInvokeResponseOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthAlertInvokeResponse) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+type HealthAlertInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HealthAlertInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthAlertInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthAlertInvokeResponseArrayOutput) ToHealthAlertInvokeResponseArrayOutput() HealthAlertInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HealthAlertInvokeResponseArrayOutput) ToHealthAlertInvokeResponseArrayOutputWithContext(ctx context.Context) HealthAlertInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HealthAlertInvokeResponseArrayOutput) Index(i pulumi.IntInput) HealthAlertInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthAlertInvokeResponse {
+		return vs[0].([]HealthAlertInvokeResponse)[vs[1].(int)]
+	}).(HealthAlertInvokeResponseOutput)
 }
 
 // Health Alert Description
@@ -972,6 +1471,124 @@ func (o HealthAlertResponseArrayOutput) Index(i pulumi.IntInput) HealthAlertResp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthAlertResponse {
 		return vs[0].([]HealthAlertResponse)[vs[1].(int)]
 	}).(HealthAlertResponseOutput)
+}
+
+// Health Monitor Description
+type HealthMonitorInvokeResponse struct {
+	// Health Monitor Details
+	Details string `pulumi:"details"`
+	// Health Monitor Id
+	Id string `pulumi:"id"`
+	// Health Monitor Name
+	Name string `pulumi:"name"`
+}
+
+// HealthMonitorInvokeResponseInput is an input type that accepts HealthMonitorInvokeResponseArgs and HealthMonitorInvokeResponseOutput values.
+// You can construct a concrete instance of `HealthMonitorInvokeResponseInput` via:
+//
+//          HealthMonitorInvokeResponseArgs{...}
+type HealthMonitorInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHealthMonitorInvokeResponseOutput() HealthMonitorInvokeResponseOutput
+	ToHealthMonitorInvokeResponseOutputWithContext(context.Context) HealthMonitorInvokeResponseOutput
+}
+
+// Health Monitor Description
+type HealthMonitorInvokeResponseArgs struct {
+	// Health Monitor Details
+	Details pulumi.StringInput `pulumi:"details"`
+	// Health Monitor Id
+	Id pulumi.StringInput `pulumi:"id"`
+	// Health Monitor Name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (HealthMonitorInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthMonitorInvokeResponse)(nil)).Elem()
+}
+
+func (i HealthMonitorInvokeResponseArgs) ToHealthMonitorInvokeResponseOutput() HealthMonitorInvokeResponseOutput {
+	return i.ToHealthMonitorInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HealthMonitorInvokeResponseArgs) ToHealthMonitorInvokeResponseOutputWithContext(ctx context.Context) HealthMonitorInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthMonitorInvokeResponseOutput)
+}
+
+// HealthMonitorInvokeResponseArrayInput is an input type that accepts HealthMonitorInvokeResponseArray and HealthMonitorInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `HealthMonitorInvokeResponseArrayInput` via:
+//
+//          HealthMonitorInvokeResponseArray{ HealthMonitorInvokeResponseArgs{...} }
+type HealthMonitorInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToHealthMonitorInvokeResponseArrayOutput() HealthMonitorInvokeResponseArrayOutput
+	ToHealthMonitorInvokeResponseArrayOutputWithContext(context.Context) HealthMonitorInvokeResponseArrayOutput
+}
+
+type HealthMonitorInvokeResponseArray []HealthMonitorInvokeResponseInput
+
+func (HealthMonitorInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthMonitorInvokeResponse)(nil)).Elem()
+}
+
+func (i HealthMonitorInvokeResponseArray) ToHealthMonitorInvokeResponseArrayOutput() HealthMonitorInvokeResponseArrayOutput {
+	return i.ToHealthMonitorInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HealthMonitorInvokeResponseArray) ToHealthMonitorInvokeResponseArrayOutputWithContext(ctx context.Context) HealthMonitorInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthMonitorInvokeResponseArrayOutput)
+}
+
+// Health Monitor Description
+type HealthMonitorInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HealthMonitorInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthMonitorInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthMonitorInvokeResponseOutput) ToHealthMonitorInvokeResponseOutput() HealthMonitorInvokeResponseOutput {
+	return o
+}
+
+func (o HealthMonitorInvokeResponseOutput) ToHealthMonitorInvokeResponseOutputWithContext(ctx context.Context) HealthMonitorInvokeResponseOutput {
+	return o
+}
+
+// Health Monitor Details
+func (o HealthMonitorInvokeResponseOutput) Details() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthMonitorInvokeResponse) string { return v.Details }).(pulumi.StringOutput)
+}
+
+// Health Monitor Id
+func (o HealthMonitorInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthMonitorInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Health Monitor Name
+func (o HealthMonitorInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthMonitorInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type HealthMonitorInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HealthMonitorInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthMonitorInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthMonitorInvokeResponseArrayOutput) ToHealthMonitorInvokeResponseArrayOutput() HealthMonitorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HealthMonitorInvokeResponseArrayOutput) ToHealthMonitorInvokeResponseArrayOutputWithContext(ctx context.Context) HealthMonitorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HealthMonitorInvokeResponseArrayOutput) Index(i pulumi.IntInput) HealthMonitorInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthMonitorInvokeResponse {
+		return vs[0].([]HealthMonitorInvokeResponse)[vs[1].(int)]
+	}).(HealthMonitorInvokeResponseOutput)
 }
 
 // Health Monitor Description
@@ -1284,6 +1901,124 @@ func (o LdapsSettingsPtrOutput) PfxCertificatePassword() pulumi.StringPtrOutput 
 }
 
 // Secure LDAP Settings
+type LdapsSettingsInvokeResponse struct {
+	// NotAfter DateTime of configure ldaps certificate.
+	CertificateNotAfter string `pulumi:"certificateNotAfter"`
+	// Thumbprint of configure ldaps certificate.
+	CertificateThumbprint string `pulumi:"certificateThumbprint"`
+	// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
+	ExternalAccess *string `pulumi:"externalAccess"`
+	// External access ip address.
+	ExternalAccessIpAddress string `pulumi:"externalAccessIpAddress"`
+	// A flag to determine whether or not Secure LDAP is enabled or disabled.
+	Ldaps *string `pulumi:"ldaps"`
+	// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
+	PfxCertificate *string `pulumi:"pfxCertificate"`
+	// The password to decrypt the provided Secure LDAP certificate pfx file.
+	PfxCertificatePassword *string `pulumi:"pfxCertificatePassword"`
+	// Public certificate used to configure secure ldap.
+	PublicCertificate string `pulumi:"publicCertificate"`
+}
+
+// LdapsSettingsInvokeResponseInput is an input type that accepts LdapsSettingsInvokeResponseArgs and LdapsSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `LdapsSettingsInvokeResponseInput` via:
+//
+//          LdapsSettingsInvokeResponseArgs{...}
+type LdapsSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLdapsSettingsInvokeResponseOutput() LdapsSettingsInvokeResponseOutput
+	ToLdapsSettingsInvokeResponseOutputWithContext(context.Context) LdapsSettingsInvokeResponseOutput
+}
+
+// Secure LDAP Settings
+type LdapsSettingsInvokeResponseArgs struct {
+	// NotAfter DateTime of configure ldaps certificate.
+	CertificateNotAfter pulumi.StringInput `pulumi:"certificateNotAfter"`
+	// Thumbprint of configure ldaps certificate.
+	CertificateThumbprint pulumi.StringInput `pulumi:"certificateThumbprint"`
+	// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
+	ExternalAccess pulumi.StringPtrInput `pulumi:"externalAccess"`
+	// External access ip address.
+	ExternalAccessIpAddress pulumi.StringInput `pulumi:"externalAccessIpAddress"`
+	// A flag to determine whether or not Secure LDAP is enabled or disabled.
+	Ldaps pulumi.StringPtrInput `pulumi:"ldaps"`
+	// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
+	PfxCertificate pulumi.StringPtrInput `pulumi:"pfxCertificate"`
+	// The password to decrypt the provided Secure LDAP certificate pfx file.
+	PfxCertificatePassword pulumi.StringPtrInput `pulumi:"pfxCertificatePassword"`
+	// Public certificate used to configure secure ldap.
+	PublicCertificate pulumi.StringInput `pulumi:"publicCertificate"`
+}
+
+func (LdapsSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LdapsSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i LdapsSettingsInvokeResponseArgs) ToLdapsSettingsInvokeResponseOutput() LdapsSettingsInvokeResponseOutput {
+	return i.ToLdapsSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LdapsSettingsInvokeResponseArgs) ToLdapsSettingsInvokeResponseOutputWithContext(ctx context.Context) LdapsSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LdapsSettingsInvokeResponseOutput)
+}
+
+// Secure LDAP Settings
+type LdapsSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LdapsSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LdapsSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o LdapsSettingsInvokeResponseOutput) ToLdapsSettingsInvokeResponseOutput() LdapsSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o LdapsSettingsInvokeResponseOutput) ToLdapsSettingsInvokeResponseOutputWithContext(ctx context.Context) LdapsSettingsInvokeResponseOutput {
+	return o
+}
+
+// NotAfter DateTime of configure ldaps certificate.
+func (o LdapsSettingsInvokeResponseOutput) CertificateNotAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v LdapsSettingsInvokeResponse) string { return v.CertificateNotAfter }).(pulumi.StringOutput)
+}
+
+// Thumbprint of configure ldaps certificate.
+func (o LdapsSettingsInvokeResponseOutput) CertificateThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LdapsSettingsInvokeResponse) string { return v.CertificateThumbprint }).(pulumi.StringOutput)
+}
+
+// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
+func (o LdapsSettingsInvokeResponseOutput) ExternalAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LdapsSettingsInvokeResponse) *string { return v.ExternalAccess }).(pulumi.StringPtrOutput)
+}
+
+// External access ip address.
+func (o LdapsSettingsInvokeResponseOutput) ExternalAccessIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LdapsSettingsInvokeResponse) string { return v.ExternalAccessIpAddress }).(pulumi.StringOutput)
+}
+
+// A flag to determine whether or not Secure LDAP is enabled or disabled.
+func (o LdapsSettingsInvokeResponseOutput) Ldaps() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LdapsSettingsInvokeResponse) *string { return v.Ldaps }).(pulumi.StringPtrOutput)
+}
+
+// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
+func (o LdapsSettingsInvokeResponseOutput) PfxCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LdapsSettingsInvokeResponse) *string { return v.PfxCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The password to decrypt the provided Secure LDAP certificate pfx file.
+func (o LdapsSettingsInvokeResponseOutput) PfxCertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LdapsSettingsInvokeResponse) *string { return v.PfxCertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// Public certificate used to configure secure ldap.
+func (o LdapsSettingsInvokeResponseOutput) PublicCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v LdapsSettingsInvokeResponse) string { return v.PublicCertificate }).(pulumi.StringOutput)
+}
+
+// Secure LDAP Settings
 type LdapsSettingsResponse struct {
 	// NotAfter DateTime of configure ldaps certificate.
 	CertificateNotAfter string `pulumi:"certificateNotAfter"`
@@ -1551,6 +2286,70 @@ func (o LdapsSettingsResponsePtrOutput) PublicCertificate() pulumi.StringPtrOutp
 }
 
 // Migration Progress
+type MigrationProgressInvokeResponse struct {
+	// Completion Percentage
+	CompletionPercentage *float64 `pulumi:"completionPercentage"`
+	// Progress Message
+	ProgressMessage *string `pulumi:"progressMessage"`
+}
+
+// MigrationProgressInvokeResponseInput is an input type that accepts MigrationProgressInvokeResponseArgs and MigrationProgressInvokeResponseOutput values.
+// You can construct a concrete instance of `MigrationProgressInvokeResponseInput` via:
+//
+//          MigrationProgressInvokeResponseArgs{...}
+type MigrationProgressInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMigrationProgressInvokeResponseOutput() MigrationProgressInvokeResponseOutput
+	ToMigrationProgressInvokeResponseOutputWithContext(context.Context) MigrationProgressInvokeResponseOutput
+}
+
+// Migration Progress
+type MigrationProgressInvokeResponseArgs struct {
+	// Completion Percentage
+	CompletionPercentage pulumi.Float64PtrInput `pulumi:"completionPercentage"`
+	// Progress Message
+	ProgressMessage pulumi.StringPtrInput `pulumi:"progressMessage"`
+}
+
+func (MigrationProgressInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProgressInvokeResponse)(nil)).Elem()
+}
+
+func (i MigrationProgressInvokeResponseArgs) ToMigrationProgressInvokeResponseOutput() MigrationProgressInvokeResponseOutput {
+	return i.ToMigrationProgressInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MigrationProgressInvokeResponseArgs) ToMigrationProgressInvokeResponseOutputWithContext(ctx context.Context) MigrationProgressInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProgressInvokeResponseOutput)
+}
+
+// Migration Progress
+type MigrationProgressInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MigrationProgressInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProgressInvokeResponse)(nil)).Elem()
+}
+
+func (o MigrationProgressInvokeResponseOutput) ToMigrationProgressInvokeResponseOutput() MigrationProgressInvokeResponseOutput {
+	return o
+}
+
+func (o MigrationProgressInvokeResponseOutput) ToMigrationProgressInvokeResponseOutputWithContext(ctx context.Context) MigrationProgressInvokeResponseOutput {
+	return o
+}
+
+// Completion Percentage
+func (o MigrationProgressInvokeResponseOutput) CompletionPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MigrationProgressInvokeResponse) *float64 { return v.CompletionPercentage }).(pulumi.Float64PtrOutput)
+}
+
+// Progress Message
+func (o MigrationProgressInvokeResponseOutput) ProgressMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProgressInvokeResponse) *string { return v.ProgressMessage }).(pulumi.StringPtrOutput)
+}
+
+// Migration Progress
 type MigrationProgressResponse struct {
 	// Completion Percentage
 	CompletionPercentage *float64 `pulumi:"completionPercentage"`
@@ -1701,6 +2500,79 @@ func (o MigrationProgressResponsePtrOutput) ProgressMessage() pulumi.StringPtrOu
 		}
 		return v.ProgressMessage
 	}).(pulumi.StringPtrOutput)
+}
+
+// Migration Properties
+type MigrationPropertiesInvokeResponse struct {
+	// Migration Progress
+	MigrationProgress MigrationProgressInvokeResponse `pulumi:"migrationProgress"`
+	// Old Subnet Id
+	OldSubnetId string `pulumi:"oldSubnetId"`
+	// Old Vnet Site Id
+	OldVnetSiteId string `pulumi:"oldVnetSiteId"`
+}
+
+// MigrationPropertiesInvokeResponseInput is an input type that accepts MigrationPropertiesInvokeResponseArgs and MigrationPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `MigrationPropertiesInvokeResponseInput` via:
+//
+//          MigrationPropertiesInvokeResponseArgs{...}
+type MigrationPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMigrationPropertiesInvokeResponseOutput() MigrationPropertiesInvokeResponseOutput
+	ToMigrationPropertiesInvokeResponseOutputWithContext(context.Context) MigrationPropertiesInvokeResponseOutput
+}
+
+// Migration Properties
+type MigrationPropertiesInvokeResponseArgs struct {
+	// Migration Progress
+	MigrationProgress MigrationProgressInvokeResponseInput `pulumi:"migrationProgress"`
+	// Old Subnet Id
+	OldSubnetId pulumi.StringInput `pulumi:"oldSubnetId"`
+	// Old Vnet Site Id
+	OldVnetSiteId pulumi.StringInput `pulumi:"oldVnetSiteId"`
+}
+
+func (MigrationPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MigrationPropertiesInvokeResponseArgs) ToMigrationPropertiesInvokeResponseOutput() MigrationPropertiesInvokeResponseOutput {
+	return i.ToMigrationPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MigrationPropertiesInvokeResponseArgs) ToMigrationPropertiesInvokeResponseOutputWithContext(ctx context.Context) MigrationPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationPropertiesInvokeResponseOutput)
+}
+
+// Migration Properties
+type MigrationPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MigrationPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MigrationPropertiesInvokeResponseOutput) ToMigrationPropertiesInvokeResponseOutput() MigrationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MigrationPropertiesInvokeResponseOutput) ToMigrationPropertiesInvokeResponseOutputWithContext(ctx context.Context) MigrationPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Migration Progress
+func (o MigrationPropertiesInvokeResponseOutput) MigrationProgress() MigrationProgressInvokeResponseOutput {
+	return o.ApplyT(func(v MigrationPropertiesInvokeResponse) MigrationProgressInvokeResponse { return v.MigrationProgress }).(MigrationProgressInvokeResponseOutput)
+}
+
+// Old Subnet Id
+func (o MigrationPropertiesInvokeResponseOutput) OldSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationPropertiesInvokeResponse) string { return v.OldSubnetId }).(pulumi.StringOutput)
+}
+
+// Old Vnet Site Id
+func (o MigrationPropertiesInvokeResponseOutput) OldVnetSiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationPropertiesInvokeResponse) string { return v.OldVnetSiteId }).(pulumi.StringOutput)
 }
 
 // Migration Properties
@@ -2048,6 +2920,79 @@ func (o NotificationSettingsPtrOutput) NotifyGlobalAdmins() pulumi.StringPtrOutp
 }
 
 // Settings for notification
+type NotificationSettingsInvokeResponse struct {
+	// The list of additional recipients
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// Should domain controller admins be notified
+	NotifyDcAdmins *string `pulumi:"notifyDcAdmins"`
+	// Should global admins be notified
+	NotifyGlobalAdmins *string `pulumi:"notifyGlobalAdmins"`
+}
+
+// NotificationSettingsInvokeResponseInput is an input type that accepts NotificationSettingsInvokeResponseArgs and NotificationSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `NotificationSettingsInvokeResponseInput` via:
+//
+//          NotificationSettingsInvokeResponseArgs{...}
+type NotificationSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNotificationSettingsInvokeResponseOutput() NotificationSettingsInvokeResponseOutput
+	ToNotificationSettingsInvokeResponseOutputWithContext(context.Context) NotificationSettingsInvokeResponseOutput
+}
+
+// Settings for notification
+type NotificationSettingsInvokeResponseArgs struct {
+	// The list of additional recipients
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// Should domain controller admins be notified
+	NotifyDcAdmins pulumi.StringPtrInput `pulumi:"notifyDcAdmins"`
+	// Should global admins be notified
+	NotifyGlobalAdmins pulumi.StringPtrInput `pulumi:"notifyGlobalAdmins"`
+}
+
+func (NotificationSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i NotificationSettingsInvokeResponseArgs) ToNotificationSettingsInvokeResponseOutput() NotificationSettingsInvokeResponseOutput {
+	return i.ToNotificationSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NotificationSettingsInvokeResponseArgs) ToNotificationSettingsInvokeResponseOutputWithContext(ctx context.Context) NotificationSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsInvokeResponseOutput)
+}
+
+// Settings for notification
+type NotificationSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NotificationSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o NotificationSettingsInvokeResponseOutput) ToNotificationSettingsInvokeResponseOutput() NotificationSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o NotificationSettingsInvokeResponseOutput) ToNotificationSettingsInvokeResponseOutputWithContext(ctx context.Context) NotificationSettingsInvokeResponseOutput {
+	return o
+}
+
+// The list of additional recipients
+func (o NotificationSettingsInvokeResponseOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationSettingsInvokeResponse) []string { return v.AdditionalRecipients }).(pulumi.StringArrayOutput)
+}
+
+// Should domain controller admins be notified
+func (o NotificationSettingsInvokeResponseOutput) NotifyDcAdmins() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationSettingsInvokeResponse) *string { return v.NotifyDcAdmins }).(pulumi.StringPtrOutput)
+}
+
+// Should global admins be notified
+func (o NotificationSettingsInvokeResponseOutput) NotifyGlobalAdmins() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationSettingsInvokeResponse) *string { return v.NotifyGlobalAdmins }).(pulumi.StringPtrOutput)
+}
+
+// Settings for notification
 type NotificationSettingsResponse struct {
 	// The list of additional recipients
 	AdditionalRecipients []string `pulumi:"additionalRecipients"`
@@ -2373,6 +3318,70 @@ func (o ResourceForestSettingsPtrOutput) Settings() ForestTrustArrayOutput {
 }
 
 // Settings for Resource Forest
+type ResourceForestSettingsInvokeResponse struct {
+	// Resource Forest
+	ResourceForest *string `pulumi:"resourceForest"`
+	// List of settings for Resource Forest
+	Settings []ForestTrustInvokeResponse `pulumi:"settings"`
+}
+
+// ResourceForestSettingsInvokeResponseInput is an input type that accepts ResourceForestSettingsInvokeResponseArgs and ResourceForestSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceForestSettingsInvokeResponseInput` via:
+//
+//          ResourceForestSettingsInvokeResponseArgs{...}
+type ResourceForestSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceForestSettingsInvokeResponseOutput() ResourceForestSettingsInvokeResponseOutput
+	ToResourceForestSettingsInvokeResponseOutputWithContext(context.Context) ResourceForestSettingsInvokeResponseOutput
+}
+
+// Settings for Resource Forest
+type ResourceForestSettingsInvokeResponseArgs struct {
+	// Resource Forest
+	ResourceForest pulumi.StringPtrInput `pulumi:"resourceForest"`
+	// List of settings for Resource Forest
+	Settings ForestTrustInvokeResponseArrayInput `pulumi:"settings"`
+}
+
+func (ResourceForestSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceForestSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceForestSettingsInvokeResponseArgs) ToResourceForestSettingsInvokeResponseOutput() ResourceForestSettingsInvokeResponseOutput {
+	return i.ToResourceForestSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceForestSettingsInvokeResponseArgs) ToResourceForestSettingsInvokeResponseOutputWithContext(ctx context.Context) ResourceForestSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceForestSettingsInvokeResponseOutput)
+}
+
+// Settings for Resource Forest
+type ResourceForestSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceForestSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceForestSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceForestSettingsInvokeResponseOutput) ToResourceForestSettingsInvokeResponseOutput() ResourceForestSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceForestSettingsInvokeResponseOutput) ToResourceForestSettingsInvokeResponseOutputWithContext(ctx context.Context) ResourceForestSettingsInvokeResponseOutput {
+	return o
+}
+
+// Resource Forest
+func (o ResourceForestSettingsInvokeResponseOutput) ResourceForest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceForestSettingsInvokeResponse) *string { return v.ResourceForest }).(pulumi.StringPtrOutput)
+}
+
+// List of settings for Resource Forest
+func (o ResourceForestSettingsInvokeResponseOutput) Settings() ForestTrustInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ResourceForestSettingsInvokeResponse) []ForestTrustInvokeResponse { return v.Settings }).(ForestTrustInvokeResponseArrayOutput)
+}
+
+// Settings for Resource Forest
 type ResourceForestSettingsResponse struct {
 	// Resource Forest
 	ResourceForest *string `pulumi:"resourceForest"`
@@ -2526,34 +3535,48 @@ func (o ResourceForestSettingsResponsePtrOutput) Settings() ForestTrustResponseA
 }
 
 func init() {
+	pulumi.RegisterOutputType(ContainerAccountInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContainerAccountInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerAccountResponseOutput{})
 	pulumi.RegisterOutputType(ContainerAccountResponseArrayOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainSecuritySettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsResponseOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ForestTrustOutput{})
 	pulumi.RegisterOutputType(ForestTrustArrayOutput{})
+	pulumi.RegisterOutputType(ForestTrustInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ForestTrustInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ForestTrustResponseOutput{})
 	pulumi.RegisterOutputType(ForestTrustResponseArrayOutput{})
+	pulumi.RegisterOutputType(HealthAlertInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HealthAlertInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(HealthAlertResponseOutput{})
 	pulumi.RegisterOutputType(HealthAlertResponseArrayOutput{})
+	pulumi.RegisterOutputType(HealthMonitorInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HealthMonitorInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(HealthMonitorResponseOutput{})
 	pulumi.RegisterOutputType(HealthMonitorResponseArrayOutput{})
 	pulumi.RegisterOutputType(LdapsSettingsOutput{})
 	pulumi.RegisterOutputType(LdapsSettingsPtrOutput{})
+	pulumi.RegisterOutputType(LdapsSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LdapsSettingsResponseOutput{})
 	pulumi.RegisterOutputType(LdapsSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(MigrationProgressInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MigrationProgressResponseOutput{})
 	pulumi.RegisterOutputType(MigrationProgressResponsePtrOutput{})
+	pulumi.RegisterOutputType(MigrationPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MigrationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MigrationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(NotificationSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsResponseOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceForestSettingsOutput{})
 	pulumi.RegisterOutputType(ResourceForestSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceForestSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceForestSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceForestSettingsResponsePtrOutput{})
 }

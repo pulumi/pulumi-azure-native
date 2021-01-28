@@ -48,7 +48,7 @@ type LookupNamespaceResult struct {
 	// Endpoint you can use to perform NotificationHub operations.
 	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
 	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
 	Status *string `pulumi:"status"`
 	// The Id of the Azure subscription associated with the namespace.

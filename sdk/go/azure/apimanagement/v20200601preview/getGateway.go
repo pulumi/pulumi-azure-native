@@ -32,7 +32,7 @@ type LookupGatewayResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Gateway location.
-	LocationData *ResourceLocationDataContractResponse `pulumi:"locationData"`
+	LocationData *ResourceLocationDataContractInvokeResponse `pulumi:"locationData"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.

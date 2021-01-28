@@ -164,6 +164,70 @@ func (o BudgetTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
 }
 
 // The start and end date for a budget.
+type BudgetTimePeriodInvokeResponse struct {
+	// The end date for the budget. If not provided, we default this to 10 years from the start date.
+	EndDate *string `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate string `pulumi:"startDate"`
+}
+
+// BudgetTimePeriodInvokeResponseInput is an input type that accepts BudgetTimePeriodInvokeResponseArgs and BudgetTimePeriodInvokeResponseOutput values.
+// You can construct a concrete instance of `BudgetTimePeriodInvokeResponseInput` via:
+//
+//          BudgetTimePeriodInvokeResponseArgs{...}
+type BudgetTimePeriodInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBudgetTimePeriodInvokeResponseOutput() BudgetTimePeriodInvokeResponseOutput
+	ToBudgetTimePeriodInvokeResponseOutputWithContext(context.Context) BudgetTimePeriodInvokeResponseOutput
+}
+
+// The start and end date for a budget.
+type BudgetTimePeriodInvokeResponseArgs struct {
+	// The end date for the budget. If not provided, we default this to 10 years from the start date.
+	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate pulumi.StringInput `pulumi:"startDate"`
+}
+
+func (BudgetTimePeriodInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriodInvokeResponse)(nil)).Elem()
+}
+
+func (i BudgetTimePeriodInvokeResponseArgs) ToBudgetTimePeriodInvokeResponseOutput() BudgetTimePeriodInvokeResponseOutput {
+	return i.ToBudgetTimePeriodInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BudgetTimePeriodInvokeResponseArgs) ToBudgetTimePeriodInvokeResponseOutputWithContext(ctx context.Context) BudgetTimePeriodInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodInvokeResponseOutput)
+}
+
+// The start and end date for a budget.
+type BudgetTimePeriodInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BudgetTimePeriodInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriodInvokeResponse)(nil)).Elem()
+}
+
+func (o BudgetTimePeriodInvokeResponseOutput) ToBudgetTimePeriodInvokeResponseOutput() BudgetTimePeriodInvokeResponseOutput {
+	return o
+}
+
+func (o BudgetTimePeriodInvokeResponseOutput) ToBudgetTimePeriodInvokeResponseOutputWithContext(ctx context.Context) BudgetTimePeriodInvokeResponseOutput {
+	return o
+}
+
+// The end date for the budget. If not provided, we default this to 10 years from the start date.
+func (o BudgetTimePeriodInvokeResponseOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetTimePeriodInvokeResponse) *string { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// The start date for the budget.
+func (o BudgetTimePeriodInvokeResponseOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetTimePeriodInvokeResponse) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+// The start and end date for a budget.
 type BudgetTimePeriodResponse struct {
 	// The end date for the budget. If not provided, we default this to 10 years from the start date.
 	EndDate *string `pulumi:"endDate"`
@@ -314,6 +378,70 @@ func (o BudgetTimePeriodResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
 		}
 		return &v.StartDate
 	}).(pulumi.StringPtrOutput)
+}
+
+// The current amount of cost which is being tracked for a budget.
+type CurrentSpendInvokeResponse struct {
+	// The total amount of cost which is being tracked by the budget.
+	Amount float64 `pulumi:"amount"`
+	// The unit of measure for the budget amount.
+	Unit string `pulumi:"unit"`
+}
+
+// CurrentSpendInvokeResponseInput is an input type that accepts CurrentSpendInvokeResponseArgs and CurrentSpendInvokeResponseOutput values.
+// You can construct a concrete instance of `CurrentSpendInvokeResponseInput` via:
+//
+//          CurrentSpendInvokeResponseArgs{...}
+type CurrentSpendInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCurrentSpendInvokeResponseOutput() CurrentSpendInvokeResponseOutput
+	ToCurrentSpendInvokeResponseOutputWithContext(context.Context) CurrentSpendInvokeResponseOutput
+}
+
+// The current amount of cost which is being tracked for a budget.
+type CurrentSpendInvokeResponseArgs struct {
+	// The total amount of cost which is being tracked by the budget.
+	Amount pulumi.Float64Input `pulumi:"amount"`
+	// The unit of measure for the budget amount.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (CurrentSpendInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CurrentSpendInvokeResponse)(nil)).Elem()
+}
+
+func (i CurrentSpendInvokeResponseArgs) ToCurrentSpendInvokeResponseOutput() CurrentSpendInvokeResponseOutput {
+	return i.ToCurrentSpendInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CurrentSpendInvokeResponseArgs) ToCurrentSpendInvokeResponseOutputWithContext(ctx context.Context) CurrentSpendInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendInvokeResponseOutput)
+}
+
+// The current amount of cost which is being tracked for a budget.
+type CurrentSpendInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CurrentSpendInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CurrentSpendInvokeResponse)(nil)).Elem()
+}
+
+func (o CurrentSpendInvokeResponseOutput) ToCurrentSpendInvokeResponseOutput() CurrentSpendInvokeResponseOutput {
+	return o
+}
+
+func (o CurrentSpendInvokeResponseOutput) ToCurrentSpendInvokeResponseOutputWithContext(ctx context.Context) CurrentSpendInvokeResponseOutput {
+	return o
+}
+
+// The total amount of cost which is being tracked by the budget.
+func (o CurrentSpendInvokeResponseOutput) Amount() pulumi.Float64Output {
+	return o.ApplyT(func(v CurrentSpendInvokeResponse) float64 { return v.Amount }).(pulumi.Float64Output)
+}
+
+// The unit of measure for the budget amount.
+func (o CurrentSpendInvokeResponseOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v CurrentSpendInvokeResponse) string { return v.Unit }).(pulumi.StringOutput)
 }
 
 // The current amount of cost which is being tracked for a budget.
@@ -642,6 +770,79 @@ func (o FiltersPtrOutput) Resources() pulumi.StringArrayOutput {
 }
 
 // May be used to filter budgets by resource group, resource, or meter.
+type FiltersInvokeResponse struct {
+	// The list of filters on meters, mandatory for budgets of usage category.
+	Meters []string `pulumi:"meters"`
+	// The list of filters on resource groups, allowed at subscription level only.
+	ResourceGroups []string `pulumi:"resourceGroups"`
+	// The list of filters on resources.
+	Resources []string `pulumi:"resources"`
+}
+
+// FiltersInvokeResponseInput is an input type that accepts FiltersInvokeResponseArgs and FiltersInvokeResponseOutput values.
+// You can construct a concrete instance of `FiltersInvokeResponseInput` via:
+//
+//          FiltersInvokeResponseArgs{...}
+type FiltersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFiltersInvokeResponseOutput() FiltersInvokeResponseOutput
+	ToFiltersInvokeResponseOutputWithContext(context.Context) FiltersInvokeResponseOutput
+}
+
+// May be used to filter budgets by resource group, resource, or meter.
+type FiltersInvokeResponseArgs struct {
+	// The list of filters on meters, mandatory for budgets of usage category.
+	Meters pulumi.StringArrayInput `pulumi:"meters"`
+	// The list of filters on resource groups, allowed at subscription level only.
+	ResourceGroups pulumi.StringArrayInput `pulumi:"resourceGroups"`
+	// The list of filters on resources.
+	Resources pulumi.StringArrayInput `pulumi:"resources"`
+}
+
+func (FiltersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FiltersInvokeResponse)(nil)).Elem()
+}
+
+func (i FiltersInvokeResponseArgs) ToFiltersInvokeResponseOutput() FiltersInvokeResponseOutput {
+	return i.ToFiltersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FiltersInvokeResponseArgs) ToFiltersInvokeResponseOutputWithContext(ctx context.Context) FiltersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FiltersInvokeResponseOutput)
+}
+
+// May be used to filter budgets by resource group, resource, or meter.
+type FiltersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FiltersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FiltersInvokeResponse)(nil)).Elem()
+}
+
+func (o FiltersInvokeResponseOutput) ToFiltersInvokeResponseOutput() FiltersInvokeResponseOutput {
+	return o
+}
+
+func (o FiltersInvokeResponseOutput) ToFiltersInvokeResponseOutputWithContext(ctx context.Context) FiltersInvokeResponseOutput {
+	return o
+}
+
+// The list of filters on meters, mandatory for budgets of usage category.
+func (o FiltersInvokeResponseOutput) Meters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FiltersInvokeResponse) []string { return v.Meters }).(pulumi.StringArrayOutput)
+}
+
+// The list of filters on resource groups, allowed at subscription level only.
+func (o FiltersInvokeResponseOutput) ResourceGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FiltersInvokeResponse) []string { return v.ResourceGroups }).(pulumi.StringArrayOutput)
+}
+
+// The list of filters on resources.
+func (o FiltersInvokeResponseOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FiltersInvokeResponse) []string { return v.Resources }).(pulumi.StringArrayOutput)
+}
+
+// May be used to filter budgets by resource group, resource, or meter.
 type FiltersResponse struct {
 	// The list of filters on meters, mandatory for budgets of usage category.
 	Meters []string `pulumi:"meters"`
@@ -959,6 +1160,151 @@ func (o NotificationMapOutput) MapIndex(k pulumi.StringInput) NotificationOutput
 }
 
 // The notification associated with a budget.
+type NotificationInvokeResponse struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails []string `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded.
+	ContactGroups []string `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles []string `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// The comparison operator.
+	Operator string `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold float64 `pulumi:"threshold"`
+}
+
+// NotificationInvokeResponseInput is an input type that accepts NotificationInvokeResponseArgs and NotificationInvokeResponseOutput values.
+// You can construct a concrete instance of `NotificationInvokeResponseInput` via:
+//
+//          NotificationInvokeResponseArgs{...}
+type NotificationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNotificationInvokeResponseOutput() NotificationInvokeResponseOutput
+	ToNotificationInvokeResponseOutputWithContext(context.Context) NotificationInvokeResponseOutput
+}
+
+// The notification associated with a budget.
+type NotificationInvokeResponseArgs struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded.
+	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded.
+	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The comparison operator.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+}
+
+func (NotificationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationInvokeResponse)(nil)).Elem()
+}
+
+func (i NotificationInvokeResponseArgs) ToNotificationInvokeResponseOutput() NotificationInvokeResponseOutput {
+	return i.ToNotificationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NotificationInvokeResponseArgs) ToNotificationInvokeResponseOutputWithContext(ctx context.Context) NotificationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationInvokeResponseOutput)
+}
+
+// NotificationInvokeResponseMapInput is an input type that accepts NotificationInvokeResponseMap and NotificationInvokeResponseMapOutput values.
+// You can construct a concrete instance of `NotificationInvokeResponseMapInput` via:
+//
+//          NotificationInvokeResponseMap{ "key": NotificationInvokeResponseArgs{...} }
+type NotificationInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToNotificationInvokeResponseMapOutput() NotificationInvokeResponseMapOutput
+	ToNotificationInvokeResponseMapOutputWithContext(context.Context) NotificationInvokeResponseMapOutput
+}
+
+type NotificationInvokeResponseMap map[string]NotificationInvokeResponseInput
+
+func (NotificationInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotificationInvokeResponse)(nil)).Elem()
+}
+
+func (i NotificationInvokeResponseMap) ToNotificationInvokeResponseMapOutput() NotificationInvokeResponseMapOutput {
+	return i.ToNotificationInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i NotificationInvokeResponseMap) ToNotificationInvokeResponseMapOutputWithContext(ctx context.Context) NotificationInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationInvokeResponseMapOutput)
+}
+
+// The notification associated with a budget.
+type NotificationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NotificationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationInvokeResponse)(nil)).Elem()
+}
+
+func (o NotificationInvokeResponseOutput) ToNotificationInvokeResponseOutput() NotificationInvokeResponseOutput {
+	return o
+}
+
+func (o NotificationInvokeResponseOutput) ToNotificationInvokeResponseOutputWithContext(ctx context.Context) NotificationInvokeResponseOutput {
+	return o
+}
+
+// Email addresses to send the budget notification to when the threshold is exceeded.
+func (o NotificationInvokeResponseOutput) ContactEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
+}
+
+// Action groups to send the budget notification to when the threshold is exceeded.
+func (o NotificationInvokeResponseOutput) ContactGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
+}
+
+// Contact roles to send the budget notification to when the threshold is exceeded.
+func (o NotificationInvokeResponseOutput) ContactRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
+}
+
+// The notification is enabled or not.
+func (o NotificationInvokeResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The comparison operator.
+func (o NotificationInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+func (o NotificationInvokeResponseOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v NotificationInvokeResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+type NotificationInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (NotificationInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotificationInvokeResponse)(nil)).Elem()
+}
+
+func (o NotificationInvokeResponseMapOutput) ToNotificationInvokeResponseMapOutput() NotificationInvokeResponseMapOutput {
+	return o
+}
+
+func (o NotificationInvokeResponseMapOutput) ToNotificationInvokeResponseMapOutputWithContext(ctx context.Context) NotificationInvokeResponseMapOutput {
+	return o
+}
+
+func (o NotificationInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) NotificationInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotificationInvokeResponse {
+		return vs[0].(map[string]NotificationInvokeResponse)[vs[1].(string)]
+	}).(NotificationInvokeResponseOutput)
+}
+
+// The notification associated with a budget.
 type NotificationResponse struct {
 	// Email addresses to send the budget notification to when the threshold is exceeded.
 	ContactEmails []string `pulumi:"contactEmails"`
@@ -1106,16 +1452,21 @@ func (o NotificationResponseMapOutput) MapIndex(k pulumi.StringInput) Notificati
 func init() {
 	pulumi.RegisterOutputType(BudgetTimePeriodOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodPtrOutput{})
+	pulumi.RegisterOutputType(BudgetTimePeriodInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodResponseOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodResponsePtrOutput{})
+	pulumi.RegisterOutputType(CurrentSpendInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CurrentSpendResponseOutput{})
 	pulumi.RegisterOutputType(CurrentSpendResponsePtrOutput{})
 	pulumi.RegisterOutputType(FiltersOutput{})
 	pulumi.RegisterOutputType(FiltersPtrOutput{})
+	pulumi.RegisterOutputType(FiltersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(FiltersResponseOutput{})
 	pulumi.RegisterOutputType(FiltersResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationOutput{})
 	pulumi.RegisterOutputType(NotificationMapOutput{})
+	pulumi.RegisterOutputType(NotificationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NotificationInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(NotificationResponseOutput{})
 	pulumi.RegisterOutputType(NotificationResponseMapOutput{})
 }

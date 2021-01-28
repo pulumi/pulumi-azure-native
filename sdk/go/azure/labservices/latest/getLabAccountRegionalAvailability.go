@@ -26,5 +26,5 @@ type GetLabAccountRegionalAvailabilityArgs struct {
 // The response model from the GetRegionalAvailability action
 type GetLabAccountRegionalAvailabilityResult struct {
 	// Availability information for different size categories per region
-	RegionalAvailability []RegionalAvailabilityResponse `pulumi:"regionalAvailability"`
+	RegionalAvailability []RegionalAvailabilityInvokeResponse `pulumi:"regionalAvailability"`
 }

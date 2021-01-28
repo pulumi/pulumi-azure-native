@@ -32,7 +32,7 @@ type LookupCertificateResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// KeyVault location details of the certificate.
-	KeyVault *KeyVaultContractPropertiesResponse `pulumi:"keyVault"`
+	KeyVault *KeyVaultContractPropertiesInvokeResponse `pulumi:"keyVault"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Subject attribute of the certificate.

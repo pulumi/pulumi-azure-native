@@ -34,7 +34,7 @@ type LookupBandwidthSettingResult struct {
 	// The name of the object.
 	Name string `pulumi:"name"`
 	// The schedules.
-	Schedules []BandwidthScheduleResponse `pulumi:"schedules"`
+	Schedules []BandwidthScheduleInvokeResponse `pulumi:"schedules"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 	// The number of volumes that uses the bandwidth setting.

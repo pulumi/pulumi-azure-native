@@ -26,11 +26,11 @@ type LookupExpressRouteGatewayArgs struct {
 // ExpressRoute gateway resource.
 type LookupExpressRouteGatewayResult struct {
 	// Configuration for auto scaling.
-	AutoScaleConfiguration *ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
+	AutoScaleConfiguration *ExpressRouteGatewayPropertiesInvokeResponseAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// List of ExpressRoute connections to the ExpressRoute gateway.
-	ExpressRouteConnections []ExpressRouteConnectionResponse `pulumi:"expressRouteConnections"`
+	ExpressRouteConnections []ExpressRouteConnectionInvokeResponse `pulumi:"expressRouteConnections"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -44,5 +44,5 @@ type LookupExpressRouteGatewayResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
-	VirtualHub VirtualHubIdResponse `pulumi:"virtualHub"`
+	VirtualHub VirtualHubIdInvokeResponse `pulumi:"virtualHub"`
 }

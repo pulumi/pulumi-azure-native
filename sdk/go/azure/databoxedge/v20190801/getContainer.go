@@ -40,7 +40,7 @@ type LookupContainerResult struct {
 	// The object name.
 	Name string `pulumi:"name"`
 	// Details of the refresh job on this container.
-	RefreshDetails RefreshDetailsResponse `pulumi:"refreshDetails"`
+	RefreshDetails RefreshDetailsInvokeResponse `pulumi:"refreshDetails"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

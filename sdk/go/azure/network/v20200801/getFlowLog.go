@@ -32,9 +32,9 @@ type LookupFlowLogResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Parameters that define the configuration of traffic analytics.
-	FlowAnalyticsConfiguration *TrafficAnalyticsPropertiesResponse `pulumi:"flowAnalyticsConfiguration"`
+	FlowAnalyticsConfiguration *TrafficAnalyticsPropertiesInvokeResponse `pulumi:"flowAnalyticsConfiguration"`
 	// Parameters that define the flow log format.
-	Format *FlowLogFormatParametersResponse `pulumi:"format"`
+	Format *FlowLogFormatParametersInvokeResponse `pulumi:"format"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -44,7 +44,7 @@ type LookupFlowLogResult struct {
 	// The provisioning state of the flow log.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Parameters that define the retention policy for flow log.
-	RetentionPolicy *RetentionPolicyParametersResponse `pulumi:"retentionPolicy"`
+	RetentionPolicy *RetentionPolicyParametersInvokeResponse `pulumi:"retentionPolicy"`
 	// ID of the storage account which is used to store the flow log.
 	StorageId string `pulumi:"storageId"`
 	// Resource tags.

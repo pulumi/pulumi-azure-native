@@ -202,6 +202,203 @@ func (o AS2AcknowledgementConnectionSettingsPtrOutput) UnfoldHttpHeaders() pulum
 }
 
 // The AS2 agreement acknowledgement connection settings.
+type AS2AcknowledgementConnectionSettingsInvokeResponse struct {
+	// Indicates whether to ignore mismatch in certificate name.
+	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
+	// Indicates whether to keep the connection alive.
+	KeepHttpConnectionAlive bool `pulumi:"keepHttpConnectionAlive"`
+	// Indicates whether to support HTTP status code 'CONTINUE'.
+	SupportHttpStatusCodeContinue bool `pulumi:"supportHttpStatusCodeContinue"`
+	// Indicates whether to unfold the HTTP headers.
+	UnfoldHttpHeaders bool `pulumi:"unfoldHttpHeaders"`
+}
+
+// AS2AcknowledgementConnectionSettingsInvokeResponseInput is an input type that accepts AS2AcknowledgementConnectionSettingsInvokeResponseArgs and AS2AcknowledgementConnectionSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AS2AcknowledgementConnectionSettingsInvokeResponseInput` via:
+//
+//          AS2AcknowledgementConnectionSettingsInvokeResponseArgs{...}
+type AS2AcknowledgementConnectionSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAS2AcknowledgementConnectionSettingsInvokeResponseOutput() AS2AcknowledgementConnectionSettingsInvokeResponseOutput
+	ToAS2AcknowledgementConnectionSettingsInvokeResponseOutputWithContext(context.Context) AS2AcknowledgementConnectionSettingsInvokeResponseOutput
+}
+
+// The AS2 agreement acknowledgement connection settings.
+type AS2AcknowledgementConnectionSettingsInvokeResponseArgs struct {
+	// Indicates whether to ignore mismatch in certificate name.
+	IgnoreCertificateNameMismatch pulumi.BoolInput `pulumi:"ignoreCertificateNameMismatch"`
+	// Indicates whether to keep the connection alive.
+	KeepHttpConnectionAlive pulumi.BoolInput `pulumi:"keepHttpConnectionAlive"`
+	// Indicates whether to support HTTP status code 'CONTINUE'.
+	SupportHttpStatusCodeContinue pulumi.BoolInput `pulumi:"supportHttpStatusCodeContinue"`
+	// Indicates whether to unfold the HTTP headers.
+	UnfoldHttpHeaders pulumi.BoolInput `pulumi:"unfoldHttpHeaders"`
+}
+
+func (AS2AcknowledgementConnectionSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2AcknowledgementConnectionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AS2AcknowledgementConnectionSettingsInvokeResponseArgs) ToAS2AcknowledgementConnectionSettingsInvokeResponseOutput() AS2AcknowledgementConnectionSettingsInvokeResponseOutput {
+	return i.ToAS2AcknowledgementConnectionSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AS2AcknowledgementConnectionSettingsInvokeResponseArgs) ToAS2AcknowledgementConnectionSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2AcknowledgementConnectionSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2AcknowledgementConnectionSettingsInvokeResponseOutput)
+}
+
+func (i AS2AcknowledgementConnectionSettingsInvokeResponseArgs) ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput() AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput {
+	return i.ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AS2AcknowledgementConnectionSettingsInvokeResponseArgs) ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2AcknowledgementConnectionSettingsInvokeResponseOutput).ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AS2AcknowledgementConnectionSettingsInvokeResponsePtrInput is an input type that accepts AS2AcknowledgementConnectionSettingsInvokeResponseArgs, AS2AcknowledgementConnectionSettingsInvokeResponsePtr and AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AS2AcknowledgementConnectionSettingsInvokeResponsePtrInput` via:
+//
+//          AS2AcknowledgementConnectionSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AS2AcknowledgementConnectionSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput() AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput
+	ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutputWithContext(context.Context) AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput
+}
+
+type as2acknowledgementConnectionSettingsInvokeResponsePtrType AS2AcknowledgementConnectionSettingsInvokeResponseArgs
+
+func AS2AcknowledgementConnectionSettingsInvokeResponsePtr(v *AS2AcknowledgementConnectionSettingsInvokeResponseArgs) AS2AcknowledgementConnectionSettingsInvokeResponsePtrInput {
+	return (*as2acknowledgementConnectionSettingsInvokeResponsePtrType)(v)
+}
+
+func (*as2acknowledgementConnectionSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2AcknowledgementConnectionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *as2acknowledgementConnectionSettingsInvokeResponsePtrType) ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput() AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput {
+	return i.ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *as2acknowledgementConnectionSettingsInvokeResponsePtrType) ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput)
+}
+
+// The AS2 agreement acknowledgement connection settings.
+type AS2AcknowledgementConnectionSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AS2AcknowledgementConnectionSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2AcknowledgementConnectionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2AcknowledgementConnectionSettingsInvokeResponseOutput) ToAS2AcknowledgementConnectionSettingsInvokeResponseOutput() AS2AcknowledgementConnectionSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2AcknowledgementConnectionSettingsInvokeResponseOutput) ToAS2AcknowledgementConnectionSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2AcknowledgementConnectionSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2AcknowledgementConnectionSettingsInvokeResponseOutput) ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput() AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput {
+	return o.ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AS2AcknowledgementConnectionSettingsInvokeResponseOutput) ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsInvokeResponse) *AS2AcknowledgementConnectionSettingsInvokeResponse {
+		return &v
+	}).(AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput)
+}
+
+// Indicates whether to ignore mismatch in certificate name.
+func (o AS2AcknowledgementConnectionSettingsInvokeResponseOutput) IgnoreCertificateNameMismatch() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsInvokeResponse) bool {
+		return v.IgnoreCertificateNameMismatch
+	}).(pulumi.BoolOutput)
+}
+
+// Indicates whether to keep the connection alive.
+func (o AS2AcknowledgementConnectionSettingsInvokeResponseOutput) KeepHttpConnectionAlive() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsInvokeResponse) bool { return v.KeepHttpConnectionAlive }).(pulumi.BoolOutput)
+}
+
+// Indicates whether to support HTTP status code 'CONTINUE'.
+func (o AS2AcknowledgementConnectionSettingsInvokeResponseOutput) SupportHttpStatusCodeContinue() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsInvokeResponse) bool {
+		return v.SupportHttpStatusCodeContinue
+	}).(pulumi.BoolOutput)
+}
+
+// Indicates whether to unfold the HTTP headers.
+func (o AS2AcknowledgementConnectionSettingsInvokeResponseOutput) UnfoldHttpHeaders() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsInvokeResponse) bool { return v.UnfoldHttpHeaders }).(pulumi.BoolOutput)
+}
+
+type AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2AcknowledgementConnectionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput) ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput() AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput) ToAS2AcknowledgementConnectionSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput) Elem() AS2AcknowledgementConnectionSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsInvokeResponse) AS2AcknowledgementConnectionSettingsInvokeResponse {
+		return *v
+	}).(AS2AcknowledgementConnectionSettingsInvokeResponseOutput)
+}
+
+// Indicates whether to ignore mismatch in certificate name.
+func (o AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput) IgnoreCertificateNameMismatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IgnoreCertificateNameMismatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to keep the connection alive.
+func (o AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput) KeepHttpConnectionAlive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.KeepHttpConnectionAlive
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to support HTTP status code 'CONTINUE'.
+func (o AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput) SupportHttpStatusCodeContinue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SupportHttpStatusCodeContinue
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to unfold the HTTP headers.
+func (o AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput) UnfoldHttpHeaders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UnfoldHttpHeaders
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The AS2 agreement acknowledgement connection settings.
 type AS2AcknowledgementConnectionSettingsResponse struct {
 	// Indicates whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
@@ -545,6 +742,159 @@ func (o AS2AgreementContentPtrOutput) SendAgreement() AS2OneWayAgreementPtrOutpu
 		}
 		return &v.SendAgreement
 	}).(AS2OneWayAgreementPtrOutput)
+}
+
+// The integration account AS2 agreement content.
+type AS2AgreementContentInvokeResponse struct {
+	// The AS2 one-way receive agreement.
+	ReceiveAgreement AS2OneWayAgreementInvokeResponse `pulumi:"receiveAgreement"`
+	// The AS2 one-way send agreement.
+	SendAgreement AS2OneWayAgreementInvokeResponse `pulumi:"sendAgreement"`
+}
+
+// AS2AgreementContentInvokeResponseInput is an input type that accepts AS2AgreementContentInvokeResponseArgs and AS2AgreementContentInvokeResponseOutput values.
+// You can construct a concrete instance of `AS2AgreementContentInvokeResponseInput` via:
+//
+//          AS2AgreementContentInvokeResponseArgs{...}
+type AS2AgreementContentInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAS2AgreementContentInvokeResponseOutput() AS2AgreementContentInvokeResponseOutput
+	ToAS2AgreementContentInvokeResponseOutputWithContext(context.Context) AS2AgreementContentInvokeResponseOutput
+}
+
+// The integration account AS2 agreement content.
+type AS2AgreementContentInvokeResponseArgs struct {
+	// The AS2 one-way receive agreement.
+	ReceiveAgreement AS2OneWayAgreementInvokeResponseInput `pulumi:"receiveAgreement"`
+	// The AS2 one-way send agreement.
+	SendAgreement AS2OneWayAgreementInvokeResponseInput `pulumi:"sendAgreement"`
+}
+
+func (AS2AgreementContentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2AgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (i AS2AgreementContentInvokeResponseArgs) ToAS2AgreementContentInvokeResponseOutput() AS2AgreementContentInvokeResponseOutput {
+	return i.ToAS2AgreementContentInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AS2AgreementContentInvokeResponseArgs) ToAS2AgreementContentInvokeResponseOutputWithContext(ctx context.Context) AS2AgreementContentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2AgreementContentInvokeResponseOutput)
+}
+
+func (i AS2AgreementContentInvokeResponseArgs) ToAS2AgreementContentInvokeResponsePtrOutput() AS2AgreementContentInvokeResponsePtrOutput {
+	return i.ToAS2AgreementContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AS2AgreementContentInvokeResponseArgs) ToAS2AgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) AS2AgreementContentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2AgreementContentInvokeResponseOutput).ToAS2AgreementContentInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AS2AgreementContentInvokeResponsePtrInput is an input type that accepts AS2AgreementContentInvokeResponseArgs, AS2AgreementContentInvokeResponsePtr and AS2AgreementContentInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AS2AgreementContentInvokeResponsePtrInput` via:
+//
+//          AS2AgreementContentInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AS2AgreementContentInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAS2AgreementContentInvokeResponsePtrOutput() AS2AgreementContentInvokeResponsePtrOutput
+	ToAS2AgreementContentInvokeResponsePtrOutputWithContext(context.Context) AS2AgreementContentInvokeResponsePtrOutput
+}
+
+type as2agreementContentInvokeResponsePtrType AS2AgreementContentInvokeResponseArgs
+
+func AS2AgreementContentInvokeResponsePtr(v *AS2AgreementContentInvokeResponseArgs) AS2AgreementContentInvokeResponsePtrInput {
+	return (*as2agreementContentInvokeResponsePtrType)(v)
+}
+
+func (*as2agreementContentInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2AgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (i *as2agreementContentInvokeResponsePtrType) ToAS2AgreementContentInvokeResponsePtrOutput() AS2AgreementContentInvokeResponsePtrOutput {
+	return i.ToAS2AgreementContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *as2agreementContentInvokeResponsePtrType) ToAS2AgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) AS2AgreementContentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2AgreementContentInvokeResponsePtrOutput)
+}
+
+// The integration account AS2 agreement content.
+type AS2AgreementContentInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AS2AgreementContentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2AgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2AgreementContentInvokeResponseOutput) ToAS2AgreementContentInvokeResponseOutput() AS2AgreementContentInvokeResponseOutput {
+	return o
+}
+
+func (o AS2AgreementContentInvokeResponseOutput) ToAS2AgreementContentInvokeResponseOutputWithContext(ctx context.Context) AS2AgreementContentInvokeResponseOutput {
+	return o
+}
+
+func (o AS2AgreementContentInvokeResponseOutput) ToAS2AgreementContentInvokeResponsePtrOutput() AS2AgreementContentInvokeResponsePtrOutput {
+	return o.ToAS2AgreementContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AS2AgreementContentInvokeResponseOutput) ToAS2AgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) AS2AgreementContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AS2AgreementContentInvokeResponse) *AS2AgreementContentInvokeResponse {
+		return &v
+	}).(AS2AgreementContentInvokeResponsePtrOutput)
+}
+
+// The AS2 one-way receive agreement.
+func (o AS2AgreementContentInvokeResponseOutput) ReceiveAgreement() AS2OneWayAgreementInvokeResponseOutput {
+	return o.ApplyT(func(v AS2AgreementContentInvokeResponse) AS2OneWayAgreementInvokeResponse { return v.ReceiveAgreement }).(AS2OneWayAgreementInvokeResponseOutput)
+}
+
+// The AS2 one-way send agreement.
+func (o AS2AgreementContentInvokeResponseOutput) SendAgreement() AS2OneWayAgreementInvokeResponseOutput {
+	return o.ApplyT(func(v AS2AgreementContentInvokeResponse) AS2OneWayAgreementInvokeResponse { return v.SendAgreement }).(AS2OneWayAgreementInvokeResponseOutput)
+}
+
+type AS2AgreementContentInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AS2AgreementContentInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2AgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2AgreementContentInvokeResponsePtrOutput) ToAS2AgreementContentInvokeResponsePtrOutput() AS2AgreementContentInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2AgreementContentInvokeResponsePtrOutput) ToAS2AgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) AS2AgreementContentInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2AgreementContentInvokeResponsePtrOutput) Elem() AS2AgreementContentInvokeResponseOutput {
+	return o.ApplyT(func(v *AS2AgreementContentInvokeResponse) AS2AgreementContentInvokeResponse { return *v }).(AS2AgreementContentInvokeResponseOutput)
+}
+
+// The AS2 one-way receive agreement.
+func (o AS2AgreementContentInvokeResponsePtrOutput) ReceiveAgreement() AS2OneWayAgreementInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2AgreementContentInvokeResponse) *AS2OneWayAgreementInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ReceiveAgreement
+	}).(AS2OneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The AS2 one-way send agreement.
+func (o AS2AgreementContentInvokeResponsePtrOutput) SendAgreement() AS2OneWayAgreementInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2AgreementContentInvokeResponse) *AS2OneWayAgreementInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SendAgreement
+	}).(AS2OneWayAgreementInvokeResponsePtrOutput)
 }
 
 // The integration account AS2 agreement content.
@@ -911,6 +1261,216 @@ func (o AS2EnvelopeSettingsPtrOutput) TransmitFileNameInMimeHeader() pulumi.Bool
 }
 
 // The AS2 agreement envelope settings.
+type AS2EnvelopeSettingsInvokeResponse struct {
+	// The value indicating whether to auto generate file name.
+	AutogenerateFileName bool `pulumi:"autogenerateFileName"`
+	// The template for file name.
+	FileNameTemplate string `pulumi:"fileNameTemplate"`
+	// The message content type.
+	MessageContentType string `pulumi:"messageContentType"`
+	// The value indicating whether to suspend message on file name generation error.
+	SuspendMessageOnFileNameGenerationError bool `pulumi:"suspendMessageOnFileNameGenerationError"`
+	// The value indicating whether to transmit file name in mime header.
+	TransmitFileNameInMimeHeader bool `pulumi:"transmitFileNameInMimeHeader"`
+}
+
+// AS2EnvelopeSettingsInvokeResponseInput is an input type that accepts AS2EnvelopeSettingsInvokeResponseArgs and AS2EnvelopeSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AS2EnvelopeSettingsInvokeResponseInput` via:
+//
+//          AS2EnvelopeSettingsInvokeResponseArgs{...}
+type AS2EnvelopeSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAS2EnvelopeSettingsInvokeResponseOutput() AS2EnvelopeSettingsInvokeResponseOutput
+	ToAS2EnvelopeSettingsInvokeResponseOutputWithContext(context.Context) AS2EnvelopeSettingsInvokeResponseOutput
+}
+
+// The AS2 agreement envelope settings.
+type AS2EnvelopeSettingsInvokeResponseArgs struct {
+	// The value indicating whether to auto generate file name.
+	AutogenerateFileName pulumi.BoolInput `pulumi:"autogenerateFileName"`
+	// The template for file name.
+	FileNameTemplate pulumi.StringInput `pulumi:"fileNameTemplate"`
+	// The message content type.
+	MessageContentType pulumi.StringInput `pulumi:"messageContentType"`
+	// The value indicating whether to suspend message on file name generation error.
+	SuspendMessageOnFileNameGenerationError pulumi.BoolInput `pulumi:"suspendMessageOnFileNameGenerationError"`
+	// The value indicating whether to transmit file name in mime header.
+	TransmitFileNameInMimeHeader pulumi.BoolInput `pulumi:"transmitFileNameInMimeHeader"`
+}
+
+func (AS2EnvelopeSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2EnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AS2EnvelopeSettingsInvokeResponseArgs) ToAS2EnvelopeSettingsInvokeResponseOutput() AS2EnvelopeSettingsInvokeResponseOutput {
+	return i.ToAS2EnvelopeSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AS2EnvelopeSettingsInvokeResponseArgs) ToAS2EnvelopeSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2EnvelopeSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2EnvelopeSettingsInvokeResponseOutput)
+}
+
+func (i AS2EnvelopeSettingsInvokeResponseArgs) ToAS2EnvelopeSettingsInvokeResponsePtrOutput() AS2EnvelopeSettingsInvokeResponsePtrOutput {
+	return i.ToAS2EnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AS2EnvelopeSettingsInvokeResponseArgs) ToAS2EnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2EnvelopeSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2EnvelopeSettingsInvokeResponseOutput).ToAS2EnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AS2EnvelopeSettingsInvokeResponsePtrInput is an input type that accepts AS2EnvelopeSettingsInvokeResponseArgs, AS2EnvelopeSettingsInvokeResponsePtr and AS2EnvelopeSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AS2EnvelopeSettingsInvokeResponsePtrInput` via:
+//
+//          AS2EnvelopeSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AS2EnvelopeSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAS2EnvelopeSettingsInvokeResponsePtrOutput() AS2EnvelopeSettingsInvokeResponsePtrOutput
+	ToAS2EnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Context) AS2EnvelopeSettingsInvokeResponsePtrOutput
+}
+
+type as2envelopeSettingsInvokeResponsePtrType AS2EnvelopeSettingsInvokeResponseArgs
+
+func AS2EnvelopeSettingsInvokeResponsePtr(v *AS2EnvelopeSettingsInvokeResponseArgs) AS2EnvelopeSettingsInvokeResponsePtrInput {
+	return (*as2envelopeSettingsInvokeResponsePtrType)(v)
+}
+
+func (*as2envelopeSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2EnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *as2envelopeSettingsInvokeResponsePtrType) ToAS2EnvelopeSettingsInvokeResponsePtrOutput() AS2EnvelopeSettingsInvokeResponsePtrOutput {
+	return i.ToAS2EnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *as2envelopeSettingsInvokeResponsePtrType) ToAS2EnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2EnvelopeSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2EnvelopeSettingsInvokeResponsePtrOutput)
+}
+
+// The AS2 agreement envelope settings.
+type AS2EnvelopeSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AS2EnvelopeSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2EnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2EnvelopeSettingsInvokeResponseOutput) ToAS2EnvelopeSettingsInvokeResponseOutput() AS2EnvelopeSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2EnvelopeSettingsInvokeResponseOutput) ToAS2EnvelopeSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2EnvelopeSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2EnvelopeSettingsInvokeResponseOutput) ToAS2EnvelopeSettingsInvokeResponsePtrOutput() AS2EnvelopeSettingsInvokeResponsePtrOutput {
+	return o.ToAS2EnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AS2EnvelopeSettingsInvokeResponseOutput) ToAS2EnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2EnvelopeSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AS2EnvelopeSettingsInvokeResponse) *AS2EnvelopeSettingsInvokeResponse {
+		return &v
+	}).(AS2EnvelopeSettingsInvokeResponsePtrOutput)
+}
+
+// The value indicating whether to auto generate file name.
+func (o AS2EnvelopeSettingsInvokeResponseOutput) AutogenerateFileName() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2EnvelopeSettingsInvokeResponse) bool { return v.AutogenerateFileName }).(pulumi.BoolOutput)
+}
+
+// The template for file name.
+func (o AS2EnvelopeSettingsInvokeResponseOutput) FileNameTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v AS2EnvelopeSettingsInvokeResponse) string { return v.FileNameTemplate }).(pulumi.StringOutput)
+}
+
+// The message content type.
+func (o AS2EnvelopeSettingsInvokeResponseOutput) MessageContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v AS2EnvelopeSettingsInvokeResponse) string { return v.MessageContentType }).(pulumi.StringOutput)
+}
+
+// The value indicating whether to suspend message on file name generation error.
+func (o AS2EnvelopeSettingsInvokeResponseOutput) SuspendMessageOnFileNameGenerationError() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2EnvelopeSettingsInvokeResponse) bool { return v.SuspendMessageOnFileNameGenerationError }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to transmit file name in mime header.
+func (o AS2EnvelopeSettingsInvokeResponseOutput) TransmitFileNameInMimeHeader() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2EnvelopeSettingsInvokeResponse) bool { return v.TransmitFileNameInMimeHeader }).(pulumi.BoolOutput)
+}
+
+type AS2EnvelopeSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AS2EnvelopeSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2EnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2EnvelopeSettingsInvokeResponsePtrOutput) ToAS2EnvelopeSettingsInvokeResponsePtrOutput() AS2EnvelopeSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2EnvelopeSettingsInvokeResponsePtrOutput) ToAS2EnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2EnvelopeSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2EnvelopeSettingsInvokeResponsePtrOutput) Elem() AS2EnvelopeSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *AS2EnvelopeSettingsInvokeResponse) AS2EnvelopeSettingsInvokeResponse { return *v }).(AS2EnvelopeSettingsInvokeResponseOutput)
+}
+
+// The value indicating whether to auto generate file name.
+func (o AS2EnvelopeSettingsInvokeResponsePtrOutput) AutogenerateFileName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2EnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AutogenerateFileName
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The template for file name.
+func (o AS2EnvelopeSettingsInvokeResponsePtrOutput) FileNameTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileNameTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The message content type.
+func (o AS2EnvelopeSettingsInvokeResponsePtrOutput) MessageContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MessageContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to suspend message on file name generation error.
+func (o AS2EnvelopeSettingsInvokeResponsePtrOutput) SuspendMessageOnFileNameGenerationError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2EnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SuspendMessageOnFileNameGenerationError
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to transmit file name in mime header.
+func (o AS2EnvelopeSettingsInvokeResponsePtrOutput) TransmitFileNameInMimeHeader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2EnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.TransmitFileNameInMimeHeader
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The AS2 agreement envelope settings.
 type AS2EnvelopeSettingsResponse struct {
 	// The value indicating whether to auto generate file name.
 	AutogenerateFileName bool `pulumi:"autogenerateFileName"`
@@ -1266,6 +1826,159 @@ func (o AS2ErrorSettingsPtrOutput) ResendIfMDNNotReceived() pulumi.BoolPtrOutput
 // The value indicating whether to suspend duplicate message.
 func (o AS2ErrorSettingsPtrOutput) SuspendDuplicateMessage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2ErrorSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SuspendDuplicateMessage
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The AS2 agreement error settings.
+type AS2ErrorSettingsInvokeResponse struct {
+	// The value indicating whether to resend message If MDN is not received.
+	ResendIfMDNNotReceived bool `pulumi:"resendIfMDNNotReceived"`
+	// The value indicating whether to suspend duplicate message.
+	SuspendDuplicateMessage bool `pulumi:"suspendDuplicateMessage"`
+}
+
+// AS2ErrorSettingsInvokeResponseInput is an input type that accepts AS2ErrorSettingsInvokeResponseArgs and AS2ErrorSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AS2ErrorSettingsInvokeResponseInput` via:
+//
+//          AS2ErrorSettingsInvokeResponseArgs{...}
+type AS2ErrorSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAS2ErrorSettingsInvokeResponseOutput() AS2ErrorSettingsInvokeResponseOutput
+	ToAS2ErrorSettingsInvokeResponseOutputWithContext(context.Context) AS2ErrorSettingsInvokeResponseOutput
+}
+
+// The AS2 agreement error settings.
+type AS2ErrorSettingsInvokeResponseArgs struct {
+	// The value indicating whether to resend message If MDN is not received.
+	ResendIfMDNNotReceived pulumi.BoolInput `pulumi:"resendIfMDNNotReceived"`
+	// The value indicating whether to suspend duplicate message.
+	SuspendDuplicateMessage pulumi.BoolInput `pulumi:"suspendDuplicateMessage"`
+}
+
+func (AS2ErrorSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2ErrorSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AS2ErrorSettingsInvokeResponseArgs) ToAS2ErrorSettingsInvokeResponseOutput() AS2ErrorSettingsInvokeResponseOutput {
+	return i.ToAS2ErrorSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AS2ErrorSettingsInvokeResponseArgs) ToAS2ErrorSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2ErrorSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2ErrorSettingsInvokeResponseOutput)
+}
+
+func (i AS2ErrorSettingsInvokeResponseArgs) ToAS2ErrorSettingsInvokeResponsePtrOutput() AS2ErrorSettingsInvokeResponsePtrOutput {
+	return i.ToAS2ErrorSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AS2ErrorSettingsInvokeResponseArgs) ToAS2ErrorSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ErrorSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2ErrorSettingsInvokeResponseOutput).ToAS2ErrorSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AS2ErrorSettingsInvokeResponsePtrInput is an input type that accepts AS2ErrorSettingsInvokeResponseArgs, AS2ErrorSettingsInvokeResponsePtr and AS2ErrorSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AS2ErrorSettingsInvokeResponsePtrInput` via:
+//
+//          AS2ErrorSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AS2ErrorSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAS2ErrorSettingsInvokeResponsePtrOutput() AS2ErrorSettingsInvokeResponsePtrOutput
+	ToAS2ErrorSettingsInvokeResponsePtrOutputWithContext(context.Context) AS2ErrorSettingsInvokeResponsePtrOutput
+}
+
+type as2errorSettingsInvokeResponsePtrType AS2ErrorSettingsInvokeResponseArgs
+
+func AS2ErrorSettingsInvokeResponsePtr(v *AS2ErrorSettingsInvokeResponseArgs) AS2ErrorSettingsInvokeResponsePtrInput {
+	return (*as2errorSettingsInvokeResponsePtrType)(v)
+}
+
+func (*as2errorSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2ErrorSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *as2errorSettingsInvokeResponsePtrType) ToAS2ErrorSettingsInvokeResponsePtrOutput() AS2ErrorSettingsInvokeResponsePtrOutput {
+	return i.ToAS2ErrorSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *as2errorSettingsInvokeResponsePtrType) ToAS2ErrorSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ErrorSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2ErrorSettingsInvokeResponsePtrOutput)
+}
+
+// The AS2 agreement error settings.
+type AS2ErrorSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AS2ErrorSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2ErrorSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2ErrorSettingsInvokeResponseOutput) ToAS2ErrorSettingsInvokeResponseOutput() AS2ErrorSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2ErrorSettingsInvokeResponseOutput) ToAS2ErrorSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2ErrorSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2ErrorSettingsInvokeResponseOutput) ToAS2ErrorSettingsInvokeResponsePtrOutput() AS2ErrorSettingsInvokeResponsePtrOutput {
+	return o.ToAS2ErrorSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AS2ErrorSettingsInvokeResponseOutput) ToAS2ErrorSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ErrorSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AS2ErrorSettingsInvokeResponse) *AS2ErrorSettingsInvokeResponse {
+		return &v
+	}).(AS2ErrorSettingsInvokeResponsePtrOutput)
+}
+
+// The value indicating whether to resend message If MDN is not received.
+func (o AS2ErrorSettingsInvokeResponseOutput) ResendIfMDNNotReceived() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2ErrorSettingsInvokeResponse) bool { return v.ResendIfMDNNotReceived }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to suspend duplicate message.
+func (o AS2ErrorSettingsInvokeResponseOutput) SuspendDuplicateMessage() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2ErrorSettingsInvokeResponse) bool { return v.SuspendDuplicateMessage }).(pulumi.BoolOutput)
+}
+
+type AS2ErrorSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AS2ErrorSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2ErrorSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2ErrorSettingsInvokeResponsePtrOutput) ToAS2ErrorSettingsInvokeResponsePtrOutput() AS2ErrorSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2ErrorSettingsInvokeResponsePtrOutput) ToAS2ErrorSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ErrorSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2ErrorSettingsInvokeResponsePtrOutput) Elem() AS2ErrorSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *AS2ErrorSettingsInvokeResponse) AS2ErrorSettingsInvokeResponse { return *v }).(AS2ErrorSettingsInvokeResponseOutput)
+}
+
+// The value indicating whether to resend message If MDN is not received.
+func (o AS2ErrorSettingsInvokeResponsePtrOutput) ResendIfMDNNotReceived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2ErrorSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ResendIfMDNNotReceived
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to suspend duplicate message.
+func (o AS2ErrorSettingsInvokeResponsePtrOutput) SuspendDuplicateMessage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2ErrorSettingsInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1705,6 +2418,292 @@ func (o AS2MdnSettingsPtrOutput) SignMDN() pulumi.BoolPtrOutput {
 // The value indicating whether to sign the outbound MDN if optional.
 func (o AS2MdnSettingsPtrOutput) SignOutboundMDNIfOptional() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AS2MdnSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SignOutboundMDNIfOptional
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The AS2 agreement mdn settings.
+type AS2MdnSettingsInvokeResponse struct {
+	// The disposition notification to header value.
+	DispositionNotificationTo *string `pulumi:"dispositionNotificationTo"`
+	// The MDN text.
+	MdnText *string `pulumi:"mdnText"`
+	// The signing or hashing algorithm.
+	MicHashingAlgorithm string `pulumi:"micHashingAlgorithm"`
+	// The value indicating whether to send or request a MDN.
+	NeedMDN bool `pulumi:"needMDN"`
+	// The receipt delivery URL.
+	ReceiptDeliveryUrl *string `pulumi:"receiptDeliveryUrl"`
+	// The value indicating whether to send inbound MDN to message box.
+	SendInboundMDNToMessageBox bool `pulumi:"sendInboundMDNToMessageBox"`
+	// The value indicating whether to send the asynchronous MDN.
+	SendMDNAsynchronously bool `pulumi:"sendMDNAsynchronously"`
+	// The value indicating whether the MDN needs to be signed or not.
+	SignMDN bool `pulumi:"signMDN"`
+	// The value indicating whether to sign the outbound MDN if optional.
+	SignOutboundMDNIfOptional bool `pulumi:"signOutboundMDNIfOptional"`
+}
+
+// AS2MdnSettingsInvokeResponseInput is an input type that accepts AS2MdnSettingsInvokeResponseArgs and AS2MdnSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AS2MdnSettingsInvokeResponseInput` via:
+//
+//          AS2MdnSettingsInvokeResponseArgs{...}
+type AS2MdnSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAS2MdnSettingsInvokeResponseOutput() AS2MdnSettingsInvokeResponseOutput
+	ToAS2MdnSettingsInvokeResponseOutputWithContext(context.Context) AS2MdnSettingsInvokeResponseOutput
+}
+
+// The AS2 agreement mdn settings.
+type AS2MdnSettingsInvokeResponseArgs struct {
+	// The disposition notification to header value.
+	DispositionNotificationTo pulumi.StringPtrInput `pulumi:"dispositionNotificationTo"`
+	// The MDN text.
+	MdnText pulumi.StringPtrInput `pulumi:"mdnText"`
+	// The signing or hashing algorithm.
+	MicHashingAlgorithm pulumi.StringInput `pulumi:"micHashingAlgorithm"`
+	// The value indicating whether to send or request a MDN.
+	NeedMDN pulumi.BoolInput `pulumi:"needMDN"`
+	// The receipt delivery URL.
+	ReceiptDeliveryUrl pulumi.StringPtrInput `pulumi:"receiptDeliveryUrl"`
+	// The value indicating whether to send inbound MDN to message box.
+	SendInboundMDNToMessageBox pulumi.BoolInput `pulumi:"sendInboundMDNToMessageBox"`
+	// The value indicating whether to send the asynchronous MDN.
+	SendMDNAsynchronously pulumi.BoolInput `pulumi:"sendMDNAsynchronously"`
+	// The value indicating whether the MDN needs to be signed or not.
+	SignMDN pulumi.BoolInput `pulumi:"signMDN"`
+	// The value indicating whether to sign the outbound MDN if optional.
+	SignOutboundMDNIfOptional pulumi.BoolInput `pulumi:"signOutboundMDNIfOptional"`
+}
+
+func (AS2MdnSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2MdnSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AS2MdnSettingsInvokeResponseArgs) ToAS2MdnSettingsInvokeResponseOutput() AS2MdnSettingsInvokeResponseOutput {
+	return i.ToAS2MdnSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AS2MdnSettingsInvokeResponseArgs) ToAS2MdnSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2MdnSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2MdnSettingsInvokeResponseOutput)
+}
+
+func (i AS2MdnSettingsInvokeResponseArgs) ToAS2MdnSettingsInvokeResponsePtrOutput() AS2MdnSettingsInvokeResponsePtrOutput {
+	return i.ToAS2MdnSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AS2MdnSettingsInvokeResponseArgs) ToAS2MdnSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2MdnSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2MdnSettingsInvokeResponseOutput).ToAS2MdnSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AS2MdnSettingsInvokeResponsePtrInput is an input type that accepts AS2MdnSettingsInvokeResponseArgs, AS2MdnSettingsInvokeResponsePtr and AS2MdnSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AS2MdnSettingsInvokeResponsePtrInput` via:
+//
+//          AS2MdnSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AS2MdnSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAS2MdnSettingsInvokeResponsePtrOutput() AS2MdnSettingsInvokeResponsePtrOutput
+	ToAS2MdnSettingsInvokeResponsePtrOutputWithContext(context.Context) AS2MdnSettingsInvokeResponsePtrOutput
+}
+
+type as2mdnSettingsInvokeResponsePtrType AS2MdnSettingsInvokeResponseArgs
+
+func AS2MdnSettingsInvokeResponsePtr(v *AS2MdnSettingsInvokeResponseArgs) AS2MdnSettingsInvokeResponsePtrInput {
+	return (*as2mdnSettingsInvokeResponsePtrType)(v)
+}
+
+func (*as2mdnSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2MdnSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *as2mdnSettingsInvokeResponsePtrType) ToAS2MdnSettingsInvokeResponsePtrOutput() AS2MdnSettingsInvokeResponsePtrOutput {
+	return i.ToAS2MdnSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *as2mdnSettingsInvokeResponsePtrType) ToAS2MdnSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2MdnSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2MdnSettingsInvokeResponsePtrOutput)
+}
+
+// The AS2 agreement mdn settings.
+type AS2MdnSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AS2MdnSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2MdnSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2MdnSettingsInvokeResponseOutput) ToAS2MdnSettingsInvokeResponseOutput() AS2MdnSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2MdnSettingsInvokeResponseOutput) ToAS2MdnSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2MdnSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2MdnSettingsInvokeResponseOutput) ToAS2MdnSettingsInvokeResponsePtrOutput() AS2MdnSettingsInvokeResponsePtrOutput {
+	return o.ToAS2MdnSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AS2MdnSettingsInvokeResponseOutput) ToAS2MdnSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2MdnSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AS2MdnSettingsInvokeResponse) *AS2MdnSettingsInvokeResponse {
+		return &v
+	}).(AS2MdnSettingsInvokeResponsePtrOutput)
+}
+
+// The disposition notification to header value.
+func (o AS2MdnSettingsInvokeResponseOutput) DispositionNotificationTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AS2MdnSettingsInvokeResponse) *string { return v.DispositionNotificationTo }).(pulumi.StringPtrOutput)
+}
+
+// The MDN text.
+func (o AS2MdnSettingsInvokeResponseOutput) MdnText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AS2MdnSettingsInvokeResponse) *string { return v.MdnText }).(pulumi.StringPtrOutput)
+}
+
+// The signing or hashing algorithm.
+func (o AS2MdnSettingsInvokeResponseOutput) MicHashingAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v AS2MdnSettingsInvokeResponse) string { return v.MicHashingAlgorithm }).(pulumi.StringOutput)
+}
+
+// The value indicating whether to send or request a MDN.
+func (o AS2MdnSettingsInvokeResponseOutput) NeedMDN() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2MdnSettingsInvokeResponse) bool { return v.NeedMDN }).(pulumi.BoolOutput)
+}
+
+// The receipt delivery URL.
+func (o AS2MdnSettingsInvokeResponseOutput) ReceiptDeliveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AS2MdnSettingsInvokeResponse) *string { return v.ReceiptDeliveryUrl }).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to send inbound MDN to message box.
+func (o AS2MdnSettingsInvokeResponseOutput) SendInboundMDNToMessageBox() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2MdnSettingsInvokeResponse) bool { return v.SendInboundMDNToMessageBox }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to send the asynchronous MDN.
+func (o AS2MdnSettingsInvokeResponseOutput) SendMDNAsynchronously() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2MdnSettingsInvokeResponse) bool { return v.SendMDNAsynchronously }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether the MDN needs to be signed or not.
+func (o AS2MdnSettingsInvokeResponseOutput) SignMDN() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2MdnSettingsInvokeResponse) bool { return v.SignMDN }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to sign the outbound MDN if optional.
+func (o AS2MdnSettingsInvokeResponseOutput) SignOutboundMDNIfOptional() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2MdnSettingsInvokeResponse) bool { return v.SignOutboundMDNIfOptional }).(pulumi.BoolOutput)
+}
+
+type AS2MdnSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AS2MdnSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2MdnSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2MdnSettingsInvokeResponsePtrOutput) ToAS2MdnSettingsInvokeResponsePtrOutput() AS2MdnSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2MdnSettingsInvokeResponsePtrOutput) ToAS2MdnSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2MdnSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2MdnSettingsInvokeResponsePtrOutput) Elem() AS2MdnSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *AS2MdnSettingsInvokeResponse) AS2MdnSettingsInvokeResponse { return *v }).(AS2MdnSettingsInvokeResponseOutput)
+}
+
+// The disposition notification to header value.
+func (o AS2MdnSettingsInvokeResponsePtrOutput) DispositionNotificationTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2MdnSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DispositionNotificationTo
+	}).(pulumi.StringPtrOutput)
+}
+
+// The MDN text.
+func (o AS2MdnSettingsInvokeResponsePtrOutput) MdnText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2MdnSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MdnText
+	}).(pulumi.StringPtrOutput)
+}
+
+// The signing or hashing algorithm.
+func (o AS2MdnSettingsInvokeResponsePtrOutput) MicHashingAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2MdnSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MicHashingAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to send or request a MDN.
+func (o AS2MdnSettingsInvokeResponsePtrOutput) NeedMDN() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2MdnSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NeedMDN
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The receipt delivery URL.
+func (o AS2MdnSettingsInvokeResponsePtrOutput) ReceiptDeliveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2MdnSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReceiptDeliveryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to send inbound MDN to message box.
+func (o AS2MdnSettingsInvokeResponsePtrOutput) SendInboundMDNToMessageBox() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2MdnSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SendInboundMDNToMessageBox
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to send the asynchronous MDN.
+func (o AS2MdnSettingsInvokeResponsePtrOutput) SendMDNAsynchronously() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2MdnSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SendMDNAsynchronously
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether the MDN needs to be signed or not.
+func (o AS2MdnSettingsInvokeResponsePtrOutput) SignMDN() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2MdnSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SignMDN
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to sign the outbound MDN if optional.
+func (o AS2MdnSettingsInvokeResponsePtrOutput) SignOutboundMDNIfOptional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2MdnSettingsInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -2190,6 +3189,199 @@ func (o AS2MessageConnectionSettingsPtrOutput) UnfoldHttpHeaders() pulumi.BoolPt
 }
 
 // The AS2 agreement message connection settings.
+type AS2MessageConnectionSettingsInvokeResponse struct {
+	// The value indicating whether to ignore mismatch in certificate name.
+	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
+	// The value indicating whether to keep the connection alive.
+	KeepHttpConnectionAlive bool `pulumi:"keepHttpConnectionAlive"`
+	// The value indicating whether to support HTTP status code 'CONTINUE'.
+	SupportHttpStatusCodeContinue bool `pulumi:"supportHttpStatusCodeContinue"`
+	// The value indicating whether to unfold the HTTP headers.
+	UnfoldHttpHeaders bool `pulumi:"unfoldHttpHeaders"`
+}
+
+// AS2MessageConnectionSettingsInvokeResponseInput is an input type that accepts AS2MessageConnectionSettingsInvokeResponseArgs and AS2MessageConnectionSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AS2MessageConnectionSettingsInvokeResponseInput` via:
+//
+//          AS2MessageConnectionSettingsInvokeResponseArgs{...}
+type AS2MessageConnectionSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAS2MessageConnectionSettingsInvokeResponseOutput() AS2MessageConnectionSettingsInvokeResponseOutput
+	ToAS2MessageConnectionSettingsInvokeResponseOutputWithContext(context.Context) AS2MessageConnectionSettingsInvokeResponseOutput
+}
+
+// The AS2 agreement message connection settings.
+type AS2MessageConnectionSettingsInvokeResponseArgs struct {
+	// The value indicating whether to ignore mismatch in certificate name.
+	IgnoreCertificateNameMismatch pulumi.BoolInput `pulumi:"ignoreCertificateNameMismatch"`
+	// The value indicating whether to keep the connection alive.
+	KeepHttpConnectionAlive pulumi.BoolInput `pulumi:"keepHttpConnectionAlive"`
+	// The value indicating whether to support HTTP status code 'CONTINUE'.
+	SupportHttpStatusCodeContinue pulumi.BoolInput `pulumi:"supportHttpStatusCodeContinue"`
+	// The value indicating whether to unfold the HTTP headers.
+	UnfoldHttpHeaders pulumi.BoolInput `pulumi:"unfoldHttpHeaders"`
+}
+
+func (AS2MessageConnectionSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2MessageConnectionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AS2MessageConnectionSettingsInvokeResponseArgs) ToAS2MessageConnectionSettingsInvokeResponseOutput() AS2MessageConnectionSettingsInvokeResponseOutput {
+	return i.ToAS2MessageConnectionSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AS2MessageConnectionSettingsInvokeResponseArgs) ToAS2MessageConnectionSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2MessageConnectionSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2MessageConnectionSettingsInvokeResponseOutput)
+}
+
+func (i AS2MessageConnectionSettingsInvokeResponseArgs) ToAS2MessageConnectionSettingsInvokeResponsePtrOutput() AS2MessageConnectionSettingsInvokeResponsePtrOutput {
+	return i.ToAS2MessageConnectionSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AS2MessageConnectionSettingsInvokeResponseArgs) ToAS2MessageConnectionSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2MessageConnectionSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2MessageConnectionSettingsInvokeResponseOutput).ToAS2MessageConnectionSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AS2MessageConnectionSettingsInvokeResponsePtrInput is an input type that accepts AS2MessageConnectionSettingsInvokeResponseArgs, AS2MessageConnectionSettingsInvokeResponsePtr and AS2MessageConnectionSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AS2MessageConnectionSettingsInvokeResponsePtrInput` via:
+//
+//          AS2MessageConnectionSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AS2MessageConnectionSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAS2MessageConnectionSettingsInvokeResponsePtrOutput() AS2MessageConnectionSettingsInvokeResponsePtrOutput
+	ToAS2MessageConnectionSettingsInvokeResponsePtrOutputWithContext(context.Context) AS2MessageConnectionSettingsInvokeResponsePtrOutput
+}
+
+type as2messageConnectionSettingsInvokeResponsePtrType AS2MessageConnectionSettingsInvokeResponseArgs
+
+func AS2MessageConnectionSettingsInvokeResponsePtr(v *AS2MessageConnectionSettingsInvokeResponseArgs) AS2MessageConnectionSettingsInvokeResponsePtrInput {
+	return (*as2messageConnectionSettingsInvokeResponsePtrType)(v)
+}
+
+func (*as2messageConnectionSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2MessageConnectionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *as2messageConnectionSettingsInvokeResponsePtrType) ToAS2MessageConnectionSettingsInvokeResponsePtrOutput() AS2MessageConnectionSettingsInvokeResponsePtrOutput {
+	return i.ToAS2MessageConnectionSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *as2messageConnectionSettingsInvokeResponsePtrType) ToAS2MessageConnectionSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2MessageConnectionSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2MessageConnectionSettingsInvokeResponsePtrOutput)
+}
+
+// The AS2 agreement message connection settings.
+type AS2MessageConnectionSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AS2MessageConnectionSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2MessageConnectionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2MessageConnectionSettingsInvokeResponseOutput) ToAS2MessageConnectionSettingsInvokeResponseOutput() AS2MessageConnectionSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2MessageConnectionSettingsInvokeResponseOutput) ToAS2MessageConnectionSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2MessageConnectionSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2MessageConnectionSettingsInvokeResponseOutput) ToAS2MessageConnectionSettingsInvokeResponsePtrOutput() AS2MessageConnectionSettingsInvokeResponsePtrOutput {
+	return o.ToAS2MessageConnectionSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AS2MessageConnectionSettingsInvokeResponseOutput) ToAS2MessageConnectionSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2MessageConnectionSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AS2MessageConnectionSettingsInvokeResponse) *AS2MessageConnectionSettingsInvokeResponse {
+		return &v
+	}).(AS2MessageConnectionSettingsInvokeResponsePtrOutput)
+}
+
+// The value indicating whether to ignore mismatch in certificate name.
+func (o AS2MessageConnectionSettingsInvokeResponseOutput) IgnoreCertificateNameMismatch() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2MessageConnectionSettingsInvokeResponse) bool { return v.IgnoreCertificateNameMismatch }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to keep the connection alive.
+func (o AS2MessageConnectionSettingsInvokeResponseOutput) KeepHttpConnectionAlive() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2MessageConnectionSettingsInvokeResponse) bool { return v.KeepHttpConnectionAlive }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to support HTTP status code 'CONTINUE'.
+func (o AS2MessageConnectionSettingsInvokeResponseOutput) SupportHttpStatusCodeContinue() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2MessageConnectionSettingsInvokeResponse) bool { return v.SupportHttpStatusCodeContinue }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to unfold the HTTP headers.
+func (o AS2MessageConnectionSettingsInvokeResponseOutput) UnfoldHttpHeaders() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2MessageConnectionSettingsInvokeResponse) bool { return v.UnfoldHttpHeaders }).(pulumi.BoolOutput)
+}
+
+type AS2MessageConnectionSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AS2MessageConnectionSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2MessageConnectionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2MessageConnectionSettingsInvokeResponsePtrOutput) ToAS2MessageConnectionSettingsInvokeResponsePtrOutput() AS2MessageConnectionSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2MessageConnectionSettingsInvokeResponsePtrOutput) ToAS2MessageConnectionSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2MessageConnectionSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2MessageConnectionSettingsInvokeResponsePtrOutput) Elem() AS2MessageConnectionSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *AS2MessageConnectionSettingsInvokeResponse) AS2MessageConnectionSettingsInvokeResponse {
+		return *v
+	}).(AS2MessageConnectionSettingsInvokeResponseOutput)
+}
+
+// The value indicating whether to ignore mismatch in certificate name.
+func (o AS2MessageConnectionSettingsInvokeResponsePtrOutput) IgnoreCertificateNameMismatch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2MessageConnectionSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IgnoreCertificateNameMismatch
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to keep the connection alive.
+func (o AS2MessageConnectionSettingsInvokeResponsePtrOutput) KeepHttpConnectionAlive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2MessageConnectionSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.KeepHttpConnectionAlive
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to support HTTP status code 'CONTINUE'.
+func (o AS2MessageConnectionSettingsInvokeResponsePtrOutput) SupportHttpStatusCodeContinue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2MessageConnectionSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SupportHttpStatusCodeContinue
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to unfold the HTTP headers.
+func (o AS2MessageConnectionSettingsInvokeResponsePtrOutput) UnfoldHttpHeaders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2MessageConnectionSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UnfoldHttpHeaders
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The AS2 agreement message connection settings.
 type AS2MessageConnectionSettingsResponse struct {
 	// The value indicating whether to ignore mismatch in certificate name.
 	IgnoreCertificateNameMismatch bool `pulumi:"ignoreCertificateNameMismatch"`
@@ -2550,6 +3742,182 @@ func (o AS2OneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdentityPt
 		}
 		return &v.SenderBusinessIdentity
 	}).(BusinessIdentityPtrOutput)
+}
+
+// The integration account AS2 one-way agreement.
+type AS2OneWayAgreementInvokeResponse struct {
+	// The AS2 protocol settings.
+	ProtocolSettings AS2ProtocolSettingsInvokeResponse `pulumi:"protocolSettings"`
+	// The receiver business identity
+	ReceiverBusinessIdentity BusinessIdentityInvokeResponse `pulumi:"receiverBusinessIdentity"`
+	// The sender business identity
+	SenderBusinessIdentity BusinessIdentityInvokeResponse `pulumi:"senderBusinessIdentity"`
+}
+
+// AS2OneWayAgreementInvokeResponseInput is an input type that accepts AS2OneWayAgreementInvokeResponseArgs and AS2OneWayAgreementInvokeResponseOutput values.
+// You can construct a concrete instance of `AS2OneWayAgreementInvokeResponseInput` via:
+//
+//          AS2OneWayAgreementInvokeResponseArgs{...}
+type AS2OneWayAgreementInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAS2OneWayAgreementInvokeResponseOutput() AS2OneWayAgreementInvokeResponseOutput
+	ToAS2OneWayAgreementInvokeResponseOutputWithContext(context.Context) AS2OneWayAgreementInvokeResponseOutput
+}
+
+// The integration account AS2 one-way agreement.
+type AS2OneWayAgreementInvokeResponseArgs struct {
+	// The AS2 protocol settings.
+	ProtocolSettings AS2ProtocolSettingsInvokeResponseInput `pulumi:"protocolSettings"`
+	// The receiver business identity
+	ReceiverBusinessIdentity BusinessIdentityInvokeResponseInput `pulumi:"receiverBusinessIdentity"`
+	// The sender business identity
+	SenderBusinessIdentity BusinessIdentityInvokeResponseInput `pulumi:"senderBusinessIdentity"`
+}
+
+func (AS2OneWayAgreementInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2OneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (i AS2OneWayAgreementInvokeResponseArgs) ToAS2OneWayAgreementInvokeResponseOutput() AS2OneWayAgreementInvokeResponseOutput {
+	return i.ToAS2OneWayAgreementInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AS2OneWayAgreementInvokeResponseArgs) ToAS2OneWayAgreementInvokeResponseOutputWithContext(ctx context.Context) AS2OneWayAgreementInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2OneWayAgreementInvokeResponseOutput)
+}
+
+func (i AS2OneWayAgreementInvokeResponseArgs) ToAS2OneWayAgreementInvokeResponsePtrOutput() AS2OneWayAgreementInvokeResponsePtrOutput {
+	return i.ToAS2OneWayAgreementInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AS2OneWayAgreementInvokeResponseArgs) ToAS2OneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) AS2OneWayAgreementInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2OneWayAgreementInvokeResponseOutput).ToAS2OneWayAgreementInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AS2OneWayAgreementInvokeResponsePtrInput is an input type that accepts AS2OneWayAgreementInvokeResponseArgs, AS2OneWayAgreementInvokeResponsePtr and AS2OneWayAgreementInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AS2OneWayAgreementInvokeResponsePtrInput` via:
+//
+//          AS2OneWayAgreementInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AS2OneWayAgreementInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAS2OneWayAgreementInvokeResponsePtrOutput() AS2OneWayAgreementInvokeResponsePtrOutput
+	ToAS2OneWayAgreementInvokeResponsePtrOutputWithContext(context.Context) AS2OneWayAgreementInvokeResponsePtrOutput
+}
+
+type as2oneWayAgreementInvokeResponsePtrType AS2OneWayAgreementInvokeResponseArgs
+
+func AS2OneWayAgreementInvokeResponsePtr(v *AS2OneWayAgreementInvokeResponseArgs) AS2OneWayAgreementInvokeResponsePtrInput {
+	return (*as2oneWayAgreementInvokeResponsePtrType)(v)
+}
+
+func (*as2oneWayAgreementInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2OneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (i *as2oneWayAgreementInvokeResponsePtrType) ToAS2OneWayAgreementInvokeResponsePtrOutput() AS2OneWayAgreementInvokeResponsePtrOutput {
+	return i.ToAS2OneWayAgreementInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *as2oneWayAgreementInvokeResponsePtrType) ToAS2OneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) AS2OneWayAgreementInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2OneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The integration account AS2 one-way agreement.
+type AS2OneWayAgreementInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AS2OneWayAgreementInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2OneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2OneWayAgreementInvokeResponseOutput) ToAS2OneWayAgreementInvokeResponseOutput() AS2OneWayAgreementInvokeResponseOutput {
+	return o
+}
+
+func (o AS2OneWayAgreementInvokeResponseOutput) ToAS2OneWayAgreementInvokeResponseOutputWithContext(ctx context.Context) AS2OneWayAgreementInvokeResponseOutput {
+	return o
+}
+
+func (o AS2OneWayAgreementInvokeResponseOutput) ToAS2OneWayAgreementInvokeResponsePtrOutput() AS2OneWayAgreementInvokeResponsePtrOutput {
+	return o.ToAS2OneWayAgreementInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AS2OneWayAgreementInvokeResponseOutput) ToAS2OneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) AS2OneWayAgreementInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AS2OneWayAgreementInvokeResponse) *AS2OneWayAgreementInvokeResponse {
+		return &v
+	}).(AS2OneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The AS2 protocol settings.
+func (o AS2OneWayAgreementInvokeResponseOutput) ProtocolSettings() AS2ProtocolSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v AS2OneWayAgreementInvokeResponse) AS2ProtocolSettingsInvokeResponse { return v.ProtocolSettings }).(AS2ProtocolSettingsInvokeResponseOutput)
+}
+
+// The receiver business identity
+func (o AS2OneWayAgreementInvokeResponseOutput) ReceiverBusinessIdentity() BusinessIdentityInvokeResponseOutput {
+	return o.ApplyT(func(v AS2OneWayAgreementInvokeResponse) BusinessIdentityInvokeResponse {
+		return v.ReceiverBusinessIdentity
+	}).(BusinessIdentityInvokeResponseOutput)
+}
+
+// The sender business identity
+func (o AS2OneWayAgreementInvokeResponseOutput) SenderBusinessIdentity() BusinessIdentityInvokeResponseOutput {
+	return o.ApplyT(func(v AS2OneWayAgreementInvokeResponse) BusinessIdentityInvokeResponse {
+		return v.SenderBusinessIdentity
+	}).(BusinessIdentityInvokeResponseOutput)
+}
+
+type AS2OneWayAgreementInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AS2OneWayAgreementInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2OneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2OneWayAgreementInvokeResponsePtrOutput) ToAS2OneWayAgreementInvokeResponsePtrOutput() AS2OneWayAgreementInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2OneWayAgreementInvokeResponsePtrOutput) ToAS2OneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) AS2OneWayAgreementInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2OneWayAgreementInvokeResponsePtrOutput) Elem() AS2OneWayAgreementInvokeResponseOutput {
+	return o.ApplyT(func(v *AS2OneWayAgreementInvokeResponse) AS2OneWayAgreementInvokeResponse { return *v }).(AS2OneWayAgreementInvokeResponseOutput)
+}
+
+// The AS2 protocol settings.
+func (o AS2OneWayAgreementInvokeResponsePtrOutput) ProtocolSettings() AS2ProtocolSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2OneWayAgreementInvokeResponse) *AS2ProtocolSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtocolSettings
+	}).(AS2ProtocolSettingsInvokeResponsePtrOutput)
+}
+
+// The receiver business identity
+func (o AS2OneWayAgreementInvokeResponsePtrOutput) ReceiverBusinessIdentity() BusinessIdentityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2OneWayAgreementInvokeResponse) *BusinessIdentityInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ReceiverBusinessIdentity
+	}).(BusinessIdentityInvokeResponsePtrOutput)
+}
+
+// The sender business identity
+func (o AS2OneWayAgreementInvokeResponsePtrOutput) SenderBusinessIdentity() BusinessIdentityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2OneWayAgreementInvokeResponse) *BusinessIdentityInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SenderBusinessIdentity
+	}).(BusinessIdentityInvokeResponsePtrOutput)
 }
 
 // The integration account AS2 one-way agreement.
@@ -2972,6 +4340,260 @@ func (o AS2ProtocolSettingsPtrOutput) ValidationSettings() AS2ValidationSettings
 		}
 		return &v.ValidationSettings
 	}).(AS2ValidationSettingsPtrOutput)
+}
+
+// The AS2 agreement protocol settings.
+type AS2ProtocolSettingsInvokeResponse struct {
+	// The acknowledgement connection settings.
+	AcknowledgementConnectionSettings AS2AcknowledgementConnectionSettingsInvokeResponse `pulumi:"acknowledgementConnectionSettings"`
+	// The envelope settings.
+	EnvelopeSettings AS2EnvelopeSettingsInvokeResponse `pulumi:"envelopeSettings"`
+	// The error settings.
+	ErrorSettings AS2ErrorSettingsInvokeResponse `pulumi:"errorSettings"`
+	// The MDN settings.
+	MdnSettings AS2MdnSettingsInvokeResponse `pulumi:"mdnSettings"`
+	// The message connection settings.
+	MessageConnectionSettings AS2MessageConnectionSettingsInvokeResponse `pulumi:"messageConnectionSettings"`
+	// The security settings.
+	SecuritySettings AS2SecuritySettingsInvokeResponse `pulumi:"securitySettings"`
+	// The validation settings.
+	ValidationSettings AS2ValidationSettingsInvokeResponse `pulumi:"validationSettings"`
+}
+
+// AS2ProtocolSettingsInvokeResponseInput is an input type that accepts AS2ProtocolSettingsInvokeResponseArgs and AS2ProtocolSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AS2ProtocolSettingsInvokeResponseInput` via:
+//
+//          AS2ProtocolSettingsInvokeResponseArgs{...}
+type AS2ProtocolSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAS2ProtocolSettingsInvokeResponseOutput() AS2ProtocolSettingsInvokeResponseOutput
+	ToAS2ProtocolSettingsInvokeResponseOutputWithContext(context.Context) AS2ProtocolSettingsInvokeResponseOutput
+}
+
+// The AS2 agreement protocol settings.
+type AS2ProtocolSettingsInvokeResponseArgs struct {
+	// The acknowledgement connection settings.
+	AcknowledgementConnectionSettings AS2AcknowledgementConnectionSettingsInvokeResponseInput `pulumi:"acknowledgementConnectionSettings"`
+	// The envelope settings.
+	EnvelopeSettings AS2EnvelopeSettingsInvokeResponseInput `pulumi:"envelopeSettings"`
+	// The error settings.
+	ErrorSettings AS2ErrorSettingsInvokeResponseInput `pulumi:"errorSettings"`
+	// The MDN settings.
+	MdnSettings AS2MdnSettingsInvokeResponseInput `pulumi:"mdnSettings"`
+	// The message connection settings.
+	MessageConnectionSettings AS2MessageConnectionSettingsInvokeResponseInput `pulumi:"messageConnectionSettings"`
+	// The security settings.
+	SecuritySettings AS2SecuritySettingsInvokeResponseInput `pulumi:"securitySettings"`
+	// The validation settings.
+	ValidationSettings AS2ValidationSettingsInvokeResponseInput `pulumi:"validationSettings"`
+}
+
+func (AS2ProtocolSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2ProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AS2ProtocolSettingsInvokeResponseArgs) ToAS2ProtocolSettingsInvokeResponseOutput() AS2ProtocolSettingsInvokeResponseOutput {
+	return i.ToAS2ProtocolSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AS2ProtocolSettingsInvokeResponseArgs) ToAS2ProtocolSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2ProtocolSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2ProtocolSettingsInvokeResponseOutput)
+}
+
+func (i AS2ProtocolSettingsInvokeResponseArgs) ToAS2ProtocolSettingsInvokeResponsePtrOutput() AS2ProtocolSettingsInvokeResponsePtrOutput {
+	return i.ToAS2ProtocolSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AS2ProtocolSettingsInvokeResponseArgs) ToAS2ProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ProtocolSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2ProtocolSettingsInvokeResponseOutput).ToAS2ProtocolSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AS2ProtocolSettingsInvokeResponsePtrInput is an input type that accepts AS2ProtocolSettingsInvokeResponseArgs, AS2ProtocolSettingsInvokeResponsePtr and AS2ProtocolSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AS2ProtocolSettingsInvokeResponsePtrInput` via:
+//
+//          AS2ProtocolSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AS2ProtocolSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAS2ProtocolSettingsInvokeResponsePtrOutput() AS2ProtocolSettingsInvokeResponsePtrOutput
+	ToAS2ProtocolSettingsInvokeResponsePtrOutputWithContext(context.Context) AS2ProtocolSettingsInvokeResponsePtrOutput
+}
+
+type as2protocolSettingsInvokeResponsePtrType AS2ProtocolSettingsInvokeResponseArgs
+
+func AS2ProtocolSettingsInvokeResponsePtr(v *AS2ProtocolSettingsInvokeResponseArgs) AS2ProtocolSettingsInvokeResponsePtrInput {
+	return (*as2protocolSettingsInvokeResponsePtrType)(v)
+}
+
+func (*as2protocolSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2ProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *as2protocolSettingsInvokeResponsePtrType) ToAS2ProtocolSettingsInvokeResponsePtrOutput() AS2ProtocolSettingsInvokeResponsePtrOutput {
+	return i.ToAS2ProtocolSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *as2protocolSettingsInvokeResponsePtrType) ToAS2ProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ProtocolSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2ProtocolSettingsInvokeResponsePtrOutput)
+}
+
+// The AS2 agreement protocol settings.
+type AS2ProtocolSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AS2ProtocolSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2ProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2ProtocolSettingsInvokeResponseOutput) ToAS2ProtocolSettingsInvokeResponseOutput() AS2ProtocolSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2ProtocolSettingsInvokeResponseOutput) ToAS2ProtocolSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2ProtocolSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2ProtocolSettingsInvokeResponseOutput) ToAS2ProtocolSettingsInvokeResponsePtrOutput() AS2ProtocolSettingsInvokeResponsePtrOutput {
+	return o.ToAS2ProtocolSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AS2ProtocolSettingsInvokeResponseOutput) ToAS2ProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ProtocolSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AS2ProtocolSettingsInvokeResponse) *AS2ProtocolSettingsInvokeResponse {
+		return &v
+	}).(AS2ProtocolSettingsInvokeResponsePtrOutput)
+}
+
+// The acknowledgement connection settings.
+func (o AS2ProtocolSettingsInvokeResponseOutput) AcknowledgementConnectionSettings() AS2AcknowledgementConnectionSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v AS2ProtocolSettingsInvokeResponse) AS2AcknowledgementConnectionSettingsInvokeResponse {
+		return v.AcknowledgementConnectionSettings
+	}).(AS2AcknowledgementConnectionSettingsInvokeResponseOutput)
+}
+
+// The envelope settings.
+func (o AS2ProtocolSettingsInvokeResponseOutput) EnvelopeSettings() AS2EnvelopeSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v AS2ProtocolSettingsInvokeResponse) AS2EnvelopeSettingsInvokeResponse { return v.EnvelopeSettings }).(AS2EnvelopeSettingsInvokeResponseOutput)
+}
+
+// The error settings.
+func (o AS2ProtocolSettingsInvokeResponseOutput) ErrorSettings() AS2ErrorSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v AS2ProtocolSettingsInvokeResponse) AS2ErrorSettingsInvokeResponse { return v.ErrorSettings }).(AS2ErrorSettingsInvokeResponseOutput)
+}
+
+// The MDN settings.
+func (o AS2ProtocolSettingsInvokeResponseOutput) MdnSettings() AS2MdnSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v AS2ProtocolSettingsInvokeResponse) AS2MdnSettingsInvokeResponse { return v.MdnSettings }).(AS2MdnSettingsInvokeResponseOutput)
+}
+
+// The message connection settings.
+func (o AS2ProtocolSettingsInvokeResponseOutput) MessageConnectionSettings() AS2MessageConnectionSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v AS2ProtocolSettingsInvokeResponse) AS2MessageConnectionSettingsInvokeResponse {
+		return v.MessageConnectionSettings
+	}).(AS2MessageConnectionSettingsInvokeResponseOutput)
+}
+
+// The security settings.
+func (o AS2ProtocolSettingsInvokeResponseOutput) SecuritySettings() AS2SecuritySettingsInvokeResponseOutput {
+	return o.ApplyT(func(v AS2ProtocolSettingsInvokeResponse) AS2SecuritySettingsInvokeResponse { return v.SecuritySettings }).(AS2SecuritySettingsInvokeResponseOutput)
+}
+
+// The validation settings.
+func (o AS2ProtocolSettingsInvokeResponseOutput) ValidationSettings() AS2ValidationSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v AS2ProtocolSettingsInvokeResponse) AS2ValidationSettingsInvokeResponse {
+		return v.ValidationSettings
+	}).(AS2ValidationSettingsInvokeResponseOutput)
+}
+
+type AS2ProtocolSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AS2ProtocolSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2ProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2ProtocolSettingsInvokeResponsePtrOutput) ToAS2ProtocolSettingsInvokeResponsePtrOutput() AS2ProtocolSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2ProtocolSettingsInvokeResponsePtrOutput) ToAS2ProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ProtocolSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2ProtocolSettingsInvokeResponsePtrOutput) Elem() AS2ProtocolSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *AS2ProtocolSettingsInvokeResponse) AS2ProtocolSettingsInvokeResponse { return *v }).(AS2ProtocolSettingsInvokeResponseOutput)
+}
+
+// The acknowledgement connection settings.
+func (o AS2ProtocolSettingsInvokeResponsePtrOutput) AcknowledgementConnectionSettings() AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2ProtocolSettingsInvokeResponse) *AS2AcknowledgementConnectionSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.AcknowledgementConnectionSettings
+	}).(AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput)
+}
+
+// The envelope settings.
+func (o AS2ProtocolSettingsInvokeResponsePtrOutput) EnvelopeSettings() AS2EnvelopeSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2ProtocolSettingsInvokeResponse) *AS2EnvelopeSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.EnvelopeSettings
+	}).(AS2EnvelopeSettingsInvokeResponsePtrOutput)
+}
+
+// The error settings.
+func (o AS2ProtocolSettingsInvokeResponsePtrOutput) ErrorSettings() AS2ErrorSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2ProtocolSettingsInvokeResponse) *AS2ErrorSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorSettings
+	}).(AS2ErrorSettingsInvokeResponsePtrOutput)
+}
+
+// The MDN settings.
+func (o AS2ProtocolSettingsInvokeResponsePtrOutput) MdnSettings() AS2MdnSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2ProtocolSettingsInvokeResponse) *AS2MdnSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.MdnSettings
+	}).(AS2MdnSettingsInvokeResponsePtrOutput)
+}
+
+// The message connection settings.
+func (o AS2ProtocolSettingsInvokeResponsePtrOutput) MessageConnectionSettings() AS2MessageConnectionSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2ProtocolSettingsInvokeResponse) *AS2MessageConnectionSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.MessageConnectionSettings
+	}).(AS2MessageConnectionSettingsInvokeResponsePtrOutput)
+}
+
+// The security settings.
+func (o AS2ProtocolSettingsInvokeResponsePtrOutput) SecuritySettings() AS2SecuritySettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2ProtocolSettingsInvokeResponse) *AS2SecuritySettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SecuritySettings
+	}).(AS2SecuritySettingsInvokeResponsePtrOutput)
+}
+
+// The validation settings.
+func (o AS2ProtocolSettingsInvokeResponsePtrOutput) ValidationSettings() AS2ValidationSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AS2ProtocolSettingsInvokeResponse) *AS2ValidationSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidationSettings
+	}).(AS2ValidationSettingsInvokeResponsePtrOutput)
 }
 
 // The AS2 agreement protocol settings.
@@ -3524,6 +5146,311 @@ func (o AS2SecuritySettingsPtrOutput) Sha2AlgorithmFormat() pulumi.StringPtrOutp
 // The name of the signing certificate.
 func (o AS2SecuritySettingsPtrOutput) SigningCertificateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AS2SecuritySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SigningCertificateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AS2 agreement security settings.
+type AS2SecuritySettingsInvokeResponse struct {
+	// The value indicating whether to enable NRR for inbound decoded messages.
+	EnableNRRForInboundDecodedMessages bool `pulumi:"enableNRRForInboundDecodedMessages"`
+	// The value indicating whether to enable NRR for inbound encoded messages.
+	EnableNRRForInboundEncodedMessages bool `pulumi:"enableNRRForInboundEncodedMessages"`
+	// The value indicating whether to enable NRR for inbound MDN.
+	EnableNRRForInboundMDN bool `pulumi:"enableNRRForInboundMDN"`
+	// The value indicating whether to enable NRR for outbound decoded messages.
+	EnableNRRForOutboundDecodedMessages bool `pulumi:"enableNRRForOutboundDecodedMessages"`
+	// The value indicating whether to enable NRR for outbound encoded messages.
+	EnableNRRForOutboundEncodedMessages bool `pulumi:"enableNRRForOutboundEncodedMessages"`
+	// The value indicating whether to enable NRR for outbound MDN.
+	EnableNRRForOutboundMDN bool `pulumi:"enableNRRForOutboundMDN"`
+	// The name of the encryption certificate.
+	EncryptionCertificateName *string `pulumi:"encryptionCertificateName"`
+	// The value indicating whether to send or request a MDN.
+	OverrideGroupSigningCertificate bool `pulumi:"overrideGroupSigningCertificate"`
+	// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
+	Sha2AlgorithmFormat *string `pulumi:"sha2AlgorithmFormat"`
+	// The name of the signing certificate.
+	SigningCertificateName *string `pulumi:"signingCertificateName"`
+}
+
+// AS2SecuritySettingsInvokeResponseInput is an input type that accepts AS2SecuritySettingsInvokeResponseArgs and AS2SecuritySettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AS2SecuritySettingsInvokeResponseInput` via:
+//
+//          AS2SecuritySettingsInvokeResponseArgs{...}
+type AS2SecuritySettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAS2SecuritySettingsInvokeResponseOutput() AS2SecuritySettingsInvokeResponseOutput
+	ToAS2SecuritySettingsInvokeResponseOutputWithContext(context.Context) AS2SecuritySettingsInvokeResponseOutput
+}
+
+// The AS2 agreement security settings.
+type AS2SecuritySettingsInvokeResponseArgs struct {
+	// The value indicating whether to enable NRR for inbound decoded messages.
+	EnableNRRForInboundDecodedMessages pulumi.BoolInput `pulumi:"enableNRRForInboundDecodedMessages"`
+	// The value indicating whether to enable NRR for inbound encoded messages.
+	EnableNRRForInboundEncodedMessages pulumi.BoolInput `pulumi:"enableNRRForInboundEncodedMessages"`
+	// The value indicating whether to enable NRR for inbound MDN.
+	EnableNRRForInboundMDN pulumi.BoolInput `pulumi:"enableNRRForInboundMDN"`
+	// The value indicating whether to enable NRR for outbound decoded messages.
+	EnableNRRForOutboundDecodedMessages pulumi.BoolInput `pulumi:"enableNRRForOutboundDecodedMessages"`
+	// The value indicating whether to enable NRR for outbound encoded messages.
+	EnableNRRForOutboundEncodedMessages pulumi.BoolInput `pulumi:"enableNRRForOutboundEncodedMessages"`
+	// The value indicating whether to enable NRR for outbound MDN.
+	EnableNRRForOutboundMDN pulumi.BoolInput `pulumi:"enableNRRForOutboundMDN"`
+	// The name of the encryption certificate.
+	EncryptionCertificateName pulumi.StringPtrInput `pulumi:"encryptionCertificateName"`
+	// The value indicating whether to send or request a MDN.
+	OverrideGroupSigningCertificate pulumi.BoolInput `pulumi:"overrideGroupSigningCertificate"`
+	// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
+	Sha2AlgorithmFormat pulumi.StringPtrInput `pulumi:"sha2AlgorithmFormat"`
+	// The name of the signing certificate.
+	SigningCertificateName pulumi.StringPtrInput `pulumi:"signingCertificateName"`
+}
+
+func (AS2SecuritySettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2SecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AS2SecuritySettingsInvokeResponseArgs) ToAS2SecuritySettingsInvokeResponseOutput() AS2SecuritySettingsInvokeResponseOutput {
+	return i.ToAS2SecuritySettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AS2SecuritySettingsInvokeResponseArgs) ToAS2SecuritySettingsInvokeResponseOutputWithContext(ctx context.Context) AS2SecuritySettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2SecuritySettingsInvokeResponseOutput)
+}
+
+func (i AS2SecuritySettingsInvokeResponseArgs) ToAS2SecuritySettingsInvokeResponsePtrOutput() AS2SecuritySettingsInvokeResponsePtrOutput {
+	return i.ToAS2SecuritySettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AS2SecuritySettingsInvokeResponseArgs) ToAS2SecuritySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2SecuritySettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2SecuritySettingsInvokeResponseOutput).ToAS2SecuritySettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AS2SecuritySettingsInvokeResponsePtrInput is an input type that accepts AS2SecuritySettingsInvokeResponseArgs, AS2SecuritySettingsInvokeResponsePtr and AS2SecuritySettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AS2SecuritySettingsInvokeResponsePtrInput` via:
+//
+//          AS2SecuritySettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AS2SecuritySettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAS2SecuritySettingsInvokeResponsePtrOutput() AS2SecuritySettingsInvokeResponsePtrOutput
+	ToAS2SecuritySettingsInvokeResponsePtrOutputWithContext(context.Context) AS2SecuritySettingsInvokeResponsePtrOutput
+}
+
+type as2securitySettingsInvokeResponsePtrType AS2SecuritySettingsInvokeResponseArgs
+
+func AS2SecuritySettingsInvokeResponsePtr(v *AS2SecuritySettingsInvokeResponseArgs) AS2SecuritySettingsInvokeResponsePtrInput {
+	return (*as2securitySettingsInvokeResponsePtrType)(v)
+}
+
+func (*as2securitySettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2SecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *as2securitySettingsInvokeResponsePtrType) ToAS2SecuritySettingsInvokeResponsePtrOutput() AS2SecuritySettingsInvokeResponsePtrOutput {
+	return i.ToAS2SecuritySettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *as2securitySettingsInvokeResponsePtrType) ToAS2SecuritySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2SecuritySettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2SecuritySettingsInvokeResponsePtrOutput)
+}
+
+// The AS2 agreement security settings.
+type AS2SecuritySettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AS2SecuritySettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2SecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2SecuritySettingsInvokeResponseOutput) ToAS2SecuritySettingsInvokeResponseOutput() AS2SecuritySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2SecuritySettingsInvokeResponseOutput) ToAS2SecuritySettingsInvokeResponseOutputWithContext(ctx context.Context) AS2SecuritySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2SecuritySettingsInvokeResponseOutput) ToAS2SecuritySettingsInvokeResponsePtrOutput() AS2SecuritySettingsInvokeResponsePtrOutput {
+	return o.ToAS2SecuritySettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AS2SecuritySettingsInvokeResponseOutput) ToAS2SecuritySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2SecuritySettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) *AS2SecuritySettingsInvokeResponse {
+		return &v
+	}).(AS2SecuritySettingsInvokeResponsePtrOutput)
+}
+
+// The value indicating whether to enable NRR for inbound decoded messages.
+func (o AS2SecuritySettingsInvokeResponseOutput) EnableNRRForInboundDecodedMessages() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) bool { return v.EnableNRRForInboundDecodedMessages }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to enable NRR for inbound encoded messages.
+func (o AS2SecuritySettingsInvokeResponseOutput) EnableNRRForInboundEncodedMessages() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) bool { return v.EnableNRRForInboundEncodedMessages }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to enable NRR for inbound MDN.
+func (o AS2SecuritySettingsInvokeResponseOutput) EnableNRRForInboundMDN() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) bool { return v.EnableNRRForInboundMDN }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to enable NRR for outbound decoded messages.
+func (o AS2SecuritySettingsInvokeResponseOutput) EnableNRRForOutboundDecodedMessages() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) bool { return v.EnableNRRForOutboundDecodedMessages }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to enable NRR for outbound encoded messages.
+func (o AS2SecuritySettingsInvokeResponseOutput) EnableNRRForOutboundEncodedMessages() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) bool { return v.EnableNRRForOutboundEncodedMessages }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to enable NRR for outbound MDN.
+func (o AS2SecuritySettingsInvokeResponseOutput) EnableNRRForOutboundMDN() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) bool { return v.EnableNRRForOutboundMDN }).(pulumi.BoolOutput)
+}
+
+// The name of the encryption certificate.
+func (o AS2SecuritySettingsInvokeResponseOutput) EncryptionCertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) *string { return v.EncryptionCertificateName }).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to send or request a MDN.
+func (o AS2SecuritySettingsInvokeResponseOutput) OverrideGroupSigningCertificate() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) bool { return v.OverrideGroupSigningCertificate }).(pulumi.BoolOutput)
+}
+
+// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
+func (o AS2SecuritySettingsInvokeResponseOutput) Sha2AlgorithmFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) *string { return v.Sha2AlgorithmFormat }).(pulumi.StringPtrOutput)
+}
+
+// The name of the signing certificate.
+func (o AS2SecuritySettingsInvokeResponseOutput) SigningCertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AS2SecuritySettingsInvokeResponse) *string { return v.SigningCertificateName }).(pulumi.StringPtrOutput)
+}
+
+type AS2SecuritySettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AS2SecuritySettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2SecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) ToAS2SecuritySettingsInvokeResponsePtrOutput() AS2SecuritySettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) ToAS2SecuritySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2SecuritySettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) Elem() AS2SecuritySettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) AS2SecuritySettingsInvokeResponse { return *v }).(AS2SecuritySettingsInvokeResponseOutput)
+}
+
+// The value indicating whether to enable NRR for inbound decoded messages.
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) EnableNRRForInboundDecodedMessages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableNRRForInboundDecodedMessages
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to enable NRR for inbound encoded messages.
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) EnableNRRForInboundEncodedMessages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableNRRForInboundEncodedMessages
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to enable NRR for inbound MDN.
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) EnableNRRForInboundMDN() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableNRRForInboundMDN
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to enable NRR for outbound decoded messages.
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) EnableNRRForOutboundDecodedMessages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableNRRForOutboundDecodedMessages
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to enable NRR for outbound encoded messages.
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) EnableNRRForOutboundEncodedMessages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableNRRForOutboundEncodedMessages
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to enable NRR for outbound MDN.
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) EnableNRRForOutboundMDN() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableNRRForOutboundMDN
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the encryption certificate.
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) EncryptionCertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionCertificateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to send or request a MDN.
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) OverrideGroupSigningCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OverrideGroupSigningCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) Sha2AlgorithmFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sha2AlgorithmFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the signing certificate.
+func (o AS2SecuritySettingsInvokeResponsePtrOutput) SigningCertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2SecuritySettingsInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4142,6 +6069,311 @@ func (o AS2ValidationSettingsPtrOutput) SigningAlgorithm() pulumi.StringPtrOutpu
 }
 
 // The AS2 agreement validation settings.
+type AS2ValidationSettingsInvokeResponse struct {
+	// The value indicating whether to check for certificate revocation list on receive.
+	CheckCertificateRevocationListOnReceive bool `pulumi:"checkCertificateRevocationListOnReceive"`
+	// The value indicating whether to check for certificate revocation list on send.
+	CheckCertificateRevocationListOnSend bool `pulumi:"checkCertificateRevocationListOnSend"`
+	// The value indicating whether to check for duplicate message.
+	CheckDuplicateMessage bool `pulumi:"checkDuplicateMessage"`
+	// The value indicating whether the message has to be compressed.
+	CompressMessage bool `pulumi:"compressMessage"`
+	// The value indicating whether the message has to be encrypted.
+	EncryptMessage bool `pulumi:"encryptMessage"`
+	// The encryption algorithm.
+	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	// The number of days to look back for duplicate interchange.
+	InterchangeDuplicatesValidityDays int `pulumi:"interchangeDuplicatesValidityDays"`
+	// The value indicating whether to override incoming message properties with those in agreement.
+	OverrideMessageProperties bool `pulumi:"overrideMessageProperties"`
+	// The value indicating whether the message has to be signed.
+	SignMessage bool `pulumi:"signMessage"`
+	// The signing algorithm.
+	SigningAlgorithm *string `pulumi:"signingAlgorithm"`
+}
+
+// AS2ValidationSettingsInvokeResponseInput is an input type that accepts AS2ValidationSettingsInvokeResponseArgs and AS2ValidationSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AS2ValidationSettingsInvokeResponseInput` via:
+//
+//          AS2ValidationSettingsInvokeResponseArgs{...}
+type AS2ValidationSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAS2ValidationSettingsInvokeResponseOutput() AS2ValidationSettingsInvokeResponseOutput
+	ToAS2ValidationSettingsInvokeResponseOutputWithContext(context.Context) AS2ValidationSettingsInvokeResponseOutput
+}
+
+// The AS2 agreement validation settings.
+type AS2ValidationSettingsInvokeResponseArgs struct {
+	// The value indicating whether to check for certificate revocation list on receive.
+	CheckCertificateRevocationListOnReceive pulumi.BoolInput `pulumi:"checkCertificateRevocationListOnReceive"`
+	// The value indicating whether to check for certificate revocation list on send.
+	CheckCertificateRevocationListOnSend pulumi.BoolInput `pulumi:"checkCertificateRevocationListOnSend"`
+	// The value indicating whether to check for duplicate message.
+	CheckDuplicateMessage pulumi.BoolInput `pulumi:"checkDuplicateMessage"`
+	// The value indicating whether the message has to be compressed.
+	CompressMessage pulumi.BoolInput `pulumi:"compressMessage"`
+	// The value indicating whether the message has to be encrypted.
+	EncryptMessage pulumi.BoolInput `pulumi:"encryptMessage"`
+	// The encryption algorithm.
+	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	// The number of days to look back for duplicate interchange.
+	InterchangeDuplicatesValidityDays pulumi.IntInput `pulumi:"interchangeDuplicatesValidityDays"`
+	// The value indicating whether to override incoming message properties with those in agreement.
+	OverrideMessageProperties pulumi.BoolInput `pulumi:"overrideMessageProperties"`
+	// The value indicating whether the message has to be signed.
+	SignMessage pulumi.BoolInput `pulumi:"signMessage"`
+	// The signing algorithm.
+	SigningAlgorithm pulumi.StringPtrInput `pulumi:"signingAlgorithm"`
+}
+
+func (AS2ValidationSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2ValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AS2ValidationSettingsInvokeResponseArgs) ToAS2ValidationSettingsInvokeResponseOutput() AS2ValidationSettingsInvokeResponseOutput {
+	return i.ToAS2ValidationSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AS2ValidationSettingsInvokeResponseArgs) ToAS2ValidationSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2ValidationSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2ValidationSettingsInvokeResponseOutput)
+}
+
+func (i AS2ValidationSettingsInvokeResponseArgs) ToAS2ValidationSettingsInvokeResponsePtrOutput() AS2ValidationSettingsInvokeResponsePtrOutput {
+	return i.ToAS2ValidationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AS2ValidationSettingsInvokeResponseArgs) ToAS2ValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ValidationSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2ValidationSettingsInvokeResponseOutput).ToAS2ValidationSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AS2ValidationSettingsInvokeResponsePtrInput is an input type that accepts AS2ValidationSettingsInvokeResponseArgs, AS2ValidationSettingsInvokeResponsePtr and AS2ValidationSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AS2ValidationSettingsInvokeResponsePtrInput` via:
+//
+//          AS2ValidationSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AS2ValidationSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAS2ValidationSettingsInvokeResponsePtrOutput() AS2ValidationSettingsInvokeResponsePtrOutput
+	ToAS2ValidationSettingsInvokeResponsePtrOutputWithContext(context.Context) AS2ValidationSettingsInvokeResponsePtrOutput
+}
+
+type as2validationSettingsInvokeResponsePtrType AS2ValidationSettingsInvokeResponseArgs
+
+func AS2ValidationSettingsInvokeResponsePtr(v *AS2ValidationSettingsInvokeResponseArgs) AS2ValidationSettingsInvokeResponsePtrInput {
+	return (*as2validationSettingsInvokeResponsePtrType)(v)
+}
+
+func (*as2validationSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2ValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *as2validationSettingsInvokeResponsePtrType) ToAS2ValidationSettingsInvokeResponsePtrOutput() AS2ValidationSettingsInvokeResponsePtrOutput {
+	return i.ToAS2ValidationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *as2validationSettingsInvokeResponsePtrType) ToAS2ValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ValidationSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AS2ValidationSettingsInvokeResponsePtrOutput)
+}
+
+// The AS2 agreement validation settings.
+type AS2ValidationSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AS2ValidationSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AS2ValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2ValidationSettingsInvokeResponseOutput) ToAS2ValidationSettingsInvokeResponseOutput() AS2ValidationSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2ValidationSettingsInvokeResponseOutput) ToAS2ValidationSettingsInvokeResponseOutputWithContext(ctx context.Context) AS2ValidationSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AS2ValidationSettingsInvokeResponseOutput) ToAS2ValidationSettingsInvokeResponsePtrOutput() AS2ValidationSettingsInvokeResponsePtrOutput {
+	return o.ToAS2ValidationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AS2ValidationSettingsInvokeResponseOutput) ToAS2ValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ValidationSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) *AS2ValidationSettingsInvokeResponse {
+		return &v
+	}).(AS2ValidationSettingsInvokeResponsePtrOutput)
+}
+
+// The value indicating whether to check for certificate revocation list on receive.
+func (o AS2ValidationSettingsInvokeResponseOutput) CheckCertificateRevocationListOnReceive() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) bool { return v.CheckCertificateRevocationListOnReceive }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to check for certificate revocation list on send.
+func (o AS2ValidationSettingsInvokeResponseOutput) CheckCertificateRevocationListOnSend() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) bool { return v.CheckCertificateRevocationListOnSend }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to check for duplicate message.
+func (o AS2ValidationSettingsInvokeResponseOutput) CheckDuplicateMessage() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) bool { return v.CheckDuplicateMessage }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether the message has to be compressed.
+func (o AS2ValidationSettingsInvokeResponseOutput) CompressMessage() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) bool { return v.CompressMessage }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether the message has to be encrypted.
+func (o AS2ValidationSettingsInvokeResponseOutput) EncryptMessage() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) bool { return v.EncryptMessage }).(pulumi.BoolOutput)
+}
+
+// The encryption algorithm.
+func (o AS2ValidationSettingsInvokeResponseOutput) EncryptionAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+}
+
+// The number of days to look back for duplicate interchange.
+func (o AS2ValidationSettingsInvokeResponseOutput) InterchangeDuplicatesValidityDays() pulumi.IntOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) int { return v.InterchangeDuplicatesValidityDays }).(pulumi.IntOutput)
+}
+
+// The value indicating whether to override incoming message properties with those in agreement.
+func (o AS2ValidationSettingsInvokeResponseOutput) OverrideMessageProperties() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) bool { return v.OverrideMessageProperties }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether the message has to be signed.
+func (o AS2ValidationSettingsInvokeResponseOutput) SignMessage() pulumi.BoolOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) bool { return v.SignMessage }).(pulumi.BoolOutput)
+}
+
+// The signing algorithm.
+func (o AS2ValidationSettingsInvokeResponseOutput) SigningAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AS2ValidationSettingsInvokeResponse) *string { return v.SigningAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+type AS2ValidationSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AS2ValidationSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AS2ValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) ToAS2ValidationSettingsInvokeResponsePtrOutput() AS2ValidationSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) ToAS2ValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) AS2ValidationSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) Elem() AS2ValidationSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) AS2ValidationSettingsInvokeResponse { return *v }).(AS2ValidationSettingsInvokeResponseOutput)
+}
+
+// The value indicating whether to check for certificate revocation list on receive.
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) CheckCertificateRevocationListOnReceive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CheckCertificateRevocationListOnReceive
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to check for certificate revocation list on send.
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) CheckCertificateRevocationListOnSend() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CheckCertificateRevocationListOnSend
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to check for duplicate message.
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) CheckDuplicateMessage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CheckDuplicateMessage
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether the message has to be compressed.
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) CompressMessage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CompressMessage
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether the message has to be encrypted.
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) EncryptMessage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptMessage
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The encryption algorithm.
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of days to look back for duplicate interchange.
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) InterchangeDuplicatesValidityDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InterchangeDuplicatesValidityDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The value indicating whether to override incoming message properties with those in agreement.
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) OverrideMessageProperties() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OverrideMessageProperties
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether the message has to be signed.
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) SignMessage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SignMessage
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The signing algorithm.
+func (o AS2ValidationSettingsInvokeResponsePtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SigningAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AS2 agreement validation settings.
 type AS2ValidationSettingsResponse struct {
 	// The value indicating whether to check for certificate revocation list on receive.
 	CheckCertificateRevocationListOnReceive bool `pulumi:"checkCertificateRevocationListOnReceive"`
@@ -4619,6 +6851,79 @@ func (o AgreementContentPtrOutput) X12() X12AgreementContentPtrOutput {
 }
 
 // The integration account agreement content.
+type AgreementContentInvokeResponse struct {
+	// The AS2 agreement content.
+	AS2 *AS2AgreementContentInvokeResponse `pulumi:"aS2"`
+	// The EDIFACT agreement content.
+	Edifact *EdifactAgreementContentInvokeResponse `pulumi:"edifact"`
+	// The X12 agreement content.
+	X12 *X12AgreementContentInvokeResponse `pulumi:"x12"`
+}
+
+// AgreementContentInvokeResponseInput is an input type that accepts AgreementContentInvokeResponseArgs and AgreementContentInvokeResponseOutput values.
+// You can construct a concrete instance of `AgreementContentInvokeResponseInput` via:
+//
+//          AgreementContentInvokeResponseArgs{...}
+type AgreementContentInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAgreementContentInvokeResponseOutput() AgreementContentInvokeResponseOutput
+	ToAgreementContentInvokeResponseOutputWithContext(context.Context) AgreementContentInvokeResponseOutput
+}
+
+// The integration account agreement content.
+type AgreementContentInvokeResponseArgs struct {
+	// The AS2 agreement content.
+	AS2 AS2AgreementContentInvokeResponsePtrInput `pulumi:"aS2"`
+	// The EDIFACT agreement content.
+	Edifact EdifactAgreementContentInvokeResponsePtrInput `pulumi:"edifact"`
+	// The X12 agreement content.
+	X12 X12AgreementContentInvokeResponsePtrInput `pulumi:"x12"`
+}
+
+func (AgreementContentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (i AgreementContentInvokeResponseArgs) ToAgreementContentInvokeResponseOutput() AgreementContentInvokeResponseOutput {
+	return i.ToAgreementContentInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AgreementContentInvokeResponseArgs) ToAgreementContentInvokeResponseOutputWithContext(ctx context.Context) AgreementContentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgreementContentInvokeResponseOutput)
+}
+
+// The integration account agreement content.
+type AgreementContentInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AgreementContentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (o AgreementContentInvokeResponseOutput) ToAgreementContentInvokeResponseOutput() AgreementContentInvokeResponseOutput {
+	return o
+}
+
+func (o AgreementContentInvokeResponseOutput) ToAgreementContentInvokeResponseOutputWithContext(ctx context.Context) AgreementContentInvokeResponseOutput {
+	return o
+}
+
+// The AS2 agreement content.
+func (o AgreementContentInvokeResponseOutput) AS2() AS2AgreementContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AgreementContentInvokeResponse) *AS2AgreementContentInvokeResponse { return v.AS2 }).(AS2AgreementContentInvokeResponsePtrOutput)
+}
+
+// The EDIFACT agreement content.
+func (o AgreementContentInvokeResponseOutput) Edifact() EdifactAgreementContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AgreementContentInvokeResponse) *EdifactAgreementContentInvokeResponse { return v.Edifact }).(EdifactAgreementContentInvokeResponsePtrOutput)
+}
+
+// The X12 agreement content.
+func (o AgreementContentInvokeResponseOutput) X12() X12AgreementContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AgreementContentInvokeResponse) *X12AgreementContentInvokeResponse { return v.X12 }).(X12AgreementContentInvokeResponsePtrOutput)
+}
+
+// The integration account agreement content.
 type AgreementContentResponse struct {
 	// The AS2 agreement content.
 	AS2 *AS2AgreementContentResponse `pulumi:"aS2"`
@@ -4788,6 +7093,218 @@ func (o AgreementContentResponsePtrOutput) X12() X12AgreementContentResponsePtrO
 		}
 		return v.X12
 	}).(X12AgreementContentResponsePtrOutput)
+}
+
+// The API deployment parameter metadata.
+type ApiDeploymentParameterMetadataInvokeResponse struct {
+	// The description.
+	Description *string `pulumi:"description"`
+	// The display name.
+	DisplayName *string `pulumi:"displayName"`
+	// Indicates whether its required.
+	IsRequired *bool `pulumi:"isRequired"`
+	// The type.
+	Type *string `pulumi:"type"`
+	// The visibility.
+	Visibility *string `pulumi:"visibility"`
+}
+
+// ApiDeploymentParameterMetadataInvokeResponseInput is an input type that accepts ApiDeploymentParameterMetadataInvokeResponseArgs and ApiDeploymentParameterMetadataInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiDeploymentParameterMetadataInvokeResponseInput` via:
+//
+//          ApiDeploymentParameterMetadataInvokeResponseArgs{...}
+type ApiDeploymentParameterMetadataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApiDeploymentParameterMetadataInvokeResponseOutput() ApiDeploymentParameterMetadataInvokeResponseOutput
+	ToApiDeploymentParameterMetadataInvokeResponseOutputWithContext(context.Context) ApiDeploymentParameterMetadataInvokeResponseOutput
+}
+
+// The API deployment parameter metadata.
+type ApiDeploymentParameterMetadataInvokeResponseArgs struct {
+	// The description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The display name.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Indicates whether its required.
+	IsRequired pulumi.BoolPtrInput `pulumi:"isRequired"`
+	// The type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The visibility.
+	Visibility pulumi.StringPtrInput `pulumi:"visibility"`
+}
+
+func (ApiDeploymentParameterMetadataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDeploymentParameterMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i ApiDeploymentParameterMetadataInvokeResponseArgs) ToApiDeploymentParameterMetadataInvokeResponseOutput() ApiDeploymentParameterMetadataInvokeResponseOutput {
+	return i.ToApiDeploymentParameterMetadataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApiDeploymentParameterMetadataInvokeResponseArgs) ToApiDeploymentParameterMetadataInvokeResponseOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDeploymentParameterMetadataInvokeResponseOutput)
+}
+
+func (i ApiDeploymentParameterMetadataInvokeResponseArgs) ToApiDeploymentParameterMetadataInvokeResponsePtrOutput() ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return i.ToApiDeploymentParameterMetadataInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiDeploymentParameterMetadataInvokeResponseArgs) ToApiDeploymentParameterMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDeploymentParameterMetadataInvokeResponseOutput).ToApiDeploymentParameterMetadataInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ApiDeploymentParameterMetadataInvokeResponsePtrInput is an input type that accepts ApiDeploymentParameterMetadataInvokeResponseArgs, ApiDeploymentParameterMetadataInvokeResponsePtr and ApiDeploymentParameterMetadataInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ApiDeploymentParameterMetadataInvokeResponsePtrInput` via:
+//
+//          ApiDeploymentParameterMetadataInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiDeploymentParameterMetadataInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiDeploymentParameterMetadataInvokeResponsePtrOutput() ApiDeploymentParameterMetadataInvokeResponsePtrOutput
+	ToApiDeploymentParameterMetadataInvokeResponsePtrOutputWithContext(context.Context) ApiDeploymentParameterMetadataInvokeResponsePtrOutput
+}
+
+type apiDeploymentParameterMetadataInvokeResponsePtrType ApiDeploymentParameterMetadataInvokeResponseArgs
+
+func ApiDeploymentParameterMetadataInvokeResponsePtr(v *ApiDeploymentParameterMetadataInvokeResponseArgs) ApiDeploymentParameterMetadataInvokeResponsePtrInput {
+	return (*apiDeploymentParameterMetadataInvokeResponsePtrType)(v)
+}
+
+func (*apiDeploymentParameterMetadataInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDeploymentParameterMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i *apiDeploymentParameterMetadataInvokeResponsePtrType) ToApiDeploymentParameterMetadataInvokeResponsePtrOutput() ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return i.ToApiDeploymentParameterMetadataInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiDeploymentParameterMetadataInvokeResponsePtrType) ToApiDeploymentParameterMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDeploymentParameterMetadataInvokeResponsePtrOutput)
+}
+
+// The API deployment parameter metadata.
+type ApiDeploymentParameterMetadataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiDeploymentParameterMetadataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDeploymentParameterMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiDeploymentParameterMetadataInvokeResponseOutput) ToApiDeploymentParameterMetadataInvokeResponseOutput() ApiDeploymentParameterMetadataInvokeResponseOutput {
+	return o
+}
+
+func (o ApiDeploymentParameterMetadataInvokeResponseOutput) ToApiDeploymentParameterMetadataInvokeResponseOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataInvokeResponseOutput {
+	return o
+}
+
+func (o ApiDeploymentParameterMetadataInvokeResponseOutput) ToApiDeploymentParameterMetadataInvokeResponsePtrOutput() ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return o.ToApiDeploymentParameterMetadataInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiDeploymentParameterMetadataInvokeResponseOutput) ToApiDeploymentParameterMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiDeploymentParameterMetadataInvokeResponse) *ApiDeploymentParameterMetadataInvokeResponse {
+		return &v
+	}).(ApiDeploymentParameterMetadataInvokeResponsePtrOutput)
+}
+
+// The description.
+func (o ApiDeploymentParameterMetadataInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiDeploymentParameterMetadataInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name.
+func (o ApiDeploymentParameterMetadataInvokeResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiDeploymentParameterMetadataInvokeResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether its required.
+func (o ApiDeploymentParameterMetadataInvokeResponseOutput) IsRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApiDeploymentParameterMetadataInvokeResponse) *bool { return v.IsRequired }).(pulumi.BoolPtrOutput)
+}
+
+// The type.
+func (o ApiDeploymentParameterMetadataInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiDeploymentParameterMetadataInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The visibility.
+func (o ApiDeploymentParameterMetadataInvokeResponseOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiDeploymentParameterMetadataInvokeResponse) *string { return v.Visibility }).(pulumi.StringPtrOutput)
+}
+
+type ApiDeploymentParameterMetadataInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDeploymentParameterMetadataInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDeploymentParameterMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiDeploymentParameterMetadataInvokeResponsePtrOutput) ToApiDeploymentParameterMetadataInvokeResponsePtrOutput() ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiDeploymentParameterMetadataInvokeResponsePtrOutput) ToApiDeploymentParameterMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiDeploymentParameterMetadataInvokeResponsePtrOutput) Elem() ApiDeploymentParameterMetadataInvokeResponseOutput {
+	return o.ApplyT(func(v *ApiDeploymentParameterMetadataInvokeResponse) ApiDeploymentParameterMetadataInvokeResponse {
+		return *v
+	}).(ApiDeploymentParameterMetadataInvokeResponseOutput)
+}
+
+// The description.
+func (o ApiDeploymentParameterMetadataInvokeResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiDeploymentParameterMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The display name.
+func (o ApiDeploymentParameterMetadataInvokeResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiDeploymentParameterMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether its required.
+func (o ApiDeploymentParameterMetadataInvokeResponsePtrOutput) IsRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiDeploymentParameterMetadataInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The type.
+func (o ApiDeploymentParameterMetadataInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiDeploymentParameterMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The visibility.
+func (o ApiDeploymentParameterMetadataInvokeResponsePtrOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiDeploymentParameterMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(pulumi.StringPtrOutput)
 }
 
 // The API deployment parameter metadata.
@@ -5001,6 +7518,165 @@ func (o ApiDeploymentParameterMetadataResponsePtrOutput) Visibility() pulumi.Str
 }
 
 // The API deployment parameters metadata.
+type ApiDeploymentParameterMetadataSetInvokeResponse struct {
+	// The package content link parameter.
+	PackageContentLink *ApiDeploymentParameterMetadataInvokeResponse `pulumi:"packageContentLink"`
+	// The package content link parameter.
+	RedisCacheConnectionString *ApiDeploymentParameterMetadataInvokeResponse `pulumi:"redisCacheConnectionString"`
+}
+
+// ApiDeploymentParameterMetadataSetInvokeResponseInput is an input type that accepts ApiDeploymentParameterMetadataSetInvokeResponseArgs and ApiDeploymentParameterMetadataSetInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiDeploymentParameterMetadataSetInvokeResponseInput` via:
+//
+//          ApiDeploymentParameterMetadataSetInvokeResponseArgs{...}
+type ApiDeploymentParameterMetadataSetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApiDeploymentParameterMetadataSetInvokeResponseOutput() ApiDeploymentParameterMetadataSetInvokeResponseOutput
+	ToApiDeploymentParameterMetadataSetInvokeResponseOutputWithContext(context.Context) ApiDeploymentParameterMetadataSetInvokeResponseOutput
+}
+
+// The API deployment parameters metadata.
+type ApiDeploymentParameterMetadataSetInvokeResponseArgs struct {
+	// The package content link parameter.
+	PackageContentLink ApiDeploymentParameterMetadataInvokeResponsePtrInput `pulumi:"packageContentLink"`
+	// The package content link parameter.
+	RedisCacheConnectionString ApiDeploymentParameterMetadataInvokeResponsePtrInput `pulumi:"redisCacheConnectionString"`
+}
+
+func (ApiDeploymentParameterMetadataSetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDeploymentParameterMetadataSetInvokeResponse)(nil)).Elem()
+}
+
+func (i ApiDeploymentParameterMetadataSetInvokeResponseArgs) ToApiDeploymentParameterMetadataSetInvokeResponseOutput() ApiDeploymentParameterMetadataSetInvokeResponseOutput {
+	return i.ToApiDeploymentParameterMetadataSetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApiDeploymentParameterMetadataSetInvokeResponseArgs) ToApiDeploymentParameterMetadataSetInvokeResponseOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataSetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDeploymentParameterMetadataSetInvokeResponseOutput)
+}
+
+func (i ApiDeploymentParameterMetadataSetInvokeResponseArgs) ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutput() ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput {
+	return i.ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiDeploymentParameterMetadataSetInvokeResponseArgs) ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDeploymentParameterMetadataSetInvokeResponseOutput).ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ApiDeploymentParameterMetadataSetInvokeResponsePtrInput is an input type that accepts ApiDeploymentParameterMetadataSetInvokeResponseArgs, ApiDeploymentParameterMetadataSetInvokeResponsePtr and ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ApiDeploymentParameterMetadataSetInvokeResponsePtrInput` via:
+//
+//          ApiDeploymentParameterMetadataSetInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiDeploymentParameterMetadataSetInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutput() ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput
+	ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutputWithContext(context.Context) ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput
+}
+
+type apiDeploymentParameterMetadataSetInvokeResponsePtrType ApiDeploymentParameterMetadataSetInvokeResponseArgs
+
+func ApiDeploymentParameterMetadataSetInvokeResponsePtr(v *ApiDeploymentParameterMetadataSetInvokeResponseArgs) ApiDeploymentParameterMetadataSetInvokeResponsePtrInput {
+	return (*apiDeploymentParameterMetadataSetInvokeResponsePtrType)(v)
+}
+
+func (*apiDeploymentParameterMetadataSetInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDeploymentParameterMetadataSetInvokeResponse)(nil)).Elem()
+}
+
+func (i *apiDeploymentParameterMetadataSetInvokeResponsePtrType) ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutput() ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput {
+	return i.ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiDeploymentParameterMetadataSetInvokeResponsePtrType) ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput)
+}
+
+// The API deployment parameters metadata.
+type ApiDeploymentParameterMetadataSetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiDeploymentParameterMetadataSetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDeploymentParameterMetadataSetInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiDeploymentParameterMetadataSetInvokeResponseOutput) ToApiDeploymentParameterMetadataSetInvokeResponseOutput() ApiDeploymentParameterMetadataSetInvokeResponseOutput {
+	return o
+}
+
+func (o ApiDeploymentParameterMetadataSetInvokeResponseOutput) ToApiDeploymentParameterMetadataSetInvokeResponseOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataSetInvokeResponseOutput {
+	return o
+}
+
+func (o ApiDeploymentParameterMetadataSetInvokeResponseOutput) ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutput() ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput {
+	return o.ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiDeploymentParameterMetadataSetInvokeResponseOutput) ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiDeploymentParameterMetadataSetInvokeResponse) *ApiDeploymentParameterMetadataSetInvokeResponse {
+		return &v
+	}).(ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput)
+}
+
+// The package content link parameter.
+func (o ApiDeploymentParameterMetadataSetInvokeResponseOutput) PackageContentLink() ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiDeploymentParameterMetadataSetInvokeResponse) *ApiDeploymentParameterMetadataInvokeResponse {
+		return v.PackageContentLink
+	}).(ApiDeploymentParameterMetadataInvokeResponsePtrOutput)
+}
+
+// The package content link parameter.
+func (o ApiDeploymentParameterMetadataSetInvokeResponseOutput) RedisCacheConnectionString() ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiDeploymentParameterMetadataSetInvokeResponse) *ApiDeploymentParameterMetadataInvokeResponse {
+		return v.RedisCacheConnectionString
+	}).(ApiDeploymentParameterMetadataInvokeResponsePtrOutput)
+}
+
+type ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDeploymentParameterMetadataSetInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput) ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutput() ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput) ToApiDeploymentParameterMetadataSetInvokeResponsePtrOutputWithContext(ctx context.Context) ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput) Elem() ApiDeploymentParameterMetadataSetInvokeResponseOutput {
+	return o.ApplyT(func(v *ApiDeploymentParameterMetadataSetInvokeResponse) ApiDeploymentParameterMetadataSetInvokeResponse {
+		return *v
+	}).(ApiDeploymentParameterMetadataSetInvokeResponseOutput)
+}
+
+// The package content link parameter.
+func (o ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput) PackageContentLink() ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ApiDeploymentParameterMetadataSetInvokeResponse) *ApiDeploymentParameterMetadataInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PackageContentLink
+	}).(ApiDeploymentParameterMetadataInvokeResponsePtrOutput)
+}
+
+// The package content link parameter.
+func (o ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput) RedisCacheConnectionString() ApiDeploymentParameterMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ApiDeploymentParameterMetadataSetInvokeResponse) *ApiDeploymentParameterMetadataInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RedisCacheConnectionString
+	}).(ApiDeploymentParameterMetadataInvokeResponsePtrOutput)
+}
+
+// The API deployment parameters metadata.
 type ApiDeploymentParameterMetadataSetResponse struct {
 	// The package content link parameter.
 	PackageContentLink *ApiDeploymentParameterMetadataResponse `pulumi:"packageContentLink"`
@@ -5160,6 +7836,140 @@ func (o ApiDeploymentParameterMetadataSetResponsePtrOutput) RedisCacheConnection
 }
 
 // The API backend service.
+type ApiResourceBackendServiceInvokeResponse struct {
+	// The service URL.
+	ServiceUrl *string `pulumi:"serviceUrl"`
+}
+
+// ApiResourceBackendServiceInvokeResponseInput is an input type that accepts ApiResourceBackendServiceInvokeResponseArgs and ApiResourceBackendServiceInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiResourceBackendServiceInvokeResponseInput` via:
+//
+//          ApiResourceBackendServiceInvokeResponseArgs{...}
+type ApiResourceBackendServiceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApiResourceBackendServiceInvokeResponseOutput() ApiResourceBackendServiceInvokeResponseOutput
+	ToApiResourceBackendServiceInvokeResponseOutputWithContext(context.Context) ApiResourceBackendServiceInvokeResponseOutput
+}
+
+// The API backend service.
+type ApiResourceBackendServiceInvokeResponseArgs struct {
+	// The service URL.
+	ServiceUrl pulumi.StringPtrInput `pulumi:"serviceUrl"`
+}
+
+func (ApiResourceBackendServiceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourceBackendServiceInvokeResponse)(nil)).Elem()
+}
+
+func (i ApiResourceBackendServiceInvokeResponseArgs) ToApiResourceBackendServiceInvokeResponseOutput() ApiResourceBackendServiceInvokeResponseOutput {
+	return i.ToApiResourceBackendServiceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApiResourceBackendServiceInvokeResponseArgs) ToApiResourceBackendServiceInvokeResponseOutputWithContext(ctx context.Context) ApiResourceBackendServiceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceBackendServiceInvokeResponseOutput)
+}
+
+func (i ApiResourceBackendServiceInvokeResponseArgs) ToApiResourceBackendServiceInvokeResponsePtrOutput() ApiResourceBackendServiceInvokeResponsePtrOutput {
+	return i.ToApiResourceBackendServiceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiResourceBackendServiceInvokeResponseArgs) ToApiResourceBackendServiceInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceBackendServiceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceBackendServiceInvokeResponseOutput).ToApiResourceBackendServiceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ApiResourceBackendServiceInvokeResponsePtrInput is an input type that accepts ApiResourceBackendServiceInvokeResponseArgs, ApiResourceBackendServiceInvokeResponsePtr and ApiResourceBackendServiceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ApiResourceBackendServiceInvokeResponsePtrInput` via:
+//
+//          ApiResourceBackendServiceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiResourceBackendServiceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiResourceBackendServiceInvokeResponsePtrOutput() ApiResourceBackendServiceInvokeResponsePtrOutput
+	ToApiResourceBackendServiceInvokeResponsePtrOutputWithContext(context.Context) ApiResourceBackendServiceInvokeResponsePtrOutput
+}
+
+type apiResourceBackendServiceInvokeResponsePtrType ApiResourceBackendServiceInvokeResponseArgs
+
+func ApiResourceBackendServiceInvokeResponsePtr(v *ApiResourceBackendServiceInvokeResponseArgs) ApiResourceBackendServiceInvokeResponsePtrInput {
+	return (*apiResourceBackendServiceInvokeResponsePtrType)(v)
+}
+
+func (*apiResourceBackendServiceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiResourceBackendServiceInvokeResponse)(nil)).Elem()
+}
+
+func (i *apiResourceBackendServiceInvokeResponsePtrType) ToApiResourceBackendServiceInvokeResponsePtrOutput() ApiResourceBackendServiceInvokeResponsePtrOutput {
+	return i.ToApiResourceBackendServiceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiResourceBackendServiceInvokeResponsePtrType) ToApiResourceBackendServiceInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceBackendServiceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceBackendServiceInvokeResponsePtrOutput)
+}
+
+// The API backend service.
+type ApiResourceBackendServiceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiResourceBackendServiceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourceBackendServiceInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourceBackendServiceInvokeResponseOutput) ToApiResourceBackendServiceInvokeResponseOutput() ApiResourceBackendServiceInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourceBackendServiceInvokeResponseOutput) ToApiResourceBackendServiceInvokeResponseOutputWithContext(ctx context.Context) ApiResourceBackendServiceInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourceBackendServiceInvokeResponseOutput) ToApiResourceBackendServiceInvokeResponsePtrOutput() ApiResourceBackendServiceInvokeResponsePtrOutput {
+	return o.ToApiResourceBackendServiceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiResourceBackendServiceInvokeResponseOutput) ToApiResourceBackendServiceInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceBackendServiceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourceBackendServiceInvokeResponse) *ApiResourceBackendServiceInvokeResponse {
+		return &v
+	}).(ApiResourceBackendServiceInvokeResponsePtrOutput)
+}
+
+// The service URL.
+func (o ApiResourceBackendServiceInvokeResponseOutput) ServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceBackendServiceInvokeResponse) *string { return v.ServiceUrl }).(pulumi.StringPtrOutput)
+}
+
+type ApiResourceBackendServiceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiResourceBackendServiceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiResourceBackendServiceInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourceBackendServiceInvokeResponsePtrOutput) ToApiResourceBackendServiceInvokeResponsePtrOutput() ApiResourceBackendServiceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiResourceBackendServiceInvokeResponsePtrOutput) ToApiResourceBackendServiceInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceBackendServiceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiResourceBackendServiceInvokeResponsePtrOutput) Elem() ApiResourceBackendServiceInvokeResponseOutput {
+	return o.ApplyT(func(v *ApiResourceBackendServiceInvokeResponse) ApiResourceBackendServiceInvokeResponse { return *v }).(ApiResourceBackendServiceInvokeResponseOutput)
+}
+
+// The service URL.
+func (o ApiResourceBackendServiceInvokeResponsePtrOutput) ServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceBackendServiceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The API backend service.
 type ApiResourceBackendServiceResponse struct {
 	// The service URL.
 	ServiceUrl *string `pulumi:"serviceUrl"`
@@ -5290,6 +8100,159 @@ func (o ApiResourceBackendServiceResponsePtrOutput) ServiceUrl() pulumi.StringPt
 			return nil
 		}
 		return v.ServiceUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Api resource definition.
+type ApiResourceDefinitionsInvokeResponse struct {
+	// The modified swagger url.
+	ModifiedSwaggerUrl *string `pulumi:"modifiedSwaggerUrl"`
+	// The original swagger url.
+	OriginalSwaggerUrl *string `pulumi:"originalSwaggerUrl"`
+}
+
+// ApiResourceDefinitionsInvokeResponseInput is an input type that accepts ApiResourceDefinitionsInvokeResponseArgs and ApiResourceDefinitionsInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiResourceDefinitionsInvokeResponseInput` via:
+//
+//          ApiResourceDefinitionsInvokeResponseArgs{...}
+type ApiResourceDefinitionsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApiResourceDefinitionsInvokeResponseOutput() ApiResourceDefinitionsInvokeResponseOutput
+	ToApiResourceDefinitionsInvokeResponseOutputWithContext(context.Context) ApiResourceDefinitionsInvokeResponseOutput
+}
+
+// The Api resource definition.
+type ApiResourceDefinitionsInvokeResponseArgs struct {
+	// The modified swagger url.
+	ModifiedSwaggerUrl pulumi.StringPtrInput `pulumi:"modifiedSwaggerUrl"`
+	// The original swagger url.
+	OriginalSwaggerUrl pulumi.StringPtrInput `pulumi:"originalSwaggerUrl"`
+}
+
+func (ApiResourceDefinitionsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourceDefinitionsInvokeResponse)(nil)).Elem()
+}
+
+func (i ApiResourceDefinitionsInvokeResponseArgs) ToApiResourceDefinitionsInvokeResponseOutput() ApiResourceDefinitionsInvokeResponseOutput {
+	return i.ToApiResourceDefinitionsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApiResourceDefinitionsInvokeResponseArgs) ToApiResourceDefinitionsInvokeResponseOutputWithContext(ctx context.Context) ApiResourceDefinitionsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceDefinitionsInvokeResponseOutput)
+}
+
+func (i ApiResourceDefinitionsInvokeResponseArgs) ToApiResourceDefinitionsInvokeResponsePtrOutput() ApiResourceDefinitionsInvokeResponsePtrOutput {
+	return i.ToApiResourceDefinitionsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiResourceDefinitionsInvokeResponseArgs) ToApiResourceDefinitionsInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceDefinitionsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceDefinitionsInvokeResponseOutput).ToApiResourceDefinitionsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ApiResourceDefinitionsInvokeResponsePtrInput is an input type that accepts ApiResourceDefinitionsInvokeResponseArgs, ApiResourceDefinitionsInvokeResponsePtr and ApiResourceDefinitionsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ApiResourceDefinitionsInvokeResponsePtrInput` via:
+//
+//          ApiResourceDefinitionsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiResourceDefinitionsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiResourceDefinitionsInvokeResponsePtrOutput() ApiResourceDefinitionsInvokeResponsePtrOutput
+	ToApiResourceDefinitionsInvokeResponsePtrOutputWithContext(context.Context) ApiResourceDefinitionsInvokeResponsePtrOutput
+}
+
+type apiResourceDefinitionsInvokeResponsePtrType ApiResourceDefinitionsInvokeResponseArgs
+
+func ApiResourceDefinitionsInvokeResponsePtr(v *ApiResourceDefinitionsInvokeResponseArgs) ApiResourceDefinitionsInvokeResponsePtrInput {
+	return (*apiResourceDefinitionsInvokeResponsePtrType)(v)
+}
+
+func (*apiResourceDefinitionsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiResourceDefinitionsInvokeResponse)(nil)).Elem()
+}
+
+func (i *apiResourceDefinitionsInvokeResponsePtrType) ToApiResourceDefinitionsInvokeResponsePtrOutput() ApiResourceDefinitionsInvokeResponsePtrOutput {
+	return i.ToApiResourceDefinitionsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiResourceDefinitionsInvokeResponsePtrType) ToApiResourceDefinitionsInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceDefinitionsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceDefinitionsInvokeResponsePtrOutput)
+}
+
+// The Api resource definition.
+type ApiResourceDefinitionsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiResourceDefinitionsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourceDefinitionsInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourceDefinitionsInvokeResponseOutput) ToApiResourceDefinitionsInvokeResponseOutput() ApiResourceDefinitionsInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourceDefinitionsInvokeResponseOutput) ToApiResourceDefinitionsInvokeResponseOutputWithContext(ctx context.Context) ApiResourceDefinitionsInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourceDefinitionsInvokeResponseOutput) ToApiResourceDefinitionsInvokeResponsePtrOutput() ApiResourceDefinitionsInvokeResponsePtrOutput {
+	return o.ToApiResourceDefinitionsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiResourceDefinitionsInvokeResponseOutput) ToApiResourceDefinitionsInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceDefinitionsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourceDefinitionsInvokeResponse) *ApiResourceDefinitionsInvokeResponse {
+		return &v
+	}).(ApiResourceDefinitionsInvokeResponsePtrOutput)
+}
+
+// The modified swagger url.
+func (o ApiResourceDefinitionsInvokeResponseOutput) ModifiedSwaggerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceDefinitionsInvokeResponse) *string { return v.ModifiedSwaggerUrl }).(pulumi.StringPtrOutput)
+}
+
+// The original swagger url.
+func (o ApiResourceDefinitionsInvokeResponseOutput) OriginalSwaggerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceDefinitionsInvokeResponse) *string { return v.OriginalSwaggerUrl }).(pulumi.StringPtrOutput)
+}
+
+type ApiResourceDefinitionsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiResourceDefinitionsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiResourceDefinitionsInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourceDefinitionsInvokeResponsePtrOutput) ToApiResourceDefinitionsInvokeResponsePtrOutput() ApiResourceDefinitionsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiResourceDefinitionsInvokeResponsePtrOutput) ToApiResourceDefinitionsInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceDefinitionsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiResourceDefinitionsInvokeResponsePtrOutput) Elem() ApiResourceDefinitionsInvokeResponseOutput {
+	return o.ApplyT(func(v *ApiResourceDefinitionsInvokeResponse) ApiResourceDefinitionsInvokeResponse { return *v }).(ApiResourceDefinitionsInvokeResponseOutput)
+}
+
+// The modified swagger url.
+func (o ApiResourceDefinitionsInvokeResponsePtrOutput) ModifiedSwaggerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceDefinitionsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModifiedSwaggerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The original swagger url.
+func (o ApiResourceDefinitionsInvokeResponsePtrOutput) OriginalSwaggerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceDefinitionsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OriginalSwaggerUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5443,6 +8406,237 @@ func (o ApiResourceDefinitionsResponsePtrOutput) OriginalSwaggerUrl() pulumi.Str
 			return nil
 		}
 		return v.OriginalSwaggerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The API general information.
+type ApiResourceGeneralInformationInvokeResponse struct {
+	// The description.
+	Description *string `pulumi:"description"`
+	// The display name.
+	DisplayName *string `pulumi:"displayName"`
+	// The icon url.
+	IconUrl *string `pulumi:"iconUrl"`
+	// The release tag.
+	ReleaseTag *string `pulumi:"releaseTag"`
+	// The terms of use url.
+	TermsOfUseUrl *string `pulumi:"termsOfUseUrl"`
+	// The tier.
+	Tier *string `pulumi:"tier"`
+}
+
+// ApiResourceGeneralInformationInvokeResponseInput is an input type that accepts ApiResourceGeneralInformationInvokeResponseArgs and ApiResourceGeneralInformationInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiResourceGeneralInformationInvokeResponseInput` via:
+//
+//          ApiResourceGeneralInformationInvokeResponseArgs{...}
+type ApiResourceGeneralInformationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApiResourceGeneralInformationInvokeResponseOutput() ApiResourceGeneralInformationInvokeResponseOutput
+	ToApiResourceGeneralInformationInvokeResponseOutputWithContext(context.Context) ApiResourceGeneralInformationInvokeResponseOutput
+}
+
+// The API general information.
+type ApiResourceGeneralInformationInvokeResponseArgs struct {
+	// The description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The display name.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The icon url.
+	IconUrl pulumi.StringPtrInput `pulumi:"iconUrl"`
+	// The release tag.
+	ReleaseTag pulumi.StringPtrInput `pulumi:"releaseTag"`
+	// The terms of use url.
+	TermsOfUseUrl pulumi.StringPtrInput `pulumi:"termsOfUseUrl"`
+	// The tier.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (ApiResourceGeneralInformationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourceGeneralInformationInvokeResponse)(nil)).Elem()
+}
+
+func (i ApiResourceGeneralInformationInvokeResponseArgs) ToApiResourceGeneralInformationInvokeResponseOutput() ApiResourceGeneralInformationInvokeResponseOutput {
+	return i.ToApiResourceGeneralInformationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApiResourceGeneralInformationInvokeResponseArgs) ToApiResourceGeneralInformationInvokeResponseOutputWithContext(ctx context.Context) ApiResourceGeneralInformationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceGeneralInformationInvokeResponseOutput)
+}
+
+func (i ApiResourceGeneralInformationInvokeResponseArgs) ToApiResourceGeneralInformationInvokeResponsePtrOutput() ApiResourceGeneralInformationInvokeResponsePtrOutput {
+	return i.ToApiResourceGeneralInformationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiResourceGeneralInformationInvokeResponseArgs) ToApiResourceGeneralInformationInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceGeneralInformationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceGeneralInformationInvokeResponseOutput).ToApiResourceGeneralInformationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ApiResourceGeneralInformationInvokeResponsePtrInput is an input type that accepts ApiResourceGeneralInformationInvokeResponseArgs, ApiResourceGeneralInformationInvokeResponsePtr and ApiResourceGeneralInformationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ApiResourceGeneralInformationInvokeResponsePtrInput` via:
+//
+//          ApiResourceGeneralInformationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiResourceGeneralInformationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiResourceGeneralInformationInvokeResponsePtrOutput() ApiResourceGeneralInformationInvokeResponsePtrOutput
+	ToApiResourceGeneralInformationInvokeResponsePtrOutputWithContext(context.Context) ApiResourceGeneralInformationInvokeResponsePtrOutput
+}
+
+type apiResourceGeneralInformationInvokeResponsePtrType ApiResourceGeneralInformationInvokeResponseArgs
+
+func ApiResourceGeneralInformationInvokeResponsePtr(v *ApiResourceGeneralInformationInvokeResponseArgs) ApiResourceGeneralInformationInvokeResponsePtrInput {
+	return (*apiResourceGeneralInformationInvokeResponsePtrType)(v)
+}
+
+func (*apiResourceGeneralInformationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiResourceGeneralInformationInvokeResponse)(nil)).Elem()
+}
+
+func (i *apiResourceGeneralInformationInvokeResponsePtrType) ToApiResourceGeneralInformationInvokeResponsePtrOutput() ApiResourceGeneralInformationInvokeResponsePtrOutput {
+	return i.ToApiResourceGeneralInformationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiResourceGeneralInformationInvokeResponsePtrType) ToApiResourceGeneralInformationInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceGeneralInformationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceGeneralInformationInvokeResponsePtrOutput)
+}
+
+// The API general information.
+type ApiResourceGeneralInformationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiResourceGeneralInformationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourceGeneralInformationInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourceGeneralInformationInvokeResponseOutput) ToApiResourceGeneralInformationInvokeResponseOutput() ApiResourceGeneralInformationInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourceGeneralInformationInvokeResponseOutput) ToApiResourceGeneralInformationInvokeResponseOutputWithContext(ctx context.Context) ApiResourceGeneralInformationInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourceGeneralInformationInvokeResponseOutput) ToApiResourceGeneralInformationInvokeResponsePtrOutput() ApiResourceGeneralInformationInvokeResponsePtrOutput {
+	return o.ToApiResourceGeneralInformationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiResourceGeneralInformationInvokeResponseOutput) ToApiResourceGeneralInformationInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceGeneralInformationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourceGeneralInformationInvokeResponse) *ApiResourceGeneralInformationInvokeResponse {
+		return &v
+	}).(ApiResourceGeneralInformationInvokeResponsePtrOutput)
+}
+
+// The description.
+func (o ApiResourceGeneralInformationInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceGeneralInformationInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name.
+func (o ApiResourceGeneralInformationInvokeResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceGeneralInformationInvokeResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The icon url.
+func (o ApiResourceGeneralInformationInvokeResponseOutput) IconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceGeneralInformationInvokeResponse) *string { return v.IconUrl }).(pulumi.StringPtrOutput)
+}
+
+// The release tag.
+func (o ApiResourceGeneralInformationInvokeResponseOutput) ReleaseTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceGeneralInformationInvokeResponse) *string { return v.ReleaseTag }).(pulumi.StringPtrOutput)
+}
+
+// The terms of use url.
+func (o ApiResourceGeneralInformationInvokeResponseOutput) TermsOfUseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceGeneralInformationInvokeResponse) *string { return v.TermsOfUseUrl }).(pulumi.StringPtrOutput)
+}
+
+// The tier.
+func (o ApiResourceGeneralInformationInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceGeneralInformationInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type ApiResourceGeneralInformationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiResourceGeneralInformationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiResourceGeneralInformationInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourceGeneralInformationInvokeResponsePtrOutput) ToApiResourceGeneralInformationInvokeResponsePtrOutput() ApiResourceGeneralInformationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiResourceGeneralInformationInvokeResponsePtrOutput) ToApiResourceGeneralInformationInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceGeneralInformationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiResourceGeneralInformationInvokeResponsePtrOutput) Elem() ApiResourceGeneralInformationInvokeResponseOutput {
+	return o.ApplyT(func(v *ApiResourceGeneralInformationInvokeResponse) ApiResourceGeneralInformationInvokeResponse {
+		return *v
+	}).(ApiResourceGeneralInformationInvokeResponseOutput)
+}
+
+// The description.
+func (o ApiResourceGeneralInformationInvokeResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceGeneralInformationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The display name.
+func (o ApiResourceGeneralInformationInvokeResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceGeneralInformationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The icon url.
+func (o ApiResourceGeneralInformationInvokeResponsePtrOutput) IconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceGeneralInformationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IconUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The release tag.
+func (o ApiResourceGeneralInformationInvokeResponsePtrOutput) ReleaseTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceGeneralInformationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReleaseTag
+	}).(pulumi.StringPtrOutput)
+}
+
+// The terms of use url.
+func (o ApiResourceGeneralInformationInvokeResponsePtrOutput) TermsOfUseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceGeneralInformationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TermsOfUseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tier.
+func (o ApiResourceGeneralInformationInvokeResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceGeneralInformationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5673,6 +8867,313 @@ func (o ApiResourceGeneralInformationResponsePtrOutput) Tier() pulumi.StringPtrO
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// The api resource metadata.
+type ApiResourceMetadataInvokeResponse struct {
+	// The api type.
+	ApiType *string `pulumi:"apiType"`
+	// The brand color.
+	BrandColor *string `pulumi:"brandColor"`
+	// The connection type.
+	ConnectionType *string `pulumi:"connectionType"`
+	// The connector deployment parameters metadata.
+	DeploymentParameters *ApiDeploymentParameterMetadataSetInvokeResponse `pulumi:"deploymentParameters"`
+	// The hide key.
+	HideKey *string `pulumi:"hideKey"`
+	// The provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The source.
+	Source *string `pulumi:"source"`
+	// The tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The WSDL import method.
+	WsdlImportMethod *string `pulumi:"wsdlImportMethod"`
+	// The WSDL service.
+	WsdlService *WsdlServiceInvokeResponse `pulumi:"wsdlService"`
+}
+
+// ApiResourceMetadataInvokeResponseInput is an input type that accepts ApiResourceMetadataInvokeResponseArgs and ApiResourceMetadataInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiResourceMetadataInvokeResponseInput` via:
+//
+//          ApiResourceMetadataInvokeResponseArgs{...}
+type ApiResourceMetadataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApiResourceMetadataInvokeResponseOutput() ApiResourceMetadataInvokeResponseOutput
+	ToApiResourceMetadataInvokeResponseOutputWithContext(context.Context) ApiResourceMetadataInvokeResponseOutput
+}
+
+// The api resource metadata.
+type ApiResourceMetadataInvokeResponseArgs struct {
+	// The api type.
+	ApiType pulumi.StringPtrInput `pulumi:"apiType"`
+	// The brand color.
+	BrandColor pulumi.StringPtrInput `pulumi:"brandColor"`
+	// The connection type.
+	ConnectionType pulumi.StringPtrInput `pulumi:"connectionType"`
+	// The connector deployment parameters metadata.
+	DeploymentParameters ApiDeploymentParameterMetadataSetInvokeResponsePtrInput `pulumi:"deploymentParameters"`
+	// The hide key.
+	HideKey pulumi.StringPtrInput `pulumi:"hideKey"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// The source.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// The tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The WSDL import method.
+	WsdlImportMethod pulumi.StringPtrInput `pulumi:"wsdlImportMethod"`
+	// The WSDL service.
+	WsdlService WsdlServiceInvokeResponsePtrInput `pulumi:"wsdlService"`
+}
+
+func (ApiResourceMetadataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourceMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i ApiResourceMetadataInvokeResponseArgs) ToApiResourceMetadataInvokeResponseOutput() ApiResourceMetadataInvokeResponseOutput {
+	return i.ToApiResourceMetadataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApiResourceMetadataInvokeResponseArgs) ToApiResourceMetadataInvokeResponseOutputWithContext(ctx context.Context) ApiResourceMetadataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceMetadataInvokeResponseOutput)
+}
+
+func (i ApiResourceMetadataInvokeResponseArgs) ToApiResourceMetadataInvokeResponsePtrOutput() ApiResourceMetadataInvokeResponsePtrOutput {
+	return i.ToApiResourceMetadataInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiResourceMetadataInvokeResponseArgs) ToApiResourceMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceMetadataInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceMetadataInvokeResponseOutput).ToApiResourceMetadataInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ApiResourceMetadataInvokeResponsePtrInput is an input type that accepts ApiResourceMetadataInvokeResponseArgs, ApiResourceMetadataInvokeResponsePtr and ApiResourceMetadataInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ApiResourceMetadataInvokeResponsePtrInput` via:
+//
+//          ApiResourceMetadataInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiResourceMetadataInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiResourceMetadataInvokeResponsePtrOutput() ApiResourceMetadataInvokeResponsePtrOutput
+	ToApiResourceMetadataInvokeResponsePtrOutputWithContext(context.Context) ApiResourceMetadataInvokeResponsePtrOutput
+}
+
+type apiResourceMetadataInvokeResponsePtrType ApiResourceMetadataInvokeResponseArgs
+
+func ApiResourceMetadataInvokeResponsePtr(v *ApiResourceMetadataInvokeResponseArgs) ApiResourceMetadataInvokeResponsePtrInput {
+	return (*apiResourceMetadataInvokeResponsePtrType)(v)
+}
+
+func (*apiResourceMetadataInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiResourceMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i *apiResourceMetadataInvokeResponsePtrType) ToApiResourceMetadataInvokeResponsePtrOutput() ApiResourceMetadataInvokeResponsePtrOutput {
+	return i.ToApiResourceMetadataInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiResourceMetadataInvokeResponsePtrType) ToApiResourceMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceMetadataInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourceMetadataInvokeResponsePtrOutput)
+}
+
+// The api resource metadata.
+type ApiResourceMetadataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiResourceMetadataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourceMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourceMetadataInvokeResponseOutput) ToApiResourceMetadataInvokeResponseOutput() ApiResourceMetadataInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourceMetadataInvokeResponseOutput) ToApiResourceMetadataInvokeResponseOutputWithContext(ctx context.Context) ApiResourceMetadataInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourceMetadataInvokeResponseOutput) ToApiResourceMetadataInvokeResponsePtrOutput() ApiResourceMetadataInvokeResponsePtrOutput {
+	return o.ToApiResourceMetadataInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiResourceMetadataInvokeResponseOutput) ToApiResourceMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) *ApiResourceMetadataInvokeResponse {
+		return &v
+	}).(ApiResourceMetadataInvokeResponsePtrOutput)
+}
+
+// The api type.
+func (o ApiResourceMetadataInvokeResponseOutput) ApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) *string { return v.ApiType }).(pulumi.StringPtrOutput)
+}
+
+// The brand color.
+func (o ApiResourceMetadataInvokeResponseOutput) BrandColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) *string { return v.BrandColor }).(pulumi.StringPtrOutput)
+}
+
+// The connection type.
+func (o ApiResourceMetadataInvokeResponseOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) *string { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+// The connector deployment parameters metadata.
+func (o ApiResourceMetadataInvokeResponseOutput) DeploymentParameters() ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) *ApiDeploymentParameterMetadataSetInvokeResponse {
+		return v.DeploymentParameters
+	}).(ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput)
+}
+
+// The hide key.
+func (o ApiResourceMetadataInvokeResponseOutput) HideKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) *string { return v.HideKey }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state.
+func (o ApiResourceMetadataInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The source.
+func (o ApiResourceMetadataInvokeResponseOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The tags.
+func (o ApiResourceMetadataInvokeResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The WSDL import method.
+func (o ApiResourceMetadataInvokeResponseOutput) WsdlImportMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) *string { return v.WsdlImportMethod }).(pulumi.StringPtrOutput)
+}
+
+// The WSDL service.
+func (o ApiResourceMetadataInvokeResponseOutput) WsdlService() WsdlServiceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourceMetadataInvokeResponse) *WsdlServiceInvokeResponse { return v.WsdlService }).(WsdlServiceInvokeResponsePtrOutput)
+}
+
+type ApiResourceMetadataInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiResourceMetadataInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiResourceMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourceMetadataInvokeResponsePtrOutput) ToApiResourceMetadataInvokeResponsePtrOutput() ApiResourceMetadataInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiResourceMetadataInvokeResponsePtrOutput) ToApiResourceMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourceMetadataInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiResourceMetadataInvokeResponsePtrOutput) Elem() ApiResourceMetadataInvokeResponseOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) ApiResourceMetadataInvokeResponse { return *v }).(ApiResourceMetadataInvokeResponseOutput)
+}
+
+// The api type.
+func (o ApiResourceMetadataInvokeResponsePtrOutput) ApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The brand color.
+func (o ApiResourceMetadataInvokeResponsePtrOutput) BrandColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BrandColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The connection type.
+func (o ApiResourceMetadataInvokeResponsePtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The connector deployment parameters metadata.
+func (o ApiResourceMetadataInvokeResponsePtrOutput) DeploymentParameters() ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) *ApiDeploymentParameterMetadataSetInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentParameters
+	}).(ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput)
+}
+
+// The hide key.
+func (o ApiResourceMetadataInvokeResponsePtrOutput) HideKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HideKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state.
+func (o ApiResourceMetadataInvokeResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source.
+func (o ApiResourceMetadataInvokeResponsePtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tags.
+func (o ApiResourceMetadataInvokeResponsePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// The WSDL import method.
+func (o ApiResourceMetadataInvokeResponsePtrOutput) WsdlImportMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WsdlImportMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// The WSDL service.
+func (o ApiResourceMetadataInvokeResponsePtrOutput) WsdlService() WsdlServiceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ApiResourceMetadataInvokeResponse) *WsdlServiceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.WsdlService
+	}).(WsdlServiceInvokeResponsePtrOutput)
 }
 
 // The api resource metadata.
@@ -5983,6 +9484,159 @@ func (o ApiResourceMetadataResponsePtrOutput) WsdlService() WsdlServiceResponseP
 }
 
 // The API resource policies.
+type ApiResourcePoliciesInvokeResponse struct {
+	// The API level only policies XML as embedded content.
+	Content *string `pulumi:"content"`
+	// The content link to the policies.
+	ContentLink *string `pulumi:"contentLink"`
+}
+
+// ApiResourcePoliciesInvokeResponseInput is an input type that accepts ApiResourcePoliciesInvokeResponseArgs and ApiResourcePoliciesInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiResourcePoliciesInvokeResponseInput` via:
+//
+//          ApiResourcePoliciesInvokeResponseArgs{...}
+type ApiResourcePoliciesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApiResourcePoliciesInvokeResponseOutput() ApiResourcePoliciesInvokeResponseOutput
+	ToApiResourcePoliciesInvokeResponseOutputWithContext(context.Context) ApiResourcePoliciesInvokeResponseOutput
+}
+
+// The API resource policies.
+type ApiResourcePoliciesInvokeResponseArgs struct {
+	// The API level only policies XML as embedded content.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// The content link to the policies.
+	ContentLink pulumi.StringPtrInput `pulumi:"contentLink"`
+}
+
+func (ApiResourcePoliciesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourcePoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (i ApiResourcePoliciesInvokeResponseArgs) ToApiResourcePoliciesInvokeResponseOutput() ApiResourcePoliciesInvokeResponseOutput {
+	return i.ToApiResourcePoliciesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApiResourcePoliciesInvokeResponseArgs) ToApiResourcePoliciesInvokeResponseOutputWithContext(ctx context.Context) ApiResourcePoliciesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourcePoliciesInvokeResponseOutput)
+}
+
+func (i ApiResourcePoliciesInvokeResponseArgs) ToApiResourcePoliciesInvokeResponsePtrOutput() ApiResourcePoliciesInvokeResponsePtrOutput {
+	return i.ToApiResourcePoliciesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApiResourcePoliciesInvokeResponseArgs) ToApiResourcePoliciesInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourcePoliciesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourcePoliciesInvokeResponseOutput).ToApiResourcePoliciesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ApiResourcePoliciesInvokeResponsePtrInput is an input type that accepts ApiResourcePoliciesInvokeResponseArgs, ApiResourcePoliciesInvokeResponsePtr and ApiResourcePoliciesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ApiResourcePoliciesInvokeResponsePtrInput` via:
+//
+//          ApiResourcePoliciesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApiResourcePoliciesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToApiResourcePoliciesInvokeResponsePtrOutput() ApiResourcePoliciesInvokeResponsePtrOutput
+	ToApiResourcePoliciesInvokeResponsePtrOutputWithContext(context.Context) ApiResourcePoliciesInvokeResponsePtrOutput
+}
+
+type apiResourcePoliciesInvokeResponsePtrType ApiResourcePoliciesInvokeResponseArgs
+
+func ApiResourcePoliciesInvokeResponsePtr(v *ApiResourcePoliciesInvokeResponseArgs) ApiResourcePoliciesInvokeResponsePtrInput {
+	return (*apiResourcePoliciesInvokeResponsePtrType)(v)
+}
+
+func (*apiResourcePoliciesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiResourcePoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (i *apiResourcePoliciesInvokeResponsePtrType) ToApiResourcePoliciesInvokeResponsePtrOutput() ApiResourcePoliciesInvokeResponsePtrOutput {
+	return i.ToApiResourcePoliciesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apiResourcePoliciesInvokeResponsePtrType) ToApiResourcePoliciesInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourcePoliciesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourcePoliciesInvokeResponsePtrOutput)
+}
+
+// The API resource policies.
+type ApiResourcePoliciesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiResourcePoliciesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourcePoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourcePoliciesInvokeResponseOutput) ToApiResourcePoliciesInvokeResponseOutput() ApiResourcePoliciesInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourcePoliciesInvokeResponseOutput) ToApiResourcePoliciesInvokeResponseOutputWithContext(ctx context.Context) ApiResourcePoliciesInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourcePoliciesInvokeResponseOutput) ToApiResourcePoliciesInvokeResponsePtrOutput() ApiResourcePoliciesInvokeResponsePtrOutput {
+	return o.ToApiResourcePoliciesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApiResourcePoliciesInvokeResponseOutput) ToApiResourcePoliciesInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourcePoliciesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourcePoliciesInvokeResponse) *ApiResourcePoliciesInvokeResponse {
+		return &v
+	}).(ApiResourcePoliciesInvokeResponsePtrOutput)
+}
+
+// The API level only policies XML as embedded content.
+func (o ApiResourcePoliciesInvokeResponseOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourcePoliciesInvokeResponse) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The content link to the policies.
+func (o ApiResourcePoliciesInvokeResponseOutput) ContentLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourcePoliciesInvokeResponse) *string { return v.ContentLink }).(pulumi.StringPtrOutput)
+}
+
+type ApiResourcePoliciesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiResourcePoliciesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiResourcePoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourcePoliciesInvokeResponsePtrOutput) ToApiResourcePoliciesInvokeResponsePtrOutput() ApiResourcePoliciesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiResourcePoliciesInvokeResponsePtrOutput) ToApiResourcePoliciesInvokeResponsePtrOutputWithContext(ctx context.Context) ApiResourcePoliciesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApiResourcePoliciesInvokeResponsePtrOutput) Elem() ApiResourcePoliciesInvokeResponseOutput {
+	return o.ApplyT(func(v *ApiResourcePoliciesInvokeResponse) ApiResourcePoliciesInvokeResponse { return *v }).(ApiResourcePoliciesInvokeResponseOutput)
+}
+
+// The API level only policies XML as embedded content.
+func (o ApiResourcePoliciesInvokeResponsePtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourcePoliciesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content link to the policies.
+func (o ApiResourcePoliciesInvokeResponsePtrOutput) ContentLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiResourcePoliciesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentLink
+	}).(pulumi.StringPtrOutput)
+}
+
+// The API resource policies.
 type ApiResourcePoliciesResponse struct {
 	// The API level only policies XML as embedded content.
 	Content *string `pulumi:"content"`
@@ -6133,6 +9787,177 @@ func (o ApiResourcePoliciesResponsePtrOutput) ContentLink() pulumi.StringPtrOutp
 		}
 		return v.ContentLink
 	}).(pulumi.StringPtrOutput)
+}
+
+// The API resource properties.
+type ApiResourcePropertiesInvokeResponse struct {
+	// The API definition.
+	ApiDefinitionUrl *string `pulumi:"apiDefinitionUrl"`
+	// The api definitions.
+	ApiDefinitions *ApiResourceDefinitionsInvokeResponse `pulumi:"apiDefinitions"`
+	// The backend service.
+	BackendService *ApiResourceBackendServiceInvokeResponse `pulumi:"backendService"`
+	// The capabilities.
+	Capabilities []string `pulumi:"capabilities"`
+	// The category.
+	Category *string `pulumi:"category"`
+	// The connection parameters.
+	ConnectionParameters map[string]interface{} `pulumi:"connectionParameters"`
+	// The api general information.
+	GeneralInformation *ApiResourceGeneralInformationInvokeResponse `pulumi:"generalInformation"`
+	// The integration service environment reference.
+	IntegrationServiceEnvironment *ResourceReferenceInvokeResponse `pulumi:"integrationServiceEnvironment"`
+	// The metadata.
+	Metadata *ApiResourceMetadataInvokeResponse `pulumi:"metadata"`
+	// The name
+	Name *string `pulumi:"name"`
+	// The policies for the API.
+	Policies *ApiResourcePoliciesInvokeResponse `pulumi:"policies"`
+	// The provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The runtime urls.
+	RuntimeUrls []string `pulumi:"runtimeUrls"`
+}
+
+// ApiResourcePropertiesInvokeResponseInput is an input type that accepts ApiResourcePropertiesInvokeResponseArgs and ApiResourcePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiResourcePropertiesInvokeResponseInput` via:
+//
+//          ApiResourcePropertiesInvokeResponseArgs{...}
+type ApiResourcePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApiResourcePropertiesInvokeResponseOutput() ApiResourcePropertiesInvokeResponseOutput
+	ToApiResourcePropertiesInvokeResponseOutputWithContext(context.Context) ApiResourcePropertiesInvokeResponseOutput
+}
+
+// The API resource properties.
+type ApiResourcePropertiesInvokeResponseArgs struct {
+	// The API definition.
+	ApiDefinitionUrl pulumi.StringPtrInput `pulumi:"apiDefinitionUrl"`
+	// The api definitions.
+	ApiDefinitions ApiResourceDefinitionsInvokeResponsePtrInput `pulumi:"apiDefinitions"`
+	// The backend service.
+	BackendService ApiResourceBackendServiceInvokeResponsePtrInput `pulumi:"backendService"`
+	// The capabilities.
+	Capabilities pulumi.StringArrayInput `pulumi:"capabilities"`
+	// The category.
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// The connection parameters.
+	ConnectionParameters pulumi.MapInput `pulumi:"connectionParameters"`
+	// The api general information.
+	GeneralInformation ApiResourceGeneralInformationInvokeResponsePtrInput `pulumi:"generalInformation"`
+	// The integration service environment reference.
+	IntegrationServiceEnvironment ResourceReferenceInvokeResponsePtrInput `pulumi:"integrationServiceEnvironment"`
+	// The metadata.
+	Metadata ApiResourceMetadataInvokeResponsePtrInput `pulumi:"metadata"`
+	// The name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The policies for the API.
+	Policies ApiResourcePoliciesInvokeResponsePtrInput `pulumi:"policies"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// The runtime urls.
+	RuntimeUrls pulumi.StringArrayInput `pulumi:"runtimeUrls"`
+}
+
+func (ApiResourcePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ApiResourcePropertiesInvokeResponseArgs) ToApiResourcePropertiesInvokeResponseOutput() ApiResourcePropertiesInvokeResponseOutput {
+	return i.ToApiResourcePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApiResourcePropertiesInvokeResponseArgs) ToApiResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) ApiResourcePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiResourcePropertiesInvokeResponseOutput)
+}
+
+// The API resource properties.
+type ApiResourcePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiResourcePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiResourcePropertiesInvokeResponseOutput) ToApiResourcePropertiesInvokeResponseOutput() ApiResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ApiResourcePropertiesInvokeResponseOutput) ToApiResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) ApiResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+// The API definition.
+func (o ApiResourcePropertiesInvokeResponseOutput) ApiDefinitionUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) *string { return v.ApiDefinitionUrl }).(pulumi.StringPtrOutput)
+}
+
+// The api definitions.
+func (o ApiResourcePropertiesInvokeResponseOutput) ApiDefinitions() ApiResourceDefinitionsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) *ApiResourceDefinitionsInvokeResponse {
+		return v.ApiDefinitions
+	}).(ApiResourceDefinitionsInvokeResponsePtrOutput)
+}
+
+// The backend service.
+func (o ApiResourcePropertiesInvokeResponseOutput) BackendService() ApiResourceBackendServiceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) *ApiResourceBackendServiceInvokeResponse {
+		return v.BackendService
+	}).(ApiResourceBackendServiceInvokeResponsePtrOutput)
+}
+
+// The capabilities.
+func (o ApiResourcePropertiesInvokeResponseOutput) Capabilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) []string { return v.Capabilities }).(pulumi.StringArrayOutput)
+}
+
+// The category.
+func (o ApiResourcePropertiesInvokeResponseOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// The connection parameters.
+func (o ApiResourcePropertiesInvokeResponseOutput) ConnectionParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) map[string]interface{} { return v.ConnectionParameters }).(pulumi.MapOutput)
+}
+
+// The api general information.
+func (o ApiResourcePropertiesInvokeResponseOutput) GeneralInformation() ApiResourceGeneralInformationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) *ApiResourceGeneralInformationInvokeResponse {
+		return v.GeneralInformation
+	}).(ApiResourceGeneralInformationInvokeResponsePtrOutput)
+}
+
+// The integration service environment reference.
+func (o ApiResourcePropertiesInvokeResponseOutput) IntegrationServiceEnvironment() ResourceReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) *ResourceReferenceInvokeResponse {
+		return v.IntegrationServiceEnvironment
+	}).(ResourceReferenceInvokeResponsePtrOutput)
+}
+
+// The metadata.
+func (o ApiResourcePropertiesInvokeResponseOutput) Metadata() ApiResourceMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) *ApiResourceMetadataInvokeResponse { return v.Metadata }).(ApiResourceMetadataInvokeResponsePtrOutput)
+}
+
+// The name
+func (o ApiResourcePropertiesInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The policies for the API.
+func (o ApiResourcePropertiesInvokeResponseOutput) Policies() ApiResourcePoliciesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) *ApiResourcePoliciesInvokeResponse { return v.Policies }).(ApiResourcePoliciesInvokeResponsePtrOutput)
+}
+
+// The provisioning state.
+func (o ApiResourcePropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The runtime urls.
+func (o ApiResourcePropertiesInvokeResponseOutput) RuntimeUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesInvokeResponse) []string { return v.RuntimeUrls }).(pulumi.StringArrayOutput)
 }
 
 // The API resource properties.
@@ -6799,6 +10624,136 @@ func (o AssemblyPropertiesPtrOutput) Metadata() pulumi.AnyOutput {
 }
 
 // The assembly properties definition.
+type AssemblyPropertiesInvokeResponse struct {
+	// The assembly culture.
+	AssemblyCulture *string `pulumi:"assemblyCulture"`
+	// The assembly name.
+	AssemblyName string `pulumi:"assemblyName"`
+	// The assembly public key token.
+	AssemblyPublicKeyToken *string `pulumi:"assemblyPublicKeyToken"`
+	// The assembly version.
+	AssemblyVersion *string `pulumi:"assemblyVersion"`
+	// The artifact changed time.
+	ChangedTime *string     `pulumi:"changedTime"`
+	Content     interface{} `pulumi:"content"`
+	// The content link.
+	ContentLink *ContentLinkInvokeResponse `pulumi:"contentLink"`
+	// The content type.
+	ContentType *string `pulumi:"contentType"`
+	// The artifact creation time.
+	CreatedTime *string     `pulumi:"createdTime"`
+	Metadata    interface{} `pulumi:"metadata"`
+}
+
+// AssemblyPropertiesInvokeResponseInput is an input type that accepts AssemblyPropertiesInvokeResponseArgs and AssemblyPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AssemblyPropertiesInvokeResponseInput` via:
+//
+//          AssemblyPropertiesInvokeResponseArgs{...}
+type AssemblyPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAssemblyPropertiesInvokeResponseOutput() AssemblyPropertiesInvokeResponseOutput
+	ToAssemblyPropertiesInvokeResponseOutputWithContext(context.Context) AssemblyPropertiesInvokeResponseOutput
+}
+
+// The assembly properties definition.
+type AssemblyPropertiesInvokeResponseArgs struct {
+	// The assembly culture.
+	AssemblyCulture pulumi.StringPtrInput `pulumi:"assemblyCulture"`
+	// The assembly name.
+	AssemblyName pulumi.StringInput `pulumi:"assemblyName"`
+	// The assembly public key token.
+	AssemblyPublicKeyToken pulumi.StringPtrInput `pulumi:"assemblyPublicKeyToken"`
+	// The assembly version.
+	AssemblyVersion pulumi.StringPtrInput `pulumi:"assemblyVersion"`
+	// The artifact changed time.
+	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
+	Content     pulumi.Input          `pulumi:"content"`
+	// The content link.
+	ContentLink ContentLinkInvokeResponsePtrInput `pulumi:"contentLink"`
+	// The content type.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// The artifact creation time.
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	Metadata    pulumi.Input          `pulumi:"metadata"`
+}
+
+func (AssemblyPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssemblyPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AssemblyPropertiesInvokeResponseArgs) ToAssemblyPropertiesInvokeResponseOutput() AssemblyPropertiesInvokeResponseOutput {
+	return i.ToAssemblyPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AssemblyPropertiesInvokeResponseArgs) ToAssemblyPropertiesInvokeResponseOutputWithContext(ctx context.Context) AssemblyPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssemblyPropertiesInvokeResponseOutput)
+}
+
+// The assembly properties definition.
+type AssemblyPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AssemblyPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssemblyPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AssemblyPropertiesInvokeResponseOutput) ToAssemblyPropertiesInvokeResponseOutput() AssemblyPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AssemblyPropertiesInvokeResponseOutput) ToAssemblyPropertiesInvokeResponseOutputWithContext(ctx context.Context) AssemblyPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The assembly culture.
+func (o AssemblyPropertiesInvokeResponseOutput) AssemblyCulture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssemblyPropertiesInvokeResponse) *string { return v.AssemblyCulture }).(pulumi.StringPtrOutput)
+}
+
+// The assembly name.
+func (o AssemblyPropertiesInvokeResponseOutput) AssemblyName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssemblyPropertiesInvokeResponse) string { return v.AssemblyName }).(pulumi.StringOutput)
+}
+
+// The assembly public key token.
+func (o AssemblyPropertiesInvokeResponseOutput) AssemblyPublicKeyToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssemblyPropertiesInvokeResponse) *string { return v.AssemblyPublicKeyToken }).(pulumi.StringPtrOutput)
+}
+
+// The assembly version.
+func (o AssemblyPropertiesInvokeResponseOutput) AssemblyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssemblyPropertiesInvokeResponse) *string { return v.AssemblyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The artifact changed time.
+func (o AssemblyPropertiesInvokeResponseOutput) ChangedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssemblyPropertiesInvokeResponse) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o AssemblyPropertiesInvokeResponseOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v AssemblyPropertiesInvokeResponse) interface{} { return v.Content }).(pulumi.AnyOutput)
+}
+
+// The content link.
+func (o AssemblyPropertiesInvokeResponseOutput) ContentLink() ContentLinkInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AssemblyPropertiesInvokeResponse) *ContentLinkInvokeResponse { return v.ContentLink }).(ContentLinkInvokeResponsePtrOutput)
+}
+
+// The content type.
+func (o AssemblyPropertiesInvokeResponseOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssemblyPropertiesInvokeResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The artifact creation time.
+func (o AssemblyPropertiesInvokeResponseOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssemblyPropertiesInvokeResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o AssemblyPropertiesInvokeResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v AssemblyPropertiesInvokeResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The assembly properties definition.
 type AssemblyPropertiesResponse struct {
 	// The assembly culture.
 	AssemblyCulture *string `pulumi:"assemblyCulture"`
@@ -7096,175 +11051,175 @@ func (o AssemblyPropertiesResponsePtrOutput) Metadata() pulumi.AnyOutput {
 }
 
 // The azure resource error info.
-type AzureResourceErrorInfoResponse struct {
+type AzureResourceErrorInfoInvokeResponse struct {
 	// The error code.
 	Code string `pulumi:"code"`
 	// The error details.
-	Details []AzureResourceErrorInfoResponse `pulumi:"details"`
+	Details []AzureResourceErrorInfoInvokeResponse `pulumi:"details"`
 	// The error message.
 	Message string `pulumi:"message"`
 }
 
-// AzureResourceErrorInfoResponseInput is an input type that accepts AzureResourceErrorInfoResponseArgs and AzureResourceErrorInfoResponseOutput values.
-// You can construct a concrete instance of `AzureResourceErrorInfoResponseInput` via:
+// AzureResourceErrorInfoInvokeResponseInput is an input type that accepts AzureResourceErrorInfoInvokeResponseArgs and AzureResourceErrorInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureResourceErrorInfoInvokeResponseInput` via:
 //
-//          AzureResourceErrorInfoResponseArgs{...}
-type AzureResourceErrorInfoResponseInput interface {
+//          AzureResourceErrorInfoInvokeResponseArgs{...}
+type AzureResourceErrorInfoInvokeResponseInput interface {
 	pulumi.Input
 
-	ToAzureResourceErrorInfoResponseOutput() AzureResourceErrorInfoResponseOutput
-	ToAzureResourceErrorInfoResponseOutputWithContext(context.Context) AzureResourceErrorInfoResponseOutput
+	ToAzureResourceErrorInfoInvokeResponseOutput() AzureResourceErrorInfoInvokeResponseOutput
+	ToAzureResourceErrorInfoInvokeResponseOutputWithContext(context.Context) AzureResourceErrorInfoInvokeResponseOutput
 }
 
 // The azure resource error info.
-type AzureResourceErrorInfoResponseArgs struct {
+type AzureResourceErrorInfoInvokeResponseArgs struct {
 	// The error code.
 	Code pulumi.StringInput `pulumi:"code"`
 	// The error details.
-	Details AzureResourceErrorInfoResponseArrayInput `pulumi:"details"`
+	Details AzureResourceErrorInfoInvokeResponseArrayInput `pulumi:"details"`
 	// The error message.
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
-func (AzureResourceErrorInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureResourceErrorInfoResponse)(nil)).Elem()
+func (AzureResourceErrorInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureResourceErrorInfoInvokeResponse)(nil)).Elem()
 }
 
-func (i AzureResourceErrorInfoResponseArgs) ToAzureResourceErrorInfoResponseOutput() AzureResourceErrorInfoResponseOutput {
-	return i.ToAzureResourceErrorInfoResponseOutputWithContext(context.Background())
+func (i AzureResourceErrorInfoInvokeResponseArgs) ToAzureResourceErrorInfoInvokeResponseOutput() AzureResourceErrorInfoInvokeResponseOutput {
+	return i.ToAzureResourceErrorInfoInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i AzureResourceErrorInfoResponseArgs) ToAzureResourceErrorInfoResponseOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceErrorInfoResponseOutput)
+func (i AzureResourceErrorInfoInvokeResponseArgs) ToAzureResourceErrorInfoInvokeResponseOutputWithContext(ctx context.Context) AzureResourceErrorInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceErrorInfoInvokeResponseOutput)
 }
 
-func (i AzureResourceErrorInfoResponseArgs) ToAzureResourceErrorInfoResponsePtrOutput() AzureResourceErrorInfoResponsePtrOutput {
-	return i.ToAzureResourceErrorInfoResponsePtrOutputWithContext(context.Background())
+func (i AzureResourceErrorInfoInvokeResponseArgs) ToAzureResourceErrorInfoInvokeResponsePtrOutput() AzureResourceErrorInfoInvokeResponsePtrOutput {
+	return i.ToAzureResourceErrorInfoInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i AzureResourceErrorInfoResponseArgs) ToAzureResourceErrorInfoResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceErrorInfoResponseOutput).ToAzureResourceErrorInfoResponsePtrOutputWithContext(ctx)
+func (i AzureResourceErrorInfoInvokeResponseArgs) ToAzureResourceErrorInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceErrorInfoInvokeResponseOutput).ToAzureResourceErrorInfoInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// AzureResourceErrorInfoResponsePtrInput is an input type that accepts AzureResourceErrorInfoResponseArgs, AzureResourceErrorInfoResponsePtr and AzureResourceErrorInfoResponsePtrOutput values.
-// You can construct a concrete instance of `AzureResourceErrorInfoResponsePtrInput` via:
+// AzureResourceErrorInfoInvokeResponsePtrInput is an input type that accepts AzureResourceErrorInfoInvokeResponseArgs, AzureResourceErrorInfoInvokeResponsePtr and AzureResourceErrorInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AzureResourceErrorInfoInvokeResponsePtrInput` via:
 //
-//          AzureResourceErrorInfoResponseArgs{...}
+//          AzureResourceErrorInfoInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type AzureResourceErrorInfoResponsePtrInput interface {
+type AzureResourceErrorInfoInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToAzureResourceErrorInfoResponsePtrOutput() AzureResourceErrorInfoResponsePtrOutput
-	ToAzureResourceErrorInfoResponsePtrOutputWithContext(context.Context) AzureResourceErrorInfoResponsePtrOutput
+	ToAzureResourceErrorInfoInvokeResponsePtrOutput() AzureResourceErrorInfoInvokeResponsePtrOutput
+	ToAzureResourceErrorInfoInvokeResponsePtrOutputWithContext(context.Context) AzureResourceErrorInfoInvokeResponsePtrOutput
 }
 
-type azureResourceErrorInfoResponsePtrType AzureResourceErrorInfoResponseArgs
+type azureResourceErrorInfoInvokeResponsePtrType AzureResourceErrorInfoInvokeResponseArgs
 
-func AzureResourceErrorInfoResponsePtr(v *AzureResourceErrorInfoResponseArgs) AzureResourceErrorInfoResponsePtrInput {
-	return (*azureResourceErrorInfoResponsePtrType)(v)
+func AzureResourceErrorInfoInvokeResponsePtr(v *AzureResourceErrorInfoInvokeResponseArgs) AzureResourceErrorInfoInvokeResponsePtrInput {
+	return (*azureResourceErrorInfoInvokeResponsePtrType)(v)
 }
 
-func (*azureResourceErrorInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureResourceErrorInfoResponse)(nil)).Elem()
+func (*azureResourceErrorInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureResourceErrorInfoInvokeResponse)(nil)).Elem()
 }
 
-func (i *azureResourceErrorInfoResponsePtrType) ToAzureResourceErrorInfoResponsePtrOutput() AzureResourceErrorInfoResponsePtrOutput {
-	return i.ToAzureResourceErrorInfoResponsePtrOutputWithContext(context.Background())
+func (i *azureResourceErrorInfoInvokeResponsePtrType) ToAzureResourceErrorInfoInvokeResponsePtrOutput() AzureResourceErrorInfoInvokeResponsePtrOutput {
+	return i.ToAzureResourceErrorInfoInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *azureResourceErrorInfoResponsePtrType) ToAzureResourceErrorInfoResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceErrorInfoResponsePtrOutput)
+func (i *azureResourceErrorInfoInvokeResponsePtrType) ToAzureResourceErrorInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceErrorInfoInvokeResponsePtrOutput)
 }
 
-// AzureResourceErrorInfoResponseArrayInput is an input type that accepts AzureResourceErrorInfoResponseArray and AzureResourceErrorInfoResponseArrayOutput values.
-// You can construct a concrete instance of `AzureResourceErrorInfoResponseArrayInput` via:
+// AzureResourceErrorInfoInvokeResponseArrayInput is an input type that accepts AzureResourceErrorInfoInvokeResponseArray and AzureResourceErrorInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AzureResourceErrorInfoInvokeResponseArrayInput` via:
 //
-//          AzureResourceErrorInfoResponseArray{ AzureResourceErrorInfoResponseArgs{...} }
-type AzureResourceErrorInfoResponseArrayInput interface {
+//          AzureResourceErrorInfoInvokeResponseArray{ AzureResourceErrorInfoInvokeResponseArgs{...} }
+type AzureResourceErrorInfoInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToAzureResourceErrorInfoResponseArrayOutput() AzureResourceErrorInfoResponseArrayOutput
-	ToAzureResourceErrorInfoResponseArrayOutputWithContext(context.Context) AzureResourceErrorInfoResponseArrayOutput
+	ToAzureResourceErrorInfoInvokeResponseArrayOutput() AzureResourceErrorInfoInvokeResponseArrayOutput
+	ToAzureResourceErrorInfoInvokeResponseArrayOutputWithContext(context.Context) AzureResourceErrorInfoInvokeResponseArrayOutput
 }
 
-type AzureResourceErrorInfoResponseArray []AzureResourceErrorInfoResponseInput
+type AzureResourceErrorInfoInvokeResponseArray []AzureResourceErrorInfoInvokeResponseInput
 
-func (AzureResourceErrorInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureResourceErrorInfoResponse)(nil)).Elem()
+func (AzureResourceErrorInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureResourceErrorInfoInvokeResponse)(nil)).Elem()
 }
 
-func (i AzureResourceErrorInfoResponseArray) ToAzureResourceErrorInfoResponseArrayOutput() AzureResourceErrorInfoResponseArrayOutput {
-	return i.ToAzureResourceErrorInfoResponseArrayOutputWithContext(context.Background())
+func (i AzureResourceErrorInfoInvokeResponseArray) ToAzureResourceErrorInfoInvokeResponseArrayOutput() AzureResourceErrorInfoInvokeResponseArrayOutput {
+	return i.ToAzureResourceErrorInfoInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i AzureResourceErrorInfoResponseArray) ToAzureResourceErrorInfoResponseArrayOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceErrorInfoResponseArrayOutput)
+func (i AzureResourceErrorInfoInvokeResponseArray) ToAzureResourceErrorInfoInvokeResponseArrayOutputWithContext(ctx context.Context) AzureResourceErrorInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureResourceErrorInfoInvokeResponseArrayOutput)
 }
 
 // The azure resource error info.
-type AzureResourceErrorInfoResponseOutput struct{ *pulumi.OutputState }
+type AzureResourceErrorInfoInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (AzureResourceErrorInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureResourceErrorInfoResponse)(nil)).Elem()
+func (AzureResourceErrorInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureResourceErrorInfoInvokeResponse)(nil)).Elem()
 }
 
-func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponseOutput() AzureResourceErrorInfoResponseOutput {
+func (o AzureResourceErrorInfoInvokeResponseOutput) ToAzureResourceErrorInfoInvokeResponseOutput() AzureResourceErrorInfoInvokeResponseOutput {
 	return o
 }
 
-func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponseOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponseOutput {
+func (o AzureResourceErrorInfoInvokeResponseOutput) ToAzureResourceErrorInfoInvokeResponseOutputWithContext(ctx context.Context) AzureResourceErrorInfoInvokeResponseOutput {
 	return o
 }
 
-func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponsePtrOutput() AzureResourceErrorInfoResponsePtrOutput {
-	return o.ToAzureResourceErrorInfoResponsePtrOutputWithContext(context.Background())
+func (o AzureResourceErrorInfoInvokeResponseOutput) ToAzureResourceErrorInfoInvokeResponsePtrOutput() AzureResourceErrorInfoInvokeResponsePtrOutput {
+	return o.ToAzureResourceErrorInfoInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureResourceErrorInfoResponse) *AzureResourceErrorInfoResponse {
+func (o AzureResourceErrorInfoInvokeResponseOutput) ToAzureResourceErrorInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureResourceErrorInfoInvokeResponse) *AzureResourceErrorInfoInvokeResponse {
 		return &v
-	}).(AzureResourceErrorInfoResponsePtrOutput)
+	}).(AzureResourceErrorInfoInvokeResponsePtrOutput)
 }
 
 // The error code.
-func (o AzureResourceErrorInfoResponseOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureResourceErrorInfoResponse) string { return v.Code }).(pulumi.StringOutput)
+func (o AzureResourceErrorInfoInvokeResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceErrorInfoInvokeResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
 // The error details.
-func (o AzureResourceErrorInfoResponseOutput) Details() AzureResourceErrorInfoResponseArrayOutput {
-	return o.ApplyT(func(v AzureResourceErrorInfoResponse) []AzureResourceErrorInfoResponse { return v.Details }).(AzureResourceErrorInfoResponseArrayOutput)
+func (o AzureResourceErrorInfoInvokeResponseOutput) Details() AzureResourceErrorInfoInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AzureResourceErrorInfoInvokeResponse) []AzureResourceErrorInfoInvokeResponse { return v.Details }).(AzureResourceErrorInfoInvokeResponseArrayOutput)
 }
 
 // The error message.
-func (o AzureResourceErrorInfoResponseOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureResourceErrorInfoResponse) string { return v.Message }).(pulumi.StringOutput)
+func (o AzureResourceErrorInfoInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceErrorInfoInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
-type AzureResourceErrorInfoResponsePtrOutput struct{ *pulumi.OutputState }
+type AzureResourceErrorInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (AzureResourceErrorInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureResourceErrorInfoResponse)(nil)).Elem()
+func (AzureResourceErrorInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureResourceErrorInfoInvokeResponse)(nil)).Elem()
 }
 
-func (o AzureResourceErrorInfoResponsePtrOutput) ToAzureResourceErrorInfoResponsePtrOutput() AzureResourceErrorInfoResponsePtrOutput {
+func (o AzureResourceErrorInfoInvokeResponsePtrOutput) ToAzureResourceErrorInfoInvokeResponsePtrOutput() AzureResourceErrorInfoInvokeResponsePtrOutput {
 	return o
 }
 
-func (o AzureResourceErrorInfoResponsePtrOutput) ToAzureResourceErrorInfoResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponsePtrOutput {
+func (o AzureResourceErrorInfoInvokeResponsePtrOutput) ToAzureResourceErrorInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoInvokeResponsePtrOutput {
 	return o
 }
 
-func (o AzureResourceErrorInfoResponsePtrOutput) Elem() AzureResourceErrorInfoResponseOutput {
-	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) AzureResourceErrorInfoResponse { return *v }).(AzureResourceErrorInfoResponseOutput)
+func (o AzureResourceErrorInfoInvokeResponsePtrOutput) Elem() AzureResourceErrorInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoInvokeResponse) AzureResourceErrorInfoInvokeResponse { return *v }).(AzureResourceErrorInfoInvokeResponseOutput)
 }
 
 // The error code.
-func (o AzureResourceErrorInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) *string {
+func (o AzureResourceErrorInfoInvokeResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -7273,18 +11228,18 @@ func (o AzureResourceErrorInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
 }
 
 // The error details.
-func (o AzureResourceErrorInfoResponsePtrOutput) Details() AzureResourceErrorInfoResponseArrayOutput {
-	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) []AzureResourceErrorInfoResponse {
+func (o AzureResourceErrorInfoInvokeResponsePtrOutput) Details() AzureResourceErrorInfoInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoInvokeResponse) []AzureResourceErrorInfoInvokeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Details
-	}).(AzureResourceErrorInfoResponseArrayOutput)
+	}).(AzureResourceErrorInfoInvokeResponseArrayOutput)
 }
 
 // The error message.
-func (o AzureResourceErrorInfoResponsePtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) *string {
+func (o AzureResourceErrorInfoInvokeResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -7292,24 +11247,24 @@ func (o AzureResourceErrorInfoResponsePtrOutput) Message() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-type AzureResourceErrorInfoResponseArrayOutput struct{ *pulumi.OutputState }
+type AzureResourceErrorInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (AzureResourceErrorInfoResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureResourceErrorInfoResponse)(nil)).Elem()
+func (AzureResourceErrorInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureResourceErrorInfoInvokeResponse)(nil)).Elem()
 }
 
-func (o AzureResourceErrorInfoResponseArrayOutput) ToAzureResourceErrorInfoResponseArrayOutput() AzureResourceErrorInfoResponseArrayOutput {
+func (o AzureResourceErrorInfoInvokeResponseArrayOutput) ToAzureResourceErrorInfoInvokeResponseArrayOutput() AzureResourceErrorInfoInvokeResponseArrayOutput {
 	return o
 }
 
-func (o AzureResourceErrorInfoResponseArrayOutput) ToAzureResourceErrorInfoResponseArrayOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponseArrayOutput {
+func (o AzureResourceErrorInfoInvokeResponseArrayOutput) ToAzureResourceErrorInfoInvokeResponseArrayOutputWithContext(ctx context.Context) AzureResourceErrorInfoInvokeResponseArrayOutput {
 	return o
 }
 
-func (o AzureResourceErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) AzureResourceErrorInfoResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureResourceErrorInfoResponse {
-		return vs[0].([]AzureResourceErrorInfoResponse)[vs[1].(int)]
-	}).(AzureResourceErrorInfoResponseOutput)
+func (o AzureResourceErrorInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) AzureResourceErrorInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureResourceErrorInfoInvokeResponse {
+		return vs[0].([]AzureResourceErrorInfoInvokeResponse)[vs[1].(int)]
+	}).(AzureResourceErrorInfoInvokeResponseOutput)
 }
 
 // The B2B partner content.
@@ -7444,6 +11399,140 @@ func (o B2BPartnerContentPtrOutput) BusinessIdentities() BusinessIdentityArrayOu
 		}
 		return v.BusinessIdentities
 	}).(BusinessIdentityArrayOutput)
+}
+
+// The B2B partner content.
+type B2BPartnerContentInvokeResponse struct {
+	// The list of partner business identities.
+	BusinessIdentities []BusinessIdentityInvokeResponse `pulumi:"businessIdentities"`
+}
+
+// B2BPartnerContentInvokeResponseInput is an input type that accepts B2BPartnerContentInvokeResponseArgs and B2BPartnerContentInvokeResponseOutput values.
+// You can construct a concrete instance of `B2BPartnerContentInvokeResponseInput` via:
+//
+//          B2BPartnerContentInvokeResponseArgs{...}
+type B2BPartnerContentInvokeResponseInput interface {
+	pulumi.Input
+
+	ToB2BPartnerContentInvokeResponseOutput() B2BPartnerContentInvokeResponseOutput
+	ToB2BPartnerContentInvokeResponseOutputWithContext(context.Context) B2BPartnerContentInvokeResponseOutput
+}
+
+// The B2B partner content.
+type B2BPartnerContentInvokeResponseArgs struct {
+	// The list of partner business identities.
+	BusinessIdentities BusinessIdentityInvokeResponseArrayInput `pulumi:"businessIdentities"`
+}
+
+func (B2BPartnerContentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*B2BPartnerContentInvokeResponse)(nil)).Elem()
+}
+
+func (i B2BPartnerContentInvokeResponseArgs) ToB2BPartnerContentInvokeResponseOutput() B2BPartnerContentInvokeResponseOutput {
+	return i.ToB2BPartnerContentInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i B2BPartnerContentInvokeResponseArgs) ToB2BPartnerContentInvokeResponseOutputWithContext(ctx context.Context) B2BPartnerContentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(B2BPartnerContentInvokeResponseOutput)
+}
+
+func (i B2BPartnerContentInvokeResponseArgs) ToB2BPartnerContentInvokeResponsePtrOutput() B2BPartnerContentInvokeResponsePtrOutput {
+	return i.ToB2BPartnerContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i B2BPartnerContentInvokeResponseArgs) ToB2BPartnerContentInvokeResponsePtrOutputWithContext(ctx context.Context) B2BPartnerContentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(B2BPartnerContentInvokeResponseOutput).ToB2BPartnerContentInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// B2BPartnerContentInvokeResponsePtrInput is an input type that accepts B2BPartnerContentInvokeResponseArgs, B2BPartnerContentInvokeResponsePtr and B2BPartnerContentInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `B2BPartnerContentInvokeResponsePtrInput` via:
+//
+//          B2BPartnerContentInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type B2BPartnerContentInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToB2BPartnerContentInvokeResponsePtrOutput() B2BPartnerContentInvokeResponsePtrOutput
+	ToB2BPartnerContentInvokeResponsePtrOutputWithContext(context.Context) B2BPartnerContentInvokeResponsePtrOutput
+}
+
+type b2bpartnerContentInvokeResponsePtrType B2BPartnerContentInvokeResponseArgs
+
+func B2BPartnerContentInvokeResponsePtr(v *B2BPartnerContentInvokeResponseArgs) B2BPartnerContentInvokeResponsePtrInput {
+	return (*b2bpartnerContentInvokeResponsePtrType)(v)
+}
+
+func (*b2bpartnerContentInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**B2BPartnerContentInvokeResponse)(nil)).Elem()
+}
+
+func (i *b2bpartnerContentInvokeResponsePtrType) ToB2BPartnerContentInvokeResponsePtrOutput() B2BPartnerContentInvokeResponsePtrOutput {
+	return i.ToB2BPartnerContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *b2bpartnerContentInvokeResponsePtrType) ToB2BPartnerContentInvokeResponsePtrOutputWithContext(ctx context.Context) B2BPartnerContentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(B2BPartnerContentInvokeResponsePtrOutput)
+}
+
+// The B2B partner content.
+type B2BPartnerContentInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (B2BPartnerContentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*B2BPartnerContentInvokeResponse)(nil)).Elem()
+}
+
+func (o B2BPartnerContentInvokeResponseOutput) ToB2BPartnerContentInvokeResponseOutput() B2BPartnerContentInvokeResponseOutput {
+	return o
+}
+
+func (o B2BPartnerContentInvokeResponseOutput) ToB2BPartnerContentInvokeResponseOutputWithContext(ctx context.Context) B2BPartnerContentInvokeResponseOutput {
+	return o
+}
+
+func (o B2BPartnerContentInvokeResponseOutput) ToB2BPartnerContentInvokeResponsePtrOutput() B2BPartnerContentInvokeResponsePtrOutput {
+	return o.ToB2BPartnerContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o B2BPartnerContentInvokeResponseOutput) ToB2BPartnerContentInvokeResponsePtrOutputWithContext(ctx context.Context) B2BPartnerContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v B2BPartnerContentInvokeResponse) *B2BPartnerContentInvokeResponse {
+		return &v
+	}).(B2BPartnerContentInvokeResponsePtrOutput)
+}
+
+// The list of partner business identities.
+func (o B2BPartnerContentInvokeResponseOutput) BusinessIdentities() BusinessIdentityInvokeResponseArrayOutput {
+	return o.ApplyT(func(v B2BPartnerContentInvokeResponse) []BusinessIdentityInvokeResponse { return v.BusinessIdentities }).(BusinessIdentityInvokeResponseArrayOutput)
+}
+
+type B2BPartnerContentInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (B2BPartnerContentInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**B2BPartnerContentInvokeResponse)(nil)).Elem()
+}
+
+func (o B2BPartnerContentInvokeResponsePtrOutput) ToB2BPartnerContentInvokeResponsePtrOutput() B2BPartnerContentInvokeResponsePtrOutput {
+	return o
+}
+
+func (o B2BPartnerContentInvokeResponsePtrOutput) ToB2BPartnerContentInvokeResponsePtrOutputWithContext(ctx context.Context) B2BPartnerContentInvokeResponsePtrOutput {
+	return o
+}
+
+func (o B2BPartnerContentInvokeResponsePtrOutput) Elem() B2BPartnerContentInvokeResponseOutput {
+	return o.ApplyT(func(v *B2BPartnerContentInvokeResponse) B2BPartnerContentInvokeResponse { return *v }).(B2BPartnerContentInvokeResponseOutput)
+}
+
+// The list of partner business identities.
+func (o B2BPartnerContentInvokeResponsePtrOutput) BusinessIdentities() BusinessIdentityInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *B2BPartnerContentInvokeResponse) []BusinessIdentityInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BusinessIdentities
+	}).(BusinessIdentityInvokeResponseArrayOutput)
 }
 
 // The B2B partner content.
@@ -7784,6 +11873,96 @@ func (o BatchConfigurationPropertiesPtrOutput) ReleaseCriteria() BatchReleaseCri
 		}
 		return &v.ReleaseCriteria
 	}).(BatchReleaseCriteriaPtrOutput)
+}
+
+// The batch configuration properties definition.
+type BatchConfigurationPropertiesInvokeResponse struct {
+	// The name of the batch group.
+	BatchGroupName string `pulumi:"batchGroupName"`
+	// The artifact changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// The artifact creation time.
+	CreatedTime *string     `pulumi:"createdTime"`
+	Metadata    interface{} `pulumi:"metadata"`
+	// The batch release criteria.
+	ReleaseCriteria BatchReleaseCriteriaInvokeResponse `pulumi:"releaseCriteria"`
+}
+
+// BatchConfigurationPropertiesInvokeResponseInput is an input type that accepts BatchConfigurationPropertiesInvokeResponseArgs and BatchConfigurationPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `BatchConfigurationPropertiesInvokeResponseInput` via:
+//
+//          BatchConfigurationPropertiesInvokeResponseArgs{...}
+type BatchConfigurationPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBatchConfigurationPropertiesInvokeResponseOutput() BatchConfigurationPropertiesInvokeResponseOutput
+	ToBatchConfigurationPropertiesInvokeResponseOutputWithContext(context.Context) BatchConfigurationPropertiesInvokeResponseOutput
+}
+
+// The batch configuration properties definition.
+type BatchConfigurationPropertiesInvokeResponseArgs struct {
+	// The name of the batch group.
+	BatchGroupName pulumi.StringInput `pulumi:"batchGroupName"`
+	// The artifact changed time.
+	ChangedTime pulumi.StringPtrInput `pulumi:"changedTime"`
+	// The artifact creation time.
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	Metadata    pulumi.Input          `pulumi:"metadata"`
+	// The batch release criteria.
+	ReleaseCriteria BatchReleaseCriteriaInvokeResponseInput `pulumi:"releaseCriteria"`
+}
+
+func (BatchConfigurationPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i BatchConfigurationPropertiesInvokeResponseArgs) ToBatchConfigurationPropertiesInvokeResponseOutput() BatchConfigurationPropertiesInvokeResponseOutput {
+	return i.ToBatchConfigurationPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BatchConfigurationPropertiesInvokeResponseArgs) ToBatchConfigurationPropertiesInvokeResponseOutputWithContext(ctx context.Context) BatchConfigurationPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchConfigurationPropertiesInvokeResponseOutput)
+}
+
+// The batch configuration properties definition.
+type BatchConfigurationPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BatchConfigurationPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o BatchConfigurationPropertiesInvokeResponseOutput) ToBatchConfigurationPropertiesInvokeResponseOutput() BatchConfigurationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o BatchConfigurationPropertiesInvokeResponseOutput) ToBatchConfigurationPropertiesInvokeResponseOutputWithContext(ctx context.Context) BatchConfigurationPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The name of the batch group.
+func (o BatchConfigurationPropertiesInvokeResponseOutput) BatchGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v BatchConfigurationPropertiesInvokeResponse) string { return v.BatchGroupName }).(pulumi.StringOutput)
+}
+
+// The artifact changed time.
+func (o BatchConfigurationPropertiesInvokeResponseOutput) ChangedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BatchConfigurationPropertiesInvokeResponse) *string { return v.ChangedTime }).(pulumi.StringPtrOutput)
+}
+
+// The artifact creation time.
+func (o BatchConfigurationPropertiesInvokeResponseOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BatchConfigurationPropertiesInvokeResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o BatchConfigurationPropertiesInvokeResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v BatchConfigurationPropertiesInvokeResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The batch release criteria.
+func (o BatchConfigurationPropertiesInvokeResponseOutput) ReleaseCriteria() BatchReleaseCriteriaInvokeResponseOutput {
+	return o.ApplyT(func(v BatchConfigurationPropertiesInvokeResponse) BatchReleaseCriteriaInvokeResponse {
+		return v.ReleaseCriteria
+	}).(BatchReleaseCriteriaInvokeResponseOutput)
 }
 
 // The batch configuration properties definition.
@@ -8165,6 +12344,81 @@ func (o BatchReleaseCriteriaPtrOutput) Recurrence() WorkflowTriggerRecurrencePtr
 }
 
 // The batch release criteria.
+type BatchReleaseCriteriaInvokeResponse struct {
+	// The batch size in bytes.
+	BatchSize *int `pulumi:"batchSize"`
+	// The message count.
+	MessageCount *int `pulumi:"messageCount"`
+	// The recurrence.
+	Recurrence *WorkflowTriggerRecurrenceInvokeResponse `pulumi:"recurrence"`
+}
+
+// BatchReleaseCriteriaInvokeResponseInput is an input type that accepts BatchReleaseCriteriaInvokeResponseArgs and BatchReleaseCriteriaInvokeResponseOutput values.
+// You can construct a concrete instance of `BatchReleaseCriteriaInvokeResponseInput` via:
+//
+//          BatchReleaseCriteriaInvokeResponseArgs{...}
+type BatchReleaseCriteriaInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBatchReleaseCriteriaInvokeResponseOutput() BatchReleaseCriteriaInvokeResponseOutput
+	ToBatchReleaseCriteriaInvokeResponseOutputWithContext(context.Context) BatchReleaseCriteriaInvokeResponseOutput
+}
+
+// The batch release criteria.
+type BatchReleaseCriteriaInvokeResponseArgs struct {
+	// The batch size in bytes.
+	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
+	// The message count.
+	MessageCount pulumi.IntPtrInput `pulumi:"messageCount"`
+	// The recurrence.
+	Recurrence WorkflowTriggerRecurrenceInvokeResponsePtrInput `pulumi:"recurrence"`
+}
+
+func (BatchReleaseCriteriaInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchReleaseCriteriaInvokeResponse)(nil)).Elem()
+}
+
+func (i BatchReleaseCriteriaInvokeResponseArgs) ToBatchReleaseCriteriaInvokeResponseOutput() BatchReleaseCriteriaInvokeResponseOutput {
+	return i.ToBatchReleaseCriteriaInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BatchReleaseCriteriaInvokeResponseArgs) ToBatchReleaseCriteriaInvokeResponseOutputWithContext(ctx context.Context) BatchReleaseCriteriaInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BatchReleaseCriteriaInvokeResponseOutput)
+}
+
+// The batch release criteria.
+type BatchReleaseCriteriaInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BatchReleaseCriteriaInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BatchReleaseCriteriaInvokeResponse)(nil)).Elem()
+}
+
+func (o BatchReleaseCriteriaInvokeResponseOutput) ToBatchReleaseCriteriaInvokeResponseOutput() BatchReleaseCriteriaInvokeResponseOutput {
+	return o
+}
+
+func (o BatchReleaseCriteriaInvokeResponseOutput) ToBatchReleaseCriteriaInvokeResponseOutputWithContext(ctx context.Context) BatchReleaseCriteriaInvokeResponseOutput {
+	return o
+}
+
+// The batch size in bytes.
+func (o BatchReleaseCriteriaInvokeResponseOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BatchReleaseCriteriaInvokeResponse) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+// The message count.
+func (o BatchReleaseCriteriaInvokeResponseOutput) MessageCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BatchReleaseCriteriaInvokeResponse) *int { return v.MessageCount }).(pulumi.IntPtrOutput)
+}
+
+// The recurrence.
+func (o BatchReleaseCriteriaInvokeResponseOutput) Recurrence() WorkflowTriggerRecurrenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BatchReleaseCriteriaInvokeResponse) *WorkflowTriggerRecurrenceInvokeResponse {
+		return v.Recurrence
+	}).(WorkflowTriggerRecurrenceInvokeResponsePtrOutput)
+}
+
+// The batch release criteria.
 type BatchReleaseCriteriaResponse struct {
 	// The batch size in bytes.
 	BatchSize *int `pulumi:"batchSize"`
@@ -8535,6 +12789,204 @@ func (o BusinessIdentityArrayOutput) Index(i pulumi.IntInput) BusinessIdentityOu
 }
 
 // The integration account partner's business identity.
+type BusinessIdentityInvokeResponse struct {
+	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
+	Qualifier string `pulumi:"qualifier"`
+	// The user defined business identity value.
+	Value string `pulumi:"value"`
+}
+
+// BusinessIdentityInvokeResponseInput is an input type that accepts BusinessIdentityInvokeResponseArgs and BusinessIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `BusinessIdentityInvokeResponseInput` via:
+//
+//          BusinessIdentityInvokeResponseArgs{...}
+type BusinessIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBusinessIdentityInvokeResponseOutput() BusinessIdentityInvokeResponseOutput
+	ToBusinessIdentityInvokeResponseOutputWithContext(context.Context) BusinessIdentityInvokeResponseOutput
+}
+
+// The integration account partner's business identity.
+type BusinessIdentityInvokeResponseArgs struct {
+	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
+	Qualifier pulumi.StringInput `pulumi:"qualifier"`
+	// The user defined business identity value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BusinessIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i BusinessIdentityInvokeResponseArgs) ToBusinessIdentityInvokeResponseOutput() BusinessIdentityInvokeResponseOutput {
+	return i.ToBusinessIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BusinessIdentityInvokeResponseArgs) ToBusinessIdentityInvokeResponseOutputWithContext(ctx context.Context) BusinessIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessIdentityInvokeResponseOutput)
+}
+
+func (i BusinessIdentityInvokeResponseArgs) ToBusinessIdentityInvokeResponsePtrOutput() BusinessIdentityInvokeResponsePtrOutput {
+	return i.ToBusinessIdentityInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BusinessIdentityInvokeResponseArgs) ToBusinessIdentityInvokeResponsePtrOutputWithContext(ctx context.Context) BusinessIdentityInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessIdentityInvokeResponseOutput).ToBusinessIdentityInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// BusinessIdentityInvokeResponsePtrInput is an input type that accepts BusinessIdentityInvokeResponseArgs, BusinessIdentityInvokeResponsePtr and BusinessIdentityInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `BusinessIdentityInvokeResponsePtrInput` via:
+//
+//          BusinessIdentityInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BusinessIdentityInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToBusinessIdentityInvokeResponsePtrOutput() BusinessIdentityInvokeResponsePtrOutput
+	ToBusinessIdentityInvokeResponsePtrOutputWithContext(context.Context) BusinessIdentityInvokeResponsePtrOutput
+}
+
+type businessIdentityInvokeResponsePtrType BusinessIdentityInvokeResponseArgs
+
+func BusinessIdentityInvokeResponsePtr(v *BusinessIdentityInvokeResponseArgs) BusinessIdentityInvokeResponsePtrInput {
+	return (*businessIdentityInvokeResponsePtrType)(v)
+}
+
+func (*businessIdentityInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i *businessIdentityInvokeResponsePtrType) ToBusinessIdentityInvokeResponsePtrOutput() BusinessIdentityInvokeResponsePtrOutput {
+	return i.ToBusinessIdentityInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *businessIdentityInvokeResponsePtrType) ToBusinessIdentityInvokeResponsePtrOutputWithContext(ctx context.Context) BusinessIdentityInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessIdentityInvokeResponsePtrOutput)
+}
+
+// BusinessIdentityInvokeResponseArrayInput is an input type that accepts BusinessIdentityInvokeResponseArray and BusinessIdentityInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `BusinessIdentityInvokeResponseArrayInput` via:
+//
+//          BusinessIdentityInvokeResponseArray{ BusinessIdentityInvokeResponseArgs{...} }
+type BusinessIdentityInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToBusinessIdentityInvokeResponseArrayOutput() BusinessIdentityInvokeResponseArrayOutput
+	ToBusinessIdentityInvokeResponseArrayOutputWithContext(context.Context) BusinessIdentityInvokeResponseArrayOutput
+}
+
+type BusinessIdentityInvokeResponseArray []BusinessIdentityInvokeResponseInput
+
+func (BusinessIdentityInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BusinessIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i BusinessIdentityInvokeResponseArray) ToBusinessIdentityInvokeResponseArrayOutput() BusinessIdentityInvokeResponseArrayOutput {
+	return i.ToBusinessIdentityInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BusinessIdentityInvokeResponseArray) ToBusinessIdentityInvokeResponseArrayOutputWithContext(ctx context.Context) BusinessIdentityInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BusinessIdentityInvokeResponseArrayOutput)
+}
+
+// The integration account partner's business identity.
+type BusinessIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BusinessIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BusinessIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o BusinessIdentityInvokeResponseOutput) ToBusinessIdentityInvokeResponseOutput() BusinessIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o BusinessIdentityInvokeResponseOutput) ToBusinessIdentityInvokeResponseOutputWithContext(ctx context.Context) BusinessIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o BusinessIdentityInvokeResponseOutput) ToBusinessIdentityInvokeResponsePtrOutput() BusinessIdentityInvokeResponsePtrOutput {
+	return o.ToBusinessIdentityInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BusinessIdentityInvokeResponseOutput) ToBusinessIdentityInvokeResponsePtrOutputWithContext(ctx context.Context) BusinessIdentityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BusinessIdentityInvokeResponse) *BusinessIdentityInvokeResponse {
+		return &v
+	}).(BusinessIdentityInvokeResponsePtrOutput)
+}
+
+// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
+func (o BusinessIdentityInvokeResponseOutput) Qualifier() pulumi.StringOutput {
+	return o.ApplyT(func(v BusinessIdentityInvokeResponse) string { return v.Qualifier }).(pulumi.StringOutput)
+}
+
+// The user defined business identity value.
+func (o BusinessIdentityInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BusinessIdentityInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BusinessIdentityInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BusinessIdentityInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BusinessIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o BusinessIdentityInvokeResponsePtrOutput) ToBusinessIdentityInvokeResponsePtrOutput() BusinessIdentityInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BusinessIdentityInvokeResponsePtrOutput) ToBusinessIdentityInvokeResponsePtrOutputWithContext(ctx context.Context) BusinessIdentityInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BusinessIdentityInvokeResponsePtrOutput) Elem() BusinessIdentityInvokeResponseOutput {
+	return o.ApplyT(func(v *BusinessIdentityInvokeResponse) BusinessIdentityInvokeResponse { return *v }).(BusinessIdentityInvokeResponseOutput)
+}
+
+// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
+func (o BusinessIdentityInvokeResponsePtrOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessIdentityInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Qualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user defined business identity value.
+func (o BusinessIdentityInvokeResponsePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BusinessIdentityInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type BusinessIdentityInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BusinessIdentityInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BusinessIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o BusinessIdentityInvokeResponseArrayOutput) ToBusinessIdentityInvokeResponseArrayOutput() BusinessIdentityInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BusinessIdentityInvokeResponseArrayOutput) ToBusinessIdentityInvokeResponseArrayOutputWithContext(ctx context.Context) BusinessIdentityInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BusinessIdentityInvokeResponseArrayOutput) Index(i pulumi.IntInput) BusinessIdentityInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BusinessIdentityInvokeResponse {
+		return vs[0].([]BusinessIdentityInvokeResponse)[vs[1].(int)]
+	}).(BusinessIdentityInvokeResponseOutput)
+}
+
+// The integration account partner's business identity.
 type BusinessIdentityResponse struct {
 	// The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
 	Qualifier string `pulumi:"qualifier"`
@@ -8878,6 +13330,159 @@ func (o ContentHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 // The value of the content hash.
 func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentHash) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content hash.
+type ContentHashInvokeResponse struct {
+	// The algorithm of the content hash.
+	Algorithm *string `pulumi:"algorithm"`
+	// The value of the content hash.
+	Value *string `pulumi:"value"`
+}
+
+// ContentHashInvokeResponseInput is an input type that accepts ContentHashInvokeResponseArgs and ContentHashInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentHashInvokeResponseInput` via:
+//
+//          ContentHashInvokeResponseArgs{...}
+type ContentHashInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput
+	ToContentHashInvokeResponseOutputWithContext(context.Context) ContentHashInvokeResponseOutput
+}
+
+// The content hash.
+type ContentHashInvokeResponseArgs struct {
+	// The algorithm of the content hash.
+	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
+	// The value of the content hash.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ContentHashInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput {
+	return i.ToContentHashInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponseOutputWithContext(ctx context.Context) ContentHashInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponseOutput)
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return i.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponseOutput).ToContentHashInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContentHashInvokeResponsePtrInput is an input type that accepts ContentHashInvokeResponseArgs, ContentHashInvokeResponsePtr and ContentHashInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContentHashInvokeResponsePtrInput` via:
+//
+//          ContentHashInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentHashInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput
+	ToContentHashInvokeResponsePtrOutputWithContext(context.Context) ContentHashInvokeResponsePtrOutput
+}
+
+type contentHashInvokeResponsePtrType ContentHashInvokeResponseArgs
+
+func ContentHashInvokeResponsePtr(v *ContentHashInvokeResponseArgs) ContentHashInvokeResponsePtrInput {
+	return (*contentHashInvokeResponsePtrType)(v)
+}
+
+func (*contentHashInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (i *contentHashInvokeResponsePtrType) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return i.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentHashInvokeResponsePtrType) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponsePtrOutput)
+}
+
+// The content hash.
+type ContentHashInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentHashInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponseOutputWithContext(ctx context.Context) ContentHashInvokeResponseOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return o.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) *ContentHashInvokeResponse {
+		return &v
+	}).(ContentHashInvokeResponsePtrOutput)
+}
+
+// The algorithm of the content hash.
+func (o ContentHashInvokeResponseOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
+}
+
+// The value of the content hash.
+func (o ContentHashInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ContentHashInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentHashInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentHashInvokeResponsePtrOutput) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponsePtrOutput) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponsePtrOutput) Elem() ContentHashInvokeResponseOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) ContentHashInvokeResponse { return *v }).(ContentHashInvokeResponseOutput)
+}
+
+// The algorithm of the content hash.
+func (o ContentHashInvokeResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the content hash.
+func (o ContentHashInvokeResponsePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -9241,6 +13846,216 @@ func (o ContentLinkPtrOutput) Metadata() pulumi.AnyOutput {
 // The content link URI.
 func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContentLink) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content link.
+type ContentLinkInvokeResponse struct {
+	// The content hash.
+	ContentHash *ContentHashInvokeResponse `pulumi:"contentHash"`
+	// The content size.
+	ContentSize *float64 `pulumi:"contentSize"`
+	// The content version.
+	ContentVersion *string `pulumi:"contentVersion"`
+	// The metadata.
+	Metadata interface{} `pulumi:"metadata"`
+	// The content link URI.
+	Uri *string `pulumi:"uri"`
+}
+
+// ContentLinkInvokeResponseInput is an input type that accepts ContentLinkInvokeResponseArgs and ContentLinkInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentLinkInvokeResponseInput` via:
+//
+//          ContentLinkInvokeResponseArgs{...}
+type ContentLinkInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput
+	ToContentLinkInvokeResponseOutputWithContext(context.Context) ContentLinkInvokeResponseOutput
+}
+
+// The content link.
+type ContentLinkInvokeResponseArgs struct {
+	// The content hash.
+	ContentHash ContentHashInvokeResponsePtrInput `pulumi:"contentHash"`
+	// The content size.
+	ContentSize pulumi.Float64PtrInput `pulumi:"contentSize"`
+	// The content version.
+	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
+	// The metadata.
+	Metadata pulumi.Input `pulumi:"metadata"`
+	// The content link URI.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ContentLinkInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput {
+	return i.ToContentLinkInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponseOutputWithContext(ctx context.Context) ContentLinkInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkInvokeResponseOutput)
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return i.ToContentLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkInvokeResponseOutput).ToContentLinkInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContentLinkInvokeResponsePtrInput is an input type that accepts ContentLinkInvokeResponseArgs, ContentLinkInvokeResponsePtr and ContentLinkInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContentLinkInvokeResponsePtrInput` via:
+//
+//          ContentLinkInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentLinkInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput
+	ToContentLinkInvokeResponsePtrOutputWithContext(context.Context) ContentLinkInvokeResponsePtrOutput
+}
+
+type contentLinkInvokeResponsePtrType ContentLinkInvokeResponseArgs
+
+func ContentLinkInvokeResponsePtr(v *ContentLinkInvokeResponseArgs) ContentLinkInvokeResponsePtrInput {
+	return (*contentLinkInvokeResponsePtrType)(v)
+}
+
+func (*contentLinkInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i *contentLinkInvokeResponsePtrType) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return i.ToContentLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentLinkInvokeResponsePtrType) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkInvokeResponsePtrOutput)
+}
+
+// The content link.
+type ContentLinkInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentLinkInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponseOutputWithContext(ctx context.Context) ContentLinkInvokeResponseOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return o.ToContentLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *ContentLinkInvokeResponse {
+		return &v
+	}).(ContentLinkInvokeResponsePtrOutput)
+}
+
+// The content hash.
+func (o ContentLinkInvokeResponseOutput) ContentHash() ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *ContentHashInvokeResponse { return v.ContentHash }).(ContentHashInvokeResponsePtrOutput)
+}
+
+// The content size.
+func (o ContentLinkInvokeResponseOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
+}
+
+// The content version.
+func (o ContentLinkInvokeResponseOutput) ContentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o ContentLinkInvokeResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The content link URI.
+func (o ContentLinkInvokeResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ContentLinkInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentLinkInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentLinkInvokeResponsePtrOutput) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponsePtrOutput) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponsePtrOutput) Elem() ContentLinkInvokeResponseOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) ContentLinkInvokeResponse { return *v }).(ContentLinkInvokeResponseOutput)
+}
+
+// The content hash.
+func (o ContentLinkInvokeResponsePtrOutput) ContentHash() ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) *ContentHashInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ContentHash
+	}).(ContentHashInvokeResponsePtrOutput)
+}
+
+// The content size.
+func (o ContentLinkInvokeResponsePtrOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ContentSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The content version.
+func (o ContentLinkInvokeResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o ContentLinkInvokeResponsePtrOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(pulumi.AnyOutput)
+}
+
+// The content link URI.
+func (o ContentLinkInvokeResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -9783,6 +14598,342 @@ func (o EdifactAcknowledgementSettingsPtrOutput) SendSynchronousAcknowledgement(
 }
 
 // The Edifact agreement acknowledgement settings.
+type EdifactAcknowledgementSettingsInvokeResponse struct {
+	// The acknowledgement control number lower bound.
+	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
+	// The acknowledgement control number prefix.
+	AcknowledgementControlNumberPrefix *string `pulumi:"acknowledgementControlNumberPrefix"`
+	// The acknowledgement control number suffix.
+	AcknowledgementControlNumberSuffix *string `pulumi:"acknowledgementControlNumberSuffix"`
+	// The acknowledgement control number upper bound.
+	AcknowledgementControlNumberUpperBound int `pulumi:"acknowledgementControlNumberUpperBound"`
+	// The value indicating whether to batch functional acknowledgements.
+	BatchFunctionalAcknowledgements bool `pulumi:"batchFunctionalAcknowledgements"`
+	// The value indicating whether to batch the technical acknowledgements.
+	BatchTechnicalAcknowledgements bool `pulumi:"batchTechnicalAcknowledgements"`
+	// The value indicating whether functional acknowledgement is needed.
+	NeedFunctionalAcknowledgement bool `pulumi:"needFunctionalAcknowledgement"`
+	// The value indicating whether a loop is needed for valid messages.
+	NeedLoopForValidMessages bool `pulumi:"needLoopForValidMessages"`
+	// The value indicating whether technical acknowledgement is needed.
+	NeedTechnicalAcknowledgement bool `pulumi:"needTechnicalAcknowledgement"`
+	// The value indicating whether to rollover acknowledgement control number.
+	RolloverAcknowledgementControlNumber bool `pulumi:"rolloverAcknowledgementControlNumber"`
+	// The value indicating whether to send synchronous acknowledgement.
+	SendSynchronousAcknowledgement bool `pulumi:"sendSynchronousAcknowledgement"`
+}
+
+// EdifactAcknowledgementSettingsInvokeResponseInput is an input type that accepts EdifactAcknowledgementSettingsInvokeResponseArgs and EdifactAcknowledgementSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactAcknowledgementSettingsInvokeResponseInput` via:
+//
+//          EdifactAcknowledgementSettingsInvokeResponseArgs{...}
+type EdifactAcknowledgementSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactAcknowledgementSettingsInvokeResponseOutput() EdifactAcknowledgementSettingsInvokeResponseOutput
+	ToEdifactAcknowledgementSettingsInvokeResponseOutputWithContext(context.Context) EdifactAcknowledgementSettingsInvokeResponseOutput
+}
+
+// The Edifact agreement acknowledgement settings.
+type EdifactAcknowledgementSettingsInvokeResponseArgs struct {
+	// The acknowledgement control number lower bound.
+	AcknowledgementControlNumberLowerBound pulumi.IntInput `pulumi:"acknowledgementControlNumberLowerBound"`
+	// The acknowledgement control number prefix.
+	AcknowledgementControlNumberPrefix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberPrefix"`
+	// The acknowledgement control number suffix.
+	AcknowledgementControlNumberSuffix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberSuffix"`
+	// The acknowledgement control number upper bound.
+	AcknowledgementControlNumberUpperBound pulumi.IntInput `pulumi:"acknowledgementControlNumberUpperBound"`
+	// The value indicating whether to batch functional acknowledgements.
+	BatchFunctionalAcknowledgements pulumi.BoolInput `pulumi:"batchFunctionalAcknowledgements"`
+	// The value indicating whether to batch the technical acknowledgements.
+	BatchTechnicalAcknowledgements pulumi.BoolInput `pulumi:"batchTechnicalAcknowledgements"`
+	// The value indicating whether functional acknowledgement is needed.
+	NeedFunctionalAcknowledgement pulumi.BoolInput `pulumi:"needFunctionalAcknowledgement"`
+	// The value indicating whether a loop is needed for valid messages.
+	NeedLoopForValidMessages pulumi.BoolInput `pulumi:"needLoopForValidMessages"`
+	// The value indicating whether technical acknowledgement is needed.
+	NeedTechnicalAcknowledgement pulumi.BoolInput `pulumi:"needTechnicalAcknowledgement"`
+	// The value indicating whether to rollover acknowledgement control number.
+	RolloverAcknowledgementControlNumber pulumi.BoolInput `pulumi:"rolloverAcknowledgementControlNumber"`
+	// The value indicating whether to send synchronous acknowledgement.
+	SendSynchronousAcknowledgement pulumi.BoolInput `pulumi:"sendSynchronousAcknowledgement"`
+}
+
+func (EdifactAcknowledgementSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactAcknowledgementSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactAcknowledgementSettingsInvokeResponseArgs) ToEdifactAcknowledgementSettingsInvokeResponseOutput() EdifactAcknowledgementSettingsInvokeResponseOutput {
+	return i.ToEdifactAcknowledgementSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactAcknowledgementSettingsInvokeResponseArgs) ToEdifactAcknowledgementSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactAcknowledgementSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactAcknowledgementSettingsInvokeResponseOutput)
+}
+
+func (i EdifactAcknowledgementSettingsInvokeResponseArgs) ToEdifactAcknowledgementSettingsInvokeResponsePtrOutput() EdifactAcknowledgementSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactAcknowledgementSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdifactAcknowledgementSettingsInvokeResponseArgs) ToEdifactAcknowledgementSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactAcknowledgementSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactAcknowledgementSettingsInvokeResponseOutput).ToEdifactAcknowledgementSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EdifactAcknowledgementSettingsInvokeResponsePtrInput is an input type that accepts EdifactAcknowledgementSettingsInvokeResponseArgs, EdifactAcknowledgementSettingsInvokeResponsePtr and EdifactAcknowledgementSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EdifactAcknowledgementSettingsInvokeResponsePtrInput` via:
+//
+//          EdifactAcknowledgementSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdifactAcknowledgementSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdifactAcknowledgementSettingsInvokeResponsePtrOutput() EdifactAcknowledgementSettingsInvokeResponsePtrOutput
+	ToEdifactAcknowledgementSettingsInvokeResponsePtrOutputWithContext(context.Context) EdifactAcknowledgementSettingsInvokeResponsePtrOutput
+}
+
+type edifactAcknowledgementSettingsInvokeResponsePtrType EdifactAcknowledgementSettingsInvokeResponseArgs
+
+func EdifactAcknowledgementSettingsInvokeResponsePtr(v *EdifactAcknowledgementSettingsInvokeResponseArgs) EdifactAcknowledgementSettingsInvokeResponsePtrInput {
+	return (*edifactAcknowledgementSettingsInvokeResponsePtrType)(v)
+}
+
+func (*edifactAcknowledgementSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactAcknowledgementSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *edifactAcknowledgementSettingsInvokeResponsePtrType) ToEdifactAcknowledgementSettingsInvokeResponsePtrOutput() EdifactAcknowledgementSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactAcknowledgementSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edifactAcknowledgementSettingsInvokeResponsePtrType) ToEdifactAcknowledgementSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactAcknowledgementSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactAcknowledgementSettingsInvokeResponsePtrOutput)
+}
+
+// The Edifact agreement acknowledgement settings.
+type EdifactAcknowledgementSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactAcknowledgementSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactAcknowledgementSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) ToEdifactAcknowledgementSettingsInvokeResponseOutput() EdifactAcknowledgementSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) ToEdifactAcknowledgementSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactAcknowledgementSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) ToEdifactAcknowledgementSettingsInvokeResponsePtrOutput() EdifactAcknowledgementSettingsInvokeResponsePtrOutput {
+	return o.ToEdifactAcknowledgementSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) ToEdifactAcknowledgementSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactAcknowledgementSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) *EdifactAcknowledgementSettingsInvokeResponse {
+		return &v
+	}).(EdifactAcknowledgementSettingsInvokeResponsePtrOutput)
+}
+
+// The acknowledgement control number lower bound.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) AcknowledgementControlNumberLowerBound() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) int {
+		return v.AcknowledgementControlNumberLowerBound
+	}).(pulumi.IntOutput)
+}
+
+// The acknowledgement control number prefix.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) *string {
+		return v.AcknowledgementControlNumberPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The acknowledgement control number suffix.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) *string {
+		return v.AcknowledgementControlNumberSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The acknowledgement control number upper bound.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) AcknowledgementControlNumberUpperBound() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) int {
+		return v.AcknowledgementControlNumberUpperBound
+	}).(pulumi.IntOutput)
+}
+
+// The value indicating whether to batch functional acknowledgements.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) BatchFunctionalAcknowledgements() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) bool { return v.BatchFunctionalAcknowledgements }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to batch the technical acknowledgements.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) BatchTechnicalAcknowledgements() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) bool { return v.BatchTechnicalAcknowledgements }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether functional acknowledgement is needed.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) NeedFunctionalAcknowledgement() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) bool { return v.NeedFunctionalAcknowledgement }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether a loop is needed for valid messages.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) NeedLoopForValidMessages() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) bool { return v.NeedLoopForValidMessages }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether technical acknowledgement is needed.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) NeedTechnicalAcknowledgement() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) bool { return v.NeedTechnicalAcknowledgement }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to rollover acknowledgement control number.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) RolloverAcknowledgementControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) bool {
+		return v.RolloverAcknowledgementControlNumber
+	}).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to send synchronous acknowledgement.
+func (o EdifactAcknowledgementSettingsInvokeResponseOutput) SendSynchronousAcknowledgement() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactAcknowledgementSettingsInvokeResponse) bool { return v.SendSynchronousAcknowledgement }).(pulumi.BoolOutput)
+}
+
+type EdifactAcknowledgementSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdifactAcknowledgementSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactAcknowledgementSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) ToEdifactAcknowledgementSettingsInvokeResponsePtrOutput() EdifactAcknowledgementSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) ToEdifactAcknowledgementSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactAcknowledgementSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) Elem() EdifactAcknowledgementSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) EdifactAcknowledgementSettingsInvokeResponse {
+		return *v
+	}).(EdifactAcknowledgementSettingsInvokeResponseOutput)
+}
+
+// The acknowledgement control number lower bound.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) AcknowledgementControlNumberLowerBound() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AcknowledgementControlNumberLowerBound
+	}).(pulumi.IntPtrOutput)
+}
+
+// The acknowledgement control number prefix.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AcknowledgementControlNumberPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The acknowledgement control number suffix.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AcknowledgementControlNumberSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The acknowledgement control number upper bound.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) AcknowledgementControlNumberUpperBound() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AcknowledgementControlNumberUpperBound
+	}).(pulumi.IntPtrOutput)
+}
+
+// The value indicating whether to batch functional acknowledgements.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) BatchFunctionalAcknowledgements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.BatchFunctionalAcknowledgements
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to batch the technical acknowledgements.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) BatchTechnicalAcknowledgements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.BatchTechnicalAcknowledgements
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether functional acknowledgement is needed.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) NeedFunctionalAcknowledgement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NeedFunctionalAcknowledgement
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether a loop is needed for valid messages.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) NeedLoopForValidMessages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NeedLoopForValidMessages
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether technical acknowledgement is needed.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) NeedTechnicalAcknowledgement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NeedTechnicalAcknowledgement
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to rollover acknowledgement control number.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) RolloverAcknowledgementControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RolloverAcknowledgementControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to send synchronous acknowledgement.
+func (o EdifactAcknowledgementSettingsInvokeResponsePtrOutput) SendSynchronousAcknowledgement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SendSynchronousAcknowledgement
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Edifact agreement acknowledgement settings.
 type EdifactAcknowledgementSettingsResponse struct {
 	// The acknowledgement control number lower bound.
 	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
@@ -10260,6 +15411,163 @@ func (o EdifactAgreementContentPtrOutput) SendAgreement() EdifactOneWayAgreement
 }
 
 // The Edifact agreement content.
+type EdifactAgreementContentInvokeResponse struct {
+	// The EDIFACT one-way receive agreement.
+	ReceiveAgreement EdifactOneWayAgreementInvokeResponse `pulumi:"receiveAgreement"`
+	// The EDIFACT one-way send agreement.
+	SendAgreement EdifactOneWayAgreementInvokeResponse `pulumi:"sendAgreement"`
+}
+
+// EdifactAgreementContentInvokeResponseInput is an input type that accepts EdifactAgreementContentInvokeResponseArgs and EdifactAgreementContentInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactAgreementContentInvokeResponseInput` via:
+//
+//          EdifactAgreementContentInvokeResponseArgs{...}
+type EdifactAgreementContentInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactAgreementContentInvokeResponseOutput() EdifactAgreementContentInvokeResponseOutput
+	ToEdifactAgreementContentInvokeResponseOutputWithContext(context.Context) EdifactAgreementContentInvokeResponseOutput
+}
+
+// The Edifact agreement content.
+type EdifactAgreementContentInvokeResponseArgs struct {
+	// The EDIFACT one-way receive agreement.
+	ReceiveAgreement EdifactOneWayAgreementInvokeResponseInput `pulumi:"receiveAgreement"`
+	// The EDIFACT one-way send agreement.
+	SendAgreement EdifactOneWayAgreementInvokeResponseInput `pulumi:"sendAgreement"`
+}
+
+func (EdifactAgreementContentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactAgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactAgreementContentInvokeResponseArgs) ToEdifactAgreementContentInvokeResponseOutput() EdifactAgreementContentInvokeResponseOutput {
+	return i.ToEdifactAgreementContentInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactAgreementContentInvokeResponseArgs) ToEdifactAgreementContentInvokeResponseOutputWithContext(ctx context.Context) EdifactAgreementContentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactAgreementContentInvokeResponseOutput)
+}
+
+func (i EdifactAgreementContentInvokeResponseArgs) ToEdifactAgreementContentInvokeResponsePtrOutput() EdifactAgreementContentInvokeResponsePtrOutput {
+	return i.ToEdifactAgreementContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdifactAgreementContentInvokeResponseArgs) ToEdifactAgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactAgreementContentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactAgreementContentInvokeResponseOutput).ToEdifactAgreementContentInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EdifactAgreementContentInvokeResponsePtrInput is an input type that accepts EdifactAgreementContentInvokeResponseArgs, EdifactAgreementContentInvokeResponsePtr and EdifactAgreementContentInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EdifactAgreementContentInvokeResponsePtrInput` via:
+//
+//          EdifactAgreementContentInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdifactAgreementContentInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdifactAgreementContentInvokeResponsePtrOutput() EdifactAgreementContentInvokeResponsePtrOutput
+	ToEdifactAgreementContentInvokeResponsePtrOutputWithContext(context.Context) EdifactAgreementContentInvokeResponsePtrOutput
+}
+
+type edifactAgreementContentInvokeResponsePtrType EdifactAgreementContentInvokeResponseArgs
+
+func EdifactAgreementContentInvokeResponsePtr(v *EdifactAgreementContentInvokeResponseArgs) EdifactAgreementContentInvokeResponsePtrInput {
+	return (*edifactAgreementContentInvokeResponsePtrType)(v)
+}
+
+func (*edifactAgreementContentInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactAgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (i *edifactAgreementContentInvokeResponsePtrType) ToEdifactAgreementContentInvokeResponsePtrOutput() EdifactAgreementContentInvokeResponsePtrOutput {
+	return i.ToEdifactAgreementContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edifactAgreementContentInvokeResponsePtrType) ToEdifactAgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactAgreementContentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactAgreementContentInvokeResponsePtrOutput)
+}
+
+// The Edifact agreement content.
+type EdifactAgreementContentInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactAgreementContentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactAgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactAgreementContentInvokeResponseOutput) ToEdifactAgreementContentInvokeResponseOutput() EdifactAgreementContentInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactAgreementContentInvokeResponseOutput) ToEdifactAgreementContentInvokeResponseOutputWithContext(ctx context.Context) EdifactAgreementContentInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactAgreementContentInvokeResponseOutput) ToEdifactAgreementContentInvokeResponsePtrOutput() EdifactAgreementContentInvokeResponsePtrOutput {
+	return o.ToEdifactAgreementContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdifactAgreementContentInvokeResponseOutput) ToEdifactAgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactAgreementContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdifactAgreementContentInvokeResponse) *EdifactAgreementContentInvokeResponse {
+		return &v
+	}).(EdifactAgreementContentInvokeResponsePtrOutput)
+}
+
+// The EDIFACT one-way receive agreement.
+func (o EdifactAgreementContentInvokeResponseOutput) ReceiveAgreement() EdifactOneWayAgreementInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactAgreementContentInvokeResponse) EdifactOneWayAgreementInvokeResponse {
+		return v.ReceiveAgreement
+	}).(EdifactOneWayAgreementInvokeResponseOutput)
+}
+
+// The EDIFACT one-way send agreement.
+func (o EdifactAgreementContentInvokeResponseOutput) SendAgreement() EdifactOneWayAgreementInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactAgreementContentInvokeResponse) EdifactOneWayAgreementInvokeResponse {
+		return v.SendAgreement
+	}).(EdifactOneWayAgreementInvokeResponseOutput)
+}
+
+type EdifactAgreementContentInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdifactAgreementContentInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactAgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactAgreementContentInvokeResponsePtrOutput) ToEdifactAgreementContentInvokeResponsePtrOutput() EdifactAgreementContentInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactAgreementContentInvokeResponsePtrOutput) ToEdifactAgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactAgreementContentInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactAgreementContentInvokeResponsePtrOutput) Elem() EdifactAgreementContentInvokeResponseOutput {
+	return o.ApplyT(func(v *EdifactAgreementContentInvokeResponse) EdifactAgreementContentInvokeResponse { return *v }).(EdifactAgreementContentInvokeResponseOutput)
+}
+
+// The EDIFACT one-way receive agreement.
+func (o EdifactAgreementContentInvokeResponsePtrOutput) ReceiveAgreement() EdifactOneWayAgreementInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactAgreementContentInvokeResponse) *EdifactOneWayAgreementInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ReceiveAgreement
+	}).(EdifactOneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The EDIFACT one-way send agreement.
+func (o EdifactAgreementContentInvokeResponsePtrOutput) SendAgreement() EdifactOneWayAgreementInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactAgreementContentInvokeResponse) *EdifactOneWayAgreementInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SendAgreement
+	}).(EdifactOneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The Edifact agreement content.
 type EdifactAgreementContentResponse struct {
 	// The EDIFACT one-way receive agreement.
 	ReceiveAgreement EdifactOneWayAgreementResponse `pulumi:"receiveAgreement"`
@@ -10609,6 +15917,205 @@ func (o EdifactDelimiterOverrideArrayOutput) Index(i pulumi.IntInput) EdifactDel
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EdifactDelimiterOverride {
 		return vs[0].([]EdifactDelimiterOverride)[vs[1].(int)]
 	}).(EdifactDelimiterOverrideOutput)
+}
+
+// The Edifact delimiter override settings.
+type EdifactDelimiterOverrideInvokeResponse struct {
+	// The component separator.
+	ComponentSeparator int `pulumi:"componentSeparator"`
+	// The data element separator.
+	DataElementSeparator int `pulumi:"dataElementSeparator"`
+	// The decimal point indicator.
+	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
+	// The message association assigned code.
+	MessageAssociationAssignedCode *string `pulumi:"messageAssociationAssignedCode"`
+	// The message id.
+	MessageId *string `pulumi:"messageId"`
+	// The message release.
+	MessageRelease *string `pulumi:"messageRelease"`
+	// The message version.
+	MessageVersion *string `pulumi:"messageVersion"`
+	// The release indicator.
+	ReleaseIndicator int `pulumi:"releaseIndicator"`
+	// The repetition separator.
+	RepetitionSeparator int `pulumi:"repetitionSeparator"`
+	// The segment terminator.
+	SegmentTerminator int `pulumi:"segmentTerminator"`
+	// The segment terminator suffix.
+	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	// The target namespace on which this delimiter settings has to be applied.
+	TargetNamespace *string `pulumi:"targetNamespace"`
+}
+
+// EdifactDelimiterOverrideInvokeResponseInput is an input type that accepts EdifactDelimiterOverrideInvokeResponseArgs and EdifactDelimiterOverrideInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactDelimiterOverrideInvokeResponseInput` via:
+//
+//          EdifactDelimiterOverrideInvokeResponseArgs{...}
+type EdifactDelimiterOverrideInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactDelimiterOverrideInvokeResponseOutput() EdifactDelimiterOverrideInvokeResponseOutput
+	ToEdifactDelimiterOverrideInvokeResponseOutputWithContext(context.Context) EdifactDelimiterOverrideInvokeResponseOutput
+}
+
+// The Edifact delimiter override settings.
+type EdifactDelimiterOverrideInvokeResponseArgs struct {
+	// The component separator.
+	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
+	// The data element separator.
+	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
+	// The decimal point indicator.
+	DecimalPointIndicator pulumi.StringInput `pulumi:"decimalPointIndicator"`
+	// The message association assigned code.
+	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
+	// The message id.
+	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
+	// The message release.
+	MessageRelease pulumi.StringPtrInput `pulumi:"messageRelease"`
+	// The message version.
+	MessageVersion pulumi.StringPtrInput `pulumi:"messageVersion"`
+	// The release indicator.
+	ReleaseIndicator pulumi.IntInput `pulumi:"releaseIndicator"`
+	// The repetition separator.
+	RepetitionSeparator pulumi.IntInput `pulumi:"repetitionSeparator"`
+	// The segment terminator.
+	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
+	// The segment terminator suffix.
+	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	// The target namespace on which this delimiter settings has to be applied.
+	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+}
+
+func (EdifactDelimiterOverrideInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactDelimiterOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactDelimiterOverrideInvokeResponseArgs) ToEdifactDelimiterOverrideInvokeResponseOutput() EdifactDelimiterOverrideInvokeResponseOutput {
+	return i.ToEdifactDelimiterOverrideInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactDelimiterOverrideInvokeResponseArgs) ToEdifactDelimiterOverrideInvokeResponseOutputWithContext(ctx context.Context) EdifactDelimiterOverrideInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactDelimiterOverrideInvokeResponseOutput)
+}
+
+// EdifactDelimiterOverrideInvokeResponseArrayInput is an input type that accepts EdifactDelimiterOverrideInvokeResponseArray and EdifactDelimiterOverrideInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EdifactDelimiterOverrideInvokeResponseArrayInput` via:
+//
+//          EdifactDelimiterOverrideInvokeResponseArray{ EdifactDelimiterOverrideInvokeResponseArgs{...} }
+type EdifactDelimiterOverrideInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEdifactDelimiterOverrideInvokeResponseArrayOutput() EdifactDelimiterOverrideInvokeResponseArrayOutput
+	ToEdifactDelimiterOverrideInvokeResponseArrayOutputWithContext(context.Context) EdifactDelimiterOverrideInvokeResponseArrayOutput
+}
+
+type EdifactDelimiterOverrideInvokeResponseArray []EdifactDelimiterOverrideInvokeResponseInput
+
+func (EdifactDelimiterOverrideInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EdifactDelimiterOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactDelimiterOverrideInvokeResponseArray) ToEdifactDelimiterOverrideInvokeResponseArrayOutput() EdifactDelimiterOverrideInvokeResponseArrayOutput {
+	return i.ToEdifactDelimiterOverrideInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EdifactDelimiterOverrideInvokeResponseArray) ToEdifactDelimiterOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) EdifactDelimiterOverrideInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactDelimiterOverrideInvokeResponseArrayOutput)
+}
+
+// The Edifact delimiter override settings.
+type EdifactDelimiterOverrideInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactDelimiterOverrideInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactDelimiterOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactDelimiterOverrideInvokeResponseOutput) ToEdifactDelimiterOverrideInvokeResponseOutput() EdifactDelimiterOverrideInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactDelimiterOverrideInvokeResponseOutput) ToEdifactDelimiterOverrideInvokeResponseOutputWithContext(ctx context.Context) EdifactDelimiterOverrideInvokeResponseOutput {
+	return o
+}
+
+// The component separator.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) ComponentSeparator() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) int { return v.ComponentSeparator }).(pulumi.IntOutput)
+}
+
+// The data element separator.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) DataElementSeparator() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) int { return v.DataElementSeparator }).(pulumi.IntOutput)
+}
+
+// The decimal point indicator.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) DecimalPointIndicator() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
+}
+
+// The message association assigned code.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) MessageAssociationAssignedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) *string { return v.MessageAssociationAssignedCode }).(pulumi.StringPtrOutput)
+}
+
+// The message id.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+}
+
+// The message release.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) MessageRelease() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) *string { return v.MessageRelease }).(pulumi.StringPtrOutput)
+}
+
+// The message version.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) MessageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) *string { return v.MessageVersion }).(pulumi.StringPtrOutput)
+}
+
+// The release indicator.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) ReleaseIndicator() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) int { return v.ReleaseIndicator }).(pulumi.IntOutput)
+}
+
+// The repetition separator.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) RepetitionSeparator() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) int { return v.RepetitionSeparator }).(pulumi.IntOutput)
+}
+
+// The segment terminator.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) SegmentTerminator() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) int { return v.SegmentTerminator }).(pulumi.IntOutput)
+}
+
+// The segment terminator suffix.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+}
+
+// The target namespace on which this delimiter settings has to be applied.
+func (o EdifactDelimiterOverrideInvokeResponseOutput) TargetNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverrideInvokeResponse) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
+}
+
+type EdifactDelimiterOverrideInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EdifactDelimiterOverrideInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EdifactDelimiterOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactDelimiterOverrideInvokeResponseArrayOutput) ToEdifactDelimiterOverrideInvokeResponseArrayOutput() EdifactDelimiterOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EdifactDelimiterOverrideInvokeResponseArrayOutput) ToEdifactDelimiterOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) EdifactDelimiterOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EdifactDelimiterOverrideInvokeResponseArrayOutput) Index(i pulumi.IntInput) EdifactDelimiterOverrideInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EdifactDelimiterOverrideInvokeResponse {
+		return vs[0].([]EdifactDelimiterOverrideInvokeResponse)[vs[1].(int)]
+	}).(EdifactDelimiterOverrideInvokeResponseOutput)
 }
 
 // The Edifact delimiter override settings.
@@ -11034,6 +16541,232 @@ func (o EdifactEnvelopeOverrideArrayOutput) Index(i pulumi.IntInput) EdifactEnve
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EdifactEnvelopeOverride {
 		return vs[0].([]EdifactEnvelopeOverride)[vs[1].(int)]
 	}).(EdifactEnvelopeOverrideOutput)
+}
+
+// The Edifact envelope override settings.
+type EdifactEnvelopeOverrideInvokeResponse struct {
+	// The application password.
+	ApplicationPassword *string `pulumi:"applicationPassword"`
+	// The association assigned code.
+	AssociationAssignedCode *string `pulumi:"associationAssignedCode"`
+	// The controlling agency code.
+	ControllingAgencyCode *string `pulumi:"controllingAgencyCode"`
+	// The functional group id.
+	FunctionalGroupId *string `pulumi:"functionalGroupId"`
+	// The group header message release.
+	GroupHeaderMessageRelease *string `pulumi:"groupHeaderMessageRelease"`
+	// The group header message version.
+	GroupHeaderMessageVersion *string `pulumi:"groupHeaderMessageVersion"`
+	// The message association assigned code.
+	MessageAssociationAssignedCode *string `pulumi:"messageAssociationAssignedCode"`
+	// The message id on which this envelope settings has to be applied.
+	MessageId *string `pulumi:"messageId"`
+	// The message release version on which this envelope settings has to be applied.
+	MessageRelease *string `pulumi:"messageRelease"`
+	// The message version on which this envelope settings has to be applied.
+	MessageVersion *string `pulumi:"messageVersion"`
+	// The receiver application id.
+	ReceiverApplicationId *string `pulumi:"receiverApplicationId"`
+	// The receiver application qualifier.
+	ReceiverApplicationQualifier *string `pulumi:"receiverApplicationQualifier"`
+	// The sender application id.
+	SenderApplicationId *string `pulumi:"senderApplicationId"`
+	// The sender application qualifier.
+	SenderApplicationQualifier *string `pulumi:"senderApplicationQualifier"`
+	// The target namespace on which this envelope settings has to be applied.
+	TargetNamespace *string `pulumi:"targetNamespace"`
+}
+
+// EdifactEnvelopeOverrideInvokeResponseInput is an input type that accepts EdifactEnvelopeOverrideInvokeResponseArgs and EdifactEnvelopeOverrideInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactEnvelopeOverrideInvokeResponseInput` via:
+//
+//          EdifactEnvelopeOverrideInvokeResponseArgs{...}
+type EdifactEnvelopeOverrideInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactEnvelopeOverrideInvokeResponseOutput() EdifactEnvelopeOverrideInvokeResponseOutput
+	ToEdifactEnvelopeOverrideInvokeResponseOutputWithContext(context.Context) EdifactEnvelopeOverrideInvokeResponseOutput
+}
+
+// The Edifact envelope override settings.
+type EdifactEnvelopeOverrideInvokeResponseArgs struct {
+	// The application password.
+	ApplicationPassword pulumi.StringPtrInput `pulumi:"applicationPassword"`
+	// The association assigned code.
+	AssociationAssignedCode pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
+	// The controlling agency code.
+	ControllingAgencyCode pulumi.StringPtrInput `pulumi:"controllingAgencyCode"`
+	// The functional group id.
+	FunctionalGroupId pulumi.StringPtrInput `pulumi:"functionalGroupId"`
+	// The group header message release.
+	GroupHeaderMessageRelease pulumi.StringPtrInput `pulumi:"groupHeaderMessageRelease"`
+	// The group header message version.
+	GroupHeaderMessageVersion pulumi.StringPtrInput `pulumi:"groupHeaderMessageVersion"`
+	// The message association assigned code.
+	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
+	// The message id on which this envelope settings has to be applied.
+	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
+	// The message release version on which this envelope settings has to be applied.
+	MessageRelease pulumi.StringPtrInput `pulumi:"messageRelease"`
+	// The message version on which this envelope settings has to be applied.
+	MessageVersion pulumi.StringPtrInput `pulumi:"messageVersion"`
+	// The receiver application id.
+	ReceiverApplicationId pulumi.StringPtrInput `pulumi:"receiverApplicationId"`
+	// The receiver application qualifier.
+	ReceiverApplicationQualifier pulumi.StringPtrInput `pulumi:"receiverApplicationQualifier"`
+	// The sender application id.
+	SenderApplicationId pulumi.StringPtrInput `pulumi:"senderApplicationId"`
+	// The sender application qualifier.
+	SenderApplicationQualifier pulumi.StringPtrInput `pulumi:"senderApplicationQualifier"`
+	// The target namespace on which this envelope settings has to be applied.
+	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+}
+
+func (EdifactEnvelopeOverrideInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactEnvelopeOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactEnvelopeOverrideInvokeResponseArgs) ToEdifactEnvelopeOverrideInvokeResponseOutput() EdifactEnvelopeOverrideInvokeResponseOutput {
+	return i.ToEdifactEnvelopeOverrideInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactEnvelopeOverrideInvokeResponseArgs) ToEdifactEnvelopeOverrideInvokeResponseOutputWithContext(ctx context.Context) EdifactEnvelopeOverrideInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeOverrideInvokeResponseOutput)
+}
+
+// EdifactEnvelopeOverrideInvokeResponseArrayInput is an input type that accepts EdifactEnvelopeOverrideInvokeResponseArray and EdifactEnvelopeOverrideInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EdifactEnvelopeOverrideInvokeResponseArrayInput` via:
+//
+//          EdifactEnvelopeOverrideInvokeResponseArray{ EdifactEnvelopeOverrideInvokeResponseArgs{...} }
+type EdifactEnvelopeOverrideInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEdifactEnvelopeOverrideInvokeResponseArrayOutput() EdifactEnvelopeOverrideInvokeResponseArrayOutput
+	ToEdifactEnvelopeOverrideInvokeResponseArrayOutputWithContext(context.Context) EdifactEnvelopeOverrideInvokeResponseArrayOutput
+}
+
+type EdifactEnvelopeOverrideInvokeResponseArray []EdifactEnvelopeOverrideInvokeResponseInput
+
+func (EdifactEnvelopeOverrideInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EdifactEnvelopeOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactEnvelopeOverrideInvokeResponseArray) ToEdifactEnvelopeOverrideInvokeResponseArrayOutput() EdifactEnvelopeOverrideInvokeResponseArrayOutput {
+	return i.ToEdifactEnvelopeOverrideInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EdifactEnvelopeOverrideInvokeResponseArray) ToEdifactEnvelopeOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) EdifactEnvelopeOverrideInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeOverrideInvokeResponseArrayOutput)
+}
+
+// The Edifact envelope override settings.
+type EdifactEnvelopeOverrideInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactEnvelopeOverrideInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactEnvelopeOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) ToEdifactEnvelopeOverrideInvokeResponseOutput() EdifactEnvelopeOverrideInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) ToEdifactEnvelopeOverrideInvokeResponseOutputWithContext(ctx context.Context) EdifactEnvelopeOverrideInvokeResponseOutput {
+	return o
+}
+
+// The application password.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) ApplicationPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.ApplicationPassword }).(pulumi.StringPtrOutput)
+}
+
+// The association assigned code.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) AssociationAssignedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.AssociationAssignedCode }).(pulumi.StringPtrOutput)
+}
+
+// The controlling agency code.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) ControllingAgencyCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.ControllingAgencyCode }).(pulumi.StringPtrOutput)
+}
+
+// The functional group id.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) FunctionalGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.FunctionalGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The group header message release.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) GroupHeaderMessageRelease() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.GroupHeaderMessageRelease }).(pulumi.StringPtrOutput)
+}
+
+// The group header message version.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) GroupHeaderMessageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.GroupHeaderMessageVersion }).(pulumi.StringPtrOutput)
+}
+
+// The message association assigned code.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) MessageAssociationAssignedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.MessageAssociationAssignedCode }).(pulumi.StringPtrOutput)
+}
+
+// The message id on which this envelope settings has to be applied.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+}
+
+// The message release version on which this envelope settings has to be applied.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) MessageRelease() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.MessageRelease }).(pulumi.StringPtrOutput)
+}
+
+// The message version on which this envelope settings has to be applied.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) MessageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.MessageVersion }).(pulumi.StringPtrOutput)
+}
+
+// The receiver application id.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) ReceiverApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.ReceiverApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// The receiver application qualifier.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) ReceiverApplicationQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.ReceiverApplicationQualifier }).(pulumi.StringPtrOutput)
+}
+
+// The sender application id.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) SenderApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.SenderApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// The sender application qualifier.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) SenderApplicationQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.SenderApplicationQualifier }).(pulumi.StringPtrOutput)
+}
+
+// The target namespace on which this envelope settings has to be applied.
+func (o EdifactEnvelopeOverrideInvokeResponseOutput) TargetNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeOverrideInvokeResponse) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
+}
+
+type EdifactEnvelopeOverrideInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EdifactEnvelopeOverrideInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EdifactEnvelopeOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactEnvelopeOverrideInvokeResponseArrayOutput) ToEdifactEnvelopeOverrideInvokeResponseArrayOutput() EdifactEnvelopeOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EdifactEnvelopeOverrideInvokeResponseArrayOutput) ToEdifactEnvelopeOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) EdifactEnvelopeOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EdifactEnvelopeOverrideInvokeResponseArrayOutput) Index(i pulumi.IntInput) EdifactEnvelopeOverrideInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EdifactEnvelopeOverrideInvokeResponse {
+		return vs[0].([]EdifactEnvelopeOverrideInvokeResponse)[vs[1].(int)]
+	}).(EdifactEnvelopeOverrideInvokeResponseOutput)
 }
 
 // The Edifact envelope override settings.
@@ -12149,6 +17882,902 @@ func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberSuffix() pu
 // The transaction set control number upper bound.
 func (o EdifactEnvelopeSettingsPtrOutput) TransactionSetControlNumberUpperBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *EdifactEnvelopeSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TransactionSetControlNumberUpperBound
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The Edifact agreement envelope settings.
+type EdifactEnvelopeSettingsInvokeResponse struct {
+	// The application reference id.
+	ApplicationReferenceId *string `pulumi:"applicationReferenceId"`
+	// The value indicating whether to apply delimiter string advice.
+	ApplyDelimiterStringAdvice bool `pulumi:"applyDelimiterStringAdvice"`
+	// The communication agreement id.
+	CommunicationAgreementId *string `pulumi:"communicationAgreementId"`
+	// The value indicating whether to create grouping segments.
+	CreateGroupingSegments bool `pulumi:"createGroupingSegments"`
+	// The value indicating whether to enable default group headers.
+	EnableDefaultGroupHeaders bool `pulumi:"enableDefaultGroupHeaders"`
+	// The functional group id.
+	FunctionalGroupId *string `pulumi:"functionalGroupId"`
+	// The group application password.
+	GroupApplicationPassword *string `pulumi:"groupApplicationPassword"`
+	// The group application receiver id.
+	GroupApplicationReceiverId *string `pulumi:"groupApplicationReceiverId"`
+	// The group application receiver qualifier.
+	GroupApplicationReceiverQualifier *string `pulumi:"groupApplicationReceiverQualifier"`
+	// The group application sender id.
+	GroupApplicationSenderId *string `pulumi:"groupApplicationSenderId"`
+	// The group application sender qualifier.
+	GroupApplicationSenderQualifier *string `pulumi:"groupApplicationSenderQualifier"`
+	// The group association assigned code.
+	GroupAssociationAssignedCode *string `pulumi:"groupAssociationAssignedCode"`
+	// The group control number lower bound.
+	GroupControlNumberLowerBound float64 `pulumi:"groupControlNumberLowerBound"`
+	// The group control number prefix.
+	GroupControlNumberPrefix *string `pulumi:"groupControlNumberPrefix"`
+	// The group control number suffix.
+	GroupControlNumberSuffix *string `pulumi:"groupControlNumberSuffix"`
+	// The group control number upper bound.
+	GroupControlNumberUpperBound float64 `pulumi:"groupControlNumberUpperBound"`
+	// The group controlling agency code.
+	GroupControllingAgencyCode *string `pulumi:"groupControllingAgencyCode"`
+	// The group message release.
+	GroupMessageRelease *string `pulumi:"groupMessageRelease"`
+	// The group message version.
+	GroupMessageVersion *string `pulumi:"groupMessageVersion"`
+	// The interchange control number lower bound.
+	InterchangeControlNumberLowerBound float64 `pulumi:"interchangeControlNumberLowerBound"`
+	// The interchange control number prefix.
+	InterchangeControlNumberPrefix *string `pulumi:"interchangeControlNumberPrefix"`
+	// The interchange control number suffix.
+	InterchangeControlNumberSuffix *string `pulumi:"interchangeControlNumberSuffix"`
+	// The interchange control number upper bound.
+	InterchangeControlNumberUpperBound float64 `pulumi:"interchangeControlNumberUpperBound"`
+	// The value indicating whether the message is a test interchange.
+	IsTestInterchange bool `pulumi:"isTestInterchange"`
+	// The value indicating whether to overwrite existing transaction set control number.
+	OverwriteExistingTransactionSetControlNumber bool `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	// The processing priority code.
+	ProcessingPriorityCode *string `pulumi:"processingPriorityCode"`
+	// The receiver internal identification.
+	ReceiverInternalIdentification *string `pulumi:"receiverInternalIdentification"`
+	// The receiver internal sub identification.
+	ReceiverInternalSubIdentification *string `pulumi:"receiverInternalSubIdentification"`
+	// The receiver reverse routing address.
+	ReceiverReverseRoutingAddress *string `pulumi:"receiverReverseRoutingAddress"`
+	// The recipient reference password qualifier.
+	RecipientReferencePasswordQualifier *string `pulumi:"recipientReferencePasswordQualifier"`
+	// The recipient reference password value.
+	RecipientReferencePasswordValue *string `pulumi:"recipientReferencePasswordValue"`
+	// The value indicating whether to rollover group control number.
+	RolloverGroupControlNumber bool `pulumi:"rolloverGroupControlNumber"`
+	// The value indicating whether to rollover interchange control number.
+	RolloverInterchangeControlNumber bool `pulumi:"rolloverInterchangeControlNumber"`
+	// The value indicating whether to rollover transaction set control number.
+	RolloverTransactionSetControlNumber bool `pulumi:"rolloverTransactionSetControlNumber"`
+	// The sender internal identification.
+	SenderInternalIdentification *string `pulumi:"senderInternalIdentification"`
+	// The sender internal sub identification.
+	SenderInternalSubIdentification *string `pulumi:"senderInternalSubIdentification"`
+	// The sender reverse routing address.
+	SenderReverseRoutingAddress *string `pulumi:"senderReverseRoutingAddress"`
+	// The transaction set control number lower bound.
+	TransactionSetControlNumberLowerBound float64 `pulumi:"transactionSetControlNumberLowerBound"`
+	// The transaction set control number prefix.
+	TransactionSetControlNumberPrefix *string `pulumi:"transactionSetControlNumberPrefix"`
+	// The transaction set control number suffix.
+	TransactionSetControlNumberSuffix *string `pulumi:"transactionSetControlNumberSuffix"`
+	// The transaction set control number upper bound.
+	TransactionSetControlNumberUpperBound float64 `pulumi:"transactionSetControlNumberUpperBound"`
+}
+
+// EdifactEnvelopeSettingsInvokeResponseInput is an input type that accepts EdifactEnvelopeSettingsInvokeResponseArgs and EdifactEnvelopeSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactEnvelopeSettingsInvokeResponseInput` via:
+//
+//          EdifactEnvelopeSettingsInvokeResponseArgs{...}
+type EdifactEnvelopeSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactEnvelopeSettingsInvokeResponseOutput() EdifactEnvelopeSettingsInvokeResponseOutput
+	ToEdifactEnvelopeSettingsInvokeResponseOutputWithContext(context.Context) EdifactEnvelopeSettingsInvokeResponseOutput
+}
+
+// The Edifact agreement envelope settings.
+type EdifactEnvelopeSettingsInvokeResponseArgs struct {
+	// The application reference id.
+	ApplicationReferenceId pulumi.StringPtrInput `pulumi:"applicationReferenceId"`
+	// The value indicating whether to apply delimiter string advice.
+	ApplyDelimiterStringAdvice pulumi.BoolInput `pulumi:"applyDelimiterStringAdvice"`
+	// The communication agreement id.
+	CommunicationAgreementId pulumi.StringPtrInput `pulumi:"communicationAgreementId"`
+	// The value indicating whether to create grouping segments.
+	CreateGroupingSegments pulumi.BoolInput `pulumi:"createGroupingSegments"`
+	// The value indicating whether to enable default group headers.
+	EnableDefaultGroupHeaders pulumi.BoolInput `pulumi:"enableDefaultGroupHeaders"`
+	// The functional group id.
+	FunctionalGroupId pulumi.StringPtrInput `pulumi:"functionalGroupId"`
+	// The group application password.
+	GroupApplicationPassword pulumi.StringPtrInput `pulumi:"groupApplicationPassword"`
+	// The group application receiver id.
+	GroupApplicationReceiverId pulumi.StringPtrInput `pulumi:"groupApplicationReceiverId"`
+	// The group application receiver qualifier.
+	GroupApplicationReceiverQualifier pulumi.StringPtrInput `pulumi:"groupApplicationReceiverQualifier"`
+	// The group application sender id.
+	GroupApplicationSenderId pulumi.StringPtrInput `pulumi:"groupApplicationSenderId"`
+	// The group application sender qualifier.
+	GroupApplicationSenderQualifier pulumi.StringPtrInput `pulumi:"groupApplicationSenderQualifier"`
+	// The group association assigned code.
+	GroupAssociationAssignedCode pulumi.StringPtrInput `pulumi:"groupAssociationAssignedCode"`
+	// The group control number lower bound.
+	GroupControlNumberLowerBound pulumi.Float64Input `pulumi:"groupControlNumberLowerBound"`
+	// The group control number prefix.
+	GroupControlNumberPrefix pulumi.StringPtrInput `pulumi:"groupControlNumberPrefix"`
+	// The group control number suffix.
+	GroupControlNumberSuffix pulumi.StringPtrInput `pulumi:"groupControlNumberSuffix"`
+	// The group control number upper bound.
+	GroupControlNumberUpperBound pulumi.Float64Input `pulumi:"groupControlNumberUpperBound"`
+	// The group controlling agency code.
+	GroupControllingAgencyCode pulumi.StringPtrInput `pulumi:"groupControllingAgencyCode"`
+	// The group message release.
+	GroupMessageRelease pulumi.StringPtrInput `pulumi:"groupMessageRelease"`
+	// The group message version.
+	GroupMessageVersion pulumi.StringPtrInput `pulumi:"groupMessageVersion"`
+	// The interchange control number lower bound.
+	InterchangeControlNumberLowerBound pulumi.Float64Input `pulumi:"interchangeControlNumberLowerBound"`
+	// The interchange control number prefix.
+	InterchangeControlNumberPrefix pulumi.StringPtrInput `pulumi:"interchangeControlNumberPrefix"`
+	// The interchange control number suffix.
+	InterchangeControlNumberSuffix pulumi.StringPtrInput `pulumi:"interchangeControlNumberSuffix"`
+	// The interchange control number upper bound.
+	InterchangeControlNumberUpperBound pulumi.Float64Input `pulumi:"interchangeControlNumberUpperBound"`
+	// The value indicating whether the message is a test interchange.
+	IsTestInterchange pulumi.BoolInput `pulumi:"isTestInterchange"`
+	// The value indicating whether to overwrite existing transaction set control number.
+	OverwriteExistingTransactionSetControlNumber pulumi.BoolInput `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	// The processing priority code.
+	ProcessingPriorityCode pulumi.StringPtrInput `pulumi:"processingPriorityCode"`
+	// The receiver internal identification.
+	ReceiverInternalIdentification pulumi.StringPtrInput `pulumi:"receiverInternalIdentification"`
+	// The receiver internal sub identification.
+	ReceiverInternalSubIdentification pulumi.StringPtrInput `pulumi:"receiverInternalSubIdentification"`
+	// The receiver reverse routing address.
+	ReceiverReverseRoutingAddress pulumi.StringPtrInput `pulumi:"receiverReverseRoutingAddress"`
+	// The recipient reference password qualifier.
+	RecipientReferencePasswordQualifier pulumi.StringPtrInput `pulumi:"recipientReferencePasswordQualifier"`
+	// The recipient reference password value.
+	RecipientReferencePasswordValue pulumi.StringPtrInput `pulumi:"recipientReferencePasswordValue"`
+	// The value indicating whether to rollover group control number.
+	RolloverGroupControlNumber pulumi.BoolInput `pulumi:"rolloverGroupControlNumber"`
+	// The value indicating whether to rollover interchange control number.
+	RolloverInterchangeControlNumber pulumi.BoolInput `pulumi:"rolloverInterchangeControlNumber"`
+	// The value indicating whether to rollover transaction set control number.
+	RolloverTransactionSetControlNumber pulumi.BoolInput `pulumi:"rolloverTransactionSetControlNumber"`
+	// The sender internal identification.
+	SenderInternalIdentification pulumi.StringPtrInput `pulumi:"senderInternalIdentification"`
+	// The sender internal sub identification.
+	SenderInternalSubIdentification pulumi.StringPtrInput `pulumi:"senderInternalSubIdentification"`
+	// The sender reverse routing address.
+	SenderReverseRoutingAddress pulumi.StringPtrInput `pulumi:"senderReverseRoutingAddress"`
+	// The transaction set control number lower bound.
+	TransactionSetControlNumberLowerBound pulumi.Float64Input `pulumi:"transactionSetControlNumberLowerBound"`
+	// The transaction set control number prefix.
+	TransactionSetControlNumberPrefix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
+	// The transaction set control number suffix.
+	TransactionSetControlNumberSuffix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
+	// The transaction set control number upper bound.
+	TransactionSetControlNumberUpperBound pulumi.Float64Input `pulumi:"transactionSetControlNumberUpperBound"`
+}
+
+func (EdifactEnvelopeSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactEnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactEnvelopeSettingsInvokeResponseArgs) ToEdifactEnvelopeSettingsInvokeResponseOutput() EdifactEnvelopeSettingsInvokeResponseOutput {
+	return i.ToEdifactEnvelopeSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactEnvelopeSettingsInvokeResponseArgs) ToEdifactEnvelopeSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactEnvelopeSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeSettingsInvokeResponseOutput)
+}
+
+func (i EdifactEnvelopeSettingsInvokeResponseArgs) ToEdifactEnvelopeSettingsInvokeResponsePtrOutput() EdifactEnvelopeSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactEnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdifactEnvelopeSettingsInvokeResponseArgs) ToEdifactEnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactEnvelopeSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeSettingsInvokeResponseOutput).ToEdifactEnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EdifactEnvelopeSettingsInvokeResponsePtrInput is an input type that accepts EdifactEnvelopeSettingsInvokeResponseArgs, EdifactEnvelopeSettingsInvokeResponsePtr and EdifactEnvelopeSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EdifactEnvelopeSettingsInvokeResponsePtrInput` via:
+//
+//          EdifactEnvelopeSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdifactEnvelopeSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdifactEnvelopeSettingsInvokeResponsePtrOutput() EdifactEnvelopeSettingsInvokeResponsePtrOutput
+	ToEdifactEnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Context) EdifactEnvelopeSettingsInvokeResponsePtrOutput
+}
+
+type edifactEnvelopeSettingsInvokeResponsePtrType EdifactEnvelopeSettingsInvokeResponseArgs
+
+func EdifactEnvelopeSettingsInvokeResponsePtr(v *EdifactEnvelopeSettingsInvokeResponseArgs) EdifactEnvelopeSettingsInvokeResponsePtrInput {
+	return (*edifactEnvelopeSettingsInvokeResponsePtrType)(v)
+}
+
+func (*edifactEnvelopeSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactEnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *edifactEnvelopeSettingsInvokeResponsePtrType) ToEdifactEnvelopeSettingsInvokeResponsePtrOutput() EdifactEnvelopeSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactEnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edifactEnvelopeSettingsInvokeResponsePtrType) ToEdifactEnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactEnvelopeSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactEnvelopeSettingsInvokeResponsePtrOutput)
+}
+
+// The Edifact agreement envelope settings.
+type EdifactEnvelopeSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactEnvelopeSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactEnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) ToEdifactEnvelopeSettingsInvokeResponseOutput() EdifactEnvelopeSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) ToEdifactEnvelopeSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactEnvelopeSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) ToEdifactEnvelopeSettingsInvokeResponsePtrOutput() EdifactEnvelopeSettingsInvokeResponsePtrOutput {
+	return o.ToEdifactEnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) ToEdifactEnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactEnvelopeSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *EdifactEnvelopeSettingsInvokeResponse {
+		return &v
+	}).(EdifactEnvelopeSettingsInvokeResponsePtrOutput)
+}
+
+// The application reference id.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) ApplicationReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.ApplicationReferenceId }).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to apply delimiter string advice.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) ApplyDelimiterStringAdvice() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) bool { return v.ApplyDelimiterStringAdvice }).(pulumi.BoolOutput)
+}
+
+// The communication agreement id.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) CommunicationAgreementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.CommunicationAgreementId }).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to create grouping segments.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) CreateGroupingSegments() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) bool { return v.CreateGroupingSegments }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to enable default group headers.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) EnableDefaultGroupHeaders() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) bool { return v.EnableDefaultGroupHeaders }).(pulumi.BoolOutput)
+}
+
+// The functional group id.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) FunctionalGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.FunctionalGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The group application password.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupApplicationPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupApplicationPassword }).(pulumi.StringPtrOutput)
+}
+
+// The group application receiver id.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupApplicationReceiverId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupApplicationReceiverId }).(pulumi.StringPtrOutput)
+}
+
+// The group application receiver qualifier.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupApplicationReceiverQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupApplicationReceiverQualifier }).(pulumi.StringPtrOutput)
+}
+
+// The group application sender id.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupApplicationSenderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupApplicationSenderId }).(pulumi.StringPtrOutput)
+}
+
+// The group application sender qualifier.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupApplicationSenderQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupApplicationSenderQualifier }).(pulumi.StringPtrOutput)
+}
+
+// The group association assigned code.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupAssociationAssignedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupAssociationAssignedCode }).(pulumi.StringPtrOutput)
+}
+
+// The group control number lower bound.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupControlNumberLowerBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) float64 { return v.GroupControlNumberLowerBound }).(pulumi.Float64Output)
+}
+
+// The group control number prefix.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupControlNumberPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The group control number suffix.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupControlNumberSuffix }).(pulumi.StringPtrOutput)
+}
+
+// The group control number upper bound.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupControlNumberUpperBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) float64 { return v.GroupControlNumberUpperBound }).(pulumi.Float64Output)
+}
+
+// The group controlling agency code.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupControllingAgencyCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupControllingAgencyCode }).(pulumi.StringPtrOutput)
+}
+
+// The group message release.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupMessageRelease() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupMessageRelease }).(pulumi.StringPtrOutput)
+}
+
+// The group message version.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) GroupMessageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.GroupMessageVersion }).(pulumi.StringPtrOutput)
+}
+
+// The interchange control number lower bound.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) InterchangeControlNumberLowerBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) float64 { return v.InterchangeControlNumberLowerBound }).(pulumi.Float64Output)
+}
+
+// The interchange control number prefix.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) InterchangeControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.InterchangeControlNumberPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The interchange control number suffix.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) InterchangeControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.InterchangeControlNumberSuffix }).(pulumi.StringPtrOutput)
+}
+
+// The interchange control number upper bound.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) InterchangeControlNumberUpperBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) float64 { return v.InterchangeControlNumberUpperBound }).(pulumi.Float64Output)
+}
+
+// The value indicating whether the message is a test interchange.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) IsTestInterchange() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) bool { return v.IsTestInterchange }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to overwrite existing transaction set control number.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) bool {
+		return v.OverwriteExistingTransactionSetControlNumber
+	}).(pulumi.BoolOutput)
+}
+
+// The processing priority code.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) ProcessingPriorityCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.ProcessingPriorityCode }).(pulumi.StringPtrOutput)
+}
+
+// The receiver internal identification.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) ReceiverInternalIdentification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.ReceiverInternalIdentification }).(pulumi.StringPtrOutput)
+}
+
+// The receiver internal sub identification.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) ReceiverInternalSubIdentification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.ReceiverInternalSubIdentification }).(pulumi.StringPtrOutput)
+}
+
+// The receiver reverse routing address.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) ReceiverReverseRoutingAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.ReceiverReverseRoutingAddress }).(pulumi.StringPtrOutput)
+}
+
+// The recipient reference password qualifier.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) RecipientReferencePasswordQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.RecipientReferencePasswordQualifier }).(pulumi.StringPtrOutput)
+}
+
+// The recipient reference password value.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) RecipientReferencePasswordValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.RecipientReferencePasswordValue }).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to rollover group control number.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) RolloverGroupControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) bool { return v.RolloverGroupControlNumber }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to rollover interchange control number.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) RolloverInterchangeControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) bool { return v.RolloverInterchangeControlNumber }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to rollover transaction set control number.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) RolloverTransactionSetControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) bool { return v.RolloverTransactionSetControlNumber }).(pulumi.BoolOutput)
+}
+
+// The sender internal identification.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) SenderInternalIdentification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.SenderInternalIdentification }).(pulumi.StringPtrOutput)
+}
+
+// The sender internal sub identification.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) SenderInternalSubIdentification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.SenderInternalSubIdentification }).(pulumi.StringPtrOutput)
+}
+
+// The sender reverse routing address.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) SenderReverseRoutingAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.SenderReverseRoutingAddress }).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number lower bound.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) TransactionSetControlNumberLowerBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) float64 { return v.TransactionSetControlNumberLowerBound }).(pulumi.Float64Output)
+}
+
+// The transaction set control number prefix.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.TransactionSetControlNumberPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number suffix.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) *string { return v.TransactionSetControlNumberSuffix }).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number upper bound.
+func (o EdifactEnvelopeSettingsInvokeResponseOutput) TransactionSetControlNumberUpperBound() pulumi.Float64Output {
+	return o.ApplyT(func(v EdifactEnvelopeSettingsInvokeResponse) float64 { return v.TransactionSetControlNumberUpperBound }).(pulumi.Float64Output)
+}
+
+type EdifactEnvelopeSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdifactEnvelopeSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactEnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) ToEdifactEnvelopeSettingsInvokeResponsePtrOutput() EdifactEnvelopeSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) ToEdifactEnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactEnvelopeSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) Elem() EdifactEnvelopeSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) EdifactEnvelopeSettingsInvokeResponse { return *v }).(EdifactEnvelopeSettingsInvokeResponseOutput)
+}
+
+// The application reference id.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) ApplicationReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationReferenceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to apply delimiter string advice.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) ApplyDelimiterStringAdvice() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplyDelimiterStringAdvice
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The communication agreement id.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) CommunicationAgreementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommunicationAgreementId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to create grouping segments.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) CreateGroupingSegments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CreateGroupingSegments
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to enable default group headers.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) EnableDefaultGroupHeaders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableDefaultGroupHeaders
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The functional group id.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) FunctionalGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionalGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group application password.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupApplicationPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupApplicationPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group application receiver id.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupApplicationReceiverId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupApplicationReceiverId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group application receiver qualifier.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupApplicationReceiverQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupApplicationReceiverQualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group application sender id.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupApplicationSenderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupApplicationSenderId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group application sender qualifier.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupApplicationSenderQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupApplicationSenderQualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group association assigned code.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupAssociationAssignedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupAssociationAssignedCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group control number lower bound.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupControlNumberLowerBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupControlNumberLowerBound
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The group control number prefix.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupControlNumberPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group control number suffix.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupControlNumberSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group control number upper bound.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupControlNumberUpperBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupControlNumberUpperBound
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The group controlling agency code.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupControllingAgencyCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupControllingAgencyCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group message release.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupMessageRelease() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupMessageRelease
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group message version.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) GroupMessageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupMessageVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interchange control number lower bound.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) InterchangeControlNumberLowerBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.InterchangeControlNumberLowerBound
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The interchange control number prefix.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) InterchangeControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InterchangeControlNumberPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interchange control number suffix.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) InterchangeControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InterchangeControlNumberSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interchange control number upper bound.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) InterchangeControlNumberUpperBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.InterchangeControlNumberUpperBound
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The value indicating whether the message is a test interchange.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) IsTestInterchange() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsTestInterchange
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to overwrite existing transaction set control number.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OverwriteExistingTransactionSetControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The processing priority code.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) ProcessingPriorityCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessingPriorityCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The receiver internal identification.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) ReceiverInternalIdentification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReceiverInternalIdentification
+	}).(pulumi.StringPtrOutput)
+}
+
+// The receiver internal sub identification.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) ReceiverInternalSubIdentification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReceiverInternalSubIdentification
+	}).(pulumi.StringPtrOutput)
+}
+
+// The receiver reverse routing address.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) ReceiverReverseRoutingAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReceiverReverseRoutingAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The recipient reference password qualifier.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) RecipientReferencePasswordQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecipientReferencePasswordQualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The recipient reference password value.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) RecipientReferencePasswordValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecipientReferencePasswordValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to rollover group control number.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) RolloverGroupControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RolloverGroupControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to rollover interchange control number.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) RolloverInterchangeControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RolloverInterchangeControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to rollover transaction set control number.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) RolloverTransactionSetControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RolloverTransactionSetControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The sender internal identification.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) SenderInternalIdentification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SenderInternalIdentification
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sender internal sub identification.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) SenderInternalSubIdentification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SenderInternalSubIdentification
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sender reverse routing address.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) SenderReverseRoutingAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SenderReverseRoutingAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number lower bound.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) TransactionSetControlNumberLowerBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TransactionSetControlNumberLowerBound
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The transaction set control number prefix.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransactionSetControlNumberPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number suffix.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransactionSetControlNumberSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number upper bound.
+func (o EdifactEnvelopeSettingsInvokeResponsePtrOutput) TransactionSetControlNumberUpperBound() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsInvokeResponse) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -13375,6 +20004,330 @@ func (o EdifactFramingSettingsPtrOutput) ServiceCodeListDirectoryVersion() pulum
 }
 
 // The Edifact agreement framing settings.
+type EdifactFramingSettingsInvokeResponse struct {
+	// The character encoding.
+	CharacterEncoding *string `pulumi:"characterEncoding"`
+	// The EDIFACT frame setting characterSet.
+	CharacterSet string `pulumi:"characterSet"`
+	// The component separator.
+	ComponentSeparator int `pulumi:"componentSeparator"`
+	// The data element separator.
+	DataElementSeparator int `pulumi:"dataElementSeparator"`
+	// The EDIFACT frame setting decimal indicator.
+	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
+	// The protocol version.
+	ProtocolVersion int `pulumi:"protocolVersion"`
+	// The release indicator.
+	ReleaseIndicator int `pulumi:"releaseIndicator"`
+	// The repetition separator.
+	RepetitionSeparator int `pulumi:"repetitionSeparator"`
+	// The segment terminator.
+	SegmentTerminator int `pulumi:"segmentTerminator"`
+	// The EDIFACT frame setting segment terminator suffix.
+	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	// The service code list directory version.
+	ServiceCodeListDirectoryVersion *string `pulumi:"serviceCodeListDirectoryVersion"`
+}
+
+// EdifactFramingSettingsInvokeResponseInput is an input type that accepts EdifactFramingSettingsInvokeResponseArgs and EdifactFramingSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactFramingSettingsInvokeResponseInput` via:
+//
+//          EdifactFramingSettingsInvokeResponseArgs{...}
+type EdifactFramingSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactFramingSettingsInvokeResponseOutput() EdifactFramingSettingsInvokeResponseOutput
+	ToEdifactFramingSettingsInvokeResponseOutputWithContext(context.Context) EdifactFramingSettingsInvokeResponseOutput
+}
+
+// The Edifact agreement framing settings.
+type EdifactFramingSettingsInvokeResponseArgs struct {
+	// The character encoding.
+	CharacterEncoding pulumi.StringPtrInput `pulumi:"characterEncoding"`
+	// The EDIFACT frame setting characterSet.
+	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
+	// The component separator.
+	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
+	// The data element separator.
+	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
+	// The EDIFACT frame setting decimal indicator.
+	DecimalPointIndicator pulumi.StringInput `pulumi:"decimalPointIndicator"`
+	// The protocol version.
+	ProtocolVersion pulumi.IntInput `pulumi:"protocolVersion"`
+	// The release indicator.
+	ReleaseIndicator pulumi.IntInput `pulumi:"releaseIndicator"`
+	// The repetition separator.
+	RepetitionSeparator pulumi.IntInput `pulumi:"repetitionSeparator"`
+	// The segment terminator.
+	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
+	// The EDIFACT frame setting segment terminator suffix.
+	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	// The service code list directory version.
+	ServiceCodeListDirectoryVersion pulumi.StringPtrInput `pulumi:"serviceCodeListDirectoryVersion"`
+}
+
+func (EdifactFramingSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactFramingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactFramingSettingsInvokeResponseArgs) ToEdifactFramingSettingsInvokeResponseOutput() EdifactFramingSettingsInvokeResponseOutput {
+	return i.ToEdifactFramingSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactFramingSettingsInvokeResponseArgs) ToEdifactFramingSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactFramingSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactFramingSettingsInvokeResponseOutput)
+}
+
+func (i EdifactFramingSettingsInvokeResponseArgs) ToEdifactFramingSettingsInvokeResponsePtrOutput() EdifactFramingSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactFramingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdifactFramingSettingsInvokeResponseArgs) ToEdifactFramingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactFramingSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactFramingSettingsInvokeResponseOutput).ToEdifactFramingSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EdifactFramingSettingsInvokeResponsePtrInput is an input type that accepts EdifactFramingSettingsInvokeResponseArgs, EdifactFramingSettingsInvokeResponsePtr and EdifactFramingSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EdifactFramingSettingsInvokeResponsePtrInput` via:
+//
+//          EdifactFramingSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdifactFramingSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdifactFramingSettingsInvokeResponsePtrOutput() EdifactFramingSettingsInvokeResponsePtrOutput
+	ToEdifactFramingSettingsInvokeResponsePtrOutputWithContext(context.Context) EdifactFramingSettingsInvokeResponsePtrOutput
+}
+
+type edifactFramingSettingsInvokeResponsePtrType EdifactFramingSettingsInvokeResponseArgs
+
+func EdifactFramingSettingsInvokeResponsePtr(v *EdifactFramingSettingsInvokeResponseArgs) EdifactFramingSettingsInvokeResponsePtrInput {
+	return (*edifactFramingSettingsInvokeResponsePtrType)(v)
+}
+
+func (*edifactFramingSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactFramingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *edifactFramingSettingsInvokeResponsePtrType) ToEdifactFramingSettingsInvokeResponsePtrOutput() EdifactFramingSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactFramingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edifactFramingSettingsInvokeResponsePtrType) ToEdifactFramingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactFramingSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactFramingSettingsInvokeResponsePtrOutput)
+}
+
+// The Edifact agreement framing settings.
+type EdifactFramingSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactFramingSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactFramingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactFramingSettingsInvokeResponseOutput) ToEdifactFramingSettingsInvokeResponseOutput() EdifactFramingSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactFramingSettingsInvokeResponseOutput) ToEdifactFramingSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactFramingSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactFramingSettingsInvokeResponseOutput) ToEdifactFramingSettingsInvokeResponsePtrOutput() EdifactFramingSettingsInvokeResponsePtrOutput {
+	return o.ToEdifactFramingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdifactFramingSettingsInvokeResponseOutput) ToEdifactFramingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactFramingSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) *EdifactFramingSettingsInvokeResponse {
+		return &v
+	}).(EdifactFramingSettingsInvokeResponsePtrOutput)
+}
+
+// The character encoding.
+func (o EdifactFramingSettingsInvokeResponseOutput) CharacterEncoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) *string { return v.CharacterEncoding }).(pulumi.StringPtrOutput)
+}
+
+// The EDIFACT frame setting characterSet.
+func (o EdifactFramingSettingsInvokeResponseOutput) CharacterSet() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) string { return v.CharacterSet }).(pulumi.StringOutput)
+}
+
+// The component separator.
+func (o EdifactFramingSettingsInvokeResponseOutput) ComponentSeparator() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) int { return v.ComponentSeparator }).(pulumi.IntOutput)
+}
+
+// The data element separator.
+func (o EdifactFramingSettingsInvokeResponseOutput) DataElementSeparator() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) int { return v.DataElementSeparator }).(pulumi.IntOutput)
+}
+
+// The EDIFACT frame setting decimal indicator.
+func (o EdifactFramingSettingsInvokeResponseOutput) DecimalPointIndicator() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
+}
+
+// The protocol version.
+func (o EdifactFramingSettingsInvokeResponseOutput) ProtocolVersion() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) int { return v.ProtocolVersion }).(pulumi.IntOutput)
+}
+
+// The release indicator.
+func (o EdifactFramingSettingsInvokeResponseOutput) ReleaseIndicator() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) int { return v.ReleaseIndicator }).(pulumi.IntOutput)
+}
+
+// The repetition separator.
+func (o EdifactFramingSettingsInvokeResponseOutput) RepetitionSeparator() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) int { return v.RepetitionSeparator }).(pulumi.IntOutput)
+}
+
+// The segment terminator.
+func (o EdifactFramingSettingsInvokeResponseOutput) SegmentTerminator() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) int { return v.SegmentTerminator }).(pulumi.IntOutput)
+}
+
+// The EDIFACT frame setting segment terminator suffix.
+func (o EdifactFramingSettingsInvokeResponseOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+}
+
+// The service code list directory version.
+func (o EdifactFramingSettingsInvokeResponseOutput) ServiceCodeListDirectoryVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactFramingSettingsInvokeResponse) *string { return v.ServiceCodeListDirectoryVersion }).(pulumi.StringPtrOutput)
+}
+
+type EdifactFramingSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdifactFramingSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactFramingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) ToEdifactFramingSettingsInvokeResponsePtrOutput() EdifactFramingSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) ToEdifactFramingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactFramingSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) Elem() EdifactFramingSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) EdifactFramingSettingsInvokeResponse { return *v }).(EdifactFramingSettingsInvokeResponseOutput)
+}
+
+// The character encoding.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) CharacterEncoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CharacterEncoding
+	}).(pulumi.StringPtrOutput)
+}
+
+// The EDIFACT frame setting characterSet.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) CharacterSet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CharacterSet
+	}).(pulumi.StringPtrOutput)
+}
+
+// The component separator.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) ComponentSeparator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ComponentSeparator
+	}).(pulumi.IntPtrOutput)
+}
+
+// The data element separator.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) DataElementSeparator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DataElementSeparator
+	}).(pulumi.IntPtrOutput)
+}
+
+// The EDIFACT frame setting decimal indicator.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) DecimalPointIndicator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DecimalPointIndicator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The protocol version.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) ProtocolVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtocolVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+// The release indicator.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) ReleaseIndicator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ReleaseIndicator
+	}).(pulumi.IntPtrOutput)
+}
+
+// The repetition separator.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) RepetitionSeparator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RepetitionSeparator
+	}).(pulumi.IntPtrOutput)
+}
+
+// The segment terminator.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SegmentTerminator
+	}).(pulumi.IntPtrOutput)
+}
+
+// The EDIFACT frame setting segment terminator suffix.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SegmentTerminatorSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The service code list directory version.
+func (o EdifactFramingSettingsInvokeResponsePtrOutput) ServiceCodeListDirectoryVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceCodeListDirectoryVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Edifact agreement framing settings.
 type EdifactFramingSettingsResponse struct {
 	// The character encoding.
 	CharacterEncoding *string `pulumi:"characterEncoding"`
@@ -13833,6 +20786,140 @@ func (o EdifactMessageFilterPtrOutput) MessageFilterType() pulumi.StringPtrOutpu
 }
 
 // The Edifact message filter for odata query.
+type EdifactMessageFilterInvokeResponse struct {
+	// The message filter type.
+	MessageFilterType string `pulumi:"messageFilterType"`
+}
+
+// EdifactMessageFilterInvokeResponseInput is an input type that accepts EdifactMessageFilterInvokeResponseArgs and EdifactMessageFilterInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactMessageFilterInvokeResponseInput` via:
+//
+//          EdifactMessageFilterInvokeResponseArgs{...}
+type EdifactMessageFilterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactMessageFilterInvokeResponseOutput() EdifactMessageFilterInvokeResponseOutput
+	ToEdifactMessageFilterInvokeResponseOutputWithContext(context.Context) EdifactMessageFilterInvokeResponseOutput
+}
+
+// The Edifact message filter for odata query.
+type EdifactMessageFilterInvokeResponseArgs struct {
+	// The message filter type.
+	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
+}
+
+func (EdifactMessageFilterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactMessageFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactMessageFilterInvokeResponseArgs) ToEdifactMessageFilterInvokeResponseOutput() EdifactMessageFilterInvokeResponseOutput {
+	return i.ToEdifactMessageFilterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactMessageFilterInvokeResponseArgs) ToEdifactMessageFilterInvokeResponseOutputWithContext(ctx context.Context) EdifactMessageFilterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageFilterInvokeResponseOutput)
+}
+
+func (i EdifactMessageFilterInvokeResponseArgs) ToEdifactMessageFilterInvokeResponsePtrOutput() EdifactMessageFilterInvokeResponsePtrOutput {
+	return i.ToEdifactMessageFilterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdifactMessageFilterInvokeResponseArgs) ToEdifactMessageFilterInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactMessageFilterInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageFilterInvokeResponseOutput).ToEdifactMessageFilterInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EdifactMessageFilterInvokeResponsePtrInput is an input type that accepts EdifactMessageFilterInvokeResponseArgs, EdifactMessageFilterInvokeResponsePtr and EdifactMessageFilterInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EdifactMessageFilterInvokeResponsePtrInput` via:
+//
+//          EdifactMessageFilterInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdifactMessageFilterInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdifactMessageFilterInvokeResponsePtrOutput() EdifactMessageFilterInvokeResponsePtrOutput
+	ToEdifactMessageFilterInvokeResponsePtrOutputWithContext(context.Context) EdifactMessageFilterInvokeResponsePtrOutput
+}
+
+type edifactMessageFilterInvokeResponsePtrType EdifactMessageFilterInvokeResponseArgs
+
+func EdifactMessageFilterInvokeResponsePtr(v *EdifactMessageFilterInvokeResponseArgs) EdifactMessageFilterInvokeResponsePtrInput {
+	return (*edifactMessageFilterInvokeResponsePtrType)(v)
+}
+
+func (*edifactMessageFilterInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactMessageFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i *edifactMessageFilterInvokeResponsePtrType) ToEdifactMessageFilterInvokeResponsePtrOutput() EdifactMessageFilterInvokeResponsePtrOutput {
+	return i.ToEdifactMessageFilterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edifactMessageFilterInvokeResponsePtrType) ToEdifactMessageFilterInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactMessageFilterInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageFilterInvokeResponsePtrOutput)
+}
+
+// The Edifact message filter for odata query.
+type EdifactMessageFilterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactMessageFilterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactMessageFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactMessageFilterInvokeResponseOutput) ToEdifactMessageFilterInvokeResponseOutput() EdifactMessageFilterInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactMessageFilterInvokeResponseOutput) ToEdifactMessageFilterInvokeResponseOutputWithContext(ctx context.Context) EdifactMessageFilterInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactMessageFilterInvokeResponseOutput) ToEdifactMessageFilterInvokeResponsePtrOutput() EdifactMessageFilterInvokeResponsePtrOutput {
+	return o.ToEdifactMessageFilterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdifactMessageFilterInvokeResponseOutput) ToEdifactMessageFilterInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactMessageFilterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdifactMessageFilterInvokeResponse) *EdifactMessageFilterInvokeResponse {
+		return &v
+	}).(EdifactMessageFilterInvokeResponsePtrOutput)
+}
+
+// The message filter type.
+func (o EdifactMessageFilterInvokeResponseOutput) MessageFilterType() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactMessageFilterInvokeResponse) string { return v.MessageFilterType }).(pulumi.StringOutput)
+}
+
+type EdifactMessageFilterInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdifactMessageFilterInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactMessageFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactMessageFilterInvokeResponsePtrOutput) ToEdifactMessageFilterInvokeResponsePtrOutput() EdifactMessageFilterInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactMessageFilterInvokeResponsePtrOutput) ToEdifactMessageFilterInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactMessageFilterInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactMessageFilterInvokeResponsePtrOutput) Elem() EdifactMessageFilterInvokeResponseOutput {
+	return o.ApplyT(func(v *EdifactMessageFilterInvokeResponse) EdifactMessageFilterInvokeResponse { return *v }).(EdifactMessageFilterInvokeResponseOutput)
+}
+
+// The message filter type.
+func (o EdifactMessageFilterInvokeResponsePtrOutput) MessageFilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactMessageFilterInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MessageFilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Edifact message filter for odata query.
 type EdifactMessageFilterResponse struct {
 	// The message filter type.
 	MessageFilterType string `pulumi:"messageFilterType"`
@@ -14064,6 +21151,106 @@ func (o EdifactMessageIdentifierArrayOutput) Index(i pulumi.IntInput) EdifactMes
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EdifactMessageIdentifier {
 		return vs[0].([]EdifactMessageIdentifier)[vs[1].(int)]
 	}).(EdifactMessageIdentifierOutput)
+}
+
+// The Edifact message identifier.
+type EdifactMessageIdentifierInvokeResponse struct {
+	// The message id on which this envelope settings has to be applied.
+	MessageId string `pulumi:"messageId"`
+}
+
+// EdifactMessageIdentifierInvokeResponseInput is an input type that accepts EdifactMessageIdentifierInvokeResponseArgs and EdifactMessageIdentifierInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactMessageIdentifierInvokeResponseInput` via:
+//
+//          EdifactMessageIdentifierInvokeResponseArgs{...}
+type EdifactMessageIdentifierInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactMessageIdentifierInvokeResponseOutput() EdifactMessageIdentifierInvokeResponseOutput
+	ToEdifactMessageIdentifierInvokeResponseOutputWithContext(context.Context) EdifactMessageIdentifierInvokeResponseOutput
+}
+
+// The Edifact message identifier.
+type EdifactMessageIdentifierInvokeResponseArgs struct {
+	// The message id on which this envelope settings has to be applied.
+	MessageId pulumi.StringInput `pulumi:"messageId"`
+}
+
+func (EdifactMessageIdentifierInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactMessageIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactMessageIdentifierInvokeResponseArgs) ToEdifactMessageIdentifierInvokeResponseOutput() EdifactMessageIdentifierInvokeResponseOutput {
+	return i.ToEdifactMessageIdentifierInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactMessageIdentifierInvokeResponseArgs) ToEdifactMessageIdentifierInvokeResponseOutputWithContext(ctx context.Context) EdifactMessageIdentifierInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageIdentifierInvokeResponseOutput)
+}
+
+// EdifactMessageIdentifierInvokeResponseArrayInput is an input type that accepts EdifactMessageIdentifierInvokeResponseArray and EdifactMessageIdentifierInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EdifactMessageIdentifierInvokeResponseArrayInput` via:
+//
+//          EdifactMessageIdentifierInvokeResponseArray{ EdifactMessageIdentifierInvokeResponseArgs{...} }
+type EdifactMessageIdentifierInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEdifactMessageIdentifierInvokeResponseArrayOutput() EdifactMessageIdentifierInvokeResponseArrayOutput
+	ToEdifactMessageIdentifierInvokeResponseArrayOutputWithContext(context.Context) EdifactMessageIdentifierInvokeResponseArrayOutput
+}
+
+type EdifactMessageIdentifierInvokeResponseArray []EdifactMessageIdentifierInvokeResponseInput
+
+func (EdifactMessageIdentifierInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EdifactMessageIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactMessageIdentifierInvokeResponseArray) ToEdifactMessageIdentifierInvokeResponseArrayOutput() EdifactMessageIdentifierInvokeResponseArrayOutput {
+	return i.ToEdifactMessageIdentifierInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EdifactMessageIdentifierInvokeResponseArray) ToEdifactMessageIdentifierInvokeResponseArrayOutputWithContext(ctx context.Context) EdifactMessageIdentifierInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactMessageIdentifierInvokeResponseArrayOutput)
+}
+
+// The Edifact message identifier.
+type EdifactMessageIdentifierInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactMessageIdentifierInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactMessageIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactMessageIdentifierInvokeResponseOutput) ToEdifactMessageIdentifierInvokeResponseOutput() EdifactMessageIdentifierInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactMessageIdentifierInvokeResponseOutput) ToEdifactMessageIdentifierInvokeResponseOutputWithContext(ctx context.Context) EdifactMessageIdentifierInvokeResponseOutput {
+	return o
+}
+
+// The message id on which this envelope settings has to be applied.
+func (o EdifactMessageIdentifierInvokeResponseOutput) MessageId() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactMessageIdentifierInvokeResponse) string { return v.MessageId }).(pulumi.StringOutput)
+}
+
+type EdifactMessageIdentifierInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EdifactMessageIdentifierInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EdifactMessageIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactMessageIdentifierInvokeResponseArrayOutput) ToEdifactMessageIdentifierInvokeResponseArrayOutput() EdifactMessageIdentifierInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EdifactMessageIdentifierInvokeResponseArrayOutput) ToEdifactMessageIdentifierInvokeResponseArrayOutputWithContext(ctx context.Context) EdifactMessageIdentifierInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EdifactMessageIdentifierInvokeResponseArrayOutput) Index(i pulumi.IntInput) EdifactMessageIdentifierInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EdifactMessageIdentifierInvokeResponse {
+		return vs[0].([]EdifactMessageIdentifierInvokeResponse)[vs[1].(int)]
+	}).(EdifactMessageIdentifierInvokeResponseOutput)
 }
 
 // The Edifact message identifier.
@@ -14336,6 +21523,184 @@ func (o EdifactOneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdenti
 		}
 		return &v.SenderBusinessIdentity
 	}).(BusinessIdentityPtrOutput)
+}
+
+// The Edifact one way agreement.
+type EdifactOneWayAgreementInvokeResponse struct {
+	// The EDIFACT protocol settings.
+	ProtocolSettings EdifactProtocolSettingsInvokeResponse `pulumi:"protocolSettings"`
+	// The receiver business identity
+	ReceiverBusinessIdentity BusinessIdentityInvokeResponse `pulumi:"receiverBusinessIdentity"`
+	// The sender business identity
+	SenderBusinessIdentity BusinessIdentityInvokeResponse `pulumi:"senderBusinessIdentity"`
+}
+
+// EdifactOneWayAgreementInvokeResponseInput is an input type that accepts EdifactOneWayAgreementInvokeResponseArgs and EdifactOneWayAgreementInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactOneWayAgreementInvokeResponseInput` via:
+//
+//          EdifactOneWayAgreementInvokeResponseArgs{...}
+type EdifactOneWayAgreementInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactOneWayAgreementInvokeResponseOutput() EdifactOneWayAgreementInvokeResponseOutput
+	ToEdifactOneWayAgreementInvokeResponseOutputWithContext(context.Context) EdifactOneWayAgreementInvokeResponseOutput
+}
+
+// The Edifact one way agreement.
+type EdifactOneWayAgreementInvokeResponseArgs struct {
+	// The EDIFACT protocol settings.
+	ProtocolSettings EdifactProtocolSettingsInvokeResponseInput `pulumi:"protocolSettings"`
+	// The receiver business identity
+	ReceiverBusinessIdentity BusinessIdentityInvokeResponseInput `pulumi:"receiverBusinessIdentity"`
+	// The sender business identity
+	SenderBusinessIdentity BusinessIdentityInvokeResponseInput `pulumi:"senderBusinessIdentity"`
+}
+
+func (EdifactOneWayAgreementInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactOneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactOneWayAgreementInvokeResponseArgs) ToEdifactOneWayAgreementInvokeResponseOutput() EdifactOneWayAgreementInvokeResponseOutput {
+	return i.ToEdifactOneWayAgreementInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactOneWayAgreementInvokeResponseArgs) ToEdifactOneWayAgreementInvokeResponseOutputWithContext(ctx context.Context) EdifactOneWayAgreementInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactOneWayAgreementInvokeResponseOutput)
+}
+
+func (i EdifactOneWayAgreementInvokeResponseArgs) ToEdifactOneWayAgreementInvokeResponsePtrOutput() EdifactOneWayAgreementInvokeResponsePtrOutput {
+	return i.ToEdifactOneWayAgreementInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdifactOneWayAgreementInvokeResponseArgs) ToEdifactOneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactOneWayAgreementInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactOneWayAgreementInvokeResponseOutput).ToEdifactOneWayAgreementInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EdifactOneWayAgreementInvokeResponsePtrInput is an input type that accepts EdifactOneWayAgreementInvokeResponseArgs, EdifactOneWayAgreementInvokeResponsePtr and EdifactOneWayAgreementInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EdifactOneWayAgreementInvokeResponsePtrInput` via:
+//
+//          EdifactOneWayAgreementInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdifactOneWayAgreementInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdifactOneWayAgreementInvokeResponsePtrOutput() EdifactOneWayAgreementInvokeResponsePtrOutput
+	ToEdifactOneWayAgreementInvokeResponsePtrOutputWithContext(context.Context) EdifactOneWayAgreementInvokeResponsePtrOutput
+}
+
+type edifactOneWayAgreementInvokeResponsePtrType EdifactOneWayAgreementInvokeResponseArgs
+
+func EdifactOneWayAgreementInvokeResponsePtr(v *EdifactOneWayAgreementInvokeResponseArgs) EdifactOneWayAgreementInvokeResponsePtrInput {
+	return (*edifactOneWayAgreementInvokeResponsePtrType)(v)
+}
+
+func (*edifactOneWayAgreementInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactOneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (i *edifactOneWayAgreementInvokeResponsePtrType) ToEdifactOneWayAgreementInvokeResponsePtrOutput() EdifactOneWayAgreementInvokeResponsePtrOutput {
+	return i.ToEdifactOneWayAgreementInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edifactOneWayAgreementInvokeResponsePtrType) ToEdifactOneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactOneWayAgreementInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactOneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The Edifact one way agreement.
+type EdifactOneWayAgreementInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactOneWayAgreementInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactOneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactOneWayAgreementInvokeResponseOutput) ToEdifactOneWayAgreementInvokeResponseOutput() EdifactOneWayAgreementInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactOneWayAgreementInvokeResponseOutput) ToEdifactOneWayAgreementInvokeResponseOutputWithContext(ctx context.Context) EdifactOneWayAgreementInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactOneWayAgreementInvokeResponseOutput) ToEdifactOneWayAgreementInvokeResponsePtrOutput() EdifactOneWayAgreementInvokeResponsePtrOutput {
+	return o.ToEdifactOneWayAgreementInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdifactOneWayAgreementInvokeResponseOutput) ToEdifactOneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactOneWayAgreementInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdifactOneWayAgreementInvokeResponse) *EdifactOneWayAgreementInvokeResponse {
+		return &v
+	}).(EdifactOneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The EDIFACT protocol settings.
+func (o EdifactOneWayAgreementInvokeResponseOutput) ProtocolSettings() EdifactProtocolSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactOneWayAgreementInvokeResponse) EdifactProtocolSettingsInvokeResponse {
+		return v.ProtocolSettings
+	}).(EdifactProtocolSettingsInvokeResponseOutput)
+}
+
+// The receiver business identity
+func (o EdifactOneWayAgreementInvokeResponseOutput) ReceiverBusinessIdentity() BusinessIdentityInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactOneWayAgreementInvokeResponse) BusinessIdentityInvokeResponse {
+		return v.ReceiverBusinessIdentity
+	}).(BusinessIdentityInvokeResponseOutput)
+}
+
+// The sender business identity
+func (o EdifactOneWayAgreementInvokeResponseOutput) SenderBusinessIdentity() BusinessIdentityInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactOneWayAgreementInvokeResponse) BusinessIdentityInvokeResponse {
+		return v.SenderBusinessIdentity
+	}).(BusinessIdentityInvokeResponseOutput)
+}
+
+type EdifactOneWayAgreementInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdifactOneWayAgreementInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactOneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactOneWayAgreementInvokeResponsePtrOutput) ToEdifactOneWayAgreementInvokeResponsePtrOutput() EdifactOneWayAgreementInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactOneWayAgreementInvokeResponsePtrOutput) ToEdifactOneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactOneWayAgreementInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactOneWayAgreementInvokeResponsePtrOutput) Elem() EdifactOneWayAgreementInvokeResponseOutput {
+	return o.ApplyT(func(v *EdifactOneWayAgreementInvokeResponse) EdifactOneWayAgreementInvokeResponse { return *v }).(EdifactOneWayAgreementInvokeResponseOutput)
+}
+
+// The EDIFACT protocol settings.
+func (o EdifactOneWayAgreementInvokeResponsePtrOutput) ProtocolSettings() EdifactProtocolSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactOneWayAgreementInvokeResponse) *EdifactProtocolSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtocolSettings
+	}).(EdifactProtocolSettingsInvokeResponsePtrOutput)
+}
+
+// The receiver business identity
+func (o EdifactOneWayAgreementInvokeResponsePtrOutput) ReceiverBusinessIdentity() BusinessIdentityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactOneWayAgreementInvokeResponse) *BusinessIdentityInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ReceiverBusinessIdentity
+	}).(BusinessIdentityInvokeResponsePtrOutput)
+}
+
+// The sender business identity
+func (o EdifactOneWayAgreementInvokeResponsePtrOutput) SenderBusinessIdentity() BusinessIdentityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactOneWayAgreementInvokeResponse) *BusinessIdentityInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SenderBusinessIdentity
+	}).(BusinessIdentityInvokeResponsePtrOutput)
 }
 
 // The Edifact one way agreement.
@@ -14713,6 +22078,216 @@ func (o EdifactProcessingSettingsPtrOutput) SuspendInterchangeOnError() pulumi.B
 // The value indicating whether to use dot as decimal separator.
 func (o EdifactProcessingSettingsPtrOutput) UseDotAsDecimalSeparator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EdifactProcessingSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UseDotAsDecimalSeparator
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Edifact agreement protocol settings.
+type EdifactProcessingSettingsInvokeResponse struct {
+	// The value indicating whether to create empty xml tags for trailing separators.
+	CreateEmptyXmlTagsForTrailingSeparators bool `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
+	// The value indicating whether to mask security information.
+	MaskSecurityInfo bool `pulumi:"maskSecurityInfo"`
+	// The value indicating whether to preserve interchange.
+	PreserveInterchange bool `pulumi:"preserveInterchange"`
+	// The value indicating whether to suspend interchange on error.
+	SuspendInterchangeOnError bool `pulumi:"suspendInterchangeOnError"`
+	// The value indicating whether to use dot as decimal separator.
+	UseDotAsDecimalSeparator bool `pulumi:"useDotAsDecimalSeparator"`
+}
+
+// EdifactProcessingSettingsInvokeResponseInput is an input type that accepts EdifactProcessingSettingsInvokeResponseArgs and EdifactProcessingSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactProcessingSettingsInvokeResponseInput` via:
+//
+//          EdifactProcessingSettingsInvokeResponseArgs{...}
+type EdifactProcessingSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactProcessingSettingsInvokeResponseOutput() EdifactProcessingSettingsInvokeResponseOutput
+	ToEdifactProcessingSettingsInvokeResponseOutputWithContext(context.Context) EdifactProcessingSettingsInvokeResponseOutput
+}
+
+// The Edifact agreement protocol settings.
+type EdifactProcessingSettingsInvokeResponseArgs struct {
+	// The value indicating whether to create empty xml tags for trailing separators.
+	CreateEmptyXmlTagsForTrailingSeparators pulumi.BoolInput `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
+	// The value indicating whether to mask security information.
+	MaskSecurityInfo pulumi.BoolInput `pulumi:"maskSecurityInfo"`
+	// The value indicating whether to preserve interchange.
+	PreserveInterchange pulumi.BoolInput `pulumi:"preserveInterchange"`
+	// The value indicating whether to suspend interchange on error.
+	SuspendInterchangeOnError pulumi.BoolInput `pulumi:"suspendInterchangeOnError"`
+	// The value indicating whether to use dot as decimal separator.
+	UseDotAsDecimalSeparator pulumi.BoolInput `pulumi:"useDotAsDecimalSeparator"`
+}
+
+func (EdifactProcessingSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactProcessingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactProcessingSettingsInvokeResponseArgs) ToEdifactProcessingSettingsInvokeResponseOutput() EdifactProcessingSettingsInvokeResponseOutput {
+	return i.ToEdifactProcessingSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactProcessingSettingsInvokeResponseArgs) ToEdifactProcessingSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactProcessingSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactProcessingSettingsInvokeResponseOutput)
+}
+
+func (i EdifactProcessingSettingsInvokeResponseArgs) ToEdifactProcessingSettingsInvokeResponsePtrOutput() EdifactProcessingSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactProcessingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdifactProcessingSettingsInvokeResponseArgs) ToEdifactProcessingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactProcessingSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactProcessingSettingsInvokeResponseOutput).ToEdifactProcessingSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EdifactProcessingSettingsInvokeResponsePtrInput is an input type that accepts EdifactProcessingSettingsInvokeResponseArgs, EdifactProcessingSettingsInvokeResponsePtr and EdifactProcessingSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EdifactProcessingSettingsInvokeResponsePtrInput` via:
+//
+//          EdifactProcessingSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdifactProcessingSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdifactProcessingSettingsInvokeResponsePtrOutput() EdifactProcessingSettingsInvokeResponsePtrOutput
+	ToEdifactProcessingSettingsInvokeResponsePtrOutputWithContext(context.Context) EdifactProcessingSettingsInvokeResponsePtrOutput
+}
+
+type edifactProcessingSettingsInvokeResponsePtrType EdifactProcessingSettingsInvokeResponseArgs
+
+func EdifactProcessingSettingsInvokeResponsePtr(v *EdifactProcessingSettingsInvokeResponseArgs) EdifactProcessingSettingsInvokeResponsePtrInput {
+	return (*edifactProcessingSettingsInvokeResponsePtrType)(v)
+}
+
+func (*edifactProcessingSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactProcessingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *edifactProcessingSettingsInvokeResponsePtrType) ToEdifactProcessingSettingsInvokeResponsePtrOutput() EdifactProcessingSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactProcessingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edifactProcessingSettingsInvokeResponsePtrType) ToEdifactProcessingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactProcessingSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactProcessingSettingsInvokeResponsePtrOutput)
+}
+
+// The Edifact agreement protocol settings.
+type EdifactProcessingSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactProcessingSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactProcessingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactProcessingSettingsInvokeResponseOutput) ToEdifactProcessingSettingsInvokeResponseOutput() EdifactProcessingSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactProcessingSettingsInvokeResponseOutput) ToEdifactProcessingSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactProcessingSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactProcessingSettingsInvokeResponseOutput) ToEdifactProcessingSettingsInvokeResponsePtrOutput() EdifactProcessingSettingsInvokeResponsePtrOutput {
+	return o.ToEdifactProcessingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdifactProcessingSettingsInvokeResponseOutput) ToEdifactProcessingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactProcessingSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdifactProcessingSettingsInvokeResponse) *EdifactProcessingSettingsInvokeResponse {
+		return &v
+	}).(EdifactProcessingSettingsInvokeResponsePtrOutput)
+}
+
+// The value indicating whether to create empty xml tags for trailing separators.
+func (o EdifactProcessingSettingsInvokeResponseOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactProcessingSettingsInvokeResponse) bool { return v.CreateEmptyXmlTagsForTrailingSeparators }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to mask security information.
+func (o EdifactProcessingSettingsInvokeResponseOutput) MaskSecurityInfo() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactProcessingSettingsInvokeResponse) bool { return v.MaskSecurityInfo }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to preserve interchange.
+func (o EdifactProcessingSettingsInvokeResponseOutput) PreserveInterchange() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactProcessingSettingsInvokeResponse) bool { return v.PreserveInterchange }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to suspend interchange on error.
+func (o EdifactProcessingSettingsInvokeResponseOutput) SuspendInterchangeOnError() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactProcessingSettingsInvokeResponse) bool { return v.SuspendInterchangeOnError }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to use dot as decimal separator.
+func (o EdifactProcessingSettingsInvokeResponseOutput) UseDotAsDecimalSeparator() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactProcessingSettingsInvokeResponse) bool { return v.UseDotAsDecimalSeparator }).(pulumi.BoolOutput)
+}
+
+type EdifactProcessingSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdifactProcessingSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactProcessingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactProcessingSettingsInvokeResponsePtrOutput) ToEdifactProcessingSettingsInvokeResponsePtrOutput() EdifactProcessingSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactProcessingSettingsInvokeResponsePtrOutput) ToEdifactProcessingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactProcessingSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactProcessingSettingsInvokeResponsePtrOutput) Elem() EdifactProcessingSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *EdifactProcessingSettingsInvokeResponse) EdifactProcessingSettingsInvokeResponse { return *v }).(EdifactProcessingSettingsInvokeResponseOutput)
+}
+
+// The value indicating whether to create empty xml tags for trailing separators.
+func (o EdifactProcessingSettingsInvokeResponsePtrOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactProcessingSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CreateEmptyXmlTagsForTrailingSeparators
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to mask security information.
+func (o EdifactProcessingSettingsInvokeResponsePtrOutput) MaskSecurityInfo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactProcessingSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.MaskSecurityInfo
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to preserve interchange.
+func (o EdifactProcessingSettingsInvokeResponsePtrOutput) PreserveInterchange() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactProcessingSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PreserveInterchange
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to suspend interchange on error.
+func (o EdifactProcessingSettingsInvokeResponsePtrOutput) SuspendInterchangeOnError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactProcessingSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SuspendInterchangeOnError
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to use dot as decimal separator.
+func (o EdifactProcessingSettingsInvokeResponsePtrOutput) UseDotAsDecimalSeparator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactProcessingSettingsInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -15255,6 +22830,352 @@ func (o EdifactProtocolSettingsPtrOutput) ValidationSettings() EdifactValidation
 }
 
 // The Edifact agreement protocol settings.
+type EdifactProtocolSettingsInvokeResponse struct {
+	// The EDIFACT acknowledgement settings.
+	AcknowledgementSettings EdifactAcknowledgementSettingsInvokeResponse `pulumi:"acknowledgementSettings"`
+	// The EDIFACT delimiter override settings.
+	EdifactDelimiterOverrides []EdifactDelimiterOverrideInvokeResponse `pulumi:"edifactDelimiterOverrides"`
+	// The EDIFACT envelope override settings.
+	EnvelopeOverrides []EdifactEnvelopeOverrideInvokeResponse `pulumi:"envelopeOverrides"`
+	// The EDIFACT envelope settings.
+	EnvelopeSettings EdifactEnvelopeSettingsInvokeResponse `pulumi:"envelopeSettings"`
+	// The EDIFACT framing settings.
+	FramingSettings EdifactFramingSettingsInvokeResponse `pulumi:"framingSettings"`
+	// The EDIFACT message filter.
+	MessageFilter EdifactMessageFilterInvokeResponse `pulumi:"messageFilter"`
+	// The EDIFACT message filter list.
+	MessageFilterList []EdifactMessageIdentifierInvokeResponse `pulumi:"messageFilterList"`
+	// The EDIFACT processing Settings.
+	ProcessingSettings EdifactProcessingSettingsInvokeResponse `pulumi:"processingSettings"`
+	// The EDIFACT schema references.
+	SchemaReferences []EdifactSchemaReferenceInvokeResponse `pulumi:"schemaReferences"`
+	// The EDIFACT validation override settings.
+	ValidationOverrides []EdifactValidationOverrideInvokeResponse `pulumi:"validationOverrides"`
+	// The EDIFACT validation settings.
+	ValidationSettings EdifactValidationSettingsInvokeResponse `pulumi:"validationSettings"`
+}
+
+// EdifactProtocolSettingsInvokeResponseInput is an input type that accepts EdifactProtocolSettingsInvokeResponseArgs and EdifactProtocolSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactProtocolSettingsInvokeResponseInput` via:
+//
+//          EdifactProtocolSettingsInvokeResponseArgs{...}
+type EdifactProtocolSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactProtocolSettingsInvokeResponseOutput() EdifactProtocolSettingsInvokeResponseOutput
+	ToEdifactProtocolSettingsInvokeResponseOutputWithContext(context.Context) EdifactProtocolSettingsInvokeResponseOutput
+}
+
+// The Edifact agreement protocol settings.
+type EdifactProtocolSettingsInvokeResponseArgs struct {
+	// The EDIFACT acknowledgement settings.
+	AcknowledgementSettings EdifactAcknowledgementSettingsInvokeResponseInput `pulumi:"acknowledgementSettings"`
+	// The EDIFACT delimiter override settings.
+	EdifactDelimiterOverrides EdifactDelimiterOverrideInvokeResponseArrayInput `pulumi:"edifactDelimiterOverrides"`
+	// The EDIFACT envelope override settings.
+	EnvelopeOverrides EdifactEnvelopeOverrideInvokeResponseArrayInput `pulumi:"envelopeOverrides"`
+	// The EDIFACT envelope settings.
+	EnvelopeSettings EdifactEnvelopeSettingsInvokeResponseInput `pulumi:"envelopeSettings"`
+	// The EDIFACT framing settings.
+	FramingSettings EdifactFramingSettingsInvokeResponseInput `pulumi:"framingSettings"`
+	// The EDIFACT message filter.
+	MessageFilter EdifactMessageFilterInvokeResponseInput `pulumi:"messageFilter"`
+	// The EDIFACT message filter list.
+	MessageFilterList EdifactMessageIdentifierInvokeResponseArrayInput `pulumi:"messageFilterList"`
+	// The EDIFACT processing Settings.
+	ProcessingSettings EdifactProcessingSettingsInvokeResponseInput `pulumi:"processingSettings"`
+	// The EDIFACT schema references.
+	SchemaReferences EdifactSchemaReferenceInvokeResponseArrayInput `pulumi:"schemaReferences"`
+	// The EDIFACT validation override settings.
+	ValidationOverrides EdifactValidationOverrideInvokeResponseArrayInput `pulumi:"validationOverrides"`
+	// The EDIFACT validation settings.
+	ValidationSettings EdifactValidationSettingsInvokeResponseInput `pulumi:"validationSettings"`
+}
+
+func (EdifactProtocolSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactProtocolSettingsInvokeResponseArgs) ToEdifactProtocolSettingsInvokeResponseOutput() EdifactProtocolSettingsInvokeResponseOutput {
+	return i.ToEdifactProtocolSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactProtocolSettingsInvokeResponseArgs) ToEdifactProtocolSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactProtocolSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactProtocolSettingsInvokeResponseOutput)
+}
+
+func (i EdifactProtocolSettingsInvokeResponseArgs) ToEdifactProtocolSettingsInvokeResponsePtrOutput() EdifactProtocolSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactProtocolSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdifactProtocolSettingsInvokeResponseArgs) ToEdifactProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactProtocolSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactProtocolSettingsInvokeResponseOutput).ToEdifactProtocolSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EdifactProtocolSettingsInvokeResponsePtrInput is an input type that accepts EdifactProtocolSettingsInvokeResponseArgs, EdifactProtocolSettingsInvokeResponsePtr and EdifactProtocolSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EdifactProtocolSettingsInvokeResponsePtrInput` via:
+//
+//          EdifactProtocolSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdifactProtocolSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdifactProtocolSettingsInvokeResponsePtrOutput() EdifactProtocolSettingsInvokeResponsePtrOutput
+	ToEdifactProtocolSettingsInvokeResponsePtrOutputWithContext(context.Context) EdifactProtocolSettingsInvokeResponsePtrOutput
+}
+
+type edifactProtocolSettingsInvokeResponsePtrType EdifactProtocolSettingsInvokeResponseArgs
+
+func EdifactProtocolSettingsInvokeResponsePtr(v *EdifactProtocolSettingsInvokeResponseArgs) EdifactProtocolSettingsInvokeResponsePtrInput {
+	return (*edifactProtocolSettingsInvokeResponsePtrType)(v)
+}
+
+func (*edifactProtocolSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *edifactProtocolSettingsInvokeResponsePtrType) ToEdifactProtocolSettingsInvokeResponsePtrOutput() EdifactProtocolSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactProtocolSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edifactProtocolSettingsInvokeResponsePtrType) ToEdifactProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactProtocolSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactProtocolSettingsInvokeResponsePtrOutput)
+}
+
+// The Edifact agreement protocol settings.
+type EdifactProtocolSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactProtocolSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactProtocolSettingsInvokeResponseOutput) ToEdifactProtocolSettingsInvokeResponseOutput() EdifactProtocolSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactProtocolSettingsInvokeResponseOutput) ToEdifactProtocolSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactProtocolSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactProtocolSettingsInvokeResponseOutput) ToEdifactProtocolSettingsInvokeResponsePtrOutput() EdifactProtocolSettingsInvokeResponsePtrOutput {
+	return o.ToEdifactProtocolSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdifactProtocolSettingsInvokeResponseOutput) ToEdifactProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactProtocolSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) *EdifactProtocolSettingsInvokeResponse {
+		return &v
+	}).(EdifactProtocolSettingsInvokeResponsePtrOutput)
+}
+
+// The EDIFACT acknowledgement settings.
+func (o EdifactProtocolSettingsInvokeResponseOutput) AcknowledgementSettings() EdifactAcknowledgementSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) EdifactAcknowledgementSettingsInvokeResponse {
+		return v.AcknowledgementSettings
+	}).(EdifactAcknowledgementSettingsInvokeResponseOutput)
+}
+
+// The EDIFACT delimiter override settings.
+func (o EdifactProtocolSettingsInvokeResponseOutput) EdifactDelimiterOverrides() EdifactDelimiterOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) []EdifactDelimiterOverrideInvokeResponse {
+		return v.EdifactDelimiterOverrides
+	}).(EdifactDelimiterOverrideInvokeResponseArrayOutput)
+}
+
+// The EDIFACT envelope override settings.
+func (o EdifactProtocolSettingsInvokeResponseOutput) EnvelopeOverrides() EdifactEnvelopeOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) []EdifactEnvelopeOverrideInvokeResponse {
+		return v.EnvelopeOverrides
+	}).(EdifactEnvelopeOverrideInvokeResponseArrayOutput)
+}
+
+// The EDIFACT envelope settings.
+func (o EdifactProtocolSettingsInvokeResponseOutput) EnvelopeSettings() EdifactEnvelopeSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) EdifactEnvelopeSettingsInvokeResponse {
+		return v.EnvelopeSettings
+	}).(EdifactEnvelopeSettingsInvokeResponseOutput)
+}
+
+// The EDIFACT framing settings.
+func (o EdifactProtocolSettingsInvokeResponseOutput) FramingSettings() EdifactFramingSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) EdifactFramingSettingsInvokeResponse {
+		return v.FramingSettings
+	}).(EdifactFramingSettingsInvokeResponseOutput)
+}
+
+// The EDIFACT message filter.
+func (o EdifactProtocolSettingsInvokeResponseOutput) MessageFilter() EdifactMessageFilterInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) EdifactMessageFilterInvokeResponse {
+		return v.MessageFilter
+	}).(EdifactMessageFilterInvokeResponseOutput)
+}
+
+// The EDIFACT message filter list.
+func (o EdifactProtocolSettingsInvokeResponseOutput) MessageFilterList() EdifactMessageIdentifierInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) []EdifactMessageIdentifierInvokeResponse {
+		return v.MessageFilterList
+	}).(EdifactMessageIdentifierInvokeResponseArrayOutput)
+}
+
+// The EDIFACT processing Settings.
+func (o EdifactProtocolSettingsInvokeResponseOutput) ProcessingSettings() EdifactProcessingSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) EdifactProcessingSettingsInvokeResponse {
+		return v.ProcessingSettings
+	}).(EdifactProcessingSettingsInvokeResponseOutput)
+}
+
+// The EDIFACT schema references.
+func (o EdifactProtocolSettingsInvokeResponseOutput) SchemaReferences() EdifactSchemaReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) []EdifactSchemaReferenceInvokeResponse {
+		return v.SchemaReferences
+	}).(EdifactSchemaReferenceInvokeResponseArrayOutput)
+}
+
+// The EDIFACT validation override settings.
+func (o EdifactProtocolSettingsInvokeResponseOutput) ValidationOverrides() EdifactValidationOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) []EdifactValidationOverrideInvokeResponse {
+		return v.ValidationOverrides
+	}).(EdifactValidationOverrideInvokeResponseArrayOutput)
+}
+
+// The EDIFACT validation settings.
+func (o EdifactProtocolSettingsInvokeResponseOutput) ValidationSettings() EdifactValidationSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v EdifactProtocolSettingsInvokeResponse) EdifactValidationSettingsInvokeResponse {
+		return v.ValidationSettings
+	}).(EdifactValidationSettingsInvokeResponseOutput)
+}
+
+type EdifactProtocolSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdifactProtocolSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) ToEdifactProtocolSettingsInvokeResponsePtrOutput() EdifactProtocolSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) ToEdifactProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactProtocolSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) Elem() EdifactProtocolSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) EdifactProtocolSettingsInvokeResponse { return *v }).(EdifactProtocolSettingsInvokeResponseOutput)
+}
+
+// The EDIFACT acknowledgement settings.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) AcknowledgementSettings() EdifactAcknowledgementSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) *EdifactAcknowledgementSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.AcknowledgementSettings
+	}).(EdifactAcknowledgementSettingsInvokeResponsePtrOutput)
+}
+
+// The EDIFACT delimiter override settings.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) EdifactDelimiterOverrides() EdifactDelimiterOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) []EdifactDelimiterOverrideInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EdifactDelimiterOverrides
+	}).(EdifactDelimiterOverrideInvokeResponseArrayOutput)
+}
+
+// The EDIFACT envelope override settings.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) EnvelopeOverrides() EdifactEnvelopeOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) []EdifactEnvelopeOverrideInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EnvelopeOverrides
+	}).(EdifactEnvelopeOverrideInvokeResponseArrayOutput)
+}
+
+// The EDIFACT envelope settings.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) EnvelopeSettings() EdifactEnvelopeSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) *EdifactEnvelopeSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.EnvelopeSettings
+	}).(EdifactEnvelopeSettingsInvokeResponsePtrOutput)
+}
+
+// The EDIFACT framing settings.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) FramingSettings() EdifactFramingSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) *EdifactFramingSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.FramingSettings
+	}).(EdifactFramingSettingsInvokeResponsePtrOutput)
+}
+
+// The EDIFACT message filter.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) MessageFilter() EdifactMessageFilterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) *EdifactMessageFilterInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.MessageFilter
+	}).(EdifactMessageFilterInvokeResponsePtrOutput)
+}
+
+// The EDIFACT message filter list.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) MessageFilterList() EdifactMessageIdentifierInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) []EdifactMessageIdentifierInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MessageFilterList
+	}).(EdifactMessageIdentifierInvokeResponseArrayOutput)
+}
+
+// The EDIFACT processing Settings.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) ProcessingSettings() EdifactProcessingSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) *EdifactProcessingSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ProcessingSettings
+	}).(EdifactProcessingSettingsInvokeResponsePtrOutput)
+}
+
+// The EDIFACT schema references.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) SchemaReferences() EdifactSchemaReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) []EdifactSchemaReferenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaReferences
+	}).(EdifactSchemaReferenceInvokeResponseArrayOutput)
+}
+
+// The EDIFACT validation override settings.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) ValidationOverrides() EdifactValidationOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) []EdifactValidationOverrideInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationOverrides
+	}).(EdifactValidationOverrideInvokeResponseArrayOutput)
+}
+
+// The EDIFACT validation settings.
+func (o EdifactProtocolSettingsInvokeResponsePtrOutput) ValidationSettings() EdifactValidationSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EdifactProtocolSettingsInvokeResponse) *EdifactValidationSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidationSettings
+	}).(EdifactValidationSettingsInvokeResponsePtrOutput)
+}
+
+// The Edifact agreement protocol settings.
 type EdifactProtocolSettingsResponse struct {
 	// The EDIFACT acknowledgement settings.
 	AcknowledgementSettings EdifactAcknowledgementSettingsResponse `pulumi:"acknowledgementSettings"`
@@ -15739,6 +23660,160 @@ func (o EdifactSchemaReferenceArrayOutput) Index(i pulumi.IntInput) EdifactSchem
 }
 
 // The Edifact schema reference.
+type EdifactSchemaReferenceInvokeResponse struct {
+	// The association assigned code.
+	AssociationAssignedCode *string `pulumi:"associationAssignedCode"`
+	// The message id.
+	MessageId string `pulumi:"messageId"`
+	// The message release version.
+	MessageRelease string `pulumi:"messageRelease"`
+	// The message version.
+	MessageVersion string `pulumi:"messageVersion"`
+	// The schema name.
+	SchemaName string `pulumi:"schemaName"`
+	// The sender application id.
+	SenderApplicationId *string `pulumi:"senderApplicationId"`
+	// The sender application qualifier.
+	SenderApplicationQualifier *string `pulumi:"senderApplicationQualifier"`
+}
+
+// EdifactSchemaReferenceInvokeResponseInput is an input type that accepts EdifactSchemaReferenceInvokeResponseArgs and EdifactSchemaReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactSchemaReferenceInvokeResponseInput` via:
+//
+//          EdifactSchemaReferenceInvokeResponseArgs{...}
+type EdifactSchemaReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactSchemaReferenceInvokeResponseOutput() EdifactSchemaReferenceInvokeResponseOutput
+	ToEdifactSchemaReferenceInvokeResponseOutputWithContext(context.Context) EdifactSchemaReferenceInvokeResponseOutput
+}
+
+// The Edifact schema reference.
+type EdifactSchemaReferenceInvokeResponseArgs struct {
+	// The association assigned code.
+	AssociationAssignedCode pulumi.StringPtrInput `pulumi:"associationAssignedCode"`
+	// The message id.
+	MessageId pulumi.StringInput `pulumi:"messageId"`
+	// The message release version.
+	MessageRelease pulumi.StringInput `pulumi:"messageRelease"`
+	// The message version.
+	MessageVersion pulumi.StringInput `pulumi:"messageVersion"`
+	// The schema name.
+	SchemaName pulumi.StringInput `pulumi:"schemaName"`
+	// The sender application id.
+	SenderApplicationId pulumi.StringPtrInput `pulumi:"senderApplicationId"`
+	// The sender application qualifier.
+	SenderApplicationQualifier pulumi.StringPtrInput `pulumi:"senderApplicationQualifier"`
+}
+
+func (EdifactSchemaReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactSchemaReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactSchemaReferenceInvokeResponseArgs) ToEdifactSchemaReferenceInvokeResponseOutput() EdifactSchemaReferenceInvokeResponseOutput {
+	return i.ToEdifactSchemaReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactSchemaReferenceInvokeResponseArgs) ToEdifactSchemaReferenceInvokeResponseOutputWithContext(ctx context.Context) EdifactSchemaReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactSchemaReferenceInvokeResponseOutput)
+}
+
+// EdifactSchemaReferenceInvokeResponseArrayInput is an input type that accepts EdifactSchemaReferenceInvokeResponseArray and EdifactSchemaReferenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EdifactSchemaReferenceInvokeResponseArrayInput` via:
+//
+//          EdifactSchemaReferenceInvokeResponseArray{ EdifactSchemaReferenceInvokeResponseArgs{...} }
+type EdifactSchemaReferenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEdifactSchemaReferenceInvokeResponseArrayOutput() EdifactSchemaReferenceInvokeResponseArrayOutput
+	ToEdifactSchemaReferenceInvokeResponseArrayOutputWithContext(context.Context) EdifactSchemaReferenceInvokeResponseArrayOutput
+}
+
+type EdifactSchemaReferenceInvokeResponseArray []EdifactSchemaReferenceInvokeResponseInput
+
+func (EdifactSchemaReferenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EdifactSchemaReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactSchemaReferenceInvokeResponseArray) ToEdifactSchemaReferenceInvokeResponseArrayOutput() EdifactSchemaReferenceInvokeResponseArrayOutput {
+	return i.ToEdifactSchemaReferenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EdifactSchemaReferenceInvokeResponseArray) ToEdifactSchemaReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) EdifactSchemaReferenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactSchemaReferenceInvokeResponseArrayOutput)
+}
+
+// The Edifact schema reference.
+type EdifactSchemaReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactSchemaReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactSchemaReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactSchemaReferenceInvokeResponseOutput) ToEdifactSchemaReferenceInvokeResponseOutput() EdifactSchemaReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactSchemaReferenceInvokeResponseOutput) ToEdifactSchemaReferenceInvokeResponseOutputWithContext(ctx context.Context) EdifactSchemaReferenceInvokeResponseOutput {
+	return o
+}
+
+// The association assigned code.
+func (o EdifactSchemaReferenceInvokeResponseOutput) AssociationAssignedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactSchemaReferenceInvokeResponse) *string { return v.AssociationAssignedCode }).(pulumi.StringPtrOutput)
+}
+
+// The message id.
+func (o EdifactSchemaReferenceInvokeResponseOutput) MessageId() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactSchemaReferenceInvokeResponse) string { return v.MessageId }).(pulumi.StringOutput)
+}
+
+// The message release version.
+func (o EdifactSchemaReferenceInvokeResponseOutput) MessageRelease() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactSchemaReferenceInvokeResponse) string { return v.MessageRelease }).(pulumi.StringOutput)
+}
+
+// The message version.
+func (o EdifactSchemaReferenceInvokeResponseOutput) MessageVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactSchemaReferenceInvokeResponse) string { return v.MessageVersion }).(pulumi.StringOutput)
+}
+
+// The schema name.
+func (o EdifactSchemaReferenceInvokeResponseOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactSchemaReferenceInvokeResponse) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// The sender application id.
+func (o EdifactSchemaReferenceInvokeResponseOutput) SenderApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactSchemaReferenceInvokeResponse) *string { return v.SenderApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// The sender application qualifier.
+func (o EdifactSchemaReferenceInvokeResponseOutput) SenderApplicationQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdifactSchemaReferenceInvokeResponse) *string { return v.SenderApplicationQualifier }).(pulumi.StringPtrOutput)
+}
+
+type EdifactSchemaReferenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EdifactSchemaReferenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EdifactSchemaReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactSchemaReferenceInvokeResponseArrayOutput) ToEdifactSchemaReferenceInvokeResponseArrayOutput() EdifactSchemaReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EdifactSchemaReferenceInvokeResponseArrayOutput) ToEdifactSchemaReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) EdifactSchemaReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EdifactSchemaReferenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) EdifactSchemaReferenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EdifactSchemaReferenceInvokeResponse {
+		return vs[0].([]EdifactSchemaReferenceInvokeResponse)[vs[1].(int)]
+	}).(EdifactSchemaReferenceInvokeResponseOutput)
+}
+
+// The Edifact schema reference.
 type EdifactSchemaReferenceResponse struct {
 	// The association assigned code.
 	AssociationAssignedCode *string `pulumi:"associationAssignedCode"`
@@ -16044,6 +24119,160 @@ func (o EdifactValidationOverrideArrayOutput) Index(i pulumi.IntInput) EdifactVa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EdifactValidationOverride {
 		return vs[0].([]EdifactValidationOverride)[vs[1].(int)]
 	}).(EdifactValidationOverrideOutput)
+}
+
+// The Edifact validation override settings.
+type EdifactValidationOverrideInvokeResponse struct {
+	// The value indicating whether to allow leading and trailing spaces and zeroes.
+	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to validate character Set.
+	EnforceCharacterSet bool `pulumi:"enforceCharacterSet"`
+	// The message id on which the validation settings has to be applied.
+	MessageId string `pulumi:"messageId"`
+	// The trailing separator policy.
+	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
+	// The value indicating whether to trim leading and trailing spaces and zeroes.
+	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to validate EDI types.
+	ValidateEDITypes bool `pulumi:"validateEDITypes"`
+	// The value indicating whether to validate XSD types.
+	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+}
+
+// EdifactValidationOverrideInvokeResponseInput is an input type that accepts EdifactValidationOverrideInvokeResponseArgs and EdifactValidationOverrideInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactValidationOverrideInvokeResponseInput` via:
+//
+//          EdifactValidationOverrideInvokeResponseArgs{...}
+type EdifactValidationOverrideInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactValidationOverrideInvokeResponseOutput() EdifactValidationOverrideInvokeResponseOutput
+	ToEdifactValidationOverrideInvokeResponseOutputWithContext(context.Context) EdifactValidationOverrideInvokeResponseOutput
+}
+
+// The Edifact validation override settings.
+type EdifactValidationOverrideInvokeResponseArgs struct {
+	// The value indicating whether to allow leading and trailing spaces and zeroes.
+	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to validate character Set.
+	EnforceCharacterSet pulumi.BoolInput `pulumi:"enforceCharacterSet"`
+	// The message id on which the validation settings has to be applied.
+	MessageId pulumi.StringInput `pulumi:"messageId"`
+	// The trailing separator policy.
+	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	// The value indicating whether to trim leading and trailing spaces and zeroes.
+	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to validate EDI types.
+	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
+	// The value indicating whether to validate XSD types.
+	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+}
+
+func (EdifactValidationOverrideInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactValidationOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactValidationOverrideInvokeResponseArgs) ToEdifactValidationOverrideInvokeResponseOutput() EdifactValidationOverrideInvokeResponseOutput {
+	return i.ToEdifactValidationOverrideInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactValidationOverrideInvokeResponseArgs) ToEdifactValidationOverrideInvokeResponseOutputWithContext(ctx context.Context) EdifactValidationOverrideInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationOverrideInvokeResponseOutput)
+}
+
+// EdifactValidationOverrideInvokeResponseArrayInput is an input type that accepts EdifactValidationOverrideInvokeResponseArray and EdifactValidationOverrideInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EdifactValidationOverrideInvokeResponseArrayInput` via:
+//
+//          EdifactValidationOverrideInvokeResponseArray{ EdifactValidationOverrideInvokeResponseArgs{...} }
+type EdifactValidationOverrideInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEdifactValidationOverrideInvokeResponseArrayOutput() EdifactValidationOverrideInvokeResponseArrayOutput
+	ToEdifactValidationOverrideInvokeResponseArrayOutputWithContext(context.Context) EdifactValidationOverrideInvokeResponseArrayOutput
+}
+
+type EdifactValidationOverrideInvokeResponseArray []EdifactValidationOverrideInvokeResponseInput
+
+func (EdifactValidationOverrideInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EdifactValidationOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactValidationOverrideInvokeResponseArray) ToEdifactValidationOverrideInvokeResponseArrayOutput() EdifactValidationOverrideInvokeResponseArrayOutput {
+	return i.ToEdifactValidationOverrideInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EdifactValidationOverrideInvokeResponseArray) ToEdifactValidationOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) EdifactValidationOverrideInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationOverrideInvokeResponseArrayOutput)
+}
+
+// The Edifact validation override settings.
+type EdifactValidationOverrideInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactValidationOverrideInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactValidationOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactValidationOverrideInvokeResponseOutput) ToEdifactValidationOverrideInvokeResponseOutput() EdifactValidationOverrideInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactValidationOverrideInvokeResponseOutput) ToEdifactValidationOverrideInvokeResponseOutputWithContext(ctx context.Context) EdifactValidationOverrideInvokeResponseOutput {
+	return o
+}
+
+// The value indicating whether to allow leading and trailing spaces and zeroes.
+func (o EdifactValidationOverrideInvokeResponseOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationOverrideInvokeResponse) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to validate character Set.
+func (o EdifactValidationOverrideInvokeResponseOutput) EnforceCharacterSet() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationOverrideInvokeResponse) bool { return v.EnforceCharacterSet }).(pulumi.BoolOutput)
+}
+
+// The message id on which the validation settings has to be applied.
+func (o EdifactValidationOverrideInvokeResponseOutput) MessageId() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactValidationOverrideInvokeResponse) string { return v.MessageId }).(pulumi.StringOutput)
+}
+
+// The trailing separator policy.
+func (o EdifactValidationOverrideInvokeResponseOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactValidationOverrideInvokeResponse) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
+}
+
+// The value indicating whether to trim leading and trailing spaces and zeroes.
+func (o EdifactValidationOverrideInvokeResponseOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationOverrideInvokeResponse) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to validate EDI types.
+func (o EdifactValidationOverrideInvokeResponseOutput) ValidateEDITypes() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationOverrideInvokeResponse) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to validate XSD types.
+func (o EdifactValidationOverrideInvokeResponseOutput) ValidateXSDTypes() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationOverrideInvokeResponse) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
+}
+
+type EdifactValidationOverrideInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EdifactValidationOverrideInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EdifactValidationOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactValidationOverrideInvokeResponseArrayOutput) ToEdifactValidationOverrideInvokeResponseArrayOutput() EdifactValidationOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EdifactValidationOverrideInvokeResponseArrayOutput) ToEdifactValidationOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) EdifactValidationOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EdifactValidationOverrideInvokeResponseArrayOutput) Index(i pulumi.IntInput) EdifactValidationOverrideInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EdifactValidationOverrideInvokeResponse {
+		return vs[0].([]EdifactValidationOverrideInvokeResponse)[vs[1].(int)]
+	}).(EdifactValidationOverrideInvokeResponseOutput)
 }
 
 // The Edifact validation override settings.
@@ -16506,6 +24735,313 @@ func (o EdifactValidationSettingsPtrOutput) ValidateXSDTypes() pulumi.BoolPtrOut
 }
 
 // The Edifact agreement validation settings.
+type EdifactValidationSettingsInvokeResponse struct {
+	// The value indicating whether to allow leading and trailing spaces and zeroes.
+	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to check for duplicate group control number.
+	CheckDuplicateGroupControlNumber bool `pulumi:"checkDuplicateGroupControlNumber"`
+	// The value indicating whether to check for duplicate interchange control number.
+	CheckDuplicateInterchangeControlNumber bool `pulumi:"checkDuplicateInterchangeControlNumber"`
+	// The value indicating whether to check for duplicate transaction set control number.
+	CheckDuplicateTransactionSetControlNumber bool `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	// The validity period of interchange control number.
+	InterchangeControlNumberValidityDays int `pulumi:"interchangeControlNumberValidityDays"`
+	// The trailing separator policy.
+	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
+	// The value indicating whether to trim leading and trailing spaces and zeroes.
+	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to validate character set in the message.
+	ValidateCharacterSet bool `pulumi:"validateCharacterSet"`
+	// The value indicating whether to Whether to validate EDI types.
+	ValidateEDITypes bool `pulumi:"validateEDITypes"`
+	// The value indicating whether to Whether to validate XSD types.
+	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+}
+
+// EdifactValidationSettingsInvokeResponseInput is an input type that accepts EdifactValidationSettingsInvokeResponseArgs and EdifactValidationSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `EdifactValidationSettingsInvokeResponseInput` via:
+//
+//          EdifactValidationSettingsInvokeResponseArgs{...}
+type EdifactValidationSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEdifactValidationSettingsInvokeResponseOutput() EdifactValidationSettingsInvokeResponseOutput
+	ToEdifactValidationSettingsInvokeResponseOutputWithContext(context.Context) EdifactValidationSettingsInvokeResponseOutput
+}
+
+// The Edifact agreement validation settings.
+type EdifactValidationSettingsInvokeResponseArgs struct {
+	// The value indicating whether to allow leading and trailing spaces and zeroes.
+	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to check for duplicate group control number.
+	CheckDuplicateGroupControlNumber pulumi.BoolInput `pulumi:"checkDuplicateGroupControlNumber"`
+	// The value indicating whether to check for duplicate interchange control number.
+	CheckDuplicateInterchangeControlNumber pulumi.BoolInput `pulumi:"checkDuplicateInterchangeControlNumber"`
+	// The value indicating whether to check for duplicate transaction set control number.
+	CheckDuplicateTransactionSetControlNumber pulumi.BoolInput `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	// The validity period of interchange control number.
+	InterchangeControlNumberValidityDays pulumi.IntInput `pulumi:"interchangeControlNumberValidityDays"`
+	// The trailing separator policy.
+	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	// The value indicating whether to trim leading and trailing spaces and zeroes.
+	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to validate character set in the message.
+	ValidateCharacterSet pulumi.BoolInput `pulumi:"validateCharacterSet"`
+	// The value indicating whether to Whether to validate EDI types.
+	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
+	// The value indicating whether to Whether to validate XSD types.
+	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+}
+
+func (EdifactValidationSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i EdifactValidationSettingsInvokeResponseArgs) ToEdifactValidationSettingsInvokeResponseOutput() EdifactValidationSettingsInvokeResponseOutput {
+	return i.ToEdifactValidationSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EdifactValidationSettingsInvokeResponseArgs) ToEdifactValidationSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactValidationSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationSettingsInvokeResponseOutput)
+}
+
+func (i EdifactValidationSettingsInvokeResponseArgs) ToEdifactValidationSettingsInvokeResponsePtrOutput() EdifactValidationSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactValidationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EdifactValidationSettingsInvokeResponseArgs) ToEdifactValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactValidationSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationSettingsInvokeResponseOutput).ToEdifactValidationSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EdifactValidationSettingsInvokeResponsePtrInput is an input type that accepts EdifactValidationSettingsInvokeResponseArgs, EdifactValidationSettingsInvokeResponsePtr and EdifactValidationSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EdifactValidationSettingsInvokeResponsePtrInput` via:
+//
+//          EdifactValidationSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EdifactValidationSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEdifactValidationSettingsInvokeResponsePtrOutput() EdifactValidationSettingsInvokeResponsePtrOutput
+	ToEdifactValidationSettingsInvokeResponsePtrOutputWithContext(context.Context) EdifactValidationSettingsInvokeResponsePtrOutput
+}
+
+type edifactValidationSettingsInvokeResponsePtrType EdifactValidationSettingsInvokeResponseArgs
+
+func EdifactValidationSettingsInvokeResponsePtr(v *EdifactValidationSettingsInvokeResponseArgs) EdifactValidationSettingsInvokeResponsePtrInput {
+	return (*edifactValidationSettingsInvokeResponsePtrType)(v)
+}
+
+func (*edifactValidationSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *edifactValidationSettingsInvokeResponsePtrType) ToEdifactValidationSettingsInvokeResponsePtrOutput() EdifactValidationSettingsInvokeResponsePtrOutput {
+	return i.ToEdifactValidationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *edifactValidationSettingsInvokeResponsePtrType) ToEdifactValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactValidationSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdifactValidationSettingsInvokeResponsePtrOutput)
+}
+
+// The Edifact agreement validation settings.
+type EdifactValidationSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EdifactValidationSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdifactValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactValidationSettingsInvokeResponseOutput) ToEdifactValidationSettingsInvokeResponseOutput() EdifactValidationSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactValidationSettingsInvokeResponseOutput) ToEdifactValidationSettingsInvokeResponseOutputWithContext(ctx context.Context) EdifactValidationSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o EdifactValidationSettingsInvokeResponseOutput) ToEdifactValidationSettingsInvokeResponsePtrOutput() EdifactValidationSettingsInvokeResponsePtrOutput {
+	return o.ToEdifactValidationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EdifactValidationSettingsInvokeResponseOutput) ToEdifactValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactValidationSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) *EdifactValidationSettingsInvokeResponse {
+		return &v
+	}).(EdifactValidationSettingsInvokeResponsePtrOutput)
+}
+
+// The value indicating whether to allow leading and trailing spaces and zeroes.
+func (o EdifactValidationSettingsInvokeResponseOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to check for duplicate group control number.
+func (o EdifactValidationSettingsInvokeResponseOutput) CheckDuplicateGroupControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) bool { return v.CheckDuplicateGroupControlNumber }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to check for duplicate interchange control number.
+func (o EdifactValidationSettingsInvokeResponseOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) bool { return v.CheckDuplicateInterchangeControlNumber }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to check for duplicate transaction set control number.
+func (o EdifactValidationSettingsInvokeResponseOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) bool {
+		return v.CheckDuplicateTransactionSetControlNumber
+	}).(pulumi.BoolOutput)
+}
+
+// The validity period of interchange control number.
+func (o EdifactValidationSettingsInvokeResponseOutput) InterchangeControlNumberValidityDays() pulumi.IntOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) int { return v.InterchangeControlNumberValidityDays }).(pulumi.IntOutput)
+}
+
+// The trailing separator policy.
+func (o EdifactValidationSettingsInvokeResponseOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
+}
+
+// The value indicating whether to trim leading and trailing spaces and zeroes.
+func (o EdifactValidationSettingsInvokeResponseOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to validate character set in the message.
+func (o EdifactValidationSettingsInvokeResponseOutput) ValidateCharacterSet() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) bool { return v.ValidateCharacterSet }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to Whether to validate EDI types.
+func (o EdifactValidationSettingsInvokeResponseOutput) ValidateEDITypes() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to Whether to validate XSD types.
+func (o EdifactValidationSettingsInvokeResponseOutput) ValidateXSDTypes() pulumi.BoolOutput {
+	return o.ApplyT(func(v EdifactValidationSettingsInvokeResponse) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
+}
+
+type EdifactValidationSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdifactValidationSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdifactValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) ToEdifactValidationSettingsInvokeResponsePtrOutput() EdifactValidationSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) ToEdifactValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) EdifactValidationSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) Elem() EdifactValidationSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) EdifactValidationSettingsInvokeResponse { return *v }).(EdifactValidationSettingsInvokeResponseOutput)
+}
+
+// The value indicating whether to allow leading and trailing spaces and zeroes.
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowLeadingAndTrailingSpacesAndZeroes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to check for duplicate group control number.
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) CheckDuplicateGroupControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CheckDuplicateGroupControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to check for duplicate interchange control number.
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CheckDuplicateInterchangeControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to check for duplicate transaction set control number.
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CheckDuplicateTransactionSetControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The validity period of interchange control number.
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) InterchangeControlNumberValidityDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InterchangeControlNumberValidityDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The trailing separator policy.
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) TrailingSeparatorPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrailingSeparatorPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to trim leading and trailing spaces and zeroes.
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.TrimLeadingAndTrailingSpacesAndZeroes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to validate character set in the message.
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) ValidateCharacterSet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidateCharacterSet
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to Whether to validate EDI types.
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) ValidateEDITypes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidateEDITypes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to Whether to validate XSD types.
+func (o EdifactValidationSettingsInvokeResponsePtrOutput) ValidateXSDTypes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidateXSDTypes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Edifact agreement validation settings.
 type EdifactValidationSettingsResponse struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -16811,260 +25347,260 @@ func (o EdifactValidationSettingsResponsePtrOutput) ValidateXSDTypes() pulumi.Bo
 }
 
 // The expression.
-type ExpressionResponse struct {
+type ExpressionInvokeResponse struct {
 	// The azure resource error info.
-	Error *AzureResourceErrorInfoResponse `pulumi:"error"`
+	Error *AzureResourceErrorInfoInvokeResponse `pulumi:"error"`
 	// The sub expressions.
-	Subexpressions []ExpressionResponse `pulumi:"subexpressions"`
+	Subexpressions []ExpressionInvokeResponse `pulumi:"subexpressions"`
 	// The text.
 	Text  *string     `pulumi:"text"`
 	Value interface{} `pulumi:"value"`
 }
 
-// ExpressionResponseInput is an input type that accepts ExpressionResponseArgs and ExpressionResponseOutput values.
-// You can construct a concrete instance of `ExpressionResponseInput` via:
+// ExpressionInvokeResponseInput is an input type that accepts ExpressionInvokeResponseArgs and ExpressionInvokeResponseOutput values.
+// You can construct a concrete instance of `ExpressionInvokeResponseInput` via:
 //
-//          ExpressionResponseArgs{...}
-type ExpressionResponseInput interface {
+//          ExpressionInvokeResponseArgs{...}
+type ExpressionInvokeResponseInput interface {
 	pulumi.Input
 
-	ToExpressionResponseOutput() ExpressionResponseOutput
-	ToExpressionResponseOutputWithContext(context.Context) ExpressionResponseOutput
+	ToExpressionInvokeResponseOutput() ExpressionInvokeResponseOutput
+	ToExpressionInvokeResponseOutputWithContext(context.Context) ExpressionInvokeResponseOutput
 }
 
 // The expression.
-type ExpressionResponseArgs struct {
+type ExpressionInvokeResponseArgs struct {
 	// The azure resource error info.
-	Error AzureResourceErrorInfoResponsePtrInput `pulumi:"error"`
+	Error AzureResourceErrorInfoInvokeResponsePtrInput `pulumi:"error"`
 	// The sub expressions.
-	Subexpressions ExpressionResponseArrayInput `pulumi:"subexpressions"`
+	Subexpressions ExpressionInvokeResponseArrayInput `pulumi:"subexpressions"`
 	// The text.
 	Text  pulumi.StringPtrInput `pulumi:"text"`
 	Value pulumi.Input          `pulumi:"value"`
 }
 
-func (ExpressionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressionResponse)(nil)).Elem()
+func (ExpressionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressionInvokeResponse)(nil)).Elem()
 }
 
-func (i ExpressionResponseArgs) ToExpressionResponseOutput() ExpressionResponseOutput {
-	return i.ToExpressionResponseOutputWithContext(context.Background())
+func (i ExpressionInvokeResponseArgs) ToExpressionInvokeResponseOutput() ExpressionInvokeResponseOutput {
+	return i.ToExpressionInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ExpressionResponseArgs) ToExpressionResponseOutputWithContext(ctx context.Context) ExpressionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressionResponseOutput)
+func (i ExpressionInvokeResponseArgs) ToExpressionInvokeResponseOutputWithContext(ctx context.Context) ExpressionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressionInvokeResponseOutput)
 }
 
-// ExpressionResponseArrayInput is an input type that accepts ExpressionResponseArray and ExpressionResponseArrayOutput values.
-// You can construct a concrete instance of `ExpressionResponseArrayInput` via:
+// ExpressionInvokeResponseArrayInput is an input type that accepts ExpressionInvokeResponseArray and ExpressionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ExpressionInvokeResponseArrayInput` via:
 //
-//          ExpressionResponseArray{ ExpressionResponseArgs{...} }
-type ExpressionResponseArrayInput interface {
+//          ExpressionInvokeResponseArray{ ExpressionInvokeResponseArgs{...} }
+type ExpressionInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToExpressionResponseArrayOutput() ExpressionResponseArrayOutput
-	ToExpressionResponseArrayOutputWithContext(context.Context) ExpressionResponseArrayOutput
+	ToExpressionInvokeResponseArrayOutput() ExpressionInvokeResponseArrayOutput
+	ToExpressionInvokeResponseArrayOutputWithContext(context.Context) ExpressionInvokeResponseArrayOutput
 }
 
-type ExpressionResponseArray []ExpressionResponseInput
+type ExpressionInvokeResponseArray []ExpressionInvokeResponseInput
 
-func (ExpressionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExpressionResponse)(nil)).Elem()
+func (ExpressionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressionInvokeResponse)(nil)).Elem()
 }
 
-func (i ExpressionResponseArray) ToExpressionResponseArrayOutput() ExpressionResponseArrayOutput {
-	return i.ToExpressionResponseArrayOutputWithContext(context.Background())
+func (i ExpressionInvokeResponseArray) ToExpressionInvokeResponseArrayOutput() ExpressionInvokeResponseArrayOutput {
+	return i.ToExpressionInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ExpressionResponseArray) ToExpressionResponseArrayOutputWithContext(ctx context.Context) ExpressionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressionResponseArrayOutput)
+func (i ExpressionInvokeResponseArray) ToExpressionInvokeResponseArrayOutputWithContext(ctx context.Context) ExpressionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressionInvokeResponseArrayOutput)
 }
 
 // The expression.
-type ExpressionResponseOutput struct{ *pulumi.OutputState }
+type ExpressionInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ExpressionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressionResponse)(nil)).Elem()
+func (ExpressionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressionInvokeResponse)(nil)).Elem()
 }
 
-func (o ExpressionResponseOutput) ToExpressionResponseOutput() ExpressionResponseOutput {
+func (o ExpressionInvokeResponseOutput) ToExpressionInvokeResponseOutput() ExpressionInvokeResponseOutput {
 	return o
 }
 
-func (o ExpressionResponseOutput) ToExpressionResponseOutputWithContext(ctx context.Context) ExpressionResponseOutput {
+func (o ExpressionInvokeResponseOutput) ToExpressionInvokeResponseOutputWithContext(ctx context.Context) ExpressionInvokeResponseOutput {
 	return o
 }
 
 // The azure resource error info.
-func (o ExpressionResponseOutput) Error() AzureResourceErrorInfoResponsePtrOutput {
-	return o.ApplyT(func(v ExpressionResponse) *AzureResourceErrorInfoResponse { return v.Error }).(AzureResourceErrorInfoResponsePtrOutput)
+func (o ExpressionInvokeResponseOutput) Error() AzureResourceErrorInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ExpressionInvokeResponse) *AzureResourceErrorInfoInvokeResponse { return v.Error }).(AzureResourceErrorInfoInvokeResponsePtrOutput)
 }
 
 // The sub expressions.
-func (o ExpressionResponseOutput) Subexpressions() ExpressionResponseArrayOutput {
-	return o.ApplyT(func(v ExpressionResponse) []ExpressionResponse { return v.Subexpressions }).(ExpressionResponseArrayOutput)
+func (o ExpressionInvokeResponseOutput) Subexpressions() ExpressionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ExpressionInvokeResponse) []ExpressionInvokeResponse { return v.Subexpressions }).(ExpressionInvokeResponseArrayOutput)
 }
 
 // The text.
-func (o ExpressionResponseOutput) Text() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExpressionResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
+func (o ExpressionInvokeResponseOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressionInvokeResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
-func (o ExpressionResponseOutput) Value() pulumi.AnyOutput {
-	return o.ApplyT(func(v ExpressionResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+func (o ExpressionInvokeResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ExpressionInvokeResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
-type ExpressionResponseArrayOutput struct{ *pulumi.OutputState }
+type ExpressionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ExpressionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExpressionResponse)(nil)).Elem()
+func (ExpressionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressionInvokeResponse)(nil)).Elem()
 }
 
-func (o ExpressionResponseArrayOutput) ToExpressionResponseArrayOutput() ExpressionResponseArrayOutput {
+func (o ExpressionInvokeResponseArrayOutput) ToExpressionInvokeResponseArrayOutput() ExpressionInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ExpressionResponseArrayOutput) ToExpressionResponseArrayOutputWithContext(ctx context.Context) ExpressionResponseArrayOutput {
+func (o ExpressionInvokeResponseArrayOutput) ToExpressionInvokeResponseArrayOutputWithContext(ctx context.Context) ExpressionInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ExpressionResponseArrayOutput) Index(i pulumi.IntInput) ExpressionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressionResponse {
-		return vs[0].([]ExpressionResponse)[vs[1].(int)]
-	}).(ExpressionResponseOutput)
+func (o ExpressionInvokeResponseArrayOutput) Index(i pulumi.IntInput) ExpressionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressionInvokeResponse {
+		return vs[0].([]ExpressionInvokeResponse)[vs[1].(int)]
+	}).(ExpressionInvokeResponseOutput)
 }
 
 // The expression root.
-type ExpressionRootResponse struct {
+type ExpressionRootInvokeResponse struct {
 	// The azure resource error info.
-	Error *AzureResourceErrorInfoResponse `pulumi:"error"`
+	Error *AzureResourceErrorInfoInvokeResponse `pulumi:"error"`
 	// The path.
 	Path *string `pulumi:"path"`
 	// The sub expressions.
-	Subexpressions []ExpressionResponse `pulumi:"subexpressions"`
+	Subexpressions []ExpressionInvokeResponse `pulumi:"subexpressions"`
 	// The text.
 	Text  *string     `pulumi:"text"`
 	Value interface{} `pulumi:"value"`
 }
 
-// ExpressionRootResponseInput is an input type that accepts ExpressionRootResponseArgs and ExpressionRootResponseOutput values.
-// You can construct a concrete instance of `ExpressionRootResponseInput` via:
+// ExpressionRootInvokeResponseInput is an input type that accepts ExpressionRootInvokeResponseArgs and ExpressionRootInvokeResponseOutput values.
+// You can construct a concrete instance of `ExpressionRootInvokeResponseInput` via:
 //
-//          ExpressionRootResponseArgs{...}
-type ExpressionRootResponseInput interface {
+//          ExpressionRootInvokeResponseArgs{...}
+type ExpressionRootInvokeResponseInput interface {
 	pulumi.Input
 
-	ToExpressionRootResponseOutput() ExpressionRootResponseOutput
-	ToExpressionRootResponseOutputWithContext(context.Context) ExpressionRootResponseOutput
+	ToExpressionRootInvokeResponseOutput() ExpressionRootInvokeResponseOutput
+	ToExpressionRootInvokeResponseOutputWithContext(context.Context) ExpressionRootInvokeResponseOutput
 }
 
 // The expression root.
-type ExpressionRootResponseArgs struct {
+type ExpressionRootInvokeResponseArgs struct {
 	// The azure resource error info.
-	Error AzureResourceErrorInfoResponsePtrInput `pulumi:"error"`
+	Error AzureResourceErrorInfoInvokeResponsePtrInput `pulumi:"error"`
 	// The path.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The sub expressions.
-	Subexpressions ExpressionResponseArrayInput `pulumi:"subexpressions"`
+	Subexpressions ExpressionInvokeResponseArrayInput `pulumi:"subexpressions"`
 	// The text.
 	Text  pulumi.StringPtrInput `pulumi:"text"`
 	Value pulumi.Input          `pulumi:"value"`
 }
 
-func (ExpressionRootResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressionRootResponse)(nil)).Elem()
+func (ExpressionRootInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressionRootInvokeResponse)(nil)).Elem()
 }
 
-func (i ExpressionRootResponseArgs) ToExpressionRootResponseOutput() ExpressionRootResponseOutput {
-	return i.ToExpressionRootResponseOutputWithContext(context.Background())
+func (i ExpressionRootInvokeResponseArgs) ToExpressionRootInvokeResponseOutput() ExpressionRootInvokeResponseOutput {
+	return i.ToExpressionRootInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ExpressionRootResponseArgs) ToExpressionRootResponseOutputWithContext(ctx context.Context) ExpressionRootResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressionRootResponseOutput)
+func (i ExpressionRootInvokeResponseArgs) ToExpressionRootInvokeResponseOutputWithContext(ctx context.Context) ExpressionRootInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressionRootInvokeResponseOutput)
 }
 
-// ExpressionRootResponseArrayInput is an input type that accepts ExpressionRootResponseArray and ExpressionRootResponseArrayOutput values.
-// You can construct a concrete instance of `ExpressionRootResponseArrayInput` via:
+// ExpressionRootInvokeResponseArrayInput is an input type that accepts ExpressionRootInvokeResponseArray and ExpressionRootInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ExpressionRootInvokeResponseArrayInput` via:
 //
-//          ExpressionRootResponseArray{ ExpressionRootResponseArgs{...} }
-type ExpressionRootResponseArrayInput interface {
+//          ExpressionRootInvokeResponseArray{ ExpressionRootInvokeResponseArgs{...} }
+type ExpressionRootInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToExpressionRootResponseArrayOutput() ExpressionRootResponseArrayOutput
-	ToExpressionRootResponseArrayOutputWithContext(context.Context) ExpressionRootResponseArrayOutput
+	ToExpressionRootInvokeResponseArrayOutput() ExpressionRootInvokeResponseArrayOutput
+	ToExpressionRootInvokeResponseArrayOutputWithContext(context.Context) ExpressionRootInvokeResponseArrayOutput
 }
 
-type ExpressionRootResponseArray []ExpressionRootResponseInput
+type ExpressionRootInvokeResponseArray []ExpressionRootInvokeResponseInput
 
-func (ExpressionRootResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExpressionRootResponse)(nil)).Elem()
+func (ExpressionRootInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressionRootInvokeResponse)(nil)).Elem()
 }
 
-func (i ExpressionRootResponseArray) ToExpressionRootResponseArrayOutput() ExpressionRootResponseArrayOutput {
-	return i.ToExpressionRootResponseArrayOutputWithContext(context.Background())
+func (i ExpressionRootInvokeResponseArray) ToExpressionRootInvokeResponseArrayOutput() ExpressionRootInvokeResponseArrayOutput {
+	return i.ToExpressionRootInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ExpressionRootResponseArray) ToExpressionRootResponseArrayOutputWithContext(ctx context.Context) ExpressionRootResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpressionRootResponseArrayOutput)
+func (i ExpressionRootInvokeResponseArray) ToExpressionRootInvokeResponseArrayOutputWithContext(ctx context.Context) ExpressionRootInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressionRootInvokeResponseArrayOutput)
 }
 
 // The expression root.
-type ExpressionRootResponseOutput struct{ *pulumi.OutputState }
+type ExpressionRootInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ExpressionRootResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressionRootResponse)(nil)).Elem()
+func (ExpressionRootInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressionRootInvokeResponse)(nil)).Elem()
 }
 
-func (o ExpressionRootResponseOutput) ToExpressionRootResponseOutput() ExpressionRootResponseOutput {
+func (o ExpressionRootInvokeResponseOutput) ToExpressionRootInvokeResponseOutput() ExpressionRootInvokeResponseOutput {
 	return o
 }
 
-func (o ExpressionRootResponseOutput) ToExpressionRootResponseOutputWithContext(ctx context.Context) ExpressionRootResponseOutput {
+func (o ExpressionRootInvokeResponseOutput) ToExpressionRootInvokeResponseOutputWithContext(ctx context.Context) ExpressionRootInvokeResponseOutput {
 	return o
 }
 
 // The azure resource error info.
-func (o ExpressionRootResponseOutput) Error() AzureResourceErrorInfoResponsePtrOutput {
-	return o.ApplyT(func(v ExpressionRootResponse) *AzureResourceErrorInfoResponse { return v.Error }).(AzureResourceErrorInfoResponsePtrOutput)
+func (o ExpressionRootInvokeResponseOutput) Error() AzureResourceErrorInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ExpressionRootInvokeResponse) *AzureResourceErrorInfoInvokeResponse { return v.Error }).(AzureResourceErrorInfoInvokeResponsePtrOutput)
 }
 
 // The path.
-func (o ExpressionRootResponseOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExpressionRootResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+func (o ExpressionRootInvokeResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressionRootInvokeResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 // The sub expressions.
-func (o ExpressionRootResponseOutput) Subexpressions() ExpressionResponseArrayOutput {
-	return o.ApplyT(func(v ExpressionRootResponse) []ExpressionResponse { return v.Subexpressions }).(ExpressionResponseArrayOutput)
+func (o ExpressionRootInvokeResponseOutput) Subexpressions() ExpressionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ExpressionRootInvokeResponse) []ExpressionInvokeResponse { return v.Subexpressions }).(ExpressionInvokeResponseArrayOutput)
 }
 
 // The text.
-func (o ExpressionRootResponseOutput) Text() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExpressionRootResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
+func (o ExpressionRootInvokeResponseOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressionRootInvokeResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
-func (o ExpressionRootResponseOutput) Value() pulumi.AnyOutput {
-	return o.ApplyT(func(v ExpressionRootResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+func (o ExpressionRootInvokeResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ExpressionRootInvokeResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
 
-type ExpressionRootResponseArrayOutput struct{ *pulumi.OutputState }
+type ExpressionRootInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ExpressionRootResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExpressionRootResponse)(nil)).Elem()
+func (ExpressionRootInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressionRootInvokeResponse)(nil)).Elem()
 }
 
-func (o ExpressionRootResponseArrayOutput) ToExpressionRootResponseArrayOutput() ExpressionRootResponseArrayOutput {
+func (o ExpressionRootInvokeResponseArrayOutput) ToExpressionRootInvokeResponseArrayOutput() ExpressionRootInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ExpressionRootResponseArrayOutput) ToExpressionRootResponseArrayOutputWithContext(ctx context.Context) ExpressionRootResponseArrayOutput {
+func (o ExpressionRootInvokeResponseArrayOutput) ToExpressionRootInvokeResponseArrayOutputWithContext(ctx context.Context) ExpressionRootInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ExpressionRootResponseArrayOutput) Index(i pulumi.IntInput) ExpressionRootResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressionRootResponse {
-		return vs[0].([]ExpressionRootResponse)[vs[1].(int)]
-	}).(ExpressionRootResponseOutput)
+func (o ExpressionRootInvokeResponseArrayOutput) Index(i pulumi.IntInput) ExpressionRootInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressionRootInvokeResponse {
+		return vs[0].([]ExpressionRootInvokeResponse)[vs[1].(int)]
+	}).(ExpressionRootInvokeResponseOutput)
 }
 
 // The access control configuration.
@@ -17260,6 +25796,96 @@ func (o FlowAccessControlConfigurationPtrOutput) WorkflowManagement() FlowAccess
 	}).(FlowAccessControlConfigurationPolicyPtrOutput)
 }
 
+// The access control configuration.
+type FlowAccessControlConfigurationInvokeResponse struct {
+	// The access control configuration for workflow actions.
+	Actions *FlowAccessControlConfigurationPolicyInvokeResponse `pulumi:"actions"`
+	// The access control configuration for accessing workflow run contents.
+	Contents *FlowAccessControlConfigurationPolicyInvokeResponse `pulumi:"contents"`
+	// The access control configuration for invoking workflow triggers.
+	Triggers *FlowAccessControlConfigurationPolicyInvokeResponse `pulumi:"triggers"`
+	// The access control configuration for workflow management.
+	WorkflowManagement *FlowAccessControlConfigurationPolicyInvokeResponse `pulumi:"workflowManagement"`
+}
+
+// FlowAccessControlConfigurationInvokeResponseInput is an input type that accepts FlowAccessControlConfigurationInvokeResponseArgs and FlowAccessControlConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `FlowAccessControlConfigurationInvokeResponseInput` via:
+//
+//          FlowAccessControlConfigurationInvokeResponseArgs{...}
+type FlowAccessControlConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFlowAccessControlConfigurationInvokeResponseOutput() FlowAccessControlConfigurationInvokeResponseOutput
+	ToFlowAccessControlConfigurationInvokeResponseOutputWithContext(context.Context) FlowAccessControlConfigurationInvokeResponseOutput
+}
+
+// The access control configuration.
+type FlowAccessControlConfigurationInvokeResponseArgs struct {
+	// The access control configuration for workflow actions.
+	Actions FlowAccessControlConfigurationPolicyInvokeResponsePtrInput `pulumi:"actions"`
+	// The access control configuration for accessing workflow run contents.
+	Contents FlowAccessControlConfigurationPolicyInvokeResponsePtrInput `pulumi:"contents"`
+	// The access control configuration for invoking workflow triggers.
+	Triggers FlowAccessControlConfigurationPolicyInvokeResponsePtrInput `pulumi:"triggers"`
+	// The access control configuration for workflow management.
+	WorkflowManagement FlowAccessControlConfigurationPolicyInvokeResponsePtrInput `pulumi:"workflowManagement"`
+}
+
+func (FlowAccessControlConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAccessControlConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i FlowAccessControlConfigurationInvokeResponseArgs) ToFlowAccessControlConfigurationInvokeResponseOutput() FlowAccessControlConfigurationInvokeResponseOutput {
+	return i.ToFlowAccessControlConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FlowAccessControlConfigurationInvokeResponseArgs) ToFlowAccessControlConfigurationInvokeResponseOutputWithContext(ctx context.Context) FlowAccessControlConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAccessControlConfigurationInvokeResponseOutput)
+}
+
+// The access control configuration.
+type FlowAccessControlConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FlowAccessControlConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAccessControlConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o FlowAccessControlConfigurationInvokeResponseOutput) ToFlowAccessControlConfigurationInvokeResponseOutput() FlowAccessControlConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o FlowAccessControlConfigurationInvokeResponseOutput) ToFlowAccessControlConfigurationInvokeResponseOutputWithContext(ctx context.Context) FlowAccessControlConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The access control configuration for workflow actions.
+func (o FlowAccessControlConfigurationInvokeResponseOutput) Actions() FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FlowAccessControlConfigurationInvokeResponse) *FlowAccessControlConfigurationPolicyInvokeResponse {
+		return v.Actions
+	}).(FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput)
+}
+
+// The access control configuration for accessing workflow run contents.
+func (o FlowAccessControlConfigurationInvokeResponseOutput) Contents() FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FlowAccessControlConfigurationInvokeResponse) *FlowAccessControlConfigurationPolicyInvokeResponse {
+		return v.Contents
+	}).(FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput)
+}
+
+// The access control configuration for invoking workflow triggers.
+func (o FlowAccessControlConfigurationInvokeResponseOutput) Triggers() FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FlowAccessControlConfigurationInvokeResponse) *FlowAccessControlConfigurationPolicyInvokeResponse {
+		return v.Triggers
+	}).(FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput)
+}
+
+// The access control configuration for workflow management.
+func (o FlowAccessControlConfigurationInvokeResponseOutput) WorkflowManagement() FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FlowAccessControlConfigurationInvokeResponse) *FlowAccessControlConfigurationPolicyInvokeResponse {
+		return v.WorkflowManagement
+	}).(FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput)
+}
+
 // The access control configuration policy.
 type FlowAccessControlConfigurationPolicy struct {
 	// The allowed caller IP address ranges.
@@ -17413,6 +26039,165 @@ func (o FlowAccessControlConfigurationPolicyPtrOutput) OpenAuthenticationPolicie
 		}
 		return v.OpenAuthenticationPolicies
 	}).(OpenAuthenticationAccessPoliciesPtrOutput)
+}
+
+// The access control configuration policy.
+type FlowAccessControlConfigurationPolicyInvokeResponse struct {
+	// The allowed caller IP address ranges.
+	AllowedCallerIpAddresses []IpAddressRangeInvokeResponse `pulumi:"allowedCallerIpAddresses"`
+	// The authentication policies for workflow.
+	OpenAuthenticationPolicies *OpenAuthenticationAccessPoliciesInvokeResponse `pulumi:"openAuthenticationPolicies"`
+}
+
+// FlowAccessControlConfigurationPolicyInvokeResponseInput is an input type that accepts FlowAccessControlConfigurationPolicyInvokeResponseArgs and FlowAccessControlConfigurationPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `FlowAccessControlConfigurationPolicyInvokeResponseInput` via:
+//
+//          FlowAccessControlConfigurationPolicyInvokeResponseArgs{...}
+type FlowAccessControlConfigurationPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFlowAccessControlConfigurationPolicyInvokeResponseOutput() FlowAccessControlConfigurationPolicyInvokeResponseOutput
+	ToFlowAccessControlConfigurationPolicyInvokeResponseOutputWithContext(context.Context) FlowAccessControlConfigurationPolicyInvokeResponseOutput
+}
+
+// The access control configuration policy.
+type FlowAccessControlConfigurationPolicyInvokeResponseArgs struct {
+	// The allowed caller IP address ranges.
+	AllowedCallerIpAddresses IpAddressRangeInvokeResponseArrayInput `pulumi:"allowedCallerIpAddresses"`
+	// The authentication policies for workflow.
+	OpenAuthenticationPolicies OpenAuthenticationAccessPoliciesInvokeResponsePtrInput `pulumi:"openAuthenticationPolicies"`
+}
+
+func (FlowAccessControlConfigurationPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAccessControlConfigurationPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i FlowAccessControlConfigurationPolicyInvokeResponseArgs) ToFlowAccessControlConfigurationPolicyInvokeResponseOutput() FlowAccessControlConfigurationPolicyInvokeResponseOutput {
+	return i.ToFlowAccessControlConfigurationPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FlowAccessControlConfigurationPolicyInvokeResponseArgs) ToFlowAccessControlConfigurationPolicyInvokeResponseOutputWithContext(ctx context.Context) FlowAccessControlConfigurationPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAccessControlConfigurationPolicyInvokeResponseOutput)
+}
+
+func (i FlowAccessControlConfigurationPolicyInvokeResponseArgs) ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutput() FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return i.ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FlowAccessControlConfigurationPolicyInvokeResponseArgs) ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAccessControlConfigurationPolicyInvokeResponseOutput).ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// FlowAccessControlConfigurationPolicyInvokeResponsePtrInput is an input type that accepts FlowAccessControlConfigurationPolicyInvokeResponseArgs, FlowAccessControlConfigurationPolicyInvokeResponsePtr and FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `FlowAccessControlConfigurationPolicyInvokeResponsePtrInput` via:
+//
+//          FlowAccessControlConfigurationPolicyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowAccessControlConfigurationPolicyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutput() FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput
+	ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutputWithContext(context.Context) FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput
+}
+
+type flowAccessControlConfigurationPolicyInvokeResponsePtrType FlowAccessControlConfigurationPolicyInvokeResponseArgs
+
+func FlowAccessControlConfigurationPolicyInvokeResponsePtr(v *FlowAccessControlConfigurationPolicyInvokeResponseArgs) FlowAccessControlConfigurationPolicyInvokeResponsePtrInput {
+	return (*flowAccessControlConfigurationPolicyInvokeResponsePtrType)(v)
+}
+
+func (*flowAccessControlConfigurationPolicyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAccessControlConfigurationPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i *flowAccessControlConfigurationPolicyInvokeResponsePtrType) ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutput() FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return i.ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *flowAccessControlConfigurationPolicyInvokeResponsePtrType) ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput)
+}
+
+// The access control configuration policy.
+type FlowAccessControlConfigurationPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FlowAccessControlConfigurationPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowAccessControlConfigurationPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o FlowAccessControlConfigurationPolicyInvokeResponseOutput) ToFlowAccessControlConfigurationPolicyInvokeResponseOutput() FlowAccessControlConfigurationPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o FlowAccessControlConfigurationPolicyInvokeResponseOutput) ToFlowAccessControlConfigurationPolicyInvokeResponseOutputWithContext(ctx context.Context) FlowAccessControlConfigurationPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o FlowAccessControlConfigurationPolicyInvokeResponseOutput) ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutput() FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return o.ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FlowAccessControlConfigurationPolicyInvokeResponseOutput) ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FlowAccessControlConfigurationPolicyInvokeResponse) *FlowAccessControlConfigurationPolicyInvokeResponse {
+		return &v
+	}).(FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput)
+}
+
+// The allowed caller IP address ranges.
+func (o FlowAccessControlConfigurationPolicyInvokeResponseOutput) AllowedCallerIpAddresses() IpAddressRangeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v FlowAccessControlConfigurationPolicyInvokeResponse) []IpAddressRangeInvokeResponse {
+		return v.AllowedCallerIpAddresses
+	}).(IpAddressRangeInvokeResponseArrayOutput)
+}
+
+// The authentication policies for workflow.
+func (o FlowAccessControlConfigurationPolicyInvokeResponseOutput) OpenAuthenticationPolicies() OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FlowAccessControlConfigurationPolicyInvokeResponse) *OpenAuthenticationAccessPoliciesInvokeResponse {
+		return v.OpenAuthenticationPolicies
+	}).(OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput)
+}
+
+type FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowAccessControlConfigurationPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput) ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutput() FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput) ToFlowAccessControlConfigurationPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput) Elem() FlowAccessControlConfigurationPolicyInvokeResponseOutput {
+	return o.ApplyT(func(v *FlowAccessControlConfigurationPolicyInvokeResponse) FlowAccessControlConfigurationPolicyInvokeResponse {
+		return *v
+	}).(FlowAccessControlConfigurationPolicyInvokeResponseOutput)
+}
+
+// The allowed caller IP address ranges.
+func (o FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput) AllowedCallerIpAddresses() IpAddressRangeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *FlowAccessControlConfigurationPolicyInvokeResponse) []IpAddressRangeInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedCallerIpAddresses
+	}).(IpAddressRangeInvokeResponseArrayOutput)
+}
+
+// The authentication policies for workflow.
+func (o FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput) OpenAuthenticationPolicies() OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *FlowAccessControlConfigurationPolicyInvokeResponse) *OpenAuthenticationAccessPoliciesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.OpenAuthenticationPolicies
+	}).(OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput)
 }
 
 // The access control configuration policy.
@@ -18080,6 +26865,159 @@ func (o FlowEndpointsConfigurationPtrOutput) Workflow() FlowEndpointsPtrOutput {
 }
 
 // The endpoints configuration.
+type FlowEndpointsConfigurationInvokeResponse struct {
+	// The connector endpoints.
+	Connector *FlowEndpointsInvokeResponse `pulumi:"connector"`
+	// The workflow endpoints.
+	Workflow *FlowEndpointsInvokeResponse `pulumi:"workflow"`
+}
+
+// FlowEndpointsConfigurationInvokeResponseInput is an input type that accepts FlowEndpointsConfigurationInvokeResponseArgs and FlowEndpointsConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `FlowEndpointsConfigurationInvokeResponseInput` via:
+//
+//          FlowEndpointsConfigurationInvokeResponseArgs{...}
+type FlowEndpointsConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFlowEndpointsConfigurationInvokeResponseOutput() FlowEndpointsConfigurationInvokeResponseOutput
+	ToFlowEndpointsConfigurationInvokeResponseOutputWithContext(context.Context) FlowEndpointsConfigurationInvokeResponseOutput
+}
+
+// The endpoints configuration.
+type FlowEndpointsConfigurationInvokeResponseArgs struct {
+	// The connector endpoints.
+	Connector FlowEndpointsInvokeResponsePtrInput `pulumi:"connector"`
+	// The workflow endpoints.
+	Workflow FlowEndpointsInvokeResponsePtrInput `pulumi:"workflow"`
+}
+
+func (FlowEndpointsConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowEndpointsConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i FlowEndpointsConfigurationInvokeResponseArgs) ToFlowEndpointsConfigurationInvokeResponseOutput() FlowEndpointsConfigurationInvokeResponseOutput {
+	return i.ToFlowEndpointsConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FlowEndpointsConfigurationInvokeResponseArgs) ToFlowEndpointsConfigurationInvokeResponseOutputWithContext(ctx context.Context) FlowEndpointsConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowEndpointsConfigurationInvokeResponseOutput)
+}
+
+func (i FlowEndpointsConfigurationInvokeResponseArgs) ToFlowEndpointsConfigurationInvokeResponsePtrOutput() FlowEndpointsConfigurationInvokeResponsePtrOutput {
+	return i.ToFlowEndpointsConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FlowEndpointsConfigurationInvokeResponseArgs) ToFlowEndpointsConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) FlowEndpointsConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowEndpointsConfigurationInvokeResponseOutput).ToFlowEndpointsConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// FlowEndpointsConfigurationInvokeResponsePtrInput is an input type that accepts FlowEndpointsConfigurationInvokeResponseArgs, FlowEndpointsConfigurationInvokeResponsePtr and FlowEndpointsConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `FlowEndpointsConfigurationInvokeResponsePtrInput` via:
+//
+//          FlowEndpointsConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowEndpointsConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToFlowEndpointsConfigurationInvokeResponsePtrOutput() FlowEndpointsConfigurationInvokeResponsePtrOutput
+	ToFlowEndpointsConfigurationInvokeResponsePtrOutputWithContext(context.Context) FlowEndpointsConfigurationInvokeResponsePtrOutput
+}
+
+type flowEndpointsConfigurationInvokeResponsePtrType FlowEndpointsConfigurationInvokeResponseArgs
+
+func FlowEndpointsConfigurationInvokeResponsePtr(v *FlowEndpointsConfigurationInvokeResponseArgs) FlowEndpointsConfigurationInvokeResponsePtrInput {
+	return (*flowEndpointsConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*flowEndpointsConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowEndpointsConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *flowEndpointsConfigurationInvokeResponsePtrType) ToFlowEndpointsConfigurationInvokeResponsePtrOutput() FlowEndpointsConfigurationInvokeResponsePtrOutput {
+	return i.ToFlowEndpointsConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *flowEndpointsConfigurationInvokeResponsePtrType) ToFlowEndpointsConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) FlowEndpointsConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowEndpointsConfigurationInvokeResponsePtrOutput)
+}
+
+// The endpoints configuration.
+type FlowEndpointsConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FlowEndpointsConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowEndpointsConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o FlowEndpointsConfigurationInvokeResponseOutput) ToFlowEndpointsConfigurationInvokeResponseOutput() FlowEndpointsConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o FlowEndpointsConfigurationInvokeResponseOutput) ToFlowEndpointsConfigurationInvokeResponseOutputWithContext(ctx context.Context) FlowEndpointsConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o FlowEndpointsConfigurationInvokeResponseOutput) ToFlowEndpointsConfigurationInvokeResponsePtrOutput() FlowEndpointsConfigurationInvokeResponsePtrOutput {
+	return o.ToFlowEndpointsConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FlowEndpointsConfigurationInvokeResponseOutput) ToFlowEndpointsConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) FlowEndpointsConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FlowEndpointsConfigurationInvokeResponse) *FlowEndpointsConfigurationInvokeResponse {
+		return &v
+	}).(FlowEndpointsConfigurationInvokeResponsePtrOutput)
+}
+
+// The connector endpoints.
+func (o FlowEndpointsConfigurationInvokeResponseOutput) Connector() FlowEndpointsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FlowEndpointsConfigurationInvokeResponse) *FlowEndpointsInvokeResponse { return v.Connector }).(FlowEndpointsInvokeResponsePtrOutput)
+}
+
+// The workflow endpoints.
+func (o FlowEndpointsConfigurationInvokeResponseOutput) Workflow() FlowEndpointsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FlowEndpointsConfigurationInvokeResponse) *FlowEndpointsInvokeResponse { return v.Workflow }).(FlowEndpointsInvokeResponsePtrOutput)
+}
+
+type FlowEndpointsConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowEndpointsConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowEndpointsConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o FlowEndpointsConfigurationInvokeResponsePtrOutput) ToFlowEndpointsConfigurationInvokeResponsePtrOutput() FlowEndpointsConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FlowEndpointsConfigurationInvokeResponsePtrOutput) ToFlowEndpointsConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) FlowEndpointsConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FlowEndpointsConfigurationInvokeResponsePtrOutput) Elem() FlowEndpointsConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *FlowEndpointsConfigurationInvokeResponse) FlowEndpointsConfigurationInvokeResponse { return *v }).(FlowEndpointsConfigurationInvokeResponseOutput)
+}
+
+// The connector endpoints.
+func (o FlowEndpointsConfigurationInvokeResponsePtrOutput) Connector() FlowEndpointsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *FlowEndpointsConfigurationInvokeResponse) *FlowEndpointsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Connector
+	}).(FlowEndpointsInvokeResponsePtrOutput)
+}
+
+// The workflow endpoints.
+func (o FlowEndpointsConfigurationInvokeResponsePtrOutput) Workflow() FlowEndpointsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *FlowEndpointsConfigurationInvokeResponse) *FlowEndpointsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Workflow
+	}).(FlowEndpointsInvokeResponsePtrOutput)
+}
+
+// The endpoints configuration.
 type FlowEndpointsConfigurationResponse struct {
 	// The connector endpoints.
 	Connector *FlowEndpointsResponse `pulumi:"connector"`
@@ -18233,6 +27171,159 @@ func (o FlowEndpointsConfigurationResponsePtrOutput) Workflow() FlowEndpointsRes
 }
 
 // The flow endpoints configuration.
+type FlowEndpointsInvokeResponse struct {
+	// The access endpoint ip address.
+	AccessEndpointIpAddresses []IpAddressInvokeResponse `pulumi:"accessEndpointIpAddresses"`
+	// The outgoing ip address.
+	OutgoingIpAddresses []IpAddressInvokeResponse `pulumi:"outgoingIpAddresses"`
+}
+
+// FlowEndpointsInvokeResponseInput is an input type that accepts FlowEndpointsInvokeResponseArgs and FlowEndpointsInvokeResponseOutput values.
+// You can construct a concrete instance of `FlowEndpointsInvokeResponseInput` via:
+//
+//          FlowEndpointsInvokeResponseArgs{...}
+type FlowEndpointsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFlowEndpointsInvokeResponseOutput() FlowEndpointsInvokeResponseOutput
+	ToFlowEndpointsInvokeResponseOutputWithContext(context.Context) FlowEndpointsInvokeResponseOutput
+}
+
+// The flow endpoints configuration.
+type FlowEndpointsInvokeResponseArgs struct {
+	// The access endpoint ip address.
+	AccessEndpointIpAddresses IpAddressInvokeResponseArrayInput `pulumi:"accessEndpointIpAddresses"`
+	// The outgoing ip address.
+	OutgoingIpAddresses IpAddressInvokeResponseArrayInput `pulumi:"outgoingIpAddresses"`
+}
+
+func (FlowEndpointsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowEndpointsInvokeResponse)(nil)).Elem()
+}
+
+func (i FlowEndpointsInvokeResponseArgs) ToFlowEndpointsInvokeResponseOutput() FlowEndpointsInvokeResponseOutput {
+	return i.ToFlowEndpointsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FlowEndpointsInvokeResponseArgs) ToFlowEndpointsInvokeResponseOutputWithContext(ctx context.Context) FlowEndpointsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowEndpointsInvokeResponseOutput)
+}
+
+func (i FlowEndpointsInvokeResponseArgs) ToFlowEndpointsInvokeResponsePtrOutput() FlowEndpointsInvokeResponsePtrOutput {
+	return i.ToFlowEndpointsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FlowEndpointsInvokeResponseArgs) ToFlowEndpointsInvokeResponsePtrOutputWithContext(ctx context.Context) FlowEndpointsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowEndpointsInvokeResponseOutput).ToFlowEndpointsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// FlowEndpointsInvokeResponsePtrInput is an input type that accepts FlowEndpointsInvokeResponseArgs, FlowEndpointsInvokeResponsePtr and FlowEndpointsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `FlowEndpointsInvokeResponsePtrInput` via:
+//
+//          FlowEndpointsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowEndpointsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToFlowEndpointsInvokeResponsePtrOutput() FlowEndpointsInvokeResponsePtrOutput
+	ToFlowEndpointsInvokeResponsePtrOutputWithContext(context.Context) FlowEndpointsInvokeResponsePtrOutput
+}
+
+type flowEndpointsInvokeResponsePtrType FlowEndpointsInvokeResponseArgs
+
+func FlowEndpointsInvokeResponsePtr(v *FlowEndpointsInvokeResponseArgs) FlowEndpointsInvokeResponsePtrInput {
+	return (*flowEndpointsInvokeResponsePtrType)(v)
+}
+
+func (*flowEndpointsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowEndpointsInvokeResponse)(nil)).Elem()
+}
+
+func (i *flowEndpointsInvokeResponsePtrType) ToFlowEndpointsInvokeResponsePtrOutput() FlowEndpointsInvokeResponsePtrOutput {
+	return i.ToFlowEndpointsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *flowEndpointsInvokeResponsePtrType) ToFlowEndpointsInvokeResponsePtrOutputWithContext(ctx context.Context) FlowEndpointsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowEndpointsInvokeResponsePtrOutput)
+}
+
+// The flow endpoints configuration.
+type FlowEndpointsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FlowEndpointsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowEndpointsInvokeResponse)(nil)).Elem()
+}
+
+func (o FlowEndpointsInvokeResponseOutput) ToFlowEndpointsInvokeResponseOutput() FlowEndpointsInvokeResponseOutput {
+	return o
+}
+
+func (o FlowEndpointsInvokeResponseOutput) ToFlowEndpointsInvokeResponseOutputWithContext(ctx context.Context) FlowEndpointsInvokeResponseOutput {
+	return o
+}
+
+func (o FlowEndpointsInvokeResponseOutput) ToFlowEndpointsInvokeResponsePtrOutput() FlowEndpointsInvokeResponsePtrOutput {
+	return o.ToFlowEndpointsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FlowEndpointsInvokeResponseOutput) ToFlowEndpointsInvokeResponsePtrOutputWithContext(ctx context.Context) FlowEndpointsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FlowEndpointsInvokeResponse) *FlowEndpointsInvokeResponse {
+		return &v
+	}).(FlowEndpointsInvokeResponsePtrOutput)
+}
+
+// The access endpoint ip address.
+func (o FlowEndpointsInvokeResponseOutput) AccessEndpointIpAddresses() IpAddressInvokeResponseArrayOutput {
+	return o.ApplyT(func(v FlowEndpointsInvokeResponse) []IpAddressInvokeResponse { return v.AccessEndpointIpAddresses }).(IpAddressInvokeResponseArrayOutput)
+}
+
+// The outgoing ip address.
+func (o FlowEndpointsInvokeResponseOutput) OutgoingIpAddresses() IpAddressInvokeResponseArrayOutput {
+	return o.ApplyT(func(v FlowEndpointsInvokeResponse) []IpAddressInvokeResponse { return v.OutgoingIpAddresses }).(IpAddressInvokeResponseArrayOutput)
+}
+
+type FlowEndpointsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowEndpointsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowEndpointsInvokeResponse)(nil)).Elem()
+}
+
+func (o FlowEndpointsInvokeResponsePtrOutput) ToFlowEndpointsInvokeResponsePtrOutput() FlowEndpointsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FlowEndpointsInvokeResponsePtrOutput) ToFlowEndpointsInvokeResponsePtrOutputWithContext(ctx context.Context) FlowEndpointsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FlowEndpointsInvokeResponsePtrOutput) Elem() FlowEndpointsInvokeResponseOutput {
+	return o.ApplyT(func(v *FlowEndpointsInvokeResponse) FlowEndpointsInvokeResponse { return *v }).(FlowEndpointsInvokeResponseOutput)
+}
+
+// The access endpoint ip address.
+func (o FlowEndpointsInvokeResponsePtrOutput) AccessEndpointIpAddresses() IpAddressInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *FlowEndpointsInvokeResponse) []IpAddressInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AccessEndpointIpAddresses
+	}).(IpAddressInvokeResponseArrayOutput)
+}
+
+// The outgoing ip address.
+func (o FlowEndpointsInvokeResponsePtrOutput) OutgoingIpAddresses() IpAddressInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *FlowEndpointsInvokeResponse) []IpAddressInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.OutgoingIpAddresses
+	}).(IpAddressInvokeResponseArrayOutput)
+}
+
+// The flow endpoints configuration.
 type FlowEndpointsResponse struct {
 	// The access endpoint ip address.
 	AccessEndpointIpAddresses []IpAddressResponse `pulumi:"accessEndpointIpAddresses"`
@@ -18383,6 +27474,61 @@ func (o FlowEndpointsResponsePtrOutput) OutgoingIpAddresses() IpAddressResponseA
 		}
 		return v.OutgoingIpAddresses
 	}).(IpAddressResponseArrayOutput)
+}
+
+// The parameters schema of integration account map.
+type IntegrationAccountMapPropertiesInvokeResponseParametersSchema struct {
+	// The reference name.
+	Ref *string `pulumi:"ref"`
+}
+
+// IntegrationAccountMapPropertiesInvokeResponseParametersSchemaInput is an input type that accepts IntegrationAccountMapPropertiesInvokeResponseParametersSchemaArgs and IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput values.
+// You can construct a concrete instance of `IntegrationAccountMapPropertiesInvokeResponseParametersSchemaInput` via:
+//
+//          IntegrationAccountMapPropertiesInvokeResponseParametersSchemaArgs{...}
+type IntegrationAccountMapPropertiesInvokeResponseParametersSchemaInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput() IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput
+	ToIntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutputWithContext(context.Context) IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput
+}
+
+// The parameters schema of integration account map.
+type IntegrationAccountMapPropertiesInvokeResponseParametersSchemaArgs struct {
+	// The reference name.
+	Ref pulumi.StringPtrInput `pulumi:"ref"`
+}
+
+func (IntegrationAccountMapPropertiesInvokeResponseParametersSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMapPropertiesInvokeResponseParametersSchema)(nil)).Elem()
+}
+
+func (i IntegrationAccountMapPropertiesInvokeResponseParametersSchemaArgs) ToIntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput() IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput {
+	return i.ToIntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMapPropertiesInvokeResponseParametersSchemaArgs) ToIntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput)
+}
+
+// The parameters schema of integration account map.
+type IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMapPropertiesInvokeResponseParametersSchema)(nil)).Elem()
+}
+
+func (o IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput) ToIntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput() IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput {
+	return o
+}
+
+func (o IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput) ToIntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput {
+	return o
+}
+
+// The reference name.
+func (o IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMapPropertiesInvokeResponseParametersSchema) *string { return v.Ref }).(pulumi.StringPtrOutput)
 }
 
 // The parameters schema of integration account map.
@@ -18792,6 +27938,61 @@ func (o IntegrationAccountSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The integration account sku.
+type IntegrationAccountSkuInvokeResponse struct {
+	// The sku name.
+	Name string `pulumi:"name"`
+}
+
+// IntegrationAccountSkuInvokeResponseInput is an input type that accepts IntegrationAccountSkuInvokeResponseArgs and IntegrationAccountSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `IntegrationAccountSkuInvokeResponseInput` via:
+//
+//          IntegrationAccountSkuInvokeResponseArgs{...}
+type IntegrationAccountSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountSkuInvokeResponseOutput() IntegrationAccountSkuInvokeResponseOutput
+	ToIntegrationAccountSkuInvokeResponseOutputWithContext(context.Context) IntegrationAccountSkuInvokeResponseOutput
+}
+
+// The integration account sku.
+type IntegrationAccountSkuInvokeResponseArgs struct {
+	// The sku name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (IntegrationAccountSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i IntegrationAccountSkuInvokeResponseArgs) ToIntegrationAccountSkuInvokeResponseOutput() IntegrationAccountSkuInvokeResponseOutput {
+	return i.ToIntegrationAccountSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountSkuInvokeResponseArgs) ToIntegrationAccountSkuInvokeResponseOutputWithContext(ctx context.Context) IntegrationAccountSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSkuInvokeResponseOutput)
+}
+
+// The integration account sku.
+type IntegrationAccountSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationAccountSkuInvokeResponseOutput) ToIntegrationAccountSkuInvokeResponseOutput() IntegrationAccountSkuInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationAccountSkuInvokeResponseOutput) ToIntegrationAccountSkuInvokeResponseOutputWithContext(ctx context.Context) IntegrationAccountSkuInvokeResponseOutput {
+	return o
+}
+
+// The sku name.
+func (o IntegrationAccountSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The integration account sku.
 type IntegrationAccountSkuResponse struct {
 	// The sku name.
 	Name string `pulumi:"name"`
@@ -19061,6 +28262,144 @@ func (o IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput) Encryption
 		}
 		return v.EncryptionKeyReference
 	}).(IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput)
+}
+
+// The encryption configuration for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse struct {
+	// The encryption key reference.
+	EncryptionKeyReference *IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse `pulumi:"encryptionKeyReference"`
+}
+
+// IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseInput is an input type that accepts IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs and IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs{...}
+type IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput
+	ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput
+}
+
+// The encryption configuration for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs struct {
+	// The encryption key reference.
+	EncryptionKeyReference IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrInput `pulumi:"encryptionKeyReference"`
+}
+
+func (IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput)
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput).ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrInput is an input type that accepts IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs, IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtr and IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput
+	ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput
+}
+
+type integrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrType IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs
+
+func IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtr(v *IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseArgs) IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrInput {
+	return (*integrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*integrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrType) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrType) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput)
+}
+
+// The encryption configuration for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput {
+	return o.ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse) *IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse {
+		return &v
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput)
+}
+
+// The encryption key reference.
+func (o IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput) EncryptionKeyReference() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse) *IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse {
+		return v.EncryptionKeyReference
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput)
+}
+
+type IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput) ToIntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput) Elem() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse) IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse {
+		return *v
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput)
+}
+
+// The encryption key reference.
+func (o IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput) EncryptionKeyReference() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse) *IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyReference
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput)
 }
 
 // The encryption configuration for the integration service environment.
@@ -19368,6 +28707,182 @@ func (o IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput) KeyVault() 
 // Gets the version of the key specified in the keyName property.
 func (o IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption key details for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse struct {
+	// Gets the key name in the Key Vault.
+	KeyName *string `pulumi:"keyName"`
+	// The key vault reference.
+	KeyVault *ResourceReferenceInvokeResponse `pulumi:"keyVault"`
+	// Gets the version of the key specified in the keyName property.
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseInput is an input type that accepts IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs and IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs{...}
+type IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput
+	ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput
+}
+
+// The encryption key details for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs struct {
+	// Gets the key name in the Key Vault.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The key vault reference.
+	KeyVault ResourceReferenceInvokeResponsePtrInput `pulumi:"keyVault"`
+	// Gets the version of the key specified in the keyName property.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+}
+
+func (IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput)
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput).ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrInput is an input type that accepts IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs, IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtr and IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrInput` via:
+//
+//          IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput
+	ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutputWithContext(context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput
+}
+
+type integrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrType IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs
+
+func IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtr(v *IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseArgs) IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrInput {
+	return (*integrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrType)(v)
+}
+
+func (*integrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrType) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrType) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput)
+}
+
+// The encryption key details for the integration service environment.
+type IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput {
+	return o.ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse) *IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse {
+		return &v
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput)
+}
+
+// Gets the key name in the Key Vault.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The key vault reference.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput) KeyVault() ResourceReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse) *ResourceReferenceInvokeResponse {
+		return v.KeyVault
+	}).(ResourceReferenceInvokeResponsePtrOutput)
+}
+
+// Gets the version of the key specified in the keyName property.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput) ToIntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput) Elem() IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse) IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse {
+		return *v
+	}).(IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput)
+}
+
+// Gets the key name in the Key Vault.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key vault reference.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput) KeyVault() ResourceReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse) *ResourceReferenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVault
+	}).(ResourceReferenceInvokeResponsePtrOutput)
+}
+
+// Gets the version of the key specified in the keyName property.
+func (o IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -19881,6 +29396,142 @@ func (o IntegrationServiceEnvironmentAccessEndpointPtrOutput) Type() pulumi.Stri
 }
 
 // The integration service environment access endpoint.
+type IntegrationServiceEnvironmentAccessEndpointInvokeResponse struct {
+	// The access endpoint type.
+	Type *string `pulumi:"type"`
+}
+
+// IntegrationServiceEnvironmentAccessEndpointInvokeResponseInput is an input type that accepts IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs and IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmentAccessEndpointInvokeResponseInput` via:
+//
+//          IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs{...}
+type IntegrationServiceEnvironmentAccessEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput() IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput
+	ToIntegrationServiceEnvironmentAccessEndpointInvokeResponseOutputWithContext(context.Context) IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput
+}
+
+// The integration service environment access endpoint.
+type IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs struct {
+	// The access endpoint type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentAccessEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput() IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput {
+	return i.ToIntegrationServiceEnvironmentAccessEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput)
+}
+
+func (i IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput() IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput).ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrInput is an input type that accepts IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs, IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtr and IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrInput` via:
+//
+//          IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput() IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput
+	ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutputWithContext(context.Context) IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput
+}
+
+type integrationServiceEnvironmentAccessEndpointInvokeResponsePtrType IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs
+
+func IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtr(v *IntegrationServiceEnvironmentAccessEndpointInvokeResponseArgs) IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrInput {
+	return (*integrationServiceEnvironmentAccessEndpointInvokeResponsePtrType)(v)
+}
+
+func (*integrationServiceEnvironmentAccessEndpointInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmentAccessEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmentAccessEndpointInvokeResponsePtrType) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput() IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmentAccessEndpointInvokeResponsePtrType) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput)
+}
+
+// The integration service environment access endpoint.
+type IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentAccessEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput() IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput() IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput {
+	return o.ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentAccessEndpointInvokeResponse) *IntegrationServiceEnvironmentAccessEndpointInvokeResponse {
+		return &v
+	}).(IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput)
+}
+
+// The access endpoint type.
+func (o IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentAccessEndpointInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmentAccessEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput() IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput) ToIntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput) Elem() IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentAccessEndpointInvokeResponse) IntegrationServiceEnvironmentAccessEndpointInvokeResponse {
+		return *v
+	}).(IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput)
+}
+
+// The access endpoint type.
+func (o IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentAccessEndpointInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The integration service environment access endpoint.
 type IntegrationServiceEnvironmentAccessEndpointResponse struct {
 	// The access endpoint type.
 	Type *string `pulumi:"type"`
@@ -20014,6 +29665,119 @@ func (o IntegrationServiceEnvironmentAccessEndpointResponsePtrOutput) Type() pul
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The integration service environment.
+type IntegrationServiceEnvironmentInvokeResponse struct {
+	// The resource id.
+	Id string `pulumi:"id"`
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// Gets the resource name.
+	Name string `pulumi:"name"`
+	// The integration service environment properties.
+	Properties *IntegrationServiceEnvironmentPropertiesInvokeResponse `pulumi:"properties"`
+	// The sku.
+	Sku *IntegrationServiceEnvironmentSkuInvokeResponse `pulumi:"sku"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Gets the resource type.
+	Type string `pulumi:"type"`
+}
+
+// IntegrationServiceEnvironmentInvokeResponseInput is an input type that accepts IntegrationServiceEnvironmentInvokeResponseArgs and IntegrationServiceEnvironmentInvokeResponseOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmentInvokeResponseInput` via:
+//
+//          IntegrationServiceEnvironmentInvokeResponseArgs{...}
+type IntegrationServiceEnvironmentInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentInvokeResponseOutput() IntegrationServiceEnvironmentInvokeResponseOutput
+	ToIntegrationServiceEnvironmentInvokeResponseOutputWithContext(context.Context) IntegrationServiceEnvironmentInvokeResponseOutput
+}
+
+// The integration service environment.
+type IntegrationServiceEnvironmentInvokeResponseArgs struct {
+	// The resource id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Gets the resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The integration service environment properties.
+	Properties IntegrationServiceEnvironmentPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+	// The sku.
+	Sku IntegrationServiceEnvironmentSkuInvokeResponsePtrInput `pulumi:"sku"`
+	// The resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Gets the resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IntegrationServiceEnvironmentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentInvokeResponse)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmentInvokeResponseArgs) ToIntegrationServiceEnvironmentInvokeResponseOutput() IntegrationServiceEnvironmentInvokeResponseOutput {
+	return i.ToIntegrationServiceEnvironmentInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentInvokeResponseArgs) ToIntegrationServiceEnvironmentInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentInvokeResponseOutput)
+}
+
+// The integration service environment.
+type IntegrationServiceEnvironmentInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentInvokeResponseOutput) ToIntegrationServiceEnvironmentInvokeResponseOutput() IntegrationServiceEnvironmentInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentInvokeResponseOutput) ToIntegrationServiceEnvironmentInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentInvokeResponseOutput {
+	return o
+}
+
+// The resource id.
+func (o IntegrationServiceEnvironmentInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o IntegrationServiceEnvironmentInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o IntegrationServiceEnvironmentInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The integration service environment properties.
+func (o IntegrationServiceEnvironmentInvokeResponseOutput) Properties() IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentInvokeResponse) *IntegrationServiceEnvironmentPropertiesInvokeResponse {
+		return v.Properties
+	}).(IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput)
+}
+
+// The sku.
+func (o IntegrationServiceEnvironmentInvokeResponseOutput) Sku() IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentInvokeResponse) *IntegrationServiceEnvironmentSkuInvokeResponse {
+		return v.Sku
+	}).(IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput)
+}
+
+// The resource tags.
+func (o IntegrationServiceEnvironmentInvokeResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentInvokeResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o IntegrationServiceEnvironmentInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The integration service environment properties.
@@ -20242,6 +30006,245 @@ func (o IntegrationServiceEnvironmentPropertiesPtrOutput) ProvisioningState() pu
 // The integration service environment state.
 func (o IntegrationServiceEnvironmentPropertiesPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationServiceEnvironmentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The integration service environment properties.
+type IntegrationServiceEnvironmentPropertiesInvokeResponse struct {
+	// The encryption configuration.
+	EncryptionConfiguration *IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse `pulumi:"encryptionConfiguration"`
+	// The endpoints configuration.
+	EndpointsConfiguration *FlowEndpointsConfigurationInvokeResponse `pulumi:"endpointsConfiguration"`
+	// Gets the tracking id.
+	IntegrationServiceEnvironmentId *string `pulumi:"integrationServiceEnvironmentId"`
+	// The network configuration.
+	NetworkConfiguration *NetworkConfigurationInvokeResponse `pulumi:"networkConfiguration"`
+	// The provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The integration service environment state.
+	State *string `pulumi:"state"`
+}
+
+// IntegrationServiceEnvironmentPropertiesInvokeResponseInput is an input type that accepts IntegrationServiceEnvironmentPropertiesInvokeResponseArgs and IntegrationServiceEnvironmentPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmentPropertiesInvokeResponseInput` via:
+//
+//          IntegrationServiceEnvironmentPropertiesInvokeResponseArgs{...}
+type IntegrationServiceEnvironmentPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentPropertiesInvokeResponseOutput() IntegrationServiceEnvironmentPropertiesInvokeResponseOutput
+	ToIntegrationServiceEnvironmentPropertiesInvokeResponseOutputWithContext(context.Context) IntegrationServiceEnvironmentPropertiesInvokeResponseOutput
+}
+
+// The integration service environment properties.
+type IntegrationServiceEnvironmentPropertiesInvokeResponseArgs struct {
+	// The encryption configuration.
+	EncryptionConfiguration IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrInput `pulumi:"encryptionConfiguration"`
+	// The endpoints configuration.
+	EndpointsConfiguration FlowEndpointsConfigurationInvokeResponsePtrInput `pulumi:"endpointsConfiguration"`
+	// Gets the tracking id.
+	IntegrationServiceEnvironmentId pulumi.StringPtrInput `pulumi:"integrationServiceEnvironmentId"`
+	// The network configuration.
+	NetworkConfiguration NetworkConfigurationInvokeResponsePtrInput `pulumi:"networkConfiguration"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// The integration service environment state.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (IntegrationServiceEnvironmentPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmentPropertiesInvokeResponseArgs) ToIntegrationServiceEnvironmentPropertiesInvokeResponseOutput() IntegrationServiceEnvironmentPropertiesInvokeResponseOutput {
+	return i.ToIntegrationServiceEnvironmentPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentPropertiesInvokeResponseArgs) ToIntegrationServiceEnvironmentPropertiesInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentPropertiesInvokeResponseOutput)
+}
+
+func (i IntegrationServiceEnvironmentPropertiesInvokeResponseArgs) ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput() IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentPropertiesInvokeResponseArgs) ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentPropertiesInvokeResponseOutput).ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// IntegrationServiceEnvironmentPropertiesInvokeResponsePtrInput is an input type that accepts IntegrationServiceEnvironmentPropertiesInvokeResponseArgs, IntegrationServiceEnvironmentPropertiesInvokeResponsePtr and IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmentPropertiesInvokeResponsePtrInput` via:
+//
+//          IntegrationServiceEnvironmentPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationServiceEnvironmentPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput() IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput
+	ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutputWithContext(context.Context) IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput
+}
+
+type integrationServiceEnvironmentPropertiesInvokeResponsePtrType IntegrationServiceEnvironmentPropertiesInvokeResponseArgs
+
+func IntegrationServiceEnvironmentPropertiesInvokeResponsePtr(v *IntegrationServiceEnvironmentPropertiesInvokeResponseArgs) IntegrationServiceEnvironmentPropertiesInvokeResponsePtrInput {
+	return (*integrationServiceEnvironmentPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*integrationServiceEnvironmentPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmentPropertiesInvokeResponsePtrType) ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput() IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmentPropertiesInvokeResponsePtrType) ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput)
+}
+
+// The integration service environment properties.
+type IntegrationServiceEnvironmentPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) ToIntegrationServiceEnvironmentPropertiesInvokeResponseOutput() IntegrationServiceEnvironmentPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) ToIntegrationServiceEnvironmentPropertiesInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput() IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput {
+	return o.ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentPropertiesInvokeResponse) *IntegrationServiceEnvironmentPropertiesInvokeResponse {
+		return &v
+	}).(IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput)
+}
+
+// The encryption configuration.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) EncryptionConfiguration() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentPropertiesInvokeResponse) *IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse {
+		return v.EncryptionConfiguration
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput)
+}
+
+// The endpoints configuration.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) EndpointsConfiguration() FlowEndpointsConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentPropertiesInvokeResponse) *FlowEndpointsConfigurationInvokeResponse {
+		return v.EndpointsConfiguration
+	}).(FlowEndpointsConfigurationInvokeResponsePtrOutput)
+}
+
+// Gets the tracking id.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) IntegrationServiceEnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentPropertiesInvokeResponse) *string {
+		return v.IntegrationServiceEnvironmentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network configuration.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) NetworkConfiguration() NetworkConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentPropertiesInvokeResponse) *NetworkConfigurationInvokeResponse {
+		return v.NetworkConfiguration
+	}).(NetworkConfigurationInvokeResponsePtrOutput)
+}
+
+// The provisioning state.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentPropertiesInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The integration service environment state.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentPropertiesInvokeResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput) ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput() IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput) ToIntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput) Elem() IntegrationServiceEnvironmentPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentPropertiesInvokeResponse) IntegrationServiceEnvironmentPropertiesInvokeResponse {
+		return *v
+	}).(IntegrationServiceEnvironmentPropertiesInvokeResponseOutput)
+}
+
+// The encryption configuration.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput) EncryptionConfiguration() IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentPropertiesInvokeResponse) *IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionConfiguration
+	}).(IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput)
+}
+
+// The endpoints configuration.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput) EndpointsConfiguration() FlowEndpointsConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentPropertiesInvokeResponse) *FlowEndpointsConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointsConfiguration
+	}).(FlowEndpointsConfigurationInvokeResponsePtrOutput)
+}
+
+// Gets the tracking id.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput) IntegrationServiceEnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntegrationServiceEnvironmentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network configuration.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput) NetworkConfiguration() NetworkConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentPropertiesInvokeResponse) *NetworkConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkConfiguration
+	}).(NetworkConfigurationInvokeResponsePtrOutput)
+}
+
+// The provisioning state.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The integration service environment state.
+func (o IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -20892,6 +30895,161 @@ func (o IntegrationServiceEnvironmentSkuPtrOutput) Name() pulumi.StringPtrOutput
 }
 
 // The integration service environment sku.
+type IntegrationServiceEnvironmentSkuInvokeResponse struct {
+	// The sku capacity.
+	Capacity *int `pulumi:"capacity"`
+	// The sku name.
+	Name *string `pulumi:"name"`
+}
+
+// IntegrationServiceEnvironmentSkuInvokeResponseInput is an input type that accepts IntegrationServiceEnvironmentSkuInvokeResponseArgs and IntegrationServiceEnvironmentSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmentSkuInvokeResponseInput` via:
+//
+//          IntegrationServiceEnvironmentSkuInvokeResponseArgs{...}
+type IntegrationServiceEnvironmentSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentSkuInvokeResponseOutput() IntegrationServiceEnvironmentSkuInvokeResponseOutput
+	ToIntegrationServiceEnvironmentSkuInvokeResponseOutputWithContext(context.Context) IntegrationServiceEnvironmentSkuInvokeResponseOutput
+}
+
+// The integration service environment sku.
+type IntegrationServiceEnvironmentSkuInvokeResponseArgs struct {
+	// The sku capacity.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The sku name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (IntegrationServiceEnvironmentSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i IntegrationServiceEnvironmentSkuInvokeResponseArgs) ToIntegrationServiceEnvironmentSkuInvokeResponseOutput() IntegrationServiceEnvironmentSkuInvokeResponseOutput {
+	return i.ToIntegrationServiceEnvironmentSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentSkuInvokeResponseArgs) ToIntegrationServiceEnvironmentSkuInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentSkuInvokeResponseOutput)
+}
+
+func (i IntegrationServiceEnvironmentSkuInvokeResponseArgs) ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutput() IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationServiceEnvironmentSkuInvokeResponseArgs) ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentSkuInvokeResponseOutput).ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// IntegrationServiceEnvironmentSkuInvokeResponsePtrInput is an input type that accepts IntegrationServiceEnvironmentSkuInvokeResponseArgs, IntegrationServiceEnvironmentSkuInvokeResponsePtr and IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `IntegrationServiceEnvironmentSkuInvokeResponsePtrInput` via:
+//
+//          IntegrationServiceEnvironmentSkuInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IntegrationServiceEnvironmentSkuInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutput() IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput
+	ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutputWithContext(context.Context) IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput
+}
+
+type integrationServiceEnvironmentSkuInvokeResponsePtrType IntegrationServiceEnvironmentSkuInvokeResponseArgs
+
+func IntegrationServiceEnvironmentSkuInvokeResponsePtr(v *IntegrationServiceEnvironmentSkuInvokeResponseArgs) IntegrationServiceEnvironmentSkuInvokeResponsePtrInput {
+	return (*integrationServiceEnvironmentSkuInvokeResponsePtrType)(v)
+}
+
+func (*integrationServiceEnvironmentSkuInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmentSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i *integrationServiceEnvironmentSkuInvokeResponsePtrType) ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutput() IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput {
+	return i.ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *integrationServiceEnvironmentSkuInvokeResponsePtrType) ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput)
+}
+
+// The integration service environment sku.
+type IntegrationServiceEnvironmentSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationServiceEnvironmentSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentSkuInvokeResponseOutput) ToIntegrationServiceEnvironmentSkuInvokeResponseOutput() IntegrationServiceEnvironmentSkuInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentSkuInvokeResponseOutput) ToIntegrationServiceEnvironmentSkuInvokeResponseOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentSkuInvokeResponseOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentSkuInvokeResponseOutput) ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutput() IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput {
+	return o.ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationServiceEnvironmentSkuInvokeResponseOutput) ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentSkuInvokeResponse) *IntegrationServiceEnvironmentSkuInvokeResponse {
+		return &v
+	}).(IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput)
+}
+
+// The sku capacity.
+func (o IntegrationServiceEnvironmentSkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentSkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The sku name.
+func (o IntegrationServiceEnvironmentSkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentSkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationServiceEnvironmentSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput) ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutput() IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput) ToIntegrationServiceEnvironmentSkuInvokeResponsePtrOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput) Elem() IntegrationServiceEnvironmentSkuInvokeResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentSkuInvokeResponse) IntegrationServiceEnvironmentSkuInvokeResponse {
+		return *v
+	}).(IntegrationServiceEnvironmentSkuInvokeResponseOutput)
+}
+
+// The sku capacity.
+func (o IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentSkuInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sku name.
+func (o IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentSkuInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The integration service environment sku.
 type IntegrationServiceEnvironmentSkuResponse struct {
 	// The sku capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -21144,6 +31302,106 @@ func (o IpAddressArrayOutput) Index(i pulumi.IntInput) IpAddressOutput {
 	}).(IpAddressOutput)
 }
 
+// The ip address.
+type IpAddressInvokeResponse struct {
+	// The address.
+	Address *string `pulumi:"address"`
+}
+
+// IpAddressInvokeResponseInput is an input type that accepts IpAddressInvokeResponseArgs and IpAddressInvokeResponseOutput values.
+// You can construct a concrete instance of `IpAddressInvokeResponseInput` via:
+//
+//          IpAddressInvokeResponseArgs{...}
+type IpAddressInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIpAddressInvokeResponseOutput() IpAddressInvokeResponseOutput
+	ToIpAddressInvokeResponseOutputWithContext(context.Context) IpAddressInvokeResponseOutput
+}
+
+// The ip address.
+type IpAddressInvokeResponseArgs struct {
+	// The address.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+}
+
+func (IpAddressInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAddressInvokeResponse)(nil)).Elem()
+}
+
+func (i IpAddressInvokeResponseArgs) ToIpAddressInvokeResponseOutput() IpAddressInvokeResponseOutput {
+	return i.ToIpAddressInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IpAddressInvokeResponseArgs) ToIpAddressInvokeResponseOutputWithContext(ctx context.Context) IpAddressInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAddressInvokeResponseOutput)
+}
+
+// IpAddressInvokeResponseArrayInput is an input type that accepts IpAddressInvokeResponseArray and IpAddressInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IpAddressInvokeResponseArrayInput` via:
+//
+//          IpAddressInvokeResponseArray{ IpAddressInvokeResponseArgs{...} }
+type IpAddressInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIpAddressInvokeResponseArrayOutput() IpAddressInvokeResponseArrayOutput
+	ToIpAddressInvokeResponseArrayOutputWithContext(context.Context) IpAddressInvokeResponseArrayOutput
+}
+
+type IpAddressInvokeResponseArray []IpAddressInvokeResponseInput
+
+func (IpAddressInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpAddressInvokeResponse)(nil)).Elem()
+}
+
+func (i IpAddressInvokeResponseArray) ToIpAddressInvokeResponseArrayOutput() IpAddressInvokeResponseArrayOutput {
+	return i.ToIpAddressInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IpAddressInvokeResponseArray) ToIpAddressInvokeResponseArrayOutputWithContext(ctx context.Context) IpAddressInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAddressInvokeResponseArrayOutput)
+}
+
+// The ip address.
+type IpAddressInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IpAddressInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAddressInvokeResponse)(nil)).Elem()
+}
+
+func (o IpAddressInvokeResponseOutput) ToIpAddressInvokeResponseOutput() IpAddressInvokeResponseOutput {
+	return o
+}
+
+func (o IpAddressInvokeResponseOutput) ToIpAddressInvokeResponseOutputWithContext(ctx context.Context) IpAddressInvokeResponseOutput {
+	return o
+}
+
+// The address.
+func (o IpAddressInvokeResponseOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpAddressInvokeResponse) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+type IpAddressInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IpAddressInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpAddressInvokeResponse)(nil)).Elem()
+}
+
+func (o IpAddressInvokeResponseArrayOutput) ToIpAddressInvokeResponseArrayOutput() IpAddressInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpAddressInvokeResponseArrayOutput) ToIpAddressInvokeResponseArrayOutputWithContext(ctx context.Context) IpAddressInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpAddressInvokeResponseArrayOutput) Index(i pulumi.IntInput) IpAddressInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpAddressInvokeResponse {
+		return vs[0].([]IpAddressInvokeResponse)[vs[1].(int)]
+	}).(IpAddressInvokeResponseOutput)
+}
+
 // The ip address range.
 type IpAddressRange struct {
 	// The IP address range.
@@ -21242,6 +31500,106 @@ func (o IpAddressRangeArrayOutput) Index(i pulumi.IntInput) IpAddressRangeOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpAddressRange {
 		return vs[0].([]IpAddressRange)[vs[1].(int)]
 	}).(IpAddressRangeOutput)
+}
+
+// The ip address range.
+type IpAddressRangeInvokeResponse struct {
+	// The IP address range.
+	AddressRange *string `pulumi:"addressRange"`
+}
+
+// IpAddressRangeInvokeResponseInput is an input type that accepts IpAddressRangeInvokeResponseArgs and IpAddressRangeInvokeResponseOutput values.
+// You can construct a concrete instance of `IpAddressRangeInvokeResponseInput` via:
+//
+//          IpAddressRangeInvokeResponseArgs{...}
+type IpAddressRangeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIpAddressRangeInvokeResponseOutput() IpAddressRangeInvokeResponseOutput
+	ToIpAddressRangeInvokeResponseOutputWithContext(context.Context) IpAddressRangeInvokeResponseOutput
+}
+
+// The ip address range.
+type IpAddressRangeInvokeResponseArgs struct {
+	// The IP address range.
+	AddressRange pulumi.StringPtrInput `pulumi:"addressRange"`
+}
+
+func (IpAddressRangeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAddressRangeInvokeResponse)(nil)).Elem()
+}
+
+func (i IpAddressRangeInvokeResponseArgs) ToIpAddressRangeInvokeResponseOutput() IpAddressRangeInvokeResponseOutput {
+	return i.ToIpAddressRangeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IpAddressRangeInvokeResponseArgs) ToIpAddressRangeInvokeResponseOutputWithContext(ctx context.Context) IpAddressRangeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAddressRangeInvokeResponseOutput)
+}
+
+// IpAddressRangeInvokeResponseArrayInput is an input type that accepts IpAddressRangeInvokeResponseArray and IpAddressRangeInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IpAddressRangeInvokeResponseArrayInput` via:
+//
+//          IpAddressRangeInvokeResponseArray{ IpAddressRangeInvokeResponseArgs{...} }
+type IpAddressRangeInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIpAddressRangeInvokeResponseArrayOutput() IpAddressRangeInvokeResponseArrayOutput
+	ToIpAddressRangeInvokeResponseArrayOutputWithContext(context.Context) IpAddressRangeInvokeResponseArrayOutput
+}
+
+type IpAddressRangeInvokeResponseArray []IpAddressRangeInvokeResponseInput
+
+func (IpAddressRangeInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpAddressRangeInvokeResponse)(nil)).Elem()
+}
+
+func (i IpAddressRangeInvokeResponseArray) ToIpAddressRangeInvokeResponseArrayOutput() IpAddressRangeInvokeResponseArrayOutput {
+	return i.ToIpAddressRangeInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IpAddressRangeInvokeResponseArray) ToIpAddressRangeInvokeResponseArrayOutputWithContext(ctx context.Context) IpAddressRangeInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAddressRangeInvokeResponseArrayOutput)
+}
+
+// The ip address range.
+type IpAddressRangeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IpAddressRangeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAddressRangeInvokeResponse)(nil)).Elem()
+}
+
+func (o IpAddressRangeInvokeResponseOutput) ToIpAddressRangeInvokeResponseOutput() IpAddressRangeInvokeResponseOutput {
+	return o
+}
+
+func (o IpAddressRangeInvokeResponseOutput) ToIpAddressRangeInvokeResponseOutputWithContext(ctx context.Context) IpAddressRangeInvokeResponseOutput {
+	return o
+}
+
+// The IP address range.
+func (o IpAddressRangeInvokeResponseOutput) AddressRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpAddressRangeInvokeResponse) *string { return v.AddressRange }).(pulumi.StringPtrOutput)
+}
+
+type IpAddressRangeInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IpAddressRangeInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpAddressRangeInvokeResponse)(nil)).Elem()
+}
+
+func (o IpAddressRangeInvokeResponseArrayOutput) ToIpAddressRangeInvokeResponseArrayOutput() IpAddressRangeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpAddressRangeInvokeResponseArrayOutput) ToIpAddressRangeInvokeResponseArrayOutputWithContext(ctx context.Context) IpAddressRangeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpAddressRangeInvokeResponseArrayOutput) Index(i pulumi.IntInput) IpAddressRangeInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpAddressRangeInvokeResponse {
+		return vs[0].([]IpAddressRangeInvokeResponse)[vs[1].(int)]
+	}).(IpAddressRangeInvokeResponseOutput)
 }
 
 // The ip address range.
@@ -21444,6 +31802,287 @@ func (o IpAddressResponseArrayOutput) Index(i pulumi.IntInput) IpAddressResponse
 	}).(IpAddressResponseOutput)
 }
 
+// The key vault key.
+type KeyVaultKeyInvokeResponse struct {
+	// The key attributes.
+	Attributes *KeyVaultKeyInvokeResponseAttributes `pulumi:"attributes"`
+	// The key id.
+	Kid *string `pulumi:"kid"`
+}
+
+// KeyVaultKeyInvokeResponseInput is an input type that accepts KeyVaultKeyInvokeResponseArgs and KeyVaultKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultKeyInvokeResponseInput` via:
+//
+//          KeyVaultKeyInvokeResponseArgs{...}
+type KeyVaultKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyInvokeResponseOutput() KeyVaultKeyInvokeResponseOutput
+	ToKeyVaultKeyInvokeResponseOutputWithContext(context.Context) KeyVaultKeyInvokeResponseOutput
+}
+
+// The key vault key.
+type KeyVaultKeyInvokeResponseArgs struct {
+	// The key attributes.
+	Attributes KeyVaultKeyInvokeResponseAttributesPtrInput `pulumi:"attributes"`
+	// The key id.
+	Kid pulumi.StringPtrInput `pulumi:"kid"`
+}
+
+func (KeyVaultKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultKeyInvokeResponseArgs) ToKeyVaultKeyInvokeResponseOutput() KeyVaultKeyInvokeResponseOutput {
+	return i.ToKeyVaultKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyInvokeResponseArgs) ToKeyVaultKeyInvokeResponseOutputWithContext(ctx context.Context) KeyVaultKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyInvokeResponseOutput)
+}
+
+// KeyVaultKeyInvokeResponseArrayInput is an input type that accepts KeyVaultKeyInvokeResponseArray and KeyVaultKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `KeyVaultKeyInvokeResponseArrayInput` via:
+//
+//          KeyVaultKeyInvokeResponseArray{ KeyVaultKeyInvokeResponseArgs{...} }
+type KeyVaultKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyInvokeResponseArrayOutput() KeyVaultKeyInvokeResponseArrayOutput
+	ToKeyVaultKeyInvokeResponseArrayOutputWithContext(context.Context) KeyVaultKeyInvokeResponseArrayOutput
+}
+
+type KeyVaultKeyInvokeResponseArray []KeyVaultKeyInvokeResponseInput
+
+func (KeyVaultKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultKeyInvokeResponseArray) ToKeyVaultKeyInvokeResponseArrayOutput() KeyVaultKeyInvokeResponseArrayOutput {
+	return i.ToKeyVaultKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyInvokeResponseArray) ToKeyVaultKeyInvokeResponseArrayOutputWithContext(ctx context.Context) KeyVaultKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyInvokeResponseArrayOutput)
+}
+
+// The key vault key.
+type KeyVaultKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyInvokeResponseOutput) ToKeyVaultKeyInvokeResponseOutput() KeyVaultKeyInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyInvokeResponseOutput) ToKeyVaultKeyInvokeResponseOutputWithContext(ctx context.Context) KeyVaultKeyInvokeResponseOutput {
+	return o
+}
+
+// The key attributes.
+func (o KeyVaultKeyInvokeResponseOutput) Attributes() KeyVaultKeyInvokeResponseAttributesPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyInvokeResponse) *KeyVaultKeyInvokeResponseAttributes { return v.Attributes }).(KeyVaultKeyInvokeResponseAttributesPtrOutput)
+}
+
+// The key id.
+func (o KeyVaultKeyInvokeResponseOutput) Kid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyInvokeResponse) *string { return v.Kid }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyInvokeResponseArrayOutput) ToKeyVaultKeyInvokeResponseArrayOutput() KeyVaultKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KeyVaultKeyInvokeResponseArrayOutput) ToKeyVaultKeyInvokeResponseArrayOutputWithContext(ctx context.Context) KeyVaultKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KeyVaultKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultKeyInvokeResponse {
+		return vs[0].([]KeyVaultKeyInvokeResponse)[vs[1].(int)]
+	}).(KeyVaultKeyInvokeResponseOutput)
+}
+
+// The key attributes.
+type KeyVaultKeyInvokeResponseAttributes struct {
+	// When the key was created.
+	Created *float64 `pulumi:"created"`
+	// Whether the key is enabled or not.
+	Enabled *bool `pulumi:"enabled"`
+	// When the key was updated.
+	Updated *float64 `pulumi:"updated"`
+}
+
+// KeyVaultKeyInvokeResponseAttributesInput is an input type that accepts KeyVaultKeyInvokeResponseAttributesArgs and KeyVaultKeyInvokeResponseAttributesOutput values.
+// You can construct a concrete instance of `KeyVaultKeyInvokeResponseAttributesInput` via:
+//
+//          KeyVaultKeyInvokeResponseAttributesArgs{...}
+type KeyVaultKeyInvokeResponseAttributesInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyInvokeResponseAttributesOutput() KeyVaultKeyInvokeResponseAttributesOutput
+	ToKeyVaultKeyInvokeResponseAttributesOutputWithContext(context.Context) KeyVaultKeyInvokeResponseAttributesOutput
+}
+
+// The key attributes.
+type KeyVaultKeyInvokeResponseAttributesArgs struct {
+	// When the key was created.
+	Created pulumi.Float64PtrInput `pulumi:"created"`
+	// Whether the key is enabled or not.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// When the key was updated.
+	Updated pulumi.Float64PtrInput `pulumi:"updated"`
+}
+
+func (KeyVaultKeyInvokeResponseAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyInvokeResponseAttributes)(nil)).Elem()
+}
+
+func (i KeyVaultKeyInvokeResponseAttributesArgs) ToKeyVaultKeyInvokeResponseAttributesOutput() KeyVaultKeyInvokeResponseAttributesOutput {
+	return i.ToKeyVaultKeyInvokeResponseAttributesOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyInvokeResponseAttributesArgs) ToKeyVaultKeyInvokeResponseAttributesOutputWithContext(ctx context.Context) KeyVaultKeyInvokeResponseAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyInvokeResponseAttributesOutput)
+}
+
+func (i KeyVaultKeyInvokeResponseAttributesArgs) ToKeyVaultKeyInvokeResponseAttributesPtrOutput() KeyVaultKeyInvokeResponseAttributesPtrOutput {
+	return i.ToKeyVaultKeyInvokeResponseAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyInvokeResponseAttributesArgs) ToKeyVaultKeyInvokeResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyInvokeResponseAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyInvokeResponseAttributesOutput).ToKeyVaultKeyInvokeResponseAttributesPtrOutputWithContext(ctx)
+}
+
+// KeyVaultKeyInvokeResponseAttributesPtrInput is an input type that accepts KeyVaultKeyInvokeResponseAttributesArgs, KeyVaultKeyInvokeResponseAttributesPtr and KeyVaultKeyInvokeResponseAttributesPtrOutput values.
+// You can construct a concrete instance of `KeyVaultKeyInvokeResponseAttributesPtrInput` via:
+//
+//          KeyVaultKeyInvokeResponseAttributesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultKeyInvokeResponseAttributesPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyInvokeResponseAttributesPtrOutput() KeyVaultKeyInvokeResponseAttributesPtrOutput
+	ToKeyVaultKeyInvokeResponseAttributesPtrOutputWithContext(context.Context) KeyVaultKeyInvokeResponseAttributesPtrOutput
+}
+
+type keyVaultKeyInvokeResponseAttributesPtrType KeyVaultKeyInvokeResponseAttributesArgs
+
+func KeyVaultKeyInvokeResponseAttributesPtr(v *KeyVaultKeyInvokeResponseAttributesArgs) KeyVaultKeyInvokeResponseAttributesPtrInput {
+	return (*keyVaultKeyInvokeResponseAttributesPtrType)(v)
+}
+
+func (*keyVaultKeyInvokeResponseAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyInvokeResponseAttributes)(nil)).Elem()
+}
+
+func (i *keyVaultKeyInvokeResponseAttributesPtrType) ToKeyVaultKeyInvokeResponseAttributesPtrOutput() KeyVaultKeyInvokeResponseAttributesPtrOutput {
+	return i.ToKeyVaultKeyInvokeResponseAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultKeyInvokeResponseAttributesPtrType) ToKeyVaultKeyInvokeResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyInvokeResponseAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyInvokeResponseAttributesPtrOutput)
+}
+
+// The key attributes.
+type KeyVaultKeyInvokeResponseAttributesOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyInvokeResponseAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyInvokeResponseAttributes)(nil)).Elem()
+}
+
+func (o KeyVaultKeyInvokeResponseAttributesOutput) ToKeyVaultKeyInvokeResponseAttributesOutput() KeyVaultKeyInvokeResponseAttributesOutput {
+	return o
+}
+
+func (o KeyVaultKeyInvokeResponseAttributesOutput) ToKeyVaultKeyInvokeResponseAttributesOutputWithContext(ctx context.Context) KeyVaultKeyInvokeResponseAttributesOutput {
+	return o
+}
+
+func (o KeyVaultKeyInvokeResponseAttributesOutput) ToKeyVaultKeyInvokeResponseAttributesPtrOutput() KeyVaultKeyInvokeResponseAttributesPtrOutput {
+	return o.ToKeyVaultKeyInvokeResponseAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultKeyInvokeResponseAttributesOutput) ToKeyVaultKeyInvokeResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyInvokeResponseAttributesPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyInvokeResponseAttributes) *KeyVaultKeyInvokeResponseAttributes {
+		return &v
+	}).(KeyVaultKeyInvokeResponseAttributesPtrOutput)
+}
+
+// When the key was created.
+func (o KeyVaultKeyInvokeResponseAttributesOutput) Created() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyInvokeResponseAttributes) *float64 { return v.Created }).(pulumi.Float64PtrOutput)
+}
+
+// Whether the key is enabled or not.
+func (o KeyVaultKeyInvokeResponseAttributesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyInvokeResponseAttributes) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// When the key was updated.
+func (o KeyVaultKeyInvokeResponseAttributesOutput) Updated() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyInvokeResponseAttributes) *float64 { return v.Updated }).(pulumi.Float64PtrOutput)
+}
+
+type KeyVaultKeyInvokeResponseAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyInvokeResponseAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyInvokeResponseAttributes)(nil)).Elem()
+}
+
+func (o KeyVaultKeyInvokeResponseAttributesPtrOutput) ToKeyVaultKeyInvokeResponseAttributesPtrOutput() KeyVaultKeyInvokeResponseAttributesPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyInvokeResponseAttributesPtrOutput) ToKeyVaultKeyInvokeResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyInvokeResponseAttributesPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyInvokeResponseAttributesPtrOutput) Elem() KeyVaultKeyInvokeResponseAttributesOutput {
+	return o.ApplyT(func(v *KeyVaultKeyInvokeResponseAttributes) KeyVaultKeyInvokeResponseAttributes { return *v }).(KeyVaultKeyInvokeResponseAttributesOutput)
+}
+
+// When the key was created.
+func (o KeyVaultKeyInvokeResponseAttributesPtrOutput) Created() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyInvokeResponseAttributes) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Created
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether the key is enabled or not.
+func (o KeyVaultKeyInvokeResponseAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyInvokeResponseAttributes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When the key was updated.
+func (o KeyVaultKeyInvokeResponseAttributesPtrOutput) Updated() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyInvokeResponseAttributes) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Updated
+	}).(pulumi.Float64PtrOutput)
+}
+
 // The reference to the key vault key.
 type KeyVaultKeyReference struct {
 	// The private key name in key vault.
@@ -21614,6 +32253,154 @@ func (o KeyVaultKeyReferencePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 		}
 		return v.KeyVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// The reference to the key vault key.
+type KeyVaultKeyReferenceInvokeResponse struct {
+	// The private key name in key vault.
+	KeyName string `pulumi:"keyName"`
+	// The key vault reference.
+	KeyVault KeyVaultKeyReferenceInvokeResponseKeyVault `pulumi:"keyVault"`
+	// The private key version in key vault.
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// KeyVaultKeyReferenceInvokeResponseInput is an input type that accepts KeyVaultKeyReferenceInvokeResponseArgs and KeyVaultKeyReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceInvokeResponseInput` via:
+//
+//          KeyVaultKeyReferenceInvokeResponseArgs{...}
+type KeyVaultKeyReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceInvokeResponseOutput() KeyVaultKeyReferenceInvokeResponseOutput
+	ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(context.Context) KeyVaultKeyReferenceInvokeResponseOutput
+}
+
+// The reference to the key vault key.
+type KeyVaultKeyReferenceInvokeResponseArgs struct {
+	// The private key name in key vault.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The key vault reference.
+	KeyVault KeyVaultKeyReferenceInvokeResponseKeyVaultInput `pulumi:"keyVault"`
+	// The private key version in key vault.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+}
+
+func (KeyVaultKeyReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseArgs) ToKeyVaultKeyReferenceInvokeResponseOutput() KeyVaultKeyReferenceInvokeResponseOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseArgs) ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseOutput)
+}
+
+// The reference to the key vault key.
+type KeyVaultKeyReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseOutput) ToKeyVaultKeyReferenceInvokeResponseOutput() KeyVaultKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseOutput) ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+// The private key name in key vault.
+func (o KeyVaultKeyReferenceInvokeResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The key vault reference.
+func (o KeyVaultKeyReferenceInvokeResponseOutput) KeyVault() KeyVaultKeyReferenceInvokeResponseKeyVaultOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponse) KeyVaultKeyReferenceInvokeResponseKeyVault {
+		return v.KeyVault
+	}).(KeyVaultKeyReferenceInvokeResponseKeyVaultOutput)
+}
+
+// The private key version in key vault.
+func (o KeyVaultKeyReferenceInvokeResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+// The key vault reference.
+type KeyVaultKeyReferenceInvokeResponseKeyVault struct {
+	// The resource id.
+	Id *string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// KeyVaultKeyReferenceInvokeResponseKeyVaultInput is an input type that accepts KeyVaultKeyReferenceInvokeResponseKeyVaultArgs and KeyVaultKeyReferenceInvokeResponseKeyVaultOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceInvokeResponseKeyVaultInput` via:
+//
+//          KeyVaultKeyReferenceInvokeResponseKeyVaultArgs{...}
+type KeyVaultKeyReferenceInvokeResponseKeyVaultInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceInvokeResponseKeyVaultOutput() KeyVaultKeyReferenceInvokeResponseKeyVaultOutput
+	ToKeyVaultKeyReferenceInvokeResponseKeyVaultOutputWithContext(context.Context) KeyVaultKeyReferenceInvokeResponseKeyVaultOutput
+}
+
+// The key vault reference.
+type KeyVaultKeyReferenceInvokeResponseKeyVaultArgs struct {
+	// The resource id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (KeyVaultKeyReferenceInvokeResponseKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponseKeyVault)(nil)).Elem()
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseKeyVaultArgs) ToKeyVaultKeyReferenceInvokeResponseKeyVaultOutput() KeyVaultKeyReferenceInvokeResponseKeyVaultOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponseKeyVaultOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseKeyVaultArgs) ToKeyVaultKeyReferenceInvokeResponseKeyVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseKeyVaultOutput)
+}
+
+// The key vault reference.
+type KeyVaultKeyReferenceInvokeResponseKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceInvokeResponseKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponseKeyVault)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseKeyVaultOutput) ToKeyVaultKeyReferenceInvokeResponseKeyVaultOutput() KeyVaultKeyReferenceInvokeResponseKeyVaultOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseKeyVaultOutput) ToKeyVaultKeyReferenceInvokeResponseKeyVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseKeyVaultOutput {
+	return o
+}
+
+// The resource id.
+func (o KeyVaultKeyReferenceInvokeResponseKeyVaultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponseKeyVault) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The resource name.
+func (o KeyVaultKeyReferenceInvokeResponseKeyVaultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponseKeyVault) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o KeyVaultKeyReferenceInvokeResponseKeyVaultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponseKeyVault) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The key vault reference.
@@ -22094,349 +32881,68 @@ func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Type() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key vault key.
-type KeyVaultKeyResponse struct {
-	// The key attributes.
-	Attributes *KeyVaultKeyResponseAttributes `pulumi:"attributes"`
-	// The key id.
-	Kid *string `pulumi:"kid"`
-}
-
-// KeyVaultKeyResponseInput is an input type that accepts KeyVaultKeyResponseArgs and KeyVaultKeyResponseOutput values.
-// You can construct a concrete instance of `KeyVaultKeyResponseInput` via:
-//
-//          KeyVaultKeyResponseArgs{...}
-type KeyVaultKeyResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultKeyResponseOutput() KeyVaultKeyResponseOutput
-	ToKeyVaultKeyResponseOutputWithContext(context.Context) KeyVaultKeyResponseOutput
-}
-
-// The key vault key.
-type KeyVaultKeyResponseArgs struct {
-	// The key attributes.
-	Attributes KeyVaultKeyResponseAttributesPtrInput `pulumi:"attributes"`
-	// The key id.
-	Kid pulumi.StringPtrInput `pulumi:"kid"`
-}
-
-func (KeyVaultKeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultKeyResponse)(nil)).Elem()
-}
-
-func (i KeyVaultKeyResponseArgs) ToKeyVaultKeyResponseOutput() KeyVaultKeyResponseOutput {
-	return i.ToKeyVaultKeyResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultKeyResponseArgs) ToKeyVaultKeyResponseOutputWithContext(ctx context.Context) KeyVaultKeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseOutput)
-}
-
-// KeyVaultKeyResponseArrayInput is an input type that accepts KeyVaultKeyResponseArray and KeyVaultKeyResponseArrayOutput values.
-// You can construct a concrete instance of `KeyVaultKeyResponseArrayInput` via:
-//
-//          KeyVaultKeyResponseArray{ KeyVaultKeyResponseArgs{...} }
-type KeyVaultKeyResponseArrayInput interface {
-	pulumi.Input
-
-	ToKeyVaultKeyResponseArrayOutput() KeyVaultKeyResponseArrayOutput
-	ToKeyVaultKeyResponseArrayOutputWithContext(context.Context) KeyVaultKeyResponseArrayOutput
-}
-
-type KeyVaultKeyResponseArray []KeyVaultKeyResponseInput
-
-func (KeyVaultKeyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyVaultKeyResponse)(nil)).Elem()
-}
-
-func (i KeyVaultKeyResponseArray) ToKeyVaultKeyResponseArrayOutput() KeyVaultKeyResponseArrayOutput {
-	return i.ToKeyVaultKeyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i KeyVaultKeyResponseArray) ToKeyVaultKeyResponseArrayOutputWithContext(ctx context.Context) KeyVaultKeyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseArrayOutput)
-}
-
-// The key vault key.
-type KeyVaultKeyResponseOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultKeyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultKeyResponse)(nil)).Elem()
-}
-
-func (o KeyVaultKeyResponseOutput) ToKeyVaultKeyResponseOutput() KeyVaultKeyResponseOutput {
-	return o
-}
-
-func (o KeyVaultKeyResponseOutput) ToKeyVaultKeyResponseOutputWithContext(ctx context.Context) KeyVaultKeyResponseOutput {
-	return o
-}
-
-// The key attributes.
-func (o KeyVaultKeyResponseOutput) Attributes() KeyVaultKeyResponseAttributesPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponse) *KeyVaultKeyResponseAttributes { return v.Attributes }).(KeyVaultKeyResponseAttributesPtrOutput)
-}
-
-// The key id.
-func (o KeyVaultKeyResponseOutput) Kid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponse) *string { return v.Kid }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultKeyResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultKeyResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyVaultKeyResponse)(nil)).Elem()
-}
-
-func (o KeyVaultKeyResponseArrayOutput) ToKeyVaultKeyResponseArrayOutput() KeyVaultKeyResponseArrayOutput {
-	return o
-}
-
-func (o KeyVaultKeyResponseArrayOutput) ToKeyVaultKeyResponseArrayOutputWithContext(ctx context.Context) KeyVaultKeyResponseArrayOutput {
-	return o
-}
-
-func (o KeyVaultKeyResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultKeyResponse {
-		return vs[0].([]KeyVaultKeyResponse)[vs[1].(int)]
-	}).(KeyVaultKeyResponseOutput)
-}
-
-// The key attributes.
-type KeyVaultKeyResponseAttributes struct {
-	// When the key was created.
-	Created *float64 `pulumi:"created"`
-	// Whether the key is enabled or not.
-	Enabled *bool `pulumi:"enabled"`
-	// When the key was updated.
-	Updated *float64 `pulumi:"updated"`
-}
-
-// KeyVaultKeyResponseAttributesInput is an input type that accepts KeyVaultKeyResponseAttributesArgs and KeyVaultKeyResponseAttributesOutput values.
-// You can construct a concrete instance of `KeyVaultKeyResponseAttributesInput` via:
-//
-//          KeyVaultKeyResponseAttributesArgs{...}
-type KeyVaultKeyResponseAttributesInput interface {
-	pulumi.Input
-
-	ToKeyVaultKeyResponseAttributesOutput() KeyVaultKeyResponseAttributesOutput
-	ToKeyVaultKeyResponseAttributesOutputWithContext(context.Context) KeyVaultKeyResponseAttributesOutput
-}
-
-// The key attributes.
-type KeyVaultKeyResponseAttributesArgs struct {
-	// When the key was created.
-	Created pulumi.Float64PtrInput `pulumi:"created"`
-	// Whether the key is enabled or not.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// When the key was updated.
-	Updated pulumi.Float64PtrInput `pulumi:"updated"`
-}
-
-func (KeyVaultKeyResponseAttributesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultKeyResponseAttributes)(nil)).Elem()
-}
-
-func (i KeyVaultKeyResponseAttributesArgs) ToKeyVaultKeyResponseAttributesOutput() KeyVaultKeyResponseAttributesOutput {
-	return i.ToKeyVaultKeyResponseAttributesOutputWithContext(context.Background())
-}
-
-func (i KeyVaultKeyResponseAttributesArgs) ToKeyVaultKeyResponseAttributesOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseAttributesOutput)
-}
-
-func (i KeyVaultKeyResponseAttributesArgs) ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput {
-	return i.ToKeyVaultKeyResponseAttributesPtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultKeyResponseAttributesArgs) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseAttributesOutput).ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx)
-}
-
-// KeyVaultKeyResponseAttributesPtrInput is an input type that accepts KeyVaultKeyResponseAttributesArgs, KeyVaultKeyResponseAttributesPtr and KeyVaultKeyResponseAttributesPtrOutput values.
-// You can construct a concrete instance of `KeyVaultKeyResponseAttributesPtrInput` via:
-//
-//          KeyVaultKeyResponseAttributesArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultKeyResponseAttributesPtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput
-	ToKeyVaultKeyResponseAttributesPtrOutputWithContext(context.Context) KeyVaultKeyResponseAttributesPtrOutput
-}
-
-type keyVaultKeyResponseAttributesPtrType KeyVaultKeyResponseAttributesArgs
-
-func KeyVaultKeyResponseAttributesPtr(v *KeyVaultKeyResponseAttributesArgs) KeyVaultKeyResponseAttributesPtrInput {
-	return (*keyVaultKeyResponseAttributesPtrType)(v)
-}
-
-func (*keyVaultKeyResponseAttributesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultKeyResponseAttributes)(nil)).Elem()
-}
-
-func (i *keyVaultKeyResponseAttributesPtrType) ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput {
-	return i.ToKeyVaultKeyResponseAttributesPtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultKeyResponseAttributesPtrType) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseAttributesPtrOutput)
-}
-
-// The key attributes.
-type KeyVaultKeyResponseAttributesOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultKeyResponseAttributesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultKeyResponseAttributes)(nil)).Elem()
-}
-
-func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesOutput() KeyVaultKeyResponseAttributesOutput {
-	return o
-}
-
-func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesOutput {
-	return o
-}
-
-func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput {
-	return o.ToKeyVaultKeyResponseAttributesPtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *KeyVaultKeyResponseAttributes {
-		return &v
-	}).(KeyVaultKeyResponseAttributesPtrOutput)
-}
-
-// When the key was created.
-func (o KeyVaultKeyResponseAttributesOutput) Created() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *float64 { return v.Created }).(pulumi.Float64PtrOutput)
-}
-
-// Whether the key is enabled or not.
-func (o KeyVaultKeyResponseAttributesOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// When the key was updated.
-func (o KeyVaultKeyResponseAttributesOutput) Updated() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *float64 { return v.Updated }).(pulumi.Float64PtrOutput)
-}
-
-type KeyVaultKeyResponseAttributesPtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultKeyResponseAttributesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultKeyResponseAttributes)(nil)).Elem()
-}
-
-func (o KeyVaultKeyResponseAttributesPtrOutput) ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput {
-	return o
-}
-
-func (o KeyVaultKeyResponseAttributesPtrOutput) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
-	return o
-}
-
-func (o KeyVaultKeyResponseAttributesPtrOutput) Elem() KeyVaultKeyResponseAttributesOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) KeyVaultKeyResponseAttributes { return *v }).(KeyVaultKeyResponseAttributesOutput)
-}
-
-// When the key was created.
-func (o KeyVaultKeyResponseAttributesPtrOutput) Created() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Created
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Whether the key is enabled or not.
-func (o KeyVaultKeyResponseAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// When the key was updated.
-func (o KeyVaultKeyResponseAttributesPtrOutput) Updated() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.Updated
-	}).(pulumi.Float64PtrOutput)
-}
-
 // The key vault reference.
-type KeyVaultReference struct {
+type KeyVaultReferenceInvoke struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
 	// The key vault name.
 	Name *string `pulumi:"name"`
 }
 
-// KeyVaultReferenceInput is an input type that accepts KeyVaultReferenceArgs and KeyVaultReferenceOutput values.
-// You can construct a concrete instance of `KeyVaultReferenceInput` via:
+// KeyVaultReferenceInvokeInput is an input type that accepts KeyVaultReferenceInvokeArgs and KeyVaultReferenceInvokeOutput values.
+// You can construct a concrete instance of `KeyVaultReferenceInvokeInput` via:
 //
-//          KeyVaultReferenceArgs{...}
-type KeyVaultReferenceInput interface {
+//          KeyVaultReferenceInvokeArgs{...}
+type KeyVaultReferenceInvokeInput interface {
 	pulumi.Input
 
-	ToKeyVaultReferenceOutput() KeyVaultReferenceOutput
-	ToKeyVaultReferenceOutputWithContext(context.Context) KeyVaultReferenceOutput
+	ToKeyVaultReferenceInvokeOutput() KeyVaultReferenceInvokeOutput
+	ToKeyVaultReferenceInvokeOutputWithContext(context.Context) KeyVaultReferenceInvokeOutput
 }
 
 // The key vault reference.
-type KeyVaultReferenceArgs struct {
+type KeyVaultReferenceInvokeArgs struct {
 	// The resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The key vault name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (KeyVaultReferenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultReference)(nil)).Elem()
+func (KeyVaultReferenceInvokeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultReferenceInvoke)(nil)).Elem()
 }
 
-func (i KeyVaultReferenceArgs) ToKeyVaultReferenceOutput() KeyVaultReferenceOutput {
-	return i.ToKeyVaultReferenceOutputWithContext(context.Background())
+func (i KeyVaultReferenceInvokeArgs) ToKeyVaultReferenceInvokeOutput() KeyVaultReferenceInvokeOutput {
+	return i.ToKeyVaultReferenceInvokeOutputWithContext(context.Background())
 }
 
-func (i KeyVaultReferenceArgs) ToKeyVaultReferenceOutputWithContext(ctx context.Context) KeyVaultReferenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceOutput)
+func (i KeyVaultReferenceInvokeArgs) ToKeyVaultReferenceInvokeOutputWithContext(ctx context.Context) KeyVaultReferenceInvokeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceInvokeOutput)
 }
 
 // The key vault reference.
-type KeyVaultReferenceOutput struct{ *pulumi.OutputState }
+type KeyVaultReferenceInvokeOutput struct{ *pulumi.OutputState }
 
-func (KeyVaultReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultReference)(nil)).Elem()
+func (KeyVaultReferenceInvokeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultReferenceInvoke)(nil)).Elem()
 }
 
-func (o KeyVaultReferenceOutput) ToKeyVaultReferenceOutput() KeyVaultReferenceOutput {
+func (o KeyVaultReferenceInvokeOutput) ToKeyVaultReferenceInvokeOutput() KeyVaultReferenceInvokeOutput {
 	return o
 }
 
-func (o KeyVaultReferenceOutput) ToKeyVaultReferenceOutputWithContext(ctx context.Context) KeyVaultReferenceOutput {
+func (o KeyVaultReferenceInvokeOutput) ToKeyVaultReferenceInvokeOutputWithContext(ctx context.Context) KeyVaultReferenceInvokeOutput {
 	return o
 }
 
 // The resource id.
-func (o KeyVaultReferenceOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o KeyVaultReferenceInvokeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultReferenceInvoke) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The key vault name.
-func (o KeyVaultReferenceOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultReference) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o KeyVaultReferenceInvokeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultReferenceInvoke) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The network configuration.
@@ -22604,6 +33110,180 @@ func (o NetworkConfigurationPtrOutput) Subnets() ResourceReferenceArrayOutput {
 // Gets the virtual network address space.
 func (o NetworkConfigurationPtrOutput) VirtualNetworkAddressSpace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworkAddressSpace
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network configuration.
+type NetworkConfigurationInvokeResponse struct {
+	// The access endpoint.
+	AccessEndpoint *IntegrationServiceEnvironmentAccessEndpointInvokeResponse `pulumi:"accessEndpoint"`
+	// The subnets.
+	Subnets []ResourceReferenceInvokeResponse `pulumi:"subnets"`
+	// Gets the virtual network address space.
+	VirtualNetworkAddressSpace *string `pulumi:"virtualNetworkAddressSpace"`
+}
+
+// NetworkConfigurationInvokeResponseInput is an input type that accepts NetworkConfigurationInvokeResponseArgs and NetworkConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkConfigurationInvokeResponseInput` via:
+//
+//          NetworkConfigurationInvokeResponseArgs{...}
+type NetworkConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkConfigurationInvokeResponseOutput() NetworkConfigurationInvokeResponseOutput
+	ToNetworkConfigurationInvokeResponseOutputWithContext(context.Context) NetworkConfigurationInvokeResponseOutput
+}
+
+// The network configuration.
+type NetworkConfigurationInvokeResponseArgs struct {
+	// The access endpoint.
+	AccessEndpoint IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrInput `pulumi:"accessEndpoint"`
+	// The subnets.
+	Subnets ResourceReferenceInvokeResponseArrayInput `pulumi:"subnets"`
+	// Gets the virtual network address space.
+	VirtualNetworkAddressSpace pulumi.StringPtrInput `pulumi:"virtualNetworkAddressSpace"`
+}
+
+func (NetworkConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkConfigurationInvokeResponseArgs) ToNetworkConfigurationInvokeResponseOutput() NetworkConfigurationInvokeResponseOutput {
+	return i.ToNetworkConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkConfigurationInvokeResponseArgs) ToNetworkConfigurationInvokeResponseOutputWithContext(ctx context.Context) NetworkConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConfigurationInvokeResponseOutput)
+}
+
+func (i NetworkConfigurationInvokeResponseArgs) ToNetworkConfigurationInvokeResponsePtrOutput() NetworkConfigurationInvokeResponsePtrOutput {
+	return i.ToNetworkConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkConfigurationInvokeResponseArgs) ToNetworkConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConfigurationInvokeResponseOutput).ToNetworkConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// NetworkConfigurationInvokeResponsePtrInput is an input type that accepts NetworkConfigurationInvokeResponseArgs, NetworkConfigurationInvokeResponsePtr and NetworkConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `NetworkConfigurationInvokeResponsePtrInput` via:
+//
+//          NetworkConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToNetworkConfigurationInvokeResponsePtrOutput() NetworkConfigurationInvokeResponsePtrOutput
+	ToNetworkConfigurationInvokeResponsePtrOutputWithContext(context.Context) NetworkConfigurationInvokeResponsePtrOutput
+}
+
+type networkConfigurationInvokeResponsePtrType NetworkConfigurationInvokeResponseArgs
+
+func NetworkConfigurationInvokeResponsePtr(v *NetworkConfigurationInvokeResponseArgs) NetworkConfigurationInvokeResponsePtrInput {
+	return (*networkConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*networkConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *networkConfigurationInvokeResponsePtrType) ToNetworkConfigurationInvokeResponsePtrOutput() NetworkConfigurationInvokeResponsePtrOutput {
+	return i.ToNetworkConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *networkConfigurationInvokeResponsePtrType) ToNetworkConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkConfigurationInvokeResponsePtrOutput)
+}
+
+// The network configuration.
+type NetworkConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkConfigurationInvokeResponseOutput) ToNetworkConfigurationInvokeResponseOutput() NetworkConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkConfigurationInvokeResponseOutput) ToNetworkConfigurationInvokeResponseOutputWithContext(ctx context.Context) NetworkConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkConfigurationInvokeResponseOutput) ToNetworkConfigurationInvokeResponsePtrOutput() NetworkConfigurationInvokeResponsePtrOutput {
+	return o.ToNetworkConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkConfigurationInvokeResponseOutput) ToNetworkConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NetworkConfigurationInvokeResponse) *NetworkConfigurationInvokeResponse {
+		return &v
+	}).(NetworkConfigurationInvokeResponsePtrOutput)
+}
+
+// The access endpoint.
+func (o NetworkConfigurationInvokeResponseOutput) AccessEndpoint() IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NetworkConfigurationInvokeResponse) *IntegrationServiceEnvironmentAccessEndpointInvokeResponse {
+		return v.AccessEndpoint
+	}).(IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput)
+}
+
+// The subnets.
+func (o NetworkConfigurationInvokeResponseOutput) Subnets() ResourceReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NetworkConfigurationInvokeResponse) []ResourceReferenceInvokeResponse { return v.Subnets }).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+// Gets the virtual network address space.
+func (o NetworkConfigurationInvokeResponseOutput) VirtualNetworkAddressSpace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConfigurationInvokeResponse) *string { return v.VirtualNetworkAddressSpace }).(pulumi.StringPtrOutput)
+}
+
+type NetworkConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkConfigurationInvokeResponsePtrOutput) ToNetworkConfigurationInvokeResponsePtrOutput() NetworkConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o NetworkConfigurationInvokeResponsePtrOutput) ToNetworkConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o NetworkConfigurationInvokeResponsePtrOutput) Elem() NetworkConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *NetworkConfigurationInvokeResponse) NetworkConfigurationInvokeResponse { return *v }).(NetworkConfigurationInvokeResponseOutput)
+}
+
+// The access endpoint.
+func (o NetworkConfigurationInvokeResponsePtrOutput) AccessEndpoint() IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkConfigurationInvokeResponse) *IntegrationServiceEnvironmentAccessEndpointInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AccessEndpoint
+	}).(IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput)
+}
+
+// The subnets.
+func (o NetworkConfigurationInvokeResponsePtrOutput) Subnets() ResourceReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkConfigurationInvokeResponse) []ResourceReferenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+// Gets the virtual network address space.
+func (o NetworkConfigurationInvokeResponsePtrOutput) VirtualNetworkAddressSpace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkConfigurationInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -22920,6 +33600,144 @@ func (o OpenAuthenticationAccessPoliciesPtrOutput) Policies() OpenAuthentication
 }
 
 // AuthenticationPolicy of type Open.
+type OpenAuthenticationAccessPoliciesInvokeResponse struct {
+	// Open authentication policies.
+	Policies map[string]OpenAuthenticationAccessPolicyInvokeResponse `pulumi:"policies"`
+}
+
+// OpenAuthenticationAccessPoliciesInvokeResponseInput is an input type that accepts OpenAuthenticationAccessPoliciesInvokeResponseArgs and OpenAuthenticationAccessPoliciesInvokeResponseOutput values.
+// You can construct a concrete instance of `OpenAuthenticationAccessPoliciesInvokeResponseInput` via:
+//
+//          OpenAuthenticationAccessPoliciesInvokeResponseArgs{...}
+type OpenAuthenticationAccessPoliciesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOpenAuthenticationAccessPoliciesInvokeResponseOutput() OpenAuthenticationAccessPoliciesInvokeResponseOutput
+	ToOpenAuthenticationAccessPoliciesInvokeResponseOutputWithContext(context.Context) OpenAuthenticationAccessPoliciesInvokeResponseOutput
+}
+
+// AuthenticationPolicy of type Open.
+type OpenAuthenticationAccessPoliciesInvokeResponseArgs struct {
+	// Open authentication policies.
+	Policies OpenAuthenticationAccessPolicyInvokeResponseMapInput `pulumi:"policies"`
+}
+
+func (OpenAuthenticationAccessPoliciesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenAuthenticationAccessPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenAuthenticationAccessPoliciesInvokeResponseArgs) ToOpenAuthenticationAccessPoliciesInvokeResponseOutput() OpenAuthenticationAccessPoliciesInvokeResponseOutput {
+	return i.ToOpenAuthenticationAccessPoliciesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OpenAuthenticationAccessPoliciesInvokeResponseArgs) ToOpenAuthenticationAccessPoliciesInvokeResponseOutputWithContext(ctx context.Context) OpenAuthenticationAccessPoliciesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationAccessPoliciesInvokeResponseOutput)
+}
+
+func (i OpenAuthenticationAccessPoliciesInvokeResponseArgs) ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutput() OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput {
+	return i.ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OpenAuthenticationAccessPoliciesInvokeResponseArgs) ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutputWithContext(ctx context.Context) OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationAccessPoliciesInvokeResponseOutput).ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// OpenAuthenticationAccessPoliciesInvokeResponsePtrInput is an input type that accepts OpenAuthenticationAccessPoliciesInvokeResponseArgs, OpenAuthenticationAccessPoliciesInvokeResponsePtr and OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `OpenAuthenticationAccessPoliciesInvokeResponsePtrInput` via:
+//
+//          OpenAuthenticationAccessPoliciesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenAuthenticationAccessPoliciesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutput() OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput
+	ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutputWithContext(context.Context) OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput
+}
+
+type openAuthenticationAccessPoliciesInvokeResponsePtrType OpenAuthenticationAccessPoliciesInvokeResponseArgs
+
+func OpenAuthenticationAccessPoliciesInvokeResponsePtr(v *OpenAuthenticationAccessPoliciesInvokeResponseArgs) OpenAuthenticationAccessPoliciesInvokeResponsePtrInput {
+	return (*openAuthenticationAccessPoliciesInvokeResponsePtrType)(v)
+}
+
+func (*openAuthenticationAccessPoliciesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenAuthenticationAccessPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (i *openAuthenticationAccessPoliciesInvokeResponsePtrType) ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutput() OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput {
+	return i.ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *openAuthenticationAccessPoliciesInvokeResponsePtrType) ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutputWithContext(ctx context.Context) OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput)
+}
+
+// AuthenticationPolicy of type Open.
+type OpenAuthenticationAccessPoliciesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenAuthenticationAccessPoliciesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenAuthenticationAccessPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenAuthenticationAccessPoliciesInvokeResponseOutput) ToOpenAuthenticationAccessPoliciesInvokeResponseOutput() OpenAuthenticationAccessPoliciesInvokeResponseOutput {
+	return o
+}
+
+func (o OpenAuthenticationAccessPoliciesInvokeResponseOutput) ToOpenAuthenticationAccessPoliciesInvokeResponseOutputWithContext(ctx context.Context) OpenAuthenticationAccessPoliciesInvokeResponseOutput {
+	return o
+}
+
+func (o OpenAuthenticationAccessPoliciesInvokeResponseOutput) ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutput() OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput {
+	return o.ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OpenAuthenticationAccessPoliciesInvokeResponseOutput) ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutputWithContext(ctx context.Context) OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v OpenAuthenticationAccessPoliciesInvokeResponse) *OpenAuthenticationAccessPoliciesInvokeResponse {
+		return &v
+	}).(OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput)
+}
+
+// Open authentication policies.
+func (o OpenAuthenticationAccessPoliciesInvokeResponseOutput) Policies() OpenAuthenticationAccessPolicyInvokeResponseMapOutput {
+	return o.ApplyT(func(v OpenAuthenticationAccessPoliciesInvokeResponse) map[string]OpenAuthenticationAccessPolicyInvokeResponse {
+		return v.Policies
+	}).(OpenAuthenticationAccessPolicyInvokeResponseMapOutput)
+}
+
+type OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenAuthenticationAccessPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput) ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutput() OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput) ToOpenAuthenticationAccessPoliciesInvokeResponsePtrOutputWithContext(ctx context.Context) OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput) Elem() OpenAuthenticationAccessPoliciesInvokeResponseOutput {
+	return o.ApplyT(func(v *OpenAuthenticationAccessPoliciesInvokeResponse) OpenAuthenticationAccessPoliciesInvokeResponse {
+		return *v
+	}).(OpenAuthenticationAccessPoliciesInvokeResponseOutput)
+}
+
+// Open authentication policies.
+func (o OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput) Policies() OpenAuthenticationAccessPolicyInvokeResponseMapOutput {
+	return o.ApplyT(func(v *OpenAuthenticationAccessPoliciesInvokeResponse) map[string]OpenAuthenticationAccessPolicyInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Policies
+	}).(OpenAuthenticationAccessPolicyInvokeResponseMapOutput)
+}
+
+// AuthenticationPolicy of type Open.
 type OpenAuthenticationAccessPoliciesResponse struct {
 	// Open authentication policies.
 	Policies map[string]OpenAuthenticationAccessPolicyResponse `pulumi:"policies"`
@@ -23156,6 +33974,117 @@ func (o OpenAuthenticationAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) 
 }
 
 // Open authentication access policy defined by user.
+type OpenAuthenticationAccessPolicyInvokeResponse struct {
+	// The access policy claims.
+	Claims []OpenAuthenticationPolicyClaimInvokeResponse `pulumi:"claims"`
+	// Type of provider for OAuth.
+	Type string `pulumi:"type"`
+}
+
+// OpenAuthenticationAccessPolicyInvokeResponseInput is an input type that accepts OpenAuthenticationAccessPolicyInvokeResponseArgs and OpenAuthenticationAccessPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `OpenAuthenticationAccessPolicyInvokeResponseInput` via:
+//
+//          OpenAuthenticationAccessPolicyInvokeResponseArgs{...}
+type OpenAuthenticationAccessPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOpenAuthenticationAccessPolicyInvokeResponseOutput() OpenAuthenticationAccessPolicyInvokeResponseOutput
+	ToOpenAuthenticationAccessPolicyInvokeResponseOutputWithContext(context.Context) OpenAuthenticationAccessPolicyInvokeResponseOutput
+}
+
+// Open authentication access policy defined by user.
+type OpenAuthenticationAccessPolicyInvokeResponseArgs struct {
+	// The access policy claims.
+	Claims OpenAuthenticationPolicyClaimInvokeResponseArrayInput `pulumi:"claims"`
+	// Type of provider for OAuth.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OpenAuthenticationAccessPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenAuthenticationAccessPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenAuthenticationAccessPolicyInvokeResponseArgs) ToOpenAuthenticationAccessPolicyInvokeResponseOutput() OpenAuthenticationAccessPolicyInvokeResponseOutput {
+	return i.ToOpenAuthenticationAccessPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OpenAuthenticationAccessPolicyInvokeResponseArgs) ToOpenAuthenticationAccessPolicyInvokeResponseOutputWithContext(ctx context.Context) OpenAuthenticationAccessPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationAccessPolicyInvokeResponseOutput)
+}
+
+// OpenAuthenticationAccessPolicyInvokeResponseMapInput is an input type that accepts OpenAuthenticationAccessPolicyInvokeResponseMap and OpenAuthenticationAccessPolicyInvokeResponseMapOutput values.
+// You can construct a concrete instance of `OpenAuthenticationAccessPolicyInvokeResponseMapInput` via:
+//
+//          OpenAuthenticationAccessPolicyInvokeResponseMap{ "key": OpenAuthenticationAccessPolicyInvokeResponseArgs{...} }
+type OpenAuthenticationAccessPolicyInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToOpenAuthenticationAccessPolicyInvokeResponseMapOutput() OpenAuthenticationAccessPolicyInvokeResponseMapOutput
+	ToOpenAuthenticationAccessPolicyInvokeResponseMapOutputWithContext(context.Context) OpenAuthenticationAccessPolicyInvokeResponseMapOutput
+}
+
+type OpenAuthenticationAccessPolicyInvokeResponseMap map[string]OpenAuthenticationAccessPolicyInvokeResponseInput
+
+func (OpenAuthenticationAccessPolicyInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OpenAuthenticationAccessPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenAuthenticationAccessPolicyInvokeResponseMap) ToOpenAuthenticationAccessPolicyInvokeResponseMapOutput() OpenAuthenticationAccessPolicyInvokeResponseMapOutput {
+	return i.ToOpenAuthenticationAccessPolicyInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i OpenAuthenticationAccessPolicyInvokeResponseMap) ToOpenAuthenticationAccessPolicyInvokeResponseMapOutputWithContext(ctx context.Context) OpenAuthenticationAccessPolicyInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationAccessPolicyInvokeResponseMapOutput)
+}
+
+// Open authentication access policy defined by user.
+type OpenAuthenticationAccessPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenAuthenticationAccessPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenAuthenticationAccessPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenAuthenticationAccessPolicyInvokeResponseOutput) ToOpenAuthenticationAccessPolicyInvokeResponseOutput() OpenAuthenticationAccessPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o OpenAuthenticationAccessPolicyInvokeResponseOutput) ToOpenAuthenticationAccessPolicyInvokeResponseOutputWithContext(ctx context.Context) OpenAuthenticationAccessPolicyInvokeResponseOutput {
+	return o
+}
+
+// The access policy claims.
+func (o OpenAuthenticationAccessPolicyInvokeResponseOutput) Claims() OpenAuthenticationPolicyClaimInvokeResponseArrayOutput {
+	return o.ApplyT(func(v OpenAuthenticationAccessPolicyInvokeResponse) []OpenAuthenticationPolicyClaimInvokeResponse {
+		return v.Claims
+	}).(OpenAuthenticationPolicyClaimInvokeResponseArrayOutput)
+}
+
+// Type of provider for OAuth.
+func (o OpenAuthenticationAccessPolicyInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenAuthenticationAccessPolicyInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OpenAuthenticationAccessPolicyInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (OpenAuthenticationAccessPolicyInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OpenAuthenticationAccessPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenAuthenticationAccessPolicyInvokeResponseMapOutput) ToOpenAuthenticationAccessPolicyInvokeResponseMapOutput() OpenAuthenticationAccessPolicyInvokeResponseMapOutput {
+	return o
+}
+
+func (o OpenAuthenticationAccessPolicyInvokeResponseMapOutput) ToOpenAuthenticationAccessPolicyInvokeResponseMapOutputWithContext(ctx context.Context) OpenAuthenticationAccessPolicyInvokeResponseMapOutput {
+	return o
+}
+
+func (o OpenAuthenticationAccessPolicyInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) OpenAuthenticationAccessPolicyInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OpenAuthenticationAccessPolicyInvokeResponse {
+		return vs[0].(map[string]OpenAuthenticationAccessPolicyInvokeResponse)[vs[1].(string)]
+	}).(OpenAuthenticationAccessPolicyInvokeResponseOutput)
+}
+
+// Open authentication access policy defined by user.
 type OpenAuthenticationAccessPolicyResponse struct {
 	// The access policy claims.
 	Claims []OpenAuthenticationPolicyClaimResponse `pulumi:"claims"`
@@ -23373,6 +34302,115 @@ func (o OpenAuthenticationPolicyClaimArrayOutput) Index(i pulumi.IntInput) OpenA
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenAuthenticationPolicyClaim {
 		return vs[0].([]OpenAuthenticationPolicyClaim)[vs[1].(int)]
 	}).(OpenAuthenticationPolicyClaimOutput)
+}
+
+// Open authentication policy claim.
+type OpenAuthenticationPolicyClaimInvokeResponse struct {
+	// The name of the claim.
+	Name *string `pulumi:"name"`
+	// The value of the claim.
+	Value *string `pulumi:"value"`
+}
+
+// OpenAuthenticationPolicyClaimInvokeResponseInput is an input type that accepts OpenAuthenticationPolicyClaimInvokeResponseArgs and OpenAuthenticationPolicyClaimInvokeResponseOutput values.
+// You can construct a concrete instance of `OpenAuthenticationPolicyClaimInvokeResponseInput` via:
+//
+//          OpenAuthenticationPolicyClaimInvokeResponseArgs{...}
+type OpenAuthenticationPolicyClaimInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOpenAuthenticationPolicyClaimInvokeResponseOutput() OpenAuthenticationPolicyClaimInvokeResponseOutput
+	ToOpenAuthenticationPolicyClaimInvokeResponseOutputWithContext(context.Context) OpenAuthenticationPolicyClaimInvokeResponseOutput
+}
+
+// Open authentication policy claim.
+type OpenAuthenticationPolicyClaimInvokeResponseArgs struct {
+	// The name of the claim.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the claim.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (OpenAuthenticationPolicyClaimInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenAuthenticationPolicyClaimInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenAuthenticationPolicyClaimInvokeResponseArgs) ToOpenAuthenticationPolicyClaimInvokeResponseOutput() OpenAuthenticationPolicyClaimInvokeResponseOutput {
+	return i.ToOpenAuthenticationPolicyClaimInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OpenAuthenticationPolicyClaimInvokeResponseArgs) ToOpenAuthenticationPolicyClaimInvokeResponseOutputWithContext(ctx context.Context) OpenAuthenticationPolicyClaimInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationPolicyClaimInvokeResponseOutput)
+}
+
+// OpenAuthenticationPolicyClaimInvokeResponseArrayInput is an input type that accepts OpenAuthenticationPolicyClaimInvokeResponseArray and OpenAuthenticationPolicyClaimInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `OpenAuthenticationPolicyClaimInvokeResponseArrayInput` via:
+//
+//          OpenAuthenticationPolicyClaimInvokeResponseArray{ OpenAuthenticationPolicyClaimInvokeResponseArgs{...} }
+type OpenAuthenticationPolicyClaimInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToOpenAuthenticationPolicyClaimInvokeResponseArrayOutput() OpenAuthenticationPolicyClaimInvokeResponseArrayOutput
+	ToOpenAuthenticationPolicyClaimInvokeResponseArrayOutputWithContext(context.Context) OpenAuthenticationPolicyClaimInvokeResponseArrayOutput
+}
+
+type OpenAuthenticationPolicyClaimInvokeResponseArray []OpenAuthenticationPolicyClaimInvokeResponseInput
+
+func (OpenAuthenticationPolicyClaimInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenAuthenticationPolicyClaimInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenAuthenticationPolicyClaimInvokeResponseArray) ToOpenAuthenticationPolicyClaimInvokeResponseArrayOutput() OpenAuthenticationPolicyClaimInvokeResponseArrayOutput {
+	return i.ToOpenAuthenticationPolicyClaimInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i OpenAuthenticationPolicyClaimInvokeResponseArray) ToOpenAuthenticationPolicyClaimInvokeResponseArrayOutputWithContext(ctx context.Context) OpenAuthenticationPolicyClaimInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenAuthenticationPolicyClaimInvokeResponseArrayOutput)
+}
+
+// Open authentication policy claim.
+type OpenAuthenticationPolicyClaimInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenAuthenticationPolicyClaimInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenAuthenticationPolicyClaimInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenAuthenticationPolicyClaimInvokeResponseOutput) ToOpenAuthenticationPolicyClaimInvokeResponseOutput() OpenAuthenticationPolicyClaimInvokeResponseOutput {
+	return o
+}
+
+func (o OpenAuthenticationPolicyClaimInvokeResponseOutput) ToOpenAuthenticationPolicyClaimInvokeResponseOutputWithContext(ctx context.Context) OpenAuthenticationPolicyClaimInvokeResponseOutput {
+	return o
+}
+
+// The name of the claim.
+func (o OpenAuthenticationPolicyClaimInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenAuthenticationPolicyClaimInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of the claim.
+func (o OpenAuthenticationPolicyClaimInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenAuthenticationPolicyClaimInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type OpenAuthenticationPolicyClaimInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenAuthenticationPolicyClaimInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenAuthenticationPolicyClaimInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenAuthenticationPolicyClaimInvokeResponseArrayOutput) ToOpenAuthenticationPolicyClaimInvokeResponseArrayOutput() OpenAuthenticationPolicyClaimInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OpenAuthenticationPolicyClaimInvokeResponseArrayOutput) ToOpenAuthenticationPolicyClaimInvokeResponseArrayOutputWithContext(ctx context.Context) OpenAuthenticationPolicyClaimInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OpenAuthenticationPolicyClaimInvokeResponseArrayOutput) Index(i pulumi.IntInput) OpenAuthenticationPolicyClaimInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenAuthenticationPolicyClaimInvokeResponse {
+		return vs[0].([]OpenAuthenticationPolicyClaimInvokeResponse)[vs[1].(int)]
+	}).(OpenAuthenticationPolicyClaimInvokeResponseOutput)
 }
 
 // Open authentication policy claim.
@@ -23616,6 +34654,61 @@ func (o PartnerContentPtrOutput) B2b() B2BPartnerContentPtrOutput {
 		}
 		return v.B2b
 	}).(B2BPartnerContentPtrOutput)
+}
+
+// The integration account partner content.
+type PartnerContentInvokeResponse struct {
+	// The B2B partner content.
+	B2b *B2BPartnerContentInvokeResponse `pulumi:"b2b"`
+}
+
+// PartnerContentInvokeResponseInput is an input type that accepts PartnerContentInvokeResponseArgs and PartnerContentInvokeResponseOutput values.
+// You can construct a concrete instance of `PartnerContentInvokeResponseInput` via:
+//
+//          PartnerContentInvokeResponseArgs{...}
+type PartnerContentInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPartnerContentInvokeResponseOutput() PartnerContentInvokeResponseOutput
+	ToPartnerContentInvokeResponseOutputWithContext(context.Context) PartnerContentInvokeResponseOutput
+}
+
+// The integration account partner content.
+type PartnerContentInvokeResponseArgs struct {
+	// The B2B partner content.
+	B2b B2BPartnerContentInvokeResponsePtrInput `pulumi:"b2b"`
+}
+
+func (PartnerContentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerContentInvokeResponse)(nil)).Elem()
+}
+
+func (i PartnerContentInvokeResponseArgs) ToPartnerContentInvokeResponseOutput() PartnerContentInvokeResponseOutput {
+	return i.ToPartnerContentInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PartnerContentInvokeResponseArgs) ToPartnerContentInvokeResponseOutputWithContext(ctx context.Context) PartnerContentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerContentInvokeResponseOutput)
+}
+
+// The integration account partner content.
+type PartnerContentInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PartnerContentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerContentInvokeResponse)(nil)).Elem()
+}
+
+func (o PartnerContentInvokeResponseOutput) ToPartnerContentInvokeResponseOutput() PartnerContentInvokeResponseOutput {
+	return o
+}
+
+func (o PartnerContentInvokeResponseOutput) ToPartnerContentInvokeResponseOutputWithContext(ctx context.Context) PartnerContentInvokeResponseOutput {
+	return o
+}
+
+// The B2B partner content.
+func (o PartnerContentInvokeResponseOutput) B2b() B2BPartnerContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PartnerContentInvokeResponse) *B2BPartnerContentInvokeResponse { return v.B2b }).(B2BPartnerContentInvokeResponsePtrOutput)
 }
 
 // The integration account partner content.
@@ -23962,6 +35055,218 @@ func (o RecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The recurrence schedule.
+type RecurrenceScheduleInvokeResponse struct {
+	// The hours.
+	Hours []int `pulumi:"hours"`
+	// The minutes.
+	Minutes []int `pulumi:"minutes"`
+	// The month days.
+	MonthDays []int `pulumi:"monthDays"`
+	// The monthly occurrences.
+	MonthlyOccurrences []RecurrenceScheduleOccurrenceInvokeResponse `pulumi:"monthlyOccurrences"`
+	// The days of the week.
+	WeekDays []string `pulumi:"weekDays"`
+}
+
+// RecurrenceScheduleInvokeResponseInput is an input type that accepts RecurrenceScheduleInvokeResponseArgs and RecurrenceScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `RecurrenceScheduleInvokeResponseInput` via:
+//
+//          RecurrenceScheduleInvokeResponseArgs{...}
+type RecurrenceScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRecurrenceScheduleInvokeResponseOutput() RecurrenceScheduleInvokeResponseOutput
+	ToRecurrenceScheduleInvokeResponseOutputWithContext(context.Context) RecurrenceScheduleInvokeResponseOutput
+}
+
+// The recurrence schedule.
+type RecurrenceScheduleInvokeResponseArgs struct {
+	// The hours.
+	Hours pulumi.IntArrayInput `pulumi:"hours"`
+	// The minutes.
+	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
+	// The month days.
+	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
+	// The monthly occurrences.
+	MonthlyOccurrences RecurrenceScheduleOccurrenceInvokeResponseArrayInput `pulumi:"monthlyOccurrences"`
+	// The days of the week.
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+}
+
+func (RecurrenceScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrenceScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i RecurrenceScheduleInvokeResponseArgs) ToRecurrenceScheduleInvokeResponseOutput() RecurrenceScheduleInvokeResponseOutput {
+	return i.ToRecurrenceScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RecurrenceScheduleInvokeResponseArgs) ToRecurrenceScheduleInvokeResponseOutputWithContext(ctx context.Context) RecurrenceScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleInvokeResponseOutput)
+}
+
+func (i RecurrenceScheduleInvokeResponseArgs) ToRecurrenceScheduleInvokeResponsePtrOutput() RecurrenceScheduleInvokeResponsePtrOutput {
+	return i.ToRecurrenceScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RecurrenceScheduleInvokeResponseArgs) ToRecurrenceScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleInvokeResponseOutput).ToRecurrenceScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// RecurrenceScheduleInvokeResponsePtrInput is an input type that accepts RecurrenceScheduleInvokeResponseArgs, RecurrenceScheduleInvokeResponsePtr and RecurrenceScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `RecurrenceScheduleInvokeResponsePtrInput` via:
+//
+//          RecurrenceScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RecurrenceScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToRecurrenceScheduleInvokeResponsePtrOutput() RecurrenceScheduleInvokeResponsePtrOutput
+	ToRecurrenceScheduleInvokeResponsePtrOutputWithContext(context.Context) RecurrenceScheduleInvokeResponsePtrOutput
+}
+
+type recurrenceScheduleInvokeResponsePtrType RecurrenceScheduleInvokeResponseArgs
+
+func RecurrenceScheduleInvokeResponsePtr(v *RecurrenceScheduleInvokeResponseArgs) RecurrenceScheduleInvokeResponsePtrInput {
+	return (*recurrenceScheduleInvokeResponsePtrType)(v)
+}
+
+func (*recurrenceScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrenceScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *recurrenceScheduleInvokeResponsePtrType) ToRecurrenceScheduleInvokeResponsePtrOutput() RecurrenceScheduleInvokeResponsePtrOutput {
+	return i.ToRecurrenceScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *recurrenceScheduleInvokeResponsePtrType) ToRecurrenceScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleInvokeResponsePtrOutput)
+}
+
+// The recurrence schedule.
+type RecurrenceScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrenceScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o RecurrenceScheduleInvokeResponseOutput) ToRecurrenceScheduleInvokeResponseOutput() RecurrenceScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o RecurrenceScheduleInvokeResponseOutput) ToRecurrenceScheduleInvokeResponseOutputWithContext(ctx context.Context) RecurrenceScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o RecurrenceScheduleInvokeResponseOutput) ToRecurrenceScheduleInvokeResponsePtrOutput() RecurrenceScheduleInvokeResponsePtrOutput {
+	return o.ToRecurrenceScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RecurrenceScheduleInvokeResponseOutput) ToRecurrenceScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleInvokeResponse) *RecurrenceScheduleInvokeResponse {
+		return &v
+	}).(RecurrenceScheduleInvokeResponsePtrOutput)
+}
+
+// The hours.
+func (o RecurrenceScheduleInvokeResponseOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RecurrenceScheduleInvokeResponse) []int { return v.Hours }).(pulumi.IntArrayOutput)
+}
+
+// The minutes.
+func (o RecurrenceScheduleInvokeResponseOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RecurrenceScheduleInvokeResponse) []int { return v.Minutes }).(pulumi.IntArrayOutput)
+}
+
+// The month days.
+func (o RecurrenceScheduleInvokeResponseOutput) MonthDays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RecurrenceScheduleInvokeResponse) []int { return v.MonthDays }).(pulumi.IntArrayOutput)
+}
+
+// The monthly occurrences.
+func (o RecurrenceScheduleInvokeResponseOutput) MonthlyOccurrences() RecurrenceScheduleOccurrenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v RecurrenceScheduleInvokeResponse) []RecurrenceScheduleOccurrenceInvokeResponse {
+		return v.MonthlyOccurrences
+	}).(RecurrenceScheduleOccurrenceInvokeResponseArrayOutput)
+}
+
+// The days of the week.
+func (o RecurrenceScheduleInvokeResponseOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecurrenceScheduleInvokeResponse) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+}
+
+type RecurrenceScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecurrenceScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o RecurrenceScheduleInvokeResponsePtrOutput) ToRecurrenceScheduleInvokeResponsePtrOutput() RecurrenceScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RecurrenceScheduleInvokeResponsePtrOutput) ToRecurrenceScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RecurrenceScheduleInvokeResponsePtrOutput) Elem() RecurrenceScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *RecurrenceScheduleInvokeResponse) RecurrenceScheduleInvokeResponse { return *v }).(RecurrenceScheduleInvokeResponseOutput)
+}
+
+// The hours.
+func (o RecurrenceScheduleInvokeResponsePtrOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *RecurrenceScheduleInvokeResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Hours
+	}).(pulumi.IntArrayOutput)
+}
+
+// The minutes.
+func (o RecurrenceScheduleInvokeResponsePtrOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *RecurrenceScheduleInvokeResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntArrayOutput)
+}
+
+// The month days.
+func (o RecurrenceScheduleInvokeResponsePtrOutput) MonthDays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *RecurrenceScheduleInvokeResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.MonthDays
+	}).(pulumi.IntArrayOutput)
+}
+
+// The monthly occurrences.
+func (o RecurrenceScheduleInvokeResponsePtrOutput) MonthlyOccurrences() RecurrenceScheduleOccurrenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *RecurrenceScheduleInvokeResponse) []RecurrenceScheduleOccurrenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MonthlyOccurrences
+	}).(RecurrenceScheduleOccurrenceInvokeResponseArrayOutput)
+}
+
+// The days of the week.
+func (o RecurrenceScheduleInvokeResponsePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RecurrenceScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekDays
+	}).(pulumi.StringArrayOutput)
+}
+
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrence struct {
 	// The day of the week.
@@ -24069,6 +35374,115 @@ func (o RecurrenceScheduleOccurrenceArrayOutput) Index(i pulumi.IntInput) Recurr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecurrenceScheduleOccurrence {
 		return vs[0].([]RecurrenceScheduleOccurrence)[vs[1].(int)]
 	}).(RecurrenceScheduleOccurrenceOutput)
+}
+
+// The recurrence schedule occurrence.
+type RecurrenceScheduleOccurrenceInvokeResponse struct {
+	// The day of the week.
+	Day *string `pulumi:"day"`
+	// The occurrence.
+	Occurrence *int `pulumi:"occurrence"`
+}
+
+// RecurrenceScheduleOccurrenceInvokeResponseInput is an input type that accepts RecurrenceScheduleOccurrenceInvokeResponseArgs and RecurrenceScheduleOccurrenceInvokeResponseOutput values.
+// You can construct a concrete instance of `RecurrenceScheduleOccurrenceInvokeResponseInput` via:
+//
+//          RecurrenceScheduleOccurrenceInvokeResponseArgs{...}
+type RecurrenceScheduleOccurrenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRecurrenceScheduleOccurrenceInvokeResponseOutput() RecurrenceScheduleOccurrenceInvokeResponseOutput
+	ToRecurrenceScheduleOccurrenceInvokeResponseOutputWithContext(context.Context) RecurrenceScheduleOccurrenceInvokeResponseOutput
+}
+
+// The recurrence schedule occurrence.
+type RecurrenceScheduleOccurrenceInvokeResponseArgs struct {
+	// The day of the week.
+	Day pulumi.StringPtrInput `pulumi:"day"`
+	// The occurrence.
+	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
+}
+
+func (RecurrenceScheduleOccurrenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrenceScheduleOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i RecurrenceScheduleOccurrenceInvokeResponseArgs) ToRecurrenceScheduleOccurrenceInvokeResponseOutput() RecurrenceScheduleOccurrenceInvokeResponseOutput {
+	return i.ToRecurrenceScheduleOccurrenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RecurrenceScheduleOccurrenceInvokeResponseArgs) ToRecurrenceScheduleOccurrenceInvokeResponseOutputWithContext(ctx context.Context) RecurrenceScheduleOccurrenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleOccurrenceInvokeResponseOutput)
+}
+
+// RecurrenceScheduleOccurrenceInvokeResponseArrayInput is an input type that accepts RecurrenceScheduleOccurrenceInvokeResponseArray and RecurrenceScheduleOccurrenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RecurrenceScheduleOccurrenceInvokeResponseArrayInput` via:
+//
+//          RecurrenceScheduleOccurrenceInvokeResponseArray{ RecurrenceScheduleOccurrenceInvokeResponseArgs{...} }
+type RecurrenceScheduleOccurrenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToRecurrenceScheduleOccurrenceInvokeResponseArrayOutput() RecurrenceScheduleOccurrenceInvokeResponseArrayOutput
+	ToRecurrenceScheduleOccurrenceInvokeResponseArrayOutputWithContext(context.Context) RecurrenceScheduleOccurrenceInvokeResponseArrayOutput
+}
+
+type RecurrenceScheduleOccurrenceInvokeResponseArray []RecurrenceScheduleOccurrenceInvokeResponseInput
+
+func (RecurrenceScheduleOccurrenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecurrenceScheduleOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i RecurrenceScheduleOccurrenceInvokeResponseArray) ToRecurrenceScheduleOccurrenceInvokeResponseArrayOutput() RecurrenceScheduleOccurrenceInvokeResponseArrayOutput {
+	return i.ToRecurrenceScheduleOccurrenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RecurrenceScheduleOccurrenceInvokeResponseArray) ToRecurrenceScheduleOccurrenceInvokeResponseArrayOutputWithContext(ctx context.Context) RecurrenceScheduleOccurrenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecurrenceScheduleOccurrenceInvokeResponseArrayOutput)
+}
+
+// The recurrence schedule occurrence.
+type RecurrenceScheduleOccurrenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceScheduleOccurrenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecurrenceScheduleOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o RecurrenceScheduleOccurrenceInvokeResponseOutput) ToRecurrenceScheduleOccurrenceInvokeResponseOutput() RecurrenceScheduleOccurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o RecurrenceScheduleOccurrenceInvokeResponseOutput) ToRecurrenceScheduleOccurrenceInvokeResponseOutputWithContext(ctx context.Context) RecurrenceScheduleOccurrenceInvokeResponseOutput {
+	return o
+}
+
+// The day of the week.
+func (o RecurrenceScheduleOccurrenceInvokeResponseOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleOccurrenceInvokeResponse) *string { return v.Day }).(pulumi.StringPtrOutput)
+}
+
+// The occurrence.
+func (o RecurrenceScheduleOccurrenceInvokeResponseOutput) Occurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleOccurrenceInvokeResponse) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
+}
+
+type RecurrenceScheduleOccurrenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RecurrenceScheduleOccurrenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecurrenceScheduleOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o RecurrenceScheduleOccurrenceInvokeResponseArrayOutput) ToRecurrenceScheduleOccurrenceInvokeResponseArrayOutput() RecurrenceScheduleOccurrenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RecurrenceScheduleOccurrenceInvokeResponseArrayOutput) ToRecurrenceScheduleOccurrenceInvokeResponseArrayOutputWithContext(ctx context.Context) RecurrenceScheduleOccurrenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RecurrenceScheduleOccurrenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) RecurrenceScheduleOccurrenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecurrenceScheduleOccurrenceInvokeResponse {
+		return vs[0].([]RecurrenceScheduleOccurrenceInvokeResponse)[vs[1].(int)]
+	}).(RecurrenceScheduleOccurrenceInvokeResponseOutput)
 }
 
 // The recurrence schedule occurrence.
@@ -24570,6 +35984,223 @@ func (o ResourceReferenceArrayOutput) Index(i pulumi.IntInput) ResourceReference
 }
 
 // The resource reference.
+type ResourceReferenceInvokeResponse struct {
+	// The resource id.
+	Id *string `pulumi:"id"`
+	// Gets the resource name.
+	Name string `pulumi:"name"`
+	// Gets the resource type.
+	Type string `pulumi:"type"`
+}
+
+// ResourceReferenceInvokeResponseInput is an input type that accepts ResourceReferenceInvokeResponseArgs and ResourceReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceReferenceInvokeResponseInput` via:
+//
+//          ResourceReferenceInvokeResponseArgs{...}
+type ResourceReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput
+	ToResourceReferenceInvokeResponseOutputWithContext(context.Context) ResourceReferenceInvokeResponseOutput
+}
+
+// The resource reference.
+type ResourceReferenceInvokeResponseArgs struct {
+	// The resource id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Gets the resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gets the resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ResourceReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput {
+	return i.ToResourceReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponseOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponseOutput)
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponsePtrOutput() ResourceReferenceInvokeResponsePtrOutput {
+	return i.ToResourceReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponseOutput).ToResourceReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceReferenceInvokeResponsePtrInput is an input type that accepts ResourceReferenceInvokeResponseArgs, ResourceReferenceInvokeResponsePtr and ResourceReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceReferenceInvokeResponsePtrInput` via:
+//
+//          ResourceReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceReferenceInvokeResponsePtrOutput() ResourceReferenceInvokeResponsePtrOutput
+	ToResourceReferenceInvokeResponsePtrOutputWithContext(context.Context) ResourceReferenceInvokeResponsePtrOutput
+}
+
+type resourceReferenceInvokeResponsePtrType ResourceReferenceInvokeResponseArgs
+
+func ResourceReferenceInvokeResponsePtr(v *ResourceReferenceInvokeResponseArgs) ResourceReferenceInvokeResponsePtrInput {
+	return (*resourceReferenceInvokeResponsePtrType)(v)
+}
+
+func (*resourceReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *resourceReferenceInvokeResponsePtrType) ToResourceReferenceInvokeResponsePtrOutput() ResourceReferenceInvokeResponsePtrOutput {
+	return i.ToResourceReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceReferenceInvokeResponsePtrType) ToResourceReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponsePtrOutput)
+}
+
+// ResourceReferenceInvokeResponseArrayInput is an input type that accepts ResourceReferenceInvokeResponseArray and ResourceReferenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ResourceReferenceInvokeResponseArrayInput` via:
+//
+//          ResourceReferenceInvokeResponseArray{ ResourceReferenceInvokeResponseArgs{...} }
+type ResourceReferenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToResourceReferenceInvokeResponseArrayOutput() ResourceReferenceInvokeResponseArrayOutput
+	ToResourceReferenceInvokeResponseArrayOutputWithContext(context.Context) ResourceReferenceInvokeResponseArrayOutput
+}
+
+type ResourceReferenceInvokeResponseArray []ResourceReferenceInvokeResponseInput
+
+func (ResourceReferenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceReferenceInvokeResponseArray) ToResourceReferenceInvokeResponseArrayOutput() ResourceReferenceInvokeResponseArrayOutput {
+	return i.ToResourceReferenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceReferenceInvokeResponseArray) ToResourceReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponseArrayOutput)
+}
+
+// The resource reference.
+type ResourceReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponseOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponsePtrOutput() ResourceReferenceInvokeResponsePtrOutput {
+	return o.ToResourceReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ResourceReferenceInvokeResponse) *ResourceReferenceInvokeResponse {
+		return &v
+	}).(ResourceReferenceInvokeResponsePtrOutput)
+}
+
+// The resource id.
+func (o ResourceReferenceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceReferenceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o ResourceReferenceInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceReferenceInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the resource type.
+func (o ResourceReferenceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceReferenceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ResourceReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceInvokeResponsePtrOutput) ToResourceReferenceInvokeResponsePtrOutput() ResourceReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponsePtrOutput) ToResourceReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponsePtrOutput) Elem() ResourceReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *ResourceReferenceInvokeResponse) ResourceReferenceInvokeResponse { return *v }).(ResourceReferenceInvokeResponseOutput)
+}
+
+// The resource id.
+func (o ResourceReferenceInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o ResourceReferenceInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource type.
+func (o ResourceReferenceInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceReferenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceInvokeResponseArrayOutput) ToResourceReferenceInvokeResponseArrayOutput() ResourceReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseArrayOutput) ToResourceReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) ResourceReferenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceReferenceInvokeResponse {
+		return vs[0].([]ResourceReferenceInvokeResponse)[vs[1].(int)]
+	}).(ResourceReferenceInvokeResponseOutput)
+}
+
+// The resource reference.
 type ResourceReferenceResponse struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
@@ -24784,6 +36415,70 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceReferenceResponse {
 		return vs[0].([]ResourceReferenceResponse)[vs[1].(int)]
 	}).(ResourceReferenceResponseOutput)
+}
+
+// The sku type.
+type SkuInvokeResponse struct {
+	// The name.
+	Name string `pulumi:"name"`
+	// The reference to plan.
+	Plan *ResourceReferenceInvokeResponse `pulumi:"plan"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The sku type.
+type SkuInvokeResponseArgs struct {
+	// The name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The reference to plan.
+	Plan ResourceReferenceInvokeResponsePtrInput `pulumi:"plan"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The sku type.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The name.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The reference to plan.
+func (o SkuInvokeResponseOutput) Plan() ResourceReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *ResourceReferenceInvokeResponse { return v.Plan }).(ResourceReferenceInvokeResponsePtrOutput)
 }
 
 // The sku type.
@@ -25067,6 +36762,133 @@ func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParam
 }
 
 // The workflow parameters.
+type WorkflowParameterInvokeResponse struct {
+	// The description.
+	Description *string `pulumi:"description"`
+	// The metadata.
+	Metadata interface{} `pulumi:"metadata"`
+	// The type.
+	Type *string `pulumi:"type"`
+	// The value.
+	Value interface{} `pulumi:"value"`
+}
+
+// WorkflowParameterInvokeResponseInput is an input type that accepts WorkflowParameterInvokeResponseArgs and WorkflowParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkflowParameterInvokeResponseInput` via:
+//
+//          WorkflowParameterInvokeResponseArgs{...}
+type WorkflowParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkflowParameterInvokeResponseOutput() WorkflowParameterInvokeResponseOutput
+	ToWorkflowParameterInvokeResponseOutputWithContext(context.Context) WorkflowParameterInvokeResponseOutput
+}
+
+// The workflow parameters.
+type WorkflowParameterInvokeResponseArgs struct {
+	// The description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The metadata.
+	Metadata pulumi.Input `pulumi:"metadata"`
+	// The type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value.
+	Value pulumi.Input `pulumi:"value"`
+}
+
+func (WorkflowParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkflowParameterInvokeResponseArgs) ToWorkflowParameterInvokeResponseOutput() WorkflowParameterInvokeResponseOutput {
+	return i.ToWorkflowParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkflowParameterInvokeResponseArgs) ToWorkflowParameterInvokeResponseOutputWithContext(ctx context.Context) WorkflowParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterInvokeResponseOutput)
+}
+
+// WorkflowParameterInvokeResponseMapInput is an input type that accepts WorkflowParameterInvokeResponseMap and WorkflowParameterInvokeResponseMapOutput values.
+// You can construct a concrete instance of `WorkflowParameterInvokeResponseMapInput` via:
+//
+//          WorkflowParameterInvokeResponseMap{ "key": WorkflowParameterInvokeResponseArgs{...} }
+type WorkflowParameterInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToWorkflowParameterInvokeResponseMapOutput() WorkflowParameterInvokeResponseMapOutput
+	ToWorkflowParameterInvokeResponseMapOutputWithContext(context.Context) WorkflowParameterInvokeResponseMapOutput
+}
+
+type WorkflowParameterInvokeResponseMap map[string]WorkflowParameterInvokeResponseInput
+
+func (WorkflowParameterInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkflowParameterInvokeResponseMap) ToWorkflowParameterInvokeResponseMapOutput() WorkflowParameterInvokeResponseMapOutput {
+	return i.ToWorkflowParameterInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i WorkflowParameterInvokeResponseMap) ToWorkflowParameterInvokeResponseMapOutputWithContext(ctx context.Context) WorkflowParameterInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterInvokeResponseMapOutput)
+}
+
+// The workflow parameters.
+type WorkflowParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkflowParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkflowParameterInvokeResponseOutput) ToWorkflowParameterInvokeResponseOutput() WorkflowParameterInvokeResponseOutput {
+	return o
+}
+
+func (o WorkflowParameterInvokeResponseOutput) ToWorkflowParameterInvokeResponseOutputWithContext(ctx context.Context) WorkflowParameterInvokeResponseOutput {
+	return o
+}
+
+// The description.
+func (o WorkflowParameterInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowParameterInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o WorkflowParameterInvokeResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameterInvokeResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The type.
+func (o WorkflowParameterInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowParameterInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The value.
+func (o WorkflowParameterInvokeResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameterInvokeResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+type WorkflowParameterInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (WorkflowParameterInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkflowParameterInvokeResponseMapOutput) ToWorkflowParameterInvokeResponseMapOutput() WorkflowParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o WorkflowParameterInvokeResponseMapOutput) ToWorkflowParameterInvokeResponseMapOutputWithContext(ctx context.Context) WorkflowParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o WorkflowParameterInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) WorkflowParameterInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkflowParameterInvokeResponse {
+		return vs[0].(map[string]WorkflowParameterInvokeResponse)[vs[1].(string)]
+	}).(WorkflowParameterInvokeResponseOutput)
+}
+
+// The workflow parameters.
 type WorkflowParameterResponse struct {
 	// The description.
 	Description *string `pulumi:"description"`
@@ -25194,7 +37016,7 @@ func (o WorkflowParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Workf
 }
 
 // Gets the workflow trigger callback URL query parameters.
-type WorkflowTriggerListCallbackUrlQueriesResponse struct {
+type WorkflowTriggerListCallbackUrlQueriesInvokeResponse struct {
 	// The api version.
 	ApiVersion *string `pulumi:"apiVersion"`
 	// The SAS timestamp.
@@ -25207,19 +37029,19 @@ type WorkflowTriggerListCallbackUrlQueriesResponse struct {
 	Sv *string `pulumi:"sv"`
 }
 
-// WorkflowTriggerListCallbackUrlQueriesResponseInput is an input type that accepts WorkflowTriggerListCallbackUrlQueriesResponseArgs and WorkflowTriggerListCallbackUrlQueriesResponseOutput values.
-// You can construct a concrete instance of `WorkflowTriggerListCallbackUrlQueriesResponseInput` via:
+// WorkflowTriggerListCallbackUrlQueriesInvokeResponseInput is an input type that accepts WorkflowTriggerListCallbackUrlQueriesInvokeResponseArgs and WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkflowTriggerListCallbackUrlQueriesInvokeResponseInput` via:
 //
-//          WorkflowTriggerListCallbackUrlQueriesResponseArgs{...}
-type WorkflowTriggerListCallbackUrlQueriesResponseInput interface {
+//          WorkflowTriggerListCallbackUrlQueriesInvokeResponseArgs{...}
+type WorkflowTriggerListCallbackUrlQueriesInvokeResponseInput interface {
 	pulumi.Input
 
-	ToWorkflowTriggerListCallbackUrlQueriesResponseOutput() WorkflowTriggerListCallbackUrlQueriesResponseOutput
-	ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(context.Context) WorkflowTriggerListCallbackUrlQueriesResponseOutput
+	ToWorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput() WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput
+	ToWorkflowTriggerListCallbackUrlQueriesInvokeResponseOutputWithContext(context.Context) WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput
 }
 
 // Gets the workflow trigger callback URL query parameters.
-type WorkflowTriggerListCallbackUrlQueriesResponseArgs struct {
+type WorkflowTriggerListCallbackUrlQueriesInvokeResponseArgs struct {
 	// The api version.
 	ApiVersion pulumi.StringPtrInput `pulumi:"apiVersion"`
 	// The SAS timestamp.
@@ -25232,56 +37054,56 @@ type WorkflowTriggerListCallbackUrlQueriesResponseArgs struct {
 	Sv pulumi.StringPtrInput `pulumi:"sv"`
 }
 
-func (WorkflowTriggerListCallbackUrlQueriesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowTriggerListCallbackUrlQueriesResponse)(nil)).Elem()
+func (WorkflowTriggerListCallbackUrlQueriesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowTriggerListCallbackUrlQueriesInvokeResponse)(nil)).Elem()
 }
 
-func (i WorkflowTriggerListCallbackUrlQueriesResponseArgs) ToWorkflowTriggerListCallbackUrlQueriesResponseOutput() WorkflowTriggerListCallbackUrlQueriesResponseOutput {
-	return i.ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(context.Background())
+func (i WorkflowTriggerListCallbackUrlQueriesInvokeResponseArgs) ToWorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput() WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput {
+	return i.ToWorkflowTriggerListCallbackUrlQueriesInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i WorkflowTriggerListCallbackUrlQueriesResponseArgs) ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerListCallbackUrlQueriesResponseOutput)
+func (i WorkflowTriggerListCallbackUrlQueriesInvokeResponseArgs) ToWorkflowTriggerListCallbackUrlQueriesInvokeResponseOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput)
 }
 
 // Gets the workflow trigger callback URL query parameters.
-type WorkflowTriggerListCallbackUrlQueriesResponseOutput struct{ *pulumi.OutputState }
+type WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (WorkflowTriggerListCallbackUrlQueriesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowTriggerListCallbackUrlQueriesResponse)(nil)).Elem()
+func (WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowTriggerListCallbackUrlQueriesInvokeResponse)(nil)).Elem()
 }
 
-func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponseOutput() WorkflowTriggerListCallbackUrlQueriesResponseOutput {
+func (o WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput() WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput {
 	return o
 }
 
-func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponseOutput {
+func (o WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesInvokeResponseOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput {
 	return o
 }
 
 // The api version.
-func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ApiVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
+func (o WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput) ApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesInvokeResponse) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
 }
 
 // The SAS timestamp.
-func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Se() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Se }).(pulumi.StringPtrOutput)
+func (o WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput) Se() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesInvokeResponse) *string { return v.Se }).(pulumi.StringPtrOutput)
 }
 
 // The SAS signature.
-func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sig() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sig }).(pulumi.StringPtrOutput)
+func (o WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput) Sig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesInvokeResponse) *string { return v.Sig }).(pulumi.StringPtrOutput)
 }
 
 // The SAS permissions.
-func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sp }).(pulumi.StringPtrOutput)
+func (o WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput) Sp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesInvokeResponse) *string { return v.Sp }).(pulumi.StringPtrOutput)
 }
 
 // The SAS version.
-func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sv() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sv }).(pulumi.StringPtrOutput)
+func (o WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput) Sv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesInvokeResponse) *string { return v.Sv }).(pulumi.StringPtrOutput)
 }
 
 // The workflow trigger recurrence.
@@ -25506,6 +37328,235 @@ func (o WorkflowTriggerRecurrencePtrOutput) StartTime() pulumi.StringPtrOutput {
 // The time zone.
 func (o WorkflowTriggerRecurrencePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkflowTriggerRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The workflow trigger recurrence.
+type WorkflowTriggerRecurrenceInvokeResponse struct {
+	// The end time.
+	EndTime *string `pulumi:"endTime"`
+	// The frequency.
+	Frequency *string `pulumi:"frequency"`
+	// The interval.
+	Interval *int `pulumi:"interval"`
+	// The recurrence schedule.
+	Schedule *RecurrenceScheduleInvokeResponse `pulumi:"schedule"`
+	// The start time.
+	StartTime *string `pulumi:"startTime"`
+	// The time zone.
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// WorkflowTriggerRecurrenceInvokeResponseInput is an input type that accepts WorkflowTriggerRecurrenceInvokeResponseArgs and WorkflowTriggerRecurrenceInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkflowTriggerRecurrenceInvokeResponseInput` via:
+//
+//          WorkflowTriggerRecurrenceInvokeResponseArgs{...}
+type WorkflowTriggerRecurrenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkflowTriggerRecurrenceInvokeResponseOutput() WorkflowTriggerRecurrenceInvokeResponseOutput
+	ToWorkflowTriggerRecurrenceInvokeResponseOutputWithContext(context.Context) WorkflowTriggerRecurrenceInvokeResponseOutput
+}
+
+// The workflow trigger recurrence.
+type WorkflowTriggerRecurrenceInvokeResponseArgs struct {
+	// The end time.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// The frequency.
+	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+	// The interval.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The recurrence schedule.
+	Schedule RecurrenceScheduleInvokeResponsePtrInput `pulumi:"schedule"`
+	// The start time.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The time zone.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (WorkflowTriggerRecurrenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowTriggerRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkflowTriggerRecurrenceInvokeResponseArgs) ToWorkflowTriggerRecurrenceInvokeResponseOutput() WorkflowTriggerRecurrenceInvokeResponseOutput {
+	return i.ToWorkflowTriggerRecurrenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkflowTriggerRecurrenceInvokeResponseArgs) ToWorkflowTriggerRecurrenceInvokeResponseOutputWithContext(ctx context.Context) WorkflowTriggerRecurrenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerRecurrenceInvokeResponseOutput)
+}
+
+func (i WorkflowTriggerRecurrenceInvokeResponseArgs) ToWorkflowTriggerRecurrenceInvokeResponsePtrOutput() WorkflowTriggerRecurrenceInvokeResponsePtrOutput {
+	return i.ToWorkflowTriggerRecurrenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowTriggerRecurrenceInvokeResponseArgs) ToWorkflowTriggerRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerRecurrenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerRecurrenceInvokeResponseOutput).ToWorkflowTriggerRecurrenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WorkflowTriggerRecurrenceInvokeResponsePtrInput is an input type that accepts WorkflowTriggerRecurrenceInvokeResponseArgs, WorkflowTriggerRecurrenceInvokeResponsePtr and WorkflowTriggerRecurrenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WorkflowTriggerRecurrenceInvokeResponsePtrInput` via:
+//
+//          WorkflowTriggerRecurrenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkflowTriggerRecurrenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowTriggerRecurrenceInvokeResponsePtrOutput() WorkflowTriggerRecurrenceInvokeResponsePtrOutput
+	ToWorkflowTriggerRecurrenceInvokeResponsePtrOutputWithContext(context.Context) WorkflowTriggerRecurrenceInvokeResponsePtrOutput
+}
+
+type workflowTriggerRecurrenceInvokeResponsePtrType WorkflowTriggerRecurrenceInvokeResponseArgs
+
+func WorkflowTriggerRecurrenceInvokeResponsePtr(v *WorkflowTriggerRecurrenceInvokeResponseArgs) WorkflowTriggerRecurrenceInvokeResponsePtrInput {
+	return (*workflowTriggerRecurrenceInvokeResponsePtrType)(v)
+}
+
+func (*workflowTriggerRecurrenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowTriggerRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *workflowTriggerRecurrenceInvokeResponsePtrType) ToWorkflowTriggerRecurrenceInvokeResponsePtrOutput() WorkflowTriggerRecurrenceInvokeResponsePtrOutput {
+	return i.ToWorkflowTriggerRecurrenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowTriggerRecurrenceInvokeResponsePtrType) ToWorkflowTriggerRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerRecurrenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTriggerRecurrenceInvokeResponsePtrOutput)
+}
+
+// The workflow trigger recurrence.
+type WorkflowTriggerRecurrenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTriggerRecurrenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowTriggerRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkflowTriggerRecurrenceInvokeResponseOutput) ToWorkflowTriggerRecurrenceInvokeResponseOutput() WorkflowTriggerRecurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o WorkflowTriggerRecurrenceInvokeResponseOutput) ToWorkflowTriggerRecurrenceInvokeResponseOutputWithContext(ctx context.Context) WorkflowTriggerRecurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o WorkflowTriggerRecurrenceInvokeResponseOutput) ToWorkflowTriggerRecurrenceInvokeResponsePtrOutput() WorkflowTriggerRecurrenceInvokeResponsePtrOutput {
+	return o.ToWorkflowTriggerRecurrenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowTriggerRecurrenceInvokeResponseOutput) ToWorkflowTriggerRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerRecurrenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerRecurrenceInvokeResponse) *WorkflowTriggerRecurrenceInvokeResponse {
+		return &v
+	}).(WorkflowTriggerRecurrenceInvokeResponsePtrOutput)
+}
+
+// The end time.
+func (o WorkflowTriggerRecurrenceInvokeResponseOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerRecurrenceInvokeResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// The frequency.
+func (o WorkflowTriggerRecurrenceInvokeResponseOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerRecurrenceInvokeResponse) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+// The interval.
+func (o WorkflowTriggerRecurrenceInvokeResponseOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerRecurrenceInvokeResponse) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The recurrence schedule.
+func (o WorkflowTriggerRecurrenceInvokeResponseOutput) Schedule() RecurrenceScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerRecurrenceInvokeResponse) *RecurrenceScheduleInvokeResponse { return v.Schedule }).(RecurrenceScheduleInvokeResponsePtrOutput)
+}
+
+// The start time.
+func (o WorkflowTriggerRecurrenceInvokeResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerRecurrenceInvokeResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The time zone.
+func (o WorkflowTriggerRecurrenceInvokeResponseOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerRecurrenceInvokeResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowTriggerRecurrenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTriggerRecurrenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowTriggerRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkflowTriggerRecurrenceInvokeResponsePtrOutput) ToWorkflowTriggerRecurrenceInvokeResponsePtrOutput() WorkflowTriggerRecurrenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WorkflowTriggerRecurrenceInvokeResponsePtrOutput) ToWorkflowTriggerRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerRecurrenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WorkflowTriggerRecurrenceInvokeResponsePtrOutput) Elem() WorkflowTriggerRecurrenceInvokeResponseOutput {
+	return o.ApplyT(func(v *WorkflowTriggerRecurrenceInvokeResponse) WorkflowTriggerRecurrenceInvokeResponse { return *v }).(WorkflowTriggerRecurrenceInvokeResponseOutput)
+}
+
+// The end time.
+func (o WorkflowTriggerRecurrenceInvokeResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerRecurrenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The frequency.
+func (o WorkflowTriggerRecurrenceInvokeResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerRecurrenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interval.
+func (o WorkflowTriggerRecurrenceInvokeResponsePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerRecurrenceInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The recurrence schedule.
+func (o WorkflowTriggerRecurrenceInvokeResponsePtrOutput) Schedule() RecurrenceScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerRecurrenceInvokeResponse) *RecurrenceScheduleInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(RecurrenceScheduleInvokeResponsePtrOutput)
+}
+
+// The start time.
+func (o WorkflowTriggerRecurrenceInvokeResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerRecurrenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time zone.
+func (o WorkflowTriggerRecurrenceInvokeResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerRecurrenceInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -25739,6 +37790,159 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) TimeZone() pulumi.StringPtrO
 			return nil
 		}
 		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The WSDL service.
+type WsdlServiceInvokeResponse struct {
+	// The list of endpoints' qualified names.
+	EndpointQualifiedNames []string `pulumi:"endpointQualifiedNames"`
+	// The qualified name.
+	QualifiedName *string `pulumi:"qualifiedName"`
+}
+
+// WsdlServiceInvokeResponseInput is an input type that accepts WsdlServiceInvokeResponseArgs and WsdlServiceInvokeResponseOutput values.
+// You can construct a concrete instance of `WsdlServiceInvokeResponseInput` via:
+//
+//          WsdlServiceInvokeResponseArgs{...}
+type WsdlServiceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWsdlServiceInvokeResponseOutput() WsdlServiceInvokeResponseOutput
+	ToWsdlServiceInvokeResponseOutputWithContext(context.Context) WsdlServiceInvokeResponseOutput
+}
+
+// The WSDL service.
+type WsdlServiceInvokeResponseArgs struct {
+	// The list of endpoints' qualified names.
+	EndpointQualifiedNames pulumi.StringArrayInput `pulumi:"endpointQualifiedNames"`
+	// The qualified name.
+	QualifiedName pulumi.StringPtrInput `pulumi:"qualifiedName"`
+}
+
+func (WsdlServiceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WsdlServiceInvokeResponse)(nil)).Elem()
+}
+
+func (i WsdlServiceInvokeResponseArgs) ToWsdlServiceInvokeResponseOutput() WsdlServiceInvokeResponseOutput {
+	return i.ToWsdlServiceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WsdlServiceInvokeResponseArgs) ToWsdlServiceInvokeResponseOutputWithContext(ctx context.Context) WsdlServiceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WsdlServiceInvokeResponseOutput)
+}
+
+func (i WsdlServiceInvokeResponseArgs) ToWsdlServiceInvokeResponsePtrOutput() WsdlServiceInvokeResponsePtrOutput {
+	return i.ToWsdlServiceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WsdlServiceInvokeResponseArgs) ToWsdlServiceInvokeResponsePtrOutputWithContext(ctx context.Context) WsdlServiceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WsdlServiceInvokeResponseOutput).ToWsdlServiceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WsdlServiceInvokeResponsePtrInput is an input type that accepts WsdlServiceInvokeResponseArgs, WsdlServiceInvokeResponsePtr and WsdlServiceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WsdlServiceInvokeResponsePtrInput` via:
+//
+//          WsdlServiceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WsdlServiceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWsdlServiceInvokeResponsePtrOutput() WsdlServiceInvokeResponsePtrOutput
+	ToWsdlServiceInvokeResponsePtrOutputWithContext(context.Context) WsdlServiceInvokeResponsePtrOutput
+}
+
+type wsdlServiceInvokeResponsePtrType WsdlServiceInvokeResponseArgs
+
+func WsdlServiceInvokeResponsePtr(v *WsdlServiceInvokeResponseArgs) WsdlServiceInvokeResponsePtrInput {
+	return (*wsdlServiceInvokeResponsePtrType)(v)
+}
+
+func (*wsdlServiceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WsdlServiceInvokeResponse)(nil)).Elem()
+}
+
+func (i *wsdlServiceInvokeResponsePtrType) ToWsdlServiceInvokeResponsePtrOutput() WsdlServiceInvokeResponsePtrOutput {
+	return i.ToWsdlServiceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *wsdlServiceInvokeResponsePtrType) ToWsdlServiceInvokeResponsePtrOutputWithContext(ctx context.Context) WsdlServiceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WsdlServiceInvokeResponsePtrOutput)
+}
+
+// The WSDL service.
+type WsdlServiceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WsdlServiceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WsdlServiceInvokeResponse)(nil)).Elem()
+}
+
+func (o WsdlServiceInvokeResponseOutput) ToWsdlServiceInvokeResponseOutput() WsdlServiceInvokeResponseOutput {
+	return o
+}
+
+func (o WsdlServiceInvokeResponseOutput) ToWsdlServiceInvokeResponseOutputWithContext(ctx context.Context) WsdlServiceInvokeResponseOutput {
+	return o
+}
+
+func (o WsdlServiceInvokeResponseOutput) ToWsdlServiceInvokeResponsePtrOutput() WsdlServiceInvokeResponsePtrOutput {
+	return o.ToWsdlServiceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WsdlServiceInvokeResponseOutput) ToWsdlServiceInvokeResponsePtrOutputWithContext(ctx context.Context) WsdlServiceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WsdlServiceInvokeResponse) *WsdlServiceInvokeResponse {
+		return &v
+	}).(WsdlServiceInvokeResponsePtrOutput)
+}
+
+// The list of endpoints' qualified names.
+func (o WsdlServiceInvokeResponseOutput) EndpointQualifiedNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WsdlServiceInvokeResponse) []string { return v.EndpointQualifiedNames }).(pulumi.StringArrayOutput)
+}
+
+// The qualified name.
+func (o WsdlServiceInvokeResponseOutput) QualifiedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsdlServiceInvokeResponse) *string { return v.QualifiedName }).(pulumi.StringPtrOutput)
+}
+
+type WsdlServiceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WsdlServiceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WsdlServiceInvokeResponse)(nil)).Elem()
+}
+
+func (o WsdlServiceInvokeResponsePtrOutput) ToWsdlServiceInvokeResponsePtrOutput() WsdlServiceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WsdlServiceInvokeResponsePtrOutput) ToWsdlServiceInvokeResponsePtrOutputWithContext(ctx context.Context) WsdlServiceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WsdlServiceInvokeResponsePtrOutput) Elem() WsdlServiceInvokeResponseOutput {
+	return o.ApplyT(func(v *WsdlServiceInvokeResponse) WsdlServiceInvokeResponse { return *v }).(WsdlServiceInvokeResponseOutput)
+}
+
+// The list of endpoints' qualified names.
+func (o WsdlServiceInvokeResponsePtrOutput) EndpointQualifiedNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WsdlServiceInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointQualifiedNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The qualified name.
+func (o WsdlServiceInvokeResponsePtrOutput) QualifiedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WsdlServiceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QualifiedName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -26288,6 +38492,408 @@ func (o X12AcknowledgementSettingsPtrOutput) RolloverAcknowledgementControlNumbe
 // The value indicating whether to send synchronous acknowledgement.
 func (o X12AcknowledgementSettingsPtrOutput) SendSynchronousAcknowledgement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12AcknowledgementSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SendSynchronousAcknowledgement
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The X12 agreement acknowledgement settings.
+type X12AcknowledgementSettingsInvokeResponse struct {
+	// The acknowledgement control number lower bound.
+	AcknowledgementControlNumberLowerBound int `pulumi:"acknowledgementControlNumberLowerBound"`
+	// The acknowledgement control number prefix.
+	AcknowledgementControlNumberPrefix *string `pulumi:"acknowledgementControlNumberPrefix"`
+	// The acknowledgement control number suffix.
+	AcknowledgementControlNumberSuffix *string `pulumi:"acknowledgementControlNumberSuffix"`
+	// The acknowledgement control number upper bound.
+	AcknowledgementControlNumberUpperBound int `pulumi:"acknowledgementControlNumberUpperBound"`
+	// The value indicating whether to batch functional acknowledgements.
+	BatchFunctionalAcknowledgements bool `pulumi:"batchFunctionalAcknowledgements"`
+	// The value indicating whether to batch implementation acknowledgements.
+	BatchImplementationAcknowledgements bool `pulumi:"batchImplementationAcknowledgements"`
+	// The value indicating whether to batch the technical acknowledgements.
+	BatchTechnicalAcknowledgements bool `pulumi:"batchTechnicalAcknowledgements"`
+	// The functional acknowledgement version.
+	FunctionalAcknowledgementVersion *string `pulumi:"functionalAcknowledgementVersion"`
+	// The implementation acknowledgement version.
+	ImplementationAcknowledgementVersion *string `pulumi:"implementationAcknowledgementVersion"`
+	// The value indicating whether functional acknowledgement is needed.
+	NeedFunctionalAcknowledgement bool `pulumi:"needFunctionalAcknowledgement"`
+	// The value indicating whether implementation acknowledgement is needed.
+	NeedImplementationAcknowledgement bool `pulumi:"needImplementationAcknowledgement"`
+	// The value indicating whether a loop is needed for valid messages.
+	NeedLoopForValidMessages bool `pulumi:"needLoopForValidMessages"`
+	// The value indicating whether technical acknowledgement is needed.
+	NeedTechnicalAcknowledgement bool `pulumi:"needTechnicalAcknowledgement"`
+	// The value indicating whether to rollover acknowledgement control number.
+	RolloverAcknowledgementControlNumber bool `pulumi:"rolloverAcknowledgementControlNumber"`
+	// The value indicating whether to send synchronous acknowledgement.
+	SendSynchronousAcknowledgement bool `pulumi:"sendSynchronousAcknowledgement"`
+}
+
+// X12AcknowledgementSettingsInvokeResponseInput is an input type that accepts X12AcknowledgementSettingsInvokeResponseArgs and X12AcknowledgementSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `X12AcknowledgementSettingsInvokeResponseInput` via:
+//
+//          X12AcknowledgementSettingsInvokeResponseArgs{...}
+type X12AcknowledgementSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12AcknowledgementSettingsInvokeResponseOutput() X12AcknowledgementSettingsInvokeResponseOutput
+	ToX12AcknowledgementSettingsInvokeResponseOutputWithContext(context.Context) X12AcknowledgementSettingsInvokeResponseOutput
+}
+
+// The X12 agreement acknowledgement settings.
+type X12AcknowledgementSettingsInvokeResponseArgs struct {
+	// The acknowledgement control number lower bound.
+	AcknowledgementControlNumberLowerBound pulumi.IntInput `pulumi:"acknowledgementControlNumberLowerBound"`
+	// The acknowledgement control number prefix.
+	AcknowledgementControlNumberPrefix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberPrefix"`
+	// The acknowledgement control number suffix.
+	AcknowledgementControlNumberSuffix pulumi.StringPtrInput `pulumi:"acknowledgementControlNumberSuffix"`
+	// The acknowledgement control number upper bound.
+	AcknowledgementControlNumberUpperBound pulumi.IntInput `pulumi:"acknowledgementControlNumberUpperBound"`
+	// The value indicating whether to batch functional acknowledgements.
+	BatchFunctionalAcknowledgements pulumi.BoolInput `pulumi:"batchFunctionalAcknowledgements"`
+	// The value indicating whether to batch implementation acknowledgements.
+	BatchImplementationAcknowledgements pulumi.BoolInput `pulumi:"batchImplementationAcknowledgements"`
+	// The value indicating whether to batch the technical acknowledgements.
+	BatchTechnicalAcknowledgements pulumi.BoolInput `pulumi:"batchTechnicalAcknowledgements"`
+	// The functional acknowledgement version.
+	FunctionalAcknowledgementVersion pulumi.StringPtrInput `pulumi:"functionalAcknowledgementVersion"`
+	// The implementation acknowledgement version.
+	ImplementationAcknowledgementVersion pulumi.StringPtrInput `pulumi:"implementationAcknowledgementVersion"`
+	// The value indicating whether functional acknowledgement is needed.
+	NeedFunctionalAcknowledgement pulumi.BoolInput `pulumi:"needFunctionalAcknowledgement"`
+	// The value indicating whether implementation acknowledgement is needed.
+	NeedImplementationAcknowledgement pulumi.BoolInput `pulumi:"needImplementationAcknowledgement"`
+	// The value indicating whether a loop is needed for valid messages.
+	NeedLoopForValidMessages pulumi.BoolInput `pulumi:"needLoopForValidMessages"`
+	// The value indicating whether technical acknowledgement is needed.
+	NeedTechnicalAcknowledgement pulumi.BoolInput `pulumi:"needTechnicalAcknowledgement"`
+	// The value indicating whether to rollover acknowledgement control number.
+	RolloverAcknowledgementControlNumber pulumi.BoolInput `pulumi:"rolloverAcknowledgementControlNumber"`
+	// The value indicating whether to send synchronous acknowledgement.
+	SendSynchronousAcknowledgement pulumi.BoolInput `pulumi:"sendSynchronousAcknowledgement"`
+}
+
+func (X12AcknowledgementSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12AcknowledgementSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i X12AcknowledgementSettingsInvokeResponseArgs) ToX12AcknowledgementSettingsInvokeResponseOutput() X12AcknowledgementSettingsInvokeResponseOutput {
+	return i.ToX12AcknowledgementSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12AcknowledgementSettingsInvokeResponseArgs) ToX12AcknowledgementSettingsInvokeResponseOutputWithContext(ctx context.Context) X12AcknowledgementSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12AcknowledgementSettingsInvokeResponseOutput)
+}
+
+func (i X12AcknowledgementSettingsInvokeResponseArgs) ToX12AcknowledgementSettingsInvokeResponsePtrOutput() X12AcknowledgementSettingsInvokeResponsePtrOutput {
+	return i.ToX12AcknowledgementSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i X12AcknowledgementSettingsInvokeResponseArgs) ToX12AcknowledgementSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12AcknowledgementSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12AcknowledgementSettingsInvokeResponseOutput).ToX12AcknowledgementSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// X12AcknowledgementSettingsInvokeResponsePtrInput is an input type that accepts X12AcknowledgementSettingsInvokeResponseArgs, X12AcknowledgementSettingsInvokeResponsePtr and X12AcknowledgementSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `X12AcknowledgementSettingsInvokeResponsePtrInput` via:
+//
+//          X12AcknowledgementSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type X12AcknowledgementSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToX12AcknowledgementSettingsInvokeResponsePtrOutput() X12AcknowledgementSettingsInvokeResponsePtrOutput
+	ToX12AcknowledgementSettingsInvokeResponsePtrOutputWithContext(context.Context) X12AcknowledgementSettingsInvokeResponsePtrOutput
+}
+
+type x12acknowledgementSettingsInvokeResponsePtrType X12AcknowledgementSettingsInvokeResponseArgs
+
+func X12AcknowledgementSettingsInvokeResponsePtr(v *X12AcknowledgementSettingsInvokeResponseArgs) X12AcknowledgementSettingsInvokeResponsePtrInput {
+	return (*x12acknowledgementSettingsInvokeResponsePtrType)(v)
+}
+
+func (*x12acknowledgementSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12AcknowledgementSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *x12acknowledgementSettingsInvokeResponsePtrType) ToX12AcknowledgementSettingsInvokeResponsePtrOutput() X12AcknowledgementSettingsInvokeResponsePtrOutput {
+	return i.ToX12AcknowledgementSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *x12acknowledgementSettingsInvokeResponsePtrType) ToX12AcknowledgementSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12AcknowledgementSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12AcknowledgementSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 agreement acknowledgement settings.
+type X12AcknowledgementSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12AcknowledgementSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12AcknowledgementSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12AcknowledgementSettingsInvokeResponseOutput) ToX12AcknowledgementSettingsInvokeResponseOutput() X12AcknowledgementSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12AcknowledgementSettingsInvokeResponseOutput) ToX12AcknowledgementSettingsInvokeResponseOutputWithContext(ctx context.Context) X12AcknowledgementSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12AcknowledgementSettingsInvokeResponseOutput) ToX12AcknowledgementSettingsInvokeResponsePtrOutput() X12AcknowledgementSettingsInvokeResponsePtrOutput {
+	return o.ToX12AcknowledgementSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o X12AcknowledgementSettingsInvokeResponseOutput) ToX12AcknowledgementSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12AcknowledgementSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) *X12AcknowledgementSettingsInvokeResponse {
+		return &v
+	}).(X12AcknowledgementSettingsInvokeResponsePtrOutput)
+}
+
+// The acknowledgement control number lower bound.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) AcknowledgementControlNumberLowerBound() pulumi.IntOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) int { return v.AcknowledgementControlNumberLowerBound }).(pulumi.IntOutput)
+}
+
+// The acknowledgement control number prefix.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) *string { return v.AcknowledgementControlNumberPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The acknowledgement control number suffix.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) *string { return v.AcknowledgementControlNumberSuffix }).(pulumi.StringPtrOutput)
+}
+
+// The acknowledgement control number upper bound.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) AcknowledgementControlNumberUpperBound() pulumi.IntOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) int { return v.AcknowledgementControlNumberUpperBound }).(pulumi.IntOutput)
+}
+
+// The value indicating whether to batch functional acknowledgements.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) BatchFunctionalAcknowledgements() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) bool { return v.BatchFunctionalAcknowledgements }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to batch implementation acknowledgements.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) BatchImplementationAcknowledgements() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) bool { return v.BatchImplementationAcknowledgements }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to batch the technical acknowledgements.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) BatchTechnicalAcknowledgements() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) bool { return v.BatchTechnicalAcknowledgements }).(pulumi.BoolOutput)
+}
+
+// The functional acknowledgement version.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) FunctionalAcknowledgementVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) *string { return v.FunctionalAcknowledgementVersion }).(pulumi.StringPtrOutput)
+}
+
+// The implementation acknowledgement version.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) ImplementationAcknowledgementVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) *string {
+		return v.ImplementationAcknowledgementVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether functional acknowledgement is needed.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) NeedFunctionalAcknowledgement() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) bool { return v.NeedFunctionalAcknowledgement }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether implementation acknowledgement is needed.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) NeedImplementationAcknowledgement() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) bool { return v.NeedImplementationAcknowledgement }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether a loop is needed for valid messages.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) NeedLoopForValidMessages() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) bool { return v.NeedLoopForValidMessages }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether technical acknowledgement is needed.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) NeedTechnicalAcknowledgement() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) bool { return v.NeedTechnicalAcknowledgement }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to rollover acknowledgement control number.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) RolloverAcknowledgementControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) bool { return v.RolloverAcknowledgementControlNumber }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to send synchronous acknowledgement.
+func (o X12AcknowledgementSettingsInvokeResponseOutput) SendSynchronousAcknowledgement() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12AcknowledgementSettingsInvokeResponse) bool { return v.SendSynchronousAcknowledgement }).(pulumi.BoolOutput)
+}
+
+type X12AcknowledgementSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (X12AcknowledgementSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12AcknowledgementSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) ToX12AcknowledgementSettingsInvokeResponsePtrOutput() X12AcknowledgementSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) ToX12AcknowledgementSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12AcknowledgementSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) Elem() X12AcknowledgementSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) X12AcknowledgementSettingsInvokeResponse { return *v }).(X12AcknowledgementSettingsInvokeResponseOutput)
+}
+
+// The acknowledgement control number lower bound.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) AcknowledgementControlNumberLowerBound() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AcknowledgementControlNumberLowerBound
+	}).(pulumi.IntPtrOutput)
+}
+
+// The acknowledgement control number prefix.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) AcknowledgementControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AcknowledgementControlNumberPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The acknowledgement control number suffix.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) AcknowledgementControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AcknowledgementControlNumberSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The acknowledgement control number upper bound.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) AcknowledgementControlNumberUpperBound() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.AcknowledgementControlNumberUpperBound
+	}).(pulumi.IntPtrOutput)
+}
+
+// The value indicating whether to batch functional acknowledgements.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) BatchFunctionalAcknowledgements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.BatchFunctionalAcknowledgements
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to batch implementation acknowledgements.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) BatchImplementationAcknowledgements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.BatchImplementationAcknowledgements
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to batch the technical acknowledgements.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) BatchTechnicalAcknowledgements() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.BatchTechnicalAcknowledgements
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The functional acknowledgement version.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) FunctionalAcknowledgementVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionalAcknowledgementVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The implementation acknowledgement version.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) ImplementationAcknowledgementVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImplementationAcknowledgementVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether functional acknowledgement is needed.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) NeedFunctionalAcknowledgement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NeedFunctionalAcknowledgement
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether implementation acknowledgement is needed.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) NeedImplementationAcknowledgement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NeedImplementationAcknowledgement
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether a loop is needed for valid messages.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) NeedLoopForValidMessages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NeedLoopForValidMessages
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether technical acknowledgement is needed.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) NeedTechnicalAcknowledgement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.NeedTechnicalAcknowledgement
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to rollover acknowledgement control number.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) RolloverAcknowledgementControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RolloverAcknowledgementControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to send synchronous acknowledgement.
+func (o X12AcknowledgementSettingsInvokeResponsePtrOutput) SendSynchronousAcknowledgement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12AcknowledgementSettingsInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -26849,6 +39455,159 @@ func (o X12AgreementContentPtrOutput) SendAgreement() X12OneWayAgreementPtrOutpu
 }
 
 // The X12 agreement content.
+type X12AgreementContentInvokeResponse struct {
+	// The X12 one-way receive agreement.
+	ReceiveAgreement X12OneWayAgreementInvokeResponse `pulumi:"receiveAgreement"`
+	// The X12 one-way send agreement.
+	SendAgreement X12OneWayAgreementInvokeResponse `pulumi:"sendAgreement"`
+}
+
+// X12AgreementContentInvokeResponseInput is an input type that accepts X12AgreementContentInvokeResponseArgs and X12AgreementContentInvokeResponseOutput values.
+// You can construct a concrete instance of `X12AgreementContentInvokeResponseInput` via:
+//
+//          X12AgreementContentInvokeResponseArgs{...}
+type X12AgreementContentInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12AgreementContentInvokeResponseOutput() X12AgreementContentInvokeResponseOutput
+	ToX12AgreementContentInvokeResponseOutputWithContext(context.Context) X12AgreementContentInvokeResponseOutput
+}
+
+// The X12 agreement content.
+type X12AgreementContentInvokeResponseArgs struct {
+	// The X12 one-way receive agreement.
+	ReceiveAgreement X12OneWayAgreementInvokeResponseInput `pulumi:"receiveAgreement"`
+	// The X12 one-way send agreement.
+	SendAgreement X12OneWayAgreementInvokeResponseInput `pulumi:"sendAgreement"`
+}
+
+func (X12AgreementContentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12AgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (i X12AgreementContentInvokeResponseArgs) ToX12AgreementContentInvokeResponseOutput() X12AgreementContentInvokeResponseOutput {
+	return i.ToX12AgreementContentInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12AgreementContentInvokeResponseArgs) ToX12AgreementContentInvokeResponseOutputWithContext(ctx context.Context) X12AgreementContentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12AgreementContentInvokeResponseOutput)
+}
+
+func (i X12AgreementContentInvokeResponseArgs) ToX12AgreementContentInvokeResponsePtrOutput() X12AgreementContentInvokeResponsePtrOutput {
+	return i.ToX12AgreementContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i X12AgreementContentInvokeResponseArgs) ToX12AgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) X12AgreementContentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12AgreementContentInvokeResponseOutput).ToX12AgreementContentInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// X12AgreementContentInvokeResponsePtrInput is an input type that accepts X12AgreementContentInvokeResponseArgs, X12AgreementContentInvokeResponsePtr and X12AgreementContentInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `X12AgreementContentInvokeResponsePtrInput` via:
+//
+//          X12AgreementContentInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type X12AgreementContentInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToX12AgreementContentInvokeResponsePtrOutput() X12AgreementContentInvokeResponsePtrOutput
+	ToX12AgreementContentInvokeResponsePtrOutputWithContext(context.Context) X12AgreementContentInvokeResponsePtrOutput
+}
+
+type x12agreementContentInvokeResponsePtrType X12AgreementContentInvokeResponseArgs
+
+func X12AgreementContentInvokeResponsePtr(v *X12AgreementContentInvokeResponseArgs) X12AgreementContentInvokeResponsePtrInput {
+	return (*x12agreementContentInvokeResponsePtrType)(v)
+}
+
+func (*x12agreementContentInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12AgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (i *x12agreementContentInvokeResponsePtrType) ToX12AgreementContentInvokeResponsePtrOutput() X12AgreementContentInvokeResponsePtrOutput {
+	return i.ToX12AgreementContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *x12agreementContentInvokeResponsePtrType) ToX12AgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) X12AgreementContentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12AgreementContentInvokeResponsePtrOutput)
+}
+
+// The X12 agreement content.
+type X12AgreementContentInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12AgreementContentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12AgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (o X12AgreementContentInvokeResponseOutput) ToX12AgreementContentInvokeResponseOutput() X12AgreementContentInvokeResponseOutput {
+	return o
+}
+
+func (o X12AgreementContentInvokeResponseOutput) ToX12AgreementContentInvokeResponseOutputWithContext(ctx context.Context) X12AgreementContentInvokeResponseOutput {
+	return o
+}
+
+func (o X12AgreementContentInvokeResponseOutput) ToX12AgreementContentInvokeResponsePtrOutput() X12AgreementContentInvokeResponsePtrOutput {
+	return o.ToX12AgreementContentInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o X12AgreementContentInvokeResponseOutput) ToX12AgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) X12AgreementContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v X12AgreementContentInvokeResponse) *X12AgreementContentInvokeResponse {
+		return &v
+	}).(X12AgreementContentInvokeResponsePtrOutput)
+}
+
+// The X12 one-way receive agreement.
+func (o X12AgreementContentInvokeResponseOutput) ReceiveAgreement() X12OneWayAgreementInvokeResponseOutput {
+	return o.ApplyT(func(v X12AgreementContentInvokeResponse) X12OneWayAgreementInvokeResponse { return v.ReceiveAgreement }).(X12OneWayAgreementInvokeResponseOutput)
+}
+
+// The X12 one-way send agreement.
+func (o X12AgreementContentInvokeResponseOutput) SendAgreement() X12OneWayAgreementInvokeResponseOutput {
+	return o.ApplyT(func(v X12AgreementContentInvokeResponse) X12OneWayAgreementInvokeResponse { return v.SendAgreement }).(X12OneWayAgreementInvokeResponseOutput)
+}
+
+type X12AgreementContentInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (X12AgreementContentInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12AgreementContentInvokeResponse)(nil)).Elem()
+}
+
+func (o X12AgreementContentInvokeResponsePtrOutput) ToX12AgreementContentInvokeResponsePtrOutput() X12AgreementContentInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12AgreementContentInvokeResponsePtrOutput) ToX12AgreementContentInvokeResponsePtrOutputWithContext(ctx context.Context) X12AgreementContentInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12AgreementContentInvokeResponsePtrOutput) Elem() X12AgreementContentInvokeResponseOutput {
+	return o.ApplyT(func(v *X12AgreementContentInvokeResponse) X12AgreementContentInvokeResponse { return *v }).(X12AgreementContentInvokeResponseOutput)
+}
+
+// The X12 one-way receive agreement.
+func (o X12AgreementContentInvokeResponsePtrOutput) ReceiveAgreement() X12OneWayAgreementInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12AgreementContentInvokeResponse) *X12OneWayAgreementInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ReceiveAgreement
+	}).(X12OneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The X12 one-way send agreement.
+func (o X12AgreementContentInvokeResponsePtrOutput) SendAgreement() X12OneWayAgreementInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12AgreementContentInvokeResponse) *X12OneWayAgreementInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SendAgreement
+	}).(X12OneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The X12 agreement content.
 type X12AgreementContentResponse struct {
 	// The X12 one-way receive agreement.
 	ReceiveAgreement X12OneWayAgreementResponse `pulumi:"receiveAgreement"`
@@ -27171,6 +39930,178 @@ func (o X12DelimiterOverridesArrayOutput) Index(i pulumi.IntInput) X12DelimiterO
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) X12DelimiterOverrides {
 		return vs[0].([]X12DelimiterOverrides)[vs[1].(int)]
 	}).(X12DelimiterOverridesOutput)
+}
+
+// The X12 delimiter override settings.
+type X12DelimiterOverridesInvokeResponse struct {
+	// The component separator.
+	ComponentSeparator int `pulumi:"componentSeparator"`
+	// The data element separator.
+	DataElementSeparator int `pulumi:"dataElementSeparator"`
+	// The message id.
+	MessageId *string `pulumi:"messageId"`
+	// The protocol version.
+	ProtocolVersion *string `pulumi:"protocolVersion"`
+	// The replacement character.
+	ReplaceCharacter int `pulumi:"replaceCharacter"`
+	// The value indicating whether to replace separators in payload.
+	ReplaceSeparatorsInPayload bool `pulumi:"replaceSeparatorsInPayload"`
+	// The segment terminator.
+	SegmentTerminator int `pulumi:"segmentTerminator"`
+	// The segment terminator suffix.
+	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	// The target namespace on which this delimiter settings has to be applied.
+	TargetNamespace *string `pulumi:"targetNamespace"`
+}
+
+// X12DelimiterOverridesInvokeResponseInput is an input type that accepts X12DelimiterOverridesInvokeResponseArgs and X12DelimiterOverridesInvokeResponseOutput values.
+// You can construct a concrete instance of `X12DelimiterOverridesInvokeResponseInput` via:
+//
+//          X12DelimiterOverridesInvokeResponseArgs{...}
+type X12DelimiterOverridesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12DelimiterOverridesInvokeResponseOutput() X12DelimiterOverridesInvokeResponseOutput
+	ToX12DelimiterOverridesInvokeResponseOutputWithContext(context.Context) X12DelimiterOverridesInvokeResponseOutput
+}
+
+// The X12 delimiter override settings.
+type X12DelimiterOverridesInvokeResponseArgs struct {
+	// The component separator.
+	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
+	// The data element separator.
+	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
+	// The message id.
+	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
+	// The protocol version.
+	ProtocolVersion pulumi.StringPtrInput `pulumi:"protocolVersion"`
+	// The replacement character.
+	ReplaceCharacter pulumi.IntInput `pulumi:"replaceCharacter"`
+	// The value indicating whether to replace separators in payload.
+	ReplaceSeparatorsInPayload pulumi.BoolInput `pulumi:"replaceSeparatorsInPayload"`
+	// The segment terminator.
+	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
+	// The segment terminator suffix.
+	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	// The target namespace on which this delimiter settings has to be applied.
+	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
+}
+
+func (X12DelimiterOverridesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12DelimiterOverridesInvokeResponse)(nil)).Elem()
+}
+
+func (i X12DelimiterOverridesInvokeResponseArgs) ToX12DelimiterOverridesInvokeResponseOutput() X12DelimiterOverridesInvokeResponseOutput {
+	return i.ToX12DelimiterOverridesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12DelimiterOverridesInvokeResponseArgs) ToX12DelimiterOverridesInvokeResponseOutputWithContext(ctx context.Context) X12DelimiterOverridesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12DelimiterOverridesInvokeResponseOutput)
+}
+
+// X12DelimiterOverridesInvokeResponseArrayInput is an input type that accepts X12DelimiterOverridesInvokeResponseArray and X12DelimiterOverridesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `X12DelimiterOverridesInvokeResponseArrayInput` via:
+//
+//          X12DelimiterOverridesInvokeResponseArray{ X12DelimiterOverridesInvokeResponseArgs{...} }
+type X12DelimiterOverridesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToX12DelimiterOverridesInvokeResponseArrayOutput() X12DelimiterOverridesInvokeResponseArrayOutput
+	ToX12DelimiterOverridesInvokeResponseArrayOutputWithContext(context.Context) X12DelimiterOverridesInvokeResponseArrayOutput
+}
+
+type X12DelimiterOverridesInvokeResponseArray []X12DelimiterOverridesInvokeResponseInput
+
+func (X12DelimiterOverridesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]X12DelimiterOverridesInvokeResponse)(nil)).Elem()
+}
+
+func (i X12DelimiterOverridesInvokeResponseArray) ToX12DelimiterOverridesInvokeResponseArrayOutput() X12DelimiterOverridesInvokeResponseArrayOutput {
+	return i.ToX12DelimiterOverridesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i X12DelimiterOverridesInvokeResponseArray) ToX12DelimiterOverridesInvokeResponseArrayOutputWithContext(ctx context.Context) X12DelimiterOverridesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12DelimiterOverridesInvokeResponseArrayOutput)
+}
+
+// The X12 delimiter override settings.
+type X12DelimiterOverridesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12DelimiterOverridesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12DelimiterOverridesInvokeResponse)(nil)).Elem()
+}
+
+func (o X12DelimiterOverridesInvokeResponseOutput) ToX12DelimiterOverridesInvokeResponseOutput() X12DelimiterOverridesInvokeResponseOutput {
+	return o
+}
+
+func (o X12DelimiterOverridesInvokeResponseOutput) ToX12DelimiterOverridesInvokeResponseOutputWithContext(ctx context.Context) X12DelimiterOverridesInvokeResponseOutput {
+	return o
+}
+
+// The component separator.
+func (o X12DelimiterOverridesInvokeResponseOutput) ComponentSeparator() pulumi.IntOutput {
+	return o.ApplyT(func(v X12DelimiterOverridesInvokeResponse) int { return v.ComponentSeparator }).(pulumi.IntOutput)
+}
+
+// The data element separator.
+func (o X12DelimiterOverridesInvokeResponseOutput) DataElementSeparator() pulumi.IntOutput {
+	return o.ApplyT(func(v X12DelimiterOverridesInvokeResponse) int { return v.DataElementSeparator }).(pulumi.IntOutput)
+}
+
+// The message id.
+func (o X12DelimiterOverridesInvokeResponseOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12DelimiterOverridesInvokeResponse) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+}
+
+// The protocol version.
+func (o X12DelimiterOverridesInvokeResponseOutput) ProtocolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12DelimiterOverridesInvokeResponse) *string { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
+}
+
+// The replacement character.
+func (o X12DelimiterOverridesInvokeResponseOutput) ReplaceCharacter() pulumi.IntOutput {
+	return o.ApplyT(func(v X12DelimiterOverridesInvokeResponse) int { return v.ReplaceCharacter }).(pulumi.IntOutput)
+}
+
+// The value indicating whether to replace separators in payload.
+func (o X12DelimiterOverridesInvokeResponseOutput) ReplaceSeparatorsInPayload() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12DelimiterOverridesInvokeResponse) bool { return v.ReplaceSeparatorsInPayload }).(pulumi.BoolOutput)
+}
+
+// The segment terminator.
+func (o X12DelimiterOverridesInvokeResponseOutput) SegmentTerminator() pulumi.IntOutput {
+	return o.ApplyT(func(v X12DelimiterOverridesInvokeResponse) int { return v.SegmentTerminator }).(pulumi.IntOutput)
+}
+
+// The segment terminator suffix.
+func (o X12DelimiterOverridesInvokeResponseOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v X12DelimiterOverridesInvokeResponse) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+}
+
+// The target namespace on which this delimiter settings has to be applied.
+func (o X12DelimiterOverridesInvokeResponseOutput) TargetNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12DelimiterOverridesInvokeResponse) *string { return v.TargetNamespace }).(pulumi.StringPtrOutput)
+}
+
+type X12DelimiterOverridesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (X12DelimiterOverridesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]X12DelimiterOverridesInvokeResponse)(nil)).Elem()
+}
+
+func (o X12DelimiterOverridesInvokeResponseArrayOutput) ToX12DelimiterOverridesInvokeResponseArrayOutput() X12DelimiterOverridesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o X12DelimiterOverridesInvokeResponseArrayOutput) ToX12DelimiterOverridesInvokeResponseArrayOutputWithContext(ctx context.Context) X12DelimiterOverridesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o X12DelimiterOverridesInvokeResponseArrayOutput) Index(i pulumi.IntInput) X12DelimiterOverridesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) X12DelimiterOverridesInvokeResponse {
+		return vs[0].([]X12DelimiterOverridesInvokeResponse)[vs[1].(int)]
+	}).(X12DelimiterOverridesInvokeResponseOutput)
 }
 
 // The X12 delimiter override settings.
@@ -27524,6 +40455,187 @@ func (o X12EnvelopeOverrideArrayOutput) Index(i pulumi.IntInput) X12EnvelopeOver
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) X12EnvelopeOverride {
 		return vs[0].([]X12EnvelopeOverride)[vs[1].(int)]
 	}).(X12EnvelopeOverrideOutput)
+}
+
+// The X12 envelope override settings.
+type X12EnvelopeOverrideInvokeResponse struct {
+	// The date format.
+	DateFormat string `pulumi:"dateFormat"`
+	// The functional identifier code.
+	FunctionalIdentifierCode *string `pulumi:"functionalIdentifierCode"`
+	// The header version.
+	HeaderVersion string `pulumi:"headerVersion"`
+	// The message id on which this envelope settings has to be applied.
+	MessageId string `pulumi:"messageId"`
+	// The protocol version on which this envelope settings has to be applied.
+	ProtocolVersion string `pulumi:"protocolVersion"`
+	// The receiver application id.
+	ReceiverApplicationId string `pulumi:"receiverApplicationId"`
+	// The responsible agency code.
+	ResponsibleAgencyCode string `pulumi:"responsibleAgencyCode"`
+	// The sender application id.
+	SenderApplicationId string `pulumi:"senderApplicationId"`
+	// The target namespace on which this envelope settings has to be applied.
+	TargetNamespace string `pulumi:"targetNamespace"`
+	// The time format.
+	TimeFormat string `pulumi:"timeFormat"`
+}
+
+// X12EnvelopeOverrideInvokeResponseInput is an input type that accepts X12EnvelopeOverrideInvokeResponseArgs and X12EnvelopeOverrideInvokeResponseOutput values.
+// You can construct a concrete instance of `X12EnvelopeOverrideInvokeResponseInput` via:
+//
+//          X12EnvelopeOverrideInvokeResponseArgs{...}
+type X12EnvelopeOverrideInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12EnvelopeOverrideInvokeResponseOutput() X12EnvelopeOverrideInvokeResponseOutput
+	ToX12EnvelopeOverrideInvokeResponseOutputWithContext(context.Context) X12EnvelopeOverrideInvokeResponseOutput
+}
+
+// The X12 envelope override settings.
+type X12EnvelopeOverrideInvokeResponseArgs struct {
+	// The date format.
+	DateFormat pulumi.StringInput `pulumi:"dateFormat"`
+	// The functional identifier code.
+	FunctionalIdentifierCode pulumi.StringPtrInput `pulumi:"functionalIdentifierCode"`
+	// The header version.
+	HeaderVersion pulumi.StringInput `pulumi:"headerVersion"`
+	// The message id on which this envelope settings has to be applied.
+	MessageId pulumi.StringInput `pulumi:"messageId"`
+	// The protocol version on which this envelope settings has to be applied.
+	ProtocolVersion pulumi.StringInput `pulumi:"protocolVersion"`
+	// The receiver application id.
+	ReceiverApplicationId pulumi.StringInput `pulumi:"receiverApplicationId"`
+	// The responsible agency code.
+	ResponsibleAgencyCode pulumi.StringInput `pulumi:"responsibleAgencyCode"`
+	// The sender application id.
+	SenderApplicationId pulumi.StringInput `pulumi:"senderApplicationId"`
+	// The target namespace on which this envelope settings has to be applied.
+	TargetNamespace pulumi.StringInput `pulumi:"targetNamespace"`
+	// The time format.
+	TimeFormat pulumi.StringInput `pulumi:"timeFormat"`
+}
+
+func (X12EnvelopeOverrideInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12EnvelopeOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i X12EnvelopeOverrideInvokeResponseArgs) ToX12EnvelopeOverrideInvokeResponseOutput() X12EnvelopeOverrideInvokeResponseOutput {
+	return i.ToX12EnvelopeOverrideInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12EnvelopeOverrideInvokeResponseArgs) ToX12EnvelopeOverrideInvokeResponseOutputWithContext(ctx context.Context) X12EnvelopeOverrideInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeOverrideInvokeResponseOutput)
+}
+
+// X12EnvelopeOverrideInvokeResponseArrayInput is an input type that accepts X12EnvelopeOverrideInvokeResponseArray and X12EnvelopeOverrideInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `X12EnvelopeOverrideInvokeResponseArrayInput` via:
+//
+//          X12EnvelopeOverrideInvokeResponseArray{ X12EnvelopeOverrideInvokeResponseArgs{...} }
+type X12EnvelopeOverrideInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToX12EnvelopeOverrideInvokeResponseArrayOutput() X12EnvelopeOverrideInvokeResponseArrayOutput
+	ToX12EnvelopeOverrideInvokeResponseArrayOutputWithContext(context.Context) X12EnvelopeOverrideInvokeResponseArrayOutput
+}
+
+type X12EnvelopeOverrideInvokeResponseArray []X12EnvelopeOverrideInvokeResponseInput
+
+func (X12EnvelopeOverrideInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]X12EnvelopeOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i X12EnvelopeOverrideInvokeResponseArray) ToX12EnvelopeOverrideInvokeResponseArrayOutput() X12EnvelopeOverrideInvokeResponseArrayOutput {
+	return i.ToX12EnvelopeOverrideInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i X12EnvelopeOverrideInvokeResponseArray) ToX12EnvelopeOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) X12EnvelopeOverrideInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeOverrideInvokeResponseArrayOutput)
+}
+
+// The X12 envelope override settings.
+type X12EnvelopeOverrideInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12EnvelopeOverrideInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12EnvelopeOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o X12EnvelopeOverrideInvokeResponseOutput) ToX12EnvelopeOverrideInvokeResponseOutput() X12EnvelopeOverrideInvokeResponseOutput {
+	return o
+}
+
+func (o X12EnvelopeOverrideInvokeResponseOutput) ToX12EnvelopeOverrideInvokeResponseOutputWithContext(ctx context.Context) X12EnvelopeOverrideInvokeResponseOutput {
+	return o
+}
+
+// The date format.
+func (o X12EnvelopeOverrideInvokeResponseOutput) DateFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeOverrideInvokeResponse) string { return v.DateFormat }).(pulumi.StringOutput)
+}
+
+// The functional identifier code.
+func (o X12EnvelopeOverrideInvokeResponseOutput) FunctionalIdentifierCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12EnvelopeOverrideInvokeResponse) *string { return v.FunctionalIdentifierCode }).(pulumi.StringPtrOutput)
+}
+
+// The header version.
+func (o X12EnvelopeOverrideInvokeResponseOutput) HeaderVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeOverrideInvokeResponse) string { return v.HeaderVersion }).(pulumi.StringOutput)
+}
+
+// The message id on which this envelope settings has to be applied.
+func (o X12EnvelopeOverrideInvokeResponseOutput) MessageId() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeOverrideInvokeResponse) string { return v.MessageId }).(pulumi.StringOutput)
+}
+
+// The protocol version on which this envelope settings has to be applied.
+func (o X12EnvelopeOverrideInvokeResponseOutput) ProtocolVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeOverrideInvokeResponse) string { return v.ProtocolVersion }).(pulumi.StringOutput)
+}
+
+// The receiver application id.
+func (o X12EnvelopeOverrideInvokeResponseOutput) ReceiverApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeOverrideInvokeResponse) string { return v.ReceiverApplicationId }).(pulumi.StringOutput)
+}
+
+// The responsible agency code.
+func (o X12EnvelopeOverrideInvokeResponseOutput) ResponsibleAgencyCode() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeOverrideInvokeResponse) string { return v.ResponsibleAgencyCode }).(pulumi.StringOutput)
+}
+
+// The sender application id.
+func (o X12EnvelopeOverrideInvokeResponseOutput) SenderApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeOverrideInvokeResponse) string { return v.SenderApplicationId }).(pulumi.StringOutput)
+}
+
+// The target namespace on which this envelope settings has to be applied.
+func (o X12EnvelopeOverrideInvokeResponseOutput) TargetNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeOverrideInvokeResponse) string { return v.TargetNamespace }).(pulumi.StringOutput)
+}
+
+// The time format.
+func (o X12EnvelopeOverrideInvokeResponseOutput) TimeFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeOverrideInvokeResponse) string { return v.TimeFormat }).(pulumi.StringOutput)
+}
+
+type X12EnvelopeOverrideInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (X12EnvelopeOverrideInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]X12EnvelopeOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o X12EnvelopeOverrideInvokeResponseArrayOutput) ToX12EnvelopeOverrideInvokeResponseArrayOutput() X12EnvelopeOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o X12EnvelopeOverrideInvokeResponseArrayOutput) ToX12EnvelopeOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) X12EnvelopeOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o X12EnvelopeOverrideInvokeResponseArrayOutput) Index(i pulumi.IntInput) X12EnvelopeOverrideInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) X12EnvelopeOverrideInvokeResponse {
+		return vs[0].([]X12EnvelopeOverrideInvokeResponse)[vs[1].(int)]
+	}).(X12EnvelopeOverrideInvokeResponseOutput)
 }
 
 // The X12 envelope override settings.
@@ -28271,6 +41383,577 @@ func (o X12EnvelopeSettingsPtrOutput) UsageIndicator() pulumi.StringPtrOutput {
 // The value indicating whether to use control standards id as repetition character.
 func (o X12EnvelopeSettingsPtrOutput) UseControlStandardsIdAsRepetitionCharacter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12EnvelopeSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UseControlStandardsIdAsRepetitionCharacter
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The X12 agreement envelope settings.
+type X12EnvelopeSettingsInvokeResponse struct {
+	// The controls standards id.
+	ControlStandardsId int `pulumi:"controlStandardsId"`
+	// The control version number.
+	ControlVersionNumber string `pulumi:"controlVersionNumber"`
+	// The value indicating whether to enable default group headers.
+	EnableDefaultGroupHeaders bool `pulumi:"enableDefaultGroupHeaders"`
+	// The functional group id.
+	FunctionalGroupId *string `pulumi:"functionalGroupId"`
+	// The group control number lower bound.
+	GroupControlNumberLowerBound int `pulumi:"groupControlNumberLowerBound"`
+	// The group control number upper bound.
+	GroupControlNumberUpperBound int `pulumi:"groupControlNumberUpperBound"`
+	// The group header agency code.
+	GroupHeaderAgencyCode string `pulumi:"groupHeaderAgencyCode"`
+	// The group header date format.
+	GroupHeaderDateFormat string `pulumi:"groupHeaderDateFormat"`
+	// The group header time format.
+	GroupHeaderTimeFormat string `pulumi:"groupHeaderTimeFormat"`
+	// The group header version.
+	GroupHeaderVersion string `pulumi:"groupHeaderVersion"`
+	// The interchange  control number lower bound.
+	InterchangeControlNumberLowerBound int `pulumi:"interchangeControlNumberLowerBound"`
+	// The interchange  control number upper bound.
+	InterchangeControlNumberUpperBound int `pulumi:"interchangeControlNumberUpperBound"`
+	// The value indicating whether to overwrite existing transaction set control number.
+	OverwriteExistingTransactionSetControlNumber bool `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	// The receiver application id.
+	ReceiverApplicationId string `pulumi:"receiverApplicationId"`
+	// The value indicating whether to rollover group control number.
+	RolloverGroupControlNumber bool `pulumi:"rolloverGroupControlNumber"`
+	// The value indicating whether to rollover interchange control number.
+	RolloverInterchangeControlNumber bool `pulumi:"rolloverInterchangeControlNumber"`
+	// The value indicating whether to rollover transaction set control number.
+	RolloverTransactionSetControlNumber bool `pulumi:"rolloverTransactionSetControlNumber"`
+	// The sender application id.
+	SenderApplicationId string `pulumi:"senderApplicationId"`
+	// The transaction set control number lower bound.
+	TransactionSetControlNumberLowerBound int `pulumi:"transactionSetControlNumberLowerBound"`
+	// The transaction set control number prefix.
+	TransactionSetControlNumberPrefix *string `pulumi:"transactionSetControlNumberPrefix"`
+	// The transaction set control number suffix.
+	TransactionSetControlNumberSuffix *string `pulumi:"transactionSetControlNumberSuffix"`
+	// The transaction set control number upper bound.
+	TransactionSetControlNumberUpperBound int `pulumi:"transactionSetControlNumberUpperBound"`
+	// The usage indicator.
+	UsageIndicator string `pulumi:"usageIndicator"`
+	// The value indicating whether to use control standards id as repetition character.
+	UseControlStandardsIdAsRepetitionCharacter bool `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
+}
+
+// X12EnvelopeSettingsInvokeResponseInput is an input type that accepts X12EnvelopeSettingsInvokeResponseArgs and X12EnvelopeSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `X12EnvelopeSettingsInvokeResponseInput` via:
+//
+//          X12EnvelopeSettingsInvokeResponseArgs{...}
+type X12EnvelopeSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12EnvelopeSettingsInvokeResponseOutput() X12EnvelopeSettingsInvokeResponseOutput
+	ToX12EnvelopeSettingsInvokeResponseOutputWithContext(context.Context) X12EnvelopeSettingsInvokeResponseOutput
+}
+
+// The X12 agreement envelope settings.
+type X12EnvelopeSettingsInvokeResponseArgs struct {
+	// The controls standards id.
+	ControlStandardsId pulumi.IntInput `pulumi:"controlStandardsId"`
+	// The control version number.
+	ControlVersionNumber pulumi.StringInput `pulumi:"controlVersionNumber"`
+	// The value indicating whether to enable default group headers.
+	EnableDefaultGroupHeaders pulumi.BoolInput `pulumi:"enableDefaultGroupHeaders"`
+	// The functional group id.
+	FunctionalGroupId pulumi.StringPtrInput `pulumi:"functionalGroupId"`
+	// The group control number lower bound.
+	GroupControlNumberLowerBound pulumi.IntInput `pulumi:"groupControlNumberLowerBound"`
+	// The group control number upper bound.
+	GroupControlNumberUpperBound pulumi.IntInput `pulumi:"groupControlNumberUpperBound"`
+	// The group header agency code.
+	GroupHeaderAgencyCode pulumi.StringInput `pulumi:"groupHeaderAgencyCode"`
+	// The group header date format.
+	GroupHeaderDateFormat pulumi.StringInput `pulumi:"groupHeaderDateFormat"`
+	// The group header time format.
+	GroupHeaderTimeFormat pulumi.StringInput `pulumi:"groupHeaderTimeFormat"`
+	// The group header version.
+	GroupHeaderVersion pulumi.StringInput `pulumi:"groupHeaderVersion"`
+	// The interchange  control number lower bound.
+	InterchangeControlNumberLowerBound pulumi.IntInput `pulumi:"interchangeControlNumberLowerBound"`
+	// The interchange  control number upper bound.
+	InterchangeControlNumberUpperBound pulumi.IntInput `pulumi:"interchangeControlNumberUpperBound"`
+	// The value indicating whether to overwrite existing transaction set control number.
+	OverwriteExistingTransactionSetControlNumber pulumi.BoolInput `pulumi:"overwriteExistingTransactionSetControlNumber"`
+	// The receiver application id.
+	ReceiverApplicationId pulumi.StringInput `pulumi:"receiverApplicationId"`
+	// The value indicating whether to rollover group control number.
+	RolloverGroupControlNumber pulumi.BoolInput `pulumi:"rolloverGroupControlNumber"`
+	// The value indicating whether to rollover interchange control number.
+	RolloverInterchangeControlNumber pulumi.BoolInput `pulumi:"rolloverInterchangeControlNumber"`
+	// The value indicating whether to rollover transaction set control number.
+	RolloverTransactionSetControlNumber pulumi.BoolInput `pulumi:"rolloverTransactionSetControlNumber"`
+	// The sender application id.
+	SenderApplicationId pulumi.StringInput `pulumi:"senderApplicationId"`
+	// The transaction set control number lower bound.
+	TransactionSetControlNumberLowerBound pulumi.IntInput `pulumi:"transactionSetControlNumberLowerBound"`
+	// The transaction set control number prefix.
+	TransactionSetControlNumberPrefix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberPrefix"`
+	// The transaction set control number suffix.
+	TransactionSetControlNumberSuffix pulumi.StringPtrInput `pulumi:"transactionSetControlNumberSuffix"`
+	// The transaction set control number upper bound.
+	TransactionSetControlNumberUpperBound pulumi.IntInput `pulumi:"transactionSetControlNumberUpperBound"`
+	// The usage indicator.
+	UsageIndicator pulumi.StringInput `pulumi:"usageIndicator"`
+	// The value indicating whether to use control standards id as repetition character.
+	UseControlStandardsIdAsRepetitionCharacter pulumi.BoolInput `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
+}
+
+func (X12EnvelopeSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12EnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i X12EnvelopeSettingsInvokeResponseArgs) ToX12EnvelopeSettingsInvokeResponseOutput() X12EnvelopeSettingsInvokeResponseOutput {
+	return i.ToX12EnvelopeSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12EnvelopeSettingsInvokeResponseArgs) ToX12EnvelopeSettingsInvokeResponseOutputWithContext(ctx context.Context) X12EnvelopeSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeSettingsInvokeResponseOutput)
+}
+
+func (i X12EnvelopeSettingsInvokeResponseArgs) ToX12EnvelopeSettingsInvokeResponsePtrOutput() X12EnvelopeSettingsInvokeResponsePtrOutput {
+	return i.ToX12EnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i X12EnvelopeSettingsInvokeResponseArgs) ToX12EnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12EnvelopeSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeSettingsInvokeResponseOutput).ToX12EnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// X12EnvelopeSettingsInvokeResponsePtrInput is an input type that accepts X12EnvelopeSettingsInvokeResponseArgs, X12EnvelopeSettingsInvokeResponsePtr and X12EnvelopeSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `X12EnvelopeSettingsInvokeResponsePtrInput` via:
+//
+//          X12EnvelopeSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type X12EnvelopeSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToX12EnvelopeSettingsInvokeResponsePtrOutput() X12EnvelopeSettingsInvokeResponsePtrOutput
+	ToX12EnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Context) X12EnvelopeSettingsInvokeResponsePtrOutput
+}
+
+type x12envelopeSettingsInvokeResponsePtrType X12EnvelopeSettingsInvokeResponseArgs
+
+func X12EnvelopeSettingsInvokeResponsePtr(v *X12EnvelopeSettingsInvokeResponseArgs) X12EnvelopeSettingsInvokeResponsePtrInput {
+	return (*x12envelopeSettingsInvokeResponsePtrType)(v)
+}
+
+func (*x12envelopeSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12EnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *x12envelopeSettingsInvokeResponsePtrType) ToX12EnvelopeSettingsInvokeResponsePtrOutput() X12EnvelopeSettingsInvokeResponsePtrOutput {
+	return i.ToX12EnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *x12envelopeSettingsInvokeResponsePtrType) ToX12EnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12EnvelopeSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12EnvelopeSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 agreement envelope settings.
+type X12EnvelopeSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12EnvelopeSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12EnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12EnvelopeSettingsInvokeResponseOutput) ToX12EnvelopeSettingsInvokeResponseOutput() X12EnvelopeSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12EnvelopeSettingsInvokeResponseOutput) ToX12EnvelopeSettingsInvokeResponseOutputWithContext(ctx context.Context) X12EnvelopeSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12EnvelopeSettingsInvokeResponseOutput) ToX12EnvelopeSettingsInvokeResponsePtrOutput() X12EnvelopeSettingsInvokeResponsePtrOutput {
+	return o.ToX12EnvelopeSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o X12EnvelopeSettingsInvokeResponseOutput) ToX12EnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12EnvelopeSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) *X12EnvelopeSettingsInvokeResponse {
+		return &v
+	}).(X12EnvelopeSettingsInvokeResponsePtrOutput)
+}
+
+// The controls standards id.
+func (o X12EnvelopeSettingsInvokeResponseOutput) ControlStandardsId() pulumi.IntOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) int { return v.ControlStandardsId }).(pulumi.IntOutput)
+}
+
+// The control version number.
+func (o X12EnvelopeSettingsInvokeResponseOutput) ControlVersionNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) string { return v.ControlVersionNumber }).(pulumi.StringOutput)
+}
+
+// The value indicating whether to enable default group headers.
+func (o X12EnvelopeSettingsInvokeResponseOutput) EnableDefaultGroupHeaders() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) bool { return v.EnableDefaultGroupHeaders }).(pulumi.BoolOutput)
+}
+
+// The functional group id.
+func (o X12EnvelopeSettingsInvokeResponseOutput) FunctionalGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) *string { return v.FunctionalGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The group control number lower bound.
+func (o X12EnvelopeSettingsInvokeResponseOutput) GroupControlNumberLowerBound() pulumi.IntOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) int { return v.GroupControlNumberLowerBound }).(pulumi.IntOutput)
+}
+
+// The group control number upper bound.
+func (o X12EnvelopeSettingsInvokeResponseOutput) GroupControlNumberUpperBound() pulumi.IntOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) int { return v.GroupControlNumberUpperBound }).(pulumi.IntOutput)
+}
+
+// The group header agency code.
+func (o X12EnvelopeSettingsInvokeResponseOutput) GroupHeaderAgencyCode() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) string { return v.GroupHeaderAgencyCode }).(pulumi.StringOutput)
+}
+
+// The group header date format.
+func (o X12EnvelopeSettingsInvokeResponseOutput) GroupHeaderDateFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) string { return v.GroupHeaderDateFormat }).(pulumi.StringOutput)
+}
+
+// The group header time format.
+func (o X12EnvelopeSettingsInvokeResponseOutput) GroupHeaderTimeFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) string { return v.GroupHeaderTimeFormat }).(pulumi.StringOutput)
+}
+
+// The group header version.
+func (o X12EnvelopeSettingsInvokeResponseOutput) GroupHeaderVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) string { return v.GroupHeaderVersion }).(pulumi.StringOutput)
+}
+
+// The interchange  control number lower bound.
+func (o X12EnvelopeSettingsInvokeResponseOutput) InterchangeControlNumberLowerBound() pulumi.IntOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) int { return v.InterchangeControlNumberLowerBound }).(pulumi.IntOutput)
+}
+
+// The interchange  control number upper bound.
+func (o X12EnvelopeSettingsInvokeResponseOutput) InterchangeControlNumberUpperBound() pulumi.IntOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) int { return v.InterchangeControlNumberUpperBound }).(pulumi.IntOutput)
+}
+
+// The value indicating whether to overwrite existing transaction set control number.
+func (o X12EnvelopeSettingsInvokeResponseOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) bool { return v.OverwriteExistingTransactionSetControlNumber }).(pulumi.BoolOutput)
+}
+
+// The receiver application id.
+func (o X12EnvelopeSettingsInvokeResponseOutput) ReceiverApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) string { return v.ReceiverApplicationId }).(pulumi.StringOutput)
+}
+
+// The value indicating whether to rollover group control number.
+func (o X12EnvelopeSettingsInvokeResponseOutput) RolloverGroupControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) bool { return v.RolloverGroupControlNumber }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to rollover interchange control number.
+func (o X12EnvelopeSettingsInvokeResponseOutput) RolloverInterchangeControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) bool { return v.RolloverInterchangeControlNumber }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to rollover transaction set control number.
+func (o X12EnvelopeSettingsInvokeResponseOutput) RolloverTransactionSetControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) bool { return v.RolloverTransactionSetControlNumber }).(pulumi.BoolOutput)
+}
+
+// The sender application id.
+func (o X12EnvelopeSettingsInvokeResponseOutput) SenderApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) string { return v.SenderApplicationId }).(pulumi.StringOutput)
+}
+
+// The transaction set control number lower bound.
+func (o X12EnvelopeSettingsInvokeResponseOutput) TransactionSetControlNumberLowerBound() pulumi.IntOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) int { return v.TransactionSetControlNumberLowerBound }).(pulumi.IntOutput)
+}
+
+// The transaction set control number prefix.
+func (o X12EnvelopeSettingsInvokeResponseOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) *string { return v.TransactionSetControlNumberPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number suffix.
+func (o X12EnvelopeSettingsInvokeResponseOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) *string { return v.TransactionSetControlNumberSuffix }).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number upper bound.
+func (o X12EnvelopeSettingsInvokeResponseOutput) TransactionSetControlNumberUpperBound() pulumi.IntOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) int { return v.TransactionSetControlNumberUpperBound }).(pulumi.IntOutput)
+}
+
+// The usage indicator.
+func (o X12EnvelopeSettingsInvokeResponseOutput) UsageIndicator() pulumi.StringOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) string { return v.UsageIndicator }).(pulumi.StringOutput)
+}
+
+// The value indicating whether to use control standards id as repetition character.
+func (o X12EnvelopeSettingsInvokeResponseOutput) UseControlStandardsIdAsRepetitionCharacter() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12EnvelopeSettingsInvokeResponse) bool { return v.UseControlStandardsIdAsRepetitionCharacter }).(pulumi.BoolOutput)
+}
+
+type X12EnvelopeSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (X12EnvelopeSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12EnvelopeSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) ToX12EnvelopeSettingsInvokeResponsePtrOutput() X12EnvelopeSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) ToX12EnvelopeSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12EnvelopeSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) Elem() X12EnvelopeSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) X12EnvelopeSettingsInvokeResponse { return *v }).(X12EnvelopeSettingsInvokeResponseOutput)
+}
+
+// The controls standards id.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) ControlStandardsId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ControlStandardsId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The control version number.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) ControlVersionNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ControlVersionNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to enable default group headers.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) EnableDefaultGroupHeaders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EnableDefaultGroupHeaders
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The functional group id.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) FunctionalGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionalGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group control number lower bound.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) GroupControlNumberLowerBound() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupControlNumberLowerBound
+	}).(pulumi.IntPtrOutput)
+}
+
+// The group control number upper bound.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) GroupControlNumberUpperBound() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupControlNumberUpperBound
+	}).(pulumi.IntPtrOutput)
+}
+
+// The group header agency code.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) GroupHeaderAgencyCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupHeaderAgencyCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group header date format.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) GroupHeaderDateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupHeaderDateFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group header time format.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) GroupHeaderTimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupHeaderTimeFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The group header version.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) GroupHeaderVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupHeaderVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interchange  control number lower bound.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) InterchangeControlNumberLowerBound() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InterchangeControlNumberLowerBound
+	}).(pulumi.IntPtrOutput)
+}
+
+// The interchange  control number upper bound.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) InterchangeControlNumberUpperBound() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InterchangeControlNumberUpperBound
+	}).(pulumi.IntPtrOutput)
+}
+
+// The value indicating whether to overwrite existing transaction set control number.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) OverwriteExistingTransactionSetControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.OverwriteExistingTransactionSetControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The receiver application id.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) ReceiverApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReceiverApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to rollover group control number.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) RolloverGroupControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RolloverGroupControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to rollover interchange control number.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) RolloverInterchangeControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RolloverInterchangeControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to rollover transaction set control number.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) RolloverTransactionSetControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RolloverTransactionSetControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The sender application id.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) SenderApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SenderApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number lower bound.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) TransactionSetControlNumberLowerBound() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TransactionSetControlNumberLowerBound
+	}).(pulumi.IntPtrOutput)
+}
+
+// The transaction set control number prefix.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) TransactionSetControlNumberPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransactionSetControlNumberPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number suffix.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) TransactionSetControlNumberSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransactionSetControlNumberSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The transaction set control number upper bound.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) TransactionSetControlNumberUpperBound() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TransactionSetControlNumberUpperBound
+	}).(pulumi.IntPtrOutput)
+}
+
+// The usage indicator.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) UsageIndicator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UsageIndicator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to use control standards id as repetition character.
+func (o X12EnvelopeSettingsInvokeResponsePtrOutput) UseControlStandardsIdAsRepetitionCharacter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettingsInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -29098,6 +42781,254 @@ func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrO
 }
 
 // The X12 agreement framing settings.
+type X12FramingSettingsInvokeResponse struct {
+	// The X12 character set.
+	CharacterSet string `pulumi:"characterSet"`
+	// The component separator.
+	ComponentSeparator int `pulumi:"componentSeparator"`
+	// The data element separator.
+	DataElementSeparator int `pulumi:"dataElementSeparator"`
+	// The replacement character.
+	ReplaceCharacter int `pulumi:"replaceCharacter"`
+	// The value indicating whether to replace separators in payload.
+	ReplaceSeparatorsInPayload bool `pulumi:"replaceSeparatorsInPayload"`
+	// The segment terminator.
+	SegmentTerminator int `pulumi:"segmentTerminator"`
+	// The segment terminator suffix.
+	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+}
+
+// X12FramingSettingsInvokeResponseInput is an input type that accepts X12FramingSettingsInvokeResponseArgs and X12FramingSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `X12FramingSettingsInvokeResponseInput` via:
+//
+//          X12FramingSettingsInvokeResponseArgs{...}
+type X12FramingSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12FramingSettingsInvokeResponseOutput() X12FramingSettingsInvokeResponseOutput
+	ToX12FramingSettingsInvokeResponseOutputWithContext(context.Context) X12FramingSettingsInvokeResponseOutput
+}
+
+// The X12 agreement framing settings.
+type X12FramingSettingsInvokeResponseArgs struct {
+	// The X12 character set.
+	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
+	// The component separator.
+	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
+	// The data element separator.
+	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
+	// The replacement character.
+	ReplaceCharacter pulumi.IntInput `pulumi:"replaceCharacter"`
+	// The value indicating whether to replace separators in payload.
+	ReplaceSeparatorsInPayload pulumi.BoolInput `pulumi:"replaceSeparatorsInPayload"`
+	// The segment terminator.
+	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
+	// The segment terminator suffix.
+	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+}
+
+func (X12FramingSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12FramingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i X12FramingSettingsInvokeResponseArgs) ToX12FramingSettingsInvokeResponseOutput() X12FramingSettingsInvokeResponseOutput {
+	return i.ToX12FramingSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12FramingSettingsInvokeResponseArgs) ToX12FramingSettingsInvokeResponseOutputWithContext(ctx context.Context) X12FramingSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12FramingSettingsInvokeResponseOutput)
+}
+
+func (i X12FramingSettingsInvokeResponseArgs) ToX12FramingSettingsInvokeResponsePtrOutput() X12FramingSettingsInvokeResponsePtrOutput {
+	return i.ToX12FramingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i X12FramingSettingsInvokeResponseArgs) ToX12FramingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12FramingSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12FramingSettingsInvokeResponseOutput).ToX12FramingSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// X12FramingSettingsInvokeResponsePtrInput is an input type that accepts X12FramingSettingsInvokeResponseArgs, X12FramingSettingsInvokeResponsePtr and X12FramingSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `X12FramingSettingsInvokeResponsePtrInput` via:
+//
+//          X12FramingSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type X12FramingSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToX12FramingSettingsInvokeResponsePtrOutput() X12FramingSettingsInvokeResponsePtrOutput
+	ToX12FramingSettingsInvokeResponsePtrOutputWithContext(context.Context) X12FramingSettingsInvokeResponsePtrOutput
+}
+
+type x12framingSettingsInvokeResponsePtrType X12FramingSettingsInvokeResponseArgs
+
+func X12FramingSettingsInvokeResponsePtr(v *X12FramingSettingsInvokeResponseArgs) X12FramingSettingsInvokeResponsePtrInput {
+	return (*x12framingSettingsInvokeResponsePtrType)(v)
+}
+
+func (*x12framingSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12FramingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *x12framingSettingsInvokeResponsePtrType) ToX12FramingSettingsInvokeResponsePtrOutput() X12FramingSettingsInvokeResponsePtrOutput {
+	return i.ToX12FramingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *x12framingSettingsInvokeResponsePtrType) ToX12FramingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12FramingSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12FramingSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 agreement framing settings.
+type X12FramingSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12FramingSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12FramingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12FramingSettingsInvokeResponseOutput) ToX12FramingSettingsInvokeResponseOutput() X12FramingSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12FramingSettingsInvokeResponseOutput) ToX12FramingSettingsInvokeResponseOutputWithContext(ctx context.Context) X12FramingSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12FramingSettingsInvokeResponseOutput) ToX12FramingSettingsInvokeResponsePtrOutput() X12FramingSettingsInvokeResponsePtrOutput {
+	return o.ToX12FramingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o X12FramingSettingsInvokeResponseOutput) ToX12FramingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12FramingSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v X12FramingSettingsInvokeResponse) *X12FramingSettingsInvokeResponse {
+		return &v
+	}).(X12FramingSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 character set.
+func (o X12FramingSettingsInvokeResponseOutput) CharacterSet() pulumi.StringOutput {
+	return o.ApplyT(func(v X12FramingSettingsInvokeResponse) string { return v.CharacterSet }).(pulumi.StringOutput)
+}
+
+// The component separator.
+func (o X12FramingSettingsInvokeResponseOutput) ComponentSeparator() pulumi.IntOutput {
+	return o.ApplyT(func(v X12FramingSettingsInvokeResponse) int { return v.ComponentSeparator }).(pulumi.IntOutput)
+}
+
+// The data element separator.
+func (o X12FramingSettingsInvokeResponseOutput) DataElementSeparator() pulumi.IntOutput {
+	return o.ApplyT(func(v X12FramingSettingsInvokeResponse) int { return v.DataElementSeparator }).(pulumi.IntOutput)
+}
+
+// The replacement character.
+func (o X12FramingSettingsInvokeResponseOutput) ReplaceCharacter() pulumi.IntOutput {
+	return o.ApplyT(func(v X12FramingSettingsInvokeResponse) int { return v.ReplaceCharacter }).(pulumi.IntOutput)
+}
+
+// The value indicating whether to replace separators in payload.
+func (o X12FramingSettingsInvokeResponseOutput) ReplaceSeparatorsInPayload() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12FramingSettingsInvokeResponse) bool { return v.ReplaceSeparatorsInPayload }).(pulumi.BoolOutput)
+}
+
+// The segment terminator.
+func (o X12FramingSettingsInvokeResponseOutput) SegmentTerminator() pulumi.IntOutput {
+	return o.ApplyT(func(v X12FramingSettingsInvokeResponse) int { return v.SegmentTerminator }).(pulumi.IntOutput)
+}
+
+// The segment terminator suffix.
+func (o X12FramingSettingsInvokeResponseOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v X12FramingSettingsInvokeResponse) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+}
+
+type X12FramingSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (X12FramingSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12FramingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12FramingSettingsInvokeResponsePtrOutput) ToX12FramingSettingsInvokeResponsePtrOutput() X12FramingSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12FramingSettingsInvokeResponsePtrOutput) ToX12FramingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12FramingSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12FramingSettingsInvokeResponsePtrOutput) Elem() X12FramingSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *X12FramingSettingsInvokeResponse) X12FramingSettingsInvokeResponse { return *v }).(X12FramingSettingsInvokeResponseOutput)
+}
+
+// The X12 character set.
+func (o X12FramingSettingsInvokeResponsePtrOutput) CharacterSet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CharacterSet
+	}).(pulumi.StringPtrOutput)
+}
+
+// The component separator.
+func (o X12FramingSettingsInvokeResponsePtrOutput) ComponentSeparator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ComponentSeparator
+	}).(pulumi.IntPtrOutput)
+}
+
+// The data element separator.
+func (o X12FramingSettingsInvokeResponsePtrOutput) DataElementSeparator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DataElementSeparator
+	}).(pulumi.IntPtrOutput)
+}
+
+// The replacement character.
+func (o X12FramingSettingsInvokeResponsePtrOutput) ReplaceCharacter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ReplaceCharacter
+	}).(pulumi.IntPtrOutput)
+}
+
+// The value indicating whether to replace separators in payload.
+func (o X12FramingSettingsInvokeResponsePtrOutput) ReplaceSeparatorsInPayload() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ReplaceSeparatorsInPayload
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The segment terminator.
+func (o X12FramingSettingsInvokeResponsePtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SegmentTerminator
+	}).(pulumi.IntPtrOutput)
+}
+
+// The segment terminator suffix.
+func (o X12FramingSettingsInvokeResponsePtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SegmentTerminatorSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The X12 agreement framing settings.
 type X12FramingSettingsResponse struct {
 	// The X12 character set.
 	CharacterSet string `pulumi:"characterSet"`
@@ -29480,6 +43411,140 @@ func (o X12MessageFilterPtrOutput) MessageFilterType() pulumi.StringPtrOutput {
 }
 
 // The X12 message filter for odata query.
+type X12MessageFilterInvokeResponse struct {
+	// The message filter type.
+	MessageFilterType string `pulumi:"messageFilterType"`
+}
+
+// X12MessageFilterInvokeResponseInput is an input type that accepts X12MessageFilterInvokeResponseArgs and X12MessageFilterInvokeResponseOutput values.
+// You can construct a concrete instance of `X12MessageFilterInvokeResponseInput` via:
+//
+//          X12MessageFilterInvokeResponseArgs{...}
+type X12MessageFilterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12MessageFilterInvokeResponseOutput() X12MessageFilterInvokeResponseOutput
+	ToX12MessageFilterInvokeResponseOutputWithContext(context.Context) X12MessageFilterInvokeResponseOutput
+}
+
+// The X12 message filter for odata query.
+type X12MessageFilterInvokeResponseArgs struct {
+	// The message filter type.
+	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
+}
+
+func (X12MessageFilterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12MessageFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i X12MessageFilterInvokeResponseArgs) ToX12MessageFilterInvokeResponseOutput() X12MessageFilterInvokeResponseOutput {
+	return i.ToX12MessageFilterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12MessageFilterInvokeResponseArgs) ToX12MessageFilterInvokeResponseOutputWithContext(ctx context.Context) X12MessageFilterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12MessageFilterInvokeResponseOutput)
+}
+
+func (i X12MessageFilterInvokeResponseArgs) ToX12MessageFilterInvokeResponsePtrOutput() X12MessageFilterInvokeResponsePtrOutput {
+	return i.ToX12MessageFilterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i X12MessageFilterInvokeResponseArgs) ToX12MessageFilterInvokeResponsePtrOutputWithContext(ctx context.Context) X12MessageFilterInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12MessageFilterInvokeResponseOutput).ToX12MessageFilterInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// X12MessageFilterInvokeResponsePtrInput is an input type that accepts X12MessageFilterInvokeResponseArgs, X12MessageFilterInvokeResponsePtr and X12MessageFilterInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `X12MessageFilterInvokeResponsePtrInput` via:
+//
+//          X12MessageFilterInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type X12MessageFilterInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToX12MessageFilterInvokeResponsePtrOutput() X12MessageFilterInvokeResponsePtrOutput
+	ToX12MessageFilterInvokeResponsePtrOutputWithContext(context.Context) X12MessageFilterInvokeResponsePtrOutput
+}
+
+type x12messageFilterInvokeResponsePtrType X12MessageFilterInvokeResponseArgs
+
+func X12MessageFilterInvokeResponsePtr(v *X12MessageFilterInvokeResponseArgs) X12MessageFilterInvokeResponsePtrInput {
+	return (*x12messageFilterInvokeResponsePtrType)(v)
+}
+
+func (*x12messageFilterInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12MessageFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i *x12messageFilterInvokeResponsePtrType) ToX12MessageFilterInvokeResponsePtrOutput() X12MessageFilterInvokeResponsePtrOutput {
+	return i.ToX12MessageFilterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *x12messageFilterInvokeResponsePtrType) ToX12MessageFilterInvokeResponsePtrOutputWithContext(ctx context.Context) X12MessageFilterInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12MessageFilterInvokeResponsePtrOutput)
+}
+
+// The X12 message filter for odata query.
+type X12MessageFilterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12MessageFilterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12MessageFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o X12MessageFilterInvokeResponseOutput) ToX12MessageFilterInvokeResponseOutput() X12MessageFilterInvokeResponseOutput {
+	return o
+}
+
+func (o X12MessageFilterInvokeResponseOutput) ToX12MessageFilterInvokeResponseOutputWithContext(ctx context.Context) X12MessageFilterInvokeResponseOutput {
+	return o
+}
+
+func (o X12MessageFilterInvokeResponseOutput) ToX12MessageFilterInvokeResponsePtrOutput() X12MessageFilterInvokeResponsePtrOutput {
+	return o.ToX12MessageFilterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o X12MessageFilterInvokeResponseOutput) ToX12MessageFilterInvokeResponsePtrOutputWithContext(ctx context.Context) X12MessageFilterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v X12MessageFilterInvokeResponse) *X12MessageFilterInvokeResponse {
+		return &v
+	}).(X12MessageFilterInvokeResponsePtrOutput)
+}
+
+// The message filter type.
+func (o X12MessageFilterInvokeResponseOutput) MessageFilterType() pulumi.StringOutput {
+	return o.ApplyT(func(v X12MessageFilterInvokeResponse) string { return v.MessageFilterType }).(pulumi.StringOutput)
+}
+
+type X12MessageFilterInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (X12MessageFilterInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12MessageFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o X12MessageFilterInvokeResponsePtrOutput) ToX12MessageFilterInvokeResponsePtrOutput() X12MessageFilterInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12MessageFilterInvokeResponsePtrOutput) ToX12MessageFilterInvokeResponsePtrOutputWithContext(ctx context.Context) X12MessageFilterInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12MessageFilterInvokeResponsePtrOutput) Elem() X12MessageFilterInvokeResponseOutput {
+	return o.ApplyT(func(v *X12MessageFilterInvokeResponse) X12MessageFilterInvokeResponse { return *v }).(X12MessageFilterInvokeResponseOutput)
+}
+
+// The message filter type.
+func (o X12MessageFilterInvokeResponsePtrOutput) MessageFilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12MessageFilterInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MessageFilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The X12 message filter for odata query.
 type X12MessageFilterResponse struct {
 	// The message filter type.
 	MessageFilterType string `pulumi:"messageFilterType"`
@@ -29711,6 +43776,106 @@ func (o X12MessageIdentifierArrayOutput) Index(i pulumi.IntInput) X12MessageIden
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) X12MessageIdentifier {
 		return vs[0].([]X12MessageIdentifier)[vs[1].(int)]
 	}).(X12MessageIdentifierOutput)
+}
+
+// The X12 message identifier.
+type X12MessageIdentifierInvokeResponse struct {
+	// The message id.
+	MessageId string `pulumi:"messageId"`
+}
+
+// X12MessageIdentifierInvokeResponseInput is an input type that accepts X12MessageIdentifierInvokeResponseArgs and X12MessageIdentifierInvokeResponseOutput values.
+// You can construct a concrete instance of `X12MessageIdentifierInvokeResponseInput` via:
+//
+//          X12MessageIdentifierInvokeResponseArgs{...}
+type X12MessageIdentifierInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12MessageIdentifierInvokeResponseOutput() X12MessageIdentifierInvokeResponseOutput
+	ToX12MessageIdentifierInvokeResponseOutputWithContext(context.Context) X12MessageIdentifierInvokeResponseOutput
+}
+
+// The X12 message identifier.
+type X12MessageIdentifierInvokeResponseArgs struct {
+	// The message id.
+	MessageId pulumi.StringInput `pulumi:"messageId"`
+}
+
+func (X12MessageIdentifierInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12MessageIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (i X12MessageIdentifierInvokeResponseArgs) ToX12MessageIdentifierInvokeResponseOutput() X12MessageIdentifierInvokeResponseOutput {
+	return i.ToX12MessageIdentifierInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12MessageIdentifierInvokeResponseArgs) ToX12MessageIdentifierInvokeResponseOutputWithContext(ctx context.Context) X12MessageIdentifierInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12MessageIdentifierInvokeResponseOutput)
+}
+
+// X12MessageIdentifierInvokeResponseArrayInput is an input type that accepts X12MessageIdentifierInvokeResponseArray and X12MessageIdentifierInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `X12MessageIdentifierInvokeResponseArrayInput` via:
+//
+//          X12MessageIdentifierInvokeResponseArray{ X12MessageIdentifierInvokeResponseArgs{...} }
+type X12MessageIdentifierInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToX12MessageIdentifierInvokeResponseArrayOutput() X12MessageIdentifierInvokeResponseArrayOutput
+	ToX12MessageIdentifierInvokeResponseArrayOutputWithContext(context.Context) X12MessageIdentifierInvokeResponseArrayOutput
+}
+
+type X12MessageIdentifierInvokeResponseArray []X12MessageIdentifierInvokeResponseInput
+
+func (X12MessageIdentifierInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]X12MessageIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (i X12MessageIdentifierInvokeResponseArray) ToX12MessageIdentifierInvokeResponseArrayOutput() X12MessageIdentifierInvokeResponseArrayOutput {
+	return i.ToX12MessageIdentifierInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i X12MessageIdentifierInvokeResponseArray) ToX12MessageIdentifierInvokeResponseArrayOutputWithContext(ctx context.Context) X12MessageIdentifierInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12MessageIdentifierInvokeResponseArrayOutput)
+}
+
+// The X12 message identifier.
+type X12MessageIdentifierInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12MessageIdentifierInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12MessageIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (o X12MessageIdentifierInvokeResponseOutput) ToX12MessageIdentifierInvokeResponseOutput() X12MessageIdentifierInvokeResponseOutput {
+	return o
+}
+
+func (o X12MessageIdentifierInvokeResponseOutput) ToX12MessageIdentifierInvokeResponseOutputWithContext(ctx context.Context) X12MessageIdentifierInvokeResponseOutput {
+	return o
+}
+
+// The message id.
+func (o X12MessageIdentifierInvokeResponseOutput) MessageId() pulumi.StringOutput {
+	return o.ApplyT(func(v X12MessageIdentifierInvokeResponse) string { return v.MessageId }).(pulumi.StringOutput)
+}
+
+type X12MessageIdentifierInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (X12MessageIdentifierInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]X12MessageIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (o X12MessageIdentifierInvokeResponseArrayOutput) ToX12MessageIdentifierInvokeResponseArrayOutput() X12MessageIdentifierInvokeResponseArrayOutput {
+	return o
+}
+
+func (o X12MessageIdentifierInvokeResponseArrayOutput) ToX12MessageIdentifierInvokeResponseArrayOutputWithContext(ctx context.Context) X12MessageIdentifierInvokeResponseArrayOutput {
+	return o
+}
+
+func (o X12MessageIdentifierInvokeResponseArrayOutput) Index(i pulumi.IntInput) X12MessageIdentifierInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) X12MessageIdentifierInvokeResponse {
+		return vs[0].([]X12MessageIdentifierInvokeResponse)[vs[1].(int)]
+	}).(X12MessageIdentifierInvokeResponseOutput)
 }
 
 // The X12 message identifier.
@@ -29983,6 +44148,182 @@ func (o X12OneWayAgreementPtrOutput) SenderBusinessIdentity() BusinessIdentityPt
 		}
 		return &v.SenderBusinessIdentity
 	}).(BusinessIdentityPtrOutput)
+}
+
+// The X12 one-way agreement.
+type X12OneWayAgreementInvokeResponse struct {
+	// The X12 protocol settings.
+	ProtocolSettings X12ProtocolSettingsInvokeResponse `pulumi:"protocolSettings"`
+	// The receiver business identity
+	ReceiverBusinessIdentity BusinessIdentityInvokeResponse `pulumi:"receiverBusinessIdentity"`
+	// The sender business identity
+	SenderBusinessIdentity BusinessIdentityInvokeResponse `pulumi:"senderBusinessIdentity"`
+}
+
+// X12OneWayAgreementInvokeResponseInput is an input type that accepts X12OneWayAgreementInvokeResponseArgs and X12OneWayAgreementInvokeResponseOutput values.
+// You can construct a concrete instance of `X12OneWayAgreementInvokeResponseInput` via:
+//
+//          X12OneWayAgreementInvokeResponseArgs{...}
+type X12OneWayAgreementInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12OneWayAgreementInvokeResponseOutput() X12OneWayAgreementInvokeResponseOutput
+	ToX12OneWayAgreementInvokeResponseOutputWithContext(context.Context) X12OneWayAgreementInvokeResponseOutput
+}
+
+// The X12 one-way agreement.
+type X12OneWayAgreementInvokeResponseArgs struct {
+	// The X12 protocol settings.
+	ProtocolSettings X12ProtocolSettingsInvokeResponseInput `pulumi:"protocolSettings"`
+	// The receiver business identity
+	ReceiverBusinessIdentity BusinessIdentityInvokeResponseInput `pulumi:"receiverBusinessIdentity"`
+	// The sender business identity
+	SenderBusinessIdentity BusinessIdentityInvokeResponseInput `pulumi:"senderBusinessIdentity"`
+}
+
+func (X12OneWayAgreementInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12OneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (i X12OneWayAgreementInvokeResponseArgs) ToX12OneWayAgreementInvokeResponseOutput() X12OneWayAgreementInvokeResponseOutput {
+	return i.ToX12OneWayAgreementInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12OneWayAgreementInvokeResponseArgs) ToX12OneWayAgreementInvokeResponseOutputWithContext(ctx context.Context) X12OneWayAgreementInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12OneWayAgreementInvokeResponseOutput)
+}
+
+func (i X12OneWayAgreementInvokeResponseArgs) ToX12OneWayAgreementInvokeResponsePtrOutput() X12OneWayAgreementInvokeResponsePtrOutput {
+	return i.ToX12OneWayAgreementInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i X12OneWayAgreementInvokeResponseArgs) ToX12OneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) X12OneWayAgreementInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12OneWayAgreementInvokeResponseOutput).ToX12OneWayAgreementInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// X12OneWayAgreementInvokeResponsePtrInput is an input type that accepts X12OneWayAgreementInvokeResponseArgs, X12OneWayAgreementInvokeResponsePtr and X12OneWayAgreementInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `X12OneWayAgreementInvokeResponsePtrInput` via:
+//
+//          X12OneWayAgreementInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type X12OneWayAgreementInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToX12OneWayAgreementInvokeResponsePtrOutput() X12OneWayAgreementInvokeResponsePtrOutput
+	ToX12OneWayAgreementInvokeResponsePtrOutputWithContext(context.Context) X12OneWayAgreementInvokeResponsePtrOutput
+}
+
+type x12oneWayAgreementInvokeResponsePtrType X12OneWayAgreementInvokeResponseArgs
+
+func X12OneWayAgreementInvokeResponsePtr(v *X12OneWayAgreementInvokeResponseArgs) X12OneWayAgreementInvokeResponsePtrInput {
+	return (*x12oneWayAgreementInvokeResponsePtrType)(v)
+}
+
+func (*x12oneWayAgreementInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12OneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (i *x12oneWayAgreementInvokeResponsePtrType) ToX12OneWayAgreementInvokeResponsePtrOutput() X12OneWayAgreementInvokeResponsePtrOutput {
+	return i.ToX12OneWayAgreementInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *x12oneWayAgreementInvokeResponsePtrType) ToX12OneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) X12OneWayAgreementInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12OneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The X12 one-way agreement.
+type X12OneWayAgreementInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12OneWayAgreementInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12OneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (o X12OneWayAgreementInvokeResponseOutput) ToX12OneWayAgreementInvokeResponseOutput() X12OneWayAgreementInvokeResponseOutput {
+	return o
+}
+
+func (o X12OneWayAgreementInvokeResponseOutput) ToX12OneWayAgreementInvokeResponseOutputWithContext(ctx context.Context) X12OneWayAgreementInvokeResponseOutput {
+	return o
+}
+
+func (o X12OneWayAgreementInvokeResponseOutput) ToX12OneWayAgreementInvokeResponsePtrOutput() X12OneWayAgreementInvokeResponsePtrOutput {
+	return o.ToX12OneWayAgreementInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o X12OneWayAgreementInvokeResponseOutput) ToX12OneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) X12OneWayAgreementInvokeResponsePtrOutput {
+	return o.ApplyT(func(v X12OneWayAgreementInvokeResponse) *X12OneWayAgreementInvokeResponse {
+		return &v
+	}).(X12OneWayAgreementInvokeResponsePtrOutput)
+}
+
+// The X12 protocol settings.
+func (o X12OneWayAgreementInvokeResponseOutput) ProtocolSettings() X12ProtocolSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v X12OneWayAgreementInvokeResponse) X12ProtocolSettingsInvokeResponse { return v.ProtocolSettings }).(X12ProtocolSettingsInvokeResponseOutput)
+}
+
+// The receiver business identity
+func (o X12OneWayAgreementInvokeResponseOutput) ReceiverBusinessIdentity() BusinessIdentityInvokeResponseOutput {
+	return o.ApplyT(func(v X12OneWayAgreementInvokeResponse) BusinessIdentityInvokeResponse {
+		return v.ReceiverBusinessIdentity
+	}).(BusinessIdentityInvokeResponseOutput)
+}
+
+// The sender business identity
+func (o X12OneWayAgreementInvokeResponseOutput) SenderBusinessIdentity() BusinessIdentityInvokeResponseOutput {
+	return o.ApplyT(func(v X12OneWayAgreementInvokeResponse) BusinessIdentityInvokeResponse {
+		return v.SenderBusinessIdentity
+	}).(BusinessIdentityInvokeResponseOutput)
+}
+
+type X12OneWayAgreementInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (X12OneWayAgreementInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12OneWayAgreementInvokeResponse)(nil)).Elem()
+}
+
+func (o X12OneWayAgreementInvokeResponsePtrOutput) ToX12OneWayAgreementInvokeResponsePtrOutput() X12OneWayAgreementInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12OneWayAgreementInvokeResponsePtrOutput) ToX12OneWayAgreementInvokeResponsePtrOutputWithContext(ctx context.Context) X12OneWayAgreementInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12OneWayAgreementInvokeResponsePtrOutput) Elem() X12OneWayAgreementInvokeResponseOutput {
+	return o.ApplyT(func(v *X12OneWayAgreementInvokeResponse) X12OneWayAgreementInvokeResponse { return *v }).(X12OneWayAgreementInvokeResponseOutput)
+}
+
+// The X12 protocol settings.
+func (o X12OneWayAgreementInvokeResponsePtrOutput) ProtocolSettings() X12ProtocolSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12OneWayAgreementInvokeResponse) *X12ProtocolSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtocolSettings
+	}).(X12ProtocolSettingsInvokeResponsePtrOutput)
+}
+
+// The receiver business identity
+func (o X12OneWayAgreementInvokeResponsePtrOutput) ReceiverBusinessIdentity() BusinessIdentityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12OneWayAgreementInvokeResponse) *BusinessIdentityInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ReceiverBusinessIdentity
+	}).(BusinessIdentityInvokeResponsePtrOutput)
+}
+
+// The sender business identity
+func (o X12OneWayAgreementInvokeResponsePtrOutput) SenderBusinessIdentity() BusinessIdentityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12OneWayAgreementInvokeResponse) *BusinessIdentityInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SenderBusinessIdentity
+	}).(BusinessIdentityInvokeResponsePtrOutput)
 }
 
 // The X12 one-way agreement.
@@ -30379,6 +44720,235 @@ func (o X12ProcessingSettingsPtrOutput) SuspendInterchangeOnError() pulumi.BoolP
 // The value indicating whether to use dot as decimal separator.
 func (o X12ProcessingSettingsPtrOutput) UseDotAsDecimalSeparator() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *X12ProcessingSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UseDotAsDecimalSeparator
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The X12 processing settings.
+type X12ProcessingSettingsInvokeResponse struct {
+	// The value indicating whether to convert numerical type to implied decimal.
+	ConvertImpliedDecimal bool `pulumi:"convertImpliedDecimal"`
+	// The value indicating whether to create empty xml tags for trailing separators.
+	CreateEmptyXmlTagsForTrailingSeparators bool `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
+	// The value indicating whether to mask security information.
+	MaskSecurityInfo bool `pulumi:"maskSecurityInfo"`
+	// The value indicating whether to preserve interchange.
+	PreserveInterchange bool `pulumi:"preserveInterchange"`
+	// The value indicating whether to suspend interchange on error.
+	SuspendInterchangeOnError bool `pulumi:"suspendInterchangeOnError"`
+	// The value indicating whether to use dot as decimal separator.
+	UseDotAsDecimalSeparator bool `pulumi:"useDotAsDecimalSeparator"`
+}
+
+// X12ProcessingSettingsInvokeResponseInput is an input type that accepts X12ProcessingSettingsInvokeResponseArgs and X12ProcessingSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `X12ProcessingSettingsInvokeResponseInput` via:
+//
+//          X12ProcessingSettingsInvokeResponseArgs{...}
+type X12ProcessingSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12ProcessingSettingsInvokeResponseOutput() X12ProcessingSettingsInvokeResponseOutput
+	ToX12ProcessingSettingsInvokeResponseOutputWithContext(context.Context) X12ProcessingSettingsInvokeResponseOutput
+}
+
+// The X12 processing settings.
+type X12ProcessingSettingsInvokeResponseArgs struct {
+	// The value indicating whether to convert numerical type to implied decimal.
+	ConvertImpliedDecimal pulumi.BoolInput `pulumi:"convertImpliedDecimal"`
+	// The value indicating whether to create empty xml tags for trailing separators.
+	CreateEmptyXmlTagsForTrailingSeparators pulumi.BoolInput `pulumi:"createEmptyXmlTagsForTrailingSeparators"`
+	// The value indicating whether to mask security information.
+	MaskSecurityInfo pulumi.BoolInput `pulumi:"maskSecurityInfo"`
+	// The value indicating whether to preserve interchange.
+	PreserveInterchange pulumi.BoolInput `pulumi:"preserveInterchange"`
+	// The value indicating whether to suspend interchange on error.
+	SuspendInterchangeOnError pulumi.BoolInput `pulumi:"suspendInterchangeOnError"`
+	// The value indicating whether to use dot as decimal separator.
+	UseDotAsDecimalSeparator pulumi.BoolInput `pulumi:"useDotAsDecimalSeparator"`
+}
+
+func (X12ProcessingSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12ProcessingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i X12ProcessingSettingsInvokeResponseArgs) ToX12ProcessingSettingsInvokeResponseOutput() X12ProcessingSettingsInvokeResponseOutput {
+	return i.ToX12ProcessingSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12ProcessingSettingsInvokeResponseArgs) ToX12ProcessingSettingsInvokeResponseOutputWithContext(ctx context.Context) X12ProcessingSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ProcessingSettingsInvokeResponseOutput)
+}
+
+func (i X12ProcessingSettingsInvokeResponseArgs) ToX12ProcessingSettingsInvokeResponsePtrOutput() X12ProcessingSettingsInvokeResponsePtrOutput {
+	return i.ToX12ProcessingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i X12ProcessingSettingsInvokeResponseArgs) ToX12ProcessingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ProcessingSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ProcessingSettingsInvokeResponseOutput).ToX12ProcessingSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// X12ProcessingSettingsInvokeResponsePtrInput is an input type that accepts X12ProcessingSettingsInvokeResponseArgs, X12ProcessingSettingsInvokeResponsePtr and X12ProcessingSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `X12ProcessingSettingsInvokeResponsePtrInput` via:
+//
+//          X12ProcessingSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type X12ProcessingSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToX12ProcessingSettingsInvokeResponsePtrOutput() X12ProcessingSettingsInvokeResponsePtrOutput
+	ToX12ProcessingSettingsInvokeResponsePtrOutputWithContext(context.Context) X12ProcessingSettingsInvokeResponsePtrOutput
+}
+
+type x12processingSettingsInvokeResponsePtrType X12ProcessingSettingsInvokeResponseArgs
+
+func X12ProcessingSettingsInvokeResponsePtr(v *X12ProcessingSettingsInvokeResponseArgs) X12ProcessingSettingsInvokeResponsePtrInput {
+	return (*x12processingSettingsInvokeResponsePtrType)(v)
+}
+
+func (*x12processingSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12ProcessingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *x12processingSettingsInvokeResponsePtrType) ToX12ProcessingSettingsInvokeResponsePtrOutput() X12ProcessingSettingsInvokeResponsePtrOutput {
+	return i.ToX12ProcessingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *x12processingSettingsInvokeResponsePtrType) ToX12ProcessingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ProcessingSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ProcessingSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 processing settings.
+type X12ProcessingSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12ProcessingSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12ProcessingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12ProcessingSettingsInvokeResponseOutput) ToX12ProcessingSettingsInvokeResponseOutput() X12ProcessingSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12ProcessingSettingsInvokeResponseOutput) ToX12ProcessingSettingsInvokeResponseOutputWithContext(ctx context.Context) X12ProcessingSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12ProcessingSettingsInvokeResponseOutput) ToX12ProcessingSettingsInvokeResponsePtrOutput() X12ProcessingSettingsInvokeResponsePtrOutput {
+	return o.ToX12ProcessingSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o X12ProcessingSettingsInvokeResponseOutput) ToX12ProcessingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ProcessingSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v X12ProcessingSettingsInvokeResponse) *X12ProcessingSettingsInvokeResponse {
+		return &v
+	}).(X12ProcessingSettingsInvokeResponsePtrOutput)
+}
+
+// The value indicating whether to convert numerical type to implied decimal.
+func (o X12ProcessingSettingsInvokeResponseOutput) ConvertImpliedDecimal() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ProcessingSettingsInvokeResponse) bool { return v.ConvertImpliedDecimal }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to create empty xml tags for trailing separators.
+func (o X12ProcessingSettingsInvokeResponseOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ProcessingSettingsInvokeResponse) bool { return v.CreateEmptyXmlTagsForTrailingSeparators }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to mask security information.
+func (o X12ProcessingSettingsInvokeResponseOutput) MaskSecurityInfo() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ProcessingSettingsInvokeResponse) bool { return v.MaskSecurityInfo }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to preserve interchange.
+func (o X12ProcessingSettingsInvokeResponseOutput) PreserveInterchange() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ProcessingSettingsInvokeResponse) bool { return v.PreserveInterchange }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to suspend interchange on error.
+func (o X12ProcessingSettingsInvokeResponseOutput) SuspendInterchangeOnError() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ProcessingSettingsInvokeResponse) bool { return v.SuspendInterchangeOnError }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to use dot as decimal separator.
+func (o X12ProcessingSettingsInvokeResponseOutput) UseDotAsDecimalSeparator() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ProcessingSettingsInvokeResponse) bool { return v.UseDotAsDecimalSeparator }).(pulumi.BoolOutput)
+}
+
+type X12ProcessingSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (X12ProcessingSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12ProcessingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12ProcessingSettingsInvokeResponsePtrOutput) ToX12ProcessingSettingsInvokeResponsePtrOutput() X12ProcessingSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12ProcessingSettingsInvokeResponsePtrOutput) ToX12ProcessingSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ProcessingSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12ProcessingSettingsInvokeResponsePtrOutput) Elem() X12ProcessingSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *X12ProcessingSettingsInvokeResponse) X12ProcessingSettingsInvokeResponse { return *v }).(X12ProcessingSettingsInvokeResponseOutput)
+}
+
+// The value indicating whether to convert numerical type to implied decimal.
+func (o X12ProcessingSettingsInvokeResponsePtrOutput) ConvertImpliedDecimal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ProcessingSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ConvertImpliedDecimal
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to create empty xml tags for trailing separators.
+func (o X12ProcessingSettingsInvokeResponsePtrOutput) CreateEmptyXmlTagsForTrailingSeparators() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ProcessingSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CreateEmptyXmlTagsForTrailingSeparators
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to mask security information.
+func (o X12ProcessingSettingsInvokeResponsePtrOutput) MaskSecurityInfo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ProcessingSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.MaskSecurityInfo
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to preserve interchange.
+func (o X12ProcessingSettingsInvokeResponsePtrOutput) PreserveInterchange() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ProcessingSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PreserveInterchange
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to suspend interchange on error.
+func (o X12ProcessingSettingsInvokeResponsePtrOutput) SuspendInterchangeOnError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ProcessingSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SuspendInterchangeOnError
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to use dot as decimal separator.
+func (o X12ProcessingSettingsInvokeResponsePtrOutput) UseDotAsDecimalSeparator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ProcessingSettingsInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -30959,6 +45529,365 @@ func (o X12ProtocolSettingsPtrOutput) X12DelimiterOverrides() X12DelimiterOverri
 }
 
 // The X12 agreement protocol settings.
+type X12ProtocolSettingsInvokeResponse struct {
+	// The X12 acknowledgment settings.
+	AcknowledgementSettings X12AcknowledgementSettingsInvokeResponse `pulumi:"acknowledgementSettings"`
+	// The X12 envelope override settings.
+	EnvelopeOverrides []X12EnvelopeOverrideInvokeResponse `pulumi:"envelopeOverrides"`
+	// The X12 envelope settings.
+	EnvelopeSettings X12EnvelopeSettingsInvokeResponse `pulumi:"envelopeSettings"`
+	// The X12 framing settings.
+	FramingSettings X12FramingSettingsInvokeResponse `pulumi:"framingSettings"`
+	// The X12 message filter.
+	MessageFilter X12MessageFilterInvokeResponse `pulumi:"messageFilter"`
+	// The X12 message filter list.
+	MessageFilterList []X12MessageIdentifierInvokeResponse `pulumi:"messageFilterList"`
+	// The X12 processing settings.
+	ProcessingSettings X12ProcessingSettingsInvokeResponse `pulumi:"processingSettings"`
+	// The X12 schema references.
+	SchemaReferences []X12SchemaReferenceInvokeResponse `pulumi:"schemaReferences"`
+	// The X12 security settings.
+	SecuritySettings X12SecuritySettingsInvokeResponse `pulumi:"securitySettings"`
+	// The X12 validation override settings.
+	ValidationOverrides []X12ValidationOverrideInvokeResponse `pulumi:"validationOverrides"`
+	// The X12 validation settings.
+	ValidationSettings X12ValidationSettingsInvokeResponse `pulumi:"validationSettings"`
+	// The X12 delimiter override settings.
+	X12DelimiterOverrides []X12DelimiterOverridesInvokeResponse `pulumi:"x12DelimiterOverrides"`
+}
+
+// X12ProtocolSettingsInvokeResponseInput is an input type that accepts X12ProtocolSettingsInvokeResponseArgs and X12ProtocolSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `X12ProtocolSettingsInvokeResponseInput` via:
+//
+//          X12ProtocolSettingsInvokeResponseArgs{...}
+type X12ProtocolSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12ProtocolSettingsInvokeResponseOutput() X12ProtocolSettingsInvokeResponseOutput
+	ToX12ProtocolSettingsInvokeResponseOutputWithContext(context.Context) X12ProtocolSettingsInvokeResponseOutput
+}
+
+// The X12 agreement protocol settings.
+type X12ProtocolSettingsInvokeResponseArgs struct {
+	// The X12 acknowledgment settings.
+	AcknowledgementSettings X12AcknowledgementSettingsInvokeResponseInput `pulumi:"acknowledgementSettings"`
+	// The X12 envelope override settings.
+	EnvelopeOverrides X12EnvelopeOverrideInvokeResponseArrayInput `pulumi:"envelopeOverrides"`
+	// The X12 envelope settings.
+	EnvelopeSettings X12EnvelopeSettingsInvokeResponseInput `pulumi:"envelopeSettings"`
+	// The X12 framing settings.
+	FramingSettings X12FramingSettingsInvokeResponseInput `pulumi:"framingSettings"`
+	// The X12 message filter.
+	MessageFilter X12MessageFilterInvokeResponseInput `pulumi:"messageFilter"`
+	// The X12 message filter list.
+	MessageFilterList X12MessageIdentifierInvokeResponseArrayInput `pulumi:"messageFilterList"`
+	// The X12 processing settings.
+	ProcessingSettings X12ProcessingSettingsInvokeResponseInput `pulumi:"processingSettings"`
+	// The X12 schema references.
+	SchemaReferences X12SchemaReferenceInvokeResponseArrayInput `pulumi:"schemaReferences"`
+	// The X12 security settings.
+	SecuritySettings X12SecuritySettingsInvokeResponseInput `pulumi:"securitySettings"`
+	// The X12 validation override settings.
+	ValidationOverrides X12ValidationOverrideInvokeResponseArrayInput `pulumi:"validationOverrides"`
+	// The X12 validation settings.
+	ValidationSettings X12ValidationSettingsInvokeResponseInput `pulumi:"validationSettings"`
+	// The X12 delimiter override settings.
+	X12DelimiterOverrides X12DelimiterOverridesInvokeResponseArrayInput `pulumi:"x12DelimiterOverrides"`
+}
+
+func (X12ProtocolSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12ProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i X12ProtocolSettingsInvokeResponseArgs) ToX12ProtocolSettingsInvokeResponseOutput() X12ProtocolSettingsInvokeResponseOutput {
+	return i.ToX12ProtocolSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12ProtocolSettingsInvokeResponseArgs) ToX12ProtocolSettingsInvokeResponseOutputWithContext(ctx context.Context) X12ProtocolSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ProtocolSettingsInvokeResponseOutput)
+}
+
+func (i X12ProtocolSettingsInvokeResponseArgs) ToX12ProtocolSettingsInvokeResponsePtrOutput() X12ProtocolSettingsInvokeResponsePtrOutput {
+	return i.ToX12ProtocolSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i X12ProtocolSettingsInvokeResponseArgs) ToX12ProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ProtocolSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ProtocolSettingsInvokeResponseOutput).ToX12ProtocolSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// X12ProtocolSettingsInvokeResponsePtrInput is an input type that accepts X12ProtocolSettingsInvokeResponseArgs, X12ProtocolSettingsInvokeResponsePtr and X12ProtocolSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `X12ProtocolSettingsInvokeResponsePtrInput` via:
+//
+//          X12ProtocolSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type X12ProtocolSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToX12ProtocolSettingsInvokeResponsePtrOutput() X12ProtocolSettingsInvokeResponsePtrOutput
+	ToX12ProtocolSettingsInvokeResponsePtrOutputWithContext(context.Context) X12ProtocolSettingsInvokeResponsePtrOutput
+}
+
+type x12protocolSettingsInvokeResponsePtrType X12ProtocolSettingsInvokeResponseArgs
+
+func X12ProtocolSettingsInvokeResponsePtr(v *X12ProtocolSettingsInvokeResponseArgs) X12ProtocolSettingsInvokeResponsePtrInput {
+	return (*x12protocolSettingsInvokeResponsePtrType)(v)
+}
+
+func (*x12protocolSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12ProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *x12protocolSettingsInvokeResponsePtrType) ToX12ProtocolSettingsInvokeResponsePtrOutput() X12ProtocolSettingsInvokeResponsePtrOutput {
+	return i.ToX12ProtocolSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *x12protocolSettingsInvokeResponsePtrType) ToX12ProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ProtocolSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ProtocolSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 agreement protocol settings.
+type X12ProtocolSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12ProtocolSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12ProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12ProtocolSettingsInvokeResponseOutput) ToX12ProtocolSettingsInvokeResponseOutput() X12ProtocolSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12ProtocolSettingsInvokeResponseOutput) ToX12ProtocolSettingsInvokeResponseOutputWithContext(ctx context.Context) X12ProtocolSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12ProtocolSettingsInvokeResponseOutput) ToX12ProtocolSettingsInvokeResponsePtrOutput() X12ProtocolSettingsInvokeResponsePtrOutput {
+	return o.ToX12ProtocolSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o X12ProtocolSettingsInvokeResponseOutput) ToX12ProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ProtocolSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) *X12ProtocolSettingsInvokeResponse {
+		return &v
+	}).(X12ProtocolSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 acknowledgment settings.
+func (o X12ProtocolSettingsInvokeResponseOutput) AcknowledgementSettings() X12AcknowledgementSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) X12AcknowledgementSettingsInvokeResponse {
+		return v.AcknowledgementSettings
+	}).(X12AcknowledgementSettingsInvokeResponseOutput)
+}
+
+// The X12 envelope override settings.
+func (o X12ProtocolSettingsInvokeResponseOutput) EnvelopeOverrides() X12EnvelopeOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) []X12EnvelopeOverrideInvokeResponse {
+		return v.EnvelopeOverrides
+	}).(X12EnvelopeOverrideInvokeResponseArrayOutput)
+}
+
+// The X12 envelope settings.
+func (o X12ProtocolSettingsInvokeResponseOutput) EnvelopeSettings() X12EnvelopeSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) X12EnvelopeSettingsInvokeResponse { return v.EnvelopeSettings }).(X12EnvelopeSettingsInvokeResponseOutput)
+}
+
+// The X12 framing settings.
+func (o X12ProtocolSettingsInvokeResponseOutput) FramingSettings() X12FramingSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) X12FramingSettingsInvokeResponse { return v.FramingSettings }).(X12FramingSettingsInvokeResponseOutput)
+}
+
+// The X12 message filter.
+func (o X12ProtocolSettingsInvokeResponseOutput) MessageFilter() X12MessageFilterInvokeResponseOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) X12MessageFilterInvokeResponse { return v.MessageFilter }).(X12MessageFilterInvokeResponseOutput)
+}
+
+// The X12 message filter list.
+func (o X12ProtocolSettingsInvokeResponseOutput) MessageFilterList() X12MessageIdentifierInvokeResponseArrayOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) []X12MessageIdentifierInvokeResponse {
+		return v.MessageFilterList
+	}).(X12MessageIdentifierInvokeResponseArrayOutput)
+}
+
+// The X12 processing settings.
+func (o X12ProtocolSettingsInvokeResponseOutput) ProcessingSettings() X12ProcessingSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) X12ProcessingSettingsInvokeResponse {
+		return v.ProcessingSettings
+	}).(X12ProcessingSettingsInvokeResponseOutput)
+}
+
+// The X12 schema references.
+func (o X12ProtocolSettingsInvokeResponseOutput) SchemaReferences() X12SchemaReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) []X12SchemaReferenceInvokeResponse {
+		return v.SchemaReferences
+	}).(X12SchemaReferenceInvokeResponseArrayOutput)
+}
+
+// The X12 security settings.
+func (o X12ProtocolSettingsInvokeResponseOutput) SecuritySettings() X12SecuritySettingsInvokeResponseOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) X12SecuritySettingsInvokeResponse { return v.SecuritySettings }).(X12SecuritySettingsInvokeResponseOutput)
+}
+
+// The X12 validation override settings.
+func (o X12ProtocolSettingsInvokeResponseOutput) ValidationOverrides() X12ValidationOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) []X12ValidationOverrideInvokeResponse {
+		return v.ValidationOverrides
+	}).(X12ValidationOverrideInvokeResponseArrayOutput)
+}
+
+// The X12 validation settings.
+func (o X12ProtocolSettingsInvokeResponseOutput) ValidationSettings() X12ValidationSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) X12ValidationSettingsInvokeResponse {
+		return v.ValidationSettings
+	}).(X12ValidationSettingsInvokeResponseOutput)
+}
+
+// The X12 delimiter override settings.
+func (o X12ProtocolSettingsInvokeResponseOutput) X12DelimiterOverrides() X12DelimiterOverridesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v X12ProtocolSettingsInvokeResponse) []X12DelimiterOverridesInvokeResponse {
+		return v.X12DelimiterOverrides
+	}).(X12DelimiterOverridesInvokeResponseArrayOutput)
+}
+
+type X12ProtocolSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (X12ProtocolSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12ProtocolSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) ToX12ProtocolSettingsInvokeResponsePtrOutput() X12ProtocolSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) ToX12ProtocolSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ProtocolSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) Elem() X12ProtocolSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) X12ProtocolSettingsInvokeResponse { return *v }).(X12ProtocolSettingsInvokeResponseOutput)
+}
+
+// The X12 acknowledgment settings.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) AcknowledgementSettings() X12AcknowledgementSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) *X12AcknowledgementSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.AcknowledgementSettings
+	}).(X12AcknowledgementSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 envelope override settings.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) EnvelopeOverrides() X12EnvelopeOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) []X12EnvelopeOverrideInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EnvelopeOverrides
+	}).(X12EnvelopeOverrideInvokeResponseArrayOutput)
+}
+
+// The X12 envelope settings.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) EnvelopeSettings() X12EnvelopeSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) *X12EnvelopeSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.EnvelopeSettings
+	}).(X12EnvelopeSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 framing settings.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) FramingSettings() X12FramingSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) *X12FramingSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.FramingSettings
+	}).(X12FramingSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 message filter.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) MessageFilter() X12MessageFilterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) *X12MessageFilterInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.MessageFilter
+	}).(X12MessageFilterInvokeResponsePtrOutput)
+}
+
+// The X12 message filter list.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) MessageFilterList() X12MessageIdentifierInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) []X12MessageIdentifierInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MessageFilterList
+	}).(X12MessageIdentifierInvokeResponseArrayOutput)
+}
+
+// The X12 processing settings.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) ProcessingSettings() X12ProcessingSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) *X12ProcessingSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ProcessingSettings
+	}).(X12ProcessingSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 schema references.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) SchemaReferences() X12SchemaReferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) []X12SchemaReferenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaReferences
+	}).(X12SchemaReferenceInvokeResponseArrayOutput)
+}
+
+// The X12 security settings.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) SecuritySettings() X12SecuritySettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) *X12SecuritySettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SecuritySettings
+	}).(X12SecuritySettingsInvokeResponsePtrOutput)
+}
+
+// The X12 validation override settings.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) ValidationOverrides() X12ValidationOverrideInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) []X12ValidationOverrideInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ValidationOverrides
+	}).(X12ValidationOverrideInvokeResponseArrayOutput)
+}
+
+// The X12 validation settings.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) ValidationSettings() X12ValidationSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) *X12ValidationSettingsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidationSettings
+	}).(X12ValidationSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 delimiter override settings.
+func (o X12ProtocolSettingsInvokeResponsePtrOutput) X12DelimiterOverrides() X12DelimiterOverridesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *X12ProtocolSettingsInvokeResponse) []X12DelimiterOverridesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.X12DelimiterOverrides
+	}).(X12DelimiterOverridesInvokeResponseArrayOutput)
+}
+
+// The X12 agreement protocol settings.
 type X12ProtocolSettingsResponse struct {
 	// The X12 acknowledgment settings.
 	AcknowledgementSettings X12AcknowledgementSettingsResponse `pulumi:"acknowledgementSettings"`
@@ -31431,6 +46360,133 @@ func (o X12SchemaReferenceArrayOutput) Index(i pulumi.IntInput) X12SchemaReferen
 }
 
 // The X12 schema reference.
+type X12SchemaReferenceInvokeResponse struct {
+	// The message id.
+	MessageId string `pulumi:"messageId"`
+	// The schema name.
+	SchemaName string `pulumi:"schemaName"`
+	// The schema version.
+	SchemaVersion string `pulumi:"schemaVersion"`
+	// The sender application id.
+	SenderApplicationId *string `pulumi:"senderApplicationId"`
+}
+
+// X12SchemaReferenceInvokeResponseInput is an input type that accepts X12SchemaReferenceInvokeResponseArgs and X12SchemaReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `X12SchemaReferenceInvokeResponseInput` via:
+//
+//          X12SchemaReferenceInvokeResponseArgs{...}
+type X12SchemaReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12SchemaReferenceInvokeResponseOutput() X12SchemaReferenceInvokeResponseOutput
+	ToX12SchemaReferenceInvokeResponseOutputWithContext(context.Context) X12SchemaReferenceInvokeResponseOutput
+}
+
+// The X12 schema reference.
+type X12SchemaReferenceInvokeResponseArgs struct {
+	// The message id.
+	MessageId pulumi.StringInput `pulumi:"messageId"`
+	// The schema name.
+	SchemaName pulumi.StringInput `pulumi:"schemaName"`
+	// The schema version.
+	SchemaVersion pulumi.StringInput `pulumi:"schemaVersion"`
+	// The sender application id.
+	SenderApplicationId pulumi.StringPtrInput `pulumi:"senderApplicationId"`
+}
+
+func (X12SchemaReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12SchemaReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i X12SchemaReferenceInvokeResponseArgs) ToX12SchemaReferenceInvokeResponseOutput() X12SchemaReferenceInvokeResponseOutput {
+	return i.ToX12SchemaReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12SchemaReferenceInvokeResponseArgs) ToX12SchemaReferenceInvokeResponseOutputWithContext(ctx context.Context) X12SchemaReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12SchemaReferenceInvokeResponseOutput)
+}
+
+// X12SchemaReferenceInvokeResponseArrayInput is an input type that accepts X12SchemaReferenceInvokeResponseArray and X12SchemaReferenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `X12SchemaReferenceInvokeResponseArrayInput` via:
+//
+//          X12SchemaReferenceInvokeResponseArray{ X12SchemaReferenceInvokeResponseArgs{...} }
+type X12SchemaReferenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToX12SchemaReferenceInvokeResponseArrayOutput() X12SchemaReferenceInvokeResponseArrayOutput
+	ToX12SchemaReferenceInvokeResponseArrayOutputWithContext(context.Context) X12SchemaReferenceInvokeResponseArrayOutput
+}
+
+type X12SchemaReferenceInvokeResponseArray []X12SchemaReferenceInvokeResponseInput
+
+func (X12SchemaReferenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]X12SchemaReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i X12SchemaReferenceInvokeResponseArray) ToX12SchemaReferenceInvokeResponseArrayOutput() X12SchemaReferenceInvokeResponseArrayOutput {
+	return i.ToX12SchemaReferenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i X12SchemaReferenceInvokeResponseArray) ToX12SchemaReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) X12SchemaReferenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12SchemaReferenceInvokeResponseArrayOutput)
+}
+
+// The X12 schema reference.
+type X12SchemaReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12SchemaReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12SchemaReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o X12SchemaReferenceInvokeResponseOutput) ToX12SchemaReferenceInvokeResponseOutput() X12SchemaReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o X12SchemaReferenceInvokeResponseOutput) ToX12SchemaReferenceInvokeResponseOutputWithContext(ctx context.Context) X12SchemaReferenceInvokeResponseOutput {
+	return o
+}
+
+// The message id.
+func (o X12SchemaReferenceInvokeResponseOutput) MessageId() pulumi.StringOutput {
+	return o.ApplyT(func(v X12SchemaReferenceInvokeResponse) string { return v.MessageId }).(pulumi.StringOutput)
+}
+
+// The schema name.
+func (o X12SchemaReferenceInvokeResponseOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v X12SchemaReferenceInvokeResponse) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// The schema version.
+func (o X12SchemaReferenceInvokeResponseOutput) SchemaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v X12SchemaReferenceInvokeResponse) string { return v.SchemaVersion }).(pulumi.StringOutput)
+}
+
+// The sender application id.
+func (o X12SchemaReferenceInvokeResponseOutput) SenderApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12SchemaReferenceInvokeResponse) *string { return v.SenderApplicationId }).(pulumi.StringPtrOutput)
+}
+
+type X12SchemaReferenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (X12SchemaReferenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]X12SchemaReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o X12SchemaReferenceInvokeResponseArrayOutput) ToX12SchemaReferenceInvokeResponseArrayOutput() X12SchemaReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o X12SchemaReferenceInvokeResponseArrayOutput) ToX12SchemaReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) X12SchemaReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o X12SchemaReferenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) X12SchemaReferenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) X12SchemaReferenceInvokeResponse {
+		return vs[0].([]X12SchemaReferenceInvokeResponse)[vs[1].(int)]
+	}).(X12SchemaReferenceInvokeResponseOutput)
+}
+
+// The X12 schema reference.
 type X12SchemaReferenceResponse struct {
 	// The message id.
 	MessageId string `pulumi:"messageId"`
@@ -31741,6 +46797,197 @@ func (o X12SecuritySettingsPtrOutput) PasswordValue() pulumi.StringPtrOutput {
 // The security qualifier.
 func (o X12SecuritySettingsPtrOutput) SecurityQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *X12SecuritySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecurityQualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The X12 agreement security settings.
+type X12SecuritySettingsInvokeResponse struct {
+	// The authorization qualifier.
+	AuthorizationQualifier string `pulumi:"authorizationQualifier"`
+	// The authorization value.
+	AuthorizationValue *string `pulumi:"authorizationValue"`
+	// The password value.
+	PasswordValue *string `pulumi:"passwordValue"`
+	// The security qualifier.
+	SecurityQualifier string `pulumi:"securityQualifier"`
+}
+
+// X12SecuritySettingsInvokeResponseInput is an input type that accepts X12SecuritySettingsInvokeResponseArgs and X12SecuritySettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `X12SecuritySettingsInvokeResponseInput` via:
+//
+//          X12SecuritySettingsInvokeResponseArgs{...}
+type X12SecuritySettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12SecuritySettingsInvokeResponseOutput() X12SecuritySettingsInvokeResponseOutput
+	ToX12SecuritySettingsInvokeResponseOutputWithContext(context.Context) X12SecuritySettingsInvokeResponseOutput
+}
+
+// The X12 agreement security settings.
+type X12SecuritySettingsInvokeResponseArgs struct {
+	// The authorization qualifier.
+	AuthorizationQualifier pulumi.StringInput `pulumi:"authorizationQualifier"`
+	// The authorization value.
+	AuthorizationValue pulumi.StringPtrInput `pulumi:"authorizationValue"`
+	// The password value.
+	PasswordValue pulumi.StringPtrInput `pulumi:"passwordValue"`
+	// The security qualifier.
+	SecurityQualifier pulumi.StringInput `pulumi:"securityQualifier"`
+}
+
+func (X12SecuritySettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12SecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i X12SecuritySettingsInvokeResponseArgs) ToX12SecuritySettingsInvokeResponseOutput() X12SecuritySettingsInvokeResponseOutput {
+	return i.ToX12SecuritySettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12SecuritySettingsInvokeResponseArgs) ToX12SecuritySettingsInvokeResponseOutputWithContext(ctx context.Context) X12SecuritySettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12SecuritySettingsInvokeResponseOutput)
+}
+
+func (i X12SecuritySettingsInvokeResponseArgs) ToX12SecuritySettingsInvokeResponsePtrOutput() X12SecuritySettingsInvokeResponsePtrOutput {
+	return i.ToX12SecuritySettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i X12SecuritySettingsInvokeResponseArgs) ToX12SecuritySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12SecuritySettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12SecuritySettingsInvokeResponseOutput).ToX12SecuritySettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// X12SecuritySettingsInvokeResponsePtrInput is an input type that accepts X12SecuritySettingsInvokeResponseArgs, X12SecuritySettingsInvokeResponsePtr and X12SecuritySettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `X12SecuritySettingsInvokeResponsePtrInput` via:
+//
+//          X12SecuritySettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type X12SecuritySettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToX12SecuritySettingsInvokeResponsePtrOutput() X12SecuritySettingsInvokeResponsePtrOutput
+	ToX12SecuritySettingsInvokeResponsePtrOutputWithContext(context.Context) X12SecuritySettingsInvokeResponsePtrOutput
+}
+
+type x12securitySettingsInvokeResponsePtrType X12SecuritySettingsInvokeResponseArgs
+
+func X12SecuritySettingsInvokeResponsePtr(v *X12SecuritySettingsInvokeResponseArgs) X12SecuritySettingsInvokeResponsePtrInput {
+	return (*x12securitySettingsInvokeResponsePtrType)(v)
+}
+
+func (*x12securitySettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12SecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *x12securitySettingsInvokeResponsePtrType) ToX12SecuritySettingsInvokeResponsePtrOutput() X12SecuritySettingsInvokeResponsePtrOutput {
+	return i.ToX12SecuritySettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *x12securitySettingsInvokeResponsePtrType) ToX12SecuritySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12SecuritySettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12SecuritySettingsInvokeResponsePtrOutput)
+}
+
+// The X12 agreement security settings.
+type X12SecuritySettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12SecuritySettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12SecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12SecuritySettingsInvokeResponseOutput) ToX12SecuritySettingsInvokeResponseOutput() X12SecuritySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12SecuritySettingsInvokeResponseOutput) ToX12SecuritySettingsInvokeResponseOutputWithContext(ctx context.Context) X12SecuritySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12SecuritySettingsInvokeResponseOutput) ToX12SecuritySettingsInvokeResponsePtrOutput() X12SecuritySettingsInvokeResponsePtrOutput {
+	return o.ToX12SecuritySettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o X12SecuritySettingsInvokeResponseOutput) ToX12SecuritySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12SecuritySettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v X12SecuritySettingsInvokeResponse) *X12SecuritySettingsInvokeResponse {
+		return &v
+	}).(X12SecuritySettingsInvokeResponsePtrOutput)
+}
+
+// The authorization qualifier.
+func (o X12SecuritySettingsInvokeResponseOutput) AuthorizationQualifier() pulumi.StringOutput {
+	return o.ApplyT(func(v X12SecuritySettingsInvokeResponse) string { return v.AuthorizationQualifier }).(pulumi.StringOutput)
+}
+
+// The authorization value.
+func (o X12SecuritySettingsInvokeResponseOutput) AuthorizationValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12SecuritySettingsInvokeResponse) *string { return v.AuthorizationValue }).(pulumi.StringPtrOutput)
+}
+
+// The password value.
+func (o X12SecuritySettingsInvokeResponseOutput) PasswordValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v X12SecuritySettingsInvokeResponse) *string { return v.PasswordValue }).(pulumi.StringPtrOutput)
+}
+
+// The security qualifier.
+func (o X12SecuritySettingsInvokeResponseOutput) SecurityQualifier() pulumi.StringOutput {
+	return o.ApplyT(func(v X12SecuritySettingsInvokeResponse) string { return v.SecurityQualifier }).(pulumi.StringOutput)
+}
+
+type X12SecuritySettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (X12SecuritySettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12SecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12SecuritySettingsInvokeResponsePtrOutput) ToX12SecuritySettingsInvokeResponsePtrOutput() X12SecuritySettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12SecuritySettingsInvokeResponsePtrOutput) ToX12SecuritySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12SecuritySettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12SecuritySettingsInvokeResponsePtrOutput) Elem() X12SecuritySettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *X12SecuritySettingsInvokeResponse) X12SecuritySettingsInvokeResponse { return *v }).(X12SecuritySettingsInvokeResponseOutput)
+}
+
+// The authorization qualifier.
+func (o X12SecuritySettingsInvokeResponsePtrOutput) AuthorizationQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12SecuritySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationQualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authorization value.
+func (o X12SecuritySettingsInvokeResponsePtrOutput) AuthorizationValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12SecuritySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password value.
+func (o X12SecuritySettingsInvokeResponsePtrOutput) PasswordValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12SecuritySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The security qualifier.
+func (o X12SecuritySettingsInvokeResponsePtrOutput) SecurityQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12SecuritySettingsInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -32091,6 +47338,160 @@ func (o X12ValidationOverrideArrayOutput) Index(i pulumi.IntInput) X12Validation
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) X12ValidationOverride {
 		return vs[0].([]X12ValidationOverride)[vs[1].(int)]
 	}).(X12ValidationOverrideOutput)
+}
+
+// The X12 validation override settings.
+type X12ValidationOverrideInvokeResponse struct {
+	// The value indicating whether to allow leading and trailing spaces and zeroes.
+	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	// The message id on which the validation settings has to be applied.
+	MessageId string `pulumi:"messageId"`
+	// The trailing separator policy.
+	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
+	// The value indicating whether to trim leading and trailing spaces and zeroes.
+	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to validate character Set.
+	ValidateCharacterSet bool `pulumi:"validateCharacterSet"`
+	// The value indicating whether to validate EDI types.
+	ValidateEDITypes bool `pulumi:"validateEDITypes"`
+	// The value indicating whether to validate XSD types.
+	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+}
+
+// X12ValidationOverrideInvokeResponseInput is an input type that accepts X12ValidationOverrideInvokeResponseArgs and X12ValidationOverrideInvokeResponseOutput values.
+// You can construct a concrete instance of `X12ValidationOverrideInvokeResponseInput` via:
+//
+//          X12ValidationOverrideInvokeResponseArgs{...}
+type X12ValidationOverrideInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12ValidationOverrideInvokeResponseOutput() X12ValidationOverrideInvokeResponseOutput
+	ToX12ValidationOverrideInvokeResponseOutputWithContext(context.Context) X12ValidationOverrideInvokeResponseOutput
+}
+
+// The X12 validation override settings.
+type X12ValidationOverrideInvokeResponseArgs struct {
+	// The value indicating whether to allow leading and trailing spaces and zeroes.
+	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	// The message id on which the validation settings has to be applied.
+	MessageId pulumi.StringInput `pulumi:"messageId"`
+	// The trailing separator policy.
+	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	// The value indicating whether to trim leading and trailing spaces and zeroes.
+	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to validate character Set.
+	ValidateCharacterSet pulumi.BoolInput `pulumi:"validateCharacterSet"`
+	// The value indicating whether to validate EDI types.
+	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
+	// The value indicating whether to validate XSD types.
+	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+}
+
+func (X12ValidationOverrideInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12ValidationOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i X12ValidationOverrideInvokeResponseArgs) ToX12ValidationOverrideInvokeResponseOutput() X12ValidationOverrideInvokeResponseOutput {
+	return i.ToX12ValidationOverrideInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12ValidationOverrideInvokeResponseArgs) ToX12ValidationOverrideInvokeResponseOutputWithContext(ctx context.Context) X12ValidationOverrideInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationOverrideInvokeResponseOutput)
+}
+
+// X12ValidationOverrideInvokeResponseArrayInput is an input type that accepts X12ValidationOverrideInvokeResponseArray and X12ValidationOverrideInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `X12ValidationOverrideInvokeResponseArrayInput` via:
+//
+//          X12ValidationOverrideInvokeResponseArray{ X12ValidationOverrideInvokeResponseArgs{...} }
+type X12ValidationOverrideInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToX12ValidationOverrideInvokeResponseArrayOutput() X12ValidationOverrideInvokeResponseArrayOutput
+	ToX12ValidationOverrideInvokeResponseArrayOutputWithContext(context.Context) X12ValidationOverrideInvokeResponseArrayOutput
+}
+
+type X12ValidationOverrideInvokeResponseArray []X12ValidationOverrideInvokeResponseInput
+
+func (X12ValidationOverrideInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]X12ValidationOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i X12ValidationOverrideInvokeResponseArray) ToX12ValidationOverrideInvokeResponseArrayOutput() X12ValidationOverrideInvokeResponseArrayOutput {
+	return i.ToX12ValidationOverrideInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i X12ValidationOverrideInvokeResponseArray) ToX12ValidationOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) X12ValidationOverrideInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationOverrideInvokeResponseArrayOutput)
+}
+
+// The X12 validation override settings.
+type X12ValidationOverrideInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12ValidationOverrideInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12ValidationOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o X12ValidationOverrideInvokeResponseOutput) ToX12ValidationOverrideInvokeResponseOutput() X12ValidationOverrideInvokeResponseOutput {
+	return o
+}
+
+func (o X12ValidationOverrideInvokeResponseOutput) ToX12ValidationOverrideInvokeResponseOutputWithContext(ctx context.Context) X12ValidationOverrideInvokeResponseOutput {
+	return o
+}
+
+// The value indicating whether to allow leading and trailing spaces and zeroes.
+func (o X12ValidationOverrideInvokeResponseOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationOverrideInvokeResponse) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
+}
+
+// The message id on which the validation settings has to be applied.
+func (o X12ValidationOverrideInvokeResponseOutput) MessageId() pulumi.StringOutput {
+	return o.ApplyT(func(v X12ValidationOverrideInvokeResponse) string { return v.MessageId }).(pulumi.StringOutput)
+}
+
+// The trailing separator policy.
+func (o X12ValidationOverrideInvokeResponseOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v X12ValidationOverrideInvokeResponse) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
+}
+
+// The value indicating whether to trim leading and trailing spaces and zeroes.
+func (o X12ValidationOverrideInvokeResponseOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationOverrideInvokeResponse) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to validate character Set.
+func (o X12ValidationOverrideInvokeResponseOutput) ValidateCharacterSet() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationOverrideInvokeResponse) bool { return v.ValidateCharacterSet }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to validate EDI types.
+func (o X12ValidationOverrideInvokeResponseOutput) ValidateEDITypes() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationOverrideInvokeResponse) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to validate XSD types.
+func (o X12ValidationOverrideInvokeResponseOutput) ValidateXSDTypes() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationOverrideInvokeResponse) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
+}
+
+type X12ValidationOverrideInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (X12ValidationOverrideInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]X12ValidationOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o X12ValidationOverrideInvokeResponseArrayOutput) ToX12ValidationOverrideInvokeResponseArrayOutput() X12ValidationOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o X12ValidationOverrideInvokeResponseArrayOutput) ToX12ValidationOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) X12ValidationOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o X12ValidationOverrideInvokeResponseArrayOutput) Index(i pulumi.IntInput) X12ValidationOverrideInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) X12ValidationOverrideInvokeResponse {
+		return vs[0].([]X12ValidationOverrideInvokeResponse)[vs[1].(int)]
+	}).(X12ValidationOverrideInvokeResponseOutput)
 }
 
 // The X12 validation override settings.
@@ -32553,6 +47954,311 @@ func (o X12ValidationSettingsPtrOutput) ValidateXSDTypes() pulumi.BoolPtrOutput 
 }
 
 // The X12 agreement validation settings.
+type X12ValidationSettingsInvokeResponse struct {
+	// The value indicating whether to allow leading and trailing spaces and zeroes.
+	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to check for duplicate group control number.
+	CheckDuplicateGroupControlNumber bool `pulumi:"checkDuplicateGroupControlNumber"`
+	// The value indicating whether to check for duplicate interchange control number.
+	CheckDuplicateInterchangeControlNumber bool `pulumi:"checkDuplicateInterchangeControlNumber"`
+	// The value indicating whether to check for duplicate transaction set control number.
+	CheckDuplicateTransactionSetControlNumber bool `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	// The validity period of interchange control number.
+	InterchangeControlNumberValidityDays int `pulumi:"interchangeControlNumberValidityDays"`
+	// The trailing separator policy.
+	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
+	// The value indicating whether to trim leading and trailing spaces and zeroes.
+	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to validate character set in the message.
+	ValidateCharacterSet bool `pulumi:"validateCharacterSet"`
+	// The value indicating whether to Whether to validate EDI types.
+	ValidateEDITypes bool `pulumi:"validateEDITypes"`
+	// The value indicating whether to Whether to validate XSD types.
+	ValidateXSDTypes bool `pulumi:"validateXSDTypes"`
+}
+
+// X12ValidationSettingsInvokeResponseInput is an input type that accepts X12ValidationSettingsInvokeResponseArgs and X12ValidationSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `X12ValidationSettingsInvokeResponseInput` via:
+//
+//          X12ValidationSettingsInvokeResponseArgs{...}
+type X12ValidationSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToX12ValidationSettingsInvokeResponseOutput() X12ValidationSettingsInvokeResponseOutput
+	ToX12ValidationSettingsInvokeResponseOutputWithContext(context.Context) X12ValidationSettingsInvokeResponseOutput
+}
+
+// The X12 agreement validation settings.
+type X12ValidationSettingsInvokeResponseArgs struct {
+	// The value indicating whether to allow leading and trailing spaces and zeroes.
+	AllowLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to check for duplicate group control number.
+	CheckDuplicateGroupControlNumber pulumi.BoolInput `pulumi:"checkDuplicateGroupControlNumber"`
+	// The value indicating whether to check for duplicate interchange control number.
+	CheckDuplicateInterchangeControlNumber pulumi.BoolInput `pulumi:"checkDuplicateInterchangeControlNumber"`
+	// The value indicating whether to check for duplicate transaction set control number.
+	CheckDuplicateTransactionSetControlNumber pulumi.BoolInput `pulumi:"checkDuplicateTransactionSetControlNumber"`
+	// The validity period of interchange control number.
+	InterchangeControlNumberValidityDays pulumi.IntInput `pulumi:"interchangeControlNumberValidityDays"`
+	// The trailing separator policy.
+	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	// The value indicating whether to trim leading and trailing spaces and zeroes.
+	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
+	// The value indicating whether to validate character set in the message.
+	ValidateCharacterSet pulumi.BoolInput `pulumi:"validateCharacterSet"`
+	// The value indicating whether to Whether to validate EDI types.
+	ValidateEDITypes pulumi.BoolInput `pulumi:"validateEDITypes"`
+	// The value indicating whether to Whether to validate XSD types.
+	ValidateXSDTypes pulumi.BoolInput `pulumi:"validateXSDTypes"`
+}
+
+func (X12ValidationSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12ValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i X12ValidationSettingsInvokeResponseArgs) ToX12ValidationSettingsInvokeResponseOutput() X12ValidationSettingsInvokeResponseOutput {
+	return i.ToX12ValidationSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i X12ValidationSettingsInvokeResponseArgs) ToX12ValidationSettingsInvokeResponseOutputWithContext(ctx context.Context) X12ValidationSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationSettingsInvokeResponseOutput)
+}
+
+func (i X12ValidationSettingsInvokeResponseArgs) ToX12ValidationSettingsInvokeResponsePtrOutput() X12ValidationSettingsInvokeResponsePtrOutput {
+	return i.ToX12ValidationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i X12ValidationSettingsInvokeResponseArgs) ToX12ValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ValidationSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationSettingsInvokeResponseOutput).ToX12ValidationSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// X12ValidationSettingsInvokeResponsePtrInput is an input type that accepts X12ValidationSettingsInvokeResponseArgs, X12ValidationSettingsInvokeResponsePtr and X12ValidationSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `X12ValidationSettingsInvokeResponsePtrInput` via:
+//
+//          X12ValidationSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type X12ValidationSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToX12ValidationSettingsInvokeResponsePtrOutput() X12ValidationSettingsInvokeResponsePtrOutput
+	ToX12ValidationSettingsInvokeResponsePtrOutputWithContext(context.Context) X12ValidationSettingsInvokeResponsePtrOutput
+}
+
+type x12validationSettingsInvokeResponsePtrType X12ValidationSettingsInvokeResponseArgs
+
+func X12ValidationSettingsInvokeResponsePtr(v *X12ValidationSettingsInvokeResponseArgs) X12ValidationSettingsInvokeResponsePtrInput {
+	return (*x12validationSettingsInvokeResponsePtrType)(v)
+}
+
+func (*x12validationSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12ValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *x12validationSettingsInvokeResponsePtrType) ToX12ValidationSettingsInvokeResponsePtrOutput() X12ValidationSettingsInvokeResponsePtrOutput {
+	return i.ToX12ValidationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *x12validationSettingsInvokeResponsePtrType) ToX12ValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ValidationSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(X12ValidationSettingsInvokeResponsePtrOutput)
+}
+
+// The X12 agreement validation settings.
+type X12ValidationSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (X12ValidationSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*X12ValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12ValidationSettingsInvokeResponseOutput) ToX12ValidationSettingsInvokeResponseOutput() X12ValidationSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12ValidationSettingsInvokeResponseOutput) ToX12ValidationSettingsInvokeResponseOutputWithContext(ctx context.Context) X12ValidationSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o X12ValidationSettingsInvokeResponseOutput) ToX12ValidationSettingsInvokeResponsePtrOutput() X12ValidationSettingsInvokeResponsePtrOutput {
+	return o.ToX12ValidationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o X12ValidationSettingsInvokeResponseOutput) ToX12ValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ValidationSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) *X12ValidationSettingsInvokeResponse {
+		return &v
+	}).(X12ValidationSettingsInvokeResponsePtrOutput)
+}
+
+// The value indicating whether to allow leading and trailing spaces and zeroes.
+func (o X12ValidationSettingsInvokeResponseOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) bool { return v.AllowLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to check for duplicate group control number.
+func (o X12ValidationSettingsInvokeResponseOutput) CheckDuplicateGroupControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) bool { return v.CheckDuplicateGroupControlNumber }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to check for duplicate interchange control number.
+func (o X12ValidationSettingsInvokeResponseOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) bool { return v.CheckDuplicateInterchangeControlNumber }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to check for duplicate transaction set control number.
+func (o X12ValidationSettingsInvokeResponseOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) bool { return v.CheckDuplicateTransactionSetControlNumber }).(pulumi.BoolOutput)
+}
+
+// The validity period of interchange control number.
+func (o X12ValidationSettingsInvokeResponseOutput) InterchangeControlNumberValidityDays() pulumi.IntOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) int { return v.InterchangeControlNumberValidityDays }).(pulumi.IntOutput)
+}
+
+// The trailing separator policy.
+func (o X12ValidationSettingsInvokeResponseOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
+}
+
+// The value indicating whether to trim leading and trailing spaces and zeroes.
+func (o X12ValidationSettingsInvokeResponseOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) bool { return v.TrimLeadingAndTrailingSpacesAndZeroes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to validate character set in the message.
+func (o X12ValidationSettingsInvokeResponseOutput) ValidateCharacterSet() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) bool { return v.ValidateCharacterSet }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to Whether to validate EDI types.
+func (o X12ValidationSettingsInvokeResponseOutput) ValidateEDITypes() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) bool { return v.ValidateEDITypes }).(pulumi.BoolOutput)
+}
+
+// The value indicating whether to Whether to validate XSD types.
+func (o X12ValidationSettingsInvokeResponseOutput) ValidateXSDTypes() pulumi.BoolOutput {
+	return o.ApplyT(func(v X12ValidationSettingsInvokeResponse) bool { return v.ValidateXSDTypes }).(pulumi.BoolOutput)
+}
+
+type X12ValidationSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (X12ValidationSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**X12ValidationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o X12ValidationSettingsInvokeResponsePtrOutput) ToX12ValidationSettingsInvokeResponsePtrOutput() X12ValidationSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12ValidationSettingsInvokeResponsePtrOutput) ToX12ValidationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) X12ValidationSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o X12ValidationSettingsInvokeResponsePtrOutput) Elem() X12ValidationSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) X12ValidationSettingsInvokeResponse { return *v }).(X12ValidationSettingsInvokeResponseOutput)
+}
+
+// The value indicating whether to allow leading and trailing spaces and zeroes.
+func (o X12ValidationSettingsInvokeResponsePtrOutput) AllowLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowLeadingAndTrailingSpacesAndZeroes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to check for duplicate group control number.
+func (o X12ValidationSettingsInvokeResponsePtrOutput) CheckDuplicateGroupControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CheckDuplicateGroupControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to check for duplicate interchange control number.
+func (o X12ValidationSettingsInvokeResponsePtrOutput) CheckDuplicateInterchangeControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CheckDuplicateInterchangeControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to check for duplicate transaction set control number.
+func (o X12ValidationSettingsInvokeResponsePtrOutput) CheckDuplicateTransactionSetControlNumber() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CheckDuplicateTransactionSetControlNumber
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The validity period of interchange control number.
+func (o X12ValidationSettingsInvokeResponsePtrOutput) InterchangeControlNumberValidityDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InterchangeControlNumberValidityDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The trailing separator policy.
+func (o X12ValidationSettingsInvokeResponsePtrOutput) TrailingSeparatorPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrailingSeparatorPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value indicating whether to trim leading and trailing spaces and zeroes.
+func (o X12ValidationSettingsInvokeResponsePtrOutput) TrimLeadingAndTrailingSpacesAndZeroes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.TrimLeadingAndTrailingSpacesAndZeroes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to validate character set in the message.
+func (o X12ValidationSettingsInvokeResponsePtrOutput) ValidateCharacterSet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidateCharacterSet
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to Whether to validate EDI types.
+func (o X12ValidationSettingsInvokeResponsePtrOutput) ValidateEDITypes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidateEDITypes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value indicating whether to Whether to validate XSD types.
+func (o X12ValidationSettingsInvokeResponsePtrOutput) ValidateXSDTypes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidateXSDTypes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The X12 agreement validation settings.
 type X12ValidationSettingsResponse struct {
 	// The value indicating whether to allow leading and trailing spaces and zeroes.
 	AllowLeadingAndTrailingSpacesAndZeroes bool `pulumi:"allowLeadingAndTrailingSpacesAndZeroes"`
@@ -32860,161 +48566,240 @@ func (o X12ValidationSettingsResponsePtrOutput) ValidateXSDTypes() pulumi.BoolPt
 func init() {
 	pulumi.RegisterOutputType(AS2AcknowledgementConnectionSettingsOutput{})
 	pulumi.RegisterOutputType(AS2AcknowledgementConnectionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AS2AcknowledgementConnectionSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AS2AcknowledgementConnectionSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2AcknowledgementConnectionSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AS2AcknowledgementConnectionSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2AgreementContentOutput{})
 	pulumi.RegisterOutputType(AS2AgreementContentPtrOutput{})
+	pulumi.RegisterOutputType(AS2AgreementContentInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AS2AgreementContentInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2AgreementContentResponseOutput{})
 	pulumi.RegisterOutputType(AS2AgreementContentResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2EnvelopeSettingsOutput{})
 	pulumi.RegisterOutputType(AS2EnvelopeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AS2EnvelopeSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AS2EnvelopeSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2EnvelopeSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AS2EnvelopeSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2ErrorSettingsOutput{})
 	pulumi.RegisterOutputType(AS2ErrorSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AS2ErrorSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AS2ErrorSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2ErrorSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AS2ErrorSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2MdnSettingsOutput{})
 	pulumi.RegisterOutputType(AS2MdnSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AS2MdnSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AS2MdnSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2MdnSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AS2MdnSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2MessageConnectionSettingsOutput{})
 	pulumi.RegisterOutputType(AS2MessageConnectionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AS2MessageConnectionSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AS2MessageConnectionSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2MessageConnectionSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AS2MessageConnectionSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2OneWayAgreementOutput{})
 	pulumi.RegisterOutputType(AS2OneWayAgreementPtrOutput{})
+	pulumi.RegisterOutputType(AS2OneWayAgreementInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AS2OneWayAgreementInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2OneWayAgreementResponseOutput{})
 	pulumi.RegisterOutputType(AS2OneWayAgreementResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2ProtocolSettingsOutput{})
 	pulumi.RegisterOutputType(AS2ProtocolSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AS2ProtocolSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AS2ProtocolSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2ProtocolSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AS2ProtocolSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2SecuritySettingsOutput{})
 	pulumi.RegisterOutputType(AS2SecuritySettingsPtrOutput{})
+	pulumi.RegisterOutputType(AS2SecuritySettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AS2SecuritySettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2SecuritySettingsResponseOutput{})
 	pulumi.RegisterOutputType(AS2SecuritySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2ValidationSettingsOutput{})
 	pulumi.RegisterOutputType(AS2ValidationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AS2ValidationSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AS2ValidationSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AS2ValidationSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AS2ValidationSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AgreementContentOutput{})
 	pulumi.RegisterOutputType(AgreementContentPtrOutput{})
+	pulumi.RegisterOutputType(AgreementContentInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AgreementContentResponseOutput{})
 	pulumi.RegisterOutputType(AgreementContentResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiDeploymentParameterMetadataInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApiDeploymentParameterMetadataInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiDeploymentParameterMetadataResponseOutput{})
 	pulumi.RegisterOutputType(ApiDeploymentParameterMetadataResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiDeploymentParameterMetadataSetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApiDeploymentParameterMetadataSetInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiDeploymentParameterMetadataSetResponseOutput{})
 	pulumi.RegisterOutputType(ApiDeploymentParameterMetadataSetResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiResourceBackendServiceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApiResourceBackendServiceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiResourceBackendServiceResponseOutput{})
 	pulumi.RegisterOutputType(ApiResourceBackendServiceResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiResourceDefinitionsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApiResourceDefinitionsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiResourceDefinitionsResponseOutput{})
 	pulumi.RegisterOutputType(ApiResourceDefinitionsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiResourceGeneralInformationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApiResourceGeneralInformationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiResourceGeneralInformationResponseOutput{})
 	pulumi.RegisterOutputType(ApiResourceGeneralInformationResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiResourceMetadataInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApiResourceMetadataInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiResourceMetadataResponseOutput{})
 	pulumi.RegisterOutputType(ApiResourceMetadataResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiResourcePoliciesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApiResourcePoliciesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiResourcePoliciesResponseOutput{})
 	pulumi.RegisterOutputType(ApiResourcePoliciesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApiResourcePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApiResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApiResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AssemblyPropertiesOutput{})
 	pulumi.RegisterOutputType(AssemblyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AssemblyPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AssemblyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AssemblyPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(AzureResourceErrorInfoResponseOutput{})
-	pulumi.RegisterOutputType(AzureResourceErrorInfoResponsePtrOutput{})
-	pulumi.RegisterOutputType(AzureResourceErrorInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(AzureResourceErrorInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureResourceErrorInfoInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureResourceErrorInfoInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(B2BPartnerContentOutput{})
 	pulumi.RegisterOutputType(B2BPartnerContentPtrOutput{})
+	pulumi.RegisterOutputType(B2BPartnerContentInvokeResponseOutput{})
+	pulumi.RegisterOutputType(B2BPartnerContentInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(B2BPartnerContentResponseOutput{})
 	pulumi.RegisterOutputType(B2BPartnerContentResponsePtrOutput{})
 	pulumi.RegisterOutputType(BatchConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(BatchConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BatchConfigurationPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BatchConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BatchConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BatchReleaseCriteriaOutput{})
 	pulumi.RegisterOutputType(BatchReleaseCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(BatchReleaseCriteriaInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BatchReleaseCriteriaResponseOutput{})
 	pulumi.RegisterOutputType(BatchReleaseCriteriaResponsePtrOutput{})
 	pulumi.RegisterOutputType(BusinessIdentityOutput{})
 	pulumi.RegisterOutputType(BusinessIdentityPtrOutput{})
 	pulumi.RegisterOutputType(BusinessIdentityArrayOutput{})
+	pulumi.RegisterOutputType(BusinessIdentityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BusinessIdentityInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(BusinessIdentityInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(BusinessIdentityResponseOutput{})
 	pulumi.RegisterOutputType(BusinessIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(BusinessIdentityResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContentHashOutput{})
 	pulumi.RegisterOutputType(ContentHashPtrOutput{})
+	pulumi.RegisterOutputType(ContentHashInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentHashInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentHashResponseOutput{})
 	pulumi.RegisterOutputType(ContentHashResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentLinkOutput{})
 	pulumi.RegisterOutputType(ContentLinkPtrOutput{})
+	pulumi.RegisterOutputType(ContentLinkInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentLinkInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentLinkResponseOutput{})
 	pulumi.RegisterOutputType(ContentLinkResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactAcknowledgementSettingsOutput{})
 	pulumi.RegisterOutputType(EdifactAcknowledgementSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EdifactAcknowledgementSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactAcknowledgementSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactAcknowledgementSettingsResponseOutput{})
 	pulumi.RegisterOutputType(EdifactAcknowledgementSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactAgreementContentOutput{})
 	pulumi.RegisterOutputType(EdifactAgreementContentPtrOutput{})
+	pulumi.RegisterOutputType(EdifactAgreementContentInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactAgreementContentInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactAgreementContentResponseOutput{})
 	pulumi.RegisterOutputType(EdifactAgreementContentResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactDelimiterOverrideOutput{})
 	pulumi.RegisterOutputType(EdifactDelimiterOverrideArrayOutput{})
+	pulumi.RegisterOutputType(EdifactDelimiterOverrideInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactDelimiterOverrideInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EdifactDelimiterOverrideResponseOutput{})
 	pulumi.RegisterOutputType(EdifactDelimiterOverrideResponseArrayOutput{})
 	pulumi.RegisterOutputType(EdifactEnvelopeOverrideOutput{})
 	pulumi.RegisterOutputType(EdifactEnvelopeOverrideArrayOutput{})
+	pulumi.RegisterOutputType(EdifactEnvelopeOverrideInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactEnvelopeOverrideInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EdifactEnvelopeOverrideResponseOutput{})
 	pulumi.RegisterOutputType(EdifactEnvelopeOverrideResponseArrayOutput{})
 	pulumi.RegisterOutputType(EdifactEnvelopeSettingsOutput{})
 	pulumi.RegisterOutputType(EdifactEnvelopeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EdifactEnvelopeSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactEnvelopeSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactEnvelopeSettingsResponseOutput{})
 	pulumi.RegisterOutputType(EdifactEnvelopeSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactFramingSettingsOutput{})
 	pulumi.RegisterOutputType(EdifactFramingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EdifactFramingSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactFramingSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactFramingSettingsResponseOutput{})
 	pulumi.RegisterOutputType(EdifactFramingSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactMessageFilterOutput{})
 	pulumi.RegisterOutputType(EdifactMessageFilterPtrOutput{})
+	pulumi.RegisterOutputType(EdifactMessageFilterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactMessageFilterInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactMessageFilterResponseOutput{})
 	pulumi.RegisterOutputType(EdifactMessageFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactMessageIdentifierOutput{})
 	pulumi.RegisterOutputType(EdifactMessageIdentifierArrayOutput{})
+	pulumi.RegisterOutputType(EdifactMessageIdentifierInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactMessageIdentifierInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EdifactMessageIdentifierResponseOutput{})
 	pulumi.RegisterOutputType(EdifactMessageIdentifierResponseArrayOutput{})
 	pulumi.RegisterOutputType(EdifactOneWayAgreementOutput{})
 	pulumi.RegisterOutputType(EdifactOneWayAgreementPtrOutput{})
+	pulumi.RegisterOutputType(EdifactOneWayAgreementInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactOneWayAgreementInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactOneWayAgreementResponseOutput{})
 	pulumi.RegisterOutputType(EdifactOneWayAgreementResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactProcessingSettingsOutput{})
 	pulumi.RegisterOutputType(EdifactProcessingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EdifactProcessingSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactProcessingSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactProcessingSettingsResponseOutput{})
 	pulumi.RegisterOutputType(EdifactProcessingSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactProtocolSettingsOutput{})
 	pulumi.RegisterOutputType(EdifactProtocolSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EdifactProtocolSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactProtocolSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactProtocolSettingsResponseOutput{})
 	pulumi.RegisterOutputType(EdifactProtocolSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactSchemaReferenceOutput{})
 	pulumi.RegisterOutputType(EdifactSchemaReferenceArrayOutput{})
+	pulumi.RegisterOutputType(EdifactSchemaReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactSchemaReferenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EdifactSchemaReferenceResponseOutput{})
 	pulumi.RegisterOutputType(EdifactSchemaReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(EdifactValidationOverrideOutput{})
 	pulumi.RegisterOutputType(EdifactValidationOverrideArrayOutput{})
+	pulumi.RegisterOutputType(EdifactValidationOverrideInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactValidationOverrideInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EdifactValidationOverrideResponseOutput{})
 	pulumi.RegisterOutputType(EdifactValidationOverrideResponseArrayOutput{})
 	pulumi.RegisterOutputType(EdifactValidationSettingsOutput{})
 	pulumi.RegisterOutputType(EdifactValidationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EdifactValidationSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdifactValidationSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EdifactValidationSettingsResponseOutput{})
 	pulumi.RegisterOutputType(EdifactValidationSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(ExpressionResponseOutput{})
-	pulumi.RegisterOutputType(ExpressionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ExpressionRootResponseOutput{})
-	pulumi.RegisterOutputType(ExpressionRootResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExpressionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ExpressionInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExpressionRootInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ExpressionRootInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FlowAccessControlConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowAccessControlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowAccessControlConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(FlowAccessControlConfigurationPolicyOutput{})
 	pulumi.RegisterOutputType(FlowAccessControlConfigurationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FlowAccessControlConfigurationPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FlowAccessControlConfigurationPolicyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(FlowAccessControlConfigurationPolicyResponseOutput{})
 	pulumi.RegisterOutputType(FlowAccessControlConfigurationPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(FlowAccessControlConfigurationResponseOutput{})
@@ -33023,87 +48808,123 @@ func init() {
 	pulumi.RegisterOutputType(FlowEndpointsPtrOutput{})
 	pulumi.RegisterOutputType(FlowEndpointsConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowEndpointsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowEndpointsConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FlowEndpointsConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(FlowEndpointsConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(FlowEndpointsConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(FlowEndpointsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FlowEndpointsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(FlowEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(FlowEndpointsResponsePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesInvokeResponseParametersSchemaOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesParametersSchemaOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesParametersSchemaPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesResponseParametersSchemaOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSkuOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSkuPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSkuResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferenceOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferencePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmenEncryptionKeyReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentTypePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentSkuOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentSkuPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentSkuInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IntegrationServiceEnvironmentSkuInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentSkuResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(IpAddressOutput{})
 	pulumi.RegisterOutputType(IpAddressArrayOutput{})
+	pulumi.RegisterOutputType(IpAddressInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IpAddressInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpAddressRangeOutput{})
 	pulumi.RegisterOutputType(IpAddressRangeArrayOutput{})
+	pulumi.RegisterOutputType(IpAddressRangeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IpAddressRangeInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpAddressRangeResponseOutput{})
 	pulumi.RegisterOutputType(IpAddressRangeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpAddressResponseOutput{})
 	pulumi.RegisterOutputType(IpAddressResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyInvokeResponseAttributesOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyInvokeResponseAttributesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferencePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceInvokeResponseKeyVaultOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceKeyVaultOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseKeyVaultOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseKeyVaultPtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultKeyResponseOutput{})
-	pulumi.RegisterOutputType(KeyVaultKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(KeyVaultKeyResponseAttributesOutput{})
-	pulumi.RegisterOutputType(KeyVaultKeyResponseAttributesPtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultReferenceOutput{})
+	pulumi.RegisterOutputType(KeyVaultReferenceInvokeOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(NetworkConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NetworkConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPoliciesOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(OpenAuthenticationAccessPoliciesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OpenAuthenticationAccessPoliciesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPoliciesResponseOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPoliciesResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPolicyOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPolicyMapOutput{})
+	pulumi.RegisterOutputType(OpenAuthenticationAccessPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OpenAuthenticationAccessPolicyInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPolicyResponseOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPolicyResponseMapOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationPolicyClaimOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationPolicyClaimArrayOutput{})
+	pulumi.RegisterOutputType(OpenAuthenticationPolicyClaimInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OpenAuthenticationPolicyClaimInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationPolicyClaimResponseOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationPolicyClaimResponseArrayOutput{})
 	pulumi.RegisterOutputType(PartnerContentOutput{})
 	pulumi.RegisterOutputType(PartnerContentPtrOutput{})
+	pulumi.RegisterOutputType(PartnerContentInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PartnerContentResponseOutput{})
 	pulumi.RegisterOutputType(PartnerContentResponsePtrOutput{})
 	pulumi.RegisterOutputType(RecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(RecurrenceSchedulePtrOutput{})
+	pulumi.RegisterOutputType(RecurrenceScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RecurrenceScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RecurrenceScheduleOccurrenceOutput{})
 	pulumi.RegisterOutputType(RecurrenceScheduleOccurrenceArrayOutput{})
+	pulumi.RegisterOutputType(RecurrenceScheduleOccurrenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RecurrenceScheduleOccurrenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(RecurrenceScheduleOccurrenceResponseOutput{})
 	pulumi.RegisterOutputType(RecurrenceScheduleOccurrenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(RecurrenceScheduleResponseOutput{})
@@ -33111,80 +48932,120 @@ func init() {
 	pulumi.RegisterOutputType(ResourceReferenceOutput{})
 	pulumi.RegisterOutputType(ResourceReferencePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceArrayOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterMapOutput{})
+	pulumi.RegisterOutputType(WorkflowParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkflowParameterInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterResponseOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterResponseMapOutput{})
-	pulumi.RegisterOutputType(WorkflowTriggerListCallbackUrlQueriesResponseOutput{})
+	pulumi.RegisterOutputType(WorkflowTriggerListCallbackUrlQueriesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerRecurrenceOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowTriggerRecurrenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkflowTriggerRecurrenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerRecurrenceResponseOutput{})
 	pulumi.RegisterOutputType(WorkflowTriggerRecurrenceResponsePtrOutput{})
+	pulumi.RegisterOutputType(WsdlServiceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WsdlServiceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WsdlServiceResponseOutput{})
 	pulumi.RegisterOutputType(WsdlServiceResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12AcknowledgementSettingsOutput{})
 	pulumi.RegisterOutputType(X12AcknowledgementSettingsPtrOutput{})
+	pulumi.RegisterOutputType(X12AcknowledgementSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12AcknowledgementSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12AcknowledgementSettingsResponseOutput{})
 	pulumi.RegisterOutputType(X12AcknowledgementSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12AgreementContentOutput{})
 	pulumi.RegisterOutputType(X12AgreementContentPtrOutput{})
+	pulumi.RegisterOutputType(X12AgreementContentInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12AgreementContentInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12AgreementContentResponseOutput{})
 	pulumi.RegisterOutputType(X12AgreementContentResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12DelimiterOverridesOutput{})
 	pulumi.RegisterOutputType(X12DelimiterOverridesArrayOutput{})
+	pulumi.RegisterOutputType(X12DelimiterOverridesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12DelimiterOverridesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(X12DelimiterOverridesResponseOutput{})
 	pulumi.RegisterOutputType(X12DelimiterOverridesResponseArrayOutput{})
 	pulumi.RegisterOutputType(X12EnvelopeOverrideOutput{})
 	pulumi.RegisterOutputType(X12EnvelopeOverrideArrayOutput{})
+	pulumi.RegisterOutputType(X12EnvelopeOverrideInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12EnvelopeOverrideInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(X12EnvelopeOverrideResponseOutput{})
 	pulumi.RegisterOutputType(X12EnvelopeOverrideResponseArrayOutput{})
 	pulumi.RegisterOutputType(X12EnvelopeSettingsOutput{})
 	pulumi.RegisterOutputType(X12EnvelopeSettingsPtrOutput{})
+	pulumi.RegisterOutputType(X12EnvelopeSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12EnvelopeSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12EnvelopeSettingsResponseOutput{})
 	pulumi.RegisterOutputType(X12EnvelopeSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12FramingSettingsOutput{})
 	pulumi.RegisterOutputType(X12FramingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(X12FramingSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12FramingSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12FramingSettingsResponseOutput{})
 	pulumi.RegisterOutputType(X12FramingSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12MessageFilterOutput{})
 	pulumi.RegisterOutputType(X12MessageFilterPtrOutput{})
+	pulumi.RegisterOutputType(X12MessageFilterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12MessageFilterInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12MessageFilterResponseOutput{})
 	pulumi.RegisterOutputType(X12MessageFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12MessageIdentifierOutput{})
 	pulumi.RegisterOutputType(X12MessageIdentifierArrayOutput{})
+	pulumi.RegisterOutputType(X12MessageIdentifierInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12MessageIdentifierInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(X12MessageIdentifierResponseOutput{})
 	pulumi.RegisterOutputType(X12MessageIdentifierResponseArrayOutput{})
 	pulumi.RegisterOutputType(X12OneWayAgreementOutput{})
 	pulumi.RegisterOutputType(X12OneWayAgreementPtrOutput{})
+	pulumi.RegisterOutputType(X12OneWayAgreementInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12OneWayAgreementInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12OneWayAgreementResponseOutput{})
 	pulumi.RegisterOutputType(X12OneWayAgreementResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12ProcessingSettingsOutput{})
 	pulumi.RegisterOutputType(X12ProcessingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(X12ProcessingSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12ProcessingSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12ProcessingSettingsResponseOutput{})
 	pulumi.RegisterOutputType(X12ProcessingSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12ProtocolSettingsOutput{})
 	pulumi.RegisterOutputType(X12ProtocolSettingsPtrOutput{})
+	pulumi.RegisterOutputType(X12ProtocolSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12ProtocolSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12ProtocolSettingsResponseOutput{})
 	pulumi.RegisterOutputType(X12ProtocolSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12SchemaReferenceOutput{})
 	pulumi.RegisterOutputType(X12SchemaReferenceArrayOutput{})
+	pulumi.RegisterOutputType(X12SchemaReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12SchemaReferenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(X12SchemaReferenceResponseOutput{})
 	pulumi.RegisterOutputType(X12SchemaReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(X12SecuritySettingsOutput{})
 	pulumi.RegisterOutputType(X12SecuritySettingsPtrOutput{})
+	pulumi.RegisterOutputType(X12SecuritySettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12SecuritySettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12SecuritySettingsResponseOutput{})
 	pulumi.RegisterOutputType(X12SecuritySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12ValidationOverrideOutput{})
 	pulumi.RegisterOutputType(X12ValidationOverrideArrayOutput{})
+	pulumi.RegisterOutputType(X12ValidationOverrideInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12ValidationOverrideInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(X12ValidationOverrideResponseOutput{})
 	pulumi.RegisterOutputType(X12ValidationOverrideResponseArrayOutput{})
 	pulumi.RegisterOutputType(X12ValidationSettingsOutput{})
 	pulumi.RegisterOutputType(X12ValidationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(X12ValidationSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(X12ValidationSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(X12ValidationSettingsResponseOutput{})
 	pulumi.RegisterOutputType(X12ValidationSettingsResponsePtrOutput{})
 }

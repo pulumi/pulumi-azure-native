@@ -30,7 +30,7 @@ type LookupAppServicePlanResult struct {
 	// Geographical location for the App Service plan.
 	GeoRegion string `pulumi:"geoRegion"`
 	// Specification for the App Service Environment to use for the App Service plan.
-	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	HostingEnvironmentProfile *HostingEnvironmentProfileInvokeResponse `pulumi:"hostingEnvironmentProfile"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// If <code>true</code>, this App Service Plan owns spot instances.
@@ -55,7 +55,7 @@ type LookupAppServicePlanResult struct {
 	// Resource group of the App Service plan.
 	ResourceGroup string `pulumi:"resourceGroup"`
 	// Description of a SKU for a scalable resource.
-	Sku *SkuDescriptionResponse `pulumi:"sku"`
+	Sku *SkuDescriptionInvokeResponse `pulumi:"sku"`
 	// The time when the server farm expires. Valid only if it is a spot server farm.
 	SpotExpirationTime *string `pulumi:"spotExpirationTime"`
 	// App Service plan status.

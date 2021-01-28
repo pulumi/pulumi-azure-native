@@ -30,7 +30,7 @@ type LookupExpressRoutePortResult struct {
 	// Bandwidth of procured ports in Gbps.
 	BandwidthInGbps *int `pulumi:"bandwidthInGbps"`
 	// Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
-	Circuits []SubResourceResponse `pulumi:"circuits"`
+	Circuits []SubResourceInvokeResponse `pulumi:"circuits"`
 	// Encapsulation method on physical ports.
 	Encapsulation *string `pulumi:"encapsulation"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -40,9 +40,9 @@ type LookupExpressRoutePortResult struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The identity of ExpressRoutePort, if configured.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	Identity *ManagedServiceIdentityInvokeResponse `pulumi:"identity"`
 	// The set of physical links of the ExpressRoutePort resource.
-	Links []ExpressRouteLinkResponse `pulumi:"links"`
+	Links []ExpressRouteLinkInvokeResponse `pulumi:"links"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Maximum transmission unit of the physical port pair(s).

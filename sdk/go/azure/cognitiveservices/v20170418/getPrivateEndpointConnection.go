@@ -32,7 +32,7 @@ type LookupPrivateEndpointConnectionResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesInvokeResponse `pulumi:"properties"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

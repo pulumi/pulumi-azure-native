@@ -32,7 +32,7 @@ type LookupNetworkResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Describes properties of a network resource.
-	Properties NetworkResourcePropertiesResponse `pulumi:"properties"`
+	Properties NetworkResourcePropertiesInvokeResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

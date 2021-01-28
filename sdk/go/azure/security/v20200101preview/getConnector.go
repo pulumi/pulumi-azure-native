@@ -26,7 +26,7 @@ type LookupConnectorResult struct {
 	// Settings for authentication management, these settings are relevant only for the cloud connector.
 	AuthenticationDetails interface{} `pulumi:"authenticationDetails"`
 	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
-	HybridComputeSettings *HybridComputeSettingsPropertiesResponse `pulumi:"hybridComputeSettings"`
+	HybridComputeSettings *HybridComputeSettingsPropertiesInvokeResponse `pulumi:"hybridComputeSettings"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource name

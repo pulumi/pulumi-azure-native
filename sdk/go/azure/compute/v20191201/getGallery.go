@@ -30,7 +30,7 @@ type LookupGalleryResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Describes the gallery unique name.
-	Identifier *GalleryIdentifierResponse `pulumi:"identifier"`
+	Identifier *GalleryIdentifierInvokeResponse `pulumi:"identifier"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

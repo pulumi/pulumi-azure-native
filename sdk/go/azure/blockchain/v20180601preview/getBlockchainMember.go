@@ -38,7 +38,7 @@ type LookupBlockchainMemberResult struct {
 	// Gets the dns endpoint of the blockchain member.
 	Dns string `pulumi:"dns"`
 	// Gets or sets firewall rules
-	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
+	FirewallRules []FirewallRuleInvokeResponse `pulumi:"firewallRules"`
 	// Fully qualified resource Id of the resource.
 	Id string `pulumi:"id"`
 	// The GEO location of the blockchain service.
@@ -56,7 +56,7 @@ type LookupBlockchainMemberResult struct {
 	// Gets the Ethereum root contract address of the blockchain.
 	RootContractAddress string `pulumi:"rootContractAddress"`
 	// Gets or sets the blockchain member Sku.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describes the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the service - e.g. "Microsoft.Blockchain"
@@ -64,5 +64,5 @@ type LookupBlockchainMemberResult struct {
 	// Gets the auth user name of the blockchain member.
 	UserName string `pulumi:"userName"`
 	// Gets or sets the blockchain validator nodes Sku.
-	ValidatorNodesSku *BlockchainMemberNodesSkuResponse `pulumi:"validatorNodesSku"`
+	ValidatorNodesSku *BlockchainMemberNodesSkuInvokeResponse `pulumi:"validatorNodesSku"`
 }

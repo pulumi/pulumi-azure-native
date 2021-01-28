@@ -32,7 +32,7 @@ type LookupHostingEnvironmentResult struct {
 	// Api Management Account associated with this Hosting Environment
 	ApiManagementAccountId *string `pulumi:"apiManagementAccountId"`
 	// Custom settings for changing the behavior of the hosting environment
-	ClusterSettings []NameValuePairResponse `pulumi:"clusterSettings"`
+	ClusterSettings []NameValuePairInvokeResponse `pulumi:"clusterSettings"`
 	// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
 	DatabaseEdition *string `pulumi:"databaseEdition"`
 	// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
@@ -40,7 +40,7 @@ type LookupHostingEnvironmentResult struct {
 	// DNS suffix of the hostingEnvironment (App Service Environment)
 	DnsSuffix *string `pulumi:"dnsSuffix"`
 	// Current total, used, and available worker capacities
-	EnvironmentCapacities []StampCapacityResponse `pulumi:"environmentCapacities"`
+	EnvironmentCapacities []StampCapacityInvokeResponse `pulumi:"environmentCapacities"`
 	// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
 	EnvironmentIsHealthy *bool `pulumi:"environmentIsHealthy"`
 	// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
@@ -68,7 +68,7 @@ type LookupHostingEnvironmentResult struct {
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-	NetworkAccessControlList []NetworkAccessControlEntryResponse `pulumi:"networkAccessControlList"`
+	NetworkAccessControlList []NetworkAccessControlEntryInvokeResponse `pulumi:"networkAccessControlList"`
 	// Provisioning state of the hostingEnvironment (App Service Environment)
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource group of the hostingEnvironment (App Service Environment)
@@ -87,9 +87,9 @@ type LookupHostingEnvironmentResult struct {
 	// Number of upgrade domains of this hostingEnvironment (App Service Environment)
 	UpgradeDomains *int `pulumi:"upgradeDomains"`
 	// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-	VipMappings []VirtualIPMappingResponse `pulumi:"vipMappings"`
+	VipMappings []VirtualIPMappingInvokeResponse `pulumi:"vipMappings"`
 	// Description of the hostingEnvironment's (App Service Environment) virtual network
-	VirtualNetwork *VirtualNetworkProfileResponse `pulumi:"virtualNetwork"`
+	VirtualNetwork *VirtualNetworkProfileInvokeResponse `pulumi:"virtualNetwork"`
 	// Name of the hostingEnvironment's (App Service Environment) virtual network
 	VnetName *string `pulumi:"vnetName"`
 	// Resource group of the hostingEnvironment's (App Service Environment) virtual network
@@ -97,5 +97,5 @@ type LookupHostingEnvironmentResult struct {
 	// Subnet of the hostingEnvironment's (App Service Environment) virtual network
 	VnetSubnetName *string `pulumi:"vnetSubnetName"`
 	// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-	WorkerPools []WorkerPoolResponse `pulumi:"workerPools"`
+	WorkerPools []WorkerPoolInvokeResponse `pulumi:"workerPools"`
 }

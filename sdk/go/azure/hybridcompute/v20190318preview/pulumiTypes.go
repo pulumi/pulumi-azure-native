@@ -10,6 +10,130 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ErrorDetailInvokeResponse struct {
+	// The error's code.
+	Code string `pulumi:"code"`
+	// Additional error details.
+	Details []ErrorDetailInvokeResponse `pulumi:"details"`
+	// A human readable error message.
+	Message string `pulumi:"message"`
+	// Indicates which property in the request is responsible for the error.
+	Target *string `pulumi:"target"`
+}
+
+// ErrorDetailInvokeResponseInput is an input type that accepts ErrorDetailInvokeResponseArgs and ErrorDetailInvokeResponseOutput values.
+// You can construct a concrete instance of `ErrorDetailInvokeResponseInput` via:
+//
+//          ErrorDetailInvokeResponseArgs{...}
+type ErrorDetailInvokeResponseInput interface {
+	pulumi.Input
+
+	ToErrorDetailInvokeResponseOutput() ErrorDetailInvokeResponseOutput
+	ToErrorDetailInvokeResponseOutputWithContext(context.Context) ErrorDetailInvokeResponseOutput
+}
+
+type ErrorDetailInvokeResponseArgs struct {
+	// The error's code.
+	Code pulumi.StringInput `pulumi:"code"`
+	// Additional error details.
+	Details ErrorDetailInvokeResponseArrayInput `pulumi:"details"`
+	// A human readable error message.
+	Message pulumi.StringInput `pulumi:"message"`
+	// Indicates which property in the request is responsible for the error.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ErrorDetailInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (i ErrorDetailInvokeResponseArgs) ToErrorDetailInvokeResponseOutput() ErrorDetailInvokeResponseOutput {
+	return i.ToErrorDetailInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailInvokeResponseArgs) ToErrorDetailInvokeResponseOutputWithContext(ctx context.Context) ErrorDetailInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailInvokeResponseOutput)
+}
+
+// ErrorDetailInvokeResponseArrayInput is an input type that accepts ErrorDetailInvokeResponseArray and ErrorDetailInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ErrorDetailInvokeResponseArrayInput` via:
+//
+//          ErrorDetailInvokeResponseArray{ ErrorDetailInvokeResponseArgs{...} }
+type ErrorDetailInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToErrorDetailInvokeResponseArrayOutput() ErrorDetailInvokeResponseArrayOutput
+	ToErrorDetailInvokeResponseArrayOutputWithContext(context.Context) ErrorDetailInvokeResponseArrayOutput
+}
+
+type ErrorDetailInvokeResponseArray []ErrorDetailInvokeResponseInput
+
+func (ErrorDetailInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (i ErrorDetailInvokeResponseArray) ToErrorDetailInvokeResponseArrayOutput() ErrorDetailInvokeResponseArrayOutput {
+	return i.ToErrorDetailInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailInvokeResponseArray) ToErrorDetailInvokeResponseArrayOutputWithContext(ctx context.Context) ErrorDetailInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailInvokeResponseArrayOutput)
+}
+
+type ErrorDetailInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailInvokeResponseOutput) ToErrorDetailInvokeResponseOutput() ErrorDetailInvokeResponseOutput {
+	return o
+}
+
+func (o ErrorDetailInvokeResponseOutput) ToErrorDetailInvokeResponseOutputWithContext(ctx context.Context) ErrorDetailInvokeResponseOutput {
+	return o
+}
+
+// The error's code.
+func (o ErrorDetailInvokeResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Additional error details.
+func (o ErrorDetailInvokeResponseOutput) Details() ErrorDetailInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) []ErrorDetailInvokeResponse { return v.Details }).(ErrorDetailInvokeResponseArrayOutput)
+}
+
+// A human readable error message.
+func (o ErrorDetailInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Indicates which property in the request is responsible for the error.
+func (o ErrorDetailInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ErrorDetailInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailInvokeResponseArrayOutput) ToErrorDetailInvokeResponseArrayOutput() ErrorDetailInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ErrorDetailInvokeResponseArrayOutput) ToErrorDetailInvokeResponseArrayOutputWithContext(ctx context.Context) ErrorDetailInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ErrorDetailInvokeResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorDetailInvokeResponse {
+		return vs[0].([]ErrorDetailInvokeResponse)[vs[1].(int)]
+	}).(ErrorDetailInvokeResponseOutput)
+}
+
 type ErrorDetailResponse struct {
 	// The error's code.
 	Code string `pulumi:"code"`
@@ -132,6 +256,61 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorDetailResponse {
 		return vs[0].([]ErrorDetailResponse)[vs[1].(int)]
 	}).(ErrorDetailResponseOutput)
+}
+
+// Specifies the operating system settings for the hybrid machine.
+type OSProfileInvokeResponse struct {
+	// Specifies the host OS name of the hybrid machine.
+	ComputerName string `pulumi:"computerName"`
+}
+
+// OSProfileInvokeResponseInput is an input type that accepts OSProfileInvokeResponseArgs and OSProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `OSProfileInvokeResponseInput` via:
+//
+//          OSProfileInvokeResponseArgs{...}
+type OSProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOSProfileInvokeResponseOutput() OSProfileInvokeResponseOutput
+	ToOSProfileInvokeResponseOutputWithContext(context.Context) OSProfileInvokeResponseOutput
+}
+
+// Specifies the operating system settings for the hybrid machine.
+type OSProfileInvokeResponseArgs struct {
+	// Specifies the host OS name of the hybrid machine.
+	ComputerName pulumi.StringInput `pulumi:"computerName"`
+}
+
+func (OSProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i OSProfileInvokeResponseArgs) ToOSProfileInvokeResponseOutput() OSProfileInvokeResponseOutput {
+	return i.ToOSProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OSProfileInvokeResponseArgs) ToOSProfileInvokeResponseOutputWithContext(ctx context.Context) OSProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OSProfileInvokeResponseOutput)
+}
+
+// Specifies the operating system settings for the hybrid machine.
+type OSProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OSProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OSProfileInvokeResponseOutput) ToOSProfileInvokeResponseOutput() OSProfileInvokeResponseOutput {
+	return o
+}
+
+func (o OSProfileInvokeResponseOutput) ToOSProfileInvokeResponseOutputWithContext(ctx context.Context) OSProfileInvokeResponseOutput {
+	return o
+}
+
+// Specifies the host OS name of the hybrid machine.
+func (o OSProfileInvokeResponseOutput) ComputerName() pulumi.StringOutput {
+	return o.ApplyT(func(v OSProfileInvokeResponse) string { return v.ComputerName }).(pulumi.StringOutput)
 }
 
 // Specifies the operating system settings for the hybrid machine.
@@ -269,8 +448,11 @@ func (o OSProfileResponsePtrOutput) ComputerName() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ErrorDetailInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ErrorDetailInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
+	pulumi.RegisterOutputType(OSProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(OSProfileResponseOutput{})
 	pulumi.RegisterOutputType(OSProfileResponsePtrOutput{})
 }

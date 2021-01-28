@@ -35,9 +35,9 @@ type LookupDataControllerResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Properties from the on premise data controller
-	OnPremiseProperty OnPremisePropertyResponse `pulumi:"onPremiseProperty"`
+	OnPremiseProperty OnPremisePropertyInvokeResponse `pulumi:"onPremiseProperty"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

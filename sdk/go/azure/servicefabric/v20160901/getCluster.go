@@ -26,15 +26,15 @@ type LookupClusterArgs struct {
 // The cluster resource
 type LookupClusterResult struct {
 	// The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
-	AvailableClusterVersions []ClusterVersionDetailsResponse `pulumi:"availableClusterVersions"`
+	AvailableClusterVersions []ClusterVersionDetailsInvokeResponse `pulumi:"availableClusterVersions"`
 	// The settings to enable AAD authentication on the cluster
-	AzureActiveDirectory *AzureActiveDirectoryResponse `pulumi:"azureActiveDirectory"`
+	AzureActiveDirectory *AzureActiveDirectoryInvokeResponse `pulumi:"azureActiveDirectory"`
 	// This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
-	Certificate *CertificateDescriptionResponse `pulumi:"certificate"`
+	Certificate *CertificateDescriptionInvokeResponse `pulumi:"certificate"`
 	//  List of client certificates to whitelist based on common names
-	ClientCertificateCommonNames []ClientCertificateCommonNameResponse `pulumi:"clientCertificateCommonNames"`
+	ClientCertificateCommonNames []ClientCertificateCommonNameInvokeResponse `pulumi:"clientCertificateCommonNames"`
 	// The client thumbprint details ,it is used for client access for cluster operation
-	ClientCertificateThumbprints []ClientCertificateThumbprintResponse `pulumi:"clientCertificateThumbprints"`
+	ClientCertificateThumbprints []ClientCertificateThumbprintInvokeResponse `pulumi:"clientCertificateThumbprints"`
 	// The ServiceFabric code version running in your cluster
 	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
 	// The endpoint for the cluster connecting to servicefabric resource provider
@@ -44,9 +44,9 @@ type LookupClusterResult struct {
 	// The state for the cluster
 	ClusterState string `pulumi:"clusterState"`
 	// The storage diagnostics account configuration details
-	DiagnosticsStorageAccountConfig *DiagnosticsStorageAccountConfigResponse `pulumi:"diagnosticsStorageAccountConfig"`
+	DiagnosticsStorageAccountConfig *DiagnosticsStorageAccountConfigInvokeResponse `pulumi:"diagnosticsStorageAccountConfig"`
 	// List of custom fabric settings to configure the cluster.
-	FabricSettings []SettingsSectionDescriptionResponse `pulumi:"fabricSettings"`
+	FabricSettings []SettingsSectionDescriptionInvokeResponse `pulumi:"fabricSettings"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource location.
@@ -56,19 +56,19 @@ type LookupClusterResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The list of node types that make up the cluster
-	NodeTypes []NodeTypeDescriptionResponse `pulumi:"nodeTypes"`
+	NodeTypes []NodeTypeDescriptionInvokeResponse `pulumi:"nodeTypes"`
 	// The provisioning state of the cluster resource
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Cluster reliability level indicates replica set size of system service
 	ReliabilityLevel *string `pulumi:"reliabilityLevel"`
 	// The server certificate used by reverse proxy
-	ReverseProxyCertificate *CertificateDescriptionResponse `pulumi:"reverseProxyCertificate"`
+	ReverseProxyCertificate *CertificateDescriptionInvokeResponse `pulumi:"reverseProxyCertificate"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The policy to use when upgrading the cluster.
-	UpgradeDescription *ClusterUpgradePolicyResponse `pulumi:"upgradeDescription"`
+	UpgradeDescription *ClusterUpgradePolicyInvokeResponse `pulumi:"upgradeDescription"`
 	// Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.

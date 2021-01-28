@@ -34,7 +34,7 @@ type LookupCertificateResult struct {
 	// The name of the certificate.
 	Name string `pulumi:"name"`
 	// The description of an X509 CA Certificate.
-	Properties CertificatePropertiesResponse `pulumi:"properties"`
+	Properties CertificatePropertiesInvokeResponse `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

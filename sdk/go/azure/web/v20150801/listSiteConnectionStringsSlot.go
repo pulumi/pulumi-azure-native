@@ -36,7 +36,7 @@ type ListSiteConnectionStringsSlotResult struct {
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// Connection strings
-	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
+	Properties map[string]ConnStringValueTypePairInvokeResponse `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

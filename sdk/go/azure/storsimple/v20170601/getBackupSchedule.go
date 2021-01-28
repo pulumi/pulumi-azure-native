@@ -44,7 +44,7 @@ type LookupBackupScheduleResult struct {
 	// The number of backups to be retained.
 	RetentionCount float64 `pulumi:"retentionCount"`
 	// The schedule recurrence.
-	ScheduleRecurrence ScheduleRecurrenceResponse `pulumi:"scheduleRecurrence"`
+	ScheduleRecurrence ScheduleRecurrenceInvokeResponse `pulumi:"scheduleRecurrence"`
 	// The schedule status.
 	ScheduleStatus string `pulumi:"scheduleStatus"`
 	// The start time of the schedule.

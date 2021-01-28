@@ -40,7 +40,7 @@ type LookupServiceEndpointPolicyResult struct {
 	// The resource GUID property of the service endpoint policy resource.
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// A collection of service endpoint policy definitions of the service endpoint policy.
-	ServiceEndpointPolicyDefinitions []ServiceEndpointPolicyDefinitionResponse `pulumi:"serviceEndpointPolicyDefinitions"`
+	ServiceEndpointPolicyDefinitions []ServiceEndpointPolicyDefinitionInvokeResponse `pulumi:"serviceEndpointPolicyDefinitions"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

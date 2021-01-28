@@ -11,6 +11,115 @@ import (
 )
 
 // The type of the paths for alias.
+type AliasPathTypeInvokeResponse struct {
+	// The api versions.
+	ApiVersions []string `pulumi:"apiVersions"`
+	// The path of an alias.
+	Path *string `pulumi:"path"`
+}
+
+// AliasPathTypeInvokeResponseInput is an input type that accepts AliasPathTypeInvokeResponseArgs and AliasPathTypeInvokeResponseOutput values.
+// You can construct a concrete instance of `AliasPathTypeInvokeResponseInput` via:
+//
+//          AliasPathTypeInvokeResponseArgs{...}
+type AliasPathTypeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAliasPathTypeInvokeResponseOutput() AliasPathTypeInvokeResponseOutput
+	ToAliasPathTypeInvokeResponseOutputWithContext(context.Context) AliasPathTypeInvokeResponseOutput
+}
+
+// The type of the paths for alias.
+type AliasPathTypeInvokeResponseArgs struct {
+	// The api versions.
+	ApiVersions pulumi.StringArrayInput `pulumi:"apiVersions"`
+	// The path of an alias.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (AliasPathTypeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasPathTypeInvokeResponse)(nil)).Elem()
+}
+
+func (i AliasPathTypeInvokeResponseArgs) ToAliasPathTypeInvokeResponseOutput() AliasPathTypeInvokeResponseOutput {
+	return i.ToAliasPathTypeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AliasPathTypeInvokeResponseArgs) ToAliasPathTypeInvokeResponseOutputWithContext(ctx context.Context) AliasPathTypeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasPathTypeInvokeResponseOutput)
+}
+
+// AliasPathTypeInvokeResponseArrayInput is an input type that accepts AliasPathTypeInvokeResponseArray and AliasPathTypeInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AliasPathTypeInvokeResponseArrayInput` via:
+//
+//          AliasPathTypeInvokeResponseArray{ AliasPathTypeInvokeResponseArgs{...} }
+type AliasPathTypeInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAliasPathTypeInvokeResponseArrayOutput() AliasPathTypeInvokeResponseArrayOutput
+	ToAliasPathTypeInvokeResponseArrayOutputWithContext(context.Context) AliasPathTypeInvokeResponseArrayOutput
+}
+
+type AliasPathTypeInvokeResponseArray []AliasPathTypeInvokeResponseInput
+
+func (AliasPathTypeInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AliasPathTypeInvokeResponse)(nil)).Elem()
+}
+
+func (i AliasPathTypeInvokeResponseArray) ToAliasPathTypeInvokeResponseArrayOutput() AliasPathTypeInvokeResponseArrayOutput {
+	return i.ToAliasPathTypeInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AliasPathTypeInvokeResponseArray) ToAliasPathTypeInvokeResponseArrayOutputWithContext(ctx context.Context) AliasPathTypeInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasPathTypeInvokeResponseArrayOutput)
+}
+
+// The type of the paths for alias.
+type AliasPathTypeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AliasPathTypeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasPathTypeInvokeResponse)(nil)).Elem()
+}
+
+func (o AliasPathTypeInvokeResponseOutput) ToAliasPathTypeInvokeResponseOutput() AliasPathTypeInvokeResponseOutput {
+	return o
+}
+
+func (o AliasPathTypeInvokeResponseOutput) ToAliasPathTypeInvokeResponseOutputWithContext(ctx context.Context) AliasPathTypeInvokeResponseOutput {
+	return o
+}
+
+// The api versions.
+func (o AliasPathTypeInvokeResponseOutput) ApiVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AliasPathTypeInvokeResponse) []string { return v.ApiVersions }).(pulumi.StringArrayOutput)
+}
+
+// The path of an alias.
+func (o AliasPathTypeInvokeResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AliasPathTypeInvokeResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type AliasPathTypeInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AliasPathTypeInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AliasPathTypeInvokeResponse)(nil)).Elem()
+}
+
+func (o AliasPathTypeInvokeResponseArrayOutput) ToAliasPathTypeInvokeResponseArrayOutput() AliasPathTypeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AliasPathTypeInvokeResponseArrayOutput) ToAliasPathTypeInvokeResponseArrayOutputWithContext(ctx context.Context) AliasPathTypeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AliasPathTypeInvokeResponseArrayOutput) Index(i pulumi.IntInput) AliasPathTypeInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AliasPathTypeInvokeResponse {
+		return vs[0].([]AliasPathTypeInvokeResponse)[vs[1].(int)]
+	}).(AliasPathTypeInvokeResponseOutput)
+}
+
+// The type of the paths for alias.
 type AliasPathTypeResponse struct {
 	// The api versions.
 	ApiVersions []string `pulumi:"apiVersions"`
@@ -120,6 +229,115 @@ func (o AliasPathTypeResponseArrayOutput) Index(i pulumi.IntInput) AliasPathType
 }
 
 // The alias type.
+type AliasTypeInvokeResponse struct {
+	// The alias name.
+	Name *string `pulumi:"name"`
+	// The paths for an alias.
+	Paths []AliasPathTypeInvokeResponse `pulumi:"paths"`
+}
+
+// AliasTypeInvokeResponseInput is an input type that accepts AliasTypeInvokeResponseArgs and AliasTypeInvokeResponseOutput values.
+// You can construct a concrete instance of `AliasTypeInvokeResponseInput` via:
+//
+//          AliasTypeInvokeResponseArgs{...}
+type AliasTypeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAliasTypeInvokeResponseOutput() AliasTypeInvokeResponseOutput
+	ToAliasTypeInvokeResponseOutputWithContext(context.Context) AliasTypeInvokeResponseOutput
+}
+
+// The alias type.
+type AliasTypeInvokeResponseArgs struct {
+	// The alias name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The paths for an alias.
+	Paths AliasPathTypeInvokeResponseArrayInput `pulumi:"paths"`
+}
+
+func (AliasTypeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasTypeInvokeResponse)(nil)).Elem()
+}
+
+func (i AliasTypeInvokeResponseArgs) ToAliasTypeInvokeResponseOutput() AliasTypeInvokeResponseOutput {
+	return i.ToAliasTypeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AliasTypeInvokeResponseArgs) ToAliasTypeInvokeResponseOutputWithContext(ctx context.Context) AliasTypeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasTypeInvokeResponseOutput)
+}
+
+// AliasTypeInvokeResponseArrayInput is an input type that accepts AliasTypeInvokeResponseArray and AliasTypeInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AliasTypeInvokeResponseArrayInput` via:
+//
+//          AliasTypeInvokeResponseArray{ AliasTypeInvokeResponseArgs{...} }
+type AliasTypeInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAliasTypeInvokeResponseArrayOutput() AliasTypeInvokeResponseArrayOutput
+	ToAliasTypeInvokeResponseArrayOutputWithContext(context.Context) AliasTypeInvokeResponseArrayOutput
+}
+
+type AliasTypeInvokeResponseArray []AliasTypeInvokeResponseInput
+
+func (AliasTypeInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AliasTypeInvokeResponse)(nil)).Elem()
+}
+
+func (i AliasTypeInvokeResponseArray) ToAliasTypeInvokeResponseArrayOutput() AliasTypeInvokeResponseArrayOutput {
+	return i.ToAliasTypeInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AliasTypeInvokeResponseArray) ToAliasTypeInvokeResponseArrayOutputWithContext(ctx context.Context) AliasTypeInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasTypeInvokeResponseArrayOutput)
+}
+
+// The alias type.
+type AliasTypeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AliasTypeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasTypeInvokeResponse)(nil)).Elem()
+}
+
+func (o AliasTypeInvokeResponseOutput) ToAliasTypeInvokeResponseOutput() AliasTypeInvokeResponseOutput {
+	return o
+}
+
+func (o AliasTypeInvokeResponseOutput) ToAliasTypeInvokeResponseOutputWithContext(ctx context.Context) AliasTypeInvokeResponseOutput {
+	return o
+}
+
+// The alias name.
+func (o AliasTypeInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AliasTypeInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The paths for an alias.
+func (o AliasTypeInvokeResponseOutput) Paths() AliasPathTypeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AliasTypeInvokeResponse) []AliasPathTypeInvokeResponse { return v.Paths }).(AliasPathTypeInvokeResponseArrayOutput)
+}
+
+type AliasTypeInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AliasTypeInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AliasTypeInvokeResponse)(nil)).Elem()
+}
+
+func (o AliasTypeInvokeResponseArrayOutput) ToAliasTypeInvokeResponseArrayOutput() AliasTypeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AliasTypeInvokeResponseArrayOutput) ToAliasTypeInvokeResponseArrayOutputWithContext(ctx context.Context) AliasTypeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AliasTypeInvokeResponseArrayOutput) Index(i pulumi.IntInput) AliasTypeInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AliasTypeInvokeResponse {
+		return vs[0].([]AliasTypeInvokeResponse)[vs[1].(int)]
+	}).(AliasTypeInvokeResponseOutput)
+}
+
+// The alias type.
 type AliasTypeResponse struct {
 	// The alias name.
 	Name *string `pulumi:"name"`
@@ -226,6 +444,124 @@ func (o AliasTypeResponseArrayOutput) Index(i pulumi.IntInput) AliasTypeResponse
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AliasTypeResponse {
 		return vs[0].([]AliasTypeResponse)[vs[1].(int)]
 	}).(AliasTypeResponseOutput)
+}
+
+// Deployment dependency information.
+type BasicDependencyInvokeResponse struct {
+	// The ID of the dependency.
+	Id *string `pulumi:"id"`
+	// The dependency resource name.
+	ResourceName *string `pulumi:"resourceName"`
+	// The dependency resource type.
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// BasicDependencyInvokeResponseInput is an input type that accepts BasicDependencyInvokeResponseArgs and BasicDependencyInvokeResponseOutput values.
+// You can construct a concrete instance of `BasicDependencyInvokeResponseInput` via:
+//
+//          BasicDependencyInvokeResponseArgs{...}
+type BasicDependencyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBasicDependencyInvokeResponseOutput() BasicDependencyInvokeResponseOutput
+	ToBasicDependencyInvokeResponseOutputWithContext(context.Context) BasicDependencyInvokeResponseOutput
+}
+
+// Deployment dependency information.
+type BasicDependencyInvokeResponseArgs struct {
+	// The ID of the dependency.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The dependency resource name.
+	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
+	// The dependency resource type.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (BasicDependencyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicDependencyInvokeResponse)(nil)).Elem()
+}
+
+func (i BasicDependencyInvokeResponseArgs) ToBasicDependencyInvokeResponseOutput() BasicDependencyInvokeResponseOutput {
+	return i.ToBasicDependencyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BasicDependencyInvokeResponseArgs) ToBasicDependencyInvokeResponseOutputWithContext(ctx context.Context) BasicDependencyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasicDependencyInvokeResponseOutput)
+}
+
+// BasicDependencyInvokeResponseArrayInput is an input type that accepts BasicDependencyInvokeResponseArray and BasicDependencyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `BasicDependencyInvokeResponseArrayInput` via:
+//
+//          BasicDependencyInvokeResponseArray{ BasicDependencyInvokeResponseArgs{...} }
+type BasicDependencyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToBasicDependencyInvokeResponseArrayOutput() BasicDependencyInvokeResponseArrayOutput
+	ToBasicDependencyInvokeResponseArrayOutputWithContext(context.Context) BasicDependencyInvokeResponseArrayOutput
+}
+
+type BasicDependencyInvokeResponseArray []BasicDependencyInvokeResponseInput
+
+func (BasicDependencyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BasicDependencyInvokeResponse)(nil)).Elem()
+}
+
+func (i BasicDependencyInvokeResponseArray) ToBasicDependencyInvokeResponseArrayOutput() BasicDependencyInvokeResponseArrayOutput {
+	return i.ToBasicDependencyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BasicDependencyInvokeResponseArray) ToBasicDependencyInvokeResponseArrayOutputWithContext(ctx context.Context) BasicDependencyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasicDependencyInvokeResponseArrayOutput)
+}
+
+// Deployment dependency information.
+type BasicDependencyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BasicDependencyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicDependencyInvokeResponse)(nil)).Elem()
+}
+
+func (o BasicDependencyInvokeResponseOutput) ToBasicDependencyInvokeResponseOutput() BasicDependencyInvokeResponseOutput {
+	return o
+}
+
+func (o BasicDependencyInvokeResponseOutput) ToBasicDependencyInvokeResponseOutputWithContext(ctx context.Context) BasicDependencyInvokeResponseOutput {
+	return o
+}
+
+// The ID of the dependency.
+func (o BasicDependencyInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BasicDependencyInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The dependency resource name.
+func (o BasicDependencyInvokeResponseOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BasicDependencyInvokeResponse) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+// The dependency resource type.
+func (o BasicDependencyInvokeResponseOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BasicDependencyInvokeResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type BasicDependencyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BasicDependencyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BasicDependencyInvokeResponse)(nil)).Elem()
+}
+
+func (o BasicDependencyInvokeResponseArrayOutput) ToBasicDependencyInvokeResponseArrayOutput() BasicDependencyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BasicDependencyInvokeResponseArrayOutput) ToBasicDependencyInvokeResponseArrayOutputWithContext(ctx context.Context) BasicDependencyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BasicDependencyInvokeResponseArrayOutput) Index(i pulumi.IntInput) BasicDependencyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BasicDependencyInvokeResponse {
+		return vs[0].([]BasicDependencyInvokeResponse)[vs[1].(int)]
+	}).(BasicDependencyInvokeResponseOutput)
 }
 
 // Deployment dependency information.
@@ -344,6 +680,133 @@ func (o BasicDependencyResponseArrayOutput) Index(i pulumi.IntInput) BasicDepend
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BasicDependencyResponse {
 		return vs[0].([]BasicDependencyResponse)[vs[1].(int)]
 	}).(BasicDependencyResponseOutput)
+}
+
+// Deployment dependency information.
+type DependencyInvokeResponse struct {
+	// The list of dependencies.
+	DependsOn []BasicDependencyInvokeResponse `pulumi:"dependsOn"`
+	// The ID of the dependency.
+	Id *string `pulumi:"id"`
+	// The dependency resource name.
+	ResourceName *string `pulumi:"resourceName"`
+	// The dependency resource type.
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// DependencyInvokeResponseInput is an input type that accepts DependencyInvokeResponseArgs and DependencyInvokeResponseOutput values.
+// You can construct a concrete instance of `DependencyInvokeResponseInput` via:
+//
+//          DependencyInvokeResponseArgs{...}
+type DependencyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDependencyInvokeResponseOutput() DependencyInvokeResponseOutput
+	ToDependencyInvokeResponseOutputWithContext(context.Context) DependencyInvokeResponseOutput
+}
+
+// Deployment dependency information.
+type DependencyInvokeResponseArgs struct {
+	// The list of dependencies.
+	DependsOn BasicDependencyInvokeResponseArrayInput `pulumi:"dependsOn"`
+	// The ID of the dependency.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The dependency resource name.
+	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
+	// The dependency resource type.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (DependencyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DependencyInvokeResponse)(nil)).Elem()
+}
+
+func (i DependencyInvokeResponseArgs) ToDependencyInvokeResponseOutput() DependencyInvokeResponseOutput {
+	return i.ToDependencyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DependencyInvokeResponseArgs) ToDependencyInvokeResponseOutputWithContext(ctx context.Context) DependencyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DependencyInvokeResponseOutput)
+}
+
+// DependencyInvokeResponseArrayInput is an input type that accepts DependencyInvokeResponseArray and DependencyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DependencyInvokeResponseArrayInput` via:
+//
+//          DependencyInvokeResponseArray{ DependencyInvokeResponseArgs{...} }
+type DependencyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDependencyInvokeResponseArrayOutput() DependencyInvokeResponseArrayOutput
+	ToDependencyInvokeResponseArrayOutputWithContext(context.Context) DependencyInvokeResponseArrayOutput
+}
+
+type DependencyInvokeResponseArray []DependencyInvokeResponseInput
+
+func (DependencyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DependencyInvokeResponse)(nil)).Elem()
+}
+
+func (i DependencyInvokeResponseArray) ToDependencyInvokeResponseArrayOutput() DependencyInvokeResponseArrayOutput {
+	return i.ToDependencyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DependencyInvokeResponseArray) ToDependencyInvokeResponseArrayOutputWithContext(ctx context.Context) DependencyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DependencyInvokeResponseArrayOutput)
+}
+
+// Deployment dependency information.
+type DependencyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DependencyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DependencyInvokeResponse)(nil)).Elem()
+}
+
+func (o DependencyInvokeResponseOutput) ToDependencyInvokeResponseOutput() DependencyInvokeResponseOutput {
+	return o
+}
+
+func (o DependencyInvokeResponseOutput) ToDependencyInvokeResponseOutputWithContext(ctx context.Context) DependencyInvokeResponseOutput {
+	return o
+}
+
+// The list of dependencies.
+func (o DependencyInvokeResponseOutput) DependsOn() BasicDependencyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DependencyInvokeResponse) []BasicDependencyInvokeResponse { return v.DependsOn }).(BasicDependencyInvokeResponseArrayOutput)
+}
+
+// The ID of the dependency.
+func (o DependencyInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DependencyInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The dependency resource name.
+func (o DependencyInvokeResponseOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DependencyInvokeResponse) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+// The dependency resource type.
+func (o DependencyInvokeResponseOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DependencyInvokeResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type DependencyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DependencyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DependencyInvokeResponse)(nil)).Elem()
+}
+
+func (o DependencyInvokeResponseArrayOutput) ToDependencyInvokeResponseArrayOutput() DependencyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DependencyInvokeResponseArrayOutput) ToDependencyInvokeResponseArrayOutputWithContext(ctx context.Context) DependencyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DependencyInvokeResponseArrayOutput) Index(i pulumi.IntInput) DependencyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DependencyInvokeResponse {
+		return vs[0].([]DependencyInvokeResponse)[vs[1].(int)]
+	}).(DependencyInvokeResponseOutput)
 }
 
 // Deployment dependency information.
@@ -681,6 +1144,153 @@ func (o DeploymentPropertiesPtrOutput) TemplateLink() TemplateLinkPtrOutput {
 		}
 		return v.TemplateLink
 	}).(TemplateLinkPtrOutput)
+}
+
+// Deployment properties with additional details.
+type DeploymentPropertiesExtendedInvokeResponse struct {
+	// The correlation ID of the deployment.
+	CorrelationId *string `pulumi:"correlationId"`
+	// The list of deployment dependencies.
+	Dependencies []DependencyInvokeResponse `pulumi:"dependencies"`
+	// The deployment mode.
+	Mode *string `pulumi:"mode"`
+	// Key/value pairs that represent deployment output.
+	Outputs interface{} `pulumi:"outputs"`
+	// Deployment parameters. Use only one of Parameters or ParametersLink.
+	Parameters interface{} `pulumi:"parameters"`
+	// The URI referencing the parameters. Use only one of Parameters or ParametersLink.
+	ParametersLink *ParametersLinkInvokeResponse `pulumi:"parametersLink"`
+	// The list of resource providers needed for the deployment.
+	Providers []ProviderInvokeResponse `pulumi:"providers"`
+	// The state of the provisioning.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The template content. Use only one of Template or TemplateLink.
+	Template interface{} `pulumi:"template"`
+	// The URI referencing the template. Use only one of Template or TemplateLink.
+	TemplateLink *TemplateLinkInvokeResponse `pulumi:"templateLink"`
+	// The timestamp of the template deployment.
+	Timestamp *string `pulumi:"timestamp"`
+}
+
+// DeploymentPropertiesExtendedInvokeResponseInput is an input type that accepts DeploymentPropertiesExtendedInvokeResponseArgs and DeploymentPropertiesExtendedInvokeResponseOutput values.
+// You can construct a concrete instance of `DeploymentPropertiesExtendedInvokeResponseInput` via:
+//
+//          DeploymentPropertiesExtendedInvokeResponseArgs{...}
+type DeploymentPropertiesExtendedInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeploymentPropertiesExtendedInvokeResponseOutput() DeploymentPropertiesExtendedInvokeResponseOutput
+	ToDeploymentPropertiesExtendedInvokeResponseOutputWithContext(context.Context) DeploymentPropertiesExtendedInvokeResponseOutput
+}
+
+// Deployment properties with additional details.
+type DeploymentPropertiesExtendedInvokeResponseArgs struct {
+	// The correlation ID of the deployment.
+	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
+	// The list of deployment dependencies.
+	Dependencies DependencyInvokeResponseArrayInput `pulumi:"dependencies"`
+	// The deployment mode.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// Key/value pairs that represent deployment output.
+	Outputs pulumi.Input `pulumi:"outputs"`
+	// Deployment parameters. Use only one of Parameters or ParametersLink.
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// The URI referencing the parameters. Use only one of Parameters or ParametersLink.
+	ParametersLink ParametersLinkInvokeResponsePtrInput `pulumi:"parametersLink"`
+	// The list of resource providers needed for the deployment.
+	Providers ProviderInvokeResponseArrayInput `pulumi:"providers"`
+	// The state of the provisioning.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// The template content. Use only one of Template or TemplateLink.
+	Template pulumi.Input `pulumi:"template"`
+	// The URI referencing the template. Use only one of Template or TemplateLink.
+	TemplateLink TemplateLinkInvokeResponsePtrInput `pulumi:"templateLink"`
+	// The timestamp of the template deployment.
+	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
+}
+
+func (DeploymentPropertiesExtendedInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentPropertiesExtendedInvokeResponse)(nil)).Elem()
+}
+
+func (i DeploymentPropertiesExtendedInvokeResponseArgs) ToDeploymentPropertiesExtendedInvokeResponseOutput() DeploymentPropertiesExtendedInvokeResponseOutput {
+	return i.ToDeploymentPropertiesExtendedInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeploymentPropertiesExtendedInvokeResponseArgs) ToDeploymentPropertiesExtendedInvokeResponseOutputWithContext(ctx context.Context) DeploymentPropertiesExtendedInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesExtendedInvokeResponseOutput)
+}
+
+// Deployment properties with additional details.
+type DeploymentPropertiesExtendedInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeploymentPropertiesExtendedInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentPropertiesExtendedInvokeResponse)(nil)).Elem()
+}
+
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) ToDeploymentPropertiesExtendedInvokeResponseOutput() DeploymentPropertiesExtendedInvokeResponseOutput {
+	return o
+}
+
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) ToDeploymentPropertiesExtendedInvokeResponseOutputWithContext(ctx context.Context) DeploymentPropertiesExtendedInvokeResponseOutput {
+	return o
+}
+
+// The correlation ID of the deployment.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) CorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+}
+
+// The list of deployment dependencies.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) Dependencies() DependencyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) []DependencyInvokeResponse { return v.Dependencies }).(DependencyInvokeResponseArrayOutput)
+}
+
+// The deployment mode.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Key/value pairs that represent deployment output.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) Outputs() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) interface{} { return v.Outputs }).(pulumi.AnyOutput)
+}
+
+// Deployment parameters. Use only one of Parameters or ParametersLink.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The URI referencing the parameters. Use only one of Parameters or ParametersLink.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) ParametersLink() ParametersLinkInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) *ParametersLinkInvokeResponse {
+		return v.ParametersLink
+	}).(ParametersLinkInvokeResponsePtrOutput)
+}
+
+// The list of resource providers needed for the deployment.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) Providers() ProviderInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) []ProviderInvokeResponse { return v.Providers }).(ProviderInvokeResponseArrayOutput)
+}
+
+// The state of the provisioning.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The template content. Use only one of Template or TemplateLink.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) interface{} { return v.Template }).(pulumi.AnyOutput)
+}
+
+// The URI referencing the template. Use only one of Template or TemplateLink.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) TemplateLink() TemplateLinkInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) *TemplateLinkInvokeResponse { return v.TemplateLink }).(TemplateLinkInvokeResponsePtrOutput)
+}
+
+// The timestamp of the template deployment.
+func (o DeploymentPropertiesExtendedInvokeResponseOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedInvokeResponse) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
 
 // Deployment properties with additional details.
@@ -1142,6 +1752,79 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Identity for the resource.
+type IdentityInvokeResponse struct {
+	// The principal id of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// IdentityInvokeResponseInput is an input type that accepts IdentityInvokeResponseArgs and IdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentityInvokeResponseInput` via:
+//
+//          IdentityInvokeResponseArgs{...}
+type IdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput
+	ToIdentityInvokeResponseOutputWithContext(context.Context) IdentityInvokeResponseOutput
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseArgs struct {
+	// The principal id of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return i.ToIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityInvokeResponseOutput)
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal id of resource identity.
+func (o IdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of resource.
+func (o IdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o IdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
 type IdentityResponse struct {
 	// The principal id of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -1459,6 +2142,159 @@ func (o ParametersLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 // URI referencing the template.
 func (o ParametersLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ParametersLink) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Entity representing the reference to the deployment parameters.
+type ParametersLinkInvokeResponse struct {
+	// If included it must match the ContentVersion in the template.
+	ContentVersion *string `pulumi:"contentVersion"`
+	// URI referencing the template.
+	Uri string `pulumi:"uri"`
+}
+
+// ParametersLinkInvokeResponseInput is an input type that accepts ParametersLinkInvokeResponseArgs and ParametersLinkInvokeResponseOutput values.
+// You can construct a concrete instance of `ParametersLinkInvokeResponseInput` via:
+//
+//          ParametersLinkInvokeResponseArgs{...}
+type ParametersLinkInvokeResponseInput interface {
+	pulumi.Input
+
+	ToParametersLinkInvokeResponseOutput() ParametersLinkInvokeResponseOutput
+	ToParametersLinkInvokeResponseOutputWithContext(context.Context) ParametersLinkInvokeResponseOutput
+}
+
+// Entity representing the reference to the deployment parameters.
+type ParametersLinkInvokeResponseArgs struct {
+	// If included it must match the ContentVersion in the template.
+	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
+	// URI referencing the template.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (ParametersLinkInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParametersLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i ParametersLinkInvokeResponseArgs) ToParametersLinkInvokeResponseOutput() ParametersLinkInvokeResponseOutput {
+	return i.ToParametersLinkInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ParametersLinkInvokeResponseArgs) ToParametersLinkInvokeResponseOutputWithContext(ctx context.Context) ParametersLinkInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParametersLinkInvokeResponseOutput)
+}
+
+func (i ParametersLinkInvokeResponseArgs) ToParametersLinkInvokeResponsePtrOutput() ParametersLinkInvokeResponsePtrOutput {
+	return i.ToParametersLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ParametersLinkInvokeResponseArgs) ToParametersLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ParametersLinkInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParametersLinkInvokeResponseOutput).ToParametersLinkInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ParametersLinkInvokeResponsePtrInput is an input type that accepts ParametersLinkInvokeResponseArgs, ParametersLinkInvokeResponsePtr and ParametersLinkInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ParametersLinkInvokeResponsePtrInput` via:
+//
+//          ParametersLinkInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ParametersLinkInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToParametersLinkInvokeResponsePtrOutput() ParametersLinkInvokeResponsePtrOutput
+	ToParametersLinkInvokeResponsePtrOutputWithContext(context.Context) ParametersLinkInvokeResponsePtrOutput
+}
+
+type parametersLinkInvokeResponsePtrType ParametersLinkInvokeResponseArgs
+
+func ParametersLinkInvokeResponsePtr(v *ParametersLinkInvokeResponseArgs) ParametersLinkInvokeResponsePtrInput {
+	return (*parametersLinkInvokeResponsePtrType)(v)
+}
+
+func (*parametersLinkInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParametersLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i *parametersLinkInvokeResponsePtrType) ToParametersLinkInvokeResponsePtrOutput() ParametersLinkInvokeResponsePtrOutput {
+	return i.ToParametersLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *parametersLinkInvokeResponsePtrType) ToParametersLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ParametersLinkInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParametersLinkInvokeResponsePtrOutput)
+}
+
+// Entity representing the reference to the deployment parameters.
+type ParametersLinkInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ParametersLinkInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParametersLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ParametersLinkInvokeResponseOutput) ToParametersLinkInvokeResponseOutput() ParametersLinkInvokeResponseOutput {
+	return o
+}
+
+func (o ParametersLinkInvokeResponseOutput) ToParametersLinkInvokeResponseOutputWithContext(ctx context.Context) ParametersLinkInvokeResponseOutput {
+	return o
+}
+
+func (o ParametersLinkInvokeResponseOutput) ToParametersLinkInvokeResponsePtrOutput() ParametersLinkInvokeResponsePtrOutput {
+	return o.ToParametersLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ParametersLinkInvokeResponseOutput) ToParametersLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ParametersLinkInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ParametersLinkInvokeResponse) *ParametersLinkInvokeResponse {
+		return &v
+	}).(ParametersLinkInvokeResponsePtrOutput)
+}
+
+// If included it must match the ContentVersion in the template.
+func (o ParametersLinkInvokeResponseOutput) ContentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParametersLinkInvokeResponse) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
+}
+
+// URI referencing the template.
+func (o ParametersLinkInvokeResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ParametersLinkInvokeResponse) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type ParametersLinkInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ParametersLinkInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParametersLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ParametersLinkInvokeResponsePtrOutput) ToParametersLinkInvokeResponsePtrOutput() ParametersLinkInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ParametersLinkInvokeResponsePtrOutput) ToParametersLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ParametersLinkInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ParametersLinkInvokeResponsePtrOutput) Elem() ParametersLinkInvokeResponseOutput {
+	return o.ApplyT(func(v *ParametersLinkInvokeResponse) ParametersLinkInvokeResponse { return *v }).(ParametersLinkInvokeResponseOutput)
+}
+
+// If included it must match the ContentVersion in the template.
+func (o ParametersLinkInvokeResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParametersLinkInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI referencing the template.
+func (o ParametersLinkInvokeResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParametersLinkInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1811,6 +2647,88 @@ func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 // Plan for the resource.
+type PlanInvokeResponse struct {
+	// The plan ID.
+	Name *string `pulumi:"name"`
+	// The offer ID.
+	Product *string `pulumi:"product"`
+	// The promotion code.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher *string `pulumi:"publisher"`
+}
+
+// PlanInvokeResponseInput is an input type that accepts PlanInvokeResponseArgs and PlanInvokeResponseOutput values.
+// You can construct a concrete instance of `PlanInvokeResponseInput` via:
+//
+//          PlanInvokeResponseArgs{...}
+type PlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPlanInvokeResponseOutput() PlanInvokeResponseOutput
+	ToPlanInvokeResponseOutputWithContext(context.Context) PlanInvokeResponseOutput
+}
+
+// Plan for the resource.
+type PlanInvokeResponseArgs struct {
+	// The plan ID.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The offer ID.
+	Product pulumi.StringPtrInput `pulumi:"product"`
+	// The promotion code.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+}
+
+func (PlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanInvokeResponse)(nil)).Elem()
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponseOutput() PlanInvokeResponseOutput {
+	return i.ToPlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponseOutputWithContext(ctx context.Context) PlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanInvokeResponseOutput)
+}
+
+// Plan for the resource.
+type PlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanInvokeResponse)(nil)).Elem()
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponseOutput() PlanInvokeResponseOutput {
+	return o
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponseOutputWithContext(ctx context.Context) PlanInvokeResponseOutput {
+	return o
+}
+
+// The plan ID.
+func (o PlanInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The offer ID.
+func (o PlanInvokeResponseOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
+}
+
+// The promotion code.
+func (o PlanInvokeResponseOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID.
+func (o PlanInvokeResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Plan for the resource.
 type PlanResponse struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -1999,6 +2917,269 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 		}
 		return v.Publisher
 	}).(pulumi.StringPtrOutput)
+}
+
+// Resource provider information.
+type ProviderInvokeResponse struct {
+	// The provider id.
+	Id *string `pulumi:"id"`
+	// The namespace of the provider.
+	Namespace *string `pulumi:"namespace"`
+	// The registration state of the provider.
+	RegistrationState *string `pulumi:"registrationState"`
+	// The collection of provider resource types.
+	ResourceTypes []ProviderResourceTypeInvokeResponse `pulumi:"resourceTypes"`
+}
+
+// ProviderInvokeResponseInput is an input type that accepts ProviderInvokeResponseArgs and ProviderInvokeResponseOutput values.
+// You can construct a concrete instance of `ProviderInvokeResponseInput` via:
+//
+//          ProviderInvokeResponseArgs{...}
+type ProviderInvokeResponseInput interface {
+	pulumi.Input
+
+	ToProviderInvokeResponseOutput() ProviderInvokeResponseOutput
+	ToProviderInvokeResponseOutputWithContext(context.Context) ProviderInvokeResponseOutput
+}
+
+// Resource provider information.
+type ProviderInvokeResponseArgs struct {
+	// The provider id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The namespace of the provider.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// The registration state of the provider.
+	RegistrationState pulumi.StringPtrInput `pulumi:"registrationState"`
+	// The collection of provider resource types.
+	ResourceTypes ProviderResourceTypeInvokeResponseArrayInput `pulumi:"resourceTypes"`
+}
+
+func (ProviderInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i ProviderInvokeResponseArgs) ToProviderInvokeResponseOutput() ProviderInvokeResponseOutput {
+	return i.ToProviderInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ProviderInvokeResponseArgs) ToProviderInvokeResponseOutputWithContext(ctx context.Context) ProviderInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderInvokeResponseOutput)
+}
+
+// ProviderInvokeResponseArrayInput is an input type that accepts ProviderInvokeResponseArray and ProviderInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ProviderInvokeResponseArrayInput` via:
+//
+//          ProviderInvokeResponseArray{ ProviderInvokeResponseArgs{...} }
+type ProviderInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToProviderInvokeResponseArrayOutput() ProviderInvokeResponseArrayOutput
+	ToProviderInvokeResponseArrayOutputWithContext(context.Context) ProviderInvokeResponseArrayOutput
+}
+
+type ProviderInvokeResponseArray []ProviderInvokeResponseInput
+
+func (ProviderInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i ProviderInvokeResponseArray) ToProviderInvokeResponseArrayOutput() ProviderInvokeResponseArrayOutput {
+	return i.ToProviderInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ProviderInvokeResponseArray) ToProviderInvokeResponseArrayOutputWithContext(ctx context.Context) ProviderInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderInvokeResponseArrayOutput)
+}
+
+// Resource provider information.
+type ProviderInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ProviderInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o ProviderInvokeResponseOutput) ToProviderInvokeResponseOutput() ProviderInvokeResponseOutput {
+	return o
+}
+
+func (o ProviderInvokeResponseOutput) ToProviderInvokeResponseOutputWithContext(ctx context.Context) ProviderInvokeResponseOutput {
+	return o
+}
+
+// The provider id.
+func (o ProviderInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The namespace of the provider.
+func (o ProviderInvokeResponseOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderInvokeResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// The registration state of the provider.
+func (o ProviderInvokeResponseOutput) RegistrationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderInvokeResponse) *string { return v.RegistrationState }).(pulumi.StringPtrOutput)
+}
+
+// The collection of provider resource types.
+func (o ProviderInvokeResponseOutput) ResourceTypes() ProviderResourceTypeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ProviderInvokeResponse) []ProviderResourceTypeInvokeResponse { return v.ResourceTypes }).(ProviderResourceTypeInvokeResponseArrayOutput)
+}
+
+type ProviderInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProviderInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o ProviderInvokeResponseArrayOutput) ToProviderInvokeResponseArrayOutput() ProviderInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ProviderInvokeResponseArrayOutput) ToProviderInvokeResponseArrayOutputWithContext(ctx context.Context) ProviderInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ProviderInvokeResponseArrayOutput) Index(i pulumi.IntInput) ProviderInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderInvokeResponse {
+		return vs[0].([]ProviderInvokeResponse)[vs[1].(int)]
+	}).(ProviderInvokeResponseOutput)
+}
+
+// Resource type managed by the resource provider.
+type ProviderResourceTypeInvokeResponse struct {
+	// The aliases that are supported by this resource type.
+	Aliases []AliasTypeInvokeResponse `pulumi:"aliases"`
+	// The api version.
+	ApiVersions []string `pulumi:"apiVersions"`
+	// The collection of locations where this resource type can be created in.
+	Locations []string `pulumi:"locations"`
+	// The properties.
+	Properties map[string]string `pulumi:"properties"`
+	// The resource type.
+	ResourceType *string `pulumi:"resourceType"`
+}
+
+// ProviderResourceTypeInvokeResponseInput is an input type that accepts ProviderResourceTypeInvokeResponseArgs and ProviderResourceTypeInvokeResponseOutput values.
+// You can construct a concrete instance of `ProviderResourceTypeInvokeResponseInput` via:
+//
+//          ProviderResourceTypeInvokeResponseArgs{...}
+type ProviderResourceTypeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToProviderResourceTypeInvokeResponseOutput() ProviderResourceTypeInvokeResponseOutput
+	ToProviderResourceTypeInvokeResponseOutputWithContext(context.Context) ProviderResourceTypeInvokeResponseOutput
+}
+
+// Resource type managed by the resource provider.
+type ProviderResourceTypeInvokeResponseArgs struct {
+	// The aliases that are supported by this resource type.
+	Aliases AliasTypeInvokeResponseArrayInput `pulumi:"aliases"`
+	// The api version.
+	ApiVersions pulumi.StringArrayInput `pulumi:"apiVersions"`
+	// The collection of locations where this resource type can be created in.
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
+	// The properties.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// The resource type.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+}
+
+func (ProviderResourceTypeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderResourceTypeInvokeResponse)(nil)).Elem()
+}
+
+func (i ProviderResourceTypeInvokeResponseArgs) ToProviderResourceTypeInvokeResponseOutput() ProviderResourceTypeInvokeResponseOutput {
+	return i.ToProviderResourceTypeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ProviderResourceTypeInvokeResponseArgs) ToProviderResourceTypeInvokeResponseOutputWithContext(ctx context.Context) ProviderResourceTypeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderResourceTypeInvokeResponseOutput)
+}
+
+// ProviderResourceTypeInvokeResponseArrayInput is an input type that accepts ProviderResourceTypeInvokeResponseArray and ProviderResourceTypeInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ProviderResourceTypeInvokeResponseArrayInput` via:
+//
+//          ProviderResourceTypeInvokeResponseArray{ ProviderResourceTypeInvokeResponseArgs{...} }
+type ProviderResourceTypeInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToProviderResourceTypeInvokeResponseArrayOutput() ProviderResourceTypeInvokeResponseArrayOutput
+	ToProviderResourceTypeInvokeResponseArrayOutputWithContext(context.Context) ProviderResourceTypeInvokeResponseArrayOutput
+}
+
+type ProviderResourceTypeInvokeResponseArray []ProviderResourceTypeInvokeResponseInput
+
+func (ProviderResourceTypeInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderResourceTypeInvokeResponse)(nil)).Elem()
+}
+
+func (i ProviderResourceTypeInvokeResponseArray) ToProviderResourceTypeInvokeResponseArrayOutput() ProviderResourceTypeInvokeResponseArrayOutput {
+	return i.ToProviderResourceTypeInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ProviderResourceTypeInvokeResponseArray) ToProviderResourceTypeInvokeResponseArrayOutputWithContext(ctx context.Context) ProviderResourceTypeInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderResourceTypeInvokeResponseArrayOutput)
+}
+
+// Resource type managed by the resource provider.
+type ProviderResourceTypeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ProviderResourceTypeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderResourceTypeInvokeResponse)(nil)).Elem()
+}
+
+func (o ProviderResourceTypeInvokeResponseOutput) ToProviderResourceTypeInvokeResponseOutput() ProviderResourceTypeInvokeResponseOutput {
+	return o
+}
+
+func (o ProviderResourceTypeInvokeResponseOutput) ToProviderResourceTypeInvokeResponseOutputWithContext(ctx context.Context) ProviderResourceTypeInvokeResponseOutput {
+	return o
+}
+
+// The aliases that are supported by this resource type.
+func (o ProviderResourceTypeInvokeResponseOutput) Aliases() AliasTypeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ProviderResourceTypeInvokeResponse) []AliasTypeInvokeResponse { return v.Aliases }).(AliasTypeInvokeResponseArrayOutput)
+}
+
+// The api version.
+func (o ProviderResourceTypeInvokeResponseOutput) ApiVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProviderResourceTypeInvokeResponse) []string { return v.ApiVersions }).(pulumi.StringArrayOutput)
+}
+
+// The collection of locations where this resource type can be created in.
+func (o ProviderResourceTypeInvokeResponseOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProviderResourceTypeInvokeResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// The properties.
+func (o ProviderResourceTypeInvokeResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ProviderResourceTypeInvokeResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o ProviderResourceTypeInvokeResponseOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderResourceTypeInvokeResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+type ProviderResourceTypeInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProviderResourceTypeInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderResourceTypeInvokeResponse)(nil)).Elem()
+}
+
+func (o ProviderResourceTypeInvokeResponseArrayOutput) ToProviderResourceTypeInvokeResponseArrayOutput() ProviderResourceTypeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ProviderResourceTypeInvokeResponseArrayOutput) ToProviderResourceTypeInvokeResponseArrayOutputWithContext(ctx context.Context) ProviderResourceTypeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ProviderResourceTypeInvokeResponseArrayOutput) Index(i pulumi.IntInput) ProviderResourceTypeInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderResourceTypeInvokeResponse {
+		return vs[0].([]ProviderResourceTypeInvokeResponse)[vs[1].(int)]
+	}).(ProviderResourceTypeInvokeResponseOutput)
 }
 
 // Resource type managed by the resource provider.
@@ -2262,6 +3443,61 @@ func (o ProviderResponseArrayOutput) Index(i pulumi.IntInput) ProviderResponseOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderResponse {
 		return vs[0].([]ProviderResponse)[vs[1].(int)]
 	}).(ProviderResponseOutput)
+}
+
+// The resource group properties.
+type ResourceGroupPropertiesInvokeResponse struct {
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// ResourceGroupPropertiesInvokeResponseInput is an input type that accepts ResourceGroupPropertiesInvokeResponseArgs and ResourceGroupPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceGroupPropertiesInvokeResponseInput` via:
+//
+//          ResourceGroupPropertiesInvokeResponseArgs{...}
+type ResourceGroupPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceGroupPropertiesInvokeResponseOutput() ResourceGroupPropertiesInvokeResponseOutput
+	ToResourceGroupPropertiesInvokeResponseOutputWithContext(context.Context) ResourceGroupPropertiesInvokeResponseOutput
+}
+
+// The resource group properties.
+type ResourceGroupPropertiesInvokeResponseArgs struct {
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (ResourceGroupPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceGroupPropertiesInvokeResponseArgs) ToResourceGroupPropertiesInvokeResponseOutput() ResourceGroupPropertiesInvokeResponseOutput {
+	return i.ToResourceGroupPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupPropertiesInvokeResponseArgs) ToResourceGroupPropertiesInvokeResponseOutputWithContext(ctx context.Context) ResourceGroupPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPropertiesInvokeResponseOutput)
+}
+
+// The resource group properties.
+type ResourceGroupPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceGroupPropertiesInvokeResponseOutput) ToResourceGroupPropertiesInvokeResponseOutput() ResourceGroupPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceGroupPropertiesInvokeResponseOutput) ToResourceGroupPropertiesInvokeResponseOutputWithContext(ctx context.Context) ResourceGroupPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The provisioning state.
+func (o ResourceGroupPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceGroupPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The resource group properties.
@@ -2625,6 +3861,106 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// Sku for the resource.
+type SkuInvokeResponse struct {
+	// The sku capacity.
+	Capacity *int `pulumi:"capacity"`
+	// The sku family.
+	Family *string `pulumi:"family"`
+	// The sku model.
+	Model *string `pulumi:"model"`
+	// The sku name.
+	Name *string `pulumi:"name"`
+	// The sku size.
+	Size *string `pulumi:"size"`
+	// The sku tier.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Sku for the resource.
+type SkuInvokeResponseArgs struct {
+	// The sku capacity.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The sku family.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The sku model.
+	Model pulumi.StringPtrInput `pulumi:"model"`
+	// The sku name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The sku size.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The sku tier.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Sku for the resource.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The sku capacity.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The sku family.
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The sku model.
+func (o SkuInvokeResponseOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Model }).(pulumi.StringPtrOutput)
+}
+
+// The sku name.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The sku size.
+func (o SkuInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The sku tier.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 // Sku for the resource.
@@ -3010,6 +4346,159 @@ func (o TemplateLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 // Entity representing the reference to the template.
+type TemplateLinkInvokeResponse struct {
+	// If included it must match the ContentVersion in the template.
+	ContentVersion *string `pulumi:"contentVersion"`
+	// URI referencing the template.
+	Uri string `pulumi:"uri"`
+}
+
+// TemplateLinkInvokeResponseInput is an input type that accepts TemplateLinkInvokeResponseArgs and TemplateLinkInvokeResponseOutput values.
+// You can construct a concrete instance of `TemplateLinkInvokeResponseInput` via:
+//
+//          TemplateLinkInvokeResponseArgs{...}
+type TemplateLinkInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTemplateLinkInvokeResponseOutput() TemplateLinkInvokeResponseOutput
+	ToTemplateLinkInvokeResponseOutputWithContext(context.Context) TemplateLinkInvokeResponseOutput
+}
+
+// Entity representing the reference to the template.
+type TemplateLinkInvokeResponseArgs struct {
+	// If included it must match the ContentVersion in the template.
+	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
+	// URI referencing the template.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (TemplateLinkInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i TemplateLinkInvokeResponseArgs) ToTemplateLinkInvokeResponseOutput() TemplateLinkInvokeResponseOutput {
+	return i.ToTemplateLinkInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TemplateLinkInvokeResponseArgs) ToTemplateLinkInvokeResponseOutputWithContext(ctx context.Context) TemplateLinkInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLinkInvokeResponseOutput)
+}
+
+func (i TemplateLinkInvokeResponseArgs) ToTemplateLinkInvokeResponsePtrOutput() TemplateLinkInvokeResponsePtrOutput {
+	return i.ToTemplateLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateLinkInvokeResponseArgs) ToTemplateLinkInvokeResponsePtrOutputWithContext(ctx context.Context) TemplateLinkInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLinkInvokeResponseOutput).ToTemplateLinkInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// TemplateLinkInvokeResponsePtrInput is an input type that accepts TemplateLinkInvokeResponseArgs, TemplateLinkInvokeResponsePtr and TemplateLinkInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TemplateLinkInvokeResponsePtrInput` via:
+//
+//          TemplateLinkInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TemplateLinkInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToTemplateLinkInvokeResponsePtrOutput() TemplateLinkInvokeResponsePtrOutput
+	ToTemplateLinkInvokeResponsePtrOutputWithContext(context.Context) TemplateLinkInvokeResponsePtrOutput
+}
+
+type templateLinkInvokeResponsePtrType TemplateLinkInvokeResponseArgs
+
+func TemplateLinkInvokeResponsePtr(v *TemplateLinkInvokeResponseArgs) TemplateLinkInvokeResponsePtrInput {
+	return (*templateLinkInvokeResponsePtrType)(v)
+}
+
+func (*templateLinkInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i *templateLinkInvokeResponsePtrType) ToTemplateLinkInvokeResponsePtrOutput() TemplateLinkInvokeResponsePtrOutput {
+	return i.ToTemplateLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *templateLinkInvokeResponsePtrType) ToTemplateLinkInvokeResponsePtrOutputWithContext(ctx context.Context) TemplateLinkInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateLinkInvokeResponsePtrOutput)
+}
+
+// Entity representing the reference to the template.
+type TemplateLinkInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TemplateLinkInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o TemplateLinkInvokeResponseOutput) ToTemplateLinkInvokeResponseOutput() TemplateLinkInvokeResponseOutput {
+	return o
+}
+
+func (o TemplateLinkInvokeResponseOutput) ToTemplateLinkInvokeResponseOutputWithContext(ctx context.Context) TemplateLinkInvokeResponseOutput {
+	return o
+}
+
+func (o TemplateLinkInvokeResponseOutput) ToTemplateLinkInvokeResponsePtrOutput() TemplateLinkInvokeResponsePtrOutput {
+	return o.ToTemplateLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateLinkInvokeResponseOutput) ToTemplateLinkInvokeResponsePtrOutputWithContext(ctx context.Context) TemplateLinkInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TemplateLinkInvokeResponse) *TemplateLinkInvokeResponse {
+		return &v
+	}).(TemplateLinkInvokeResponsePtrOutput)
+}
+
+// If included it must match the ContentVersion in the template.
+func (o TemplateLinkInvokeResponseOutput) ContentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateLinkInvokeResponse) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
+}
+
+// URI referencing the template.
+func (o TemplateLinkInvokeResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateLinkInvokeResponse) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type TemplateLinkInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateLinkInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o TemplateLinkInvokeResponsePtrOutput) ToTemplateLinkInvokeResponsePtrOutput() TemplateLinkInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TemplateLinkInvokeResponsePtrOutput) ToTemplateLinkInvokeResponsePtrOutputWithContext(ctx context.Context) TemplateLinkInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TemplateLinkInvokeResponsePtrOutput) Elem() TemplateLinkInvokeResponseOutput {
+	return o.ApplyT(func(v *TemplateLinkInvokeResponse) TemplateLinkInvokeResponse { return *v }).(TemplateLinkInvokeResponseOutput)
+}
+
+// If included it must match the ContentVersion in the template.
+func (o TemplateLinkInvokeResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLinkInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI referencing the template.
+func (o TemplateLinkInvokeResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateLinkInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Entity representing the reference to the template.
 type TemplateLinkResponse struct {
 	// If included it must match the ContentVersion in the template.
 	ContentVersion *string `pulumi:"contentVersion"`
@@ -3163,42 +4652,63 @@ func (o TemplateLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AliasPathTypeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AliasPathTypeInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AliasPathTypeResponseOutput{})
 	pulumi.RegisterOutputType(AliasPathTypeResponseArrayOutput{})
+	pulumi.RegisterOutputType(AliasTypeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AliasTypeInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AliasTypeResponseOutput{})
 	pulumi.RegisterOutputType(AliasTypeResponseArrayOutput{})
+	pulumi.RegisterOutputType(BasicDependencyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BasicDependencyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(BasicDependencyResponseOutput{})
 	pulumi.RegisterOutputType(BasicDependencyResponseArrayOutput{})
+	pulumi.RegisterOutputType(DependencyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DependencyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DependencyResponseOutput{})
 	pulumi.RegisterOutputType(DependencyResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentPropertiesExtendedInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesExtendedResponseOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesExtendedResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ParametersLinkOutput{})
 	pulumi.RegisterOutputType(ParametersLinkPtrOutput{})
+	pulumi.RegisterOutputType(ParametersLinkInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ParametersLinkInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ParametersLinkResponseOutput{})
 	pulumi.RegisterOutputType(ParametersLinkResponsePtrOutput{})
 	pulumi.RegisterOutputType(PlanOutput{})
 	pulumi.RegisterOutputType(PlanPtrOutput{})
+	pulumi.RegisterOutputType(PlanInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProviderInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ProviderInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ProviderResourceTypeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ProviderResourceTypeInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProviderResourceTypeResponseOutput{})
 	pulumi.RegisterOutputType(ProviderResourceTypeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProviderResponseOutput{})
 	pulumi.RegisterOutputType(ProviderResponseArrayOutput{})
+	pulumi.RegisterOutputType(ResourceGroupPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(TemplateLinkOutput{})
 	pulumi.RegisterOutputType(TemplateLinkPtrOutput{})
+	pulumi.RegisterOutputType(TemplateLinkInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TemplateLinkInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TemplateLinkResponseOutput{})
 	pulumi.RegisterOutputType(TemplateLinkResponsePtrOutput{})
 }

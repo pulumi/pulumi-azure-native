@@ -30,5 +30,5 @@ type ListTopLevelDomainAgreementsResult struct {
 	// Link to next page of resources.
 	NextLink string `pulumi:"nextLink"`
 	// Collection of resources.
-	Value []TldLegalAgreementResponse `pulumi:"value"`
+	Value []TldLegalAgreementInvokeResponse `pulumi:"value"`
 }

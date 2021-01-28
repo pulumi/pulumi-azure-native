@@ -42,7 +42,7 @@ type LookupSqlManagedInstanceResult struct {
 	// The instance start time
 	StartTime *string `pulumi:"startTime"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

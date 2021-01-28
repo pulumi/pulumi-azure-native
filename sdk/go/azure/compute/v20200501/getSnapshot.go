@@ -26,7 +26,7 @@ type LookupSnapshotArgs struct {
 // Snapshot resource.
 type LookupSnapshotResult struct {
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponse `pulumi:"creationData"`
+	CreationData CreationDataInvokeResponse `pulumi:"creationData"`
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The size of the disk in bytes. This field is read only.
@@ -34,9 +34,9 @@ type LookupSnapshotResult struct {
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption *EncryptionResponse `pulumi:"encryption"`
+	Encryption *EncryptionInvokeResponse `pulumi:"encryption"`
 	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
+	EncryptionSettingsCollection *EncryptionSettingsCollectionInvokeResponse `pulumi:"encryptionSettingsCollection"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource Id
@@ -56,7 +56,7 @@ type LookupSnapshotResult struct {
 	// The disk provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-	Sku *SnapshotSkuResponse `pulumi:"sku"`
+	Sku *SnapshotSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The time when the snapshot was created.

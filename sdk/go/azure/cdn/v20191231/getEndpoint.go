@@ -30,11 +30,11 @@ type LookupEndpointResult struct {
 	// List of content types on which compression applies. The value should be a valid MIME type.
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
 	// A reference to the origin group.
-	DefaultOriginGroup *ResourceReferenceResponse `pulumi:"defaultOriginGroup"`
+	DefaultOriginGroup *ResourceReferenceInvokeResponse `pulumi:"defaultOriginGroup"`
 	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy *EndpointPropertiesUpdateParametersResponseDeliveryPolicy `pulumi:"deliveryPolicy"`
+	DeliveryPolicy *EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicy `pulumi:"deliveryPolicy"`
 	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-	GeoFilters []GeoFilterResponse `pulumi:"geoFilters"`
+	GeoFilters []GeoFilterInvokeResponse `pulumi:"geoFilters"`
 	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
 	HostName string `pulumi:"hostName"`
 	// Resource ID.
@@ -52,13 +52,13 @@ type LookupEndpointResult struct {
 	// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
 	OptimizationType *string `pulumi:"optimizationType"`
 	// The origin groups comprising of origins that are used for load balancing the traffic based on availability.
-	OriginGroups []DeepCreatedOriginGroupResponse `pulumi:"originGroups"`
+	OriginGroups []DeepCreatedOriginGroupInvokeResponse `pulumi:"originGroups"`
 	// The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
 	OriginPath *string `pulumi:"originPath"`
 	// The source of the content being delivered via CDN.
-	Origins []DeepCreatedOriginResponse `pulumi:"origins"`
+	Origins []DeepCreatedOriginInvokeResponse `pulumi:"origins"`
 	// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
 	ProbePath *string `pulumi:"probePath"`
 	// Provisioning status of the endpoint.

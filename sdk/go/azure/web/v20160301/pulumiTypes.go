@@ -11,6 +11,79 @@ import (
 )
 
 // Specification for an App Service Environment to use for this resource.
+type HostingEnvironmentProfileInvokeResponse struct {
+	// Resource ID of the App Service Environment.
+	Id *string `pulumi:"id"`
+	// Name of the App Service Environment.
+	Name string `pulumi:"name"`
+	// Resource type of the App Service Environment.
+	Type string `pulumi:"type"`
+}
+
+// HostingEnvironmentProfileInvokeResponseInput is an input type that accepts HostingEnvironmentProfileInvokeResponseArgs and HostingEnvironmentProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `HostingEnvironmentProfileInvokeResponseInput` via:
+//
+//          HostingEnvironmentProfileInvokeResponseArgs{...}
+type HostingEnvironmentProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHostingEnvironmentProfileInvokeResponseOutput() HostingEnvironmentProfileInvokeResponseOutput
+	ToHostingEnvironmentProfileInvokeResponseOutputWithContext(context.Context) HostingEnvironmentProfileInvokeResponseOutput
+}
+
+// Specification for an App Service Environment to use for this resource.
+type HostingEnvironmentProfileInvokeResponseArgs struct {
+	// Resource ID of the App Service Environment.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the App Service Environment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource type of the App Service Environment.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (HostingEnvironmentProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostingEnvironmentProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i HostingEnvironmentProfileInvokeResponseArgs) ToHostingEnvironmentProfileInvokeResponseOutput() HostingEnvironmentProfileInvokeResponseOutput {
+	return i.ToHostingEnvironmentProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HostingEnvironmentProfileInvokeResponseArgs) ToHostingEnvironmentProfileInvokeResponseOutputWithContext(ctx context.Context) HostingEnvironmentProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentProfileInvokeResponseOutput)
+}
+
+// Specification for an App Service Environment to use for this resource.
+type HostingEnvironmentProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HostingEnvironmentProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostingEnvironmentProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o HostingEnvironmentProfileInvokeResponseOutput) ToHostingEnvironmentProfileInvokeResponseOutput() HostingEnvironmentProfileInvokeResponseOutput {
+	return o
+}
+
+func (o HostingEnvironmentProfileInvokeResponseOutput) ToHostingEnvironmentProfileInvokeResponseOutputWithContext(ctx context.Context) HostingEnvironmentProfileInvokeResponseOutput {
+	return o
+}
+
+// Resource ID of the App Service Environment.
+func (o HostingEnvironmentProfileInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostingEnvironmentProfileInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the App Service Environment.
+func (o HostingEnvironmentProfileInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HostingEnvironmentProfileInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type of the App Service Environment.
+func (o HostingEnvironmentProfileInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HostingEnvironmentProfileInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfileResponse struct {
 	// Resource ID of the App Service Environment.
 	Id *string `pulumi:"id"`
@@ -183,7 +256,7 @@ func (o HostingEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutpu
 }
 
 // A domain specific resource identifier.
-type IdentifierResponse struct {
+type IdentifierInvokeResponse struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
@@ -194,19 +267,19 @@ type IdentifierResponse struct {
 	Type string `pulumi:"type"`
 }
 
-// IdentifierResponseInput is an input type that accepts IdentifierResponseArgs and IdentifierResponseOutput values.
-// You can construct a concrete instance of `IdentifierResponseInput` via:
+// IdentifierInvokeResponseInput is an input type that accepts IdentifierInvokeResponseArgs and IdentifierInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentifierInvokeResponseInput` via:
 //
-//          IdentifierResponseArgs{...}
-type IdentifierResponseInput interface {
+//          IdentifierInvokeResponseArgs{...}
+type IdentifierInvokeResponseInput interface {
 	pulumi.Input
 
-	ToIdentifierResponseOutput() IdentifierResponseOutput
-	ToIdentifierResponseOutputWithContext(context.Context) IdentifierResponseOutput
+	ToIdentifierInvokeResponseOutput() IdentifierInvokeResponseOutput
+	ToIdentifierInvokeResponseOutputWithContext(context.Context) IdentifierInvokeResponseOutput
 }
 
 // A domain specific resource identifier.
-type IdentifierResponseArgs struct {
+type IdentifierInvokeResponseArgs struct {
 	// Resource Id.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Kind of resource.
@@ -217,101 +290,102 @@ type IdentifierResponseArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (IdentifierResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentifierResponse)(nil)).Elem()
+func (IdentifierInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentifierInvokeResponse)(nil)).Elem()
 }
 
-func (i IdentifierResponseArgs) ToIdentifierResponseOutput() IdentifierResponseOutput {
-	return i.ToIdentifierResponseOutputWithContext(context.Background())
+func (i IdentifierInvokeResponseArgs) ToIdentifierInvokeResponseOutput() IdentifierInvokeResponseOutput {
+	return i.ToIdentifierInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i IdentifierResponseArgs) ToIdentifierResponseOutputWithContext(ctx context.Context) IdentifierResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentifierResponseOutput)
+func (i IdentifierInvokeResponseArgs) ToIdentifierInvokeResponseOutputWithContext(ctx context.Context) IdentifierInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentifierInvokeResponseOutput)
 }
 
-// IdentifierResponseArrayInput is an input type that accepts IdentifierResponseArray and IdentifierResponseArrayOutput values.
-// You can construct a concrete instance of `IdentifierResponseArrayInput` via:
+// IdentifierInvokeResponseArrayInput is an input type that accepts IdentifierInvokeResponseArray and IdentifierInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IdentifierInvokeResponseArrayInput` via:
 //
-//          IdentifierResponseArray{ IdentifierResponseArgs{...} }
-type IdentifierResponseArrayInput interface {
+//          IdentifierInvokeResponseArray{ IdentifierInvokeResponseArgs{...} }
+type IdentifierInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToIdentifierResponseArrayOutput() IdentifierResponseArrayOutput
-	ToIdentifierResponseArrayOutputWithContext(context.Context) IdentifierResponseArrayOutput
+	ToIdentifierInvokeResponseArrayOutput() IdentifierInvokeResponseArrayOutput
+	ToIdentifierInvokeResponseArrayOutputWithContext(context.Context) IdentifierInvokeResponseArrayOutput
 }
 
-type IdentifierResponseArray []IdentifierResponseInput
+type IdentifierInvokeResponseArray []IdentifierInvokeResponseInput
 
-func (IdentifierResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentifierResponse)(nil)).Elem()
+func (IdentifierInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentifierInvokeResponse)(nil)).Elem()
 }
 
-func (i IdentifierResponseArray) ToIdentifierResponseArrayOutput() IdentifierResponseArrayOutput {
-	return i.ToIdentifierResponseArrayOutputWithContext(context.Background())
+func (i IdentifierInvokeResponseArray) ToIdentifierInvokeResponseArrayOutput() IdentifierInvokeResponseArrayOutput {
+	return i.ToIdentifierInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i IdentifierResponseArray) ToIdentifierResponseArrayOutputWithContext(ctx context.Context) IdentifierResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentifierResponseArrayOutput)
+func (i IdentifierInvokeResponseArray) ToIdentifierInvokeResponseArrayOutputWithContext(ctx context.Context) IdentifierInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentifierInvokeResponseArrayOutput)
 }
 
 // A domain specific resource identifier.
-type IdentifierResponseOutput struct{ *pulumi.OutputState }
+type IdentifierInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (IdentifierResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentifierResponse)(nil)).Elem()
+func (IdentifierInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentifierInvokeResponse)(nil)).Elem()
 }
 
-func (o IdentifierResponseOutput) ToIdentifierResponseOutput() IdentifierResponseOutput {
+func (o IdentifierInvokeResponseOutput) ToIdentifierInvokeResponseOutput() IdentifierInvokeResponseOutput {
 	return o
 }
 
-func (o IdentifierResponseOutput) ToIdentifierResponseOutputWithContext(ctx context.Context) IdentifierResponseOutput {
+func (o IdentifierInvokeResponseOutput) ToIdentifierInvokeResponseOutputWithContext(ctx context.Context) IdentifierInvokeResponseOutput {
 	return o
 }
 
 // Resource Id.
-func (o IdentifierResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentifierResponse) string { return v.Id }).(pulumi.StringOutput)
+func (o IdentifierInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Kind of resource.
-func (o IdentifierResponseOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentifierResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+func (o IdentifierInvokeResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentifierInvokeResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
 // Resource Name.
-func (o IdentifierResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentifierResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o IdentifierInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Resource type.
-func (o IdentifierResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentifierResponse) string { return v.Type }).(pulumi.StringOutput)
+func (o IdentifierInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentifierInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type IdentifierResponseArrayOutput struct{ *pulumi.OutputState }
+type IdentifierInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (IdentifierResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IdentifierResponse)(nil)).Elem()
+func (IdentifierInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentifierInvokeResponse)(nil)).Elem()
 }
 
-func (o IdentifierResponseArrayOutput) ToIdentifierResponseArrayOutput() IdentifierResponseArrayOutput {
+func (o IdentifierInvokeResponseArrayOutput) ToIdentifierInvokeResponseArrayOutput() IdentifierInvokeResponseArrayOutput {
 	return o
 }
 
-func (o IdentifierResponseArrayOutput) ToIdentifierResponseArrayOutputWithContext(ctx context.Context) IdentifierResponseArrayOutput {
+func (o IdentifierInvokeResponseArrayOutput) ToIdentifierInvokeResponseArrayOutputWithContext(ctx context.Context) IdentifierInvokeResponseArrayOutput {
 	return o
 }
 
-func (o IdentifierResponseArrayOutput) Index(i pulumi.IntInput) IdentifierResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentifierResponse {
-		return vs[0].([]IdentifierResponse)[vs[1].(int)]
-	}).(IdentifierResponseOutput)
+func (o IdentifierInvokeResponseArrayOutput) Index(i pulumi.IntInput) IdentifierInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentifierInvokeResponse {
+		return vs[0].([]IdentifierInvokeResponse)[vs[1].(int)]
+	}).(IdentifierInvokeResponseOutput)
 }
 
 func init() {
+	pulumi.RegisterOutputType(HostingEnvironmentProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponseOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(IdentifierResponseOutput{})
-	pulumi.RegisterOutputType(IdentifierResponseArrayOutput{})
+	pulumi.RegisterOutputType(IdentifierInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IdentifierInvokeResponseArrayOutput{})
 }

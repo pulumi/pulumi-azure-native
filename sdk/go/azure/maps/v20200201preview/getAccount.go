@@ -32,11 +32,11 @@ type LookupAccountResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The map account properties.
-	Properties MapsAccountPropertiesResponse `pulumi:"properties"`
+	Properties MapsAccountPropertiesInvokeResponse `pulumi:"properties"`
 	// The SKU of this account.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

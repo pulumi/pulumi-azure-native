@@ -36,13 +36,13 @@ type LookupClusterResult struct {
 	// The provisioned state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU of the cluster.
-	Sku AzureSkuResponse `pulumi:"sku"`
+	Sku AzureSkuInvokeResponse `pulumi:"sku"`
 	// The state of the resource.
 	State string `pulumi:"state"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The cluster's external tenants.
-	TrustedExternalTenants []TrustedExternalTenantResponse `pulumi:"trustedExternalTenants"`
+	TrustedExternalTenants []TrustedExternalTenantInvokeResponse `pulumi:"trustedExternalTenants"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The cluster URI.

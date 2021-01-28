@@ -36,9 +36,9 @@ type LookupStorageInsightConfigResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The status of the storage insight
-	Status StorageInsightStatusResponse `pulumi:"status"`
+	Status StorageInsightStatusInvokeResponse `pulumi:"status"`
 	// The storage account connection details
-	StorageAccount StorageAccountResponse `pulumi:"storageAccount"`
+	StorageAccount StorageAccountInvokeResponse `pulumi:"storageAccount"`
 	// The names of the Azure tables that the workspace should read
 	Tables []string `pulumi:"tables"`
 	// Resource tags.

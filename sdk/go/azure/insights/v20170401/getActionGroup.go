@@ -26,11 +26,11 @@ type LookupActionGroupArgs struct {
 // An action group resource.
 type LookupActionGroupResult struct {
 	// The list of AutomationRunbook receivers that are part of this action group.
-	AutomationRunbookReceivers []AutomationRunbookReceiverResponse `pulumi:"automationRunbookReceivers"`
+	AutomationRunbookReceivers []AutomationRunbookReceiverInvokeResponse `pulumi:"automationRunbookReceivers"`
 	// The list of AzureAppPush receivers that are part of this action group.
-	AzureAppPushReceivers []AzureAppPushReceiverResponse `pulumi:"azureAppPushReceivers"`
+	AzureAppPushReceivers []AzureAppPushReceiverInvokeResponse `pulumi:"azureAppPushReceivers"`
 	// The list of email receivers that are part of this action group.
-	EmailReceivers []EmailReceiverResponse `pulumi:"emailReceivers"`
+	EmailReceivers []EmailReceiverInvokeResponse `pulumi:"emailReceivers"`
 	// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
 	Enabled bool `pulumi:"enabled"`
 	// The short name of the action group. This will be used in SMS messages.
@@ -38,17 +38,17 @@ type LookupActionGroupResult struct {
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// The list of ITSM receivers that are part of this action group.
-	ItsmReceivers []ItsmReceiverResponse `pulumi:"itsmReceivers"`
+	ItsmReceivers []ItsmReceiverInvokeResponse `pulumi:"itsmReceivers"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// The list of SMS receivers that are part of this action group.
-	SmsReceivers []SmsReceiverResponse `pulumi:"smsReceivers"`
+	SmsReceivers []SmsReceiverInvokeResponse `pulumi:"smsReceivers"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type
 	Type string `pulumi:"type"`
 	// The list of webhook receivers that are part of this action group.
-	WebhookReceivers []WebhookReceiverResponse `pulumi:"webhookReceivers"`
+	WebhookReceivers []WebhookReceiverInvokeResponse `pulumi:"webhookReceivers"`
 }

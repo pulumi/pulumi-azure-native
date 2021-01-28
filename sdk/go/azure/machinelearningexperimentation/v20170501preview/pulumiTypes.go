@@ -164,6 +164,70 @@ func (o StorageAccountPropertiesPtrOutput) StorageAccountId() pulumi.StringPtrOu
 }
 
 // The properties of a storage account for a machine learning team account.
+type StorageAccountPropertiesInvokeResponse struct {
+	// The access key to the storage account.
+	AccessKey string `pulumi:"accessKey"`
+	// The fully qualified arm Id of the storage account.
+	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// StorageAccountPropertiesInvokeResponseInput is an input type that accepts StorageAccountPropertiesInvokeResponseArgs and StorageAccountPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountPropertiesInvokeResponseInput` via:
+//
+//          StorageAccountPropertiesInvokeResponseArgs{...}
+type StorageAccountPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput
+	ToStorageAccountPropertiesInvokeResponseOutputWithContext(context.Context) StorageAccountPropertiesInvokeResponseOutput
+}
+
+// The properties of a storage account for a machine learning team account.
+type StorageAccountPropertiesInvokeResponseArgs struct {
+	// The access key to the storage account.
+	AccessKey pulumi.StringInput `pulumi:"accessKey"`
+	// The fully qualified arm Id of the storage account.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+}
+
+func (StorageAccountPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountPropertiesInvokeResponseArgs) ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput {
+	return i.ToStorageAccountPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountPropertiesInvokeResponseArgs) ToStorageAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesInvokeResponseOutput)
+}
+
+// The properties of a storage account for a machine learning team account.
+type StorageAccountPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountPropertiesInvokeResponseOutput) ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountPropertiesInvokeResponseOutput) ToStorageAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The access key to the storage account.
+func (o StorageAccountPropertiesInvokeResponseOutput) AccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesInvokeResponse) string { return v.AccessKey }).(pulumi.StringOutput)
+}
+
+// The fully qualified arm Id of the storage account.
+func (o StorageAccountPropertiesInvokeResponseOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesInvokeResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+// The properties of a storage account for a machine learning team account.
 type StorageAccountPropertiesResponse struct {
 	// The access key to the storage account.
 	AccessKey string `pulumi:"accessKey"`
@@ -319,6 +383,7 @@ func (o StorageAccountPropertiesResponsePtrOutput) StorageAccountId() pulumi.Str
 func init() {
 	pulumi.RegisterOutputType(StorageAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
 }

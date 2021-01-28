@@ -33,11 +33,11 @@ type LookupSecurityPolicyResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// object which contains security policy parameters
-	Parameters *SecurityPolicyWebApplicationFirewallParametersResponse `pulumi:"parameters"`
+	Parameters *SecurityPolicyWebApplicationFirewallParametersInvokeResponse `pulumi:"parameters"`
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

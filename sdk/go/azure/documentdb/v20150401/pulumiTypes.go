@@ -111,6 +111,106 @@ func (o CapabilityArrayOutput) Index(i pulumi.IntInput) CapabilityOutput {
 }
 
 // Cosmos DB capability object
+type CapabilityInvokeResponse struct {
+	// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+	Name *string `pulumi:"name"`
+}
+
+// CapabilityInvokeResponseInput is an input type that accepts CapabilityInvokeResponseArgs and CapabilityInvokeResponseOutput values.
+// You can construct a concrete instance of `CapabilityInvokeResponseInput` via:
+//
+//          CapabilityInvokeResponseArgs{...}
+type CapabilityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCapabilityInvokeResponseOutput() CapabilityInvokeResponseOutput
+	ToCapabilityInvokeResponseOutputWithContext(context.Context) CapabilityInvokeResponseOutput
+}
+
+// Cosmos DB capability object
+type CapabilityInvokeResponseArgs struct {
+	// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (CapabilityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityInvokeResponse)(nil)).Elem()
+}
+
+func (i CapabilityInvokeResponseArgs) ToCapabilityInvokeResponseOutput() CapabilityInvokeResponseOutput {
+	return i.ToCapabilityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CapabilityInvokeResponseArgs) ToCapabilityInvokeResponseOutputWithContext(ctx context.Context) CapabilityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityInvokeResponseOutput)
+}
+
+// CapabilityInvokeResponseArrayInput is an input type that accepts CapabilityInvokeResponseArray and CapabilityInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CapabilityInvokeResponseArrayInput` via:
+//
+//          CapabilityInvokeResponseArray{ CapabilityInvokeResponseArgs{...} }
+type CapabilityInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCapabilityInvokeResponseArrayOutput() CapabilityInvokeResponseArrayOutput
+	ToCapabilityInvokeResponseArrayOutputWithContext(context.Context) CapabilityInvokeResponseArrayOutput
+}
+
+type CapabilityInvokeResponseArray []CapabilityInvokeResponseInput
+
+func (CapabilityInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilityInvokeResponse)(nil)).Elem()
+}
+
+func (i CapabilityInvokeResponseArray) ToCapabilityInvokeResponseArrayOutput() CapabilityInvokeResponseArrayOutput {
+	return i.ToCapabilityInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CapabilityInvokeResponseArray) ToCapabilityInvokeResponseArrayOutputWithContext(ctx context.Context) CapabilityInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityInvokeResponseArrayOutput)
+}
+
+// Cosmos DB capability object
+type CapabilityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CapabilityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityInvokeResponse)(nil)).Elem()
+}
+
+func (o CapabilityInvokeResponseOutput) ToCapabilityInvokeResponseOutput() CapabilityInvokeResponseOutput {
+	return o
+}
+
+func (o CapabilityInvokeResponseOutput) ToCapabilityInvokeResponseOutputWithContext(ctx context.Context) CapabilityInvokeResponseOutput {
+	return o
+}
+
+// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+func (o CapabilityInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type CapabilityInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CapabilityInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilityInvokeResponse)(nil)).Elem()
+}
+
+func (o CapabilityInvokeResponseArrayOutput) ToCapabilityInvokeResponseArrayOutput() CapabilityInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CapabilityInvokeResponseArrayOutput) ToCapabilityInvokeResponseArrayOutputWithContext(ctx context.Context) CapabilityInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CapabilityInvokeResponseArrayOutput) Index(i pulumi.IntInput) CapabilityInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapabilityInvokeResponse {
+		return vs[0].([]CapabilityInvokeResponse)[vs[1].(int)]
+	}).(CapabilityInvokeResponseOutput)
+}
+
+// Cosmos DB capability object
 type CapabilityResponse struct {
 	// Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
 	Name *string `pulumi:"name"`
@@ -445,6 +545,106 @@ func (o CassandraPartitionKeyArrayOutput) Index(i pulumi.IntInput) CassandraPart
 }
 
 // Cosmos DB Cassandra table partition key
+type CassandraPartitionKeyInvokeResponse struct {
+	// Name of the Cosmos DB Cassandra table partition key
+	Name *string `pulumi:"name"`
+}
+
+// CassandraPartitionKeyInvokeResponseInput is an input type that accepts CassandraPartitionKeyInvokeResponseArgs and CassandraPartitionKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `CassandraPartitionKeyInvokeResponseInput` via:
+//
+//          CassandraPartitionKeyInvokeResponseArgs{...}
+type CassandraPartitionKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCassandraPartitionKeyInvokeResponseOutput() CassandraPartitionKeyInvokeResponseOutput
+	ToCassandraPartitionKeyInvokeResponseOutputWithContext(context.Context) CassandraPartitionKeyInvokeResponseOutput
+}
+
+// Cosmos DB Cassandra table partition key
+type CassandraPartitionKeyInvokeResponseArgs struct {
+	// Name of the Cosmos DB Cassandra table partition key
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (CassandraPartitionKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraPartitionKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i CassandraPartitionKeyInvokeResponseArgs) ToCassandraPartitionKeyInvokeResponseOutput() CassandraPartitionKeyInvokeResponseOutput {
+	return i.ToCassandraPartitionKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CassandraPartitionKeyInvokeResponseArgs) ToCassandraPartitionKeyInvokeResponseOutputWithContext(ctx context.Context) CassandraPartitionKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraPartitionKeyInvokeResponseOutput)
+}
+
+// CassandraPartitionKeyInvokeResponseArrayInput is an input type that accepts CassandraPartitionKeyInvokeResponseArray and CassandraPartitionKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CassandraPartitionKeyInvokeResponseArrayInput` via:
+//
+//          CassandraPartitionKeyInvokeResponseArray{ CassandraPartitionKeyInvokeResponseArgs{...} }
+type CassandraPartitionKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCassandraPartitionKeyInvokeResponseArrayOutput() CassandraPartitionKeyInvokeResponseArrayOutput
+	ToCassandraPartitionKeyInvokeResponseArrayOutputWithContext(context.Context) CassandraPartitionKeyInvokeResponseArrayOutput
+}
+
+type CassandraPartitionKeyInvokeResponseArray []CassandraPartitionKeyInvokeResponseInput
+
+func (CassandraPartitionKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CassandraPartitionKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i CassandraPartitionKeyInvokeResponseArray) ToCassandraPartitionKeyInvokeResponseArrayOutput() CassandraPartitionKeyInvokeResponseArrayOutput {
+	return i.ToCassandraPartitionKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CassandraPartitionKeyInvokeResponseArray) ToCassandraPartitionKeyInvokeResponseArrayOutputWithContext(ctx context.Context) CassandraPartitionKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraPartitionKeyInvokeResponseArrayOutput)
+}
+
+// Cosmos DB Cassandra table partition key
+type CassandraPartitionKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CassandraPartitionKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraPartitionKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o CassandraPartitionKeyInvokeResponseOutput) ToCassandraPartitionKeyInvokeResponseOutput() CassandraPartitionKeyInvokeResponseOutput {
+	return o
+}
+
+func (o CassandraPartitionKeyInvokeResponseOutput) ToCassandraPartitionKeyInvokeResponseOutputWithContext(ctx context.Context) CassandraPartitionKeyInvokeResponseOutput {
+	return o
+}
+
+// Name of the Cosmos DB Cassandra table partition key
+func (o CassandraPartitionKeyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CassandraPartitionKeyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type CassandraPartitionKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CassandraPartitionKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CassandraPartitionKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o CassandraPartitionKeyInvokeResponseArrayOutput) ToCassandraPartitionKeyInvokeResponseArrayOutput() CassandraPartitionKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CassandraPartitionKeyInvokeResponseArrayOutput) ToCassandraPartitionKeyInvokeResponseArrayOutputWithContext(ctx context.Context) CassandraPartitionKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CassandraPartitionKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) CassandraPartitionKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CassandraPartitionKeyInvokeResponse {
+		return vs[0].([]CassandraPartitionKeyInvokeResponse)[vs[1].(int)]
+	}).(CassandraPartitionKeyInvokeResponseOutput)
+}
+
+// Cosmos DB Cassandra table partition key
 type CassandraPartitionKeyResponse struct {
 	// Name of the Cosmos DB Cassandra table partition key
 	Name *string `pulumi:"name"`
@@ -714,6 +914,79 @@ func (o CassandraSchemaPtrOutput) PartitionKeys() CassandraPartitionKeyArrayOutp
 		}
 		return v.PartitionKeys
 	}).(CassandraPartitionKeyArrayOutput)
+}
+
+// Cosmos DB Cassandra table schema
+type CassandraSchemaInvokeResponse struct {
+	// List of cluster key.
+	ClusterKeys []ClusterKeyInvokeResponse `pulumi:"clusterKeys"`
+	// List of Cassandra table columns.
+	Columns []ColumnInvokeResponse `pulumi:"columns"`
+	// List of partition key.
+	PartitionKeys []CassandraPartitionKeyInvokeResponse `pulumi:"partitionKeys"`
+}
+
+// CassandraSchemaInvokeResponseInput is an input type that accepts CassandraSchemaInvokeResponseArgs and CassandraSchemaInvokeResponseOutput values.
+// You can construct a concrete instance of `CassandraSchemaInvokeResponseInput` via:
+//
+//          CassandraSchemaInvokeResponseArgs{...}
+type CassandraSchemaInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCassandraSchemaInvokeResponseOutput() CassandraSchemaInvokeResponseOutput
+	ToCassandraSchemaInvokeResponseOutputWithContext(context.Context) CassandraSchemaInvokeResponseOutput
+}
+
+// Cosmos DB Cassandra table schema
+type CassandraSchemaInvokeResponseArgs struct {
+	// List of cluster key.
+	ClusterKeys ClusterKeyInvokeResponseArrayInput `pulumi:"clusterKeys"`
+	// List of Cassandra table columns.
+	Columns ColumnInvokeResponseArrayInput `pulumi:"columns"`
+	// List of partition key.
+	PartitionKeys CassandraPartitionKeyInvokeResponseArrayInput `pulumi:"partitionKeys"`
+}
+
+func (CassandraSchemaInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraSchemaInvokeResponse)(nil)).Elem()
+}
+
+func (i CassandraSchemaInvokeResponseArgs) ToCassandraSchemaInvokeResponseOutput() CassandraSchemaInvokeResponseOutput {
+	return i.ToCassandraSchemaInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CassandraSchemaInvokeResponseArgs) ToCassandraSchemaInvokeResponseOutputWithContext(ctx context.Context) CassandraSchemaInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraSchemaInvokeResponseOutput)
+}
+
+// Cosmos DB Cassandra table schema
+type CassandraSchemaInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CassandraSchemaInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraSchemaInvokeResponse)(nil)).Elem()
+}
+
+func (o CassandraSchemaInvokeResponseOutput) ToCassandraSchemaInvokeResponseOutput() CassandraSchemaInvokeResponseOutput {
+	return o
+}
+
+func (o CassandraSchemaInvokeResponseOutput) ToCassandraSchemaInvokeResponseOutputWithContext(ctx context.Context) CassandraSchemaInvokeResponseOutput {
+	return o
+}
+
+// List of cluster key.
+func (o CassandraSchemaInvokeResponseOutput) ClusterKeys() ClusterKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CassandraSchemaInvokeResponse) []ClusterKeyInvokeResponse { return v.ClusterKeys }).(ClusterKeyInvokeResponseArrayOutput)
+}
+
+// List of Cassandra table columns.
+func (o CassandraSchemaInvokeResponseOutput) Columns() ColumnInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CassandraSchemaInvokeResponse) []ColumnInvokeResponse { return v.Columns }).(ColumnInvokeResponseArrayOutput)
+}
+
+// List of partition key.
+func (o CassandraSchemaInvokeResponseOutput) PartitionKeys() CassandraPartitionKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CassandraSchemaInvokeResponse) []CassandraPartitionKeyInvokeResponse { return v.PartitionKeys }).(CassandraPartitionKeyInvokeResponseArrayOutput)
 }
 
 // Cosmos DB Cassandra table schema
@@ -1170,6 +1443,115 @@ func (o ClusterKeyArrayOutput) Index(i pulumi.IntInput) ClusterKeyOutput {
 }
 
 // Cosmos DB Cassandra table cluster key
+type ClusterKeyInvokeResponse struct {
+	// Name of the Cosmos DB Cassandra table cluster key
+	Name *string `pulumi:"name"`
+	// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+	OrderBy *string `pulumi:"orderBy"`
+}
+
+// ClusterKeyInvokeResponseInput is an input type that accepts ClusterKeyInvokeResponseArgs and ClusterKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterKeyInvokeResponseInput` via:
+//
+//          ClusterKeyInvokeResponseArgs{...}
+type ClusterKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterKeyInvokeResponseOutput() ClusterKeyInvokeResponseOutput
+	ToClusterKeyInvokeResponseOutputWithContext(context.Context) ClusterKeyInvokeResponseOutput
+}
+
+// Cosmos DB Cassandra table cluster key
+type ClusterKeyInvokeResponseArgs struct {
+	// Name of the Cosmos DB Cassandra table cluster key
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+	OrderBy pulumi.StringPtrInput `pulumi:"orderBy"`
+}
+
+func (ClusterKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterKeyInvokeResponseArgs) ToClusterKeyInvokeResponseOutput() ClusterKeyInvokeResponseOutput {
+	return i.ToClusterKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterKeyInvokeResponseArgs) ToClusterKeyInvokeResponseOutputWithContext(ctx context.Context) ClusterKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKeyInvokeResponseOutput)
+}
+
+// ClusterKeyInvokeResponseArrayInput is an input type that accepts ClusterKeyInvokeResponseArray and ClusterKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ClusterKeyInvokeResponseArrayInput` via:
+//
+//          ClusterKeyInvokeResponseArray{ ClusterKeyInvokeResponseArgs{...} }
+type ClusterKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToClusterKeyInvokeResponseArrayOutput() ClusterKeyInvokeResponseArrayOutput
+	ToClusterKeyInvokeResponseArrayOutputWithContext(context.Context) ClusterKeyInvokeResponseArrayOutput
+}
+
+type ClusterKeyInvokeResponseArray []ClusterKeyInvokeResponseInput
+
+func (ClusterKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterKeyInvokeResponseArray) ToClusterKeyInvokeResponseArrayOutput() ClusterKeyInvokeResponseArrayOutput {
+	return i.ToClusterKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterKeyInvokeResponseArray) ToClusterKeyInvokeResponseArrayOutputWithContext(ctx context.Context) ClusterKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKeyInvokeResponseArrayOutput)
+}
+
+// Cosmos DB Cassandra table cluster key
+type ClusterKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterKeyInvokeResponseOutput) ToClusterKeyInvokeResponseOutput() ClusterKeyInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterKeyInvokeResponseOutput) ToClusterKeyInvokeResponseOutputWithContext(ctx context.Context) ClusterKeyInvokeResponseOutput {
+	return o
+}
+
+// Name of the Cosmos DB Cassandra table cluster key
+func (o ClusterKeyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKeyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+func (o ClusterKeyInvokeResponseOutput) OrderBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKeyInvokeResponse) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
+}
+
+type ClusterKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterKeyInvokeResponseArrayOutput) ToClusterKeyInvokeResponseArrayOutput() ClusterKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClusterKeyInvokeResponseArrayOutput) ToClusterKeyInvokeResponseArrayOutputWithContext(ctx context.Context) ClusterKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClusterKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) ClusterKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterKeyInvokeResponse {
+		return vs[0].([]ClusterKeyInvokeResponse)[vs[1].(int)]
+	}).(ClusterKeyInvokeResponseOutput)
+}
+
+// Cosmos DB Cassandra table cluster key
 type ClusterKeyResponse struct {
 	// Name of the Cosmos DB Cassandra table cluster key
 	Name *string `pulumi:"name"`
@@ -1385,6 +1767,115 @@ func (o ColumnArrayOutput) Index(i pulumi.IntInput) ColumnOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Column {
 		return vs[0].([]Column)[vs[1].(int)]
 	}).(ColumnOutput)
+}
+
+// Cosmos DB Cassandra table column
+type ColumnInvokeResponse struct {
+	// Name of the Cosmos DB Cassandra table column
+	Name *string `pulumi:"name"`
+	// Type of the Cosmos DB Cassandra table column
+	Type *string `pulumi:"type"`
+}
+
+// ColumnInvokeResponseInput is an input type that accepts ColumnInvokeResponseArgs and ColumnInvokeResponseOutput values.
+// You can construct a concrete instance of `ColumnInvokeResponseInput` via:
+//
+//          ColumnInvokeResponseArgs{...}
+type ColumnInvokeResponseInput interface {
+	pulumi.Input
+
+	ToColumnInvokeResponseOutput() ColumnInvokeResponseOutput
+	ToColumnInvokeResponseOutputWithContext(context.Context) ColumnInvokeResponseOutput
+}
+
+// Cosmos DB Cassandra table column
+type ColumnInvokeResponseArgs struct {
+	// Name of the Cosmos DB Cassandra table column
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Type of the Cosmos DB Cassandra table column
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ColumnInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i ColumnInvokeResponseArgs) ToColumnInvokeResponseOutput() ColumnInvokeResponseOutput {
+	return i.ToColumnInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ColumnInvokeResponseArgs) ToColumnInvokeResponseOutputWithContext(ctx context.Context) ColumnInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnInvokeResponseOutput)
+}
+
+// ColumnInvokeResponseArrayInput is an input type that accepts ColumnInvokeResponseArray and ColumnInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ColumnInvokeResponseArrayInput` via:
+//
+//          ColumnInvokeResponseArray{ ColumnInvokeResponseArgs{...} }
+type ColumnInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToColumnInvokeResponseArrayOutput() ColumnInvokeResponseArrayOutput
+	ToColumnInvokeResponseArrayOutputWithContext(context.Context) ColumnInvokeResponseArrayOutput
+}
+
+type ColumnInvokeResponseArray []ColumnInvokeResponseInput
+
+func (ColumnInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i ColumnInvokeResponseArray) ToColumnInvokeResponseArrayOutput() ColumnInvokeResponseArrayOutput {
+	return i.ToColumnInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ColumnInvokeResponseArray) ToColumnInvokeResponseArrayOutputWithContext(ctx context.Context) ColumnInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnInvokeResponseArrayOutput)
+}
+
+// Cosmos DB Cassandra table column
+type ColumnInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ColumnInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o ColumnInvokeResponseOutput) ToColumnInvokeResponseOutput() ColumnInvokeResponseOutput {
+	return o
+}
+
+func (o ColumnInvokeResponseOutput) ToColumnInvokeResponseOutputWithContext(ctx context.Context) ColumnInvokeResponseOutput {
+	return o
+}
+
+// Name of the Cosmos DB Cassandra table column
+func (o ColumnInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Type of the Cosmos DB Cassandra table column
+func (o ColumnInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ColumnInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ColumnInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o ColumnInvokeResponseArrayOutput) ToColumnInvokeResponseArrayOutput() ColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ColumnInvokeResponseArrayOutput) ToColumnInvokeResponseArrayOutputWithContext(ctx context.Context) ColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ColumnInvokeResponseArrayOutput) Index(i pulumi.IntInput) ColumnInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ColumnInvokeResponse {
+		return vs[0].([]ColumnInvokeResponse)[vs[1].(int)]
+	}).(ColumnInvokeResponseOutput)
 }
 
 // Cosmos DB Cassandra table column
@@ -1666,6 +2157,79 @@ func (o ConflictResolutionPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
 		}
 		return v.Mode
 	}).(pulumi.StringPtrOutput)
+}
+
+// The conflict resolution policy for the container.
+type ConflictResolutionPolicyInvokeResponse struct {
+	// The conflict resolution path in the case of LastWriterWins mode.
+	ConflictResolutionPath *string `pulumi:"conflictResolutionPath"`
+	// The procedure to resolve conflicts in the case of custom mode.
+	ConflictResolutionProcedure *string `pulumi:"conflictResolutionProcedure"`
+	// Indicates the conflict resolution mode.
+	Mode *string `pulumi:"mode"`
+}
+
+// ConflictResolutionPolicyInvokeResponseInput is an input type that accepts ConflictResolutionPolicyInvokeResponseArgs and ConflictResolutionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ConflictResolutionPolicyInvokeResponseInput` via:
+//
+//          ConflictResolutionPolicyInvokeResponseArgs{...}
+type ConflictResolutionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConflictResolutionPolicyInvokeResponseOutput() ConflictResolutionPolicyInvokeResponseOutput
+	ToConflictResolutionPolicyInvokeResponseOutputWithContext(context.Context) ConflictResolutionPolicyInvokeResponseOutput
+}
+
+// The conflict resolution policy for the container.
+type ConflictResolutionPolicyInvokeResponseArgs struct {
+	// The conflict resolution path in the case of LastWriterWins mode.
+	ConflictResolutionPath pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
+	// The procedure to resolve conflicts in the case of custom mode.
+	ConflictResolutionProcedure pulumi.StringPtrInput `pulumi:"conflictResolutionProcedure"`
+	// Indicates the conflict resolution mode.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (ConflictResolutionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConflictResolutionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ConflictResolutionPolicyInvokeResponseArgs) ToConflictResolutionPolicyInvokeResponseOutput() ConflictResolutionPolicyInvokeResponseOutput {
+	return i.ToConflictResolutionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConflictResolutionPolicyInvokeResponseArgs) ToConflictResolutionPolicyInvokeResponseOutputWithContext(ctx context.Context) ConflictResolutionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConflictResolutionPolicyInvokeResponseOutput)
+}
+
+// The conflict resolution policy for the container.
+type ConflictResolutionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConflictResolutionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConflictResolutionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ConflictResolutionPolicyInvokeResponseOutput) ToConflictResolutionPolicyInvokeResponseOutput() ConflictResolutionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ConflictResolutionPolicyInvokeResponseOutput) ToConflictResolutionPolicyInvokeResponseOutputWithContext(ctx context.Context) ConflictResolutionPolicyInvokeResponseOutput {
+	return o
+}
+
+// The conflict resolution path in the case of LastWriterWins mode.
+func (o ConflictResolutionPolicyInvokeResponseOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConflictResolutionPolicyInvokeResponse) *string { return v.ConflictResolutionPath }).(pulumi.StringPtrOutput)
+}
+
+// The procedure to resolve conflicts in the case of custom mode.
+func (o ConflictResolutionPolicyInvokeResponseOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConflictResolutionPolicyInvokeResponse) *string { return v.ConflictResolutionProcedure }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the conflict resolution mode.
+func (o ConflictResolutionPolicyInvokeResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConflictResolutionPolicyInvokeResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -2013,6 +2577,79 @@ func (o ConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput
 }
 
 // The consistency policy for the Cosmos DB database account.
+type ConsistencyPolicyInvokeResponse struct {
+	// The default consistency level and configuration settings of the Cosmos DB account.
+	DefaultConsistencyLevel string `pulumi:"defaultConsistencyLevel"`
+	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
+	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+	MaxStalenessPrefix *float64 `pulumi:"maxStalenessPrefix"`
+}
+
+// ConsistencyPolicyInvokeResponseInput is an input type that accepts ConsistencyPolicyInvokeResponseArgs and ConsistencyPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ConsistencyPolicyInvokeResponseInput` via:
+//
+//          ConsistencyPolicyInvokeResponseArgs{...}
+type ConsistencyPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConsistencyPolicyInvokeResponseOutput() ConsistencyPolicyInvokeResponseOutput
+	ToConsistencyPolicyInvokeResponseOutputWithContext(context.Context) ConsistencyPolicyInvokeResponseOutput
+}
+
+// The consistency policy for the Cosmos DB database account.
+type ConsistencyPolicyInvokeResponseArgs struct {
+	// The default consistency level and configuration settings of the Cosmos DB account.
+	DefaultConsistencyLevel pulumi.StringInput `pulumi:"defaultConsistencyLevel"`
+	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
+	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+	MaxStalenessPrefix pulumi.Float64PtrInput `pulumi:"maxStalenessPrefix"`
+}
+
+func (ConsistencyPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsistencyPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ConsistencyPolicyInvokeResponseArgs) ToConsistencyPolicyInvokeResponseOutput() ConsistencyPolicyInvokeResponseOutput {
+	return i.ToConsistencyPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConsistencyPolicyInvokeResponseArgs) ToConsistencyPolicyInvokeResponseOutputWithContext(ctx context.Context) ConsistencyPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsistencyPolicyInvokeResponseOutput)
+}
+
+// The consistency policy for the Cosmos DB database account.
+type ConsistencyPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConsistencyPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsistencyPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ConsistencyPolicyInvokeResponseOutput) ToConsistencyPolicyInvokeResponseOutput() ConsistencyPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ConsistencyPolicyInvokeResponseOutput) ToConsistencyPolicyInvokeResponseOutputWithContext(ctx context.Context) ConsistencyPolicyInvokeResponseOutput {
+	return o
+}
+
+// The default consistency level and configuration settings of the Cosmos DB account.
+func (o ConsistencyPolicyInvokeResponseOutput) DefaultConsistencyLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v ConsistencyPolicyInvokeResponse) string { return v.DefaultConsistencyLevel }).(pulumi.StringOutput)
+}
+
+// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+func (o ConsistencyPolicyInvokeResponseOutput) MaxIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConsistencyPolicyInvokeResponse) *int { return v.MaxIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+func (o ConsistencyPolicyInvokeResponseOutput) MaxStalenessPrefix() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConsistencyPolicyInvokeResponse) *float64 { return v.MaxStalenessPrefix }).(pulumi.Float64PtrOutput)
+}
+
+// The consistency policy for the Cosmos DB database account.
 type ConsistencyPolicyResponse struct {
 	// The default consistency level and configuration settings of the Cosmos DB account.
 	DefaultConsistencyLevel string `pulumi:"defaultConsistencyLevel"`
@@ -2338,6 +2975,70 @@ func (o ContainerPartitionKeyPtrOutput) Paths() pulumi.StringArrayOutput {
 }
 
 // The configuration of the partition key to be used for partitioning data into multiple partitions
+type ContainerPartitionKeyInvokeResponse struct {
+	// Indicates the kind of algorithm used for partitioning
+	Kind *string `pulumi:"kind"`
+	// List of paths using which data within the container can be partitioned
+	Paths []string `pulumi:"paths"`
+}
+
+// ContainerPartitionKeyInvokeResponseInput is an input type that accepts ContainerPartitionKeyInvokeResponseArgs and ContainerPartitionKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerPartitionKeyInvokeResponseInput` via:
+//
+//          ContainerPartitionKeyInvokeResponseArgs{...}
+type ContainerPartitionKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerPartitionKeyInvokeResponseOutput() ContainerPartitionKeyInvokeResponseOutput
+	ToContainerPartitionKeyInvokeResponseOutputWithContext(context.Context) ContainerPartitionKeyInvokeResponseOutput
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+type ContainerPartitionKeyInvokeResponseArgs struct {
+	// Indicates the kind of algorithm used for partitioning
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// List of paths using which data within the container can be partitioned
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (ContainerPartitionKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPartitionKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerPartitionKeyInvokeResponseArgs) ToContainerPartitionKeyInvokeResponseOutput() ContainerPartitionKeyInvokeResponseOutput {
+	return i.ToContainerPartitionKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerPartitionKeyInvokeResponseArgs) ToContainerPartitionKeyInvokeResponseOutputWithContext(ctx context.Context) ContainerPartitionKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPartitionKeyInvokeResponseOutput)
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+type ContainerPartitionKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerPartitionKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPartitionKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerPartitionKeyInvokeResponseOutput) ToContainerPartitionKeyInvokeResponseOutput() ContainerPartitionKeyInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerPartitionKeyInvokeResponseOutput) ToContainerPartitionKeyInvokeResponseOutputWithContext(ctx context.Context) ContainerPartitionKeyInvokeResponseOutput {
+	return o
+}
+
+// Indicates the kind of algorithm used for partitioning
+func (o ContainerPartitionKeyInvokeResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerPartitionKeyInvokeResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// List of paths using which data within the container can be partitioned
+func (o ContainerPartitionKeyInvokeResponseOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerPartitionKeyInvokeResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
 type ContainerPartitionKeyResponse struct {
 	// Indicates the kind of algorithm used for partitioning
 	Kind *string `pulumi:"kind"`
@@ -2491,112 +3192,112 @@ func (o ContainerPartitionKeyResponsePtrOutput) Paths() pulumi.StringArrayOutput
 }
 
 // Connection string for the Cosmos DB account
-type DatabaseAccountConnectionStringResponse struct {
+type DatabaseAccountConnectionStringInvokeResponse struct {
 	// Value of the connection string
 	ConnectionString string `pulumi:"connectionString"`
 	// Description of the connection string
 	Description string `pulumi:"description"`
 }
 
-// DatabaseAccountConnectionStringResponseInput is an input type that accepts DatabaseAccountConnectionStringResponseArgs and DatabaseAccountConnectionStringResponseOutput values.
-// You can construct a concrete instance of `DatabaseAccountConnectionStringResponseInput` via:
+// DatabaseAccountConnectionStringInvokeResponseInput is an input type that accepts DatabaseAccountConnectionStringInvokeResponseArgs and DatabaseAccountConnectionStringInvokeResponseOutput values.
+// You can construct a concrete instance of `DatabaseAccountConnectionStringInvokeResponseInput` via:
 //
-//          DatabaseAccountConnectionStringResponseArgs{...}
-type DatabaseAccountConnectionStringResponseInput interface {
+//          DatabaseAccountConnectionStringInvokeResponseArgs{...}
+type DatabaseAccountConnectionStringInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDatabaseAccountConnectionStringResponseOutput() DatabaseAccountConnectionStringResponseOutput
-	ToDatabaseAccountConnectionStringResponseOutputWithContext(context.Context) DatabaseAccountConnectionStringResponseOutput
+	ToDatabaseAccountConnectionStringInvokeResponseOutput() DatabaseAccountConnectionStringInvokeResponseOutput
+	ToDatabaseAccountConnectionStringInvokeResponseOutputWithContext(context.Context) DatabaseAccountConnectionStringInvokeResponseOutput
 }
 
 // Connection string for the Cosmos DB account
-type DatabaseAccountConnectionStringResponseArgs struct {
+type DatabaseAccountConnectionStringInvokeResponseArgs struct {
 	// Value of the connection string
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
 	// Description of the connection string
 	Description pulumi.StringInput `pulumi:"description"`
 }
 
-func (DatabaseAccountConnectionStringResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountConnectionStringResponse)(nil)).Elem()
+func (DatabaseAccountConnectionStringInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountConnectionStringInvokeResponse)(nil)).Elem()
 }
 
-func (i DatabaseAccountConnectionStringResponseArgs) ToDatabaseAccountConnectionStringResponseOutput() DatabaseAccountConnectionStringResponseOutput {
-	return i.ToDatabaseAccountConnectionStringResponseOutputWithContext(context.Background())
+func (i DatabaseAccountConnectionStringInvokeResponseArgs) ToDatabaseAccountConnectionStringInvokeResponseOutput() DatabaseAccountConnectionStringInvokeResponseOutput {
+	return i.ToDatabaseAccountConnectionStringInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DatabaseAccountConnectionStringResponseArgs) ToDatabaseAccountConnectionStringResponseOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountConnectionStringResponseOutput)
+func (i DatabaseAccountConnectionStringInvokeResponseArgs) ToDatabaseAccountConnectionStringInvokeResponseOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountConnectionStringInvokeResponseOutput)
 }
 
-// DatabaseAccountConnectionStringResponseArrayInput is an input type that accepts DatabaseAccountConnectionStringResponseArray and DatabaseAccountConnectionStringResponseArrayOutput values.
-// You can construct a concrete instance of `DatabaseAccountConnectionStringResponseArrayInput` via:
+// DatabaseAccountConnectionStringInvokeResponseArrayInput is an input type that accepts DatabaseAccountConnectionStringInvokeResponseArray and DatabaseAccountConnectionStringInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DatabaseAccountConnectionStringInvokeResponseArrayInput` via:
 //
-//          DatabaseAccountConnectionStringResponseArray{ DatabaseAccountConnectionStringResponseArgs{...} }
-type DatabaseAccountConnectionStringResponseArrayInput interface {
+//          DatabaseAccountConnectionStringInvokeResponseArray{ DatabaseAccountConnectionStringInvokeResponseArgs{...} }
+type DatabaseAccountConnectionStringInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToDatabaseAccountConnectionStringResponseArrayOutput() DatabaseAccountConnectionStringResponseArrayOutput
-	ToDatabaseAccountConnectionStringResponseArrayOutputWithContext(context.Context) DatabaseAccountConnectionStringResponseArrayOutput
+	ToDatabaseAccountConnectionStringInvokeResponseArrayOutput() DatabaseAccountConnectionStringInvokeResponseArrayOutput
+	ToDatabaseAccountConnectionStringInvokeResponseArrayOutputWithContext(context.Context) DatabaseAccountConnectionStringInvokeResponseArrayOutput
 }
 
-type DatabaseAccountConnectionStringResponseArray []DatabaseAccountConnectionStringResponseInput
+type DatabaseAccountConnectionStringInvokeResponseArray []DatabaseAccountConnectionStringInvokeResponseInput
 
-func (DatabaseAccountConnectionStringResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseAccountConnectionStringResponse)(nil)).Elem()
+func (DatabaseAccountConnectionStringInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseAccountConnectionStringInvokeResponse)(nil)).Elem()
 }
 
-func (i DatabaseAccountConnectionStringResponseArray) ToDatabaseAccountConnectionStringResponseArrayOutput() DatabaseAccountConnectionStringResponseArrayOutput {
-	return i.ToDatabaseAccountConnectionStringResponseArrayOutputWithContext(context.Background())
+func (i DatabaseAccountConnectionStringInvokeResponseArray) ToDatabaseAccountConnectionStringInvokeResponseArrayOutput() DatabaseAccountConnectionStringInvokeResponseArrayOutput {
+	return i.ToDatabaseAccountConnectionStringInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i DatabaseAccountConnectionStringResponseArray) ToDatabaseAccountConnectionStringResponseArrayOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountConnectionStringResponseArrayOutput)
+func (i DatabaseAccountConnectionStringInvokeResponseArray) ToDatabaseAccountConnectionStringInvokeResponseArrayOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountConnectionStringInvokeResponseArrayOutput)
 }
 
 // Connection string for the Cosmos DB account
-type DatabaseAccountConnectionStringResponseOutput struct{ *pulumi.OutputState }
+type DatabaseAccountConnectionStringInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DatabaseAccountConnectionStringResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountConnectionStringResponse)(nil)).Elem()
+func (DatabaseAccountConnectionStringInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseAccountConnectionStringInvokeResponse)(nil)).Elem()
 }
 
-func (o DatabaseAccountConnectionStringResponseOutput) ToDatabaseAccountConnectionStringResponseOutput() DatabaseAccountConnectionStringResponseOutput {
+func (o DatabaseAccountConnectionStringInvokeResponseOutput) ToDatabaseAccountConnectionStringInvokeResponseOutput() DatabaseAccountConnectionStringInvokeResponseOutput {
 	return o
 }
 
-func (o DatabaseAccountConnectionStringResponseOutput) ToDatabaseAccountConnectionStringResponseOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseOutput {
+func (o DatabaseAccountConnectionStringInvokeResponseOutput) ToDatabaseAccountConnectionStringInvokeResponseOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringInvokeResponseOutput {
 	return o
 }
 
 // Value of the connection string
-func (o DatabaseAccountConnectionStringResponseOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountConnectionStringResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
+func (o DatabaseAccountConnectionStringInvokeResponseOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseAccountConnectionStringInvokeResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
 // Description of the connection string
-func (o DatabaseAccountConnectionStringResponseOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountConnectionStringResponse) string { return v.Description }).(pulumi.StringOutput)
+func (o DatabaseAccountConnectionStringInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseAccountConnectionStringInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
-type DatabaseAccountConnectionStringResponseArrayOutput struct{ *pulumi.OutputState }
+type DatabaseAccountConnectionStringInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (DatabaseAccountConnectionStringResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseAccountConnectionStringResponse)(nil)).Elem()
+func (DatabaseAccountConnectionStringInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseAccountConnectionStringInvokeResponse)(nil)).Elem()
 }
 
-func (o DatabaseAccountConnectionStringResponseArrayOutput) ToDatabaseAccountConnectionStringResponseArrayOutput() DatabaseAccountConnectionStringResponseArrayOutput {
+func (o DatabaseAccountConnectionStringInvokeResponseArrayOutput) ToDatabaseAccountConnectionStringInvokeResponseArrayOutput() DatabaseAccountConnectionStringInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DatabaseAccountConnectionStringResponseArrayOutput) ToDatabaseAccountConnectionStringResponseArrayOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringResponseArrayOutput {
+func (o DatabaseAccountConnectionStringInvokeResponseArrayOutput) ToDatabaseAccountConnectionStringInvokeResponseArrayOutputWithContext(ctx context.Context) DatabaseAccountConnectionStringInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DatabaseAccountConnectionStringResponseArrayOutput) Index(i pulumi.IntInput) DatabaseAccountConnectionStringResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseAccountConnectionStringResponse {
-		return vs[0].([]DatabaseAccountConnectionStringResponse)[vs[1].(int)]
-	}).(DatabaseAccountConnectionStringResponseOutput)
+func (o DatabaseAccountConnectionStringInvokeResponseArrayOutput) Index(i pulumi.IntInput) DatabaseAccountConnectionStringInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseAccountConnectionStringInvokeResponse {
+		return vs[0].([]DatabaseAccountConnectionStringInvokeResponse)[vs[1].(int)]
+	}).(DatabaseAccountConnectionStringInvokeResponseOutput)
 }
 
 type ExcludedPath struct {
@@ -2696,6 +3397,103 @@ func (o ExcludedPathArrayOutput) Index(i pulumi.IntInput) ExcludedPathOutput {
 	}).(ExcludedPathOutput)
 }
 
+type ExcludedPathInvokeResponse struct {
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path *string `pulumi:"path"`
+}
+
+// ExcludedPathInvokeResponseInput is an input type that accepts ExcludedPathInvokeResponseArgs and ExcludedPathInvokeResponseOutput values.
+// You can construct a concrete instance of `ExcludedPathInvokeResponseInput` via:
+//
+//          ExcludedPathInvokeResponseArgs{...}
+type ExcludedPathInvokeResponseInput interface {
+	pulumi.Input
+
+	ToExcludedPathInvokeResponseOutput() ExcludedPathInvokeResponseOutput
+	ToExcludedPathInvokeResponseOutputWithContext(context.Context) ExcludedPathInvokeResponseOutput
+}
+
+type ExcludedPathInvokeResponseArgs struct {
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (ExcludedPathInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExcludedPathInvokeResponse)(nil)).Elem()
+}
+
+func (i ExcludedPathInvokeResponseArgs) ToExcludedPathInvokeResponseOutput() ExcludedPathInvokeResponseOutput {
+	return i.ToExcludedPathInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ExcludedPathInvokeResponseArgs) ToExcludedPathInvokeResponseOutputWithContext(ctx context.Context) ExcludedPathInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExcludedPathInvokeResponseOutput)
+}
+
+// ExcludedPathInvokeResponseArrayInput is an input type that accepts ExcludedPathInvokeResponseArray and ExcludedPathInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ExcludedPathInvokeResponseArrayInput` via:
+//
+//          ExcludedPathInvokeResponseArray{ ExcludedPathInvokeResponseArgs{...} }
+type ExcludedPathInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToExcludedPathInvokeResponseArrayOutput() ExcludedPathInvokeResponseArrayOutput
+	ToExcludedPathInvokeResponseArrayOutputWithContext(context.Context) ExcludedPathInvokeResponseArrayOutput
+}
+
+type ExcludedPathInvokeResponseArray []ExcludedPathInvokeResponseInput
+
+func (ExcludedPathInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExcludedPathInvokeResponse)(nil)).Elem()
+}
+
+func (i ExcludedPathInvokeResponseArray) ToExcludedPathInvokeResponseArrayOutput() ExcludedPathInvokeResponseArrayOutput {
+	return i.ToExcludedPathInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ExcludedPathInvokeResponseArray) ToExcludedPathInvokeResponseArrayOutputWithContext(ctx context.Context) ExcludedPathInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExcludedPathInvokeResponseArrayOutput)
+}
+
+type ExcludedPathInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ExcludedPathInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExcludedPathInvokeResponse)(nil)).Elem()
+}
+
+func (o ExcludedPathInvokeResponseOutput) ToExcludedPathInvokeResponseOutput() ExcludedPathInvokeResponseOutput {
+	return o
+}
+
+func (o ExcludedPathInvokeResponseOutput) ToExcludedPathInvokeResponseOutputWithContext(ctx context.Context) ExcludedPathInvokeResponseOutput {
+	return o
+}
+
+// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+func (o ExcludedPathInvokeResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExcludedPathInvokeResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type ExcludedPathInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ExcludedPathInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExcludedPathInvokeResponse)(nil)).Elem()
+}
+
+func (o ExcludedPathInvokeResponseArrayOutput) ToExcludedPathInvokeResponseArrayOutput() ExcludedPathInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ExcludedPathInvokeResponseArrayOutput) ToExcludedPathInvokeResponseArrayOutputWithContext(ctx context.Context) ExcludedPathInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ExcludedPathInvokeResponseArrayOutput) Index(i pulumi.IntInput) ExcludedPathInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExcludedPathInvokeResponse {
+		return vs[0].([]ExcludedPathInvokeResponse)[vs[1].(int)]
+	}).(ExcludedPathInvokeResponseOutput)
+}
+
 type ExcludedPathResponse struct {
 	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 	Path *string `pulumi:"path"`
@@ -2791,6 +3589,124 @@ func (o ExcludedPathResponseArrayOutput) Index(i pulumi.IntInput) ExcludedPathRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExcludedPathResponse {
 		return vs[0].([]ExcludedPathResponse)[vs[1].(int)]
 	}).(ExcludedPathResponseOutput)
+}
+
+// The failover policy for a given region of a database account.
+type FailoverPolicyInvokeResponse struct {
+	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+	FailoverPriority *int `pulumi:"failoverPriority"`
+	// The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+	Id string `pulumi:"id"`
+	// The name of the region in which the database account exists.
+	LocationName *string `pulumi:"locationName"`
+}
+
+// FailoverPolicyInvokeResponseInput is an input type that accepts FailoverPolicyInvokeResponseArgs and FailoverPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `FailoverPolicyInvokeResponseInput` via:
+//
+//          FailoverPolicyInvokeResponseArgs{...}
+type FailoverPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFailoverPolicyInvokeResponseOutput() FailoverPolicyInvokeResponseOutput
+	ToFailoverPolicyInvokeResponseOutputWithContext(context.Context) FailoverPolicyInvokeResponseOutput
+}
+
+// The failover policy for a given region of a database account.
+type FailoverPolicyInvokeResponseArgs struct {
+	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+	FailoverPriority pulumi.IntPtrInput `pulumi:"failoverPriority"`
+	// The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the region in which the database account exists.
+	LocationName pulumi.StringPtrInput `pulumi:"locationName"`
+}
+
+func (FailoverPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i FailoverPolicyInvokeResponseArgs) ToFailoverPolicyInvokeResponseOutput() FailoverPolicyInvokeResponseOutput {
+	return i.ToFailoverPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FailoverPolicyInvokeResponseArgs) ToFailoverPolicyInvokeResponseOutputWithContext(ctx context.Context) FailoverPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverPolicyInvokeResponseOutput)
+}
+
+// FailoverPolicyInvokeResponseArrayInput is an input type that accepts FailoverPolicyInvokeResponseArray and FailoverPolicyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FailoverPolicyInvokeResponseArrayInput` via:
+//
+//          FailoverPolicyInvokeResponseArray{ FailoverPolicyInvokeResponseArgs{...} }
+type FailoverPolicyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFailoverPolicyInvokeResponseArrayOutput() FailoverPolicyInvokeResponseArrayOutput
+	ToFailoverPolicyInvokeResponseArrayOutputWithContext(context.Context) FailoverPolicyInvokeResponseArrayOutput
+}
+
+type FailoverPolicyInvokeResponseArray []FailoverPolicyInvokeResponseInput
+
+func (FailoverPolicyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FailoverPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i FailoverPolicyInvokeResponseArray) ToFailoverPolicyInvokeResponseArrayOutput() FailoverPolicyInvokeResponseArrayOutput {
+	return i.ToFailoverPolicyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FailoverPolicyInvokeResponseArray) ToFailoverPolicyInvokeResponseArrayOutputWithContext(ctx context.Context) FailoverPolicyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverPolicyInvokeResponseArrayOutput)
+}
+
+// The failover policy for a given region of a database account.
+type FailoverPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FailoverPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o FailoverPolicyInvokeResponseOutput) ToFailoverPolicyInvokeResponseOutput() FailoverPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o FailoverPolicyInvokeResponseOutput) ToFailoverPolicyInvokeResponseOutputWithContext(ctx context.Context) FailoverPolicyInvokeResponseOutput {
+	return o
+}
+
+// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+func (o FailoverPolicyInvokeResponseOutput) FailoverPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FailoverPolicyInvokeResponse) *int { return v.FailoverPriority }).(pulumi.IntPtrOutput)
+}
+
+// The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+func (o FailoverPolicyInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FailoverPolicyInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the region in which the database account exists.
+func (o FailoverPolicyInvokeResponseOutput) LocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverPolicyInvokeResponse) *string { return v.LocationName }).(pulumi.StringPtrOutput)
+}
+
+type FailoverPolicyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FailoverPolicyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FailoverPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o FailoverPolicyInvokeResponseArrayOutput) ToFailoverPolicyInvokeResponseArrayOutput() FailoverPolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FailoverPolicyInvokeResponseArrayOutput) ToFailoverPolicyInvokeResponseArrayOutputWithContext(ctx context.Context) FailoverPolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FailoverPolicyInvokeResponseArrayOutput) Index(i pulumi.IntInput) FailoverPolicyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FailoverPolicyInvokeResponse {
+		return vs[0].([]FailoverPolicyInvokeResponse)[vs[1].(int)]
+	}).(FailoverPolicyInvokeResponseOutput)
 }
 
 // The failover policy for a given region of a database account.
@@ -3384,6 +4300,115 @@ func (o IncludedPathArrayOutput) Index(i pulumi.IntInput) IncludedPathOutput {
 }
 
 // The paths that are included in indexing
+type IncludedPathInvokeResponse struct {
+	// List of indexes for this path
+	Indexes []IndexesInvokeResponse `pulumi:"indexes"`
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path *string `pulumi:"path"`
+}
+
+// IncludedPathInvokeResponseInput is an input type that accepts IncludedPathInvokeResponseArgs and IncludedPathInvokeResponseOutput values.
+// You can construct a concrete instance of `IncludedPathInvokeResponseInput` via:
+//
+//          IncludedPathInvokeResponseArgs{...}
+type IncludedPathInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIncludedPathInvokeResponseOutput() IncludedPathInvokeResponseOutput
+	ToIncludedPathInvokeResponseOutputWithContext(context.Context) IncludedPathInvokeResponseOutput
+}
+
+// The paths that are included in indexing
+type IncludedPathInvokeResponseArgs struct {
+	// List of indexes for this path
+	Indexes IndexesInvokeResponseArrayInput `pulumi:"indexes"`
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (IncludedPathInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncludedPathInvokeResponse)(nil)).Elem()
+}
+
+func (i IncludedPathInvokeResponseArgs) ToIncludedPathInvokeResponseOutput() IncludedPathInvokeResponseOutput {
+	return i.ToIncludedPathInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IncludedPathInvokeResponseArgs) ToIncludedPathInvokeResponseOutputWithContext(ctx context.Context) IncludedPathInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncludedPathInvokeResponseOutput)
+}
+
+// IncludedPathInvokeResponseArrayInput is an input type that accepts IncludedPathInvokeResponseArray and IncludedPathInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IncludedPathInvokeResponseArrayInput` via:
+//
+//          IncludedPathInvokeResponseArray{ IncludedPathInvokeResponseArgs{...} }
+type IncludedPathInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIncludedPathInvokeResponseArrayOutput() IncludedPathInvokeResponseArrayOutput
+	ToIncludedPathInvokeResponseArrayOutputWithContext(context.Context) IncludedPathInvokeResponseArrayOutput
+}
+
+type IncludedPathInvokeResponseArray []IncludedPathInvokeResponseInput
+
+func (IncludedPathInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncludedPathInvokeResponse)(nil)).Elem()
+}
+
+func (i IncludedPathInvokeResponseArray) ToIncludedPathInvokeResponseArrayOutput() IncludedPathInvokeResponseArrayOutput {
+	return i.ToIncludedPathInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IncludedPathInvokeResponseArray) ToIncludedPathInvokeResponseArrayOutputWithContext(ctx context.Context) IncludedPathInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncludedPathInvokeResponseArrayOutput)
+}
+
+// The paths that are included in indexing
+type IncludedPathInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IncludedPathInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncludedPathInvokeResponse)(nil)).Elem()
+}
+
+func (o IncludedPathInvokeResponseOutput) ToIncludedPathInvokeResponseOutput() IncludedPathInvokeResponseOutput {
+	return o
+}
+
+func (o IncludedPathInvokeResponseOutput) ToIncludedPathInvokeResponseOutputWithContext(ctx context.Context) IncludedPathInvokeResponseOutput {
+	return o
+}
+
+// List of indexes for this path
+func (o IncludedPathInvokeResponseOutput) Indexes() IndexesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IncludedPathInvokeResponse) []IndexesInvokeResponse { return v.Indexes }).(IndexesInvokeResponseArrayOutput)
+}
+
+// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+func (o IncludedPathInvokeResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncludedPathInvokeResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type IncludedPathInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IncludedPathInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncludedPathInvokeResponse)(nil)).Elem()
+}
+
+func (o IncludedPathInvokeResponseArrayOutput) ToIncludedPathInvokeResponseArrayOutput() IncludedPathInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IncludedPathInvokeResponseArrayOutput) ToIncludedPathInvokeResponseArrayOutputWithContext(ctx context.Context) IncludedPathInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IncludedPathInvokeResponseArrayOutput) Index(i pulumi.IntInput) IncludedPathInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncludedPathInvokeResponse {
+		return vs[0].([]IncludedPathInvokeResponse)[vs[1].(int)]
+	}).(IncludedPathInvokeResponseOutput)
+}
+
+// The paths that are included in indexing
 type IncludedPathResponse struct {
 	// List of indexes for this path
 	Indexes []IndexesResponse `pulumi:"indexes"`
@@ -3608,6 +4633,124 @@ func (o IndexesArrayOutput) Index(i pulumi.IntInput) IndexesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Indexes {
 		return vs[0].([]Indexes)[vs[1].(int)]
 	}).(IndexesOutput)
+}
+
+// The indexes for the path.
+type IndexesInvokeResponse struct {
+	// The datatype for which the indexing behavior is applied to.
+	DataType *string `pulumi:"dataType"`
+	// Indicates the type of index.
+	Kind *string `pulumi:"kind"`
+	// The precision of the index. -1 is maximum precision.
+	Precision *int `pulumi:"precision"`
+}
+
+// IndexesInvokeResponseInput is an input type that accepts IndexesInvokeResponseArgs and IndexesInvokeResponseOutput values.
+// You can construct a concrete instance of `IndexesInvokeResponseInput` via:
+//
+//          IndexesInvokeResponseArgs{...}
+type IndexesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIndexesInvokeResponseOutput() IndexesInvokeResponseOutput
+	ToIndexesInvokeResponseOutputWithContext(context.Context) IndexesInvokeResponseOutput
+}
+
+// The indexes for the path.
+type IndexesInvokeResponseArgs struct {
+	// The datatype for which the indexing behavior is applied to.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// Indicates the type of index.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The precision of the index. -1 is maximum precision.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+}
+
+func (IndexesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexesInvokeResponse)(nil)).Elem()
+}
+
+func (i IndexesInvokeResponseArgs) ToIndexesInvokeResponseOutput() IndexesInvokeResponseOutput {
+	return i.ToIndexesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IndexesInvokeResponseArgs) ToIndexesInvokeResponseOutputWithContext(ctx context.Context) IndexesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexesInvokeResponseOutput)
+}
+
+// IndexesInvokeResponseArrayInput is an input type that accepts IndexesInvokeResponseArray and IndexesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IndexesInvokeResponseArrayInput` via:
+//
+//          IndexesInvokeResponseArray{ IndexesInvokeResponseArgs{...} }
+type IndexesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIndexesInvokeResponseArrayOutput() IndexesInvokeResponseArrayOutput
+	ToIndexesInvokeResponseArrayOutputWithContext(context.Context) IndexesInvokeResponseArrayOutput
+}
+
+type IndexesInvokeResponseArray []IndexesInvokeResponseInput
+
+func (IndexesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexesInvokeResponse)(nil)).Elem()
+}
+
+func (i IndexesInvokeResponseArray) ToIndexesInvokeResponseArrayOutput() IndexesInvokeResponseArrayOutput {
+	return i.ToIndexesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IndexesInvokeResponseArray) ToIndexesInvokeResponseArrayOutputWithContext(ctx context.Context) IndexesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexesInvokeResponseArrayOutput)
+}
+
+// The indexes for the path.
+type IndexesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IndexesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexesInvokeResponse)(nil)).Elem()
+}
+
+func (o IndexesInvokeResponseOutput) ToIndexesInvokeResponseOutput() IndexesInvokeResponseOutput {
+	return o
+}
+
+func (o IndexesInvokeResponseOutput) ToIndexesInvokeResponseOutputWithContext(ctx context.Context) IndexesInvokeResponseOutput {
+	return o
+}
+
+// The datatype for which the indexing behavior is applied to.
+func (o IndexesInvokeResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexesInvokeResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of index.
+func (o IndexesInvokeResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexesInvokeResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The precision of the index. -1 is maximum precision.
+func (o IndexesInvokeResponseOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IndexesInvokeResponse) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+type IndexesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IndexesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexesInvokeResponse)(nil)).Elem()
+}
+
+func (o IndexesInvokeResponseArrayOutput) ToIndexesInvokeResponseArrayOutput() IndexesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IndexesInvokeResponseArrayOutput) ToIndexesInvokeResponseArrayOutputWithContext(ctx context.Context) IndexesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IndexesInvokeResponseArrayOutput) Index(i pulumi.IntInput) IndexesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexesInvokeResponse {
+		return vs[0].([]IndexesInvokeResponse)[vs[1].(int)]
+	}).(IndexesInvokeResponseOutput)
 }
 
 // The indexes for the path.
@@ -3920,6 +5063,88 @@ func (o IndexingPolicyPtrOutput) IndexingMode() pulumi.StringPtrOutput {
 }
 
 // Cosmos DB indexing policy
+type IndexingPolicyInvokeResponse struct {
+	// Indicates if the indexing policy is automatic
+	Automatic *bool `pulumi:"automatic"`
+	// List of paths to exclude from indexing
+	ExcludedPaths []ExcludedPathInvokeResponse `pulumi:"excludedPaths"`
+	// List of paths to include in the indexing
+	IncludedPaths []IncludedPathInvokeResponse `pulumi:"includedPaths"`
+	// Indicates the indexing mode.
+	IndexingMode *string `pulumi:"indexingMode"`
+}
+
+// IndexingPolicyInvokeResponseInput is an input type that accepts IndexingPolicyInvokeResponseArgs and IndexingPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `IndexingPolicyInvokeResponseInput` via:
+//
+//          IndexingPolicyInvokeResponseArgs{...}
+type IndexingPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIndexingPolicyInvokeResponseOutput() IndexingPolicyInvokeResponseOutput
+	ToIndexingPolicyInvokeResponseOutputWithContext(context.Context) IndexingPolicyInvokeResponseOutput
+}
+
+// Cosmos DB indexing policy
+type IndexingPolicyInvokeResponseArgs struct {
+	// Indicates if the indexing policy is automatic
+	Automatic pulumi.BoolPtrInput `pulumi:"automatic"`
+	// List of paths to exclude from indexing
+	ExcludedPaths ExcludedPathInvokeResponseArrayInput `pulumi:"excludedPaths"`
+	// List of paths to include in the indexing
+	IncludedPaths IncludedPathInvokeResponseArrayInput `pulumi:"includedPaths"`
+	// Indicates the indexing mode.
+	IndexingMode pulumi.StringPtrInput `pulumi:"indexingMode"`
+}
+
+func (IndexingPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i IndexingPolicyInvokeResponseArgs) ToIndexingPolicyInvokeResponseOutput() IndexingPolicyInvokeResponseOutput {
+	return i.ToIndexingPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IndexingPolicyInvokeResponseArgs) ToIndexingPolicyInvokeResponseOutputWithContext(ctx context.Context) IndexingPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingPolicyInvokeResponseOutput)
+}
+
+// Cosmos DB indexing policy
+type IndexingPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IndexingPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o IndexingPolicyInvokeResponseOutput) ToIndexingPolicyInvokeResponseOutput() IndexingPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o IndexingPolicyInvokeResponseOutput) ToIndexingPolicyInvokeResponseOutputWithContext(ctx context.Context) IndexingPolicyInvokeResponseOutput {
+	return o
+}
+
+// Indicates if the indexing policy is automatic
+func (o IndexingPolicyInvokeResponseOutput) Automatic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IndexingPolicyInvokeResponse) *bool { return v.Automatic }).(pulumi.BoolPtrOutput)
+}
+
+// List of paths to exclude from indexing
+func (o IndexingPolicyInvokeResponseOutput) ExcludedPaths() ExcludedPathInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IndexingPolicyInvokeResponse) []ExcludedPathInvokeResponse { return v.ExcludedPaths }).(ExcludedPathInvokeResponseArrayOutput)
+}
+
+// List of paths to include in the indexing
+func (o IndexingPolicyInvokeResponseOutput) IncludedPaths() IncludedPathInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IndexingPolicyInvokeResponse) []IncludedPathInvokeResponse { return v.IncludedPaths }).(IncludedPathInvokeResponseArrayOutput)
+}
+
+// Indicates the indexing mode.
+func (o IndexingPolicyInvokeResponseOutput) IndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingPolicyInvokeResponse) *string { return v.IndexingMode }).(pulumi.StringPtrOutput)
+}
+
+// Cosmos DB indexing policy
 type IndexingPolicyResponse struct {
 	// Indicates if the indexing policy is automatic
 	Automatic *bool `pulumi:"automatic"`
@@ -4226,6 +5451,151 @@ func (o LocationArrayOutput) Index(i pulumi.IntInput) LocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Location {
 		return vs[0].([]Location)[vs[1].(int)]
 	}).(LocationOutput)
+}
+
+// A region in which the Azure Cosmos DB database account is deployed.
+type LocationInvokeResponse struct {
+	// The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
+	DocumentEndpoint string `pulumi:"documentEndpoint"`
+	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+	FailoverPriority *int `pulumi:"failoverPriority"`
+	// The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+	Id string `pulumi:"id"`
+	// Flag to indicate whether or not this region is an AvailabilityZone region
+	IsZoneRedundant *bool `pulumi:"isZoneRedundant"`
+	// The name of the region.
+	LocationName *string `pulumi:"locationName"`
+	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// LocationInvokeResponseInput is an input type that accepts LocationInvokeResponseArgs and LocationInvokeResponseOutput values.
+// You can construct a concrete instance of `LocationInvokeResponseInput` via:
+//
+//          LocationInvokeResponseArgs{...}
+type LocationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLocationInvokeResponseOutput() LocationInvokeResponseOutput
+	ToLocationInvokeResponseOutputWithContext(context.Context) LocationInvokeResponseOutput
+}
+
+// A region in which the Azure Cosmos DB database account is deployed.
+type LocationInvokeResponseArgs struct {
+	// The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
+	DocumentEndpoint pulumi.StringInput `pulumi:"documentEndpoint"`
+	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+	FailoverPriority pulumi.IntPtrInput `pulumi:"failoverPriority"`
+	// The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Flag to indicate whether or not this region is an AvailabilityZone region
+	IsZoneRedundant pulumi.BoolPtrInput `pulumi:"isZoneRedundant"`
+	// The name of the region.
+	LocationName pulumi.StringPtrInput `pulumi:"locationName"`
+	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (LocationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationInvokeResponse)(nil)).Elem()
+}
+
+func (i LocationInvokeResponseArgs) ToLocationInvokeResponseOutput() LocationInvokeResponseOutput {
+	return i.ToLocationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LocationInvokeResponseArgs) ToLocationInvokeResponseOutputWithContext(ctx context.Context) LocationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationInvokeResponseOutput)
+}
+
+// LocationInvokeResponseArrayInput is an input type that accepts LocationInvokeResponseArray and LocationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LocationInvokeResponseArrayInput` via:
+//
+//          LocationInvokeResponseArray{ LocationInvokeResponseArgs{...} }
+type LocationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLocationInvokeResponseArrayOutput() LocationInvokeResponseArrayOutput
+	ToLocationInvokeResponseArrayOutputWithContext(context.Context) LocationInvokeResponseArrayOutput
+}
+
+type LocationInvokeResponseArray []LocationInvokeResponseInput
+
+func (LocationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationInvokeResponse)(nil)).Elem()
+}
+
+func (i LocationInvokeResponseArray) ToLocationInvokeResponseArrayOutput() LocationInvokeResponseArrayOutput {
+	return i.ToLocationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LocationInvokeResponseArray) ToLocationInvokeResponseArrayOutputWithContext(ctx context.Context) LocationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationInvokeResponseArrayOutput)
+}
+
+// A region in which the Azure Cosmos DB database account is deployed.
+type LocationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LocationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationInvokeResponse)(nil)).Elem()
+}
+
+func (o LocationInvokeResponseOutput) ToLocationInvokeResponseOutput() LocationInvokeResponseOutput {
+	return o
+}
+
+func (o LocationInvokeResponseOutput) ToLocationInvokeResponseOutputWithContext(ctx context.Context) LocationInvokeResponseOutput {
+	return o
+}
+
+// The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/
+func (o LocationInvokeResponseOutput) DocumentEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationInvokeResponse) string { return v.DocumentEndpoint }).(pulumi.StringOutput)
+}
+
+// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+func (o LocationInvokeResponseOutput) FailoverPriority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LocationInvokeResponse) *int { return v.FailoverPriority }).(pulumi.IntPtrOutput)
+}
+
+// The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.
+func (o LocationInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Flag to indicate whether or not this region is an AvailabilityZone region
+func (o LocationInvokeResponseOutput) IsZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocationInvokeResponse) *bool { return v.IsZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the region.
+func (o LocationInvokeResponseOutput) LocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationInvokeResponse) *string { return v.LocationName }).(pulumi.StringPtrOutput)
+}
+
+// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
+func (o LocationInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type LocationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationInvokeResponse)(nil)).Elem()
+}
+
+func (o LocationInvokeResponseArrayOutput) ToLocationInvokeResponseArrayOutput() LocationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LocationInvokeResponseArrayOutput) ToLocationInvokeResponseArrayOutputWithContext(ctx context.Context) LocationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LocationInvokeResponseArrayOutput) Index(i pulumi.IntInput) LocationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationInvokeResponse {
+		return vs[0].([]LocationInvokeResponse)[vs[1].(int)]
+	}).(LocationInvokeResponseOutput)
 }
 
 // A region in which the Azure Cosmos DB database account is deployed.
@@ -4788,6 +6158,115 @@ func (o MongoIndexArrayOutput) Index(i pulumi.IntInput) MongoIndexOutput {
 	}).(MongoIndexOutput)
 }
 
+// Cosmos DB MongoDB collection index key
+type MongoIndexInvokeResponse struct {
+	// Cosmos DB MongoDB collection index keys
+	Key *MongoIndexKeysInvokeResponse `pulumi:"key"`
+	// Cosmos DB MongoDB collection index key options
+	Options *MongoIndexOptionsInvokeResponse `pulumi:"options"`
+}
+
+// MongoIndexInvokeResponseInput is an input type that accepts MongoIndexInvokeResponseArgs and MongoIndexInvokeResponseOutput values.
+// You can construct a concrete instance of `MongoIndexInvokeResponseInput` via:
+//
+//          MongoIndexInvokeResponseArgs{...}
+type MongoIndexInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMongoIndexInvokeResponseOutput() MongoIndexInvokeResponseOutput
+	ToMongoIndexInvokeResponseOutputWithContext(context.Context) MongoIndexInvokeResponseOutput
+}
+
+// Cosmos DB MongoDB collection index key
+type MongoIndexInvokeResponseArgs struct {
+	// Cosmos DB MongoDB collection index keys
+	Key MongoIndexKeysInvokeResponsePtrInput `pulumi:"key"`
+	// Cosmos DB MongoDB collection index key options
+	Options MongoIndexOptionsInvokeResponsePtrInput `pulumi:"options"`
+}
+
+func (MongoIndexInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexInvokeResponse)(nil)).Elem()
+}
+
+func (i MongoIndexInvokeResponseArgs) ToMongoIndexInvokeResponseOutput() MongoIndexInvokeResponseOutput {
+	return i.ToMongoIndexInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MongoIndexInvokeResponseArgs) ToMongoIndexInvokeResponseOutputWithContext(ctx context.Context) MongoIndexInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexInvokeResponseOutput)
+}
+
+// MongoIndexInvokeResponseArrayInput is an input type that accepts MongoIndexInvokeResponseArray and MongoIndexInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MongoIndexInvokeResponseArrayInput` via:
+//
+//          MongoIndexInvokeResponseArray{ MongoIndexInvokeResponseArgs{...} }
+type MongoIndexInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMongoIndexInvokeResponseArrayOutput() MongoIndexInvokeResponseArrayOutput
+	ToMongoIndexInvokeResponseArrayOutputWithContext(context.Context) MongoIndexInvokeResponseArrayOutput
+}
+
+type MongoIndexInvokeResponseArray []MongoIndexInvokeResponseInput
+
+func (MongoIndexInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoIndexInvokeResponse)(nil)).Elem()
+}
+
+func (i MongoIndexInvokeResponseArray) ToMongoIndexInvokeResponseArrayOutput() MongoIndexInvokeResponseArrayOutput {
+	return i.ToMongoIndexInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MongoIndexInvokeResponseArray) ToMongoIndexInvokeResponseArrayOutputWithContext(ctx context.Context) MongoIndexInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexInvokeResponseArrayOutput)
+}
+
+// Cosmos DB MongoDB collection index key
+type MongoIndexInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexInvokeResponse)(nil)).Elem()
+}
+
+func (o MongoIndexInvokeResponseOutput) ToMongoIndexInvokeResponseOutput() MongoIndexInvokeResponseOutput {
+	return o
+}
+
+func (o MongoIndexInvokeResponseOutput) ToMongoIndexInvokeResponseOutputWithContext(ctx context.Context) MongoIndexInvokeResponseOutput {
+	return o
+}
+
+// Cosmos DB MongoDB collection index keys
+func (o MongoIndexInvokeResponseOutput) Key() MongoIndexKeysInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MongoIndexInvokeResponse) *MongoIndexKeysInvokeResponse { return v.Key }).(MongoIndexKeysInvokeResponsePtrOutput)
+}
+
+// Cosmos DB MongoDB collection index key options
+func (o MongoIndexInvokeResponseOutput) Options() MongoIndexOptionsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MongoIndexInvokeResponse) *MongoIndexOptionsInvokeResponse { return v.Options }).(MongoIndexOptionsInvokeResponsePtrOutput)
+}
+
+type MongoIndexInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoIndexInvokeResponse)(nil)).Elem()
+}
+
+func (o MongoIndexInvokeResponseArrayOutput) ToMongoIndexInvokeResponseArrayOutput() MongoIndexInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MongoIndexInvokeResponseArrayOutput) ToMongoIndexInvokeResponseArrayOutputWithContext(ctx context.Context) MongoIndexInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MongoIndexInvokeResponseArrayOutput) Index(i pulumi.IntInput) MongoIndexInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MongoIndexInvokeResponse {
+		return vs[0].([]MongoIndexInvokeResponse)[vs[1].(int)]
+	}).(MongoIndexInvokeResponseOutput)
+}
+
 // Cosmos DB MongoDB collection resource object
 type MongoIndexKeys struct {
 	// List of keys for each MongoDB collection in the Azure Cosmos DB service
@@ -4915,6 +6394,140 @@ func (o MongoIndexKeysPtrOutput) Elem() MongoIndexKeysOutput {
 // List of keys for each MongoDB collection in the Azure Cosmos DB service
 func (o MongoIndexKeysPtrOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MongoIndexKeys) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Keys
+	}).(pulumi.StringArrayOutput)
+}
+
+// Cosmos DB MongoDB collection resource object
+type MongoIndexKeysInvokeResponse struct {
+	// List of keys for each MongoDB collection in the Azure Cosmos DB service
+	Keys []string `pulumi:"keys"`
+}
+
+// MongoIndexKeysInvokeResponseInput is an input type that accepts MongoIndexKeysInvokeResponseArgs and MongoIndexKeysInvokeResponseOutput values.
+// You can construct a concrete instance of `MongoIndexKeysInvokeResponseInput` via:
+//
+//          MongoIndexKeysInvokeResponseArgs{...}
+type MongoIndexKeysInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMongoIndexKeysInvokeResponseOutput() MongoIndexKeysInvokeResponseOutput
+	ToMongoIndexKeysInvokeResponseOutputWithContext(context.Context) MongoIndexKeysInvokeResponseOutput
+}
+
+// Cosmos DB MongoDB collection resource object
+type MongoIndexKeysInvokeResponseArgs struct {
+	// List of keys for each MongoDB collection in the Azure Cosmos DB service
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
+}
+
+func (MongoIndexKeysInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexKeysInvokeResponse)(nil)).Elem()
+}
+
+func (i MongoIndexKeysInvokeResponseArgs) ToMongoIndexKeysInvokeResponseOutput() MongoIndexKeysInvokeResponseOutput {
+	return i.ToMongoIndexKeysInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MongoIndexKeysInvokeResponseArgs) ToMongoIndexKeysInvokeResponseOutputWithContext(ctx context.Context) MongoIndexKeysInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexKeysInvokeResponseOutput)
+}
+
+func (i MongoIndexKeysInvokeResponseArgs) ToMongoIndexKeysInvokeResponsePtrOutput() MongoIndexKeysInvokeResponsePtrOutput {
+	return i.ToMongoIndexKeysInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MongoIndexKeysInvokeResponseArgs) ToMongoIndexKeysInvokeResponsePtrOutputWithContext(ctx context.Context) MongoIndexKeysInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexKeysInvokeResponseOutput).ToMongoIndexKeysInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MongoIndexKeysInvokeResponsePtrInput is an input type that accepts MongoIndexKeysInvokeResponseArgs, MongoIndexKeysInvokeResponsePtr and MongoIndexKeysInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MongoIndexKeysInvokeResponsePtrInput` via:
+//
+//          MongoIndexKeysInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MongoIndexKeysInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMongoIndexKeysInvokeResponsePtrOutput() MongoIndexKeysInvokeResponsePtrOutput
+	ToMongoIndexKeysInvokeResponsePtrOutputWithContext(context.Context) MongoIndexKeysInvokeResponsePtrOutput
+}
+
+type mongoIndexKeysInvokeResponsePtrType MongoIndexKeysInvokeResponseArgs
+
+func MongoIndexKeysInvokeResponsePtr(v *MongoIndexKeysInvokeResponseArgs) MongoIndexKeysInvokeResponsePtrInput {
+	return (*mongoIndexKeysInvokeResponsePtrType)(v)
+}
+
+func (*mongoIndexKeysInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoIndexKeysInvokeResponse)(nil)).Elem()
+}
+
+func (i *mongoIndexKeysInvokeResponsePtrType) ToMongoIndexKeysInvokeResponsePtrOutput() MongoIndexKeysInvokeResponsePtrOutput {
+	return i.ToMongoIndexKeysInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mongoIndexKeysInvokeResponsePtrType) ToMongoIndexKeysInvokeResponsePtrOutputWithContext(ctx context.Context) MongoIndexKeysInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexKeysInvokeResponsePtrOutput)
+}
+
+// Cosmos DB MongoDB collection resource object
+type MongoIndexKeysInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexKeysInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexKeysInvokeResponse)(nil)).Elem()
+}
+
+func (o MongoIndexKeysInvokeResponseOutput) ToMongoIndexKeysInvokeResponseOutput() MongoIndexKeysInvokeResponseOutput {
+	return o
+}
+
+func (o MongoIndexKeysInvokeResponseOutput) ToMongoIndexKeysInvokeResponseOutputWithContext(ctx context.Context) MongoIndexKeysInvokeResponseOutput {
+	return o
+}
+
+func (o MongoIndexKeysInvokeResponseOutput) ToMongoIndexKeysInvokeResponsePtrOutput() MongoIndexKeysInvokeResponsePtrOutput {
+	return o.ToMongoIndexKeysInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MongoIndexKeysInvokeResponseOutput) ToMongoIndexKeysInvokeResponsePtrOutputWithContext(ctx context.Context) MongoIndexKeysInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MongoIndexKeysInvokeResponse) *MongoIndexKeysInvokeResponse {
+		return &v
+	}).(MongoIndexKeysInvokeResponsePtrOutput)
+}
+
+// List of keys for each MongoDB collection in the Azure Cosmos DB service
+func (o MongoIndexKeysInvokeResponseOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MongoIndexKeysInvokeResponse) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+type MongoIndexKeysInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexKeysInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoIndexKeysInvokeResponse)(nil)).Elem()
+}
+
+func (o MongoIndexKeysInvokeResponsePtrOutput) ToMongoIndexKeysInvokeResponsePtrOutput() MongoIndexKeysInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MongoIndexKeysInvokeResponsePtrOutput) ToMongoIndexKeysInvokeResponsePtrOutputWithContext(ctx context.Context) MongoIndexKeysInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MongoIndexKeysInvokeResponsePtrOutput) Elem() MongoIndexKeysInvokeResponseOutput {
+	return o.ApplyT(func(v *MongoIndexKeysInvokeResponse) MongoIndexKeysInvokeResponse { return *v }).(MongoIndexKeysInvokeResponseOutput)
+}
+
+// List of keys for each MongoDB collection in the Azure Cosmos DB service
+func (o MongoIndexKeysInvokeResponsePtrOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MongoIndexKeysInvokeResponse) []string {
 		if v == nil {
 			return nil
 		}
@@ -5202,6 +6815,159 @@ func (o MongoIndexOptionsPtrOutput) ExpireAfterSeconds() pulumi.IntPtrOutput {
 // Is unique or not
 func (o MongoIndexOptionsPtrOutput) Unique() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MongoIndexOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Unique
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Cosmos DB MongoDB collection index options
+type MongoIndexOptionsInvokeResponse struct {
+	// Expire after seconds
+	ExpireAfterSeconds *int `pulumi:"expireAfterSeconds"`
+	// Is unique or not
+	Unique *bool `pulumi:"unique"`
+}
+
+// MongoIndexOptionsInvokeResponseInput is an input type that accepts MongoIndexOptionsInvokeResponseArgs and MongoIndexOptionsInvokeResponseOutput values.
+// You can construct a concrete instance of `MongoIndexOptionsInvokeResponseInput` via:
+//
+//          MongoIndexOptionsInvokeResponseArgs{...}
+type MongoIndexOptionsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMongoIndexOptionsInvokeResponseOutput() MongoIndexOptionsInvokeResponseOutput
+	ToMongoIndexOptionsInvokeResponseOutputWithContext(context.Context) MongoIndexOptionsInvokeResponseOutput
+}
+
+// Cosmos DB MongoDB collection index options
+type MongoIndexOptionsInvokeResponseArgs struct {
+	// Expire after seconds
+	ExpireAfterSeconds pulumi.IntPtrInput `pulumi:"expireAfterSeconds"`
+	// Is unique or not
+	Unique pulumi.BoolPtrInput `pulumi:"unique"`
+}
+
+func (MongoIndexOptionsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexOptionsInvokeResponse)(nil)).Elem()
+}
+
+func (i MongoIndexOptionsInvokeResponseArgs) ToMongoIndexOptionsInvokeResponseOutput() MongoIndexOptionsInvokeResponseOutput {
+	return i.ToMongoIndexOptionsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MongoIndexOptionsInvokeResponseArgs) ToMongoIndexOptionsInvokeResponseOutputWithContext(ctx context.Context) MongoIndexOptionsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexOptionsInvokeResponseOutput)
+}
+
+func (i MongoIndexOptionsInvokeResponseArgs) ToMongoIndexOptionsInvokeResponsePtrOutput() MongoIndexOptionsInvokeResponsePtrOutput {
+	return i.ToMongoIndexOptionsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MongoIndexOptionsInvokeResponseArgs) ToMongoIndexOptionsInvokeResponsePtrOutputWithContext(ctx context.Context) MongoIndexOptionsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexOptionsInvokeResponseOutput).ToMongoIndexOptionsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MongoIndexOptionsInvokeResponsePtrInput is an input type that accepts MongoIndexOptionsInvokeResponseArgs, MongoIndexOptionsInvokeResponsePtr and MongoIndexOptionsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MongoIndexOptionsInvokeResponsePtrInput` via:
+//
+//          MongoIndexOptionsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MongoIndexOptionsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMongoIndexOptionsInvokeResponsePtrOutput() MongoIndexOptionsInvokeResponsePtrOutput
+	ToMongoIndexOptionsInvokeResponsePtrOutputWithContext(context.Context) MongoIndexOptionsInvokeResponsePtrOutput
+}
+
+type mongoIndexOptionsInvokeResponsePtrType MongoIndexOptionsInvokeResponseArgs
+
+func MongoIndexOptionsInvokeResponsePtr(v *MongoIndexOptionsInvokeResponseArgs) MongoIndexOptionsInvokeResponsePtrInput {
+	return (*mongoIndexOptionsInvokeResponsePtrType)(v)
+}
+
+func (*mongoIndexOptionsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoIndexOptionsInvokeResponse)(nil)).Elem()
+}
+
+func (i *mongoIndexOptionsInvokeResponsePtrType) ToMongoIndexOptionsInvokeResponsePtrOutput() MongoIndexOptionsInvokeResponsePtrOutput {
+	return i.ToMongoIndexOptionsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mongoIndexOptionsInvokeResponsePtrType) ToMongoIndexOptionsInvokeResponsePtrOutputWithContext(ctx context.Context) MongoIndexOptionsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexOptionsInvokeResponsePtrOutput)
+}
+
+// Cosmos DB MongoDB collection index options
+type MongoIndexOptionsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexOptionsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexOptionsInvokeResponse)(nil)).Elem()
+}
+
+func (o MongoIndexOptionsInvokeResponseOutput) ToMongoIndexOptionsInvokeResponseOutput() MongoIndexOptionsInvokeResponseOutput {
+	return o
+}
+
+func (o MongoIndexOptionsInvokeResponseOutput) ToMongoIndexOptionsInvokeResponseOutputWithContext(ctx context.Context) MongoIndexOptionsInvokeResponseOutput {
+	return o
+}
+
+func (o MongoIndexOptionsInvokeResponseOutput) ToMongoIndexOptionsInvokeResponsePtrOutput() MongoIndexOptionsInvokeResponsePtrOutput {
+	return o.ToMongoIndexOptionsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MongoIndexOptionsInvokeResponseOutput) ToMongoIndexOptionsInvokeResponsePtrOutputWithContext(ctx context.Context) MongoIndexOptionsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MongoIndexOptionsInvokeResponse) *MongoIndexOptionsInvokeResponse {
+		return &v
+	}).(MongoIndexOptionsInvokeResponsePtrOutput)
+}
+
+// Expire after seconds
+func (o MongoIndexOptionsInvokeResponseOutput) ExpireAfterSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MongoIndexOptionsInvokeResponse) *int { return v.ExpireAfterSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Is unique or not
+func (o MongoIndexOptionsInvokeResponseOutput) Unique() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MongoIndexOptionsInvokeResponse) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
+}
+
+type MongoIndexOptionsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexOptionsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoIndexOptionsInvokeResponse)(nil)).Elem()
+}
+
+func (o MongoIndexOptionsInvokeResponsePtrOutput) ToMongoIndexOptionsInvokeResponsePtrOutput() MongoIndexOptionsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MongoIndexOptionsInvokeResponsePtrOutput) ToMongoIndexOptionsInvokeResponsePtrOutputWithContext(ctx context.Context) MongoIndexOptionsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MongoIndexOptionsInvokeResponsePtrOutput) Elem() MongoIndexOptionsInvokeResponseOutput {
+	return o.ApplyT(func(v *MongoIndexOptionsInvokeResponse) MongoIndexOptionsInvokeResponse { return *v }).(MongoIndexOptionsInvokeResponseOutput)
+}
+
+// Expire after seconds
+func (o MongoIndexOptionsInvokeResponsePtrOutput) ExpireAfterSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MongoIndexOptionsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpireAfterSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Is unique or not
+func (o MongoIndexOptionsInvokeResponsePtrOutput) Unique() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MongoIndexOptionsInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -6068,6 +7834,106 @@ func (o UniqueKeyArrayOutput) Index(i pulumi.IntInput) UniqueKeyOutput {
 	}).(UniqueKeyOutput)
 }
 
+// The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyInvokeResponse struct {
+	// List of paths must be unique for each document in the Azure Cosmos DB service
+	Paths []string `pulumi:"paths"`
+}
+
+// UniqueKeyInvokeResponseInput is an input type that accepts UniqueKeyInvokeResponseArgs and UniqueKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `UniqueKeyInvokeResponseInput` via:
+//
+//          UniqueKeyInvokeResponseArgs{...}
+type UniqueKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUniqueKeyInvokeResponseOutput() UniqueKeyInvokeResponseOutput
+	ToUniqueKeyInvokeResponseOutputWithContext(context.Context) UniqueKeyInvokeResponseOutput
+}
+
+// The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyInvokeResponseArgs struct {
+	// List of paths must be unique for each document in the Azure Cosmos DB service
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (UniqueKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniqueKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i UniqueKeyInvokeResponseArgs) ToUniqueKeyInvokeResponseOutput() UniqueKeyInvokeResponseOutput {
+	return i.ToUniqueKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UniqueKeyInvokeResponseArgs) ToUniqueKeyInvokeResponseOutputWithContext(ctx context.Context) UniqueKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UniqueKeyInvokeResponseOutput)
+}
+
+// UniqueKeyInvokeResponseArrayInput is an input type that accepts UniqueKeyInvokeResponseArray and UniqueKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `UniqueKeyInvokeResponseArrayInput` via:
+//
+//          UniqueKeyInvokeResponseArray{ UniqueKeyInvokeResponseArgs{...} }
+type UniqueKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToUniqueKeyInvokeResponseArrayOutput() UniqueKeyInvokeResponseArrayOutput
+	ToUniqueKeyInvokeResponseArrayOutputWithContext(context.Context) UniqueKeyInvokeResponseArrayOutput
+}
+
+type UniqueKeyInvokeResponseArray []UniqueKeyInvokeResponseInput
+
+func (UniqueKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UniqueKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i UniqueKeyInvokeResponseArray) ToUniqueKeyInvokeResponseArrayOutput() UniqueKeyInvokeResponseArrayOutput {
+	return i.ToUniqueKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i UniqueKeyInvokeResponseArray) ToUniqueKeyInvokeResponseArrayOutputWithContext(ctx context.Context) UniqueKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UniqueKeyInvokeResponseArrayOutput)
+}
+
+// The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UniqueKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniqueKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o UniqueKeyInvokeResponseOutput) ToUniqueKeyInvokeResponseOutput() UniqueKeyInvokeResponseOutput {
+	return o
+}
+
+func (o UniqueKeyInvokeResponseOutput) ToUniqueKeyInvokeResponseOutputWithContext(ctx context.Context) UniqueKeyInvokeResponseOutput {
+	return o
+}
+
+// List of paths must be unique for each document in the Azure Cosmos DB service
+func (o UniqueKeyInvokeResponseOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UniqueKeyInvokeResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+type UniqueKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UniqueKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UniqueKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o UniqueKeyInvokeResponseArrayOutput) ToUniqueKeyInvokeResponseArrayOutput() UniqueKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UniqueKeyInvokeResponseArrayOutput) ToUniqueKeyInvokeResponseArrayOutputWithContext(ctx context.Context) UniqueKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UniqueKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) UniqueKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UniqueKeyInvokeResponse {
+		return vs[0].([]UniqueKeyInvokeResponse)[vs[1].(int)]
+	}).(UniqueKeyInvokeResponseOutput)
+}
+
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 type UniqueKeyPolicy struct {
 	// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
@@ -6200,6 +8066,61 @@ func (o UniqueKeyPolicyPtrOutput) UniqueKeys() UniqueKeyArrayOutput {
 		}
 		return v.UniqueKeys
 	}).(UniqueKeyArrayOutput)
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyPolicyInvokeResponse struct {
+	// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+	UniqueKeys []UniqueKeyInvokeResponse `pulumi:"uniqueKeys"`
+}
+
+// UniqueKeyPolicyInvokeResponseInput is an input type that accepts UniqueKeyPolicyInvokeResponseArgs and UniqueKeyPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `UniqueKeyPolicyInvokeResponseInput` via:
+//
+//          UniqueKeyPolicyInvokeResponseArgs{...}
+type UniqueKeyPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUniqueKeyPolicyInvokeResponseOutput() UniqueKeyPolicyInvokeResponseOutput
+	ToUniqueKeyPolicyInvokeResponseOutputWithContext(context.Context) UniqueKeyPolicyInvokeResponseOutput
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyPolicyInvokeResponseArgs struct {
+	// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+	UniqueKeys UniqueKeyInvokeResponseArrayInput `pulumi:"uniqueKeys"`
+}
+
+func (UniqueKeyPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniqueKeyPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i UniqueKeyPolicyInvokeResponseArgs) ToUniqueKeyPolicyInvokeResponseOutput() UniqueKeyPolicyInvokeResponseOutput {
+	return i.ToUniqueKeyPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UniqueKeyPolicyInvokeResponseArgs) ToUniqueKeyPolicyInvokeResponseOutputWithContext(ctx context.Context) UniqueKeyPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UniqueKeyPolicyInvokeResponseOutput)
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UniqueKeyPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniqueKeyPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o UniqueKeyPolicyInvokeResponseOutput) ToUniqueKeyPolicyInvokeResponseOutput() UniqueKeyPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o UniqueKeyPolicyInvokeResponseOutput) ToUniqueKeyPolicyInvokeResponseOutputWithContext(ctx context.Context) UniqueKeyPolicyInvokeResponseOutput {
+	return o
+}
+
+// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+func (o UniqueKeyPolicyInvokeResponseOutput) UniqueKeys() UniqueKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v UniqueKeyPolicyInvokeResponse) []UniqueKeyInvokeResponse { return v.UniqueKeys }).(UniqueKeyInvokeResponseArrayOutput)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -6546,6 +8467,115 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 }
 
 // Virtual Network ACL Rule object
+type VirtualNetworkRuleInvokeResponse struct {
+	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
+	Id *string `pulumi:"id"`
+	// Create firewall rule before the virtual network has vnet service endpoint enabled.
+	IgnoreMissingVNetServiceEndpoint *bool `pulumi:"ignoreMissingVNetServiceEndpoint"`
+}
+
+// VirtualNetworkRuleInvokeResponseInput is an input type that accepts VirtualNetworkRuleInvokeResponseArgs and VirtualNetworkRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualNetworkRuleInvokeResponseInput` via:
+//
+//          VirtualNetworkRuleInvokeResponseArgs{...}
+type VirtualNetworkRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput
+	ToVirtualNetworkRuleInvokeResponseOutputWithContext(context.Context) VirtualNetworkRuleInvokeResponseOutput
+}
+
+// Virtual Network ACL Rule object
+type VirtualNetworkRuleInvokeResponseArgs struct {
+	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Create firewall rule before the virtual network has vnet service endpoint enabled.
+	IgnoreMissingVNetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVNetServiceEndpoint"`
+}
+
+func (VirtualNetworkRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkRuleInvokeResponseArgs) ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput {
+	return i.ToVirtualNetworkRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRuleInvokeResponseArgs) ToVirtualNetworkRuleInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleInvokeResponseOutput)
+}
+
+// VirtualNetworkRuleInvokeResponseArrayInput is an input type that accepts VirtualNetworkRuleInvokeResponseArray and VirtualNetworkRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkRuleInvokeResponseArrayInput` via:
+//
+//          VirtualNetworkRuleInvokeResponseArray{ VirtualNetworkRuleInvokeResponseArgs{...} }
+type VirtualNetworkRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput
+	ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(context.Context) VirtualNetworkRuleInvokeResponseArrayOutput
+}
+
+type VirtualNetworkRuleInvokeResponseArray []VirtualNetworkRuleInvokeResponseInput
+
+func (VirtualNetworkRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkRuleInvokeResponseArray) ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput {
+	return i.ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRuleInvokeResponseArray) ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleInvokeResponseArrayOutput)
+}
+
+// Virtual Network ACL Rule object
+type VirtualNetworkRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleInvokeResponseOutput) ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseOutput) ToVirtualNetworkRuleInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseOutput {
+	return o
+}
+
+// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
+func (o VirtualNetworkRuleInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Create firewall rule before the virtual network has vnet service endpoint enabled.
+func (o VirtualNetworkRuleInvokeResponseOutput) IgnoreMissingVNetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) *bool { return v.IgnoreMissingVNetServiceEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+type VirtualNetworkRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkRuleInvokeResponse {
+		return vs[0].([]VirtualNetworkRuleInvokeResponse)[vs[1].(int)]
+	}).(VirtualNetworkRuleInvokeResponseOutput)
+}
+
+// Virtual Network ACL Rule object
 type VirtualNetworkRuleResponse struct {
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
 	Id *string `pulumi:"id"`
@@ -6657,46 +8687,62 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 func init() {
 	pulumi.RegisterOutputType(CapabilityOutput{})
 	pulumi.RegisterOutputType(CapabilityArrayOutput{})
+	pulumi.RegisterOutputType(CapabilityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CapabilityInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CapabilityResponseOutput{})
 	pulumi.RegisterOutputType(CapabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceResourceOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceResourcePtrOutput{})
 	pulumi.RegisterOutputType(CassandraPartitionKeyOutput{})
 	pulumi.RegisterOutputType(CassandraPartitionKeyArrayOutput{})
+	pulumi.RegisterOutputType(CassandraPartitionKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CassandraPartitionKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CassandraPartitionKeyResponseOutput{})
 	pulumi.RegisterOutputType(CassandraPartitionKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CassandraSchemaOutput{})
 	pulumi.RegisterOutputType(CassandraSchemaPtrOutput{})
+	pulumi.RegisterOutputType(CassandraSchemaInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CassandraSchemaResponseOutput{})
 	pulumi.RegisterOutputType(CassandraSchemaResponsePtrOutput{})
 	pulumi.RegisterOutputType(CassandraTableResourceOutput{})
 	pulumi.RegisterOutputType(CassandraTableResourcePtrOutput{})
 	pulumi.RegisterOutputType(ClusterKeyOutput{})
 	pulumi.RegisterOutputType(ClusterKeyArrayOutput{})
+	pulumi.RegisterOutputType(ClusterKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ClusterKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKeyResponseOutput{})
 	pulumi.RegisterOutputType(ClusterKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(ColumnOutput{})
 	pulumi.RegisterOutputType(ColumnArrayOutput{})
+	pulumi.RegisterOutputType(ColumnInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ColumnInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ColumnResponseOutput{})
 	pulumi.RegisterOutputType(ColumnResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConflictResolutionPolicyOutput{})
 	pulumi.RegisterOutputType(ConflictResolutionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ConflictResolutionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConflictResolutionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ConflictResolutionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConsistencyPolicyOutput{})
 	pulumi.RegisterOutputType(ConsistencyPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ConsistencyPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConsistencyPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ConsistencyPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyPtrOutput{})
+	pulumi.RegisterOutputType(ContainerPartitionKeyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyResponsePtrOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseAccountConnectionStringInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseAccountConnectionStringInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExcludedPathOutput{})
 	pulumi.RegisterOutputType(ExcludedPathArrayOutput{})
+	pulumi.RegisterOutputType(ExcludedPathInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ExcludedPathInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExcludedPathResponseOutput{})
 	pulumi.RegisterOutputType(ExcludedPathResponseArrayOutput{})
+	pulumi.RegisterOutputType(FailoverPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FailoverPolicyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FailoverPolicyResponseOutput{})
 	pulumi.RegisterOutputType(FailoverPolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseResourceOutput{})
@@ -6705,18 +8751,25 @@ func init() {
 	pulumi.RegisterOutputType(GremlinGraphResourcePtrOutput{})
 	pulumi.RegisterOutputType(IncludedPathOutput{})
 	pulumi.RegisterOutputType(IncludedPathArrayOutput{})
+	pulumi.RegisterOutputType(IncludedPathInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IncludedPathInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IncludedPathResponseOutput{})
 	pulumi.RegisterOutputType(IncludedPathResponseArrayOutput{})
 	pulumi.RegisterOutputType(IndexesOutput{})
 	pulumi.RegisterOutputType(IndexesArrayOutput{})
+	pulumi.RegisterOutputType(IndexesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IndexesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IndexesResponseOutput{})
 	pulumi.RegisterOutputType(IndexesResponseArrayOutput{})
 	pulumi.RegisterOutputType(IndexingPolicyOutput{})
 	pulumi.RegisterOutputType(IndexingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(IndexingPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IndexingPolicyResponseOutput{})
 	pulumi.RegisterOutputType(IndexingPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(LocationOutput{})
 	pulumi.RegisterOutputType(LocationArrayOutput{})
+	pulumi.RegisterOutputType(LocationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LocationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LocationResponseOutput{})
 	pulumi.RegisterOutputType(LocationResponseArrayOutput{})
 	pulumi.RegisterOutputType(MongoDBCollectionResourceOutput{})
@@ -6725,12 +8778,18 @@ func init() {
 	pulumi.RegisterOutputType(MongoDBDatabaseResourcePtrOutput{})
 	pulumi.RegisterOutputType(MongoIndexOutput{})
 	pulumi.RegisterOutputType(MongoIndexArrayOutput{})
+	pulumi.RegisterOutputType(MongoIndexInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MongoIndexInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MongoIndexKeysOutput{})
 	pulumi.RegisterOutputType(MongoIndexKeysPtrOutput{})
+	pulumi.RegisterOutputType(MongoIndexKeysInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MongoIndexKeysInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MongoIndexKeysResponseOutput{})
 	pulumi.RegisterOutputType(MongoIndexKeysResponsePtrOutput{})
 	pulumi.RegisterOutputType(MongoIndexOptionsOutput{})
 	pulumi.RegisterOutputType(MongoIndexOptionsPtrOutput{})
+	pulumi.RegisterOutputType(MongoIndexOptionsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MongoIndexOptionsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MongoIndexOptionsResponseOutput{})
 	pulumi.RegisterOutputType(MongoIndexOptionsResponsePtrOutput{})
 	pulumi.RegisterOutputType(MongoIndexResponseOutput{})
@@ -6743,14 +8802,19 @@ func init() {
 	pulumi.RegisterOutputType(TableResourcePtrOutput{})
 	pulumi.RegisterOutputType(UniqueKeyOutput{})
 	pulumi.RegisterOutputType(UniqueKeyArrayOutput{})
+	pulumi.RegisterOutputType(UniqueKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UniqueKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(UniqueKeyPolicyOutput{})
 	pulumi.RegisterOutputType(UniqueKeyPolicyPtrOutput{})
+	pulumi.RegisterOutputType(UniqueKeyPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UniqueKeyPolicyResponseOutput{})
 	pulumi.RegisterOutputType(UniqueKeyPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(UniqueKeyResponseOutput{})
 	pulumi.RegisterOutputType(UniqueKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseArrayOutput{})
 }

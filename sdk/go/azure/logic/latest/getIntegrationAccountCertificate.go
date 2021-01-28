@@ -34,7 +34,7 @@ type LookupIntegrationAccountCertificateResult struct {
 	// The resource id.
 	Id string `pulumi:"id"`
 	// The key details in the key vault.
-	Key *KeyVaultKeyReferenceResponse `pulumi:"key"`
+	Key *KeyVaultKeyReferenceInvokeResponse `pulumi:"key"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.

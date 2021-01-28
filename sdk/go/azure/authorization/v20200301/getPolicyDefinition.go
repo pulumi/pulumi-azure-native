@@ -36,7 +36,7 @@ type LookupPolicyDefinitionResult struct {
 	// The name of the policy definition.
 	Name string `pulumi:"name"`
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-	Parameters map[string]ParameterDefinitionsValueResponse `pulumi:"parameters"`
+	Parameters map[string]ParameterDefinitionsValueInvokeResponse `pulumi:"parameters"`
 	// The policy rule.
 	PolicyRule interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.

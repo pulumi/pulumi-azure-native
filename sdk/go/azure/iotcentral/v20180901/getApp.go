@@ -36,7 +36,7 @@ type LookupAppResult struct {
 	// The ARM resource name.
 	Name string `pulumi:"name"`
 	// A valid instance SKU.
-	Sku AppSkuInfoResponse `pulumi:"sku"`
+	Sku AppSkuInfoInvokeResponse `pulumi:"sku"`
 	// The subdomain of the application.
 	Subdomain *string `pulumi:"subdomain"`
 	// The resource tags.

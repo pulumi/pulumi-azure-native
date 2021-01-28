@@ -145,6 +145,61 @@ func (o DedicatedCapacityAdministratorsPtrOutput) Members() pulumi.StringArrayOu
 }
 
 // An array of administrator user identities
+type DedicatedCapacityAdministratorsInvokeResponse struct {
+	// An array of administrator user identities.
+	Members []string `pulumi:"members"`
+}
+
+// DedicatedCapacityAdministratorsInvokeResponseInput is an input type that accepts DedicatedCapacityAdministratorsInvokeResponseArgs and DedicatedCapacityAdministratorsInvokeResponseOutput values.
+// You can construct a concrete instance of `DedicatedCapacityAdministratorsInvokeResponseInput` via:
+//
+//          DedicatedCapacityAdministratorsInvokeResponseArgs{...}
+type DedicatedCapacityAdministratorsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDedicatedCapacityAdministratorsInvokeResponseOutput() DedicatedCapacityAdministratorsInvokeResponseOutput
+	ToDedicatedCapacityAdministratorsInvokeResponseOutputWithContext(context.Context) DedicatedCapacityAdministratorsInvokeResponseOutput
+}
+
+// An array of administrator user identities
+type DedicatedCapacityAdministratorsInvokeResponseArgs struct {
+	// An array of administrator user identities.
+	Members pulumi.StringArrayInput `pulumi:"members"`
+}
+
+func (DedicatedCapacityAdministratorsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedCapacityAdministratorsInvokeResponse)(nil)).Elem()
+}
+
+func (i DedicatedCapacityAdministratorsInvokeResponseArgs) ToDedicatedCapacityAdministratorsInvokeResponseOutput() DedicatedCapacityAdministratorsInvokeResponseOutput {
+	return i.ToDedicatedCapacityAdministratorsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DedicatedCapacityAdministratorsInvokeResponseArgs) ToDedicatedCapacityAdministratorsInvokeResponseOutputWithContext(ctx context.Context) DedicatedCapacityAdministratorsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedCapacityAdministratorsInvokeResponseOutput)
+}
+
+// An array of administrator user identities
+type DedicatedCapacityAdministratorsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DedicatedCapacityAdministratorsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedCapacityAdministratorsInvokeResponse)(nil)).Elem()
+}
+
+func (o DedicatedCapacityAdministratorsInvokeResponseOutput) ToDedicatedCapacityAdministratorsInvokeResponseOutput() DedicatedCapacityAdministratorsInvokeResponseOutput {
+	return o
+}
+
+func (o DedicatedCapacityAdministratorsInvokeResponseOutput) ToDedicatedCapacityAdministratorsInvokeResponseOutputWithContext(ctx context.Context) DedicatedCapacityAdministratorsInvokeResponseOutput {
+	return o
+}
+
+// An array of administrator user identities.
+func (o DedicatedCapacityAdministratorsInvokeResponseOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DedicatedCapacityAdministratorsInvokeResponse) []string { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+// An array of administrator user identities
 type DedicatedCapacityAdministratorsResponse struct {
 	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
@@ -432,6 +487,70 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Represents the SKU name and Azure pricing tier for PowerBI Dedicated resource.
+type ResourceSkuInvokeResponse struct {
+	// Name of the SKU level.
+	Name string `pulumi:"name"`
+	// The name of the Azure pricing tier to which the SKU applies.
+	Tier *string `pulumi:"tier"`
+}
+
+// ResourceSkuInvokeResponseInput is an input type that accepts ResourceSkuInvokeResponseArgs and ResourceSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceSkuInvokeResponseInput` via:
+//
+//          ResourceSkuInvokeResponseArgs{...}
+type ResourceSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput
+	ToResourceSkuInvokeResponseOutputWithContext(context.Context) ResourceSkuInvokeResponseOutput
+}
+
+// Represents the SKU name and Azure pricing tier for PowerBI Dedicated resource.
+type ResourceSkuInvokeResponseArgs struct {
+	// Name of the SKU level.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Azure pricing tier to which the SKU applies.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (ResourceSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return i.ToResourceSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuInvokeResponseOutput)
+}
+
+// Represents the SKU name and Azure pricing tier for PowerBI Dedicated resource.
+type ResourceSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+// Name of the SKU level.
+func (o ResourceSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the Azure pricing tier to which the SKU applies.
+func (o ResourceSkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// Represents the SKU name and Azure pricing tier for PowerBI Dedicated resource.
 type ResourceSkuResponse struct {
 	// Name of the SKU level.
 	Name string `pulumi:"name"`
@@ -587,10 +706,12 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsPtrOutput{})
+	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsResponseOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponsePtrOutput{})
 }

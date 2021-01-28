@@ -32,7 +32,7 @@ type LookupPolicyAssignmentResult struct {
 	// The ID of the policy assignment.
 	Id string `pulumi:"id"`
 	// The managed identity associated with the policy assignment.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location *string `pulumi:"location"`
 	// The policy assignment metadata.
@@ -48,7 +48,7 @@ type LookupPolicyAssignmentResult struct {
 	// The scope for the policy assignment.
 	Scope *string `pulumi:"scope"`
 	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku *PolicySkuResponse `pulumi:"sku"`
+	Sku *PolicySkuInvokeResponse `pulumi:"sku"`
 	// The type of the policy assignment.
 	Type string `pulumi:"type"`
 }

@@ -10,6 +10,130 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ErrorDetailInvokeResponse struct {
+	// The error's code.
+	Code string `pulumi:"code"`
+	// Additional error details.
+	Details []ErrorDetailInvokeResponse `pulumi:"details"`
+	// A human readable error message.
+	Message string `pulumi:"message"`
+	// Indicates which property in the request is responsible for the error.
+	Target *string `pulumi:"target"`
+}
+
+// ErrorDetailInvokeResponseInput is an input type that accepts ErrorDetailInvokeResponseArgs and ErrorDetailInvokeResponseOutput values.
+// You can construct a concrete instance of `ErrorDetailInvokeResponseInput` via:
+//
+//          ErrorDetailInvokeResponseArgs{...}
+type ErrorDetailInvokeResponseInput interface {
+	pulumi.Input
+
+	ToErrorDetailInvokeResponseOutput() ErrorDetailInvokeResponseOutput
+	ToErrorDetailInvokeResponseOutputWithContext(context.Context) ErrorDetailInvokeResponseOutput
+}
+
+type ErrorDetailInvokeResponseArgs struct {
+	// The error's code.
+	Code pulumi.StringInput `pulumi:"code"`
+	// Additional error details.
+	Details ErrorDetailInvokeResponseArrayInput `pulumi:"details"`
+	// A human readable error message.
+	Message pulumi.StringInput `pulumi:"message"`
+	// Indicates which property in the request is responsible for the error.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ErrorDetailInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (i ErrorDetailInvokeResponseArgs) ToErrorDetailInvokeResponseOutput() ErrorDetailInvokeResponseOutput {
+	return i.ToErrorDetailInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailInvokeResponseArgs) ToErrorDetailInvokeResponseOutputWithContext(ctx context.Context) ErrorDetailInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailInvokeResponseOutput)
+}
+
+// ErrorDetailInvokeResponseArrayInput is an input type that accepts ErrorDetailInvokeResponseArray and ErrorDetailInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ErrorDetailInvokeResponseArrayInput` via:
+//
+//          ErrorDetailInvokeResponseArray{ ErrorDetailInvokeResponseArgs{...} }
+type ErrorDetailInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToErrorDetailInvokeResponseArrayOutput() ErrorDetailInvokeResponseArrayOutput
+	ToErrorDetailInvokeResponseArrayOutputWithContext(context.Context) ErrorDetailInvokeResponseArrayOutput
+}
+
+type ErrorDetailInvokeResponseArray []ErrorDetailInvokeResponseInput
+
+func (ErrorDetailInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (i ErrorDetailInvokeResponseArray) ToErrorDetailInvokeResponseArrayOutput() ErrorDetailInvokeResponseArrayOutput {
+	return i.ToErrorDetailInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailInvokeResponseArray) ToErrorDetailInvokeResponseArrayOutputWithContext(ctx context.Context) ErrorDetailInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailInvokeResponseArrayOutput)
+}
+
+type ErrorDetailInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailInvokeResponseOutput) ToErrorDetailInvokeResponseOutput() ErrorDetailInvokeResponseOutput {
+	return o
+}
+
+func (o ErrorDetailInvokeResponseOutput) ToErrorDetailInvokeResponseOutputWithContext(ctx context.Context) ErrorDetailInvokeResponseOutput {
+	return o
+}
+
+// The error's code.
+func (o ErrorDetailInvokeResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Additional error details.
+func (o ErrorDetailInvokeResponseOutput) Details() ErrorDetailInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) []ErrorDetailInvokeResponse { return v.Details }).(ErrorDetailInvokeResponseArrayOutput)
+}
+
+// A human readable error message.
+func (o ErrorDetailInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Indicates which property in the request is responsible for the error.
+func (o ErrorDetailInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ErrorDetailInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailInvokeResponseArrayOutput) ToErrorDetailInvokeResponseArrayOutput() ErrorDetailInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ErrorDetailInvokeResponseArrayOutput) ToErrorDetailInvokeResponseArrayOutputWithContext(ctx context.Context) ErrorDetailInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ErrorDetailInvokeResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorDetailInvokeResponse {
+		return vs[0].([]ErrorDetailInvokeResponse)[vs[1].(int)]
+	}).(ErrorDetailInvokeResponseOutput)
+}
+
 type ErrorDetailResponse struct {
 	// The error's code.
 	Code string `pulumi:"code"`
@@ -323,6 +447,88 @@ func (o LocationDataPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to the geographic location of the resource.
+type LocationDataInvokeResponse struct {
+	// The city or locality where the resource is located.
+	City *string `pulumi:"city"`
+	// The country or region where the resource is located
+	CountryOrRegion *string `pulumi:"countryOrRegion"`
+	// The district, state, or province where the resource is located.
+	District *string `pulumi:"district"`
+	// A canonical name for the geographic or physical location.
+	Name string `pulumi:"name"`
+}
+
+// LocationDataInvokeResponseInput is an input type that accepts LocationDataInvokeResponseArgs and LocationDataInvokeResponseOutput values.
+// You can construct a concrete instance of `LocationDataInvokeResponseInput` via:
+//
+//          LocationDataInvokeResponseArgs{...}
+type LocationDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLocationDataInvokeResponseOutput() LocationDataInvokeResponseOutput
+	ToLocationDataInvokeResponseOutputWithContext(context.Context) LocationDataInvokeResponseOutput
+}
+
+// Metadata pertaining to the geographic location of the resource.
+type LocationDataInvokeResponseArgs struct {
+	// The city or locality where the resource is located.
+	City pulumi.StringPtrInput `pulumi:"city"`
+	// The country or region where the resource is located
+	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
+	// The district, state, or province where the resource is located.
+	District pulumi.StringPtrInput `pulumi:"district"`
+	// A canonical name for the geographic or physical location.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LocationDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationDataInvokeResponse)(nil)).Elem()
+}
+
+func (i LocationDataInvokeResponseArgs) ToLocationDataInvokeResponseOutput() LocationDataInvokeResponseOutput {
+	return i.ToLocationDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LocationDataInvokeResponseArgs) ToLocationDataInvokeResponseOutputWithContext(ctx context.Context) LocationDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to the geographic location of the resource.
+type LocationDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LocationDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationDataInvokeResponse)(nil)).Elem()
+}
+
+func (o LocationDataInvokeResponseOutput) ToLocationDataInvokeResponseOutput() LocationDataInvokeResponseOutput {
+	return o
+}
+
+func (o LocationDataInvokeResponseOutput) ToLocationDataInvokeResponseOutputWithContext(ctx context.Context) LocationDataInvokeResponseOutput {
+	return o
+}
+
+// The city or locality where the resource is located.
+func (o LocationDataInvokeResponseOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationDataInvokeResponse) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// The country or region where the resource is located
+func (o LocationDataInvokeResponseOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationDataInvokeResponse) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
+}
+
+// The district, state, or province where the resource is located.
+func (o LocationDataInvokeResponseOutput) District() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationDataInvokeResponse) *string { return v.District }).(pulumi.StringPtrOutput)
+}
+
+// A canonical name for the geographic or physical location.
+func (o LocationDataInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationDataInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Metadata pertaining to the geographic location of the resource.
@@ -641,6 +847,347 @@ func (o MachineExtensionInstanceViewArrayOutput) Index(i pulumi.IntInput) Machin
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MachineExtensionInstanceView {
 		return vs[0].([]MachineExtensionInstanceView)[vs[1].(int)]
 	}).(MachineExtensionInstanceViewOutput)
+}
+
+// Describes the Machine Extension Instance View.
+type MachineExtensionInstanceViewInvokeResponse struct {
+	// The machine extension name.
+	Name *string `pulumi:"name"`
+	// Instance view status.
+	Status *MachineExtensionInstanceViewInvokeResponseStatus `pulumi:"status"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type *string `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+}
+
+// MachineExtensionInstanceViewInvokeResponseInput is an input type that accepts MachineExtensionInstanceViewInvokeResponseArgs and MachineExtensionInstanceViewInvokeResponseOutput values.
+// You can construct a concrete instance of `MachineExtensionInstanceViewInvokeResponseInput` via:
+//
+//          MachineExtensionInstanceViewInvokeResponseArgs{...}
+type MachineExtensionInstanceViewInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewInvokeResponseOutput() MachineExtensionInstanceViewInvokeResponseOutput
+	ToMachineExtensionInstanceViewInvokeResponseOutputWithContext(context.Context) MachineExtensionInstanceViewInvokeResponseOutput
+}
+
+// Describes the Machine Extension Instance View.
+type MachineExtensionInstanceViewInvokeResponseArgs struct {
+	// The machine extension name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Instance view status.
+	Status MachineExtensionInstanceViewInvokeResponseStatusPtrInput `pulumi:"status"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+}
+
+func (MachineExtensionInstanceViewInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceViewInvokeResponse)(nil)).Elem()
+}
+
+func (i MachineExtensionInstanceViewInvokeResponseArgs) ToMachineExtensionInstanceViewInvokeResponseOutput() MachineExtensionInstanceViewInvokeResponseOutput {
+	return i.ToMachineExtensionInstanceViewInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewInvokeResponseArgs) ToMachineExtensionInstanceViewInvokeResponseOutputWithContext(ctx context.Context) MachineExtensionInstanceViewInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewInvokeResponseOutput)
+}
+
+// MachineExtensionInstanceViewInvokeResponseArrayInput is an input type that accepts MachineExtensionInstanceViewInvokeResponseArray and MachineExtensionInstanceViewInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MachineExtensionInstanceViewInvokeResponseArrayInput` via:
+//
+//          MachineExtensionInstanceViewInvokeResponseArray{ MachineExtensionInstanceViewInvokeResponseArgs{...} }
+type MachineExtensionInstanceViewInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewInvokeResponseArrayOutput() MachineExtensionInstanceViewInvokeResponseArrayOutput
+	ToMachineExtensionInstanceViewInvokeResponseArrayOutputWithContext(context.Context) MachineExtensionInstanceViewInvokeResponseArrayOutput
+}
+
+type MachineExtensionInstanceViewInvokeResponseArray []MachineExtensionInstanceViewInvokeResponseInput
+
+func (MachineExtensionInstanceViewInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MachineExtensionInstanceViewInvokeResponse)(nil)).Elem()
+}
+
+func (i MachineExtensionInstanceViewInvokeResponseArray) ToMachineExtensionInstanceViewInvokeResponseArrayOutput() MachineExtensionInstanceViewInvokeResponseArrayOutput {
+	return i.ToMachineExtensionInstanceViewInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewInvokeResponseArray) ToMachineExtensionInstanceViewInvokeResponseArrayOutputWithContext(ctx context.Context) MachineExtensionInstanceViewInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewInvokeResponseArrayOutput)
+}
+
+// Describes the Machine Extension Instance View.
+type MachineExtensionInstanceViewInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceViewInvokeResponse)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseOutput) ToMachineExtensionInstanceViewInvokeResponseOutput() MachineExtensionInstanceViewInvokeResponseOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseOutput) ToMachineExtensionInstanceViewInvokeResponseOutputWithContext(ctx context.Context) MachineExtensionInstanceViewInvokeResponseOutput {
+	return o
+}
+
+// The machine extension name.
+func (o MachineExtensionInstanceViewInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Instance view status.
+func (o MachineExtensionInstanceViewInvokeResponseOutput) Status() MachineExtensionInstanceViewInvokeResponseStatusPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewInvokeResponse) *MachineExtensionInstanceViewInvokeResponseStatus {
+		return v.Status
+	}).(MachineExtensionInstanceViewInvokeResponseStatusPtrOutput)
+}
+
+// Specifies the type of the extension; an example is "CustomScriptExtension".
+func (o MachineExtensionInstanceViewInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the script handler.
+func (o MachineExtensionInstanceViewInvokeResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewInvokeResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionInstanceViewInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MachineExtensionInstanceViewInvokeResponse)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseArrayOutput) ToMachineExtensionInstanceViewInvokeResponseArrayOutput() MachineExtensionInstanceViewInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseArrayOutput) ToMachineExtensionInstanceViewInvokeResponseArrayOutputWithContext(ctx context.Context) MachineExtensionInstanceViewInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseArrayOutput) Index(i pulumi.IntInput) MachineExtensionInstanceViewInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MachineExtensionInstanceViewInvokeResponse {
+		return vs[0].([]MachineExtensionInstanceViewInvokeResponse)[vs[1].(int)]
+	}).(MachineExtensionInstanceViewInvokeResponseOutput)
+}
+
+// Instance view status.
+type MachineExtensionInstanceViewInvokeResponseStatus struct {
+	// The status code.
+	Code *string `pulumi:"code"`
+	// The short localizable label for the status.
+	DisplayStatus *string `pulumi:"displayStatus"`
+	// The level code.
+	Level *string `pulumi:"level"`
+	// The detailed status message, including for alerts and error messages.
+	Message *string `pulumi:"message"`
+	// The time of the status.
+	Time *string `pulumi:"time"`
+}
+
+// MachineExtensionInstanceViewInvokeResponseStatusInput is an input type that accepts MachineExtensionInstanceViewInvokeResponseStatusArgs and MachineExtensionInstanceViewInvokeResponseStatusOutput values.
+// You can construct a concrete instance of `MachineExtensionInstanceViewInvokeResponseStatusInput` via:
+//
+//          MachineExtensionInstanceViewInvokeResponseStatusArgs{...}
+type MachineExtensionInstanceViewInvokeResponseStatusInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewInvokeResponseStatusOutput() MachineExtensionInstanceViewInvokeResponseStatusOutput
+	ToMachineExtensionInstanceViewInvokeResponseStatusOutputWithContext(context.Context) MachineExtensionInstanceViewInvokeResponseStatusOutput
+}
+
+// Instance view status.
+type MachineExtensionInstanceViewInvokeResponseStatusArgs struct {
+	// The status code.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// The short localizable label for the status.
+	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
+	// The level code.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// The detailed status message, including for alerts and error messages.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The time of the status.
+	Time pulumi.StringPtrInput `pulumi:"time"`
+}
+
+func (MachineExtensionInstanceViewInvokeResponseStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceViewInvokeResponseStatus)(nil)).Elem()
+}
+
+func (i MachineExtensionInstanceViewInvokeResponseStatusArgs) ToMachineExtensionInstanceViewInvokeResponseStatusOutput() MachineExtensionInstanceViewInvokeResponseStatusOutput {
+	return i.ToMachineExtensionInstanceViewInvokeResponseStatusOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewInvokeResponseStatusArgs) ToMachineExtensionInstanceViewInvokeResponseStatusOutputWithContext(ctx context.Context) MachineExtensionInstanceViewInvokeResponseStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewInvokeResponseStatusOutput)
+}
+
+func (i MachineExtensionInstanceViewInvokeResponseStatusArgs) ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutput() MachineExtensionInstanceViewInvokeResponseStatusPtrOutput {
+	return i.ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewInvokeResponseStatusArgs) ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewInvokeResponseStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewInvokeResponseStatusOutput).ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutputWithContext(ctx)
+}
+
+// MachineExtensionInstanceViewInvokeResponseStatusPtrInput is an input type that accepts MachineExtensionInstanceViewInvokeResponseStatusArgs, MachineExtensionInstanceViewInvokeResponseStatusPtr and MachineExtensionInstanceViewInvokeResponseStatusPtrOutput values.
+// You can construct a concrete instance of `MachineExtensionInstanceViewInvokeResponseStatusPtrInput` via:
+//
+//          MachineExtensionInstanceViewInvokeResponseStatusArgs{...}
+//
+//  or:
+//
+//          nil
+type MachineExtensionInstanceViewInvokeResponseStatusPtrInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutput() MachineExtensionInstanceViewInvokeResponseStatusPtrOutput
+	ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutputWithContext(context.Context) MachineExtensionInstanceViewInvokeResponseStatusPtrOutput
+}
+
+type machineExtensionInstanceViewInvokeResponseStatusPtrType MachineExtensionInstanceViewInvokeResponseStatusArgs
+
+func MachineExtensionInstanceViewInvokeResponseStatusPtr(v *MachineExtensionInstanceViewInvokeResponseStatusArgs) MachineExtensionInstanceViewInvokeResponseStatusPtrInput {
+	return (*machineExtensionInstanceViewInvokeResponseStatusPtrType)(v)
+}
+
+func (*machineExtensionInstanceViewInvokeResponseStatusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineExtensionInstanceViewInvokeResponseStatus)(nil)).Elem()
+}
+
+func (i *machineExtensionInstanceViewInvokeResponseStatusPtrType) ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutput() MachineExtensionInstanceViewInvokeResponseStatusPtrOutput {
+	return i.ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutputWithContext(context.Background())
+}
+
+func (i *machineExtensionInstanceViewInvokeResponseStatusPtrType) ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewInvokeResponseStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewInvokeResponseStatusPtrOutput)
+}
+
+// Instance view status.
+type MachineExtensionInstanceViewInvokeResponseStatusOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewInvokeResponseStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceViewInvokeResponseStatus)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseStatusOutput) ToMachineExtensionInstanceViewInvokeResponseStatusOutput() MachineExtensionInstanceViewInvokeResponseStatusOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseStatusOutput) ToMachineExtensionInstanceViewInvokeResponseStatusOutputWithContext(ctx context.Context) MachineExtensionInstanceViewInvokeResponseStatusOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseStatusOutput) ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutput() MachineExtensionInstanceViewInvokeResponseStatusPtrOutput {
+	return o.ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseStatusOutput) ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewInvokeResponseStatusPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewInvokeResponseStatus) *MachineExtensionInstanceViewInvokeResponseStatus {
+		return &v
+	}).(MachineExtensionInstanceViewInvokeResponseStatusPtrOutput)
+}
+
+// The status code.
+func (o MachineExtensionInstanceViewInvokeResponseStatusOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewInvokeResponseStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// The short localizable label for the status.
+func (o MachineExtensionInstanceViewInvokeResponseStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewInvokeResponseStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
+}
+
+// The level code.
+func (o MachineExtensionInstanceViewInvokeResponseStatusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewInvokeResponseStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// The detailed status message, including for alerts and error messages.
+func (o MachineExtensionInstanceViewInvokeResponseStatusOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewInvokeResponseStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The time of the status.
+func (o MachineExtensionInstanceViewInvokeResponseStatusOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewInvokeResponseStatus) *string { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionInstanceViewInvokeResponseStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewInvokeResponseStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineExtensionInstanceViewInvokeResponseStatus)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseStatusPtrOutput) ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutput() MachineExtensionInstanceViewInvokeResponseStatusPtrOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseStatusPtrOutput) ToMachineExtensionInstanceViewInvokeResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewInvokeResponseStatusPtrOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewInvokeResponseStatusPtrOutput) Elem() MachineExtensionInstanceViewInvokeResponseStatusOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewInvokeResponseStatus) MachineExtensionInstanceViewInvokeResponseStatus {
+		return *v
+	}).(MachineExtensionInstanceViewInvokeResponseStatusOutput)
+}
+
+// The status code.
+func (o MachineExtensionInstanceViewInvokeResponseStatusPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewInvokeResponseStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The short localizable label for the status.
+func (o MachineExtensionInstanceViewInvokeResponseStatusPtrOutput) DisplayStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewInvokeResponseStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The level code.
+func (o MachineExtensionInstanceViewInvokeResponseStatusPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewInvokeResponseStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// The detailed status message, including for alerts and error messages.
+func (o MachineExtensionInstanceViewInvokeResponseStatusPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewInvokeResponseStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time of the status.
+func (o MachineExtensionInstanceViewInvokeResponseStatusPtrOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewInvokeResponseStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Time
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the Machine Extension Instance View.
@@ -1386,6 +1933,90 @@ func (o MachineExtensionPropertiesInstanceViewPtrOutput) TypeHandlerVersion() pu
 }
 
 // The machine extension instance view.
+type MachineExtensionPropertiesInvokeResponseInstanceView struct {
+	// The machine extension name.
+	Name *string `pulumi:"name"`
+	// Instance view status.
+	Status *MachineExtensionInstanceViewInvokeResponseStatus `pulumi:"status"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type *string `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+}
+
+// MachineExtensionPropertiesInvokeResponseInstanceViewInput is an input type that accepts MachineExtensionPropertiesInvokeResponseInstanceViewArgs and MachineExtensionPropertiesInvokeResponseInstanceViewOutput values.
+// You can construct a concrete instance of `MachineExtensionPropertiesInvokeResponseInstanceViewInput` via:
+//
+//          MachineExtensionPropertiesInvokeResponseInstanceViewArgs{...}
+type MachineExtensionPropertiesInvokeResponseInstanceViewInput interface {
+	pulumi.Input
+
+	ToMachineExtensionPropertiesInvokeResponseInstanceViewOutput() MachineExtensionPropertiesInvokeResponseInstanceViewOutput
+	ToMachineExtensionPropertiesInvokeResponseInstanceViewOutputWithContext(context.Context) MachineExtensionPropertiesInvokeResponseInstanceViewOutput
+}
+
+// The machine extension instance view.
+type MachineExtensionPropertiesInvokeResponseInstanceViewArgs struct {
+	// The machine extension name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Instance view status.
+	Status MachineExtensionInstanceViewInvokeResponseStatusPtrInput `pulumi:"status"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+}
+
+func (MachineExtensionPropertiesInvokeResponseInstanceViewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionPropertiesInvokeResponseInstanceView)(nil)).Elem()
+}
+
+func (i MachineExtensionPropertiesInvokeResponseInstanceViewArgs) ToMachineExtensionPropertiesInvokeResponseInstanceViewOutput() MachineExtensionPropertiesInvokeResponseInstanceViewOutput {
+	return i.ToMachineExtensionPropertiesInvokeResponseInstanceViewOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionPropertiesInvokeResponseInstanceViewArgs) ToMachineExtensionPropertiesInvokeResponseInstanceViewOutputWithContext(ctx context.Context) MachineExtensionPropertiesInvokeResponseInstanceViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesInvokeResponseInstanceViewOutput)
+}
+
+// The machine extension instance view.
+type MachineExtensionPropertiesInvokeResponseInstanceViewOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionPropertiesInvokeResponseInstanceViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionPropertiesInvokeResponseInstanceView)(nil)).Elem()
+}
+
+func (o MachineExtensionPropertiesInvokeResponseInstanceViewOutput) ToMachineExtensionPropertiesInvokeResponseInstanceViewOutput() MachineExtensionPropertiesInvokeResponseInstanceViewOutput {
+	return o
+}
+
+func (o MachineExtensionPropertiesInvokeResponseInstanceViewOutput) ToMachineExtensionPropertiesInvokeResponseInstanceViewOutputWithContext(ctx context.Context) MachineExtensionPropertiesInvokeResponseInstanceViewOutput {
+	return o
+}
+
+// The machine extension name.
+func (o MachineExtensionPropertiesInvokeResponseInstanceViewOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesInvokeResponseInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Instance view status.
+func (o MachineExtensionPropertiesInvokeResponseInstanceViewOutput) Status() MachineExtensionInstanceViewInvokeResponseStatusPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesInvokeResponseInstanceView) *MachineExtensionInstanceViewInvokeResponseStatus {
+		return v.Status
+	}).(MachineExtensionInstanceViewInvokeResponseStatusPtrOutput)
+}
+
+// Specifies the type of the extension; an example is "CustomScriptExtension".
+func (o MachineExtensionPropertiesInvokeResponseInstanceViewOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesInvokeResponseInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the script handler.
+func (o MachineExtensionPropertiesInvokeResponseInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesInvokeResponseInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+// The machine extension instance view.
 type MachineExtensionPropertiesResponseInstanceView struct {
 	// The machine extension name.
 	Name *string `pulumi:"name"`
@@ -1711,6 +2342,131 @@ func (o MachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MachineInvokeResponseIdentity struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// MachineInvokeResponseIdentityInput is an input type that accepts MachineInvokeResponseIdentityArgs and MachineInvokeResponseIdentityOutput values.
+// You can construct a concrete instance of `MachineInvokeResponseIdentityInput` via:
+//
+//          MachineInvokeResponseIdentityArgs{...}
+type MachineInvokeResponseIdentityInput interface {
+	pulumi.Input
+
+	ToMachineInvokeResponseIdentityOutput() MachineInvokeResponseIdentityOutput
+	ToMachineInvokeResponseIdentityOutputWithContext(context.Context) MachineInvokeResponseIdentityOutput
+}
+
+type MachineInvokeResponseIdentityArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (MachineInvokeResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineInvokeResponseIdentity)(nil)).Elem()
+}
+
+func (i MachineInvokeResponseIdentityArgs) ToMachineInvokeResponseIdentityOutput() MachineInvokeResponseIdentityOutput {
+	return i.ToMachineInvokeResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i MachineInvokeResponseIdentityArgs) ToMachineInvokeResponseIdentityOutputWithContext(ctx context.Context) MachineInvokeResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineInvokeResponseIdentityOutput)
+}
+
+type MachineInvokeResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (MachineInvokeResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineInvokeResponseIdentity)(nil)).Elem()
+}
+
+func (o MachineInvokeResponseIdentityOutput) ToMachineInvokeResponseIdentityOutput() MachineInvokeResponseIdentityOutput {
+	return o
+}
+
+func (o MachineInvokeResponseIdentityOutput) ToMachineInvokeResponseIdentityOutputWithContext(ctx context.Context) MachineInvokeResponseIdentityOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o MachineInvokeResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineInvokeResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o MachineInvokeResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineInvokeResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o MachineInvokeResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineInvokeResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the operating system settings for the hybrid machine.
+type MachinePropertiesInvokeResponseOsProfile struct {
+	// Specifies the host OS name of the hybrid machine.
+	ComputerName string `pulumi:"computerName"`
+}
+
+// MachinePropertiesInvokeResponseOsProfileInput is an input type that accepts MachinePropertiesInvokeResponseOsProfileArgs and MachinePropertiesInvokeResponseOsProfileOutput values.
+// You can construct a concrete instance of `MachinePropertiesInvokeResponseOsProfileInput` via:
+//
+//          MachinePropertiesInvokeResponseOsProfileArgs{...}
+type MachinePropertiesInvokeResponseOsProfileInput interface {
+	pulumi.Input
+
+	ToMachinePropertiesInvokeResponseOsProfileOutput() MachinePropertiesInvokeResponseOsProfileOutput
+	ToMachinePropertiesInvokeResponseOsProfileOutputWithContext(context.Context) MachinePropertiesInvokeResponseOsProfileOutput
+}
+
+// Specifies the operating system settings for the hybrid machine.
+type MachinePropertiesInvokeResponseOsProfileArgs struct {
+	// Specifies the host OS name of the hybrid machine.
+	ComputerName pulumi.StringInput `pulumi:"computerName"`
+}
+
+func (MachinePropertiesInvokeResponseOsProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachinePropertiesInvokeResponseOsProfile)(nil)).Elem()
+}
+
+func (i MachinePropertiesInvokeResponseOsProfileArgs) ToMachinePropertiesInvokeResponseOsProfileOutput() MachinePropertiesInvokeResponseOsProfileOutput {
+	return i.ToMachinePropertiesInvokeResponseOsProfileOutputWithContext(context.Background())
+}
+
+func (i MachinePropertiesInvokeResponseOsProfileArgs) ToMachinePropertiesInvokeResponseOsProfileOutputWithContext(ctx context.Context) MachinePropertiesInvokeResponseOsProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachinePropertiesInvokeResponseOsProfileOutput)
+}
+
+// Specifies the operating system settings for the hybrid machine.
+type MachinePropertiesInvokeResponseOsProfileOutput struct{ *pulumi.OutputState }
+
+func (MachinePropertiesInvokeResponseOsProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachinePropertiesInvokeResponseOsProfile)(nil)).Elem()
+}
+
+func (o MachinePropertiesInvokeResponseOsProfileOutput) ToMachinePropertiesInvokeResponseOsProfileOutput() MachinePropertiesInvokeResponseOsProfileOutput {
+	return o
+}
+
+func (o MachinePropertiesInvokeResponseOsProfileOutput) ToMachinePropertiesInvokeResponseOsProfileOutputWithContext(ctx context.Context) MachinePropertiesInvokeResponseOsProfileOutput {
+	return o
+}
+
+// Specifies the host OS name of the hybrid machine.
+func (o MachinePropertiesInvokeResponseOsProfileOutput) ComputerName() pulumi.StringOutput {
+	return o.ApplyT(func(v MachinePropertiesInvokeResponseOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
+}
+
 // Specifies the operating system settings for the hybrid machine.
 type MachinePropertiesResponseOsProfile struct {
 	// Specifies the host OS name of the hybrid machine.
@@ -2015,14 +2771,21 @@ func (o MachineResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ErrorDetailInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ErrorDetailInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(LocationDataOutput{})
 	pulumi.RegisterOutputType(LocationDataPtrOutput{})
+	pulumi.RegisterOutputType(LocationDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LocationDataResponseOutput{})
 	pulumi.RegisterOutputType(LocationDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewArrayOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewInvokeResponseStatusOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewInvokeResponseStatusPtrOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseArrayOutput{})
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseStatusOutput{})
@@ -2031,10 +2794,13 @@ func init() {
 	pulumi.RegisterOutputType(MachineExtensionInstanceViewStatusPtrOutput{})
 	pulumi.RegisterOutputType(MachineExtensionPropertiesInstanceViewOutput{})
 	pulumi.RegisterOutputType(MachineExtensionPropertiesInstanceViewPtrOutput{})
+	pulumi.RegisterOutputType(MachineExtensionPropertiesInvokeResponseInstanceViewOutput{})
 	pulumi.RegisterOutputType(MachineExtensionPropertiesResponseInstanceViewOutput{})
 	pulumi.RegisterOutputType(MachineExtensionPropertiesResponseInstanceViewPtrOutput{})
 	pulumi.RegisterOutputType(MachineIdentityOutput{})
 	pulumi.RegisterOutputType(MachineIdentityPtrOutput{})
+	pulumi.RegisterOutputType(MachineInvokeResponseIdentityOutput{})
+	pulumi.RegisterOutputType(MachinePropertiesInvokeResponseOsProfileOutput{})
 	pulumi.RegisterOutputType(MachinePropertiesResponseOsProfileOutput{})
 	pulumi.RegisterOutputType(MachinePropertiesResponseOsProfilePtrOutput{})
 	pulumi.RegisterOutputType(MachineResponseIdentityOutput{})

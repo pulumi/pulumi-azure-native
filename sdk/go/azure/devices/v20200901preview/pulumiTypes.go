@@ -164,6 +164,90 @@ func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 }
 
 // The set of ARM identities associated with the IoT DPS resource.
+type ArmIdentityInvokeResponse struct {
+	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+	IdentityType *string `pulumi:"identityType"`
+	// Principal Id
+	PrincipalId string `pulumi:"principalId"`
+	// Tenant Id
+	TenantId string `pulumi:"tenantId"`
+	// The set of UserAssigned identities associated with the IoT DPS resource.
+	UserAssignedIdentities map[string]ArmUserIdentityInvokeResponse `pulumi:"userAssignedIdentities"`
+}
+
+// ArmIdentityInvokeResponseInput is an input type that accepts ArmIdentityInvokeResponseArgs and ArmIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ArmIdentityInvokeResponseInput` via:
+//
+//          ArmIdentityInvokeResponseArgs{...}
+type ArmIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToArmIdentityInvokeResponseOutput() ArmIdentityInvokeResponseOutput
+	ToArmIdentityInvokeResponseOutputWithContext(context.Context) ArmIdentityInvokeResponseOutput
+}
+
+// The set of ARM identities associated with the IoT DPS resource.
+type ArmIdentityInvokeResponseArgs struct {
+	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+	IdentityType pulumi.StringPtrInput `pulumi:"identityType"`
+	// Principal Id
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Tenant Id
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The set of UserAssigned identities associated with the IoT DPS resource.
+	UserAssignedIdentities ArmUserIdentityInvokeResponseMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ArmIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ArmIdentityInvokeResponseArgs) ToArmIdentityInvokeResponseOutput() ArmIdentityInvokeResponseOutput {
+	return i.ToArmIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityInvokeResponseArgs) ToArmIdentityInvokeResponseOutputWithContext(ctx context.Context) ArmIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityInvokeResponseOutput)
+}
+
+// The set of ARM identities associated with the IoT DPS resource.
+type ArmIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ArmIdentityInvokeResponseOutput) ToArmIdentityInvokeResponseOutput() ArmIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ArmIdentityInvokeResponseOutput) ToArmIdentityInvokeResponseOutputWithContext(ctx context.Context) ArmIdentityInvokeResponseOutput {
+	return o
+}
+
+// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+func (o ArmIdentityInvokeResponseOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmIdentityInvokeResponse) *string { return v.IdentityType }).(pulumi.StringPtrOutput)
+}
+
+// Principal Id
+func (o ArmIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Tenant Id
+func (o ArmIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The set of UserAssigned identities associated with the IoT DPS resource.
+func (o ArmIdentityInvokeResponseOutput) UserAssignedIdentities() ArmUserIdentityInvokeResponseMapOutput {
+	return o.ApplyT(func(v ArmIdentityInvokeResponse) map[string]ArmUserIdentityInvokeResponse {
+		return v.UserAssignedIdentities
+	}).(ArmUserIdentityInvokeResponseMapOutput)
+}
+
+// The set of ARM identities associated with the IoT DPS resource.
 type ArmIdentityResponse struct {
 	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
 	IdentityType *string `pulumi:"identityType"`
@@ -355,6 +439,115 @@ func (o ArmIdentityResponsePtrOutput) UserAssignedIdentities() ArmUserIdentityRe
 }
 
 // The ARM UserAssigned identity information
+type ArmUserIdentityInvokeResponse struct {
+	// Client Id
+	ClientId string `pulumi:"clientId"`
+	// Principal Id
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// ArmUserIdentityInvokeResponseInput is an input type that accepts ArmUserIdentityInvokeResponseArgs and ArmUserIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ArmUserIdentityInvokeResponseInput` via:
+//
+//          ArmUserIdentityInvokeResponseArgs{...}
+type ArmUserIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToArmUserIdentityInvokeResponseOutput() ArmUserIdentityInvokeResponseOutput
+	ToArmUserIdentityInvokeResponseOutputWithContext(context.Context) ArmUserIdentityInvokeResponseOutput
+}
+
+// The ARM UserAssigned identity information
+type ArmUserIdentityInvokeResponseArgs struct {
+	// Client Id
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Principal Id
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (ArmUserIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmUserIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ArmUserIdentityInvokeResponseArgs) ToArmUserIdentityInvokeResponseOutput() ArmUserIdentityInvokeResponseOutput {
+	return i.ToArmUserIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ArmUserIdentityInvokeResponseArgs) ToArmUserIdentityInvokeResponseOutputWithContext(ctx context.Context) ArmUserIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmUserIdentityInvokeResponseOutput)
+}
+
+// ArmUserIdentityInvokeResponseMapInput is an input type that accepts ArmUserIdentityInvokeResponseMap and ArmUserIdentityInvokeResponseMapOutput values.
+// You can construct a concrete instance of `ArmUserIdentityInvokeResponseMapInput` via:
+//
+//          ArmUserIdentityInvokeResponseMap{ "key": ArmUserIdentityInvokeResponseArgs{...} }
+type ArmUserIdentityInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToArmUserIdentityInvokeResponseMapOutput() ArmUserIdentityInvokeResponseMapOutput
+	ToArmUserIdentityInvokeResponseMapOutputWithContext(context.Context) ArmUserIdentityInvokeResponseMapOutput
+}
+
+type ArmUserIdentityInvokeResponseMap map[string]ArmUserIdentityInvokeResponseInput
+
+func (ArmUserIdentityInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ArmUserIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ArmUserIdentityInvokeResponseMap) ToArmUserIdentityInvokeResponseMapOutput() ArmUserIdentityInvokeResponseMapOutput {
+	return i.ToArmUserIdentityInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i ArmUserIdentityInvokeResponseMap) ToArmUserIdentityInvokeResponseMapOutputWithContext(ctx context.Context) ArmUserIdentityInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmUserIdentityInvokeResponseMapOutput)
+}
+
+// The ARM UserAssigned identity information
+type ArmUserIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmUserIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmUserIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ArmUserIdentityInvokeResponseOutput) ToArmUserIdentityInvokeResponseOutput() ArmUserIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ArmUserIdentityInvokeResponseOutput) ToArmUserIdentityInvokeResponseOutputWithContext(ctx context.Context) ArmUserIdentityInvokeResponseOutput {
+	return o
+}
+
+// Client Id
+func (o ArmUserIdentityInvokeResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmUserIdentityInvokeResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Principal Id
+func (o ArmUserIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmUserIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type ArmUserIdentityInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ArmUserIdentityInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ArmUserIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ArmUserIdentityInvokeResponseMapOutput) ToArmUserIdentityInvokeResponseMapOutput() ArmUserIdentityInvokeResponseMapOutput {
+	return o
+}
+
+func (o ArmUserIdentityInvokeResponseMapOutput) ToArmUserIdentityInvokeResponseMapOutputWithContext(ctx context.Context) ArmUserIdentityInvokeResponseMapOutput {
+	return o
+}
+
+func (o ArmUserIdentityInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) ArmUserIdentityInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ArmUserIdentityInvokeResponse {
+		return vs[0].(map[string]ArmUserIdentityInvokeResponse)[vs[1].(string)]
+	}).(ArmUserIdentityInvokeResponseOutput)
+}
+
+// The ARM UserAssigned identity information
 type ArmUserIdentityResponse struct {
 	// Client Id
 	ClientId string `pulumi:"clientId"`
@@ -461,6 +654,106 @@ func (o ArmUserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) ArmUser
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ArmUserIdentityResponse {
 		return vs[0].(map[string]ArmUserIdentityResponse)[vs[1].(string)]
 	}).(ArmUserIdentityResponseOutput)
+}
+
+// The description of an X509 CA Certificate.
+type CertificatePropertiesInvokeResponse struct {
+	// The certificate's creation date and time.
+	Created string `pulumi:"created"`
+	// The certificate's expiration date and time.
+	Expiry string `pulumi:"expiry"`
+	// Determines whether certificate has been verified.
+	IsVerified bool `pulumi:"isVerified"`
+	// The certificate's subject name.
+	Subject string `pulumi:"subject"`
+	// The certificate's thumbprint.
+	Thumbprint string `pulumi:"thumbprint"`
+	// The certificate's last update date and time.
+	Updated string `pulumi:"updated"`
+}
+
+// CertificatePropertiesInvokeResponseInput is an input type that accepts CertificatePropertiesInvokeResponseArgs and CertificatePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CertificatePropertiesInvokeResponseInput` via:
+//
+//          CertificatePropertiesInvokeResponseArgs{...}
+type CertificatePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCertificatePropertiesInvokeResponseOutput() CertificatePropertiesInvokeResponseOutput
+	ToCertificatePropertiesInvokeResponseOutputWithContext(context.Context) CertificatePropertiesInvokeResponseOutput
+}
+
+// The description of an X509 CA Certificate.
+type CertificatePropertiesInvokeResponseArgs struct {
+	// The certificate's creation date and time.
+	Created pulumi.StringInput `pulumi:"created"`
+	// The certificate's expiration date and time.
+	Expiry pulumi.StringInput `pulumi:"expiry"`
+	// Determines whether certificate has been verified.
+	IsVerified pulumi.BoolInput `pulumi:"isVerified"`
+	// The certificate's subject name.
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// The certificate's thumbprint.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	// The certificate's last update date and time.
+	Updated pulumi.StringInput `pulumi:"updated"`
+}
+
+func (CertificatePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CertificatePropertiesInvokeResponseArgs) ToCertificatePropertiesInvokeResponseOutput() CertificatePropertiesInvokeResponseOutput {
+	return i.ToCertificatePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CertificatePropertiesInvokeResponseArgs) ToCertificatePropertiesInvokeResponseOutputWithContext(ctx context.Context) CertificatePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesInvokeResponseOutput)
+}
+
+// The description of an X509 CA Certificate.
+type CertificatePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CertificatePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CertificatePropertiesInvokeResponseOutput) ToCertificatePropertiesInvokeResponseOutput() CertificatePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CertificatePropertiesInvokeResponseOutput) ToCertificatePropertiesInvokeResponseOutputWithContext(ctx context.Context) CertificatePropertiesInvokeResponseOutput {
+	return o
+}
+
+// The certificate's creation date and time.
+func (o CertificatePropertiesInvokeResponseOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// The certificate's expiration date and time.
+func (o CertificatePropertiesInvokeResponseOutput) Expiry() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Expiry }).(pulumi.StringOutput)
+}
+
+// Determines whether certificate has been verified.
+func (o CertificatePropertiesInvokeResponseOutput) IsVerified() pulumi.BoolOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) bool { return v.IsVerified }).(pulumi.BoolOutput)
+}
+
+// The certificate's subject name.
+func (o CertificatePropertiesInvokeResponseOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+// The certificate's thumbprint.
+func (o CertificatePropertiesInvokeResponseOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// The certificate's last update date and time.
+func (o CertificatePropertiesInvokeResponseOutput) Updated() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Updated }).(pulumi.StringOutput)
 }
 
 // The description of an X509 CA Certificate.
@@ -827,6 +1120,140 @@ func (o EncryptionKeyIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrO
 }
 
 // The properties of the identity used to access the key encryption key in KeyVault.
+type EncryptionKeyIdentityInvokeResponse struct {
+	// The user assigned identity.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// EncryptionKeyIdentityInvokeResponseInput is an input type that accepts EncryptionKeyIdentityInvokeResponseArgs and EncryptionKeyIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionKeyIdentityInvokeResponseInput` via:
+//
+//          EncryptionKeyIdentityInvokeResponseArgs{...}
+type EncryptionKeyIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionKeyIdentityInvokeResponseOutput() EncryptionKeyIdentityInvokeResponseOutput
+	ToEncryptionKeyIdentityInvokeResponseOutputWithContext(context.Context) EncryptionKeyIdentityInvokeResponseOutput
+}
+
+// The properties of the identity used to access the key encryption key in KeyVault.
+type EncryptionKeyIdentityInvokeResponseArgs struct {
+	// The user assigned identity.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (EncryptionKeyIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionKeyIdentityInvokeResponseArgs) ToEncryptionKeyIdentityInvokeResponseOutput() EncryptionKeyIdentityInvokeResponseOutput {
+	return i.ToEncryptionKeyIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionKeyIdentityInvokeResponseArgs) ToEncryptionKeyIdentityInvokeResponseOutputWithContext(ctx context.Context) EncryptionKeyIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityInvokeResponseOutput)
+}
+
+func (i EncryptionKeyIdentityInvokeResponseArgs) ToEncryptionKeyIdentityInvokeResponsePtrOutput() EncryptionKeyIdentityInvokeResponsePtrOutput {
+	return i.ToEncryptionKeyIdentityInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionKeyIdentityInvokeResponseArgs) ToEncryptionKeyIdentityInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityInvokeResponseOutput).ToEncryptionKeyIdentityInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionKeyIdentityInvokeResponsePtrInput is an input type that accepts EncryptionKeyIdentityInvokeResponseArgs, EncryptionKeyIdentityInvokeResponsePtr and EncryptionKeyIdentityInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionKeyIdentityInvokeResponsePtrInput` via:
+//
+//          EncryptionKeyIdentityInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionKeyIdentityInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionKeyIdentityInvokeResponsePtrOutput() EncryptionKeyIdentityInvokeResponsePtrOutput
+	ToEncryptionKeyIdentityInvokeResponsePtrOutputWithContext(context.Context) EncryptionKeyIdentityInvokeResponsePtrOutput
+}
+
+type encryptionKeyIdentityInvokeResponsePtrType EncryptionKeyIdentityInvokeResponseArgs
+
+func EncryptionKeyIdentityInvokeResponsePtr(v *EncryptionKeyIdentityInvokeResponseArgs) EncryptionKeyIdentityInvokeResponsePtrInput {
+	return (*encryptionKeyIdentityInvokeResponsePtrType)(v)
+}
+
+func (*encryptionKeyIdentityInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i *encryptionKeyIdentityInvokeResponsePtrType) ToEncryptionKeyIdentityInvokeResponsePtrOutput() EncryptionKeyIdentityInvokeResponsePtrOutput {
+	return i.ToEncryptionKeyIdentityInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionKeyIdentityInvokeResponsePtrType) ToEncryptionKeyIdentityInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityInvokeResponsePtrOutput)
+}
+
+// The properties of the identity used to access the key encryption key in KeyVault.
+type EncryptionKeyIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionKeyIdentityInvokeResponseOutput) ToEncryptionKeyIdentityInvokeResponseOutput() EncryptionKeyIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityInvokeResponseOutput) ToEncryptionKeyIdentityInvokeResponseOutputWithContext(ctx context.Context) EncryptionKeyIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityInvokeResponseOutput) ToEncryptionKeyIdentityInvokeResponsePtrOutput() EncryptionKeyIdentityInvokeResponsePtrOutput {
+	return o.ToEncryptionKeyIdentityInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionKeyIdentityInvokeResponseOutput) ToEncryptionKeyIdentityInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionKeyIdentityInvokeResponse) *EncryptionKeyIdentityInvokeResponse {
+		return &v
+	}).(EncryptionKeyIdentityInvokeResponsePtrOutput)
+}
+
+// The user assigned identity.
+func (o EncryptionKeyIdentityInvokeResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyIdentityInvokeResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionKeyIdentityInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyIdentityInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionKeyIdentityInvokeResponsePtrOutput) ToEncryptionKeyIdentityInvokeResponsePtrOutput() EncryptionKeyIdentityInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityInvokeResponsePtrOutput) ToEncryptionKeyIdentityInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityInvokeResponsePtrOutput) Elem() EncryptionKeyIdentityInvokeResponseOutput {
+	return o.ApplyT(func(v *EncryptionKeyIdentityInvokeResponse) EncryptionKeyIdentityInvokeResponse { return *v }).(EncryptionKeyIdentityInvokeResponseOutput)
+}
+
+// The user assigned identity.
+func (o EncryptionKeyIdentityInvokeResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyIdentityInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the identity used to access the key encryption key in KeyVault.
 type EncryptionKeyIdentityResponse struct {
 	// The user assigned identity.
 	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
@@ -1130,6 +1557,184 @@ func (o EncryptionPropertiesDescriptionPtrOutput) KeyVaultProperties() KeyVaultK
 		}
 		return v.KeyVaultProperties
 	}).(KeyVaultKeyPropertiesArrayOutput)
+}
+
+// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
+type EncryptionPropertiesDescriptionInvokeResponse struct {
+	// The identity used to access the encryption key in KeyVault.
+	Identity *EncryptionKeyIdentityInvokeResponse `pulumi:"identity"`
+	// The source of the encryption key. Typically, Microsoft.KeyVault
+	KeySource *string `pulumi:"keySource"`
+	// The properties of the encryption key configured in KeyVault.
+	KeyVaultProperties []KeyVaultKeyPropertiesInvokeResponse `pulumi:"keyVaultProperties"`
+}
+
+// EncryptionPropertiesDescriptionInvokeResponseInput is an input type that accepts EncryptionPropertiesDescriptionInvokeResponseArgs and EncryptionPropertiesDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesDescriptionInvokeResponseInput` via:
+//
+//          EncryptionPropertiesDescriptionInvokeResponseArgs{...}
+type EncryptionPropertiesDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesDescriptionInvokeResponseOutput() EncryptionPropertiesDescriptionInvokeResponseOutput
+	ToEncryptionPropertiesDescriptionInvokeResponseOutputWithContext(context.Context) EncryptionPropertiesDescriptionInvokeResponseOutput
+}
+
+// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
+type EncryptionPropertiesDescriptionInvokeResponseArgs struct {
+	// The identity used to access the encryption key in KeyVault.
+	Identity EncryptionKeyIdentityInvokeResponsePtrInput `pulumi:"identity"`
+	// The source of the encryption key. Typically, Microsoft.KeyVault
+	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
+	// The properties of the encryption key configured in KeyVault.
+	KeyVaultProperties KeyVaultKeyPropertiesInvokeResponseArrayInput `pulumi:"keyVaultProperties"`
+}
+
+func (EncryptionPropertiesDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionPropertiesDescriptionInvokeResponseArgs) ToEncryptionPropertiesDescriptionInvokeResponseOutput() EncryptionPropertiesDescriptionInvokeResponseOutput {
+	return i.ToEncryptionPropertiesDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesDescriptionInvokeResponseArgs) ToEncryptionPropertiesDescriptionInvokeResponseOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionInvokeResponseOutput)
+}
+
+func (i EncryptionPropertiesDescriptionInvokeResponseArgs) ToEncryptionPropertiesDescriptionInvokeResponsePtrOutput() EncryptionPropertiesDescriptionInvokeResponsePtrOutput {
+	return i.ToEncryptionPropertiesDescriptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionPropertiesDescriptionInvokeResponseArgs) ToEncryptionPropertiesDescriptionInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionInvokeResponseOutput).ToEncryptionPropertiesDescriptionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionPropertiesDescriptionInvokeResponsePtrInput is an input type that accepts EncryptionPropertiesDescriptionInvokeResponseArgs, EncryptionPropertiesDescriptionInvokeResponsePtr and EncryptionPropertiesDescriptionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionPropertiesDescriptionInvokeResponsePtrInput` via:
+//
+//          EncryptionPropertiesDescriptionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionPropertiesDescriptionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionPropertiesDescriptionInvokeResponsePtrOutput() EncryptionPropertiesDescriptionInvokeResponsePtrOutput
+	ToEncryptionPropertiesDescriptionInvokeResponsePtrOutputWithContext(context.Context) EncryptionPropertiesDescriptionInvokeResponsePtrOutput
+}
+
+type encryptionPropertiesDescriptionInvokeResponsePtrType EncryptionPropertiesDescriptionInvokeResponseArgs
+
+func EncryptionPropertiesDescriptionInvokeResponsePtr(v *EncryptionPropertiesDescriptionInvokeResponseArgs) EncryptionPropertiesDescriptionInvokeResponsePtrInput {
+	return (*encryptionPropertiesDescriptionInvokeResponsePtrType)(v)
+}
+
+func (*encryptionPropertiesDescriptionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i *encryptionPropertiesDescriptionInvokeResponsePtrType) ToEncryptionPropertiesDescriptionInvokeResponsePtrOutput() EncryptionPropertiesDescriptionInvokeResponsePtrOutput {
+	return i.ToEncryptionPropertiesDescriptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionPropertiesDescriptionInvokeResponsePtrType) ToEncryptionPropertiesDescriptionInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionInvokeResponsePtrOutput)
+}
+
+// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
+type EncryptionPropertiesDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionPropertiesDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesDescriptionInvokeResponseOutput) ToEncryptionPropertiesDescriptionInvokeResponseOutput() EncryptionPropertiesDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionInvokeResponseOutput) ToEncryptionPropertiesDescriptionInvokeResponseOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionInvokeResponseOutput) ToEncryptionPropertiesDescriptionInvokeResponsePtrOutput() EncryptionPropertiesDescriptionInvokeResponsePtrOutput {
+	return o.ToEncryptionPropertiesDescriptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionPropertiesDescriptionInvokeResponseOutput) ToEncryptionPropertiesDescriptionInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescriptionInvokeResponse) *EncryptionPropertiesDescriptionInvokeResponse {
+		return &v
+	}).(EncryptionPropertiesDescriptionInvokeResponsePtrOutput)
+}
+
+// The identity used to access the encryption key in KeyVault.
+func (o EncryptionPropertiesDescriptionInvokeResponseOutput) Identity() EncryptionKeyIdentityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescriptionInvokeResponse) *EncryptionKeyIdentityInvokeResponse {
+		return v.Identity
+	}).(EncryptionKeyIdentityInvokeResponsePtrOutput)
+}
+
+// The source of the encryption key. Typically, Microsoft.KeyVault
+func (o EncryptionPropertiesDescriptionInvokeResponseOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescriptionInvokeResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+}
+
+// The properties of the encryption key configured in KeyVault.
+func (o EncryptionPropertiesDescriptionInvokeResponseOutput) KeyVaultProperties() KeyVaultKeyPropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescriptionInvokeResponse) []KeyVaultKeyPropertiesInvokeResponse {
+		return v.KeyVaultProperties
+	}).(KeyVaultKeyPropertiesInvokeResponseArrayOutput)
+}
+
+type EncryptionPropertiesDescriptionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionPropertiesDescriptionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionPropertiesDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionPropertiesDescriptionInvokeResponsePtrOutput) ToEncryptionPropertiesDescriptionInvokeResponsePtrOutput() EncryptionPropertiesDescriptionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionInvokeResponsePtrOutput) ToEncryptionPropertiesDescriptionInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionPropertiesDescriptionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionPropertiesDescriptionInvokeResponsePtrOutput) Elem() EncryptionPropertiesDescriptionInvokeResponseOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescriptionInvokeResponse) EncryptionPropertiesDescriptionInvokeResponse {
+		return *v
+	}).(EncryptionPropertiesDescriptionInvokeResponseOutput)
+}
+
+// The identity used to access the encryption key in KeyVault.
+func (o EncryptionPropertiesDescriptionInvokeResponsePtrOutput) Identity() EncryptionKeyIdentityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescriptionInvokeResponse) *EncryptionKeyIdentityInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EncryptionKeyIdentityInvokeResponsePtrOutput)
+}
+
+// The source of the encryption key. Typically, Microsoft.KeyVault
+func (o EncryptionPropertiesDescriptionInvokeResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescriptionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeySource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the encryption key configured in KeyVault.
+func (o EncryptionPropertiesDescriptionInvokeResponsePtrOutput) KeyVaultProperties() KeyVaultKeyPropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescriptionInvokeResponse) []KeyVaultKeyPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultKeyPropertiesInvokeResponseArrayOutput)
 }
 
 // The customer-managed encryption key (CMK) properties for the IoT DPS instance.
@@ -1592,6 +2197,168 @@ func (o IotDpsPropertiesDescriptionPtrOutput) State() pulumi.StringPtrOutput {
 		}
 		return v.State
 	}).(pulumi.StringPtrOutput)
+}
+
+// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+type IotDpsPropertiesDescriptionInvokeResponse struct {
+	// Allocation policy to be used by this provisioning service.
+	AllocationPolicy *string `pulumi:"allocationPolicy"`
+	// List of authorization keys for a provisioning service.
+	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse `pulumi:"authorizationPolicies"`
+	// Device endpoint for this provisioning service.
+	DeviceProvisioningHostName string `pulumi:"deviceProvisioningHostName"`
+	// The encryption properties for the IoT DPS instance.
+	Encryption *EncryptionPropertiesDescriptionInvokeResponse `pulumi:"encryption"`
+	// Unique identifier of this provisioning service.
+	IdScope string `pulumi:"idScope"`
+	// List of IoT hubs associated with this provisioning service.
+	IotHubs []IotHubDefinitionDescriptionInvokeResponse `pulumi:"iotHubs"`
+	// The IP filter rules.
+	IpFilterRules []IpFilterRuleInvokeResponse `pulumi:"ipFilterRules"`
+	// Private endpoint connections created on this IotHub
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
+	// The ARM provisioning state of the provisioning service.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Service endpoint for provisioning service.
+	ServiceOperationsHostName string `pulumi:"serviceOperationsHostName"`
+	// Current state of the provisioning service.
+	State *string `pulumi:"state"`
+}
+
+// IotDpsPropertiesDescriptionInvokeResponseInput is an input type that accepts IotDpsPropertiesDescriptionInvokeResponseArgs and IotDpsPropertiesDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `IotDpsPropertiesDescriptionInvokeResponseInput` via:
+//
+//          IotDpsPropertiesDescriptionInvokeResponseArgs{...}
+type IotDpsPropertiesDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIotDpsPropertiesDescriptionInvokeResponseOutput() IotDpsPropertiesDescriptionInvokeResponseOutput
+	ToIotDpsPropertiesDescriptionInvokeResponseOutputWithContext(context.Context) IotDpsPropertiesDescriptionInvokeResponseOutput
+}
+
+// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+type IotDpsPropertiesDescriptionInvokeResponseArgs struct {
+	// Allocation policy to be used by this provisioning service.
+	AllocationPolicy pulumi.StringPtrInput `pulumi:"allocationPolicy"`
+	// List of authorization keys for a provisioning service.
+	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayInput `pulumi:"authorizationPolicies"`
+	// Device endpoint for this provisioning service.
+	DeviceProvisioningHostName pulumi.StringInput `pulumi:"deviceProvisioningHostName"`
+	// The encryption properties for the IoT DPS instance.
+	Encryption EncryptionPropertiesDescriptionInvokeResponsePtrInput `pulumi:"encryption"`
+	// Unique identifier of this provisioning service.
+	IdScope pulumi.StringInput `pulumi:"idScope"`
+	// List of IoT hubs associated with this provisioning service.
+	IotHubs IotHubDefinitionDescriptionInvokeResponseArrayInput `pulumi:"iotHubs"`
+	// The IP filter rules.
+	IpFilterRules IpFilterRuleInvokeResponseArrayInput `pulumi:"ipFilterRules"`
+	// Private endpoint connections created on this IotHub
+	PrivateEndpointConnections PrivateEndpointConnectionInvokeResponseArrayInput `pulumi:"privateEndpointConnections"`
+	// The ARM provisioning state of the provisioning service.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Whether requests from Public Network are allowed
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+	// Service endpoint for provisioning service.
+	ServiceOperationsHostName pulumi.StringInput `pulumi:"serviceOperationsHostName"`
+	// Current state of the provisioning service.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (IotDpsPropertiesDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsPropertiesDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i IotDpsPropertiesDescriptionInvokeResponseArgs) ToIotDpsPropertiesDescriptionInvokeResponseOutput() IotDpsPropertiesDescriptionInvokeResponseOutput {
+	return i.ToIotDpsPropertiesDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IotDpsPropertiesDescriptionInvokeResponseArgs) ToIotDpsPropertiesDescriptionInvokeResponseOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotDpsPropertiesDescriptionInvokeResponseOutput)
+}
+
+// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+type IotDpsPropertiesDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IotDpsPropertiesDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsPropertiesDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) ToIotDpsPropertiesDescriptionInvokeResponseOutput() IotDpsPropertiesDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) ToIotDpsPropertiesDescriptionInvokeResponseOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionInvokeResponseOutput {
+	return o
+}
+
+// Allocation policy to be used by this provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) AllocationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) *string { return v.AllocationPolicy }).(pulumi.StringPtrOutput)
+}
+
+// List of authorization keys for a provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse {
+		return v.AuthorizationPolicies
+	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput)
+}
+
+// Device endpoint for this provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) DeviceProvisioningHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) string { return v.DeviceProvisioningHostName }).(pulumi.StringOutput)
+}
+
+// The encryption properties for the IoT DPS instance.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) Encryption() EncryptionPropertiesDescriptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) *EncryptionPropertiesDescriptionInvokeResponse {
+		return v.Encryption
+	}).(EncryptionPropertiesDescriptionInvokeResponsePtrOutput)
+}
+
+// Unique identifier of this provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) IdScope() pulumi.StringOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) string { return v.IdScope }).(pulumi.StringOutput)
+}
+
+// List of IoT hubs associated with this provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) IotHubs() IotHubDefinitionDescriptionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) []IotHubDefinitionDescriptionInvokeResponse {
+		return v.IotHubs
+	}).(IotHubDefinitionDescriptionInvokeResponseArrayOutput)
+}
+
+// The IP filter rules.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) IpFilterRules() IpFilterRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) []IpFilterRuleInvokeResponse { return v.IpFilterRules }).(IpFilterRuleInvokeResponseArrayOutput)
+}
+
+// Private endpoint connections created on this IotHub
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) []PrivateEndpointConnectionInvokeResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// The ARM provisioning state of the provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Whether requests from Public Network are allowed
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Service endpoint for provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) ServiceOperationsHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) string { return v.ServiceOperationsHostName }).(pulumi.StringOutput)
+}
+
+// Current state of the provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
@@ -2097,6 +2864,79 @@ func (o IotDpsSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // List of possible provisioning service SKUs.
+type IotDpsSkuInfoInvokeResponse struct {
+	// The number of units to provision
+	Capacity *float64 `pulumi:"capacity"`
+	// Sku name.
+	Name *string `pulumi:"name"`
+	// Pricing tier name of the provisioning service.
+	Tier string `pulumi:"tier"`
+}
+
+// IotDpsSkuInfoInvokeResponseInput is an input type that accepts IotDpsSkuInfoInvokeResponseArgs and IotDpsSkuInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `IotDpsSkuInfoInvokeResponseInput` via:
+//
+//          IotDpsSkuInfoInvokeResponseArgs{...}
+type IotDpsSkuInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIotDpsSkuInfoInvokeResponseOutput() IotDpsSkuInfoInvokeResponseOutput
+	ToIotDpsSkuInfoInvokeResponseOutputWithContext(context.Context) IotDpsSkuInfoInvokeResponseOutput
+}
+
+// List of possible provisioning service SKUs.
+type IotDpsSkuInfoInvokeResponseArgs struct {
+	// The number of units to provision
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
+	// Sku name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Pricing tier name of the provisioning service.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (IotDpsSkuInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i IotDpsSkuInfoInvokeResponseArgs) ToIotDpsSkuInfoInvokeResponseOutput() IotDpsSkuInfoInvokeResponseOutput {
+	return i.ToIotDpsSkuInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IotDpsSkuInfoInvokeResponseArgs) ToIotDpsSkuInfoInvokeResponseOutputWithContext(ctx context.Context) IotDpsSkuInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotDpsSkuInfoInvokeResponseOutput)
+}
+
+// List of possible provisioning service SKUs.
+type IotDpsSkuInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IotDpsSkuInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o IotDpsSkuInfoInvokeResponseOutput) ToIotDpsSkuInfoInvokeResponseOutput() IotDpsSkuInfoInvokeResponseOutput {
+	return o
+}
+
+func (o IotDpsSkuInfoInvokeResponseOutput) ToIotDpsSkuInfoInvokeResponseOutputWithContext(ctx context.Context) IotDpsSkuInfoInvokeResponseOutput {
+	return o
+}
+
+// The number of units to provision
+func (o IotDpsSkuInfoInvokeResponseOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v IotDpsSkuInfoInvokeResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
+}
+
+// Sku name.
+func (o IotDpsSkuInfoInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsSkuInfoInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Pricing tier name of the provisioning service.
+func (o IotDpsSkuInfoInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v IotDpsSkuInfoInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// List of possible provisioning service SKUs.
 type IotDpsSkuInfoResponse struct {
 	// The number of units to provision
 	Capacity *float64 `pulumi:"capacity"`
@@ -2396,6 +3236,142 @@ func (o IotHubDefinitionDescriptionArrayOutput) Index(i pulumi.IntInput) IotHubD
 }
 
 // Description of the IoT hub.
+type IotHubDefinitionDescriptionInvokeResponse struct {
+	// weight to apply for a given iot h.
+	AllocationWeight *int `pulumi:"allocationWeight"`
+	// flag for applying allocationPolicy or not for a given iot hub.
+	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
+	// Connection string of the IoT hub.
+	ConnectionString string `pulumi:"connectionString"`
+	// ARM region of the IoT hub.
+	Location string `pulumi:"location"`
+	// Host name of the IoT hub.
+	Name string `pulumi:"name"`
+}
+
+// IotHubDefinitionDescriptionInvokeResponseInput is an input type that accepts IotHubDefinitionDescriptionInvokeResponseArgs and IotHubDefinitionDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `IotHubDefinitionDescriptionInvokeResponseInput` via:
+//
+//          IotHubDefinitionDescriptionInvokeResponseArgs{...}
+type IotHubDefinitionDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIotHubDefinitionDescriptionInvokeResponseOutput() IotHubDefinitionDescriptionInvokeResponseOutput
+	ToIotHubDefinitionDescriptionInvokeResponseOutputWithContext(context.Context) IotHubDefinitionDescriptionInvokeResponseOutput
+}
+
+// Description of the IoT hub.
+type IotHubDefinitionDescriptionInvokeResponseArgs struct {
+	// weight to apply for a given iot h.
+	AllocationWeight pulumi.IntPtrInput `pulumi:"allocationWeight"`
+	// flag for applying allocationPolicy or not for a given iot hub.
+	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
+	// Connection string of the IoT hub.
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// ARM region of the IoT hub.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Host name of the IoT hub.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (IotHubDefinitionDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDefinitionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i IotHubDefinitionDescriptionInvokeResponseArgs) ToIotHubDefinitionDescriptionInvokeResponseOutput() IotHubDefinitionDescriptionInvokeResponseOutput {
+	return i.ToIotHubDefinitionDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IotHubDefinitionDescriptionInvokeResponseArgs) ToIotHubDefinitionDescriptionInvokeResponseOutputWithContext(ctx context.Context) IotHubDefinitionDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDefinitionDescriptionInvokeResponseOutput)
+}
+
+// IotHubDefinitionDescriptionInvokeResponseArrayInput is an input type that accepts IotHubDefinitionDescriptionInvokeResponseArray and IotHubDefinitionDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IotHubDefinitionDescriptionInvokeResponseArrayInput` via:
+//
+//          IotHubDefinitionDescriptionInvokeResponseArray{ IotHubDefinitionDescriptionInvokeResponseArgs{...} }
+type IotHubDefinitionDescriptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIotHubDefinitionDescriptionInvokeResponseArrayOutput() IotHubDefinitionDescriptionInvokeResponseArrayOutput
+	ToIotHubDefinitionDescriptionInvokeResponseArrayOutputWithContext(context.Context) IotHubDefinitionDescriptionInvokeResponseArrayOutput
+}
+
+type IotHubDefinitionDescriptionInvokeResponseArray []IotHubDefinitionDescriptionInvokeResponseInput
+
+func (IotHubDefinitionDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IotHubDefinitionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i IotHubDefinitionDescriptionInvokeResponseArray) ToIotHubDefinitionDescriptionInvokeResponseArrayOutput() IotHubDefinitionDescriptionInvokeResponseArrayOutput {
+	return i.ToIotHubDefinitionDescriptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IotHubDefinitionDescriptionInvokeResponseArray) ToIotHubDefinitionDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) IotHubDefinitionDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDefinitionDescriptionInvokeResponseArrayOutput)
+}
+
+// Description of the IoT hub.
+type IotHubDefinitionDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IotHubDefinitionDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDefinitionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) ToIotHubDefinitionDescriptionInvokeResponseOutput() IotHubDefinitionDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) ToIotHubDefinitionDescriptionInvokeResponseOutputWithContext(ctx context.Context) IotHubDefinitionDescriptionInvokeResponseOutput {
+	return o
+}
+
+// weight to apply for a given iot h.
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) AllocationWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IotHubDefinitionDescriptionInvokeResponse) *int { return v.AllocationWeight }).(pulumi.IntPtrOutput)
+}
+
+// flag for applying allocationPolicy or not for a given iot hub.
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) ApplyAllocationPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubDefinitionDescriptionInvokeResponse) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// Connection string of the IoT hub.
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDefinitionDescriptionInvokeResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// ARM region of the IoT hub.
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDefinitionDescriptionInvokeResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Host name of the IoT hub.
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDefinitionDescriptionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type IotHubDefinitionDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IotHubDefinitionDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IotHubDefinitionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o IotHubDefinitionDescriptionInvokeResponseArrayOutput) ToIotHubDefinitionDescriptionInvokeResponseArrayOutput() IotHubDefinitionDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IotHubDefinitionDescriptionInvokeResponseArrayOutput) ToIotHubDefinitionDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) IotHubDefinitionDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IotHubDefinitionDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) IotHubDefinitionDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IotHubDefinitionDescriptionInvokeResponse {
+		return vs[0].([]IotHubDefinitionDescriptionInvokeResponse)[vs[1].(int)]
+	}).(IotHubDefinitionDescriptionInvokeResponseOutput)
+}
+
+// Description of the IoT hub.
 type IotHubDefinitionDescriptionResponse struct {
 	// weight to apply for a given iot h.
 	AllocationWeight *int `pulumi:"allocationWeight"`
@@ -2659,6 +3635,133 @@ func (o IpFilterRuleArrayOutput) Index(i pulumi.IntInput) IpFilterRuleOutput {
 }
 
 // The IP filter rules for a provisioning Service.
+type IpFilterRuleInvokeResponse struct {
+	// The desired action for requests captured by this rule.
+	Action string `pulumi:"action"`
+	// The name of the IP filter rule.
+	FilterName string `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask string `pulumi:"ipMask"`
+	// Target for requests captured by this rule.
+	Target *string `pulumi:"target"`
+}
+
+// IpFilterRuleInvokeResponseInput is an input type that accepts IpFilterRuleInvokeResponseArgs and IpFilterRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `IpFilterRuleInvokeResponseInput` via:
+//
+//          IpFilterRuleInvokeResponseArgs{...}
+type IpFilterRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIpFilterRuleInvokeResponseOutput() IpFilterRuleInvokeResponseOutput
+	ToIpFilterRuleInvokeResponseOutputWithContext(context.Context) IpFilterRuleInvokeResponseOutput
+}
+
+// The IP filter rules for a provisioning Service.
+type IpFilterRuleInvokeResponseArgs struct {
+	// The desired action for requests captured by this rule.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The name of the IP filter rule.
+	FilterName pulumi.StringInput `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	// Target for requests captured by this rule.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (IpFilterRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IpFilterRuleInvokeResponseArgs) ToIpFilterRuleInvokeResponseOutput() IpFilterRuleInvokeResponseOutput {
+	return i.ToIpFilterRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IpFilterRuleInvokeResponseArgs) ToIpFilterRuleInvokeResponseOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleInvokeResponseOutput)
+}
+
+// IpFilterRuleInvokeResponseArrayInput is an input type that accepts IpFilterRuleInvokeResponseArray and IpFilterRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IpFilterRuleInvokeResponseArrayInput` via:
+//
+//          IpFilterRuleInvokeResponseArray{ IpFilterRuleInvokeResponseArgs{...} }
+type IpFilterRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIpFilterRuleInvokeResponseArrayOutput() IpFilterRuleInvokeResponseArrayOutput
+	ToIpFilterRuleInvokeResponseArrayOutputWithContext(context.Context) IpFilterRuleInvokeResponseArrayOutput
+}
+
+type IpFilterRuleInvokeResponseArray []IpFilterRuleInvokeResponseInput
+
+func (IpFilterRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IpFilterRuleInvokeResponseArray) ToIpFilterRuleInvokeResponseArrayOutput() IpFilterRuleInvokeResponseArrayOutput {
+	return i.ToIpFilterRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IpFilterRuleInvokeResponseArray) ToIpFilterRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleInvokeResponseArrayOutput)
+}
+
+// The IP filter rules for a provisioning Service.
+type IpFilterRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IpFilterRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IpFilterRuleInvokeResponseOutput) ToIpFilterRuleInvokeResponseOutput() IpFilterRuleInvokeResponseOutput {
+	return o
+}
+
+func (o IpFilterRuleInvokeResponseOutput) ToIpFilterRuleInvokeResponseOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseOutput {
+	return o
+}
+
+// The desired action for requests captured by this rule.
+func (o IpFilterRuleInvokeResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The name of the IP filter rule.
+func (o IpFilterRuleInvokeResponseOutput) FilterName() pulumi.StringOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) string { return v.FilterName }).(pulumi.StringOutput)
+}
+
+// A string that contains the IP address range in CIDR notation for the rule.
+func (o IpFilterRuleInvokeResponseOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+// Target for requests captured by this rule.
+func (o IpFilterRuleInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type IpFilterRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IpFilterRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IpFilterRuleInvokeResponseArrayOutput) ToIpFilterRuleInvokeResponseArrayOutput() IpFilterRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpFilterRuleInvokeResponseArrayOutput) ToIpFilterRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpFilterRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) IpFilterRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpFilterRuleInvokeResponse {
+		return vs[0].([]IpFilterRuleInvokeResponse)[vs[1].(int)]
+	}).(IpFilterRuleInvokeResponseOutput)
+}
+
+// The IP filter rules for a provisioning Service.
 type IpFilterRuleResponse struct {
 	// The desired action for requests captured by this rule.
 	Action string `pulumi:"action"`
@@ -2886,6 +3989,106 @@ func (o KeyVaultKeyPropertiesArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyPr
 }
 
 // The properties of the KeyVault key.
+type KeyVaultKeyPropertiesInvokeResponse struct {
+	// The identifier of the key.
+	KeyIdentifier *string `pulumi:"keyIdentifier"`
+}
+
+// KeyVaultKeyPropertiesInvokeResponseInput is an input type that accepts KeyVaultKeyPropertiesInvokeResponseArgs and KeyVaultKeyPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultKeyPropertiesInvokeResponseInput` via:
+//
+//          KeyVaultKeyPropertiesInvokeResponseArgs{...}
+type KeyVaultKeyPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyPropertiesInvokeResponseOutput() KeyVaultKeyPropertiesInvokeResponseOutput
+	ToKeyVaultKeyPropertiesInvokeResponseOutputWithContext(context.Context) KeyVaultKeyPropertiesInvokeResponseOutput
+}
+
+// The properties of the KeyVault key.
+type KeyVaultKeyPropertiesInvokeResponseArgs struct {
+	// The identifier of the key.
+	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
+}
+
+func (KeyVaultKeyPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultKeyPropertiesInvokeResponseArgs) ToKeyVaultKeyPropertiesInvokeResponseOutput() KeyVaultKeyPropertiesInvokeResponseOutput {
+	return i.ToKeyVaultKeyPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyPropertiesInvokeResponseArgs) ToKeyVaultKeyPropertiesInvokeResponseOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyPropertiesInvokeResponseOutput)
+}
+
+// KeyVaultKeyPropertiesInvokeResponseArrayInput is an input type that accepts KeyVaultKeyPropertiesInvokeResponseArray and KeyVaultKeyPropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `KeyVaultKeyPropertiesInvokeResponseArrayInput` via:
+//
+//          KeyVaultKeyPropertiesInvokeResponseArray{ KeyVaultKeyPropertiesInvokeResponseArgs{...} }
+type KeyVaultKeyPropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyPropertiesInvokeResponseArrayOutput() KeyVaultKeyPropertiesInvokeResponseArrayOutput
+	ToKeyVaultKeyPropertiesInvokeResponseArrayOutputWithContext(context.Context) KeyVaultKeyPropertiesInvokeResponseArrayOutput
+}
+
+type KeyVaultKeyPropertiesInvokeResponseArray []KeyVaultKeyPropertiesInvokeResponseInput
+
+func (KeyVaultKeyPropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultKeyPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultKeyPropertiesInvokeResponseArray) ToKeyVaultKeyPropertiesInvokeResponseArrayOutput() KeyVaultKeyPropertiesInvokeResponseArrayOutput {
+	return i.ToKeyVaultKeyPropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyPropertiesInvokeResponseArray) ToKeyVaultKeyPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyPropertiesInvokeResponseArrayOutput)
+}
+
+// The properties of the KeyVault key.
+type KeyVaultKeyPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyPropertiesInvokeResponseOutput) ToKeyVaultKeyPropertiesInvokeResponseOutput() KeyVaultKeyPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyPropertiesInvokeResponseOutput) ToKeyVaultKeyPropertiesInvokeResponseOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The identifier of the key.
+func (o KeyVaultKeyPropertiesInvokeResponseOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyPropertiesInvokeResponse) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyPropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyPropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyVaultKeyPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyPropertiesInvokeResponseArrayOutput) ToKeyVaultKeyPropertiesInvokeResponseArrayOutput() KeyVaultKeyPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KeyVaultKeyPropertiesInvokeResponseArrayOutput) ToKeyVaultKeyPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) KeyVaultKeyPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KeyVaultKeyPropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyPropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultKeyPropertiesInvokeResponse {
+		return vs[0].([]KeyVaultKeyPropertiesInvokeResponse)[vs[1].(int)]
+	}).(KeyVaultKeyPropertiesInvokeResponseOutput)
+}
+
+// The properties of the KeyVault key.
 type KeyVaultKeyPropertiesResponse struct {
 	// The identifier of the key.
 	KeyIdentifier *string `pulumi:"keyIdentifier"`
@@ -3085,6 +4288,135 @@ func (o PrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) PrivateEn
 	}).(PrivateEndpointConnectionOutput)
 }
 
+// The private endpoint connection of a provisioning service
+type PrivateEndpointConnectionInvokeResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The properties of a private endpoint connection
+	Properties PrivateEndpointConnectionPropertiesInvokeResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionInvokeResponseInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArgs and PrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArgs{...}
+type PrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput
+	ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseOutput
+}
+
+// The private endpoint connection of a provisioning service
+type PrivateEndpointConnectionInvokeResponseArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The properties of a private endpoint connection
+	Properties PrivateEndpointConnectionPropertiesInvokeResponseInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// PrivateEndpointConnectionInvokeResponseArrayInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArray and PrivateEndpointConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArray{ PrivateEndpointConnectionInvokeResponseArgs{...} }
+type PrivateEndpointConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput
+	ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput
+}
+
+type PrivateEndpointConnectionInvokeResponseArray []PrivateEndpointConnectionInvokeResponseInput
+
+func (PrivateEndpointConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// The private endpoint connection of a provisioning service
+type PrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// The resource identifier.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a private endpoint connection
+func (o PrivateEndpointConnectionInvokeResponseOutput) Properties() PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) PrivateEndpointConnectionPropertiesInvokeResponse {
+		return v.Properties
+	}).(PrivateEndpointConnectionPropertiesInvokeResponseOutput)
+}
+
+// The resource type.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionInvokeResponse {
+		return vs[0].([]PrivateEndpointConnectionInvokeResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
 // The properties of a private endpoint connection
 type PrivateEndpointConnectionProperties struct {
 	// The current state of a private endpoint connection
@@ -3219,6 +4551,74 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 		}
 		return &v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// The properties of a private endpoint connection
+type PrivateEndpointConnectionPropertiesInvokeResponse struct {
+	// The private endpoint property of a private endpoint connection
+	PrivateEndpoint *PrivateEndpointInvokeResponse `pulumi:"privateEndpoint"`
+	// The current state of a private endpoint connection
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+}
+
+// PrivateEndpointConnectionPropertiesInvokeResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesInvokeResponseArgs and PrivateEndpointConnectionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionPropertiesInvokeResponseArgs{...}
+type PrivateEndpointConnectionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionPropertiesInvokeResponseOutput() PrivateEndpointConnectionPropertiesInvokeResponseOutput
+	ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesInvokeResponseOutput
+}
+
+// The properties of a private endpoint connection
+type PrivateEndpointConnectionPropertiesInvokeResponseArgs struct {
+	// The private endpoint property of a private endpoint connection
+	PrivateEndpoint PrivateEndpointInvokeResponsePtrInput `pulumi:"privateEndpoint"`
+	// The current state of a private endpoint connection
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponseInput `pulumi:"privateLinkServiceConnectionState"`
+}
+
+func (PrivateEndpointConnectionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponseArgs) ToPrivateEndpointConnectionPropertiesInvokeResponseOutput() PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponseArgs) ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponseOutput)
+}
+
+// The properties of a private endpoint connection
+type PrivateEndpointConnectionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) ToPrivateEndpointConnectionPropertiesInvokeResponseOutput() PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The private endpoint property of a private endpoint connection
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) PrivateEndpoint() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponse) *PrivateEndpointInvokeResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// The current state of a private endpoint connection
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponse) PrivateLinkServiceConnectionStateInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
 }
 
 // The properties of a private endpoint connection
@@ -3505,6 +4905,140 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
 		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
 	}).(PrivateEndpointConnectionResponseOutput)
+}
+
+// The private endpoint property of a private endpoint connection
+type PrivateEndpointInvokeResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+}
+
+// PrivateEndpointInvokeResponseInput is an input type that accepts PrivateEndpointInvokeResponseArgs and PrivateEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponseInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+type PrivateEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput
+	ToPrivateEndpointInvokeResponseOutputWithContext(context.Context) PrivateEndpointInvokeResponseOutput
+}
+
+// The private endpoint property of a private endpoint connection
+type PrivateEndpointInvokeResponseArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PrivateEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return i.ToPrivateEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput)
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput).ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointInvokeResponsePtrInput is an input type that accepts PrivateEndpointInvokeResponseArgs, PrivateEndpointInvokeResponsePtr and PrivateEndpointInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponsePtrInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput
+	ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Context) PrivateEndpointInvokeResponsePtrOutput
+}
+
+type privateEndpointInvokeResponsePtrType PrivateEndpointInvokeResponseArgs
+
+func PrivateEndpointInvokeResponsePtr(v *PrivateEndpointInvokeResponseArgs) PrivateEndpointInvokeResponsePtrInput {
+	return (*privateEndpointInvokeResponsePtrType)(v)
+}
+
+func (*privateEndpointInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// The private endpoint property of a private endpoint connection
+type PrivateEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) *PrivateEndpointInvokeResponse {
+		return &v
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// The resource identifier.
+func (o PrivateEndpointInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) Elem() PrivateEndpointInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) PrivateEndpointInvokeResponse { return *v }).(PrivateEndpointInvokeResponseOutput)
+}
+
+// The resource identifier.
+func (o PrivateEndpointInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The private endpoint property of a private endpoint connection
@@ -3814,6 +5348,79 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 // The current state of a private endpoint connection
+type PrivateLinkServiceConnectionStateInvokeResponse struct {
+	// Actions required for a private endpoint connection
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The description for the current state of a private endpoint connection
+	Description string `pulumi:"description"`
+	// The status of a private endpoint connection
+	Status string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionStateInvokeResponseArgs and PrivateLinkServiceConnectionStateInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStateInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionStateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput
+}
+
+// The current state of a private endpoint connection
+type PrivateLinkServiceConnectionStateInvokeResponseArgs struct {
+	// Actions required for a private endpoint connection
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The description for the current state of a private endpoint connection
+	Description pulumi.StringInput `pulumi:"description"`
+	// The status of a private endpoint connection
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// The current state of a private endpoint connection
+type PrivateLinkServiceConnectionStateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+// Actions required for a private endpoint connection
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The description for the current state of a private endpoint connection
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The status of a private endpoint connection
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The current state of a private endpoint connection
 type PrivateLinkServiceConnectionStateResponse struct {
 	// Actions required for a private endpoint connection
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -4115,6 +5722,141 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput
 }
 
 // Description of the shared access key.
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse struct {
+	// Name of the key.
+	KeyName string `pulumi:"keyName"`
+	// Primary SAS key value.
+	PrimaryKey *string `pulumi:"primaryKey"`
+	// Rights that this key has.
+	Rights string `pulumi:"rights"`
+	// Secondary SAS key value.
+	SecondaryKey *string `pulumi:"secondaryKey"`
+}
+
+// SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseInput is an input type that accepts SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs and SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseInput` via:
+//
+//          SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs{...}
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput
+	ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutputWithContext(context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput
+}
+
+// Description of the shared access key.
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs struct {
+	// Name of the key.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// Primary SAS key value.
+	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
+	// Rights that this key has.
+	Rights pulumi.StringInput `pulumi:"rights"`
+	// Secondary SAS key value.
+	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
+}
+
+func (SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput {
+	return i.ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput)
+}
+
+// SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayInput is an input type that accepts SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray and SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayInput` via:
+//
+//          SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray{ SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs{...} }
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput
+	ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutputWithContext(context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput
+}
+
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseInput
+
+func (SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput {
+	return i.ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput)
+}
+
+// Description of the shared access key.
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput {
+	return o
+}
+
+// Name of the key.
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse) string {
+		return v.KeyName
+	}).(pulumi.StringOutput)
+}
+
+// Primary SAS key value.
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse) *string {
+		return v.PrimaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Rights that this key has.
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) Rights() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse) string {
+		return v.Rights
+	}).(pulumi.StringOutput)
+}
+
+// Secondary SAS key value.
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse) *string {
+		return v.SecondaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse {
+		return vs[0].([]SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse)[vs[1].(int)]
+	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput)
+}
+
+// Description of the shared access key.
 type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse struct {
 	// Name of the key.
 	KeyName string `pulumi:"keyName"`
@@ -4248,56 +5990,80 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArr
 func init() {
 	pulumi.RegisterOutputType(ArmIdentityOutput{})
 	pulumi.RegisterOutputType(ArmIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ArmIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ArmIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ArmIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ArmUserIdentityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ArmUserIdentityInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(ArmUserIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ArmUserIdentityResponseMapOutput{})
+	pulumi.RegisterOutputType(CertificatePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionKeyIdentityOutput{})
 	pulumi.RegisterOutputType(EncryptionKeyIdentityPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyIdentityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyIdentityInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionKeyIdentityResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionKeyIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoPtrOutput{})
+	pulumi.RegisterOutputType(IotDpsSkuInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoResponseOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionOutput{})
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(IotHubDefinitionDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IotHubDefinitionDescriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(IpFilterRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IpFilterRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyPropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayOutput{})
 }

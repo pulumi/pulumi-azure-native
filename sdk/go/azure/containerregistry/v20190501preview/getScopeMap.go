@@ -42,7 +42,7 @@ type LookupScopeMapResult struct {
 	// Provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

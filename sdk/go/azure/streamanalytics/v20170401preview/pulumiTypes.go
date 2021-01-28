@@ -93,6 +93,97 @@ func (o AggregateFunctionPropertiesOutput) Type() pulumi.StringOutput {
 }
 
 // The properties that are associated with an aggregate function.
+type AggregateFunctionPropertiesInvokeResponse struct {
+	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+	Binding interface{} `pulumi:"binding"`
+	// The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag   string                        `pulumi:"etag"`
+	Inputs []FunctionInputInvokeResponse `pulumi:"inputs"`
+	// Describes the output of a function.
+	Output *FunctionOutputInvokeResponse `pulumi:"output"`
+	// Indicates the type of function.
+	// Expected value is 'Aggregate'.
+	Type string `pulumi:"type"`
+}
+
+// AggregateFunctionPropertiesInvokeResponseInput is an input type that accepts AggregateFunctionPropertiesInvokeResponseArgs and AggregateFunctionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AggregateFunctionPropertiesInvokeResponseInput` via:
+//
+//          AggregateFunctionPropertiesInvokeResponseArgs{...}
+type AggregateFunctionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAggregateFunctionPropertiesInvokeResponseOutput() AggregateFunctionPropertiesInvokeResponseOutput
+	ToAggregateFunctionPropertiesInvokeResponseOutputWithContext(context.Context) AggregateFunctionPropertiesInvokeResponseOutput
+}
+
+// The properties that are associated with an aggregate function.
+type AggregateFunctionPropertiesInvokeResponseArgs struct {
+	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+	Binding pulumi.Input `pulumi:"binding"`
+	// The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag   pulumi.StringInput                    `pulumi:"etag"`
+	Inputs FunctionInputInvokeResponseArrayInput `pulumi:"inputs"`
+	// Describes the output of a function.
+	Output FunctionOutputInvokeResponsePtrInput `pulumi:"output"`
+	// Indicates the type of function.
+	// Expected value is 'Aggregate'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AggregateFunctionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AggregateFunctionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AggregateFunctionPropertiesInvokeResponseArgs) ToAggregateFunctionPropertiesInvokeResponseOutput() AggregateFunctionPropertiesInvokeResponseOutput {
+	return i.ToAggregateFunctionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AggregateFunctionPropertiesInvokeResponseArgs) ToAggregateFunctionPropertiesInvokeResponseOutputWithContext(ctx context.Context) AggregateFunctionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AggregateFunctionPropertiesInvokeResponseOutput)
+}
+
+// The properties that are associated with an aggregate function.
+type AggregateFunctionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AggregateFunctionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AggregateFunctionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AggregateFunctionPropertiesInvokeResponseOutput) ToAggregateFunctionPropertiesInvokeResponseOutput() AggregateFunctionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AggregateFunctionPropertiesInvokeResponseOutput) ToAggregateFunctionPropertiesInvokeResponseOutputWithContext(ctx context.Context) AggregateFunctionPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+func (o AggregateFunctionPropertiesInvokeResponseOutput) Binding() pulumi.AnyOutput {
+	return o.ApplyT(func(v AggregateFunctionPropertiesInvokeResponse) interface{} { return v.Binding }).(pulumi.AnyOutput)
+}
+
+// The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+func (o AggregateFunctionPropertiesInvokeResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v AggregateFunctionPropertiesInvokeResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+func (o AggregateFunctionPropertiesInvokeResponseOutput) Inputs() FunctionInputInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AggregateFunctionPropertiesInvokeResponse) []FunctionInputInvokeResponse { return v.Inputs }).(FunctionInputInvokeResponseArrayOutput)
+}
+
+// Describes the output of a function.
+func (o AggregateFunctionPropertiesInvokeResponseOutput) Output() FunctionOutputInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AggregateFunctionPropertiesInvokeResponse) *FunctionOutputInvokeResponse { return v.Output }).(FunctionOutputInvokeResponsePtrOutput)
+}
+
+// Indicates the type of function.
+// Expected value is 'Aggregate'.
+func (o AggregateFunctionPropertiesInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AggregateFunctionPropertiesInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The properties that are associated with an aggregate function.
 type AggregateFunctionPropertiesResponse struct {
 	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
 	Binding interface{} `pulumi:"binding"`
@@ -239,6 +330,64 @@ func (o AvroSerializationOutput) ToAvroSerializationOutputWithContext(ctx contex
 // Expected value is 'Avro'.
 func (o AvroSerializationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AvroSerialization) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
+type AvroSerializationInvokeResponse struct {
+	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Avro'.
+	Type string `pulumi:"type"`
+}
+
+// AvroSerializationInvokeResponseInput is an input type that accepts AvroSerializationInvokeResponseArgs and AvroSerializationInvokeResponseOutput values.
+// You can construct a concrete instance of `AvroSerializationInvokeResponseInput` via:
+//
+//          AvroSerializationInvokeResponseArgs{...}
+type AvroSerializationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAvroSerializationInvokeResponseOutput() AvroSerializationInvokeResponseOutput
+	ToAvroSerializationInvokeResponseOutputWithContext(context.Context) AvroSerializationInvokeResponseOutput
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
+type AvroSerializationInvokeResponseArgs struct {
+	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Avro'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AvroSerializationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvroSerializationInvokeResponse)(nil)).Elem()
+}
+
+func (i AvroSerializationInvokeResponseArgs) ToAvroSerializationInvokeResponseOutput() AvroSerializationInvokeResponseOutput {
+	return i.ToAvroSerializationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AvroSerializationInvokeResponseArgs) ToAvroSerializationInvokeResponseOutputWithContext(ctx context.Context) AvroSerializationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AvroSerializationInvokeResponseOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
+type AvroSerializationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AvroSerializationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AvroSerializationInvokeResponse)(nil)).Elem()
+}
+
+func (o AvroSerializationInvokeResponseOutput) ToAvroSerializationInvokeResponseOutput() AvroSerializationInvokeResponseOutput {
+	return o
+}
+
+func (o AvroSerializationInvokeResponseOutput) ToAvroSerializationInvokeResponseOutputWithContext(ctx context.Context) AvroSerializationInvokeResponseOutput {
+	return o
+}
+
+// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Avro'.
+func (o AvroSerializationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AvroSerializationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
@@ -436,6 +585,145 @@ func (o AzureDataLakeStoreOutputDataSourceOutput) TokenUserPrincipalName() pulum
 // Expected value is 'Microsoft.DataLake/Accounts'.
 func (o AzureDataLakeStoreOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes an Azure Data Lake Store output data source.
+type AzureDataLakeStoreOutputDataSourceInvokeResponse struct {
+	// The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
+	AccountName *string `pulumi:"accountName"`
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.
+	DateFormat *string `pulumi:"dateFormat"`
+	// The location of the file to which the output should be written to. Required on PUT (CreateOrReplace) requests.
+	FilePathPrefix *string `pulumi:"filePathPrefix"`
+	// A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
+	RefreshToken *string `pulumi:"refreshToken"`
+	// The tenant id of the user used to obtain the refresh token. Required on PUT (CreateOrReplace) requests.
+	TenantId *string `pulumi:"tenantId"`
+	// The time format. Wherever {time} appears in filePathPrefix, the value of this property is used as the time format instead.
+	TimeFormat *string `pulumi:"timeFormat"`
+	// The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+	TokenUserDisplayName *string `pulumi:"tokenUserDisplayName"`
+	// The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+	TokenUserPrincipalName *string `pulumi:"tokenUserPrincipalName"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.DataLake/Accounts'.
+	Type string `pulumi:"type"`
+}
+
+// AzureDataLakeStoreOutputDataSourceInvokeResponseInput is an input type that accepts AzureDataLakeStoreOutputDataSourceInvokeResponseArgs and AzureDataLakeStoreOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureDataLakeStoreOutputDataSourceInvokeResponseInput` via:
+//
+//          AzureDataLakeStoreOutputDataSourceInvokeResponseArgs{...}
+type AzureDataLakeStoreOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureDataLakeStoreOutputDataSourceInvokeResponseOutput() AzureDataLakeStoreOutputDataSourceInvokeResponseOutput
+	ToAzureDataLakeStoreOutputDataSourceInvokeResponseOutputWithContext(context.Context) AzureDataLakeStoreOutputDataSourceInvokeResponseOutput
+}
+
+// Describes an Azure Data Lake Store output data source.
+type AzureDataLakeStoreOutputDataSourceInvokeResponseArgs struct {
+	// The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.
+	DateFormat pulumi.StringPtrInput `pulumi:"dateFormat"`
+	// The location of the file to which the output should be written to. Required on PUT (CreateOrReplace) requests.
+	FilePathPrefix pulumi.StringPtrInput `pulumi:"filePathPrefix"`
+	// A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+	// The tenant id of the user used to obtain the refresh token. Required on PUT (CreateOrReplace) requests.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The time format. Wherever {time} appears in filePathPrefix, the value of this property is used as the time format instead.
+	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
+	// The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+	TokenUserDisplayName pulumi.StringPtrInput `pulumi:"tokenUserDisplayName"`
+	// The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+	TokenUserPrincipalName pulumi.StringPtrInput `pulumi:"tokenUserPrincipalName"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.DataLake/Accounts'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureDataLakeStoreOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDataLakeStoreOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureDataLakeStoreOutputDataSourceInvokeResponseArgs) ToAzureDataLakeStoreOutputDataSourceInvokeResponseOutput() AzureDataLakeStoreOutputDataSourceInvokeResponseOutput {
+	return i.ToAzureDataLakeStoreOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureDataLakeStoreOutputDataSourceInvokeResponseArgs) ToAzureDataLakeStoreOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureDataLakeStoreOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDataLakeStoreOutputDataSourceInvokeResponseOutput)
+}
+
+// Describes an Azure Data Lake Store output data source.
+type AzureDataLakeStoreOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDataLakeStoreOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) ToAzureDataLakeStoreOutputDataSourceInvokeResponseOutput() AzureDataLakeStoreOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) ToAzureDataLakeStoreOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureDataLakeStoreOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceInvokeResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Authentication Mode.
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) DateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceInvokeResponse) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
+}
+
+// The location of the file to which the output should be written to. Required on PUT (CreateOrReplace) requests.
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) FilePathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceInvokeResponse) *string { return v.FilePathPrefix }).(pulumi.StringPtrOutput)
+}
+
+// A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceInvokeResponse) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+// The tenant id of the user used to obtain the refresh token. Required on PUT (CreateOrReplace) requests.
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The time format. Wherever {time} appears in filePathPrefix, the value of this property is used as the time format instead.
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) TimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceInvokeResponse) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
+}
+
+// The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) TokenUserDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceInvokeResponse) *string { return v.TokenUserDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) TokenUserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceInvokeResponse) *string { return v.TokenUserPrincipalName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.DataLake/Accounts'.
+func (o AzureDataLakeStoreOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataLakeStoreOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Azure Data Lake Store output data source.
@@ -681,6 +969,109 @@ func (o AzureFunctionOutputDataSourceOutput) Type() pulumi.StringOutput {
 }
 
 // Defines the metadata of AzureFunctionOutputDataSource
+type AzureFunctionOutputDataSourceInvokeResponse struct {
+	// If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
+	ApiKey *string `pulumi:"apiKey"`
+	// The name of your Azure Functions app.
+	FunctionAppName *string `pulumi:"functionAppName"`
+	// The name of the function in your Azure Functions app.
+	FunctionName *string `pulumi:"functionName"`
+	// A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100.
+	MaxBatchCount *float64 `pulumi:"maxBatchCount"`
+	// A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB).
+	MaxBatchSize *float64 `pulumi:"maxBatchSize"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.AzureFunction'.
+	Type string `pulumi:"type"`
+}
+
+// AzureFunctionOutputDataSourceInvokeResponseInput is an input type that accepts AzureFunctionOutputDataSourceInvokeResponseArgs and AzureFunctionOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureFunctionOutputDataSourceInvokeResponseInput` via:
+//
+//          AzureFunctionOutputDataSourceInvokeResponseArgs{...}
+type AzureFunctionOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureFunctionOutputDataSourceInvokeResponseOutput() AzureFunctionOutputDataSourceInvokeResponseOutput
+	ToAzureFunctionOutputDataSourceInvokeResponseOutputWithContext(context.Context) AzureFunctionOutputDataSourceInvokeResponseOutput
+}
+
+// Defines the metadata of AzureFunctionOutputDataSource
+type AzureFunctionOutputDataSourceInvokeResponseArgs struct {
+	// If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
+	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// The name of your Azure Functions app.
+	FunctionAppName pulumi.StringPtrInput `pulumi:"functionAppName"`
+	// The name of the function in your Azure Functions app.
+	FunctionName pulumi.StringPtrInput `pulumi:"functionName"`
+	// A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100.
+	MaxBatchCount pulumi.Float64PtrInput `pulumi:"maxBatchCount"`
+	// A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB).
+	MaxBatchSize pulumi.Float64PtrInput `pulumi:"maxBatchSize"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.AzureFunction'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureFunctionOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFunctionOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureFunctionOutputDataSourceInvokeResponseArgs) ToAzureFunctionOutputDataSourceInvokeResponseOutput() AzureFunctionOutputDataSourceInvokeResponseOutput {
+	return i.ToAzureFunctionOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureFunctionOutputDataSourceInvokeResponseArgs) ToAzureFunctionOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureFunctionOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionOutputDataSourceInvokeResponseOutput)
+}
+
+// Defines the metadata of AzureFunctionOutputDataSource
+type AzureFunctionOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureFunctionOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFunctionOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureFunctionOutputDataSourceInvokeResponseOutput) ToAzureFunctionOutputDataSourceInvokeResponseOutput() AzureFunctionOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o AzureFunctionOutputDataSourceInvokeResponseOutput) ToAzureFunctionOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureFunctionOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
+func (o AzureFunctionOutputDataSourceInvokeResponseOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFunctionOutputDataSourceInvokeResponse) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
+}
+
+// The name of your Azure Functions app.
+func (o AzureFunctionOutputDataSourceInvokeResponseOutput) FunctionAppName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFunctionOutputDataSourceInvokeResponse) *string { return v.FunctionAppName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the function in your Azure Functions app.
+func (o AzureFunctionOutputDataSourceInvokeResponseOutput) FunctionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFunctionOutputDataSourceInvokeResponse) *string { return v.FunctionName }).(pulumi.StringPtrOutput)
+}
+
+// A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100.
+func (o AzureFunctionOutputDataSourceInvokeResponseOutput) MaxBatchCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureFunctionOutputDataSourceInvokeResponse) *float64 { return v.MaxBatchCount }).(pulumi.Float64PtrOutput)
+}
+
+// A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB).
+func (o AzureFunctionOutputDataSourceInvokeResponseOutput) MaxBatchSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureFunctionOutputDataSourceInvokeResponse) *float64 { return v.MaxBatchSize }).(pulumi.Float64PtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.AzureFunction'.
+func (o AzureFunctionOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFunctionOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Defines the metadata of AzureFunctionOutputDataSource
 type AzureFunctionOutputDataSourceResponse struct {
 	// If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
 	ApiKey *string `pulumi:"apiKey"`
@@ -897,6 +1288,124 @@ func (o AzureMachineLearningServiceFunctionBindingOutput) Outputs() AzureMachine
 // Expected value is 'Microsoft.MachineLearningServices'.
 func (o AzureMachineLearningServiceFunctionBindingOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMachineLearningServiceFunctionBinding) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The binding to an Azure Machine Learning web service.
+type AzureMachineLearningServiceFunctionBindingInvokeResponse struct {
+	// The API key used to authenticate with Request-Response endpoint.
+	ApiKey *string `pulumi:"apiKey"`
+	// Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+	BatchSize *int `pulumi:"batchSize"`
+	// The Request-Response execute endpoint of the Azure Machine Learning web service.
+	Endpoint *string `pulumi:"endpoint"`
+	// The inputs for the Azure Machine Learning web service endpoint.
+	Inputs []AzureMachineLearningServiceInputColumnInvokeResponse `pulumi:"inputs"`
+	// The number of parallel requests that will be sent per partition of your job to the machine learning service. Default is 1.
+	NumberOfParallelRequests *int `pulumi:"numberOfParallelRequests"`
+	// A list of outputs from the Azure Machine Learning web service endpoint execution.
+	Outputs []AzureMachineLearningServiceOutputColumnInvokeResponse `pulumi:"outputs"`
+	// Indicates the function binding type.
+	// Expected value is 'Microsoft.MachineLearningServices'.
+	Type string `pulumi:"type"`
+}
+
+// AzureMachineLearningServiceFunctionBindingInvokeResponseInput is an input type that accepts AzureMachineLearningServiceFunctionBindingInvokeResponseArgs and AzureMachineLearningServiceFunctionBindingInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureMachineLearningServiceFunctionBindingInvokeResponseInput` via:
+//
+//          AzureMachineLearningServiceFunctionBindingInvokeResponseArgs{...}
+type AzureMachineLearningServiceFunctionBindingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningServiceFunctionBindingInvokeResponseOutput() AzureMachineLearningServiceFunctionBindingInvokeResponseOutput
+	ToAzureMachineLearningServiceFunctionBindingInvokeResponseOutputWithContext(context.Context) AzureMachineLearningServiceFunctionBindingInvokeResponseOutput
+}
+
+// The binding to an Azure Machine Learning web service.
+type AzureMachineLearningServiceFunctionBindingInvokeResponseArgs struct {
+	// The API key used to authenticate with Request-Response endpoint.
+	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
+	// The Request-Response execute endpoint of the Azure Machine Learning web service.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// The inputs for the Azure Machine Learning web service endpoint.
+	Inputs AzureMachineLearningServiceInputColumnInvokeResponseArrayInput `pulumi:"inputs"`
+	// The number of parallel requests that will be sent per partition of your job to the machine learning service. Default is 1.
+	NumberOfParallelRequests pulumi.IntPtrInput `pulumi:"numberOfParallelRequests"`
+	// A list of outputs from the Azure Machine Learning web service endpoint execution.
+	Outputs AzureMachineLearningServiceOutputColumnInvokeResponseArrayInput `pulumi:"outputs"`
+	// Indicates the function binding type.
+	// Expected value is 'Microsoft.MachineLearningServices'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureMachineLearningServiceFunctionBindingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningServiceFunctionBindingInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningServiceFunctionBindingInvokeResponseArgs) ToAzureMachineLearningServiceFunctionBindingInvokeResponseOutput() AzureMachineLearningServiceFunctionBindingInvokeResponseOutput {
+	return i.ToAzureMachineLearningServiceFunctionBindingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningServiceFunctionBindingInvokeResponseArgs) ToAzureMachineLearningServiceFunctionBindingInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningServiceFunctionBindingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningServiceFunctionBindingInvokeResponseOutput)
+}
+
+// The binding to an Azure Machine Learning web service.
+type AzureMachineLearningServiceFunctionBindingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningServiceFunctionBindingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningServiceFunctionBindingInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningServiceFunctionBindingInvokeResponseOutput) ToAzureMachineLearningServiceFunctionBindingInvokeResponseOutput() AzureMachineLearningServiceFunctionBindingInvokeResponseOutput {
+	return o
+}
+
+func (o AzureMachineLearningServiceFunctionBindingInvokeResponseOutput) ToAzureMachineLearningServiceFunctionBindingInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningServiceFunctionBindingInvokeResponseOutput {
+	return o
+}
+
+// The API key used to authenticate with Request-Response endpoint.
+func (o AzureMachineLearningServiceFunctionBindingInvokeResponseOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceFunctionBindingInvokeResponse) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
+}
+
+// Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+func (o AzureMachineLearningServiceFunctionBindingInvokeResponseOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceFunctionBindingInvokeResponse) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+// The Request-Response execute endpoint of the Azure Machine Learning web service.
+func (o AzureMachineLearningServiceFunctionBindingInvokeResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceFunctionBindingInvokeResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The inputs for the Azure Machine Learning web service endpoint.
+func (o AzureMachineLearningServiceFunctionBindingInvokeResponseOutput) Inputs() AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceFunctionBindingInvokeResponse) []AzureMachineLearningServiceInputColumnInvokeResponse {
+		return v.Inputs
+	}).(AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput)
+}
+
+// The number of parallel requests that will be sent per partition of your job to the machine learning service. Default is 1.
+func (o AzureMachineLearningServiceFunctionBindingInvokeResponseOutput) NumberOfParallelRequests() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceFunctionBindingInvokeResponse) *int {
+		return v.NumberOfParallelRequests
+	}).(pulumi.IntPtrOutput)
+}
+
+// A list of outputs from the Azure Machine Learning web service endpoint execution.
+func (o AzureMachineLearningServiceFunctionBindingInvokeResponseOutput) Outputs() AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceFunctionBindingInvokeResponse) []AzureMachineLearningServiceOutputColumnInvokeResponse {
+		return v.Outputs
+	}).(AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput)
+}
+
+// Indicates the function binding type.
+// Expected value is 'Microsoft.MachineLearningServices'.
+func (o AzureMachineLearningServiceFunctionBindingInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceFunctionBindingInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The binding to an Azure Machine Learning web service.
@@ -1131,6 +1640,124 @@ func (o AzureMachineLearningServiceInputColumnArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureMachineLearningServiceInputColumn {
 		return vs[0].([]AzureMachineLearningServiceInputColumn)[vs[1].(int)]
 	}).(AzureMachineLearningServiceInputColumnOutput)
+}
+
+// Describes an input column for the Azure Machine Learning web service endpoint.
+type AzureMachineLearningServiceInputColumnInvokeResponse struct {
+	// The (Azure Machine Learning supported) data type of the input column.
+	DataType *string `pulumi:"dataType"`
+	// The zero based index of the function parameter this input maps to.
+	MapTo *int `pulumi:"mapTo"`
+	// The name of the input column.
+	Name *string `pulumi:"name"`
+}
+
+// AzureMachineLearningServiceInputColumnInvokeResponseInput is an input type that accepts AzureMachineLearningServiceInputColumnInvokeResponseArgs and AzureMachineLearningServiceInputColumnInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureMachineLearningServiceInputColumnInvokeResponseInput` via:
+//
+//          AzureMachineLearningServiceInputColumnInvokeResponseArgs{...}
+type AzureMachineLearningServiceInputColumnInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningServiceInputColumnInvokeResponseOutput() AzureMachineLearningServiceInputColumnInvokeResponseOutput
+	ToAzureMachineLearningServiceInputColumnInvokeResponseOutputWithContext(context.Context) AzureMachineLearningServiceInputColumnInvokeResponseOutput
+}
+
+// Describes an input column for the Azure Machine Learning web service endpoint.
+type AzureMachineLearningServiceInputColumnInvokeResponseArgs struct {
+	// The (Azure Machine Learning supported) data type of the input column.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// The zero based index of the function parameter this input maps to.
+	MapTo pulumi.IntPtrInput `pulumi:"mapTo"`
+	// The name of the input column.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AzureMachineLearningServiceInputColumnInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningServiceInputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningServiceInputColumnInvokeResponseArgs) ToAzureMachineLearningServiceInputColumnInvokeResponseOutput() AzureMachineLearningServiceInputColumnInvokeResponseOutput {
+	return i.ToAzureMachineLearningServiceInputColumnInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningServiceInputColumnInvokeResponseArgs) ToAzureMachineLearningServiceInputColumnInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningServiceInputColumnInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningServiceInputColumnInvokeResponseOutput)
+}
+
+// AzureMachineLearningServiceInputColumnInvokeResponseArrayInput is an input type that accepts AzureMachineLearningServiceInputColumnInvokeResponseArray and AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AzureMachineLearningServiceInputColumnInvokeResponseArrayInput` via:
+//
+//          AzureMachineLearningServiceInputColumnInvokeResponseArray{ AzureMachineLearningServiceInputColumnInvokeResponseArgs{...} }
+type AzureMachineLearningServiceInputColumnInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningServiceInputColumnInvokeResponseArrayOutput() AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput
+	ToAzureMachineLearningServiceInputColumnInvokeResponseArrayOutputWithContext(context.Context) AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput
+}
+
+type AzureMachineLearningServiceInputColumnInvokeResponseArray []AzureMachineLearningServiceInputColumnInvokeResponseInput
+
+func (AzureMachineLearningServiceInputColumnInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMachineLearningServiceInputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningServiceInputColumnInvokeResponseArray) ToAzureMachineLearningServiceInputColumnInvokeResponseArrayOutput() AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput {
+	return i.ToAzureMachineLearningServiceInputColumnInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningServiceInputColumnInvokeResponseArray) ToAzureMachineLearningServiceInputColumnInvokeResponseArrayOutputWithContext(ctx context.Context) AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput)
+}
+
+// Describes an input column for the Azure Machine Learning web service endpoint.
+type AzureMachineLearningServiceInputColumnInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningServiceInputColumnInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningServiceInputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningServiceInputColumnInvokeResponseOutput) ToAzureMachineLearningServiceInputColumnInvokeResponseOutput() AzureMachineLearningServiceInputColumnInvokeResponseOutput {
+	return o
+}
+
+func (o AzureMachineLearningServiceInputColumnInvokeResponseOutput) ToAzureMachineLearningServiceInputColumnInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningServiceInputColumnInvokeResponseOutput {
+	return o
+}
+
+// The (Azure Machine Learning supported) data type of the input column.
+func (o AzureMachineLearningServiceInputColumnInvokeResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceInputColumnInvokeResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// The zero based index of the function parameter this input maps to.
+func (o AzureMachineLearningServiceInputColumnInvokeResponseOutput) MapTo() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceInputColumnInvokeResponse) *int { return v.MapTo }).(pulumi.IntPtrOutput)
+}
+
+// The name of the input column.
+func (o AzureMachineLearningServiceInputColumnInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceInputColumnInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMachineLearningServiceInputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput) ToAzureMachineLearningServiceInputColumnInvokeResponseArrayOutput() AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput) ToAzureMachineLearningServiceInputColumnInvokeResponseArrayOutputWithContext(ctx context.Context) AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput) Index(i pulumi.IntInput) AzureMachineLearningServiceInputColumnInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureMachineLearningServiceInputColumnInvokeResponse {
+		return vs[0].([]AzureMachineLearningServiceInputColumnInvokeResponse)[vs[1].(int)]
+	}).(AzureMachineLearningServiceInputColumnInvokeResponseOutput)
 }
 
 // Describes an input column for the Azure Machine Learning web service endpoint.
@@ -1370,6 +1997,124 @@ func (o AzureMachineLearningServiceOutputColumnArrayOutput) Index(i pulumi.IntIn
 }
 
 // Describes an output column for the Azure Machine Learning web service endpoint.
+type AzureMachineLearningServiceOutputColumnInvokeResponse struct {
+	// The (Azure Machine Learning supported) data type of the output column.
+	DataType *string `pulumi:"dataType"`
+	// The zero based index of the function parameter this input maps to.
+	MapTo *int `pulumi:"mapTo"`
+	// The name of the output column.
+	Name *string `pulumi:"name"`
+}
+
+// AzureMachineLearningServiceOutputColumnInvokeResponseInput is an input type that accepts AzureMachineLearningServiceOutputColumnInvokeResponseArgs and AzureMachineLearningServiceOutputColumnInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureMachineLearningServiceOutputColumnInvokeResponseInput` via:
+//
+//          AzureMachineLearningServiceOutputColumnInvokeResponseArgs{...}
+type AzureMachineLearningServiceOutputColumnInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningServiceOutputColumnInvokeResponseOutput() AzureMachineLearningServiceOutputColumnInvokeResponseOutput
+	ToAzureMachineLearningServiceOutputColumnInvokeResponseOutputWithContext(context.Context) AzureMachineLearningServiceOutputColumnInvokeResponseOutput
+}
+
+// Describes an output column for the Azure Machine Learning web service endpoint.
+type AzureMachineLearningServiceOutputColumnInvokeResponseArgs struct {
+	// The (Azure Machine Learning supported) data type of the output column.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// The zero based index of the function parameter this input maps to.
+	MapTo pulumi.IntPtrInput `pulumi:"mapTo"`
+	// The name of the output column.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AzureMachineLearningServiceOutputColumnInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningServiceOutputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningServiceOutputColumnInvokeResponseArgs) ToAzureMachineLearningServiceOutputColumnInvokeResponseOutput() AzureMachineLearningServiceOutputColumnInvokeResponseOutput {
+	return i.ToAzureMachineLearningServiceOutputColumnInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningServiceOutputColumnInvokeResponseArgs) ToAzureMachineLearningServiceOutputColumnInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningServiceOutputColumnInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningServiceOutputColumnInvokeResponseOutput)
+}
+
+// AzureMachineLearningServiceOutputColumnInvokeResponseArrayInput is an input type that accepts AzureMachineLearningServiceOutputColumnInvokeResponseArray and AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AzureMachineLearningServiceOutputColumnInvokeResponseArrayInput` via:
+//
+//          AzureMachineLearningServiceOutputColumnInvokeResponseArray{ AzureMachineLearningServiceOutputColumnInvokeResponseArgs{...} }
+type AzureMachineLearningServiceOutputColumnInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput() AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput
+	ToAzureMachineLearningServiceOutputColumnInvokeResponseArrayOutputWithContext(context.Context) AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput
+}
+
+type AzureMachineLearningServiceOutputColumnInvokeResponseArray []AzureMachineLearningServiceOutputColumnInvokeResponseInput
+
+func (AzureMachineLearningServiceOutputColumnInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMachineLearningServiceOutputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningServiceOutputColumnInvokeResponseArray) ToAzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput() AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput {
+	return i.ToAzureMachineLearningServiceOutputColumnInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningServiceOutputColumnInvokeResponseArray) ToAzureMachineLearningServiceOutputColumnInvokeResponseArrayOutputWithContext(ctx context.Context) AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput)
+}
+
+// Describes an output column for the Azure Machine Learning web service endpoint.
+type AzureMachineLearningServiceOutputColumnInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningServiceOutputColumnInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningServiceOutputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningServiceOutputColumnInvokeResponseOutput) ToAzureMachineLearningServiceOutputColumnInvokeResponseOutput() AzureMachineLearningServiceOutputColumnInvokeResponseOutput {
+	return o
+}
+
+func (o AzureMachineLearningServiceOutputColumnInvokeResponseOutput) ToAzureMachineLearningServiceOutputColumnInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningServiceOutputColumnInvokeResponseOutput {
+	return o
+}
+
+// The (Azure Machine Learning supported) data type of the output column.
+func (o AzureMachineLearningServiceOutputColumnInvokeResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceOutputColumnInvokeResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// The zero based index of the function parameter this input maps to.
+func (o AzureMachineLearningServiceOutputColumnInvokeResponseOutput) MapTo() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceOutputColumnInvokeResponse) *int { return v.MapTo }).(pulumi.IntPtrOutput)
+}
+
+// The name of the output column.
+func (o AzureMachineLearningServiceOutputColumnInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningServiceOutputColumnInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMachineLearningServiceOutputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput) ToAzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput() AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput) ToAzureMachineLearningServiceOutputColumnInvokeResponseArrayOutputWithContext(ctx context.Context) AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput) Index(i pulumi.IntInput) AzureMachineLearningServiceOutputColumnInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureMachineLearningServiceOutputColumnInvokeResponse {
+		return vs[0].([]AzureMachineLearningServiceOutputColumnInvokeResponse)[vs[1].(int)]
+	}).(AzureMachineLearningServiceOutputColumnInvokeResponseOutput)
+}
+
+// Describes an output column for the Azure Machine Learning web service endpoint.
 type AzureMachineLearningServiceOutputColumnResponse struct {
 	// The (Azure Machine Learning supported) data type of the output column.
 	DataType *string `pulumi:"dataType"`
@@ -1590,6 +2335,113 @@ func (o AzureMachineLearningStudioFunctionBindingOutput) Outputs() AzureMachineL
 // Expected value is 'Microsoft.MachineLearning/WebService'.
 func (o AzureMachineLearningStudioFunctionBindingOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureMachineLearningStudioFunctionBinding) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The binding to an Azure Machine Learning Studio.
+type AzureMachineLearningStudioFunctionBindingInvokeResponse struct {
+	// The API key used to authenticate with Request-Response endpoint.
+	ApiKey *string `pulumi:"apiKey"`
+	// Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+	BatchSize *int `pulumi:"batchSize"`
+	// The Request-Response execute endpoint of the Azure Machine Learning Studio. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
+	Endpoint *string `pulumi:"endpoint"`
+	// The inputs for the Azure Machine Learning Studio endpoint.
+	Inputs *AzureMachineLearningStudioInputsInvokeResponse `pulumi:"inputs"`
+	// A list of outputs from the Azure Machine Learning Studio endpoint execution.
+	Outputs []AzureMachineLearningStudioOutputColumnInvokeResponse `pulumi:"outputs"`
+	// Indicates the function binding type.
+	// Expected value is 'Microsoft.MachineLearning/WebService'.
+	Type string `pulumi:"type"`
+}
+
+// AzureMachineLearningStudioFunctionBindingInvokeResponseInput is an input type that accepts AzureMachineLearningStudioFunctionBindingInvokeResponseArgs and AzureMachineLearningStudioFunctionBindingInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureMachineLearningStudioFunctionBindingInvokeResponseInput` via:
+//
+//          AzureMachineLearningStudioFunctionBindingInvokeResponseArgs{...}
+type AzureMachineLearningStudioFunctionBindingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningStudioFunctionBindingInvokeResponseOutput() AzureMachineLearningStudioFunctionBindingInvokeResponseOutput
+	ToAzureMachineLearningStudioFunctionBindingInvokeResponseOutputWithContext(context.Context) AzureMachineLearningStudioFunctionBindingInvokeResponseOutput
+}
+
+// The binding to an Azure Machine Learning Studio.
+type AzureMachineLearningStudioFunctionBindingInvokeResponseArgs struct {
+	// The API key used to authenticate with Request-Response endpoint.
+	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
+	// The Request-Response execute endpoint of the Azure Machine Learning Studio. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// The inputs for the Azure Machine Learning Studio endpoint.
+	Inputs AzureMachineLearningStudioInputsInvokeResponsePtrInput `pulumi:"inputs"`
+	// A list of outputs from the Azure Machine Learning Studio endpoint execution.
+	Outputs AzureMachineLearningStudioOutputColumnInvokeResponseArrayInput `pulumi:"outputs"`
+	// Indicates the function binding type.
+	// Expected value is 'Microsoft.MachineLearning/WebService'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureMachineLearningStudioFunctionBindingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningStudioFunctionBindingInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningStudioFunctionBindingInvokeResponseArgs) ToAzureMachineLearningStudioFunctionBindingInvokeResponseOutput() AzureMachineLearningStudioFunctionBindingInvokeResponseOutput {
+	return i.ToAzureMachineLearningStudioFunctionBindingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningStudioFunctionBindingInvokeResponseArgs) ToAzureMachineLearningStudioFunctionBindingInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningStudioFunctionBindingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningStudioFunctionBindingInvokeResponseOutput)
+}
+
+// The binding to an Azure Machine Learning Studio.
+type AzureMachineLearningStudioFunctionBindingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningStudioFunctionBindingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningStudioFunctionBindingInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningStudioFunctionBindingInvokeResponseOutput) ToAzureMachineLearningStudioFunctionBindingInvokeResponseOutput() AzureMachineLearningStudioFunctionBindingInvokeResponseOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioFunctionBindingInvokeResponseOutput) ToAzureMachineLearningStudioFunctionBindingInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningStudioFunctionBindingInvokeResponseOutput {
+	return o
+}
+
+// The API key used to authenticate with Request-Response endpoint.
+func (o AzureMachineLearningStudioFunctionBindingInvokeResponseOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioFunctionBindingInvokeResponse) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
+}
+
+// Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
+func (o AzureMachineLearningStudioFunctionBindingInvokeResponseOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioFunctionBindingInvokeResponse) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+// The Request-Response execute endpoint of the Azure Machine Learning Studio. Find out more here: https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-consume-web-services#request-response-service-rrs
+func (o AzureMachineLearningStudioFunctionBindingInvokeResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioFunctionBindingInvokeResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The inputs for the Azure Machine Learning Studio endpoint.
+func (o AzureMachineLearningStudioFunctionBindingInvokeResponseOutput) Inputs() AzureMachineLearningStudioInputsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioFunctionBindingInvokeResponse) *AzureMachineLearningStudioInputsInvokeResponse {
+		return v.Inputs
+	}).(AzureMachineLearningStudioInputsInvokeResponsePtrOutput)
+}
+
+// A list of outputs from the Azure Machine Learning Studio endpoint execution.
+func (o AzureMachineLearningStudioFunctionBindingInvokeResponseOutput) Outputs() AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioFunctionBindingInvokeResponse) []AzureMachineLearningStudioOutputColumnInvokeResponse {
+		return v.Outputs
+	}).(AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput)
+}
+
+// Indicates the function binding type.
+// Expected value is 'Microsoft.MachineLearning/WebService'.
+func (o AzureMachineLearningStudioFunctionBindingInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioFunctionBindingInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The binding to an Azure Machine Learning Studio.
@@ -1815,6 +2667,124 @@ func (o AzureMachineLearningStudioInputColumnArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureMachineLearningStudioInputColumn {
 		return vs[0].([]AzureMachineLearningStudioInputColumn)[vs[1].(int)]
 	}).(AzureMachineLearningStudioInputColumnOutput)
+}
+
+// Describes an input column for the Azure Machine Learning Studio endpoint.
+type AzureMachineLearningStudioInputColumnInvokeResponse struct {
+	// The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
+	DataType *string `pulumi:"dataType"`
+	// The zero based index of the function parameter this input maps to.
+	MapTo *int `pulumi:"mapTo"`
+	// The name of the input column.
+	Name *string `pulumi:"name"`
+}
+
+// AzureMachineLearningStudioInputColumnInvokeResponseInput is an input type that accepts AzureMachineLearningStudioInputColumnInvokeResponseArgs and AzureMachineLearningStudioInputColumnInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureMachineLearningStudioInputColumnInvokeResponseInput` via:
+//
+//          AzureMachineLearningStudioInputColumnInvokeResponseArgs{...}
+type AzureMachineLearningStudioInputColumnInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningStudioInputColumnInvokeResponseOutput() AzureMachineLearningStudioInputColumnInvokeResponseOutput
+	ToAzureMachineLearningStudioInputColumnInvokeResponseOutputWithContext(context.Context) AzureMachineLearningStudioInputColumnInvokeResponseOutput
+}
+
+// Describes an input column for the Azure Machine Learning Studio endpoint.
+type AzureMachineLearningStudioInputColumnInvokeResponseArgs struct {
+	// The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// The zero based index of the function parameter this input maps to.
+	MapTo pulumi.IntPtrInput `pulumi:"mapTo"`
+	// The name of the input column.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AzureMachineLearningStudioInputColumnInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningStudioInputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningStudioInputColumnInvokeResponseArgs) ToAzureMachineLearningStudioInputColumnInvokeResponseOutput() AzureMachineLearningStudioInputColumnInvokeResponseOutput {
+	return i.ToAzureMachineLearningStudioInputColumnInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningStudioInputColumnInvokeResponseArgs) ToAzureMachineLearningStudioInputColumnInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningStudioInputColumnInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningStudioInputColumnInvokeResponseOutput)
+}
+
+// AzureMachineLearningStudioInputColumnInvokeResponseArrayInput is an input type that accepts AzureMachineLearningStudioInputColumnInvokeResponseArray and AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AzureMachineLearningStudioInputColumnInvokeResponseArrayInput` via:
+//
+//          AzureMachineLearningStudioInputColumnInvokeResponseArray{ AzureMachineLearningStudioInputColumnInvokeResponseArgs{...} }
+type AzureMachineLearningStudioInputColumnInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningStudioInputColumnInvokeResponseArrayOutput() AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput
+	ToAzureMachineLearningStudioInputColumnInvokeResponseArrayOutputWithContext(context.Context) AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput
+}
+
+type AzureMachineLearningStudioInputColumnInvokeResponseArray []AzureMachineLearningStudioInputColumnInvokeResponseInput
+
+func (AzureMachineLearningStudioInputColumnInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMachineLearningStudioInputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningStudioInputColumnInvokeResponseArray) ToAzureMachineLearningStudioInputColumnInvokeResponseArrayOutput() AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput {
+	return i.ToAzureMachineLearningStudioInputColumnInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningStudioInputColumnInvokeResponseArray) ToAzureMachineLearningStudioInputColumnInvokeResponseArrayOutputWithContext(ctx context.Context) AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput)
+}
+
+// Describes an input column for the Azure Machine Learning Studio endpoint.
+type AzureMachineLearningStudioInputColumnInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningStudioInputColumnInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningStudioInputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningStudioInputColumnInvokeResponseOutput) ToAzureMachineLearningStudioInputColumnInvokeResponseOutput() AzureMachineLearningStudioInputColumnInvokeResponseOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioInputColumnInvokeResponseOutput) ToAzureMachineLearningStudioInputColumnInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningStudioInputColumnInvokeResponseOutput {
+	return o
+}
+
+// The (Azure Machine Learning supported) data type of the input column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
+func (o AzureMachineLearningStudioInputColumnInvokeResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioInputColumnInvokeResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// The zero based index of the function parameter this input maps to.
+func (o AzureMachineLearningStudioInputColumnInvokeResponseOutput) MapTo() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioInputColumnInvokeResponse) *int { return v.MapTo }).(pulumi.IntPtrOutput)
+}
+
+// The name of the input column.
+func (o AzureMachineLearningStudioInputColumnInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioInputColumnInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMachineLearningStudioInputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput) ToAzureMachineLearningStudioInputColumnInvokeResponseArrayOutput() AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput) ToAzureMachineLearningStudioInputColumnInvokeResponseArrayOutputWithContext(ctx context.Context) AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput) Index(i pulumi.IntInput) AzureMachineLearningStudioInputColumnInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureMachineLearningStudioInputColumnInvokeResponse {
+		return vs[0].([]AzureMachineLearningStudioInputColumnInvokeResponse)[vs[1].(int)]
+	}).(AzureMachineLearningStudioInputColumnInvokeResponseOutput)
 }
 
 // Describes an input column for the Azure Machine Learning Studio endpoint.
@@ -2089,6 +3059,163 @@ func (o AzureMachineLearningStudioInputsPtrOutput) Name() pulumi.StringPtrOutput
 }
 
 // The inputs for the Azure Machine Learning Studio endpoint.
+type AzureMachineLearningStudioInputsInvokeResponse struct {
+	// A list of input columns for the Azure Machine Learning Studio endpoint.
+	ColumnNames []AzureMachineLearningStudioInputColumnInvokeResponse `pulumi:"columnNames"`
+	// The name of the input. This is the name provided while authoring the endpoint.
+	Name *string `pulumi:"name"`
+}
+
+// AzureMachineLearningStudioInputsInvokeResponseInput is an input type that accepts AzureMachineLearningStudioInputsInvokeResponseArgs and AzureMachineLearningStudioInputsInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureMachineLearningStudioInputsInvokeResponseInput` via:
+//
+//          AzureMachineLearningStudioInputsInvokeResponseArgs{...}
+type AzureMachineLearningStudioInputsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningStudioInputsInvokeResponseOutput() AzureMachineLearningStudioInputsInvokeResponseOutput
+	ToAzureMachineLearningStudioInputsInvokeResponseOutputWithContext(context.Context) AzureMachineLearningStudioInputsInvokeResponseOutput
+}
+
+// The inputs for the Azure Machine Learning Studio endpoint.
+type AzureMachineLearningStudioInputsInvokeResponseArgs struct {
+	// A list of input columns for the Azure Machine Learning Studio endpoint.
+	ColumnNames AzureMachineLearningStudioInputColumnInvokeResponseArrayInput `pulumi:"columnNames"`
+	// The name of the input. This is the name provided while authoring the endpoint.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AzureMachineLearningStudioInputsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningStudioInputsInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningStudioInputsInvokeResponseArgs) ToAzureMachineLearningStudioInputsInvokeResponseOutput() AzureMachineLearningStudioInputsInvokeResponseOutput {
+	return i.ToAzureMachineLearningStudioInputsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningStudioInputsInvokeResponseArgs) ToAzureMachineLearningStudioInputsInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningStudioInputsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningStudioInputsInvokeResponseOutput)
+}
+
+func (i AzureMachineLearningStudioInputsInvokeResponseArgs) ToAzureMachineLearningStudioInputsInvokeResponsePtrOutput() AzureMachineLearningStudioInputsInvokeResponsePtrOutput {
+	return i.ToAzureMachineLearningStudioInputsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningStudioInputsInvokeResponseArgs) ToAzureMachineLearningStudioInputsInvokeResponsePtrOutputWithContext(ctx context.Context) AzureMachineLearningStudioInputsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningStudioInputsInvokeResponseOutput).ToAzureMachineLearningStudioInputsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AzureMachineLearningStudioInputsInvokeResponsePtrInput is an input type that accepts AzureMachineLearningStudioInputsInvokeResponseArgs, AzureMachineLearningStudioInputsInvokeResponsePtr and AzureMachineLearningStudioInputsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AzureMachineLearningStudioInputsInvokeResponsePtrInput` via:
+//
+//          AzureMachineLearningStudioInputsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureMachineLearningStudioInputsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningStudioInputsInvokeResponsePtrOutput() AzureMachineLearningStudioInputsInvokeResponsePtrOutput
+	ToAzureMachineLearningStudioInputsInvokeResponsePtrOutputWithContext(context.Context) AzureMachineLearningStudioInputsInvokeResponsePtrOutput
+}
+
+type azureMachineLearningStudioInputsInvokeResponsePtrType AzureMachineLearningStudioInputsInvokeResponseArgs
+
+func AzureMachineLearningStudioInputsInvokeResponsePtr(v *AzureMachineLearningStudioInputsInvokeResponseArgs) AzureMachineLearningStudioInputsInvokeResponsePtrInput {
+	return (*azureMachineLearningStudioInputsInvokeResponsePtrType)(v)
+}
+
+func (*azureMachineLearningStudioInputsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMachineLearningStudioInputsInvokeResponse)(nil)).Elem()
+}
+
+func (i *azureMachineLearningStudioInputsInvokeResponsePtrType) ToAzureMachineLearningStudioInputsInvokeResponsePtrOutput() AzureMachineLearningStudioInputsInvokeResponsePtrOutput {
+	return i.ToAzureMachineLearningStudioInputsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureMachineLearningStudioInputsInvokeResponsePtrType) ToAzureMachineLearningStudioInputsInvokeResponsePtrOutputWithContext(ctx context.Context) AzureMachineLearningStudioInputsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningStudioInputsInvokeResponsePtrOutput)
+}
+
+// The inputs for the Azure Machine Learning Studio endpoint.
+type AzureMachineLearningStudioInputsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningStudioInputsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningStudioInputsInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningStudioInputsInvokeResponseOutput) ToAzureMachineLearningStudioInputsInvokeResponseOutput() AzureMachineLearningStudioInputsInvokeResponseOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioInputsInvokeResponseOutput) ToAzureMachineLearningStudioInputsInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningStudioInputsInvokeResponseOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioInputsInvokeResponseOutput) ToAzureMachineLearningStudioInputsInvokeResponsePtrOutput() AzureMachineLearningStudioInputsInvokeResponsePtrOutput {
+	return o.ToAzureMachineLearningStudioInputsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureMachineLearningStudioInputsInvokeResponseOutput) ToAzureMachineLearningStudioInputsInvokeResponsePtrOutputWithContext(ctx context.Context) AzureMachineLearningStudioInputsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioInputsInvokeResponse) *AzureMachineLearningStudioInputsInvokeResponse {
+		return &v
+	}).(AzureMachineLearningStudioInputsInvokeResponsePtrOutput)
+}
+
+// A list of input columns for the Azure Machine Learning Studio endpoint.
+func (o AzureMachineLearningStudioInputsInvokeResponseOutput) ColumnNames() AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioInputsInvokeResponse) []AzureMachineLearningStudioInputColumnInvokeResponse {
+		return v.ColumnNames
+	}).(AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput)
+}
+
+// The name of the input. This is the name provided while authoring the endpoint.
+func (o AzureMachineLearningStudioInputsInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioInputsInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type AzureMachineLearningStudioInputsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningStudioInputsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMachineLearningStudioInputsInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningStudioInputsInvokeResponsePtrOutput) ToAzureMachineLearningStudioInputsInvokeResponsePtrOutput() AzureMachineLearningStudioInputsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioInputsInvokeResponsePtrOutput) ToAzureMachineLearningStudioInputsInvokeResponsePtrOutputWithContext(ctx context.Context) AzureMachineLearningStudioInputsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioInputsInvokeResponsePtrOutput) Elem() AzureMachineLearningStudioInputsInvokeResponseOutput {
+	return o.ApplyT(func(v *AzureMachineLearningStudioInputsInvokeResponse) AzureMachineLearningStudioInputsInvokeResponse {
+		return *v
+	}).(AzureMachineLearningStudioInputsInvokeResponseOutput)
+}
+
+// A list of input columns for the Azure Machine Learning Studio endpoint.
+func (o AzureMachineLearningStudioInputsInvokeResponsePtrOutput) ColumnNames() AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *AzureMachineLearningStudioInputsInvokeResponse) []AzureMachineLearningStudioInputColumnInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnNames
+	}).(AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput)
+}
+
+// The name of the input. This is the name provided while authoring the endpoint.
+func (o AzureMachineLearningStudioInputsInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMachineLearningStudioInputsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The inputs for the Azure Machine Learning Studio endpoint.
 type AzureMachineLearningStudioInputsResponse struct {
 	// A list of input columns for the Azure Machine Learning Studio endpoint.
 	ColumnNames []AzureMachineLearningStudioInputColumnResponse `pulumi:"columnNames"`
@@ -2353,6 +3480,115 @@ func (o AzureMachineLearningStudioOutputColumnArrayOutput) Index(i pulumi.IntInp
 }
 
 // Describes an output column for the Azure Machine Learning Studio endpoint.
+type AzureMachineLearningStudioOutputColumnInvokeResponse struct {
+	// The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
+	DataType *string `pulumi:"dataType"`
+	// The name of the output column.
+	Name *string `pulumi:"name"`
+}
+
+// AzureMachineLearningStudioOutputColumnInvokeResponseInput is an input type that accepts AzureMachineLearningStudioOutputColumnInvokeResponseArgs and AzureMachineLearningStudioOutputColumnInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureMachineLearningStudioOutputColumnInvokeResponseInput` via:
+//
+//          AzureMachineLearningStudioOutputColumnInvokeResponseArgs{...}
+type AzureMachineLearningStudioOutputColumnInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningStudioOutputColumnInvokeResponseOutput() AzureMachineLearningStudioOutputColumnInvokeResponseOutput
+	ToAzureMachineLearningStudioOutputColumnInvokeResponseOutputWithContext(context.Context) AzureMachineLearningStudioOutputColumnInvokeResponseOutput
+}
+
+// Describes an output column for the Azure Machine Learning Studio endpoint.
+type AzureMachineLearningStudioOutputColumnInvokeResponseArgs struct {
+	// The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// The name of the output column.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AzureMachineLearningStudioOutputColumnInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningStudioOutputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningStudioOutputColumnInvokeResponseArgs) ToAzureMachineLearningStudioOutputColumnInvokeResponseOutput() AzureMachineLearningStudioOutputColumnInvokeResponseOutput {
+	return i.ToAzureMachineLearningStudioOutputColumnInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningStudioOutputColumnInvokeResponseArgs) ToAzureMachineLearningStudioOutputColumnInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningStudioOutputColumnInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningStudioOutputColumnInvokeResponseOutput)
+}
+
+// AzureMachineLearningStudioOutputColumnInvokeResponseArrayInput is an input type that accepts AzureMachineLearningStudioOutputColumnInvokeResponseArray and AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AzureMachineLearningStudioOutputColumnInvokeResponseArrayInput` via:
+//
+//          AzureMachineLearningStudioOutputColumnInvokeResponseArray{ AzureMachineLearningStudioOutputColumnInvokeResponseArgs{...} }
+type AzureMachineLearningStudioOutputColumnInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput() AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput
+	ToAzureMachineLearningStudioOutputColumnInvokeResponseArrayOutputWithContext(context.Context) AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput
+}
+
+type AzureMachineLearningStudioOutputColumnInvokeResponseArray []AzureMachineLearningStudioOutputColumnInvokeResponseInput
+
+func (AzureMachineLearningStudioOutputColumnInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMachineLearningStudioOutputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMachineLearningStudioOutputColumnInvokeResponseArray) ToAzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput() AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput {
+	return i.ToAzureMachineLearningStudioOutputColumnInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureMachineLearningStudioOutputColumnInvokeResponseArray) ToAzureMachineLearningStudioOutputColumnInvokeResponseArrayOutputWithContext(ctx context.Context) AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput)
+}
+
+// Describes an output column for the Azure Machine Learning Studio endpoint.
+type AzureMachineLearningStudioOutputColumnInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningStudioOutputColumnInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMachineLearningStudioOutputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningStudioOutputColumnInvokeResponseOutput) ToAzureMachineLearningStudioOutputColumnInvokeResponseOutput() AzureMachineLearningStudioOutputColumnInvokeResponseOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioOutputColumnInvokeResponseOutput) ToAzureMachineLearningStudioOutputColumnInvokeResponseOutputWithContext(ctx context.Context) AzureMachineLearningStudioOutputColumnInvokeResponseOutput {
+	return o
+}
+
+// The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
+func (o AzureMachineLearningStudioOutputColumnInvokeResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioOutputColumnInvokeResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the output column.
+func (o AzureMachineLearningStudioOutputColumnInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMachineLearningStudioOutputColumnInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureMachineLearningStudioOutputColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput) ToAzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput() AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput) ToAzureMachineLearningStudioOutputColumnInvokeResponseArrayOutputWithContext(ctx context.Context) AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput) Index(i pulumi.IntInput) AzureMachineLearningStudioOutputColumnInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureMachineLearningStudioOutputColumnInvokeResponse {
+		return vs[0].([]AzureMachineLearningStudioOutputColumnInvokeResponse)[vs[1].(int)]
+	}).(AzureMachineLearningStudioOutputColumnInvokeResponseOutput)
+}
+
+// Describes an output column for the Azure Machine Learning Studio endpoint.
 type AzureMachineLearningStudioOutputColumnResponse struct {
 	// The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
 	DataType *string `pulumi:"dataType"`
@@ -2592,6 +3828,136 @@ func (o AzureSqlDatabaseOutputDataSourceOutput) User() pulumi.StringPtrOutput {
 }
 
 // Describes an Azure SQL database output data source.
+type AzureSqlDatabaseOutputDataSourceInvokeResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Database *string `pulumi:"database"`
+	// Max Batch count for write to Sql database, the default value is 10,000. Optional on PUT requests.
+	MaxBatchCount *float64 `pulumi:"maxBatchCount"`
+	// Max Write r count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
+	MaxWriterCount *float64 `pulumi:"maxWriterCount"`
+	// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Password *string `pulumi:"password"`
+	// The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Server *string `pulumi:"server"`
+	// The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Table *string `pulumi:"table"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Sql/Server/Database'.
+	Type string `pulumi:"type"`
+	// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	User *string `pulumi:"user"`
+}
+
+// AzureSqlDatabaseOutputDataSourceInvokeResponseInput is an input type that accepts AzureSqlDatabaseOutputDataSourceInvokeResponseArgs and AzureSqlDatabaseOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSqlDatabaseOutputDataSourceInvokeResponseInput` via:
+//
+//          AzureSqlDatabaseOutputDataSourceInvokeResponseArgs{...}
+type AzureSqlDatabaseOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSqlDatabaseOutputDataSourceInvokeResponseOutput() AzureSqlDatabaseOutputDataSourceInvokeResponseOutput
+	ToAzureSqlDatabaseOutputDataSourceInvokeResponseOutputWithContext(context.Context) AzureSqlDatabaseOutputDataSourceInvokeResponseOutput
+}
+
+// Describes an Azure SQL database output data source.
+type AzureSqlDatabaseOutputDataSourceInvokeResponseArgs struct {
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Max Batch count for write to Sql database, the default value is 10,000. Optional on PUT requests.
+	MaxBatchCount pulumi.Float64PtrInput `pulumi:"maxBatchCount"`
+	// Max Write r count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
+	MaxWriterCount pulumi.Float64PtrInput `pulumi:"maxWriterCount"`
+	// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Server pulumi.StringPtrInput `pulumi:"server"`
+	// The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Table pulumi.StringPtrInput `pulumi:"table"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Sql/Server/Database'.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	User pulumi.StringPtrInput `pulumi:"user"`
+}
+
+func (AzureSqlDatabaseOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlDatabaseOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSqlDatabaseOutputDataSourceInvokeResponseArgs) ToAzureSqlDatabaseOutputDataSourceInvokeResponseOutput() AzureSqlDatabaseOutputDataSourceInvokeResponseOutput {
+	return i.ToAzureSqlDatabaseOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSqlDatabaseOutputDataSourceInvokeResponseArgs) ToAzureSqlDatabaseOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureSqlDatabaseOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlDatabaseOutputDataSourceInvokeResponseOutput)
+}
+
+// Describes an Azure SQL database output data source.
+type AzureSqlDatabaseOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlDatabaseOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) ToAzureSqlDatabaseOutputDataSourceInvokeResponseOutput() AzureSqlDatabaseOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) ToAzureSqlDatabaseOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureSqlDatabaseOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// Authentication Mode.
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceInvokeResponse) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Max Batch count for write to Sql database, the default value is 10,000. Optional on PUT requests.
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) MaxBatchCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceInvokeResponse) *float64 { return v.MaxBatchCount }).(pulumi.Float64PtrOutput)
+}
+
+// Max Write r count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) MaxWriterCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceInvokeResponse) *float64 { return v.MaxWriterCount }).(pulumi.Float64PtrOutput)
+}
+
+// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceInvokeResponse) *string { return v.Server }).(pulumi.StringPtrOutput)
+}
+
+// The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceInvokeResponse) *string { return v.Table }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.Sql/Server/Database'.
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+func (o AzureSqlDatabaseOutputDataSourceInvokeResponseOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlDatabaseOutputDataSourceInvokeResponse) *string { return v.User }).(pulumi.StringPtrOutput)
+}
+
+// Describes an Azure SQL database output data source.
 type AzureSqlDatabaseOutputDataSourceResponse struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
@@ -2785,6 +4151,72 @@ func (o AzureSqlReferenceInputDataSourceOutput) Properties() AzureSqlReferenceIn
 // Expected value is 'Microsoft.Sql/Server/Database'.
 func (o AzureSqlReferenceInputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureSqlReferenceInputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes an Azure SQL database reference input data source.
+type AzureSqlReferenceInputDataSourceInvokeResponse struct {
+	Properties *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse `pulumi:"properties"`
+	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Sql/Server/Database'.
+	Type string `pulumi:"type"`
+}
+
+// AzureSqlReferenceInputDataSourceInvokeResponseInput is an input type that accepts AzureSqlReferenceInputDataSourceInvokeResponseArgs and AzureSqlReferenceInputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSqlReferenceInputDataSourceInvokeResponseInput` via:
+//
+//          AzureSqlReferenceInputDataSourceInvokeResponseArgs{...}
+type AzureSqlReferenceInputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSqlReferenceInputDataSourceInvokeResponseOutput() AzureSqlReferenceInputDataSourceInvokeResponseOutput
+	ToAzureSqlReferenceInputDataSourceInvokeResponseOutputWithContext(context.Context) AzureSqlReferenceInputDataSourceInvokeResponseOutput
+}
+
+// Describes an Azure SQL database reference input data source.
+type AzureSqlReferenceInputDataSourceInvokeResponseArgs struct {
+	Properties AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrInput `pulumi:"properties"`
+	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Sql/Server/Database'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureSqlReferenceInputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlReferenceInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSqlReferenceInputDataSourceInvokeResponseArgs) ToAzureSqlReferenceInputDataSourceInvokeResponseOutput() AzureSqlReferenceInputDataSourceInvokeResponseOutput {
+	return i.ToAzureSqlReferenceInputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSqlReferenceInputDataSourceInvokeResponseArgs) ToAzureSqlReferenceInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureSqlReferenceInputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlReferenceInputDataSourceInvokeResponseOutput)
+}
+
+// Describes an Azure SQL database reference input data source.
+type AzureSqlReferenceInputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlReferenceInputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlReferenceInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSqlReferenceInputDataSourceInvokeResponseOutput) ToAzureSqlReferenceInputDataSourceInvokeResponseOutput() AzureSqlReferenceInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlReferenceInputDataSourceInvokeResponseOutput) ToAzureSqlReferenceInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureSqlReferenceInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlReferenceInputDataSourceInvokeResponseOutput) Properties() AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourceInvokeResponse) *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse {
+		return v.Properties
+	}).(AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput)
+}
+
+// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.Sql/Server/Database'.
+func (o AzureSqlReferenceInputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type AzureSqlReferenceInputDataSourceProperties struct {
@@ -3065,6 +4497,291 @@ func (o AzureSqlReferenceInputDataSourcePropertiesPtrOutput) Table() pulumi.Stri
 // This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.
 func (o AzureSqlReferenceInputDataSourcePropertiesPtrOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.User
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureSqlReferenceInputDataSourcePropertiesInvokeResponse struct {
+	// This element is associated with the datasource element. This is the name of the database that output will be written to.
+	Database *string `pulumi:"database"`
+	// This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
+	DeltaSnapshotQuery *string `pulumi:"deltaSnapshotQuery"`
+	// This element is associated with the datasource element. This query is used to fetch data from the sql database.
+	FullSnapshotQuery *string `pulumi:"fullSnapshotQuery"`
+	// This element is associated with the datasource element. This is the password that will be used to connect to the SQL Database instance.
+	Password *string `pulumi:"password"`
+	// This element is associated with the datasource element. This indicates how frequently the data will be fetched from the database. It is of DateTime format.
+	RefreshRate *string `pulumi:"refreshRate"`
+	// This element is associated with the datasource element. This element is of enum type. It indicates what kind of data refresh option do we want to use:Static/RefreshPeriodicallyWithFull/RefreshPeriodicallyWithDelta
+	RefreshType *string `pulumi:"refreshType"`
+	// This element is associated with the datasource element. This is the name of the server that contains the database that will be written to.
+	Server *string `pulumi:"server"`
+	// This element is associated with the datasource element. The name of the table in the Azure SQL database..
+	Table *string `pulumi:"table"`
+	// This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.
+	User *string `pulumi:"user"`
+}
+
+// AzureSqlReferenceInputDataSourcePropertiesInvokeResponseInput is an input type that accepts AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs and AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSqlReferenceInputDataSourcePropertiesInvokeResponseInput` via:
+//
+//          AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs{...}
+type AzureSqlReferenceInputDataSourcePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput() AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput
+	ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutputWithContext(context.Context) AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput
+}
+
+type AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs struct {
+	// This element is associated with the datasource element. This is the name of the database that output will be written to.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
+	DeltaSnapshotQuery pulumi.StringPtrInput `pulumi:"deltaSnapshotQuery"`
+	// This element is associated with the datasource element. This query is used to fetch data from the sql database.
+	FullSnapshotQuery pulumi.StringPtrInput `pulumi:"fullSnapshotQuery"`
+	// This element is associated with the datasource element. This is the password that will be used to connect to the SQL Database instance.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// This element is associated with the datasource element. This indicates how frequently the data will be fetched from the database. It is of DateTime format.
+	RefreshRate pulumi.StringPtrInput `pulumi:"refreshRate"`
+	// This element is associated with the datasource element. This element is of enum type. It indicates what kind of data refresh option do we want to use:Static/RefreshPeriodicallyWithFull/RefreshPeriodicallyWithDelta
+	RefreshType pulumi.StringPtrInput `pulumi:"refreshType"`
+	// This element is associated with the datasource element. This is the name of the server that contains the database that will be written to.
+	Server pulumi.StringPtrInput `pulumi:"server"`
+	// This element is associated with the datasource element. The name of the table in the Azure SQL database..
+	Table pulumi.StringPtrInput `pulumi:"table"`
+	// This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.
+	User pulumi.StringPtrInput `pulumi:"user"`
+}
+
+func (AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlReferenceInputDataSourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput() AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput {
+	return i.ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput)
+}
+
+func (i AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput() AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput {
+	return i.ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput).ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrInput is an input type that accepts AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs, AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtr and AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrInput` via:
+//
+//          AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput() AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput
+	ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutputWithContext(context.Context) AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput
+}
+
+type azureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrType AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs
+
+func AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtr(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponseArgs) AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrInput {
+	return (*azureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrType)(v)
+}
+
+func (*azureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSqlReferenceInputDataSourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *azureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrType) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput() AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput {
+	return i.ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrType) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput)
+}
+
+type AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlReferenceInputDataSourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput() AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput() AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput {
+	return o.ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse {
+		return &v
+	}).(AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput)
+}
+
+// This element is associated with the datasource element. This is the name of the database that output will be written to.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) DeltaSnapshotQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string { return v.DeltaSnapshotQuery }).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This query is used to fetch data from the sql database.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) FullSnapshotQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string { return v.FullSnapshotQuery }).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This is the password that will be used to connect to the SQL Database instance.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This indicates how frequently the data will be fetched from the database. It is of DateTime format.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string { return v.RefreshRate }).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This element is of enum type. It indicates what kind of data refresh option do we want to use:Static/RefreshPeriodicallyWithFull/RefreshPeriodicallyWithDelta
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) RefreshType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string { return v.RefreshType }).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This is the name of the server that contains the database that will be written to.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string { return v.Server }).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. The name of the table in the Azure SQL database..
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string { return v.Table }).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string { return v.User }).(pulumi.StringPtrOutput)
+}
+
+type AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSqlReferenceInputDataSourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput() AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) ToAzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) Elem() AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) AzureSqlReferenceInputDataSourcePropertiesInvokeResponse {
+		return *v
+	}).(AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput)
+}
+
+// This element is associated with the datasource element. This is the name of the database that output will be written to.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) DeltaSnapshotQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeltaSnapshotQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This query is used to fetch data from the sql database.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) FullSnapshotQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FullSnapshotQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This is the password that will be used to connect to the SQL Database instance.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This indicates how frequently the data will be fetched from the database. It is of DateTime format.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) RefreshRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshRate
+	}).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This element is of enum type. It indicates what kind of data refresh option do we want to use:Static/RefreshPeriodicallyWithFull/RefreshPeriodicallyWithDelta
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) RefreshType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshType
+	}).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This is the name of the server that contains the database that will be written to.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Server
+	}).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. The name of the table in the Azure SQL database..
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Table
+	}).(pulumi.StringPtrOutput)
+}
+
+// This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.
+func (o AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlReferenceInputDataSourcePropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3527,6 +5244,109 @@ func (o AzureSynapseOutputDataSourceOutput) User() pulumi.StringPtrOutput {
 }
 
 // Describes an Azure Synapse output data source.
+type AzureSynapseOutputDataSourceInvokeResponse struct {
+	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Database *string `pulumi:"database"`
+	// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Password *string `pulumi:"password"`
+	// The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Server *string `pulumi:"server"`
+	// The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Table *string `pulumi:"table"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Sql/Server/DataWarehouse'.
+	Type string `pulumi:"type"`
+	// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	User *string `pulumi:"user"`
+}
+
+// AzureSynapseOutputDataSourceInvokeResponseInput is an input type that accepts AzureSynapseOutputDataSourceInvokeResponseArgs and AzureSynapseOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSynapseOutputDataSourceInvokeResponseInput` via:
+//
+//          AzureSynapseOutputDataSourceInvokeResponseArgs{...}
+type AzureSynapseOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSynapseOutputDataSourceInvokeResponseOutput() AzureSynapseOutputDataSourceInvokeResponseOutput
+	ToAzureSynapseOutputDataSourceInvokeResponseOutputWithContext(context.Context) AzureSynapseOutputDataSourceInvokeResponseOutput
+}
+
+// Describes an Azure Synapse output data source.
+type AzureSynapseOutputDataSourceInvokeResponseArgs struct {
+	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Server pulumi.StringPtrInput `pulumi:"server"`
+	// The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Table pulumi.StringPtrInput `pulumi:"table"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Sql/Server/DataWarehouse'.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	User pulumi.StringPtrInput `pulumi:"user"`
+}
+
+func (AzureSynapseOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSynapseOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSynapseOutputDataSourceInvokeResponseArgs) ToAzureSynapseOutputDataSourceInvokeResponseOutput() AzureSynapseOutputDataSourceInvokeResponseOutput {
+	return i.ToAzureSynapseOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSynapseOutputDataSourceInvokeResponseArgs) ToAzureSynapseOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureSynapseOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSynapseOutputDataSourceInvokeResponseOutput)
+}
+
+// Describes an Azure Synapse output data source.
+type AzureSynapseOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSynapseOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSynapseOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSynapseOutputDataSourceInvokeResponseOutput) ToAzureSynapseOutputDataSourceInvokeResponseOutput() AzureSynapseOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSynapseOutputDataSourceInvokeResponseOutput) ToAzureSynapseOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureSynapseOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+func (o AzureSynapseOutputDataSourceInvokeResponseOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSynapseOutputDataSourceInvokeResponse) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+func (o AzureSynapseOutputDataSourceInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSynapseOutputDataSourceInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+func (o AzureSynapseOutputDataSourceInvokeResponseOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSynapseOutputDataSourceInvokeResponse) *string { return v.Server }).(pulumi.StringPtrOutput)
+}
+
+// The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+func (o AzureSynapseOutputDataSourceInvokeResponseOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSynapseOutputDataSourceInvokeResponse) *string { return v.Table }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.Sql/Server/DataWarehouse'.
+func (o AzureSynapseOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSynapseOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+func (o AzureSynapseOutputDataSourceInvokeResponseOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSynapseOutputDataSourceInvokeResponse) *string { return v.User }).(pulumi.StringPtrOutput)
+}
+
+// Describes an Azure Synapse output data source.
 type AzureSynapseOutputDataSourceResponse struct {
 	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	Database *string `pulumi:"database"`
@@ -3748,6 +5568,127 @@ func (o AzureTableOutputDataSourceOutput) Table() pulumi.StringPtrOutput {
 // Expected value is 'Microsoft.Storage/Table'.
 func (o AzureTableOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureTableOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes an Azure Table output data source.
+type AzureTableOutputDataSourceInvokeResponse struct {
+	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountKey *string `pulumi:"accountKey"`
+	// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountName *string `pulumi:"accountName"`
+	// The number of rows to write to the Azure Table at a time.
+	BatchSize *int `pulumi:"batchSize"`
+	// If specified, each item in the array is the name of a column to remove (if present) from output event entities.
+	ColumnsToRemove []string `pulumi:"columnsToRemove"`
+	// This element indicates the name of a column from the SELECT statement in the query that will be used as the partition key for the Azure Table. Required on PUT (CreateOrReplace) requests.
+	PartitionKey *string `pulumi:"partitionKey"`
+	// This element indicates the name of a column from the SELECT statement in the query that will be used as the row key for the Azure Table. Required on PUT (CreateOrReplace) requests.
+	RowKey *string `pulumi:"rowKey"`
+	// The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
+	Table *string `pulumi:"table"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Storage/Table'.
+	Type string `pulumi:"type"`
+}
+
+// AzureTableOutputDataSourceInvokeResponseInput is an input type that accepts AzureTableOutputDataSourceInvokeResponseArgs and AzureTableOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureTableOutputDataSourceInvokeResponseInput` via:
+//
+//          AzureTableOutputDataSourceInvokeResponseArgs{...}
+type AzureTableOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureTableOutputDataSourceInvokeResponseOutput() AzureTableOutputDataSourceInvokeResponseOutput
+	ToAzureTableOutputDataSourceInvokeResponseOutputWithContext(context.Context) AzureTableOutputDataSourceInvokeResponseOutput
+}
+
+// Describes an Azure Table output data source.
+type AzureTableOutputDataSourceInvokeResponseArgs struct {
+	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
+	// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// The number of rows to write to the Azure Table at a time.
+	BatchSize pulumi.IntPtrInput `pulumi:"batchSize"`
+	// If specified, each item in the array is the name of a column to remove (if present) from output event entities.
+	ColumnsToRemove pulumi.StringArrayInput `pulumi:"columnsToRemove"`
+	// This element indicates the name of a column from the SELECT statement in the query that will be used as the partition key for the Azure Table. Required on PUT (CreateOrReplace) requests.
+	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
+	// This element indicates the name of a column from the SELECT statement in the query that will be used as the row key for the Azure Table. Required on PUT (CreateOrReplace) requests.
+	RowKey pulumi.StringPtrInput `pulumi:"rowKey"`
+	// The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
+	Table pulumi.StringPtrInput `pulumi:"table"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Storage/Table'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AzureTableOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureTableOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureTableOutputDataSourceInvokeResponseArgs) ToAzureTableOutputDataSourceInvokeResponseOutput() AzureTableOutputDataSourceInvokeResponseOutput {
+	return i.ToAzureTableOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureTableOutputDataSourceInvokeResponseArgs) ToAzureTableOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureTableOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureTableOutputDataSourceInvokeResponseOutput)
+}
+
+// Describes an Azure Table output data source.
+type AzureTableOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureTableOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureTableOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureTableOutputDataSourceInvokeResponseOutput) ToAzureTableOutputDataSourceInvokeResponseOutput() AzureTableOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o AzureTableOutputDataSourceInvokeResponseOutput) ToAzureTableOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) AzureTableOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+func (o AzureTableOutputDataSourceInvokeResponseOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureTableOutputDataSourceInvokeResponse) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+func (o AzureTableOutputDataSourceInvokeResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureTableOutputDataSourceInvokeResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// The number of rows to write to the Azure Table at a time.
+func (o AzureTableOutputDataSourceInvokeResponseOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureTableOutputDataSourceInvokeResponse) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
+}
+
+// If specified, each item in the array is the name of a column to remove (if present) from output event entities.
+func (o AzureTableOutputDataSourceInvokeResponseOutput) ColumnsToRemove() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureTableOutputDataSourceInvokeResponse) []string { return v.ColumnsToRemove }).(pulumi.StringArrayOutput)
+}
+
+// This element indicates the name of a column from the SELECT statement in the query that will be used as the partition key for the Azure Table. Required on PUT (CreateOrReplace) requests.
+func (o AzureTableOutputDataSourceInvokeResponseOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureTableOutputDataSourceInvokeResponse) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+}
+
+// This element indicates the name of a column from the SELECT statement in the query that will be used as the row key for the Azure Table. Required on PUT (CreateOrReplace) requests.
+func (o AzureTableOutputDataSourceInvokeResponseOutput) RowKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureTableOutputDataSourceInvokeResponse) *string { return v.RowKey }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
+func (o AzureTableOutputDataSourceInvokeResponseOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureTableOutputDataSourceInvokeResponse) *string { return v.Table }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.Storage/Table'.
+func (o AzureTableOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureTableOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Azure Table output data source.
@@ -3984,6 +5925,118 @@ func (o BlobOutputDataSourceOutput) Type() pulumi.StringOutput {
 }
 
 // Describes a blob output data source.
+type BlobOutputDataSourceInvokeResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+	Container *string `pulumi:"container"`
+	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+	DateFormat *string `pulumi:"dateFormat"`
+	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+	PathPattern *string `pulumi:"pathPattern"`
+	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+	StorageAccounts []StorageAccountInvokeResponse `pulumi:"storageAccounts"`
+	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+	TimeFormat *string `pulumi:"timeFormat"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Storage/Blob'.
+	Type string `pulumi:"type"`
+}
+
+// BlobOutputDataSourceInvokeResponseInput is an input type that accepts BlobOutputDataSourceInvokeResponseArgs and BlobOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `BlobOutputDataSourceInvokeResponseInput` via:
+//
+//          BlobOutputDataSourceInvokeResponseArgs{...}
+type BlobOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBlobOutputDataSourceInvokeResponseOutput() BlobOutputDataSourceInvokeResponseOutput
+	ToBlobOutputDataSourceInvokeResponseOutputWithContext(context.Context) BlobOutputDataSourceInvokeResponseOutput
+}
+
+// Describes a blob output data source.
+type BlobOutputDataSourceInvokeResponseArgs struct {
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+	Container pulumi.StringPtrInput `pulumi:"container"`
+	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+	DateFormat pulumi.StringPtrInput `pulumi:"dateFormat"`
+	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+	PathPattern pulumi.StringPtrInput `pulumi:"pathPattern"`
+	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+	StorageAccounts StorageAccountInvokeResponseArrayInput `pulumi:"storageAccounts"`
+	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Storage/Blob'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BlobOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i BlobOutputDataSourceInvokeResponseArgs) ToBlobOutputDataSourceInvokeResponseOutput() BlobOutputDataSourceInvokeResponseOutput {
+	return i.ToBlobOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BlobOutputDataSourceInvokeResponseArgs) ToBlobOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) BlobOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobOutputDataSourceInvokeResponseOutput)
+}
+
+// Describes a blob output data source.
+type BlobOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BlobOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o BlobOutputDataSourceInvokeResponseOutput) ToBlobOutputDataSourceInvokeResponseOutput() BlobOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o BlobOutputDataSourceInvokeResponseOutput) ToBlobOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) BlobOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// Authentication Mode.
+func (o BlobOutputDataSourceInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobOutputDataSourceInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+func (o BlobOutputDataSourceInvokeResponseOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobOutputDataSourceInvokeResponse) *string { return v.Container }).(pulumi.StringPtrOutput)
+}
+
+// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+func (o BlobOutputDataSourceInvokeResponseOutput) DateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobOutputDataSourceInvokeResponse) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
+}
+
+// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+func (o BlobOutputDataSourceInvokeResponseOutput) PathPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobOutputDataSourceInvokeResponse) *string { return v.PathPattern }).(pulumi.StringPtrOutput)
+}
+
+// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+func (o BlobOutputDataSourceInvokeResponseOutput) StorageAccounts() StorageAccountInvokeResponseArrayOutput {
+	return o.ApplyT(func(v BlobOutputDataSourceInvokeResponse) []StorageAccountInvokeResponse { return v.StorageAccounts }).(StorageAccountInvokeResponseArrayOutput)
+}
+
+// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+func (o BlobOutputDataSourceInvokeResponseOutput) TimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobOutputDataSourceInvokeResponse) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.Storage/Blob'.
+func (o BlobOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a blob output data source.
 type BlobOutputDataSourceResponse struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
@@ -4196,6 +6249,111 @@ func (o BlobReferenceInputDataSourceOutput) TimeFormat() pulumi.StringPtrOutput 
 // Expected value is 'Microsoft.Storage/Blob'.
 func (o BlobReferenceInputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BlobReferenceInputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a blob input data source that contains reference data.
+type BlobReferenceInputDataSourceInvokeResponse struct {
+	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+	Container *string `pulumi:"container"`
+	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+	DateFormat *string `pulumi:"dateFormat"`
+	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+	PathPattern *string `pulumi:"pathPattern"`
+	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+	StorageAccounts []StorageAccountInvokeResponse `pulumi:"storageAccounts"`
+	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+	TimeFormat *string `pulumi:"timeFormat"`
+	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Storage/Blob'.
+	Type string `pulumi:"type"`
+}
+
+// BlobReferenceInputDataSourceInvokeResponseInput is an input type that accepts BlobReferenceInputDataSourceInvokeResponseArgs and BlobReferenceInputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `BlobReferenceInputDataSourceInvokeResponseInput` via:
+//
+//          BlobReferenceInputDataSourceInvokeResponseArgs{...}
+type BlobReferenceInputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBlobReferenceInputDataSourceInvokeResponseOutput() BlobReferenceInputDataSourceInvokeResponseOutput
+	ToBlobReferenceInputDataSourceInvokeResponseOutputWithContext(context.Context) BlobReferenceInputDataSourceInvokeResponseOutput
+}
+
+// Describes a blob input data source that contains reference data.
+type BlobReferenceInputDataSourceInvokeResponseArgs struct {
+	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+	Container pulumi.StringPtrInput `pulumi:"container"`
+	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+	DateFormat pulumi.StringPtrInput `pulumi:"dateFormat"`
+	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+	PathPattern pulumi.StringPtrInput `pulumi:"pathPattern"`
+	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+	StorageAccounts StorageAccountInvokeResponseArrayInput `pulumi:"storageAccounts"`
+	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
+	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Storage/Blob'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BlobReferenceInputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobReferenceInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i BlobReferenceInputDataSourceInvokeResponseArgs) ToBlobReferenceInputDataSourceInvokeResponseOutput() BlobReferenceInputDataSourceInvokeResponseOutput {
+	return i.ToBlobReferenceInputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BlobReferenceInputDataSourceInvokeResponseArgs) ToBlobReferenceInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) BlobReferenceInputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobReferenceInputDataSourceInvokeResponseOutput)
+}
+
+// Describes a blob input data source that contains reference data.
+type BlobReferenceInputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BlobReferenceInputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobReferenceInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o BlobReferenceInputDataSourceInvokeResponseOutput) ToBlobReferenceInputDataSourceInvokeResponseOutput() BlobReferenceInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o BlobReferenceInputDataSourceInvokeResponseOutput) ToBlobReferenceInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) BlobReferenceInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+func (o BlobReferenceInputDataSourceInvokeResponseOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobReferenceInputDataSourceInvokeResponse) *string { return v.Container }).(pulumi.StringPtrOutput)
+}
+
+// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+func (o BlobReferenceInputDataSourceInvokeResponseOutput) DateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobReferenceInputDataSourceInvokeResponse) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
+}
+
+// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+func (o BlobReferenceInputDataSourceInvokeResponseOutput) PathPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobReferenceInputDataSourceInvokeResponse) *string { return v.PathPattern }).(pulumi.StringPtrOutput)
+}
+
+// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+func (o BlobReferenceInputDataSourceInvokeResponseOutput) StorageAccounts() StorageAccountInvokeResponseArrayOutput {
+	return o.ApplyT(func(v BlobReferenceInputDataSourceInvokeResponse) []StorageAccountInvokeResponse {
+		return v.StorageAccounts
+	}).(StorageAccountInvokeResponseArrayOutput)
+}
+
+// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+func (o BlobReferenceInputDataSourceInvokeResponseOutput) TimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobReferenceInputDataSourceInvokeResponse) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.Storage/Blob'.
+func (o BlobReferenceInputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobReferenceInputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a blob input data source that contains reference data.
@@ -4414,6 +6572,120 @@ func (o BlobStreamInputDataSourceOutput) Type() pulumi.StringOutput {
 }
 
 // Describes a blob input data source that contains stream data.
+type BlobStreamInputDataSourceInvokeResponse struct {
+	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+	Container *string `pulumi:"container"`
+	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+	DateFormat *string `pulumi:"dateFormat"`
+	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+	PathPattern *string `pulumi:"pathPattern"`
+	// The partition count of the blob input data source. Range 1 - 256.
+	SourcePartitionCount *int `pulumi:"sourcePartitionCount"`
+	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+	StorageAccounts []StorageAccountInvokeResponse `pulumi:"storageAccounts"`
+	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+	TimeFormat *string `pulumi:"timeFormat"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Storage/Blob'.
+	Type string `pulumi:"type"`
+}
+
+// BlobStreamInputDataSourceInvokeResponseInput is an input type that accepts BlobStreamInputDataSourceInvokeResponseArgs and BlobStreamInputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `BlobStreamInputDataSourceInvokeResponseInput` via:
+//
+//          BlobStreamInputDataSourceInvokeResponseArgs{...}
+type BlobStreamInputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBlobStreamInputDataSourceInvokeResponseOutput() BlobStreamInputDataSourceInvokeResponseOutput
+	ToBlobStreamInputDataSourceInvokeResponseOutputWithContext(context.Context) BlobStreamInputDataSourceInvokeResponseOutput
+}
+
+// Describes a blob input data source that contains stream data.
+type BlobStreamInputDataSourceInvokeResponseArgs struct {
+	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+	Container pulumi.StringPtrInput `pulumi:"container"`
+	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+	DateFormat pulumi.StringPtrInput `pulumi:"dateFormat"`
+	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+	PathPattern pulumi.StringPtrInput `pulumi:"pathPattern"`
+	// The partition count of the blob input data source. Range 1 - 256.
+	SourcePartitionCount pulumi.IntPtrInput `pulumi:"sourcePartitionCount"`
+	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+	StorageAccounts StorageAccountInvokeResponseArrayInput `pulumi:"storageAccounts"`
+	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Storage/Blob'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (BlobStreamInputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobStreamInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i BlobStreamInputDataSourceInvokeResponseArgs) ToBlobStreamInputDataSourceInvokeResponseOutput() BlobStreamInputDataSourceInvokeResponseOutput {
+	return i.ToBlobStreamInputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BlobStreamInputDataSourceInvokeResponseArgs) ToBlobStreamInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) BlobStreamInputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobStreamInputDataSourceInvokeResponseOutput)
+}
+
+// Describes a blob input data source that contains stream data.
+type BlobStreamInputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BlobStreamInputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobStreamInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o BlobStreamInputDataSourceInvokeResponseOutput) ToBlobStreamInputDataSourceInvokeResponseOutput() BlobStreamInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o BlobStreamInputDataSourceInvokeResponseOutput) ToBlobStreamInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) BlobStreamInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
+func (o BlobStreamInputDataSourceInvokeResponseOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobStreamInputDataSourceInvokeResponse) *string { return v.Container }).(pulumi.StringPtrOutput)
+}
+
+// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+func (o BlobStreamInputDataSourceInvokeResponseOutput) DateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobStreamInputDataSourceInvokeResponse) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
+}
+
+// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+func (o BlobStreamInputDataSourceInvokeResponseOutput) PathPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobStreamInputDataSourceInvokeResponse) *string { return v.PathPattern }).(pulumi.StringPtrOutput)
+}
+
+// The partition count of the blob input data source. Range 1 - 256.
+func (o BlobStreamInputDataSourceInvokeResponseOutput) SourcePartitionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BlobStreamInputDataSourceInvokeResponse) *int { return v.SourcePartitionCount }).(pulumi.IntPtrOutput)
+}
+
+// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+func (o BlobStreamInputDataSourceInvokeResponseOutput) StorageAccounts() StorageAccountInvokeResponseArrayOutput {
+	return o.ApplyT(func(v BlobStreamInputDataSourceInvokeResponse) []StorageAccountInvokeResponse {
+		return v.StorageAccounts
+	}).(StorageAccountInvokeResponseArrayOutput)
+}
+
+// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+func (o BlobStreamInputDataSourceInvokeResponseOutput) TimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BlobStreamInputDataSourceInvokeResponse) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.Storage/Blob'.
+func (o BlobStreamInputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobStreamInputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSourceResponse struct {
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
@@ -4617,6 +6889,100 @@ func (o CSharpFunctionBindingOutput) Script() pulumi.StringPtrOutput {
 // Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
 func (o CSharpFunctionBindingOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CSharpFunctionBinding) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The binding to a CSharp function.
+type CSharpFunctionBindingInvokeResponse struct {
+	// The Csharp code containing a single function definition.
+	Class *string `pulumi:"class"`
+	// The Csharp code containing a single function definition.
+	DllPath *string `pulumi:"dllPath"`
+	// The Csharp code containing a single function definition.
+	Method *string `pulumi:"method"`
+	// The Csharp code containing a single function definition.
+	Script *string `pulumi:"script"`
+	// Indicates the function binding type.
+	// Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
+	Type string `pulumi:"type"`
+}
+
+// CSharpFunctionBindingInvokeResponseInput is an input type that accepts CSharpFunctionBindingInvokeResponseArgs and CSharpFunctionBindingInvokeResponseOutput values.
+// You can construct a concrete instance of `CSharpFunctionBindingInvokeResponseInput` via:
+//
+//          CSharpFunctionBindingInvokeResponseArgs{...}
+type CSharpFunctionBindingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCSharpFunctionBindingInvokeResponseOutput() CSharpFunctionBindingInvokeResponseOutput
+	ToCSharpFunctionBindingInvokeResponseOutputWithContext(context.Context) CSharpFunctionBindingInvokeResponseOutput
+}
+
+// The binding to a CSharp function.
+type CSharpFunctionBindingInvokeResponseArgs struct {
+	// The Csharp code containing a single function definition.
+	Class pulumi.StringPtrInput `pulumi:"class"`
+	// The Csharp code containing a single function definition.
+	DllPath pulumi.StringPtrInput `pulumi:"dllPath"`
+	// The Csharp code containing a single function definition.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// The Csharp code containing a single function definition.
+	Script pulumi.StringPtrInput `pulumi:"script"`
+	// Indicates the function binding type.
+	// Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CSharpFunctionBindingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CSharpFunctionBindingInvokeResponse)(nil)).Elem()
+}
+
+func (i CSharpFunctionBindingInvokeResponseArgs) ToCSharpFunctionBindingInvokeResponseOutput() CSharpFunctionBindingInvokeResponseOutput {
+	return i.ToCSharpFunctionBindingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CSharpFunctionBindingInvokeResponseArgs) ToCSharpFunctionBindingInvokeResponseOutputWithContext(ctx context.Context) CSharpFunctionBindingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CSharpFunctionBindingInvokeResponseOutput)
+}
+
+// The binding to a CSharp function.
+type CSharpFunctionBindingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CSharpFunctionBindingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CSharpFunctionBindingInvokeResponse)(nil)).Elem()
+}
+
+func (o CSharpFunctionBindingInvokeResponseOutput) ToCSharpFunctionBindingInvokeResponseOutput() CSharpFunctionBindingInvokeResponseOutput {
+	return o
+}
+
+func (o CSharpFunctionBindingInvokeResponseOutput) ToCSharpFunctionBindingInvokeResponseOutputWithContext(ctx context.Context) CSharpFunctionBindingInvokeResponseOutput {
+	return o
+}
+
+// The Csharp code containing a single function definition.
+func (o CSharpFunctionBindingInvokeResponseOutput) Class() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CSharpFunctionBindingInvokeResponse) *string { return v.Class }).(pulumi.StringPtrOutput)
+}
+
+// The Csharp code containing a single function definition.
+func (o CSharpFunctionBindingInvokeResponseOutput) DllPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CSharpFunctionBindingInvokeResponse) *string { return v.DllPath }).(pulumi.StringPtrOutput)
+}
+
+// The Csharp code containing a single function definition.
+func (o CSharpFunctionBindingInvokeResponseOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CSharpFunctionBindingInvokeResponse) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// The Csharp code containing a single function definition.
+func (o CSharpFunctionBindingInvokeResponseOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CSharpFunctionBindingInvokeResponse) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the function binding type.
+// Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
+func (o CSharpFunctionBindingInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CSharpFunctionBindingInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The binding to a CSharp function.
@@ -4845,6 +7211,61 @@ func (o ClusterInfoPtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// The properties associated with a Stream Analytics cluster.
+type ClusterInfoInvokeResponse struct {
+	// The resource id of cluster.
+	Id *string `pulumi:"id"`
+}
+
+// ClusterInfoInvokeResponseInput is an input type that accepts ClusterInfoInvokeResponseArgs and ClusterInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterInfoInvokeResponseInput` via:
+//
+//          ClusterInfoInvokeResponseArgs{...}
+type ClusterInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterInfoInvokeResponseOutput() ClusterInfoInvokeResponseOutput
+	ToClusterInfoInvokeResponseOutputWithContext(context.Context) ClusterInfoInvokeResponseOutput
+}
+
+// The properties associated with a Stream Analytics cluster.
+type ClusterInfoInvokeResponseArgs struct {
+	// The resource id of cluster.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ClusterInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterInfoInvokeResponseArgs) ToClusterInfoInvokeResponseOutput() ClusterInfoInvokeResponseOutput {
+	return i.ToClusterInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterInfoInvokeResponseArgs) ToClusterInfoInvokeResponseOutputWithContext(ctx context.Context) ClusterInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterInfoInvokeResponseOutput)
+}
+
+// The properties associated with a Stream Analytics cluster.
+type ClusterInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterInfoInvokeResponseOutput) ToClusterInfoInvokeResponseOutput() ClusterInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterInfoInvokeResponseOutput) ToClusterInfoInvokeResponseOutputWithContext(ctx context.Context) ClusterInfoInvokeResponseOutput {
+	return o
+}
+
+// The resource id of cluster.
+func (o ClusterInfoInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterInfoInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The properties associated with a Stream Analytics cluster.
@@ -5111,6 +7532,135 @@ func (o CompressionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Describes how input data is compressed
+type CompressionInvokeResponse struct {
+	Type string `pulumi:"type"`
+}
+
+// CompressionInvokeResponseInput is an input type that accepts CompressionInvokeResponseArgs and CompressionInvokeResponseOutput values.
+// You can construct a concrete instance of `CompressionInvokeResponseInput` via:
+//
+//          CompressionInvokeResponseArgs{...}
+type CompressionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCompressionInvokeResponseOutput() CompressionInvokeResponseOutput
+	ToCompressionInvokeResponseOutputWithContext(context.Context) CompressionInvokeResponseOutput
+}
+
+// Describes how input data is compressed
+type CompressionInvokeResponseArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CompressionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompressionInvokeResponse)(nil)).Elem()
+}
+
+func (i CompressionInvokeResponseArgs) ToCompressionInvokeResponseOutput() CompressionInvokeResponseOutput {
+	return i.ToCompressionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CompressionInvokeResponseArgs) ToCompressionInvokeResponseOutputWithContext(ctx context.Context) CompressionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompressionInvokeResponseOutput)
+}
+
+func (i CompressionInvokeResponseArgs) ToCompressionInvokeResponsePtrOutput() CompressionInvokeResponsePtrOutput {
+	return i.ToCompressionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CompressionInvokeResponseArgs) ToCompressionInvokeResponsePtrOutputWithContext(ctx context.Context) CompressionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompressionInvokeResponseOutput).ToCompressionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CompressionInvokeResponsePtrInput is an input type that accepts CompressionInvokeResponseArgs, CompressionInvokeResponsePtr and CompressionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CompressionInvokeResponsePtrInput` via:
+//
+//          CompressionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CompressionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCompressionInvokeResponsePtrOutput() CompressionInvokeResponsePtrOutput
+	ToCompressionInvokeResponsePtrOutputWithContext(context.Context) CompressionInvokeResponsePtrOutput
+}
+
+type compressionInvokeResponsePtrType CompressionInvokeResponseArgs
+
+func CompressionInvokeResponsePtr(v *CompressionInvokeResponseArgs) CompressionInvokeResponsePtrInput {
+	return (*compressionInvokeResponsePtrType)(v)
+}
+
+func (*compressionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompressionInvokeResponse)(nil)).Elem()
+}
+
+func (i *compressionInvokeResponsePtrType) ToCompressionInvokeResponsePtrOutput() CompressionInvokeResponsePtrOutput {
+	return i.ToCompressionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *compressionInvokeResponsePtrType) ToCompressionInvokeResponsePtrOutputWithContext(ctx context.Context) CompressionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompressionInvokeResponsePtrOutput)
+}
+
+// Describes how input data is compressed
+type CompressionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CompressionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompressionInvokeResponse)(nil)).Elem()
+}
+
+func (o CompressionInvokeResponseOutput) ToCompressionInvokeResponseOutput() CompressionInvokeResponseOutput {
+	return o
+}
+
+func (o CompressionInvokeResponseOutput) ToCompressionInvokeResponseOutputWithContext(ctx context.Context) CompressionInvokeResponseOutput {
+	return o
+}
+
+func (o CompressionInvokeResponseOutput) ToCompressionInvokeResponsePtrOutput() CompressionInvokeResponsePtrOutput {
+	return o.ToCompressionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CompressionInvokeResponseOutput) ToCompressionInvokeResponsePtrOutputWithContext(ctx context.Context) CompressionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CompressionInvokeResponse) *CompressionInvokeResponse {
+		return &v
+	}).(CompressionInvokeResponsePtrOutput)
+}
+func (o CompressionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CompressionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type CompressionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CompressionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompressionInvokeResponse)(nil)).Elem()
+}
+
+func (o CompressionInvokeResponsePtrOutput) ToCompressionInvokeResponsePtrOutput() CompressionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CompressionInvokeResponsePtrOutput) ToCompressionInvokeResponsePtrOutputWithContext(ctx context.Context) CompressionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CompressionInvokeResponsePtrOutput) Elem() CompressionInvokeResponseOutput {
+	return o.ApplyT(func(v *CompressionInvokeResponse) CompressionInvokeResponse { return *v }).(CompressionInvokeResponseOutput)
+}
+
+func (o CompressionInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CompressionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes how input data is compressed
 type CompressionResponse struct {
 	Type string `pulumi:"type"`
 }
@@ -5316,6 +7866,82 @@ func (o CsvSerializationOutput) Type() pulumi.StringOutput {
 }
 
 // Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
+type CsvSerializationInvokeResponse struct {
+	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+	Encoding *string `pulumi:"encoding"`
+	// Specifies the delimiter that will be used to separate comma-separated value (CSV) records. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a list of supported values. Required on PUT (CreateOrReplace) requests.
+	FieldDelimiter *string `pulumi:"fieldDelimiter"`
+	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Csv'.
+	Type string `pulumi:"type"`
+}
+
+// CsvSerializationInvokeResponseInput is an input type that accepts CsvSerializationInvokeResponseArgs and CsvSerializationInvokeResponseOutput values.
+// You can construct a concrete instance of `CsvSerializationInvokeResponseInput` via:
+//
+//          CsvSerializationInvokeResponseArgs{...}
+type CsvSerializationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCsvSerializationInvokeResponseOutput() CsvSerializationInvokeResponseOutput
+	ToCsvSerializationInvokeResponseOutputWithContext(context.Context) CsvSerializationInvokeResponseOutput
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
+type CsvSerializationInvokeResponseArgs struct {
+	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// Specifies the delimiter that will be used to separate comma-separated value (CSV) records. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a list of supported values. Required on PUT (CreateOrReplace) requests.
+	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
+	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Csv'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CsvSerializationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CsvSerializationInvokeResponse)(nil)).Elem()
+}
+
+func (i CsvSerializationInvokeResponseArgs) ToCsvSerializationInvokeResponseOutput() CsvSerializationInvokeResponseOutput {
+	return i.ToCsvSerializationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CsvSerializationInvokeResponseArgs) ToCsvSerializationInvokeResponseOutputWithContext(ctx context.Context) CsvSerializationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CsvSerializationInvokeResponseOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
+type CsvSerializationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CsvSerializationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CsvSerializationInvokeResponse)(nil)).Elem()
+}
+
+func (o CsvSerializationInvokeResponseOutput) ToCsvSerializationInvokeResponseOutput() CsvSerializationInvokeResponseOutput {
+	return o
+}
+
+func (o CsvSerializationInvokeResponseOutput) ToCsvSerializationInvokeResponseOutputWithContext(ctx context.Context) CsvSerializationInvokeResponseOutput {
+	return o
+}
+
+// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+func (o CsvSerializationInvokeResponseOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CsvSerializationInvokeResponse) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the delimiter that will be used to separate comma-separated value (CSV) records. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a list of supported values. Required on PUT (CreateOrReplace) requests.
+func (o CsvSerializationInvokeResponseOutput) FieldDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CsvSerializationInvokeResponse) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Csv'.
+func (o CsvSerializationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CsvSerializationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
 type CsvSerializationResponse struct {
 	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 	Encoding *string `pulumi:"encoding"`
@@ -5468,6 +8094,82 @@ func (o CustomClrSerializationOutput) Type() pulumi.StringOutput {
 }
 
 // Describes how data from an input is serialized or how data is serialized when written to an output in custom format.
+type CustomClrSerializationInvokeResponse struct {
+	// The serialization class name.
+	SerializationClassName *string `pulumi:"serializationClassName"`
+	// The serialization library path.
+	SerializationDllPath *string `pulumi:"serializationDllPath"`
+	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'CustomClr'.
+	Type string `pulumi:"type"`
+}
+
+// CustomClrSerializationInvokeResponseInput is an input type that accepts CustomClrSerializationInvokeResponseArgs and CustomClrSerializationInvokeResponseOutput values.
+// You can construct a concrete instance of `CustomClrSerializationInvokeResponseInput` via:
+//
+//          CustomClrSerializationInvokeResponseArgs{...}
+type CustomClrSerializationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCustomClrSerializationInvokeResponseOutput() CustomClrSerializationInvokeResponseOutput
+	ToCustomClrSerializationInvokeResponseOutputWithContext(context.Context) CustomClrSerializationInvokeResponseOutput
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in custom format.
+type CustomClrSerializationInvokeResponseArgs struct {
+	// The serialization class name.
+	SerializationClassName pulumi.StringPtrInput `pulumi:"serializationClassName"`
+	// The serialization library path.
+	SerializationDllPath pulumi.StringPtrInput `pulumi:"serializationDllPath"`
+	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'CustomClr'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (CustomClrSerializationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomClrSerializationInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomClrSerializationInvokeResponseArgs) ToCustomClrSerializationInvokeResponseOutput() CustomClrSerializationInvokeResponseOutput {
+	return i.ToCustomClrSerializationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CustomClrSerializationInvokeResponseArgs) ToCustomClrSerializationInvokeResponseOutputWithContext(ctx context.Context) CustomClrSerializationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomClrSerializationInvokeResponseOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in custom format.
+type CustomClrSerializationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomClrSerializationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomClrSerializationInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomClrSerializationInvokeResponseOutput) ToCustomClrSerializationInvokeResponseOutput() CustomClrSerializationInvokeResponseOutput {
+	return o
+}
+
+func (o CustomClrSerializationInvokeResponseOutput) ToCustomClrSerializationInvokeResponseOutputWithContext(ctx context.Context) CustomClrSerializationInvokeResponseOutput {
+	return o
+}
+
+// The serialization class name.
+func (o CustomClrSerializationInvokeResponseOutput) SerializationClassName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomClrSerializationInvokeResponse) *string { return v.SerializationClassName }).(pulumi.StringPtrOutput)
+}
+
+// The serialization library path.
+func (o CustomClrSerializationInvokeResponseOutput) SerializationDllPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomClrSerializationInvokeResponse) *string { return v.SerializationDllPath }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'CustomClr'.
+func (o CustomClrSerializationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomClrSerializationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in custom format.
 type CustomClrSerializationResponse struct {
 	// The serialization class name.
 	SerializationClassName *string `pulumi:"serializationClassName"`
@@ -5541,6 +8243,124 @@ func (o CustomClrSerializationResponseOutput) SerializationDllPath() pulumi.Stri
 // Expected value is 'CustomClr'.
 func (o CustomClrSerializationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomClrSerializationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Condition applicable to the resource, or to the job overall, that warrant customer attention.
+type DiagnosticConditionInvokeResponse struct {
+	// The opaque diagnostic code.
+	Code string `pulumi:"code"`
+	// The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
+	Message string `pulumi:"message"`
+	// The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
+	Since string `pulumi:"since"`
+}
+
+// DiagnosticConditionInvokeResponseInput is an input type that accepts DiagnosticConditionInvokeResponseArgs and DiagnosticConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `DiagnosticConditionInvokeResponseInput` via:
+//
+//          DiagnosticConditionInvokeResponseArgs{...}
+type DiagnosticConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDiagnosticConditionInvokeResponseOutput() DiagnosticConditionInvokeResponseOutput
+	ToDiagnosticConditionInvokeResponseOutputWithContext(context.Context) DiagnosticConditionInvokeResponseOutput
+}
+
+// Condition applicable to the resource, or to the job overall, that warrant customer attention.
+type DiagnosticConditionInvokeResponseArgs struct {
+	// The opaque diagnostic code.
+	Code pulumi.StringInput `pulumi:"code"`
+	// The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
+	Message pulumi.StringInput `pulumi:"message"`
+	// The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
+	Since pulumi.StringInput `pulumi:"since"`
+}
+
+func (DiagnosticConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DiagnosticConditionInvokeResponseArgs) ToDiagnosticConditionInvokeResponseOutput() DiagnosticConditionInvokeResponseOutput {
+	return i.ToDiagnosticConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DiagnosticConditionInvokeResponseArgs) ToDiagnosticConditionInvokeResponseOutputWithContext(ctx context.Context) DiagnosticConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticConditionInvokeResponseOutput)
+}
+
+// DiagnosticConditionInvokeResponseArrayInput is an input type that accepts DiagnosticConditionInvokeResponseArray and DiagnosticConditionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DiagnosticConditionInvokeResponseArrayInput` via:
+//
+//          DiagnosticConditionInvokeResponseArray{ DiagnosticConditionInvokeResponseArgs{...} }
+type DiagnosticConditionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDiagnosticConditionInvokeResponseArrayOutput() DiagnosticConditionInvokeResponseArrayOutput
+	ToDiagnosticConditionInvokeResponseArrayOutputWithContext(context.Context) DiagnosticConditionInvokeResponseArrayOutput
+}
+
+type DiagnosticConditionInvokeResponseArray []DiagnosticConditionInvokeResponseInput
+
+func (DiagnosticConditionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i DiagnosticConditionInvokeResponseArray) ToDiagnosticConditionInvokeResponseArrayOutput() DiagnosticConditionInvokeResponseArrayOutput {
+	return i.ToDiagnosticConditionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DiagnosticConditionInvokeResponseArray) ToDiagnosticConditionInvokeResponseArrayOutputWithContext(ctx context.Context) DiagnosticConditionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticConditionInvokeResponseArrayOutput)
+}
+
+// Condition applicable to the resource, or to the job overall, that warrant customer attention.
+type DiagnosticConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DiagnosticConditionInvokeResponseOutput) ToDiagnosticConditionInvokeResponseOutput() DiagnosticConditionInvokeResponseOutput {
+	return o
+}
+
+func (o DiagnosticConditionInvokeResponseOutput) ToDiagnosticConditionInvokeResponseOutputWithContext(ctx context.Context) DiagnosticConditionInvokeResponseOutput {
+	return o
+}
+
+// The opaque diagnostic code.
+func (o DiagnosticConditionInvokeResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticConditionInvokeResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
+func (o DiagnosticConditionInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticConditionInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
+func (o DiagnosticConditionInvokeResponseOutput) Since() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticConditionInvokeResponse) string { return v.Since }).(pulumi.StringOutput)
+}
+
+type DiagnosticConditionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticConditionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiagnosticConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o DiagnosticConditionInvokeResponseArrayOutput) ToDiagnosticConditionInvokeResponseArrayOutput() DiagnosticConditionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DiagnosticConditionInvokeResponseArrayOutput) ToDiagnosticConditionInvokeResponseArrayOutputWithContext(ctx context.Context) DiagnosticConditionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DiagnosticConditionInvokeResponseArrayOutput) Index(i pulumi.IntInput) DiagnosticConditionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticConditionInvokeResponse {
+		return vs[0].([]DiagnosticConditionInvokeResponse)[vs[1].(int)]
+	}).(DiagnosticConditionInvokeResponseOutput)
 }
 
 // Condition applicable to the resource, or to the job overall, that warrant customer attention.
@@ -5659,6 +8479,61 @@ func (o DiagnosticConditionResponseArrayOutput) Index(i pulumi.IntInput) Diagnos
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticConditionResponse {
 		return vs[0].([]DiagnosticConditionResponse)[vs[1].(int)]
 	}).(DiagnosticConditionResponseOutput)
+}
+
+// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+type DiagnosticsInvokeResponse struct {
+	// A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
+	Conditions []DiagnosticConditionInvokeResponse `pulumi:"conditions"`
+}
+
+// DiagnosticsInvokeResponseInput is an input type that accepts DiagnosticsInvokeResponseArgs and DiagnosticsInvokeResponseOutput values.
+// You can construct a concrete instance of `DiagnosticsInvokeResponseInput` via:
+//
+//          DiagnosticsInvokeResponseArgs{...}
+type DiagnosticsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDiagnosticsInvokeResponseOutput() DiagnosticsInvokeResponseOutput
+	ToDiagnosticsInvokeResponseOutputWithContext(context.Context) DiagnosticsInvokeResponseOutput
+}
+
+// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+type DiagnosticsInvokeResponseArgs struct {
+	// A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
+	Conditions DiagnosticConditionInvokeResponseArrayInput `pulumi:"conditions"`
+}
+
+func (DiagnosticsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticsInvokeResponse)(nil)).Elem()
+}
+
+func (i DiagnosticsInvokeResponseArgs) ToDiagnosticsInvokeResponseOutput() DiagnosticsInvokeResponseOutput {
+	return i.ToDiagnosticsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DiagnosticsInvokeResponseArgs) ToDiagnosticsInvokeResponseOutputWithContext(ctx context.Context) DiagnosticsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsInvokeResponseOutput)
+}
+
+// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+type DiagnosticsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticsInvokeResponse)(nil)).Elem()
+}
+
+func (o DiagnosticsInvokeResponseOutput) ToDiagnosticsInvokeResponseOutput() DiagnosticsInvokeResponseOutput {
+	return o
+}
+
+func (o DiagnosticsInvokeResponseOutput) ToDiagnosticsInvokeResponseOutputWithContext(ctx context.Context) DiagnosticsInvokeResponseOutput {
+	return o
+}
+
+// A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
+func (o DiagnosticsInvokeResponseOutput) Conditions() DiagnosticConditionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DiagnosticsInvokeResponse) []DiagnosticConditionInvokeResponse { return v.Conditions }).(DiagnosticConditionInvokeResponseArrayOutput)
 }
 
 // Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
@@ -5908,6 +8783,118 @@ func (o DocumentDbOutputDataSourceOutput) Type() pulumi.StringOutput {
 }
 
 // Describes a DocumentDB output data source.
+type DocumentDbOutputDataSourceInvokeResponse struct {
+	// The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
+	AccountId *string `pulumi:"accountId"`
+	// The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.
+	AccountKey *string `pulumi:"accountKey"`
+	// The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
+	CollectionNamePattern *string `pulumi:"collectionNamePattern"`
+	// The name of the DocumentDB database. Required on PUT (CreateOrReplace) requests.
+	Database *string `pulumi:"database"`
+	// The name of the field in output events used to specify the primary key which insert or update operations are based on.
+	DocumentId *string `pulumi:"documentId"`
+	// The name of the field in output events used to specify the key for partitioning output across collections. If 'collectionNamePattern' contains the {partition} token, this property is required to be specified.
+	PartitionKey *string `pulumi:"partitionKey"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Storage/DocumentDB'.
+	Type string `pulumi:"type"`
+}
+
+// DocumentDbOutputDataSourceInvokeResponseInput is an input type that accepts DocumentDbOutputDataSourceInvokeResponseArgs and DocumentDbOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `DocumentDbOutputDataSourceInvokeResponseInput` via:
+//
+//          DocumentDbOutputDataSourceInvokeResponseArgs{...}
+type DocumentDbOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDocumentDbOutputDataSourceInvokeResponseOutput() DocumentDbOutputDataSourceInvokeResponseOutput
+	ToDocumentDbOutputDataSourceInvokeResponseOutputWithContext(context.Context) DocumentDbOutputDataSourceInvokeResponseOutput
+}
+
+// Describes a DocumentDB output data source.
+type DocumentDbOutputDataSourceInvokeResponseArgs struct {
+	// The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.
+	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
+	// The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
+	CollectionNamePattern pulumi.StringPtrInput `pulumi:"collectionNamePattern"`
+	// The name of the DocumentDB database. Required on PUT (CreateOrReplace) requests.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// The name of the field in output events used to specify the primary key which insert or update operations are based on.
+	DocumentId pulumi.StringPtrInput `pulumi:"documentId"`
+	// The name of the field in output events used to specify the key for partitioning output across collections. If 'collectionNamePattern' contains the {partition} token, this property is required to be specified.
+	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Storage/DocumentDB'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DocumentDbOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentDbOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i DocumentDbOutputDataSourceInvokeResponseArgs) ToDocumentDbOutputDataSourceInvokeResponseOutput() DocumentDbOutputDataSourceInvokeResponseOutput {
+	return i.ToDocumentDbOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DocumentDbOutputDataSourceInvokeResponseArgs) ToDocumentDbOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) DocumentDbOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentDbOutputDataSourceInvokeResponseOutput)
+}
+
+// Describes a DocumentDB output data source.
+type DocumentDbOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DocumentDbOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentDbOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o DocumentDbOutputDataSourceInvokeResponseOutput) ToDocumentDbOutputDataSourceInvokeResponseOutput() DocumentDbOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o DocumentDbOutputDataSourceInvokeResponseOutput) ToDocumentDbOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) DocumentDbOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
+func (o DocumentDbOutputDataSourceInvokeResponseOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentDbOutputDataSourceInvokeResponse) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.
+func (o DocumentDbOutputDataSourceInvokeResponseOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentDbOutputDataSourceInvokeResponse) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
+func (o DocumentDbOutputDataSourceInvokeResponseOutput) CollectionNamePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentDbOutputDataSourceInvokeResponse) *string { return v.CollectionNamePattern }).(pulumi.StringPtrOutput)
+}
+
+// The name of the DocumentDB database. Required on PUT (CreateOrReplace) requests.
+func (o DocumentDbOutputDataSourceInvokeResponseOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentDbOutputDataSourceInvokeResponse) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in output events used to specify the primary key which insert or update operations are based on.
+func (o DocumentDbOutputDataSourceInvokeResponseOutput) DocumentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentDbOutputDataSourceInvokeResponse) *string { return v.DocumentId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the field in output events used to specify the key for partitioning output across collections. If 'collectionNamePattern' contains the {partition} token, this property is required to be specified.
+func (o DocumentDbOutputDataSourceInvokeResponseOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentDbOutputDataSourceInvokeResponse) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.Storage/DocumentDB'.
+func (o DocumentDbOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DocumentDbOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a DocumentDB output data source.
 type DocumentDbOutputDataSourceResponse struct {
 	// The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
 	AccountId *string `pulumi:"accountId"`
@@ -6135,6 +9122,124 @@ func (o EventHubOutputDataSourceOutput) SharedAccessPolicyName() pulumi.StringPt
 // Expected value is 'Microsoft.ServiceBus/EventHub'.
 func (o EventHubOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes an Event Hub output data source.
+type EventHubOutputDataSourceInvokeResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+	EventHubName *string `pulumi:"eventHubName"`
+	// The key/column that is used to determine to which partition to send event data.
+	PartitionKey    *string  `pulumi:"partitionKey"`
+	PropertyColumns []string `pulumi:"propertyColumns"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.ServiceBus/EventHub'.
+	Type string `pulumi:"type"`
+}
+
+// EventHubOutputDataSourceInvokeResponseInput is an input type that accepts EventHubOutputDataSourceInvokeResponseArgs and EventHubOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `EventHubOutputDataSourceInvokeResponseInput` via:
+//
+//          EventHubOutputDataSourceInvokeResponseArgs{...}
+type EventHubOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventHubOutputDataSourceInvokeResponseOutput() EventHubOutputDataSourceInvokeResponseOutput
+	ToEventHubOutputDataSourceInvokeResponseOutputWithContext(context.Context) EventHubOutputDataSourceInvokeResponseOutput
+}
+
+// Describes an Event Hub output data source.
+type EventHubOutputDataSourceInvokeResponseArgs struct {
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
+	// The key/column that is used to determine to which partition to send event data.
+	PartitionKey    pulumi.StringPtrInput   `pulumi:"partitionKey"`
+	PropertyColumns pulumi.StringArrayInput `pulumi:"propertyColumns"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace pulumi.StringPtrInput `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey pulumi.StringPtrInput `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.ServiceBus/EventHub'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventHubOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i EventHubOutputDataSourceInvokeResponseArgs) ToEventHubOutputDataSourceInvokeResponseOutput() EventHubOutputDataSourceInvokeResponseOutput {
+	return i.ToEventHubOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventHubOutputDataSourceInvokeResponseArgs) ToEventHubOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) EventHubOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubOutputDataSourceInvokeResponseOutput)
+}
+
+// Describes an Event Hub output data source.
+type EventHubOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o EventHubOutputDataSourceInvokeResponseOutput) ToEventHubOutputDataSourceInvokeResponseOutput() EventHubOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o EventHubOutputDataSourceInvokeResponseOutput) ToEventHubOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) EventHubOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// Authentication Mode.
+func (o EventHubOutputDataSourceInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubOutputDataSourceInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+func (o EventHubOutputDataSourceInvokeResponseOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubOutputDataSourceInvokeResponse) *string { return v.EventHubName }).(pulumi.StringPtrOutput)
+}
+
+// The key/column that is used to determine to which partition to send event data.
+func (o EventHubOutputDataSourceInvokeResponseOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubOutputDataSourceInvokeResponse) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+}
+
+func (o EventHubOutputDataSourceInvokeResponseOutput) PropertyColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventHubOutputDataSourceInvokeResponse) []string { return v.PropertyColumns }).(pulumi.StringArrayOutput)
+}
+
+// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o EventHubOutputDataSourceInvokeResponseOutput) ServiceBusNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubOutputDataSourceInvokeResponse) *string { return v.ServiceBusNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+func (o EventHubOutputDataSourceInvokeResponseOutput) SharedAccessPolicyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubOutputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyKey }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o EventHubOutputDataSourceInvokeResponseOutput) SharedAccessPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubOutputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.ServiceBus/EventHub'.
+func (o EventHubOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Event Hub output data source.
@@ -6368,6 +9473,118 @@ func (o EventHubStreamInputDataSourceOutput) Type() pulumi.StringOutput {
 }
 
 // Describes an Event Hub input data source that contains stream data.
+type EventHubStreamInputDataSourceInvokeResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
+	ConsumerGroupName *string `pulumi:"consumerGroupName"`
+	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+	EventHubName *string `pulumi:"eventHubName"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.ServiceBus/EventHub'.
+	Type string `pulumi:"type"`
+}
+
+// EventHubStreamInputDataSourceInvokeResponseInput is an input type that accepts EventHubStreamInputDataSourceInvokeResponseArgs and EventHubStreamInputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `EventHubStreamInputDataSourceInvokeResponseInput` via:
+//
+//          EventHubStreamInputDataSourceInvokeResponseArgs{...}
+type EventHubStreamInputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventHubStreamInputDataSourceInvokeResponseOutput() EventHubStreamInputDataSourceInvokeResponseOutput
+	ToEventHubStreamInputDataSourceInvokeResponseOutputWithContext(context.Context) EventHubStreamInputDataSourceInvokeResponseOutput
+}
+
+// Describes an Event Hub input data source that contains stream data.
+type EventHubStreamInputDataSourceInvokeResponseArgs struct {
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
+	ConsumerGroupName pulumi.StringPtrInput `pulumi:"consumerGroupName"`
+	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace pulumi.StringPtrInput `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey pulumi.StringPtrInput `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.ServiceBus/EventHub'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventHubStreamInputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubStreamInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i EventHubStreamInputDataSourceInvokeResponseArgs) ToEventHubStreamInputDataSourceInvokeResponseOutput() EventHubStreamInputDataSourceInvokeResponseOutput {
+	return i.ToEventHubStreamInputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventHubStreamInputDataSourceInvokeResponseArgs) ToEventHubStreamInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) EventHubStreamInputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubStreamInputDataSourceInvokeResponseOutput)
+}
+
+// Describes an Event Hub input data source that contains stream data.
+type EventHubStreamInputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubStreamInputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubStreamInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o EventHubStreamInputDataSourceInvokeResponseOutput) ToEventHubStreamInputDataSourceInvokeResponseOutput() EventHubStreamInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o EventHubStreamInputDataSourceInvokeResponseOutput) ToEventHubStreamInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) EventHubStreamInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// Authentication Mode.
+func (o EventHubStreamInputDataSourceInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubStreamInputDataSourceInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
+func (o EventHubStreamInputDataSourceInvokeResponseOutput) ConsumerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubStreamInputDataSourceInvokeResponse) *string { return v.ConsumerGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+func (o EventHubStreamInputDataSourceInvokeResponseOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubStreamInputDataSourceInvokeResponse) *string { return v.EventHubName }).(pulumi.StringPtrOutput)
+}
+
+// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o EventHubStreamInputDataSourceInvokeResponseOutput) ServiceBusNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubStreamInputDataSourceInvokeResponse) *string { return v.ServiceBusNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+func (o EventHubStreamInputDataSourceInvokeResponseOutput) SharedAccessPolicyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubStreamInputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyKey }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o EventHubStreamInputDataSourceInvokeResponseOutput) SharedAccessPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubStreamInputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.ServiceBus/EventHub'.
+func (o EventHubStreamInputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubStreamInputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes an Event Hub input data source that contains stream data.
 type EventHubStreamInputDataSourceResponse struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
@@ -6598,6 +9815,124 @@ func (o EventHubV2OutputDataSourceOutput) Type() pulumi.StringOutput {
 }
 
 // Describes an Event Hub output data source.
+type EventHubV2OutputDataSourceInvokeResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+	EventHubName *string `pulumi:"eventHubName"`
+	// The key/column that is used to determine to which partition to send event data.
+	PartitionKey    *string  `pulumi:"partitionKey"`
+	PropertyColumns []string `pulumi:"propertyColumns"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.EventHub/EventHub'.
+	Type string `pulumi:"type"`
+}
+
+// EventHubV2OutputDataSourceInvokeResponseInput is an input type that accepts EventHubV2OutputDataSourceInvokeResponseArgs and EventHubV2OutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `EventHubV2OutputDataSourceInvokeResponseInput` via:
+//
+//          EventHubV2OutputDataSourceInvokeResponseArgs{...}
+type EventHubV2OutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventHubV2OutputDataSourceInvokeResponseOutput() EventHubV2OutputDataSourceInvokeResponseOutput
+	ToEventHubV2OutputDataSourceInvokeResponseOutputWithContext(context.Context) EventHubV2OutputDataSourceInvokeResponseOutput
+}
+
+// Describes an Event Hub output data source.
+type EventHubV2OutputDataSourceInvokeResponseArgs struct {
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
+	// The key/column that is used to determine to which partition to send event data.
+	PartitionKey    pulumi.StringPtrInput   `pulumi:"partitionKey"`
+	PropertyColumns pulumi.StringArrayInput `pulumi:"propertyColumns"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace pulumi.StringPtrInput `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey pulumi.StringPtrInput `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.EventHub/EventHub'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventHubV2OutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubV2OutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i EventHubV2OutputDataSourceInvokeResponseArgs) ToEventHubV2OutputDataSourceInvokeResponseOutput() EventHubV2OutputDataSourceInvokeResponseOutput {
+	return i.ToEventHubV2OutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventHubV2OutputDataSourceInvokeResponseArgs) ToEventHubV2OutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) EventHubV2OutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubV2OutputDataSourceInvokeResponseOutput)
+}
+
+// Describes an Event Hub output data source.
+type EventHubV2OutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubV2OutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubV2OutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o EventHubV2OutputDataSourceInvokeResponseOutput) ToEventHubV2OutputDataSourceInvokeResponseOutput() EventHubV2OutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o EventHubV2OutputDataSourceInvokeResponseOutput) ToEventHubV2OutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) EventHubV2OutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// Authentication Mode.
+func (o EventHubV2OutputDataSourceInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2OutputDataSourceInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+func (o EventHubV2OutputDataSourceInvokeResponseOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2OutputDataSourceInvokeResponse) *string { return v.EventHubName }).(pulumi.StringPtrOutput)
+}
+
+// The key/column that is used to determine to which partition to send event data.
+func (o EventHubV2OutputDataSourceInvokeResponseOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2OutputDataSourceInvokeResponse) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+}
+
+func (o EventHubV2OutputDataSourceInvokeResponseOutput) PropertyColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventHubV2OutputDataSourceInvokeResponse) []string { return v.PropertyColumns }).(pulumi.StringArrayOutput)
+}
+
+// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o EventHubV2OutputDataSourceInvokeResponseOutput) ServiceBusNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2OutputDataSourceInvokeResponse) *string { return v.ServiceBusNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+func (o EventHubV2OutputDataSourceInvokeResponseOutput) SharedAccessPolicyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2OutputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyKey }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o EventHubV2OutputDataSourceInvokeResponseOutput) SharedAccessPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2OutputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.EventHub/EventHub'.
+func (o EventHubV2OutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubV2OutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes an Event Hub output data source.
 type EventHubV2OutputDataSourceResponse struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
@@ -6825,6 +10160,118 @@ func (o EventHubV2StreamInputDataSourceOutput) SharedAccessPolicyName() pulumi.S
 // Expected value is 'Microsoft.EventHub/EventHub'.
 func (o EventHubV2StreamInputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubV2StreamInputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes an Event Hub input data source that contains stream data.
+type EventHubV2StreamInputDataSourceInvokeResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
+	ConsumerGroupName *string `pulumi:"consumerGroupName"`
+	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+	EventHubName *string `pulumi:"eventHubName"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.EventHub/EventHub'.
+	Type string `pulumi:"type"`
+}
+
+// EventHubV2StreamInputDataSourceInvokeResponseInput is an input type that accepts EventHubV2StreamInputDataSourceInvokeResponseArgs and EventHubV2StreamInputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `EventHubV2StreamInputDataSourceInvokeResponseInput` via:
+//
+//          EventHubV2StreamInputDataSourceInvokeResponseArgs{...}
+type EventHubV2StreamInputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventHubV2StreamInputDataSourceInvokeResponseOutput() EventHubV2StreamInputDataSourceInvokeResponseOutput
+	ToEventHubV2StreamInputDataSourceInvokeResponseOutputWithContext(context.Context) EventHubV2StreamInputDataSourceInvokeResponseOutput
+}
+
+// Describes an Event Hub input data source that contains stream data.
+type EventHubV2StreamInputDataSourceInvokeResponseArgs struct {
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
+	ConsumerGroupName pulumi.StringPtrInput `pulumi:"consumerGroupName"`
+	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace pulumi.StringPtrInput `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey pulumi.StringPtrInput `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.EventHub/EventHub'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventHubV2StreamInputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubV2StreamInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i EventHubV2StreamInputDataSourceInvokeResponseArgs) ToEventHubV2StreamInputDataSourceInvokeResponseOutput() EventHubV2StreamInputDataSourceInvokeResponseOutput {
+	return i.ToEventHubV2StreamInputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventHubV2StreamInputDataSourceInvokeResponseArgs) ToEventHubV2StreamInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) EventHubV2StreamInputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubV2StreamInputDataSourceInvokeResponseOutput)
+}
+
+// Describes an Event Hub input data source that contains stream data.
+type EventHubV2StreamInputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubV2StreamInputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubV2StreamInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o EventHubV2StreamInputDataSourceInvokeResponseOutput) ToEventHubV2StreamInputDataSourceInvokeResponseOutput() EventHubV2StreamInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o EventHubV2StreamInputDataSourceInvokeResponseOutput) ToEventHubV2StreamInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) EventHubV2StreamInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// Authentication Mode.
+func (o EventHubV2StreamInputDataSourceInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2StreamInputDataSourceInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
+func (o EventHubV2StreamInputDataSourceInvokeResponseOutput) ConsumerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2StreamInputDataSourceInvokeResponse) *string { return v.ConsumerGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+func (o EventHubV2StreamInputDataSourceInvokeResponseOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2StreamInputDataSourceInvokeResponse) *string { return v.EventHubName }).(pulumi.StringPtrOutput)
+}
+
+// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o EventHubV2StreamInputDataSourceInvokeResponseOutput) ServiceBusNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2StreamInputDataSourceInvokeResponse) *string { return v.ServiceBusNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+func (o EventHubV2StreamInputDataSourceInvokeResponseOutput) SharedAccessPolicyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2StreamInputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyKey }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o EventHubV2StreamInputDataSourceInvokeResponseOutput) SharedAccessPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubV2StreamInputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.EventHub/EventHub'.
+func (o EventHubV2StreamInputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubV2StreamInputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes an Event Hub input data source that contains stream data.
@@ -7100,6 +10547,73 @@ func (o ExternalPtrOutput) StorageAccount() StorageAccountPtrOutput {
 		}
 		return v.StorageAccount
 	}).(StorageAccountPtrOutput)
+}
+
+// The storage account where the custom code artifacts are located.
+type ExternalInvokeResponse struct {
+	Container *string `pulumi:"container"`
+	Path      *string `pulumi:"path"`
+	// The properties that are associated with an Azure Storage account
+	StorageAccount *StorageAccountInvokeResponse `pulumi:"storageAccount"`
+}
+
+// ExternalInvokeResponseInput is an input type that accepts ExternalInvokeResponseArgs and ExternalInvokeResponseOutput values.
+// You can construct a concrete instance of `ExternalInvokeResponseInput` via:
+//
+//          ExternalInvokeResponseArgs{...}
+type ExternalInvokeResponseInput interface {
+	pulumi.Input
+
+	ToExternalInvokeResponseOutput() ExternalInvokeResponseOutput
+	ToExternalInvokeResponseOutputWithContext(context.Context) ExternalInvokeResponseOutput
+}
+
+// The storage account where the custom code artifacts are located.
+type ExternalInvokeResponseArgs struct {
+	Container pulumi.StringPtrInput `pulumi:"container"`
+	Path      pulumi.StringPtrInput `pulumi:"path"`
+	// The properties that are associated with an Azure Storage account
+	StorageAccount StorageAccountInvokeResponsePtrInput `pulumi:"storageAccount"`
+}
+
+func (ExternalInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalInvokeResponse)(nil)).Elem()
+}
+
+func (i ExternalInvokeResponseArgs) ToExternalInvokeResponseOutput() ExternalInvokeResponseOutput {
+	return i.ToExternalInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ExternalInvokeResponseArgs) ToExternalInvokeResponseOutputWithContext(ctx context.Context) ExternalInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalInvokeResponseOutput)
+}
+
+// The storage account where the custom code artifacts are located.
+type ExternalInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ExternalInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalInvokeResponse)(nil)).Elem()
+}
+
+func (o ExternalInvokeResponseOutput) ToExternalInvokeResponseOutput() ExternalInvokeResponseOutput {
+	return o
+}
+
+func (o ExternalInvokeResponseOutput) ToExternalInvokeResponseOutputWithContext(ctx context.Context) ExternalInvokeResponseOutput {
+	return o
+}
+
+func (o ExternalInvokeResponseOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalInvokeResponse) *string { return v.Container }).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalInvokeResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalInvokeResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The properties that are associated with an Azure Storage account
+func (o ExternalInvokeResponseOutput) StorageAccount() StorageAccountInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ExternalInvokeResponse) *StorageAccountInvokeResponse { return v.StorageAccount }).(StorageAccountInvokeResponsePtrOutput)
 }
 
 // The storage account where the custom code artifacts are located.
@@ -7484,6 +10998,115 @@ func (o FunctionInputArrayOutput) Index(i pulumi.IntInput) FunctionInputOutput {
 }
 
 // Describes one input parameter of a function.
+type FunctionInputInvokeResponse struct {
+	// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+	DataType *string `pulumi:"dataType"`
+	// A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
+	IsConfigurationParameter *bool `pulumi:"isConfigurationParameter"`
+}
+
+// FunctionInputInvokeResponseInput is an input type that accepts FunctionInputInvokeResponseArgs and FunctionInputInvokeResponseOutput values.
+// You can construct a concrete instance of `FunctionInputInvokeResponseInput` via:
+//
+//          FunctionInputInvokeResponseArgs{...}
+type FunctionInputInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFunctionInputInvokeResponseOutput() FunctionInputInvokeResponseOutput
+	ToFunctionInputInvokeResponseOutputWithContext(context.Context) FunctionInputInvokeResponseOutput
+}
+
+// Describes one input parameter of a function.
+type FunctionInputInvokeResponseArgs struct {
+	// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
+	IsConfigurationParameter pulumi.BoolPtrInput `pulumi:"isConfigurationParameter"`
+}
+
+func (FunctionInputInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionInputInvokeResponse)(nil)).Elem()
+}
+
+func (i FunctionInputInvokeResponseArgs) ToFunctionInputInvokeResponseOutput() FunctionInputInvokeResponseOutput {
+	return i.ToFunctionInputInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FunctionInputInvokeResponseArgs) ToFunctionInputInvokeResponseOutputWithContext(ctx context.Context) FunctionInputInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionInputInvokeResponseOutput)
+}
+
+// FunctionInputInvokeResponseArrayInput is an input type that accepts FunctionInputInvokeResponseArray and FunctionInputInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FunctionInputInvokeResponseArrayInput` via:
+//
+//          FunctionInputInvokeResponseArray{ FunctionInputInvokeResponseArgs{...} }
+type FunctionInputInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFunctionInputInvokeResponseArrayOutput() FunctionInputInvokeResponseArrayOutput
+	ToFunctionInputInvokeResponseArrayOutputWithContext(context.Context) FunctionInputInvokeResponseArrayOutput
+}
+
+type FunctionInputInvokeResponseArray []FunctionInputInvokeResponseInput
+
+func (FunctionInputInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionInputInvokeResponse)(nil)).Elem()
+}
+
+func (i FunctionInputInvokeResponseArray) ToFunctionInputInvokeResponseArrayOutput() FunctionInputInvokeResponseArrayOutput {
+	return i.ToFunctionInputInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionInputInvokeResponseArray) ToFunctionInputInvokeResponseArrayOutputWithContext(ctx context.Context) FunctionInputInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionInputInvokeResponseArrayOutput)
+}
+
+// Describes one input parameter of a function.
+type FunctionInputInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FunctionInputInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionInputInvokeResponse)(nil)).Elem()
+}
+
+func (o FunctionInputInvokeResponseOutput) ToFunctionInputInvokeResponseOutput() FunctionInputInvokeResponseOutput {
+	return o
+}
+
+func (o FunctionInputInvokeResponseOutput) ToFunctionInputInvokeResponseOutputWithContext(ctx context.Context) FunctionInputInvokeResponseOutput {
+	return o
+}
+
+// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+func (o FunctionInputInvokeResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionInputInvokeResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
+func (o FunctionInputInvokeResponseOutput) IsConfigurationParameter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FunctionInputInvokeResponse) *bool { return v.IsConfigurationParameter }).(pulumi.BoolPtrOutput)
+}
+
+type FunctionInputInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionInputInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionInputInvokeResponse)(nil)).Elem()
+}
+
+func (o FunctionInputInvokeResponseArrayOutput) ToFunctionInputInvokeResponseArrayOutput() FunctionInputInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FunctionInputInvokeResponseArrayOutput) ToFunctionInputInvokeResponseArrayOutputWithContext(ctx context.Context) FunctionInputInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FunctionInputInvokeResponseArrayOutput) Index(i pulumi.IntInput) FunctionInputInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionInputInvokeResponse {
+		return vs[0].([]FunctionInputInvokeResponse)[vs[1].(int)]
+	}).(FunctionInputInvokeResponseOutput)
+}
+
+// Describes one input parameter of a function.
 type FunctionInputResponse struct {
 	// The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 	DataType *string `pulumi:"dataType"`
@@ -7590,6 +11213,133 @@ func (o FunctionInputResponseArrayOutput) Index(i pulumi.IntInput) FunctionInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionInputResponse {
 		return vs[0].([]FunctionInputResponse)[vs[1].(int)]
 	}).(FunctionInputResponseOutput)
+}
+
+// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+type FunctionInvokeResponse struct {
+	// Resource Id
+	Id string `pulumi:"id"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The properties that are associated with a function.
+	Properties interface{} `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// FunctionInvokeResponseInput is an input type that accepts FunctionInvokeResponseArgs and FunctionInvokeResponseOutput values.
+// You can construct a concrete instance of `FunctionInvokeResponseInput` via:
+//
+//          FunctionInvokeResponseArgs{...}
+type FunctionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFunctionInvokeResponseOutput() FunctionInvokeResponseOutput
+	ToFunctionInvokeResponseOutputWithContext(context.Context) FunctionInvokeResponseOutput
+}
+
+// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+type FunctionInvokeResponseArgs struct {
+	// Resource Id
+	Id pulumi.StringInput `pulumi:"id"`
+	// Resource name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The properties that are associated with a function.
+	Properties pulumi.Input `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FunctionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionInvokeResponse)(nil)).Elem()
+}
+
+func (i FunctionInvokeResponseArgs) ToFunctionInvokeResponseOutput() FunctionInvokeResponseOutput {
+	return i.ToFunctionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FunctionInvokeResponseArgs) ToFunctionInvokeResponseOutputWithContext(ctx context.Context) FunctionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionInvokeResponseOutput)
+}
+
+// FunctionInvokeResponseArrayInput is an input type that accepts FunctionInvokeResponseArray and FunctionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FunctionInvokeResponseArrayInput` via:
+//
+//          FunctionInvokeResponseArray{ FunctionInvokeResponseArgs{...} }
+type FunctionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFunctionInvokeResponseArrayOutput() FunctionInvokeResponseArrayOutput
+	ToFunctionInvokeResponseArrayOutputWithContext(context.Context) FunctionInvokeResponseArrayOutput
+}
+
+type FunctionInvokeResponseArray []FunctionInvokeResponseInput
+
+func (FunctionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionInvokeResponse)(nil)).Elem()
+}
+
+func (i FunctionInvokeResponseArray) ToFunctionInvokeResponseArrayOutput() FunctionInvokeResponseArrayOutput {
+	return i.ToFunctionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionInvokeResponseArray) ToFunctionInvokeResponseArrayOutputWithContext(ctx context.Context) FunctionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionInvokeResponseArrayOutput)
+}
+
+// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+type FunctionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FunctionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionInvokeResponse)(nil)).Elem()
+}
+
+func (o FunctionInvokeResponseOutput) ToFunctionInvokeResponseOutput() FunctionInvokeResponseOutput {
+	return o
+}
+
+func (o FunctionInvokeResponseOutput) ToFunctionInvokeResponseOutputWithContext(ctx context.Context) FunctionInvokeResponseOutput {
+	return o
+}
+
+// Resource Id
+func (o FunctionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o FunctionInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The properties that are associated with a function.
+func (o FunctionInvokeResponseOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v FunctionInvokeResponse) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type
+func (o FunctionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FunctionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionInvokeResponse)(nil)).Elem()
+}
+
+func (o FunctionInvokeResponseArrayOutput) ToFunctionInvokeResponseArrayOutput() FunctionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FunctionInvokeResponseArrayOutput) ToFunctionInvokeResponseArrayOutputWithContext(ctx context.Context) FunctionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FunctionInvokeResponseArrayOutput) Index(i pulumi.IntInput) FunctionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionInvokeResponse {
+		return vs[0].([]FunctionInvokeResponse)[vs[1].(int)]
+	}).(FunctionInvokeResponseOutput)
 }
 
 // Describes the output of a function.
@@ -7719,6 +11469,140 @@ func (o FunctionOutputPtrOutput) Elem() FunctionOutputOutput {
 // The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
 func (o FunctionOutputPtrOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionOutput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the output of a function.
+type FunctionOutputInvokeResponse struct {
+	// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+	DataType *string `pulumi:"dataType"`
+}
+
+// FunctionOutputInvokeResponseInput is an input type that accepts FunctionOutputInvokeResponseArgs and FunctionOutputInvokeResponseOutput values.
+// You can construct a concrete instance of `FunctionOutputInvokeResponseInput` via:
+//
+//          FunctionOutputInvokeResponseArgs{...}
+type FunctionOutputInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFunctionOutputInvokeResponseOutput() FunctionOutputInvokeResponseOutput
+	ToFunctionOutputInvokeResponseOutputWithContext(context.Context) FunctionOutputInvokeResponseOutput
+}
+
+// Describes the output of a function.
+type FunctionOutputInvokeResponseArgs struct {
+	// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+}
+
+func (FunctionOutputInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionOutputInvokeResponse)(nil)).Elem()
+}
+
+func (i FunctionOutputInvokeResponseArgs) ToFunctionOutputInvokeResponseOutput() FunctionOutputInvokeResponseOutput {
+	return i.ToFunctionOutputInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FunctionOutputInvokeResponseArgs) ToFunctionOutputInvokeResponseOutputWithContext(ctx context.Context) FunctionOutputInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputInvokeResponseOutput)
+}
+
+func (i FunctionOutputInvokeResponseArgs) ToFunctionOutputInvokeResponsePtrOutput() FunctionOutputInvokeResponsePtrOutput {
+	return i.ToFunctionOutputInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FunctionOutputInvokeResponseArgs) ToFunctionOutputInvokeResponsePtrOutputWithContext(ctx context.Context) FunctionOutputInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputInvokeResponseOutput).ToFunctionOutputInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// FunctionOutputInvokeResponsePtrInput is an input type that accepts FunctionOutputInvokeResponseArgs, FunctionOutputInvokeResponsePtr and FunctionOutputInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `FunctionOutputInvokeResponsePtrInput` via:
+//
+//          FunctionOutputInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionOutputInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToFunctionOutputInvokeResponsePtrOutput() FunctionOutputInvokeResponsePtrOutput
+	ToFunctionOutputInvokeResponsePtrOutputWithContext(context.Context) FunctionOutputInvokeResponsePtrOutput
+}
+
+type functionOutputInvokeResponsePtrType FunctionOutputInvokeResponseArgs
+
+func FunctionOutputInvokeResponsePtr(v *FunctionOutputInvokeResponseArgs) FunctionOutputInvokeResponsePtrInput {
+	return (*functionOutputInvokeResponsePtrType)(v)
+}
+
+func (*functionOutputInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionOutputInvokeResponse)(nil)).Elem()
+}
+
+func (i *functionOutputInvokeResponsePtrType) ToFunctionOutputInvokeResponsePtrOutput() FunctionOutputInvokeResponsePtrOutput {
+	return i.ToFunctionOutputInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *functionOutputInvokeResponsePtrType) ToFunctionOutputInvokeResponsePtrOutputWithContext(ctx context.Context) FunctionOutputInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutputInvokeResponsePtrOutput)
+}
+
+// Describes the output of a function.
+type FunctionOutputInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FunctionOutputInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionOutputInvokeResponse)(nil)).Elem()
+}
+
+func (o FunctionOutputInvokeResponseOutput) ToFunctionOutputInvokeResponseOutput() FunctionOutputInvokeResponseOutput {
+	return o
+}
+
+func (o FunctionOutputInvokeResponseOutput) ToFunctionOutputInvokeResponseOutputWithContext(ctx context.Context) FunctionOutputInvokeResponseOutput {
+	return o
+}
+
+func (o FunctionOutputInvokeResponseOutput) ToFunctionOutputInvokeResponsePtrOutput() FunctionOutputInvokeResponsePtrOutput {
+	return o.ToFunctionOutputInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionOutputInvokeResponseOutput) ToFunctionOutputInvokeResponsePtrOutputWithContext(ctx context.Context) FunctionOutputInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FunctionOutputInvokeResponse) *FunctionOutputInvokeResponse {
+		return &v
+	}).(FunctionOutputInvokeResponsePtrOutput)
+}
+
+// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+func (o FunctionOutputInvokeResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionOutputInvokeResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+type FunctionOutputInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionOutputInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionOutputInvokeResponse)(nil)).Elem()
+}
+
+func (o FunctionOutputInvokeResponsePtrOutput) ToFunctionOutputInvokeResponsePtrOutput() FunctionOutputInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FunctionOutputInvokeResponsePtrOutput) ToFunctionOutputInvokeResponsePtrOutputWithContext(ctx context.Context) FunctionOutputInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FunctionOutputInvokeResponsePtrOutput) Elem() FunctionOutputInvokeResponseOutput {
+	return o.ApplyT(func(v *FunctionOutputInvokeResponse) FunctionOutputInvokeResponse { return *v }).(FunctionOutputInvokeResponseOutput)
+}
+
+// The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
+func (o FunctionOutputInvokeResponsePtrOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionOutputInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -8147,6 +12031,70 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Describes how identity is verified
+type IdentityInvokeResponse struct {
+	PrincipalId *string `pulumi:"principalId"`
+	TenantId    *string `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
+}
+
+// IdentityInvokeResponseInput is an input type that accepts IdentityInvokeResponseArgs and IdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentityInvokeResponseInput` via:
+//
+//          IdentityInvokeResponseArgs{...}
+type IdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput
+	ToIdentityInvokeResponseOutputWithContext(context.Context) IdentityInvokeResponseOutput
+}
+
+// Describes how identity is verified
+type IdentityInvokeResponseArgs struct {
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return i.ToIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityInvokeResponseOutput)
+}
+
+// Describes how identity is verified
+type IdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityInvokeResponseOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o IdentityInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+func (o IdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Describes how identity is verified
 type IdentityResponse struct {
 	PrincipalId *string `pulumi:"principalId"`
 	TenantId    *string `pulumi:"tenantId"`
@@ -8415,6 +12363,133 @@ func (o InputTypeArrayOutput) Index(i pulumi.IntInput) InputTypeOutput {
 }
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+type InputInvokeResponse struct {
+	// Resource Id
+	Id string `pulumi:"id"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+	Properties interface{} `pulumi:"properties"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// InputInvokeResponseInput is an input type that accepts InputInvokeResponseArgs and InputInvokeResponseOutput values.
+// You can construct a concrete instance of `InputInvokeResponseInput` via:
+//
+//          InputInvokeResponseArgs{...}
+type InputInvokeResponseInput interface {
+	pulumi.Input
+
+	ToInputInvokeResponseOutput() InputInvokeResponseOutput
+	ToInputInvokeResponseOutputWithContext(context.Context) InputInvokeResponseOutput
+}
+
+// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+type InputInvokeResponseArgs struct {
+	// Resource Id
+	Id pulumi.StringInput `pulumi:"id"`
+	// Resource name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+	Properties pulumi.Input `pulumi:"properties"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (InputInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputInvokeResponse)(nil)).Elem()
+}
+
+func (i InputInvokeResponseArgs) ToInputInvokeResponseOutput() InputInvokeResponseOutput {
+	return i.ToInputInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i InputInvokeResponseArgs) ToInputInvokeResponseOutputWithContext(ctx context.Context) InputInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputInvokeResponseOutput)
+}
+
+// InputInvokeResponseArrayInput is an input type that accepts InputInvokeResponseArray and InputInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `InputInvokeResponseArrayInput` via:
+//
+//          InputInvokeResponseArray{ InputInvokeResponseArgs{...} }
+type InputInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToInputInvokeResponseArrayOutput() InputInvokeResponseArrayOutput
+	ToInputInvokeResponseArrayOutputWithContext(context.Context) InputInvokeResponseArrayOutput
+}
+
+type InputInvokeResponseArray []InputInvokeResponseInput
+
+func (InputInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputInvokeResponse)(nil)).Elem()
+}
+
+func (i InputInvokeResponseArray) ToInputInvokeResponseArrayOutput() InputInvokeResponseArrayOutput {
+	return i.ToInputInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i InputInvokeResponseArray) ToInputInvokeResponseArrayOutputWithContext(ctx context.Context) InputInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputInvokeResponseArrayOutput)
+}
+
+// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+type InputInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (InputInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputInvokeResponse)(nil)).Elem()
+}
+
+func (o InputInvokeResponseOutput) ToInputInvokeResponseOutput() InputInvokeResponseOutput {
+	return o
+}
+
+func (o InputInvokeResponseOutput) ToInputInvokeResponseOutputWithContext(ctx context.Context) InputInvokeResponseOutput {
+	return o
+}
+
+// Resource Id
+func (o InputInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v InputInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o InputInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+func (o InputInvokeResponseOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v InputInvokeResponse) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type
+func (o InputInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InputInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type InputInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (InputInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputInvokeResponse)(nil)).Elem()
+}
+
+func (o InputInvokeResponseArrayOutput) ToInputInvokeResponseArrayOutput() InputInvokeResponseArrayOutput {
+	return o
+}
+
+func (o InputInvokeResponseArrayOutput) ToInputInvokeResponseArrayOutputWithContext(ctx context.Context) InputInvokeResponseArrayOutput {
+	return o
+}
+
+func (o InputInvokeResponseArrayOutput) Index(i pulumi.IntInput) InputInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputInvokeResponse {
+		return vs[0].([]InputInvokeResponse)[vs[1].(int)]
+	}).(InputInvokeResponseOutput)
+}
+
+// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 type InputResponse struct {
 	// Resource Id
 	Id string `pulumi:"id"`
@@ -8645,6 +12720,109 @@ func (o IoTHubStreamInputDataSourceOutput) Type() pulumi.StringOutput {
 }
 
 // Describes an IoT Hub input data source that contains stream data.
+type IoTHubStreamInputDataSourceInvokeResponse struct {
+	// The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
+	ConsumerGroupName *string `pulumi:"consumerGroupName"`
+	// The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
+	Endpoint *string `pulumi:"endpoint"`
+	// The name or the URI of the IoT Hub. Required on PUT (CreateOrReplace) requests.
+	IotHubNamespace *string `pulumi:"iotHubNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the IoT Hub. This policy must contain at least the Service connect permission. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Devices/IotHubs'.
+	Type string `pulumi:"type"`
+}
+
+// IoTHubStreamInputDataSourceInvokeResponseInput is an input type that accepts IoTHubStreamInputDataSourceInvokeResponseArgs and IoTHubStreamInputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `IoTHubStreamInputDataSourceInvokeResponseInput` via:
+//
+//          IoTHubStreamInputDataSourceInvokeResponseArgs{...}
+type IoTHubStreamInputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIoTHubStreamInputDataSourceInvokeResponseOutput() IoTHubStreamInputDataSourceInvokeResponseOutput
+	ToIoTHubStreamInputDataSourceInvokeResponseOutputWithContext(context.Context) IoTHubStreamInputDataSourceInvokeResponseOutput
+}
+
+// Describes an IoT Hub input data source that contains stream data.
+type IoTHubStreamInputDataSourceInvokeResponseArgs struct {
+	// The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
+	ConsumerGroupName pulumi.StringPtrInput `pulumi:"consumerGroupName"`
+	// The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// The name or the URI of the IoT Hub. Required on PUT (CreateOrReplace) requests.
+	IotHubNamespace pulumi.StringPtrInput `pulumi:"iotHubNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey pulumi.StringPtrInput `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the IoT Hub. This policy must contain at least the Service connect permission. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.Devices/IotHubs'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IoTHubStreamInputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubStreamInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i IoTHubStreamInputDataSourceInvokeResponseArgs) ToIoTHubStreamInputDataSourceInvokeResponseOutput() IoTHubStreamInputDataSourceInvokeResponseOutput {
+	return i.ToIoTHubStreamInputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IoTHubStreamInputDataSourceInvokeResponseArgs) ToIoTHubStreamInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) IoTHubStreamInputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTHubStreamInputDataSourceInvokeResponseOutput)
+}
+
+// Describes an IoT Hub input data source that contains stream data.
+type IoTHubStreamInputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IoTHubStreamInputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTHubStreamInputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o IoTHubStreamInputDataSourceInvokeResponseOutput) ToIoTHubStreamInputDataSourceInvokeResponseOutput() IoTHubStreamInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o IoTHubStreamInputDataSourceInvokeResponseOutput) ToIoTHubStreamInputDataSourceInvokeResponseOutputWithContext(ctx context.Context) IoTHubStreamInputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
+func (o IoTHubStreamInputDataSourceInvokeResponseOutput) ConsumerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubStreamInputDataSourceInvokeResponse) *string { return v.ConsumerGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
+func (o IoTHubStreamInputDataSourceInvokeResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubStreamInputDataSourceInvokeResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The name or the URI of the IoT Hub. Required on PUT (CreateOrReplace) requests.
+func (o IoTHubStreamInputDataSourceInvokeResponseOutput) IotHubNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubStreamInputDataSourceInvokeResponse) *string { return v.IotHubNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+func (o IoTHubStreamInputDataSourceInvokeResponseOutput) SharedAccessPolicyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubStreamInputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyKey }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy name for the IoT Hub. This policy must contain at least the Service connect permission. Required on PUT (CreateOrReplace) requests.
+func (o IoTHubStreamInputDataSourceInvokeResponseOutput) SharedAccessPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubStreamInputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.Devices/IotHubs'.
+func (o IoTHubStreamInputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IoTHubStreamInputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes an IoT Hub input data source that contains stream data.
 type IoTHubStreamInputDataSourceResponse struct {
 	// The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
@@ -8812,6 +12990,73 @@ func (o JavaScriptFunctionBindingOutput) Script() pulumi.StringPtrOutput {
 // Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
 func (o JavaScriptFunctionBindingOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JavaScriptFunctionBinding) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The binding to a JavaScript function.
+type JavaScriptFunctionBindingInvokeResponse struct {
+	// The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
+	Script *string `pulumi:"script"`
+	// Indicates the function binding type.
+	// Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
+	Type string `pulumi:"type"`
+}
+
+// JavaScriptFunctionBindingInvokeResponseInput is an input type that accepts JavaScriptFunctionBindingInvokeResponseArgs and JavaScriptFunctionBindingInvokeResponseOutput values.
+// You can construct a concrete instance of `JavaScriptFunctionBindingInvokeResponseInput` via:
+//
+//          JavaScriptFunctionBindingInvokeResponseArgs{...}
+type JavaScriptFunctionBindingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJavaScriptFunctionBindingInvokeResponseOutput() JavaScriptFunctionBindingInvokeResponseOutput
+	ToJavaScriptFunctionBindingInvokeResponseOutputWithContext(context.Context) JavaScriptFunctionBindingInvokeResponseOutput
+}
+
+// The binding to a JavaScript function.
+type JavaScriptFunctionBindingInvokeResponseArgs struct {
+	// The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
+	Script pulumi.StringPtrInput `pulumi:"script"`
+	// Indicates the function binding type.
+	// Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JavaScriptFunctionBindingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaScriptFunctionBindingInvokeResponse)(nil)).Elem()
+}
+
+func (i JavaScriptFunctionBindingInvokeResponseArgs) ToJavaScriptFunctionBindingInvokeResponseOutput() JavaScriptFunctionBindingInvokeResponseOutput {
+	return i.ToJavaScriptFunctionBindingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JavaScriptFunctionBindingInvokeResponseArgs) ToJavaScriptFunctionBindingInvokeResponseOutputWithContext(ctx context.Context) JavaScriptFunctionBindingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JavaScriptFunctionBindingInvokeResponseOutput)
+}
+
+// The binding to a JavaScript function.
+type JavaScriptFunctionBindingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JavaScriptFunctionBindingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JavaScriptFunctionBindingInvokeResponse)(nil)).Elem()
+}
+
+func (o JavaScriptFunctionBindingInvokeResponseOutput) ToJavaScriptFunctionBindingInvokeResponseOutput() JavaScriptFunctionBindingInvokeResponseOutput {
+	return o
+}
+
+func (o JavaScriptFunctionBindingInvokeResponseOutput) ToJavaScriptFunctionBindingInvokeResponseOutputWithContext(ctx context.Context) JavaScriptFunctionBindingInvokeResponseOutput {
+	return o
+}
+
+// The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
+func (o JavaScriptFunctionBindingInvokeResponseOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JavaScriptFunctionBindingInvokeResponse) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the function binding type.
+// Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
+func (o JavaScriptFunctionBindingInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JavaScriptFunctionBindingInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The binding to a JavaScript function.
@@ -9051,6 +13296,79 @@ func (o JobStorageAccountPtrOutput) AuthenticationMode() pulumi.StringPtrOutput 
 		}
 		return v.AuthenticationMode
 	}).(pulumi.StringPtrOutput)
+}
+
+// The properties that are associated with an Azure Storage account with MSI
+type JobStorageAccountInvokeResponse struct {
+	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountKey *string `pulumi:"accountKey"`
+	// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountName *string `pulumi:"accountName"`
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+}
+
+// JobStorageAccountInvokeResponseInput is an input type that accepts JobStorageAccountInvokeResponseArgs and JobStorageAccountInvokeResponseOutput values.
+// You can construct a concrete instance of `JobStorageAccountInvokeResponseInput` via:
+//
+//          JobStorageAccountInvokeResponseArgs{...}
+type JobStorageAccountInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobStorageAccountInvokeResponseOutput() JobStorageAccountInvokeResponseOutput
+	ToJobStorageAccountInvokeResponseOutputWithContext(context.Context) JobStorageAccountInvokeResponseOutput
+}
+
+// The properties that are associated with an Azure Storage account with MSI
+type JobStorageAccountInvokeResponseArgs struct {
+	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
+	// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+}
+
+func (JobStorageAccountInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i JobStorageAccountInvokeResponseArgs) ToJobStorageAccountInvokeResponseOutput() JobStorageAccountInvokeResponseOutput {
+	return i.ToJobStorageAccountInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobStorageAccountInvokeResponseArgs) ToJobStorageAccountInvokeResponseOutputWithContext(ctx context.Context) JobStorageAccountInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStorageAccountInvokeResponseOutput)
+}
+
+// The properties that are associated with an Azure Storage account with MSI
+type JobStorageAccountInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobStorageAccountInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o JobStorageAccountInvokeResponseOutput) ToJobStorageAccountInvokeResponseOutput() JobStorageAccountInvokeResponseOutput {
+	return o
+}
+
+func (o JobStorageAccountInvokeResponseOutput) ToJobStorageAccountInvokeResponseOutputWithContext(ctx context.Context) JobStorageAccountInvokeResponseOutput {
+	return o
+}
+
+// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+func (o JobStorageAccountInvokeResponseOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStorageAccountInvokeResponse) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+func (o JobStorageAccountInvokeResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStorageAccountInvokeResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Authentication Mode.
+func (o JobStorageAccountInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStorageAccountInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
 // The properties that are associated with an Azure Storage account with MSI
@@ -9302,6 +13620,82 @@ func (o JsonSerializationOutput) Type() pulumi.StringOutput {
 }
 
 // Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
+type JsonSerializationInvokeResponse struct {
+	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+	Encoding *string `pulumi:"encoding"`
+	// This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
+	Format *string `pulumi:"format"`
+	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Json'.
+	Type string `pulumi:"type"`
+}
+
+// JsonSerializationInvokeResponseInput is an input type that accepts JsonSerializationInvokeResponseArgs and JsonSerializationInvokeResponseOutput values.
+// You can construct a concrete instance of `JsonSerializationInvokeResponseInput` via:
+//
+//          JsonSerializationInvokeResponseArgs{...}
+type JsonSerializationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJsonSerializationInvokeResponseOutput() JsonSerializationInvokeResponseOutput
+	ToJsonSerializationInvokeResponseOutputWithContext(context.Context) JsonSerializationInvokeResponseOutput
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
+type JsonSerializationInvokeResponseArgs struct {
+	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Json'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JsonSerializationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JsonSerializationInvokeResponse)(nil)).Elem()
+}
+
+func (i JsonSerializationInvokeResponseArgs) ToJsonSerializationInvokeResponseOutput() JsonSerializationInvokeResponseOutput {
+	return i.ToJsonSerializationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JsonSerializationInvokeResponseArgs) ToJsonSerializationInvokeResponseOutputWithContext(ctx context.Context) JsonSerializationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JsonSerializationInvokeResponseOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
+type JsonSerializationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JsonSerializationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JsonSerializationInvokeResponse)(nil)).Elem()
+}
+
+func (o JsonSerializationInvokeResponseOutput) ToJsonSerializationInvokeResponseOutput() JsonSerializationInvokeResponseOutput {
+	return o
+}
+
+func (o JsonSerializationInvokeResponseOutput) ToJsonSerializationInvokeResponseOutputWithContext(ctx context.Context) JsonSerializationInvokeResponseOutput {
+	return o
+}
+
+// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+func (o JsonSerializationInvokeResponseOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JsonSerializationInvokeResponse) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+// This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
+func (o JsonSerializationInvokeResponseOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JsonSerializationInvokeResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Json'.
+func (o JsonSerializationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JsonSerializationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
 type JsonSerializationResponse struct {
 	// Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
 	Encoding *string `pulumi:"encoding"`
@@ -9505,6 +13899,172 @@ func (o OutputTypeArrayOutput) Index(i pulumi.IntInput) OutputTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputType {
 		return vs[0].([]OutputType)[vs[1].(int)]
 	}).(OutputTypeOutput)
+}
+
+// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+type OutputInvokeResponse struct {
+	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+	Datasource interface{} `pulumi:"datasource"`
+	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+	Diagnostics DiagnosticsInvokeResponse `pulumi:"diagnostics"`
+	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag string `pulumi:"etag"`
+	// Resource Id
+	Id string `pulumi:"id"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization interface{} `pulumi:"serialization"`
+	SizeWindow    *float64    `pulumi:"sizeWindow"`
+	TimeWindow    *string     `pulumi:"timeWindow"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// OutputInvokeResponseInput is an input type that accepts OutputInvokeResponseArgs and OutputInvokeResponseOutput values.
+// You can construct a concrete instance of `OutputInvokeResponseInput` via:
+//
+//          OutputInvokeResponseArgs{...}
+type OutputInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOutputInvokeResponseOutput() OutputInvokeResponseOutput
+	ToOutputInvokeResponseOutputWithContext(context.Context) OutputInvokeResponseOutput
+}
+
+// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+type OutputInvokeResponseArgs struct {
+	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+	Datasource pulumi.Input `pulumi:"datasource"`
+	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+	Diagnostics DiagnosticsInvokeResponseInput `pulumi:"diagnostics"`
+	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Resource Id
+	Id pulumi.StringInput `pulumi:"id"`
+	// Resource name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization pulumi.Input           `pulumi:"serialization"`
+	SizeWindow    pulumi.Float64PtrInput `pulumi:"sizeWindow"`
+	TimeWindow    pulumi.StringPtrInput  `pulumi:"timeWindow"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OutputInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputInvokeResponse)(nil)).Elem()
+}
+
+func (i OutputInvokeResponseArgs) ToOutputInvokeResponseOutput() OutputInvokeResponseOutput {
+	return i.ToOutputInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OutputInvokeResponseArgs) ToOutputInvokeResponseOutputWithContext(ctx context.Context) OutputInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputInvokeResponseOutput)
+}
+
+// OutputInvokeResponseArrayInput is an input type that accepts OutputInvokeResponseArray and OutputInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `OutputInvokeResponseArrayInput` via:
+//
+//          OutputInvokeResponseArray{ OutputInvokeResponseArgs{...} }
+type OutputInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToOutputInvokeResponseArrayOutput() OutputInvokeResponseArrayOutput
+	ToOutputInvokeResponseArrayOutputWithContext(context.Context) OutputInvokeResponseArrayOutput
+}
+
+type OutputInvokeResponseArray []OutputInvokeResponseInput
+
+func (OutputInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutputInvokeResponse)(nil)).Elem()
+}
+
+func (i OutputInvokeResponseArray) ToOutputInvokeResponseArrayOutput() OutputInvokeResponseArrayOutput {
+	return i.ToOutputInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i OutputInvokeResponseArray) ToOutputInvokeResponseArrayOutputWithContext(ctx context.Context) OutputInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputInvokeResponseArrayOutput)
+}
+
+// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+type OutputInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OutputInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputInvokeResponse)(nil)).Elem()
+}
+
+func (o OutputInvokeResponseOutput) ToOutputInvokeResponseOutput() OutputInvokeResponseOutput {
+	return o
+}
+
+func (o OutputInvokeResponseOutput) ToOutputInvokeResponseOutputWithContext(ctx context.Context) OutputInvokeResponseOutput {
+	return o
+}
+
+// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+func (o OutputInvokeResponseOutput) Datasource() pulumi.AnyOutput {
+	return o.ApplyT(func(v OutputInvokeResponse) interface{} { return v.Datasource }).(pulumi.AnyOutput)
+}
+
+// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+func (o OutputInvokeResponseOutput) Diagnostics() DiagnosticsInvokeResponseOutput {
+	return o.ApplyT(func(v OutputInvokeResponse) DiagnosticsInvokeResponse { return v.Diagnostics }).(DiagnosticsInvokeResponseOutput)
+}
+
+// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+func (o OutputInvokeResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v OutputInvokeResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o OutputInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v OutputInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o OutputInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutputInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+func (o OutputInvokeResponseOutput) Serialization() pulumi.AnyOutput {
+	return o.ApplyT(func(v OutputInvokeResponse) interface{} { return v.Serialization }).(pulumi.AnyOutput)
+}
+
+func (o OutputInvokeResponseOutput) SizeWindow() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OutputInvokeResponse) *float64 { return v.SizeWindow }).(pulumi.Float64PtrOutput)
+}
+
+func (o OutputInvokeResponseOutput) TimeWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutputInvokeResponse) *string { return v.TimeWindow }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o OutputInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OutputInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type OutputInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OutputInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutputInvokeResponse)(nil)).Elem()
+}
+
+func (o OutputInvokeResponseArrayOutput) ToOutputInvokeResponseArrayOutput() OutputInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OutputInvokeResponseArrayOutput) ToOutputInvokeResponseArrayOutputWithContext(ctx context.Context) OutputInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OutputInvokeResponseArrayOutput) Index(i pulumi.IntInput) OutputInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputInvokeResponse {
+		return vs[0].([]OutputInvokeResponse)[vs[1].(int)]
+	}).(OutputInvokeResponseOutput)
 }
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
@@ -9732,6 +14292,64 @@ func (o ParquetSerializationOutput) Type() pulumi.StringOutput {
 }
 
 // Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
+type ParquetSerializationInvokeResponse struct {
+	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Parquet'.
+	Type string `pulumi:"type"`
+}
+
+// ParquetSerializationInvokeResponseInput is an input type that accepts ParquetSerializationInvokeResponseArgs and ParquetSerializationInvokeResponseOutput values.
+// You can construct a concrete instance of `ParquetSerializationInvokeResponseInput` via:
+//
+//          ParquetSerializationInvokeResponseArgs{...}
+type ParquetSerializationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToParquetSerializationInvokeResponseOutput() ParquetSerializationInvokeResponseOutput
+	ToParquetSerializationInvokeResponseOutputWithContext(context.Context) ParquetSerializationInvokeResponseOutput
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
+type ParquetSerializationInvokeResponseArgs struct {
+	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Parquet'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ParquetSerializationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParquetSerializationInvokeResponse)(nil)).Elem()
+}
+
+func (i ParquetSerializationInvokeResponseArgs) ToParquetSerializationInvokeResponseOutput() ParquetSerializationInvokeResponseOutput {
+	return i.ToParquetSerializationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ParquetSerializationInvokeResponseArgs) ToParquetSerializationInvokeResponseOutputWithContext(ctx context.Context) ParquetSerializationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParquetSerializationInvokeResponseOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
+type ParquetSerializationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ParquetSerializationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParquetSerializationInvokeResponse)(nil)).Elem()
+}
+
+func (o ParquetSerializationInvokeResponseOutput) ToParquetSerializationInvokeResponseOutput() ParquetSerializationInvokeResponseOutput {
+	return o
+}
+
+func (o ParquetSerializationInvokeResponseOutput) ToParquetSerializationInvokeResponseOutputWithContext(ctx context.Context) ParquetSerializationInvokeResponseOutput {
+	return o
+}
+
+// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Parquet'.
+func (o ParquetSerializationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ParquetSerializationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
 type ParquetSerializationResponse struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Parquet'.
@@ -9917,6 +14535,136 @@ func (o PowerBIOutputDataSourceOutput) TokenUserPrincipalName() pulumi.StringPtr
 // Expected value is 'PowerBI'.
 func (o PowerBIOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PowerBIOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a Power BI output data source.
+type PowerBIOutputDataSourceInvokeResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
+	Dataset *string `pulumi:"dataset"`
+	// The ID of the Power BI group.
+	GroupId *string `pulumi:"groupId"`
+	// The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
+	GroupName *string `pulumi:"groupName"`
+	// A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
+	RefreshToken *string `pulumi:"refreshToken"`
+	// The name of the Power BI table under the specified dataset. Required on PUT (CreateOrReplace) requests.
+	Table *string `pulumi:"table"`
+	// The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+	TokenUserDisplayName *string `pulumi:"tokenUserDisplayName"`
+	// The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+	TokenUserPrincipalName *string `pulumi:"tokenUserPrincipalName"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'PowerBI'.
+	Type string `pulumi:"type"`
+}
+
+// PowerBIOutputDataSourceInvokeResponseInput is an input type that accepts PowerBIOutputDataSourceInvokeResponseArgs and PowerBIOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `PowerBIOutputDataSourceInvokeResponseInput` via:
+//
+//          PowerBIOutputDataSourceInvokeResponseArgs{...}
+type PowerBIOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPowerBIOutputDataSourceInvokeResponseOutput() PowerBIOutputDataSourceInvokeResponseOutput
+	ToPowerBIOutputDataSourceInvokeResponseOutputWithContext(context.Context) PowerBIOutputDataSourceInvokeResponseOutput
+}
+
+// Describes a Power BI output data source.
+type PowerBIOutputDataSourceInvokeResponseArgs struct {
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
+	Dataset pulumi.StringPtrInput `pulumi:"dataset"`
+	// The ID of the Power BI group.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	// A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+	// The name of the Power BI table under the specified dataset. Required on PUT (CreateOrReplace) requests.
+	Table pulumi.StringPtrInput `pulumi:"table"`
+	// The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+	TokenUserDisplayName pulumi.StringPtrInput `pulumi:"tokenUserDisplayName"`
+	// The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+	TokenUserPrincipalName pulumi.StringPtrInput `pulumi:"tokenUserPrincipalName"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'PowerBI'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PowerBIOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerBIOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i PowerBIOutputDataSourceInvokeResponseArgs) ToPowerBIOutputDataSourceInvokeResponseOutput() PowerBIOutputDataSourceInvokeResponseOutput {
+	return i.ToPowerBIOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PowerBIOutputDataSourceInvokeResponseArgs) ToPowerBIOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) PowerBIOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerBIOutputDataSourceInvokeResponseOutput)
+}
+
+// Describes a Power BI output data source.
+type PowerBIOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PowerBIOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerBIOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o PowerBIOutputDataSourceInvokeResponseOutput) ToPowerBIOutputDataSourceInvokeResponseOutput() PowerBIOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o PowerBIOutputDataSourceInvokeResponseOutput) ToPowerBIOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) PowerBIOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// Authentication Mode.
+func (o PowerBIOutputDataSourceInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSourceInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
+func (o PowerBIOutputDataSourceInvokeResponseOutput) Dataset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSourceInvokeResponse) *string { return v.Dataset }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Power BI group.
+func (o PowerBIOutputDataSourceInvokeResponseOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSourceInvokeResponse) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
+func (o PowerBIOutputDataSourceInvokeResponseOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSourceInvokeResponse) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+// A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
+func (o PowerBIOutputDataSourceInvokeResponseOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSourceInvokeResponse) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Power BI table under the specified dataset. Required on PUT (CreateOrReplace) requests.
+func (o PowerBIOutputDataSourceInvokeResponseOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSourceInvokeResponse) *string { return v.Table }).(pulumi.StringPtrOutput)
+}
+
+// The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+func (o PowerBIOutputDataSourceInvokeResponseOutput) TokenUserDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSourceInvokeResponse) *string { return v.TokenUserDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
+func (o PowerBIOutputDataSourceInvokeResponseOutput) TokenUserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSourceInvokeResponse) *string { return v.TokenUserPrincipalName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'PowerBI'.
+func (o PowerBIOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerBIOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a Power BI output data source.
@@ -10144,6 +14892,118 @@ func (o ReferenceInputPropertiesOutput) Type() pulumi.StringOutput {
 }
 
 // The properties that are associated with an input containing reference data.
+type ReferenceInputPropertiesInvokeResponse struct {
+	// Describes how input data is compressed
+	Compression *CompressionInvokeResponse `pulumi:"compression"`
+	// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+	Datasource interface{} `pulumi:"datasource"`
+	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+	Diagnostics DiagnosticsInvokeResponse `pulumi:"diagnostics"`
+	// The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag string `pulumi:"etag"`
+	// partitionKey Describes a key in the input data which is used for partitioning the input data
+	PartitionKey *string `pulumi:"partitionKey"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization interface{} `pulumi:"serialization"`
+	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Reference'.
+	Type string `pulumi:"type"`
+}
+
+// ReferenceInputPropertiesInvokeResponseInput is an input type that accepts ReferenceInputPropertiesInvokeResponseArgs and ReferenceInputPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ReferenceInputPropertiesInvokeResponseInput` via:
+//
+//          ReferenceInputPropertiesInvokeResponseArgs{...}
+type ReferenceInputPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToReferenceInputPropertiesInvokeResponseOutput() ReferenceInputPropertiesInvokeResponseOutput
+	ToReferenceInputPropertiesInvokeResponseOutputWithContext(context.Context) ReferenceInputPropertiesInvokeResponseOutput
+}
+
+// The properties that are associated with an input containing reference data.
+type ReferenceInputPropertiesInvokeResponseArgs struct {
+	// Describes how input data is compressed
+	Compression CompressionInvokeResponsePtrInput `pulumi:"compression"`
+	// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+	Datasource pulumi.Input `pulumi:"datasource"`
+	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+	Diagnostics DiagnosticsInvokeResponseInput `pulumi:"diagnostics"`
+	// The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// partitionKey Describes a key in the input data which is used for partitioning the input data
+	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization pulumi.Input `pulumi:"serialization"`
+	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Reference'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ReferenceInputPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceInputPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ReferenceInputPropertiesInvokeResponseArgs) ToReferenceInputPropertiesInvokeResponseOutput() ReferenceInputPropertiesInvokeResponseOutput {
+	return i.ToReferenceInputPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ReferenceInputPropertiesInvokeResponseArgs) ToReferenceInputPropertiesInvokeResponseOutputWithContext(ctx context.Context) ReferenceInputPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceInputPropertiesInvokeResponseOutput)
+}
+
+// The properties that are associated with an input containing reference data.
+type ReferenceInputPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ReferenceInputPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceInputPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ReferenceInputPropertiesInvokeResponseOutput) ToReferenceInputPropertiesInvokeResponseOutput() ReferenceInputPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ReferenceInputPropertiesInvokeResponseOutput) ToReferenceInputPropertiesInvokeResponseOutputWithContext(ctx context.Context) ReferenceInputPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Describes how input data is compressed
+func (o ReferenceInputPropertiesInvokeResponseOutput) Compression() CompressionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ReferenceInputPropertiesInvokeResponse) *CompressionInvokeResponse { return v.Compression }).(CompressionInvokeResponsePtrOutput)
+}
+
+// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
+func (o ReferenceInputPropertiesInvokeResponseOutput) Datasource() pulumi.AnyOutput {
+	return o.ApplyT(func(v ReferenceInputPropertiesInvokeResponse) interface{} { return v.Datasource }).(pulumi.AnyOutput)
+}
+
+// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+func (o ReferenceInputPropertiesInvokeResponseOutput) Diagnostics() DiagnosticsInvokeResponseOutput {
+	return o.ApplyT(func(v ReferenceInputPropertiesInvokeResponse) DiagnosticsInvokeResponse { return v.Diagnostics }).(DiagnosticsInvokeResponseOutput)
+}
+
+// The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+func (o ReferenceInputPropertiesInvokeResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ReferenceInputPropertiesInvokeResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// partitionKey Describes a key in the input data which is used for partitioning the input data
+func (o ReferenceInputPropertiesInvokeResponseOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceInputPropertiesInvokeResponse) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+func (o ReferenceInputPropertiesInvokeResponseOutput) Serialization() pulumi.AnyOutput {
+	return o.ApplyT(func(v ReferenceInputPropertiesInvokeResponse) interface{} { return v.Serialization }).(pulumi.AnyOutput)
+}
+
+// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Reference'.
+func (o ReferenceInputPropertiesInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ReferenceInputPropertiesInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The properties that are associated with an input containing reference data.
 type ReferenceInputPropertiesResponse struct {
 	// Describes how input data is compressed
 	Compression *CompressionResponse `pulumi:"compression"`
@@ -10335,6 +15195,97 @@ func (o ScalarFunctionPropertiesOutput) Output() FunctionOutputPtrOutput {
 // Expected value is 'Scalar'.
 func (o ScalarFunctionPropertiesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalarFunctionProperties) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The properties that are associated with a scalar function.
+type ScalarFunctionPropertiesInvokeResponse struct {
+	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+	Binding interface{} `pulumi:"binding"`
+	// The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag   string                        `pulumi:"etag"`
+	Inputs []FunctionInputInvokeResponse `pulumi:"inputs"`
+	// Describes the output of a function.
+	Output *FunctionOutputInvokeResponse `pulumi:"output"`
+	// Indicates the type of function.
+	// Expected value is 'Scalar'.
+	Type string `pulumi:"type"`
+}
+
+// ScalarFunctionPropertiesInvokeResponseInput is an input type that accepts ScalarFunctionPropertiesInvokeResponseArgs and ScalarFunctionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ScalarFunctionPropertiesInvokeResponseInput` via:
+//
+//          ScalarFunctionPropertiesInvokeResponseArgs{...}
+type ScalarFunctionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToScalarFunctionPropertiesInvokeResponseOutput() ScalarFunctionPropertiesInvokeResponseOutput
+	ToScalarFunctionPropertiesInvokeResponseOutputWithContext(context.Context) ScalarFunctionPropertiesInvokeResponseOutput
+}
+
+// The properties that are associated with a scalar function.
+type ScalarFunctionPropertiesInvokeResponseArgs struct {
+	// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+	Binding pulumi.Input `pulumi:"binding"`
+	// The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag   pulumi.StringInput                    `pulumi:"etag"`
+	Inputs FunctionInputInvokeResponseArrayInput `pulumi:"inputs"`
+	// Describes the output of a function.
+	Output FunctionOutputInvokeResponsePtrInput `pulumi:"output"`
+	// Indicates the type of function.
+	// Expected value is 'Scalar'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ScalarFunctionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalarFunctionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ScalarFunctionPropertiesInvokeResponseArgs) ToScalarFunctionPropertiesInvokeResponseOutput() ScalarFunctionPropertiesInvokeResponseOutput {
+	return i.ToScalarFunctionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ScalarFunctionPropertiesInvokeResponseArgs) ToScalarFunctionPropertiesInvokeResponseOutputWithContext(ctx context.Context) ScalarFunctionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalarFunctionPropertiesInvokeResponseOutput)
+}
+
+// The properties that are associated with a scalar function.
+type ScalarFunctionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScalarFunctionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalarFunctionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ScalarFunctionPropertiesInvokeResponseOutput) ToScalarFunctionPropertiesInvokeResponseOutput() ScalarFunctionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ScalarFunctionPropertiesInvokeResponseOutput) ToScalarFunctionPropertiesInvokeResponseOutputWithContext(ctx context.Context) ScalarFunctionPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+func (o ScalarFunctionPropertiesInvokeResponseOutput) Binding() pulumi.AnyOutput {
+	return o.ApplyT(func(v ScalarFunctionPropertiesInvokeResponse) interface{} { return v.Binding }).(pulumi.AnyOutput)
+}
+
+// The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+func (o ScalarFunctionPropertiesInvokeResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalarFunctionPropertiesInvokeResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+func (o ScalarFunctionPropertiesInvokeResponseOutput) Inputs() FunctionInputInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ScalarFunctionPropertiesInvokeResponse) []FunctionInputInvokeResponse { return v.Inputs }).(FunctionInputInvokeResponseArrayOutput)
+}
+
+// Describes the output of a function.
+func (o ScalarFunctionPropertiesInvokeResponseOutput) Output() FunctionOutputInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ScalarFunctionPropertiesInvokeResponse) *FunctionOutputInvokeResponse { return v.Output }).(FunctionOutputInvokeResponsePtrOutput)
+}
+
+// Indicates the type of function.
+// Expected value is 'Scalar'.
+func (o ScalarFunctionPropertiesInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalarFunctionPropertiesInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties that are associated with a scalar function.
@@ -10544,6 +15495,126 @@ func (o ServiceBusQueueOutputDataSourceOutput) SystemPropertyColumns() pulumi.St
 // Expected value is 'Microsoft.ServiceBus/Queue'.
 func (o ServiceBusQueueOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusQueueOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a Service Bus Queue output data source.
+type ServiceBusQueueOutputDataSourceInvokeResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+	PropertyColumns []string `pulumi:"propertyColumns"`
+	// The name of the Service Bus Queue. Required on PUT (CreateOrReplace) requests.
+	QueueName *string `pulumi:"queueName"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName *string           `pulumi:"sharedAccessPolicyName"`
+	SystemPropertyColumns  map[string]string `pulumi:"systemPropertyColumns"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.ServiceBus/Queue'.
+	Type string `pulumi:"type"`
+}
+
+// ServiceBusQueueOutputDataSourceInvokeResponseInput is an input type that accepts ServiceBusQueueOutputDataSourceInvokeResponseArgs and ServiceBusQueueOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceBusQueueOutputDataSourceInvokeResponseInput` via:
+//
+//          ServiceBusQueueOutputDataSourceInvokeResponseArgs{...}
+type ServiceBusQueueOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceBusQueueOutputDataSourceInvokeResponseOutput() ServiceBusQueueOutputDataSourceInvokeResponseOutput
+	ToServiceBusQueueOutputDataSourceInvokeResponseOutputWithContext(context.Context) ServiceBusQueueOutputDataSourceInvokeResponseOutput
+}
+
+// Describes a Service Bus Queue output data source.
+type ServiceBusQueueOutputDataSourceInvokeResponseArgs struct {
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+	PropertyColumns pulumi.StringArrayInput `pulumi:"propertyColumns"`
+	// The name of the Service Bus Queue. Required on PUT (CreateOrReplace) requests.
+	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace pulumi.StringPtrInput `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey pulumi.StringPtrInput `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
+	SystemPropertyColumns  pulumi.StringMapInput `pulumi:"systemPropertyColumns"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.ServiceBus/Queue'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceBusQueueOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusQueueOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceBusQueueOutputDataSourceInvokeResponseArgs) ToServiceBusQueueOutputDataSourceInvokeResponseOutput() ServiceBusQueueOutputDataSourceInvokeResponseOutput {
+	return i.ToServiceBusQueueOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceBusQueueOutputDataSourceInvokeResponseArgs) ToServiceBusQueueOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) ServiceBusQueueOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusQueueOutputDataSourceInvokeResponseOutput)
+}
+
+// Describes a Service Bus Queue output data source.
+type ServiceBusQueueOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusQueueOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusQueueOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusQueueOutputDataSourceInvokeResponseOutput) ToServiceBusQueueOutputDataSourceInvokeResponseOutput() ServiceBusQueueOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusQueueOutputDataSourceInvokeResponseOutput) ToServiceBusQueueOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) ServiceBusQueueOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// Authentication Mode.
+func (o ServiceBusQueueOutputDataSourceInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+func (o ServiceBusQueueOutputDataSourceInvokeResponseOutput) PropertyColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceInvokeResponse) []string { return v.PropertyColumns }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Service Bus Queue. Required on PUT (CreateOrReplace) requests.
+func (o ServiceBusQueueOutputDataSourceInvokeResponseOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceInvokeResponse) *string { return v.QueueName }).(pulumi.StringPtrOutput)
+}
+
+// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o ServiceBusQueueOutputDataSourceInvokeResponseOutput) ServiceBusNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceInvokeResponse) *string { return v.ServiceBusNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+func (o ServiceBusQueueOutputDataSourceInvokeResponseOutput) SharedAccessPolicyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyKey }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o ServiceBusQueueOutputDataSourceInvokeResponseOutput) SharedAccessPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceBusQueueOutputDataSourceInvokeResponseOutput) SystemPropertyColumns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceInvokeResponse) map[string]string {
+		return v.SystemPropertyColumns
+	}).(pulumi.StringMapOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.ServiceBus/Queue'.
+func (o ServiceBusQueueOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusQueueOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a Service Bus Queue output data source.
@@ -10780,6 +15851,126 @@ func (o ServiceBusTopicOutputDataSourceOutput) TopicName() pulumi.StringPtrOutpu
 // Expected value is 'Microsoft.ServiceBus/Topic'.
 func (o ServiceBusTopicOutputDataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceBusTopicOutputDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes a Service Bus Topic output data source.
+type ServiceBusTopicOutputDataSourceInvokeResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+	PropertyColumns []string `pulumi:"propertyColumns"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey *string `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName *string           `pulumi:"sharedAccessPolicyName"`
+	SystemPropertyColumns  map[string]string `pulumi:"systemPropertyColumns"`
+	// The name of the Service Bus Topic. Required on PUT (CreateOrReplace) requests.
+	TopicName *string `pulumi:"topicName"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.ServiceBus/Topic'.
+	Type string `pulumi:"type"`
+}
+
+// ServiceBusTopicOutputDataSourceInvokeResponseInput is an input type that accepts ServiceBusTopicOutputDataSourceInvokeResponseArgs and ServiceBusTopicOutputDataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceBusTopicOutputDataSourceInvokeResponseInput` via:
+//
+//          ServiceBusTopicOutputDataSourceInvokeResponseArgs{...}
+type ServiceBusTopicOutputDataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceBusTopicOutputDataSourceInvokeResponseOutput() ServiceBusTopicOutputDataSourceInvokeResponseOutput
+	ToServiceBusTopicOutputDataSourceInvokeResponseOutputWithContext(context.Context) ServiceBusTopicOutputDataSourceInvokeResponseOutput
+}
+
+// Describes a Service Bus Topic output data source.
+type ServiceBusTopicOutputDataSourceInvokeResponseArgs struct {
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
+	// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+	PropertyColumns pulumi.StringArrayInput `pulumi:"propertyColumns"`
+	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	ServiceBusNamespace pulumi.StringPtrInput `pulumi:"serviceBusNamespace"`
+	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyKey pulumi.StringPtrInput `pulumi:"sharedAccessPolicyKey"`
+	// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+	SharedAccessPolicyName pulumi.StringPtrInput `pulumi:"sharedAccessPolicyName"`
+	SystemPropertyColumns  pulumi.StringMapInput `pulumi:"systemPropertyColumns"`
+	// The name of the Service Bus Topic. Required on PUT (CreateOrReplace) requests.
+	TopicName pulumi.StringPtrInput `pulumi:"topicName"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.ServiceBus/Topic'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceBusTopicOutputDataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusTopicOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceBusTopicOutputDataSourceInvokeResponseArgs) ToServiceBusTopicOutputDataSourceInvokeResponseOutput() ServiceBusTopicOutputDataSourceInvokeResponseOutput {
+	return i.ToServiceBusTopicOutputDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceBusTopicOutputDataSourceInvokeResponseArgs) ToServiceBusTopicOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) ServiceBusTopicOutputDataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusTopicOutputDataSourceInvokeResponseOutput)
+}
+
+// Describes a Service Bus Topic output data source.
+type ServiceBusTopicOutputDataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusTopicOutputDataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusTopicOutputDataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusTopicOutputDataSourceInvokeResponseOutput) ToServiceBusTopicOutputDataSourceInvokeResponseOutput() ServiceBusTopicOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusTopicOutputDataSourceInvokeResponseOutput) ToServiceBusTopicOutputDataSourceInvokeResponseOutputWithContext(ctx context.Context) ServiceBusTopicOutputDataSourceInvokeResponseOutput {
+	return o
+}
+
+// Authentication Mode.
+func (o ServiceBusTopicOutputDataSourceInvokeResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceInvokeResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
+// A string array of the names of output columns to be attached to Service Bus messages as custom properties.
+func (o ServiceBusTopicOutputDataSourceInvokeResponseOutput) PropertyColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceInvokeResponse) []string { return v.PropertyColumns }).(pulumi.StringArrayOutput)
+}
+
+// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o ServiceBusTopicOutputDataSourceInvokeResponseOutput) ServiceBusNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceInvokeResponse) *string { return v.ServiceBusNamespace }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
+func (o ServiceBusTopicOutputDataSourceInvokeResponseOutput) SharedAccessPolicyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyKey }).(pulumi.StringPtrOutput)
+}
+
+// The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
+func (o ServiceBusTopicOutputDataSourceInvokeResponseOutput) SharedAccessPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceInvokeResponse) *string { return v.SharedAccessPolicyName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceBusTopicOutputDataSourceInvokeResponseOutput) SystemPropertyColumns() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceInvokeResponse) map[string]string {
+		return v.SystemPropertyColumns
+	}).(pulumi.StringMapOutput)
+}
+
+// The name of the Service Bus Topic. Required on PUT (CreateOrReplace) requests.
+func (o ServiceBusTopicOutputDataSourceInvokeResponseOutput) TopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceInvokeResponse) *string { return v.TopicName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Microsoft.ServiceBus/Topic'.
+func (o ServiceBusTopicOutputDataSourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusTopicOutputDataSourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a Service Bus Topic output data source.
@@ -11099,6 +16290,204 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 }
 
 // The properties that are associated with an Azure Storage account
+type StorageAccountInvokeResponse struct {
+	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountKey *string `pulumi:"accountKey"`
+	// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountName *string `pulumi:"accountName"`
+}
+
+// StorageAccountInvokeResponseInput is an input type that accepts StorageAccountInvokeResponseArgs and StorageAccountInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountInvokeResponseInput` via:
+//
+//          StorageAccountInvokeResponseArgs{...}
+type StorageAccountInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput
+	ToStorageAccountInvokeResponseOutputWithContext(context.Context) StorageAccountInvokeResponseOutput
+}
+
+// The properties that are associated with an Azure Storage account
+type StorageAccountInvokeResponseArgs struct {
+	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
+	// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+}
+
+func (StorageAccountInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput {
+	return i.ToStorageAccountInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponseOutputWithContext(ctx context.Context) StorageAccountInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInvokeResponseOutput)
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponsePtrOutput() StorageAccountInvokeResponsePtrOutput {
+	return i.ToStorageAccountInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponsePtrOutputWithContext(ctx context.Context) StorageAccountInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInvokeResponseOutput).ToStorageAccountInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// StorageAccountInvokeResponsePtrInput is an input type that accepts StorageAccountInvokeResponseArgs, StorageAccountInvokeResponsePtr and StorageAccountInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `StorageAccountInvokeResponsePtrInput` via:
+//
+//          StorageAccountInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageAccountInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToStorageAccountInvokeResponsePtrOutput() StorageAccountInvokeResponsePtrOutput
+	ToStorageAccountInvokeResponsePtrOutputWithContext(context.Context) StorageAccountInvokeResponsePtrOutput
+}
+
+type storageAccountInvokeResponsePtrType StorageAccountInvokeResponseArgs
+
+func StorageAccountInvokeResponsePtr(v *StorageAccountInvokeResponseArgs) StorageAccountInvokeResponsePtrInput {
+	return (*storageAccountInvokeResponsePtrType)(v)
+}
+
+func (*storageAccountInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i *storageAccountInvokeResponsePtrType) ToStorageAccountInvokeResponsePtrOutput() StorageAccountInvokeResponsePtrOutput {
+	return i.ToStorageAccountInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *storageAccountInvokeResponsePtrType) ToStorageAccountInvokeResponsePtrOutputWithContext(ctx context.Context) StorageAccountInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInvokeResponsePtrOutput)
+}
+
+// StorageAccountInvokeResponseArrayInput is an input type that accepts StorageAccountInvokeResponseArray and StorageAccountInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `StorageAccountInvokeResponseArrayInput` via:
+//
+//          StorageAccountInvokeResponseArray{ StorageAccountInvokeResponseArgs{...} }
+type StorageAccountInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToStorageAccountInvokeResponseArrayOutput() StorageAccountInvokeResponseArrayOutput
+	ToStorageAccountInvokeResponseArrayOutputWithContext(context.Context) StorageAccountInvokeResponseArrayOutput
+}
+
+type StorageAccountInvokeResponseArray []StorageAccountInvokeResponseInput
+
+func (StorageAccountInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountInvokeResponseArray) ToStorageAccountInvokeResponseArrayOutput() StorageAccountInvokeResponseArrayOutput {
+	return i.ToStorageAccountInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StorageAccountInvokeResponseArray) ToStorageAccountInvokeResponseArrayOutputWithContext(ctx context.Context) StorageAccountInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInvokeResponseArrayOutput)
+}
+
+// The properties that are associated with an Azure Storage account
+type StorageAccountInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponseOutputWithContext(ctx context.Context) StorageAccountInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponsePtrOutput() StorageAccountInvokeResponsePtrOutput {
+	return o.ToStorageAccountInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponsePtrOutputWithContext(ctx context.Context) StorageAccountInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StorageAccountInvokeResponse) *StorageAccountInvokeResponse {
+		return &v
+	}).(StorageAccountInvokeResponsePtrOutput)
+}
+
+// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+func (o StorageAccountInvokeResponseOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountInvokeResponse) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+func (o StorageAccountInvokeResponseOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountInvokeResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+type StorageAccountInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountInvokeResponsePtrOutput) ToStorageAccountInvokeResponsePtrOutput() StorageAccountInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponsePtrOutput) ToStorageAccountInvokeResponsePtrOutputWithContext(ctx context.Context) StorageAccountInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponsePtrOutput) Elem() StorageAccountInvokeResponseOutput {
+	return o.ApplyT(func(v *StorageAccountInvokeResponse) StorageAccountInvokeResponse { return *v }).(StorageAccountInvokeResponseOutput)
+}
+
+// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+func (o StorageAccountInvokeResponsePtrOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+func (o StorageAccountInvokeResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageAccountInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountInvokeResponseArrayOutput) ToStorageAccountInvokeResponseArrayOutput() StorageAccountInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponseArrayOutput) ToStorageAccountInvokeResponseArrayOutputWithContext(ctx context.Context) StorageAccountInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponseArrayOutput) Index(i pulumi.IntInput) StorageAccountInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountInvokeResponse {
+		return vs[0].([]StorageAccountInvokeResponse)[vs[1].(int)]
+	}).(StorageAccountInvokeResponseOutput)
+}
+
+// The properties that are associated with an Azure Storage account
 type StorageAccountResponse struct {
 	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountKey *string `pulumi:"accountKey"`
@@ -11391,6 +16780,118 @@ func (o StreamInputPropertiesOutput) Type() pulumi.StringOutput {
 }
 
 // The properties that are associated with an input containing stream data.
+type StreamInputPropertiesInvokeResponse struct {
+	// Describes how input data is compressed
+	Compression *CompressionInvokeResponse `pulumi:"compression"`
+	// Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+	Datasource interface{} `pulumi:"datasource"`
+	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+	Diagnostics DiagnosticsInvokeResponse `pulumi:"diagnostics"`
+	// The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag string `pulumi:"etag"`
+	// partitionKey Describes a key in the input data which is used for partitioning the input data
+	PartitionKey *string `pulumi:"partitionKey"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization interface{} `pulumi:"serialization"`
+	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Stream'.
+	Type string `pulumi:"type"`
+}
+
+// StreamInputPropertiesInvokeResponseInput is an input type that accepts StreamInputPropertiesInvokeResponseArgs and StreamInputPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamInputPropertiesInvokeResponseInput` via:
+//
+//          StreamInputPropertiesInvokeResponseArgs{...}
+type StreamInputPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStreamInputPropertiesInvokeResponseOutput() StreamInputPropertiesInvokeResponseOutput
+	ToStreamInputPropertiesInvokeResponseOutputWithContext(context.Context) StreamInputPropertiesInvokeResponseOutput
+}
+
+// The properties that are associated with an input containing stream data.
+type StreamInputPropertiesInvokeResponseArgs struct {
+	// Describes how input data is compressed
+	Compression CompressionInvokeResponsePtrInput `pulumi:"compression"`
+	// Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+	Datasource pulumi.Input `pulumi:"datasource"`
+	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+	Diagnostics DiagnosticsInvokeResponseInput `pulumi:"diagnostics"`
+	// The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// partitionKey Describes a key in the input data which is used for partitioning the input data
+	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization pulumi.Input `pulumi:"serialization"`
+	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Stream'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StreamInputPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamInputPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamInputPropertiesInvokeResponseArgs) ToStreamInputPropertiesInvokeResponseOutput() StreamInputPropertiesInvokeResponseOutput {
+	return i.ToStreamInputPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StreamInputPropertiesInvokeResponseArgs) ToStreamInputPropertiesInvokeResponseOutputWithContext(ctx context.Context) StreamInputPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamInputPropertiesInvokeResponseOutput)
+}
+
+// The properties that are associated with an input containing stream data.
+type StreamInputPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamInputPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamInputPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamInputPropertiesInvokeResponseOutput) ToStreamInputPropertiesInvokeResponseOutput() StreamInputPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o StreamInputPropertiesInvokeResponseOutput) ToStreamInputPropertiesInvokeResponseOutputWithContext(ctx context.Context) StreamInputPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Describes how input data is compressed
+func (o StreamInputPropertiesInvokeResponseOutput) Compression() CompressionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StreamInputPropertiesInvokeResponse) *CompressionInvokeResponse { return v.Compression }).(CompressionInvokeResponsePtrOutput)
+}
+
+// Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+func (o StreamInputPropertiesInvokeResponseOutput) Datasource() pulumi.AnyOutput {
+	return o.ApplyT(func(v StreamInputPropertiesInvokeResponse) interface{} { return v.Datasource }).(pulumi.AnyOutput)
+}
+
+// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+func (o StreamInputPropertiesInvokeResponseOutput) Diagnostics() DiagnosticsInvokeResponseOutput {
+	return o.ApplyT(func(v StreamInputPropertiesInvokeResponse) DiagnosticsInvokeResponse { return v.Diagnostics }).(DiagnosticsInvokeResponseOutput)
+}
+
+// The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+func (o StreamInputPropertiesInvokeResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamInputPropertiesInvokeResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// partitionKey Describes a key in the input data which is used for partitioning the input data
+func (o StreamInputPropertiesInvokeResponseOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamInputPropertiesInvokeResponse) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+func (o StreamInputPropertiesInvokeResponseOutput) Serialization() pulumi.AnyOutput {
+	return o.ApplyT(func(v StreamInputPropertiesInvokeResponse) interface{} { return v.Serialization }).(pulumi.AnyOutput)
+}
+
+// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
+// Expected value is 'Stream'.
+func (o StreamInputPropertiesInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamInputPropertiesInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The properties that are associated with an input containing stream data.
 type StreamInputPropertiesResponse struct {
 	// Describes how input data is compressed
 	Compression *CompressionResponse `pulumi:"compression"`
@@ -11634,6 +17135,61 @@ func (o StreamingJobSkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The properties that are associated with a SKU.
+type StreamingJobSkuInvokeResponse struct {
+	// The name of the SKU. Required on PUT (CreateOrReplace) requests.
+	Name *string `pulumi:"name"`
+}
+
+// StreamingJobSkuInvokeResponseInput is an input type that accepts StreamingJobSkuInvokeResponseArgs and StreamingJobSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamingJobSkuInvokeResponseInput` via:
+//
+//          StreamingJobSkuInvokeResponseArgs{...}
+type StreamingJobSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStreamingJobSkuInvokeResponseOutput() StreamingJobSkuInvokeResponseOutput
+	ToStreamingJobSkuInvokeResponseOutputWithContext(context.Context) StreamingJobSkuInvokeResponseOutput
+}
+
+// The properties that are associated with a SKU.
+type StreamingJobSkuInvokeResponseArgs struct {
+	// The name of the SKU. Required on PUT (CreateOrReplace) requests.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (StreamingJobSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingJobSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingJobSkuInvokeResponseArgs) ToStreamingJobSkuInvokeResponseOutput() StreamingJobSkuInvokeResponseOutput {
+	return i.ToStreamingJobSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StreamingJobSkuInvokeResponseArgs) ToStreamingJobSkuInvokeResponseOutputWithContext(ctx context.Context) StreamingJobSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingJobSkuInvokeResponseOutput)
+}
+
+// The properties that are associated with a SKU.
+type StreamingJobSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingJobSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingJobSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingJobSkuInvokeResponseOutput) ToStreamingJobSkuInvokeResponseOutput() StreamingJobSkuInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingJobSkuInvokeResponseOutput) ToStreamingJobSkuInvokeResponseOutputWithContext(ctx context.Context) StreamingJobSkuInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU. Required on PUT (CreateOrReplace) requests.
+func (o StreamingJobSkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingJobSkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The properties that are associated with a SKU.
@@ -11943,6 +17499,106 @@ func (o TransformationPtrOutput) StreamingUnits() pulumi.IntPtrOutput {
 }
 
 // A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
+type TransformationInvokeResponse struct {
+	// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag string `pulumi:"etag"`
+	// Resource Id
+	Id string `pulumi:"id"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
+	Query *string `pulumi:"query"`
+	// Specifies the number of streaming units that the streaming job uses.
+	StreamingUnits *int `pulumi:"streamingUnits"`
+	// Resource type
+	Type string `pulumi:"type"`
+}
+
+// TransformationInvokeResponseInput is an input type that accepts TransformationInvokeResponseArgs and TransformationInvokeResponseOutput values.
+// You can construct a concrete instance of `TransformationInvokeResponseInput` via:
+//
+//          TransformationInvokeResponseArgs{...}
+type TransformationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTransformationInvokeResponseOutput() TransformationInvokeResponseOutput
+	ToTransformationInvokeResponseOutputWithContext(context.Context) TransformationInvokeResponseOutput
+}
+
+// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
+type TransformationInvokeResponseArgs struct {
+	// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag pulumi.StringInput `pulumi:"etag"`
+	// Resource Id
+	Id pulumi.StringInput `pulumi:"id"`
+	// Resource name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// Specifies the number of streaming units that the streaming job uses.
+	StreamingUnits pulumi.IntPtrInput `pulumi:"streamingUnits"`
+	// Resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TransformationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformationInvokeResponse)(nil)).Elem()
+}
+
+func (i TransformationInvokeResponseArgs) ToTransformationInvokeResponseOutput() TransformationInvokeResponseOutput {
+	return i.ToTransformationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TransformationInvokeResponseArgs) ToTransformationInvokeResponseOutputWithContext(ctx context.Context) TransformationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformationInvokeResponseOutput)
+}
+
+// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
+type TransformationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TransformationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformationInvokeResponse)(nil)).Elem()
+}
+
+func (o TransformationInvokeResponseOutput) ToTransformationInvokeResponseOutput() TransformationInvokeResponseOutput {
+	return o
+}
+
+func (o TransformationInvokeResponseOutput) ToTransformationInvokeResponseOutputWithContext(ctx context.Context) TransformationInvokeResponseOutput {
+	return o
+}
+
+// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+func (o TransformationInvokeResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformationInvokeResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o TransformationInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformationInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o TransformationInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformationInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
+func (o TransformationInvokeResponseOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformationInvokeResponse) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the number of streaming units that the streaming job uses.
+func (o TransformationInvokeResponseOutput) StreamingUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformationInvokeResponse) *int { return v.StreamingUnits }).(pulumi.IntPtrOutput)
+}
+
+// Resource type
+func (o TransformationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
 type TransformationResponse struct {
 	// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 	Etag string `pulumi:"etag"`
@@ -12173,147 +17829,214 @@ func (o TransformationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(AggregateFunctionPropertiesOutput{})
+	pulumi.RegisterOutputType(AggregateFunctionPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AggregateFunctionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AvroSerializationOutput{})
+	pulumi.RegisterOutputType(AvroSerializationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AvroSerializationResponseOutput{})
 	pulumi.RegisterOutputType(AzureDataLakeStoreOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(AzureDataLakeStoreOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureDataLakeStoreOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(AzureFunctionOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(AzureFunctionOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureFunctionOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningServiceFunctionBindingOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningServiceFunctionBindingInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningServiceFunctionBindingResponseOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningServiceInputColumnOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningServiceInputColumnArrayOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningServiceInputColumnInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningServiceInputColumnInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningServiceInputColumnResponseOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningServiceInputColumnResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningServiceOutputColumnOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningServiceOutputColumnArrayOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningServiceOutputColumnInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningServiceOutputColumnInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningServiceOutputColumnResponseOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningServiceOutputColumnResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioFunctionBindingOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningStudioFunctionBindingInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioFunctionBindingResponseOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioInputColumnOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioInputColumnArrayOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningStudioInputColumnInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningStudioInputColumnInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioInputColumnResponseOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioInputColumnResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioInputsOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioInputsPtrOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningStudioInputsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningStudioInputsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioInputsResponseOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioInputsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioOutputColumnOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioOutputColumnArrayOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningStudioOutputColumnInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureMachineLearningStudioOutputColumnInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioOutputColumnResponseOutput{})
 	pulumi.RegisterOutputType(AzureMachineLearningStudioOutputColumnResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureSqlDatabaseOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(AzureSqlDatabaseOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlDatabaseOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlReferenceInputDataSourceOutput{})
+	pulumi.RegisterOutputType(AzureSqlReferenceInputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlReferenceInputDataSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(AzureSqlReferenceInputDataSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AzureSqlReferenceInputDataSourcePropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureSqlReferenceInputDataSourcePropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureSqlReferenceInputDataSourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlReferenceInputDataSourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureSqlReferenceInputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(AzureSynapseOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(AzureSynapseOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureSynapseOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(AzureTableOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(AzureTableOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureTableOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(BlobOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(BlobOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BlobOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(BlobReferenceInputDataSourceOutput{})
+	pulumi.RegisterOutputType(BlobReferenceInputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BlobReferenceInputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(BlobStreamInputDataSourceOutput{})
+	pulumi.RegisterOutputType(BlobStreamInputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BlobStreamInputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(CSharpFunctionBindingOutput{})
+	pulumi.RegisterOutputType(CSharpFunctionBindingInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CSharpFunctionBindingResponseOutput{})
 	pulumi.RegisterOutputType(ClusterInfoOutput{})
 	pulumi.RegisterOutputType(ClusterInfoPtrOutput{})
+	pulumi.RegisterOutputType(ClusterInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterInfoResponseOutput{})
 	pulumi.RegisterOutputType(ClusterInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(CompressionOutput{})
 	pulumi.RegisterOutputType(CompressionPtrOutput{})
+	pulumi.RegisterOutputType(CompressionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CompressionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CompressionResponseOutput{})
 	pulumi.RegisterOutputType(CompressionResponsePtrOutput{})
 	pulumi.RegisterOutputType(CsvSerializationOutput{})
+	pulumi.RegisterOutputType(CsvSerializationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CsvSerializationResponseOutput{})
 	pulumi.RegisterOutputType(CustomClrSerializationOutput{})
+	pulumi.RegisterOutputType(CustomClrSerializationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CustomClrSerializationResponseOutput{})
+	pulumi.RegisterOutputType(DiagnosticConditionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DiagnosticConditionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticConditionResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticConditionResponseArrayOutput{})
+	pulumi.RegisterOutputType(DiagnosticsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticsResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticsResponsePtrOutput{})
 	pulumi.RegisterOutputType(DocumentDbOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(DocumentDbOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DocumentDbOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(EventHubOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(EventHubOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EventHubOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(EventHubStreamInputDataSourceOutput{})
+	pulumi.RegisterOutputType(EventHubStreamInputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EventHubStreamInputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(EventHubV2OutputDataSourceOutput{})
+	pulumi.RegisterOutputType(EventHubV2OutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EventHubV2OutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(EventHubV2StreamInputDataSourceOutput{})
+	pulumi.RegisterOutputType(EventHubV2StreamInputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EventHubV2StreamInputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(ExternalOutput{})
 	pulumi.RegisterOutputType(ExternalPtrOutput{})
+	pulumi.RegisterOutputType(ExternalInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ExternalResponseOutput{})
 	pulumi.RegisterOutputType(ExternalResponsePtrOutput{})
 	pulumi.RegisterOutputType(FunctionTypeOutput{})
 	pulumi.RegisterOutputType(FunctionTypeArrayOutput{})
 	pulumi.RegisterOutputType(FunctionInputOutput{})
 	pulumi.RegisterOutputType(FunctionInputArrayOutput{})
+	pulumi.RegisterOutputType(FunctionInputInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FunctionInputInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FunctionInputResponseOutput{})
 	pulumi.RegisterOutputType(FunctionInputResponseArrayOutput{})
+	pulumi.RegisterOutputType(FunctionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FunctionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FunctionOutputOutput{})
 	pulumi.RegisterOutputType(FunctionOutputPtrOutput{})
+	pulumi.RegisterOutputType(FunctionOutputInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FunctionOutputInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(FunctionOutputResponseOutput{})
 	pulumi.RegisterOutputType(FunctionOutputResponsePtrOutput{})
 	pulumi.RegisterOutputType(FunctionResponseOutput{})
 	pulumi.RegisterOutputType(FunctionResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(InputTypeOutput{})
 	pulumi.RegisterOutputType(InputTypeArrayOutput{})
+	pulumi.RegisterOutputType(InputInvokeResponseOutput{})
+	pulumi.RegisterOutputType(InputInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(InputResponseOutput{})
 	pulumi.RegisterOutputType(InputResponseArrayOutput{})
 	pulumi.RegisterOutputType(IoTHubStreamInputDataSourceOutput{})
+	pulumi.RegisterOutputType(IoTHubStreamInputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IoTHubStreamInputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(JavaScriptFunctionBindingOutput{})
+	pulumi.RegisterOutputType(JavaScriptFunctionBindingInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JavaScriptFunctionBindingResponseOutput{})
 	pulumi.RegisterOutputType(JobStorageAccountOutput{})
 	pulumi.RegisterOutputType(JobStorageAccountPtrOutput{})
+	pulumi.RegisterOutputType(JobStorageAccountInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobStorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(JobStorageAccountResponsePtrOutput{})
 	pulumi.RegisterOutputType(JsonSerializationOutput{})
+	pulumi.RegisterOutputType(JsonSerializationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JsonSerializationResponseOutput{})
 	pulumi.RegisterOutputType(OutputTypeOutput{})
 	pulumi.RegisterOutputType(OutputTypeArrayOutput{})
+	pulumi.RegisterOutputType(OutputInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OutputInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(OutputResponseOutput{})
 	pulumi.RegisterOutputType(OutputResponseArrayOutput{})
 	pulumi.RegisterOutputType(ParquetSerializationOutput{})
+	pulumi.RegisterOutputType(ParquetSerializationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ParquetSerializationResponseOutput{})
 	pulumi.RegisterOutputType(PowerBIOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(PowerBIOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PowerBIOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(ReferenceInputPropertiesOutput{})
+	pulumi.RegisterOutputType(ReferenceInputPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ReferenceInputPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ScalarFunctionPropertiesOutput{})
+	pulumi.RegisterOutputType(ScalarFunctionPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ScalarFunctionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusQueueOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(ServiceBusQueueOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusQueueOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusTopicOutputDataSourceOutput{})
+	pulumi.RegisterOutputType(ServiceBusTopicOutputDataSourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusTopicOutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(StorageAccountInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamInputPropertiesOutput{})
+	pulumi.RegisterOutputType(StreamInputPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StreamInputPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StreamingJobSkuOutput{})
 	pulumi.RegisterOutputType(StreamingJobSkuPtrOutput{})
+	pulumi.RegisterOutputType(StreamingJobSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StreamingJobSkuResponseOutput{})
 	pulumi.RegisterOutputType(StreamingJobSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransformationOutput{})
 	pulumi.RegisterOutputType(TransformationPtrOutput{})
+	pulumi.RegisterOutputType(TransformationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(TransformationResponseOutput{})
 	pulumi.RegisterOutputType(TransformationResponsePtrOutput{})
 }

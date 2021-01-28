@@ -26,9 +26,9 @@ type LookupHealthAlertArgs struct {
 // The health alert resource.
 type LookupHealthAlertResult struct {
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions []HealthAlertActionResponse `pulumi:"actions"`
+	Actions []HealthAlertActionInvokeResponse `pulumi:"actions"`
 	// defines the specific alert criteria information.
-	Criteria HealthAlertCriteriaResponse `pulumi:"criteria"`
+	Criteria HealthAlertCriteriaInvokeResponse `pulumi:"criteria"`
 	// the description of the health alert that will be included in the alert email.
 	Description string `pulumi:"description"`
 	// the flag that indicates whether the health alert is enabled.

@@ -33,12 +33,12 @@ type LookupWebAppPrivateEndpointConnectionResult struct {
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// PrivateEndpoint of a remote private endpoint connection
-	PrivateEndpoint *ArmIdWrapperResponse `pulumi:"privateEndpoint"`
+	PrivateEndpoint *ArmIdWrapperInvokeResponse `pulumi:"privateEndpoint"`
 	// The state of a private link connection
-	PrivateLinkServiceConnectionState *PrivateLinkConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	ProvisioningState                 string                              `pulumi:"provisioningState"`
+	PrivateLinkServiceConnectionState *PrivateLinkConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 string                                    `pulumi:"provisioningState"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

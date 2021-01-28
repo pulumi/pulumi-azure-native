@@ -83,6 +83,79 @@ func (o BasicAuthenticationOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BasicAuthentication) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
+type BasicAuthenticationInvokeResponse struct {
+	// Gets or sets the password, return value will always be empty.
+	Password *string `pulumi:"password"`
+	// Gets or sets the HTTP authentication type.
+	// Expected value is 'Basic'.
+	Type string `pulumi:"type"`
+	// Gets or sets the username.
+	Username *string `pulumi:"username"`
+}
+
+// BasicAuthenticationInvokeResponseInput is an input type that accepts BasicAuthenticationInvokeResponseArgs and BasicAuthenticationInvokeResponseOutput values.
+// You can construct a concrete instance of `BasicAuthenticationInvokeResponseInput` via:
+//
+//          BasicAuthenticationInvokeResponseArgs{...}
+type BasicAuthenticationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBasicAuthenticationInvokeResponseOutput() BasicAuthenticationInvokeResponseOutput
+	ToBasicAuthenticationInvokeResponseOutputWithContext(context.Context) BasicAuthenticationInvokeResponseOutput
+}
+
+type BasicAuthenticationInvokeResponseArgs struct {
+	// Gets or sets the password, return value will always be empty.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Gets or sets the HTTP authentication type.
+	// Expected value is 'Basic'.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Gets or sets the username.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (BasicAuthenticationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicAuthenticationInvokeResponse)(nil)).Elem()
+}
+
+func (i BasicAuthenticationInvokeResponseArgs) ToBasicAuthenticationInvokeResponseOutput() BasicAuthenticationInvokeResponseOutput {
+	return i.ToBasicAuthenticationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BasicAuthenticationInvokeResponseArgs) ToBasicAuthenticationInvokeResponseOutputWithContext(ctx context.Context) BasicAuthenticationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BasicAuthenticationInvokeResponseOutput)
+}
+
+type BasicAuthenticationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BasicAuthenticationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BasicAuthenticationInvokeResponse)(nil)).Elem()
+}
+
+func (o BasicAuthenticationInvokeResponseOutput) ToBasicAuthenticationInvokeResponseOutput() BasicAuthenticationInvokeResponseOutput {
+	return o
+}
+
+func (o BasicAuthenticationInvokeResponseOutput) ToBasicAuthenticationInvokeResponseOutputWithContext(ctx context.Context) BasicAuthenticationInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the password, return value will always be empty.
+func (o BasicAuthenticationInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BasicAuthenticationInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the HTTP authentication type.
+// Expected value is 'Basic'.
+func (o BasicAuthenticationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v BasicAuthenticationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the username.
+func (o BasicAuthenticationInvokeResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BasicAuthenticationInvokeResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
 type BasicAuthenticationResponse struct {
 	// Gets or sets the password, return value will always be empty.
 	Password *string `pulumi:"password"`
@@ -254,6 +327,106 @@ func (o ClientCertAuthenticationOutput) Pfx() pulumi.StringPtrOutput {
 // Expected value is 'ClientCertificate'.
 func (o ClientCertAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClientCertAuthentication) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ClientCertAuthenticationInvokeResponse struct {
+	// Gets or sets the certificate expiration date.
+	CertificateExpirationDate *string `pulumi:"certificateExpirationDate"`
+	// Gets or sets the certificate subject name.
+	CertificateSubjectName *string `pulumi:"certificateSubjectName"`
+	// Gets or sets the certificate thumbprint.
+	CertificateThumbprint *string `pulumi:"certificateThumbprint"`
+	// Gets or sets the certificate password, return value will always be empty.
+	Password *string `pulumi:"password"`
+	// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+	Pfx *string `pulumi:"pfx"`
+	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ClientCertificate'.
+	Type string `pulumi:"type"`
+}
+
+// ClientCertAuthenticationInvokeResponseInput is an input type that accepts ClientCertAuthenticationInvokeResponseArgs and ClientCertAuthenticationInvokeResponseOutput values.
+// You can construct a concrete instance of `ClientCertAuthenticationInvokeResponseInput` via:
+//
+//          ClientCertAuthenticationInvokeResponseArgs{...}
+type ClientCertAuthenticationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClientCertAuthenticationInvokeResponseOutput() ClientCertAuthenticationInvokeResponseOutput
+	ToClientCertAuthenticationInvokeResponseOutputWithContext(context.Context) ClientCertAuthenticationInvokeResponseOutput
+}
+
+type ClientCertAuthenticationInvokeResponseArgs struct {
+	// Gets or sets the certificate expiration date.
+	CertificateExpirationDate pulumi.StringPtrInput `pulumi:"certificateExpirationDate"`
+	// Gets or sets the certificate subject name.
+	CertificateSubjectName pulumi.StringPtrInput `pulumi:"certificateSubjectName"`
+	// Gets or sets the certificate thumbprint.
+	CertificateThumbprint pulumi.StringPtrInput `pulumi:"certificateThumbprint"`
+	// Gets or sets the certificate password, return value will always be empty.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+	Pfx pulumi.StringPtrInput `pulumi:"pfx"`
+	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ClientCertificate'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ClientCertAuthenticationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertAuthenticationInvokeResponse)(nil)).Elem()
+}
+
+func (i ClientCertAuthenticationInvokeResponseArgs) ToClientCertAuthenticationInvokeResponseOutput() ClientCertAuthenticationInvokeResponseOutput {
+	return i.ToClientCertAuthenticationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClientCertAuthenticationInvokeResponseArgs) ToClientCertAuthenticationInvokeResponseOutputWithContext(ctx context.Context) ClientCertAuthenticationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertAuthenticationInvokeResponseOutput)
+}
+
+type ClientCertAuthenticationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClientCertAuthenticationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertAuthenticationInvokeResponse)(nil)).Elem()
+}
+
+func (o ClientCertAuthenticationInvokeResponseOutput) ToClientCertAuthenticationInvokeResponseOutput() ClientCertAuthenticationInvokeResponseOutput {
+	return o
+}
+
+func (o ClientCertAuthenticationInvokeResponseOutput) ToClientCertAuthenticationInvokeResponseOutputWithContext(ctx context.Context) ClientCertAuthenticationInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the certificate expiration date.
+func (o ClientCertAuthenticationInvokeResponseOutput) CertificateExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationInvokeResponse) *string { return v.CertificateExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the certificate subject name.
+func (o ClientCertAuthenticationInvokeResponseOutput) CertificateSubjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationInvokeResponse) *string { return v.CertificateSubjectName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the certificate thumbprint.
+func (o ClientCertAuthenticationInvokeResponseOutput) CertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationInvokeResponse) *string { return v.CertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the certificate password, return value will always be empty.
+func (o ClientCertAuthenticationInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
+func (o ClientCertAuthenticationInvokeResponseOutput) Pfx() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationInvokeResponse) *string { return v.Pfx }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the HTTP authentication type.
+// Expected value is 'ClientCertificate'.
+func (o ClientCertAuthenticationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientCertAuthenticationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ClientCertAuthenticationResponse struct {
@@ -556,6 +729,213 @@ func (o HttpRequestPtrOutput) Method() pulumi.StringPtrOutput {
 // Gets or sets the URI of the request.
 func (o HttpRequestPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HttpRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type HttpRequestInvokeResponse struct {
+	// Gets or sets the authentication method of the request.
+	Authentication interface{} `pulumi:"authentication"`
+	// Gets or sets the request body.
+	Body *string `pulumi:"body"`
+	// Gets or sets the headers.
+	Headers map[string]string `pulumi:"headers"`
+	// Gets or sets the method of the request.
+	Method *string `pulumi:"method"`
+	// Gets or sets the URI of the request.
+	Uri *string `pulumi:"uri"`
+}
+
+// HttpRequestInvokeResponseInput is an input type that accepts HttpRequestInvokeResponseArgs and HttpRequestInvokeResponseOutput values.
+// You can construct a concrete instance of `HttpRequestInvokeResponseInput` via:
+//
+//          HttpRequestInvokeResponseArgs{...}
+type HttpRequestInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHttpRequestInvokeResponseOutput() HttpRequestInvokeResponseOutput
+	ToHttpRequestInvokeResponseOutputWithContext(context.Context) HttpRequestInvokeResponseOutput
+}
+
+type HttpRequestInvokeResponseArgs struct {
+	// Gets or sets the authentication method of the request.
+	Authentication pulumi.Input `pulumi:"authentication"`
+	// Gets or sets the request body.
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// Gets or sets the headers.
+	Headers pulumi.StringMapInput `pulumi:"headers"`
+	// Gets or sets the method of the request.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// Gets or sets the URI of the request.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (HttpRequestInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpRequestInvokeResponse)(nil)).Elem()
+}
+
+func (i HttpRequestInvokeResponseArgs) ToHttpRequestInvokeResponseOutput() HttpRequestInvokeResponseOutput {
+	return i.ToHttpRequestInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HttpRequestInvokeResponseArgs) ToHttpRequestInvokeResponseOutputWithContext(ctx context.Context) HttpRequestInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpRequestInvokeResponseOutput)
+}
+
+func (i HttpRequestInvokeResponseArgs) ToHttpRequestInvokeResponsePtrOutput() HttpRequestInvokeResponsePtrOutput {
+	return i.ToHttpRequestInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i HttpRequestInvokeResponseArgs) ToHttpRequestInvokeResponsePtrOutputWithContext(ctx context.Context) HttpRequestInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpRequestInvokeResponseOutput).ToHttpRequestInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// HttpRequestInvokeResponsePtrInput is an input type that accepts HttpRequestInvokeResponseArgs, HttpRequestInvokeResponsePtr and HttpRequestInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `HttpRequestInvokeResponsePtrInput` via:
+//
+//          HttpRequestInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type HttpRequestInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToHttpRequestInvokeResponsePtrOutput() HttpRequestInvokeResponsePtrOutput
+	ToHttpRequestInvokeResponsePtrOutputWithContext(context.Context) HttpRequestInvokeResponsePtrOutput
+}
+
+type httpRequestInvokeResponsePtrType HttpRequestInvokeResponseArgs
+
+func HttpRequestInvokeResponsePtr(v *HttpRequestInvokeResponseArgs) HttpRequestInvokeResponsePtrInput {
+	return (*httpRequestInvokeResponsePtrType)(v)
+}
+
+func (*httpRequestInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HttpRequestInvokeResponse)(nil)).Elem()
+}
+
+func (i *httpRequestInvokeResponsePtrType) ToHttpRequestInvokeResponsePtrOutput() HttpRequestInvokeResponsePtrOutput {
+	return i.ToHttpRequestInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *httpRequestInvokeResponsePtrType) ToHttpRequestInvokeResponsePtrOutputWithContext(ctx context.Context) HttpRequestInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpRequestInvokeResponsePtrOutput)
+}
+
+type HttpRequestInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HttpRequestInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpRequestInvokeResponse)(nil)).Elem()
+}
+
+func (o HttpRequestInvokeResponseOutput) ToHttpRequestInvokeResponseOutput() HttpRequestInvokeResponseOutput {
+	return o
+}
+
+func (o HttpRequestInvokeResponseOutput) ToHttpRequestInvokeResponseOutputWithContext(ctx context.Context) HttpRequestInvokeResponseOutput {
+	return o
+}
+
+func (o HttpRequestInvokeResponseOutput) ToHttpRequestInvokeResponsePtrOutput() HttpRequestInvokeResponsePtrOutput {
+	return o.ToHttpRequestInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o HttpRequestInvokeResponseOutput) ToHttpRequestInvokeResponsePtrOutputWithContext(ctx context.Context) HttpRequestInvokeResponsePtrOutput {
+	return o.ApplyT(func(v HttpRequestInvokeResponse) *HttpRequestInvokeResponse {
+		return &v
+	}).(HttpRequestInvokeResponsePtrOutput)
+}
+
+// Gets or sets the authentication method of the request.
+func (o HttpRequestInvokeResponseOutput) Authentication() pulumi.AnyOutput {
+	return o.ApplyT(func(v HttpRequestInvokeResponse) interface{} { return v.Authentication }).(pulumi.AnyOutput)
+}
+
+// Gets or sets the request body.
+func (o HttpRequestInvokeResponseOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HttpRequestInvokeResponse) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the headers.
+func (o HttpRequestInvokeResponseOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v HttpRequestInvokeResponse) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the method of the request.
+func (o HttpRequestInvokeResponseOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HttpRequestInvokeResponse) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the URI of the request.
+func (o HttpRequestInvokeResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HttpRequestInvokeResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type HttpRequestInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (HttpRequestInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HttpRequestInvokeResponse)(nil)).Elem()
+}
+
+func (o HttpRequestInvokeResponsePtrOutput) ToHttpRequestInvokeResponsePtrOutput() HttpRequestInvokeResponsePtrOutput {
+	return o
+}
+
+func (o HttpRequestInvokeResponsePtrOutput) ToHttpRequestInvokeResponsePtrOutputWithContext(ctx context.Context) HttpRequestInvokeResponsePtrOutput {
+	return o
+}
+
+func (o HttpRequestInvokeResponsePtrOutput) Elem() HttpRequestInvokeResponseOutput {
+	return o.ApplyT(func(v *HttpRequestInvokeResponse) HttpRequestInvokeResponse { return *v }).(HttpRequestInvokeResponseOutput)
+}
+
+// Gets or sets the authentication method of the request.
+func (o HttpRequestInvokeResponsePtrOutput) Authentication() pulumi.AnyOutput {
+	return o.ApplyT(func(v *HttpRequestInvokeResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Authentication
+	}).(pulumi.AnyOutput)
+}
+
+// Gets or sets the request body.
+func (o HttpRequestInvokeResponsePtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HttpRequestInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the headers.
+func (o HttpRequestInvokeResponsePtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HttpRequestInvokeResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the method of the request.
+func (o HttpRequestInvokeResponsePtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HttpRequestInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the URI of the request.
+func (o HttpRequestInvokeResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HttpRequestInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1015,6 +1395,251 @@ func (o JobActionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobActionInvokeResponse struct {
+	// Gets or sets the error action.
+	ErrorAction *JobErrorActionInvokeResponse `pulumi:"errorAction"`
+	// Gets or sets the storage queue message.
+	QueueMessage *StorageQueueMessageInvokeResponse `pulumi:"queueMessage"`
+	// Gets or sets the http requests.
+	Request *HttpRequestInvokeResponse `pulumi:"request"`
+	// Gets or sets the retry policy.
+	RetryPolicy *RetryPolicyInvokeResponse `pulumi:"retryPolicy"`
+	// Gets or sets the service bus queue message.
+	ServiceBusQueueMessage *ServiceBusQueueMessageInvokeResponse `pulumi:"serviceBusQueueMessage"`
+	// Gets or sets the service bus topic message.
+	ServiceBusTopicMessage *ServiceBusTopicMessageInvokeResponse `pulumi:"serviceBusTopicMessage"`
+	// Gets or sets the job action type.
+	Type *string `pulumi:"type"`
+}
+
+// JobActionInvokeResponseInput is an input type that accepts JobActionInvokeResponseArgs and JobActionInvokeResponseOutput values.
+// You can construct a concrete instance of `JobActionInvokeResponseInput` via:
+//
+//          JobActionInvokeResponseArgs{...}
+type JobActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobActionInvokeResponseOutput() JobActionInvokeResponseOutput
+	ToJobActionInvokeResponseOutputWithContext(context.Context) JobActionInvokeResponseOutput
+}
+
+type JobActionInvokeResponseArgs struct {
+	// Gets or sets the error action.
+	ErrorAction JobErrorActionInvokeResponsePtrInput `pulumi:"errorAction"`
+	// Gets or sets the storage queue message.
+	QueueMessage StorageQueueMessageInvokeResponsePtrInput `pulumi:"queueMessage"`
+	// Gets or sets the http requests.
+	Request HttpRequestInvokeResponsePtrInput `pulumi:"request"`
+	// Gets or sets the retry policy.
+	RetryPolicy RetryPolicyInvokeResponsePtrInput `pulumi:"retryPolicy"`
+	// Gets or sets the service bus queue message.
+	ServiceBusQueueMessage ServiceBusQueueMessageInvokeResponsePtrInput `pulumi:"serviceBusQueueMessage"`
+	// Gets or sets the service bus topic message.
+	ServiceBusTopicMessage ServiceBusTopicMessageInvokeResponsePtrInput `pulumi:"serviceBusTopicMessage"`
+	// Gets or sets the job action type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (JobActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobActionInvokeResponse)(nil)).Elem()
+}
+
+func (i JobActionInvokeResponseArgs) ToJobActionInvokeResponseOutput() JobActionInvokeResponseOutput {
+	return i.ToJobActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobActionInvokeResponseArgs) ToJobActionInvokeResponseOutputWithContext(ctx context.Context) JobActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobActionInvokeResponseOutput)
+}
+
+func (i JobActionInvokeResponseArgs) ToJobActionInvokeResponsePtrOutput() JobActionInvokeResponsePtrOutput {
+	return i.ToJobActionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i JobActionInvokeResponseArgs) ToJobActionInvokeResponsePtrOutputWithContext(ctx context.Context) JobActionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobActionInvokeResponseOutput).ToJobActionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// JobActionInvokeResponsePtrInput is an input type that accepts JobActionInvokeResponseArgs, JobActionInvokeResponsePtr and JobActionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `JobActionInvokeResponsePtrInput` via:
+//
+//          JobActionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type JobActionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToJobActionInvokeResponsePtrOutput() JobActionInvokeResponsePtrOutput
+	ToJobActionInvokeResponsePtrOutputWithContext(context.Context) JobActionInvokeResponsePtrOutput
+}
+
+type jobActionInvokeResponsePtrType JobActionInvokeResponseArgs
+
+func JobActionInvokeResponsePtr(v *JobActionInvokeResponseArgs) JobActionInvokeResponsePtrInput {
+	return (*jobActionInvokeResponsePtrType)(v)
+}
+
+func (*jobActionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobActionInvokeResponse)(nil)).Elem()
+}
+
+func (i *jobActionInvokeResponsePtrType) ToJobActionInvokeResponsePtrOutput() JobActionInvokeResponsePtrOutput {
+	return i.ToJobActionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *jobActionInvokeResponsePtrType) ToJobActionInvokeResponsePtrOutputWithContext(ctx context.Context) JobActionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobActionInvokeResponsePtrOutput)
+}
+
+type JobActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobActionInvokeResponse)(nil)).Elem()
+}
+
+func (o JobActionInvokeResponseOutput) ToJobActionInvokeResponseOutput() JobActionInvokeResponseOutput {
+	return o
+}
+
+func (o JobActionInvokeResponseOutput) ToJobActionInvokeResponseOutputWithContext(ctx context.Context) JobActionInvokeResponseOutput {
+	return o
+}
+
+func (o JobActionInvokeResponseOutput) ToJobActionInvokeResponsePtrOutput() JobActionInvokeResponsePtrOutput {
+	return o.ToJobActionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o JobActionInvokeResponseOutput) ToJobActionInvokeResponsePtrOutputWithContext(ctx context.Context) JobActionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobActionInvokeResponse) *JobActionInvokeResponse {
+		return &v
+	}).(JobActionInvokeResponsePtrOutput)
+}
+
+// Gets or sets the error action.
+func (o JobActionInvokeResponseOutput) ErrorAction() JobErrorActionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobActionInvokeResponse) *JobErrorActionInvokeResponse { return v.ErrorAction }).(JobErrorActionInvokeResponsePtrOutput)
+}
+
+// Gets or sets the storage queue message.
+func (o JobActionInvokeResponseOutput) QueueMessage() StorageQueueMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobActionInvokeResponse) *StorageQueueMessageInvokeResponse { return v.QueueMessage }).(StorageQueueMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the http requests.
+func (o JobActionInvokeResponseOutput) Request() HttpRequestInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobActionInvokeResponse) *HttpRequestInvokeResponse { return v.Request }).(HttpRequestInvokeResponsePtrOutput)
+}
+
+// Gets or sets the retry policy.
+func (o JobActionInvokeResponseOutput) RetryPolicy() RetryPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobActionInvokeResponse) *RetryPolicyInvokeResponse { return v.RetryPolicy }).(RetryPolicyInvokeResponsePtrOutput)
+}
+
+// Gets or sets the service bus queue message.
+func (o JobActionInvokeResponseOutput) ServiceBusQueueMessage() ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobActionInvokeResponse) *ServiceBusQueueMessageInvokeResponse { return v.ServiceBusQueueMessage }).(ServiceBusQueueMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the service bus topic message.
+func (o JobActionInvokeResponseOutput) ServiceBusTopicMessage() ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobActionInvokeResponse) *ServiceBusTopicMessageInvokeResponse { return v.ServiceBusTopicMessage }).(ServiceBusTopicMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the job action type.
+func (o JobActionInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobActionInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type JobActionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (JobActionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobActionInvokeResponse)(nil)).Elem()
+}
+
+func (o JobActionInvokeResponsePtrOutput) ToJobActionInvokeResponsePtrOutput() JobActionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobActionInvokeResponsePtrOutput) ToJobActionInvokeResponsePtrOutputWithContext(ctx context.Context) JobActionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobActionInvokeResponsePtrOutput) Elem() JobActionInvokeResponseOutput {
+	return o.ApplyT(func(v *JobActionInvokeResponse) JobActionInvokeResponse { return *v }).(JobActionInvokeResponseOutput)
+}
+
+// Gets or sets the error action.
+func (o JobActionInvokeResponsePtrOutput) ErrorAction() JobErrorActionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobActionInvokeResponse) *JobErrorActionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorAction
+	}).(JobErrorActionInvokeResponsePtrOutput)
+}
+
+// Gets or sets the storage queue message.
+func (o JobActionInvokeResponsePtrOutput) QueueMessage() StorageQueueMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobActionInvokeResponse) *StorageQueueMessageInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.QueueMessage
+	}).(StorageQueueMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the http requests.
+func (o JobActionInvokeResponsePtrOutput) Request() HttpRequestInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobActionInvokeResponse) *HttpRequestInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Request
+	}).(HttpRequestInvokeResponsePtrOutput)
+}
+
+// Gets or sets the retry policy.
+func (o JobActionInvokeResponsePtrOutput) RetryPolicy() RetryPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobActionInvokeResponse) *RetryPolicyInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetryPolicy
+	}).(RetryPolicyInvokeResponsePtrOutput)
+}
+
+// Gets or sets the service bus queue message.
+func (o JobActionInvokeResponsePtrOutput) ServiceBusQueueMessage() ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobActionInvokeResponse) *ServiceBusQueueMessageInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceBusQueueMessage
+	}).(ServiceBusQueueMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the service bus topic message.
+func (o JobActionInvokeResponsePtrOutput) ServiceBusTopicMessage() ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobActionInvokeResponse) *ServiceBusTopicMessageInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceBusTopicMessage
+	}).(ServiceBusTopicMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the job action type.
+func (o JobActionInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobActionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobActionResponse struct {
 	// Gets or sets the error action.
 	ErrorAction *JobErrorActionResponse `pulumi:"errorAction"`
@@ -1429,6 +2054,76 @@ func (o JobCollectionPropertiesPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobCollectionPropertiesInvokeResponse struct {
+	// Gets or sets the job collection quota.
+	Quota *JobCollectionQuotaInvokeResponse `pulumi:"quota"`
+	// Gets or sets the SKU.
+	Sku *SkuInvokeResponse `pulumi:"sku"`
+	// Gets or sets the state.
+	State *string `pulumi:"state"`
+}
+
+// JobCollectionPropertiesInvokeResponseInput is an input type that accepts JobCollectionPropertiesInvokeResponseArgs and JobCollectionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `JobCollectionPropertiesInvokeResponseInput` via:
+//
+//          JobCollectionPropertiesInvokeResponseArgs{...}
+type JobCollectionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobCollectionPropertiesInvokeResponseOutput() JobCollectionPropertiesInvokeResponseOutput
+	ToJobCollectionPropertiesInvokeResponseOutputWithContext(context.Context) JobCollectionPropertiesInvokeResponseOutput
+}
+
+type JobCollectionPropertiesInvokeResponseArgs struct {
+	// Gets or sets the job collection quota.
+	Quota JobCollectionQuotaInvokeResponsePtrInput `pulumi:"quota"`
+	// Gets or sets the SKU.
+	Sku SkuInvokeResponsePtrInput `pulumi:"sku"`
+	// Gets or sets the state.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (JobCollectionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCollectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i JobCollectionPropertiesInvokeResponseArgs) ToJobCollectionPropertiesInvokeResponseOutput() JobCollectionPropertiesInvokeResponseOutput {
+	return i.ToJobCollectionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobCollectionPropertiesInvokeResponseArgs) ToJobCollectionPropertiesInvokeResponseOutputWithContext(ctx context.Context) JobCollectionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCollectionPropertiesInvokeResponseOutput)
+}
+
+type JobCollectionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobCollectionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCollectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o JobCollectionPropertiesInvokeResponseOutput) ToJobCollectionPropertiesInvokeResponseOutput() JobCollectionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o JobCollectionPropertiesInvokeResponseOutput) ToJobCollectionPropertiesInvokeResponseOutputWithContext(ctx context.Context) JobCollectionPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the job collection quota.
+func (o JobCollectionPropertiesInvokeResponseOutput) Quota() JobCollectionQuotaInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobCollectionPropertiesInvokeResponse) *JobCollectionQuotaInvokeResponse { return v.Quota }).(JobCollectionQuotaInvokeResponsePtrOutput)
+}
+
+// Gets or sets the SKU.
+func (o JobCollectionPropertiesInvokeResponseOutput) Sku() SkuInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobCollectionPropertiesInvokeResponse) *SkuInvokeResponse { return v.Sku }).(SkuInvokeResponsePtrOutput)
+}
+
+// Gets or sets the state.
+func (o JobCollectionPropertiesInvokeResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCollectionPropertiesInvokeResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
 type JobCollectionPropertiesResponse struct {
 	// Gets or sets the job collection quota.
 	Quota *JobCollectionQuotaResponse `pulumi:"quota"`
@@ -1765,6 +2460,175 @@ func (o JobCollectionQuotaPtrOutput) MaxRecurrence() JobMaxRecurrencePtrOutput {
 		}
 		return v.MaxRecurrence
 	}).(JobMaxRecurrencePtrOutput)
+}
+
+type JobCollectionQuotaInvokeResponse struct {
+	// Gets or set the maximum job count.
+	MaxJobCount *int `pulumi:"maxJobCount"`
+	// Gets or sets the maximum job occurrence.
+	MaxJobOccurrence *int `pulumi:"maxJobOccurrence"`
+	// Gets or set the maximum recurrence.
+	MaxRecurrence *JobMaxRecurrenceInvokeResponse `pulumi:"maxRecurrence"`
+}
+
+// JobCollectionQuotaInvokeResponseInput is an input type that accepts JobCollectionQuotaInvokeResponseArgs and JobCollectionQuotaInvokeResponseOutput values.
+// You can construct a concrete instance of `JobCollectionQuotaInvokeResponseInput` via:
+//
+//          JobCollectionQuotaInvokeResponseArgs{...}
+type JobCollectionQuotaInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobCollectionQuotaInvokeResponseOutput() JobCollectionQuotaInvokeResponseOutput
+	ToJobCollectionQuotaInvokeResponseOutputWithContext(context.Context) JobCollectionQuotaInvokeResponseOutput
+}
+
+type JobCollectionQuotaInvokeResponseArgs struct {
+	// Gets or set the maximum job count.
+	MaxJobCount pulumi.IntPtrInput `pulumi:"maxJobCount"`
+	// Gets or sets the maximum job occurrence.
+	MaxJobOccurrence pulumi.IntPtrInput `pulumi:"maxJobOccurrence"`
+	// Gets or set the maximum recurrence.
+	MaxRecurrence JobMaxRecurrenceInvokeResponsePtrInput `pulumi:"maxRecurrence"`
+}
+
+func (JobCollectionQuotaInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCollectionQuotaInvokeResponse)(nil)).Elem()
+}
+
+func (i JobCollectionQuotaInvokeResponseArgs) ToJobCollectionQuotaInvokeResponseOutput() JobCollectionQuotaInvokeResponseOutput {
+	return i.ToJobCollectionQuotaInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobCollectionQuotaInvokeResponseArgs) ToJobCollectionQuotaInvokeResponseOutputWithContext(ctx context.Context) JobCollectionQuotaInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCollectionQuotaInvokeResponseOutput)
+}
+
+func (i JobCollectionQuotaInvokeResponseArgs) ToJobCollectionQuotaInvokeResponsePtrOutput() JobCollectionQuotaInvokeResponsePtrOutput {
+	return i.ToJobCollectionQuotaInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i JobCollectionQuotaInvokeResponseArgs) ToJobCollectionQuotaInvokeResponsePtrOutputWithContext(ctx context.Context) JobCollectionQuotaInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCollectionQuotaInvokeResponseOutput).ToJobCollectionQuotaInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// JobCollectionQuotaInvokeResponsePtrInput is an input type that accepts JobCollectionQuotaInvokeResponseArgs, JobCollectionQuotaInvokeResponsePtr and JobCollectionQuotaInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `JobCollectionQuotaInvokeResponsePtrInput` via:
+//
+//          JobCollectionQuotaInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type JobCollectionQuotaInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToJobCollectionQuotaInvokeResponsePtrOutput() JobCollectionQuotaInvokeResponsePtrOutput
+	ToJobCollectionQuotaInvokeResponsePtrOutputWithContext(context.Context) JobCollectionQuotaInvokeResponsePtrOutput
+}
+
+type jobCollectionQuotaInvokeResponsePtrType JobCollectionQuotaInvokeResponseArgs
+
+func JobCollectionQuotaInvokeResponsePtr(v *JobCollectionQuotaInvokeResponseArgs) JobCollectionQuotaInvokeResponsePtrInput {
+	return (*jobCollectionQuotaInvokeResponsePtrType)(v)
+}
+
+func (*jobCollectionQuotaInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobCollectionQuotaInvokeResponse)(nil)).Elem()
+}
+
+func (i *jobCollectionQuotaInvokeResponsePtrType) ToJobCollectionQuotaInvokeResponsePtrOutput() JobCollectionQuotaInvokeResponsePtrOutput {
+	return i.ToJobCollectionQuotaInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *jobCollectionQuotaInvokeResponsePtrType) ToJobCollectionQuotaInvokeResponsePtrOutputWithContext(ctx context.Context) JobCollectionQuotaInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobCollectionQuotaInvokeResponsePtrOutput)
+}
+
+type JobCollectionQuotaInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobCollectionQuotaInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobCollectionQuotaInvokeResponse)(nil)).Elem()
+}
+
+func (o JobCollectionQuotaInvokeResponseOutput) ToJobCollectionQuotaInvokeResponseOutput() JobCollectionQuotaInvokeResponseOutput {
+	return o
+}
+
+func (o JobCollectionQuotaInvokeResponseOutput) ToJobCollectionQuotaInvokeResponseOutputWithContext(ctx context.Context) JobCollectionQuotaInvokeResponseOutput {
+	return o
+}
+
+func (o JobCollectionQuotaInvokeResponseOutput) ToJobCollectionQuotaInvokeResponsePtrOutput() JobCollectionQuotaInvokeResponsePtrOutput {
+	return o.ToJobCollectionQuotaInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o JobCollectionQuotaInvokeResponseOutput) ToJobCollectionQuotaInvokeResponsePtrOutputWithContext(ctx context.Context) JobCollectionQuotaInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobCollectionQuotaInvokeResponse) *JobCollectionQuotaInvokeResponse {
+		return &v
+	}).(JobCollectionQuotaInvokeResponsePtrOutput)
+}
+
+// Gets or set the maximum job count.
+func (o JobCollectionQuotaInvokeResponseOutput) MaxJobCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobCollectionQuotaInvokeResponse) *int { return v.MaxJobCount }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the maximum job occurrence.
+func (o JobCollectionQuotaInvokeResponseOutput) MaxJobOccurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobCollectionQuotaInvokeResponse) *int { return v.MaxJobOccurrence }).(pulumi.IntPtrOutput)
+}
+
+// Gets or set the maximum recurrence.
+func (o JobCollectionQuotaInvokeResponseOutput) MaxRecurrence() JobMaxRecurrenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobCollectionQuotaInvokeResponse) *JobMaxRecurrenceInvokeResponse { return v.MaxRecurrence }).(JobMaxRecurrenceInvokeResponsePtrOutput)
+}
+
+type JobCollectionQuotaInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (JobCollectionQuotaInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobCollectionQuotaInvokeResponse)(nil)).Elem()
+}
+
+func (o JobCollectionQuotaInvokeResponsePtrOutput) ToJobCollectionQuotaInvokeResponsePtrOutput() JobCollectionQuotaInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobCollectionQuotaInvokeResponsePtrOutput) ToJobCollectionQuotaInvokeResponsePtrOutputWithContext(ctx context.Context) JobCollectionQuotaInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobCollectionQuotaInvokeResponsePtrOutput) Elem() JobCollectionQuotaInvokeResponseOutput {
+	return o.ApplyT(func(v *JobCollectionQuotaInvokeResponse) JobCollectionQuotaInvokeResponse { return *v }).(JobCollectionQuotaInvokeResponseOutput)
+}
+
+// Gets or set the maximum job count.
+func (o JobCollectionQuotaInvokeResponsePtrOutput) MaxJobCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobCollectionQuotaInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxJobCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the maximum job occurrence.
+func (o JobCollectionQuotaInvokeResponsePtrOutput) MaxJobOccurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobCollectionQuotaInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxJobOccurrence
+	}).(pulumi.IntPtrOutput)
+}
+
+// Gets or set the maximum recurrence.
+func (o JobCollectionQuotaInvokeResponsePtrOutput) MaxRecurrence() JobMaxRecurrenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobCollectionQuotaInvokeResponse) *JobMaxRecurrenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRecurrence
+	}).(JobMaxRecurrenceInvokeResponsePtrOutput)
 }
 
 type JobCollectionQuotaResponse struct {
@@ -2162,6 +3026,236 @@ func (o JobErrorActionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobErrorActionInvokeResponse struct {
+	// Gets or sets the storage queue message.
+	QueueMessage *StorageQueueMessageInvokeResponse `pulumi:"queueMessage"`
+	// Gets or sets the http requests.
+	Request *HttpRequestInvokeResponse `pulumi:"request"`
+	// Gets or sets the retry policy.
+	RetryPolicy *RetryPolicyInvokeResponse `pulumi:"retryPolicy"`
+	// Gets or sets the service bus queue message.
+	ServiceBusQueueMessage *ServiceBusQueueMessageInvokeResponse `pulumi:"serviceBusQueueMessage"`
+	// Gets or sets the service bus topic message.
+	ServiceBusTopicMessage *ServiceBusTopicMessageInvokeResponse `pulumi:"serviceBusTopicMessage"`
+	// Gets or sets the job error action type.
+	Type *string `pulumi:"type"`
+}
+
+// JobErrorActionInvokeResponseInput is an input type that accepts JobErrorActionInvokeResponseArgs and JobErrorActionInvokeResponseOutput values.
+// You can construct a concrete instance of `JobErrorActionInvokeResponseInput` via:
+//
+//          JobErrorActionInvokeResponseArgs{...}
+type JobErrorActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobErrorActionInvokeResponseOutput() JobErrorActionInvokeResponseOutput
+	ToJobErrorActionInvokeResponseOutputWithContext(context.Context) JobErrorActionInvokeResponseOutput
+}
+
+type JobErrorActionInvokeResponseArgs struct {
+	// Gets or sets the storage queue message.
+	QueueMessage StorageQueueMessageInvokeResponsePtrInput `pulumi:"queueMessage"`
+	// Gets or sets the http requests.
+	Request HttpRequestInvokeResponsePtrInput `pulumi:"request"`
+	// Gets or sets the retry policy.
+	RetryPolicy RetryPolicyInvokeResponsePtrInput `pulumi:"retryPolicy"`
+	// Gets or sets the service bus queue message.
+	ServiceBusQueueMessage ServiceBusQueueMessageInvokeResponsePtrInput `pulumi:"serviceBusQueueMessage"`
+	// Gets or sets the service bus topic message.
+	ServiceBusTopicMessage ServiceBusTopicMessageInvokeResponsePtrInput `pulumi:"serviceBusTopicMessage"`
+	// Gets or sets the job error action type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (JobErrorActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobErrorActionInvokeResponse)(nil)).Elem()
+}
+
+func (i JobErrorActionInvokeResponseArgs) ToJobErrorActionInvokeResponseOutput() JobErrorActionInvokeResponseOutput {
+	return i.ToJobErrorActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobErrorActionInvokeResponseArgs) ToJobErrorActionInvokeResponseOutputWithContext(ctx context.Context) JobErrorActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobErrorActionInvokeResponseOutput)
+}
+
+func (i JobErrorActionInvokeResponseArgs) ToJobErrorActionInvokeResponsePtrOutput() JobErrorActionInvokeResponsePtrOutput {
+	return i.ToJobErrorActionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i JobErrorActionInvokeResponseArgs) ToJobErrorActionInvokeResponsePtrOutputWithContext(ctx context.Context) JobErrorActionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobErrorActionInvokeResponseOutput).ToJobErrorActionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// JobErrorActionInvokeResponsePtrInput is an input type that accepts JobErrorActionInvokeResponseArgs, JobErrorActionInvokeResponsePtr and JobErrorActionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `JobErrorActionInvokeResponsePtrInput` via:
+//
+//          JobErrorActionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type JobErrorActionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToJobErrorActionInvokeResponsePtrOutput() JobErrorActionInvokeResponsePtrOutput
+	ToJobErrorActionInvokeResponsePtrOutputWithContext(context.Context) JobErrorActionInvokeResponsePtrOutput
+}
+
+type jobErrorActionInvokeResponsePtrType JobErrorActionInvokeResponseArgs
+
+func JobErrorActionInvokeResponsePtr(v *JobErrorActionInvokeResponseArgs) JobErrorActionInvokeResponsePtrInput {
+	return (*jobErrorActionInvokeResponsePtrType)(v)
+}
+
+func (*jobErrorActionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobErrorActionInvokeResponse)(nil)).Elem()
+}
+
+func (i *jobErrorActionInvokeResponsePtrType) ToJobErrorActionInvokeResponsePtrOutput() JobErrorActionInvokeResponsePtrOutput {
+	return i.ToJobErrorActionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *jobErrorActionInvokeResponsePtrType) ToJobErrorActionInvokeResponsePtrOutputWithContext(ctx context.Context) JobErrorActionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobErrorActionInvokeResponsePtrOutput)
+}
+
+type JobErrorActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobErrorActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobErrorActionInvokeResponse)(nil)).Elem()
+}
+
+func (o JobErrorActionInvokeResponseOutput) ToJobErrorActionInvokeResponseOutput() JobErrorActionInvokeResponseOutput {
+	return o
+}
+
+func (o JobErrorActionInvokeResponseOutput) ToJobErrorActionInvokeResponseOutputWithContext(ctx context.Context) JobErrorActionInvokeResponseOutput {
+	return o
+}
+
+func (o JobErrorActionInvokeResponseOutput) ToJobErrorActionInvokeResponsePtrOutput() JobErrorActionInvokeResponsePtrOutput {
+	return o.ToJobErrorActionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o JobErrorActionInvokeResponseOutput) ToJobErrorActionInvokeResponsePtrOutputWithContext(ctx context.Context) JobErrorActionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobErrorActionInvokeResponse) *JobErrorActionInvokeResponse {
+		return &v
+	}).(JobErrorActionInvokeResponsePtrOutput)
+}
+
+// Gets or sets the storage queue message.
+func (o JobErrorActionInvokeResponseOutput) QueueMessage() StorageQueueMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobErrorActionInvokeResponse) *StorageQueueMessageInvokeResponse { return v.QueueMessage }).(StorageQueueMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the http requests.
+func (o JobErrorActionInvokeResponseOutput) Request() HttpRequestInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobErrorActionInvokeResponse) *HttpRequestInvokeResponse { return v.Request }).(HttpRequestInvokeResponsePtrOutput)
+}
+
+// Gets or sets the retry policy.
+func (o JobErrorActionInvokeResponseOutput) RetryPolicy() RetryPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobErrorActionInvokeResponse) *RetryPolicyInvokeResponse { return v.RetryPolicy }).(RetryPolicyInvokeResponsePtrOutput)
+}
+
+// Gets or sets the service bus queue message.
+func (o JobErrorActionInvokeResponseOutput) ServiceBusQueueMessage() ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobErrorActionInvokeResponse) *ServiceBusQueueMessageInvokeResponse {
+		return v.ServiceBusQueueMessage
+	}).(ServiceBusQueueMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the service bus topic message.
+func (o JobErrorActionInvokeResponseOutput) ServiceBusTopicMessage() ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobErrorActionInvokeResponse) *ServiceBusTopicMessageInvokeResponse {
+		return v.ServiceBusTopicMessage
+	}).(ServiceBusTopicMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the job error action type.
+func (o JobErrorActionInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobErrorActionInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type JobErrorActionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (JobErrorActionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobErrorActionInvokeResponse)(nil)).Elem()
+}
+
+func (o JobErrorActionInvokeResponsePtrOutput) ToJobErrorActionInvokeResponsePtrOutput() JobErrorActionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobErrorActionInvokeResponsePtrOutput) ToJobErrorActionInvokeResponsePtrOutputWithContext(ctx context.Context) JobErrorActionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobErrorActionInvokeResponsePtrOutput) Elem() JobErrorActionInvokeResponseOutput {
+	return o.ApplyT(func(v *JobErrorActionInvokeResponse) JobErrorActionInvokeResponse { return *v }).(JobErrorActionInvokeResponseOutput)
+}
+
+// Gets or sets the storage queue message.
+func (o JobErrorActionInvokeResponsePtrOutput) QueueMessage() StorageQueueMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobErrorActionInvokeResponse) *StorageQueueMessageInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.QueueMessage
+	}).(StorageQueueMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the http requests.
+func (o JobErrorActionInvokeResponsePtrOutput) Request() HttpRequestInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobErrorActionInvokeResponse) *HttpRequestInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Request
+	}).(HttpRequestInvokeResponsePtrOutput)
+}
+
+// Gets or sets the retry policy.
+func (o JobErrorActionInvokeResponsePtrOutput) RetryPolicy() RetryPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobErrorActionInvokeResponse) *RetryPolicyInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetryPolicy
+	}).(RetryPolicyInvokeResponsePtrOutput)
+}
+
+// Gets or sets the service bus queue message.
+func (o JobErrorActionInvokeResponsePtrOutput) ServiceBusQueueMessage() ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobErrorActionInvokeResponse) *ServiceBusQueueMessageInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceBusQueueMessage
+	}).(ServiceBusQueueMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the service bus topic message.
+func (o JobErrorActionInvokeResponsePtrOutput) ServiceBusTopicMessage() ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobErrorActionInvokeResponse) *ServiceBusTopicMessageInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceBusTopicMessage
+	}).(ServiceBusTopicMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the job error action type.
+func (o JobErrorActionInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobErrorActionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobErrorActionResponse struct {
 	// Gets or sets the storage queue message.
 	QueueMessage *StorageQueueMessageResponse `pulumi:"queueMessage"`
@@ -2538,6 +3632,156 @@ func (o JobMaxRecurrencePtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type JobMaxRecurrenceInvokeResponse struct {
+	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+	Frequency *string `pulumi:"frequency"`
+	// Gets or sets the interval between retries.
+	Interval *int `pulumi:"interval"`
+}
+
+// JobMaxRecurrenceInvokeResponseInput is an input type that accepts JobMaxRecurrenceInvokeResponseArgs and JobMaxRecurrenceInvokeResponseOutput values.
+// You can construct a concrete instance of `JobMaxRecurrenceInvokeResponseInput` via:
+//
+//          JobMaxRecurrenceInvokeResponseArgs{...}
+type JobMaxRecurrenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobMaxRecurrenceInvokeResponseOutput() JobMaxRecurrenceInvokeResponseOutput
+	ToJobMaxRecurrenceInvokeResponseOutputWithContext(context.Context) JobMaxRecurrenceInvokeResponseOutput
+}
+
+type JobMaxRecurrenceInvokeResponseArgs struct {
+	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+	// Gets or sets the interval between retries.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (JobMaxRecurrenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobMaxRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i JobMaxRecurrenceInvokeResponseArgs) ToJobMaxRecurrenceInvokeResponseOutput() JobMaxRecurrenceInvokeResponseOutput {
+	return i.ToJobMaxRecurrenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobMaxRecurrenceInvokeResponseArgs) ToJobMaxRecurrenceInvokeResponseOutputWithContext(ctx context.Context) JobMaxRecurrenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobMaxRecurrenceInvokeResponseOutput)
+}
+
+func (i JobMaxRecurrenceInvokeResponseArgs) ToJobMaxRecurrenceInvokeResponsePtrOutput() JobMaxRecurrenceInvokeResponsePtrOutput {
+	return i.ToJobMaxRecurrenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i JobMaxRecurrenceInvokeResponseArgs) ToJobMaxRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) JobMaxRecurrenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobMaxRecurrenceInvokeResponseOutput).ToJobMaxRecurrenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// JobMaxRecurrenceInvokeResponsePtrInput is an input type that accepts JobMaxRecurrenceInvokeResponseArgs, JobMaxRecurrenceInvokeResponsePtr and JobMaxRecurrenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `JobMaxRecurrenceInvokeResponsePtrInput` via:
+//
+//          JobMaxRecurrenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type JobMaxRecurrenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToJobMaxRecurrenceInvokeResponsePtrOutput() JobMaxRecurrenceInvokeResponsePtrOutput
+	ToJobMaxRecurrenceInvokeResponsePtrOutputWithContext(context.Context) JobMaxRecurrenceInvokeResponsePtrOutput
+}
+
+type jobMaxRecurrenceInvokeResponsePtrType JobMaxRecurrenceInvokeResponseArgs
+
+func JobMaxRecurrenceInvokeResponsePtr(v *JobMaxRecurrenceInvokeResponseArgs) JobMaxRecurrenceInvokeResponsePtrInput {
+	return (*jobMaxRecurrenceInvokeResponsePtrType)(v)
+}
+
+func (*jobMaxRecurrenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobMaxRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *jobMaxRecurrenceInvokeResponsePtrType) ToJobMaxRecurrenceInvokeResponsePtrOutput() JobMaxRecurrenceInvokeResponsePtrOutput {
+	return i.ToJobMaxRecurrenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *jobMaxRecurrenceInvokeResponsePtrType) ToJobMaxRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) JobMaxRecurrenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobMaxRecurrenceInvokeResponsePtrOutput)
+}
+
+type JobMaxRecurrenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobMaxRecurrenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobMaxRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o JobMaxRecurrenceInvokeResponseOutput) ToJobMaxRecurrenceInvokeResponseOutput() JobMaxRecurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o JobMaxRecurrenceInvokeResponseOutput) ToJobMaxRecurrenceInvokeResponseOutputWithContext(ctx context.Context) JobMaxRecurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o JobMaxRecurrenceInvokeResponseOutput) ToJobMaxRecurrenceInvokeResponsePtrOutput() JobMaxRecurrenceInvokeResponsePtrOutput {
+	return o.ToJobMaxRecurrenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o JobMaxRecurrenceInvokeResponseOutput) ToJobMaxRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) JobMaxRecurrenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobMaxRecurrenceInvokeResponse) *JobMaxRecurrenceInvokeResponse {
+		return &v
+	}).(JobMaxRecurrenceInvokeResponsePtrOutput)
+}
+
+// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+func (o JobMaxRecurrenceInvokeResponseOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobMaxRecurrenceInvokeResponse) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the interval between retries.
+func (o JobMaxRecurrenceInvokeResponseOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobMaxRecurrenceInvokeResponse) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type JobMaxRecurrenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (JobMaxRecurrenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobMaxRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o JobMaxRecurrenceInvokeResponsePtrOutput) ToJobMaxRecurrenceInvokeResponsePtrOutput() JobMaxRecurrenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobMaxRecurrenceInvokeResponsePtrOutput) ToJobMaxRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) JobMaxRecurrenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobMaxRecurrenceInvokeResponsePtrOutput) Elem() JobMaxRecurrenceInvokeResponseOutput {
+	return o.ApplyT(func(v *JobMaxRecurrenceInvokeResponse) JobMaxRecurrenceInvokeResponse { return *v }).(JobMaxRecurrenceInvokeResponseOutput)
+}
+
+// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+func (o JobMaxRecurrenceInvokeResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobMaxRecurrenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the interval between retries.
+func (o JobMaxRecurrenceInvokeResponsePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobMaxRecurrenceInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
 type JobMaxRecurrenceResponse struct {
 	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
 	Frequency *string `pulumi:"frequency"`
@@ -2874,6 +4118,94 @@ func (o JobPropertiesPtrOutput) State() pulumi.StringPtrOutput {
 		}
 		return v.State
 	}).(pulumi.StringPtrOutput)
+}
+
+type JobPropertiesInvokeResponse struct {
+	// Gets or sets the job action.
+	Action *JobActionInvokeResponse `pulumi:"action"`
+	// Gets or sets the job recurrence.
+	Recurrence *JobRecurrenceInvokeResponse `pulumi:"recurrence"`
+	// Gets or sets the job start time.
+	StartTime *string `pulumi:"startTime"`
+	// Gets or set the job state.
+	State *string `pulumi:"state"`
+	// Gets the job status.
+	Status JobStatusInvokeResponse `pulumi:"status"`
+}
+
+// JobPropertiesInvokeResponseInput is an input type that accepts JobPropertiesInvokeResponseArgs and JobPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `JobPropertiesInvokeResponseInput` via:
+//
+//          JobPropertiesInvokeResponseArgs{...}
+type JobPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobPropertiesInvokeResponseOutput() JobPropertiesInvokeResponseOutput
+	ToJobPropertiesInvokeResponseOutputWithContext(context.Context) JobPropertiesInvokeResponseOutput
+}
+
+type JobPropertiesInvokeResponseArgs struct {
+	// Gets or sets the job action.
+	Action JobActionInvokeResponsePtrInput `pulumi:"action"`
+	// Gets or sets the job recurrence.
+	Recurrence JobRecurrenceInvokeResponsePtrInput `pulumi:"recurrence"`
+	// Gets or sets the job start time.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// Gets or set the job state.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Gets the job status.
+	Status JobStatusInvokeResponseInput `pulumi:"status"`
+}
+
+func (JobPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i JobPropertiesInvokeResponseArgs) ToJobPropertiesInvokeResponseOutput() JobPropertiesInvokeResponseOutput {
+	return i.ToJobPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobPropertiesInvokeResponseArgs) ToJobPropertiesInvokeResponseOutputWithContext(ctx context.Context) JobPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobPropertiesInvokeResponseOutput)
+}
+
+type JobPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o JobPropertiesInvokeResponseOutput) ToJobPropertiesInvokeResponseOutput() JobPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o JobPropertiesInvokeResponseOutput) ToJobPropertiesInvokeResponseOutputWithContext(ctx context.Context) JobPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the job action.
+func (o JobPropertiesInvokeResponseOutput) Action() JobActionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobPropertiesInvokeResponse) *JobActionInvokeResponse { return v.Action }).(JobActionInvokeResponsePtrOutput)
+}
+
+// Gets or sets the job recurrence.
+func (o JobPropertiesInvokeResponseOutput) Recurrence() JobRecurrenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobPropertiesInvokeResponse) *JobRecurrenceInvokeResponse { return v.Recurrence }).(JobRecurrenceInvokeResponsePtrOutput)
+}
+
+// Gets or sets the job start time.
+func (o JobPropertiesInvokeResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobPropertiesInvokeResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or set the job state.
+func (o JobPropertiesInvokeResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobPropertiesInvokeResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Gets the job status.
+func (o JobPropertiesInvokeResponseOutput) Status() JobStatusInvokeResponseOutput {
+	return o.ApplyT(func(v JobPropertiesInvokeResponse) JobStatusInvokeResponse { return v.Status }).(JobStatusInvokeResponseOutput)
 }
 
 type JobPropertiesResponse struct {
@@ -3286,6 +4618,209 @@ func (o JobRecurrencePtrOutput) Schedule() JobRecurrenceSchedulePtrOutput {
 	}).(JobRecurrenceSchedulePtrOutput)
 }
 
+type JobRecurrenceInvokeResponse struct {
+	// Gets or sets the maximum number of times that the job should run.
+	Count *int `pulumi:"count"`
+	// Gets or sets the time at which the job will complete.
+	EndTime *string `pulumi:"endTime"`
+	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+	Frequency *string `pulumi:"frequency"`
+	// Gets or sets the interval between retries.
+	Interval *int                                 `pulumi:"interval"`
+	Schedule *JobRecurrenceScheduleInvokeResponse `pulumi:"schedule"`
+}
+
+// JobRecurrenceInvokeResponseInput is an input type that accepts JobRecurrenceInvokeResponseArgs and JobRecurrenceInvokeResponseOutput values.
+// You can construct a concrete instance of `JobRecurrenceInvokeResponseInput` via:
+//
+//          JobRecurrenceInvokeResponseArgs{...}
+type JobRecurrenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobRecurrenceInvokeResponseOutput() JobRecurrenceInvokeResponseOutput
+	ToJobRecurrenceInvokeResponseOutputWithContext(context.Context) JobRecurrenceInvokeResponseOutput
+}
+
+type JobRecurrenceInvokeResponseArgs struct {
+	// Gets or sets the maximum number of times that the job should run.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Gets or sets the time at which the job will complete.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+	// Gets or sets the interval between retries.
+	Interval pulumi.IntPtrInput                          `pulumi:"interval"`
+	Schedule JobRecurrenceScheduleInvokeResponsePtrInput `pulumi:"schedule"`
+}
+
+func (JobRecurrenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i JobRecurrenceInvokeResponseArgs) ToJobRecurrenceInvokeResponseOutput() JobRecurrenceInvokeResponseOutput {
+	return i.ToJobRecurrenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobRecurrenceInvokeResponseArgs) ToJobRecurrenceInvokeResponseOutputWithContext(ctx context.Context) JobRecurrenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecurrenceInvokeResponseOutput)
+}
+
+func (i JobRecurrenceInvokeResponseArgs) ToJobRecurrenceInvokeResponsePtrOutput() JobRecurrenceInvokeResponsePtrOutput {
+	return i.ToJobRecurrenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i JobRecurrenceInvokeResponseArgs) ToJobRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) JobRecurrenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecurrenceInvokeResponseOutput).ToJobRecurrenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// JobRecurrenceInvokeResponsePtrInput is an input type that accepts JobRecurrenceInvokeResponseArgs, JobRecurrenceInvokeResponsePtr and JobRecurrenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `JobRecurrenceInvokeResponsePtrInput` via:
+//
+//          JobRecurrenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type JobRecurrenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToJobRecurrenceInvokeResponsePtrOutput() JobRecurrenceInvokeResponsePtrOutput
+	ToJobRecurrenceInvokeResponsePtrOutputWithContext(context.Context) JobRecurrenceInvokeResponsePtrOutput
+}
+
+type jobRecurrenceInvokeResponsePtrType JobRecurrenceInvokeResponseArgs
+
+func JobRecurrenceInvokeResponsePtr(v *JobRecurrenceInvokeResponseArgs) JobRecurrenceInvokeResponsePtrInput {
+	return (*jobRecurrenceInvokeResponsePtrType)(v)
+}
+
+func (*jobRecurrenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *jobRecurrenceInvokeResponsePtrType) ToJobRecurrenceInvokeResponsePtrOutput() JobRecurrenceInvokeResponsePtrOutput {
+	return i.ToJobRecurrenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *jobRecurrenceInvokeResponsePtrType) ToJobRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) JobRecurrenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecurrenceInvokeResponsePtrOutput)
+}
+
+type JobRecurrenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobRecurrenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o JobRecurrenceInvokeResponseOutput) ToJobRecurrenceInvokeResponseOutput() JobRecurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o JobRecurrenceInvokeResponseOutput) ToJobRecurrenceInvokeResponseOutputWithContext(ctx context.Context) JobRecurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o JobRecurrenceInvokeResponseOutput) ToJobRecurrenceInvokeResponsePtrOutput() JobRecurrenceInvokeResponsePtrOutput {
+	return o.ToJobRecurrenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o JobRecurrenceInvokeResponseOutput) ToJobRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) JobRecurrenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobRecurrenceInvokeResponse) *JobRecurrenceInvokeResponse {
+		return &v
+	}).(JobRecurrenceInvokeResponsePtrOutput)
+}
+
+// Gets or sets the maximum number of times that the job should run.
+func (o JobRecurrenceInvokeResponseOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobRecurrenceInvokeResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the time at which the job will complete.
+func (o JobRecurrenceInvokeResponseOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobRecurrenceInvokeResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+func (o JobRecurrenceInvokeResponseOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobRecurrenceInvokeResponse) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the interval between retries.
+func (o JobRecurrenceInvokeResponseOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobRecurrenceInvokeResponse) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+func (o JobRecurrenceInvokeResponseOutput) Schedule() JobRecurrenceScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobRecurrenceInvokeResponse) *JobRecurrenceScheduleInvokeResponse { return v.Schedule }).(JobRecurrenceScheduleInvokeResponsePtrOutput)
+}
+
+type JobRecurrenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (JobRecurrenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o JobRecurrenceInvokeResponsePtrOutput) ToJobRecurrenceInvokeResponsePtrOutput() JobRecurrenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobRecurrenceInvokeResponsePtrOutput) ToJobRecurrenceInvokeResponsePtrOutputWithContext(ctx context.Context) JobRecurrenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobRecurrenceInvokeResponsePtrOutput) Elem() JobRecurrenceInvokeResponseOutput {
+	return o.ApplyT(func(v *JobRecurrenceInvokeResponse) JobRecurrenceInvokeResponse { return *v }).(JobRecurrenceInvokeResponseOutput)
+}
+
+// Gets or sets the maximum number of times that the job should run.
+func (o JobRecurrenceInvokeResponsePtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobRecurrenceInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the time at which the job will complete.
+func (o JobRecurrenceInvokeResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobRecurrenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+func (o JobRecurrenceInvokeResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobRecurrenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Frequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the interval between retries.
+func (o JobRecurrenceInvokeResponsePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobRecurrenceInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobRecurrenceInvokeResponsePtrOutput) Schedule() JobRecurrenceScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *JobRecurrenceInvokeResponse) *JobRecurrenceScheduleInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(JobRecurrenceScheduleInvokeResponsePtrOutput)
+}
+
 type JobRecurrenceResponse struct {
 	// Gets or sets the maximum number of times that the job should run.
 	Count *int `pulumi:"count"`
@@ -3696,6 +5231,215 @@ func (o JobRecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type JobRecurrenceScheduleInvokeResponse struct {
+	// Gets or sets the hours of the day that the job should execute at.
+	Hours []int `pulumi:"hours"`
+	// Gets or sets the minutes of the hour that the job should execute at.
+	Minutes []int `pulumi:"minutes"`
+	// Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
+	MonthDays []int `pulumi:"monthDays"`
+	// Gets or sets the occurrences of days within a month.
+	MonthlyOccurrences []JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse `pulumi:"monthlyOccurrences"`
+	// Gets or sets the days of the week that the job should execute on.
+	WeekDays []string `pulumi:"weekDays"`
+}
+
+// JobRecurrenceScheduleInvokeResponseInput is an input type that accepts JobRecurrenceScheduleInvokeResponseArgs and JobRecurrenceScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `JobRecurrenceScheduleInvokeResponseInput` via:
+//
+//          JobRecurrenceScheduleInvokeResponseArgs{...}
+type JobRecurrenceScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobRecurrenceScheduleInvokeResponseOutput() JobRecurrenceScheduleInvokeResponseOutput
+	ToJobRecurrenceScheduleInvokeResponseOutputWithContext(context.Context) JobRecurrenceScheduleInvokeResponseOutput
+}
+
+type JobRecurrenceScheduleInvokeResponseArgs struct {
+	// Gets or sets the hours of the day that the job should execute at.
+	Hours pulumi.IntArrayInput `pulumi:"hours"`
+	// Gets or sets the minutes of the hour that the job should execute at.
+	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
+	// Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
+	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
+	// Gets or sets the occurrences of days within a month.
+	MonthlyOccurrences JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayInput `pulumi:"monthlyOccurrences"`
+	// Gets or sets the days of the week that the job should execute on.
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+}
+
+func (JobRecurrenceScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRecurrenceScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i JobRecurrenceScheduleInvokeResponseArgs) ToJobRecurrenceScheduleInvokeResponseOutput() JobRecurrenceScheduleInvokeResponseOutput {
+	return i.ToJobRecurrenceScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobRecurrenceScheduleInvokeResponseArgs) ToJobRecurrenceScheduleInvokeResponseOutputWithContext(ctx context.Context) JobRecurrenceScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecurrenceScheduleInvokeResponseOutput)
+}
+
+func (i JobRecurrenceScheduleInvokeResponseArgs) ToJobRecurrenceScheduleInvokeResponsePtrOutput() JobRecurrenceScheduleInvokeResponsePtrOutput {
+	return i.ToJobRecurrenceScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i JobRecurrenceScheduleInvokeResponseArgs) ToJobRecurrenceScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) JobRecurrenceScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecurrenceScheduleInvokeResponseOutput).ToJobRecurrenceScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// JobRecurrenceScheduleInvokeResponsePtrInput is an input type that accepts JobRecurrenceScheduleInvokeResponseArgs, JobRecurrenceScheduleInvokeResponsePtr and JobRecurrenceScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `JobRecurrenceScheduleInvokeResponsePtrInput` via:
+//
+//          JobRecurrenceScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type JobRecurrenceScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToJobRecurrenceScheduleInvokeResponsePtrOutput() JobRecurrenceScheduleInvokeResponsePtrOutput
+	ToJobRecurrenceScheduleInvokeResponsePtrOutputWithContext(context.Context) JobRecurrenceScheduleInvokeResponsePtrOutput
+}
+
+type jobRecurrenceScheduleInvokeResponsePtrType JobRecurrenceScheduleInvokeResponseArgs
+
+func JobRecurrenceScheduleInvokeResponsePtr(v *JobRecurrenceScheduleInvokeResponseArgs) JobRecurrenceScheduleInvokeResponsePtrInput {
+	return (*jobRecurrenceScheduleInvokeResponsePtrType)(v)
+}
+
+func (*jobRecurrenceScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobRecurrenceScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *jobRecurrenceScheduleInvokeResponsePtrType) ToJobRecurrenceScheduleInvokeResponsePtrOutput() JobRecurrenceScheduleInvokeResponsePtrOutput {
+	return i.ToJobRecurrenceScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *jobRecurrenceScheduleInvokeResponsePtrType) ToJobRecurrenceScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) JobRecurrenceScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecurrenceScheduleInvokeResponsePtrOutput)
+}
+
+type JobRecurrenceScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobRecurrenceScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRecurrenceScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o JobRecurrenceScheduleInvokeResponseOutput) ToJobRecurrenceScheduleInvokeResponseOutput() JobRecurrenceScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o JobRecurrenceScheduleInvokeResponseOutput) ToJobRecurrenceScheduleInvokeResponseOutputWithContext(ctx context.Context) JobRecurrenceScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o JobRecurrenceScheduleInvokeResponseOutput) ToJobRecurrenceScheduleInvokeResponsePtrOutput() JobRecurrenceScheduleInvokeResponsePtrOutput {
+	return o.ToJobRecurrenceScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o JobRecurrenceScheduleInvokeResponseOutput) ToJobRecurrenceScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) JobRecurrenceScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleInvokeResponse) *JobRecurrenceScheduleInvokeResponse {
+		return &v
+	}).(JobRecurrenceScheduleInvokeResponsePtrOutput)
+}
+
+// Gets or sets the hours of the day that the job should execute at.
+func (o JobRecurrenceScheduleInvokeResponseOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleInvokeResponse) []int { return v.Hours }).(pulumi.IntArrayOutput)
+}
+
+// Gets or sets the minutes of the hour that the job should execute at.
+func (o JobRecurrenceScheduleInvokeResponseOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleInvokeResponse) []int { return v.Minutes }).(pulumi.IntArrayOutput)
+}
+
+// Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
+func (o JobRecurrenceScheduleInvokeResponseOutput) MonthDays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleInvokeResponse) []int { return v.MonthDays }).(pulumi.IntArrayOutput)
+}
+
+// Gets or sets the occurrences of days within a month.
+func (o JobRecurrenceScheduleInvokeResponseOutput) MonthlyOccurrences() JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleInvokeResponse) []JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse {
+		return v.MonthlyOccurrences
+	}).(JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput)
+}
+
+// Gets or sets the days of the week that the job should execute on.
+func (o JobRecurrenceScheduleInvokeResponseOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleInvokeResponse) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+}
+
+type JobRecurrenceScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (JobRecurrenceScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobRecurrenceScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o JobRecurrenceScheduleInvokeResponsePtrOutput) ToJobRecurrenceScheduleInvokeResponsePtrOutput() JobRecurrenceScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobRecurrenceScheduleInvokeResponsePtrOutput) ToJobRecurrenceScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) JobRecurrenceScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o JobRecurrenceScheduleInvokeResponsePtrOutput) Elem() JobRecurrenceScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *JobRecurrenceScheduleInvokeResponse) JobRecurrenceScheduleInvokeResponse { return *v }).(JobRecurrenceScheduleInvokeResponseOutput)
+}
+
+// Gets or sets the hours of the day that the job should execute at.
+func (o JobRecurrenceScheduleInvokeResponsePtrOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *JobRecurrenceScheduleInvokeResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Hours
+	}).(pulumi.IntArrayOutput)
+}
+
+// Gets or sets the minutes of the hour that the job should execute at.
+func (o JobRecurrenceScheduleInvokeResponsePtrOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *JobRecurrenceScheduleInvokeResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntArrayOutput)
+}
+
+// Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
+func (o JobRecurrenceScheduleInvokeResponsePtrOutput) MonthDays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *JobRecurrenceScheduleInvokeResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.MonthDays
+	}).(pulumi.IntArrayOutput)
+}
+
+// Gets or sets the occurrences of days within a month.
+func (o JobRecurrenceScheduleInvokeResponsePtrOutput) MonthlyOccurrences() JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *JobRecurrenceScheduleInvokeResponse) []JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MonthlyOccurrences
+	}).(JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput)
+}
+
+// Gets or sets the days of the week that the job should execute on.
+func (o JobRecurrenceScheduleInvokeResponsePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobRecurrenceScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekDays
+	}).(pulumi.StringArrayOutput)
+}
+
 type JobRecurrenceScheduleMonthlyOccurrence struct {
 	// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 	Day *string `pulumi:"day"`
@@ -3800,6 +5544,112 @@ func (o JobRecurrenceScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobRecurrenceScheduleMonthlyOccurrence {
 		return vs[0].([]JobRecurrenceScheduleMonthlyOccurrence)[vs[1].(int)]
 	}).(JobRecurrenceScheduleMonthlyOccurrenceOutput)
+}
+
+type JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse struct {
+	// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+	Day *string `pulumi:"day"`
+	// Gets or sets the occurrence. Must be between -5 and 5.
+	Occurrence *int `pulumi:"occurrence"`
+}
+
+// JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseInput is an input type that accepts JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArgs and JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput values.
+// You can construct a concrete instance of `JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseInput` via:
+//
+//          JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArgs{...}
+type JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput() JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput
+	ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(context.Context) JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput
+}
+
+type JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArgs struct {
+	// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+	Day pulumi.StringPtrInput `pulumi:"day"`
+	// Gets or sets the occurrence. Must be between -5 and 5.
+	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
+}
+
+func (JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArgs) ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput() JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return i.ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArgs) ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(ctx context.Context) JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput)
+}
+
+// JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayInput is an input type that accepts JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArray and JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayInput` via:
+//
+//          JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArray{ JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArgs{...} }
+type JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput() JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput
+	ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(context.Context) JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput
+}
+
+type JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArray []JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseInput
+
+func (JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArray) ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput() JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return i.ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArray) ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(ctx context.Context) JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput)
+}
+
+type JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput) ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput() JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput) ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(ctx context.Context) JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+func (o JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse) *string { return v.Day }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the occurrence. Must be between -5 and 5.
+func (o JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput) Occurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
+}
+
+type JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput) ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput() JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput) ToJobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(ctx context.Context) JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse {
+		return vs[0].([]JobRecurrenceScheduleMonthlyOccurrenceInvokeResponse)[vs[1].(int)]
+	}).(JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput)
 }
 
 type JobRecurrenceScheduleMonthlyOccurrenceResponse struct {
@@ -4117,6 +5967,94 @@ func (o JobRecurrenceScheduleResponsePtrOutput) WeekDays() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+type JobStatusInvokeResponse struct {
+	// Gets the number of times this job has executed.
+	ExecutionCount int `pulumi:"executionCount"`
+	// Gets the number of times this job has failed.
+	FailureCount int `pulumi:"failureCount"`
+	// Gets the number of faulted occurrences (occurrences that were retried and failed as many times as the retry policy states).
+	FaultedCount int `pulumi:"faultedCount"`
+	// Gets the time the last occurrence executed in ISO-8601 format.  Could be empty if job has not run yet.
+	LastExecutionTime string `pulumi:"lastExecutionTime"`
+	// Gets the time of the next occurrence in ISO-8601 format. Could be empty if the job is completed.
+	NextExecutionTime string `pulumi:"nextExecutionTime"`
+}
+
+// JobStatusInvokeResponseInput is an input type that accepts JobStatusInvokeResponseArgs and JobStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `JobStatusInvokeResponseInput` via:
+//
+//          JobStatusInvokeResponseArgs{...}
+type JobStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobStatusInvokeResponseOutput() JobStatusInvokeResponseOutput
+	ToJobStatusInvokeResponseOutputWithContext(context.Context) JobStatusInvokeResponseOutput
+}
+
+type JobStatusInvokeResponseArgs struct {
+	// Gets the number of times this job has executed.
+	ExecutionCount pulumi.IntInput `pulumi:"executionCount"`
+	// Gets the number of times this job has failed.
+	FailureCount pulumi.IntInput `pulumi:"failureCount"`
+	// Gets the number of faulted occurrences (occurrences that were retried and failed as many times as the retry policy states).
+	FaultedCount pulumi.IntInput `pulumi:"faultedCount"`
+	// Gets the time the last occurrence executed in ISO-8601 format.  Could be empty if job has not run yet.
+	LastExecutionTime pulumi.StringInput `pulumi:"lastExecutionTime"`
+	// Gets the time of the next occurrence in ISO-8601 format. Could be empty if the job is completed.
+	NextExecutionTime pulumi.StringInput `pulumi:"nextExecutionTime"`
+}
+
+func (JobStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i JobStatusInvokeResponseArgs) ToJobStatusInvokeResponseOutput() JobStatusInvokeResponseOutput {
+	return i.ToJobStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobStatusInvokeResponseArgs) ToJobStatusInvokeResponseOutputWithContext(ctx context.Context) JobStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStatusInvokeResponseOutput)
+}
+
+type JobStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o JobStatusInvokeResponseOutput) ToJobStatusInvokeResponseOutput() JobStatusInvokeResponseOutput {
+	return o
+}
+
+func (o JobStatusInvokeResponseOutput) ToJobStatusInvokeResponseOutputWithContext(ctx context.Context) JobStatusInvokeResponseOutput {
+	return o
+}
+
+// Gets the number of times this job has executed.
+func (o JobStatusInvokeResponseOutput) ExecutionCount() pulumi.IntOutput {
+	return o.ApplyT(func(v JobStatusInvokeResponse) int { return v.ExecutionCount }).(pulumi.IntOutput)
+}
+
+// Gets the number of times this job has failed.
+func (o JobStatusInvokeResponseOutput) FailureCount() pulumi.IntOutput {
+	return o.ApplyT(func(v JobStatusInvokeResponse) int { return v.FailureCount }).(pulumi.IntOutput)
+}
+
+// Gets the number of faulted occurrences (occurrences that were retried and failed as many times as the retry policy states).
+func (o JobStatusInvokeResponseOutput) FaultedCount() pulumi.IntOutput {
+	return o.ApplyT(func(v JobStatusInvokeResponse) int { return v.FaultedCount }).(pulumi.IntOutput)
+}
+
+// Gets the time the last occurrence executed in ISO-8601 format.  Could be empty if job has not run yet.
+func (o JobStatusInvokeResponseOutput) LastExecutionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStatusInvokeResponse) string { return v.LastExecutionTime }).(pulumi.StringOutput)
+}
+
+// Gets the time of the next occurrence in ISO-8601 format. Could be empty if the job is completed.
+func (o JobStatusInvokeResponseOutput) NextExecutionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStatusInvokeResponse) string { return v.NextExecutionTime }).(pulumi.StringOutput)
+}
+
 type JobStatusResponse struct {
 	// Gets the number of times this job has executed.
 	ExecutionCount int `pulumi:"executionCount"`
@@ -4415,6 +6353,97 @@ func (o OAuthAuthenticationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OAuthAuthentication) string { return v.Type }).(pulumi.StringOutput)
 }
 
+type OAuthAuthenticationInvokeResponse struct {
+	// Gets or sets the audience.
+	Audience *string `pulumi:"audience"`
+	// Gets or sets the client identifier.
+	ClientId *string `pulumi:"clientId"`
+	// Gets or sets the secret, return value will always be empty.
+	Secret *string `pulumi:"secret"`
+	// Gets or sets the tenant.
+	Tenant *string `pulumi:"tenant"`
+	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ActiveDirectoryOAuth'.
+	Type string `pulumi:"type"`
+}
+
+// OAuthAuthenticationInvokeResponseInput is an input type that accepts OAuthAuthenticationInvokeResponseArgs and OAuthAuthenticationInvokeResponseOutput values.
+// You can construct a concrete instance of `OAuthAuthenticationInvokeResponseInput` via:
+//
+//          OAuthAuthenticationInvokeResponseArgs{...}
+type OAuthAuthenticationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOAuthAuthenticationInvokeResponseOutput() OAuthAuthenticationInvokeResponseOutput
+	ToOAuthAuthenticationInvokeResponseOutputWithContext(context.Context) OAuthAuthenticationInvokeResponseOutput
+}
+
+type OAuthAuthenticationInvokeResponseArgs struct {
+	// Gets or sets the audience.
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// Gets or sets the client identifier.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Gets or sets the secret, return value will always be empty.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// Gets or sets the tenant.
+	Tenant pulumi.StringPtrInput `pulumi:"tenant"`
+	// Gets or sets the HTTP authentication type.
+	// Expected value is 'ActiveDirectoryOAuth'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (OAuthAuthenticationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthAuthenticationInvokeResponse)(nil)).Elem()
+}
+
+func (i OAuthAuthenticationInvokeResponseArgs) ToOAuthAuthenticationInvokeResponseOutput() OAuthAuthenticationInvokeResponseOutput {
+	return i.ToOAuthAuthenticationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OAuthAuthenticationInvokeResponseArgs) ToOAuthAuthenticationInvokeResponseOutputWithContext(ctx context.Context) OAuthAuthenticationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthAuthenticationInvokeResponseOutput)
+}
+
+type OAuthAuthenticationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OAuthAuthenticationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthAuthenticationInvokeResponse)(nil)).Elem()
+}
+
+func (o OAuthAuthenticationInvokeResponseOutput) ToOAuthAuthenticationInvokeResponseOutput() OAuthAuthenticationInvokeResponseOutput {
+	return o
+}
+
+func (o OAuthAuthenticationInvokeResponseOutput) ToOAuthAuthenticationInvokeResponseOutputWithContext(ctx context.Context) OAuthAuthenticationInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the audience.
+func (o OAuthAuthenticationInvokeResponseOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthenticationInvokeResponse) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the client identifier.
+func (o OAuthAuthenticationInvokeResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthenticationInvokeResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the secret, return value will always be empty.
+func (o OAuthAuthenticationInvokeResponseOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthenticationInvokeResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the tenant.
+func (o OAuthAuthenticationInvokeResponseOutput) Tenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OAuthAuthenticationInvokeResponse) *string { return v.Tenant }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the HTTP authentication type.
+// Expected value is 'ActiveDirectoryOAuth'.
+func (o OAuthAuthenticationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuthAuthenticationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
 type OAuthAuthenticationResponse struct {
 	// Gets or sets the audience.
 	Audience *string `pulumi:"audience"`
@@ -4668,6 +6697,175 @@ func (o RetryPolicyPtrOutput) RetryInterval() pulumi.StringPtrOutput {
 // Gets or sets the retry strategy to be used.
 func (o RetryPolicyPtrOutput) RetryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RetryPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetryType
+	}).(pulumi.StringPtrOutput)
+}
+
+type RetryPolicyInvokeResponse struct {
+	// Gets or sets the number of times a retry should be attempted.
+	RetryCount *int `pulumi:"retryCount"`
+	// Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
+	RetryInterval *string `pulumi:"retryInterval"`
+	// Gets or sets the retry strategy to be used.
+	RetryType *string `pulumi:"retryType"`
+}
+
+// RetryPolicyInvokeResponseInput is an input type that accepts RetryPolicyInvokeResponseArgs and RetryPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `RetryPolicyInvokeResponseInput` via:
+//
+//          RetryPolicyInvokeResponseArgs{...}
+type RetryPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRetryPolicyInvokeResponseOutput() RetryPolicyInvokeResponseOutput
+	ToRetryPolicyInvokeResponseOutputWithContext(context.Context) RetryPolicyInvokeResponseOutput
+}
+
+type RetryPolicyInvokeResponseArgs struct {
+	// Gets or sets the number of times a retry should be attempted.
+	RetryCount pulumi.IntPtrInput `pulumi:"retryCount"`
+	// Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
+	RetryInterval pulumi.StringPtrInput `pulumi:"retryInterval"`
+	// Gets or sets the retry strategy to be used.
+	RetryType pulumi.StringPtrInput `pulumi:"retryType"`
+}
+
+func (RetryPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetryPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i RetryPolicyInvokeResponseArgs) ToRetryPolicyInvokeResponseOutput() RetryPolicyInvokeResponseOutput {
+	return i.ToRetryPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RetryPolicyInvokeResponseArgs) ToRetryPolicyInvokeResponseOutputWithContext(ctx context.Context) RetryPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyInvokeResponseOutput)
+}
+
+func (i RetryPolicyInvokeResponseArgs) ToRetryPolicyInvokeResponsePtrOutput() RetryPolicyInvokeResponsePtrOutput {
+	return i.ToRetryPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RetryPolicyInvokeResponseArgs) ToRetryPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetryPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyInvokeResponseOutput).ToRetryPolicyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// RetryPolicyInvokeResponsePtrInput is an input type that accepts RetryPolicyInvokeResponseArgs, RetryPolicyInvokeResponsePtr and RetryPolicyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `RetryPolicyInvokeResponsePtrInput` via:
+//
+//          RetryPolicyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RetryPolicyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToRetryPolicyInvokeResponsePtrOutput() RetryPolicyInvokeResponsePtrOutput
+	ToRetryPolicyInvokeResponsePtrOutputWithContext(context.Context) RetryPolicyInvokeResponsePtrOutput
+}
+
+type retryPolicyInvokeResponsePtrType RetryPolicyInvokeResponseArgs
+
+func RetryPolicyInvokeResponsePtr(v *RetryPolicyInvokeResponseArgs) RetryPolicyInvokeResponsePtrInput {
+	return (*retryPolicyInvokeResponsePtrType)(v)
+}
+
+func (*retryPolicyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetryPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i *retryPolicyInvokeResponsePtrType) ToRetryPolicyInvokeResponsePtrOutput() RetryPolicyInvokeResponsePtrOutput {
+	return i.ToRetryPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *retryPolicyInvokeResponsePtrType) ToRetryPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetryPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetryPolicyInvokeResponsePtrOutput)
+}
+
+type RetryPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RetryPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetryPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o RetryPolicyInvokeResponseOutput) ToRetryPolicyInvokeResponseOutput() RetryPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o RetryPolicyInvokeResponseOutput) ToRetryPolicyInvokeResponseOutputWithContext(ctx context.Context) RetryPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o RetryPolicyInvokeResponseOutput) ToRetryPolicyInvokeResponsePtrOutput() RetryPolicyInvokeResponsePtrOutput {
+	return o.ToRetryPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RetryPolicyInvokeResponseOutput) ToRetryPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetryPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RetryPolicyInvokeResponse) *RetryPolicyInvokeResponse {
+		return &v
+	}).(RetryPolicyInvokeResponsePtrOutput)
+}
+
+// Gets or sets the number of times a retry should be attempted.
+func (o RetryPolicyInvokeResponseOutput) RetryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RetryPolicyInvokeResponse) *int { return v.RetryCount }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
+func (o RetryPolicyInvokeResponseOutput) RetryInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetryPolicyInvokeResponse) *string { return v.RetryInterval }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the retry strategy to be used.
+func (o RetryPolicyInvokeResponseOutput) RetryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetryPolicyInvokeResponse) *string { return v.RetryType }).(pulumi.StringPtrOutput)
+}
+
+type RetryPolicyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RetryPolicyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetryPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o RetryPolicyInvokeResponsePtrOutput) ToRetryPolicyInvokeResponsePtrOutput() RetryPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RetryPolicyInvokeResponsePtrOutput) ToRetryPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetryPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RetryPolicyInvokeResponsePtrOutput) Elem() RetryPolicyInvokeResponseOutput {
+	return o.ApplyT(func(v *RetryPolicyInvokeResponse) RetryPolicyInvokeResponse { return *v }).(RetryPolicyInvokeResponseOutput)
+}
+
+// Gets or sets the number of times a retry should be attempted.
+func (o RetryPolicyInvokeResponsePtrOutput) RetryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RetryPolicyInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
+func (o RetryPolicyInvokeResponsePtrOutput) RetryInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetryPolicyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetryInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the retry strategy to be used.
+func (o RetryPolicyInvokeResponsePtrOutput) RetryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetryPolicyInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5006,6 +7204,175 @@ func (o ServiceBusAuthenticationPtrOutput) SasKeyName() pulumi.StringPtrOutput {
 // Gets or sets the authentication type.
 func (o ServiceBusAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceBusAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceBusAuthenticationInvokeResponse struct {
+	// Gets or sets the SAS key.
+	SasKey *string `pulumi:"sasKey"`
+	// Gets or sets the SAS key name.
+	SasKeyName *string `pulumi:"sasKeyName"`
+	// Gets or sets the authentication type.
+	Type *string `pulumi:"type"`
+}
+
+// ServiceBusAuthenticationInvokeResponseInput is an input type that accepts ServiceBusAuthenticationInvokeResponseArgs and ServiceBusAuthenticationInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceBusAuthenticationInvokeResponseInput` via:
+//
+//          ServiceBusAuthenticationInvokeResponseArgs{...}
+type ServiceBusAuthenticationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceBusAuthenticationInvokeResponseOutput() ServiceBusAuthenticationInvokeResponseOutput
+	ToServiceBusAuthenticationInvokeResponseOutputWithContext(context.Context) ServiceBusAuthenticationInvokeResponseOutput
+}
+
+type ServiceBusAuthenticationInvokeResponseArgs struct {
+	// Gets or sets the SAS key.
+	SasKey pulumi.StringPtrInput `pulumi:"sasKey"`
+	// Gets or sets the SAS key name.
+	SasKeyName pulumi.StringPtrInput `pulumi:"sasKeyName"`
+	// Gets or sets the authentication type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ServiceBusAuthenticationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusAuthenticationInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceBusAuthenticationInvokeResponseArgs) ToServiceBusAuthenticationInvokeResponseOutput() ServiceBusAuthenticationInvokeResponseOutput {
+	return i.ToServiceBusAuthenticationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceBusAuthenticationInvokeResponseArgs) ToServiceBusAuthenticationInvokeResponseOutputWithContext(ctx context.Context) ServiceBusAuthenticationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusAuthenticationInvokeResponseOutput)
+}
+
+func (i ServiceBusAuthenticationInvokeResponseArgs) ToServiceBusAuthenticationInvokeResponsePtrOutput() ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return i.ToServiceBusAuthenticationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceBusAuthenticationInvokeResponseArgs) ToServiceBusAuthenticationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusAuthenticationInvokeResponseOutput).ToServiceBusAuthenticationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceBusAuthenticationInvokeResponsePtrInput is an input type that accepts ServiceBusAuthenticationInvokeResponseArgs, ServiceBusAuthenticationInvokeResponsePtr and ServiceBusAuthenticationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceBusAuthenticationInvokeResponsePtrInput` via:
+//
+//          ServiceBusAuthenticationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceBusAuthenticationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceBusAuthenticationInvokeResponsePtrOutput() ServiceBusAuthenticationInvokeResponsePtrOutput
+	ToServiceBusAuthenticationInvokeResponsePtrOutputWithContext(context.Context) ServiceBusAuthenticationInvokeResponsePtrOutput
+}
+
+type serviceBusAuthenticationInvokeResponsePtrType ServiceBusAuthenticationInvokeResponseArgs
+
+func ServiceBusAuthenticationInvokeResponsePtr(v *ServiceBusAuthenticationInvokeResponseArgs) ServiceBusAuthenticationInvokeResponsePtrInput {
+	return (*serviceBusAuthenticationInvokeResponsePtrType)(v)
+}
+
+func (*serviceBusAuthenticationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceBusAuthenticationInvokeResponse)(nil)).Elem()
+}
+
+func (i *serviceBusAuthenticationInvokeResponsePtrType) ToServiceBusAuthenticationInvokeResponsePtrOutput() ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return i.ToServiceBusAuthenticationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceBusAuthenticationInvokeResponsePtrType) ToServiceBusAuthenticationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusAuthenticationInvokeResponsePtrOutput)
+}
+
+type ServiceBusAuthenticationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusAuthenticationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusAuthenticationInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusAuthenticationInvokeResponseOutput) ToServiceBusAuthenticationInvokeResponseOutput() ServiceBusAuthenticationInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusAuthenticationInvokeResponseOutput) ToServiceBusAuthenticationInvokeResponseOutputWithContext(ctx context.Context) ServiceBusAuthenticationInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusAuthenticationInvokeResponseOutput) ToServiceBusAuthenticationInvokeResponsePtrOutput() ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return o.ToServiceBusAuthenticationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceBusAuthenticationInvokeResponseOutput) ToServiceBusAuthenticationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceBusAuthenticationInvokeResponse) *ServiceBusAuthenticationInvokeResponse {
+		return &v
+	}).(ServiceBusAuthenticationInvokeResponsePtrOutput)
+}
+
+// Gets or sets the SAS key.
+func (o ServiceBusAuthenticationInvokeResponseOutput) SasKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusAuthenticationInvokeResponse) *string { return v.SasKey }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the SAS key name.
+func (o ServiceBusAuthenticationInvokeResponseOutput) SasKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusAuthenticationInvokeResponse) *string { return v.SasKeyName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the authentication type.
+func (o ServiceBusAuthenticationInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusAuthenticationInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ServiceBusAuthenticationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusAuthenticationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceBusAuthenticationInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusAuthenticationInvokeResponsePtrOutput) ToServiceBusAuthenticationInvokeResponsePtrOutput() ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceBusAuthenticationInvokeResponsePtrOutput) ToServiceBusAuthenticationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceBusAuthenticationInvokeResponsePtrOutput) Elem() ServiceBusAuthenticationInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceBusAuthenticationInvokeResponse) ServiceBusAuthenticationInvokeResponse { return *v }).(ServiceBusAuthenticationInvokeResponseOutput)
+}
+
+// Gets or sets the SAS key.
+func (o ServiceBusAuthenticationInvokeResponsePtrOutput) SasKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusAuthenticationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the SAS key name.
+func (o ServiceBusAuthenticationInvokeResponsePtrOutput) SasKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusAuthenticationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasKeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the authentication type.
+func (o ServiceBusAuthenticationInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusAuthenticationInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5534,6 +7901,367 @@ func (o ServiceBusBrokeredMessagePropertiesPtrOutput) To() pulumi.StringPtrOutpu
 // Gets or sets the via partition key.
 func (o ServiceBusBrokeredMessagePropertiesPtrOutput) ViaPartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceBusBrokeredMessageProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViaPartitionKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceBusBrokeredMessagePropertiesInvokeResponse struct {
+	// Gets or sets the content type.
+	ContentType *string `pulumi:"contentType"`
+	// Gets or sets the correlation ID.
+	CorrelationId *string `pulumi:"correlationId"`
+	// Gets or sets the force persistence.
+	ForcePersistence *bool `pulumi:"forcePersistence"`
+	// Gets or sets the label.
+	Label *string `pulumi:"label"`
+	// Gets or sets the message ID.
+	MessageId *string `pulumi:"messageId"`
+	// Gets or sets the partition key.
+	PartitionKey *string `pulumi:"partitionKey"`
+	// Gets or sets the reply to.
+	ReplyTo *string `pulumi:"replyTo"`
+	// Gets or sets the reply to session ID.
+	ReplyToSessionId *string `pulumi:"replyToSessionId"`
+	// Gets or sets the scheduled enqueue time UTC.
+	ScheduledEnqueueTimeUtc *string `pulumi:"scheduledEnqueueTimeUtc"`
+	// Gets or sets the session ID.
+	SessionId *string `pulumi:"sessionId"`
+	// Gets or sets the time to live.
+	TimeToLive *string `pulumi:"timeToLive"`
+	// Gets or sets the to.
+	To *string `pulumi:"to"`
+	// Gets or sets the via partition key.
+	ViaPartitionKey *string `pulumi:"viaPartitionKey"`
+}
+
+// ServiceBusBrokeredMessagePropertiesInvokeResponseInput is an input type that accepts ServiceBusBrokeredMessagePropertiesInvokeResponseArgs and ServiceBusBrokeredMessagePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceBusBrokeredMessagePropertiesInvokeResponseInput` via:
+//
+//          ServiceBusBrokeredMessagePropertiesInvokeResponseArgs{...}
+type ServiceBusBrokeredMessagePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceBusBrokeredMessagePropertiesInvokeResponseOutput() ServiceBusBrokeredMessagePropertiesInvokeResponseOutput
+	ToServiceBusBrokeredMessagePropertiesInvokeResponseOutputWithContext(context.Context) ServiceBusBrokeredMessagePropertiesInvokeResponseOutput
+}
+
+type ServiceBusBrokeredMessagePropertiesInvokeResponseArgs struct {
+	// Gets or sets the content type.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// Gets or sets the correlation ID.
+	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
+	// Gets or sets the force persistence.
+	ForcePersistence pulumi.BoolPtrInput `pulumi:"forcePersistence"`
+	// Gets or sets the label.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Gets or sets the message ID.
+	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
+	// Gets or sets the partition key.
+	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
+	// Gets or sets the reply to.
+	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
+	// Gets or sets the reply to session ID.
+	ReplyToSessionId pulumi.StringPtrInput `pulumi:"replyToSessionId"`
+	// Gets or sets the scheduled enqueue time UTC.
+	ScheduledEnqueueTimeUtc pulumi.StringPtrInput `pulumi:"scheduledEnqueueTimeUtc"`
+	// Gets or sets the session ID.
+	SessionId pulumi.StringPtrInput `pulumi:"sessionId"`
+	// Gets or sets the time to live.
+	TimeToLive pulumi.StringPtrInput `pulumi:"timeToLive"`
+	// Gets or sets the to.
+	To pulumi.StringPtrInput `pulumi:"to"`
+	// Gets or sets the via partition key.
+	ViaPartitionKey pulumi.StringPtrInput `pulumi:"viaPartitionKey"`
+}
+
+func (ServiceBusBrokeredMessagePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusBrokeredMessagePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceBusBrokeredMessagePropertiesInvokeResponseArgs) ToServiceBusBrokeredMessagePropertiesInvokeResponseOutput() ServiceBusBrokeredMessagePropertiesInvokeResponseOutput {
+	return i.ToServiceBusBrokeredMessagePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceBusBrokeredMessagePropertiesInvokeResponseArgs) ToServiceBusBrokeredMessagePropertiesInvokeResponseOutputWithContext(ctx context.Context) ServiceBusBrokeredMessagePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusBrokeredMessagePropertiesInvokeResponseOutput)
+}
+
+func (i ServiceBusBrokeredMessagePropertiesInvokeResponseArgs) ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput() ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return i.ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceBusBrokeredMessagePropertiesInvokeResponseArgs) ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusBrokeredMessagePropertiesInvokeResponseOutput).ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceBusBrokeredMessagePropertiesInvokeResponsePtrInput is an input type that accepts ServiceBusBrokeredMessagePropertiesInvokeResponseArgs, ServiceBusBrokeredMessagePropertiesInvokeResponsePtr and ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceBusBrokeredMessagePropertiesInvokeResponsePtrInput` via:
+//
+//          ServiceBusBrokeredMessagePropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceBusBrokeredMessagePropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput() ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput
+	ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutputWithContext(context.Context) ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput
+}
+
+type serviceBusBrokeredMessagePropertiesInvokeResponsePtrType ServiceBusBrokeredMessagePropertiesInvokeResponseArgs
+
+func ServiceBusBrokeredMessagePropertiesInvokeResponsePtr(v *ServiceBusBrokeredMessagePropertiesInvokeResponseArgs) ServiceBusBrokeredMessagePropertiesInvokeResponsePtrInput {
+	return (*serviceBusBrokeredMessagePropertiesInvokeResponsePtrType)(v)
+}
+
+func (*serviceBusBrokeredMessagePropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceBusBrokeredMessagePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *serviceBusBrokeredMessagePropertiesInvokeResponsePtrType) ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput() ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return i.ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceBusBrokeredMessagePropertiesInvokeResponsePtrType) ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput)
+}
+
+type ServiceBusBrokeredMessagePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusBrokeredMessagePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ToServiceBusBrokeredMessagePropertiesInvokeResponseOutput() ServiceBusBrokeredMessagePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ToServiceBusBrokeredMessagePropertiesInvokeResponseOutputWithContext(ctx context.Context) ServiceBusBrokeredMessagePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput() ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return o.ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *ServiceBusBrokeredMessagePropertiesInvokeResponse {
+		return &v
+	}).(ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the content type.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the correlation ID.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) CorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the force persistence.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ForcePersistence() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *bool { return v.ForcePersistence }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the label.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the message ID.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the partition key.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the reply to.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ReplyTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the reply to session ID.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ReplyToSessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the scheduled enqueue time UTC.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ScheduledEnqueueTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.ScheduledEnqueueTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the session ID.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) SessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.SessionId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the time to live.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) TimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.TimeToLive }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the to.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.To }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the via partition key.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponseOutput) ViaPartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusBrokeredMessagePropertiesInvokeResponse) *string { return v.ViaPartitionKey }).(pulumi.StringPtrOutput)
+}
+
+type ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceBusBrokeredMessagePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput() ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) ToServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) Elem() ServiceBusBrokeredMessagePropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) ServiceBusBrokeredMessagePropertiesInvokeResponse {
+		return *v
+	}).(ServiceBusBrokeredMessagePropertiesInvokeResponseOutput)
+}
+
+// Gets or sets the content type.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the correlation ID.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) CorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CorrelationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the force persistence.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) ForcePersistence() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ForcePersistence
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the label.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the message ID.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the partition key.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the reply to.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) ReplyTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyTo
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the reply to session ID.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) ReplyToSessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyToSessionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the scheduled enqueue time UTC.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) ScheduledEnqueueTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduledEnqueueTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the session ID.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) SessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the time to live.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) TimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeToLive
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the to.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.To
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the via partition key.
+func (o ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput) ViaPartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusBrokeredMessagePropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -6149,6 +8877,255 @@ func (o ServiceBusQueueMessagePtrOutput) TransportType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceBusQueueMessageInvokeResponse struct {
+	// Gets or sets the Service Bus authentication.
+	Authentication *ServiceBusAuthenticationInvokeResponse `pulumi:"authentication"`
+	// Gets or sets the brokered message properties.
+	BrokeredMessageProperties *ServiceBusBrokeredMessagePropertiesInvokeResponse `pulumi:"brokeredMessageProperties"`
+	// Gets or sets the custom message properties.
+	CustomMessageProperties map[string]string `pulumi:"customMessageProperties"`
+	// Gets or sets the message.
+	Message *string `pulumi:"message"`
+	// Gets or sets the namespace.
+	Namespace *string `pulumi:"namespace"`
+	// Gets or sets the queue name.
+	QueueName *string `pulumi:"queueName"`
+	// Gets or sets the transport type.
+	TransportType *string `pulumi:"transportType"`
+}
+
+// ServiceBusQueueMessageInvokeResponseInput is an input type that accepts ServiceBusQueueMessageInvokeResponseArgs and ServiceBusQueueMessageInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceBusQueueMessageInvokeResponseInput` via:
+//
+//          ServiceBusQueueMessageInvokeResponseArgs{...}
+type ServiceBusQueueMessageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceBusQueueMessageInvokeResponseOutput() ServiceBusQueueMessageInvokeResponseOutput
+	ToServiceBusQueueMessageInvokeResponseOutputWithContext(context.Context) ServiceBusQueueMessageInvokeResponseOutput
+}
+
+type ServiceBusQueueMessageInvokeResponseArgs struct {
+	// Gets or sets the Service Bus authentication.
+	Authentication ServiceBusAuthenticationInvokeResponsePtrInput `pulumi:"authentication"`
+	// Gets or sets the brokered message properties.
+	BrokeredMessageProperties ServiceBusBrokeredMessagePropertiesInvokeResponsePtrInput `pulumi:"brokeredMessageProperties"`
+	// Gets or sets the custom message properties.
+	CustomMessageProperties pulumi.StringMapInput `pulumi:"customMessageProperties"`
+	// Gets or sets the message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Gets or sets the namespace.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// Gets or sets the queue name.
+	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
+	// Gets or sets the transport type.
+	TransportType pulumi.StringPtrInput `pulumi:"transportType"`
+}
+
+func (ServiceBusQueueMessageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusQueueMessageInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceBusQueueMessageInvokeResponseArgs) ToServiceBusQueueMessageInvokeResponseOutput() ServiceBusQueueMessageInvokeResponseOutput {
+	return i.ToServiceBusQueueMessageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceBusQueueMessageInvokeResponseArgs) ToServiceBusQueueMessageInvokeResponseOutputWithContext(ctx context.Context) ServiceBusQueueMessageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusQueueMessageInvokeResponseOutput)
+}
+
+func (i ServiceBusQueueMessageInvokeResponseArgs) ToServiceBusQueueMessageInvokeResponsePtrOutput() ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return i.ToServiceBusQueueMessageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceBusQueueMessageInvokeResponseArgs) ToServiceBusQueueMessageInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusQueueMessageInvokeResponseOutput).ToServiceBusQueueMessageInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceBusQueueMessageInvokeResponsePtrInput is an input type that accepts ServiceBusQueueMessageInvokeResponseArgs, ServiceBusQueueMessageInvokeResponsePtr and ServiceBusQueueMessageInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceBusQueueMessageInvokeResponsePtrInput` via:
+//
+//          ServiceBusQueueMessageInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceBusQueueMessageInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceBusQueueMessageInvokeResponsePtrOutput() ServiceBusQueueMessageInvokeResponsePtrOutput
+	ToServiceBusQueueMessageInvokeResponsePtrOutputWithContext(context.Context) ServiceBusQueueMessageInvokeResponsePtrOutput
+}
+
+type serviceBusQueueMessageInvokeResponsePtrType ServiceBusQueueMessageInvokeResponseArgs
+
+func ServiceBusQueueMessageInvokeResponsePtr(v *ServiceBusQueueMessageInvokeResponseArgs) ServiceBusQueueMessageInvokeResponsePtrInput {
+	return (*serviceBusQueueMessageInvokeResponsePtrType)(v)
+}
+
+func (*serviceBusQueueMessageInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceBusQueueMessageInvokeResponse)(nil)).Elem()
+}
+
+func (i *serviceBusQueueMessageInvokeResponsePtrType) ToServiceBusQueueMessageInvokeResponsePtrOutput() ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return i.ToServiceBusQueueMessageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceBusQueueMessageInvokeResponsePtrType) ToServiceBusQueueMessageInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusQueueMessageInvokeResponsePtrOutput)
+}
+
+type ServiceBusQueueMessageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusQueueMessageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusQueueMessageInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusQueueMessageInvokeResponseOutput) ToServiceBusQueueMessageInvokeResponseOutput() ServiceBusQueueMessageInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusQueueMessageInvokeResponseOutput) ToServiceBusQueueMessageInvokeResponseOutputWithContext(ctx context.Context) ServiceBusQueueMessageInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusQueueMessageInvokeResponseOutput) ToServiceBusQueueMessageInvokeResponsePtrOutput() ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return o.ToServiceBusQueueMessageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceBusQueueMessageInvokeResponseOutput) ToServiceBusQueueMessageInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueMessageInvokeResponse) *ServiceBusQueueMessageInvokeResponse {
+		return &v
+	}).(ServiceBusQueueMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the Service Bus authentication.
+func (o ServiceBusQueueMessageInvokeResponseOutput) Authentication() ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueMessageInvokeResponse) *ServiceBusAuthenticationInvokeResponse {
+		return v.Authentication
+	}).(ServiceBusAuthenticationInvokeResponsePtrOutput)
+}
+
+// Gets or sets the brokered message properties.
+func (o ServiceBusQueueMessageInvokeResponseOutput) BrokeredMessageProperties() ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueMessageInvokeResponse) *ServiceBusBrokeredMessagePropertiesInvokeResponse {
+		return v.BrokeredMessageProperties
+	}).(ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the custom message properties.
+func (o ServiceBusQueueMessageInvokeResponseOutput) CustomMessageProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceBusQueueMessageInvokeResponse) map[string]string { return v.CustomMessageProperties }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the message.
+func (o ServiceBusQueueMessageInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueMessageInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the namespace.
+func (o ServiceBusQueueMessageInvokeResponseOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueMessageInvokeResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the queue name.
+func (o ServiceBusQueueMessageInvokeResponseOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueMessageInvokeResponse) *string { return v.QueueName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the transport type.
+func (o ServiceBusQueueMessageInvokeResponseOutput) TransportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusQueueMessageInvokeResponse) *string { return v.TransportType }).(pulumi.StringPtrOutput)
+}
+
+type ServiceBusQueueMessageInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusQueueMessageInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceBusQueueMessageInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusQueueMessageInvokeResponsePtrOutput) ToServiceBusQueueMessageInvokeResponsePtrOutput() ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceBusQueueMessageInvokeResponsePtrOutput) ToServiceBusQueueMessageInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusQueueMessageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceBusQueueMessageInvokeResponsePtrOutput) Elem() ServiceBusQueueMessageInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceBusQueueMessageInvokeResponse) ServiceBusQueueMessageInvokeResponse { return *v }).(ServiceBusQueueMessageInvokeResponseOutput)
+}
+
+// Gets or sets the Service Bus authentication.
+func (o ServiceBusQueueMessageInvokeResponsePtrOutput) Authentication() ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ServiceBusQueueMessageInvokeResponse) *ServiceBusAuthenticationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Authentication
+	}).(ServiceBusAuthenticationInvokeResponsePtrOutput)
+}
+
+// Gets or sets the brokered message properties.
+func (o ServiceBusQueueMessageInvokeResponsePtrOutput) BrokeredMessageProperties() ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ServiceBusQueueMessageInvokeResponse) *ServiceBusBrokeredMessagePropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BrokeredMessageProperties
+	}).(ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the custom message properties.
+func (o ServiceBusQueueMessageInvokeResponsePtrOutput) CustomMessageProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceBusQueueMessageInvokeResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomMessageProperties
+	}).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the message.
+func (o ServiceBusQueueMessageInvokeResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusQueueMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the namespace.
+func (o ServiceBusQueueMessageInvokeResponsePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusQueueMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the queue name.
+func (o ServiceBusQueueMessageInvokeResponsePtrOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusQueueMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueueName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the transport type.
+func (o ServiceBusQueueMessageInvokeResponsePtrOutput) TransportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusQueueMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransportType
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceBusQueueMessageResponse struct {
 	// Gets or sets the Service Bus authentication.
 	Authentication *ServiceBusAuthenticationResponse `pulumi:"authentication"`
@@ -6643,6 +9620,255 @@ func (o ServiceBusTopicMessagePtrOutput) TransportType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceBusTopicMessageInvokeResponse struct {
+	// Gets or sets the Service Bus authentication.
+	Authentication *ServiceBusAuthenticationInvokeResponse `pulumi:"authentication"`
+	// Gets or sets the brokered message properties.
+	BrokeredMessageProperties *ServiceBusBrokeredMessagePropertiesInvokeResponse `pulumi:"brokeredMessageProperties"`
+	// Gets or sets the custom message properties.
+	CustomMessageProperties map[string]string `pulumi:"customMessageProperties"`
+	// Gets or sets the message.
+	Message *string `pulumi:"message"`
+	// Gets or sets the namespace.
+	Namespace *string `pulumi:"namespace"`
+	// Gets or sets the topic path.
+	TopicPath *string `pulumi:"topicPath"`
+	// Gets or sets the transport type.
+	TransportType *string `pulumi:"transportType"`
+}
+
+// ServiceBusTopicMessageInvokeResponseInput is an input type that accepts ServiceBusTopicMessageInvokeResponseArgs and ServiceBusTopicMessageInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceBusTopicMessageInvokeResponseInput` via:
+//
+//          ServiceBusTopicMessageInvokeResponseArgs{...}
+type ServiceBusTopicMessageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceBusTopicMessageInvokeResponseOutput() ServiceBusTopicMessageInvokeResponseOutput
+	ToServiceBusTopicMessageInvokeResponseOutputWithContext(context.Context) ServiceBusTopicMessageInvokeResponseOutput
+}
+
+type ServiceBusTopicMessageInvokeResponseArgs struct {
+	// Gets or sets the Service Bus authentication.
+	Authentication ServiceBusAuthenticationInvokeResponsePtrInput `pulumi:"authentication"`
+	// Gets or sets the brokered message properties.
+	BrokeredMessageProperties ServiceBusBrokeredMessagePropertiesInvokeResponsePtrInput `pulumi:"brokeredMessageProperties"`
+	// Gets or sets the custom message properties.
+	CustomMessageProperties pulumi.StringMapInput `pulumi:"customMessageProperties"`
+	// Gets or sets the message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Gets or sets the namespace.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// Gets or sets the topic path.
+	TopicPath pulumi.StringPtrInput `pulumi:"topicPath"`
+	// Gets or sets the transport type.
+	TransportType pulumi.StringPtrInput `pulumi:"transportType"`
+}
+
+func (ServiceBusTopicMessageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusTopicMessageInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceBusTopicMessageInvokeResponseArgs) ToServiceBusTopicMessageInvokeResponseOutput() ServiceBusTopicMessageInvokeResponseOutput {
+	return i.ToServiceBusTopicMessageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceBusTopicMessageInvokeResponseArgs) ToServiceBusTopicMessageInvokeResponseOutputWithContext(ctx context.Context) ServiceBusTopicMessageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusTopicMessageInvokeResponseOutput)
+}
+
+func (i ServiceBusTopicMessageInvokeResponseArgs) ToServiceBusTopicMessageInvokeResponsePtrOutput() ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return i.ToServiceBusTopicMessageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceBusTopicMessageInvokeResponseArgs) ToServiceBusTopicMessageInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusTopicMessageInvokeResponseOutput).ToServiceBusTopicMessageInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceBusTopicMessageInvokeResponsePtrInput is an input type that accepts ServiceBusTopicMessageInvokeResponseArgs, ServiceBusTopicMessageInvokeResponsePtr and ServiceBusTopicMessageInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceBusTopicMessageInvokeResponsePtrInput` via:
+//
+//          ServiceBusTopicMessageInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceBusTopicMessageInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceBusTopicMessageInvokeResponsePtrOutput() ServiceBusTopicMessageInvokeResponsePtrOutput
+	ToServiceBusTopicMessageInvokeResponsePtrOutputWithContext(context.Context) ServiceBusTopicMessageInvokeResponsePtrOutput
+}
+
+type serviceBusTopicMessageInvokeResponsePtrType ServiceBusTopicMessageInvokeResponseArgs
+
+func ServiceBusTopicMessageInvokeResponsePtr(v *ServiceBusTopicMessageInvokeResponseArgs) ServiceBusTopicMessageInvokeResponsePtrInput {
+	return (*serviceBusTopicMessageInvokeResponsePtrType)(v)
+}
+
+func (*serviceBusTopicMessageInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceBusTopicMessageInvokeResponse)(nil)).Elem()
+}
+
+func (i *serviceBusTopicMessageInvokeResponsePtrType) ToServiceBusTopicMessageInvokeResponsePtrOutput() ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return i.ToServiceBusTopicMessageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceBusTopicMessageInvokeResponsePtrType) ToServiceBusTopicMessageInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusTopicMessageInvokeResponsePtrOutput)
+}
+
+type ServiceBusTopicMessageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusTopicMessageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusTopicMessageInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusTopicMessageInvokeResponseOutput) ToServiceBusTopicMessageInvokeResponseOutput() ServiceBusTopicMessageInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusTopicMessageInvokeResponseOutput) ToServiceBusTopicMessageInvokeResponseOutputWithContext(ctx context.Context) ServiceBusTopicMessageInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusTopicMessageInvokeResponseOutput) ToServiceBusTopicMessageInvokeResponsePtrOutput() ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return o.ToServiceBusTopicMessageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceBusTopicMessageInvokeResponseOutput) ToServiceBusTopicMessageInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicMessageInvokeResponse) *ServiceBusTopicMessageInvokeResponse {
+		return &v
+	}).(ServiceBusTopicMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the Service Bus authentication.
+func (o ServiceBusTopicMessageInvokeResponseOutput) Authentication() ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicMessageInvokeResponse) *ServiceBusAuthenticationInvokeResponse {
+		return v.Authentication
+	}).(ServiceBusAuthenticationInvokeResponsePtrOutput)
+}
+
+// Gets or sets the brokered message properties.
+func (o ServiceBusTopicMessageInvokeResponseOutput) BrokeredMessageProperties() ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicMessageInvokeResponse) *ServiceBusBrokeredMessagePropertiesInvokeResponse {
+		return v.BrokeredMessageProperties
+	}).(ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the custom message properties.
+func (o ServiceBusTopicMessageInvokeResponseOutput) CustomMessageProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceBusTopicMessageInvokeResponse) map[string]string { return v.CustomMessageProperties }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the message.
+func (o ServiceBusTopicMessageInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicMessageInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the namespace.
+func (o ServiceBusTopicMessageInvokeResponseOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicMessageInvokeResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the topic path.
+func (o ServiceBusTopicMessageInvokeResponseOutput) TopicPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicMessageInvokeResponse) *string { return v.TopicPath }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the transport type.
+func (o ServiceBusTopicMessageInvokeResponseOutput) TransportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusTopicMessageInvokeResponse) *string { return v.TransportType }).(pulumi.StringPtrOutput)
+}
+
+type ServiceBusTopicMessageInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusTopicMessageInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceBusTopicMessageInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusTopicMessageInvokeResponsePtrOutput) ToServiceBusTopicMessageInvokeResponsePtrOutput() ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceBusTopicMessageInvokeResponsePtrOutput) ToServiceBusTopicMessageInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceBusTopicMessageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceBusTopicMessageInvokeResponsePtrOutput) Elem() ServiceBusTopicMessageInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceBusTopicMessageInvokeResponse) ServiceBusTopicMessageInvokeResponse { return *v }).(ServiceBusTopicMessageInvokeResponseOutput)
+}
+
+// Gets or sets the Service Bus authentication.
+func (o ServiceBusTopicMessageInvokeResponsePtrOutput) Authentication() ServiceBusAuthenticationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ServiceBusTopicMessageInvokeResponse) *ServiceBusAuthenticationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Authentication
+	}).(ServiceBusAuthenticationInvokeResponsePtrOutput)
+}
+
+// Gets or sets the brokered message properties.
+func (o ServiceBusTopicMessageInvokeResponsePtrOutput) BrokeredMessageProperties() ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ServiceBusTopicMessageInvokeResponse) *ServiceBusBrokeredMessagePropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BrokeredMessageProperties
+	}).(ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the custom message properties.
+func (o ServiceBusTopicMessageInvokeResponsePtrOutput) CustomMessageProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceBusTopicMessageInvokeResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomMessageProperties
+	}).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the message.
+func (o ServiceBusTopicMessageInvokeResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusTopicMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the namespace.
+func (o ServiceBusTopicMessageInvokeResponsePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusTopicMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the topic path.
+func (o ServiceBusTopicMessageInvokeResponsePtrOutput) TopicPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusTopicMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the transport type.
+func (o ServiceBusTopicMessageInvokeResponsePtrOutput) TransportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceBusTopicMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransportType
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceBusTopicMessageResponse struct {
 	// Gets or sets the Service Bus authentication.
 	Authentication *ServiceBusAuthenticationResponse `pulumi:"authentication"`
@@ -7021,6 +10247,137 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SkuInvokeResponse struct {
+	// Gets or set the SKU.
+	Name *string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+type SkuInvokeResponseArgs struct {
+	// Gets or set the SKU.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponsePtrOutput() SkuInvokeResponsePtrOutput {
+	return i.ToSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponsePtrOutputWithContext(ctx context.Context) SkuInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput).ToSkuInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SkuInvokeResponsePtrInput is an input type that accepts SkuInvokeResponseArgs, SkuInvokeResponsePtr and SkuInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SkuInvokeResponsePtrInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponsePtrOutput() SkuInvokeResponsePtrOutput
+	ToSkuInvokeResponsePtrOutputWithContext(context.Context) SkuInvokeResponsePtrOutput
+}
+
+type skuInvokeResponsePtrType SkuInvokeResponseArgs
+
+func SkuInvokeResponsePtr(v *SkuInvokeResponseArgs) SkuInvokeResponsePtrInput {
+	return (*skuInvokeResponsePtrType)(v)
+}
+
+func (*skuInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i *skuInvokeResponsePtrType) ToSkuInvokeResponsePtrOutput() SkuInvokeResponsePtrOutput {
+	return i.ToSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *skuInvokeResponsePtrType) ToSkuInvokeResponsePtrOutputWithContext(ctx context.Context) SkuInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponsePtrOutput)
+}
+
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponsePtrOutput() SkuInvokeResponsePtrOutput {
+	return o.ToSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponsePtrOutputWithContext(ctx context.Context) SkuInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *SkuInvokeResponse {
+		return &v
+	}).(SkuInvokeResponsePtrOutput)
+}
+
+// Gets or set the SKU.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type SkuInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponsePtrOutput) ToSkuInvokeResponsePtrOutput() SkuInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SkuInvokeResponsePtrOutput) ToSkuInvokeResponsePtrOutputWithContext(ctx context.Context) SkuInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SkuInvokeResponsePtrOutput) Elem() SkuInvokeResponseOutput {
+	return o.ApplyT(func(v *SkuInvokeResponse) SkuInvokeResponse { return *v }).(SkuInvokeResponseOutput)
+}
+
+// Gets or set the SKU.
+func (o SkuInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type SkuResponse struct {
 	// Gets or set the SKU.
 	Name *string `pulumi:"name"`
@@ -7340,6 +10697,194 @@ func (o StorageQueueMessagePtrOutput) StorageAccount() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type StorageQueueMessageInvokeResponse struct {
+	// Gets or sets the message.
+	Message *string `pulumi:"message"`
+	// Gets or sets the queue name.
+	QueueName *string `pulumi:"queueName"`
+	// Gets or sets the SAS key.
+	SasToken *string `pulumi:"sasToken"`
+	// Gets or sets the storage account name.
+	StorageAccount *string `pulumi:"storageAccount"`
+}
+
+// StorageQueueMessageInvokeResponseInput is an input type that accepts StorageQueueMessageInvokeResponseArgs and StorageQueueMessageInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageQueueMessageInvokeResponseInput` via:
+//
+//          StorageQueueMessageInvokeResponseArgs{...}
+type StorageQueueMessageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageQueueMessageInvokeResponseOutput() StorageQueueMessageInvokeResponseOutput
+	ToStorageQueueMessageInvokeResponseOutputWithContext(context.Context) StorageQueueMessageInvokeResponseOutput
+}
+
+type StorageQueueMessageInvokeResponseArgs struct {
+	// Gets or sets the message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Gets or sets the queue name.
+	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
+	// Gets or sets the SAS key.
+	SasToken pulumi.StringPtrInput `pulumi:"sasToken"`
+	// Gets or sets the storage account name.
+	StorageAccount pulumi.StringPtrInput `pulumi:"storageAccount"`
+}
+
+func (StorageQueueMessageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageQueueMessageInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageQueueMessageInvokeResponseArgs) ToStorageQueueMessageInvokeResponseOutput() StorageQueueMessageInvokeResponseOutput {
+	return i.ToStorageQueueMessageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageQueueMessageInvokeResponseArgs) ToStorageQueueMessageInvokeResponseOutputWithContext(ctx context.Context) StorageQueueMessageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueMessageInvokeResponseOutput)
+}
+
+func (i StorageQueueMessageInvokeResponseArgs) ToStorageQueueMessageInvokeResponsePtrOutput() StorageQueueMessageInvokeResponsePtrOutput {
+	return i.ToStorageQueueMessageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StorageQueueMessageInvokeResponseArgs) ToStorageQueueMessageInvokeResponsePtrOutputWithContext(ctx context.Context) StorageQueueMessageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueMessageInvokeResponseOutput).ToStorageQueueMessageInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// StorageQueueMessageInvokeResponsePtrInput is an input type that accepts StorageQueueMessageInvokeResponseArgs, StorageQueueMessageInvokeResponsePtr and StorageQueueMessageInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `StorageQueueMessageInvokeResponsePtrInput` via:
+//
+//          StorageQueueMessageInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageQueueMessageInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToStorageQueueMessageInvokeResponsePtrOutput() StorageQueueMessageInvokeResponsePtrOutput
+	ToStorageQueueMessageInvokeResponsePtrOutputWithContext(context.Context) StorageQueueMessageInvokeResponsePtrOutput
+}
+
+type storageQueueMessageInvokeResponsePtrType StorageQueueMessageInvokeResponseArgs
+
+func StorageQueueMessageInvokeResponsePtr(v *StorageQueueMessageInvokeResponseArgs) StorageQueueMessageInvokeResponsePtrInput {
+	return (*storageQueueMessageInvokeResponsePtrType)(v)
+}
+
+func (*storageQueueMessageInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageQueueMessageInvokeResponse)(nil)).Elem()
+}
+
+func (i *storageQueueMessageInvokeResponsePtrType) ToStorageQueueMessageInvokeResponsePtrOutput() StorageQueueMessageInvokeResponsePtrOutput {
+	return i.ToStorageQueueMessageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *storageQueueMessageInvokeResponsePtrType) ToStorageQueueMessageInvokeResponsePtrOutputWithContext(ctx context.Context) StorageQueueMessageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageQueueMessageInvokeResponsePtrOutput)
+}
+
+type StorageQueueMessageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageQueueMessageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageQueueMessageInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageQueueMessageInvokeResponseOutput) ToStorageQueueMessageInvokeResponseOutput() StorageQueueMessageInvokeResponseOutput {
+	return o
+}
+
+func (o StorageQueueMessageInvokeResponseOutput) ToStorageQueueMessageInvokeResponseOutputWithContext(ctx context.Context) StorageQueueMessageInvokeResponseOutput {
+	return o
+}
+
+func (o StorageQueueMessageInvokeResponseOutput) ToStorageQueueMessageInvokeResponsePtrOutput() StorageQueueMessageInvokeResponsePtrOutput {
+	return o.ToStorageQueueMessageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StorageQueueMessageInvokeResponseOutput) ToStorageQueueMessageInvokeResponsePtrOutputWithContext(ctx context.Context) StorageQueueMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StorageQueueMessageInvokeResponse) *StorageQueueMessageInvokeResponse {
+		return &v
+	}).(StorageQueueMessageInvokeResponsePtrOutput)
+}
+
+// Gets or sets the message.
+func (o StorageQueueMessageInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageQueueMessageInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the queue name.
+func (o StorageQueueMessageInvokeResponseOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageQueueMessageInvokeResponse) *string { return v.QueueName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the SAS key.
+func (o StorageQueueMessageInvokeResponseOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageQueueMessageInvokeResponse) *string { return v.SasToken }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the storage account name.
+func (o StorageQueueMessageInvokeResponseOutput) StorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageQueueMessageInvokeResponse) *string { return v.StorageAccount }).(pulumi.StringPtrOutput)
+}
+
+type StorageQueueMessageInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageQueueMessageInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageQueueMessageInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageQueueMessageInvokeResponsePtrOutput) ToStorageQueueMessageInvokeResponsePtrOutput() StorageQueueMessageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StorageQueueMessageInvokeResponsePtrOutput) ToStorageQueueMessageInvokeResponsePtrOutputWithContext(ctx context.Context) StorageQueueMessageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StorageQueueMessageInvokeResponsePtrOutput) Elem() StorageQueueMessageInvokeResponseOutput {
+	return o.ApplyT(func(v *StorageQueueMessageInvokeResponse) StorageQueueMessageInvokeResponse { return *v }).(StorageQueueMessageInvokeResponseOutput)
+}
+
+// Gets or sets the message.
+func (o StorageQueueMessageInvokeResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageQueueMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the queue name.
+func (o StorageQueueMessageInvokeResponsePtrOutput) QueueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageQueueMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueueName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the SAS key.
+func (o StorageQueueMessageInvokeResponsePtrOutput) SasToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageQueueMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the storage account name.
+func (o StorageQueueMessageInvokeResponsePtrOutput) StorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageQueueMessageInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccount
+	}).(pulumi.StringPtrOutput)
+}
+
 type StorageQueueMessageResponse struct {
 	// Gets or sets the message.
 	Message *string `pulumi:"message"`
@@ -7530,79 +11075,115 @@ func (o StorageQueueMessageResponsePtrOutput) StorageAccount() pulumi.StringPtrO
 
 func init() {
 	pulumi.RegisterOutputType(BasicAuthenticationOutput{})
+	pulumi.RegisterOutputType(BasicAuthenticationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BasicAuthenticationResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertAuthenticationOutput{})
+	pulumi.RegisterOutputType(ClientCertAuthenticationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertAuthenticationResponseOutput{})
 	pulumi.RegisterOutputType(HttpRequestOutput{})
 	pulumi.RegisterOutputType(HttpRequestPtrOutput{})
+	pulumi.RegisterOutputType(HttpRequestInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HttpRequestInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(HttpRequestResponseOutput{})
 	pulumi.RegisterOutputType(HttpRequestResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobActionOutput{})
 	pulumi.RegisterOutputType(JobActionPtrOutput{})
+	pulumi.RegisterOutputType(JobActionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobActionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobActionResponseOutput{})
 	pulumi.RegisterOutputType(JobActionResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobCollectionPropertiesOutput{})
 	pulumi.RegisterOutputType(JobCollectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobCollectionPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobCollectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(JobCollectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobCollectionQuotaOutput{})
 	pulumi.RegisterOutputType(JobCollectionQuotaPtrOutput{})
+	pulumi.RegisterOutputType(JobCollectionQuotaInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobCollectionQuotaInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobCollectionQuotaResponseOutput{})
 	pulumi.RegisterOutputType(JobCollectionQuotaResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobErrorActionOutput{})
 	pulumi.RegisterOutputType(JobErrorActionPtrOutput{})
+	pulumi.RegisterOutputType(JobErrorActionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobErrorActionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobErrorActionResponseOutput{})
 	pulumi.RegisterOutputType(JobErrorActionResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobMaxRecurrenceOutput{})
 	pulumi.RegisterOutputType(JobMaxRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(JobMaxRecurrenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobMaxRecurrenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobMaxRecurrenceResponseOutput{})
 	pulumi.RegisterOutputType(JobMaxRecurrenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobPropertiesOutput{})
 	pulumi.RegisterOutputType(JobPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(JobPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceOutput{})
 	pulumi.RegisterOutputType(JobRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(JobRecurrenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobRecurrenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceResponseOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceScheduleOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceSchedulePtrOutput{})
+	pulumi.RegisterOutputType(JobRecurrenceScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobRecurrenceScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceScheduleMonthlyOccurrenceOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceScheduleMonthlyOccurrenceArrayOutput{})
+	pulumi.RegisterOutputType(JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobRecurrenceScheduleMonthlyOccurrenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceScheduleMonthlyOccurrenceResponseOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceScheduleMonthlyOccurrenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceScheduleResponseOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceScheduleResponsePtrOutput{})
+	pulumi.RegisterOutputType(JobStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobStatusResponseOutput{})
 	pulumi.RegisterOutputType(JobStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(OAuthAuthenticationOutput{})
+	pulumi.RegisterOutputType(OAuthAuthenticationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(OAuthAuthenticationResponseOutput{})
 	pulumi.RegisterOutputType(RetryPolicyOutput{})
 	pulumi.RegisterOutputType(RetryPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RetryPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RetryPolicyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetryPolicyResponseOutput{})
 	pulumi.RegisterOutputType(RetryPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceBusAuthenticationOutput{})
 	pulumi.RegisterOutputType(ServiceBusAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceBusAuthenticationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceBusAuthenticationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceBusAuthenticationResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusAuthenticationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceBusBrokeredMessagePropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceBusBrokeredMessagePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ServiceBusBrokeredMessagePropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceBusBrokeredMessagePropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceBusBrokeredMessagePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusBrokeredMessagePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceBusQueueMessageOutput{})
 	pulumi.RegisterOutputType(ServiceBusQueueMessagePtrOutput{})
+	pulumi.RegisterOutputType(ServiceBusQueueMessageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceBusQueueMessageInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceBusQueueMessageResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusQueueMessageResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceBusTopicMessageOutput{})
 	pulumi.RegisterOutputType(ServiceBusTopicMessagePtrOutput{})
+	pulumi.RegisterOutputType(ServiceBusTopicMessageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceBusTopicMessageInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceBusTopicMessageResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusTopicMessageResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageQueueMessageOutput{})
 	pulumi.RegisterOutputType(StorageQueueMessagePtrOutput{})
+	pulumi.RegisterOutputType(StorageQueueMessageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StorageQueueMessageInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageQueueMessageResponseOutput{})
 	pulumi.RegisterOutputType(StorageQueueMessageResponsePtrOutput{})
 }

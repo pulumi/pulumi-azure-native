@@ -183,6 +183,178 @@ func (o BudgetComparisonExpressionPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 // The comparison expression to be used in the budgets.
+type BudgetComparisonExpressionInvokeResponse struct {
+	// The name of the column to use in comparison.
+	Name string `pulumi:"name"`
+	// The operator to use for comparison.
+	Operator string `pulumi:"operator"`
+	// Array of values to use for comparison
+	Values []string `pulumi:"values"`
+}
+
+// BudgetComparisonExpressionInvokeResponseInput is an input type that accepts BudgetComparisonExpressionInvokeResponseArgs and BudgetComparisonExpressionInvokeResponseOutput values.
+// You can construct a concrete instance of `BudgetComparisonExpressionInvokeResponseInput` via:
+//
+//          BudgetComparisonExpressionInvokeResponseArgs{...}
+type BudgetComparisonExpressionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBudgetComparisonExpressionInvokeResponseOutput() BudgetComparisonExpressionInvokeResponseOutput
+	ToBudgetComparisonExpressionInvokeResponseOutputWithContext(context.Context) BudgetComparisonExpressionInvokeResponseOutput
+}
+
+// The comparison expression to be used in the budgets.
+type BudgetComparisonExpressionInvokeResponseArgs struct {
+	// The name of the column to use in comparison.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The operator to use for comparison.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Array of values to use for comparison
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetComparisonExpressionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetComparisonExpressionInvokeResponse)(nil)).Elem()
+}
+
+func (i BudgetComparisonExpressionInvokeResponseArgs) ToBudgetComparisonExpressionInvokeResponseOutput() BudgetComparisonExpressionInvokeResponseOutput {
+	return i.ToBudgetComparisonExpressionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BudgetComparisonExpressionInvokeResponseArgs) ToBudgetComparisonExpressionInvokeResponseOutputWithContext(ctx context.Context) BudgetComparisonExpressionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetComparisonExpressionInvokeResponseOutput)
+}
+
+func (i BudgetComparisonExpressionInvokeResponseArgs) ToBudgetComparisonExpressionInvokeResponsePtrOutput() BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return i.ToBudgetComparisonExpressionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BudgetComparisonExpressionInvokeResponseArgs) ToBudgetComparisonExpressionInvokeResponsePtrOutputWithContext(ctx context.Context) BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetComparisonExpressionInvokeResponseOutput).ToBudgetComparisonExpressionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// BudgetComparisonExpressionInvokeResponsePtrInput is an input type that accepts BudgetComparisonExpressionInvokeResponseArgs, BudgetComparisonExpressionInvokeResponsePtr and BudgetComparisonExpressionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `BudgetComparisonExpressionInvokeResponsePtrInput` via:
+//
+//          BudgetComparisonExpressionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetComparisonExpressionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToBudgetComparisonExpressionInvokeResponsePtrOutput() BudgetComparisonExpressionInvokeResponsePtrOutput
+	ToBudgetComparisonExpressionInvokeResponsePtrOutputWithContext(context.Context) BudgetComparisonExpressionInvokeResponsePtrOutput
+}
+
+type budgetComparisonExpressionInvokeResponsePtrType BudgetComparisonExpressionInvokeResponseArgs
+
+func BudgetComparisonExpressionInvokeResponsePtr(v *BudgetComparisonExpressionInvokeResponseArgs) BudgetComparisonExpressionInvokeResponsePtrInput {
+	return (*budgetComparisonExpressionInvokeResponsePtrType)(v)
+}
+
+func (*budgetComparisonExpressionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetComparisonExpressionInvokeResponse)(nil)).Elem()
+}
+
+func (i *budgetComparisonExpressionInvokeResponsePtrType) ToBudgetComparisonExpressionInvokeResponsePtrOutput() BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return i.ToBudgetComparisonExpressionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *budgetComparisonExpressionInvokeResponsePtrType) ToBudgetComparisonExpressionInvokeResponsePtrOutputWithContext(ctx context.Context) BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetComparisonExpressionInvokeResponsePtrOutput)
+}
+
+// The comparison expression to be used in the budgets.
+type BudgetComparisonExpressionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BudgetComparisonExpressionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetComparisonExpressionInvokeResponse)(nil)).Elem()
+}
+
+func (o BudgetComparisonExpressionInvokeResponseOutput) ToBudgetComparisonExpressionInvokeResponseOutput() BudgetComparisonExpressionInvokeResponseOutput {
+	return o
+}
+
+func (o BudgetComparisonExpressionInvokeResponseOutput) ToBudgetComparisonExpressionInvokeResponseOutputWithContext(ctx context.Context) BudgetComparisonExpressionInvokeResponseOutput {
+	return o
+}
+
+func (o BudgetComparisonExpressionInvokeResponseOutput) ToBudgetComparisonExpressionInvokeResponsePtrOutput() BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return o.ToBudgetComparisonExpressionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BudgetComparisonExpressionInvokeResponseOutput) ToBudgetComparisonExpressionInvokeResponsePtrOutputWithContext(ctx context.Context) BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BudgetComparisonExpressionInvokeResponse) *BudgetComparisonExpressionInvokeResponse {
+		return &v
+	}).(BudgetComparisonExpressionInvokeResponsePtrOutput)
+}
+
+// The name of the column to use in comparison.
+func (o BudgetComparisonExpressionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetComparisonExpressionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operator to use for comparison.
+func (o BudgetComparisonExpressionInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetComparisonExpressionInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Array of values to use for comparison
+func (o BudgetComparisonExpressionInvokeResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetComparisonExpressionInvokeResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetComparisonExpressionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetComparisonExpressionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetComparisonExpressionInvokeResponse)(nil)).Elem()
+}
+
+func (o BudgetComparisonExpressionInvokeResponsePtrOutput) ToBudgetComparisonExpressionInvokeResponsePtrOutput() BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BudgetComparisonExpressionInvokeResponsePtrOutput) ToBudgetComparisonExpressionInvokeResponsePtrOutputWithContext(ctx context.Context) BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BudgetComparisonExpressionInvokeResponsePtrOutput) Elem() BudgetComparisonExpressionInvokeResponseOutput {
+	return o.ApplyT(func(v *BudgetComparisonExpressionInvokeResponse) BudgetComparisonExpressionInvokeResponse { return *v }).(BudgetComparisonExpressionInvokeResponseOutput)
+}
+
+// The name of the column to use in comparison.
+func (o BudgetComparisonExpressionInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetComparisonExpressionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The operator to use for comparison.
+func (o BudgetComparisonExpressionInvokeResponsePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetComparisonExpressionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Array of values to use for comparison
+func (o BudgetComparisonExpressionInvokeResponsePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetComparisonExpressionInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// The comparison expression to be used in the budgets.
 type BudgetComparisonExpressionResponse struct {
 	// The name of the column to use in comparison.
 	Name string `pulumi:"name"`
@@ -545,6 +717,88 @@ func (o BudgetFilterPtrOutput) Tags() BudgetComparisonExpressionPtrOutput {
 	}).(BudgetComparisonExpressionPtrOutput)
 }
 
+// May be used to filter budgets by resource group, resource, or meter.
+type BudgetFilterInvokeResponse struct {
+	// The logical "AND" expression. Must have at least 2 items.
+	And []BudgetFilterPropertiesInvokeResponse `pulumi:"and"`
+	// Has comparison expression for a dimension
+	Dimensions *BudgetComparisonExpressionInvokeResponse `pulumi:"dimensions"`
+	// The logical "NOT" expression.
+	Not *BudgetFilterPropertiesInvokeResponse `pulumi:"not"`
+	// Has comparison expression for a tag
+	Tags *BudgetComparisonExpressionInvokeResponse `pulumi:"tags"`
+}
+
+// BudgetFilterInvokeResponseInput is an input type that accepts BudgetFilterInvokeResponseArgs and BudgetFilterInvokeResponseOutput values.
+// You can construct a concrete instance of `BudgetFilterInvokeResponseInput` via:
+//
+//          BudgetFilterInvokeResponseArgs{...}
+type BudgetFilterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBudgetFilterInvokeResponseOutput() BudgetFilterInvokeResponseOutput
+	ToBudgetFilterInvokeResponseOutputWithContext(context.Context) BudgetFilterInvokeResponseOutput
+}
+
+// May be used to filter budgets by resource group, resource, or meter.
+type BudgetFilterInvokeResponseArgs struct {
+	// The logical "AND" expression. Must have at least 2 items.
+	And BudgetFilterPropertiesInvokeResponseArrayInput `pulumi:"and"`
+	// Has comparison expression for a dimension
+	Dimensions BudgetComparisonExpressionInvokeResponsePtrInput `pulumi:"dimensions"`
+	// The logical "NOT" expression.
+	Not BudgetFilterPropertiesInvokeResponsePtrInput `pulumi:"not"`
+	// Has comparison expression for a tag
+	Tags BudgetComparisonExpressionInvokeResponsePtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i BudgetFilterInvokeResponseArgs) ToBudgetFilterInvokeResponseOutput() BudgetFilterInvokeResponseOutput {
+	return i.ToBudgetFilterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterInvokeResponseArgs) ToBudgetFilterInvokeResponseOutputWithContext(ctx context.Context) BudgetFilterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterInvokeResponseOutput)
+}
+
+// May be used to filter budgets by resource group, resource, or meter.
+type BudgetFilterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o BudgetFilterInvokeResponseOutput) ToBudgetFilterInvokeResponseOutput() BudgetFilterInvokeResponseOutput {
+	return o
+}
+
+func (o BudgetFilterInvokeResponseOutput) ToBudgetFilterInvokeResponseOutputWithContext(ctx context.Context) BudgetFilterInvokeResponseOutput {
+	return o
+}
+
+// The logical "AND" expression. Must have at least 2 items.
+func (o BudgetFilterInvokeResponseOutput) And() BudgetFilterPropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v BudgetFilterInvokeResponse) []BudgetFilterPropertiesInvokeResponse { return v.And }).(BudgetFilterPropertiesInvokeResponseArrayOutput)
+}
+
+// Has comparison expression for a dimension
+func (o BudgetFilterInvokeResponseOutput) Dimensions() BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BudgetFilterInvokeResponse) *BudgetComparisonExpressionInvokeResponse { return v.Dimensions }).(BudgetComparisonExpressionInvokeResponsePtrOutput)
+}
+
+// The logical "NOT" expression.
+func (o BudgetFilterInvokeResponseOutput) Not() BudgetFilterPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BudgetFilterInvokeResponse) *BudgetFilterPropertiesInvokeResponse { return v.Not }).(BudgetFilterPropertiesInvokeResponsePtrOutput)
+}
+
+// Has comparison expression for a tag
+func (o BudgetFilterInvokeResponseOutput) Tags() BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BudgetFilterInvokeResponse) *BudgetComparisonExpressionInvokeResponse { return v.Tags }).(BudgetComparisonExpressionInvokeResponsePtrOutput)
+}
+
 // The Dimensions or Tags to filter a budget by.
 type BudgetFilterProperties struct {
 	// Has comparison expression for a dimension
@@ -741,6 +995,206 @@ func (o BudgetFilterPropertiesArrayOutput) Index(i pulumi.IntInput) BudgetFilter
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetFilterProperties {
 		return vs[0].([]BudgetFilterProperties)[vs[1].(int)]
 	}).(BudgetFilterPropertiesOutput)
+}
+
+// The Dimensions or Tags to filter a budget by.
+type BudgetFilterPropertiesInvokeResponse struct {
+	// Has comparison expression for a dimension
+	Dimensions *BudgetComparisonExpressionInvokeResponse `pulumi:"dimensions"`
+	// Has comparison expression for a tag
+	Tags *BudgetComparisonExpressionInvokeResponse `pulumi:"tags"`
+}
+
+// BudgetFilterPropertiesInvokeResponseInput is an input type that accepts BudgetFilterPropertiesInvokeResponseArgs and BudgetFilterPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `BudgetFilterPropertiesInvokeResponseInput` via:
+//
+//          BudgetFilterPropertiesInvokeResponseArgs{...}
+type BudgetFilterPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBudgetFilterPropertiesInvokeResponseOutput() BudgetFilterPropertiesInvokeResponseOutput
+	ToBudgetFilterPropertiesInvokeResponseOutputWithContext(context.Context) BudgetFilterPropertiesInvokeResponseOutput
+}
+
+// The Dimensions or Tags to filter a budget by.
+type BudgetFilterPropertiesInvokeResponseArgs struct {
+	// Has comparison expression for a dimension
+	Dimensions BudgetComparisonExpressionInvokeResponsePtrInput `pulumi:"dimensions"`
+	// Has comparison expression for a tag
+	Tags BudgetComparisonExpressionInvokeResponsePtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i BudgetFilterPropertiesInvokeResponseArgs) ToBudgetFilterPropertiesInvokeResponseOutput() BudgetFilterPropertiesInvokeResponseOutput {
+	return i.ToBudgetFilterPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterPropertiesInvokeResponseArgs) ToBudgetFilterPropertiesInvokeResponseOutputWithContext(ctx context.Context) BudgetFilterPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesInvokeResponseOutput)
+}
+
+func (i BudgetFilterPropertiesInvokeResponseArgs) ToBudgetFilterPropertiesInvokeResponsePtrOutput() BudgetFilterPropertiesInvokeResponsePtrOutput {
+	return i.ToBudgetFilterPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterPropertiesInvokeResponseArgs) ToBudgetFilterPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesInvokeResponseOutput).ToBudgetFilterPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// BudgetFilterPropertiesInvokeResponsePtrInput is an input type that accepts BudgetFilterPropertiesInvokeResponseArgs, BudgetFilterPropertiesInvokeResponsePtr and BudgetFilterPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `BudgetFilterPropertiesInvokeResponsePtrInput` via:
+//
+//          BudgetFilterPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetFilterPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterPropertiesInvokeResponsePtrOutput() BudgetFilterPropertiesInvokeResponsePtrOutput
+	ToBudgetFilterPropertiesInvokeResponsePtrOutputWithContext(context.Context) BudgetFilterPropertiesInvokeResponsePtrOutput
+}
+
+type budgetFilterPropertiesInvokeResponsePtrType BudgetFilterPropertiesInvokeResponseArgs
+
+func BudgetFilterPropertiesInvokeResponsePtr(v *BudgetFilterPropertiesInvokeResponseArgs) BudgetFilterPropertiesInvokeResponsePtrInput {
+	return (*budgetFilterPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*budgetFilterPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *budgetFilterPropertiesInvokeResponsePtrType) ToBudgetFilterPropertiesInvokeResponsePtrOutput() BudgetFilterPropertiesInvokeResponsePtrOutput {
+	return i.ToBudgetFilterPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterPropertiesInvokeResponsePtrType) ToBudgetFilterPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesInvokeResponsePtrOutput)
+}
+
+// BudgetFilterPropertiesInvokeResponseArrayInput is an input type that accepts BudgetFilterPropertiesInvokeResponseArray and BudgetFilterPropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `BudgetFilterPropertiesInvokeResponseArrayInput` via:
+//
+//          BudgetFilterPropertiesInvokeResponseArray{ BudgetFilterPropertiesInvokeResponseArgs{...} }
+type BudgetFilterPropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToBudgetFilterPropertiesInvokeResponseArrayOutput() BudgetFilterPropertiesInvokeResponseArrayOutput
+	ToBudgetFilterPropertiesInvokeResponseArrayOutputWithContext(context.Context) BudgetFilterPropertiesInvokeResponseArrayOutput
+}
+
+type BudgetFilterPropertiesInvokeResponseArray []BudgetFilterPropertiesInvokeResponseInput
+
+func (BudgetFilterPropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i BudgetFilterPropertiesInvokeResponseArray) ToBudgetFilterPropertiesInvokeResponseArrayOutput() BudgetFilterPropertiesInvokeResponseArrayOutput {
+	return i.ToBudgetFilterPropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterPropertiesInvokeResponseArray) ToBudgetFilterPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) BudgetFilterPropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterPropertiesInvokeResponseArrayOutput)
+}
+
+// The Dimensions or Tags to filter a budget by.
+type BudgetFilterPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o BudgetFilterPropertiesInvokeResponseOutput) ToBudgetFilterPropertiesInvokeResponseOutput() BudgetFilterPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o BudgetFilterPropertiesInvokeResponseOutput) ToBudgetFilterPropertiesInvokeResponseOutputWithContext(ctx context.Context) BudgetFilterPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o BudgetFilterPropertiesInvokeResponseOutput) ToBudgetFilterPropertiesInvokeResponsePtrOutput() BudgetFilterPropertiesInvokeResponsePtrOutput {
+	return o.ToBudgetFilterPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterPropertiesInvokeResponseOutput) ToBudgetFilterPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BudgetFilterPropertiesInvokeResponse) *BudgetFilterPropertiesInvokeResponse {
+		return &v
+	}).(BudgetFilterPropertiesInvokeResponsePtrOutput)
+}
+
+// Has comparison expression for a dimension
+func (o BudgetFilterPropertiesInvokeResponseOutput) Dimensions() BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BudgetFilterPropertiesInvokeResponse) *BudgetComparisonExpressionInvokeResponse {
+		return v.Dimensions
+	}).(BudgetComparisonExpressionInvokeResponsePtrOutput)
+}
+
+// Has comparison expression for a tag
+func (o BudgetFilterPropertiesInvokeResponseOutput) Tags() BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BudgetFilterPropertiesInvokeResponse) *BudgetComparisonExpressionInvokeResponse { return v.Tags }).(BudgetComparisonExpressionInvokeResponsePtrOutput)
+}
+
+type BudgetFilterPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o BudgetFilterPropertiesInvokeResponsePtrOutput) ToBudgetFilterPropertiesInvokeResponsePtrOutput() BudgetFilterPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BudgetFilterPropertiesInvokeResponsePtrOutput) ToBudgetFilterPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BudgetFilterPropertiesInvokeResponsePtrOutput) Elem() BudgetFilterPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *BudgetFilterPropertiesInvokeResponse) BudgetFilterPropertiesInvokeResponse { return *v }).(BudgetFilterPropertiesInvokeResponseOutput)
+}
+
+// Has comparison expression for a dimension
+func (o BudgetFilterPropertiesInvokeResponsePtrOutput) Dimensions() BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *BudgetFilterPropertiesInvokeResponse) *BudgetComparisonExpressionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(BudgetComparisonExpressionInvokeResponsePtrOutput)
+}
+
+// Has comparison expression for a tag
+func (o BudgetFilterPropertiesInvokeResponsePtrOutput) Tags() BudgetComparisonExpressionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *BudgetFilterPropertiesInvokeResponse) *BudgetComparisonExpressionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(BudgetComparisonExpressionInvokeResponsePtrOutput)
+}
+
+type BudgetFilterPropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterPropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o BudgetFilterPropertiesInvokeResponseArrayOutput) ToBudgetFilterPropertiesInvokeResponseArrayOutput() BudgetFilterPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BudgetFilterPropertiesInvokeResponseArrayOutput) ToBudgetFilterPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) BudgetFilterPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BudgetFilterPropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) BudgetFilterPropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetFilterPropertiesInvokeResponse {
+		return vs[0].([]BudgetFilterPropertiesInvokeResponse)[vs[1].(int)]
+	}).(BudgetFilterPropertiesInvokeResponseOutput)
 }
 
 // The Dimensions or Tags to filter a budget by.
@@ -1286,6 +1740,70 @@ func (o BudgetTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
 }
 
 // The start and end date for a budget.
+type BudgetTimePeriodInvokeResponse struct {
+	// The end date for the budget. If not provided, we default this to 10 years from the start date.
+	EndDate *string `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate string `pulumi:"startDate"`
+}
+
+// BudgetTimePeriodInvokeResponseInput is an input type that accepts BudgetTimePeriodInvokeResponseArgs and BudgetTimePeriodInvokeResponseOutput values.
+// You can construct a concrete instance of `BudgetTimePeriodInvokeResponseInput` via:
+//
+//          BudgetTimePeriodInvokeResponseArgs{...}
+type BudgetTimePeriodInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBudgetTimePeriodInvokeResponseOutput() BudgetTimePeriodInvokeResponseOutput
+	ToBudgetTimePeriodInvokeResponseOutputWithContext(context.Context) BudgetTimePeriodInvokeResponseOutput
+}
+
+// The start and end date for a budget.
+type BudgetTimePeriodInvokeResponseArgs struct {
+	// The end date for the budget. If not provided, we default this to 10 years from the start date.
+	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
+	// The start date for the budget.
+	StartDate pulumi.StringInput `pulumi:"startDate"`
+}
+
+func (BudgetTimePeriodInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriodInvokeResponse)(nil)).Elem()
+}
+
+func (i BudgetTimePeriodInvokeResponseArgs) ToBudgetTimePeriodInvokeResponseOutput() BudgetTimePeriodInvokeResponseOutput {
+	return i.ToBudgetTimePeriodInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BudgetTimePeriodInvokeResponseArgs) ToBudgetTimePeriodInvokeResponseOutputWithContext(ctx context.Context) BudgetTimePeriodInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodInvokeResponseOutput)
+}
+
+// The start and end date for a budget.
+type BudgetTimePeriodInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BudgetTimePeriodInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriodInvokeResponse)(nil)).Elem()
+}
+
+func (o BudgetTimePeriodInvokeResponseOutput) ToBudgetTimePeriodInvokeResponseOutput() BudgetTimePeriodInvokeResponseOutput {
+	return o
+}
+
+func (o BudgetTimePeriodInvokeResponseOutput) ToBudgetTimePeriodInvokeResponseOutputWithContext(ctx context.Context) BudgetTimePeriodInvokeResponseOutput {
+	return o
+}
+
+// The end date for the budget. If not provided, we default this to 10 years from the start date.
+func (o BudgetTimePeriodInvokeResponseOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetTimePeriodInvokeResponse) *string { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// The start date for the budget.
+func (o BudgetTimePeriodInvokeResponseOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetTimePeriodInvokeResponse) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+// The start and end date for a budget.
 type BudgetTimePeriodResponse struct {
 	// The end date for the budget. If not provided, we default this to 10 years from the start date.
 	EndDate *string `pulumi:"endDate"`
@@ -1436,6 +1954,70 @@ func (o BudgetTimePeriodResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
 		}
 		return &v.StartDate
 	}).(pulumi.StringPtrOutput)
+}
+
+// The current amount of cost which is being tracked for a budget.
+type CurrentSpendInvokeResponse struct {
+	// The total amount of cost which is being tracked by the budget.
+	Amount float64 `pulumi:"amount"`
+	// The unit of measure for the budget amount.
+	Unit string `pulumi:"unit"`
+}
+
+// CurrentSpendInvokeResponseInput is an input type that accepts CurrentSpendInvokeResponseArgs and CurrentSpendInvokeResponseOutput values.
+// You can construct a concrete instance of `CurrentSpendInvokeResponseInput` via:
+//
+//          CurrentSpendInvokeResponseArgs{...}
+type CurrentSpendInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCurrentSpendInvokeResponseOutput() CurrentSpendInvokeResponseOutput
+	ToCurrentSpendInvokeResponseOutputWithContext(context.Context) CurrentSpendInvokeResponseOutput
+}
+
+// The current amount of cost which is being tracked for a budget.
+type CurrentSpendInvokeResponseArgs struct {
+	// The total amount of cost which is being tracked by the budget.
+	Amount pulumi.Float64Input `pulumi:"amount"`
+	// The unit of measure for the budget amount.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (CurrentSpendInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CurrentSpendInvokeResponse)(nil)).Elem()
+}
+
+func (i CurrentSpendInvokeResponseArgs) ToCurrentSpendInvokeResponseOutput() CurrentSpendInvokeResponseOutput {
+	return i.ToCurrentSpendInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CurrentSpendInvokeResponseArgs) ToCurrentSpendInvokeResponseOutputWithContext(ctx context.Context) CurrentSpendInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendInvokeResponseOutput)
+}
+
+// The current amount of cost which is being tracked for a budget.
+type CurrentSpendInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CurrentSpendInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CurrentSpendInvokeResponse)(nil)).Elem()
+}
+
+func (o CurrentSpendInvokeResponseOutput) ToCurrentSpendInvokeResponseOutput() CurrentSpendInvokeResponseOutput {
+	return o
+}
+
+func (o CurrentSpendInvokeResponseOutput) ToCurrentSpendInvokeResponseOutputWithContext(ctx context.Context) CurrentSpendInvokeResponseOutput {
+	return o
+}
+
+// The total amount of cost which is being tracked by the budget.
+func (o CurrentSpendInvokeResponseOutput) Amount() pulumi.Float64Output {
+	return o.ApplyT(func(v CurrentSpendInvokeResponse) float64 { return v.Amount }).(pulumi.Float64Output)
+}
+
+// The unit of measure for the budget amount.
+func (o CurrentSpendInvokeResponseOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v CurrentSpendInvokeResponse) string { return v.Unit }).(pulumi.StringOutput)
 }
 
 // The current amount of cost which is being tracked for a budget.
@@ -1746,6 +2328,160 @@ func (o NotificationMapOutput) MapIndex(k pulumi.StringInput) NotificationOutput
 }
 
 // The notification associated with a budget.
+type NotificationInvokeResponse struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
+	ContactEmails []string `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
+	ContactGroups []string `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles []string `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled bool `pulumi:"enabled"`
+	// The comparison operator.
+	Operator string `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold float64 `pulumi:"threshold"`
+	// The type of threshold
+	ThresholdType *string `pulumi:"thresholdType"`
+}
+
+// NotificationInvokeResponseInput is an input type that accepts NotificationInvokeResponseArgs and NotificationInvokeResponseOutput values.
+// You can construct a concrete instance of `NotificationInvokeResponseInput` via:
+//
+//          NotificationInvokeResponseArgs{...}
+type NotificationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNotificationInvokeResponseOutput() NotificationInvokeResponseOutput
+	ToNotificationInvokeResponseOutputWithContext(context.Context) NotificationInvokeResponseOutput
+}
+
+// The notification associated with a budget.
+type NotificationInvokeResponseArgs struct {
+	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
+	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
+	// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
+	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
+	// Contact roles to send the budget notification to when the threshold is exceeded.
+	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
+	// The notification is enabled or not.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The comparison operator.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The type of threshold
+	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
+}
+
+func (NotificationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationInvokeResponse)(nil)).Elem()
+}
+
+func (i NotificationInvokeResponseArgs) ToNotificationInvokeResponseOutput() NotificationInvokeResponseOutput {
+	return i.ToNotificationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NotificationInvokeResponseArgs) ToNotificationInvokeResponseOutputWithContext(ctx context.Context) NotificationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationInvokeResponseOutput)
+}
+
+// NotificationInvokeResponseMapInput is an input type that accepts NotificationInvokeResponseMap and NotificationInvokeResponseMapOutput values.
+// You can construct a concrete instance of `NotificationInvokeResponseMapInput` via:
+//
+//          NotificationInvokeResponseMap{ "key": NotificationInvokeResponseArgs{...} }
+type NotificationInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToNotificationInvokeResponseMapOutput() NotificationInvokeResponseMapOutput
+	ToNotificationInvokeResponseMapOutputWithContext(context.Context) NotificationInvokeResponseMapOutput
+}
+
+type NotificationInvokeResponseMap map[string]NotificationInvokeResponseInput
+
+func (NotificationInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotificationInvokeResponse)(nil)).Elem()
+}
+
+func (i NotificationInvokeResponseMap) ToNotificationInvokeResponseMapOutput() NotificationInvokeResponseMapOutput {
+	return i.ToNotificationInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i NotificationInvokeResponseMap) ToNotificationInvokeResponseMapOutputWithContext(ctx context.Context) NotificationInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationInvokeResponseMapOutput)
+}
+
+// The notification associated with a budget.
+type NotificationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NotificationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationInvokeResponse)(nil)).Elem()
+}
+
+func (o NotificationInvokeResponseOutput) ToNotificationInvokeResponseOutput() NotificationInvokeResponseOutput {
+	return o
+}
+
+func (o NotificationInvokeResponseOutput) ToNotificationInvokeResponseOutputWithContext(ctx context.Context) NotificationInvokeResponseOutput {
+	return o
+}
+
+// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
+func (o NotificationInvokeResponseOutput) ContactEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) []string { return v.ContactEmails }).(pulumi.StringArrayOutput)
+}
+
+// Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.
+func (o NotificationInvokeResponseOutput) ContactGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) []string { return v.ContactGroups }).(pulumi.StringArrayOutput)
+}
+
+// Contact roles to send the budget notification to when the threshold is exceeded.
+func (o NotificationInvokeResponseOutput) ContactRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) []string { return v.ContactRoles }).(pulumi.StringArrayOutput)
+}
+
+// The notification is enabled or not.
+func (o NotificationInvokeResponseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The comparison operator.
+func (o NotificationInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+func (o NotificationInvokeResponseOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v NotificationInvokeResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// The type of threshold
+func (o NotificationInvokeResponseOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationInvokeResponse) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
+}
+
+type NotificationInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (NotificationInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NotificationInvokeResponse)(nil)).Elem()
+}
+
+func (o NotificationInvokeResponseMapOutput) ToNotificationInvokeResponseMapOutput() NotificationInvokeResponseMapOutput {
+	return o
+}
+
+func (o NotificationInvokeResponseMapOutput) ToNotificationInvokeResponseMapOutputWithContext(ctx context.Context) NotificationInvokeResponseMapOutput {
+	return o
+}
+
+func (o NotificationInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) NotificationInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotificationInvokeResponse {
+		return vs[0].(map[string]NotificationInvokeResponse)[vs[1].(string)]
+	}).(NotificationInvokeResponseOutput)
+}
+
+// The notification associated with a budget.
 type NotificationResponse struct {
 	// Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
 	ContactEmails []string `pulumi:"contactEmails"`
@@ -1902,13 +2638,19 @@ func (o NotificationResponseMapOutput) MapIndex(k pulumi.StringInput) Notificati
 func init() {
 	pulumi.RegisterOutputType(BudgetComparisonExpressionOutput{})
 	pulumi.RegisterOutputType(BudgetComparisonExpressionPtrOutput{})
+	pulumi.RegisterOutputType(BudgetComparisonExpressionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BudgetComparisonExpressionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(BudgetComparisonExpressionResponseOutput{})
 	pulumi.RegisterOutputType(BudgetComparisonExpressionResponsePtrOutput{})
 	pulumi.RegisterOutputType(BudgetFilterOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPropertiesOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(BudgetFilterPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BudgetFilterPropertiesInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterPropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BudgetFilterPropertiesResponseArrayOutput{})
@@ -1916,12 +2658,16 @@ func init() {
 	pulumi.RegisterOutputType(BudgetFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodPtrOutput{})
+	pulumi.RegisterOutputType(BudgetTimePeriodInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodResponseOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodResponsePtrOutput{})
+	pulumi.RegisterOutputType(CurrentSpendInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CurrentSpendResponseOutput{})
 	pulumi.RegisterOutputType(CurrentSpendResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationOutput{})
 	pulumi.RegisterOutputType(NotificationMapOutput{})
+	pulumi.RegisterOutputType(NotificationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NotificationInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(NotificationResponseOutput{})
 	pulumi.RegisterOutputType(NotificationResponseMapOutput{})
 }

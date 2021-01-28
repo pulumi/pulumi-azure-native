@@ -46,7 +46,7 @@ type LookupRedisResult struct {
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount *int `pulumi:"shardCount"`
 	// What SKU of Redis cache to deploy.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Redis SSL port.
 	SslPort *int `pulumi:"sslPort"`
 	// Required when deploying a Redis cache inside an existing Azure Virtual Network.

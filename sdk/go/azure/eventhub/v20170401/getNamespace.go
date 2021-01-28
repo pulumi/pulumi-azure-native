@@ -46,7 +46,7 @@ type LookupNamespaceResult struct {
 	// Endpoint you can use to perform Service Bus operations.
 	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
 	// Properties of sku resource
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

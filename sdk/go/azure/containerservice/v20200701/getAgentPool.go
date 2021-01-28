@@ -74,7 +74,7 @@ type LookupAgentPoolResult struct {
 	// AgentPoolType represents types of an agent pool
 	Type string `pulumi:"type"`
 	// Settings for upgrading the agentpool
-	UpgradeSettings *AgentPoolUpgradeSettingsResponse `pulumi:"upgradeSettings"`
+	UpgradeSettings *AgentPoolUpgradeSettingsInvokeResponse `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize *string `pulumi:"vmSize"`
 	// VNet SubnetID specifies the VNet's subnet identifier.

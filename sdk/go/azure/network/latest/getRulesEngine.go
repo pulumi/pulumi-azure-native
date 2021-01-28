@@ -34,7 +34,7 @@ type LookupRulesEngineResult struct {
 	// Resource status.
 	ResourceState string `pulumi:"resourceState"`
 	// A list of rules that define a particular Rules Engine Configuration.
-	Rules []RulesEngineRuleResponse `pulumi:"rules"`
+	Rules []RulesEngineRuleInvokeResponse `pulumi:"rules"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

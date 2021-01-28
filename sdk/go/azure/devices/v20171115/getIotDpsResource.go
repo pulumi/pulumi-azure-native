@@ -34,9 +34,9 @@ type LookupIotDpsResourceResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// Service specific properties for a provisioning service
-	Properties IotDpsPropertiesDescriptionResponse `pulumi:"properties"`
+	Properties IotDpsPropertiesDescriptionInvokeResponse `pulumi:"properties"`
 	// SKU info for a provisioning service.
-	Sku IotDpsSkuInfoResponse `pulumi:"sku"`
+	Sku IotDpsSkuInfoInvokeResponse `pulumi:"sku"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

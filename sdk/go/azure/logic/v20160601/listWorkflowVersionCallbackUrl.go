@@ -38,7 +38,7 @@ type ListWorkflowVersionCallbackUrlResult struct {
 	// Gets the workflow trigger callback URL HTTP method.
 	Method string `pulumi:"method"`
 	// Gets the workflow trigger callback URL query parameters.
-	Queries *WorkflowTriggerListCallbackUrlQueriesResponse `pulumi:"queries"`
+	Queries *WorkflowTriggerListCallbackUrlQueriesInvokeResponse `pulumi:"queries"`
 	// Gets the workflow trigger callback URL relative path.
 	RelativePath string `pulumi:"relativePath"`
 	// Gets the workflow trigger callback URL relative path parameters.

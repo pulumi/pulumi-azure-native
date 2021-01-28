@@ -111,6 +111,106 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput) Index(i pulu
 }
 
 // Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse struct {
+	// The rule baseline result
+	Result []string `pulumi:"result"`
+}
+
+// DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseInput is an input type that accepts DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs and DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput values.
+// You can construct a concrete instance of `DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseInput` via:
+//
+//          DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs{...}
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput
+	ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput
+}
+
+// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs struct {
+	// The rule baseline result
+	Result pulumi.StringArrayInput `pulumi:"result"`
+}
+
+func (DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse)(nil)).Elem()
+}
+
+func (i DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput {
+	return i.ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput)
+}
+
+// DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayInput is an input type that accepts DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray and DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayInput` via:
+//
+//          DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray{ DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs{...} }
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput
+	ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput
+}
+
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray []DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseInput
+
+func (DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse)(nil)).Elem()
+}
+
+func (i DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput {
+	return i.ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput)
+}
+
+// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse)(nil)).Elem()
+}
+
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput {
+	return o
+}
+
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput {
+	return o
+}
+
+// The rule baseline result
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput) Result() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse) []string { return v.Result }).(pulumi.StringArrayOutput)
+}
+
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse)(nil)).Elem()
+}
+
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput) Index(i pulumi.IntInput) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse {
+		return vs[0].([]DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse)[vs[1].(int)]
+	}).(DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput)
+}
+
+// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponse struct {
 	// The rule baseline result
 	Result []string `pulumi:"result"`
@@ -361,6 +461,70 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) MinCapacity() pulumi.Float64Ptr
 		}
 		return v.MinCapacity
 	}).(pulumi.Float64PtrOutput)
+}
+
+// Per database settings of an elastic pool.
+type ElasticPoolPerDatabaseSettingsInvokeResponse struct {
+	// The maximum capacity any one database can consume.
+	MaxCapacity *float64 `pulumi:"maxCapacity"`
+	// The minimum capacity all databases are guaranteed.
+	MinCapacity *float64 `pulumi:"minCapacity"`
+}
+
+// ElasticPoolPerDatabaseSettingsInvokeResponseInput is an input type that accepts ElasticPoolPerDatabaseSettingsInvokeResponseArgs and ElasticPoolPerDatabaseSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `ElasticPoolPerDatabaseSettingsInvokeResponseInput` via:
+//
+//          ElasticPoolPerDatabaseSettingsInvokeResponseArgs{...}
+type ElasticPoolPerDatabaseSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToElasticPoolPerDatabaseSettingsInvokeResponseOutput() ElasticPoolPerDatabaseSettingsInvokeResponseOutput
+	ToElasticPoolPerDatabaseSettingsInvokeResponseOutputWithContext(context.Context) ElasticPoolPerDatabaseSettingsInvokeResponseOutput
+}
+
+// Per database settings of an elastic pool.
+type ElasticPoolPerDatabaseSettingsInvokeResponseArgs struct {
+	// The maximum capacity any one database can consume.
+	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
+	// The minimum capacity all databases are guaranteed.
+	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
+}
+
+func (ElasticPoolPerDatabaseSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolPerDatabaseSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i ElasticPoolPerDatabaseSettingsInvokeResponseArgs) ToElasticPoolPerDatabaseSettingsInvokeResponseOutput() ElasticPoolPerDatabaseSettingsInvokeResponseOutput {
+	return i.ToElasticPoolPerDatabaseSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ElasticPoolPerDatabaseSettingsInvokeResponseArgs) ToElasticPoolPerDatabaseSettingsInvokeResponseOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsInvokeResponseOutput)
+}
+
+// Per database settings of an elastic pool.
+type ElasticPoolPerDatabaseSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ElasticPoolPerDatabaseSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ElasticPoolPerDatabaseSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o ElasticPoolPerDatabaseSettingsInvokeResponseOutput) ToElasticPoolPerDatabaseSettingsInvokeResponseOutput() ElasticPoolPerDatabaseSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o ElasticPoolPerDatabaseSettingsInvokeResponseOutput) ToElasticPoolPerDatabaseSettingsInvokeResponseOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsInvokeResponseOutput {
+	return o
+}
+
+// The maximum capacity any one database can consume.
+func (o ElasticPoolPerDatabaseSettingsInvokeResponseOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsInvokeResponse) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
+}
+
+// The minimum capacity all databases are guaranteed.
+func (o ElasticPoolPerDatabaseSettingsInvokeResponseOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ElasticPoolPerDatabaseSettingsInvokeResponse) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
 }
 
 // Per database settings of an elastic pool.
@@ -651,6 +815,61 @@ func (o FailoverGroupReadOnlyEndpointPtrOutput) FailoverPolicy() pulumi.StringPt
 }
 
 // Read-only endpoint of the failover group instance.
+type FailoverGroupReadOnlyEndpointInvokeResponse struct {
+	// Failover policy of the read-only endpoint for the failover group.
+	FailoverPolicy *string `pulumi:"failoverPolicy"`
+}
+
+// FailoverGroupReadOnlyEndpointInvokeResponseInput is an input type that accepts FailoverGroupReadOnlyEndpointInvokeResponseArgs and FailoverGroupReadOnlyEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `FailoverGroupReadOnlyEndpointInvokeResponseInput` via:
+//
+//          FailoverGroupReadOnlyEndpointInvokeResponseArgs{...}
+type FailoverGroupReadOnlyEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFailoverGroupReadOnlyEndpointInvokeResponseOutput() FailoverGroupReadOnlyEndpointInvokeResponseOutput
+	ToFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(context.Context) FailoverGroupReadOnlyEndpointInvokeResponseOutput
+}
+
+// Read-only endpoint of the failover group instance.
+type FailoverGroupReadOnlyEndpointInvokeResponseArgs struct {
+	// Failover policy of the read-only endpoint for the failover group.
+	FailoverPolicy pulumi.StringPtrInput `pulumi:"failoverPolicy"`
+}
+
+func (FailoverGroupReadOnlyEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReadOnlyEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i FailoverGroupReadOnlyEndpointInvokeResponseArgs) ToFailoverGroupReadOnlyEndpointInvokeResponseOutput() FailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return i.ToFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FailoverGroupReadOnlyEndpointInvokeResponseArgs) ToFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(ctx context.Context) FailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadOnlyEndpointInvokeResponseOutput)
+}
+
+// Read-only endpoint of the failover group instance.
+type FailoverGroupReadOnlyEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FailoverGroupReadOnlyEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReadOnlyEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o FailoverGroupReadOnlyEndpointInvokeResponseOutput) ToFailoverGroupReadOnlyEndpointInvokeResponseOutput() FailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o FailoverGroupReadOnlyEndpointInvokeResponseOutput) ToFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(ctx context.Context) FailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return o
+}
+
+// Failover policy of the read-only endpoint for the failover group.
+func (o FailoverGroupReadOnlyEndpointInvokeResponseOutput) FailoverPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverGroupReadOnlyEndpointInvokeResponse) *string { return v.FailoverPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Read-only endpoint of the failover group instance.
 type FailoverGroupReadOnlyEndpointResponse struct {
 	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy *string `pulumi:"failoverPolicy"`
@@ -933,6 +1152,72 @@ func (o FailoverGroupReadWriteEndpointPtrOutput) FailoverWithDataLossGracePeriod
 		if v == nil {
 			return nil
 		}
+		return v.FailoverWithDataLossGracePeriodMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Read-write endpoint of the failover group instance.
+type FailoverGroupReadWriteEndpointInvokeResponse struct {
+	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy string `pulumi:"failoverPolicy"`
+	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverWithDataLossGracePeriodMinutes *int `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+}
+
+// FailoverGroupReadWriteEndpointInvokeResponseInput is an input type that accepts FailoverGroupReadWriteEndpointInvokeResponseArgs and FailoverGroupReadWriteEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `FailoverGroupReadWriteEndpointInvokeResponseInput` via:
+//
+//          FailoverGroupReadWriteEndpointInvokeResponseArgs{...}
+type FailoverGroupReadWriteEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFailoverGroupReadWriteEndpointInvokeResponseOutput() FailoverGroupReadWriteEndpointInvokeResponseOutput
+	ToFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(context.Context) FailoverGroupReadWriteEndpointInvokeResponseOutput
+}
+
+// Read-write endpoint of the failover group instance.
+type FailoverGroupReadWriteEndpointInvokeResponseArgs struct {
+	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy pulumi.StringInput `pulumi:"failoverPolicy"`
+	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverWithDataLossGracePeriodMinutes pulumi.IntPtrInput `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+}
+
+func (FailoverGroupReadWriteEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReadWriteEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i FailoverGroupReadWriteEndpointInvokeResponseArgs) ToFailoverGroupReadWriteEndpointInvokeResponseOutput() FailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return i.ToFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FailoverGroupReadWriteEndpointInvokeResponseArgs) ToFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointInvokeResponseOutput)
+}
+
+// Read-write endpoint of the failover group instance.
+type FailoverGroupReadWriteEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FailoverGroupReadWriteEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverGroupReadWriteEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o FailoverGroupReadWriteEndpointInvokeResponseOutput) ToFailoverGroupReadWriteEndpointInvokeResponseOutput() FailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o FailoverGroupReadWriteEndpointInvokeResponseOutput) ToFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return o
+}
+
+// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+func (o FailoverGroupReadWriteEndpointInvokeResponseOutput) FailoverPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v FailoverGroupReadWriteEndpointInvokeResponse) string { return v.FailoverPolicy }).(pulumi.StringOutput)
+}
+
+// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+func (o FailoverGroupReadWriteEndpointInvokeResponseOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FailoverGroupReadWriteEndpointInvokeResponse) *int {
 		return v.FailoverWithDataLossGracePeriodMinutes
 	}).(pulumi.IntPtrOutput)
 }
@@ -1225,6 +1510,61 @@ func (o InstanceFailoverGroupReadOnlyEndpointPtrOutput) FailoverPolicy() pulumi.
 }
 
 // Read-only endpoint of the failover group instance.
+type InstanceFailoverGroupReadOnlyEndpointInvokeResponse struct {
+	// Failover policy of the read-only endpoint for the failover group.
+	FailoverPolicy *string `pulumi:"failoverPolicy"`
+}
+
+// InstanceFailoverGroupReadOnlyEndpointInvokeResponseInput is an input type that accepts InstanceFailoverGroupReadOnlyEndpointInvokeResponseArgs and InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `InstanceFailoverGroupReadOnlyEndpointInvokeResponseInput` via:
+//
+//          InstanceFailoverGroupReadOnlyEndpointInvokeResponseArgs{...}
+type InstanceFailoverGroupReadOnlyEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToInstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput() InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput
+	ToInstanceFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(context.Context) InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput
+}
+
+// Read-only endpoint of the failover group instance.
+type InstanceFailoverGroupReadOnlyEndpointInvokeResponseArgs struct {
+	// Failover policy of the read-only endpoint for the failover group.
+	FailoverPolicy pulumi.StringPtrInput `pulumi:"failoverPolicy"`
+}
+
+func (InstanceFailoverGroupReadOnlyEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFailoverGroupReadOnlyEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i InstanceFailoverGroupReadOnlyEndpointInvokeResponseArgs) ToInstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput() InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return i.ToInstanceFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i InstanceFailoverGroupReadOnlyEndpointInvokeResponseArgs) ToInstanceFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput)
+}
+
+// Read-only endpoint of the failover group instance.
+type InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFailoverGroupReadOnlyEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput) ToInstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput() InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput) ToInstanceFailoverGroupReadOnlyEndpointInvokeResponseOutputWithContext(ctx context.Context) InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput {
+	return o
+}
+
+// Failover policy of the read-only endpoint for the failover group.
+func (o InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput) FailoverPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceFailoverGroupReadOnlyEndpointInvokeResponse) *string { return v.FailoverPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Read-only endpoint of the failover group instance.
 type InstanceFailoverGroupReadOnlyEndpointResponse struct {
 	// Failover policy of the read-only endpoint for the failover group.
 	FailoverPolicy *string `pulumi:"failoverPolicy"`
@@ -1509,6 +1849,72 @@ func (o InstanceFailoverGroupReadWriteEndpointPtrOutput) FailoverWithDataLossGra
 		if v == nil {
 			return nil
 		}
+		return v.FailoverWithDataLossGracePeriodMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Read-write endpoint of the failover group instance.
+type InstanceFailoverGroupReadWriteEndpointInvokeResponse struct {
+	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy string `pulumi:"failoverPolicy"`
+	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverWithDataLossGracePeriodMinutes *int `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+}
+
+// InstanceFailoverGroupReadWriteEndpointInvokeResponseInput is an input type that accepts InstanceFailoverGroupReadWriteEndpointInvokeResponseArgs and InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `InstanceFailoverGroupReadWriteEndpointInvokeResponseInput` via:
+//
+//          InstanceFailoverGroupReadWriteEndpointInvokeResponseArgs{...}
+type InstanceFailoverGroupReadWriteEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToInstanceFailoverGroupReadWriteEndpointInvokeResponseOutput() InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput
+	ToInstanceFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(context.Context) InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput
+}
+
+// Read-write endpoint of the failover group instance.
+type InstanceFailoverGroupReadWriteEndpointInvokeResponseArgs struct {
+	// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverPolicy pulumi.StringInput `pulumi:"failoverPolicy"`
+	// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+	FailoverWithDataLossGracePeriodMinutes pulumi.IntPtrInput `pulumi:"failoverWithDataLossGracePeriodMinutes"`
+}
+
+func (InstanceFailoverGroupReadWriteEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFailoverGroupReadWriteEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i InstanceFailoverGroupReadWriteEndpointInvokeResponseArgs) ToInstanceFailoverGroupReadWriteEndpointInvokeResponseOutput() InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return i.ToInstanceFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i InstanceFailoverGroupReadWriteEndpointInvokeResponseArgs) ToInstanceFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput)
+}
+
+// Read-write endpoint of the failover group instance.
+type InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceFailoverGroupReadWriteEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput) ToInstanceFailoverGroupReadWriteEndpointInvokeResponseOutput() InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput) ToInstanceFailoverGroupReadWriteEndpointInvokeResponseOutputWithContext(ctx context.Context) InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput {
+	return o
+}
+
+// Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+func (o InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput) FailoverPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointInvokeResponse) string { return v.FailoverPolicy }).(pulumi.StringOutput)
+}
+
+// Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+func (o InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput) FailoverWithDataLossGracePeriodMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceFailoverGroupReadWriteEndpointInvokeResponse) *int {
 		return v.FailoverWithDataLossGracePeriodMinutes
 	}).(pulumi.IntPtrOutput)
 }
@@ -1878,6 +2284,97 @@ func (o JobSchedulePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Scheduling properties of a job.
+type JobScheduleInvokeResponse struct {
+	// Whether or not the schedule is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Schedule end time.
+	EndTime *string `pulumi:"endTime"`
+	// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
+	Interval *string `pulumi:"interval"`
+	// Schedule start time.
+	StartTime *string `pulumi:"startTime"`
+	// Schedule interval type
+	Type *string `pulumi:"type"`
+}
+
+// JobScheduleInvokeResponseInput is an input type that accepts JobScheduleInvokeResponseArgs and JobScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `JobScheduleInvokeResponseInput` via:
+//
+//          JobScheduleInvokeResponseArgs{...}
+type JobScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobScheduleInvokeResponseOutput() JobScheduleInvokeResponseOutput
+	ToJobScheduleInvokeResponseOutputWithContext(context.Context) JobScheduleInvokeResponseOutput
+}
+
+// Scheduling properties of a job.
+type JobScheduleInvokeResponseArgs struct {
+	// Whether or not the schedule is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Schedule end time.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
+	Interval pulumi.StringPtrInput `pulumi:"interval"`
+	// Schedule start time.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// Schedule interval type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (JobScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i JobScheduleInvokeResponseArgs) ToJobScheduleInvokeResponseOutput() JobScheduleInvokeResponseOutput {
+	return i.ToJobScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobScheduleInvokeResponseArgs) ToJobScheduleInvokeResponseOutputWithContext(ctx context.Context) JobScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleInvokeResponseOutput)
+}
+
+// Scheduling properties of a job.
+type JobScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o JobScheduleInvokeResponseOutput) ToJobScheduleInvokeResponseOutput() JobScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o JobScheduleInvokeResponseOutput) ToJobScheduleInvokeResponseOutputWithContext(ctx context.Context) JobScheduleInvokeResponseOutput {
+	return o
+}
+
+// Whether or not the schedule is enabled.
+func (o JobScheduleInvokeResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobScheduleInvokeResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Schedule end time.
+func (o JobScheduleInvokeResponseOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobScheduleInvokeResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
+func (o JobScheduleInvokeResponseOutput) Interval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobScheduleInvokeResponse) *string { return v.Interval }).(pulumi.StringPtrOutput)
+}
+
+// Schedule start time.
+func (o JobScheduleInvokeResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobScheduleInvokeResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Schedule interval type
+func (o JobScheduleInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobScheduleInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Scheduling properties of a job.
@@ -2263,6 +2760,79 @@ func (o JobStepActionPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 // The action to be executed by a job step.
+type JobStepActionInvokeResponse struct {
+	// The source of the action to execute.
+	Source *string `pulumi:"source"`
+	// Type of action being executed by the job step.
+	Type *string `pulumi:"type"`
+	// The action value, for example the text of the T-SQL script to execute.
+	Value string `pulumi:"value"`
+}
+
+// JobStepActionInvokeResponseInput is an input type that accepts JobStepActionInvokeResponseArgs and JobStepActionInvokeResponseOutput values.
+// You can construct a concrete instance of `JobStepActionInvokeResponseInput` via:
+//
+//          JobStepActionInvokeResponseArgs{...}
+type JobStepActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobStepActionInvokeResponseOutput() JobStepActionInvokeResponseOutput
+	ToJobStepActionInvokeResponseOutputWithContext(context.Context) JobStepActionInvokeResponseOutput
+}
+
+// The action to be executed by a job step.
+type JobStepActionInvokeResponseArgs struct {
+	// The source of the action to execute.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// Type of action being executed by the job step.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The action value, for example the text of the T-SQL script to execute.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (JobStepActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepActionInvokeResponse)(nil)).Elem()
+}
+
+func (i JobStepActionInvokeResponseArgs) ToJobStepActionInvokeResponseOutput() JobStepActionInvokeResponseOutput {
+	return i.ToJobStepActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobStepActionInvokeResponseArgs) ToJobStepActionInvokeResponseOutputWithContext(ctx context.Context) JobStepActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepActionInvokeResponseOutput)
+}
+
+// The action to be executed by a job step.
+type JobStepActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobStepActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepActionInvokeResponse)(nil)).Elem()
+}
+
+func (o JobStepActionInvokeResponseOutput) ToJobStepActionInvokeResponseOutput() JobStepActionInvokeResponseOutput {
+	return o
+}
+
+func (o JobStepActionInvokeResponseOutput) ToJobStepActionInvokeResponseOutputWithContext(ctx context.Context) JobStepActionInvokeResponseOutput {
+	return o
+}
+
+// The source of the action to execute.
+func (o JobStepActionInvokeResponseOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepActionInvokeResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// Type of action being executed by the job step.
+func (o JobStepActionInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepActionInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The action value, for example the text of the T-SQL script to execute.
+func (o JobStepActionInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepActionInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// The action to be executed by a job step.
 type JobStepActionResponse struct {
 	// The source of the action to execute.
 	Source *string `pulumi:"source"`
@@ -2642,6 +3212,97 @@ func (o JobStepExecutionOptionsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 		}
 		return v.TimeoutSeconds
 	}).(pulumi.IntPtrOutput)
+}
+
+// The execution options of a job step.
+type JobStepExecutionOptionsInvokeResponse struct {
+	// Initial delay between retries for job step execution.
+	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`
+	// The maximum amount of time to wait between retries for job step execution.
+	MaximumRetryIntervalSeconds *int `pulumi:"maximumRetryIntervalSeconds"`
+	// Maximum number of times the job step will be reattempted if the first attempt fails.
+	RetryAttempts *int `pulumi:"retryAttempts"`
+	// The backoff multiplier for the time between retries.
+	RetryIntervalBackoffMultiplier *float64 `pulumi:"retryIntervalBackoffMultiplier"`
+	// Execution timeout for the job step.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+
+// JobStepExecutionOptionsInvokeResponseInput is an input type that accepts JobStepExecutionOptionsInvokeResponseArgs and JobStepExecutionOptionsInvokeResponseOutput values.
+// You can construct a concrete instance of `JobStepExecutionOptionsInvokeResponseInput` via:
+//
+//          JobStepExecutionOptionsInvokeResponseArgs{...}
+type JobStepExecutionOptionsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobStepExecutionOptionsInvokeResponseOutput() JobStepExecutionOptionsInvokeResponseOutput
+	ToJobStepExecutionOptionsInvokeResponseOutputWithContext(context.Context) JobStepExecutionOptionsInvokeResponseOutput
+}
+
+// The execution options of a job step.
+type JobStepExecutionOptionsInvokeResponseArgs struct {
+	// Initial delay between retries for job step execution.
+	InitialRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"initialRetryIntervalSeconds"`
+	// The maximum amount of time to wait between retries for job step execution.
+	MaximumRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"maximumRetryIntervalSeconds"`
+	// Maximum number of times the job step will be reattempted if the first attempt fails.
+	RetryAttempts pulumi.IntPtrInput `pulumi:"retryAttempts"`
+	// The backoff multiplier for the time between retries.
+	RetryIntervalBackoffMultiplier pulumi.Float64PtrInput `pulumi:"retryIntervalBackoffMultiplier"`
+	// Execution timeout for the job step.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+}
+
+func (JobStepExecutionOptionsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepExecutionOptionsInvokeResponse)(nil)).Elem()
+}
+
+func (i JobStepExecutionOptionsInvokeResponseArgs) ToJobStepExecutionOptionsInvokeResponseOutput() JobStepExecutionOptionsInvokeResponseOutput {
+	return i.ToJobStepExecutionOptionsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobStepExecutionOptionsInvokeResponseArgs) ToJobStepExecutionOptionsInvokeResponseOutputWithContext(ctx context.Context) JobStepExecutionOptionsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepExecutionOptionsInvokeResponseOutput)
+}
+
+// The execution options of a job step.
+type JobStepExecutionOptionsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobStepExecutionOptionsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepExecutionOptionsInvokeResponse)(nil)).Elem()
+}
+
+func (o JobStepExecutionOptionsInvokeResponseOutput) ToJobStepExecutionOptionsInvokeResponseOutput() JobStepExecutionOptionsInvokeResponseOutput {
+	return o
+}
+
+func (o JobStepExecutionOptionsInvokeResponseOutput) ToJobStepExecutionOptionsInvokeResponseOutputWithContext(ctx context.Context) JobStepExecutionOptionsInvokeResponseOutput {
+	return o
+}
+
+// Initial delay between retries for job step execution.
+func (o JobStepExecutionOptionsInvokeResponseOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobStepExecutionOptionsInvokeResponse) *int { return v.InitialRetryIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The maximum amount of time to wait between retries for job step execution.
+func (o JobStepExecutionOptionsInvokeResponseOutput) MaximumRetryIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobStepExecutionOptionsInvokeResponse) *int { return v.MaximumRetryIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of times the job step will be reattempted if the first attempt fails.
+func (o JobStepExecutionOptionsInvokeResponseOutput) RetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobStepExecutionOptionsInvokeResponse) *int { return v.RetryAttempts }).(pulumi.IntPtrOutput)
+}
+
+// The backoff multiplier for the time between retries.
+func (o JobStepExecutionOptionsInvokeResponseOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JobStepExecutionOptionsInvokeResponse) *float64 { return v.RetryIntervalBackoffMultiplier }).(pulumi.Float64PtrOutput)
+}
+
+// Execution timeout for the job step.
+func (o JobStepExecutionOptionsInvokeResponseOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobStepExecutionOptionsInvokeResponse) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 // The execution options of a job step.
@@ -3122,6 +3783,124 @@ func (o JobStepOutputPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The output configuration of a job step.
+type JobStepOutputInvokeResponse struct {
+	// The resource ID of the credential to use to connect to the output destination.
+	Credential string `pulumi:"credential"`
+	// The output destination database.
+	DatabaseName string `pulumi:"databaseName"`
+	// The output destination resource group.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The output destination schema.
+	SchemaName *string `pulumi:"schemaName"`
+	// The output destination server name.
+	ServerName string `pulumi:"serverName"`
+	// The output destination subscription id.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The output destination table.
+	TableName string `pulumi:"tableName"`
+	// The output destination type.
+	Type *string `pulumi:"type"`
+}
+
+// JobStepOutputInvokeResponseInput is an input type that accepts JobStepOutputInvokeResponseArgs and JobStepOutputInvokeResponseOutput values.
+// You can construct a concrete instance of `JobStepOutputInvokeResponseInput` via:
+//
+//          JobStepOutputInvokeResponseArgs{...}
+type JobStepOutputInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobStepOutputInvokeResponseOutput() JobStepOutputInvokeResponseOutput
+	ToJobStepOutputInvokeResponseOutputWithContext(context.Context) JobStepOutputInvokeResponseOutput
+}
+
+// The output configuration of a job step.
+type JobStepOutputInvokeResponseArgs struct {
+	// The resource ID of the credential to use to connect to the output destination.
+	Credential pulumi.StringInput `pulumi:"credential"`
+	// The output destination database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The output destination resource group.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// The output destination schema.
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
+	// The output destination server name.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The output destination subscription id.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The output destination table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// The output destination type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (JobStepOutputInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepOutputInvokeResponse)(nil)).Elem()
+}
+
+func (i JobStepOutputInvokeResponseArgs) ToJobStepOutputInvokeResponseOutput() JobStepOutputInvokeResponseOutput {
+	return i.ToJobStepOutputInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobStepOutputInvokeResponseArgs) ToJobStepOutputInvokeResponseOutputWithContext(ctx context.Context) JobStepOutputInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputInvokeResponseOutput)
+}
+
+// The output configuration of a job step.
+type JobStepOutputInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobStepOutputInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepOutputInvokeResponse)(nil)).Elem()
+}
+
+func (o JobStepOutputInvokeResponseOutput) ToJobStepOutputInvokeResponseOutput() JobStepOutputInvokeResponseOutput {
+	return o
+}
+
+func (o JobStepOutputInvokeResponseOutput) ToJobStepOutputInvokeResponseOutputWithContext(ctx context.Context) JobStepOutputInvokeResponseOutput {
+	return o
+}
+
+// The resource ID of the credential to use to connect to the output destination.
+func (o JobStepOutputInvokeResponseOutput) Credential() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) string { return v.Credential }).(pulumi.StringOutput)
+}
+
+// The output destination database.
+func (o JobStepOutputInvokeResponseOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The output destination resource group.
+func (o JobStepOutputInvokeResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The output destination schema.
+func (o JobStepOutputInvokeResponseOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+// The output destination server name.
+func (o JobStepOutputInvokeResponseOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// The output destination subscription id.
+func (o JobStepOutputInvokeResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The output destination table.
+func (o JobStepOutputInvokeResponseOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+// The output destination type.
+func (o JobStepOutputInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The output configuration of a job step.
 type JobStepOutputResponse struct {
 	// The resource ID of the credential to use to connect to the output destination.
 	Credential string `pulumi:"credential"`
@@ -3543,6 +4322,160 @@ func (o JobTargetArrayOutput) Index(i pulumi.IntInput) JobTargetOutput {
 }
 
 // A job target, for example a specific database or a container of databases that is evaluated during job execution.
+type JobTargetInvokeResponse struct {
+	// The target database name.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The target elastic pool name.
+	ElasticPoolName *string `pulumi:"elasticPoolName"`
+	// Whether the target is included or excluded from the group.
+	MembershipType *string `pulumi:"membershipType"`
+	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+	RefreshCredential *string `pulumi:"refreshCredential"`
+	// The target server name.
+	ServerName *string `pulumi:"serverName"`
+	// The target shard map.
+	ShardMapName *string `pulumi:"shardMapName"`
+	// The target type.
+	Type string `pulumi:"type"`
+}
+
+// JobTargetInvokeResponseInput is an input type that accepts JobTargetInvokeResponseArgs and JobTargetInvokeResponseOutput values.
+// You can construct a concrete instance of `JobTargetInvokeResponseInput` via:
+//
+//          JobTargetInvokeResponseArgs{...}
+type JobTargetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobTargetInvokeResponseOutput() JobTargetInvokeResponseOutput
+	ToJobTargetInvokeResponseOutputWithContext(context.Context) JobTargetInvokeResponseOutput
+}
+
+// A job target, for example a specific database or a container of databases that is evaluated during job execution.
+type JobTargetInvokeResponseArgs struct {
+	// The target database name.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// The target elastic pool name.
+	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
+	// Whether the target is included or excluded from the group.
+	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
+	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
+	// The target server name.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// The target shard map.
+	ShardMapName pulumi.StringPtrInput `pulumi:"shardMapName"`
+	// The target type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JobTargetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTargetInvokeResponse)(nil)).Elem()
+}
+
+func (i JobTargetInvokeResponseArgs) ToJobTargetInvokeResponseOutput() JobTargetInvokeResponseOutput {
+	return i.ToJobTargetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobTargetInvokeResponseArgs) ToJobTargetInvokeResponseOutputWithContext(ctx context.Context) JobTargetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTargetInvokeResponseOutput)
+}
+
+// JobTargetInvokeResponseArrayInput is an input type that accepts JobTargetInvokeResponseArray and JobTargetInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JobTargetInvokeResponseArrayInput` via:
+//
+//          JobTargetInvokeResponseArray{ JobTargetInvokeResponseArgs{...} }
+type JobTargetInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJobTargetInvokeResponseArrayOutput() JobTargetInvokeResponseArrayOutput
+	ToJobTargetInvokeResponseArrayOutputWithContext(context.Context) JobTargetInvokeResponseArrayOutput
+}
+
+type JobTargetInvokeResponseArray []JobTargetInvokeResponseInput
+
+func (JobTargetInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTargetInvokeResponse)(nil)).Elem()
+}
+
+func (i JobTargetInvokeResponseArray) ToJobTargetInvokeResponseArrayOutput() JobTargetInvokeResponseArrayOutput {
+	return i.ToJobTargetInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JobTargetInvokeResponseArray) ToJobTargetInvokeResponseArrayOutputWithContext(ctx context.Context) JobTargetInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTargetInvokeResponseArrayOutput)
+}
+
+// A job target, for example a specific database or a container of databases that is evaluated during job execution.
+type JobTargetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobTargetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTargetInvokeResponse)(nil)).Elem()
+}
+
+func (o JobTargetInvokeResponseOutput) ToJobTargetInvokeResponseOutput() JobTargetInvokeResponseOutput {
+	return o
+}
+
+func (o JobTargetInvokeResponseOutput) ToJobTargetInvokeResponseOutputWithContext(ctx context.Context) JobTargetInvokeResponseOutput {
+	return o
+}
+
+// The target database name.
+func (o JobTargetInvokeResponseOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// The target elastic pool name.
+func (o JobTargetInvokeResponseOutput) ElasticPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.ElasticPoolName }).(pulumi.StringPtrOutput)
+}
+
+// Whether the target is included or excluded from the group.
+func (o JobTargetInvokeResponseOutput) MembershipType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+func (o JobTargetInvokeResponseOutput) RefreshCredential() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.RefreshCredential }).(pulumi.StringPtrOutput)
+}
+
+// The target server name.
+func (o JobTargetInvokeResponseOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// The target shard map.
+func (o JobTargetInvokeResponseOutput) ShardMapName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.ShardMapName }).(pulumi.StringPtrOutput)
+}
+
+// The target type.
+func (o JobTargetInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type JobTargetInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTargetInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTargetInvokeResponse)(nil)).Elem()
+}
+
+func (o JobTargetInvokeResponseArrayOutput) ToJobTargetInvokeResponseArrayOutput() JobTargetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobTargetInvokeResponseArrayOutput) ToJobTargetInvokeResponseArrayOutputWithContext(ctx context.Context) JobTargetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobTargetInvokeResponseArrayOutput) Index(i pulumi.IntInput) JobTargetInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTargetInvokeResponse {
+		return vs[0].([]JobTargetInvokeResponse)[vs[1].(int)]
+	}).(JobTargetInvokeResponseOutput)
+}
+
+// A job target, for example a specific database or a container of databases that is evaluated during job execution.
 type JobTargetResponse struct {
 	// The target database name.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -3806,6 +4739,115 @@ func (o ManagedInstancePairInfoArrayOutput) Index(i pulumi.IntInput) ManagedInst
 }
 
 // Pairs of Managed Instances in the failover group.
+type ManagedInstancePairInfoInvokeResponse struct {
+	// Id of Partner Managed Instance in pair.
+	PartnerManagedInstanceId *string `pulumi:"partnerManagedInstanceId"`
+	// Id of Primary Managed Instance in pair.
+	PrimaryManagedInstanceId *string `pulumi:"primaryManagedInstanceId"`
+}
+
+// ManagedInstancePairInfoInvokeResponseInput is an input type that accepts ManagedInstancePairInfoInvokeResponseArgs and ManagedInstancePairInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedInstancePairInfoInvokeResponseInput` via:
+//
+//          ManagedInstancePairInfoInvokeResponseArgs{...}
+type ManagedInstancePairInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedInstancePairInfoInvokeResponseOutput() ManagedInstancePairInfoInvokeResponseOutput
+	ToManagedInstancePairInfoInvokeResponseOutputWithContext(context.Context) ManagedInstancePairInfoInvokeResponseOutput
+}
+
+// Pairs of Managed Instances in the failover group.
+type ManagedInstancePairInfoInvokeResponseArgs struct {
+	// Id of Partner Managed Instance in pair.
+	PartnerManagedInstanceId pulumi.StringPtrInput `pulumi:"partnerManagedInstanceId"`
+	// Id of Primary Managed Instance in pair.
+	PrimaryManagedInstanceId pulumi.StringPtrInput `pulumi:"primaryManagedInstanceId"`
+}
+
+func (ManagedInstancePairInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePairInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedInstancePairInfoInvokeResponseArgs) ToManagedInstancePairInfoInvokeResponseOutput() ManagedInstancePairInfoInvokeResponseOutput {
+	return i.ToManagedInstancePairInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedInstancePairInfoInvokeResponseArgs) ToManagedInstancePairInfoInvokeResponseOutputWithContext(ctx context.Context) ManagedInstancePairInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePairInfoInvokeResponseOutput)
+}
+
+// ManagedInstancePairInfoInvokeResponseArrayInput is an input type that accepts ManagedInstancePairInfoInvokeResponseArray and ManagedInstancePairInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedInstancePairInfoInvokeResponseArrayInput` via:
+//
+//          ManagedInstancePairInfoInvokeResponseArray{ ManagedInstancePairInfoInvokeResponseArgs{...} }
+type ManagedInstancePairInfoInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedInstancePairInfoInvokeResponseArrayOutput() ManagedInstancePairInfoInvokeResponseArrayOutput
+	ToManagedInstancePairInfoInvokeResponseArrayOutputWithContext(context.Context) ManagedInstancePairInfoInvokeResponseArrayOutput
+}
+
+type ManagedInstancePairInfoInvokeResponseArray []ManagedInstancePairInfoInvokeResponseInput
+
+func (ManagedInstancePairInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedInstancePairInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedInstancePairInfoInvokeResponseArray) ToManagedInstancePairInfoInvokeResponseArrayOutput() ManagedInstancePairInfoInvokeResponseArrayOutput {
+	return i.ToManagedInstancePairInfoInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedInstancePairInfoInvokeResponseArray) ToManagedInstancePairInfoInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedInstancePairInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePairInfoInvokeResponseArrayOutput)
+}
+
+// Pairs of Managed Instances in the failover group.
+type ManagedInstancePairInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstancePairInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePairInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedInstancePairInfoInvokeResponseOutput) ToManagedInstancePairInfoInvokeResponseOutput() ManagedInstancePairInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedInstancePairInfoInvokeResponseOutput) ToManagedInstancePairInfoInvokeResponseOutputWithContext(ctx context.Context) ManagedInstancePairInfoInvokeResponseOutput {
+	return o
+}
+
+// Id of Partner Managed Instance in pair.
+func (o ManagedInstancePairInfoInvokeResponseOutput) PartnerManagedInstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstancePairInfoInvokeResponse) *string { return v.PartnerManagedInstanceId }).(pulumi.StringPtrOutput)
+}
+
+// Id of Primary Managed Instance in pair.
+func (o ManagedInstancePairInfoInvokeResponseOutput) PrimaryManagedInstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstancePairInfoInvokeResponse) *string { return v.PrimaryManagedInstanceId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedInstancePairInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstancePairInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedInstancePairInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedInstancePairInfoInvokeResponseArrayOutput) ToManagedInstancePairInfoInvokeResponseArrayOutput() ManagedInstancePairInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedInstancePairInfoInvokeResponseArrayOutput) ToManagedInstancePairInfoInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedInstancePairInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedInstancePairInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) ManagedInstancePairInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedInstancePairInfoInvokeResponse {
+		return vs[0].([]ManagedInstancePairInfoInvokeResponse)[vs[1].(int)]
+	}).(ManagedInstancePairInfoInvokeResponseOutput)
+}
+
+// Pairs of Managed Instances in the failover group.
 type ManagedInstancePairInfoResponse struct {
 	// Id of Partner Managed Instance in pair.
 	PartnerManagedInstanceId *string `pulumi:"partnerManagedInstanceId"`
@@ -3912,6 +4954,117 @@ func (o ManagedInstancePairInfoResponseArrayOutput) Index(i pulumi.IntInput) Man
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedInstancePairInfoResponse {
 		return vs[0].([]ManagedInstancePairInfoResponse)[vs[1].(int)]
 	}).(ManagedInstancePairInfoResponseOutput)
+}
+
+// A private endpoint connection under a managed instance
+type ManagedInstancePecPropertyInvokeResponse struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
+	// Private endpoint connection properties
+	Properties ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// ManagedInstancePecPropertyInvokeResponseInput is an input type that accepts ManagedInstancePecPropertyInvokeResponseArgs and ManagedInstancePecPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedInstancePecPropertyInvokeResponseInput` via:
+//
+//          ManagedInstancePecPropertyInvokeResponseArgs{...}
+type ManagedInstancePecPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedInstancePecPropertyInvokeResponseOutput() ManagedInstancePecPropertyInvokeResponseOutput
+	ToManagedInstancePecPropertyInvokeResponseOutputWithContext(context.Context) ManagedInstancePecPropertyInvokeResponseOutput
+}
+
+// A private endpoint connection under a managed instance
+type ManagedInstancePecPropertyInvokeResponseArgs struct {
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Private endpoint connection properties
+	Properties ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseInput `pulumi:"properties"`
+}
+
+func (ManagedInstancePecPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePecPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedInstancePecPropertyInvokeResponseArgs) ToManagedInstancePecPropertyInvokeResponseOutput() ManagedInstancePecPropertyInvokeResponseOutput {
+	return i.ToManagedInstancePecPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedInstancePecPropertyInvokeResponseArgs) ToManagedInstancePecPropertyInvokeResponseOutputWithContext(ctx context.Context) ManagedInstancePecPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePecPropertyInvokeResponseOutput)
+}
+
+// ManagedInstancePecPropertyInvokeResponseArrayInput is an input type that accepts ManagedInstancePecPropertyInvokeResponseArray and ManagedInstancePecPropertyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ManagedInstancePecPropertyInvokeResponseArrayInput` via:
+//
+//          ManagedInstancePecPropertyInvokeResponseArray{ ManagedInstancePecPropertyInvokeResponseArgs{...} }
+type ManagedInstancePecPropertyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagedInstancePecPropertyInvokeResponseArrayOutput() ManagedInstancePecPropertyInvokeResponseArrayOutput
+	ToManagedInstancePecPropertyInvokeResponseArrayOutputWithContext(context.Context) ManagedInstancePecPropertyInvokeResponseArrayOutput
+}
+
+type ManagedInstancePecPropertyInvokeResponseArray []ManagedInstancePecPropertyInvokeResponseInput
+
+func (ManagedInstancePecPropertyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedInstancePecPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedInstancePecPropertyInvokeResponseArray) ToManagedInstancePecPropertyInvokeResponseArrayOutput() ManagedInstancePecPropertyInvokeResponseArrayOutput {
+	return i.ToManagedInstancePecPropertyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedInstancePecPropertyInvokeResponseArray) ToManagedInstancePecPropertyInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedInstancePecPropertyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePecPropertyInvokeResponseArrayOutput)
+}
+
+// A private endpoint connection under a managed instance
+type ManagedInstancePecPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstancePecPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePecPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedInstancePecPropertyInvokeResponseOutput) ToManagedInstancePecPropertyInvokeResponseOutput() ManagedInstancePecPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedInstancePecPropertyInvokeResponseOutput) ToManagedInstancePecPropertyInvokeResponseOutputWithContext(ctx context.Context) ManagedInstancePecPropertyInvokeResponseOutput {
+	return o
+}
+
+// Resource ID.
+func (o ManagedInstancePecPropertyInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstancePecPropertyInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Private endpoint connection properties
+func (o ManagedInstancePecPropertyInvokeResponseOutput) Properties() ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v ManagedInstancePecPropertyInvokeResponse) ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponse {
+		return v.Properties
+	}).(ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput)
+}
+
+type ManagedInstancePecPropertyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstancePecPropertyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedInstancePecPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedInstancePecPropertyInvokeResponseArrayOutput) ToManagedInstancePecPropertyInvokeResponseArrayOutput() ManagedInstancePecPropertyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedInstancePecPropertyInvokeResponseArrayOutput) ToManagedInstancePecPropertyInvokeResponseArrayOutputWithContext(ctx context.Context) ManagedInstancePecPropertyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagedInstancePecPropertyInvokeResponseArrayOutput) Index(i pulumi.IntInput) ManagedInstancePecPropertyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedInstancePecPropertyInvokeResponse {
+		return vs[0].([]ManagedInstancePecPropertyInvokeResponse)[vs[1].(int)]
+	}).(ManagedInstancePecPropertyInvokeResponseOutput)
 }
 
 // A private endpoint connection under a managed instance
@@ -4023,6 +5176,85 @@ func (o ManagedInstancePecPropertyResponseArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedInstancePecPropertyResponse {
 		return vs[0].([]ManagedInstancePecPropertyResponse)[vs[1].(int)]
 	}).(ManagedInstancePecPropertyResponseOutput)
+}
+
+// Properties of a private endpoint connection.
+type ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponse struct {
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint *ManagedInstancePrivateEndpointPropertyInvokeResponse `pulumi:"privateEndpoint"`
+	// Connection State of the Private Endpoint Connection.
+	PrivateLinkServiceConnectionState *ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	// State of the Private Endpoint Connection.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseInput is an input type that accepts ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseArgs and ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseInput` via:
+//
+//          ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseArgs{...}
+type ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput() ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput
+	ToManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(context.Context) ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput
+}
+
+// Properties of a private endpoint connection.
+type ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseArgs struct {
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint ManagedInstancePrivateEndpointPropertyInvokeResponsePtrInput `pulumi:"privateEndpoint"`
+	// Connection State of the Private Endpoint Connection.
+	PrivateLinkServiceConnectionState ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// State of the Private Endpoint Connection.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseArgs) ToManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput() ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return i.ToManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseArgs) ToManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput)
+}
+
+// Properties of a private endpoint connection.
+type ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput) ToManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput() ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput) ToManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Private endpoint which the connection belongs to.
+func (o ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput) PrivateEndpoint() ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponse) *ManagedInstancePrivateEndpointPropertyInvokeResponse {
+		return v.PrivateEndpoint
+	}).(ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput)
+}
+
+// Connection State of the Private Endpoint Connection.
+func (o ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput) PrivateLinkServiceConnectionState() ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponse) *ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput)
+}
+
+// State of the Private Endpoint Connection.
+func (o ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponse) string {
+		return v.ProvisioningState
+	}).(pulumi.StringOutput)
 }
 
 // Properties of a private endpoint connection.
@@ -4226,6 +5458,139 @@ func (o ManagedInstancePrivateEndpointPropertyPtrOutput) Elem() ManagedInstanceP
 // Resource id of the private endpoint.
 func (o ManagedInstancePrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstancePrivateEndpointProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedInstancePrivateEndpointPropertyInvokeResponse struct {
+	// Resource id of the private endpoint.
+	Id *string `pulumi:"id"`
+}
+
+// ManagedInstancePrivateEndpointPropertyInvokeResponseInput is an input type that accepts ManagedInstancePrivateEndpointPropertyInvokeResponseArgs and ManagedInstancePrivateEndpointPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedInstancePrivateEndpointPropertyInvokeResponseInput` via:
+//
+//          ManagedInstancePrivateEndpointPropertyInvokeResponseArgs{...}
+type ManagedInstancePrivateEndpointPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedInstancePrivateEndpointPropertyInvokeResponseOutput() ManagedInstancePrivateEndpointPropertyInvokeResponseOutput
+	ToManagedInstancePrivateEndpointPropertyInvokeResponseOutputWithContext(context.Context) ManagedInstancePrivateEndpointPropertyInvokeResponseOutput
+}
+
+type ManagedInstancePrivateEndpointPropertyInvokeResponseArgs struct {
+	// Resource id of the private endpoint.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ManagedInstancePrivateEndpointPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedInstancePrivateEndpointPropertyInvokeResponseArgs) ToManagedInstancePrivateEndpointPropertyInvokeResponseOutput() ManagedInstancePrivateEndpointPropertyInvokeResponseOutput {
+	return i.ToManagedInstancePrivateEndpointPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedInstancePrivateEndpointPropertyInvokeResponseArgs) ToManagedInstancePrivateEndpointPropertyInvokeResponseOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePrivateEndpointPropertyInvokeResponseOutput)
+}
+
+func (i ManagedInstancePrivateEndpointPropertyInvokeResponseArgs) ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput() ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput {
+	return i.ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedInstancePrivateEndpointPropertyInvokeResponseArgs) ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePrivateEndpointPropertyInvokeResponseOutput).ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedInstancePrivateEndpointPropertyInvokeResponsePtrInput is an input type that accepts ManagedInstancePrivateEndpointPropertyInvokeResponseArgs, ManagedInstancePrivateEndpointPropertyInvokeResponsePtr and ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedInstancePrivateEndpointPropertyInvokeResponsePtrInput` via:
+//
+//          ManagedInstancePrivateEndpointPropertyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedInstancePrivateEndpointPropertyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput() ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput
+	ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Context) ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput
+}
+
+type managedInstancePrivateEndpointPropertyInvokeResponsePtrType ManagedInstancePrivateEndpointPropertyInvokeResponseArgs
+
+func ManagedInstancePrivateEndpointPropertyInvokeResponsePtr(v *ManagedInstancePrivateEndpointPropertyInvokeResponseArgs) ManagedInstancePrivateEndpointPropertyInvokeResponsePtrInput {
+	return (*managedInstancePrivateEndpointPropertyInvokeResponsePtrType)(v)
+}
+
+func (*managedInstancePrivateEndpointPropertyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstancePrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i *managedInstancePrivateEndpointPropertyInvokeResponsePtrType) ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput() ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput {
+	return i.ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedInstancePrivateEndpointPropertyInvokeResponsePtrType) ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput)
+}
+
+type ManagedInstancePrivateEndpointPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstancePrivateEndpointPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedInstancePrivateEndpointPropertyInvokeResponseOutput) ToManagedInstancePrivateEndpointPropertyInvokeResponseOutput() ManagedInstancePrivateEndpointPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedInstancePrivateEndpointPropertyInvokeResponseOutput) ToManagedInstancePrivateEndpointPropertyInvokeResponseOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedInstancePrivateEndpointPropertyInvokeResponseOutput) ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput() ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o.ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedInstancePrivateEndpointPropertyInvokeResponseOutput) ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ManagedInstancePrivateEndpointPropertyInvokeResponse) *ManagedInstancePrivateEndpointPropertyInvokeResponse {
+		return &v
+	}).(ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput)
+}
+
+// Resource id of the private endpoint.
+func (o ManagedInstancePrivateEndpointPropertyInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedInstancePrivateEndpointPropertyInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstancePrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput) ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput() ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput) ToManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput) Elem() ManagedInstancePrivateEndpointPropertyInvokeResponseOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateEndpointPropertyInvokeResponse) ManagedInstancePrivateEndpointPropertyInvokeResponse {
+		return *v
+	}).(ManagedInstancePrivateEndpointPropertyInvokeResponseOutput)
+}
+
+// Resource id of the private endpoint.
+func (o ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateEndpointPropertyInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4518,6 +5883,181 @@ func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput) Statu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse struct {
+	// The private link service connection description.
+	ActionsRequired string `pulumi:"actionsRequired"`
+	// The private link service connection description.
+	Description string `pulumi:"description"`
+	// The private link service connection status.
+	Status string `pulumi:"status"`
+}
+
+// ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseInput is an input type that accepts ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs and ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseInput` via:
+//
+//          ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs{...}
+type ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput
+	ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(context.Context) ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput
+}
+
+type ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs struct {
+	// The private link service connection description.
+	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	// The private link service connection description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The private link service connection status.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return i.ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(ctx context.Context) ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput)
+}
+
+func (i ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return i.ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput).ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput is an input type that accepts ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs, ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtr and ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput` via:
+//
+//          ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput
+	ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Context) ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput
+}
+
+type managedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrType ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs
+
+func ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtr(v *ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput {
+	return (*managedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrType)(v)
+}
+
+func (*managedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i *managedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrType) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return i.ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *managedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrType) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput)
+}
+
+type ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(ctx context.Context) ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o.ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse) *ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse {
+		return &v
+	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput)
+}
+
+// The private link service connection description.
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ActionsRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse) string {
+		return v.ActionsRequired
+	}).(pulumi.StringOutput)
+}
+
+// The private link service connection description.
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse) string {
+		return v.Description
+	}).(pulumi.StringOutput)
+}
+
+// The private link service connection status.
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ToManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) Elem() ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse) ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse {
+		return *v
+	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput)
+}
+
+// The private link service connection description.
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection description.
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection status.
+func (o ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse struct {
 	// The private link service connection description.
 	ActionsRequired string `pulumi:"actionsRequired"`
@@ -4792,6 +6332,124 @@ func (o PartnerInfoArrayOutput) Index(i pulumi.IntInput) PartnerInfoOutput {
 }
 
 // Partner server information for the failover group.
+type PartnerInfoInvokeResponse struct {
+	// Resource identifier of the partner server.
+	Id string `pulumi:"id"`
+	// Geo location of the partner server.
+	Location string `pulumi:"location"`
+	// Replication role of the partner server.
+	ReplicationRole string `pulumi:"replicationRole"`
+}
+
+// PartnerInfoInvokeResponseInput is an input type that accepts PartnerInfoInvokeResponseArgs and PartnerInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `PartnerInfoInvokeResponseInput` via:
+//
+//          PartnerInfoInvokeResponseArgs{...}
+type PartnerInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPartnerInfoInvokeResponseOutput() PartnerInfoInvokeResponseOutput
+	ToPartnerInfoInvokeResponseOutputWithContext(context.Context) PartnerInfoInvokeResponseOutput
+}
+
+// Partner server information for the failover group.
+type PartnerInfoInvokeResponseArgs struct {
+	// Resource identifier of the partner server.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Geo location of the partner server.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Replication role of the partner server.
+	ReplicationRole pulumi.StringInput `pulumi:"replicationRole"`
+}
+
+func (PartnerInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i PartnerInfoInvokeResponseArgs) ToPartnerInfoInvokeResponseOutput() PartnerInfoInvokeResponseOutput {
+	return i.ToPartnerInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PartnerInfoInvokeResponseArgs) ToPartnerInfoInvokeResponseOutputWithContext(ctx context.Context) PartnerInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerInfoInvokeResponseOutput)
+}
+
+// PartnerInfoInvokeResponseArrayInput is an input type that accepts PartnerInfoInvokeResponseArray and PartnerInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PartnerInfoInvokeResponseArrayInput` via:
+//
+//          PartnerInfoInvokeResponseArray{ PartnerInfoInvokeResponseArgs{...} }
+type PartnerInfoInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPartnerInfoInvokeResponseArrayOutput() PartnerInfoInvokeResponseArrayOutput
+	ToPartnerInfoInvokeResponseArrayOutputWithContext(context.Context) PartnerInfoInvokeResponseArrayOutput
+}
+
+type PartnerInfoInvokeResponseArray []PartnerInfoInvokeResponseInput
+
+func (PartnerInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartnerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i PartnerInfoInvokeResponseArray) ToPartnerInfoInvokeResponseArrayOutput() PartnerInfoInvokeResponseArrayOutput {
+	return i.ToPartnerInfoInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PartnerInfoInvokeResponseArray) ToPartnerInfoInvokeResponseArrayOutputWithContext(ctx context.Context) PartnerInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerInfoInvokeResponseArrayOutput)
+}
+
+// Partner server information for the failover group.
+type PartnerInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PartnerInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o PartnerInfoInvokeResponseOutput) ToPartnerInfoInvokeResponseOutput() PartnerInfoInvokeResponseOutput {
+	return o
+}
+
+func (o PartnerInfoInvokeResponseOutput) ToPartnerInfoInvokeResponseOutputWithContext(ctx context.Context) PartnerInfoInvokeResponseOutput {
+	return o
+}
+
+// Resource identifier of the partner server.
+func (o PartnerInfoInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PartnerInfoInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Geo location of the partner server.
+func (o PartnerInfoInvokeResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v PartnerInfoInvokeResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Replication role of the partner server.
+func (o PartnerInfoInvokeResponseOutput) ReplicationRole() pulumi.StringOutput {
+	return o.ApplyT(func(v PartnerInfoInvokeResponse) string { return v.ReplicationRole }).(pulumi.StringOutput)
+}
+
+type PartnerInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PartnerInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartnerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o PartnerInfoInvokeResponseArrayOutput) ToPartnerInfoInvokeResponseArrayOutput() PartnerInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PartnerInfoInvokeResponseArrayOutput) ToPartnerInfoInvokeResponseArrayOutputWithContext(ctx context.Context) PartnerInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PartnerInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) PartnerInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartnerInfoInvokeResponse {
+		return vs[0].([]PartnerInfoInvokeResponse)[vs[1].(int)]
+	}).(PartnerInfoInvokeResponseOutput)
+}
+
+// Partner server information for the failover group.
 type PartnerInfoResponse struct {
 	// Resource identifier of the partner server.
 	Id string `pulumi:"id"`
@@ -5010,6 +6668,115 @@ func (o PartnerRegionInfoArrayOutput) Index(i pulumi.IntInput) PartnerRegionInfo
 }
 
 // Partner region information for the failover group.
+type PartnerRegionInfoInvokeResponse struct {
+	// Geo location of the partner managed instances.
+	Location *string `pulumi:"location"`
+	// Replication role of the partner managed instances.
+	ReplicationRole string `pulumi:"replicationRole"`
+}
+
+// PartnerRegionInfoInvokeResponseInput is an input type that accepts PartnerRegionInfoInvokeResponseArgs and PartnerRegionInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `PartnerRegionInfoInvokeResponseInput` via:
+//
+//          PartnerRegionInfoInvokeResponseArgs{...}
+type PartnerRegionInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPartnerRegionInfoInvokeResponseOutput() PartnerRegionInfoInvokeResponseOutput
+	ToPartnerRegionInfoInvokeResponseOutputWithContext(context.Context) PartnerRegionInfoInvokeResponseOutput
+}
+
+// Partner region information for the failover group.
+type PartnerRegionInfoInvokeResponseArgs struct {
+	// Geo location of the partner managed instances.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Replication role of the partner managed instances.
+	ReplicationRole pulumi.StringInput `pulumi:"replicationRole"`
+}
+
+func (PartnerRegionInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerRegionInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i PartnerRegionInfoInvokeResponseArgs) ToPartnerRegionInfoInvokeResponseOutput() PartnerRegionInfoInvokeResponseOutput {
+	return i.ToPartnerRegionInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PartnerRegionInfoInvokeResponseArgs) ToPartnerRegionInfoInvokeResponseOutputWithContext(ctx context.Context) PartnerRegionInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerRegionInfoInvokeResponseOutput)
+}
+
+// PartnerRegionInfoInvokeResponseArrayInput is an input type that accepts PartnerRegionInfoInvokeResponseArray and PartnerRegionInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PartnerRegionInfoInvokeResponseArrayInput` via:
+//
+//          PartnerRegionInfoInvokeResponseArray{ PartnerRegionInfoInvokeResponseArgs{...} }
+type PartnerRegionInfoInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPartnerRegionInfoInvokeResponseArrayOutput() PartnerRegionInfoInvokeResponseArrayOutput
+	ToPartnerRegionInfoInvokeResponseArrayOutputWithContext(context.Context) PartnerRegionInfoInvokeResponseArrayOutput
+}
+
+type PartnerRegionInfoInvokeResponseArray []PartnerRegionInfoInvokeResponseInput
+
+func (PartnerRegionInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartnerRegionInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i PartnerRegionInfoInvokeResponseArray) ToPartnerRegionInfoInvokeResponseArrayOutput() PartnerRegionInfoInvokeResponseArrayOutput {
+	return i.ToPartnerRegionInfoInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PartnerRegionInfoInvokeResponseArray) ToPartnerRegionInfoInvokeResponseArrayOutputWithContext(ctx context.Context) PartnerRegionInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerRegionInfoInvokeResponseArrayOutput)
+}
+
+// Partner region information for the failover group.
+type PartnerRegionInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PartnerRegionInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerRegionInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o PartnerRegionInfoInvokeResponseOutput) ToPartnerRegionInfoInvokeResponseOutput() PartnerRegionInfoInvokeResponseOutput {
+	return o
+}
+
+func (o PartnerRegionInfoInvokeResponseOutput) ToPartnerRegionInfoInvokeResponseOutputWithContext(ctx context.Context) PartnerRegionInfoInvokeResponseOutput {
+	return o
+}
+
+// Geo location of the partner managed instances.
+func (o PartnerRegionInfoInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerRegionInfoInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Replication role of the partner managed instances.
+func (o PartnerRegionInfoInvokeResponseOutput) ReplicationRole() pulumi.StringOutput {
+	return o.ApplyT(func(v PartnerRegionInfoInvokeResponse) string { return v.ReplicationRole }).(pulumi.StringOutput)
+}
+
+type PartnerRegionInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PartnerRegionInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartnerRegionInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o PartnerRegionInfoInvokeResponseArrayOutput) ToPartnerRegionInfoInvokeResponseArrayOutput() PartnerRegionInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PartnerRegionInfoInvokeResponseArrayOutput) ToPartnerRegionInfoInvokeResponseArrayOutputWithContext(ctx context.Context) PartnerRegionInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PartnerRegionInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) PartnerRegionInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartnerRegionInfoInvokeResponse {
+		return vs[0].([]PartnerRegionInfoInvokeResponse)[vs[1].(int)]
+	}).(PartnerRegionInfoInvokeResponseOutput)
+}
+
+// Partner region information for the failover group.
 type PartnerRegionInfoResponse struct {
 	// Geo location of the partner managed instances.
 	Location *string `pulumi:"location"`
@@ -5116,6 +6883,83 @@ func (o PartnerRegionInfoResponseArrayOutput) Index(i pulumi.IntInput) PartnerRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartnerRegionInfoResponse {
 		return vs[0].([]PartnerRegionInfoResponse)[vs[1].(int)]
 	}).(PartnerRegionInfoResponseOutput)
+}
+
+// Properties of a private endpoint connection.
+type PrivateEndpointConnectionPropertiesInvokeResponse struct {
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint *PrivateEndpointPropertyInvokeResponse `pulumi:"privateEndpoint"`
+	// Connection state of the private endpoint connection.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	// State of the private endpoint connection.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// PrivateEndpointConnectionPropertiesInvokeResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesInvokeResponseArgs and PrivateEndpointConnectionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionPropertiesInvokeResponseArgs{...}
+type PrivateEndpointConnectionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionPropertiesInvokeResponseOutput() PrivateEndpointConnectionPropertiesInvokeResponseOutput
+	ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesInvokeResponseOutput
+}
+
+// Properties of a private endpoint connection.
+type PrivateEndpointConnectionPropertiesInvokeResponseArgs struct {
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint PrivateEndpointPropertyInvokeResponsePtrInput `pulumi:"privateEndpoint"`
+	// Connection state of the private endpoint connection.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// State of the private endpoint connection.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (PrivateEndpointConnectionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponseArgs) ToPrivateEndpointConnectionPropertiesInvokeResponseOutput() PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponseArgs) ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponseOutput)
+}
+
+// Properties of a private endpoint connection.
+type PrivateEndpointConnectionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) ToPrivateEndpointConnectionPropertiesInvokeResponseOutput() PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Private endpoint which the connection belongs to.
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) PrivateEndpoint() PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponse) *PrivateEndpointPropertyInvokeResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointPropertyInvokeResponsePtrOutput)
+}
+
+// Connection state of the private endpoint connection.
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponse) *PrivateLinkServiceConnectionStatePropertyInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput)
+}
+
+// State of the private endpoint connection.
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Properties of a private endpoint connection.
@@ -5319,6 +7163,137 @@ func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
 // Resource id of the private endpoint.
 func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointPropertyInvokeResponse struct {
+	// Resource id of the private endpoint.
+	Id *string `pulumi:"id"`
+}
+
+// PrivateEndpointPropertyInvokeResponseInput is an input type that accepts PrivateEndpointPropertyInvokeResponseArgs and PrivateEndpointPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointPropertyInvokeResponseInput` via:
+//
+//          PrivateEndpointPropertyInvokeResponseArgs{...}
+type PrivateEndpointPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyInvokeResponseOutput() PrivateEndpointPropertyInvokeResponseOutput
+	ToPrivateEndpointPropertyInvokeResponseOutputWithContext(context.Context) PrivateEndpointPropertyInvokeResponseOutput
+}
+
+type PrivateEndpointPropertyInvokeResponseArgs struct {
+	// Resource id of the private endpoint.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointPropertyInvokeResponseArgs) ToPrivateEndpointPropertyInvokeResponseOutput() PrivateEndpointPropertyInvokeResponseOutput {
+	return i.ToPrivateEndpointPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyInvokeResponseArgs) ToPrivateEndpointPropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyInvokeResponseOutput)
+}
+
+func (i PrivateEndpointPropertyInvokeResponseArgs) ToPrivateEndpointPropertyInvokeResponsePtrOutput() PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyInvokeResponseArgs) ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyInvokeResponseOutput).ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointPropertyInvokeResponsePtrInput is an input type that accepts PrivateEndpointPropertyInvokeResponseArgs, PrivateEndpointPropertyInvokeResponsePtr and PrivateEndpointPropertyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointPropertyInvokeResponsePtrInput` via:
+//
+//          PrivateEndpointPropertyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointPropertyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyInvokeResponsePtrOutput() PrivateEndpointPropertyInvokeResponsePtrOutput
+	ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Context) PrivateEndpointPropertyInvokeResponsePtrOutput
+}
+
+type privateEndpointPropertyInvokeResponsePtrType PrivateEndpointPropertyInvokeResponseArgs
+
+func PrivateEndpointPropertyInvokeResponsePtr(v *PrivateEndpointPropertyInvokeResponseArgs) PrivateEndpointPropertyInvokeResponsePtrInput {
+	return (*privateEndpointPropertyInvokeResponsePtrType)(v)
+}
+
+func (*privateEndpointPropertyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointPropertyInvokeResponsePtrType) ToPrivateEndpointPropertyInvokeResponsePtrOutput() PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointPropertyInvokeResponsePtrType) ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyInvokeResponsePtrOutput)
+}
+
+type PrivateEndpointPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyInvokeResponseOutput) ToPrivateEndpointPropertyInvokeResponseOutput() PrivateEndpointPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyInvokeResponseOutput) ToPrivateEndpointPropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyInvokeResponseOutput) ToPrivateEndpointPropertyInvokeResponsePtrOutput() PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o.ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointPropertyInvokeResponseOutput) ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointPropertyInvokeResponse) *PrivateEndpointPropertyInvokeResponse {
+		return &v
+	}).(PrivateEndpointPropertyInvokeResponsePtrOutput)
+}
+
+// Resource id of the private endpoint.
+func (o PrivateEndpointPropertyInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointPropertyInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointPropertyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyInvokeResponsePtrOutput) ToPrivateEndpointPropertyInvokeResponsePtrOutput() PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyInvokeResponsePtrOutput) ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyInvokeResponsePtrOutput) Elem() PrivateEndpointPropertyInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointPropertyInvokeResponse) PrivateEndpointPropertyInvokeResponse { return *v }).(PrivateEndpointPropertyInvokeResponseOutput)
+}
+
+// Resource id of the private endpoint.
+func (o PrivateEndpointPropertyInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointPropertyInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5602,6 +7577,177 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi
 // The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyInvokeResponse struct {
+	// The actions required for private link service connection.
+	ActionsRequired string `pulumi:"actionsRequired"`
+	// The private link service connection description.
+	Description string `pulumi:"description"`
+	// The private link service connection status.
+	Status string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStatePropertyInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs and PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionStatePropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput
+	ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput
+}
+
+type PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs struct {
+	// The actions required for private link service connection.
+	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	// The private link service connection description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The private link service connection status.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput)
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput).ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs, PrivateLinkServiceConnectionStatePropertyInvokeResponsePtr and PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput` via:
+//
+//          PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput
+	ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput
+}
+
+type privateLinkServiceConnectionStatePropertyInvokeResponsePtrType PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs
+
+func PrivateLinkServiceConnectionStatePropertyInvokeResponsePtr(v *PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput {
+	return (*privateLinkServiceConnectionStatePropertyInvokeResponsePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStatePropertyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStatePropertyInvokeResponsePtrType) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStatePropertyInvokeResponsePtrType) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) *PrivateLinkServiceConnectionStatePropertyInvokeResponse {
+		return &v
+	}).(PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput)
+}
+
+// The actions required for private link service connection.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ActionsRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
+}
+
+// The private link service connection description.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyInvokeResponse) PrivateLinkServiceConnectionStatePropertyInvokeResponse {
+		return *v
+	}).(PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput)
+}
+
+// The actions required for private link service connection.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection description.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5915,6 +8061,79 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponse struct {
+	// The Azure Active Directory principal id.
+	PrincipalId string `pulumi:"principalId"`
+	// The Azure Active Directory tenant id.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+	Type *string `pulumi:"type"`
+}
+
+// ResourceIdentityInvokeResponseInput is an input type that accepts ResourceIdentityInvokeResponseArgs and ResourceIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceIdentityInvokeResponseInput` via:
+//
+//          ResourceIdentityInvokeResponseArgs{...}
+type ResourceIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput
+	ToResourceIdentityInvokeResponseOutputWithContext(context.Context) ResourceIdentityInvokeResponseOutput
+}
+
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponseArgs struct {
+	// The Azure Active Directory principal id.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Azure Active Directory tenant id.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return i.ToResourceIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityInvokeResponseOutput)
+}
+
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+// The Azure Active Directory principal id.
+func (o ResourceIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory tenant id.
+func (o ResourceIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+func (o ResourceIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityResponse struct {
 	// The Azure Active Directory principal id.
 	PrincipalId string `pulumi:"principalId"`
@@ -6187,6 +8406,106 @@ func (o ServerInfoArrayOutput) Index(i pulumi.IntInput) ServerInfoOutput {
 }
 
 // Server info for the server trust group.
+type ServerInfoInvokeResponse struct {
+	// Server Id.
+	ServerId string `pulumi:"serverId"`
+}
+
+// ServerInfoInvokeResponseInput is an input type that accepts ServerInfoInvokeResponseArgs and ServerInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerInfoInvokeResponseInput` via:
+//
+//          ServerInfoInvokeResponseArgs{...}
+type ServerInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerInfoInvokeResponseOutput() ServerInfoInvokeResponseOutput
+	ToServerInfoInvokeResponseOutputWithContext(context.Context) ServerInfoInvokeResponseOutput
+}
+
+// Server info for the server trust group.
+type ServerInfoInvokeResponseArgs struct {
+	// Server Id.
+	ServerId pulumi.StringInput `pulumi:"serverId"`
+}
+
+func (ServerInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerInfoInvokeResponseArgs) ToServerInfoInvokeResponseOutput() ServerInfoInvokeResponseOutput {
+	return i.ToServerInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerInfoInvokeResponseArgs) ToServerInfoInvokeResponseOutputWithContext(ctx context.Context) ServerInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerInfoInvokeResponseOutput)
+}
+
+// ServerInfoInvokeResponseArrayInput is an input type that accepts ServerInfoInvokeResponseArray and ServerInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ServerInfoInvokeResponseArrayInput` via:
+//
+//          ServerInfoInvokeResponseArray{ ServerInfoInvokeResponseArgs{...} }
+type ServerInfoInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToServerInfoInvokeResponseArrayOutput() ServerInfoInvokeResponseArrayOutput
+	ToServerInfoInvokeResponseArrayOutputWithContext(context.Context) ServerInfoInvokeResponseArrayOutput
+}
+
+type ServerInfoInvokeResponseArray []ServerInfoInvokeResponseInput
+
+func (ServerInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerInfoInvokeResponseArray) ToServerInfoInvokeResponseArrayOutput() ServerInfoInvokeResponseArrayOutput {
+	return i.ToServerInfoInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServerInfoInvokeResponseArray) ToServerInfoInvokeResponseArrayOutputWithContext(ctx context.Context) ServerInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerInfoInvokeResponseArrayOutput)
+}
+
+// Server info for the server trust group.
+type ServerInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerInfoInvokeResponseOutput) ToServerInfoInvokeResponseOutput() ServerInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ServerInfoInvokeResponseOutput) ToServerInfoInvokeResponseOutputWithContext(ctx context.Context) ServerInfoInvokeResponseOutput {
+	return o
+}
+
+// Server Id.
+func (o ServerInfoInvokeResponseOutput) ServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerInfoInvokeResponse) string { return v.ServerId }).(pulumi.StringOutput)
+}
+
+type ServerInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerInfoInvokeResponseArrayOutput) ToServerInfoInvokeResponseArrayOutput() ServerInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerInfoInvokeResponseArrayOutput) ToServerInfoInvokeResponseArrayOutputWithContext(ctx context.Context) ServerInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) ServerInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerInfoInvokeResponse {
+		return vs[0].([]ServerInfoInvokeResponse)[vs[1].(int)]
+	}).(ServerInfoInvokeResponseOutput)
+}
+
+// Server info for the server trust group.
 type ServerInfoResponse struct {
 	// Server Id.
 	ServerId string `pulumi:"serverId"`
@@ -6284,6 +8603,117 @@ func (o ServerInfoResponseArrayOutput) Index(i pulumi.IntInput) ServerInfoRespon
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerInfoResponse {
 		return vs[0].([]ServerInfoResponse)[vs[1].(int)]
 	}).(ServerInfoResponseOutput)
+}
+
+// A private endpoint connection under a server
+type ServerPrivateEndpointConnectionInvokeResponse struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
+	// Private endpoint connection properties
+	Properties PrivateEndpointConnectionPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// ServerPrivateEndpointConnectionInvokeResponseInput is an input type that accepts ServerPrivateEndpointConnectionInvokeResponseArgs and ServerPrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerPrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          ServerPrivateEndpointConnectionInvokeResponseArgs{...}
+type ServerPrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerPrivateEndpointConnectionInvokeResponseOutput() ServerPrivateEndpointConnectionInvokeResponseOutput
+	ToServerPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) ServerPrivateEndpointConnectionInvokeResponseOutput
+}
+
+// A private endpoint connection under a server
+type ServerPrivateEndpointConnectionInvokeResponseArgs struct {
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Private endpoint connection properties
+	Properties PrivateEndpointConnectionPropertiesInvokeResponseInput `pulumi:"properties"`
+}
+
+func (ServerPrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerPrivateEndpointConnectionInvokeResponseArgs) ToServerPrivateEndpointConnectionInvokeResponseOutput() ServerPrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToServerPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerPrivateEndpointConnectionInvokeResponseArgs) ToServerPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// ServerPrivateEndpointConnectionInvokeResponseArrayInput is an input type that accepts ServerPrivateEndpointConnectionInvokeResponseArray and ServerPrivateEndpointConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ServerPrivateEndpointConnectionInvokeResponseArrayInput` via:
+//
+//          ServerPrivateEndpointConnectionInvokeResponseArray{ ServerPrivateEndpointConnectionInvokeResponseArgs{...} }
+type ServerPrivateEndpointConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToServerPrivateEndpointConnectionInvokeResponseArrayOutput() ServerPrivateEndpointConnectionInvokeResponseArrayOutput
+	ToServerPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Context) ServerPrivateEndpointConnectionInvokeResponseArrayOutput
+}
+
+type ServerPrivateEndpointConnectionInvokeResponseArray []ServerPrivateEndpointConnectionInvokeResponseInput
+
+func (ServerPrivateEndpointConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerPrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerPrivateEndpointConnectionInvokeResponseArray) ToServerPrivateEndpointConnectionInvokeResponseArrayOutput() ServerPrivateEndpointConnectionInvokeResponseArrayOutput {
+	return i.ToServerPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServerPrivateEndpointConnectionInvokeResponseArray) ToServerPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// A private endpoint connection under a server
+type ServerPrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerPrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerPrivateEndpointConnectionInvokeResponseOutput) ToServerPrivateEndpointConnectionInvokeResponseOutput() ServerPrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o ServerPrivateEndpointConnectionInvokeResponseOutput) ToServerPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// Resource ID.
+func (o ServerPrivateEndpointConnectionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerPrivateEndpointConnectionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Private endpoint connection properties
+func (o ServerPrivateEndpointConnectionInvokeResponseOutput) Properties() PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v ServerPrivateEndpointConnectionInvokeResponse) PrivateEndpointConnectionPropertiesInvokeResponse {
+		return v.Properties
+	}).(PrivateEndpointConnectionPropertiesInvokeResponseOutput)
+}
+
+type ServerPrivateEndpointConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerPrivateEndpointConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerPrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerPrivateEndpointConnectionInvokeResponseArrayOutput) ToServerPrivateEndpointConnectionInvokeResponseArrayOutput() ServerPrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerPrivateEndpointConnectionInvokeResponseArrayOutput) ToServerPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) ServerPrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerPrivateEndpointConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) ServerPrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerPrivateEndpointConnectionInvokeResponse {
+		return vs[0].([]ServerPrivateEndpointConnectionInvokeResponse)[vs[1].(int)]
+	}).(ServerPrivateEndpointConnectionInvokeResponseOutput)
 }
 
 // A private endpoint connection under a server
@@ -6605,6 +9035,97 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// An ARM Resource SKU.
+type SkuInvokeResponse struct {
+	// Capacity of the particular SKU.
+	Capacity *int `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family *string `pulumi:"family"`
+	// The name of the SKU, typically, a letter + Number code, e.g. P3.
+	Name string `pulumi:"name"`
+	// Size of the particular SKU
+	Size *string `pulumi:"size"`
+	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// An ARM Resource SKU.
+type SkuInvokeResponseArgs struct {
+	// Capacity of the particular SKU.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the SKU, typically, a letter + Number code, e.g. P3.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Size of the particular SKU
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// An ARM Resource SKU.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Capacity of the particular SKU.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU, typically, a letter + Number code, e.g. P3.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Size of the particular SKU
+func (o SkuInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The tier or edition of the particular SKU, e.g. Basic, Premium.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 // An ARM Resource SKU.
@@ -6968,6 +9489,70 @@ func (o SyncGroupSchemaPtrOutput) Tables() SyncGroupSchemaTableArrayOutput {
 		}
 		return v.Tables
 	}).(SyncGroupSchemaTableArrayOutput)
+}
+
+// Properties of sync group schema.
+type SyncGroupSchemaInvokeResponse struct {
+	// Name of master sync member where the schema is from.
+	MasterSyncMemberName *string `pulumi:"masterSyncMemberName"`
+	// List of tables in sync group schema.
+	Tables []SyncGroupSchemaTableInvokeResponse `pulumi:"tables"`
+}
+
+// SyncGroupSchemaInvokeResponseInput is an input type that accepts SyncGroupSchemaInvokeResponseArgs and SyncGroupSchemaInvokeResponseOutput values.
+// You can construct a concrete instance of `SyncGroupSchemaInvokeResponseInput` via:
+//
+//          SyncGroupSchemaInvokeResponseArgs{...}
+type SyncGroupSchemaInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSyncGroupSchemaInvokeResponseOutput() SyncGroupSchemaInvokeResponseOutput
+	ToSyncGroupSchemaInvokeResponseOutputWithContext(context.Context) SyncGroupSchemaInvokeResponseOutput
+}
+
+// Properties of sync group schema.
+type SyncGroupSchemaInvokeResponseArgs struct {
+	// Name of master sync member where the schema is from.
+	MasterSyncMemberName pulumi.StringPtrInput `pulumi:"masterSyncMemberName"`
+	// List of tables in sync group schema.
+	Tables SyncGroupSchemaTableInvokeResponseArrayInput `pulumi:"tables"`
+}
+
+func (SyncGroupSchemaInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaInvokeResponse)(nil)).Elem()
+}
+
+func (i SyncGroupSchemaInvokeResponseArgs) ToSyncGroupSchemaInvokeResponseOutput() SyncGroupSchemaInvokeResponseOutput {
+	return i.ToSyncGroupSchemaInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SyncGroupSchemaInvokeResponseArgs) ToSyncGroupSchemaInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaInvokeResponseOutput)
+}
+
+// Properties of sync group schema.
+type SyncGroupSchemaInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SyncGroupSchemaInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaInvokeResponse)(nil)).Elem()
+}
+
+func (o SyncGroupSchemaInvokeResponseOutput) ToSyncGroupSchemaInvokeResponseOutput() SyncGroupSchemaInvokeResponseOutput {
+	return o
+}
+
+func (o SyncGroupSchemaInvokeResponseOutput) ToSyncGroupSchemaInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaInvokeResponseOutput {
+	return o
+}
+
+// Name of master sync member where the schema is from.
+func (o SyncGroupSchemaInvokeResponseOutput) MasterSyncMemberName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyncGroupSchemaInvokeResponse) *string { return v.MasterSyncMemberName }).(pulumi.StringPtrOutput)
+}
+
+// List of tables in sync group schema.
+func (o SyncGroupSchemaInvokeResponseOutput) Tables() SyncGroupSchemaTableInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SyncGroupSchemaInvokeResponse) []SyncGroupSchemaTableInvokeResponse { return v.Tables }).(SyncGroupSchemaTableInvokeResponseArrayOutput)
 }
 
 // Properties of sync group schema.
@@ -7351,6 +9936,124 @@ func (o SyncGroupSchemaTableColumnArrayOutput) Index(i pulumi.IntInput) SyncGrou
 }
 
 // Properties of column in sync group table.
+type SyncGroupSchemaTableColumnInvokeResponse struct {
+	// Data size of the column.
+	DataSize *string `pulumi:"dataSize"`
+	// Data type of the column.
+	DataType *string `pulumi:"dataType"`
+	// Quoted name of sync group table column.
+	QuotedName *string `pulumi:"quotedName"`
+}
+
+// SyncGroupSchemaTableColumnInvokeResponseInput is an input type that accepts SyncGroupSchemaTableColumnInvokeResponseArgs and SyncGroupSchemaTableColumnInvokeResponseOutput values.
+// You can construct a concrete instance of `SyncGroupSchemaTableColumnInvokeResponseInput` via:
+//
+//          SyncGroupSchemaTableColumnInvokeResponseArgs{...}
+type SyncGroupSchemaTableColumnInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSyncGroupSchemaTableColumnInvokeResponseOutput() SyncGroupSchemaTableColumnInvokeResponseOutput
+	ToSyncGroupSchemaTableColumnInvokeResponseOutputWithContext(context.Context) SyncGroupSchemaTableColumnInvokeResponseOutput
+}
+
+// Properties of column in sync group table.
+type SyncGroupSchemaTableColumnInvokeResponseArgs struct {
+	// Data size of the column.
+	DataSize pulumi.StringPtrInput `pulumi:"dataSize"`
+	// Data type of the column.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// Quoted name of sync group table column.
+	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
+}
+
+func (SyncGroupSchemaTableColumnInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaTableColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i SyncGroupSchemaTableColumnInvokeResponseArgs) ToSyncGroupSchemaTableColumnInvokeResponseOutput() SyncGroupSchemaTableColumnInvokeResponseOutput {
+	return i.ToSyncGroupSchemaTableColumnInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SyncGroupSchemaTableColumnInvokeResponseArgs) ToSyncGroupSchemaTableColumnInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaTableColumnInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableColumnInvokeResponseOutput)
+}
+
+// SyncGroupSchemaTableColumnInvokeResponseArrayInput is an input type that accepts SyncGroupSchemaTableColumnInvokeResponseArray and SyncGroupSchemaTableColumnInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SyncGroupSchemaTableColumnInvokeResponseArrayInput` via:
+//
+//          SyncGroupSchemaTableColumnInvokeResponseArray{ SyncGroupSchemaTableColumnInvokeResponseArgs{...} }
+type SyncGroupSchemaTableColumnInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSyncGroupSchemaTableColumnInvokeResponseArrayOutput() SyncGroupSchemaTableColumnInvokeResponseArrayOutput
+	ToSyncGroupSchemaTableColumnInvokeResponseArrayOutputWithContext(context.Context) SyncGroupSchemaTableColumnInvokeResponseArrayOutput
+}
+
+type SyncGroupSchemaTableColumnInvokeResponseArray []SyncGroupSchemaTableColumnInvokeResponseInput
+
+func (SyncGroupSchemaTableColumnInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyncGroupSchemaTableColumnInvokeResponse)(nil)).Elem()
+}
+
+func (i SyncGroupSchemaTableColumnInvokeResponseArray) ToSyncGroupSchemaTableColumnInvokeResponseArrayOutput() SyncGroupSchemaTableColumnInvokeResponseArrayOutput {
+	return i.ToSyncGroupSchemaTableColumnInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SyncGroupSchemaTableColumnInvokeResponseArray) ToSyncGroupSchemaTableColumnInvokeResponseArrayOutputWithContext(ctx context.Context) SyncGroupSchemaTableColumnInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableColumnInvokeResponseArrayOutput)
+}
+
+// Properties of column in sync group table.
+type SyncGroupSchemaTableColumnInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SyncGroupSchemaTableColumnInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaTableColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o SyncGroupSchemaTableColumnInvokeResponseOutput) ToSyncGroupSchemaTableColumnInvokeResponseOutput() SyncGroupSchemaTableColumnInvokeResponseOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableColumnInvokeResponseOutput) ToSyncGroupSchemaTableColumnInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaTableColumnInvokeResponseOutput {
+	return o
+}
+
+// Data size of the column.
+func (o SyncGroupSchemaTableColumnInvokeResponseOutput) DataSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyncGroupSchemaTableColumnInvokeResponse) *string { return v.DataSize }).(pulumi.StringPtrOutput)
+}
+
+// Data type of the column.
+func (o SyncGroupSchemaTableColumnInvokeResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyncGroupSchemaTableColumnInvokeResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// Quoted name of sync group table column.
+func (o SyncGroupSchemaTableColumnInvokeResponseOutput) QuotedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyncGroupSchemaTableColumnInvokeResponse) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
+}
+
+type SyncGroupSchemaTableColumnInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SyncGroupSchemaTableColumnInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyncGroupSchemaTableColumnInvokeResponse)(nil)).Elem()
+}
+
+func (o SyncGroupSchemaTableColumnInvokeResponseArrayOutput) ToSyncGroupSchemaTableColumnInvokeResponseArrayOutput() SyncGroupSchemaTableColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableColumnInvokeResponseArrayOutput) ToSyncGroupSchemaTableColumnInvokeResponseArrayOutputWithContext(ctx context.Context) SyncGroupSchemaTableColumnInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableColumnInvokeResponseArrayOutput) Index(i pulumi.IntInput) SyncGroupSchemaTableColumnInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyncGroupSchemaTableColumnInvokeResponse {
+		return vs[0].([]SyncGroupSchemaTableColumnInvokeResponse)[vs[1].(int)]
+	}).(SyncGroupSchemaTableColumnInvokeResponseOutput)
+}
+
+// Properties of column in sync group table.
 type SyncGroupSchemaTableColumnResponse struct {
 	// Data size of the column.
 	DataSize *string `pulumi:"dataSize"`
@@ -7466,6 +10169,117 @@ func (o SyncGroupSchemaTableColumnResponseArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyncGroupSchemaTableColumnResponse {
 		return vs[0].([]SyncGroupSchemaTableColumnResponse)[vs[1].(int)]
 	}).(SyncGroupSchemaTableColumnResponseOutput)
+}
+
+// Properties of table in sync group schema.
+type SyncGroupSchemaTableInvokeResponse struct {
+	// List of columns in sync group schema.
+	Columns []SyncGroupSchemaTableColumnInvokeResponse `pulumi:"columns"`
+	// Quoted name of sync group schema table.
+	QuotedName *string `pulumi:"quotedName"`
+}
+
+// SyncGroupSchemaTableInvokeResponseInput is an input type that accepts SyncGroupSchemaTableInvokeResponseArgs and SyncGroupSchemaTableInvokeResponseOutput values.
+// You can construct a concrete instance of `SyncGroupSchemaTableInvokeResponseInput` via:
+//
+//          SyncGroupSchemaTableInvokeResponseArgs{...}
+type SyncGroupSchemaTableInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSyncGroupSchemaTableInvokeResponseOutput() SyncGroupSchemaTableInvokeResponseOutput
+	ToSyncGroupSchemaTableInvokeResponseOutputWithContext(context.Context) SyncGroupSchemaTableInvokeResponseOutput
+}
+
+// Properties of table in sync group schema.
+type SyncGroupSchemaTableInvokeResponseArgs struct {
+	// List of columns in sync group schema.
+	Columns SyncGroupSchemaTableColumnInvokeResponseArrayInput `pulumi:"columns"`
+	// Quoted name of sync group schema table.
+	QuotedName pulumi.StringPtrInput `pulumi:"quotedName"`
+}
+
+func (SyncGroupSchemaTableInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaTableInvokeResponse)(nil)).Elem()
+}
+
+func (i SyncGroupSchemaTableInvokeResponseArgs) ToSyncGroupSchemaTableInvokeResponseOutput() SyncGroupSchemaTableInvokeResponseOutput {
+	return i.ToSyncGroupSchemaTableInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SyncGroupSchemaTableInvokeResponseArgs) ToSyncGroupSchemaTableInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaTableInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableInvokeResponseOutput)
+}
+
+// SyncGroupSchemaTableInvokeResponseArrayInput is an input type that accepts SyncGroupSchemaTableInvokeResponseArray and SyncGroupSchemaTableInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SyncGroupSchemaTableInvokeResponseArrayInput` via:
+//
+//          SyncGroupSchemaTableInvokeResponseArray{ SyncGroupSchemaTableInvokeResponseArgs{...} }
+type SyncGroupSchemaTableInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSyncGroupSchemaTableInvokeResponseArrayOutput() SyncGroupSchemaTableInvokeResponseArrayOutput
+	ToSyncGroupSchemaTableInvokeResponseArrayOutputWithContext(context.Context) SyncGroupSchemaTableInvokeResponseArrayOutput
+}
+
+type SyncGroupSchemaTableInvokeResponseArray []SyncGroupSchemaTableInvokeResponseInput
+
+func (SyncGroupSchemaTableInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyncGroupSchemaTableInvokeResponse)(nil)).Elem()
+}
+
+func (i SyncGroupSchemaTableInvokeResponseArray) ToSyncGroupSchemaTableInvokeResponseArrayOutput() SyncGroupSchemaTableInvokeResponseArrayOutput {
+	return i.ToSyncGroupSchemaTableInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SyncGroupSchemaTableInvokeResponseArray) ToSyncGroupSchemaTableInvokeResponseArrayOutputWithContext(ctx context.Context) SyncGroupSchemaTableInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupSchemaTableInvokeResponseArrayOutput)
+}
+
+// Properties of table in sync group schema.
+type SyncGroupSchemaTableInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SyncGroupSchemaTableInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SyncGroupSchemaTableInvokeResponse)(nil)).Elem()
+}
+
+func (o SyncGroupSchemaTableInvokeResponseOutput) ToSyncGroupSchemaTableInvokeResponseOutput() SyncGroupSchemaTableInvokeResponseOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableInvokeResponseOutput) ToSyncGroupSchemaTableInvokeResponseOutputWithContext(ctx context.Context) SyncGroupSchemaTableInvokeResponseOutput {
+	return o
+}
+
+// List of columns in sync group schema.
+func (o SyncGroupSchemaTableInvokeResponseOutput) Columns() SyncGroupSchemaTableColumnInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SyncGroupSchemaTableInvokeResponse) []SyncGroupSchemaTableColumnInvokeResponse {
+		return v.Columns
+	}).(SyncGroupSchemaTableColumnInvokeResponseArrayOutput)
+}
+
+// Quoted name of sync group schema table.
+func (o SyncGroupSchemaTableInvokeResponseOutput) QuotedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SyncGroupSchemaTableInvokeResponse) *string { return v.QuotedName }).(pulumi.StringPtrOutput)
+}
+
+type SyncGroupSchemaTableInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SyncGroupSchemaTableInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SyncGroupSchemaTableInvokeResponse)(nil)).Elem()
+}
+
+func (o SyncGroupSchemaTableInvokeResponseArrayOutput) ToSyncGroupSchemaTableInvokeResponseArrayOutput() SyncGroupSchemaTableInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableInvokeResponseArrayOutput) ToSyncGroupSchemaTableInvokeResponseArrayOutputWithContext(ctx context.Context) SyncGroupSchemaTableInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SyncGroupSchemaTableInvokeResponseArrayOutput) Index(i pulumi.IntInput) SyncGroupSchemaTableInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SyncGroupSchemaTableInvokeResponse {
+		return vs[0].([]SyncGroupSchemaTableInvokeResponse)[vs[1].(int)]
+	}).(SyncGroupSchemaTableInvokeResponseOutput)
 }
 
 // Properties of table in sync group schema.
@@ -7752,6 +10566,81 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) IsEnabled() pu
 }
 
 // Properties of a Vulnerability Assessment recurring scans.
+type VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse struct {
+	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
+	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
+	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	Emails []string `pulumi:"emails"`
+	// Recurring scans state.
+	IsEnabled *bool `pulumi:"isEnabled"`
+}
+
+// VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseInput is an input type that accepts VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs and VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseInput` via:
+//
+//          VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs{...}
+type VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput() VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput
+	ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput
+}
+
+// Properties of a Vulnerability Assessment recurring scans.
+type VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs struct {
+	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
+	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
+	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	Emails pulumi.StringArrayInput `pulumi:"emails"`
+	// Recurring scans state.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+}
+
+func (VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput() VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput {
+	return i.ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput)
+}
+
+// Properties of a Vulnerability Assessment recurring scans.
+type VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput() VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Specifies that the schedule scan notification will be is sent to the subscription administrators.
+func (o VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse) *bool {
+		return v.EmailSubscriptionAdmins
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an array of e-mail addresses to which the scan notification is sent.
+func (o VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse) []string { return v.Emails }).(pulumi.StringArrayOutput)
+}
+
+// Recurring scans state.
+func (o VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponse struct {
 	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
@@ -7930,108 +10819,151 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) IsEnab
 func init() {
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointPtrOutput{})
+	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointInvokeResponseOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointResponseOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadOnlyEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointPtrOutput{})
+	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointInvokeResponseOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointResponseOutput{})
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadOnlyEndpointOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadOnlyEndpointPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFailoverGroupReadOnlyEndpointInvokeResponseOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadOnlyEndpointResponseOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadWriteEndpointOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadWriteEndpointPtrOutput{})
+	pulumi.RegisterOutputType(InstanceFailoverGroupReadWriteEndpointInvokeResponseOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadWriteEndpointResponseOutput{})
 	pulumi.RegisterOutputType(InstanceFailoverGroupReadWriteEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobScheduleOutput{})
 	pulumi.RegisterOutputType(JobSchedulePtrOutput{})
+	pulumi.RegisterOutputType(JobScheduleInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobScheduleResponseOutput{})
 	pulumi.RegisterOutputType(JobScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStepActionOutput{})
 	pulumi.RegisterOutputType(JobStepActionPtrOutput{})
+	pulumi.RegisterOutputType(JobStepActionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobStepActionResponseOutput{})
 	pulumi.RegisterOutputType(JobStepActionResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsPtrOutput{})
+	pulumi.RegisterOutputType(JobStepExecutionOptionsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsResponseOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStepOutputOutput{})
 	pulumi.RegisterOutputType(JobStepOutputPtrOutput{})
+	pulumi.RegisterOutputType(JobStepOutputInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobStepOutputResponseOutput{})
 	pulumi.RegisterOutputType(JobStepOutputResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobTargetOutput{})
 	pulumi.RegisterOutputType(JobTargetArrayOutput{})
+	pulumi.RegisterOutputType(JobTargetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobTargetInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobTargetResponseOutput{})
 	pulumi.RegisterOutputType(JobTargetResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePairInfoOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePairInfoArrayOutput{})
+	pulumi.RegisterOutputType(ManagedInstancePairInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedInstancePairInfoInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePairInfoResponseOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePairInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedInstancePecPropertyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedInstancePecPropertyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePecPropertyResponseOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePecPropertyResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagedInstancePrivateEndpointConnectionPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateEndpointPropertyOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateEndpointPropertyPtrOutput{})
+	pulumi.RegisterOutputType(ManagedInstancePrivateEndpointPropertyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedInstancePrivateEndpointPropertyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateEndpointPropertyResponseOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateEndpointPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateLinkServiceConnectionStatePropertyOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateLinkServiceConnectionStatePropertyPtrOutput{})
+	pulumi.RegisterOutputType(ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagedInstancePrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(PartnerInfoOutput{})
 	pulumi.RegisterOutputType(PartnerInfoArrayOutput{})
+	pulumi.RegisterOutputType(PartnerInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PartnerInfoInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PartnerInfoResponseOutput{})
 	pulumi.RegisterOutputType(PartnerInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(PartnerRegionInfoOutput{})
 	pulumi.RegisterOutputType(PartnerRegionInfoArrayOutput{})
+	pulumi.RegisterOutputType(PartnerRegionInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PartnerRegionInfoInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PartnerRegionInfoResponseOutput{})
 	pulumi.RegisterOutputType(PartnerRegionInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerInfoOutput{})
 	pulumi.RegisterOutputType(ServerInfoArrayOutput{})
+	pulumi.RegisterOutputType(ServerInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServerInfoInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerInfoResponseOutput{})
 	pulumi.RegisterOutputType(ServerInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaPtrOutput{})
+	pulumi.RegisterOutputType(SyncGroupSchemaInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaResponseOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaResponsePtrOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableArrayOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnArrayOutput{})
+	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnResponseOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableColumnResponseArrayOutput{})
+	pulumi.RegisterOutputType(SyncGroupSchemaTableInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SyncGroupSchemaTableInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableResponseOutput{})
 	pulumi.RegisterOutputType(SyncGroupSchemaTableResponseArrayOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput{})
 }

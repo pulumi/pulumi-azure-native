@@ -30,7 +30,7 @@ type LookupDiagnosticSettingResult struct {
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// The list of logs settings.
-	Logs []LogSettingsResponse `pulumi:"logs"`
+	Logs []LogSettingsInvokeResponse `pulumi:"logs"`
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.

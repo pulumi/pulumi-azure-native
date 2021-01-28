@@ -38,9 +38,9 @@ type LookupJobScheduleResult struct {
 	// Gets or sets the hybrid worker group that the scheduled job should run on.
 	RunOn *string `pulumi:"runOn"`
 	// Gets or sets the runbook.
-	Runbook *RunbookAssociationPropertyResponse `pulumi:"runbook"`
+	Runbook *RunbookAssociationPropertyInvokeResponse `pulumi:"runbook"`
 	// Gets or sets the schedule.
-	Schedule *ScheduleAssociationPropertyResponse `pulumi:"schedule"`
+	Schedule *ScheduleAssociationPropertyInvokeResponse `pulumi:"schedule"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

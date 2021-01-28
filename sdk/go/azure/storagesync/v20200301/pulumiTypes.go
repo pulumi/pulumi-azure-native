@@ -11,6 +11,88 @@ import (
 )
 
 // Server endpoint cloud tiering status object.
+type CloudTieringCachePerformanceInvokeResponse struct {
+	// Count of bytes that were served from the local server
+	CacheHitBytes float64 `pulumi:"cacheHitBytes"`
+	// Percentage of total bytes (hit + miss) that were served from the local server
+	CacheHitBytesPercent int `pulumi:"cacheHitBytesPercent"`
+	// Count of bytes that were served from the cloud
+	CacheMissBytes float64 `pulumi:"cacheMissBytes"`
+	// Last updated timestamp
+	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
+}
+
+// CloudTieringCachePerformanceInvokeResponseInput is an input type that accepts CloudTieringCachePerformanceInvokeResponseArgs and CloudTieringCachePerformanceInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudTieringCachePerformanceInvokeResponseInput` via:
+//
+//          CloudTieringCachePerformanceInvokeResponseArgs{...}
+type CloudTieringCachePerformanceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudTieringCachePerformanceInvokeResponseOutput() CloudTieringCachePerformanceInvokeResponseOutput
+	ToCloudTieringCachePerformanceInvokeResponseOutputWithContext(context.Context) CloudTieringCachePerformanceInvokeResponseOutput
+}
+
+// Server endpoint cloud tiering status object.
+type CloudTieringCachePerformanceInvokeResponseArgs struct {
+	// Count of bytes that were served from the local server
+	CacheHitBytes pulumi.Float64Input `pulumi:"cacheHitBytes"`
+	// Percentage of total bytes (hit + miss) that were served from the local server
+	CacheHitBytesPercent pulumi.IntInput `pulumi:"cacheHitBytesPercent"`
+	// Count of bytes that were served from the cloud
+	CacheMissBytes pulumi.Float64Input `pulumi:"cacheMissBytes"`
+	// Last updated timestamp
+	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
+}
+
+func (CloudTieringCachePerformanceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudTieringCachePerformanceInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudTieringCachePerformanceInvokeResponseArgs) ToCloudTieringCachePerformanceInvokeResponseOutput() CloudTieringCachePerformanceInvokeResponseOutput {
+	return i.ToCloudTieringCachePerformanceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudTieringCachePerformanceInvokeResponseArgs) ToCloudTieringCachePerformanceInvokeResponseOutputWithContext(ctx context.Context) CloudTieringCachePerformanceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudTieringCachePerformanceInvokeResponseOutput)
+}
+
+// Server endpoint cloud tiering status object.
+type CloudTieringCachePerformanceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudTieringCachePerformanceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudTieringCachePerformanceInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudTieringCachePerformanceInvokeResponseOutput) ToCloudTieringCachePerformanceInvokeResponseOutput() CloudTieringCachePerformanceInvokeResponseOutput {
+	return o
+}
+
+func (o CloudTieringCachePerformanceInvokeResponseOutput) ToCloudTieringCachePerformanceInvokeResponseOutputWithContext(ctx context.Context) CloudTieringCachePerformanceInvokeResponseOutput {
+	return o
+}
+
+// Count of bytes that were served from the local server
+func (o CloudTieringCachePerformanceInvokeResponseOutput) CacheHitBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringCachePerformanceInvokeResponse) float64 { return v.CacheHitBytes }).(pulumi.Float64Output)
+}
+
+// Percentage of total bytes (hit + miss) that were served from the local server
+func (o CloudTieringCachePerformanceInvokeResponseOutput) CacheHitBytesPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v CloudTieringCachePerformanceInvokeResponse) int { return v.CacheHitBytesPercent }).(pulumi.IntOutput)
+}
+
+// Count of bytes that were served from the cloud
+func (o CloudTieringCachePerformanceInvokeResponseOutput) CacheMissBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringCachePerformanceInvokeResponse) float64 { return v.CacheMissBytes }).(pulumi.Float64Output)
+}
+
+// Last updated timestamp
+func (o CloudTieringCachePerformanceInvokeResponseOutput) LastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudTieringCachePerformanceInvokeResponse) string { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Server endpoint cloud tiering status object.
 type CloudTieringCachePerformanceResponse struct {
 	// Count of bytes that were served from the local server
 	CacheHitBytes float64 `pulumi:"cacheHitBytes"`
@@ -202,6 +284,72 @@ func (o CloudTieringCachePerformanceResponsePtrOutput) LastUpdatedTimestamp() pu
 }
 
 // Status of the date policy
+type CloudTieringDatePolicyStatusInvokeResponse struct {
+	// Last updated timestamp
+	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
+	// Most recent access time of tiered files
+	TieredFilesMostRecentAccessTimestamp string `pulumi:"tieredFilesMostRecentAccessTimestamp"`
+}
+
+// CloudTieringDatePolicyStatusInvokeResponseInput is an input type that accepts CloudTieringDatePolicyStatusInvokeResponseArgs and CloudTieringDatePolicyStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudTieringDatePolicyStatusInvokeResponseInput` via:
+//
+//          CloudTieringDatePolicyStatusInvokeResponseArgs{...}
+type CloudTieringDatePolicyStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudTieringDatePolicyStatusInvokeResponseOutput() CloudTieringDatePolicyStatusInvokeResponseOutput
+	ToCloudTieringDatePolicyStatusInvokeResponseOutputWithContext(context.Context) CloudTieringDatePolicyStatusInvokeResponseOutput
+}
+
+// Status of the date policy
+type CloudTieringDatePolicyStatusInvokeResponseArgs struct {
+	// Last updated timestamp
+	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
+	// Most recent access time of tiered files
+	TieredFilesMostRecentAccessTimestamp pulumi.StringInput `pulumi:"tieredFilesMostRecentAccessTimestamp"`
+}
+
+func (CloudTieringDatePolicyStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudTieringDatePolicyStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudTieringDatePolicyStatusInvokeResponseArgs) ToCloudTieringDatePolicyStatusInvokeResponseOutput() CloudTieringDatePolicyStatusInvokeResponseOutput {
+	return i.ToCloudTieringDatePolicyStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudTieringDatePolicyStatusInvokeResponseArgs) ToCloudTieringDatePolicyStatusInvokeResponseOutputWithContext(ctx context.Context) CloudTieringDatePolicyStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudTieringDatePolicyStatusInvokeResponseOutput)
+}
+
+// Status of the date policy
+type CloudTieringDatePolicyStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudTieringDatePolicyStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudTieringDatePolicyStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudTieringDatePolicyStatusInvokeResponseOutput) ToCloudTieringDatePolicyStatusInvokeResponseOutput() CloudTieringDatePolicyStatusInvokeResponseOutput {
+	return o
+}
+
+func (o CloudTieringDatePolicyStatusInvokeResponseOutput) ToCloudTieringDatePolicyStatusInvokeResponseOutputWithContext(ctx context.Context) CloudTieringDatePolicyStatusInvokeResponseOutput {
+	return o
+}
+
+// Last updated timestamp
+func (o CloudTieringDatePolicyStatusInvokeResponseOutput) LastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudTieringDatePolicyStatusInvokeResponse) string { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Most recent access time of tiered files
+func (o CloudTieringDatePolicyStatusInvokeResponseOutput) TieredFilesMostRecentAccessTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudTieringDatePolicyStatusInvokeResponse) string {
+		return v.TieredFilesMostRecentAccessTimestamp
+	}).(pulumi.StringOutput)
+}
+
+// Status of the date policy
 type CloudTieringDatePolicyStatusResponse struct {
 	// Last updated timestamp
 	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
@@ -352,6 +500,81 @@ func (o CloudTieringDatePolicyStatusResponsePtrOutput) TieredFilesMostRecentAcce
 		}
 		return &v.TieredFilesMostRecentAccessTimestamp
 	}).(pulumi.StringPtrOutput)
+}
+
+// Server endpoint cloud tiering status object.
+type CloudTieringFilesNotTieringInvokeResponse struct {
+	// Array of tiering errors
+	Errors []FilesNotTieringErrorInvokeResponse `pulumi:"errors"`
+	// Last updated timestamp
+	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
+	// Last cloud tiering result (HResult)
+	TotalFileCount float64 `pulumi:"totalFileCount"`
+}
+
+// CloudTieringFilesNotTieringInvokeResponseInput is an input type that accepts CloudTieringFilesNotTieringInvokeResponseArgs and CloudTieringFilesNotTieringInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudTieringFilesNotTieringInvokeResponseInput` via:
+//
+//          CloudTieringFilesNotTieringInvokeResponseArgs{...}
+type CloudTieringFilesNotTieringInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudTieringFilesNotTieringInvokeResponseOutput() CloudTieringFilesNotTieringInvokeResponseOutput
+	ToCloudTieringFilesNotTieringInvokeResponseOutputWithContext(context.Context) CloudTieringFilesNotTieringInvokeResponseOutput
+}
+
+// Server endpoint cloud tiering status object.
+type CloudTieringFilesNotTieringInvokeResponseArgs struct {
+	// Array of tiering errors
+	Errors FilesNotTieringErrorInvokeResponseArrayInput `pulumi:"errors"`
+	// Last updated timestamp
+	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
+	// Last cloud tiering result (HResult)
+	TotalFileCount pulumi.Float64Input `pulumi:"totalFileCount"`
+}
+
+func (CloudTieringFilesNotTieringInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudTieringFilesNotTieringInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudTieringFilesNotTieringInvokeResponseArgs) ToCloudTieringFilesNotTieringInvokeResponseOutput() CloudTieringFilesNotTieringInvokeResponseOutput {
+	return i.ToCloudTieringFilesNotTieringInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudTieringFilesNotTieringInvokeResponseArgs) ToCloudTieringFilesNotTieringInvokeResponseOutputWithContext(ctx context.Context) CloudTieringFilesNotTieringInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudTieringFilesNotTieringInvokeResponseOutput)
+}
+
+// Server endpoint cloud tiering status object.
+type CloudTieringFilesNotTieringInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudTieringFilesNotTieringInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudTieringFilesNotTieringInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudTieringFilesNotTieringInvokeResponseOutput) ToCloudTieringFilesNotTieringInvokeResponseOutput() CloudTieringFilesNotTieringInvokeResponseOutput {
+	return o
+}
+
+func (o CloudTieringFilesNotTieringInvokeResponseOutput) ToCloudTieringFilesNotTieringInvokeResponseOutputWithContext(ctx context.Context) CloudTieringFilesNotTieringInvokeResponseOutput {
+	return o
+}
+
+// Array of tiering errors
+func (o CloudTieringFilesNotTieringInvokeResponseOutput) Errors() FilesNotTieringErrorInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CloudTieringFilesNotTieringInvokeResponse) []FilesNotTieringErrorInvokeResponse {
+		return v.Errors
+	}).(FilesNotTieringErrorInvokeResponseArrayOutput)
+}
+
+// Last updated timestamp
+func (o CloudTieringFilesNotTieringInvokeResponseOutput) LastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudTieringFilesNotTieringInvokeResponse) string { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Last cloud tiering result (HResult)
+func (o CloudTieringFilesNotTieringInvokeResponseOutput) TotalFileCount() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringFilesNotTieringInvokeResponse) float64 { return v.TotalFileCount }).(pulumi.Float64Output)
 }
 
 // Server endpoint cloud tiering status object.
@@ -524,6 +747,106 @@ func (o CloudTieringFilesNotTieringResponsePtrOutput) TotalFileCount() pulumi.Fl
 		}
 		return &v.TotalFileCount
 	}).(pulumi.Float64PtrOutput)
+}
+
+// Server endpoint cloud tiering status object.
+type CloudTieringSpaceSavingsInvokeResponse struct {
+	// Cached content size on the server
+	CachedSizeBytes float64 `pulumi:"cachedSizeBytes"`
+	// Last updated timestamp
+	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
+	// Count of bytes saved on the server
+	SpaceSavingsBytes float64 `pulumi:"spaceSavingsBytes"`
+	// Percentage of cached size over total size
+	SpaceSavingsPercent int `pulumi:"spaceSavingsPercent"`
+	// Total size of content in the azure file share
+	TotalSizeCloudBytes float64 `pulumi:"totalSizeCloudBytes"`
+	// Volume size
+	VolumeSizeBytes float64 `pulumi:"volumeSizeBytes"`
+}
+
+// CloudTieringSpaceSavingsInvokeResponseInput is an input type that accepts CloudTieringSpaceSavingsInvokeResponseArgs and CloudTieringSpaceSavingsInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudTieringSpaceSavingsInvokeResponseInput` via:
+//
+//          CloudTieringSpaceSavingsInvokeResponseArgs{...}
+type CloudTieringSpaceSavingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudTieringSpaceSavingsInvokeResponseOutput() CloudTieringSpaceSavingsInvokeResponseOutput
+	ToCloudTieringSpaceSavingsInvokeResponseOutputWithContext(context.Context) CloudTieringSpaceSavingsInvokeResponseOutput
+}
+
+// Server endpoint cloud tiering status object.
+type CloudTieringSpaceSavingsInvokeResponseArgs struct {
+	// Cached content size on the server
+	CachedSizeBytes pulumi.Float64Input `pulumi:"cachedSizeBytes"`
+	// Last updated timestamp
+	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
+	// Count of bytes saved on the server
+	SpaceSavingsBytes pulumi.Float64Input `pulumi:"spaceSavingsBytes"`
+	// Percentage of cached size over total size
+	SpaceSavingsPercent pulumi.IntInput `pulumi:"spaceSavingsPercent"`
+	// Total size of content in the azure file share
+	TotalSizeCloudBytes pulumi.Float64Input `pulumi:"totalSizeCloudBytes"`
+	// Volume size
+	VolumeSizeBytes pulumi.Float64Input `pulumi:"volumeSizeBytes"`
+}
+
+func (CloudTieringSpaceSavingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudTieringSpaceSavingsInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudTieringSpaceSavingsInvokeResponseArgs) ToCloudTieringSpaceSavingsInvokeResponseOutput() CloudTieringSpaceSavingsInvokeResponseOutput {
+	return i.ToCloudTieringSpaceSavingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudTieringSpaceSavingsInvokeResponseArgs) ToCloudTieringSpaceSavingsInvokeResponseOutputWithContext(ctx context.Context) CloudTieringSpaceSavingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudTieringSpaceSavingsInvokeResponseOutput)
+}
+
+// Server endpoint cloud tiering status object.
+type CloudTieringSpaceSavingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudTieringSpaceSavingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudTieringSpaceSavingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudTieringSpaceSavingsInvokeResponseOutput) ToCloudTieringSpaceSavingsInvokeResponseOutput() CloudTieringSpaceSavingsInvokeResponseOutput {
+	return o
+}
+
+func (o CloudTieringSpaceSavingsInvokeResponseOutput) ToCloudTieringSpaceSavingsInvokeResponseOutputWithContext(ctx context.Context) CloudTieringSpaceSavingsInvokeResponseOutput {
+	return o
+}
+
+// Cached content size on the server
+func (o CloudTieringSpaceSavingsInvokeResponseOutput) CachedSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsInvokeResponse) float64 { return v.CachedSizeBytes }).(pulumi.Float64Output)
+}
+
+// Last updated timestamp
+func (o CloudTieringSpaceSavingsInvokeResponseOutput) LastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsInvokeResponse) string { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Count of bytes saved on the server
+func (o CloudTieringSpaceSavingsInvokeResponseOutput) SpaceSavingsBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsInvokeResponse) float64 { return v.SpaceSavingsBytes }).(pulumi.Float64Output)
+}
+
+// Percentage of cached size over total size
+func (o CloudTieringSpaceSavingsInvokeResponseOutput) SpaceSavingsPercent() pulumi.IntOutput {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsInvokeResponse) int { return v.SpaceSavingsPercent }).(pulumi.IntOutput)
+}
+
+// Total size of content in the azure file share
+func (o CloudTieringSpaceSavingsInvokeResponseOutput) TotalSizeCloudBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsInvokeResponse) float64 { return v.TotalSizeCloudBytes }).(pulumi.Float64Output)
+}
+
+// Volume size
+func (o CloudTieringSpaceSavingsInvokeResponseOutput) VolumeSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v CloudTieringSpaceSavingsInvokeResponse) float64 { return v.VolumeSizeBytes }).(pulumi.Float64Output)
 }
 
 // Server endpoint cloud tiering status object.
@@ -756,6 +1079,83 @@ func (o CloudTieringSpaceSavingsResponsePtrOutput) VolumeSizeBytes() pulumi.Floa
 }
 
 // Status of the volume free space policy
+type CloudTieringVolumeFreeSpacePolicyStatusInvokeResponse struct {
+	// Current volume free space percentage.
+	CurrentVolumeFreeSpacePercent int `pulumi:"currentVolumeFreeSpacePercent"`
+	// In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
+	EffectiveVolumeFreeSpacePolicy int `pulumi:"effectiveVolumeFreeSpacePolicy"`
+	// Last updated timestamp
+	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
+}
+
+// CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseInput is an input type that accepts CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseArgs and CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseInput` via:
+//
+//          CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseArgs{...}
+type CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput() CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput
+	ToCloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutputWithContext(context.Context) CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput
+}
+
+// Status of the volume free space policy
+type CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseArgs struct {
+	// Current volume free space percentage.
+	CurrentVolumeFreeSpacePercent pulumi.IntInput `pulumi:"currentVolumeFreeSpacePercent"`
+	// In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
+	EffectiveVolumeFreeSpacePolicy pulumi.IntInput `pulumi:"effectiveVolumeFreeSpacePolicy"`
+	// Last updated timestamp
+	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
+}
+
+func (CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudTieringVolumeFreeSpacePolicyStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseArgs) ToCloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput() CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput {
+	return i.ToCloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseArgs) ToCloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutputWithContext(ctx context.Context) CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput)
+}
+
+// Status of the volume free space policy
+type CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudTieringVolumeFreeSpacePolicyStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput) ToCloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput() CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput {
+	return o
+}
+
+func (o CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput) ToCloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutputWithContext(ctx context.Context) CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput {
+	return o
+}
+
+// Current volume free space percentage.
+func (o CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput) CurrentVolumeFreeSpacePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v CloudTieringVolumeFreeSpacePolicyStatusInvokeResponse) int {
+		return v.CurrentVolumeFreeSpacePercent
+	}).(pulumi.IntOutput)
+}
+
+// In the case where multiple server endpoints are present in a volume, an effective free space policy is applied.
+func (o CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput) EffectiveVolumeFreeSpacePolicy() pulumi.IntOutput {
+	return o.ApplyT(func(v CloudTieringVolumeFreeSpacePolicyStatusInvokeResponse) int {
+		return v.EffectiveVolumeFreeSpacePolicy
+	}).(pulumi.IntOutput)
+}
+
+// Last updated timestamp
+func (o CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput) LastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudTieringVolumeFreeSpacePolicyStatusInvokeResponse) string { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Status of the volume free space policy
 type CloudTieringVolumeFreeSpacePolicyStatusResponse struct {
 	// Current volume free space percentage.
 	CurrentVolumeFreeSpacePercent int `pulumi:"currentVolumeFreeSpacePercent"`
@@ -930,6 +1330,115 @@ func (o CloudTieringVolumeFreeSpacePolicyStatusResponsePtrOutput) LastUpdatedTim
 }
 
 // Files not tiering error object
+type FilesNotTieringErrorInvokeResponse struct {
+	// Error code (HResult)
+	ErrorCode int `pulumi:"errorCode"`
+	// Count of files with this error
+	FileCount float64 `pulumi:"fileCount"`
+}
+
+// FilesNotTieringErrorInvokeResponseInput is an input type that accepts FilesNotTieringErrorInvokeResponseArgs and FilesNotTieringErrorInvokeResponseOutput values.
+// You can construct a concrete instance of `FilesNotTieringErrorInvokeResponseInput` via:
+//
+//          FilesNotTieringErrorInvokeResponseArgs{...}
+type FilesNotTieringErrorInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFilesNotTieringErrorInvokeResponseOutput() FilesNotTieringErrorInvokeResponseOutput
+	ToFilesNotTieringErrorInvokeResponseOutputWithContext(context.Context) FilesNotTieringErrorInvokeResponseOutput
+}
+
+// Files not tiering error object
+type FilesNotTieringErrorInvokeResponseArgs struct {
+	// Error code (HResult)
+	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
+	// Count of files with this error
+	FileCount pulumi.Float64Input `pulumi:"fileCount"`
+}
+
+func (FilesNotTieringErrorInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesNotTieringErrorInvokeResponse)(nil)).Elem()
+}
+
+func (i FilesNotTieringErrorInvokeResponseArgs) ToFilesNotTieringErrorInvokeResponseOutput() FilesNotTieringErrorInvokeResponseOutput {
+	return i.ToFilesNotTieringErrorInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FilesNotTieringErrorInvokeResponseArgs) ToFilesNotTieringErrorInvokeResponseOutputWithContext(ctx context.Context) FilesNotTieringErrorInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesNotTieringErrorInvokeResponseOutput)
+}
+
+// FilesNotTieringErrorInvokeResponseArrayInput is an input type that accepts FilesNotTieringErrorInvokeResponseArray and FilesNotTieringErrorInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FilesNotTieringErrorInvokeResponseArrayInput` via:
+//
+//          FilesNotTieringErrorInvokeResponseArray{ FilesNotTieringErrorInvokeResponseArgs{...} }
+type FilesNotTieringErrorInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFilesNotTieringErrorInvokeResponseArrayOutput() FilesNotTieringErrorInvokeResponseArrayOutput
+	ToFilesNotTieringErrorInvokeResponseArrayOutputWithContext(context.Context) FilesNotTieringErrorInvokeResponseArrayOutput
+}
+
+type FilesNotTieringErrorInvokeResponseArray []FilesNotTieringErrorInvokeResponseInput
+
+func (FilesNotTieringErrorInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesNotTieringErrorInvokeResponse)(nil)).Elem()
+}
+
+func (i FilesNotTieringErrorInvokeResponseArray) ToFilesNotTieringErrorInvokeResponseArrayOutput() FilesNotTieringErrorInvokeResponseArrayOutput {
+	return i.ToFilesNotTieringErrorInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FilesNotTieringErrorInvokeResponseArray) ToFilesNotTieringErrorInvokeResponseArrayOutputWithContext(ctx context.Context) FilesNotTieringErrorInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilesNotTieringErrorInvokeResponseArrayOutput)
+}
+
+// Files not tiering error object
+type FilesNotTieringErrorInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FilesNotTieringErrorInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilesNotTieringErrorInvokeResponse)(nil)).Elem()
+}
+
+func (o FilesNotTieringErrorInvokeResponseOutput) ToFilesNotTieringErrorInvokeResponseOutput() FilesNotTieringErrorInvokeResponseOutput {
+	return o
+}
+
+func (o FilesNotTieringErrorInvokeResponseOutput) ToFilesNotTieringErrorInvokeResponseOutputWithContext(ctx context.Context) FilesNotTieringErrorInvokeResponseOutput {
+	return o
+}
+
+// Error code (HResult)
+func (o FilesNotTieringErrorInvokeResponseOutput) ErrorCode() pulumi.IntOutput {
+	return o.ApplyT(func(v FilesNotTieringErrorInvokeResponse) int { return v.ErrorCode }).(pulumi.IntOutput)
+}
+
+// Count of files with this error
+func (o FilesNotTieringErrorInvokeResponseOutput) FileCount() pulumi.Float64Output {
+	return o.ApplyT(func(v FilesNotTieringErrorInvokeResponse) float64 { return v.FileCount }).(pulumi.Float64Output)
+}
+
+type FilesNotTieringErrorInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FilesNotTieringErrorInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilesNotTieringErrorInvokeResponse)(nil)).Elem()
+}
+
+func (o FilesNotTieringErrorInvokeResponseArrayOutput) ToFilesNotTieringErrorInvokeResponseArrayOutput() FilesNotTieringErrorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FilesNotTieringErrorInvokeResponseArrayOutput) ToFilesNotTieringErrorInvokeResponseArrayOutputWithContext(ctx context.Context) FilesNotTieringErrorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FilesNotTieringErrorInvokeResponseArrayOutput) Index(i pulumi.IntInput) FilesNotTieringErrorInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilesNotTieringErrorInvokeResponse {
+		return vs[0].([]FilesNotTieringErrorInvokeResponse)[vs[1].(int)]
+	}).(FilesNotTieringErrorInvokeResponseOutput)
+}
+
+// Files not tiering error object
 type FilesNotTieringErrorResponse struct {
 	// Error code (HResult)
 	ErrorCode int `pulumi:"errorCode"`
@@ -1036,6 +1545,155 @@ func (o FilesNotTieringErrorResponseArrayOutput) Index(i pulumi.IntInput) FilesN
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilesNotTieringErrorResponse {
 		return vs[0].([]FilesNotTieringErrorResponse)[vs[1].(int)]
 	}).(FilesNotTieringErrorResponseOutput)
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionInvokeResponse struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointInvokeResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionInvokeResponseInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArgs and PrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArgs{...}
+type PrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput
+	ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseOutput
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionInvokeResponseArgs struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointInvokeResponsePtrInput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponseInput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// PrivateEndpointConnectionInvokeResponseArrayInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArray and PrivateEndpointConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArray{ PrivateEndpointConnectionInvokeResponseArgs{...} }
+type PrivateEndpointConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput
+	ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput
+}
+
+type PrivateEndpointConnectionInvokeResponseArray []PrivateEndpointConnectionInvokeResponseInput
+
+func (PrivateEndpointConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o PrivateEndpointConnectionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateEndpoint() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *PrivateEndpointInvokeResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) PrivateLinkServiceConnectionStateInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionInvokeResponse {
+		return vs[0].([]PrivateEndpointConnectionInvokeResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionInvokeResponseOutput)
 }
 
 // The Private Endpoint Connection resource.
@@ -1183,6 +1841,140 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
 		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
 	}).(PrivateEndpointConnectionResponseOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointInvokeResponse struct {
+	// The ARM identifier for Private Endpoint
+	Id string `pulumi:"id"`
+}
+
+// PrivateEndpointInvokeResponseInput is an input type that accepts PrivateEndpointInvokeResponseArgs and PrivateEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponseInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+type PrivateEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput
+	ToPrivateEndpointInvokeResponseOutputWithContext(context.Context) PrivateEndpointInvokeResponseOutput
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointInvokeResponseArgs struct {
+	// The ARM identifier for Private Endpoint
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PrivateEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return i.ToPrivateEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput)
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput).ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointInvokeResponsePtrInput is an input type that accepts PrivateEndpointInvokeResponseArgs, PrivateEndpointInvokeResponsePtr and PrivateEndpointInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponsePtrInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput
+	ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Context) PrivateEndpointInvokeResponsePtrOutput
+}
+
+type privateEndpointInvokeResponsePtrType PrivateEndpointInvokeResponseArgs
+
+func PrivateEndpointInvokeResponsePtr(v *PrivateEndpointInvokeResponseArgs) PrivateEndpointInvokeResponsePtrInput {
+	return (*privateEndpointInvokeResponsePtrType)(v)
+}
+
+func (*privateEndpointInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) *PrivateEndpointInvokeResponse {
+		return &v
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// The ARM identifier for Private Endpoint
+func (o PrivateEndpointInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) Elem() PrivateEndpointInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) PrivateEndpointInvokeResponse { return *v }).(PrivateEndpointInvokeResponseOutput)
+}
+
+// The ARM identifier for Private Endpoint
+func (o PrivateEndpointInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Private Endpoint resource.
@@ -1492,6 +2284,79 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 // A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateInvokeResponse struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionStateInvokeResponseArgs and PrivateLinkServiceConnectionStateInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStateInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionStateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateInvokeResponseArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -1663,6 +2528,152 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 		}
 		return v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// Server endpoint cloud tiering status object.
+type ServerEndpointCloudTieringStatusInvokeResponse struct {
+	// Information regarding how well the local cache on the server is performing.
+	CachePerformance CloudTieringCachePerformanceInvokeResponse `pulumi:"cachePerformance"`
+	// Status of the date policy
+	DatePolicyStatus CloudTieringDatePolicyStatusInvokeResponse `pulumi:"datePolicyStatus"`
+	// Information regarding files that failed to be tiered
+	FilesNotTiering CloudTieringFilesNotTieringInvokeResponse `pulumi:"filesNotTiering"`
+	// Cloud tiering health state.
+	Health string `pulumi:"health"`
+	// The last updated timestamp of health state
+	HealthLastUpdatedTimestamp string `pulumi:"healthLastUpdatedTimestamp"`
+	// Last cloud tiering result (HResult)
+	LastCloudTieringResult int `pulumi:"lastCloudTieringResult"`
+	// Last cloud tiering success timestamp
+	LastSuccessTimestamp string `pulumi:"lastSuccessTimestamp"`
+	// Last updated timestamp
+	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
+	// Information regarding how much local space cloud tiering is saving.
+	SpaceSavings CloudTieringSpaceSavingsInvokeResponse `pulumi:"spaceSavings"`
+	// Status of the volume free space policy
+	VolumeFreeSpacePolicyStatus CloudTieringVolumeFreeSpacePolicyStatusInvokeResponse `pulumi:"volumeFreeSpacePolicyStatus"`
+}
+
+// ServerEndpointCloudTieringStatusInvokeResponseInput is an input type that accepts ServerEndpointCloudTieringStatusInvokeResponseArgs and ServerEndpointCloudTieringStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerEndpointCloudTieringStatusInvokeResponseInput` via:
+//
+//          ServerEndpointCloudTieringStatusInvokeResponseArgs{...}
+type ServerEndpointCloudTieringStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerEndpointCloudTieringStatusInvokeResponseOutput() ServerEndpointCloudTieringStatusInvokeResponseOutput
+	ToServerEndpointCloudTieringStatusInvokeResponseOutputWithContext(context.Context) ServerEndpointCloudTieringStatusInvokeResponseOutput
+}
+
+// Server endpoint cloud tiering status object.
+type ServerEndpointCloudTieringStatusInvokeResponseArgs struct {
+	// Information regarding how well the local cache on the server is performing.
+	CachePerformance CloudTieringCachePerformanceInvokeResponseInput `pulumi:"cachePerformance"`
+	// Status of the date policy
+	DatePolicyStatus CloudTieringDatePolicyStatusInvokeResponseInput `pulumi:"datePolicyStatus"`
+	// Information regarding files that failed to be tiered
+	FilesNotTiering CloudTieringFilesNotTieringInvokeResponseInput `pulumi:"filesNotTiering"`
+	// Cloud tiering health state.
+	Health pulumi.StringInput `pulumi:"health"`
+	// The last updated timestamp of health state
+	HealthLastUpdatedTimestamp pulumi.StringInput `pulumi:"healthLastUpdatedTimestamp"`
+	// Last cloud tiering result (HResult)
+	LastCloudTieringResult pulumi.IntInput `pulumi:"lastCloudTieringResult"`
+	// Last cloud tiering success timestamp
+	LastSuccessTimestamp pulumi.StringInput `pulumi:"lastSuccessTimestamp"`
+	// Last updated timestamp
+	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
+	// Information regarding how much local space cloud tiering is saving.
+	SpaceSavings CloudTieringSpaceSavingsInvokeResponseInput `pulumi:"spaceSavings"`
+	// Status of the volume free space policy
+	VolumeFreeSpacePolicyStatus CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseInput `pulumi:"volumeFreeSpacePolicyStatus"`
+}
+
+func (ServerEndpointCloudTieringStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointCloudTieringStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerEndpointCloudTieringStatusInvokeResponseArgs) ToServerEndpointCloudTieringStatusInvokeResponseOutput() ServerEndpointCloudTieringStatusInvokeResponseOutput {
+	return i.ToServerEndpointCloudTieringStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointCloudTieringStatusInvokeResponseArgs) ToServerEndpointCloudTieringStatusInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointCloudTieringStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointCloudTieringStatusInvokeResponseOutput)
+}
+
+// Server endpoint cloud tiering status object.
+type ServerEndpointCloudTieringStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointCloudTieringStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointCloudTieringStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) ToServerEndpointCloudTieringStatusInvokeResponseOutput() ServerEndpointCloudTieringStatusInvokeResponseOutput {
+	return o
+}
+
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) ToServerEndpointCloudTieringStatusInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointCloudTieringStatusInvokeResponseOutput {
+	return o
+}
+
+// Information regarding how well the local cache on the server is performing.
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) CachePerformance() CloudTieringCachePerformanceInvokeResponseOutput {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusInvokeResponse) CloudTieringCachePerformanceInvokeResponse {
+		return v.CachePerformance
+	}).(CloudTieringCachePerformanceInvokeResponseOutput)
+}
+
+// Status of the date policy
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) DatePolicyStatus() CloudTieringDatePolicyStatusInvokeResponseOutput {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusInvokeResponse) CloudTieringDatePolicyStatusInvokeResponse {
+		return v.DatePolicyStatus
+	}).(CloudTieringDatePolicyStatusInvokeResponseOutput)
+}
+
+// Information regarding files that failed to be tiered
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) FilesNotTiering() CloudTieringFilesNotTieringInvokeResponseOutput {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusInvokeResponse) CloudTieringFilesNotTieringInvokeResponse {
+		return v.FilesNotTiering
+	}).(CloudTieringFilesNotTieringInvokeResponseOutput)
+}
+
+// Cloud tiering health state.
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) Health() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusInvokeResponse) string { return v.Health }).(pulumi.StringOutput)
+}
+
+// The last updated timestamp of health state
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) HealthLastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusInvokeResponse) string { return v.HealthLastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Last cloud tiering result (HResult)
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) LastCloudTieringResult() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusInvokeResponse) int { return v.LastCloudTieringResult }).(pulumi.IntOutput)
+}
+
+// Last cloud tiering success timestamp
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) LastSuccessTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusInvokeResponse) string { return v.LastSuccessTimestamp }).(pulumi.StringOutput)
+}
+
+// Last updated timestamp
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) LastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusInvokeResponse) string { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Information regarding how much local space cloud tiering is saving.
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) SpaceSavings() CloudTieringSpaceSavingsInvokeResponseOutput {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusInvokeResponse) CloudTieringSpaceSavingsInvokeResponse {
+		return v.SpaceSavings
+	}).(CloudTieringSpaceSavingsInvokeResponseOutput)
+}
+
+// Status of the volume free space policy
+func (o ServerEndpointCloudTieringStatusInvokeResponseOutput) VolumeFreeSpacePolicyStatus() CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput {
+	return o.ApplyT(func(v ServerEndpointCloudTieringStatusInvokeResponse) CloudTieringVolumeFreeSpacePolicyStatusInvokeResponse {
+		return v.VolumeFreeSpacePolicyStatus
+	}).(CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput)
 }
 
 // Server endpoint cloud tiering status object.
@@ -1981,6 +2992,124 @@ func (o ServerEndpointCloudTieringStatusResponsePtrOutput) VolumeFreeSpacePolicy
 }
 
 // Files not syncing error object
+type ServerEndpointFilesNotSyncingErrorInvokeResponse struct {
+	// Error code (HResult)
+	ErrorCode int `pulumi:"errorCode"`
+	// Count of persistent files not syncing with the specified error code
+	PersistentCount float64 `pulumi:"persistentCount"`
+	// Count of transient files not syncing with the specified error code
+	TransientCount float64 `pulumi:"transientCount"`
+}
+
+// ServerEndpointFilesNotSyncingErrorInvokeResponseInput is an input type that accepts ServerEndpointFilesNotSyncingErrorInvokeResponseArgs and ServerEndpointFilesNotSyncingErrorInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerEndpointFilesNotSyncingErrorInvokeResponseInput` via:
+//
+//          ServerEndpointFilesNotSyncingErrorInvokeResponseArgs{...}
+type ServerEndpointFilesNotSyncingErrorInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerEndpointFilesNotSyncingErrorInvokeResponseOutput() ServerEndpointFilesNotSyncingErrorInvokeResponseOutput
+	ToServerEndpointFilesNotSyncingErrorInvokeResponseOutputWithContext(context.Context) ServerEndpointFilesNotSyncingErrorInvokeResponseOutput
+}
+
+// Files not syncing error object
+type ServerEndpointFilesNotSyncingErrorInvokeResponseArgs struct {
+	// Error code (HResult)
+	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
+	// Count of persistent files not syncing with the specified error code
+	PersistentCount pulumi.Float64Input `pulumi:"persistentCount"`
+	// Count of transient files not syncing with the specified error code
+	TransientCount pulumi.Float64Input `pulumi:"transientCount"`
+}
+
+func (ServerEndpointFilesNotSyncingErrorInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointFilesNotSyncingErrorInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerEndpointFilesNotSyncingErrorInvokeResponseArgs) ToServerEndpointFilesNotSyncingErrorInvokeResponseOutput() ServerEndpointFilesNotSyncingErrorInvokeResponseOutput {
+	return i.ToServerEndpointFilesNotSyncingErrorInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointFilesNotSyncingErrorInvokeResponseArgs) ToServerEndpointFilesNotSyncingErrorInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointFilesNotSyncingErrorInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointFilesNotSyncingErrorInvokeResponseOutput)
+}
+
+// ServerEndpointFilesNotSyncingErrorInvokeResponseArrayInput is an input type that accepts ServerEndpointFilesNotSyncingErrorInvokeResponseArray and ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ServerEndpointFilesNotSyncingErrorInvokeResponseArrayInput` via:
+//
+//          ServerEndpointFilesNotSyncingErrorInvokeResponseArray{ ServerEndpointFilesNotSyncingErrorInvokeResponseArgs{...} }
+type ServerEndpointFilesNotSyncingErrorInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput() ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput
+	ToServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutputWithContext(context.Context) ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput
+}
+
+type ServerEndpointFilesNotSyncingErrorInvokeResponseArray []ServerEndpointFilesNotSyncingErrorInvokeResponseInput
+
+func (ServerEndpointFilesNotSyncingErrorInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerEndpointFilesNotSyncingErrorInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerEndpointFilesNotSyncingErrorInvokeResponseArray) ToServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput() ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput {
+	return i.ToServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointFilesNotSyncingErrorInvokeResponseArray) ToServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutputWithContext(ctx context.Context) ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput)
+}
+
+// Files not syncing error object
+type ServerEndpointFilesNotSyncingErrorInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointFilesNotSyncingErrorInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointFilesNotSyncingErrorInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointFilesNotSyncingErrorInvokeResponseOutput) ToServerEndpointFilesNotSyncingErrorInvokeResponseOutput() ServerEndpointFilesNotSyncingErrorInvokeResponseOutput {
+	return o
+}
+
+func (o ServerEndpointFilesNotSyncingErrorInvokeResponseOutput) ToServerEndpointFilesNotSyncingErrorInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointFilesNotSyncingErrorInvokeResponseOutput {
+	return o
+}
+
+// Error code (HResult)
+func (o ServerEndpointFilesNotSyncingErrorInvokeResponseOutput) ErrorCode() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerEndpointFilesNotSyncingErrorInvokeResponse) int { return v.ErrorCode }).(pulumi.IntOutput)
+}
+
+// Count of persistent files not syncing with the specified error code
+func (o ServerEndpointFilesNotSyncingErrorInvokeResponseOutput) PersistentCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointFilesNotSyncingErrorInvokeResponse) float64 { return v.PersistentCount }).(pulumi.Float64Output)
+}
+
+// Count of transient files not syncing with the specified error code
+func (o ServerEndpointFilesNotSyncingErrorInvokeResponseOutput) TransientCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointFilesNotSyncingErrorInvokeResponse) float64 { return v.TransientCount }).(pulumi.Float64Output)
+}
+
+type ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerEndpointFilesNotSyncingErrorInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput) ToServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput() ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput) ToServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutputWithContext(ctx context.Context) ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput) Index(i pulumi.IntInput) ServerEndpointFilesNotSyncingErrorInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerEndpointFilesNotSyncingErrorInvokeResponse {
+		return vs[0].([]ServerEndpointFilesNotSyncingErrorInvokeResponse)[vs[1].(int)]
+	}).(ServerEndpointFilesNotSyncingErrorInvokeResponseOutput)
+}
+
+// Files not syncing error object
 type ServerEndpointFilesNotSyncingErrorResponse struct {
 	// Error code (HResult)
 	ErrorCode int `pulumi:"errorCode"`
@@ -2099,6 +3228,115 @@ func (o ServerEndpointFilesNotSyncingErrorResponseArrayOutput) Index(i pulumi.In
 }
 
 // Server endpoint recall error object
+type ServerEndpointRecallErrorInvokeResponse struct {
+	// Count of occurences of the error
+	Count float64 `pulumi:"count"`
+	// Error code (HResult)
+	ErrorCode int `pulumi:"errorCode"`
+}
+
+// ServerEndpointRecallErrorInvokeResponseInput is an input type that accepts ServerEndpointRecallErrorInvokeResponseArgs and ServerEndpointRecallErrorInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerEndpointRecallErrorInvokeResponseInput` via:
+//
+//          ServerEndpointRecallErrorInvokeResponseArgs{...}
+type ServerEndpointRecallErrorInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerEndpointRecallErrorInvokeResponseOutput() ServerEndpointRecallErrorInvokeResponseOutput
+	ToServerEndpointRecallErrorInvokeResponseOutputWithContext(context.Context) ServerEndpointRecallErrorInvokeResponseOutput
+}
+
+// Server endpoint recall error object
+type ServerEndpointRecallErrorInvokeResponseArgs struct {
+	// Count of occurences of the error
+	Count pulumi.Float64Input `pulumi:"count"`
+	// Error code (HResult)
+	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
+}
+
+func (ServerEndpointRecallErrorInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointRecallErrorInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerEndpointRecallErrorInvokeResponseArgs) ToServerEndpointRecallErrorInvokeResponseOutput() ServerEndpointRecallErrorInvokeResponseOutput {
+	return i.ToServerEndpointRecallErrorInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointRecallErrorInvokeResponseArgs) ToServerEndpointRecallErrorInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointRecallErrorInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointRecallErrorInvokeResponseOutput)
+}
+
+// ServerEndpointRecallErrorInvokeResponseArrayInput is an input type that accepts ServerEndpointRecallErrorInvokeResponseArray and ServerEndpointRecallErrorInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ServerEndpointRecallErrorInvokeResponseArrayInput` via:
+//
+//          ServerEndpointRecallErrorInvokeResponseArray{ ServerEndpointRecallErrorInvokeResponseArgs{...} }
+type ServerEndpointRecallErrorInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToServerEndpointRecallErrorInvokeResponseArrayOutput() ServerEndpointRecallErrorInvokeResponseArrayOutput
+	ToServerEndpointRecallErrorInvokeResponseArrayOutputWithContext(context.Context) ServerEndpointRecallErrorInvokeResponseArrayOutput
+}
+
+type ServerEndpointRecallErrorInvokeResponseArray []ServerEndpointRecallErrorInvokeResponseInput
+
+func (ServerEndpointRecallErrorInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerEndpointRecallErrorInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerEndpointRecallErrorInvokeResponseArray) ToServerEndpointRecallErrorInvokeResponseArrayOutput() ServerEndpointRecallErrorInvokeResponseArrayOutput {
+	return i.ToServerEndpointRecallErrorInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointRecallErrorInvokeResponseArray) ToServerEndpointRecallErrorInvokeResponseArrayOutputWithContext(ctx context.Context) ServerEndpointRecallErrorInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointRecallErrorInvokeResponseArrayOutput)
+}
+
+// Server endpoint recall error object
+type ServerEndpointRecallErrorInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointRecallErrorInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointRecallErrorInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointRecallErrorInvokeResponseOutput) ToServerEndpointRecallErrorInvokeResponseOutput() ServerEndpointRecallErrorInvokeResponseOutput {
+	return o
+}
+
+func (o ServerEndpointRecallErrorInvokeResponseOutput) ToServerEndpointRecallErrorInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointRecallErrorInvokeResponseOutput {
+	return o
+}
+
+// Count of occurences of the error
+func (o ServerEndpointRecallErrorInvokeResponseOutput) Count() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointRecallErrorInvokeResponse) float64 { return v.Count }).(pulumi.Float64Output)
+}
+
+// Error code (HResult)
+func (o ServerEndpointRecallErrorInvokeResponseOutput) ErrorCode() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerEndpointRecallErrorInvokeResponse) int { return v.ErrorCode }).(pulumi.IntOutput)
+}
+
+type ServerEndpointRecallErrorInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointRecallErrorInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerEndpointRecallErrorInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointRecallErrorInvokeResponseArrayOutput) ToServerEndpointRecallErrorInvokeResponseArrayOutput() ServerEndpointRecallErrorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerEndpointRecallErrorInvokeResponseArrayOutput) ToServerEndpointRecallErrorInvokeResponseArrayOutputWithContext(ctx context.Context) ServerEndpointRecallErrorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerEndpointRecallErrorInvokeResponseArrayOutput) Index(i pulumi.IntInput) ServerEndpointRecallErrorInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerEndpointRecallErrorInvokeResponse {
+		return vs[0].([]ServerEndpointRecallErrorInvokeResponse)[vs[1].(int)]
+	}).(ServerEndpointRecallErrorInvokeResponseOutput)
+}
+
+// Server endpoint recall error object
 type ServerEndpointRecallErrorResponse struct {
 	// Count of occurences of the error
 	Count float64 `pulumi:"count"`
@@ -2205,6 +3443,81 @@ func (o ServerEndpointRecallErrorResponseArrayOutput) Index(i pulumi.IntInput) S
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerEndpointRecallErrorResponse {
 		return vs[0].([]ServerEndpointRecallErrorResponse)[vs[1].(int)]
 	}).(ServerEndpointRecallErrorResponseOutput)
+}
+
+// Server endpoint recall status object.
+type ServerEndpointRecallStatusInvokeResponse struct {
+	// Last updated timestamp
+	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
+	// Array of recall errors
+	RecallErrors []ServerEndpointRecallErrorInvokeResponse `pulumi:"recallErrors"`
+	// Total count of recall errors.
+	TotalRecallErrorsCount float64 `pulumi:"totalRecallErrorsCount"`
+}
+
+// ServerEndpointRecallStatusInvokeResponseInput is an input type that accepts ServerEndpointRecallStatusInvokeResponseArgs and ServerEndpointRecallStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerEndpointRecallStatusInvokeResponseInput` via:
+//
+//          ServerEndpointRecallStatusInvokeResponseArgs{...}
+type ServerEndpointRecallStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerEndpointRecallStatusInvokeResponseOutput() ServerEndpointRecallStatusInvokeResponseOutput
+	ToServerEndpointRecallStatusInvokeResponseOutputWithContext(context.Context) ServerEndpointRecallStatusInvokeResponseOutput
+}
+
+// Server endpoint recall status object.
+type ServerEndpointRecallStatusInvokeResponseArgs struct {
+	// Last updated timestamp
+	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
+	// Array of recall errors
+	RecallErrors ServerEndpointRecallErrorInvokeResponseArrayInput `pulumi:"recallErrors"`
+	// Total count of recall errors.
+	TotalRecallErrorsCount pulumi.Float64Input `pulumi:"totalRecallErrorsCount"`
+}
+
+func (ServerEndpointRecallStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointRecallStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerEndpointRecallStatusInvokeResponseArgs) ToServerEndpointRecallStatusInvokeResponseOutput() ServerEndpointRecallStatusInvokeResponseOutput {
+	return i.ToServerEndpointRecallStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointRecallStatusInvokeResponseArgs) ToServerEndpointRecallStatusInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointRecallStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointRecallStatusInvokeResponseOutput)
+}
+
+// Server endpoint recall status object.
+type ServerEndpointRecallStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointRecallStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointRecallStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointRecallStatusInvokeResponseOutput) ToServerEndpointRecallStatusInvokeResponseOutput() ServerEndpointRecallStatusInvokeResponseOutput {
+	return o
+}
+
+func (o ServerEndpointRecallStatusInvokeResponseOutput) ToServerEndpointRecallStatusInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointRecallStatusInvokeResponseOutput {
+	return o
+}
+
+// Last updated timestamp
+func (o ServerEndpointRecallStatusInvokeResponseOutput) LastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointRecallStatusInvokeResponse) string { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Array of recall errors
+func (o ServerEndpointRecallStatusInvokeResponseOutput) RecallErrors() ServerEndpointRecallErrorInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ServerEndpointRecallStatusInvokeResponse) []ServerEndpointRecallErrorInvokeResponse {
+		return v.RecallErrors
+	}).(ServerEndpointRecallErrorInvokeResponseArrayOutput)
+}
+
+// Total count of recall errors.
+func (o ServerEndpointRecallStatusInvokeResponseOutput) TotalRecallErrorsCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointRecallStatusInvokeResponse) float64 { return v.TotalRecallErrorsCount }).(pulumi.Float64Output)
 }
 
 // Server endpoint recall status object.
@@ -2377,6 +3690,106 @@ func (o ServerEndpointRecallStatusResponsePtrOutput) TotalRecallErrorsCount() pu
 		}
 		return &v.TotalRecallErrorsCount
 	}).(pulumi.Float64PtrOutput)
+}
+
+// Sync Session status object.
+type ServerEndpointSyncActivityStatusInvokeResponse struct {
+	// Applied bytes
+	AppliedBytes float64 `pulumi:"appliedBytes"`
+	// Applied item count.
+	AppliedItemCount float64 `pulumi:"appliedItemCount"`
+	// Per item error count
+	PerItemErrorCount float64 `pulumi:"perItemErrorCount"`
+	// Timestamp when properties were updated
+	Timestamp string `pulumi:"timestamp"`
+	// Total bytes (if available)
+	TotalBytes float64 `pulumi:"totalBytes"`
+	// Total item count (if available)
+	TotalItemCount float64 `pulumi:"totalItemCount"`
+}
+
+// ServerEndpointSyncActivityStatusInvokeResponseInput is an input type that accepts ServerEndpointSyncActivityStatusInvokeResponseArgs and ServerEndpointSyncActivityStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerEndpointSyncActivityStatusInvokeResponseInput` via:
+//
+//          ServerEndpointSyncActivityStatusInvokeResponseArgs{...}
+type ServerEndpointSyncActivityStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerEndpointSyncActivityStatusInvokeResponseOutput() ServerEndpointSyncActivityStatusInvokeResponseOutput
+	ToServerEndpointSyncActivityStatusInvokeResponseOutputWithContext(context.Context) ServerEndpointSyncActivityStatusInvokeResponseOutput
+}
+
+// Sync Session status object.
+type ServerEndpointSyncActivityStatusInvokeResponseArgs struct {
+	// Applied bytes
+	AppliedBytes pulumi.Float64Input `pulumi:"appliedBytes"`
+	// Applied item count.
+	AppliedItemCount pulumi.Float64Input `pulumi:"appliedItemCount"`
+	// Per item error count
+	PerItemErrorCount pulumi.Float64Input `pulumi:"perItemErrorCount"`
+	// Timestamp when properties were updated
+	Timestamp pulumi.StringInput `pulumi:"timestamp"`
+	// Total bytes (if available)
+	TotalBytes pulumi.Float64Input `pulumi:"totalBytes"`
+	// Total item count (if available)
+	TotalItemCount pulumi.Float64Input `pulumi:"totalItemCount"`
+}
+
+func (ServerEndpointSyncActivityStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointSyncActivityStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerEndpointSyncActivityStatusInvokeResponseArgs) ToServerEndpointSyncActivityStatusInvokeResponseOutput() ServerEndpointSyncActivityStatusInvokeResponseOutput {
+	return i.ToServerEndpointSyncActivityStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointSyncActivityStatusInvokeResponseArgs) ToServerEndpointSyncActivityStatusInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointSyncActivityStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointSyncActivityStatusInvokeResponseOutput)
+}
+
+// Sync Session status object.
+type ServerEndpointSyncActivityStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointSyncActivityStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointSyncActivityStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointSyncActivityStatusInvokeResponseOutput) ToServerEndpointSyncActivityStatusInvokeResponseOutput() ServerEndpointSyncActivityStatusInvokeResponseOutput {
+	return o
+}
+
+func (o ServerEndpointSyncActivityStatusInvokeResponseOutput) ToServerEndpointSyncActivityStatusInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointSyncActivityStatusInvokeResponseOutput {
+	return o
+}
+
+// Applied bytes
+func (o ServerEndpointSyncActivityStatusInvokeResponseOutput) AppliedBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointSyncActivityStatusInvokeResponse) float64 { return v.AppliedBytes }).(pulumi.Float64Output)
+}
+
+// Applied item count.
+func (o ServerEndpointSyncActivityStatusInvokeResponseOutput) AppliedItemCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointSyncActivityStatusInvokeResponse) float64 { return v.AppliedItemCount }).(pulumi.Float64Output)
+}
+
+// Per item error count
+func (o ServerEndpointSyncActivityStatusInvokeResponseOutput) PerItemErrorCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointSyncActivityStatusInvokeResponse) float64 { return v.PerItemErrorCount }).(pulumi.Float64Output)
+}
+
+// Timestamp when properties were updated
+func (o ServerEndpointSyncActivityStatusInvokeResponseOutput) Timestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncActivityStatusInvokeResponse) string { return v.Timestamp }).(pulumi.StringOutput)
+}
+
+// Total bytes (if available)
+func (o ServerEndpointSyncActivityStatusInvokeResponseOutput) TotalBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointSyncActivityStatusInvokeResponse) float64 { return v.TotalBytes }).(pulumi.Float64Output)
+}
+
+// Total item count (if available)
+func (o ServerEndpointSyncActivityStatusInvokeResponseOutput) TotalItemCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointSyncActivityStatusInvokeResponse) float64 { return v.TotalItemCount }).(pulumi.Float64Output)
 }
 
 // Sync Session status object.
@@ -2606,6 +4019,117 @@ func (o ServerEndpointSyncActivityStatusResponsePtrOutput) TotalItemCount() pulu
 		}
 		return &v.TotalItemCount
 	}).(pulumi.Float64PtrOutput)
+}
+
+// Sync Session status object.
+type ServerEndpointSyncSessionStatusInvokeResponse struct {
+	// Array of per-item errors coming from the last sync session.
+	FilesNotSyncingErrors []ServerEndpointFilesNotSyncingErrorInvokeResponse `pulumi:"filesNotSyncingErrors"`
+	// Last sync per item error count.
+	LastSyncPerItemErrorCount float64 `pulumi:"lastSyncPerItemErrorCount"`
+	// Last sync result (HResult)
+	LastSyncResult int `pulumi:"lastSyncResult"`
+	// Last sync success timestamp
+	LastSyncSuccessTimestamp string `pulumi:"lastSyncSuccessTimestamp"`
+	// Last sync timestamp
+	LastSyncTimestamp string `pulumi:"lastSyncTimestamp"`
+	// Count of persistent files not syncing.
+	PersistentFilesNotSyncingCount float64 `pulumi:"persistentFilesNotSyncingCount"`
+	// Count of transient files not syncing.
+	TransientFilesNotSyncingCount float64 `pulumi:"transientFilesNotSyncingCount"`
+}
+
+// ServerEndpointSyncSessionStatusInvokeResponseInput is an input type that accepts ServerEndpointSyncSessionStatusInvokeResponseArgs and ServerEndpointSyncSessionStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerEndpointSyncSessionStatusInvokeResponseInput` via:
+//
+//          ServerEndpointSyncSessionStatusInvokeResponseArgs{...}
+type ServerEndpointSyncSessionStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerEndpointSyncSessionStatusInvokeResponseOutput() ServerEndpointSyncSessionStatusInvokeResponseOutput
+	ToServerEndpointSyncSessionStatusInvokeResponseOutputWithContext(context.Context) ServerEndpointSyncSessionStatusInvokeResponseOutput
+}
+
+// Sync Session status object.
+type ServerEndpointSyncSessionStatusInvokeResponseArgs struct {
+	// Array of per-item errors coming from the last sync session.
+	FilesNotSyncingErrors ServerEndpointFilesNotSyncingErrorInvokeResponseArrayInput `pulumi:"filesNotSyncingErrors"`
+	// Last sync per item error count.
+	LastSyncPerItemErrorCount pulumi.Float64Input `pulumi:"lastSyncPerItemErrorCount"`
+	// Last sync result (HResult)
+	LastSyncResult pulumi.IntInput `pulumi:"lastSyncResult"`
+	// Last sync success timestamp
+	LastSyncSuccessTimestamp pulumi.StringInput `pulumi:"lastSyncSuccessTimestamp"`
+	// Last sync timestamp
+	LastSyncTimestamp pulumi.StringInput `pulumi:"lastSyncTimestamp"`
+	// Count of persistent files not syncing.
+	PersistentFilesNotSyncingCount pulumi.Float64Input `pulumi:"persistentFilesNotSyncingCount"`
+	// Count of transient files not syncing.
+	TransientFilesNotSyncingCount pulumi.Float64Input `pulumi:"transientFilesNotSyncingCount"`
+}
+
+func (ServerEndpointSyncSessionStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointSyncSessionStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerEndpointSyncSessionStatusInvokeResponseArgs) ToServerEndpointSyncSessionStatusInvokeResponseOutput() ServerEndpointSyncSessionStatusInvokeResponseOutput {
+	return i.ToServerEndpointSyncSessionStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointSyncSessionStatusInvokeResponseArgs) ToServerEndpointSyncSessionStatusInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointSyncSessionStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointSyncSessionStatusInvokeResponseOutput)
+}
+
+// Sync Session status object.
+type ServerEndpointSyncSessionStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointSyncSessionStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointSyncSessionStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointSyncSessionStatusInvokeResponseOutput) ToServerEndpointSyncSessionStatusInvokeResponseOutput() ServerEndpointSyncSessionStatusInvokeResponseOutput {
+	return o
+}
+
+func (o ServerEndpointSyncSessionStatusInvokeResponseOutput) ToServerEndpointSyncSessionStatusInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointSyncSessionStatusInvokeResponseOutput {
+	return o
+}
+
+// Array of per-item errors coming from the last sync session.
+func (o ServerEndpointSyncSessionStatusInvokeResponseOutput) FilesNotSyncingErrors() ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ServerEndpointSyncSessionStatusInvokeResponse) []ServerEndpointFilesNotSyncingErrorInvokeResponse {
+		return v.FilesNotSyncingErrors
+	}).(ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput)
+}
+
+// Last sync per item error count.
+func (o ServerEndpointSyncSessionStatusInvokeResponseOutput) LastSyncPerItemErrorCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointSyncSessionStatusInvokeResponse) float64 { return v.LastSyncPerItemErrorCount }).(pulumi.Float64Output)
+}
+
+// Last sync result (HResult)
+func (o ServerEndpointSyncSessionStatusInvokeResponseOutput) LastSyncResult() pulumi.IntOutput {
+	return o.ApplyT(func(v ServerEndpointSyncSessionStatusInvokeResponse) int { return v.LastSyncResult }).(pulumi.IntOutput)
+}
+
+// Last sync success timestamp
+func (o ServerEndpointSyncSessionStatusInvokeResponseOutput) LastSyncSuccessTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncSessionStatusInvokeResponse) string { return v.LastSyncSuccessTimestamp }).(pulumi.StringOutput)
+}
+
+// Last sync timestamp
+func (o ServerEndpointSyncSessionStatusInvokeResponseOutput) LastSyncTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncSessionStatusInvokeResponse) string { return v.LastSyncTimestamp }).(pulumi.StringOutput)
+}
+
+// Count of persistent files not syncing.
+func (o ServerEndpointSyncSessionStatusInvokeResponseOutput) PersistentFilesNotSyncingCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointSyncSessionStatusInvokeResponse) float64 { return v.PersistentFilesNotSyncingCount }).(pulumi.Float64Output)
+}
+
+// Count of transient files not syncing.
+func (o ServerEndpointSyncSessionStatusInvokeResponseOutput) TransientFilesNotSyncingCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointSyncSessionStatusInvokeResponse) float64 { return v.TransientFilesNotSyncingCount }).(pulumi.Float64Output)
 }
 
 // Sync Session status object.
@@ -2856,6 +4380,159 @@ func (o ServerEndpointSyncSessionStatusResponsePtrOutput) TransientFilesNotSynci
 		}
 		return &v.TransientFilesNotSyncingCount
 	}).(pulumi.Float64PtrOutput)
+}
+
+// Server Endpoint sync status
+type ServerEndpointSyncStatusInvokeResponse struct {
+	// Combined Health Status.
+	CombinedHealth string `pulumi:"combinedHealth"`
+	// Download sync activity
+	DownloadActivity ServerEndpointSyncActivityStatusInvokeResponse `pulumi:"downloadActivity"`
+	// Download Health Status.
+	DownloadHealth string `pulumi:"downloadHealth"`
+	// Download Status
+	DownloadStatus ServerEndpointSyncSessionStatusInvokeResponse `pulumi:"downloadStatus"`
+	// Last Updated Timestamp
+	LastUpdatedTimestamp string `pulumi:"lastUpdatedTimestamp"`
+	// Offline Data Transfer State
+	OfflineDataTransferStatus string `pulumi:"offlineDataTransferStatus"`
+	// Sync activity
+	SyncActivity string `pulumi:"syncActivity"`
+	// Total count of persistent files not syncing (combined upload + download).
+	TotalPersistentFilesNotSyncingCount float64 `pulumi:"totalPersistentFilesNotSyncingCount"`
+	// Upload sync activity
+	UploadActivity ServerEndpointSyncActivityStatusInvokeResponse `pulumi:"uploadActivity"`
+	// Upload Health Status.
+	UploadHealth string `pulumi:"uploadHealth"`
+	// Upload Status
+	UploadStatus ServerEndpointSyncSessionStatusInvokeResponse `pulumi:"uploadStatus"`
+}
+
+// ServerEndpointSyncStatusInvokeResponseInput is an input type that accepts ServerEndpointSyncStatusInvokeResponseArgs and ServerEndpointSyncStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerEndpointSyncStatusInvokeResponseInput` via:
+//
+//          ServerEndpointSyncStatusInvokeResponseArgs{...}
+type ServerEndpointSyncStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerEndpointSyncStatusInvokeResponseOutput() ServerEndpointSyncStatusInvokeResponseOutput
+	ToServerEndpointSyncStatusInvokeResponseOutputWithContext(context.Context) ServerEndpointSyncStatusInvokeResponseOutput
+}
+
+// Server Endpoint sync status
+type ServerEndpointSyncStatusInvokeResponseArgs struct {
+	// Combined Health Status.
+	CombinedHealth pulumi.StringInput `pulumi:"combinedHealth"`
+	// Download sync activity
+	DownloadActivity ServerEndpointSyncActivityStatusInvokeResponseInput `pulumi:"downloadActivity"`
+	// Download Health Status.
+	DownloadHealth pulumi.StringInput `pulumi:"downloadHealth"`
+	// Download Status
+	DownloadStatus ServerEndpointSyncSessionStatusInvokeResponseInput `pulumi:"downloadStatus"`
+	// Last Updated Timestamp
+	LastUpdatedTimestamp pulumi.StringInput `pulumi:"lastUpdatedTimestamp"`
+	// Offline Data Transfer State
+	OfflineDataTransferStatus pulumi.StringInput `pulumi:"offlineDataTransferStatus"`
+	// Sync activity
+	SyncActivity pulumi.StringInput `pulumi:"syncActivity"`
+	// Total count of persistent files not syncing (combined upload + download).
+	TotalPersistentFilesNotSyncingCount pulumi.Float64Input `pulumi:"totalPersistentFilesNotSyncingCount"`
+	// Upload sync activity
+	UploadActivity ServerEndpointSyncActivityStatusInvokeResponseInput `pulumi:"uploadActivity"`
+	// Upload Health Status.
+	UploadHealth pulumi.StringInput `pulumi:"uploadHealth"`
+	// Upload Status
+	UploadStatus ServerEndpointSyncSessionStatusInvokeResponseInput `pulumi:"uploadStatus"`
+}
+
+func (ServerEndpointSyncStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointSyncStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerEndpointSyncStatusInvokeResponseArgs) ToServerEndpointSyncStatusInvokeResponseOutput() ServerEndpointSyncStatusInvokeResponseOutput {
+	return i.ToServerEndpointSyncStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointSyncStatusInvokeResponseArgs) ToServerEndpointSyncStatusInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointSyncStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointSyncStatusInvokeResponseOutput)
+}
+
+// Server Endpoint sync status
+type ServerEndpointSyncStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointSyncStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointSyncStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerEndpointSyncStatusInvokeResponseOutput) ToServerEndpointSyncStatusInvokeResponseOutput() ServerEndpointSyncStatusInvokeResponseOutput {
+	return o
+}
+
+func (o ServerEndpointSyncStatusInvokeResponseOutput) ToServerEndpointSyncStatusInvokeResponseOutputWithContext(ctx context.Context) ServerEndpointSyncStatusInvokeResponseOutput {
+	return o
+}
+
+// Combined Health Status.
+func (o ServerEndpointSyncStatusInvokeResponseOutput) CombinedHealth() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) string { return v.CombinedHealth }).(pulumi.StringOutput)
+}
+
+// Download sync activity
+func (o ServerEndpointSyncStatusInvokeResponseOutput) DownloadActivity() ServerEndpointSyncActivityStatusInvokeResponseOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) ServerEndpointSyncActivityStatusInvokeResponse {
+		return v.DownloadActivity
+	}).(ServerEndpointSyncActivityStatusInvokeResponseOutput)
+}
+
+// Download Health Status.
+func (o ServerEndpointSyncStatusInvokeResponseOutput) DownloadHealth() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) string { return v.DownloadHealth }).(pulumi.StringOutput)
+}
+
+// Download Status
+func (o ServerEndpointSyncStatusInvokeResponseOutput) DownloadStatus() ServerEndpointSyncSessionStatusInvokeResponseOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) ServerEndpointSyncSessionStatusInvokeResponse {
+		return v.DownloadStatus
+	}).(ServerEndpointSyncSessionStatusInvokeResponseOutput)
+}
+
+// Last Updated Timestamp
+func (o ServerEndpointSyncStatusInvokeResponseOutput) LastUpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) string { return v.LastUpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Offline Data Transfer State
+func (o ServerEndpointSyncStatusInvokeResponseOutput) OfflineDataTransferStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) string { return v.OfflineDataTransferStatus }).(pulumi.StringOutput)
+}
+
+// Sync activity
+func (o ServerEndpointSyncStatusInvokeResponseOutput) SyncActivity() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) string { return v.SyncActivity }).(pulumi.StringOutput)
+}
+
+// Total count of persistent files not syncing (combined upload + download).
+func (o ServerEndpointSyncStatusInvokeResponseOutput) TotalPersistentFilesNotSyncingCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) float64 { return v.TotalPersistentFilesNotSyncingCount }).(pulumi.Float64Output)
+}
+
+// Upload sync activity
+func (o ServerEndpointSyncStatusInvokeResponseOutput) UploadActivity() ServerEndpointSyncActivityStatusInvokeResponseOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) ServerEndpointSyncActivityStatusInvokeResponse {
+		return v.UploadActivity
+	}).(ServerEndpointSyncActivityStatusInvokeResponseOutput)
+}
+
+// Upload Health Status.
+func (o ServerEndpointSyncStatusInvokeResponseOutput) UploadHealth() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) string { return v.UploadHealth }).(pulumi.StringOutput)
+}
+
+// Upload Status
+func (o ServerEndpointSyncStatusInvokeResponseOutput) UploadStatus() ServerEndpointSyncSessionStatusInvokeResponseOutput {
+	return o.ApplyT(func(v ServerEndpointSyncStatusInvokeResponse) ServerEndpointSyncSessionStatusInvokeResponse {
+		return v.UploadStatus
+	}).(ServerEndpointSyncSessionStatusInvokeResponseOutput)
 }
 
 // Server Endpoint sync status
@@ -3191,38 +4868,59 @@ func (o ServerEndpointSyncStatusResponsePtrOutput) UploadStatus() ServerEndpoint
 }
 
 func init() {
+	pulumi.RegisterOutputType(CloudTieringCachePerformanceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringCachePerformanceResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringCachePerformanceResponsePtrOutput{})
+	pulumi.RegisterOutputType(CloudTieringDatePolicyStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringDatePolicyStatusResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringDatePolicyStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(CloudTieringFilesNotTieringInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringFilesNotTieringResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringFilesNotTieringResponsePtrOutput{})
+	pulumi.RegisterOutputType(CloudTieringSpaceSavingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringSpaceSavingsResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringSpaceSavingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CloudTieringVolumeFreeSpacePolicyStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringVolumeFreeSpacePolicyStatusResponseOutput{})
 	pulumi.RegisterOutputType(CloudTieringVolumeFreeSpacePolicyStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(FilesNotTieringErrorInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FilesNotTieringErrorInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FilesNotTieringErrorResponseOutput{})
 	pulumi.RegisterOutputType(FilesNotTieringErrorResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerEndpointCloudTieringStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointCloudTieringStatusResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointCloudTieringStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerEndpointFilesNotSyncingErrorInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServerEndpointFilesNotSyncingErrorInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerEndpointFilesNotSyncingErrorResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointFilesNotSyncingErrorResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServerEndpointRecallErrorInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServerEndpointRecallErrorInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerEndpointRecallErrorResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointRecallErrorResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServerEndpointRecallStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointRecallStatusResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointRecallStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerEndpointSyncActivityStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointSyncActivityStatusResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointSyncActivityStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerEndpointSyncSessionStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointSyncSessionStatusResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointSyncSessionStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServerEndpointSyncStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointSyncStatusResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointSyncStatusResponsePtrOutput{})
 }

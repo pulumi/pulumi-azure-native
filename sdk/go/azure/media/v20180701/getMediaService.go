@@ -34,7 +34,7 @@ type LookupMediaServiceResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The storage accounts for this resource.
-	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
+	StorageAccounts []StorageAccountInvokeResponse `pulumi:"storageAccounts"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

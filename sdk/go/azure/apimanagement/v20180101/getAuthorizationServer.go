@@ -60,7 +60,7 @@ type LookupAuthorizationServerResult struct {
 	// If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
 	SupportState *bool `pulumi:"supportState"`
 	// Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
-	TokenBodyParameters []TokenBodyParameterContractResponse `pulumi:"tokenBodyParameters"`
+	TokenBodyParameters []TokenBodyParameterContractInvokeResponse `pulumi:"tokenBodyParameters"`
 	// OAuth token endpoint. Contains absolute URI to entity being referenced.
 	TokenEndpoint *string `pulumi:"tokenEndpoint"`
 	// Resource type for API Management resource.

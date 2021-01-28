@@ -58,7 +58,7 @@ type LookupComponentResult struct {
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// List of linked private link scope resources.
-	PrivateLinkScopedResources []PrivateLinkScopedResourceResponse `pulumi:"privateLinkScopedResources"`
+	PrivateLinkScopedResources []PrivateLinkScopedResourceInvokeResponse `pulumi:"privateLinkScopedResources"`
 	// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.

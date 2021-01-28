@@ -34,7 +34,7 @@ type LookupIntegrationAccountAssemblyResult struct {
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The assembly properties.
-	Properties AssemblyPropertiesResponse `pulumi:"properties"`
+	Properties AssemblyPropertiesInvokeResponse `pulumi:"properties"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

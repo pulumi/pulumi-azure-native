@@ -28,5 +28,5 @@ type ListDatabasePrincipalsArgs struct {
 // The list Kusto database principals operation response.
 type ListDatabasePrincipalsResult struct {
 	// The list of Kusto database principals.
-	Value []DatabasePrincipalResponse `pulumi:"value"`
+	Value []DatabasePrincipalInvokeResponse `pulumi:"value"`
 }

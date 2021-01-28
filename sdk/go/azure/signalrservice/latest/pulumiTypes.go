@@ -164,6 +164,159 @@ func (o NetworkACLPtrOutput) Deny() pulumi.StringArrayOutput {
 }
 
 // Network ACL
+type NetworkACLInvokeResponse struct {
+	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+	Allow []string `pulumi:"allow"`
+	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+	Deny []string `pulumi:"deny"`
+}
+
+// NetworkACLInvokeResponseInput is an input type that accepts NetworkACLInvokeResponseArgs and NetworkACLInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkACLInvokeResponseInput` via:
+//
+//          NetworkACLInvokeResponseArgs{...}
+type NetworkACLInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkACLInvokeResponseOutput() NetworkACLInvokeResponseOutput
+	ToNetworkACLInvokeResponseOutputWithContext(context.Context) NetworkACLInvokeResponseOutput
+}
+
+// Network ACL
+type NetworkACLInvokeResponseArgs struct {
+	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+	Allow pulumi.StringArrayInput `pulumi:"allow"`
+	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+	Deny pulumi.StringArrayInput `pulumi:"deny"`
+}
+
+func (NetworkACLInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkACLInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkACLInvokeResponseArgs) ToNetworkACLInvokeResponseOutput() NetworkACLInvokeResponseOutput {
+	return i.ToNetworkACLInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkACLInvokeResponseArgs) ToNetworkACLInvokeResponseOutputWithContext(ctx context.Context) NetworkACLInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkACLInvokeResponseOutput)
+}
+
+func (i NetworkACLInvokeResponseArgs) ToNetworkACLInvokeResponsePtrOutput() NetworkACLInvokeResponsePtrOutput {
+	return i.ToNetworkACLInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkACLInvokeResponseArgs) ToNetworkACLInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkACLInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkACLInvokeResponseOutput).ToNetworkACLInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// NetworkACLInvokeResponsePtrInput is an input type that accepts NetworkACLInvokeResponseArgs, NetworkACLInvokeResponsePtr and NetworkACLInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `NetworkACLInvokeResponsePtrInput` via:
+//
+//          NetworkACLInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkACLInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToNetworkACLInvokeResponsePtrOutput() NetworkACLInvokeResponsePtrOutput
+	ToNetworkACLInvokeResponsePtrOutputWithContext(context.Context) NetworkACLInvokeResponsePtrOutput
+}
+
+type networkACLInvokeResponsePtrType NetworkACLInvokeResponseArgs
+
+func NetworkACLInvokeResponsePtr(v *NetworkACLInvokeResponseArgs) NetworkACLInvokeResponsePtrInput {
+	return (*networkACLInvokeResponsePtrType)(v)
+}
+
+func (*networkACLInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkACLInvokeResponse)(nil)).Elem()
+}
+
+func (i *networkACLInvokeResponsePtrType) ToNetworkACLInvokeResponsePtrOutput() NetworkACLInvokeResponsePtrOutput {
+	return i.ToNetworkACLInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *networkACLInvokeResponsePtrType) ToNetworkACLInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkACLInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkACLInvokeResponsePtrOutput)
+}
+
+// Network ACL
+type NetworkACLInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkACLInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkACLInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkACLInvokeResponseOutput) ToNetworkACLInvokeResponseOutput() NetworkACLInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkACLInvokeResponseOutput) ToNetworkACLInvokeResponseOutputWithContext(ctx context.Context) NetworkACLInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkACLInvokeResponseOutput) ToNetworkACLInvokeResponsePtrOutput() NetworkACLInvokeResponsePtrOutput {
+	return o.ToNetworkACLInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkACLInvokeResponseOutput) ToNetworkACLInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkACLInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NetworkACLInvokeResponse) *NetworkACLInvokeResponse {
+		return &v
+	}).(NetworkACLInvokeResponsePtrOutput)
+}
+
+// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+func (o NetworkACLInvokeResponseOutput) Allow() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkACLInvokeResponse) []string { return v.Allow }).(pulumi.StringArrayOutput)
+}
+
+// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+func (o NetworkACLInvokeResponseOutput) Deny() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkACLInvokeResponse) []string { return v.Deny }).(pulumi.StringArrayOutput)
+}
+
+type NetworkACLInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkACLInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkACLInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkACLInvokeResponsePtrOutput) ToNetworkACLInvokeResponsePtrOutput() NetworkACLInvokeResponsePtrOutput {
+	return o
+}
+
+func (o NetworkACLInvokeResponsePtrOutput) ToNetworkACLInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkACLInvokeResponsePtrOutput {
+	return o
+}
+
+func (o NetworkACLInvokeResponsePtrOutput) Elem() NetworkACLInvokeResponseOutput {
+	return o.ApplyT(func(v *NetworkACLInvokeResponse) NetworkACLInvokeResponse { return *v }).(NetworkACLInvokeResponseOutput)
+}
+
+// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+func (o NetworkACLInvokeResponsePtrOutput) Allow() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkACLInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Allow
+	}).(pulumi.StringArrayOutput)
+}
+
+// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+func (o NetworkACLInvokeResponsePtrOutput) Deny() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkACLInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Deny
+	}).(pulumi.StringArrayOutput)
+}
+
+// Network ACL
 type NetworkACLResponse struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow []string `pulumi:"allow"`
@@ -569,6 +722,124 @@ func (o PrivateEndpointACLArrayOutput) Index(i pulumi.IntInput) PrivateEndpointA
 }
 
 // ACL for a private endpoint
+type PrivateEndpointACLInvokeResponse struct {
+	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+	Allow []string `pulumi:"allow"`
+	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+	Deny []string `pulumi:"deny"`
+	// Name of the private endpoint connection
+	Name string `pulumi:"name"`
+}
+
+// PrivateEndpointACLInvokeResponseInput is an input type that accepts PrivateEndpointACLInvokeResponseArgs and PrivateEndpointACLInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointACLInvokeResponseInput` via:
+//
+//          PrivateEndpointACLInvokeResponseArgs{...}
+type PrivateEndpointACLInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointACLInvokeResponseOutput() PrivateEndpointACLInvokeResponseOutput
+	ToPrivateEndpointACLInvokeResponseOutputWithContext(context.Context) PrivateEndpointACLInvokeResponseOutput
+}
+
+// ACL for a private endpoint
+type PrivateEndpointACLInvokeResponseArgs struct {
+	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+	Allow pulumi.StringArrayInput `pulumi:"allow"`
+	// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+	Deny pulumi.StringArrayInput `pulumi:"deny"`
+	// Name of the private endpoint connection
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (PrivateEndpointACLInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointACLInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointACLInvokeResponseArgs) ToPrivateEndpointACLInvokeResponseOutput() PrivateEndpointACLInvokeResponseOutput {
+	return i.ToPrivateEndpointACLInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointACLInvokeResponseArgs) ToPrivateEndpointACLInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointACLInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointACLInvokeResponseOutput)
+}
+
+// PrivateEndpointACLInvokeResponseArrayInput is an input type that accepts PrivateEndpointACLInvokeResponseArray and PrivateEndpointACLInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointACLInvokeResponseArrayInput` via:
+//
+//          PrivateEndpointACLInvokeResponseArray{ PrivateEndpointACLInvokeResponseArgs{...} }
+type PrivateEndpointACLInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointACLInvokeResponseArrayOutput() PrivateEndpointACLInvokeResponseArrayOutput
+	ToPrivateEndpointACLInvokeResponseArrayOutputWithContext(context.Context) PrivateEndpointACLInvokeResponseArrayOutput
+}
+
+type PrivateEndpointACLInvokeResponseArray []PrivateEndpointACLInvokeResponseInput
+
+func (PrivateEndpointACLInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointACLInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointACLInvokeResponseArray) ToPrivateEndpointACLInvokeResponseArrayOutput() PrivateEndpointACLInvokeResponseArrayOutput {
+	return i.ToPrivateEndpointACLInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointACLInvokeResponseArray) ToPrivateEndpointACLInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointACLInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointACLInvokeResponseArrayOutput)
+}
+
+// ACL for a private endpoint
+type PrivateEndpointACLInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointACLInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointACLInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointACLInvokeResponseOutput) ToPrivateEndpointACLInvokeResponseOutput() PrivateEndpointACLInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointACLInvokeResponseOutput) ToPrivateEndpointACLInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointACLInvokeResponseOutput {
+	return o
+}
+
+// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+func (o PrivateEndpointACLInvokeResponseOutput) Allow() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateEndpointACLInvokeResponse) []string { return v.Allow }).(pulumi.StringArrayOutput)
+}
+
+// Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+func (o PrivateEndpointACLInvokeResponseOutput) Deny() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateEndpointACLInvokeResponse) []string { return v.Deny }).(pulumi.StringArrayOutput)
+}
+
+// Name of the private endpoint connection
+func (o PrivateEndpointACLInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointACLInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointACLInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointACLInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointACLInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointACLInvokeResponseArrayOutput) ToPrivateEndpointACLInvokeResponseArrayOutput() PrivateEndpointACLInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointACLInvokeResponseArrayOutput) ToPrivateEndpointACLInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointACLInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointACLInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointACLInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointACLInvokeResponse {
+		return vs[0].([]PrivateEndpointACLInvokeResponse)[vs[1].(int)]
+	}).(PrivateEndpointACLInvokeResponseOutput)
+}
+
+// ACL for a private endpoint
 type PrivateEndpointACLResponse struct {
 	// Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 	Allow []string `pulumi:"allow"`
@@ -684,6 +955,155 @@ func (o PrivateEndpointACLResponseArrayOutput) Index(i pulumi.IntInput) PrivateE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointACLResponse {
 		return vs[0].([]PrivateEndpointACLResponse)[vs[1].(int)]
 	}).(PrivateEndpointACLResponseOutput)
+}
+
+// A private endpoint connection to SignalR resource
+type PrivateEndpointConnectionInvokeResponse struct {
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// Private endpoint associated with the private endpoint connection
+	PrivateEndpoint *PrivateEndpointInvokeResponse `pulumi:"privateEndpoint"`
+	// Connection state
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionInvokeResponseInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArgs and PrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArgs{...}
+type PrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput
+	ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseOutput
+}
+
+// A private endpoint connection to SignalR resource
+type PrivateEndpointConnectionInvokeResponseArgs struct {
+	// Fully qualified resource Id for the resource.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Private endpoint associated with the private endpoint connection
+	PrivateEndpoint PrivateEndpointInvokeResponsePtrInput `pulumi:"privateEndpoint"`
+	// Connection state
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// PrivateEndpointConnectionInvokeResponseArrayInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArray and PrivateEndpointConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArray{ PrivateEndpointConnectionInvokeResponseArgs{...} }
+type PrivateEndpointConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput
+	ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput
+}
+
+type PrivateEndpointConnectionInvokeResponseArray []PrivateEndpointConnectionInvokeResponseInput
+
+func (PrivateEndpointConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// A private endpoint connection to SignalR resource
+type PrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// Fully qualified resource Id for the resource.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint associated with the private endpoint connection
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateEndpoint() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *PrivateEndpointInvokeResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// Connection state
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *PrivateLinkServiceConnectionStateInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateInvokeResponsePtrOutput)
+}
+
+// Provisioning state of the private endpoint connection
+func (o PrivateEndpointConnectionInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o PrivateEndpointConnectionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionInvokeResponse {
+		return vs[0].([]PrivateEndpointConnectionInvokeResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionInvokeResponseOutput)
 }
 
 // A private endpoint connection to SignalR resource
@@ -831,6 +1251,140 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
 		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
 	}).(PrivateEndpointConnectionResponseOutput)
+}
+
+// Private endpoint
+type PrivateEndpointInvokeResponse struct {
+	// Full qualified Id of the private endpoint
+	Id *string `pulumi:"id"`
+}
+
+// PrivateEndpointInvokeResponseInput is an input type that accepts PrivateEndpointInvokeResponseArgs and PrivateEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponseInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+type PrivateEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput
+	ToPrivateEndpointInvokeResponseOutputWithContext(context.Context) PrivateEndpointInvokeResponseOutput
+}
+
+// Private endpoint
+type PrivateEndpointInvokeResponseArgs struct {
+	// Full qualified Id of the private endpoint
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return i.ToPrivateEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput)
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput).ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointInvokeResponsePtrInput is an input type that accepts PrivateEndpointInvokeResponseArgs, PrivateEndpointInvokeResponsePtr and PrivateEndpointInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponsePtrInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput
+	ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Context) PrivateEndpointInvokeResponsePtrOutput
+}
+
+type privateEndpointInvokeResponsePtrType PrivateEndpointInvokeResponseArgs
+
+func PrivateEndpointInvokeResponsePtr(v *PrivateEndpointInvokeResponseArgs) PrivateEndpointInvokeResponsePtrInput {
+	return (*privateEndpointInvokeResponsePtrType)(v)
+}
+
+func (*privateEndpointInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// Private endpoint
+type PrivateEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) *PrivateEndpointInvokeResponse {
+		return &v
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// Full qualified Id of the private endpoint
+func (o PrivateEndpointInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) Elem() PrivateEndpointInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) PrivateEndpointInvokeResponse { return *v }).(PrivateEndpointInvokeResponseOutput)
+}
+
+// Full qualified Id of the private endpoint
+func (o PrivateEndpointInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Private endpoint
@@ -1132,6 +1686,180 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringP
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Connection state of the private endpoint connection
+type PrivateLinkServiceConnectionStateInvokeResponse struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionStateInvokeResponseArgs and PrivateLinkServiceConnectionStateInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStateInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionStateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput
+}
+
+// Connection state of the private endpoint connection
+type PrivateLinkServiceConnectionStateInvokeResponseArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutput() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponseOutput).ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStateInvokeResponsePtrInput is an input type that accepts PrivateLinkServiceConnectionStateInvokeResponseArgs, PrivateLinkServiceConnectionStateInvokeResponsePtr and PrivateLinkServiceConnectionStateInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInvokeResponsePtrInput` via:
+//
+//          PrivateLinkServiceConnectionStateInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStateInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutput() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput
+	ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStateInvokeResponsePtrOutput
+}
+
+type privateLinkServiceConnectionStateInvokeResponsePtrType PrivateLinkServiceConnectionStateInvokeResponseArgs
+
+func PrivateLinkServiceConnectionStateInvokeResponsePtr(v *PrivateLinkServiceConnectionStateInvokeResponseArgs) PrivateLinkServiceConnectionStateInvokeResponsePtrInput {
+	return (*privateLinkServiceConnectionStateInvokeResponsePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStateInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStateInvokeResponsePtrType) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutput() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStateInvokeResponsePtrType) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponsePtrOutput)
+}
+
+// Connection state of the private endpoint connection
+type PrivateLinkServiceConnectionStateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutput() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *PrivateLinkServiceConnectionStateInvokeResponse {
+		return &v
+	}).(PrivateLinkServiceConnectionStateInvokeResponsePtrOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStateInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutput() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateInvokeResponse) PrivateLinkServiceConnectionStateInvokeResponse {
+		return *v
+	}).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1518,6 +2246,121 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // The billing information of the SignalR resource.
+type ResourceSkuInvokeResponse struct {
+	// Optional, integer. The unit count of SignalR resource. 1 by default.
+	//
+	// If present, following values are allowed:
+	//     Free: 1
+	//     Standard: 1,2,5,10,20,50,100
+	Capacity *int `pulumi:"capacity"`
+	// Not used. Retained for future use.
+	Family string `pulumi:"family"`
+	// The name of the SKU. Required.
+	//
+	// Allowed values: Standard_S1, Free_F1
+	Name string `pulumi:"name"`
+	// Not used. Retained for future use.
+	Size string `pulumi:"size"`
+	// Optional tier of this particular SKU. 'Standard' or 'Free'.
+	//
+	// `Basic` is deprecated, use `Standard` instead.
+	Tier *string `pulumi:"tier"`
+}
+
+// ResourceSkuInvokeResponseInput is an input type that accepts ResourceSkuInvokeResponseArgs and ResourceSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceSkuInvokeResponseInput` via:
+//
+//          ResourceSkuInvokeResponseArgs{...}
+type ResourceSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput
+	ToResourceSkuInvokeResponseOutputWithContext(context.Context) ResourceSkuInvokeResponseOutput
+}
+
+// The billing information of the SignalR resource.
+type ResourceSkuInvokeResponseArgs struct {
+	// Optional, integer. The unit count of SignalR resource. 1 by default.
+	//
+	// If present, following values are allowed:
+	//     Free: 1
+	//     Standard: 1,2,5,10,20,50,100
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Not used. Retained for future use.
+	Family pulumi.StringInput `pulumi:"family"`
+	// The name of the SKU. Required.
+	//
+	// Allowed values: Standard_S1, Free_F1
+	Name pulumi.StringInput `pulumi:"name"`
+	// Not used. Retained for future use.
+	Size pulumi.StringInput `pulumi:"size"`
+	// Optional tier of this particular SKU. 'Standard' or 'Free'.
+	//
+	// `Basic` is deprecated, use `Standard` instead.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (ResourceSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return i.ToResourceSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuInvokeResponseOutput)
+}
+
+// The billing information of the SignalR resource.
+type ResourceSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+// Optional, integer. The unit count of SignalR resource. 1 by default.
+//
+// If present, following values are allowed:
+//     Free: 1
+//     Standard: 1,2,5,10,20,50,100
+func (o ResourceSkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Not used. Retained for future use.
+func (o ResourceSkuInvokeResponseOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) string { return v.Family }).(pulumi.StringOutput)
+}
+
+// The name of the SKU. Required.
+//
+// Allowed values: Standard_S1, Free_F1
+func (o ResourceSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Not used. Retained for future use.
+func (o ResourceSkuInvokeResponseOutput) Size() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) string { return v.Size }).(pulumi.StringOutput)
+}
+
+// Optional tier of this particular SKU. 'Standard' or 'Free'.
+//
+// `Basic` is deprecated, use `Standard` instead.
+func (o ResourceSkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The billing information of the SignalR resource.
 type ResourceSkuResponse struct {
 	// Optional, integer. The unit count of SignalR resource. 1 by default.
 	//
@@ -1894,6 +2737,61 @@ func (o ServerlessUpstreamSettingsPtrOutput) Templates() UpstreamTemplateArrayOu
 }
 
 // The settings for the Upstream when the Azure SignalR is in server-less mode.
+type ServerlessUpstreamSettingsInvokeResponse struct {
+	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+	Templates []UpstreamTemplateInvokeResponse `pulumi:"templates"`
+}
+
+// ServerlessUpstreamSettingsInvokeResponseInput is an input type that accepts ServerlessUpstreamSettingsInvokeResponseArgs and ServerlessUpstreamSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerlessUpstreamSettingsInvokeResponseInput` via:
+//
+//          ServerlessUpstreamSettingsInvokeResponseArgs{...}
+type ServerlessUpstreamSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerlessUpstreamSettingsInvokeResponseOutput() ServerlessUpstreamSettingsInvokeResponseOutput
+	ToServerlessUpstreamSettingsInvokeResponseOutputWithContext(context.Context) ServerlessUpstreamSettingsInvokeResponseOutput
+}
+
+// The settings for the Upstream when the Azure SignalR is in server-less mode.
+type ServerlessUpstreamSettingsInvokeResponseArgs struct {
+	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+	Templates UpstreamTemplateInvokeResponseArrayInput `pulumi:"templates"`
+}
+
+func (ServerlessUpstreamSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessUpstreamSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerlessUpstreamSettingsInvokeResponseArgs) ToServerlessUpstreamSettingsInvokeResponseOutput() ServerlessUpstreamSettingsInvokeResponseOutput {
+	return i.ToServerlessUpstreamSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerlessUpstreamSettingsInvokeResponseArgs) ToServerlessUpstreamSettingsInvokeResponseOutputWithContext(ctx context.Context) ServerlessUpstreamSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessUpstreamSettingsInvokeResponseOutput)
+}
+
+// The settings for the Upstream when the Azure SignalR is in server-less mode.
+type ServerlessUpstreamSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerlessUpstreamSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessUpstreamSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerlessUpstreamSettingsInvokeResponseOutput) ToServerlessUpstreamSettingsInvokeResponseOutput() ServerlessUpstreamSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o ServerlessUpstreamSettingsInvokeResponseOutput) ToServerlessUpstreamSettingsInvokeResponseOutputWithContext(ctx context.Context) ServerlessUpstreamSettingsInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+func (o ServerlessUpstreamSettingsInvokeResponseOutput) Templates() UpstreamTemplateInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ServerlessUpstreamSettingsInvokeResponse) []UpstreamTemplateInvokeResponse { return v.Templates }).(UpstreamTemplateInvokeResponseArrayOutput)
+}
+
+// The settings for the Upstream when the Azure SignalR is in server-less mode.
 type ServerlessUpstreamSettingsResponse struct {
 	// Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
 	Templates []UpstreamTemplateResponse `pulumi:"templates"`
@@ -2162,6 +3060,61 @@ func (o SignalRCorsSettingsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput 
 }
 
 // Cross-Origin Resource Sharing (CORS) settings.
+type SignalRCorsSettingsInvokeResponse struct {
+	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+}
+
+// SignalRCorsSettingsInvokeResponseInput is an input type that accepts SignalRCorsSettingsInvokeResponseArgs and SignalRCorsSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `SignalRCorsSettingsInvokeResponseInput` via:
+//
+//          SignalRCorsSettingsInvokeResponseArgs{...}
+type SignalRCorsSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSignalRCorsSettingsInvokeResponseOutput() SignalRCorsSettingsInvokeResponseOutput
+	ToSignalRCorsSettingsInvokeResponseOutputWithContext(context.Context) SignalRCorsSettingsInvokeResponseOutput
+}
+
+// Cross-Origin Resource Sharing (CORS) settings.
+type SignalRCorsSettingsInvokeResponseArgs struct {
+	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+}
+
+func (SignalRCorsSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRCorsSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i SignalRCorsSettingsInvokeResponseArgs) ToSignalRCorsSettingsInvokeResponseOutput() SignalRCorsSettingsInvokeResponseOutput {
+	return i.ToSignalRCorsSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SignalRCorsSettingsInvokeResponseArgs) ToSignalRCorsSettingsInvokeResponseOutputWithContext(ctx context.Context) SignalRCorsSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRCorsSettingsInvokeResponseOutput)
+}
+
+// Cross-Origin Resource Sharing (CORS) settings.
+type SignalRCorsSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SignalRCorsSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRCorsSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SignalRCorsSettingsInvokeResponseOutput) ToSignalRCorsSettingsInvokeResponseOutput() SignalRCorsSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SignalRCorsSettingsInvokeResponseOutput) ToSignalRCorsSettingsInvokeResponseOutputWithContext(ctx context.Context) SignalRCorsSettingsInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+func (o SignalRCorsSettingsInvokeResponseOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SignalRCorsSettingsInvokeResponse) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// Cross-Origin Resource Sharing (CORS) settings.
 type SignalRCorsSettingsResponse struct {
 	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
@@ -2417,6 +3370,130 @@ func (o SignalRFeatureArrayOutput) Index(i pulumi.IntInput) SignalRFeatureOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignalRFeature {
 		return vs[0].([]SignalRFeature)[vs[1].(int)]
 	}).(SignalRFeatureOutput)
+}
+
+// Feature of a SignalR resource, which controls the SignalR runtime behavior.
+type SignalRFeatureInvokeResponse struct {
+	// FeatureFlags is the supported features of Azure SignalR service.
+	// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
+	// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+	Flag string `pulumi:"flag"`
+	// Optional properties related to this feature.
+	Properties map[string]string `pulumi:"properties"`
+	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+	Value string `pulumi:"value"`
+}
+
+// SignalRFeatureInvokeResponseInput is an input type that accepts SignalRFeatureInvokeResponseArgs and SignalRFeatureInvokeResponseOutput values.
+// You can construct a concrete instance of `SignalRFeatureInvokeResponseInput` via:
+//
+//          SignalRFeatureInvokeResponseArgs{...}
+type SignalRFeatureInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSignalRFeatureInvokeResponseOutput() SignalRFeatureInvokeResponseOutput
+	ToSignalRFeatureInvokeResponseOutputWithContext(context.Context) SignalRFeatureInvokeResponseOutput
+}
+
+// Feature of a SignalR resource, which controls the SignalR runtime behavior.
+type SignalRFeatureInvokeResponseArgs struct {
+	// FeatureFlags is the supported features of Azure SignalR service.
+	// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
+	// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+	Flag pulumi.StringInput `pulumi:"flag"`
+	// Optional properties related to this feature.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SignalRFeatureInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRFeatureInvokeResponse)(nil)).Elem()
+}
+
+func (i SignalRFeatureInvokeResponseArgs) ToSignalRFeatureInvokeResponseOutput() SignalRFeatureInvokeResponseOutput {
+	return i.ToSignalRFeatureInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SignalRFeatureInvokeResponseArgs) ToSignalRFeatureInvokeResponseOutputWithContext(ctx context.Context) SignalRFeatureInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRFeatureInvokeResponseOutput)
+}
+
+// SignalRFeatureInvokeResponseArrayInput is an input type that accepts SignalRFeatureInvokeResponseArray and SignalRFeatureInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SignalRFeatureInvokeResponseArrayInput` via:
+//
+//          SignalRFeatureInvokeResponseArray{ SignalRFeatureInvokeResponseArgs{...} }
+type SignalRFeatureInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSignalRFeatureInvokeResponseArrayOutput() SignalRFeatureInvokeResponseArrayOutput
+	ToSignalRFeatureInvokeResponseArrayOutputWithContext(context.Context) SignalRFeatureInvokeResponseArrayOutput
+}
+
+type SignalRFeatureInvokeResponseArray []SignalRFeatureInvokeResponseInput
+
+func (SignalRFeatureInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignalRFeatureInvokeResponse)(nil)).Elem()
+}
+
+func (i SignalRFeatureInvokeResponseArray) ToSignalRFeatureInvokeResponseArrayOutput() SignalRFeatureInvokeResponseArrayOutput {
+	return i.ToSignalRFeatureInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SignalRFeatureInvokeResponseArray) ToSignalRFeatureInvokeResponseArrayOutputWithContext(ctx context.Context) SignalRFeatureInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRFeatureInvokeResponseArrayOutput)
+}
+
+// Feature of a SignalR resource, which controls the SignalR runtime behavior.
+type SignalRFeatureInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SignalRFeatureInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRFeatureInvokeResponse)(nil)).Elem()
+}
+
+func (o SignalRFeatureInvokeResponseOutput) ToSignalRFeatureInvokeResponseOutput() SignalRFeatureInvokeResponseOutput {
+	return o
+}
+
+func (o SignalRFeatureInvokeResponseOutput) ToSignalRFeatureInvokeResponseOutputWithContext(ctx context.Context) SignalRFeatureInvokeResponseOutput {
+	return o
+}
+
+// FeatureFlags is the supported features of Azure SignalR service.
+// - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
+// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+func (o SignalRFeatureInvokeResponseOutput) Flag() pulumi.StringOutput {
+	return o.ApplyT(func(v SignalRFeatureInvokeResponse) string { return v.Flag }).(pulumi.StringOutput)
+}
+
+// Optional properties related to this feature.
+func (o SignalRFeatureInvokeResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SignalRFeatureInvokeResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+func (o SignalRFeatureInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SignalRFeatureInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SignalRFeatureInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SignalRFeatureInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SignalRFeatureInvokeResponse)(nil)).Elem()
+}
+
+func (o SignalRFeatureInvokeResponseArrayOutput) ToSignalRFeatureInvokeResponseArrayOutput() SignalRFeatureInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SignalRFeatureInvokeResponseArrayOutput) ToSignalRFeatureInvokeResponseArrayOutputWithContext(ctx context.Context) SignalRFeatureInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SignalRFeatureInvokeResponseArrayOutput) Index(i pulumi.IntInput) SignalRFeatureInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignalRFeatureInvokeResponse {
+		return vs[0].([]SignalRFeatureInvokeResponse)[vs[1].(int)]
+	}).(SignalRFeatureInvokeResponseOutput)
 }
 
 // Feature of a SignalR resource, which controls the SignalR runtime behavior.
@@ -2713,6 +3790,79 @@ func (o SignalRNetworkACLsPtrOutput) PublicNetwork() NetworkACLPtrOutput {
 		}
 		return v.PublicNetwork
 	}).(NetworkACLPtrOutput)
+}
+
+// Network ACLs for SignalR
+type SignalRNetworkACLsInvokeResponse struct {
+	// Default action when no other rule matches
+	DefaultAction *string `pulumi:"defaultAction"`
+	// ACLs for requests from private endpoints
+	PrivateEndpoints []PrivateEndpointACLInvokeResponse `pulumi:"privateEndpoints"`
+	// ACL for requests from public network
+	PublicNetwork *NetworkACLInvokeResponse `pulumi:"publicNetwork"`
+}
+
+// SignalRNetworkACLsInvokeResponseInput is an input type that accepts SignalRNetworkACLsInvokeResponseArgs and SignalRNetworkACLsInvokeResponseOutput values.
+// You can construct a concrete instance of `SignalRNetworkACLsInvokeResponseInput` via:
+//
+//          SignalRNetworkACLsInvokeResponseArgs{...}
+type SignalRNetworkACLsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSignalRNetworkACLsInvokeResponseOutput() SignalRNetworkACLsInvokeResponseOutput
+	ToSignalRNetworkACLsInvokeResponseOutputWithContext(context.Context) SignalRNetworkACLsInvokeResponseOutput
+}
+
+// Network ACLs for SignalR
+type SignalRNetworkACLsInvokeResponseArgs struct {
+	// Default action when no other rule matches
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// ACLs for requests from private endpoints
+	PrivateEndpoints PrivateEndpointACLInvokeResponseArrayInput `pulumi:"privateEndpoints"`
+	// ACL for requests from public network
+	PublicNetwork NetworkACLInvokeResponsePtrInput `pulumi:"publicNetwork"`
+}
+
+func (SignalRNetworkACLsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRNetworkACLsInvokeResponse)(nil)).Elem()
+}
+
+func (i SignalRNetworkACLsInvokeResponseArgs) ToSignalRNetworkACLsInvokeResponseOutput() SignalRNetworkACLsInvokeResponseOutput {
+	return i.ToSignalRNetworkACLsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SignalRNetworkACLsInvokeResponseArgs) ToSignalRNetworkACLsInvokeResponseOutputWithContext(ctx context.Context) SignalRNetworkACLsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SignalRNetworkACLsInvokeResponseOutput)
+}
+
+// Network ACLs for SignalR
+type SignalRNetworkACLsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SignalRNetworkACLsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SignalRNetworkACLsInvokeResponse)(nil)).Elem()
+}
+
+func (o SignalRNetworkACLsInvokeResponseOutput) ToSignalRNetworkACLsInvokeResponseOutput() SignalRNetworkACLsInvokeResponseOutput {
+	return o
+}
+
+func (o SignalRNetworkACLsInvokeResponseOutput) ToSignalRNetworkACLsInvokeResponseOutputWithContext(ctx context.Context) SignalRNetworkACLsInvokeResponseOutput {
+	return o
+}
+
+// Default action when no other rule matches
+func (o SignalRNetworkACLsInvokeResponseOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SignalRNetworkACLsInvokeResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// ACLs for requests from private endpoints
+func (o SignalRNetworkACLsInvokeResponseOutput) PrivateEndpoints() PrivateEndpointACLInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SignalRNetworkACLsInvokeResponse) []PrivateEndpointACLInvokeResponse { return v.PrivateEndpoints }).(PrivateEndpointACLInvokeResponseArrayOutput)
+}
+
+// ACL for requests from public network
+func (o SignalRNetworkACLsInvokeResponseOutput) PublicNetwork() NetworkACLInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SignalRNetworkACLsInvokeResponse) *NetworkACLInvokeResponse { return v.PublicNetwork }).(NetworkACLInvokeResponsePtrOutput)
 }
 
 // Network ACLs for SignalR
@@ -3058,6 +4208,175 @@ func (o UpstreamTemplateArrayOutput) Index(i pulumi.IntInput) UpstreamTemplateOu
 
 // Upstream template item settings. It defines the Upstream URL of the incoming requests.
 // The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
+type UpstreamTemplateInvokeResponse struct {
+	// Gets or sets the matching pattern for category names. If not set, it matches any category.
+	// There are 3 kind of patterns supported:
+	//     1. "*", it to matches any category name
+	//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
+	//     3. The single category name, for example, "connections", it matches the category "connections"
+	CategoryPattern *string `pulumi:"categoryPattern"`
+	// Gets or sets the matching pattern for event names. If not set, it matches any event.
+	// There are 3 kind of patterns supported:
+	//     1. "*", it to matches any event name
+	//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
+	//     3. The single event name, for example, "connect", it matches "connect"
+	EventPattern *string `pulumi:"eventPattern"`
+	// Gets or sets the matching pattern for hub names. If not set, it matches any hub.
+	// There are 3 kind of patterns supported:
+	//     1. "*", it to matches any hub name
+	//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
+	//     3. The single hub name, for example, "hub1", it matches "hub1"
+	HubPattern *string `pulumi:"hubPattern"`
+	// Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
+	// For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+	UrlTemplate string `pulumi:"urlTemplate"`
+}
+
+// UpstreamTemplateInvokeResponseInput is an input type that accepts UpstreamTemplateInvokeResponseArgs and UpstreamTemplateInvokeResponseOutput values.
+// You can construct a concrete instance of `UpstreamTemplateInvokeResponseInput` via:
+//
+//          UpstreamTemplateInvokeResponseArgs{...}
+type UpstreamTemplateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUpstreamTemplateInvokeResponseOutput() UpstreamTemplateInvokeResponseOutput
+	ToUpstreamTemplateInvokeResponseOutputWithContext(context.Context) UpstreamTemplateInvokeResponseOutput
+}
+
+// Upstream template item settings. It defines the Upstream URL of the incoming requests.
+// The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
+type UpstreamTemplateInvokeResponseArgs struct {
+	// Gets or sets the matching pattern for category names. If not set, it matches any category.
+	// There are 3 kind of patterns supported:
+	//     1. "*", it to matches any category name
+	//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
+	//     3. The single category name, for example, "connections", it matches the category "connections"
+	CategoryPattern pulumi.StringPtrInput `pulumi:"categoryPattern"`
+	// Gets or sets the matching pattern for event names. If not set, it matches any event.
+	// There are 3 kind of patterns supported:
+	//     1. "*", it to matches any event name
+	//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
+	//     3. The single event name, for example, "connect", it matches "connect"
+	EventPattern pulumi.StringPtrInput `pulumi:"eventPattern"`
+	// Gets or sets the matching pattern for hub names. If not set, it matches any hub.
+	// There are 3 kind of patterns supported:
+	//     1. "*", it to matches any hub name
+	//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
+	//     3. The single hub name, for example, "hub1", it matches "hub1"
+	HubPattern pulumi.StringPtrInput `pulumi:"hubPattern"`
+	// Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
+	// For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+	UrlTemplate pulumi.StringInput `pulumi:"urlTemplate"`
+}
+
+func (UpstreamTemplateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamTemplateInvokeResponse)(nil)).Elem()
+}
+
+func (i UpstreamTemplateInvokeResponseArgs) ToUpstreamTemplateInvokeResponseOutput() UpstreamTemplateInvokeResponseOutput {
+	return i.ToUpstreamTemplateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UpstreamTemplateInvokeResponseArgs) ToUpstreamTemplateInvokeResponseOutputWithContext(ctx context.Context) UpstreamTemplateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamTemplateInvokeResponseOutput)
+}
+
+// UpstreamTemplateInvokeResponseArrayInput is an input type that accepts UpstreamTemplateInvokeResponseArray and UpstreamTemplateInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `UpstreamTemplateInvokeResponseArrayInput` via:
+//
+//          UpstreamTemplateInvokeResponseArray{ UpstreamTemplateInvokeResponseArgs{...} }
+type UpstreamTemplateInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToUpstreamTemplateInvokeResponseArrayOutput() UpstreamTemplateInvokeResponseArrayOutput
+	ToUpstreamTemplateInvokeResponseArrayOutputWithContext(context.Context) UpstreamTemplateInvokeResponseArrayOutput
+}
+
+type UpstreamTemplateInvokeResponseArray []UpstreamTemplateInvokeResponseInput
+
+func (UpstreamTemplateInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UpstreamTemplateInvokeResponse)(nil)).Elem()
+}
+
+func (i UpstreamTemplateInvokeResponseArray) ToUpstreamTemplateInvokeResponseArrayOutput() UpstreamTemplateInvokeResponseArrayOutput {
+	return i.ToUpstreamTemplateInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i UpstreamTemplateInvokeResponseArray) ToUpstreamTemplateInvokeResponseArrayOutputWithContext(ctx context.Context) UpstreamTemplateInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpstreamTemplateInvokeResponseArrayOutput)
+}
+
+// Upstream template item settings. It defines the Upstream URL of the incoming requests.
+// The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
+type UpstreamTemplateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UpstreamTemplateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpstreamTemplateInvokeResponse)(nil)).Elem()
+}
+
+func (o UpstreamTemplateInvokeResponseOutput) ToUpstreamTemplateInvokeResponseOutput() UpstreamTemplateInvokeResponseOutput {
+	return o
+}
+
+func (o UpstreamTemplateInvokeResponseOutput) ToUpstreamTemplateInvokeResponseOutputWithContext(ctx context.Context) UpstreamTemplateInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the matching pattern for category names. If not set, it matches any category.
+// There are 3 kind of patterns supported:
+//     1. "*", it to matches any category name
+//     2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
+//     3. The single category name, for example, "connections", it matches the category "connections"
+func (o UpstreamTemplateInvokeResponseOutput) CategoryPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamTemplateInvokeResponse) *string { return v.CategoryPattern }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the matching pattern for event names. If not set, it matches any event.
+// There are 3 kind of patterns supported:
+//     1. "*", it to matches any event name
+//     2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
+//     3. The single event name, for example, "connect", it matches "connect"
+func (o UpstreamTemplateInvokeResponseOutput) EventPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamTemplateInvokeResponse) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the matching pattern for hub names. If not set, it matches any hub.
+// There are 3 kind of patterns supported:
+//     1. "*", it to matches any hub name
+//     2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
+//     3. The single hub name, for example, "hub1", it matches "hub1"
+func (o UpstreamTemplateInvokeResponseOutput) HubPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpstreamTemplateInvokeResponse) *string { return v.HubPattern }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
+// For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+func (o UpstreamTemplateInvokeResponseOutput) UrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v UpstreamTemplateInvokeResponse) string { return v.UrlTemplate }).(pulumi.StringOutput)
+}
+
+type UpstreamTemplateInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UpstreamTemplateInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UpstreamTemplateInvokeResponse)(nil)).Elem()
+}
+
+func (o UpstreamTemplateInvokeResponseArrayOutput) ToUpstreamTemplateInvokeResponseArrayOutput() UpstreamTemplateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UpstreamTemplateInvokeResponseArrayOutput) ToUpstreamTemplateInvokeResponseArrayOutputWithContext(ctx context.Context) UpstreamTemplateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UpstreamTemplateInvokeResponseArrayOutput) Index(i pulumi.IntInput) UpstreamTemplateInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UpstreamTemplateInvokeResponse {
+		return vs[0].([]UpstreamTemplateInvokeResponse)[vs[1].(int)]
+	}).(UpstreamTemplateInvokeResponseOutput)
+}
+
+// Upstream template item settings. It defines the Upstream URL of the incoming requests.
+// The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
 type UpstreamTemplateResponse struct {
 	// Gets or sets the matching pattern for category names. If not set, it matches any category.
 	// There are 3 kind of patterns supported:
@@ -3228,44 +4547,62 @@ func (o UpstreamTemplateResponseArrayOutput) Index(i pulumi.IntInput) UpstreamTe
 func init() {
 	pulumi.RegisterOutputType(NetworkACLOutput{})
 	pulumi.RegisterOutputType(NetworkACLPtrOutput{})
+	pulumi.RegisterOutputType(NetworkACLInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NetworkACLInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkACLResponseOutput{})
 	pulumi.RegisterOutputType(NetworkACLResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointACLOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointACLArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointACLInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointACLInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointACLResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointACLResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerlessUpstreamSettingsOutput{})
 	pulumi.RegisterOutputType(ServerlessUpstreamSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessUpstreamSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServerlessUpstreamSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ServerlessUpstreamSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SignalRCorsSettingsOutput{})
 	pulumi.RegisterOutputType(SignalRCorsSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SignalRCorsSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SignalRCorsSettingsResponseOutput{})
 	pulumi.RegisterOutputType(SignalRCorsSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SignalRFeatureOutput{})
 	pulumi.RegisterOutputType(SignalRFeatureArrayOutput{})
+	pulumi.RegisterOutputType(SignalRFeatureInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SignalRFeatureInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SignalRFeatureResponseOutput{})
 	pulumi.RegisterOutputType(SignalRFeatureResponseArrayOutput{})
 	pulumi.RegisterOutputType(SignalRNetworkACLsOutput{})
 	pulumi.RegisterOutputType(SignalRNetworkACLsPtrOutput{})
+	pulumi.RegisterOutputType(SignalRNetworkACLsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SignalRNetworkACLsResponseOutput{})
 	pulumi.RegisterOutputType(SignalRNetworkACLsResponsePtrOutput{})
 	pulumi.RegisterOutputType(UpstreamTemplateOutput{})
 	pulumi.RegisterOutputType(UpstreamTemplateArrayOutput{})
+	pulumi.RegisterOutputType(UpstreamTemplateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UpstreamTemplateInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(UpstreamTemplateResponseOutput{})
 	pulumi.RegisterOutputType(UpstreamTemplateResponseArrayOutput{})
 }

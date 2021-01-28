@@ -32,7 +32,7 @@ type LookupIntegrationAccountMapResult struct {
 	// The content.
 	Content *string `pulumi:"content"`
 	// The content link.
-	ContentLink ContentLinkResponse `pulumi:"contentLink"`
+	ContentLink ContentLinkInvokeResponse `pulumi:"contentLink"`
 	// The content type.
 	ContentType *string `pulumi:"contentType"`
 	// The created time.
@@ -48,7 +48,7 @@ type LookupIntegrationAccountMapResult struct {
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The parameters schema of integration account map.
-	ParametersSchema *IntegrationAccountMapPropertiesResponseParametersSchema `pulumi:"parametersSchema"`
+	ParametersSchema *IntegrationAccountMapPropertiesInvokeResponseParametersSchema `pulumi:"parametersSchema"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

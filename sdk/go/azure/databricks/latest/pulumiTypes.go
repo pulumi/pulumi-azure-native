@@ -145,6 +145,61 @@ func (o AddressSpacePtrOutput) AddressPrefixes() pulumi.StringArrayOutput {
 }
 
 // AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+type AddressSpaceInvokeResponse struct {
+	// A list of address blocks reserved for this virtual network in CIDR notation.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
+}
+
+// AddressSpaceInvokeResponseInput is an input type that accepts AddressSpaceInvokeResponseArgs and AddressSpaceInvokeResponseOutput values.
+// You can construct a concrete instance of `AddressSpaceInvokeResponseInput` via:
+//
+//          AddressSpaceInvokeResponseArgs{...}
+type AddressSpaceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAddressSpaceInvokeResponseOutput() AddressSpaceInvokeResponseOutput
+	ToAddressSpaceInvokeResponseOutputWithContext(context.Context) AddressSpaceInvokeResponseOutput
+}
+
+// AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+type AddressSpaceInvokeResponseArgs struct {
+	// A list of address blocks reserved for this virtual network in CIDR notation.
+	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
+}
+
+func (AddressSpaceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddressSpaceInvokeResponse)(nil)).Elem()
+}
+
+func (i AddressSpaceInvokeResponseArgs) ToAddressSpaceInvokeResponseOutput() AddressSpaceInvokeResponseOutput {
+	return i.ToAddressSpaceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AddressSpaceInvokeResponseArgs) ToAddressSpaceInvokeResponseOutputWithContext(ctx context.Context) AddressSpaceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddressSpaceInvokeResponseOutput)
+}
+
+// AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
+type AddressSpaceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AddressSpaceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddressSpaceInvokeResponse)(nil)).Elem()
+}
+
+func (o AddressSpaceInvokeResponseOutput) ToAddressSpaceInvokeResponseOutput() AddressSpaceInvokeResponseOutput {
+	return o
+}
+
+func (o AddressSpaceInvokeResponseOutput) ToAddressSpaceInvokeResponseOutputWithContext(ctx context.Context) AddressSpaceInvokeResponseOutput {
+	return o
+}
+
+// A list of address blocks reserved for this virtual network in CIDR notation.
+func (o AddressSpaceInvokeResponseOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AddressSpaceInvokeResponse) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
 type AddressSpaceResponse struct {
 	// A list of address blocks reserved for this virtual network in CIDR notation.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
@@ -276,6 +331,79 @@ func (o AddressSpaceResponsePtrOutput) AddressPrefixes() pulumi.StringArrayOutpu
 		}
 		return v.AddressPrefixes
 	}).(pulumi.StringArrayOutput)
+}
+
+// Provides details of the entity that created/updated the workspace.
+type CreatedByInvokeResponse struct {
+	// The application ID of the application that initiated the creation of the workspace. For example, Azure Portal.
+	ApplicationId string `pulumi:"applicationId"`
+	// The Object ID that created the workspace.
+	Oid string `pulumi:"oid"`
+	// The Personal Object ID corresponding to the object ID above
+	Puid string `pulumi:"puid"`
+}
+
+// CreatedByInvokeResponseInput is an input type that accepts CreatedByInvokeResponseArgs and CreatedByInvokeResponseOutput values.
+// You can construct a concrete instance of `CreatedByInvokeResponseInput` via:
+//
+//          CreatedByInvokeResponseArgs{...}
+type CreatedByInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCreatedByInvokeResponseOutput() CreatedByInvokeResponseOutput
+	ToCreatedByInvokeResponseOutputWithContext(context.Context) CreatedByInvokeResponseOutput
+}
+
+// Provides details of the entity that created/updated the workspace.
+type CreatedByInvokeResponseArgs struct {
+	// The application ID of the application that initiated the creation of the workspace. For example, Azure Portal.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// The Object ID that created the workspace.
+	Oid pulumi.StringInput `pulumi:"oid"`
+	// The Personal Object ID corresponding to the object ID above
+	Puid pulumi.StringInput `pulumi:"puid"`
+}
+
+func (CreatedByInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreatedByInvokeResponse)(nil)).Elem()
+}
+
+func (i CreatedByInvokeResponseArgs) ToCreatedByInvokeResponseOutput() CreatedByInvokeResponseOutput {
+	return i.ToCreatedByInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CreatedByInvokeResponseArgs) ToCreatedByInvokeResponseOutputWithContext(ctx context.Context) CreatedByInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreatedByInvokeResponseOutput)
+}
+
+// Provides details of the entity that created/updated the workspace.
+type CreatedByInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CreatedByInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreatedByInvokeResponse)(nil)).Elem()
+}
+
+func (o CreatedByInvokeResponseOutput) ToCreatedByInvokeResponseOutput() CreatedByInvokeResponseOutput {
+	return o
+}
+
+func (o CreatedByInvokeResponseOutput) ToCreatedByInvokeResponseOutputWithContext(ctx context.Context) CreatedByInvokeResponseOutput {
+	return o
+}
+
+// The application ID of the application that initiated the creation of the workspace. For example, Azure Portal.
+func (o CreatedByInvokeResponseOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v CreatedByInvokeResponse) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// The Object ID that created the workspace.
+func (o CreatedByInvokeResponseOutput) Oid() pulumi.StringOutput {
+	return o.ApplyT(func(v CreatedByInvokeResponse) string { return v.Oid }).(pulumi.StringOutput)
+}
+
+// The Personal Object ID corresponding to the object ID above
+func (o CreatedByInvokeResponseOutput) Puid() pulumi.StringOutput {
+	return o.ApplyT(func(v CreatedByInvokeResponse) string { return v.Puid }).(pulumi.StringOutput)
 }
 
 // Provides details of the entity that created/updated the workspace.
@@ -642,6 +770,197 @@ func (o EncryptionPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 }
 
 // The object that contains details of encryption used on the workspace.
+type EncryptionInvokeResponse struct {
+	// The name of KeyVault key.
+	KeyName *string `pulumi:"keyName"`
+	// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+	KeySource *string `pulumi:"keySource"`
+	// The Uri of KeyVault.
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
+	// The version of KeyVault key.
+	KeyVersion *string `pulumi:"keyVersion"`
+}
+
+// EncryptionInvokeResponseInput is an input type that accepts EncryptionInvokeResponseArgs and EncryptionInvokeResponseOutput values.
+// You can construct a concrete instance of `EncryptionInvokeResponseInput` via:
+//
+//          EncryptionInvokeResponseArgs{...}
+type EncryptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionInvokeResponseOutput() EncryptionInvokeResponseOutput
+	ToEncryptionInvokeResponseOutputWithContext(context.Context) EncryptionInvokeResponseOutput
+}
+
+// The object that contains details of encryption used on the workspace.
+type EncryptionInvokeResponseArgs struct {
+	// The name of KeyVault key.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
+	// The Uri of KeyVault.
+	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
+	// The version of KeyVault key.
+	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
+}
+
+func (EncryptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i EncryptionInvokeResponseArgs) ToEncryptionInvokeResponseOutput() EncryptionInvokeResponseOutput {
+	return i.ToEncryptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionInvokeResponseArgs) ToEncryptionInvokeResponseOutputWithContext(ctx context.Context) EncryptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInvokeResponseOutput)
+}
+
+func (i EncryptionInvokeResponseArgs) ToEncryptionInvokeResponsePtrOutput() EncryptionInvokeResponsePtrOutput {
+	return i.ToEncryptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionInvokeResponseArgs) ToEncryptionInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInvokeResponseOutput).ToEncryptionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionInvokeResponsePtrInput is an input type that accepts EncryptionInvokeResponseArgs, EncryptionInvokeResponsePtr and EncryptionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionInvokeResponsePtrInput` via:
+//
+//          EncryptionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionInvokeResponsePtrOutput() EncryptionInvokeResponsePtrOutput
+	ToEncryptionInvokeResponsePtrOutputWithContext(context.Context) EncryptionInvokeResponsePtrOutput
+}
+
+type encryptionInvokeResponsePtrType EncryptionInvokeResponseArgs
+
+func EncryptionInvokeResponsePtr(v *EncryptionInvokeResponseArgs) EncryptionInvokeResponsePtrInput {
+	return (*encryptionInvokeResponsePtrType)(v)
+}
+
+func (*encryptionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i *encryptionInvokeResponsePtrType) ToEncryptionInvokeResponsePtrOutput() EncryptionInvokeResponsePtrOutput {
+	return i.ToEncryptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionInvokeResponsePtrType) ToEncryptionInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionInvokeResponsePtrOutput)
+}
+
+// The object that contains details of encryption used on the workspace.
+type EncryptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionInvokeResponseOutput) ToEncryptionInvokeResponseOutput() EncryptionInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionInvokeResponseOutput) ToEncryptionInvokeResponseOutputWithContext(ctx context.Context) EncryptionInvokeResponseOutput {
+	return o
+}
+
+func (o EncryptionInvokeResponseOutput) ToEncryptionInvokeResponsePtrOutput() EncryptionInvokeResponsePtrOutput {
+	return o.ToEncryptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionInvokeResponseOutput) ToEncryptionInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionInvokeResponse) *EncryptionInvokeResponse {
+		return &v
+	}).(EncryptionInvokeResponsePtrOutput)
+}
+
+// The name of KeyVault key.
+func (o EncryptionInvokeResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionInvokeResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+func (o EncryptionInvokeResponseOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionInvokeResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+}
+
+// The Uri of KeyVault.
+func (o EncryptionInvokeResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionInvokeResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
+}
+
+// The version of KeyVault key.
+func (o EncryptionInvokeResponseOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionInvokeResponse) *string { return v.KeyVersion }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o EncryptionInvokeResponsePtrOutput) ToEncryptionInvokeResponsePtrOutput() EncryptionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionInvokeResponsePtrOutput) ToEncryptionInvokeResponsePtrOutputWithContext(ctx context.Context) EncryptionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionInvokeResponsePtrOutput) Elem() EncryptionInvokeResponseOutput {
+	return o.ApplyT(func(v *EncryptionInvokeResponse) EncryptionInvokeResponse { return *v }).(EncryptionInvokeResponseOutput)
+}
+
+// The name of KeyVault key.
+func (o EncryptionInvokeResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+func (o EncryptionInvokeResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeySource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Uri of KeyVault.
+func (o EncryptionInvokeResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of KeyVault key.
+func (o EncryptionInvokeResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object that contains details of encryption used on the workspace.
 type EncryptionResponse struct {
 	// The name of KeyVault key.
 	KeyName *string `pulumi:"keyName"`
@@ -830,6 +1149,79 @@ func (o EncryptionResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 		}
 		return v.KeyVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// The Managed Identity details for storage account.
+type ManagedIdentityConfigurationInvokeResponse struct {
+	// The objectId of the Managed Identity that is linked to the Managed Storage account.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant Id where the Managed Identity is created.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Identity created. It can be either SystemAssigned or UserAssigned.
+	Type string `pulumi:"type"`
+}
+
+// ManagedIdentityConfigurationInvokeResponseInput is an input type that accepts ManagedIdentityConfigurationInvokeResponseArgs and ManagedIdentityConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedIdentityConfigurationInvokeResponseInput` via:
+//
+//          ManagedIdentityConfigurationInvokeResponseArgs{...}
+type ManagedIdentityConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedIdentityConfigurationInvokeResponseOutput() ManagedIdentityConfigurationInvokeResponseOutput
+	ToManagedIdentityConfigurationInvokeResponseOutputWithContext(context.Context) ManagedIdentityConfigurationInvokeResponseOutput
+}
+
+// The Managed Identity details for storage account.
+type ManagedIdentityConfigurationInvokeResponseArgs struct {
+	// The objectId of the Managed Identity that is linked to the Managed Storage account.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant Id where the Managed Identity is created.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Identity created. It can be either SystemAssigned or UserAssigned.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedIdentityConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedIdentityConfigurationInvokeResponseArgs) ToManagedIdentityConfigurationInvokeResponseOutput() ManagedIdentityConfigurationInvokeResponseOutput {
+	return i.ToManagedIdentityConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityConfigurationInvokeResponseArgs) ToManagedIdentityConfigurationInvokeResponseOutputWithContext(ctx context.Context) ManagedIdentityConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityConfigurationInvokeResponseOutput)
+}
+
+// The Managed Identity details for storage account.
+type ManagedIdentityConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityConfigurationInvokeResponseOutput) ToManagedIdentityConfigurationInvokeResponseOutput() ManagedIdentityConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedIdentityConfigurationInvokeResponseOutput) ToManagedIdentityConfigurationInvokeResponseOutputWithContext(ctx context.Context) ManagedIdentityConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The objectId of the Managed Identity that is linked to the Managed Storage account.
+func (o ManagedIdentityConfigurationInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIdentityConfigurationInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant Id where the Managed Identity is created.
+func (o ManagedIdentityConfigurationInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIdentityConfigurationInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Identity created. It can be either SystemAssigned or UserAssigned.
+func (o ManagedIdentityConfigurationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedIdentityConfigurationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The Managed Identity details for storage account.
@@ -1158,6 +1550,70 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // SKU for the resource.
+type SkuInvokeResponse struct {
+	// The SKU name.
+	Name string `pulumi:"name"`
+	// The SKU tier.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// SKU for the resource.
+type SkuInvokeResponseArgs struct {
+	// The SKU name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The SKU tier.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// SKU for the resource.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The SKU name.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU tier.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// SKU for the resource.
 type SkuResponse struct {
 	// The SKU name.
 	Name string `pulumi:"name"`
@@ -1444,6 +1900,118 @@ func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput) 
 		}
 		return v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetwork struct {
+	// The Id of the databricks virtual network.
+	Id *string `pulumi:"id"`
+}
+
+// VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkArgs and VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput values.
+// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkInput` via:
+//
+//          VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkArgs{...}
+type VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput
+	ToVirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkArgs struct {
+	// The Id of the databricks virtual network.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetwork)(nil)).Elem()
+}
+
+func (i VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput)
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetwork)(nil)).Elem()
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput {
+	return o
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput {
+	return o
+}
+
+// The Id of the databricks virtual network.
+func (o VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetwork) *string {
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetwork struct {
+	// The Id of the remote virtual network.
+	Id *string `pulumi:"id"`
+}
+
+// VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkArgs and VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput values.
+// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkInput` via:
+//
+//          VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkArgs{...}
+type VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput
+	ToVirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkArgs struct {
+	// The Id of the remote virtual network.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetwork)(nil)).Elem()
+}
+
+func (i VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput)
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetwork)(nil)).Elem()
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput {
+	return o
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput {
+	return o
+}
+
+// The Id of the remote virtual network.
+func (o VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetwork) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
@@ -1989,6 +2557,161 @@ func (o WorkspaceCustomBooleanParameterPtrOutput) Value() pulumi.BoolPtrOutput {
 }
 
 // The value which should be used for this field.
+type WorkspaceCustomBooleanParameterInvokeResponse struct {
+	// The type of variable that this is
+	Type string `pulumi:"type"`
+	// The value which should be used for this field.
+	Value bool `pulumi:"value"`
+}
+
+// WorkspaceCustomBooleanParameterInvokeResponseInput is an input type that accepts WorkspaceCustomBooleanParameterInvokeResponseArgs and WorkspaceCustomBooleanParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkspaceCustomBooleanParameterInvokeResponseInput` via:
+//
+//          WorkspaceCustomBooleanParameterInvokeResponseArgs{...}
+type WorkspaceCustomBooleanParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceCustomBooleanParameterInvokeResponseOutput() WorkspaceCustomBooleanParameterInvokeResponseOutput
+	ToWorkspaceCustomBooleanParameterInvokeResponseOutputWithContext(context.Context) WorkspaceCustomBooleanParameterInvokeResponseOutput
+}
+
+// The value which should be used for this field.
+type WorkspaceCustomBooleanParameterInvokeResponseArgs struct {
+	// The type of variable that this is
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value which should be used for this field.
+	Value pulumi.BoolInput `pulumi:"value"`
+}
+
+func (WorkspaceCustomBooleanParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCustomBooleanParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkspaceCustomBooleanParameterInvokeResponseArgs) ToWorkspaceCustomBooleanParameterInvokeResponseOutput() WorkspaceCustomBooleanParameterInvokeResponseOutput {
+	return i.ToWorkspaceCustomBooleanParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCustomBooleanParameterInvokeResponseArgs) ToWorkspaceCustomBooleanParameterInvokeResponseOutputWithContext(ctx context.Context) WorkspaceCustomBooleanParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomBooleanParameterInvokeResponseOutput)
+}
+
+func (i WorkspaceCustomBooleanParameterInvokeResponseArgs) ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutput() WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return i.ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCustomBooleanParameterInvokeResponseArgs) ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomBooleanParameterInvokeResponseOutput).ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceCustomBooleanParameterInvokeResponsePtrInput is an input type that accepts WorkspaceCustomBooleanParameterInvokeResponseArgs, WorkspaceCustomBooleanParameterInvokeResponsePtr and WorkspaceCustomBooleanParameterInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceCustomBooleanParameterInvokeResponsePtrInput` via:
+//
+//          WorkspaceCustomBooleanParameterInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceCustomBooleanParameterInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutput() WorkspaceCustomBooleanParameterInvokeResponsePtrOutput
+	ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutputWithContext(context.Context) WorkspaceCustomBooleanParameterInvokeResponsePtrOutput
+}
+
+type workspaceCustomBooleanParameterInvokeResponsePtrType WorkspaceCustomBooleanParameterInvokeResponseArgs
+
+func WorkspaceCustomBooleanParameterInvokeResponsePtr(v *WorkspaceCustomBooleanParameterInvokeResponseArgs) WorkspaceCustomBooleanParameterInvokeResponsePtrInput {
+	return (*workspaceCustomBooleanParameterInvokeResponsePtrType)(v)
+}
+
+func (*workspaceCustomBooleanParameterInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCustomBooleanParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i *workspaceCustomBooleanParameterInvokeResponsePtrType) ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutput() WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return i.ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceCustomBooleanParameterInvokeResponsePtrType) ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomBooleanParameterInvokeResponsePtrOutput)
+}
+
+// The value which should be used for this field.
+type WorkspaceCustomBooleanParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCustomBooleanParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCustomBooleanParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkspaceCustomBooleanParameterInvokeResponseOutput) ToWorkspaceCustomBooleanParameterInvokeResponseOutput() WorkspaceCustomBooleanParameterInvokeResponseOutput {
+	return o
+}
+
+func (o WorkspaceCustomBooleanParameterInvokeResponseOutput) ToWorkspaceCustomBooleanParameterInvokeResponseOutputWithContext(ctx context.Context) WorkspaceCustomBooleanParameterInvokeResponseOutput {
+	return o
+}
+
+func (o WorkspaceCustomBooleanParameterInvokeResponseOutput) ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutput() WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return o.ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceCustomBooleanParameterInvokeResponseOutput) ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomBooleanParameterInvokeResponse) *WorkspaceCustomBooleanParameterInvokeResponse {
+		return &v
+	}).(WorkspaceCustomBooleanParameterInvokeResponsePtrOutput)
+}
+
+// The type of variable that this is
+func (o WorkspaceCustomBooleanParameterInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceCustomBooleanParameterInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value which should be used for this field.
+func (o WorkspaceCustomBooleanParameterInvokeResponseOutput) Value() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkspaceCustomBooleanParameterInvokeResponse) bool { return v.Value }).(pulumi.BoolOutput)
+}
+
+type WorkspaceCustomBooleanParameterInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCustomBooleanParameterInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCustomBooleanParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkspaceCustomBooleanParameterInvokeResponsePtrOutput) ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutput() WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceCustomBooleanParameterInvokeResponsePtrOutput) ToWorkspaceCustomBooleanParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceCustomBooleanParameterInvokeResponsePtrOutput) Elem() WorkspaceCustomBooleanParameterInvokeResponseOutput {
+	return o.ApplyT(func(v *WorkspaceCustomBooleanParameterInvokeResponse) WorkspaceCustomBooleanParameterInvokeResponse {
+		return *v
+	}).(WorkspaceCustomBooleanParameterInvokeResponseOutput)
+}
+
+// The type of variable that this is
+func (o WorkspaceCustomBooleanParameterInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomBooleanParameterInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value which should be used for this field.
+func (o WorkspaceCustomBooleanParameterInvokeResponsePtrOutput) Value() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomBooleanParameterInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value which should be used for this field.
 type WorkspaceCustomBooleanParameterResponse struct {
 	// The type of variable that this is
 	Type string `pulumi:"type"`
@@ -2411,6 +3134,140 @@ func (o WorkspaceCustomParametersPtrOutput) RequireInfrastructureEncryption() Wo
 }
 
 // Custom Parameters used for Cluster Creation.
+type WorkspaceCustomParametersInvokeResponse struct {
+	// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+	AmlWorkspaceId *WorkspaceCustomStringParameterInvokeResponse `pulumi:"amlWorkspaceId"`
+	// The name of the Private Subnet within the Virtual Network
+	CustomPrivateSubnetName *WorkspaceCustomStringParameterInvokeResponse `pulumi:"customPrivateSubnetName"`
+	// The name of a Public Subnet within the Virtual Network
+	CustomPublicSubnetName *WorkspaceCustomStringParameterInvokeResponse `pulumi:"customPublicSubnetName"`
+	// The ID of a Virtual Network where this Databricks Cluster should be created
+	CustomVirtualNetworkId *WorkspaceCustomStringParameterInvokeResponse `pulumi:"customVirtualNetworkId"`
+	// Should the Public IP be Disabled?
+	EnableNoPublicIp *WorkspaceCustomBooleanParameterInvokeResponse `pulumi:"enableNoPublicIp"`
+	// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+	Encryption *WorkspaceEncryptionParameterInvokeResponse `pulumi:"encryption"`
+	// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+	PrepareEncryption *WorkspaceCustomBooleanParameterInvokeResponse `pulumi:"prepareEncryption"`
+	// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+	RequireInfrastructureEncryption *WorkspaceCustomBooleanParameterInvokeResponse `pulumi:"requireInfrastructureEncryption"`
+}
+
+// WorkspaceCustomParametersInvokeResponseInput is an input type that accepts WorkspaceCustomParametersInvokeResponseArgs and WorkspaceCustomParametersInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkspaceCustomParametersInvokeResponseInput` via:
+//
+//          WorkspaceCustomParametersInvokeResponseArgs{...}
+type WorkspaceCustomParametersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceCustomParametersInvokeResponseOutput() WorkspaceCustomParametersInvokeResponseOutput
+	ToWorkspaceCustomParametersInvokeResponseOutputWithContext(context.Context) WorkspaceCustomParametersInvokeResponseOutput
+}
+
+// Custom Parameters used for Cluster Creation.
+type WorkspaceCustomParametersInvokeResponseArgs struct {
+	// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+	AmlWorkspaceId WorkspaceCustomStringParameterInvokeResponsePtrInput `pulumi:"amlWorkspaceId"`
+	// The name of the Private Subnet within the Virtual Network
+	CustomPrivateSubnetName WorkspaceCustomStringParameterInvokeResponsePtrInput `pulumi:"customPrivateSubnetName"`
+	// The name of a Public Subnet within the Virtual Network
+	CustomPublicSubnetName WorkspaceCustomStringParameterInvokeResponsePtrInput `pulumi:"customPublicSubnetName"`
+	// The ID of a Virtual Network where this Databricks Cluster should be created
+	CustomVirtualNetworkId WorkspaceCustomStringParameterInvokeResponsePtrInput `pulumi:"customVirtualNetworkId"`
+	// Should the Public IP be Disabled?
+	EnableNoPublicIp WorkspaceCustomBooleanParameterInvokeResponsePtrInput `pulumi:"enableNoPublicIp"`
+	// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+	Encryption WorkspaceEncryptionParameterInvokeResponsePtrInput `pulumi:"encryption"`
+	// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+	PrepareEncryption WorkspaceCustomBooleanParameterInvokeResponsePtrInput `pulumi:"prepareEncryption"`
+	// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+	RequireInfrastructureEncryption WorkspaceCustomBooleanParameterInvokeResponsePtrInput `pulumi:"requireInfrastructureEncryption"`
+}
+
+func (WorkspaceCustomParametersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCustomParametersInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkspaceCustomParametersInvokeResponseArgs) ToWorkspaceCustomParametersInvokeResponseOutput() WorkspaceCustomParametersInvokeResponseOutput {
+	return i.ToWorkspaceCustomParametersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCustomParametersInvokeResponseArgs) ToWorkspaceCustomParametersInvokeResponseOutputWithContext(ctx context.Context) WorkspaceCustomParametersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomParametersInvokeResponseOutput)
+}
+
+// Custom Parameters used for Cluster Creation.
+type WorkspaceCustomParametersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCustomParametersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCustomParametersInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkspaceCustomParametersInvokeResponseOutput) ToWorkspaceCustomParametersInvokeResponseOutput() WorkspaceCustomParametersInvokeResponseOutput {
+	return o
+}
+
+func (o WorkspaceCustomParametersInvokeResponseOutput) ToWorkspaceCustomParametersInvokeResponseOutputWithContext(ctx context.Context) WorkspaceCustomParametersInvokeResponseOutput {
+	return o
+}
+
+// The ID of a Azure Machine Learning workspace to link with Databricks workspace
+func (o WorkspaceCustomParametersInvokeResponseOutput) AmlWorkspaceId() WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersInvokeResponse) *WorkspaceCustomStringParameterInvokeResponse {
+		return v.AmlWorkspaceId
+	}).(WorkspaceCustomStringParameterInvokeResponsePtrOutput)
+}
+
+// The name of the Private Subnet within the Virtual Network
+func (o WorkspaceCustomParametersInvokeResponseOutput) CustomPrivateSubnetName() WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersInvokeResponse) *WorkspaceCustomStringParameterInvokeResponse {
+		return v.CustomPrivateSubnetName
+	}).(WorkspaceCustomStringParameterInvokeResponsePtrOutput)
+}
+
+// The name of a Public Subnet within the Virtual Network
+func (o WorkspaceCustomParametersInvokeResponseOutput) CustomPublicSubnetName() WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersInvokeResponse) *WorkspaceCustomStringParameterInvokeResponse {
+		return v.CustomPublicSubnetName
+	}).(WorkspaceCustomStringParameterInvokeResponsePtrOutput)
+}
+
+// The ID of a Virtual Network where this Databricks Cluster should be created
+func (o WorkspaceCustomParametersInvokeResponseOutput) CustomVirtualNetworkId() WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersInvokeResponse) *WorkspaceCustomStringParameterInvokeResponse {
+		return v.CustomVirtualNetworkId
+	}).(WorkspaceCustomStringParameterInvokeResponsePtrOutput)
+}
+
+// Should the Public IP be Disabled?
+func (o WorkspaceCustomParametersInvokeResponseOutput) EnableNoPublicIp() WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersInvokeResponse) *WorkspaceCustomBooleanParameterInvokeResponse {
+		return v.EnableNoPublicIp
+	}).(WorkspaceCustomBooleanParameterInvokeResponsePtrOutput)
+}
+
+// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+func (o WorkspaceCustomParametersInvokeResponseOutput) Encryption() WorkspaceEncryptionParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersInvokeResponse) *WorkspaceEncryptionParameterInvokeResponse {
+		return v.Encryption
+	}).(WorkspaceEncryptionParameterInvokeResponsePtrOutput)
+}
+
+// Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+func (o WorkspaceCustomParametersInvokeResponseOutput) PrepareEncryption() WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersInvokeResponse) *WorkspaceCustomBooleanParameterInvokeResponse {
+		return v.PrepareEncryption
+	}).(WorkspaceCustomBooleanParameterInvokeResponsePtrOutput)
+}
+
+// A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
+func (o WorkspaceCustomParametersInvokeResponseOutput) RequireInfrastructureEncryption() WorkspaceCustomBooleanParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomParametersInvokeResponse) *WorkspaceCustomBooleanParameterInvokeResponse {
+		return v.RequireInfrastructureEncryption
+	}).(WorkspaceCustomBooleanParameterInvokeResponsePtrOutput)
+}
+
+// Custom Parameters used for Cluster Creation.
 type WorkspaceCustomParametersResponse struct {
 	// The ID of a Azure Machine Learning workspace to link with Databricks workspace
 	AmlWorkspaceId *WorkspaceCustomStringParameterResponse `pulumi:"amlWorkspaceId"`
@@ -2826,6 +3683,161 @@ func (o WorkspaceCustomStringParameterPtrOutput) Value() pulumi.StringPtrOutput 
 }
 
 // The Value.
+type WorkspaceCustomStringParameterInvokeResponse struct {
+	// The type of variable that this is
+	Type string `pulumi:"type"`
+	// The value which should be used for this field.
+	Value string `pulumi:"value"`
+}
+
+// WorkspaceCustomStringParameterInvokeResponseInput is an input type that accepts WorkspaceCustomStringParameterInvokeResponseArgs and WorkspaceCustomStringParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkspaceCustomStringParameterInvokeResponseInput` via:
+//
+//          WorkspaceCustomStringParameterInvokeResponseArgs{...}
+type WorkspaceCustomStringParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceCustomStringParameterInvokeResponseOutput() WorkspaceCustomStringParameterInvokeResponseOutput
+	ToWorkspaceCustomStringParameterInvokeResponseOutputWithContext(context.Context) WorkspaceCustomStringParameterInvokeResponseOutput
+}
+
+// The Value.
+type WorkspaceCustomStringParameterInvokeResponseArgs struct {
+	// The type of variable that this is
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value which should be used for this field.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WorkspaceCustomStringParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCustomStringParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkspaceCustomStringParameterInvokeResponseArgs) ToWorkspaceCustomStringParameterInvokeResponseOutput() WorkspaceCustomStringParameterInvokeResponseOutput {
+	return i.ToWorkspaceCustomStringParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCustomStringParameterInvokeResponseArgs) ToWorkspaceCustomStringParameterInvokeResponseOutputWithContext(ctx context.Context) WorkspaceCustomStringParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomStringParameterInvokeResponseOutput)
+}
+
+func (i WorkspaceCustomStringParameterInvokeResponseArgs) ToWorkspaceCustomStringParameterInvokeResponsePtrOutput() WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return i.ToWorkspaceCustomStringParameterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceCustomStringParameterInvokeResponseArgs) ToWorkspaceCustomStringParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomStringParameterInvokeResponseOutput).ToWorkspaceCustomStringParameterInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceCustomStringParameterInvokeResponsePtrInput is an input type that accepts WorkspaceCustomStringParameterInvokeResponseArgs, WorkspaceCustomStringParameterInvokeResponsePtr and WorkspaceCustomStringParameterInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceCustomStringParameterInvokeResponsePtrInput` via:
+//
+//          WorkspaceCustomStringParameterInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceCustomStringParameterInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceCustomStringParameterInvokeResponsePtrOutput() WorkspaceCustomStringParameterInvokeResponsePtrOutput
+	ToWorkspaceCustomStringParameterInvokeResponsePtrOutputWithContext(context.Context) WorkspaceCustomStringParameterInvokeResponsePtrOutput
+}
+
+type workspaceCustomStringParameterInvokeResponsePtrType WorkspaceCustomStringParameterInvokeResponseArgs
+
+func WorkspaceCustomStringParameterInvokeResponsePtr(v *WorkspaceCustomStringParameterInvokeResponseArgs) WorkspaceCustomStringParameterInvokeResponsePtrInput {
+	return (*workspaceCustomStringParameterInvokeResponsePtrType)(v)
+}
+
+func (*workspaceCustomStringParameterInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCustomStringParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i *workspaceCustomStringParameterInvokeResponsePtrType) ToWorkspaceCustomStringParameterInvokeResponsePtrOutput() WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return i.ToWorkspaceCustomStringParameterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceCustomStringParameterInvokeResponsePtrType) ToWorkspaceCustomStringParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomStringParameterInvokeResponsePtrOutput)
+}
+
+// The Value.
+type WorkspaceCustomStringParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCustomStringParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceCustomStringParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkspaceCustomStringParameterInvokeResponseOutput) ToWorkspaceCustomStringParameterInvokeResponseOutput() WorkspaceCustomStringParameterInvokeResponseOutput {
+	return o
+}
+
+func (o WorkspaceCustomStringParameterInvokeResponseOutput) ToWorkspaceCustomStringParameterInvokeResponseOutputWithContext(ctx context.Context) WorkspaceCustomStringParameterInvokeResponseOutput {
+	return o
+}
+
+func (o WorkspaceCustomStringParameterInvokeResponseOutput) ToWorkspaceCustomStringParameterInvokeResponsePtrOutput() WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return o.ToWorkspaceCustomStringParameterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceCustomStringParameterInvokeResponseOutput) ToWorkspaceCustomStringParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceCustomStringParameterInvokeResponse) *WorkspaceCustomStringParameterInvokeResponse {
+		return &v
+	}).(WorkspaceCustomStringParameterInvokeResponsePtrOutput)
+}
+
+// The type of variable that this is
+func (o WorkspaceCustomStringParameterInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceCustomStringParameterInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value which should be used for this field.
+func (o WorkspaceCustomStringParameterInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceCustomStringParameterInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WorkspaceCustomStringParameterInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceCustomStringParameterInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceCustomStringParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkspaceCustomStringParameterInvokeResponsePtrOutput) ToWorkspaceCustomStringParameterInvokeResponsePtrOutput() WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceCustomStringParameterInvokeResponsePtrOutput) ToWorkspaceCustomStringParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceCustomStringParameterInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceCustomStringParameterInvokeResponsePtrOutput) Elem() WorkspaceCustomStringParameterInvokeResponseOutput {
+	return o.ApplyT(func(v *WorkspaceCustomStringParameterInvokeResponse) WorkspaceCustomStringParameterInvokeResponse {
+		return *v
+	}).(WorkspaceCustomStringParameterInvokeResponseOutput)
+}
+
+// The type of variable that this is
+func (o WorkspaceCustomStringParameterInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomStringParameterInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value which should be used for this field.
+func (o WorkspaceCustomStringParameterInvokeResponsePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCustomStringParameterInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Value.
 type WorkspaceCustomStringParameterResponse struct {
 	// The type of variable that this is
 	Type string `pulumi:"type"`
@@ -3113,6 +4125,161 @@ func (o WorkspaceEncryptionParameterPtrOutput) Value() EncryptionPtrOutput {
 }
 
 // The object that contains details of encryption used on the workspace.
+type WorkspaceEncryptionParameterInvokeResponse struct {
+	// The type of variable that this is
+	Type string `pulumi:"type"`
+	// The value which should be used for this field.
+	Value *EncryptionInvokeResponse `pulumi:"value"`
+}
+
+// WorkspaceEncryptionParameterInvokeResponseInput is an input type that accepts WorkspaceEncryptionParameterInvokeResponseArgs and WorkspaceEncryptionParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkspaceEncryptionParameterInvokeResponseInput` via:
+//
+//          WorkspaceEncryptionParameterInvokeResponseArgs{...}
+type WorkspaceEncryptionParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceEncryptionParameterInvokeResponseOutput() WorkspaceEncryptionParameterInvokeResponseOutput
+	ToWorkspaceEncryptionParameterInvokeResponseOutputWithContext(context.Context) WorkspaceEncryptionParameterInvokeResponseOutput
+}
+
+// The object that contains details of encryption used on the workspace.
+type WorkspaceEncryptionParameterInvokeResponseArgs struct {
+	// The type of variable that this is
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value which should be used for this field.
+	Value EncryptionInvokeResponsePtrInput `pulumi:"value"`
+}
+
+func (WorkspaceEncryptionParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceEncryptionParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkspaceEncryptionParameterInvokeResponseArgs) ToWorkspaceEncryptionParameterInvokeResponseOutput() WorkspaceEncryptionParameterInvokeResponseOutput {
+	return i.ToWorkspaceEncryptionParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceEncryptionParameterInvokeResponseArgs) ToWorkspaceEncryptionParameterInvokeResponseOutputWithContext(ctx context.Context) WorkspaceEncryptionParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEncryptionParameterInvokeResponseOutput)
+}
+
+func (i WorkspaceEncryptionParameterInvokeResponseArgs) ToWorkspaceEncryptionParameterInvokeResponsePtrOutput() WorkspaceEncryptionParameterInvokeResponsePtrOutput {
+	return i.ToWorkspaceEncryptionParameterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceEncryptionParameterInvokeResponseArgs) ToWorkspaceEncryptionParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceEncryptionParameterInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEncryptionParameterInvokeResponseOutput).ToWorkspaceEncryptionParameterInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WorkspaceEncryptionParameterInvokeResponsePtrInput is an input type that accepts WorkspaceEncryptionParameterInvokeResponseArgs, WorkspaceEncryptionParameterInvokeResponsePtr and WorkspaceEncryptionParameterInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WorkspaceEncryptionParameterInvokeResponsePtrInput` via:
+//
+//          WorkspaceEncryptionParameterInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceEncryptionParameterInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceEncryptionParameterInvokeResponsePtrOutput() WorkspaceEncryptionParameterInvokeResponsePtrOutput
+	ToWorkspaceEncryptionParameterInvokeResponsePtrOutputWithContext(context.Context) WorkspaceEncryptionParameterInvokeResponsePtrOutput
+}
+
+type workspaceEncryptionParameterInvokeResponsePtrType WorkspaceEncryptionParameterInvokeResponseArgs
+
+func WorkspaceEncryptionParameterInvokeResponsePtr(v *WorkspaceEncryptionParameterInvokeResponseArgs) WorkspaceEncryptionParameterInvokeResponsePtrInput {
+	return (*workspaceEncryptionParameterInvokeResponsePtrType)(v)
+}
+
+func (*workspaceEncryptionParameterInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceEncryptionParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i *workspaceEncryptionParameterInvokeResponsePtrType) ToWorkspaceEncryptionParameterInvokeResponsePtrOutput() WorkspaceEncryptionParameterInvokeResponsePtrOutput {
+	return i.ToWorkspaceEncryptionParameterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceEncryptionParameterInvokeResponsePtrType) ToWorkspaceEncryptionParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceEncryptionParameterInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceEncryptionParameterInvokeResponsePtrOutput)
+}
+
+// The object that contains details of encryption used on the workspace.
+type WorkspaceEncryptionParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceEncryptionParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceEncryptionParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkspaceEncryptionParameterInvokeResponseOutput) ToWorkspaceEncryptionParameterInvokeResponseOutput() WorkspaceEncryptionParameterInvokeResponseOutput {
+	return o
+}
+
+func (o WorkspaceEncryptionParameterInvokeResponseOutput) ToWorkspaceEncryptionParameterInvokeResponseOutputWithContext(ctx context.Context) WorkspaceEncryptionParameterInvokeResponseOutput {
+	return o
+}
+
+func (o WorkspaceEncryptionParameterInvokeResponseOutput) ToWorkspaceEncryptionParameterInvokeResponsePtrOutput() WorkspaceEncryptionParameterInvokeResponsePtrOutput {
+	return o.ToWorkspaceEncryptionParameterInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceEncryptionParameterInvokeResponseOutput) ToWorkspaceEncryptionParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceEncryptionParameterInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceEncryptionParameterInvokeResponse) *WorkspaceEncryptionParameterInvokeResponse {
+		return &v
+	}).(WorkspaceEncryptionParameterInvokeResponsePtrOutput)
+}
+
+// The type of variable that this is
+func (o WorkspaceEncryptionParameterInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceEncryptionParameterInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value which should be used for this field.
+func (o WorkspaceEncryptionParameterInvokeResponseOutput) Value() EncryptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceEncryptionParameterInvokeResponse) *EncryptionInvokeResponse { return v.Value }).(EncryptionInvokeResponsePtrOutput)
+}
+
+type WorkspaceEncryptionParameterInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceEncryptionParameterInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceEncryptionParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkspaceEncryptionParameterInvokeResponsePtrOutput) ToWorkspaceEncryptionParameterInvokeResponsePtrOutput() WorkspaceEncryptionParameterInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceEncryptionParameterInvokeResponsePtrOutput) ToWorkspaceEncryptionParameterInvokeResponsePtrOutputWithContext(ctx context.Context) WorkspaceEncryptionParameterInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WorkspaceEncryptionParameterInvokeResponsePtrOutput) Elem() WorkspaceEncryptionParameterInvokeResponseOutput {
+	return o.ApplyT(func(v *WorkspaceEncryptionParameterInvokeResponse) WorkspaceEncryptionParameterInvokeResponse {
+		return *v
+	}).(WorkspaceEncryptionParameterInvokeResponseOutput)
+}
+
+// The type of variable that this is
+func (o WorkspaceEncryptionParameterInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceEncryptionParameterInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value which should be used for this field.
+func (o WorkspaceEncryptionParameterInvokeResponsePtrOutput) Value() EncryptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceEncryptionParameterInvokeResponse) *EncryptionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(EncryptionInvokeResponsePtrOutput)
+}
+
+// The object that contains details of encryption used on the workspace.
 type WorkspaceEncryptionParameterResponse struct {
 	// The type of variable that this is
 	Type string `pulumi:"type"`
@@ -3375,6 +4542,115 @@ func (o WorkspaceProviderAuthorizationArrayOutput) Index(i pulumi.IntInput) Work
 }
 
 // The workspace provider authorization.
+type WorkspaceProviderAuthorizationInvokeResponse struct {
+	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
+	PrincipalId string `pulumi:"principalId"`
+	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the workspace's container resource group. This role definition cannot have permission to delete the resource group.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// WorkspaceProviderAuthorizationInvokeResponseInput is an input type that accepts WorkspaceProviderAuthorizationInvokeResponseArgs and WorkspaceProviderAuthorizationInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkspaceProviderAuthorizationInvokeResponseInput` via:
+//
+//          WorkspaceProviderAuthorizationInvokeResponseArgs{...}
+type WorkspaceProviderAuthorizationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkspaceProviderAuthorizationInvokeResponseOutput() WorkspaceProviderAuthorizationInvokeResponseOutput
+	ToWorkspaceProviderAuthorizationInvokeResponseOutputWithContext(context.Context) WorkspaceProviderAuthorizationInvokeResponseOutput
+}
+
+// The workspace provider authorization.
+type WorkspaceProviderAuthorizationInvokeResponseArgs struct {
+	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the workspace's container resource group. This role definition cannot have permission to delete the resource group.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (WorkspaceProviderAuthorizationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceProviderAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkspaceProviderAuthorizationInvokeResponseArgs) ToWorkspaceProviderAuthorizationInvokeResponseOutput() WorkspaceProviderAuthorizationInvokeResponseOutput {
+	return i.ToWorkspaceProviderAuthorizationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkspaceProviderAuthorizationInvokeResponseArgs) ToWorkspaceProviderAuthorizationInvokeResponseOutputWithContext(ctx context.Context) WorkspaceProviderAuthorizationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceProviderAuthorizationInvokeResponseOutput)
+}
+
+// WorkspaceProviderAuthorizationInvokeResponseArrayInput is an input type that accepts WorkspaceProviderAuthorizationInvokeResponseArray and WorkspaceProviderAuthorizationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `WorkspaceProviderAuthorizationInvokeResponseArrayInput` via:
+//
+//          WorkspaceProviderAuthorizationInvokeResponseArray{ WorkspaceProviderAuthorizationInvokeResponseArgs{...} }
+type WorkspaceProviderAuthorizationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceProviderAuthorizationInvokeResponseArrayOutput() WorkspaceProviderAuthorizationInvokeResponseArrayOutput
+	ToWorkspaceProviderAuthorizationInvokeResponseArrayOutputWithContext(context.Context) WorkspaceProviderAuthorizationInvokeResponseArrayOutput
+}
+
+type WorkspaceProviderAuthorizationInvokeResponseArray []WorkspaceProviderAuthorizationInvokeResponseInput
+
+func (WorkspaceProviderAuthorizationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceProviderAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkspaceProviderAuthorizationInvokeResponseArray) ToWorkspaceProviderAuthorizationInvokeResponseArrayOutput() WorkspaceProviderAuthorizationInvokeResponseArrayOutput {
+	return i.ToWorkspaceProviderAuthorizationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceProviderAuthorizationInvokeResponseArray) ToWorkspaceProviderAuthorizationInvokeResponseArrayOutputWithContext(ctx context.Context) WorkspaceProviderAuthorizationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceProviderAuthorizationInvokeResponseArrayOutput)
+}
+
+// The workspace provider authorization.
+type WorkspaceProviderAuthorizationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceProviderAuthorizationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceProviderAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkspaceProviderAuthorizationInvokeResponseOutput) ToWorkspaceProviderAuthorizationInvokeResponseOutput() WorkspaceProviderAuthorizationInvokeResponseOutput {
+	return o
+}
+
+func (o WorkspaceProviderAuthorizationInvokeResponseOutput) ToWorkspaceProviderAuthorizationInvokeResponseOutputWithContext(ctx context.Context) WorkspaceProviderAuthorizationInvokeResponseOutput {
+	return o
+}
+
+// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
+func (o WorkspaceProviderAuthorizationInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceProviderAuthorizationInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The provider's role definition identifier. This role will define all the permissions that the provider must have on the workspace's container resource group. This role definition cannot have permission to delete the resource group.
+func (o WorkspaceProviderAuthorizationInvokeResponseOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceProviderAuthorizationInvokeResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type WorkspaceProviderAuthorizationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceProviderAuthorizationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceProviderAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkspaceProviderAuthorizationInvokeResponseArrayOutput) ToWorkspaceProviderAuthorizationInvokeResponseArrayOutput() WorkspaceProviderAuthorizationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkspaceProviderAuthorizationInvokeResponseArrayOutput) ToWorkspaceProviderAuthorizationInvokeResponseArrayOutputWithContext(ctx context.Context) WorkspaceProviderAuthorizationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkspaceProviderAuthorizationInvokeResponseArrayOutput) Index(i pulumi.IntInput) WorkspaceProviderAuthorizationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceProviderAuthorizationInvokeResponse {
+		return vs[0].([]WorkspaceProviderAuthorizationInvokeResponse)[vs[1].(int)]
+	}).(WorkspaceProviderAuthorizationInvokeResponseOutput)
+}
+
+// The workspace provider authorization.
 type WorkspaceProviderAuthorizationResponse struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
 	PrincipalId string `pulumi:"principalId"`
@@ -3486,22 +4762,30 @@ func (o WorkspaceProviderAuthorizationResponseArrayOutput) Index(i pulumi.IntInp
 func init() {
 	pulumi.RegisterOutputType(AddressSpaceOutput{})
 	pulumi.RegisterOutputType(AddressSpacePtrOutput{})
+	pulumi.RegisterOutputType(AddressSpaceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AddressSpaceResponseOutput{})
 	pulumi.RegisterOutputType(AddressSpaceResponsePtrOutput{})
+	pulumi.RegisterOutputType(CreatedByInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CreatedByResponseOutput{})
 	pulumi.RegisterOutputType(CreatedByResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetworkOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetworkOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput{})
@@ -3510,22 +4794,31 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceCustomParametersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomStringParameterOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomStringParameterPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceCustomStringParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceCustomStringParameterInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomStringParameterResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomStringParameterResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionParameterOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionParameterPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceEncryptionParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceEncryptionParameterInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionParameterResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionParameterResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationResponseArrayOutput{})
 }

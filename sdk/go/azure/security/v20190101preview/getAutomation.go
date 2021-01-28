@@ -42,9 +42,9 @@ type LookupAutomationResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
-	Scopes []AutomationScopeResponse `pulumi:"scopes"`
+	Scopes []AutomationScopeInvokeResponse `pulumi:"scopes"`
 	// A collection of the source event types which evaluate the security automation set of rules.
-	Sources []AutomationSourceResponse `pulumi:"sources"`
+	Sources []AutomationSourceInvokeResponse `pulumi:"sources"`
 	// A list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

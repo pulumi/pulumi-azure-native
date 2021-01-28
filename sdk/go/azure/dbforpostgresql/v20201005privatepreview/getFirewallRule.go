@@ -36,7 +36,7 @@ type LookupFirewallRuleResult struct {
 	// The start IP address of the server group firewall rule. Must be IPv4 format.
 	StartIpAddress string `pulumi:"startIpAddress"`
 	// The system metadata relating to this resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

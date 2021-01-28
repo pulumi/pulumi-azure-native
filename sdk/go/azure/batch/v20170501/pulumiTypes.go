@@ -11,6 +11,160 @@ import (
 )
 
 // An application package which represents a particular version of an application.
+type ApplicationPackageInvokeResponse struct {
+	// The format of the application package, if the package is active.
+	Format string `pulumi:"format"`
+	// The ID of the application.
+	Id string `pulumi:"id"`
+	// The time at which the package was last activated, if the package is active.
+	LastActivationTime string `pulumi:"lastActivationTime"`
+	// The current state of the application package.
+	State string `pulumi:"state"`
+	// The URL for the application package in Azure Storage.
+	StorageUrl string `pulumi:"storageUrl"`
+	// The UTC time at which the Azure Storage URL will expire.
+	StorageUrlExpiry string `pulumi:"storageUrlExpiry"`
+	// The version of the application package.
+	Version string `pulumi:"version"`
+}
+
+// ApplicationPackageInvokeResponseInput is an input type that accepts ApplicationPackageInvokeResponseArgs and ApplicationPackageInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationPackageInvokeResponseInput` via:
+//
+//          ApplicationPackageInvokeResponseArgs{...}
+type ApplicationPackageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationPackageInvokeResponseOutput() ApplicationPackageInvokeResponseOutput
+	ToApplicationPackageInvokeResponseOutputWithContext(context.Context) ApplicationPackageInvokeResponseOutput
+}
+
+// An application package which represents a particular version of an application.
+type ApplicationPackageInvokeResponseArgs struct {
+	// The format of the application package, if the package is active.
+	Format pulumi.StringInput `pulumi:"format"`
+	// The ID of the application.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The time at which the package was last activated, if the package is active.
+	LastActivationTime pulumi.StringInput `pulumi:"lastActivationTime"`
+	// The current state of the application package.
+	State pulumi.StringInput `pulumi:"state"`
+	// The URL for the application package in Azure Storage.
+	StorageUrl pulumi.StringInput `pulumi:"storageUrl"`
+	// The UTC time at which the Azure Storage URL will expire.
+	StorageUrlExpiry pulumi.StringInput `pulumi:"storageUrlExpiry"`
+	// The version of the application package.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (ApplicationPackageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationPackageInvokeResponseArgs) ToApplicationPackageInvokeResponseOutput() ApplicationPackageInvokeResponseOutput {
+	return i.ToApplicationPackageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationPackageInvokeResponseArgs) ToApplicationPackageInvokeResponseOutputWithContext(ctx context.Context) ApplicationPackageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageInvokeResponseOutput)
+}
+
+// ApplicationPackageInvokeResponseArrayInput is an input type that accepts ApplicationPackageInvokeResponseArray and ApplicationPackageInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ApplicationPackageInvokeResponseArrayInput` via:
+//
+//          ApplicationPackageInvokeResponseArray{ ApplicationPackageInvokeResponseArgs{...} }
+type ApplicationPackageInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplicationPackageInvokeResponseArrayOutput() ApplicationPackageInvokeResponseArrayOutput
+	ToApplicationPackageInvokeResponseArrayOutputWithContext(context.Context) ApplicationPackageInvokeResponseArrayOutput
+}
+
+type ApplicationPackageInvokeResponseArray []ApplicationPackageInvokeResponseInput
+
+func (ApplicationPackageInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationPackageInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationPackageInvokeResponseArray) ToApplicationPackageInvokeResponseArrayOutput() ApplicationPackageInvokeResponseArrayOutput {
+	return i.ToApplicationPackageInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationPackageInvokeResponseArray) ToApplicationPackageInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationPackageInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageInvokeResponseArrayOutput)
+}
+
+// An application package which represents a particular version of an application.
+type ApplicationPackageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPackageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationPackageInvokeResponseOutput) ToApplicationPackageInvokeResponseOutput() ApplicationPackageInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationPackageInvokeResponseOutput) ToApplicationPackageInvokeResponseOutputWithContext(ctx context.Context) ApplicationPackageInvokeResponseOutput {
+	return o
+}
+
+// The format of the application package, if the package is active.
+func (o ApplicationPackageInvokeResponseOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageInvokeResponse) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// The ID of the application.
+func (o ApplicationPackageInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The time at which the package was last activated, if the package is active.
+func (o ApplicationPackageInvokeResponseOutput) LastActivationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageInvokeResponse) string { return v.LastActivationTime }).(pulumi.StringOutput)
+}
+
+// The current state of the application package.
+func (o ApplicationPackageInvokeResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageInvokeResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The URL for the application package in Azure Storage.
+func (o ApplicationPackageInvokeResponseOutput) StorageUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageInvokeResponse) string { return v.StorageUrl }).(pulumi.StringOutput)
+}
+
+// The UTC time at which the Azure Storage URL will expire.
+func (o ApplicationPackageInvokeResponseOutput) StorageUrlExpiry() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageInvokeResponse) string { return v.StorageUrlExpiry }).(pulumi.StringOutput)
+}
+
+// The version of the application package.
+func (o ApplicationPackageInvokeResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageInvokeResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type ApplicationPackageInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPackageInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationPackageInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationPackageInvokeResponseArrayOutput) ToApplicationPackageInvokeResponseArrayOutput() ApplicationPackageInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationPackageInvokeResponseArrayOutput) ToApplicationPackageInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationPackageInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationPackageInvokeResponseArrayOutput) Index(i pulumi.IntInput) ApplicationPackageInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationPackageInvokeResponse {
+		return vs[0].([]ApplicationPackageInvokeResponse)[vs[1].(int)]
+	}).(ApplicationPackageInvokeResponseOutput)
+}
+
+// An application package which represents a particular version of an application.
 type ApplicationPackageResponse struct {
 	// The format of the application package, if the package is active.
 	Format string `pulumi:"format"`
@@ -296,6 +450,70 @@ func (o AutoStorageBasePropertiesPtrOutput) StorageAccountId() pulumi.StringPtrO
 		}
 		return &v.StorageAccountId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Contains information about the auto-storage account associated with a Batch account.
+type AutoStoragePropertiesInvokeResponse struct {
+	// The UTC time at which storage keys were last synchronized with the Batch account.
+	LastKeySync string `pulumi:"lastKeySync"`
+	// The resource ID of the storage account to be used for auto-storage account.
+	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// AutoStoragePropertiesInvokeResponseInput is an input type that accepts AutoStoragePropertiesInvokeResponseArgs and AutoStoragePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AutoStoragePropertiesInvokeResponseInput` via:
+//
+//          AutoStoragePropertiesInvokeResponseArgs{...}
+type AutoStoragePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutoStoragePropertiesInvokeResponseOutput() AutoStoragePropertiesInvokeResponseOutput
+	ToAutoStoragePropertiesInvokeResponseOutputWithContext(context.Context) AutoStoragePropertiesInvokeResponseOutput
+}
+
+// Contains information about the auto-storage account associated with a Batch account.
+type AutoStoragePropertiesInvokeResponseArgs struct {
+	// The UTC time at which storage keys were last synchronized with the Batch account.
+	LastKeySync pulumi.StringInput `pulumi:"lastKeySync"`
+	// The resource ID of the storage account to be used for auto-storage account.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+}
+
+func (AutoStoragePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoStoragePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AutoStoragePropertiesInvokeResponseArgs) ToAutoStoragePropertiesInvokeResponseOutput() AutoStoragePropertiesInvokeResponseOutput {
+	return i.ToAutoStoragePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutoStoragePropertiesInvokeResponseArgs) ToAutoStoragePropertiesInvokeResponseOutputWithContext(ctx context.Context) AutoStoragePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoStoragePropertiesInvokeResponseOutput)
+}
+
+// Contains information about the auto-storage account associated with a Batch account.
+type AutoStoragePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutoStoragePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoStoragePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AutoStoragePropertiesInvokeResponseOutput) ToAutoStoragePropertiesInvokeResponseOutput() AutoStoragePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AutoStoragePropertiesInvokeResponseOutput) ToAutoStoragePropertiesInvokeResponseOutputWithContext(ctx context.Context) AutoStoragePropertiesInvokeResponseOutput {
+	return o
+}
+
+// The UTC time at which storage keys were last synchronized with the Batch account.
+func (o AutoStoragePropertiesInvokeResponseOutput) LastKeySync() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoStoragePropertiesInvokeResponse) string { return v.LastKeySync }).(pulumi.StringOutput)
+}
+
+// The resource ID of the storage account to be used for auto-storage account.
+func (o AutoStoragePropertiesInvokeResponseOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoStoragePropertiesInvokeResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
 // Contains information about the auto-storage account associated with a Batch account.
@@ -605,6 +823,70 @@ func (o KeyVaultReferencePtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 // Identifies the Azure key vault associated with a Batch account.
+type KeyVaultReferenceInvokeResponse struct {
+	// The resource ID of the Azure key vault associated with the Batch account.
+	Id string `pulumi:"id"`
+	// The URL of the Azure key vault associated with the Batch account.
+	Url string `pulumi:"url"`
+}
+
+// KeyVaultReferenceInvokeResponseInput is an input type that accepts KeyVaultReferenceInvokeResponseArgs and KeyVaultReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultReferenceInvokeResponseInput` via:
+//
+//          KeyVaultReferenceInvokeResponseArgs{...}
+type KeyVaultReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultReferenceInvokeResponseOutput() KeyVaultReferenceInvokeResponseOutput
+	ToKeyVaultReferenceInvokeResponseOutputWithContext(context.Context) KeyVaultReferenceInvokeResponseOutput
+}
+
+// Identifies the Azure key vault associated with a Batch account.
+type KeyVaultReferenceInvokeResponseArgs struct {
+	// The resource ID of the Azure key vault associated with the Batch account.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The URL of the Azure key vault associated with the Batch account.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (KeyVaultReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultReferenceInvokeResponseArgs) ToKeyVaultReferenceInvokeResponseOutput() KeyVaultReferenceInvokeResponseOutput {
+	return i.ToKeyVaultReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultReferenceInvokeResponseArgs) ToKeyVaultReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultReferenceInvokeResponseOutput)
+}
+
+// Identifies the Azure key vault associated with a Batch account.
+type KeyVaultReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultReferenceInvokeResponseOutput) ToKeyVaultReferenceInvokeResponseOutput() KeyVaultReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultReferenceInvokeResponseOutput) ToKeyVaultReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultReferenceInvokeResponseOutput {
+	return o
+}
+
+// The resource ID of the Azure key vault associated with the Batch account.
+func (o KeyVaultReferenceInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultReferenceInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The URL of the Azure key vault associated with the Batch account.
+func (o KeyVaultReferenceInvokeResponseOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultReferenceInvokeResponse) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// Identifies the Azure key vault associated with a Batch account.
 type KeyVaultReferenceResponse struct {
 	// The resource ID of the Azure key vault associated with the Batch account.
 	Id string `pulumi:"id"`
@@ -758,14 +1040,18 @@ func (o KeyVaultReferenceResponsePtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApplicationPackageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationPackageInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageResponseArrayOutput{})
 	pulumi.RegisterOutputType(AutoStorageBasePropertiesOutput{})
 	pulumi.RegisterOutputType(AutoStorageBasePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AutoStoragePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AutoStoragePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AutoStoragePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultReferencePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultReferenceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultReferenceResponsePtrOutput{})
 }

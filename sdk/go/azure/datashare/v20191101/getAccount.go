@@ -30,7 +30,7 @@ type LookupAccountResult struct {
 	// The resource id of the azure resource
 	Id string `pulumi:"id"`
 	// Identity Info on the Account
-	Identity IdentityResponse `pulumi:"identity"`
+	Identity IdentityInvokeResponse `pulumi:"identity"`
 	// Location of the azure resource.
 	Location *string `pulumi:"location"`
 	// Name of the azure resource

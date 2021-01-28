@@ -42,11 +42,11 @@ type LookupApiOperationResult struct {
 	// Operation Policies
 	Policies *string `pulumi:"policies"`
 	// An entity containing request details.
-	Request *RequestContractResponse `pulumi:"request"`
+	Request *RequestContractInvokeResponse `pulumi:"request"`
 	// Array of Operation responses.
-	Responses []ResponseContractResponse `pulumi:"responses"`
+	Responses []ResponseContractInvokeResponse `pulumi:"responses"`
 	// Collection of URL template parameters.
-	TemplateParameters []ParameterContractResponse `pulumi:"templateParameters"`
+	TemplateParameters []ParameterContractInvokeResponse `pulumi:"templateParameters"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}

@@ -34,13 +34,13 @@ type LookupAssessmentResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Links relevant to the assessment
-	Links AssessmentLinksResponse `pulumi:"links"`
+	Links AssessmentLinksInvokeResponse `pulumi:"links"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Details of the resource that was assessed
 	ResourceDetails interface{} `pulumi:"resourceDetails"`
 	// The result of the assessment
-	Status AssessmentStatusResponse `pulumi:"status"`
+	Status AssessmentStatusInvokeResponse `pulumi:"status"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

@@ -24,5 +24,5 @@ type ListBotConnectionServiceProvidersResult struct {
 	// The link used to get the next page of bot service providers.
 	NextLink *string `pulumi:"nextLink"`
 	// Gets the list of bot service providers and their properties.
-	Value []ServiceProviderResponse `pulumi:"value"`
+	Value []ServiceProviderInvokeResponse `pulumi:"value"`
 }

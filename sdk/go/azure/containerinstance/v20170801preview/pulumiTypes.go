@@ -93,6 +93,88 @@ func (o AzureFileVolumeOutput) StorageAccountName() pulumi.StringOutput {
 }
 
 // The properties of the Azure File volume. Azure File shares are mounted as volumes.
+type AzureFileVolumeInvokeResponse struct {
+	// The flag indicating whether the Azure File shared mounted as a volume is read-only.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// The name of the Azure File share to be mounted as a volume.
+	ShareName string `pulumi:"shareName"`
+	// The storage account access key used to access the Azure File share.
+	StorageAccountKey *string `pulumi:"storageAccountKey"`
+	// The name of the storage account that contains the Azure File share.
+	StorageAccountName string `pulumi:"storageAccountName"`
+}
+
+// AzureFileVolumeInvokeResponseInput is an input type that accepts AzureFileVolumeInvokeResponseArgs and AzureFileVolumeInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureFileVolumeInvokeResponseInput` via:
+//
+//          AzureFileVolumeInvokeResponseArgs{...}
+type AzureFileVolumeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureFileVolumeInvokeResponseOutput() AzureFileVolumeInvokeResponseOutput
+	ToAzureFileVolumeInvokeResponseOutputWithContext(context.Context) AzureFileVolumeInvokeResponseOutput
+}
+
+// The properties of the Azure File volume. Azure File shares are mounted as volumes.
+type AzureFileVolumeInvokeResponseArgs struct {
+	// The flag indicating whether the Azure File shared mounted as a volume is read-only.
+	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	// The name of the Azure File share to be mounted as a volume.
+	ShareName pulumi.StringInput `pulumi:"shareName"`
+	// The storage account access key used to access the Azure File share.
+	StorageAccountKey pulumi.StringPtrInput `pulumi:"storageAccountKey"`
+	// The name of the storage account that contains the Azure File share.
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+}
+
+func (AzureFileVolumeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFileVolumeInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureFileVolumeInvokeResponseArgs) ToAzureFileVolumeInvokeResponseOutput() AzureFileVolumeInvokeResponseOutput {
+	return i.ToAzureFileVolumeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureFileVolumeInvokeResponseArgs) ToAzureFileVolumeInvokeResponseOutputWithContext(ctx context.Context) AzureFileVolumeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFileVolumeInvokeResponseOutput)
+}
+
+// The properties of the Azure File volume. Azure File shares are mounted as volumes.
+type AzureFileVolumeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureFileVolumeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFileVolumeInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureFileVolumeInvokeResponseOutput) ToAzureFileVolumeInvokeResponseOutput() AzureFileVolumeInvokeResponseOutput {
+	return o
+}
+
+func (o AzureFileVolumeInvokeResponseOutput) ToAzureFileVolumeInvokeResponseOutputWithContext(ctx context.Context) AzureFileVolumeInvokeResponseOutput {
+	return o
+}
+
+// The flag indicating whether the Azure File shared mounted as a volume is read-only.
+func (o AzureFileVolumeInvokeResponseOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureFileVolumeInvokeResponse) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the Azure File share to be mounted as a volume.
+func (o AzureFileVolumeInvokeResponseOutput) ShareName() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFileVolumeInvokeResponse) string { return v.ShareName }).(pulumi.StringOutput)
+}
+
+// The storage account access key used to access the Azure File share.
+func (o AzureFileVolumeInvokeResponseOutput) StorageAccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileVolumeInvokeResponse) *string { return v.StorageAccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The name of the storage account that contains the Azure File share.
+func (o AzureFileVolumeInvokeResponseOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFileVolumeInvokeResponse) string { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// The properties of the Azure File volume. Azure File shares are mounted as volumes.
 type AzureFileVolumeResponse struct {
 	// The flag indicating whether the Azure File shared mounted as a volume is read-only.
 	ReadOnly *bool `pulumi:"readOnly"`
@@ -329,6 +411,142 @@ func (o ContainerArrayOutput) Index(i pulumi.IntInput) ContainerOutput {
 }
 
 // A container instance event.
+type ContainerEventInvokeResponse struct {
+	// The count of the event.
+	Count *int `pulumi:"count"`
+	// The date-time of the earliest logged event.
+	FirstTimestamp *string `pulumi:"firstTimestamp"`
+	// The date-time of the latest logged event.
+	LastTimestamp *string `pulumi:"lastTimestamp"`
+	// The event message.
+	Message *string `pulumi:"message"`
+	// The event type.
+	Type *string `pulumi:"type"`
+}
+
+// ContainerEventInvokeResponseInput is an input type that accepts ContainerEventInvokeResponseArgs and ContainerEventInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerEventInvokeResponseInput` via:
+//
+//          ContainerEventInvokeResponseArgs{...}
+type ContainerEventInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerEventInvokeResponseOutput() ContainerEventInvokeResponseOutput
+	ToContainerEventInvokeResponseOutputWithContext(context.Context) ContainerEventInvokeResponseOutput
+}
+
+// A container instance event.
+type ContainerEventInvokeResponseArgs struct {
+	// The count of the event.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The date-time of the earliest logged event.
+	FirstTimestamp pulumi.StringPtrInput `pulumi:"firstTimestamp"`
+	// The date-time of the latest logged event.
+	LastTimestamp pulumi.StringPtrInput `pulumi:"lastTimestamp"`
+	// The event message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The event type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ContainerEventInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerEventInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerEventInvokeResponseArgs) ToContainerEventInvokeResponseOutput() ContainerEventInvokeResponseOutput {
+	return i.ToContainerEventInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerEventInvokeResponseArgs) ToContainerEventInvokeResponseOutputWithContext(ctx context.Context) ContainerEventInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerEventInvokeResponseOutput)
+}
+
+// ContainerEventInvokeResponseArrayInput is an input type that accepts ContainerEventInvokeResponseArray and ContainerEventInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ContainerEventInvokeResponseArrayInput` via:
+//
+//          ContainerEventInvokeResponseArray{ ContainerEventInvokeResponseArgs{...} }
+type ContainerEventInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToContainerEventInvokeResponseArrayOutput() ContainerEventInvokeResponseArrayOutput
+	ToContainerEventInvokeResponseArrayOutputWithContext(context.Context) ContainerEventInvokeResponseArrayOutput
+}
+
+type ContainerEventInvokeResponseArray []ContainerEventInvokeResponseInput
+
+func (ContainerEventInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerEventInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerEventInvokeResponseArray) ToContainerEventInvokeResponseArrayOutput() ContainerEventInvokeResponseArrayOutput {
+	return i.ToContainerEventInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerEventInvokeResponseArray) ToContainerEventInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerEventInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerEventInvokeResponseArrayOutput)
+}
+
+// A container instance event.
+type ContainerEventInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerEventInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerEventInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerEventInvokeResponseOutput) ToContainerEventInvokeResponseOutput() ContainerEventInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerEventInvokeResponseOutput) ToContainerEventInvokeResponseOutputWithContext(ctx context.Context) ContainerEventInvokeResponseOutput {
+	return o
+}
+
+// The count of the event.
+func (o ContainerEventInvokeResponseOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerEventInvokeResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// The date-time of the earliest logged event.
+func (o ContainerEventInvokeResponseOutput) FirstTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerEventInvokeResponse) *string { return v.FirstTimestamp }).(pulumi.StringPtrOutput)
+}
+
+// The date-time of the latest logged event.
+func (o ContainerEventInvokeResponseOutput) LastTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerEventInvokeResponse) *string { return v.LastTimestamp }).(pulumi.StringPtrOutput)
+}
+
+// The event message.
+func (o ContainerEventInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerEventInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The event type.
+func (o ContainerEventInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerEventInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ContainerEventInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerEventInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerEventInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerEventInvokeResponseArrayOutput) ToContainerEventInvokeResponseArrayOutput() ContainerEventInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerEventInvokeResponseArrayOutput) ToContainerEventInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerEventInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerEventInvokeResponseArrayOutput) Index(i pulumi.IntInput) ContainerEventInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerEventInvokeResponse {
+		return vs[0].([]ContainerEventInvokeResponse)[vs[1].(int)]
+	}).(ContainerEventInvokeResponseOutput)
+}
+
+// A container instance event.
 type ContainerEventResponse struct {
 	// The count of the event.
 	Count *int `pulumi:"count"`
@@ -464,6 +682,169 @@ func (o ContainerEventResponseArrayOutput) Index(i pulumi.IntInput) ContainerEve
 	}).(ContainerEventResponseOutput)
 }
 
+// A container instance.
+type ContainerInvokeResponse struct {
+	// The commands to execute within the container instance in exec form.
+	Command []string `pulumi:"command"`
+	// The environment variables to set in the container instance.
+	EnvironmentVariables []EnvironmentVariableInvokeResponse `pulumi:"environmentVariables"`
+	// The name of the image used to create the container instance.
+	Image string `pulumi:"image"`
+	// The instance view of the container instance. Only valid in response.
+	InstanceView ContainerPropertiesInvokeResponseInstanceView `pulumi:"instanceView"`
+	// The user-provided name of the container instance.
+	Name string `pulumi:"name"`
+	// The exposed ports on the container instance.
+	Ports []ContainerPortInvokeResponse `pulumi:"ports"`
+	// The resource requirements of the container instance.
+	Resources ResourceRequirementsInvokeResponse `pulumi:"resources"`
+	// The volume mounts available to the container instance.
+	VolumeMounts []VolumeMountInvokeResponse `pulumi:"volumeMounts"`
+}
+
+// ContainerInvokeResponseInput is an input type that accepts ContainerInvokeResponseArgs and ContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerInvokeResponseInput` via:
+//
+//          ContainerInvokeResponseArgs{...}
+type ContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerInvokeResponseOutput() ContainerInvokeResponseOutput
+	ToContainerInvokeResponseOutputWithContext(context.Context) ContainerInvokeResponseOutput
+}
+
+// A container instance.
+type ContainerInvokeResponseArgs struct {
+	// The commands to execute within the container instance in exec form.
+	Command pulumi.StringArrayInput `pulumi:"command"`
+	// The environment variables to set in the container instance.
+	EnvironmentVariables EnvironmentVariableInvokeResponseArrayInput `pulumi:"environmentVariables"`
+	// The name of the image used to create the container instance.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The instance view of the container instance. Only valid in response.
+	InstanceView ContainerPropertiesInvokeResponseInstanceViewInput `pulumi:"instanceView"`
+	// The user-provided name of the container instance.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The exposed ports on the container instance.
+	Ports ContainerPortInvokeResponseArrayInput `pulumi:"ports"`
+	// The resource requirements of the container instance.
+	Resources ResourceRequirementsInvokeResponseInput `pulumi:"resources"`
+	// The volume mounts available to the container instance.
+	VolumeMounts VolumeMountInvokeResponseArrayInput `pulumi:"volumeMounts"`
+}
+
+func (ContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerInvokeResponseArgs) ToContainerInvokeResponseOutput() ContainerInvokeResponseOutput {
+	return i.ToContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerInvokeResponseArgs) ToContainerInvokeResponseOutputWithContext(ctx context.Context) ContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerInvokeResponseOutput)
+}
+
+// ContainerInvokeResponseArrayInput is an input type that accepts ContainerInvokeResponseArray and ContainerInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ContainerInvokeResponseArrayInput` via:
+//
+//          ContainerInvokeResponseArray{ ContainerInvokeResponseArgs{...} }
+type ContainerInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToContainerInvokeResponseArrayOutput() ContainerInvokeResponseArrayOutput
+	ToContainerInvokeResponseArrayOutputWithContext(context.Context) ContainerInvokeResponseArrayOutput
+}
+
+type ContainerInvokeResponseArray []ContainerInvokeResponseInput
+
+func (ContainerInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerInvokeResponseArray) ToContainerInvokeResponseArrayOutput() ContainerInvokeResponseArrayOutput {
+	return i.ToContainerInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerInvokeResponseArray) ToContainerInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerInvokeResponseArrayOutput)
+}
+
+// A container instance.
+type ContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerInvokeResponseOutput) ToContainerInvokeResponseOutput() ContainerInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerInvokeResponseOutput) ToContainerInvokeResponseOutputWithContext(ctx context.Context) ContainerInvokeResponseOutput {
+	return o
+}
+
+// The commands to execute within the container instance in exec form.
+func (o ContainerInvokeResponseOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerInvokeResponse) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to set in the container instance.
+func (o ContainerInvokeResponseOutput) EnvironmentVariables() EnvironmentVariableInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ContainerInvokeResponse) []EnvironmentVariableInvokeResponse { return v.EnvironmentVariables }).(EnvironmentVariableInvokeResponseArrayOutput)
+}
+
+// The name of the image used to create the container instance.
+func (o ContainerInvokeResponseOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerInvokeResponse) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The instance view of the container instance. Only valid in response.
+func (o ContainerInvokeResponseOutput) InstanceView() ContainerPropertiesInvokeResponseInstanceViewOutput {
+	return o.ApplyT(func(v ContainerInvokeResponse) ContainerPropertiesInvokeResponseInstanceView { return v.InstanceView }).(ContainerPropertiesInvokeResponseInstanceViewOutput)
+}
+
+// The user-provided name of the container instance.
+func (o ContainerInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The exposed ports on the container instance.
+func (o ContainerInvokeResponseOutput) Ports() ContainerPortInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ContainerInvokeResponse) []ContainerPortInvokeResponse { return v.Ports }).(ContainerPortInvokeResponseArrayOutput)
+}
+
+// The resource requirements of the container instance.
+func (o ContainerInvokeResponseOutput) Resources() ResourceRequirementsInvokeResponseOutput {
+	return o.ApplyT(func(v ContainerInvokeResponse) ResourceRequirementsInvokeResponse { return v.Resources }).(ResourceRequirementsInvokeResponseOutput)
+}
+
+// The volume mounts available to the container instance.
+func (o ContainerInvokeResponseOutput) VolumeMounts() VolumeMountInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ContainerInvokeResponse) []VolumeMountInvokeResponse { return v.VolumeMounts }).(VolumeMountInvokeResponseArrayOutput)
+}
+
+type ContainerInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerInvokeResponseArrayOutput) ToContainerInvokeResponseArrayOutput() ContainerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerInvokeResponseArrayOutput) ToContainerInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerInvokeResponseArrayOutput) Index(i pulumi.IntInput) ContainerInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerInvokeResponse {
+		return vs[0].([]ContainerInvokeResponse)[vs[1].(int)]
+	}).(ContainerInvokeResponseOutput)
+}
+
 // The port exposed on the container instance.
 type ContainerPort struct {
 	// The port number exposed within the container group.
@@ -565,6 +946,106 @@ func (o ContainerPortArrayOutput) Index(i pulumi.IntInput) ContainerPortOutput {
 }
 
 // The port exposed on the container instance.
+type ContainerPortInvokeResponse struct {
+	// The port number exposed within the container group.
+	Port int `pulumi:"port"`
+}
+
+// ContainerPortInvokeResponseInput is an input type that accepts ContainerPortInvokeResponseArgs and ContainerPortInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerPortInvokeResponseInput` via:
+//
+//          ContainerPortInvokeResponseArgs{...}
+type ContainerPortInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerPortInvokeResponseOutput() ContainerPortInvokeResponseOutput
+	ToContainerPortInvokeResponseOutputWithContext(context.Context) ContainerPortInvokeResponseOutput
+}
+
+// The port exposed on the container instance.
+type ContainerPortInvokeResponseArgs struct {
+	// The port number exposed within the container group.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (ContainerPortInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPortInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerPortInvokeResponseArgs) ToContainerPortInvokeResponseOutput() ContainerPortInvokeResponseOutput {
+	return i.ToContainerPortInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerPortInvokeResponseArgs) ToContainerPortInvokeResponseOutputWithContext(ctx context.Context) ContainerPortInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPortInvokeResponseOutput)
+}
+
+// ContainerPortInvokeResponseArrayInput is an input type that accepts ContainerPortInvokeResponseArray and ContainerPortInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ContainerPortInvokeResponseArrayInput` via:
+//
+//          ContainerPortInvokeResponseArray{ ContainerPortInvokeResponseArgs{...} }
+type ContainerPortInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToContainerPortInvokeResponseArrayOutput() ContainerPortInvokeResponseArrayOutput
+	ToContainerPortInvokeResponseArrayOutputWithContext(context.Context) ContainerPortInvokeResponseArrayOutput
+}
+
+type ContainerPortInvokeResponseArray []ContainerPortInvokeResponseInput
+
+func (ContainerPortInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerPortInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerPortInvokeResponseArray) ToContainerPortInvokeResponseArrayOutput() ContainerPortInvokeResponseArrayOutput {
+	return i.ToContainerPortInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerPortInvokeResponseArray) ToContainerPortInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerPortInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPortInvokeResponseArrayOutput)
+}
+
+// The port exposed on the container instance.
+type ContainerPortInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerPortInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPortInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerPortInvokeResponseOutput) ToContainerPortInvokeResponseOutput() ContainerPortInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerPortInvokeResponseOutput) ToContainerPortInvokeResponseOutputWithContext(ctx context.Context) ContainerPortInvokeResponseOutput {
+	return o
+}
+
+// The port number exposed within the container group.
+func (o ContainerPortInvokeResponseOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerPortInvokeResponse) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type ContainerPortInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerPortInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerPortInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerPortInvokeResponseArrayOutput) ToContainerPortInvokeResponseArrayOutput() ContainerPortInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerPortInvokeResponseArrayOutput) ToContainerPortInvokeResponseArrayOutputWithContext(ctx context.Context) ContainerPortInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContainerPortInvokeResponseArrayOutput) Index(i pulumi.IntInput) ContainerPortInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerPortInvokeResponse {
+		return vs[0].([]ContainerPortInvokeResponse)[vs[1].(int)]
+	}).(ContainerPortInvokeResponseOutput)
+}
+
+// The port exposed on the container instance.
 type ContainerPortResponse struct {
 	// The port number exposed within the container group.
 	Port int `pulumi:"port"`
@@ -662,6 +1143,92 @@ func (o ContainerPortResponseArrayOutput) Index(i pulumi.IntInput) ContainerPort
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerPortResponse {
 		return vs[0].([]ContainerPortResponse)[vs[1].(int)]
 	}).(ContainerPortResponseOutput)
+}
+
+// The instance view of the container instance. Only valid in response.
+type ContainerPropertiesInvokeResponseInstanceView struct {
+	// Current container instance state.
+	CurrentState *ContainerStateInvokeResponse `pulumi:"currentState"`
+	// The events of the container instance.
+	Events []ContainerEventInvokeResponse `pulumi:"events"`
+	// Previous container instance state.
+	PreviousState *ContainerStateInvokeResponse `pulumi:"previousState"`
+	// The number of times that the container instance has been restarted.
+	RestartCount *int `pulumi:"restartCount"`
+}
+
+// ContainerPropertiesInvokeResponseInstanceViewInput is an input type that accepts ContainerPropertiesInvokeResponseInstanceViewArgs and ContainerPropertiesInvokeResponseInstanceViewOutput values.
+// You can construct a concrete instance of `ContainerPropertiesInvokeResponseInstanceViewInput` via:
+//
+//          ContainerPropertiesInvokeResponseInstanceViewArgs{...}
+type ContainerPropertiesInvokeResponseInstanceViewInput interface {
+	pulumi.Input
+
+	ToContainerPropertiesInvokeResponseInstanceViewOutput() ContainerPropertiesInvokeResponseInstanceViewOutput
+	ToContainerPropertiesInvokeResponseInstanceViewOutputWithContext(context.Context) ContainerPropertiesInvokeResponseInstanceViewOutput
+}
+
+// The instance view of the container instance. Only valid in response.
+type ContainerPropertiesInvokeResponseInstanceViewArgs struct {
+	// Current container instance state.
+	CurrentState ContainerStateInvokeResponsePtrInput `pulumi:"currentState"`
+	// The events of the container instance.
+	Events ContainerEventInvokeResponseArrayInput `pulumi:"events"`
+	// Previous container instance state.
+	PreviousState ContainerStateInvokeResponsePtrInput `pulumi:"previousState"`
+	// The number of times that the container instance has been restarted.
+	RestartCount pulumi.IntPtrInput `pulumi:"restartCount"`
+}
+
+func (ContainerPropertiesInvokeResponseInstanceViewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPropertiesInvokeResponseInstanceView)(nil)).Elem()
+}
+
+func (i ContainerPropertiesInvokeResponseInstanceViewArgs) ToContainerPropertiesInvokeResponseInstanceViewOutput() ContainerPropertiesInvokeResponseInstanceViewOutput {
+	return i.ToContainerPropertiesInvokeResponseInstanceViewOutputWithContext(context.Background())
+}
+
+func (i ContainerPropertiesInvokeResponseInstanceViewArgs) ToContainerPropertiesInvokeResponseInstanceViewOutputWithContext(ctx context.Context) ContainerPropertiesInvokeResponseInstanceViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesInvokeResponseInstanceViewOutput)
+}
+
+// The instance view of the container instance. Only valid in response.
+type ContainerPropertiesInvokeResponseInstanceViewOutput struct{ *pulumi.OutputState }
+
+func (ContainerPropertiesInvokeResponseInstanceViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPropertiesInvokeResponseInstanceView)(nil)).Elem()
+}
+
+func (o ContainerPropertiesInvokeResponseInstanceViewOutput) ToContainerPropertiesInvokeResponseInstanceViewOutput() ContainerPropertiesInvokeResponseInstanceViewOutput {
+	return o
+}
+
+func (o ContainerPropertiesInvokeResponseInstanceViewOutput) ToContainerPropertiesInvokeResponseInstanceViewOutputWithContext(ctx context.Context) ContainerPropertiesInvokeResponseInstanceViewOutput {
+	return o
+}
+
+// Current container instance state.
+func (o ContainerPropertiesInvokeResponseInstanceViewOutput) CurrentState() ContainerStateInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContainerPropertiesInvokeResponseInstanceView) *ContainerStateInvokeResponse {
+		return v.CurrentState
+	}).(ContainerStateInvokeResponsePtrOutput)
+}
+
+// The events of the container instance.
+func (o ContainerPropertiesInvokeResponseInstanceViewOutput) Events() ContainerEventInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ContainerPropertiesInvokeResponseInstanceView) []ContainerEventInvokeResponse { return v.Events }).(ContainerEventInvokeResponseArrayOutput)
+}
+
+// Previous container instance state.
+func (o ContainerPropertiesInvokeResponseInstanceViewOutput) PreviousState() ContainerStateInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContainerPropertiesInvokeResponseInstanceView) *ContainerStateInvokeResponse {
+		return v.PreviousState
+	}).(ContainerStateInvokeResponsePtrOutput)
+}
+
+// The number of times that the container instance has been restarted.
+func (o ContainerPropertiesInvokeResponseInstanceViewOutput) RestartCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerPropertiesInvokeResponseInstanceView) *int { return v.RestartCount }).(pulumi.IntPtrOutput)
 }
 
 // The instance view of the container instance. Only valid in response.
@@ -907,6 +1474,216 @@ func (o ContainerResponseArrayOutput) Index(i pulumi.IntInput) ContainerResponse
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerResponse {
 		return vs[0].([]ContainerResponse)[vs[1].(int)]
 	}).(ContainerResponseOutput)
+}
+
+// The container instance state.
+type ContainerStateInvokeResponse struct {
+	// The human-readable status of the container instance state.
+	DetailStatus *string `pulumi:"detailStatus"`
+	// The container instance exit codes correspond to those from the `docker run` command.
+	ExitCode *int `pulumi:"exitCode"`
+	// The date-time when the container instance state finished.
+	FinishTime *string `pulumi:"finishTime"`
+	// The date-time when the container instance state started.
+	StartTime *string `pulumi:"startTime"`
+	// The state of the container instance.
+	State *string `pulumi:"state"`
+}
+
+// ContainerStateInvokeResponseInput is an input type that accepts ContainerStateInvokeResponseArgs and ContainerStateInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerStateInvokeResponseInput` via:
+//
+//          ContainerStateInvokeResponseArgs{...}
+type ContainerStateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerStateInvokeResponseOutput() ContainerStateInvokeResponseOutput
+	ToContainerStateInvokeResponseOutputWithContext(context.Context) ContainerStateInvokeResponseOutput
+}
+
+// The container instance state.
+type ContainerStateInvokeResponseArgs struct {
+	// The human-readable status of the container instance state.
+	DetailStatus pulumi.StringPtrInput `pulumi:"detailStatus"`
+	// The container instance exit codes correspond to those from the `docker run` command.
+	ExitCode pulumi.IntPtrInput `pulumi:"exitCode"`
+	// The date-time when the container instance state finished.
+	FinishTime pulumi.StringPtrInput `pulumi:"finishTime"`
+	// The date-time when the container instance state started.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// The state of the container instance.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (ContainerStateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerStateInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerStateInvokeResponseArgs) ToContainerStateInvokeResponseOutput() ContainerStateInvokeResponseOutput {
+	return i.ToContainerStateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerStateInvokeResponseArgs) ToContainerStateInvokeResponseOutputWithContext(ctx context.Context) ContainerStateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerStateInvokeResponseOutput)
+}
+
+func (i ContainerStateInvokeResponseArgs) ToContainerStateInvokeResponsePtrOutput() ContainerStateInvokeResponsePtrOutput {
+	return i.ToContainerStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContainerStateInvokeResponseArgs) ToContainerStateInvokeResponsePtrOutputWithContext(ctx context.Context) ContainerStateInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerStateInvokeResponseOutput).ToContainerStateInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContainerStateInvokeResponsePtrInput is an input type that accepts ContainerStateInvokeResponseArgs, ContainerStateInvokeResponsePtr and ContainerStateInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContainerStateInvokeResponsePtrInput` via:
+//
+//          ContainerStateInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerStateInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContainerStateInvokeResponsePtrOutput() ContainerStateInvokeResponsePtrOutput
+	ToContainerStateInvokeResponsePtrOutputWithContext(context.Context) ContainerStateInvokeResponsePtrOutput
+}
+
+type containerStateInvokeResponsePtrType ContainerStateInvokeResponseArgs
+
+func ContainerStateInvokeResponsePtr(v *ContainerStateInvokeResponseArgs) ContainerStateInvokeResponsePtrInput {
+	return (*containerStateInvokeResponsePtrType)(v)
+}
+
+func (*containerStateInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerStateInvokeResponse)(nil)).Elem()
+}
+
+func (i *containerStateInvokeResponsePtrType) ToContainerStateInvokeResponsePtrOutput() ContainerStateInvokeResponsePtrOutput {
+	return i.ToContainerStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *containerStateInvokeResponsePtrType) ToContainerStateInvokeResponsePtrOutputWithContext(ctx context.Context) ContainerStateInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerStateInvokeResponsePtrOutput)
+}
+
+// The container instance state.
+type ContainerStateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerStateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerStateInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerStateInvokeResponseOutput) ToContainerStateInvokeResponseOutput() ContainerStateInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerStateInvokeResponseOutput) ToContainerStateInvokeResponseOutputWithContext(ctx context.Context) ContainerStateInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerStateInvokeResponseOutput) ToContainerStateInvokeResponsePtrOutput() ContainerStateInvokeResponsePtrOutput {
+	return o.ToContainerStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerStateInvokeResponseOutput) ToContainerStateInvokeResponsePtrOutputWithContext(ctx context.Context) ContainerStateInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContainerStateInvokeResponse) *ContainerStateInvokeResponse {
+		return &v
+	}).(ContainerStateInvokeResponsePtrOutput)
+}
+
+// The human-readable status of the container instance state.
+func (o ContainerStateInvokeResponseOutput) DetailStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerStateInvokeResponse) *string { return v.DetailStatus }).(pulumi.StringPtrOutput)
+}
+
+// The container instance exit codes correspond to those from the `docker run` command.
+func (o ContainerStateInvokeResponseOutput) ExitCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerStateInvokeResponse) *int { return v.ExitCode }).(pulumi.IntPtrOutput)
+}
+
+// The date-time when the container instance state finished.
+func (o ContainerStateInvokeResponseOutput) FinishTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerStateInvokeResponse) *string { return v.FinishTime }).(pulumi.StringPtrOutput)
+}
+
+// The date-time when the container instance state started.
+func (o ContainerStateInvokeResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerStateInvokeResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The state of the container instance.
+func (o ContainerStateInvokeResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerStateInvokeResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type ContainerStateInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerStateInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerStateInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerStateInvokeResponsePtrOutput) ToContainerStateInvokeResponsePtrOutput() ContainerStateInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContainerStateInvokeResponsePtrOutput) ToContainerStateInvokeResponsePtrOutputWithContext(ctx context.Context) ContainerStateInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContainerStateInvokeResponsePtrOutput) Elem() ContainerStateInvokeResponseOutput {
+	return o.ApplyT(func(v *ContainerStateInvokeResponse) ContainerStateInvokeResponse { return *v }).(ContainerStateInvokeResponseOutput)
+}
+
+// The human-readable status of the container instance state.
+func (o ContainerStateInvokeResponsePtrOutput) DetailStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DetailStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The container instance exit codes correspond to those from the `docker run` command.
+func (o ContainerStateInvokeResponsePtrOutput) ExitCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerStateInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExitCode
+	}).(pulumi.IntPtrOutput)
+}
+
+// The date-time when the container instance state finished.
+func (o ContainerStateInvokeResponsePtrOutput) FinishTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FinishTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The date-time when the container instance state started.
+func (o ContainerStateInvokeResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of the container instance.
+func (o ContainerStateInvokeResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
 }
 
 // The container instance state.
@@ -1229,6 +2006,115 @@ func (o EnvironmentVariableArrayOutput) Index(i pulumi.IntInput) EnvironmentVari
 }
 
 // The environment variable to set within the container instance.
+type EnvironmentVariableInvokeResponse struct {
+	// The name of the environment variable.
+	Name string `pulumi:"name"`
+	// The value of the environment variable.
+	Value string `pulumi:"value"`
+}
+
+// EnvironmentVariableInvokeResponseInput is an input type that accepts EnvironmentVariableInvokeResponseArgs and EnvironmentVariableInvokeResponseOutput values.
+// You can construct a concrete instance of `EnvironmentVariableInvokeResponseInput` via:
+//
+//          EnvironmentVariableInvokeResponseArgs{...}
+type EnvironmentVariableInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEnvironmentVariableInvokeResponseOutput() EnvironmentVariableInvokeResponseOutput
+	ToEnvironmentVariableInvokeResponseOutputWithContext(context.Context) EnvironmentVariableInvokeResponseOutput
+}
+
+// The environment variable to set within the container instance.
+type EnvironmentVariableInvokeResponseArgs struct {
+	// The name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EnvironmentVariableInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentVariableInvokeResponse)(nil)).Elem()
+}
+
+func (i EnvironmentVariableInvokeResponseArgs) ToEnvironmentVariableInvokeResponseOutput() EnvironmentVariableInvokeResponseOutput {
+	return i.ToEnvironmentVariableInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EnvironmentVariableInvokeResponseArgs) ToEnvironmentVariableInvokeResponseOutputWithContext(ctx context.Context) EnvironmentVariableInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableInvokeResponseOutput)
+}
+
+// EnvironmentVariableInvokeResponseArrayInput is an input type that accepts EnvironmentVariableInvokeResponseArray and EnvironmentVariableInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EnvironmentVariableInvokeResponseArrayInput` via:
+//
+//          EnvironmentVariableInvokeResponseArray{ EnvironmentVariableInvokeResponseArgs{...} }
+type EnvironmentVariableInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentVariableInvokeResponseArrayOutput() EnvironmentVariableInvokeResponseArrayOutput
+	ToEnvironmentVariableInvokeResponseArrayOutputWithContext(context.Context) EnvironmentVariableInvokeResponseArrayOutput
+}
+
+type EnvironmentVariableInvokeResponseArray []EnvironmentVariableInvokeResponseInput
+
+func (EnvironmentVariableInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentVariableInvokeResponse)(nil)).Elem()
+}
+
+func (i EnvironmentVariableInvokeResponseArray) ToEnvironmentVariableInvokeResponseArrayOutput() EnvironmentVariableInvokeResponseArrayOutput {
+	return i.ToEnvironmentVariableInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentVariableInvokeResponseArray) ToEnvironmentVariableInvokeResponseArrayOutputWithContext(ctx context.Context) EnvironmentVariableInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentVariableInvokeResponseArrayOutput)
+}
+
+// The environment variable to set within the container instance.
+type EnvironmentVariableInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentVariableInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentVariableInvokeResponse)(nil)).Elem()
+}
+
+func (o EnvironmentVariableInvokeResponseOutput) ToEnvironmentVariableInvokeResponseOutput() EnvironmentVariableInvokeResponseOutput {
+	return o
+}
+
+func (o EnvironmentVariableInvokeResponseOutput) ToEnvironmentVariableInvokeResponseOutputWithContext(ctx context.Context) EnvironmentVariableInvokeResponseOutput {
+	return o
+}
+
+// The name of the environment variable.
+func (o EnvironmentVariableInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentVariableInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the environment variable.
+func (o EnvironmentVariableInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentVariableInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EnvironmentVariableInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentVariableInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentVariableInvokeResponse)(nil)).Elem()
+}
+
+func (o EnvironmentVariableInvokeResponseArrayOutput) ToEnvironmentVariableInvokeResponseArrayOutput() EnvironmentVariableInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EnvironmentVariableInvokeResponseArrayOutput) ToEnvironmentVariableInvokeResponseArrayOutputWithContext(ctx context.Context) EnvironmentVariableInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EnvironmentVariableInvokeResponseArrayOutput) Index(i pulumi.IntInput) EnvironmentVariableInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentVariableInvokeResponse {
+		return vs[0].([]EnvironmentVariableInvokeResponse)[vs[1].(int)]
+	}).(EnvironmentVariableInvokeResponseOutput)
+}
+
+// The environment variable to set within the container instance.
 type EnvironmentVariableResponse struct {
 	// The name of the environment variable.
 	Name string `pulumi:"name"`
@@ -1453,6 +2339,124 @@ func (o ImageRegistryCredentialArrayOutput) Index(i pulumi.IntInput) ImageRegist
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageRegistryCredential {
 		return vs[0].([]ImageRegistryCredential)[vs[1].(int)]
 	}).(ImageRegistryCredentialOutput)
+}
+
+// Image registry credential.
+type ImageRegistryCredentialInvokeResponse struct {
+	// The password for the private registry.
+	Password *string `pulumi:"password"`
+	// The Docker image registry server without a protocol such as "http" and "https".
+	Server string `pulumi:"server"`
+	// The username for the private registry.
+	Username string `pulumi:"username"`
+}
+
+// ImageRegistryCredentialInvokeResponseInput is an input type that accepts ImageRegistryCredentialInvokeResponseArgs and ImageRegistryCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `ImageRegistryCredentialInvokeResponseInput` via:
+//
+//          ImageRegistryCredentialInvokeResponseArgs{...}
+type ImageRegistryCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToImageRegistryCredentialInvokeResponseOutput() ImageRegistryCredentialInvokeResponseOutput
+	ToImageRegistryCredentialInvokeResponseOutputWithContext(context.Context) ImageRegistryCredentialInvokeResponseOutput
+}
+
+// Image registry credential.
+type ImageRegistryCredentialInvokeResponseArgs struct {
+	// The password for the private registry.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The Docker image registry server without a protocol such as "http" and "https".
+	Server pulumi.StringInput `pulumi:"server"`
+	// The username for the private registry.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ImageRegistryCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRegistryCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i ImageRegistryCredentialInvokeResponseArgs) ToImageRegistryCredentialInvokeResponseOutput() ImageRegistryCredentialInvokeResponseOutput {
+	return i.ToImageRegistryCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ImageRegistryCredentialInvokeResponseArgs) ToImageRegistryCredentialInvokeResponseOutputWithContext(ctx context.Context) ImageRegistryCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRegistryCredentialInvokeResponseOutput)
+}
+
+// ImageRegistryCredentialInvokeResponseArrayInput is an input type that accepts ImageRegistryCredentialInvokeResponseArray and ImageRegistryCredentialInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ImageRegistryCredentialInvokeResponseArrayInput` via:
+//
+//          ImageRegistryCredentialInvokeResponseArray{ ImageRegistryCredentialInvokeResponseArgs{...} }
+type ImageRegistryCredentialInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToImageRegistryCredentialInvokeResponseArrayOutput() ImageRegistryCredentialInvokeResponseArrayOutput
+	ToImageRegistryCredentialInvokeResponseArrayOutputWithContext(context.Context) ImageRegistryCredentialInvokeResponseArrayOutput
+}
+
+type ImageRegistryCredentialInvokeResponseArray []ImageRegistryCredentialInvokeResponseInput
+
+func (ImageRegistryCredentialInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageRegistryCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i ImageRegistryCredentialInvokeResponseArray) ToImageRegistryCredentialInvokeResponseArrayOutput() ImageRegistryCredentialInvokeResponseArrayOutput {
+	return i.ToImageRegistryCredentialInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ImageRegistryCredentialInvokeResponseArray) ToImageRegistryCredentialInvokeResponseArrayOutputWithContext(ctx context.Context) ImageRegistryCredentialInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRegistryCredentialInvokeResponseArrayOutput)
+}
+
+// Image registry credential.
+type ImageRegistryCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageRegistryCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRegistryCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o ImageRegistryCredentialInvokeResponseOutput) ToImageRegistryCredentialInvokeResponseOutput() ImageRegistryCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o ImageRegistryCredentialInvokeResponseOutput) ToImageRegistryCredentialInvokeResponseOutputWithContext(ctx context.Context) ImageRegistryCredentialInvokeResponseOutput {
+	return o
+}
+
+// The password for the private registry.
+func (o ImageRegistryCredentialInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredentialInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The Docker image registry server without a protocol such as "http" and "https".
+func (o ImageRegistryCredentialInvokeResponseOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageRegistryCredentialInvokeResponse) string { return v.Server }).(pulumi.StringOutput)
+}
+
+// The username for the private registry.
+func (o ImageRegistryCredentialInvokeResponseOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageRegistryCredentialInvokeResponse) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ImageRegistryCredentialInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageRegistryCredentialInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageRegistryCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o ImageRegistryCredentialInvokeResponseArrayOutput) ToImageRegistryCredentialInvokeResponseArrayOutput() ImageRegistryCredentialInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ImageRegistryCredentialInvokeResponseArrayOutput) ToImageRegistryCredentialInvokeResponseArrayOutputWithContext(ctx context.Context) ImageRegistryCredentialInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ImageRegistryCredentialInvokeResponseArrayOutput) Index(i pulumi.IntInput) ImageRegistryCredentialInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageRegistryCredentialInvokeResponse {
+		return vs[0].([]ImageRegistryCredentialInvokeResponse)[vs[1].(int)]
+	}).(ImageRegistryCredentialInvokeResponseOutput)
 }
 
 // Image registry credential.
@@ -1746,6 +2750,79 @@ func (o IpAddressPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // IP address for the container group.
+type IpAddressInvokeResponse struct {
+	// The IP exposed to the public internet.
+	Ip *string `pulumi:"ip"`
+	// The list of ports exposed on the container group.
+	Ports []PortInvokeResponse `pulumi:"ports"`
+	// Specifies if the IP is exposed to the public internet.
+	Type string `pulumi:"type"`
+}
+
+// IpAddressInvokeResponseInput is an input type that accepts IpAddressInvokeResponseArgs and IpAddressInvokeResponseOutput values.
+// You can construct a concrete instance of `IpAddressInvokeResponseInput` via:
+//
+//          IpAddressInvokeResponseArgs{...}
+type IpAddressInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIpAddressInvokeResponseOutput() IpAddressInvokeResponseOutput
+	ToIpAddressInvokeResponseOutputWithContext(context.Context) IpAddressInvokeResponseOutput
+}
+
+// IP address for the container group.
+type IpAddressInvokeResponseArgs struct {
+	// The IP exposed to the public internet.
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// The list of ports exposed on the container group.
+	Ports PortInvokeResponseArrayInput `pulumi:"ports"`
+	// Specifies if the IP is exposed to the public internet.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IpAddressInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAddressInvokeResponse)(nil)).Elem()
+}
+
+func (i IpAddressInvokeResponseArgs) ToIpAddressInvokeResponseOutput() IpAddressInvokeResponseOutput {
+	return i.ToIpAddressInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IpAddressInvokeResponseArgs) ToIpAddressInvokeResponseOutputWithContext(ctx context.Context) IpAddressInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAddressInvokeResponseOutput)
+}
+
+// IP address for the container group.
+type IpAddressInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IpAddressInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAddressInvokeResponse)(nil)).Elem()
+}
+
+func (o IpAddressInvokeResponseOutput) ToIpAddressInvokeResponseOutput() IpAddressInvokeResponseOutput {
+	return o
+}
+
+func (o IpAddressInvokeResponseOutput) ToIpAddressInvokeResponseOutputWithContext(ctx context.Context) IpAddressInvokeResponseOutput {
+	return o
+}
+
+// The IP exposed to the public internet.
+func (o IpAddressInvokeResponseOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpAddressInvokeResponse) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// The list of ports exposed on the container group.
+func (o IpAddressInvokeResponseOutput) Ports() PortInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IpAddressInvokeResponse) []PortInvokeResponse { return v.Ports }).(PortInvokeResponseArrayOutput)
+}
+
+// Specifies if the IP is exposed to the public internet.
+func (o IpAddressInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IpAddressInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// IP address for the container group.
 type IpAddressResponse struct {
 	// The IP exposed to the public internet.
 	Ip *string `pulumi:"ip"`
@@ -2027,6 +3104,115 @@ func (o PortArrayOutput) Index(i pulumi.IntInput) PortOutput {
 }
 
 // The port exposed on the container group.
+type PortInvokeResponse struct {
+	// The port number.
+	Port int `pulumi:"port"`
+	// The protocol associated with the port.
+	Protocol *string `pulumi:"protocol"`
+}
+
+// PortInvokeResponseInput is an input type that accepts PortInvokeResponseArgs and PortInvokeResponseOutput values.
+// You can construct a concrete instance of `PortInvokeResponseInput` via:
+//
+//          PortInvokeResponseArgs{...}
+type PortInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPortInvokeResponseOutput() PortInvokeResponseOutput
+	ToPortInvokeResponseOutputWithContext(context.Context) PortInvokeResponseOutput
+}
+
+// The port exposed on the container group.
+type PortInvokeResponseArgs struct {
+	// The port number.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The protocol associated with the port.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (PortInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortInvokeResponse)(nil)).Elem()
+}
+
+func (i PortInvokeResponseArgs) ToPortInvokeResponseOutput() PortInvokeResponseOutput {
+	return i.ToPortInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PortInvokeResponseArgs) ToPortInvokeResponseOutputWithContext(ctx context.Context) PortInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortInvokeResponseOutput)
+}
+
+// PortInvokeResponseArrayInput is an input type that accepts PortInvokeResponseArray and PortInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PortInvokeResponseArrayInput` via:
+//
+//          PortInvokeResponseArray{ PortInvokeResponseArgs{...} }
+type PortInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPortInvokeResponseArrayOutput() PortInvokeResponseArrayOutput
+	ToPortInvokeResponseArrayOutputWithContext(context.Context) PortInvokeResponseArrayOutput
+}
+
+type PortInvokeResponseArray []PortInvokeResponseInput
+
+func (PortInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PortInvokeResponse)(nil)).Elem()
+}
+
+func (i PortInvokeResponseArray) ToPortInvokeResponseArrayOutput() PortInvokeResponseArrayOutput {
+	return i.ToPortInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PortInvokeResponseArray) ToPortInvokeResponseArrayOutputWithContext(ctx context.Context) PortInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortInvokeResponseArrayOutput)
+}
+
+// The port exposed on the container group.
+type PortInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PortInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortInvokeResponse)(nil)).Elem()
+}
+
+func (o PortInvokeResponseOutput) ToPortInvokeResponseOutput() PortInvokeResponseOutput {
+	return o
+}
+
+func (o PortInvokeResponseOutput) ToPortInvokeResponseOutputWithContext(ctx context.Context) PortInvokeResponseOutput {
+	return o
+}
+
+// The port number.
+func (o PortInvokeResponseOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v PortInvokeResponse) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The protocol associated with the port.
+func (o PortInvokeResponseOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PortInvokeResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type PortInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PortInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PortInvokeResponse)(nil)).Elem()
+}
+
+func (o PortInvokeResponseArrayOutput) ToPortInvokeResponseArrayOutput() PortInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PortInvokeResponseArrayOutput) ToPortInvokeResponseArrayOutputWithContext(ctx context.Context) PortInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PortInvokeResponseArrayOutput) Index(i pulumi.IntInput) PortInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PortInvokeResponse {
+		return vs[0].([]PortInvokeResponse)[vs[1].(int)]
+	}).(PortInvokeResponseOutput)
+}
+
+// The port exposed on the container group.
 type PortResponse struct {
 	// The port number.
 	Port int `pulumi:"port"`
@@ -2289,6 +3475,159 @@ func (o ResourceLimitsPtrOutput) MemoryInGB() pulumi.Float64PtrOutput {
 }
 
 // The resource limits.
+type ResourceLimitsInvokeResponse struct {
+	// The CPU limit of this container instance.
+	Cpu *float64 `pulumi:"cpu"`
+	// The memory limit in GB of this container instance.
+	MemoryInGB *float64 `pulumi:"memoryInGB"`
+}
+
+// ResourceLimitsInvokeResponseInput is an input type that accepts ResourceLimitsInvokeResponseArgs and ResourceLimitsInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceLimitsInvokeResponseInput` via:
+//
+//          ResourceLimitsInvokeResponseArgs{...}
+type ResourceLimitsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceLimitsInvokeResponseOutput() ResourceLimitsInvokeResponseOutput
+	ToResourceLimitsInvokeResponseOutputWithContext(context.Context) ResourceLimitsInvokeResponseOutput
+}
+
+// The resource limits.
+type ResourceLimitsInvokeResponseArgs struct {
+	// The CPU limit of this container instance.
+	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
+	// The memory limit in GB of this container instance.
+	MemoryInGB pulumi.Float64PtrInput `pulumi:"memoryInGB"`
+}
+
+func (ResourceLimitsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLimitsInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceLimitsInvokeResponseArgs) ToResourceLimitsInvokeResponseOutput() ResourceLimitsInvokeResponseOutput {
+	return i.ToResourceLimitsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceLimitsInvokeResponseArgs) ToResourceLimitsInvokeResponseOutputWithContext(ctx context.Context) ResourceLimitsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLimitsInvokeResponseOutput)
+}
+
+func (i ResourceLimitsInvokeResponseArgs) ToResourceLimitsInvokeResponsePtrOutput() ResourceLimitsInvokeResponsePtrOutput {
+	return i.ToResourceLimitsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLimitsInvokeResponseArgs) ToResourceLimitsInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceLimitsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLimitsInvokeResponseOutput).ToResourceLimitsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceLimitsInvokeResponsePtrInput is an input type that accepts ResourceLimitsInvokeResponseArgs, ResourceLimitsInvokeResponsePtr and ResourceLimitsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceLimitsInvokeResponsePtrInput` via:
+//
+//          ResourceLimitsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceLimitsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceLimitsInvokeResponsePtrOutput() ResourceLimitsInvokeResponsePtrOutput
+	ToResourceLimitsInvokeResponsePtrOutputWithContext(context.Context) ResourceLimitsInvokeResponsePtrOutput
+}
+
+type resourceLimitsInvokeResponsePtrType ResourceLimitsInvokeResponseArgs
+
+func ResourceLimitsInvokeResponsePtr(v *ResourceLimitsInvokeResponseArgs) ResourceLimitsInvokeResponsePtrInput {
+	return (*resourceLimitsInvokeResponsePtrType)(v)
+}
+
+func (*resourceLimitsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLimitsInvokeResponse)(nil)).Elem()
+}
+
+func (i *resourceLimitsInvokeResponsePtrType) ToResourceLimitsInvokeResponsePtrOutput() ResourceLimitsInvokeResponsePtrOutput {
+	return i.ToResourceLimitsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLimitsInvokeResponsePtrType) ToResourceLimitsInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceLimitsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLimitsInvokeResponsePtrOutput)
+}
+
+// The resource limits.
+type ResourceLimitsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceLimitsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLimitsInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceLimitsInvokeResponseOutput) ToResourceLimitsInvokeResponseOutput() ResourceLimitsInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceLimitsInvokeResponseOutput) ToResourceLimitsInvokeResponseOutputWithContext(ctx context.Context) ResourceLimitsInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceLimitsInvokeResponseOutput) ToResourceLimitsInvokeResponsePtrOutput() ResourceLimitsInvokeResponsePtrOutput {
+	return o.ToResourceLimitsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLimitsInvokeResponseOutput) ToResourceLimitsInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceLimitsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ResourceLimitsInvokeResponse) *ResourceLimitsInvokeResponse {
+		return &v
+	}).(ResourceLimitsInvokeResponsePtrOutput)
+}
+
+// The CPU limit of this container instance.
+func (o ResourceLimitsInvokeResponseOutput) Cpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ResourceLimitsInvokeResponse) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
+}
+
+// The memory limit in GB of this container instance.
+func (o ResourceLimitsInvokeResponseOutput) MemoryInGB() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ResourceLimitsInvokeResponse) *float64 { return v.MemoryInGB }).(pulumi.Float64PtrOutput)
+}
+
+type ResourceLimitsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLimitsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLimitsInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceLimitsInvokeResponsePtrOutput) ToResourceLimitsInvokeResponsePtrOutput() ResourceLimitsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResourceLimitsInvokeResponsePtrOutput) ToResourceLimitsInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceLimitsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResourceLimitsInvokeResponsePtrOutput) Elem() ResourceLimitsInvokeResponseOutput {
+	return o.ApplyT(func(v *ResourceLimitsInvokeResponse) ResourceLimitsInvokeResponse { return *v }).(ResourceLimitsInvokeResponseOutput)
+}
+
+// The CPU limit of this container instance.
+func (o ResourceLimitsInvokeResponsePtrOutput) Cpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ResourceLimitsInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The memory limit in GB of this container instance.
+func (o ResourceLimitsInvokeResponsePtrOutput) MemoryInGB() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ResourceLimitsInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryInGB
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The resource limits.
 type ResourceLimitsResponse struct {
 	// The CPU limit of this container instance.
 	Cpu *float64 `pulumi:"cpu"`
@@ -2506,6 +3845,70 @@ func (o ResourceRequestsOutput) MemoryInGB() pulumi.Float64Output {
 }
 
 // The resource requests.
+type ResourceRequestsInvokeResponse struct {
+	// The CPU request of this container instance.
+	Cpu float64 `pulumi:"cpu"`
+	// The memory request in GB of this container instance.
+	MemoryInGB float64 `pulumi:"memoryInGB"`
+}
+
+// ResourceRequestsInvokeResponseInput is an input type that accepts ResourceRequestsInvokeResponseArgs and ResourceRequestsInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceRequestsInvokeResponseInput` via:
+//
+//          ResourceRequestsInvokeResponseArgs{...}
+type ResourceRequestsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceRequestsInvokeResponseOutput() ResourceRequestsInvokeResponseOutput
+	ToResourceRequestsInvokeResponseOutputWithContext(context.Context) ResourceRequestsInvokeResponseOutput
+}
+
+// The resource requests.
+type ResourceRequestsInvokeResponseArgs struct {
+	// The CPU request of this container instance.
+	Cpu pulumi.Float64Input `pulumi:"cpu"`
+	// The memory request in GB of this container instance.
+	MemoryInGB pulumi.Float64Input `pulumi:"memoryInGB"`
+}
+
+func (ResourceRequestsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceRequestsInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceRequestsInvokeResponseArgs) ToResourceRequestsInvokeResponseOutput() ResourceRequestsInvokeResponseOutput {
+	return i.ToResourceRequestsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceRequestsInvokeResponseArgs) ToResourceRequestsInvokeResponseOutputWithContext(ctx context.Context) ResourceRequestsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceRequestsInvokeResponseOutput)
+}
+
+// The resource requests.
+type ResourceRequestsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceRequestsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceRequestsInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceRequestsInvokeResponseOutput) ToResourceRequestsInvokeResponseOutput() ResourceRequestsInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceRequestsInvokeResponseOutput) ToResourceRequestsInvokeResponseOutputWithContext(ctx context.Context) ResourceRequestsInvokeResponseOutput {
+	return o
+}
+
+// The CPU request of this container instance.
+func (o ResourceRequestsInvokeResponseOutput) Cpu() pulumi.Float64Output {
+	return o.ApplyT(func(v ResourceRequestsInvokeResponse) float64 { return v.Cpu }).(pulumi.Float64Output)
+}
+
+// The memory request in GB of this container instance.
+func (o ResourceRequestsInvokeResponseOutput) MemoryInGB() pulumi.Float64Output {
+	return o.ApplyT(func(v ResourceRequestsInvokeResponse) float64 { return v.MemoryInGB }).(pulumi.Float64Output)
+}
+
+// The resource requests.
 type ResourceRequestsResponse struct {
 	// The CPU request of this container instance.
 	Cpu float64 `pulumi:"cpu"`
@@ -2631,6 +4034,70 @@ func (o ResourceRequirementsOutput) Limits() ResourceLimitsPtrOutput {
 // The resource requests of this container instance.
 func (o ResourceRequirementsOutput) Requests() ResourceRequestsOutput {
 	return o.ApplyT(func(v ResourceRequirements) ResourceRequests { return v.Requests }).(ResourceRequestsOutput)
+}
+
+// The resource requirements.
+type ResourceRequirementsInvokeResponse struct {
+	// The resource limits of this container instance.
+	Limits *ResourceLimitsInvokeResponse `pulumi:"limits"`
+	// The resource requests of this container instance.
+	Requests ResourceRequestsInvokeResponse `pulumi:"requests"`
+}
+
+// ResourceRequirementsInvokeResponseInput is an input type that accepts ResourceRequirementsInvokeResponseArgs and ResourceRequirementsInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceRequirementsInvokeResponseInput` via:
+//
+//          ResourceRequirementsInvokeResponseArgs{...}
+type ResourceRequirementsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceRequirementsInvokeResponseOutput() ResourceRequirementsInvokeResponseOutput
+	ToResourceRequirementsInvokeResponseOutputWithContext(context.Context) ResourceRequirementsInvokeResponseOutput
+}
+
+// The resource requirements.
+type ResourceRequirementsInvokeResponseArgs struct {
+	// The resource limits of this container instance.
+	Limits ResourceLimitsInvokeResponsePtrInput `pulumi:"limits"`
+	// The resource requests of this container instance.
+	Requests ResourceRequestsInvokeResponseInput `pulumi:"requests"`
+}
+
+func (ResourceRequirementsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceRequirementsInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceRequirementsInvokeResponseArgs) ToResourceRequirementsInvokeResponseOutput() ResourceRequirementsInvokeResponseOutput {
+	return i.ToResourceRequirementsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceRequirementsInvokeResponseArgs) ToResourceRequirementsInvokeResponseOutputWithContext(ctx context.Context) ResourceRequirementsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceRequirementsInvokeResponseOutput)
+}
+
+// The resource requirements.
+type ResourceRequirementsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceRequirementsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceRequirementsInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceRequirementsInvokeResponseOutput) ToResourceRequirementsInvokeResponseOutput() ResourceRequirementsInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceRequirementsInvokeResponseOutput) ToResourceRequirementsInvokeResponseOutputWithContext(ctx context.Context) ResourceRequirementsInvokeResponseOutput {
+	return o
+}
+
+// The resource limits of this container instance.
+func (o ResourceRequirementsInvokeResponseOutput) Limits() ResourceLimitsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ResourceRequirementsInvokeResponse) *ResourceLimitsInvokeResponse { return v.Limits }).(ResourceLimitsInvokeResponsePtrOutput)
+}
+
+// The resource requests of this container instance.
+func (o ResourceRequirementsInvokeResponseOutput) Requests() ResourceRequestsInvokeResponseOutput {
+	return o.ApplyT(func(v ResourceRequirementsInvokeResponse) ResourceRequestsInvokeResponse { return v.Requests }).(ResourceRequestsInvokeResponseOutput)
 }
 
 // The resource requirements.
@@ -2806,6 +4273,115 @@ func (o VolumeArrayOutput) Index(i pulumi.IntInput) VolumeOutput {
 	}).(VolumeOutput)
 }
 
+// The properties of the volume.
+type VolumeInvokeResponse struct {
+	// The name of the Azure File volume.
+	AzureFile AzureFileVolumeInvokeResponse `pulumi:"azureFile"`
+	// The name of the volume.
+	Name string `pulumi:"name"`
+}
+
+// VolumeInvokeResponseInput is an input type that accepts VolumeInvokeResponseArgs and VolumeInvokeResponseOutput values.
+// You can construct a concrete instance of `VolumeInvokeResponseInput` via:
+//
+//          VolumeInvokeResponseArgs{...}
+type VolumeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVolumeInvokeResponseOutput() VolumeInvokeResponseOutput
+	ToVolumeInvokeResponseOutputWithContext(context.Context) VolumeInvokeResponseOutput
+}
+
+// The properties of the volume.
+type VolumeInvokeResponseArgs struct {
+	// The name of the Azure File volume.
+	AzureFile AzureFileVolumeInvokeResponseInput `pulumi:"azureFile"`
+	// The name of the volume.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (VolumeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeInvokeResponse)(nil)).Elem()
+}
+
+func (i VolumeInvokeResponseArgs) ToVolumeInvokeResponseOutput() VolumeInvokeResponseOutput {
+	return i.ToVolumeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VolumeInvokeResponseArgs) ToVolumeInvokeResponseOutputWithContext(ctx context.Context) VolumeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeInvokeResponseOutput)
+}
+
+// VolumeInvokeResponseArrayInput is an input type that accepts VolumeInvokeResponseArray and VolumeInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VolumeInvokeResponseArrayInput` via:
+//
+//          VolumeInvokeResponseArray{ VolumeInvokeResponseArgs{...} }
+type VolumeInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVolumeInvokeResponseArrayOutput() VolumeInvokeResponseArrayOutput
+	ToVolumeInvokeResponseArrayOutputWithContext(context.Context) VolumeInvokeResponseArrayOutput
+}
+
+type VolumeInvokeResponseArray []VolumeInvokeResponseInput
+
+func (VolumeInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeInvokeResponse)(nil)).Elem()
+}
+
+func (i VolumeInvokeResponseArray) ToVolumeInvokeResponseArrayOutput() VolumeInvokeResponseArrayOutput {
+	return i.ToVolumeInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeInvokeResponseArray) ToVolumeInvokeResponseArrayOutputWithContext(ctx context.Context) VolumeInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeInvokeResponseArrayOutput)
+}
+
+// The properties of the volume.
+type VolumeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VolumeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeInvokeResponse)(nil)).Elem()
+}
+
+func (o VolumeInvokeResponseOutput) ToVolumeInvokeResponseOutput() VolumeInvokeResponseOutput {
+	return o
+}
+
+func (o VolumeInvokeResponseOutput) ToVolumeInvokeResponseOutputWithContext(ctx context.Context) VolumeInvokeResponseOutput {
+	return o
+}
+
+// The name of the Azure File volume.
+func (o VolumeInvokeResponseOutput) AzureFile() AzureFileVolumeInvokeResponseOutput {
+	return o.ApplyT(func(v VolumeInvokeResponse) AzureFileVolumeInvokeResponse { return v.AzureFile }).(AzureFileVolumeInvokeResponseOutput)
+}
+
+// The name of the volume.
+func (o VolumeInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type VolumeInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeInvokeResponse)(nil)).Elem()
+}
+
+func (o VolumeInvokeResponseArrayOutput) ToVolumeInvokeResponseArrayOutput() VolumeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VolumeInvokeResponseArrayOutput) ToVolumeInvokeResponseArrayOutputWithContext(ctx context.Context) VolumeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VolumeInvokeResponseArrayOutput) Index(i pulumi.IntInput) VolumeInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeInvokeResponse {
+		return vs[0].([]VolumeInvokeResponse)[vs[1].(int)]
+	}).(VolumeInvokeResponseOutput)
+}
+
 // The properties of the volume mount.
 type VolumeMount struct {
 	// The path within the container where the volume should be mounted. Must not contain colon (:).
@@ -2922,6 +4498,124 @@ func (o VolumeMountArrayOutput) Index(i pulumi.IntInput) VolumeMountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeMount {
 		return vs[0].([]VolumeMount)[vs[1].(int)]
 	}).(VolumeMountOutput)
+}
+
+// The properties of the volume mount.
+type VolumeMountInvokeResponse struct {
+	// The path within the container where the volume should be mounted. Must not contain colon (:).
+	MountPath string `pulumi:"mountPath"`
+	// The name of the volume mount.
+	Name string `pulumi:"name"`
+	// The flag indicating whether the volume mount is read-only.
+	ReadOnly *bool `pulumi:"readOnly"`
+}
+
+// VolumeMountInvokeResponseInput is an input type that accepts VolumeMountInvokeResponseArgs and VolumeMountInvokeResponseOutput values.
+// You can construct a concrete instance of `VolumeMountInvokeResponseInput` via:
+//
+//          VolumeMountInvokeResponseArgs{...}
+type VolumeMountInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVolumeMountInvokeResponseOutput() VolumeMountInvokeResponseOutput
+	ToVolumeMountInvokeResponseOutputWithContext(context.Context) VolumeMountInvokeResponseOutput
+}
+
+// The properties of the volume mount.
+type VolumeMountInvokeResponseArgs struct {
+	// The path within the container where the volume should be mounted. Must not contain colon (:).
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	// The name of the volume mount.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The flag indicating whether the volume mount is read-only.
+	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+}
+
+func (VolumeMountInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeMountInvokeResponse)(nil)).Elem()
+}
+
+func (i VolumeMountInvokeResponseArgs) ToVolumeMountInvokeResponseOutput() VolumeMountInvokeResponseOutput {
+	return i.ToVolumeMountInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VolumeMountInvokeResponseArgs) ToVolumeMountInvokeResponseOutputWithContext(ctx context.Context) VolumeMountInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeMountInvokeResponseOutput)
+}
+
+// VolumeMountInvokeResponseArrayInput is an input type that accepts VolumeMountInvokeResponseArray and VolumeMountInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VolumeMountInvokeResponseArrayInput` via:
+//
+//          VolumeMountInvokeResponseArray{ VolumeMountInvokeResponseArgs{...} }
+type VolumeMountInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVolumeMountInvokeResponseArrayOutput() VolumeMountInvokeResponseArrayOutput
+	ToVolumeMountInvokeResponseArrayOutputWithContext(context.Context) VolumeMountInvokeResponseArrayOutput
+}
+
+type VolumeMountInvokeResponseArray []VolumeMountInvokeResponseInput
+
+func (VolumeMountInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeMountInvokeResponse)(nil)).Elem()
+}
+
+func (i VolumeMountInvokeResponseArray) ToVolumeMountInvokeResponseArrayOutput() VolumeMountInvokeResponseArrayOutput {
+	return i.ToVolumeMountInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeMountInvokeResponseArray) ToVolumeMountInvokeResponseArrayOutputWithContext(ctx context.Context) VolumeMountInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeMountInvokeResponseArrayOutput)
+}
+
+// The properties of the volume mount.
+type VolumeMountInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VolumeMountInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeMountInvokeResponse)(nil)).Elem()
+}
+
+func (o VolumeMountInvokeResponseOutput) ToVolumeMountInvokeResponseOutput() VolumeMountInvokeResponseOutput {
+	return o
+}
+
+func (o VolumeMountInvokeResponseOutput) ToVolumeMountInvokeResponseOutputWithContext(ctx context.Context) VolumeMountInvokeResponseOutput {
+	return o
+}
+
+// The path within the container where the volume should be mounted. Must not contain colon (:).
+func (o VolumeMountInvokeResponseOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeMountInvokeResponse) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+// The name of the volume mount.
+func (o VolumeMountInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeMountInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The flag indicating whether the volume mount is read-only.
+func (o VolumeMountInvokeResponseOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeMountInvokeResponse) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+type VolumeMountInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeMountInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeMountInvokeResponse)(nil)).Elem()
+}
+
+func (o VolumeMountInvokeResponseArrayOutput) ToVolumeMountInvokeResponseArrayOutput() VolumeMountInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VolumeMountInvokeResponseArrayOutput) ToVolumeMountInvokeResponseArrayOutputWithContext(ctx context.Context) VolumeMountInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VolumeMountInvokeResponseArrayOutput) Index(i pulumi.IntInput) VolumeMountInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeMountInvokeResponse {
+		return vs[0].([]VolumeMountInvokeResponse)[vs[1].(int)]
+	}).(VolumeMountInvokeResponseOutput)
 }
 
 // The properties of the volume mount.
@@ -3153,48 +4847,73 @@ func (o VolumeResponseArrayOutput) Index(i pulumi.IntInput) VolumeResponseOutput
 
 func init() {
 	pulumi.RegisterOutputType(AzureFileVolumeOutput{})
+	pulumi.RegisterOutputType(AzureFileVolumeInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureFileVolumeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerOutput{})
 	pulumi.RegisterOutputType(ContainerArrayOutput{})
+	pulumi.RegisterOutputType(ContainerEventInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContainerEventInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerEventResponseOutput{})
 	pulumi.RegisterOutputType(ContainerEventResponseArrayOutput{})
+	pulumi.RegisterOutputType(ContainerInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContainerInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerPortOutput{})
 	pulumi.RegisterOutputType(ContainerPortArrayOutput{})
+	pulumi.RegisterOutputType(ContainerPortInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContainerPortInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContainerPortResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPortResponseArrayOutput{})
+	pulumi.RegisterOutputType(ContainerPropertiesInvokeResponseInstanceViewOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesResponseInstanceViewOutput{})
 	pulumi.RegisterOutputType(ContainerResponseOutput{})
 	pulumi.RegisterOutputType(ContainerResponseArrayOutput{})
+	pulumi.RegisterOutputType(ContainerStateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContainerStateInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerStateResponseOutput{})
 	pulumi.RegisterOutputType(ContainerStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentVariableInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EnvironmentVariableInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableResponseArrayOutput{})
 	pulumi.RegisterOutputType(ImageRegistryCredentialOutput{})
 	pulumi.RegisterOutputType(ImageRegistryCredentialArrayOutput{})
+	pulumi.RegisterOutputType(ImageRegistryCredentialInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ImageRegistryCredentialInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ImageRegistryCredentialResponseOutput{})
 	pulumi.RegisterOutputType(ImageRegistryCredentialResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpAddressOutput{})
 	pulumi.RegisterOutputType(IpAddressPtrOutput{})
+	pulumi.RegisterOutputType(IpAddressInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IpAddressResponseOutput{})
 	pulumi.RegisterOutputType(IpAddressResponsePtrOutput{})
 	pulumi.RegisterOutputType(PortOutput{})
 	pulumi.RegisterOutputType(PortArrayOutput{})
+	pulumi.RegisterOutputType(PortInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PortInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PortResponseOutput{})
 	pulumi.RegisterOutputType(PortResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceLimitsOutput{})
 	pulumi.RegisterOutputType(ResourceLimitsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceLimitsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResourceLimitsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceLimitsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceLimitsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceRequestsOutput{})
+	pulumi.RegisterOutputType(ResourceRequestsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceRequestsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceRequirementsOutput{})
+	pulumi.RegisterOutputType(ResourceRequirementsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceRequirementsResponseOutput{})
 	pulumi.RegisterOutputType(VolumeOutput{})
 	pulumi.RegisterOutputType(VolumeArrayOutput{})
+	pulumi.RegisterOutputType(VolumeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VolumeInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VolumeMountOutput{})
 	pulumi.RegisterOutputType(VolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(VolumeMountInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VolumeMountInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VolumeMountResponseOutput{})
 	pulumi.RegisterOutputType(VolumeMountResponseArrayOutput{})
 	pulumi.RegisterOutputType(VolumeResponseOutput{})

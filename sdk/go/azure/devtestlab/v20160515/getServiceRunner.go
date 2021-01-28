@@ -30,7 +30,7 @@ type LookupServiceRunnerResult struct {
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	Identity *IdentityPropertiesInvokeResponse `pulumi:"identity"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

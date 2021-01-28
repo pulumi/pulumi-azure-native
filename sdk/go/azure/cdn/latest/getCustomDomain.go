@@ -44,7 +44,7 @@ type LookupCustomDomainResult struct {
 	// Resource status of the custom domain.
 	ResourceState string `pulumi:"resourceState"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.

@@ -26,11 +26,11 @@ type LookupDscpConfigurationArgs struct {
 // DSCP Configuration in a resource group.
 type LookupDscpConfigurationResult struct {
 	// Associated Network Interfaces to the DSCP Configuration.
-	AssociatedNetworkInterfaces []NetworkInterfaceResponse `pulumi:"associatedNetworkInterfaces"`
+	AssociatedNetworkInterfaces []NetworkInterfaceInvokeResponse `pulumi:"associatedNetworkInterfaces"`
 	// Destination IP ranges.
-	DestinationIpRanges []QosIpRangeResponse `pulumi:"destinationIpRanges"`
+	DestinationIpRanges []QosIpRangeInvokeResponse `pulumi:"destinationIpRanges"`
 	// Destination port ranges.
-	DestinationPortRanges []QosPortRangeResponse `pulumi:"destinationPortRanges"`
+	DestinationPortRanges []QosPortRangeInvokeResponse `pulumi:"destinationPortRanges"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource ID.
@@ -50,9 +50,9 @@ type LookupDscpConfigurationResult struct {
 	// The resource GUID property of the DSCP Configuration resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Source IP ranges.
-	SourceIpRanges []QosIpRangeResponse `pulumi:"sourceIpRanges"`
+	SourceIpRanges []QosIpRangeInvokeResponse `pulumi:"sourceIpRanges"`
 	// Sources port ranges.
-	SourcePortRanges []QosPortRangeResponse `pulumi:"sourcePortRanges"`
+	SourcePortRanges []QosPortRangeInvokeResponse `pulumi:"sourcePortRanges"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

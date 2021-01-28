@@ -32,7 +32,7 @@ type LookupServiceFabricArgs struct {
 // A Service Fabric.
 type LookupServiceFabricResult struct {
 	// The applicable schedule for the virtual machine.
-	ApplicableSchedule ApplicableScheduleResponse `pulumi:"applicableSchedule"`
+	ApplicableSchedule ApplicableScheduleInvokeResponse `pulumi:"applicableSchedule"`
 	// The resource id of the environment under which the service fabric resource is present
 	EnvironmentId *string `pulumi:"environmentId"`
 	// The backing service fabric resource's id

@@ -240,6 +240,106 @@ func (o CaptureDescriptionPtrOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
 }
 
 // Properties to configure capture description for eventhub
+type CaptureDescriptionInvokeResponse struct {
+	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+	Destination *DestinationInvokeResponse `pulumi:"destination"`
+	// A value that indicates whether capture description is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+	Encoding *string `pulumi:"encoding"`
+	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+	SizeLimitInBytes *int `pulumi:"sizeLimitInBytes"`
+	// A value that indicates whether to Skip Empty Archives
+	SkipEmptyArchives *bool `pulumi:"skipEmptyArchives"`
+}
+
+// CaptureDescriptionInvokeResponseInput is an input type that accepts CaptureDescriptionInvokeResponseArgs and CaptureDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `CaptureDescriptionInvokeResponseInput` via:
+//
+//          CaptureDescriptionInvokeResponseArgs{...}
+type CaptureDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCaptureDescriptionInvokeResponseOutput() CaptureDescriptionInvokeResponseOutput
+	ToCaptureDescriptionInvokeResponseOutputWithContext(context.Context) CaptureDescriptionInvokeResponseOutput
+}
+
+// Properties to configure capture description for eventhub
+type CaptureDescriptionInvokeResponseArgs struct {
+	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+	Destination DestinationInvokeResponsePtrInput `pulumi:"destination"`
+	// A value that indicates whether capture description is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+	SizeLimitInBytes pulumi.IntPtrInput `pulumi:"sizeLimitInBytes"`
+	// A value that indicates whether to Skip Empty Archives
+	SkipEmptyArchives pulumi.BoolPtrInput `pulumi:"skipEmptyArchives"`
+}
+
+func (CaptureDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaptureDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i CaptureDescriptionInvokeResponseArgs) ToCaptureDescriptionInvokeResponseOutput() CaptureDescriptionInvokeResponseOutput {
+	return i.ToCaptureDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CaptureDescriptionInvokeResponseArgs) ToCaptureDescriptionInvokeResponseOutputWithContext(ctx context.Context) CaptureDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionInvokeResponseOutput)
+}
+
+// Properties to configure capture description for eventhub
+type CaptureDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CaptureDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaptureDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o CaptureDescriptionInvokeResponseOutput) ToCaptureDescriptionInvokeResponseOutput() CaptureDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o CaptureDescriptionInvokeResponseOutput) ToCaptureDescriptionInvokeResponseOutputWithContext(ctx context.Context) CaptureDescriptionInvokeResponseOutput {
+	return o
+}
+
+// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+func (o CaptureDescriptionInvokeResponseOutput) Destination() DestinationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionInvokeResponse) *DestinationInvokeResponse { return v.Destination }).(DestinationInvokeResponsePtrOutput)
+}
+
+// A value that indicates whether capture description is enabled.
+func (o CaptureDescriptionInvokeResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionInvokeResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+func (o CaptureDescriptionInvokeResponseOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionInvokeResponse) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+func (o CaptureDescriptionInvokeResponseOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionInvokeResponse) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+func (o CaptureDescriptionInvokeResponseOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionInvokeResponse) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
+}
+
+// A value that indicates whether to Skip Empty Archives
+func (o CaptureDescriptionInvokeResponseOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionInvokeResponse) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
+}
+
+// Properties to configure capture description for eventhub
 type CaptureDescriptionResponse struct {
 	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
 	Destination *DestinationResponse `pulumi:"destination"`
@@ -660,6 +760,197 @@ func (o DestinationPtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput 
 }
 
 // Capture storage details for capture description
+type DestinationInvokeResponse struct {
+	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
+	// Blob container Name
+	BlobContainer *string `pulumi:"blobContainer"`
+	// Name for capture destination
+	Name *string `pulumi:"name"`
+	// Resource id of the storage account to be used to create the blobs
+	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
+}
+
+// DestinationInvokeResponseInput is an input type that accepts DestinationInvokeResponseArgs and DestinationInvokeResponseOutput values.
+// You can construct a concrete instance of `DestinationInvokeResponseInput` via:
+//
+//          DestinationInvokeResponseArgs{...}
+type DestinationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDestinationInvokeResponseOutput() DestinationInvokeResponseOutput
+	ToDestinationInvokeResponseOutputWithContext(context.Context) DestinationInvokeResponseOutput
+}
+
+// Capture storage details for capture description
+type DestinationInvokeResponseArgs struct {
+	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+	ArchiveNameFormat pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
+	// Blob container Name
+	BlobContainer pulumi.StringPtrInput `pulumi:"blobContainer"`
+	// Name for capture destination
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Resource id of the storage account to be used to create the blobs
+	StorageAccountResourceId pulumi.StringPtrInput `pulumi:"storageAccountResourceId"`
+}
+
+func (DestinationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationInvokeResponse)(nil)).Elem()
+}
+
+func (i DestinationInvokeResponseArgs) ToDestinationInvokeResponseOutput() DestinationInvokeResponseOutput {
+	return i.ToDestinationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DestinationInvokeResponseArgs) ToDestinationInvokeResponseOutputWithContext(ctx context.Context) DestinationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationInvokeResponseOutput)
+}
+
+func (i DestinationInvokeResponseArgs) ToDestinationInvokeResponsePtrOutput() DestinationInvokeResponsePtrOutput {
+	return i.ToDestinationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DestinationInvokeResponseArgs) ToDestinationInvokeResponsePtrOutputWithContext(ctx context.Context) DestinationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationInvokeResponseOutput).ToDestinationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DestinationInvokeResponsePtrInput is an input type that accepts DestinationInvokeResponseArgs, DestinationInvokeResponsePtr and DestinationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DestinationInvokeResponsePtrInput` via:
+//
+//          DestinationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DestinationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDestinationInvokeResponsePtrOutput() DestinationInvokeResponsePtrOutput
+	ToDestinationInvokeResponsePtrOutputWithContext(context.Context) DestinationInvokeResponsePtrOutput
+}
+
+type destinationInvokeResponsePtrType DestinationInvokeResponseArgs
+
+func DestinationInvokeResponsePtr(v *DestinationInvokeResponseArgs) DestinationInvokeResponsePtrInput {
+	return (*destinationInvokeResponsePtrType)(v)
+}
+
+func (*destinationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationInvokeResponse)(nil)).Elem()
+}
+
+func (i *destinationInvokeResponsePtrType) ToDestinationInvokeResponsePtrOutput() DestinationInvokeResponsePtrOutput {
+	return i.ToDestinationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *destinationInvokeResponsePtrType) ToDestinationInvokeResponsePtrOutputWithContext(ctx context.Context) DestinationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationInvokeResponsePtrOutput)
+}
+
+// Capture storage details for capture description
+type DestinationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DestinationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationInvokeResponse)(nil)).Elem()
+}
+
+func (o DestinationInvokeResponseOutput) ToDestinationInvokeResponseOutput() DestinationInvokeResponseOutput {
+	return o
+}
+
+func (o DestinationInvokeResponseOutput) ToDestinationInvokeResponseOutputWithContext(ctx context.Context) DestinationInvokeResponseOutput {
+	return o
+}
+
+func (o DestinationInvokeResponseOutput) ToDestinationInvokeResponsePtrOutput() DestinationInvokeResponsePtrOutput {
+	return o.ToDestinationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DestinationInvokeResponseOutput) ToDestinationInvokeResponsePtrOutputWithContext(ctx context.Context) DestinationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DestinationInvokeResponse) *DestinationInvokeResponse {
+		return &v
+	}).(DestinationInvokeResponsePtrOutput)
+}
+
+// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+func (o DestinationInvokeResponseOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationInvokeResponse) *string { return v.ArchiveNameFormat }).(pulumi.StringPtrOutput)
+}
+
+// Blob container Name
+func (o DestinationInvokeResponseOutput) BlobContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationInvokeResponse) *string { return v.BlobContainer }).(pulumi.StringPtrOutput)
+}
+
+// Name for capture destination
+func (o DestinationInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the storage account to be used to create the blobs
+func (o DestinationInvokeResponseOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationInvokeResponse) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
+}
+
+type DestinationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationInvokeResponse)(nil)).Elem()
+}
+
+func (o DestinationInvokeResponsePtrOutput) ToDestinationInvokeResponsePtrOutput() DestinationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DestinationInvokeResponsePtrOutput) ToDestinationInvokeResponsePtrOutputWithContext(ctx context.Context) DestinationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DestinationInvokeResponsePtrOutput) Elem() DestinationInvokeResponseOutput {
+	return o.ApplyT(func(v *DestinationInvokeResponse) DestinationInvokeResponse { return *v }).(DestinationInvokeResponseOutput)
+}
+
+// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+func (o DestinationInvokeResponsePtrOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArchiveNameFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Blob container Name
+func (o DestinationInvokeResponsePtrOutput) BlobContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name for capture destination
+func (o DestinationInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the storage account to be used to create the blobs
+func (o DestinationInvokeResponsePtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Capture storage details for capture description
 type DestinationResponse struct {
 	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
 	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
@@ -960,6 +1251,115 @@ func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOu
 }
 
 // Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesInvokeResponse struct {
+	// The IP Filter Action
+	Action *string `pulumi:"action"`
+	// IP Mask
+	IpMask *string `pulumi:"ipMask"`
+}
+
+// NWRuleSetIpRulesInvokeResponseInput is an input type that accepts NWRuleSetIpRulesInvokeResponseArgs and NWRuleSetIpRulesInvokeResponseOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesInvokeResponseInput` via:
+//
+//          NWRuleSetIpRulesInvokeResponseArgs{...}
+type NWRuleSetIpRulesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesInvokeResponseOutput() NWRuleSetIpRulesInvokeResponseOutput
+	ToNWRuleSetIpRulesInvokeResponseOutputWithContext(context.Context) NWRuleSetIpRulesInvokeResponseOutput
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesInvokeResponseArgs struct {
+	// The IP Filter Action
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// IP Mask
+	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
+}
+
+func (NWRuleSetIpRulesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRulesInvokeResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesInvokeResponseArgs) ToNWRuleSetIpRulesInvokeResponseOutput() NWRuleSetIpRulesInvokeResponseOutput {
+	return i.ToNWRuleSetIpRulesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesInvokeResponseArgs) ToNWRuleSetIpRulesInvokeResponseOutputWithContext(ctx context.Context) NWRuleSetIpRulesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesInvokeResponseOutput)
+}
+
+// NWRuleSetIpRulesInvokeResponseArrayInput is an input type that accepts NWRuleSetIpRulesInvokeResponseArray and NWRuleSetIpRulesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesInvokeResponseArrayInput` via:
+//
+//          NWRuleSetIpRulesInvokeResponseArray{ NWRuleSetIpRulesInvokeResponseArgs{...} }
+type NWRuleSetIpRulesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesInvokeResponseArrayOutput() NWRuleSetIpRulesInvokeResponseArrayOutput
+	ToNWRuleSetIpRulesInvokeResponseArrayOutputWithContext(context.Context) NWRuleSetIpRulesInvokeResponseArrayOutput
+}
+
+type NWRuleSetIpRulesInvokeResponseArray []NWRuleSetIpRulesInvokeResponseInput
+
+func (NWRuleSetIpRulesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRulesInvokeResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesInvokeResponseArray) ToNWRuleSetIpRulesInvokeResponseArrayOutput() NWRuleSetIpRulesInvokeResponseArrayOutput {
+	return i.ToNWRuleSetIpRulesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesInvokeResponseArray) ToNWRuleSetIpRulesInvokeResponseArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesInvokeResponseArrayOutput)
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRulesInvokeResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesInvokeResponseOutput) ToNWRuleSetIpRulesInvokeResponseOutput() NWRuleSetIpRulesInvokeResponseOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesInvokeResponseOutput) ToNWRuleSetIpRulesInvokeResponseOutputWithContext(ctx context.Context) NWRuleSetIpRulesInvokeResponseOutput {
+	return o
+}
+
+// The IP Filter Action
+func (o NWRuleSetIpRulesInvokeResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRulesInvokeResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// IP Mask
+func (o NWRuleSetIpRulesInvokeResponseOutput) IpMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRulesInvokeResponse) *string { return v.IpMask }).(pulumi.StringPtrOutput)
+}
+
+type NWRuleSetIpRulesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRulesInvokeResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesInvokeResponseArrayOutput) ToNWRuleSetIpRulesInvokeResponseArrayOutput() NWRuleSetIpRulesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesInvokeResponseArrayOutput) ToNWRuleSetIpRulesInvokeResponseArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesInvokeResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetIpRulesInvokeResponse {
+		return vs[0].([]NWRuleSetIpRulesInvokeResponse)[vs[1].(int)]
+	}).(NWRuleSetIpRulesInvokeResponseOutput)
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponse struct {
 	// The IP Filter Action
 	Action *string `pulumi:"action"`
@@ -1175,6 +1575,115 @@ func (o NWRuleSetVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) NWRule
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetVirtualNetworkRules {
 		return vs[0].([]NWRuleSetVirtualNetworkRules)[vs[1].(int)]
 	}).(NWRuleSetVirtualNetworkRulesOutput)
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesInvokeResponse struct {
+	// Value that indicates whether to ignore missing VNet Service Endpoint
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// Subnet properties
+	Subnet *SubnetInvokeResponse `pulumi:"subnet"`
+}
+
+// NWRuleSetVirtualNetworkRulesInvokeResponseInput is an input type that accepts NWRuleSetVirtualNetworkRulesInvokeResponseArgs and NWRuleSetVirtualNetworkRulesInvokeResponseOutput values.
+// You can construct a concrete instance of `NWRuleSetVirtualNetworkRulesInvokeResponseInput` via:
+//
+//          NWRuleSetVirtualNetworkRulesInvokeResponseArgs{...}
+type NWRuleSetVirtualNetworkRulesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNWRuleSetVirtualNetworkRulesInvokeResponseOutput() NWRuleSetVirtualNetworkRulesInvokeResponseOutput
+	ToNWRuleSetVirtualNetworkRulesInvokeResponseOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseOutput
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesInvokeResponseArgs struct {
+	// Value that indicates whether to ignore missing VNet Service Endpoint
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// Subnet properties
+	Subnet SubnetInvokeResponsePtrInput `pulumi:"subnet"`
+}
+
+func (NWRuleSetVirtualNetworkRulesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetVirtualNetworkRulesInvokeResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetVirtualNetworkRulesInvokeResponseArgs) ToNWRuleSetVirtualNetworkRulesInvokeResponseOutput() NWRuleSetVirtualNetworkRulesInvokeResponseOutput {
+	return i.ToNWRuleSetVirtualNetworkRulesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetVirtualNetworkRulesInvokeResponseArgs) ToNWRuleSetVirtualNetworkRulesInvokeResponseOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesInvokeResponseOutput)
+}
+
+// NWRuleSetVirtualNetworkRulesInvokeResponseArrayInput is an input type that accepts NWRuleSetVirtualNetworkRulesInvokeResponseArray and NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NWRuleSetVirtualNetworkRulesInvokeResponseArrayInput` via:
+//
+//          NWRuleSetVirtualNetworkRulesInvokeResponseArray{ NWRuleSetVirtualNetworkRulesInvokeResponseArgs{...} }
+type NWRuleSetVirtualNetworkRulesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput() NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput
+	ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput
+}
+
+type NWRuleSetVirtualNetworkRulesInvokeResponseArray []NWRuleSetVirtualNetworkRulesInvokeResponseInput
+
+func (NWRuleSetVirtualNetworkRulesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetVirtualNetworkRulesInvokeResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetVirtualNetworkRulesInvokeResponseArray) ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput() NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput {
+	return i.ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetVirtualNetworkRulesInvokeResponseArray) ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput)
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetVirtualNetworkRulesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetVirtualNetworkRulesInvokeResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseOutput) ToNWRuleSetVirtualNetworkRulesInvokeResponseOutput() NWRuleSetVirtualNetworkRulesInvokeResponseOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseOutput) ToNWRuleSetVirtualNetworkRulesInvokeResponseOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseOutput {
+	return o
+}
+
+// Value that indicates whether to ignore missing VNet Service Endpoint
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesInvokeResponse) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+// Subnet properties
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseOutput) Subnet() SubnetInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesInvokeResponse) *SubnetInvokeResponse { return v.Subnet }).(SubnetInvokeResponsePtrOutput)
+}
+
+type NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetVirtualNetworkRulesInvokeResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput) ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput() NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput) ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetVirtualNetworkRulesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetVirtualNetworkRulesInvokeResponse {
+		return vs[0].([]NWRuleSetVirtualNetworkRulesInvokeResponse)[vs[1].(int)]
+	}).(NWRuleSetVirtualNetworkRulesInvokeResponseOutput)
 }
 
 // Description of VirtualNetworkRules - NetworkRules resource.
@@ -1456,6 +1965,79 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// SKU parameters supplied to the create namespace operation
+type SkuInvokeResponse struct {
+	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+	Capacity *int `pulumi:"capacity"`
+	// Name of this SKU.
+	Name string `pulumi:"name"`
+	// The billing tier of this particular SKU.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// SKU parameters supplied to the create namespace operation
+type SkuInvokeResponseArgs struct {
+	// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Name of this SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The billing tier of this particular SKU.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// SKU parameters supplied to the create namespace operation
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The Event Hubs throughput units, value should be 0 to 20 throughput units.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Name of this SKU.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The billing tier of this particular SKU.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 // SKU parameters supplied to the create namespace operation
@@ -1765,6 +2347,140 @@ func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Properties supplied for Subnet
+type SubnetInvokeResponse struct {
+	// Resource ID of Virtual Network Subnet
+	Id string `pulumi:"id"`
+}
+
+// SubnetInvokeResponseInput is an input type that accepts SubnetInvokeResponseArgs and SubnetInvokeResponseOutput values.
+// You can construct a concrete instance of `SubnetInvokeResponseInput` via:
+//
+//          SubnetInvokeResponseArgs{...}
+type SubnetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubnetInvokeResponseOutput() SubnetInvokeResponseOutput
+	ToSubnetInvokeResponseOutputWithContext(context.Context) SubnetInvokeResponseOutput
+}
+
+// Properties supplied for Subnet
+type SubnetInvokeResponseArgs struct {
+	// Resource ID of Virtual Network Subnet
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SubnetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (i SubnetInvokeResponseArgs) ToSubnetInvokeResponseOutput() SubnetInvokeResponseOutput {
+	return i.ToSubnetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubnetInvokeResponseArgs) ToSubnetInvokeResponseOutputWithContext(ctx context.Context) SubnetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetInvokeResponseOutput)
+}
+
+func (i SubnetInvokeResponseArgs) ToSubnetInvokeResponsePtrOutput() SubnetInvokeResponsePtrOutput {
+	return i.ToSubnetInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SubnetInvokeResponseArgs) ToSubnetInvokeResponsePtrOutputWithContext(ctx context.Context) SubnetInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetInvokeResponseOutput).ToSubnetInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SubnetInvokeResponsePtrInput is an input type that accepts SubnetInvokeResponseArgs, SubnetInvokeResponsePtr and SubnetInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SubnetInvokeResponsePtrInput` via:
+//
+//          SubnetInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SubnetInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSubnetInvokeResponsePtrOutput() SubnetInvokeResponsePtrOutput
+	ToSubnetInvokeResponsePtrOutputWithContext(context.Context) SubnetInvokeResponsePtrOutput
+}
+
+type subnetInvokeResponsePtrType SubnetInvokeResponseArgs
+
+func SubnetInvokeResponsePtr(v *SubnetInvokeResponseArgs) SubnetInvokeResponsePtrInput {
+	return (*subnetInvokeResponsePtrType)(v)
+}
+
+func (*subnetInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (i *subnetInvokeResponsePtrType) ToSubnetInvokeResponsePtrOutput() SubnetInvokeResponsePtrOutput {
+	return i.ToSubnetInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *subnetInvokeResponsePtrType) ToSubnetInvokeResponsePtrOutputWithContext(ctx context.Context) SubnetInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetInvokeResponsePtrOutput)
+}
+
+// Properties supplied for Subnet
+type SubnetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubnetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (o SubnetInvokeResponseOutput) ToSubnetInvokeResponseOutput() SubnetInvokeResponseOutput {
+	return o
+}
+
+func (o SubnetInvokeResponseOutput) ToSubnetInvokeResponseOutputWithContext(ctx context.Context) SubnetInvokeResponseOutput {
+	return o
+}
+
+func (o SubnetInvokeResponseOutput) ToSubnetInvokeResponsePtrOutput() SubnetInvokeResponsePtrOutput {
+	return o.ToSubnetInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SubnetInvokeResponseOutput) ToSubnetInvokeResponsePtrOutputWithContext(ctx context.Context) SubnetInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SubnetInvokeResponse) *SubnetInvokeResponse {
+		return &v
+	}).(SubnetInvokeResponsePtrOutput)
+}
+
+// Resource ID of Virtual Network Subnet
+func (o SubnetInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SubnetInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SubnetInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (o SubnetInvokeResponsePtrOutput) ToSubnetInvokeResponsePtrOutput() SubnetInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SubnetInvokeResponsePtrOutput) ToSubnetInvokeResponsePtrOutputWithContext(ctx context.Context) SubnetInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SubnetInvokeResponsePtrOutput) Elem() SubnetInvokeResponseOutput {
+	return o.ApplyT(func(v *SubnetInvokeResponse) SubnetInvokeResponse { return *v }).(SubnetInvokeResponseOutput)
+}
+
+// Resource ID of Virtual Network Subnet
+func (o SubnetInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties supplied for Subnet
 type SubnetResponse struct {
 	// Resource ID of Virtual Network Subnet
 	Id string `pulumi:"id"`
@@ -1901,26 +2617,36 @@ func (o SubnetResponsePtrOutput) Id() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(CaptureDescriptionOutput{})
 	pulumi.RegisterOutputType(CaptureDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(CaptureDescriptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CaptureDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(CaptureDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(DestinationOutput{})
 	pulumi.RegisterOutputType(DestinationPtrOutput{})
+	pulumi.RegisterOutputType(DestinationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DestinationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DestinationResponseOutput{})
 	pulumi.RegisterOutputType(DestinationResponsePtrOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesArrayOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesResponseOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesResponseArrayOutput{})
 	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesOutput{})
 	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesArrayOutput{})
+	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesResponseOutput{})
 	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubnetOutput{})
 	pulumi.RegisterOutputType(SubnetPtrOutput{})
+	pulumi.RegisterOutputType(SubnetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SubnetInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubnetResponseOutput{})
 	pulumi.RegisterOutputType(SubnetResponsePtrOutput{})
 }

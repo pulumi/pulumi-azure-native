@@ -34,8 +34,8 @@ type LookupSiteResult struct {
 	// Name of the VMware site.
 	Name *string `pulumi:"name"`
 	// Nested properties of VMWare site.
-	Properties SitePropertiesResponse `pulumi:"properties"`
-	Tags       map[string]string      `pulumi:"tags"`
+	Properties SitePropertiesInvokeResponse `pulumi:"properties"`
+	Tags       map[string]string            `pulumi:"tags"`
 	// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
 	Type string `pulumi:"type"`
 }

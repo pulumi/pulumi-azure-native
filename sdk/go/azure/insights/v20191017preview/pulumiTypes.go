@@ -11,6 +11,155 @@ import (
 )
 
 // A private endpoint connection
+type PrivateEndpointConnectionInvokeResponse struct {
+	// Azure resource Id
+	Id string `pulumi:"id"`
+	// Azure resource name
+	Name string `pulumi:"name"`
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint *PrivateEndpointPropertyInvokeResponse `pulumi:"privateEndpoint"`
+	// Connection state of the private endpoint connection.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	// State of the private endpoint connection.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Azure resource type
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionInvokeResponseInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArgs and PrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArgs{...}
+type PrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput
+	ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseOutput
+}
+
+// A private endpoint connection
+type PrivateEndpointConnectionInvokeResponseArgs struct {
+	// Azure resource Id
+	Id pulumi.StringInput `pulumi:"id"`
+	// Azure resource name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint PrivateEndpointPropertyInvokeResponsePtrInput `pulumi:"privateEndpoint"`
+	// Connection state of the private endpoint connection.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// State of the private endpoint connection.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Azure resource type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// PrivateEndpointConnectionInvokeResponseArrayInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArray and PrivateEndpointConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArray{ PrivateEndpointConnectionInvokeResponseArgs{...} }
+type PrivateEndpointConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput
+	ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput
+}
+
+type PrivateEndpointConnectionInvokeResponseArray []PrivateEndpointConnectionInvokeResponseInput
+
+func (PrivateEndpointConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// A private endpoint connection
+type PrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// Azure resource Id
+func (o PrivateEndpointConnectionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o PrivateEndpointConnectionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint which the connection belongs to.
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateEndpoint() PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *PrivateEndpointPropertyInvokeResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointPropertyInvokeResponsePtrOutput)
+}
+
+// Connection state of the private endpoint connection.
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *PrivateLinkServiceConnectionStatePropertyInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput)
+}
+
+// State of the private endpoint connection.
+func (o PrivateEndpointConnectionInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o PrivateEndpointConnectionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionInvokeResponse {
+		return vs[0].([]PrivateEndpointConnectionInvokeResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// A private endpoint connection
 type PrivateEndpointConnectionResponse struct {
 	// Azure resource Id
 	Id string `pulumi:"id"`
@@ -284,6 +433,140 @@ func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
 // Resource id of the private endpoint.
 func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateEndpointProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private endpoint which the connection belongs to.
+type PrivateEndpointPropertyInvokeResponse struct {
+	// Resource id of the private endpoint.
+	Id *string `pulumi:"id"`
+}
+
+// PrivateEndpointPropertyInvokeResponseInput is an input type that accepts PrivateEndpointPropertyInvokeResponseArgs and PrivateEndpointPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointPropertyInvokeResponseInput` via:
+//
+//          PrivateEndpointPropertyInvokeResponseArgs{...}
+type PrivateEndpointPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyInvokeResponseOutput() PrivateEndpointPropertyInvokeResponseOutput
+	ToPrivateEndpointPropertyInvokeResponseOutputWithContext(context.Context) PrivateEndpointPropertyInvokeResponseOutput
+}
+
+// Private endpoint which the connection belongs to.
+type PrivateEndpointPropertyInvokeResponseArgs struct {
+	// Resource id of the private endpoint.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointPropertyInvokeResponseArgs) ToPrivateEndpointPropertyInvokeResponseOutput() PrivateEndpointPropertyInvokeResponseOutput {
+	return i.ToPrivateEndpointPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyInvokeResponseArgs) ToPrivateEndpointPropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyInvokeResponseOutput)
+}
+
+func (i PrivateEndpointPropertyInvokeResponseArgs) ToPrivateEndpointPropertyInvokeResponsePtrOutput() PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyInvokeResponseArgs) ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyInvokeResponseOutput).ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointPropertyInvokeResponsePtrInput is an input type that accepts PrivateEndpointPropertyInvokeResponseArgs, PrivateEndpointPropertyInvokeResponsePtr and PrivateEndpointPropertyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointPropertyInvokeResponsePtrInput` via:
+//
+//          PrivateEndpointPropertyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointPropertyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyInvokeResponsePtrOutput() PrivateEndpointPropertyInvokeResponsePtrOutput
+	ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Context) PrivateEndpointPropertyInvokeResponsePtrOutput
+}
+
+type privateEndpointPropertyInvokeResponsePtrType PrivateEndpointPropertyInvokeResponseArgs
+
+func PrivateEndpointPropertyInvokeResponsePtr(v *PrivateEndpointPropertyInvokeResponseArgs) PrivateEndpointPropertyInvokeResponsePtrInput {
+	return (*privateEndpointPropertyInvokeResponsePtrType)(v)
+}
+
+func (*privateEndpointPropertyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointPropertyInvokeResponsePtrType) ToPrivateEndpointPropertyInvokeResponsePtrOutput() PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointPropertyInvokeResponsePtrType) ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyInvokeResponsePtrOutput)
+}
+
+// Private endpoint which the connection belongs to.
+type PrivateEndpointPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyInvokeResponseOutput) ToPrivateEndpointPropertyInvokeResponseOutput() PrivateEndpointPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyInvokeResponseOutput) ToPrivateEndpointPropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyInvokeResponseOutput) ToPrivateEndpointPropertyInvokeResponsePtrOutput() PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o.ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointPropertyInvokeResponseOutput) ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointPropertyInvokeResponse) *PrivateEndpointPropertyInvokeResponse {
+		return &v
+	}).(PrivateEndpointPropertyInvokeResponsePtrOutput)
+}
+
+// Resource id of the private endpoint.
+func (o PrivateEndpointPropertyInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointPropertyInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointPropertyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyInvokeResponsePtrOutput) ToPrivateEndpointPropertyInvokeResponsePtrOutput() PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyInvokeResponsePtrOutput) ToPrivateEndpointPropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyInvokeResponsePtrOutput) Elem() PrivateEndpointPropertyInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointPropertyInvokeResponse) PrivateEndpointPropertyInvokeResponse { return *v }).(PrivateEndpointPropertyInvokeResponseOutput)
+}
+
+// Resource id of the private endpoint.
+func (o PrivateEndpointPropertyInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointPropertyInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -573,6 +856,180 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi
 // The private link service connection status.
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// State of the private endpoint connection.
+type PrivateLinkServiceConnectionStatePropertyInvokeResponse struct {
+	// The actions required for private link service connection.
+	ActionsRequired string `pulumi:"actionsRequired"`
+	// The private link service connection description.
+	Description string `pulumi:"description"`
+	// The private link service connection status.
+	Status string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStatePropertyInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs and PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionStatePropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput
+	ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput
+}
+
+// State of the private endpoint connection.
+type PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs struct {
+	// The actions required for private link service connection.
+	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	// The private link service connection description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The private link service connection status.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput)
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput).ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs, PrivateLinkServiceConnectionStatePropertyInvokeResponsePtr and PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput` via:
+//
+//          PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput
+	ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput
+}
+
+type privateLinkServiceConnectionStatePropertyInvokeResponsePtrType PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs
+
+func PrivateLinkServiceConnectionStatePropertyInvokeResponsePtr(v *PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrInput {
+	return (*privateLinkServiceConnectionStatePropertyInvokeResponsePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStatePropertyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStatePropertyInvokeResponsePtrType) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStatePropertyInvokeResponsePtrType) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput)
+}
+
+// State of the private endpoint connection.
+type PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) *PrivateLinkServiceConnectionStatePropertyInvokeResponse {
+		return &v
+	}).(PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput)
+}
+
+// The actions required for private link service connection.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ActionsRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
+}
+
+// The private link service connection description.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyInvokeResponse) PrivateLinkServiceConnectionStatePropertyInvokeResponse {
+		return *v
+	}).(PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput)
+}
+
+// The actions required for private link service connection.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection description.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -891,6 +1348,142 @@ func (o WorkbookTemplateGalleryArrayOutput) Index(i pulumi.IntInput) WorkbookTem
 }
 
 // Gallery information for a workbook template.
+type WorkbookTemplateGalleryInvokeResponse struct {
+	// Category for the gallery.
+	Category *string `pulumi:"category"`
+	// Name of the workbook template in the gallery.
+	Name *string `pulumi:"name"`
+	// Order of the template within the gallery.
+	Order *int `pulumi:"order"`
+	// Azure resource type supported by the gallery.
+	ResourceType *string `pulumi:"resourceType"`
+	// Type of workbook supported by the workbook template.
+	Type *string `pulumi:"type"`
+}
+
+// WorkbookTemplateGalleryInvokeResponseInput is an input type that accepts WorkbookTemplateGalleryInvokeResponseArgs and WorkbookTemplateGalleryInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkbookTemplateGalleryInvokeResponseInput` via:
+//
+//          WorkbookTemplateGalleryInvokeResponseArgs{...}
+type WorkbookTemplateGalleryInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkbookTemplateGalleryInvokeResponseOutput() WorkbookTemplateGalleryInvokeResponseOutput
+	ToWorkbookTemplateGalleryInvokeResponseOutputWithContext(context.Context) WorkbookTemplateGalleryInvokeResponseOutput
+}
+
+// Gallery information for a workbook template.
+type WorkbookTemplateGalleryInvokeResponseArgs struct {
+	// Category for the gallery.
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// Name of the workbook template in the gallery.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Order of the template within the gallery.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// Azure resource type supported by the gallery.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// Type of workbook supported by the workbook template.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkbookTemplateGalleryInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookTemplateGalleryInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkbookTemplateGalleryInvokeResponseArgs) ToWorkbookTemplateGalleryInvokeResponseOutput() WorkbookTemplateGalleryInvokeResponseOutput {
+	return i.ToWorkbookTemplateGalleryInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkbookTemplateGalleryInvokeResponseArgs) ToWorkbookTemplateGalleryInvokeResponseOutputWithContext(ctx context.Context) WorkbookTemplateGalleryInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateGalleryInvokeResponseOutput)
+}
+
+// WorkbookTemplateGalleryInvokeResponseArrayInput is an input type that accepts WorkbookTemplateGalleryInvokeResponseArray and WorkbookTemplateGalleryInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `WorkbookTemplateGalleryInvokeResponseArrayInput` via:
+//
+//          WorkbookTemplateGalleryInvokeResponseArray{ WorkbookTemplateGalleryInvokeResponseArgs{...} }
+type WorkbookTemplateGalleryInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToWorkbookTemplateGalleryInvokeResponseArrayOutput() WorkbookTemplateGalleryInvokeResponseArrayOutput
+	ToWorkbookTemplateGalleryInvokeResponseArrayOutputWithContext(context.Context) WorkbookTemplateGalleryInvokeResponseArrayOutput
+}
+
+type WorkbookTemplateGalleryInvokeResponseArray []WorkbookTemplateGalleryInvokeResponseInput
+
+func (WorkbookTemplateGalleryInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkbookTemplateGalleryInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkbookTemplateGalleryInvokeResponseArray) ToWorkbookTemplateGalleryInvokeResponseArrayOutput() WorkbookTemplateGalleryInvokeResponseArrayOutput {
+	return i.ToWorkbookTemplateGalleryInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WorkbookTemplateGalleryInvokeResponseArray) ToWorkbookTemplateGalleryInvokeResponseArrayOutputWithContext(ctx context.Context) WorkbookTemplateGalleryInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateGalleryInvokeResponseArrayOutput)
+}
+
+// Gallery information for a workbook template.
+type WorkbookTemplateGalleryInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkbookTemplateGalleryInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookTemplateGalleryInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkbookTemplateGalleryInvokeResponseOutput) ToWorkbookTemplateGalleryInvokeResponseOutput() WorkbookTemplateGalleryInvokeResponseOutput {
+	return o
+}
+
+func (o WorkbookTemplateGalleryInvokeResponseOutput) ToWorkbookTemplateGalleryInvokeResponseOutputWithContext(ctx context.Context) WorkbookTemplateGalleryInvokeResponseOutput {
+	return o
+}
+
+// Category for the gallery.
+func (o WorkbookTemplateGalleryInvokeResponseOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkbookTemplateGalleryInvokeResponse) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// Name of the workbook template in the gallery.
+func (o WorkbookTemplateGalleryInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkbookTemplateGalleryInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Order of the template within the gallery.
+func (o WorkbookTemplateGalleryInvokeResponseOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkbookTemplateGalleryInvokeResponse) *int { return v.Order }).(pulumi.IntPtrOutput)
+}
+
+// Azure resource type supported by the gallery.
+func (o WorkbookTemplateGalleryInvokeResponseOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkbookTemplateGalleryInvokeResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Type of workbook supported by the workbook template.
+func (o WorkbookTemplateGalleryInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkbookTemplateGalleryInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkbookTemplateGalleryInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkbookTemplateGalleryInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkbookTemplateGalleryInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkbookTemplateGalleryInvokeResponseArrayOutput) ToWorkbookTemplateGalleryInvokeResponseArrayOutput() WorkbookTemplateGalleryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkbookTemplateGalleryInvokeResponseArrayOutput) ToWorkbookTemplateGalleryInvokeResponseArrayOutputWithContext(ctx context.Context) WorkbookTemplateGalleryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkbookTemplateGalleryInvokeResponseArrayOutput) Index(i pulumi.IntInput) WorkbookTemplateGalleryInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkbookTemplateGalleryInvokeResponse {
+		return vs[0].([]WorkbookTemplateGalleryInvokeResponse)[vs[1].(int)]
+	}).(WorkbookTemplateGalleryInvokeResponseOutput)
+}
+
+// Gallery information for a workbook template.
 type WorkbookTemplateGalleryResponse struct {
 	// Category for the gallery.
 	Category *string `pulumi:"category"`
@@ -1136,6 +1729,117 @@ func (o WorkbookTemplateLocalizedGalleryArrayOutput) Index(i pulumi.IntInput) Wo
 }
 
 // Localized template data and gallery information.
+type WorkbookTemplateLocalizedGalleryInvokeResponse struct {
+	// Workbook galleries supported by the template.
+	Galleries []WorkbookTemplateGalleryInvokeResponse `pulumi:"galleries"`
+	// Valid JSON object containing workbook template payload.
+	TemplateData interface{} `pulumi:"templateData"`
+}
+
+// WorkbookTemplateLocalizedGalleryInvokeResponseInput is an input type that accepts WorkbookTemplateLocalizedGalleryInvokeResponseArgs and WorkbookTemplateLocalizedGalleryInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryInvokeResponseInput` via:
+//
+//          WorkbookTemplateLocalizedGalleryInvokeResponseArgs{...}
+type WorkbookTemplateLocalizedGalleryInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkbookTemplateLocalizedGalleryInvokeResponseOutput() WorkbookTemplateLocalizedGalleryInvokeResponseOutput
+	ToWorkbookTemplateLocalizedGalleryInvokeResponseOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryInvokeResponseOutput
+}
+
+// Localized template data and gallery information.
+type WorkbookTemplateLocalizedGalleryInvokeResponseArgs struct {
+	// Workbook galleries supported by the template.
+	Galleries WorkbookTemplateGalleryInvokeResponseArrayInput `pulumi:"galleries"`
+	// Valid JSON object containing workbook template payload.
+	TemplateData pulumi.Input `pulumi:"templateData"`
+}
+
+func (WorkbookTemplateLocalizedGalleryInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkbookTemplateLocalizedGalleryInvokeResponseArgs) ToWorkbookTemplateLocalizedGalleryInvokeResponseOutput() WorkbookTemplateLocalizedGalleryInvokeResponseOutput {
+	return i.ToWorkbookTemplateLocalizedGalleryInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkbookTemplateLocalizedGalleryInvokeResponseArgs) ToWorkbookTemplateLocalizedGalleryInvokeResponseOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryInvokeResponseOutput)
+}
+
+// WorkbookTemplateLocalizedGalleryInvokeResponseArrayInput is an input type that accepts WorkbookTemplateLocalizedGalleryInvokeResponseArray and WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `WorkbookTemplateLocalizedGalleryInvokeResponseArrayInput` via:
+//
+//          WorkbookTemplateLocalizedGalleryInvokeResponseArray{ WorkbookTemplateLocalizedGalleryInvokeResponseArgs{...} }
+type WorkbookTemplateLocalizedGalleryInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToWorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput() WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput
+	ToWorkbookTemplateLocalizedGalleryInvokeResponseArrayOutputWithContext(context.Context) WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput
+}
+
+type WorkbookTemplateLocalizedGalleryInvokeResponseArray []WorkbookTemplateLocalizedGalleryInvokeResponseInput
+
+func (WorkbookTemplateLocalizedGalleryInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkbookTemplateLocalizedGalleryInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkbookTemplateLocalizedGalleryInvokeResponseArray) ToWorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput() WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput {
+	return i.ToWorkbookTemplateLocalizedGalleryInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WorkbookTemplateLocalizedGalleryInvokeResponseArray) ToWorkbookTemplateLocalizedGalleryInvokeResponseArrayOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput)
+}
+
+// Localized template data and gallery information.
+type WorkbookTemplateLocalizedGalleryInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkbookTemplateLocalizedGalleryInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookTemplateLocalizedGalleryInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkbookTemplateLocalizedGalleryInvokeResponseOutput) ToWorkbookTemplateLocalizedGalleryInvokeResponseOutput() WorkbookTemplateLocalizedGalleryInvokeResponseOutput {
+	return o
+}
+
+func (o WorkbookTemplateLocalizedGalleryInvokeResponseOutput) ToWorkbookTemplateLocalizedGalleryInvokeResponseOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryInvokeResponseOutput {
+	return o
+}
+
+// Workbook galleries supported by the template.
+func (o WorkbookTemplateLocalizedGalleryInvokeResponseOutput) Galleries() WorkbookTemplateGalleryInvokeResponseArrayOutput {
+	return o.ApplyT(func(v WorkbookTemplateLocalizedGalleryInvokeResponse) []WorkbookTemplateGalleryInvokeResponse {
+		return v.Galleries
+	}).(WorkbookTemplateGalleryInvokeResponseArrayOutput)
+}
+
+// Valid JSON object containing workbook template payload.
+func (o WorkbookTemplateLocalizedGalleryInvokeResponseOutput) TemplateData() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkbookTemplateLocalizedGalleryInvokeResponse) interface{} { return v.TemplateData }).(pulumi.AnyOutput)
+}
+
+type WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkbookTemplateLocalizedGalleryInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput) ToWorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput() WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput) ToWorkbookTemplateLocalizedGalleryInvokeResponseArrayOutputWithContext(ctx context.Context) WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput) Index(i pulumi.IntInput) WorkbookTemplateLocalizedGalleryInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkbookTemplateLocalizedGalleryInvokeResponse {
+		return vs[0].([]WorkbookTemplateLocalizedGalleryInvokeResponse)[vs[1].(int)]
+	}).(WorkbookTemplateLocalizedGalleryInvokeResponseOutput)
+}
+
+// Localized template data and gallery information.
 type WorkbookTemplateLocalizedGalleryResponse struct {
 	// Workbook galleries supported by the template.
 	Galleries []WorkbookTemplateGalleryResponse `pulumi:"galleries"`
@@ -1245,22 +1949,32 @@ func (o WorkbookTemplateLocalizedGalleryResponseArrayOutput) Index(i pulumi.IntI
 }
 
 func init() {
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateGalleryOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateGalleryArrayOutput{})
+	pulumi.RegisterOutputType(WorkbookTemplateGalleryInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkbookTemplateGalleryInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateGalleryResponseOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateGalleryResponseArrayOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryArrayOutput{})
+	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryResponseOutput{})
 	pulumi.RegisterOutputType(WorkbookTemplateLocalizedGalleryResponseArrayOutput{})
 }

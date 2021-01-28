@@ -28,5 +28,5 @@ type ListMonitoredResourceResult struct {
 	// Link to the next set of results, if any.
 	NextLink *string `pulumi:"nextLink"`
 	// Results of a list operation.
-	Value []MonitoredResourceResponse `pulumi:"value"`
+	Value []MonitoredResourceInvokeResponse `pulumi:"value"`
 }

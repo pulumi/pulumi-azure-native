@@ -183,6 +183,79 @@ func (o DnsConfigPtrOutput) Ttl() pulumi.Float64PtrOutput {
 }
 
 // Class containing DNS settings in a Traffic Manager profile.
+type DnsConfigInvokeResponse struct {
+	// Gets or sets the fully-qualified domain name (FQDN) of the Traffic Manager profile.  This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
+	Fqdn *string `pulumi:"fqdn"`
+	// Gets or sets the relative DNS name provided by this Traffic Manager profile.  This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+	RelativeName *string `pulumi:"relativeName"`
+	// Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+	Ttl *float64 `pulumi:"ttl"`
+}
+
+// DnsConfigInvokeResponseInput is an input type that accepts DnsConfigInvokeResponseArgs and DnsConfigInvokeResponseOutput values.
+// You can construct a concrete instance of `DnsConfigInvokeResponseInput` via:
+//
+//          DnsConfigInvokeResponseArgs{...}
+type DnsConfigInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDnsConfigInvokeResponseOutput() DnsConfigInvokeResponseOutput
+	ToDnsConfigInvokeResponseOutputWithContext(context.Context) DnsConfigInvokeResponseOutput
+}
+
+// Class containing DNS settings in a Traffic Manager profile.
+type DnsConfigInvokeResponseArgs struct {
+	// Gets or sets the fully-qualified domain name (FQDN) of the Traffic Manager profile.  This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// Gets or sets the relative DNS name provided by this Traffic Manager profile.  This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+	RelativeName pulumi.StringPtrInput `pulumi:"relativeName"`
+	// Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+	Ttl pulumi.Float64PtrInput `pulumi:"ttl"`
+}
+
+func (DnsConfigInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsConfigInvokeResponse)(nil)).Elem()
+}
+
+func (i DnsConfigInvokeResponseArgs) ToDnsConfigInvokeResponseOutput() DnsConfigInvokeResponseOutput {
+	return i.ToDnsConfigInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DnsConfigInvokeResponseArgs) ToDnsConfigInvokeResponseOutputWithContext(ctx context.Context) DnsConfigInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsConfigInvokeResponseOutput)
+}
+
+// Class containing DNS settings in a Traffic Manager profile.
+type DnsConfigInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DnsConfigInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsConfigInvokeResponse)(nil)).Elem()
+}
+
+func (o DnsConfigInvokeResponseOutput) ToDnsConfigInvokeResponseOutput() DnsConfigInvokeResponseOutput {
+	return o
+}
+
+func (o DnsConfigInvokeResponseOutput) ToDnsConfigInvokeResponseOutputWithContext(ctx context.Context) DnsConfigInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the fully-qualified domain name (FQDN) of the Traffic Manager profile.  This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
+func (o DnsConfigInvokeResponseOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DnsConfigInvokeResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the relative DNS name provided by this Traffic Manager profile.  This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+func (o DnsConfigInvokeResponseOutput) RelativeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DnsConfigInvokeResponse) *string { return v.RelativeName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the DNS Time-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+func (o DnsConfigInvokeResponseOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DnsConfigInvokeResponse) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
+}
+
+// Class containing DNS settings in a Traffic Manager profile.
 type DnsConfigResponse struct {
 	// Gets or sets the fully-qualified domain name (FQDN) of the Traffic Manager profile.  This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
 	Fqdn *string `pulumi:"fqdn"`
@@ -542,6 +615,196 @@ func (o EndpointTypeArrayOutput) Index(i pulumi.IntInput) EndpointTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointType {
 		return vs[0].([]EndpointType)[vs[1].(int)]
 	}).(EndpointTypeOutput)
+}
+
+// Class representing a Traffic Manager endpoint.
+type EndpointInvokeResponse struct {
+	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+	EndpointLocation *string `pulumi:"endpointLocation"`
+	// Gets or sets the monitoring status of the endpoint.
+	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
+	// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
+	EndpointStatus *string `pulumi:"endpointStatus"`
+	// Gets or sets the ID of the Traffic Manager endpoint.
+	Id *string `pulumi:"id"`
+	// Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
+	// Gets or sets the name of the Traffic Manager endpoint.
+	Name *string `pulumi:"name"`
+	// Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+	Priority *float64 `pulumi:"priority"`
+	// Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+	Target *string `pulumi:"target"`
+	// Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
+	TargetResourceId *string `pulumi:"targetResourceId"`
+	// Gets or sets the endpoint type of the Traffic Manager endpoint.
+	Type *string `pulumi:"type"`
+	// Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+	Weight *float64 `pulumi:"weight"`
+}
+
+// EndpointInvokeResponseInput is an input type that accepts EndpointInvokeResponseArgs and EndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `EndpointInvokeResponseInput` via:
+//
+//          EndpointInvokeResponseArgs{...}
+type EndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEndpointInvokeResponseOutput() EndpointInvokeResponseOutput
+	ToEndpointInvokeResponseOutputWithContext(context.Context) EndpointInvokeResponseOutput
+}
+
+// Class representing a Traffic Manager endpoint.
+type EndpointInvokeResponseArgs struct {
+	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+	EndpointLocation pulumi.StringPtrInput `pulumi:"endpointLocation"`
+	// Gets or sets the monitoring status of the endpoint.
+	EndpointMonitorStatus pulumi.StringPtrInput `pulumi:"endpointMonitorStatus"`
+	// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
+	EndpointStatus pulumi.StringPtrInput `pulumi:"endpointStatus"`
+	// Gets or sets the ID of the Traffic Manager endpoint.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpoints pulumi.Float64PtrInput `pulumi:"minChildEndpoints"`
+	// Gets or sets the name of the Traffic Manager endpoint.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+	Priority pulumi.Float64PtrInput `pulumi:"priority"`
+	// Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
+	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
+	// Gets or sets the endpoint type of the Traffic Manager endpoint.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+	Weight pulumi.Float64PtrInput `pulumi:"weight"`
+}
+
+func (EndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i EndpointInvokeResponseArgs) ToEndpointInvokeResponseOutput() EndpointInvokeResponseOutput {
+	return i.ToEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EndpointInvokeResponseArgs) ToEndpointInvokeResponseOutputWithContext(ctx context.Context) EndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointInvokeResponseOutput)
+}
+
+// EndpointInvokeResponseArrayInput is an input type that accepts EndpointInvokeResponseArray and EndpointInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EndpointInvokeResponseArrayInput` via:
+//
+//          EndpointInvokeResponseArray{ EndpointInvokeResponseArgs{...} }
+type EndpointInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEndpointInvokeResponseArrayOutput() EndpointInvokeResponseArrayOutput
+	ToEndpointInvokeResponseArrayOutputWithContext(context.Context) EndpointInvokeResponseArrayOutput
+}
+
+type EndpointInvokeResponseArray []EndpointInvokeResponseInput
+
+func (EndpointInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i EndpointInvokeResponseArray) ToEndpointInvokeResponseArrayOutput() EndpointInvokeResponseArrayOutput {
+	return i.ToEndpointInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointInvokeResponseArray) ToEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) EndpointInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointInvokeResponseArrayOutput)
+}
+
+// Class representing a Traffic Manager endpoint.
+type EndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o EndpointInvokeResponseOutput) ToEndpointInvokeResponseOutput() EndpointInvokeResponseOutput {
+	return o
+}
+
+func (o EndpointInvokeResponseOutput) ToEndpointInvokeResponseOutputWithContext(ctx context.Context) EndpointInvokeResponseOutput {
+	return o
+}
+
+// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+func (o EndpointInvokeResponseOutput) EndpointLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.EndpointLocation }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the monitoring status of the endpoint.
+func (o EndpointInvokeResponseOutput) EndpointMonitorStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.EndpointMonitorStatus }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
+func (o EndpointInvokeResponseOutput) EndpointStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.EndpointStatus }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the ID of the Traffic Manager endpoint.
+func (o EndpointInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+func (o EndpointInvokeResponseOutput) MinChildEndpoints() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *float64 { return v.MinChildEndpoints }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the name of the Traffic Manager endpoint.
+func (o EndpointInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+func (o EndpointInvokeResponseOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+func (o EndpointInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
+func (o EndpointInvokeResponseOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the endpoint type of the Traffic Manager endpoint.
+func (o EndpointInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+func (o EndpointInvokeResponseOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
+}
+
+type EndpointInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o EndpointInvokeResponseArrayOutput) ToEndpointInvokeResponseArrayOutput() EndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EndpointInvokeResponseArrayOutput) ToEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) EndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EndpointInvokeResponseArrayOutput) Index(i pulumi.IntInput) EndpointInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointInvokeResponse {
+		return vs[0].([]EndpointInvokeResponse)[vs[1].(int)]
+	}).(EndpointInvokeResponseOutput)
 }
 
 // Class representing a Traffic Manager endpoint.
@@ -926,6 +1189,88 @@ func (o MonitorConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 }
 
 // Class containing endpoint monitoring settings in a Traffic Manager profile.
+type MonitorConfigInvokeResponse struct {
+	// Gets or sets the path relative to the endpoint domain name used to probe for endpoint health.
+	Path *string `pulumi:"path"`
+	// Gets or sets the TCP port used to probe for endpoint health.
+	Port *float64 `pulumi:"port"`
+	// Gets or sets the profile-level monitoring status of the Traffic Manager profile.
+	ProfileMonitorStatus *string `pulumi:"profileMonitorStatus"`
+	// Gets or sets the protocol (HTTP or HTTPS) used to probe for endpoint health.
+	Protocol *string `pulumi:"protocol"`
+}
+
+// MonitorConfigInvokeResponseInput is an input type that accepts MonitorConfigInvokeResponseArgs and MonitorConfigInvokeResponseOutput values.
+// You can construct a concrete instance of `MonitorConfigInvokeResponseInput` via:
+//
+//          MonitorConfigInvokeResponseArgs{...}
+type MonitorConfigInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMonitorConfigInvokeResponseOutput() MonitorConfigInvokeResponseOutput
+	ToMonitorConfigInvokeResponseOutputWithContext(context.Context) MonitorConfigInvokeResponseOutput
+}
+
+// Class containing endpoint monitoring settings in a Traffic Manager profile.
+type MonitorConfigInvokeResponseArgs struct {
+	// Gets or sets the path relative to the endpoint domain name used to probe for endpoint health.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Gets or sets the TCP port used to probe for endpoint health.
+	Port pulumi.Float64PtrInput `pulumi:"port"`
+	// Gets or sets the profile-level monitoring status of the Traffic Manager profile.
+	ProfileMonitorStatus pulumi.StringPtrInput `pulumi:"profileMonitorStatus"`
+	// Gets or sets the protocol (HTTP or HTTPS) used to probe for endpoint health.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (MonitorConfigInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigInvokeResponse)(nil)).Elem()
+}
+
+func (i MonitorConfigInvokeResponseArgs) ToMonitorConfigInvokeResponseOutput() MonitorConfigInvokeResponseOutput {
+	return i.ToMonitorConfigInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MonitorConfigInvokeResponseArgs) ToMonitorConfigInvokeResponseOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigInvokeResponseOutput)
+}
+
+// Class containing endpoint monitoring settings in a Traffic Manager profile.
+type MonitorConfigInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MonitorConfigInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigInvokeResponse)(nil)).Elem()
+}
+
+func (o MonitorConfigInvokeResponseOutput) ToMonitorConfigInvokeResponseOutput() MonitorConfigInvokeResponseOutput {
+	return o
+}
+
+func (o MonitorConfigInvokeResponseOutput) ToMonitorConfigInvokeResponseOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the path relative to the endpoint domain name used to probe for endpoint health.
+func (o MonitorConfigInvokeResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the TCP port used to probe for endpoint health.
+func (o MonitorConfigInvokeResponseOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *float64 { return v.Port }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the profile-level monitoring status of the Traffic Manager profile.
+func (o MonitorConfigInvokeResponseOutput) ProfileMonitorStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *string { return v.ProfileMonitorStatus }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the protocol (HTTP or HTTPS) used to probe for endpoint health.
+func (o MonitorConfigInvokeResponseOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Class containing endpoint monitoring settings in a Traffic Manager profile.
 type MonitorConfigResponse struct {
 	// Gets or sets the path relative to the endpoint domain name used to probe for endpoint health.
 	Path *string `pulumi:"path"`
@@ -1119,14 +1464,18 @@ func (o MonitorConfigResponsePtrOutput) Protocol() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(DnsConfigOutput{})
 	pulumi.RegisterOutputType(DnsConfigPtrOutput{})
+	pulumi.RegisterOutputType(DnsConfigInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DnsConfigResponseOutput{})
 	pulumi.RegisterOutputType(DnsConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointTypeOutput{})
 	pulumi.RegisterOutputType(EndpointTypeArrayOutput{})
+	pulumi.RegisterOutputType(EndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EndpointInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EndpointResponseOutput{})
 	pulumi.RegisterOutputType(EndpointResponseArrayOutput{})
 	pulumi.RegisterOutputType(MonitorConfigOutput{})
 	pulumi.RegisterOutputType(MonitorConfigPtrOutput{})
+	pulumi.RegisterOutputType(MonitorConfigInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MonitorConfigResponseOutput{})
 	pulumi.RegisterOutputType(MonitorConfigResponsePtrOutput{})
 }

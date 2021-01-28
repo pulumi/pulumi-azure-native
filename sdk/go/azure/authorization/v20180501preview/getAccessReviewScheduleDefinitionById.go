@@ -42,7 +42,7 @@ type LookupAccessReviewScheduleDefinitionByIdResult struct {
 	// The duration in days for an instance.
 	InstanceDurationInDays *int `pulumi:"instanceDurationInDays"`
 	// This is the collection of instances returned when one does an expand on it.
-	Instances []AccessReviewInstanceResponse `pulumi:"instances"`
+	Instances []AccessReviewInstanceInvokeResponse `pulumi:"instances"`
 	// The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
 	Interval *int `pulumi:"interval"`
 	// Flag to indicate whether the reviewer is required to pass justification when recording a decision.
@@ -66,7 +66,7 @@ type LookupAccessReviewScheduleDefinitionByIdResult struct {
 	// ResourceId in which this review is getting created
 	ResourceId string `pulumi:"resourceId"`
 	// This is the collection of reviewers.
-	Reviewers []AccessReviewReviewerResponse `pulumi:"reviewers"`
+	Reviewers []AccessReviewReviewerInvokeResponse `pulumi:"reviewers"`
 	// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
 	ReviewersType string `pulumi:"reviewersType"`
 	// This is used to indicate the role being reviewed

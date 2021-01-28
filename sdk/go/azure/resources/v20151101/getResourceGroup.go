@@ -30,7 +30,7 @@ type LookupResourceGroupResult struct {
 	// Gets or sets the Name of the resource group.
 	Name *string `pulumi:"name"`
 	// The resource group properties.
-	Properties ResourceGroupPropertiesResponse `pulumi:"properties"`
+	Properties ResourceGroupPropertiesInvokeResponse `pulumi:"properties"`
 	// Gets or sets the tags attached to the resource group.
 	Tags map[string]string `pulumi:"tags"`
 }

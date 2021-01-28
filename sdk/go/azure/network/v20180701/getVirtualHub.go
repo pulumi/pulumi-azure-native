@@ -30,7 +30,7 @@ type LookupVirtualHubResult struct {
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// list of all vnet connections with this VirtualHub.
-	HubVirtualNetworkConnections []HubVirtualNetworkConnectionResponse `pulumi:"hubVirtualNetworkConnections"`
+	HubVirtualNetworkConnections []HubVirtualNetworkConnectionInvokeResponse `pulumi:"hubVirtualNetworkConnections"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -44,5 +44,5 @@ type LookupVirtualHubResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The VirtualWAN to which the VirtualHub belongs
-	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
+	VirtualWan *SubResourceInvokeResponse `pulumi:"virtualWan"`
 }

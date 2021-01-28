@@ -28,15 +28,15 @@ type LookupSqlVirtualMachineArgs struct {
 // A SQL virtual machine.
 type LookupSqlVirtualMachineResult struct {
 	// Auto backup settings for SQL Server.
-	AutoBackupSettings *AutoBackupSettingsResponse `pulumi:"autoBackupSettings"`
+	AutoBackupSettings *AutoBackupSettingsInvokeResponse `pulumi:"autoBackupSettings"`
 	// Auto patching settings for applying critical security updates to SQL virtual machine.
-	AutoPatchingSettings *AutoPatchingSettingsResponse `pulumi:"autoPatchingSettings"`
+	AutoPatchingSettings *AutoPatchingSettingsInvokeResponse `pulumi:"autoPatchingSettings"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityInvokeResponse `pulumi:"identity"`
 	// Key vault credential settings.
-	KeyVaultCredentialSettings *KeyVaultCredentialSettingsResponse `pulumi:"keyVaultCredentialSettings"`
+	KeyVaultCredentialSettings *KeyVaultCredentialSettingsInvokeResponse `pulumi:"keyVaultCredentialSettings"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
@@ -44,7 +44,7 @@ type LookupSqlVirtualMachineResult struct {
 	// Provisioning state to track the async operation status.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// SQL Server configuration management settings.
-	ServerConfigurationsManagementSettings *ServerConfigurationsManagementSettingsResponse `pulumi:"serverConfigurationsManagementSettings"`
+	ServerConfigurationsManagementSettings *ServerConfigurationsManagementSettingsInvokeResponse `pulumi:"serverConfigurationsManagementSettings"`
 	// SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
 	SqlImageOffer *string `pulumi:"sqlImageOffer"`
 	// SQL Server edition type.
@@ -56,7 +56,7 @@ type LookupSqlVirtualMachineResult struct {
 	// ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
 	SqlVirtualMachineGroupResourceId *string `pulumi:"sqlVirtualMachineGroupResourceId"`
 	// Storage Configuration Settings.
-	StorageConfigurationSettings *StorageConfigurationSettingsResponse `pulumi:"storageConfigurationSettings"`
+	StorageConfigurationSettings *StorageConfigurationSettingsInvokeResponse `pulumi:"storageConfigurationSettings"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -64,5 +64,5 @@ type LookupSqlVirtualMachineResult struct {
 	// ARM Resource id of underlying virtual machine created from SQL marketplace image.
 	VirtualMachineResourceId *string `pulumi:"virtualMachineResourceId"`
 	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
-	WsfcDomainCredentials *WsfcDomainCredentialsResponse `pulumi:"wsfcDomainCredentials"`
+	WsfcDomainCredentials *WsfcDomainCredentialsInvokeResponse `pulumi:"wsfcDomainCredentials"`
 }

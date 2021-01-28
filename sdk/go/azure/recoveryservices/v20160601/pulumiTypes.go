@@ -768,6 +768,91 @@ func (o AzureIaaSVMProtectionPolicyOutput) SchedulePolicy() pulumi.AnyOutput {
 }
 
 // Azure VM (also known as IaaS VM) workload-specific backup policy.
+type AzureIaaSVMProtectionPolicyInvokeResponse struct {
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// The number of items associated with this policy.
+	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// The retention policy with the details on backup copy retention ranges.
+	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
+	// The backup schedule specified as part of backup policy.
+	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+}
+
+// AzureIaaSVMProtectionPolicyInvokeResponseInput is an input type that accepts AzureIaaSVMProtectionPolicyInvokeResponseArgs and AzureIaaSVMProtectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSVMProtectionPolicyInvokeResponseInput` via:
+//
+//          AzureIaaSVMProtectionPolicyInvokeResponseArgs{...}
+type AzureIaaSVMProtectionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSVMProtectionPolicyInvokeResponseOutput() AzureIaaSVMProtectionPolicyInvokeResponseOutput
+	ToAzureIaaSVMProtectionPolicyInvokeResponseOutputWithContext(context.Context) AzureIaaSVMProtectionPolicyInvokeResponseOutput
+}
+
+// Azure VM (also known as IaaS VM) workload-specific backup policy.
+type AzureIaaSVMProtectionPolicyInvokeResponseArgs struct {
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// The number of items associated with this policy.
+	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
+	// The retention policy with the details on backup copy retention ranges.
+	RetentionPolicy pulumi.Input `pulumi:"retentionPolicy"`
+	// The backup schedule specified as part of backup policy.
+	SchedulePolicy pulumi.Input `pulumi:"schedulePolicy"`
+}
+
+func (AzureIaaSVMProtectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSVMProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSVMProtectionPolicyInvokeResponseArgs) ToAzureIaaSVMProtectionPolicyInvokeResponseOutput() AzureIaaSVMProtectionPolicyInvokeResponseOutput {
+	return i.ToAzureIaaSVMProtectionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSVMProtectionPolicyInvokeResponseArgs) ToAzureIaaSVMProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSVMProtectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectionPolicyInvokeResponseOutput)
+}
+
+// Azure VM (also known as IaaS VM) workload-specific backup policy.
+type AzureIaaSVMProtectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSVMProtectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSVMProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) ToAzureIaaSVMProtectionPolicyInvokeResponseOutput() AzureIaaSVMProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) ToAzureIaaSVMProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSVMProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureIaasVM'.
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// The number of items associated with this policy.
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
+}
+
+// The retention policy with the details on backup copy retention ranges.
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) RetentionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) interface{} { return v.RetentionPolicy }).(pulumi.AnyOutput)
+}
+
+// The backup schedule specified as part of backup policy.
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) SchedulePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) interface{} { return v.SchedulePolicy }).(pulumi.AnyOutput)
+}
+
+// Azure VM (also known as IaaS VM) workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyResponse struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureIaasVM'.
@@ -1231,6 +1316,82 @@ func (o AzureSqlProtectionPolicyOutput) RetentionPolicy() pulumi.AnyOutput {
 }
 
 //  The Azure SQL workload-specific backup policy.
+type AzureSqlProtectionPolicyInvokeResponse struct {
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// The number of items associated with this policy.
+	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// The retention policy details.
+	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
+}
+
+// AzureSqlProtectionPolicyInvokeResponseInput is an input type that accepts AzureSqlProtectionPolicyInvokeResponseArgs and AzureSqlProtectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSqlProtectionPolicyInvokeResponseInput` via:
+//
+//          AzureSqlProtectionPolicyInvokeResponseArgs{...}
+type AzureSqlProtectionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSqlProtectionPolicyInvokeResponseOutput() AzureSqlProtectionPolicyInvokeResponseOutput
+	ToAzureSqlProtectionPolicyInvokeResponseOutputWithContext(context.Context) AzureSqlProtectionPolicyInvokeResponseOutput
+}
+
+//  The Azure SQL workload-specific backup policy.
+type AzureSqlProtectionPolicyInvokeResponseArgs struct {
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// The number of items associated with this policy.
+	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
+	// The retention policy details.
+	RetentionPolicy pulumi.Input `pulumi:"retentionPolicy"`
+}
+
+func (AzureSqlProtectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSqlProtectionPolicyInvokeResponseArgs) ToAzureSqlProtectionPolicyInvokeResponseOutput() AzureSqlProtectionPolicyInvokeResponseOutput {
+	return i.ToAzureSqlProtectionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSqlProtectionPolicyInvokeResponseArgs) ToAzureSqlProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureSqlProtectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectionPolicyInvokeResponseOutput)
+}
+
+//  The Azure SQL workload-specific backup policy.
+type AzureSqlProtectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlProtectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSqlProtectionPolicyInvokeResponseOutput) ToAzureSqlProtectionPolicyInvokeResponseOutput() AzureSqlProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlProtectionPolicyInvokeResponseOutput) ToAzureSqlProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureSqlProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureSql'.
+func (o AzureSqlProtectionPolicyInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectionPolicyInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// The number of items associated with this policy.
+func (o AzureSqlProtectionPolicyInvokeResponseOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectionPolicyInvokeResponse) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
+}
+
+// The retention policy details.
+func (o AzureSqlProtectionPolicyInvokeResponseOutput) RetentionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureSqlProtectionPolicyInvokeResponse) interface{} { return v.RetentionPolicy }).(pulumi.AnyOutput)
+}
+
+//  The Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyResponse struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureSql'.
@@ -1438,6 +1599,140 @@ func (o DailyRetentionFormatPtrOutput) DaysOfTheMonth() DayArrayOutput {
 		}
 		return v.DaysOfTheMonth
 	}).(DayArrayOutput)
+}
+
+// Daily retention format.
+type DailyRetentionFormatInvokeResponse struct {
+	// List of days of the month.
+	DaysOfTheMonth []DayInvokeResponse `pulumi:"daysOfTheMonth"`
+}
+
+// DailyRetentionFormatInvokeResponseInput is an input type that accepts DailyRetentionFormatInvokeResponseArgs and DailyRetentionFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `DailyRetentionFormatInvokeResponseInput` via:
+//
+//          DailyRetentionFormatInvokeResponseArgs{...}
+type DailyRetentionFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDailyRetentionFormatInvokeResponseOutput() DailyRetentionFormatInvokeResponseOutput
+	ToDailyRetentionFormatInvokeResponseOutputWithContext(context.Context) DailyRetentionFormatInvokeResponseOutput
+}
+
+// Daily retention format.
+type DailyRetentionFormatInvokeResponseArgs struct {
+	// List of days of the month.
+	DaysOfTheMonth DayInvokeResponseArrayInput `pulumi:"daysOfTheMonth"`
+}
+
+func (DailyRetentionFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DailyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i DailyRetentionFormatInvokeResponseArgs) ToDailyRetentionFormatInvokeResponseOutput() DailyRetentionFormatInvokeResponseOutput {
+	return i.ToDailyRetentionFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DailyRetentionFormatInvokeResponseArgs) ToDailyRetentionFormatInvokeResponseOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionFormatInvokeResponseOutput)
+}
+
+func (i DailyRetentionFormatInvokeResponseArgs) ToDailyRetentionFormatInvokeResponsePtrOutput() DailyRetentionFormatInvokeResponsePtrOutput {
+	return i.ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DailyRetentionFormatInvokeResponseArgs) ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionFormatInvokeResponseOutput).ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DailyRetentionFormatInvokeResponsePtrInput is an input type that accepts DailyRetentionFormatInvokeResponseArgs, DailyRetentionFormatInvokeResponsePtr and DailyRetentionFormatInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DailyRetentionFormatInvokeResponsePtrInput` via:
+//
+//          DailyRetentionFormatInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DailyRetentionFormatInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDailyRetentionFormatInvokeResponsePtrOutput() DailyRetentionFormatInvokeResponsePtrOutput
+	ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(context.Context) DailyRetentionFormatInvokeResponsePtrOutput
+}
+
+type dailyRetentionFormatInvokeResponsePtrType DailyRetentionFormatInvokeResponseArgs
+
+func DailyRetentionFormatInvokeResponsePtr(v *DailyRetentionFormatInvokeResponseArgs) DailyRetentionFormatInvokeResponsePtrInput {
+	return (*dailyRetentionFormatInvokeResponsePtrType)(v)
+}
+
+func (*dailyRetentionFormatInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i *dailyRetentionFormatInvokeResponsePtrType) ToDailyRetentionFormatInvokeResponsePtrOutput() DailyRetentionFormatInvokeResponsePtrOutput {
+	return i.ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dailyRetentionFormatInvokeResponsePtrType) ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Daily retention format.
+type DailyRetentionFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DailyRetentionFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DailyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o DailyRetentionFormatInvokeResponseOutput) ToDailyRetentionFormatInvokeResponseOutput() DailyRetentionFormatInvokeResponseOutput {
+	return o
+}
+
+func (o DailyRetentionFormatInvokeResponseOutput) ToDailyRetentionFormatInvokeResponseOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponseOutput {
+	return o
+}
+
+func (o DailyRetentionFormatInvokeResponseOutput) ToDailyRetentionFormatInvokeResponsePtrOutput() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DailyRetentionFormatInvokeResponseOutput) ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DailyRetentionFormatInvokeResponse) *DailyRetentionFormatInvokeResponse {
+		return &v
+	}).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// List of days of the month.
+func (o DailyRetentionFormatInvokeResponseOutput) DaysOfTheMonth() DayInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DailyRetentionFormatInvokeResponse) []DayInvokeResponse { return v.DaysOfTheMonth }).(DayInvokeResponseArrayOutput)
+}
+
+type DailyRetentionFormatInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DailyRetentionFormatInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o DailyRetentionFormatInvokeResponsePtrOutput) ToDailyRetentionFormatInvokeResponsePtrOutput() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DailyRetentionFormatInvokeResponsePtrOutput) ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DailyRetentionFormatInvokeResponsePtrOutput) Elem() DailyRetentionFormatInvokeResponseOutput {
+	return o.ApplyT(func(v *DailyRetentionFormatInvokeResponse) DailyRetentionFormatInvokeResponse { return *v }).(DailyRetentionFormatInvokeResponseOutput)
+}
+
+// List of days of the month.
+func (o DailyRetentionFormatInvokeResponsePtrOutput) DaysOfTheMonth() DayInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *DailyRetentionFormatInvokeResponse) []DayInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfTheMonth
+	}).(DayInvokeResponseArrayOutput)
 }
 
 // Daily retention format.
@@ -1728,6 +2023,161 @@ func (o DailyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOutp
 }
 
 // Daily retention schedule.
+type DailyRetentionScheduleInvokeResponse struct {
+	// The retention duration of retention policy.
+	RetentionDuration *RetentionDurationInvokeResponse `pulumi:"retentionDuration"`
+	// The retention times of retention policy.
+	RetentionTimes []string `pulumi:"retentionTimes"`
+}
+
+// DailyRetentionScheduleInvokeResponseInput is an input type that accepts DailyRetentionScheduleInvokeResponseArgs and DailyRetentionScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `DailyRetentionScheduleInvokeResponseInput` via:
+//
+//          DailyRetentionScheduleInvokeResponseArgs{...}
+type DailyRetentionScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDailyRetentionScheduleInvokeResponseOutput() DailyRetentionScheduleInvokeResponseOutput
+	ToDailyRetentionScheduleInvokeResponseOutputWithContext(context.Context) DailyRetentionScheduleInvokeResponseOutput
+}
+
+// Daily retention schedule.
+type DailyRetentionScheduleInvokeResponseArgs struct {
+	// The retention duration of retention policy.
+	RetentionDuration RetentionDurationInvokeResponsePtrInput `pulumi:"retentionDuration"`
+	// The retention times of retention policy.
+	RetentionTimes pulumi.StringArrayInput `pulumi:"retentionTimes"`
+}
+
+func (DailyRetentionScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DailyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i DailyRetentionScheduleInvokeResponseArgs) ToDailyRetentionScheduleInvokeResponseOutput() DailyRetentionScheduleInvokeResponseOutput {
+	return i.ToDailyRetentionScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DailyRetentionScheduleInvokeResponseArgs) ToDailyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionScheduleInvokeResponseOutput)
+}
+
+func (i DailyRetentionScheduleInvokeResponseArgs) ToDailyRetentionScheduleInvokeResponsePtrOutput() DailyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DailyRetentionScheduleInvokeResponseArgs) ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionScheduleInvokeResponseOutput).ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DailyRetentionScheduleInvokeResponsePtrInput is an input type that accepts DailyRetentionScheduleInvokeResponseArgs, DailyRetentionScheduleInvokeResponsePtr and DailyRetentionScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DailyRetentionScheduleInvokeResponsePtrInput` via:
+//
+//          DailyRetentionScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DailyRetentionScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDailyRetentionScheduleInvokeResponsePtrOutput() DailyRetentionScheduleInvokeResponsePtrOutput
+	ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Context) DailyRetentionScheduleInvokeResponsePtrOutput
+}
+
+type dailyRetentionScheduleInvokeResponsePtrType DailyRetentionScheduleInvokeResponseArgs
+
+func DailyRetentionScheduleInvokeResponsePtr(v *DailyRetentionScheduleInvokeResponseArgs) DailyRetentionScheduleInvokeResponsePtrInput {
+	return (*dailyRetentionScheduleInvokeResponsePtrType)(v)
+}
+
+func (*dailyRetentionScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *dailyRetentionScheduleInvokeResponsePtrType) ToDailyRetentionScheduleInvokeResponsePtrOutput() DailyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dailyRetentionScheduleInvokeResponsePtrType) ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Daily retention schedule.
+type DailyRetentionScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DailyRetentionScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DailyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o DailyRetentionScheduleInvokeResponseOutput) ToDailyRetentionScheduleInvokeResponseOutput() DailyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o DailyRetentionScheduleInvokeResponseOutput) ToDailyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o DailyRetentionScheduleInvokeResponseOutput) ToDailyRetentionScheduleInvokeResponsePtrOutput() DailyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DailyRetentionScheduleInvokeResponseOutput) ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DailyRetentionScheduleInvokeResponse) *DailyRetentionScheduleInvokeResponse {
+		return &v
+	}).(DailyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// The retention duration of retention policy.
+func (o DailyRetentionScheduleInvokeResponseOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DailyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// The retention times of retention policy.
+func (o DailyRetentionScheduleInvokeResponseOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DailyRetentionScheduleInvokeResponse) []string { return v.RetentionTimes }).(pulumi.StringArrayOutput)
+}
+
+type DailyRetentionScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DailyRetentionScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o DailyRetentionScheduleInvokeResponsePtrOutput) ToDailyRetentionScheduleInvokeResponsePtrOutput() DailyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DailyRetentionScheduleInvokeResponsePtrOutput) ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DailyRetentionScheduleInvokeResponsePtrOutput) Elem() DailyRetentionScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *DailyRetentionScheduleInvokeResponse) DailyRetentionScheduleInvokeResponse { return *v }).(DailyRetentionScheduleInvokeResponseOutput)
+}
+
+// The retention duration of retention policy.
+func (o DailyRetentionScheduleInvokeResponsePtrOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *DailyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// The retention times of retention policy.
+func (o DailyRetentionScheduleInvokeResponsePtrOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DailyRetentionScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTimes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Daily retention schedule.
 type DailyRetentionScheduleResponse struct {
 	// The retention duration of retention policy.
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
@@ -1984,6 +2434,109 @@ func (o DayArrayOutput) Index(i pulumi.IntInput) DayOutput {
 }
 
 // Day of the week.
+type DayInvokeResponse struct {
+	Date   *int  `pulumi:"date"`
+	IsLast *bool `pulumi:"isLast"`
+}
+
+// DayInvokeResponseInput is an input type that accepts DayInvokeResponseArgs and DayInvokeResponseOutput values.
+// You can construct a concrete instance of `DayInvokeResponseInput` via:
+//
+//          DayInvokeResponseArgs{...}
+type DayInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDayInvokeResponseOutput() DayInvokeResponseOutput
+	ToDayInvokeResponseOutputWithContext(context.Context) DayInvokeResponseOutput
+}
+
+// Day of the week.
+type DayInvokeResponseArgs struct {
+	Date   pulumi.IntPtrInput  `pulumi:"date"`
+	IsLast pulumi.BoolPtrInput `pulumi:"isLast"`
+}
+
+func (DayInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DayInvokeResponse)(nil)).Elem()
+}
+
+func (i DayInvokeResponseArgs) ToDayInvokeResponseOutput() DayInvokeResponseOutput {
+	return i.ToDayInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DayInvokeResponseArgs) ToDayInvokeResponseOutputWithContext(ctx context.Context) DayInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayInvokeResponseOutput)
+}
+
+// DayInvokeResponseArrayInput is an input type that accepts DayInvokeResponseArray and DayInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DayInvokeResponseArrayInput` via:
+//
+//          DayInvokeResponseArray{ DayInvokeResponseArgs{...} }
+type DayInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDayInvokeResponseArrayOutput() DayInvokeResponseArrayOutput
+	ToDayInvokeResponseArrayOutputWithContext(context.Context) DayInvokeResponseArrayOutput
+}
+
+type DayInvokeResponseArray []DayInvokeResponseInput
+
+func (DayInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DayInvokeResponse)(nil)).Elem()
+}
+
+func (i DayInvokeResponseArray) ToDayInvokeResponseArrayOutput() DayInvokeResponseArrayOutput {
+	return i.ToDayInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DayInvokeResponseArray) ToDayInvokeResponseArrayOutputWithContext(ctx context.Context) DayInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayInvokeResponseArrayOutput)
+}
+
+// Day of the week.
+type DayInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DayInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DayInvokeResponse)(nil)).Elem()
+}
+
+func (o DayInvokeResponseOutput) ToDayInvokeResponseOutput() DayInvokeResponseOutput {
+	return o
+}
+
+func (o DayInvokeResponseOutput) ToDayInvokeResponseOutputWithContext(ctx context.Context) DayInvokeResponseOutput {
+	return o
+}
+
+func (o DayInvokeResponseOutput) Date() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DayInvokeResponse) *int { return v.Date }).(pulumi.IntPtrOutput)
+}
+
+func (o DayInvokeResponseOutput) IsLast() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DayInvokeResponse) *bool { return v.IsLast }).(pulumi.BoolPtrOutput)
+}
+
+type DayInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DayInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DayInvokeResponse)(nil)).Elem()
+}
+
+func (o DayInvokeResponseArrayOutput) ToDayInvokeResponseArrayOutput() DayInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DayInvokeResponseArrayOutput) ToDayInvokeResponseArrayOutputWithContext(ctx context.Context) DayInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DayInvokeResponseArrayOutput) Index(i pulumi.IntInput) DayInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DayInvokeResponse {
+		return vs[0].([]DayInvokeResponse)[vs[1].(int)]
+	}).(DayInvokeResponseOutput)
+}
+
+// Day of the week.
 type DayResponse struct {
 	Date   *int  `pulumi:"date"`
 	IsLast *bool `pulumi:"isLast"`
@@ -2218,6 +2771,79 @@ func (o IdentityDataPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
+type IdentityDataInvokeResponse struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type string `pulumi:"type"`
+}
+
+// IdentityDataInvokeResponseInput is an input type that accepts IdentityDataInvokeResponseArgs and IdentityDataInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentityDataInvokeResponseInput` via:
+//
+//          IdentityDataInvokeResponseArgs{...}
+type IdentityDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentityDataInvokeResponseOutput() IdentityDataInvokeResponseOutput
+	ToIdentityDataInvokeResponseOutputWithContext(context.Context) IdentityDataInvokeResponseOutput
+}
+
+// Identity for the resource.
+type IdentityDataInvokeResponseArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IdentityDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityDataInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentityDataInvokeResponseArgs) ToIdentityDataInvokeResponseOutput() IdentityDataInvokeResponseOutput {
+	return i.ToIdentityDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityDataInvokeResponseArgs) ToIdentityDataInvokeResponseOutputWithContext(ctx context.Context) IdentityDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataInvokeResponseOutput)
+}
+
+// Identity for the resource.
+type IdentityDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityDataInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentityDataInvokeResponseOutput) ToIdentityDataInvokeResponseOutput() IdentityDataInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityDataInvokeResponseOutput) ToIdentityDataInvokeResponseOutputWithContext(ctx context.Context) IdentityDataInvokeResponseOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o IdentityDataInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityDataInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityDataInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityDataInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o IdentityDataInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityDataInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Identity for the resource.
@@ -2487,6 +3113,108 @@ func (o LongTermRetentionPolicyOutput) YearlySchedule() YearlyRetentionScheduleP
 }
 
 // Long-term retention policy.
+type LongTermRetentionPolicyInvokeResponse struct {
+	// Daily retention schedule of the backup policy.
+	DailySchedule *DailyRetentionScheduleInvokeResponse `pulumi:"dailySchedule"`
+	// Monthly retention schedule of the backup policy.
+	MonthlySchedule *MonthlyRetentionScheduleInvokeResponse `pulumi:"monthlySchedule"`
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
+	RetentionPolicyType *string `pulumi:"retentionPolicyType"`
+	// Weekly retention schedule of the backup policy.
+	WeeklySchedule *WeeklyRetentionScheduleInvokeResponse `pulumi:"weeklySchedule"`
+	// Yearly retention schedule of the backup policy.
+	YearlySchedule *YearlyRetentionScheduleInvokeResponse `pulumi:"yearlySchedule"`
+}
+
+// LongTermRetentionPolicyInvokeResponseInput is an input type that accepts LongTermRetentionPolicyInvokeResponseArgs and LongTermRetentionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `LongTermRetentionPolicyInvokeResponseInput` via:
+//
+//          LongTermRetentionPolicyInvokeResponseArgs{...}
+type LongTermRetentionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLongTermRetentionPolicyInvokeResponseOutput() LongTermRetentionPolicyInvokeResponseOutput
+	ToLongTermRetentionPolicyInvokeResponseOutputWithContext(context.Context) LongTermRetentionPolicyInvokeResponseOutput
+}
+
+// Long-term retention policy.
+type LongTermRetentionPolicyInvokeResponseArgs struct {
+	// Daily retention schedule of the backup policy.
+	DailySchedule DailyRetentionScheduleInvokeResponsePtrInput `pulumi:"dailySchedule"`
+	// Monthly retention schedule of the backup policy.
+	MonthlySchedule MonthlyRetentionScheduleInvokeResponsePtrInput `pulumi:"monthlySchedule"`
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
+	RetentionPolicyType pulumi.StringPtrInput `pulumi:"retentionPolicyType"`
+	// Weekly retention schedule of the backup policy.
+	WeeklySchedule WeeklyRetentionScheduleInvokeResponsePtrInput `pulumi:"weeklySchedule"`
+	// Yearly retention schedule of the backup policy.
+	YearlySchedule YearlyRetentionScheduleInvokeResponsePtrInput `pulumi:"yearlySchedule"`
+}
+
+func (LongTermRetentionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermRetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i LongTermRetentionPolicyInvokeResponseArgs) ToLongTermRetentionPolicyInvokeResponseOutput() LongTermRetentionPolicyInvokeResponseOutput {
+	return i.ToLongTermRetentionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LongTermRetentionPolicyInvokeResponseArgs) ToLongTermRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) LongTermRetentionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LongTermRetentionPolicyInvokeResponseOutput)
+}
+
+// Long-term retention policy.
+type LongTermRetentionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LongTermRetentionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermRetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o LongTermRetentionPolicyInvokeResponseOutput) ToLongTermRetentionPolicyInvokeResponseOutput() LongTermRetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o LongTermRetentionPolicyInvokeResponseOutput) ToLongTermRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) LongTermRetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+// Daily retention schedule of the backup policy.
+func (o LongTermRetentionPolicyInvokeResponseOutput) DailySchedule() DailyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LongTermRetentionPolicyInvokeResponse) *DailyRetentionScheduleInvokeResponse {
+		return v.DailySchedule
+	}).(DailyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Monthly retention schedule of the backup policy.
+func (o LongTermRetentionPolicyInvokeResponseOutput) MonthlySchedule() MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LongTermRetentionPolicyInvokeResponse) *MonthlyRetentionScheduleInvokeResponse {
+		return v.MonthlySchedule
+	}).(MonthlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermRetentionPolicy'.
+func (o LongTermRetentionPolicyInvokeResponseOutput) RetentionPolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LongTermRetentionPolicyInvokeResponse) *string { return v.RetentionPolicyType }).(pulumi.StringPtrOutput)
+}
+
+// Weekly retention schedule of the backup policy.
+func (o LongTermRetentionPolicyInvokeResponseOutput) WeeklySchedule() WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LongTermRetentionPolicyInvokeResponse) *WeeklyRetentionScheduleInvokeResponse {
+		return v.WeeklySchedule
+	}).(WeeklyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Yearly retention schedule of the backup policy.
+func (o LongTermRetentionPolicyInvokeResponseOutput) YearlySchedule() YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LongTermRetentionPolicyInvokeResponse) *YearlyRetentionScheduleInvokeResponse {
+		return v.YearlySchedule
+	}).(YearlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Long-term retention policy.
 type LongTermRetentionPolicyResponse struct {
 	// Daily retention schedule of the backup policy.
 	DailySchedule *DailyRetentionScheduleResponse `pulumi:"dailySchedule"`
@@ -2636,6 +3364,64 @@ func (o LongTermSchedulePolicyOutput) ToLongTermSchedulePolicyOutputWithContext(
 // Expected value is 'LongTermSchedulePolicy'.
 func (o LongTermSchedulePolicyOutput) SchedulePolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LongTermSchedulePolicy) *string { return v.SchedulePolicyType }).(pulumi.StringPtrOutput)
+}
+
+// Long-term policy schedule.
+type LongTermSchedulePolicyInvokeResponse struct {
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
+	SchedulePolicyType *string `pulumi:"schedulePolicyType"`
+}
+
+// LongTermSchedulePolicyInvokeResponseInput is an input type that accepts LongTermSchedulePolicyInvokeResponseArgs and LongTermSchedulePolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `LongTermSchedulePolicyInvokeResponseInput` via:
+//
+//          LongTermSchedulePolicyInvokeResponseArgs{...}
+type LongTermSchedulePolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLongTermSchedulePolicyInvokeResponseOutput() LongTermSchedulePolicyInvokeResponseOutput
+	ToLongTermSchedulePolicyInvokeResponseOutputWithContext(context.Context) LongTermSchedulePolicyInvokeResponseOutput
+}
+
+// Long-term policy schedule.
+type LongTermSchedulePolicyInvokeResponseArgs struct {
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
+	SchedulePolicyType pulumi.StringPtrInput `pulumi:"schedulePolicyType"`
+}
+
+func (LongTermSchedulePolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermSchedulePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i LongTermSchedulePolicyInvokeResponseArgs) ToLongTermSchedulePolicyInvokeResponseOutput() LongTermSchedulePolicyInvokeResponseOutput {
+	return i.ToLongTermSchedulePolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LongTermSchedulePolicyInvokeResponseArgs) ToLongTermSchedulePolicyInvokeResponseOutputWithContext(ctx context.Context) LongTermSchedulePolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LongTermSchedulePolicyInvokeResponseOutput)
+}
+
+// Long-term policy schedule.
+type LongTermSchedulePolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LongTermSchedulePolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermSchedulePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o LongTermSchedulePolicyInvokeResponseOutput) ToLongTermSchedulePolicyInvokeResponseOutput() LongTermSchedulePolicyInvokeResponseOutput {
+	return o
+}
+
+func (o LongTermSchedulePolicyInvokeResponseOutput) ToLongTermSchedulePolicyInvokeResponseOutputWithContext(ctx context.Context) LongTermSchedulePolicyInvokeResponseOutput {
+	return o
+}
+
+// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermSchedulePolicy'.
+func (o LongTermSchedulePolicyInvokeResponseOutput) SchedulePolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LongTermSchedulePolicyInvokeResponse) *string { return v.SchedulePolicyType }).(pulumi.StringPtrOutput)
 }
 
 // Long-term policy schedule.
@@ -3108,6 +3894,91 @@ func (o MabProtectionPolicyOutput) SchedulePolicy() pulumi.AnyOutput {
 }
 
 // The backup policy for the file or folder container.
+type MabProtectionPolicyInvokeResponse struct {
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// The number of items associated with this policy.
+	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// The details specified in the Retention policy.
+	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
+	// The schedule specified in the backup policy.
+	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+}
+
+// MabProtectionPolicyInvokeResponseInput is an input type that accepts MabProtectionPolicyInvokeResponseArgs and MabProtectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `MabProtectionPolicyInvokeResponseInput` via:
+//
+//          MabProtectionPolicyInvokeResponseArgs{...}
+type MabProtectionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMabProtectionPolicyInvokeResponseOutput() MabProtectionPolicyInvokeResponseOutput
+	ToMabProtectionPolicyInvokeResponseOutputWithContext(context.Context) MabProtectionPolicyInvokeResponseOutput
+}
+
+// The backup policy for the file or folder container.
+type MabProtectionPolicyInvokeResponseArgs struct {
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// The number of items associated with this policy.
+	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
+	// The details specified in the Retention policy.
+	RetentionPolicy pulumi.Input `pulumi:"retentionPolicy"`
+	// The schedule specified in the backup policy.
+	SchedulePolicy pulumi.Input `pulumi:"schedulePolicy"`
+}
+
+func (MabProtectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i MabProtectionPolicyInvokeResponseArgs) ToMabProtectionPolicyInvokeResponseOutput() MabProtectionPolicyInvokeResponseOutput {
+	return i.ToMabProtectionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MabProtectionPolicyInvokeResponseArgs) ToMabProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) MabProtectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MabProtectionPolicyInvokeResponseOutput)
+}
+
+// The backup policy for the file or folder container.
+type MabProtectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MabProtectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o MabProtectionPolicyInvokeResponseOutput) ToMabProtectionPolicyInvokeResponseOutput() MabProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o MabProtectionPolicyInvokeResponseOutput) ToMabProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) MabProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'MAB'.
+func (o MabProtectionPolicyInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabProtectionPolicyInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// The number of items associated with this policy.
+func (o MabProtectionPolicyInvokeResponseOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MabProtectionPolicyInvokeResponse) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
+}
+
+// The details specified in the Retention policy.
+func (o MabProtectionPolicyInvokeResponseOutput) RetentionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v MabProtectionPolicyInvokeResponse) interface{} { return v.RetentionPolicy }).(pulumi.AnyOutput)
+}
+
+// The schedule specified in the backup policy.
+func (o MabProtectionPolicyInvokeResponseOutput) SchedulePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v MabProtectionPolicyInvokeResponse) interface{} { return v.SchedulePolicy }).(pulumi.AnyOutput)
+}
+
+// The backup policy for the file or folder container.
 type MabProtectionPolicyResponse struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'MAB'.
@@ -3403,6 +4274,222 @@ func (o MonthlyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOu
 }
 
 // The monthly retention schedule.
+type MonthlyRetentionScheduleInvokeResponse struct {
+	// Retention duration of the retention policy.
+	RetentionDuration *RetentionDurationInvokeResponse `pulumi:"retentionDuration"`
+	// Daily retention format for the monthly retention policy.
+	RetentionScheduleDaily *DailyRetentionFormatInvokeResponse `pulumi:"retentionScheduleDaily"`
+	// Retention schedule format type for monthly retention policy.
+	RetentionScheduleFormatType *string `pulumi:"retentionScheduleFormatType"`
+	// Weekly retention format for the monthly retention policy.
+	RetentionScheduleWeekly *WeeklyRetentionFormatInvokeResponse `pulumi:"retentionScheduleWeekly"`
+	// Retention times of the retention policy.
+	RetentionTimes []string `pulumi:"retentionTimes"`
+}
+
+// MonthlyRetentionScheduleInvokeResponseInput is an input type that accepts MonthlyRetentionScheduleInvokeResponseArgs and MonthlyRetentionScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `MonthlyRetentionScheduleInvokeResponseInput` via:
+//
+//          MonthlyRetentionScheduleInvokeResponseArgs{...}
+type MonthlyRetentionScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMonthlyRetentionScheduleInvokeResponseOutput() MonthlyRetentionScheduleInvokeResponseOutput
+	ToMonthlyRetentionScheduleInvokeResponseOutputWithContext(context.Context) MonthlyRetentionScheduleInvokeResponseOutput
+}
+
+// The monthly retention schedule.
+type MonthlyRetentionScheduleInvokeResponseArgs struct {
+	// Retention duration of the retention policy.
+	RetentionDuration RetentionDurationInvokeResponsePtrInput `pulumi:"retentionDuration"`
+	// Daily retention format for the monthly retention policy.
+	RetentionScheduleDaily DailyRetentionFormatInvokeResponsePtrInput `pulumi:"retentionScheduleDaily"`
+	// Retention schedule format type for monthly retention policy.
+	RetentionScheduleFormatType pulumi.StringPtrInput `pulumi:"retentionScheduleFormatType"`
+	// Weekly retention format for the monthly retention policy.
+	RetentionScheduleWeekly WeeklyRetentionFormatInvokeResponsePtrInput `pulumi:"retentionScheduleWeekly"`
+	// Retention times of the retention policy.
+	RetentionTimes pulumi.StringArrayInput `pulumi:"retentionTimes"`
+}
+
+func (MonthlyRetentionScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonthlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i MonthlyRetentionScheduleInvokeResponseArgs) ToMonthlyRetentionScheduleInvokeResponseOutput() MonthlyRetentionScheduleInvokeResponseOutput {
+	return i.ToMonthlyRetentionScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MonthlyRetentionScheduleInvokeResponseArgs) ToMonthlyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthlyRetentionScheduleInvokeResponseOutput)
+}
+
+func (i MonthlyRetentionScheduleInvokeResponseArgs) ToMonthlyRetentionScheduleInvokeResponsePtrOutput() MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MonthlyRetentionScheduleInvokeResponseArgs) ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthlyRetentionScheduleInvokeResponseOutput).ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MonthlyRetentionScheduleInvokeResponsePtrInput is an input type that accepts MonthlyRetentionScheduleInvokeResponseArgs, MonthlyRetentionScheduleInvokeResponsePtr and MonthlyRetentionScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MonthlyRetentionScheduleInvokeResponsePtrInput` via:
+//
+//          MonthlyRetentionScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MonthlyRetentionScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMonthlyRetentionScheduleInvokeResponsePtrOutput() MonthlyRetentionScheduleInvokeResponsePtrOutput
+	ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Context) MonthlyRetentionScheduleInvokeResponsePtrOutput
+}
+
+type monthlyRetentionScheduleInvokeResponsePtrType MonthlyRetentionScheduleInvokeResponseArgs
+
+func MonthlyRetentionScheduleInvokeResponsePtr(v *MonthlyRetentionScheduleInvokeResponseArgs) MonthlyRetentionScheduleInvokeResponsePtrInput {
+	return (*monthlyRetentionScheduleInvokeResponsePtrType)(v)
+}
+
+func (*monthlyRetentionScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonthlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *monthlyRetentionScheduleInvokeResponsePtrType) ToMonthlyRetentionScheduleInvokeResponsePtrOutput() MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *monthlyRetentionScheduleInvokeResponsePtrType) ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// The monthly retention schedule.
+type MonthlyRetentionScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MonthlyRetentionScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonthlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o MonthlyRetentionScheduleInvokeResponseOutput) ToMonthlyRetentionScheduleInvokeResponseOutput() MonthlyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o MonthlyRetentionScheduleInvokeResponseOutput) ToMonthlyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o MonthlyRetentionScheduleInvokeResponseOutput) ToMonthlyRetentionScheduleInvokeResponsePtrOutput() MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MonthlyRetentionScheduleInvokeResponseOutput) ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) *MonthlyRetentionScheduleInvokeResponse {
+		return &v
+	}).(MonthlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Retention duration of the retention policy.
+func (o MonthlyRetentionScheduleInvokeResponseOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Daily retention format for the monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponseOutput) RetentionScheduleDaily() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) *DailyRetentionFormatInvokeResponse {
+		return v.RetentionScheduleDaily
+	}).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention schedule format type for monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponseOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) *string { return v.RetentionScheduleFormatType }).(pulumi.StringPtrOutput)
+}
+
+// Weekly retention format for the monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponseOutput) RetentionScheduleWeekly() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) *WeeklyRetentionFormatInvokeResponse {
+		return v.RetentionScheduleWeekly
+	}).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention times of the retention policy.
+func (o MonthlyRetentionScheduleInvokeResponseOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) []string { return v.RetentionTimes }).(pulumi.StringArrayOutput)
+}
+
+type MonthlyRetentionScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MonthlyRetentionScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonthlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) ToMonthlyRetentionScheduleInvokeResponsePtrOutput() MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) Elem() MonthlyRetentionScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) MonthlyRetentionScheduleInvokeResponse { return *v }).(MonthlyRetentionScheduleInvokeResponseOutput)
+}
+
+// Retention duration of the retention policy.
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Daily retention format for the monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleDaily() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) *DailyRetentionFormatInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleDaily
+	}).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention schedule format type for monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleFormatType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Weekly retention format for the monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleWeekly() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) *WeeklyRetentionFormatInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleWeekly
+	}).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention times of the retention policy.
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTimes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The monthly retention schedule.
 type MonthlyRetentionScheduleResponse struct {
 	// Retention duration of the retention policy.
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
@@ -3617,6 +4704,83 @@ func (o MonthlyRetentionScheduleResponsePtrOutput) RetentionTimes() pulumi.Strin
 }
 
 // Private Endpoint Connection Response Properties.
+type PrivateEndpointConnectionInvokeResponse struct {
+	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+	PrivateEndpoint PrivateEndpointInvokeResponse `pulumi:"privateEndpoint"`
+	// Gets or sets private link service connection state.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Gets or sets provisioning state of the private endpoint connection.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// PrivateEndpointConnectionInvokeResponseInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArgs and PrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArgs{...}
+type PrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput
+	ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseOutput
+}
+
+// Private Endpoint Connection Response Properties.
+type PrivateEndpointConnectionInvokeResponseArgs struct {
+	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+	PrivateEndpoint PrivateEndpointInvokeResponseInput `pulumi:"privateEndpoint"`
+	// Gets or sets private link service connection state.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponseInput `pulumi:"privateLinkServiceConnectionState"`
+	// Gets or sets provisioning state of the private endpoint connection.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (PrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// Private Endpoint Connection Response Properties.
+type PrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateEndpoint() PrivateEndpointInvokeResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) PrivateEndpointInvokeResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointInvokeResponseOutput)
+}
+
+// Gets or sets private link service connection state.
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) PrivateLinkServiceConnectionStateInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// Gets or sets provisioning state of the private endpoint connection.
+func (o PrivateEndpointConnectionInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Private Endpoint Connection Response Properties.
 type PrivateEndpointConnectionResponse struct {
 	// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -3689,6 +4853,117 @@ func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionSta
 // Gets or sets provisioning state of the private endpoint connection.
 func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Information to be stored in Vault properties as an element of privateEndpointConnections List.
+type PrivateEndpointConnectionVaultPropertiesInvokeResponse struct {
+	// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
+	Id string `pulumi:"id"`
+	// Private Endpoint Connection Response Properties.
+	Properties PrivateEndpointConnectionInvokeResponse `pulumi:"properties"`
+}
+
+// PrivateEndpointConnectionVaultPropertiesInvokeResponseInput is an input type that accepts PrivateEndpointConnectionVaultPropertiesInvokeResponseArgs and PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionVaultPropertiesInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionVaultPropertiesInvokeResponseArgs{...}
+type PrivateEndpointConnectionVaultPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionVaultPropertiesInvokeResponseOutput() PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput
+	ToPrivateEndpointConnectionVaultPropertiesInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput
+}
+
+// Information to be stored in Vault properties as an element of privateEndpointConnections List.
+type PrivateEndpointConnectionVaultPropertiesInvokeResponseArgs struct {
+	// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Private Endpoint Connection Response Properties.
+	Properties PrivateEndpointConnectionInvokeResponseInput `pulumi:"properties"`
+}
+
+func (PrivateEndpointConnectionVaultPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionVaultPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionVaultPropertiesInvokeResponseArgs) ToPrivateEndpointConnectionVaultPropertiesInvokeResponseOutput() PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionVaultPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionVaultPropertiesInvokeResponseArgs) ToPrivateEndpointConnectionVaultPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput)
+}
+
+// PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayInput is an input type that accepts PrivateEndpointConnectionVaultPropertiesInvokeResponseArray and PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionVaultPropertiesInvokeResponseArray{ PrivateEndpointConnectionVaultPropertiesInvokeResponseArgs{...} }
+type PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput() PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput
+	ToPrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput
+}
+
+type PrivateEndpointConnectionVaultPropertiesInvokeResponseArray []PrivateEndpointConnectionVaultPropertiesInvokeResponseInput
+
+func (PrivateEndpointConnectionVaultPropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionVaultPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionVaultPropertiesInvokeResponseArray) ToPrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput() PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionVaultPropertiesInvokeResponseArray) ToPrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput)
+}
+
+// Information to be stored in Vault properties as an element of privateEndpointConnections List.
+type PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionVaultPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput) ToPrivateEndpointConnectionVaultPropertiesInvokeResponseOutput() PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput) ToPrivateEndpointConnectionVaultPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
+func (o PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Private Endpoint Connection Response Properties.
+func (o PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput) Properties() PrivateEndpointConnectionInvokeResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionVaultPropertiesInvokeResponse) PrivateEndpointConnectionInvokeResponse {
+		return v.Properties
+	}).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+type PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionVaultPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput) ToPrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput() PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput) ToPrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionVaultPropertiesInvokeResponse {
+		return vs[0].([]PrivateEndpointConnectionVaultPropertiesInvokeResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput)
 }
 
 // Information to be stored in Vault properties as an element of privateEndpointConnections List.
@@ -3803,6 +5078,61 @@ func (o PrivateEndpointConnectionVaultPropertiesResponseArrayOutput) Index(i pul
 }
 
 // The Private Endpoint network resource that is linked to the Private Endpoint connection.
+type PrivateEndpointInvokeResponse struct {
+	// Gets or sets id.
+	Id string `pulumi:"id"`
+}
+
+// PrivateEndpointInvokeResponseInput is an input type that accepts PrivateEndpointInvokeResponseArgs and PrivateEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponseInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+type PrivateEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput
+	ToPrivateEndpointInvokeResponseOutputWithContext(context.Context) PrivateEndpointInvokeResponseOutput
+}
+
+// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+type PrivateEndpointInvokeResponseArgs struct {
+	// Gets or sets id.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (PrivateEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return i.ToPrivateEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput)
+}
+
+// The Private Endpoint network resource that is linked to the Private Endpoint connection.
+type PrivateEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets id.
+func (o PrivateEndpointInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Private Endpoint network resource that is linked to the Private Endpoint connection.
 type PrivateEndpointResponse struct {
 	// Gets or sets id.
 	Id string `pulumi:"id"`
@@ -3855,6 +5185,79 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutputWithContex
 // Gets or sets id.
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets private link service connection state.
+type PrivateLinkServiceConnectionStateInvokeResponse struct {
+	// Gets or sets actions required.
+	ActionsRequired string `pulumi:"actionsRequired"`
+	// Gets or sets description.
+	Description string `pulumi:"description"`
+	// Gets or sets the status.
+	Status string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionStateInvokeResponseArgs and PrivateLinkServiceConnectionStateInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStateInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionStateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput
+}
+
+// Gets or sets private link service connection state.
+type PrivateLinkServiceConnectionStateInvokeResponseArgs struct {
+	// Gets or sets actions required.
+	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	// Gets or sets description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Gets or sets the status.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// Gets or sets private link service connection state.
+type PrivateLinkServiceConnectionStateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets actions required.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ActionsRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
+}
+
+// Gets or sets description.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Gets or sets the status.
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // Gets or sets private link service connection state.
@@ -4088,6 +5491,163 @@ func (o RetentionDurationPtrOutput) DurationType() pulumi.StringPtrOutput {
 }
 
 // Retention duration.
+type RetentionDurationInvokeResponse struct {
+	// Count of the duration types. Retention duration is determined by the combining the Count times and durationType.
+	//    For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
+	Count *int `pulumi:"count"`
+	// The retention duration type of the retention policy.
+	DurationType *string `pulumi:"durationType"`
+}
+
+// RetentionDurationInvokeResponseInput is an input type that accepts RetentionDurationInvokeResponseArgs and RetentionDurationInvokeResponseOutput values.
+// You can construct a concrete instance of `RetentionDurationInvokeResponseInput` via:
+//
+//          RetentionDurationInvokeResponseArgs{...}
+type RetentionDurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRetentionDurationInvokeResponseOutput() RetentionDurationInvokeResponseOutput
+	ToRetentionDurationInvokeResponseOutputWithContext(context.Context) RetentionDurationInvokeResponseOutput
+}
+
+// Retention duration.
+type RetentionDurationInvokeResponseArgs struct {
+	// Count of the duration types. Retention duration is determined by the combining the Count times and durationType.
+	//    For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The retention duration type of the retention policy.
+	DurationType pulumi.StringPtrInput `pulumi:"durationType"`
+}
+
+func (RetentionDurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionDurationInvokeResponse)(nil)).Elem()
+}
+
+func (i RetentionDurationInvokeResponseArgs) ToRetentionDurationInvokeResponseOutput() RetentionDurationInvokeResponseOutput {
+	return i.ToRetentionDurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RetentionDurationInvokeResponseArgs) ToRetentionDurationInvokeResponseOutputWithContext(ctx context.Context) RetentionDurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionDurationInvokeResponseOutput)
+}
+
+func (i RetentionDurationInvokeResponseArgs) ToRetentionDurationInvokeResponsePtrOutput() RetentionDurationInvokeResponsePtrOutput {
+	return i.ToRetentionDurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RetentionDurationInvokeResponseArgs) ToRetentionDurationInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionDurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionDurationInvokeResponseOutput).ToRetentionDurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// RetentionDurationInvokeResponsePtrInput is an input type that accepts RetentionDurationInvokeResponseArgs, RetentionDurationInvokeResponsePtr and RetentionDurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `RetentionDurationInvokeResponsePtrInput` via:
+//
+//          RetentionDurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RetentionDurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToRetentionDurationInvokeResponsePtrOutput() RetentionDurationInvokeResponsePtrOutput
+	ToRetentionDurationInvokeResponsePtrOutputWithContext(context.Context) RetentionDurationInvokeResponsePtrOutput
+}
+
+type retentionDurationInvokeResponsePtrType RetentionDurationInvokeResponseArgs
+
+func RetentionDurationInvokeResponsePtr(v *RetentionDurationInvokeResponseArgs) RetentionDurationInvokeResponsePtrInput {
+	return (*retentionDurationInvokeResponsePtrType)(v)
+}
+
+func (*retentionDurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionDurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *retentionDurationInvokeResponsePtrType) ToRetentionDurationInvokeResponsePtrOutput() RetentionDurationInvokeResponsePtrOutput {
+	return i.ToRetentionDurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *retentionDurationInvokeResponsePtrType) ToRetentionDurationInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionDurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Retention duration.
+type RetentionDurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RetentionDurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionDurationInvokeResponse)(nil)).Elem()
+}
+
+func (o RetentionDurationInvokeResponseOutput) ToRetentionDurationInvokeResponseOutput() RetentionDurationInvokeResponseOutput {
+	return o
+}
+
+func (o RetentionDurationInvokeResponseOutput) ToRetentionDurationInvokeResponseOutputWithContext(ctx context.Context) RetentionDurationInvokeResponseOutput {
+	return o
+}
+
+func (o RetentionDurationInvokeResponseOutput) ToRetentionDurationInvokeResponsePtrOutput() RetentionDurationInvokeResponsePtrOutput {
+	return o.ToRetentionDurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RetentionDurationInvokeResponseOutput) ToRetentionDurationInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RetentionDurationInvokeResponse) *RetentionDurationInvokeResponse {
+		return &v
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Count of the duration types. Retention duration is determined by the combining the Count times and durationType.
+//    For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
+func (o RetentionDurationInvokeResponseOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RetentionDurationInvokeResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// The retention duration type of the retention policy.
+func (o RetentionDurationInvokeResponseOutput) DurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetentionDurationInvokeResponse) *string { return v.DurationType }).(pulumi.StringPtrOutput)
+}
+
+type RetentionDurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RetentionDurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionDurationInvokeResponse)(nil)).Elem()
+}
+
+func (o RetentionDurationInvokeResponsePtrOutput) ToRetentionDurationInvokeResponsePtrOutput() RetentionDurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RetentionDurationInvokeResponsePtrOutput) ToRetentionDurationInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionDurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RetentionDurationInvokeResponsePtrOutput) Elem() RetentionDurationInvokeResponseOutput {
+	return o.ApplyT(func(v *RetentionDurationInvokeResponse) RetentionDurationInvokeResponse { return *v }).(RetentionDurationInvokeResponseOutput)
+}
+
+// Count of the duration types. Retention duration is determined by the combining the Count times and durationType.
+//    For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
+func (o RetentionDurationInvokeResponsePtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RetentionDurationInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// The retention duration type of the retention policy.
+func (o RetentionDurationInvokeResponsePtrOutput) DurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetentionDurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Retention duration.
 type RetentionDurationResponse struct {
 	// Count of the duration types. Retention duration is determined by the combining the Count times and durationType.
 	//    For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
@@ -4312,6 +5872,75 @@ func (o SimpleRetentionPolicyOutput) RetentionPolicyType() pulumi.StringPtrOutpu
 }
 
 // Simple policy retention.
+type SimpleRetentionPolicyInvokeResponse struct {
+	// Retention duration of the protection policy.
+	RetentionDuration *RetentionDurationInvokeResponse `pulumi:"retentionDuration"`
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
+	RetentionPolicyType *string `pulumi:"retentionPolicyType"`
+}
+
+// SimpleRetentionPolicyInvokeResponseInput is an input type that accepts SimpleRetentionPolicyInvokeResponseArgs and SimpleRetentionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `SimpleRetentionPolicyInvokeResponseInput` via:
+//
+//          SimpleRetentionPolicyInvokeResponseArgs{...}
+type SimpleRetentionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSimpleRetentionPolicyInvokeResponseOutput() SimpleRetentionPolicyInvokeResponseOutput
+	ToSimpleRetentionPolicyInvokeResponseOutputWithContext(context.Context) SimpleRetentionPolicyInvokeResponseOutput
+}
+
+// Simple policy retention.
+type SimpleRetentionPolicyInvokeResponseArgs struct {
+	// Retention duration of the protection policy.
+	RetentionDuration RetentionDurationInvokeResponsePtrInput `pulumi:"retentionDuration"`
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
+	RetentionPolicyType pulumi.StringPtrInput `pulumi:"retentionPolicyType"`
+}
+
+func (SimpleRetentionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleRetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i SimpleRetentionPolicyInvokeResponseArgs) ToSimpleRetentionPolicyInvokeResponseOutput() SimpleRetentionPolicyInvokeResponseOutput {
+	return i.ToSimpleRetentionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SimpleRetentionPolicyInvokeResponseArgs) ToSimpleRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) SimpleRetentionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SimpleRetentionPolicyInvokeResponseOutput)
+}
+
+// Simple policy retention.
+type SimpleRetentionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SimpleRetentionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleRetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o SimpleRetentionPolicyInvokeResponseOutput) ToSimpleRetentionPolicyInvokeResponseOutput() SimpleRetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o SimpleRetentionPolicyInvokeResponseOutput) ToSimpleRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) SimpleRetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+// Retention duration of the protection policy.
+func (o SimpleRetentionPolicyInvokeResponseOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SimpleRetentionPolicyInvokeResponse) *RetentionDurationInvokeResponse {
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleRetentionPolicy'.
+func (o SimpleRetentionPolicyInvokeResponseOutput) RetentionPolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SimpleRetentionPolicyInvokeResponse) *string { return v.RetentionPolicyType }).(pulumi.StringPtrOutput)
+}
+
+// Simple policy retention.
 type SimpleRetentionPolicyResponse struct {
 	// Retention duration of the protection policy.
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
@@ -4470,6 +6099,100 @@ func (o SimpleSchedulePolicyOutput) ScheduleRunTimes() pulumi.StringArrayOutput 
 // The number of times per week the schedule runs.
 func (o SimpleSchedulePolicyOutput) ScheduleWeeklyFrequency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SimpleSchedulePolicy) *int { return v.ScheduleWeeklyFrequency }).(pulumi.IntPtrOutput)
+}
+
+// Simple policy schedule.
+type SimpleSchedulePolicyInvokeResponse struct {
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
+	SchedulePolicyType *string `pulumi:"schedulePolicyType"`
+	// This list is the days of the week when the schedule runs.
+	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
+	// Defines the frequency interval (daily or weekly) for the schedule policy.
+	ScheduleRunFrequency *string `pulumi:"scheduleRunFrequency"`
+	// List of times, during a day, when the schedule runs.
+	ScheduleRunTimes []string `pulumi:"scheduleRunTimes"`
+	// The number of times per week the schedule runs.
+	ScheduleWeeklyFrequency *int `pulumi:"scheduleWeeklyFrequency"`
+}
+
+// SimpleSchedulePolicyInvokeResponseInput is an input type that accepts SimpleSchedulePolicyInvokeResponseArgs and SimpleSchedulePolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `SimpleSchedulePolicyInvokeResponseInput` via:
+//
+//          SimpleSchedulePolicyInvokeResponseArgs{...}
+type SimpleSchedulePolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSimpleSchedulePolicyInvokeResponseOutput() SimpleSchedulePolicyInvokeResponseOutput
+	ToSimpleSchedulePolicyInvokeResponseOutputWithContext(context.Context) SimpleSchedulePolicyInvokeResponseOutput
+}
+
+// Simple policy schedule.
+type SimpleSchedulePolicyInvokeResponseArgs struct {
+	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
+	SchedulePolicyType pulumi.StringPtrInput `pulumi:"schedulePolicyType"`
+	// This list is the days of the week when the schedule runs.
+	ScheduleRunDays pulumi.StringArrayInput `pulumi:"scheduleRunDays"`
+	// Defines the frequency interval (daily or weekly) for the schedule policy.
+	ScheduleRunFrequency pulumi.StringPtrInput `pulumi:"scheduleRunFrequency"`
+	// List of times, during a day, when the schedule runs.
+	ScheduleRunTimes pulumi.StringArrayInput `pulumi:"scheduleRunTimes"`
+	// The number of times per week the schedule runs.
+	ScheduleWeeklyFrequency pulumi.IntPtrInput `pulumi:"scheduleWeeklyFrequency"`
+}
+
+func (SimpleSchedulePolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleSchedulePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i SimpleSchedulePolicyInvokeResponseArgs) ToSimpleSchedulePolicyInvokeResponseOutput() SimpleSchedulePolicyInvokeResponseOutput {
+	return i.ToSimpleSchedulePolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SimpleSchedulePolicyInvokeResponseArgs) ToSimpleSchedulePolicyInvokeResponseOutputWithContext(ctx context.Context) SimpleSchedulePolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SimpleSchedulePolicyInvokeResponseOutput)
+}
+
+// Simple policy schedule.
+type SimpleSchedulePolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SimpleSchedulePolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleSchedulePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o SimpleSchedulePolicyInvokeResponseOutput) ToSimpleSchedulePolicyInvokeResponseOutput() SimpleSchedulePolicyInvokeResponseOutput {
+	return o
+}
+
+func (o SimpleSchedulePolicyInvokeResponseOutput) ToSimpleSchedulePolicyInvokeResponseOutputWithContext(ctx context.Context) SimpleSchedulePolicyInvokeResponseOutput {
+	return o
+}
+
+// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleSchedulePolicy'.
+func (o SimpleSchedulePolicyInvokeResponseOutput) SchedulePolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicyInvokeResponse) *string { return v.SchedulePolicyType }).(pulumi.StringPtrOutput)
+}
+
+// This list is the days of the week when the schedule runs.
+func (o SimpleSchedulePolicyInvokeResponseOutput) ScheduleRunDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicyInvokeResponse) []string { return v.ScheduleRunDays }).(pulumi.StringArrayOutput)
+}
+
+// Defines the frequency interval (daily or weekly) for the schedule policy.
+func (o SimpleSchedulePolicyInvokeResponseOutput) ScheduleRunFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicyInvokeResponse) *string { return v.ScheduleRunFrequency }).(pulumi.StringPtrOutput)
+}
+
+// List of times, during a day, when the schedule runs.
+func (o SimpleSchedulePolicyInvokeResponseOutput) ScheduleRunTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicyInvokeResponse) []string { return v.ScheduleRunTimes }).(pulumi.StringArrayOutput)
+}
+
+// The number of times per week the schedule runs.
+func (o SimpleSchedulePolicyInvokeResponseOutput) ScheduleWeeklyFrequency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicyInvokeResponse) *int { return v.ScheduleWeeklyFrequency }).(pulumi.IntPtrOutput)
 }
 
 // Simple policy schedule.
@@ -4701,6 +6424,61 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Identifies the unique system identifier for each Azure resource.
+type SkuInvokeResponse struct {
+	// The Sku name.
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Identifies the unique system identifier for each Azure resource.
+type SkuInvokeResponseArgs struct {
+	// The Sku name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Identifies the unique system identifier for each Azure resource.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The Sku name.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Identifies the unique system identifier for each Azure resource.
 type SkuResponse struct {
 	// The Sku name.
 	Name string `pulumi:"name"`
@@ -4831,6 +6609,292 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details for upgrading vault.
+type UpgradeDetailsInvokeResponse struct {
+	// UTC time at which the upgrade operation has ended.
+	EndTimeUtc string `pulumi:"endTimeUtc"`
+	// UTC time at which the upgrade operation status was last updated.
+	LastUpdatedTimeUtc string `pulumi:"lastUpdatedTimeUtc"`
+	// Message to the user containing information about the upgrade operation.
+	Message string `pulumi:"message"`
+	// ID of the vault upgrade operation.
+	OperationId string `pulumi:"operationId"`
+	// Resource ID of the vault before the upgrade.
+	PreviousResourceId string `pulumi:"previousResourceId"`
+	// UTC time at which the upgrade operation has started.
+	StartTimeUtc string `pulumi:"startTimeUtc"`
+	// Status of the vault upgrade operation.
+	Status string `pulumi:"status"`
+	// The way the vault upgrade was triggered.
+	TriggerType string `pulumi:"triggerType"`
+	// Resource ID of the upgraded vault.
+	UpgradedResourceId string `pulumi:"upgradedResourceId"`
+}
+
+// UpgradeDetailsInvokeResponseInput is an input type that accepts UpgradeDetailsInvokeResponseArgs and UpgradeDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `UpgradeDetailsInvokeResponseInput` via:
+//
+//          UpgradeDetailsInvokeResponseArgs{...}
+type UpgradeDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUpgradeDetailsInvokeResponseOutput() UpgradeDetailsInvokeResponseOutput
+	ToUpgradeDetailsInvokeResponseOutputWithContext(context.Context) UpgradeDetailsInvokeResponseOutput
+}
+
+// Details for upgrading vault.
+type UpgradeDetailsInvokeResponseArgs struct {
+	// UTC time at which the upgrade operation has ended.
+	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
+	// UTC time at which the upgrade operation status was last updated.
+	LastUpdatedTimeUtc pulumi.StringInput `pulumi:"lastUpdatedTimeUtc"`
+	// Message to the user containing information about the upgrade operation.
+	Message pulumi.StringInput `pulumi:"message"`
+	// ID of the vault upgrade operation.
+	OperationId pulumi.StringInput `pulumi:"operationId"`
+	// Resource ID of the vault before the upgrade.
+	PreviousResourceId pulumi.StringInput `pulumi:"previousResourceId"`
+	// UTC time at which the upgrade operation has started.
+	StartTimeUtc pulumi.StringInput `pulumi:"startTimeUtc"`
+	// Status of the vault upgrade operation.
+	Status pulumi.StringInput `pulumi:"status"`
+	// The way the vault upgrade was triggered.
+	TriggerType pulumi.StringInput `pulumi:"triggerType"`
+	// Resource ID of the upgraded vault.
+	UpgradedResourceId pulumi.StringInput `pulumi:"upgradedResourceId"`
+}
+
+func (UpgradeDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpgradeDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i UpgradeDetailsInvokeResponseArgs) ToUpgradeDetailsInvokeResponseOutput() UpgradeDetailsInvokeResponseOutput {
+	return i.ToUpgradeDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UpgradeDetailsInvokeResponseArgs) ToUpgradeDetailsInvokeResponseOutputWithContext(ctx context.Context) UpgradeDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpgradeDetailsInvokeResponseOutput)
+}
+
+func (i UpgradeDetailsInvokeResponseArgs) ToUpgradeDetailsInvokeResponsePtrOutput() UpgradeDetailsInvokeResponsePtrOutput {
+	return i.ToUpgradeDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UpgradeDetailsInvokeResponseArgs) ToUpgradeDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) UpgradeDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpgradeDetailsInvokeResponseOutput).ToUpgradeDetailsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// UpgradeDetailsInvokeResponsePtrInput is an input type that accepts UpgradeDetailsInvokeResponseArgs, UpgradeDetailsInvokeResponsePtr and UpgradeDetailsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `UpgradeDetailsInvokeResponsePtrInput` via:
+//
+//          UpgradeDetailsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UpgradeDetailsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToUpgradeDetailsInvokeResponsePtrOutput() UpgradeDetailsInvokeResponsePtrOutput
+	ToUpgradeDetailsInvokeResponsePtrOutputWithContext(context.Context) UpgradeDetailsInvokeResponsePtrOutput
+}
+
+type upgradeDetailsInvokeResponsePtrType UpgradeDetailsInvokeResponseArgs
+
+func UpgradeDetailsInvokeResponsePtr(v *UpgradeDetailsInvokeResponseArgs) UpgradeDetailsInvokeResponsePtrInput {
+	return (*upgradeDetailsInvokeResponsePtrType)(v)
+}
+
+func (*upgradeDetailsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpgradeDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i *upgradeDetailsInvokeResponsePtrType) ToUpgradeDetailsInvokeResponsePtrOutput() UpgradeDetailsInvokeResponsePtrOutput {
+	return i.ToUpgradeDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *upgradeDetailsInvokeResponsePtrType) ToUpgradeDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) UpgradeDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpgradeDetailsInvokeResponsePtrOutput)
+}
+
+// Details for upgrading vault.
+type UpgradeDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UpgradeDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpgradeDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o UpgradeDetailsInvokeResponseOutput) ToUpgradeDetailsInvokeResponseOutput() UpgradeDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o UpgradeDetailsInvokeResponseOutput) ToUpgradeDetailsInvokeResponseOutputWithContext(ctx context.Context) UpgradeDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o UpgradeDetailsInvokeResponseOutput) ToUpgradeDetailsInvokeResponsePtrOutput() UpgradeDetailsInvokeResponsePtrOutput {
+	return o.ToUpgradeDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UpgradeDetailsInvokeResponseOutput) ToUpgradeDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) UpgradeDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v UpgradeDetailsInvokeResponse) *UpgradeDetailsInvokeResponse {
+		return &v
+	}).(UpgradeDetailsInvokeResponsePtrOutput)
+}
+
+// UTC time at which the upgrade operation has ended.
+func (o UpgradeDetailsInvokeResponseOutput) EndTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsInvokeResponse) string { return v.EndTimeUtc }).(pulumi.StringOutput)
+}
+
+// UTC time at which the upgrade operation status was last updated.
+func (o UpgradeDetailsInvokeResponseOutput) LastUpdatedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsInvokeResponse) string { return v.LastUpdatedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Message to the user containing information about the upgrade operation.
+func (o UpgradeDetailsInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// ID of the vault upgrade operation.
+func (o UpgradeDetailsInvokeResponseOutput) OperationId() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsInvokeResponse) string { return v.OperationId }).(pulumi.StringOutput)
+}
+
+// Resource ID of the vault before the upgrade.
+func (o UpgradeDetailsInvokeResponseOutput) PreviousResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsInvokeResponse) string { return v.PreviousResourceId }).(pulumi.StringOutput)
+}
+
+// UTC time at which the upgrade operation has started.
+func (o UpgradeDetailsInvokeResponseOutput) StartTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsInvokeResponse) string { return v.StartTimeUtc }).(pulumi.StringOutput)
+}
+
+// Status of the vault upgrade operation.
+func (o UpgradeDetailsInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The way the vault upgrade was triggered.
+func (o UpgradeDetailsInvokeResponseOutput) TriggerType() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsInvokeResponse) string { return v.TriggerType }).(pulumi.StringOutput)
+}
+
+// Resource ID of the upgraded vault.
+func (o UpgradeDetailsInvokeResponseOutput) UpgradedResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v UpgradeDetailsInvokeResponse) string { return v.UpgradedResourceId }).(pulumi.StringOutput)
+}
+
+type UpgradeDetailsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UpgradeDetailsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UpgradeDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o UpgradeDetailsInvokeResponsePtrOutput) ToUpgradeDetailsInvokeResponsePtrOutput() UpgradeDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o UpgradeDetailsInvokeResponsePtrOutput) ToUpgradeDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) UpgradeDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o UpgradeDetailsInvokeResponsePtrOutput) Elem() UpgradeDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v *UpgradeDetailsInvokeResponse) UpgradeDetailsInvokeResponse { return *v }).(UpgradeDetailsInvokeResponseOutput)
+}
+
+// UTC time at which the upgrade operation has ended.
+func (o UpgradeDetailsInvokeResponsePtrOutput) EndTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// UTC time at which the upgrade operation status was last updated.
+func (o UpgradeDetailsInvokeResponsePtrOutput) LastUpdatedTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastUpdatedTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Message to the user containing information about the upgrade operation.
+func (o UpgradeDetailsInvokeResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the vault upgrade operation.
+func (o UpgradeDetailsInvokeResponsePtrOutput) OperationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OperationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of the vault before the upgrade.
+func (o UpgradeDetailsInvokeResponsePtrOutput) PreviousResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreviousResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// UTC time at which the upgrade operation has started.
+func (o UpgradeDetailsInvokeResponsePtrOutput) StartTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of the vault upgrade operation.
+func (o UpgradeDetailsInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The way the vault upgrade was triggered.
+func (o UpgradeDetailsInvokeResponsePtrOutput) TriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TriggerType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of the upgraded vault.
+func (o UpgradeDetailsInvokeResponsePtrOutput) UpgradedResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UpgradeDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpgradedResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5118,6 +7182,99 @@ func (o UpgradeDetailsResponsePtrOutput) UpgradedResourceId() pulumi.StringPtrOu
 		}
 		return &v.UpgradedResourceId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the vault.
+type VaultPropertiesInvokeResponse struct {
+	// List of private endpoint connection.
+	PrivateEndpointConnections []PrivateEndpointConnectionVaultPropertiesInvokeResponse `pulumi:"privateEndpointConnections"`
+	// Private endpoint state for backup.
+	PrivateEndpointStateForBackup string `pulumi:"privateEndpointStateForBackup"`
+	// Private endpoint state for site recovery.
+	PrivateEndpointStateForSiteRecovery string `pulumi:"privateEndpointStateForSiteRecovery"`
+	// Provisioning State.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Details for upgrading vault.
+	UpgradeDetails *UpgradeDetailsInvokeResponse `pulumi:"upgradeDetails"`
+}
+
+// VaultPropertiesInvokeResponseInput is an input type that accepts VaultPropertiesInvokeResponseArgs and VaultPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `VaultPropertiesInvokeResponseInput` via:
+//
+//          VaultPropertiesInvokeResponseArgs{...}
+type VaultPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVaultPropertiesInvokeResponseOutput() VaultPropertiesInvokeResponseOutput
+	ToVaultPropertiesInvokeResponseOutputWithContext(context.Context) VaultPropertiesInvokeResponseOutput
+}
+
+// Properties of the vault.
+type VaultPropertiesInvokeResponseArgs struct {
+	// List of private endpoint connection.
+	PrivateEndpointConnections PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayInput `pulumi:"privateEndpointConnections"`
+	// Private endpoint state for backup.
+	PrivateEndpointStateForBackup pulumi.StringInput `pulumi:"privateEndpointStateForBackup"`
+	// Private endpoint state for site recovery.
+	PrivateEndpointStateForSiteRecovery pulumi.StringInput `pulumi:"privateEndpointStateForSiteRecovery"`
+	// Provisioning State.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Details for upgrading vault.
+	UpgradeDetails UpgradeDetailsInvokeResponsePtrInput `pulumi:"upgradeDetails"`
+}
+
+func (VaultPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i VaultPropertiesInvokeResponseArgs) ToVaultPropertiesInvokeResponseOutput() VaultPropertiesInvokeResponseOutput {
+	return i.ToVaultPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VaultPropertiesInvokeResponseArgs) ToVaultPropertiesInvokeResponseOutputWithContext(ctx context.Context) VaultPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultPropertiesInvokeResponseOutput)
+}
+
+// Properties of the vault.
+type VaultPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VaultPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o VaultPropertiesInvokeResponseOutput) ToVaultPropertiesInvokeResponseOutput() VaultPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o VaultPropertiesInvokeResponseOutput) ToVaultPropertiesInvokeResponseOutputWithContext(ctx context.Context) VaultPropertiesInvokeResponseOutput {
+	return o
+}
+
+// List of private endpoint connection.
+func (o VaultPropertiesInvokeResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v VaultPropertiesInvokeResponse) []PrivateEndpointConnectionVaultPropertiesInvokeResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput)
+}
+
+// Private endpoint state for backup.
+func (o VaultPropertiesInvokeResponseOutput) PrivateEndpointStateForBackup() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesInvokeResponse) string { return v.PrivateEndpointStateForBackup }).(pulumi.StringOutput)
+}
+
+// Private endpoint state for site recovery.
+func (o VaultPropertiesInvokeResponseOutput) PrivateEndpointStateForSiteRecovery() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesInvokeResponse) string { return v.PrivateEndpointStateForSiteRecovery }).(pulumi.StringOutput)
+}
+
+// Provisioning State.
+func (o VaultPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Details for upgrading vault.
+func (o VaultPropertiesInvokeResponseOutput) UpgradeDetails() UpgradeDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v VaultPropertiesInvokeResponse) *UpgradeDetailsInvokeResponse { return v.UpgradeDetails }).(UpgradeDetailsInvokeResponsePtrOutput)
 }
 
 // Properties of the vault.
@@ -5486,6 +7643,159 @@ func (o WeeklyRetentionFormatPtrOutput) WeeksOfTheMonth() pulumi.StringArrayOutp
 }
 
 // Weekly retention format.
+type WeeklyRetentionFormatInvokeResponse struct {
+	// List of days of the week.
+	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
+	// List of weeks of the month.
+	WeeksOfTheMonth []string `pulumi:"weeksOfTheMonth"`
+}
+
+// WeeklyRetentionFormatInvokeResponseInput is an input type that accepts WeeklyRetentionFormatInvokeResponseArgs and WeeklyRetentionFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `WeeklyRetentionFormatInvokeResponseInput` via:
+//
+//          WeeklyRetentionFormatInvokeResponseArgs{...}
+type WeeklyRetentionFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWeeklyRetentionFormatInvokeResponseOutput() WeeklyRetentionFormatInvokeResponseOutput
+	ToWeeklyRetentionFormatInvokeResponseOutputWithContext(context.Context) WeeklyRetentionFormatInvokeResponseOutput
+}
+
+// Weekly retention format.
+type WeeklyRetentionFormatInvokeResponseArgs struct {
+	// List of days of the week.
+	DaysOfTheWeek pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
+	// List of weeks of the month.
+	WeeksOfTheMonth pulumi.StringArrayInput `pulumi:"weeksOfTheMonth"`
+}
+
+func (WeeklyRetentionFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WeeklyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i WeeklyRetentionFormatInvokeResponseArgs) ToWeeklyRetentionFormatInvokeResponseOutput() WeeklyRetentionFormatInvokeResponseOutput {
+	return i.ToWeeklyRetentionFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WeeklyRetentionFormatInvokeResponseArgs) ToWeeklyRetentionFormatInvokeResponseOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionFormatInvokeResponseOutput)
+}
+
+func (i WeeklyRetentionFormatInvokeResponseArgs) ToWeeklyRetentionFormatInvokeResponsePtrOutput() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return i.ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WeeklyRetentionFormatInvokeResponseArgs) ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionFormatInvokeResponseOutput).ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WeeklyRetentionFormatInvokeResponsePtrInput is an input type that accepts WeeklyRetentionFormatInvokeResponseArgs, WeeklyRetentionFormatInvokeResponsePtr and WeeklyRetentionFormatInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WeeklyRetentionFormatInvokeResponsePtrInput` via:
+//
+//          WeeklyRetentionFormatInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WeeklyRetentionFormatInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWeeklyRetentionFormatInvokeResponsePtrOutput() WeeklyRetentionFormatInvokeResponsePtrOutput
+	ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(context.Context) WeeklyRetentionFormatInvokeResponsePtrOutput
+}
+
+type weeklyRetentionFormatInvokeResponsePtrType WeeklyRetentionFormatInvokeResponseArgs
+
+func WeeklyRetentionFormatInvokeResponsePtr(v *WeeklyRetentionFormatInvokeResponseArgs) WeeklyRetentionFormatInvokeResponsePtrInput {
+	return (*weeklyRetentionFormatInvokeResponsePtrType)(v)
+}
+
+func (*weeklyRetentionFormatInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i *weeklyRetentionFormatInvokeResponsePtrType) ToWeeklyRetentionFormatInvokeResponsePtrOutput() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return i.ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *weeklyRetentionFormatInvokeResponsePtrType) ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Weekly retention format.
+type WeeklyRetentionFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WeeklyRetentionFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WeeklyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o WeeklyRetentionFormatInvokeResponseOutput) ToWeeklyRetentionFormatInvokeResponseOutput() WeeklyRetentionFormatInvokeResponseOutput {
+	return o
+}
+
+func (o WeeklyRetentionFormatInvokeResponseOutput) ToWeeklyRetentionFormatInvokeResponseOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponseOutput {
+	return o
+}
+
+func (o WeeklyRetentionFormatInvokeResponseOutput) ToWeeklyRetentionFormatInvokeResponsePtrOutput() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WeeklyRetentionFormatInvokeResponseOutput) ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormatInvokeResponse) *WeeklyRetentionFormatInvokeResponse {
+		return &v
+	}).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// List of days of the week.
+func (o WeeklyRetentionFormatInvokeResponseOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormatInvokeResponse) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
+}
+
+// List of weeks of the month.
+func (o WeeklyRetentionFormatInvokeResponseOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormatInvokeResponse) []string { return v.WeeksOfTheMonth }).(pulumi.StringArrayOutput)
+}
+
+type WeeklyRetentionFormatInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WeeklyRetentionFormatInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o WeeklyRetentionFormatInvokeResponsePtrOutput) ToWeeklyRetentionFormatInvokeResponsePtrOutput() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WeeklyRetentionFormatInvokeResponsePtrOutput) ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WeeklyRetentionFormatInvokeResponsePtrOutput) Elem() WeeklyRetentionFormatInvokeResponseOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormatInvokeResponse) WeeklyRetentionFormatInvokeResponse { return *v }).(WeeklyRetentionFormatInvokeResponseOutput)
+}
+
+// List of days of the week.
+func (o WeeklyRetentionFormatInvokeResponsePtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormatInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfTheWeek
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of weeks of the month.
+func (o WeeklyRetentionFormatInvokeResponsePtrOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormatInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeeksOfTheMonth
+	}).(pulumi.StringArrayOutput)
+}
+
+// Weekly retention format.
 type WeeklyRetentionFormatResponse struct {
 	// List of days of the week.
 	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
@@ -5803,6 +8113,180 @@ func (o WeeklyRetentionSchedulePtrOutput) RetentionDuration() RetentionDurationP
 // Retention times of the retention policy.
 func (o WeeklyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WeeklyRetentionSchedule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTimes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Weekly retention schedule.
+type WeeklyRetentionScheduleInvokeResponse struct {
+	// List of the days of the week for the weekly retention policy.
+	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
+	// Retention duration of retention policy.
+	RetentionDuration *RetentionDurationInvokeResponse `pulumi:"retentionDuration"`
+	// Retention times of the retention policy.
+	RetentionTimes []string `pulumi:"retentionTimes"`
+}
+
+// WeeklyRetentionScheduleInvokeResponseInput is an input type that accepts WeeklyRetentionScheduleInvokeResponseArgs and WeeklyRetentionScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `WeeklyRetentionScheduleInvokeResponseInput` via:
+//
+//          WeeklyRetentionScheduleInvokeResponseArgs{...}
+type WeeklyRetentionScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWeeklyRetentionScheduleInvokeResponseOutput() WeeklyRetentionScheduleInvokeResponseOutput
+	ToWeeklyRetentionScheduleInvokeResponseOutputWithContext(context.Context) WeeklyRetentionScheduleInvokeResponseOutput
+}
+
+// Weekly retention schedule.
+type WeeklyRetentionScheduleInvokeResponseArgs struct {
+	// List of the days of the week for the weekly retention policy.
+	DaysOfTheWeek pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
+	// Retention duration of retention policy.
+	RetentionDuration RetentionDurationInvokeResponsePtrInput `pulumi:"retentionDuration"`
+	// Retention times of the retention policy.
+	RetentionTimes pulumi.StringArrayInput `pulumi:"retentionTimes"`
+}
+
+func (WeeklyRetentionScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WeeklyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i WeeklyRetentionScheduleInvokeResponseArgs) ToWeeklyRetentionScheduleInvokeResponseOutput() WeeklyRetentionScheduleInvokeResponseOutput {
+	return i.ToWeeklyRetentionScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WeeklyRetentionScheduleInvokeResponseArgs) ToWeeklyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionScheduleInvokeResponseOutput)
+}
+
+func (i WeeklyRetentionScheduleInvokeResponseArgs) ToWeeklyRetentionScheduleInvokeResponsePtrOutput() WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WeeklyRetentionScheduleInvokeResponseArgs) ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionScheduleInvokeResponseOutput).ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WeeklyRetentionScheduleInvokeResponsePtrInput is an input type that accepts WeeklyRetentionScheduleInvokeResponseArgs, WeeklyRetentionScheduleInvokeResponsePtr and WeeklyRetentionScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WeeklyRetentionScheduleInvokeResponsePtrInput` via:
+//
+//          WeeklyRetentionScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WeeklyRetentionScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWeeklyRetentionScheduleInvokeResponsePtrOutput() WeeklyRetentionScheduleInvokeResponsePtrOutput
+	ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Context) WeeklyRetentionScheduleInvokeResponsePtrOutput
+}
+
+type weeklyRetentionScheduleInvokeResponsePtrType WeeklyRetentionScheduleInvokeResponseArgs
+
+func WeeklyRetentionScheduleInvokeResponsePtr(v *WeeklyRetentionScheduleInvokeResponseArgs) WeeklyRetentionScheduleInvokeResponsePtrInput {
+	return (*weeklyRetentionScheduleInvokeResponsePtrType)(v)
+}
+
+func (*weeklyRetentionScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *weeklyRetentionScheduleInvokeResponsePtrType) ToWeeklyRetentionScheduleInvokeResponsePtrOutput() WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *weeklyRetentionScheduleInvokeResponsePtrType) ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Weekly retention schedule.
+type WeeklyRetentionScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WeeklyRetentionScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WeeklyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o WeeklyRetentionScheduleInvokeResponseOutput) ToWeeklyRetentionScheduleInvokeResponseOutput() WeeklyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o WeeklyRetentionScheduleInvokeResponseOutput) ToWeeklyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o WeeklyRetentionScheduleInvokeResponseOutput) ToWeeklyRetentionScheduleInvokeResponsePtrOutput() WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WeeklyRetentionScheduleInvokeResponseOutput) ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WeeklyRetentionScheduleInvokeResponse) *WeeklyRetentionScheduleInvokeResponse {
+		return &v
+	}).(WeeklyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// List of the days of the week for the weekly retention policy.
+func (o WeeklyRetentionScheduleInvokeResponseOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionScheduleInvokeResponse) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
+}
+
+// Retention duration of retention policy.
+func (o WeeklyRetentionScheduleInvokeResponseOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WeeklyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Retention times of the retention policy.
+func (o WeeklyRetentionScheduleInvokeResponseOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionScheduleInvokeResponse) []string { return v.RetentionTimes }).(pulumi.StringArrayOutput)
+}
+
+type WeeklyRetentionScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WeeklyRetentionScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) ToWeeklyRetentionScheduleInvokeResponsePtrOutput() WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) Elem() WeeklyRetentionScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *WeeklyRetentionScheduleInvokeResponse) WeeklyRetentionScheduleInvokeResponse { return *v }).(WeeklyRetentionScheduleInvokeResponseOutput)
+}
+
+// List of the days of the week for the weekly retention policy.
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfTheWeek
+	}).(pulumi.StringArrayOutput)
+}
+
+// Retention duration of retention policy.
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *WeeklyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Retention times of the retention policy.
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionScheduleInvokeResponse) []string {
 		if v == nil {
 			return nil
 		}
@@ -6212,6 +8696,241 @@ func (o YearlyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOut
 }
 
 // Yearly retention schedule.
+type YearlyRetentionScheduleInvokeResponse struct {
+	// List of the months of year for the yearly retention policy.
+	MonthsOfYear []string `pulumi:"monthsOfYear"`
+	// Retention duration for the retention policy.
+	RetentionDuration *RetentionDurationInvokeResponse `pulumi:"retentionDuration"`
+	// Daily retention format for the yearly retention policy.
+	RetentionScheduleDaily *DailyRetentionFormatInvokeResponse `pulumi:"retentionScheduleDaily"`
+	// Retention schedule format for the yearly retention policy.
+	RetentionScheduleFormatType *string `pulumi:"retentionScheduleFormatType"`
+	// Weekly retention format for the yearly retention policy.
+	RetentionScheduleWeekly *WeeklyRetentionFormatInvokeResponse `pulumi:"retentionScheduleWeekly"`
+	// Retention times for the retention policy.
+	RetentionTimes []string `pulumi:"retentionTimes"`
+}
+
+// YearlyRetentionScheduleInvokeResponseInput is an input type that accepts YearlyRetentionScheduleInvokeResponseArgs and YearlyRetentionScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `YearlyRetentionScheduleInvokeResponseInput` via:
+//
+//          YearlyRetentionScheduleInvokeResponseArgs{...}
+type YearlyRetentionScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToYearlyRetentionScheduleInvokeResponseOutput() YearlyRetentionScheduleInvokeResponseOutput
+	ToYearlyRetentionScheduleInvokeResponseOutputWithContext(context.Context) YearlyRetentionScheduleInvokeResponseOutput
+}
+
+// Yearly retention schedule.
+type YearlyRetentionScheduleInvokeResponseArgs struct {
+	// List of the months of year for the yearly retention policy.
+	MonthsOfYear pulumi.StringArrayInput `pulumi:"monthsOfYear"`
+	// Retention duration for the retention policy.
+	RetentionDuration RetentionDurationInvokeResponsePtrInput `pulumi:"retentionDuration"`
+	// Daily retention format for the yearly retention policy.
+	RetentionScheduleDaily DailyRetentionFormatInvokeResponsePtrInput `pulumi:"retentionScheduleDaily"`
+	// Retention schedule format for the yearly retention policy.
+	RetentionScheduleFormatType pulumi.StringPtrInput `pulumi:"retentionScheduleFormatType"`
+	// Weekly retention format for the yearly retention policy.
+	RetentionScheduleWeekly WeeklyRetentionFormatInvokeResponsePtrInput `pulumi:"retentionScheduleWeekly"`
+	// Retention times for the retention policy.
+	RetentionTimes pulumi.StringArrayInput `pulumi:"retentionTimes"`
+}
+
+func (YearlyRetentionScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*YearlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i YearlyRetentionScheduleInvokeResponseArgs) ToYearlyRetentionScheduleInvokeResponseOutput() YearlyRetentionScheduleInvokeResponseOutput {
+	return i.ToYearlyRetentionScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i YearlyRetentionScheduleInvokeResponseArgs) ToYearlyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(YearlyRetentionScheduleInvokeResponseOutput)
+}
+
+func (i YearlyRetentionScheduleInvokeResponseArgs) ToYearlyRetentionScheduleInvokeResponsePtrOutput() YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i YearlyRetentionScheduleInvokeResponseArgs) ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(YearlyRetentionScheduleInvokeResponseOutput).ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// YearlyRetentionScheduleInvokeResponsePtrInput is an input type that accepts YearlyRetentionScheduleInvokeResponseArgs, YearlyRetentionScheduleInvokeResponsePtr and YearlyRetentionScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `YearlyRetentionScheduleInvokeResponsePtrInput` via:
+//
+//          YearlyRetentionScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type YearlyRetentionScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToYearlyRetentionScheduleInvokeResponsePtrOutput() YearlyRetentionScheduleInvokeResponsePtrOutput
+	ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Context) YearlyRetentionScheduleInvokeResponsePtrOutput
+}
+
+type yearlyRetentionScheduleInvokeResponsePtrType YearlyRetentionScheduleInvokeResponseArgs
+
+func YearlyRetentionScheduleInvokeResponsePtr(v *YearlyRetentionScheduleInvokeResponseArgs) YearlyRetentionScheduleInvokeResponsePtrInput {
+	return (*yearlyRetentionScheduleInvokeResponsePtrType)(v)
+}
+
+func (*yearlyRetentionScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**YearlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *yearlyRetentionScheduleInvokeResponsePtrType) ToYearlyRetentionScheduleInvokeResponsePtrOutput() YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *yearlyRetentionScheduleInvokeResponsePtrType) ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(YearlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Yearly retention schedule.
+type YearlyRetentionScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (YearlyRetentionScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*YearlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o YearlyRetentionScheduleInvokeResponseOutput) ToYearlyRetentionScheduleInvokeResponseOutput() YearlyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o YearlyRetentionScheduleInvokeResponseOutput) ToYearlyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o YearlyRetentionScheduleInvokeResponseOutput) ToYearlyRetentionScheduleInvokeResponsePtrOutput() YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o YearlyRetentionScheduleInvokeResponseOutput) ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) *YearlyRetentionScheduleInvokeResponse {
+		return &v
+	}).(YearlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// List of the months of year for the yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) MonthsOfYear() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) []string { return v.MonthsOfYear }).(pulumi.StringArrayOutput)
+}
+
+// Retention duration for the retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Daily retention format for the yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) RetentionScheduleDaily() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) *DailyRetentionFormatInvokeResponse {
+		return v.RetentionScheduleDaily
+	}).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention schedule format for the yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) *string { return v.RetentionScheduleFormatType }).(pulumi.StringPtrOutput)
+}
+
+// Weekly retention format for the yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) RetentionScheduleWeekly() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) *WeeklyRetentionFormatInvokeResponse {
+		return v.RetentionScheduleWeekly
+	}).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention times for the retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) []string { return v.RetentionTimes }).(pulumi.StringArrayOutput)
+}
+
+type YearlyRetentionScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (YearlyRetentionScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**YearlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) ToYearlyRetentionScheduleInvokeResponsePtrOutput() YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) Elem() YearlyRetentionScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) YearlyRetentionScheduleInvokeResponse { return *v }).(YearlyRetentionScheduleInvokeResponseOutput)
+}
+
+// List of the months of year for the yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) MonthsOfYear() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MonthsOfYear
+	}).(pulumi.StringArrayOutput)
+}
+
+// Retention duration for the retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Daily retention format for the yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleDaily() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) *DailyRetentionFormatInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleDaily
+	}).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention schedule format for the yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleFormatType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Weekly retention format for the yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleWeekly() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) *WeeklyRetentionFormatInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleWeekly
+	}).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention times for the retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTimes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Yearly retention schedule.
 type YearlyRetentionScheduleResponse struct {
 	// List of the months of year for the yearly retention policy.
 	MonthsOfYear []string `pulumi:"monthsOfYear"`
@@ -6449,72 +9168,105 @@ func init() {
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemExtendedInfoOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemExtendedInfoPtrOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(AzureIaaSVMProtectionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectedItemOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectedItemExtendedInfoOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectedItemExtendedInfoPtrOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(AzureSqlProtectionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(DailyRetentionFormatOutput{})
 	pulumi.RegisterOutputType(DailyRetentionFormatPtrOutput{})
+	pulumi.RegisterOutputType(DailyRetentionFormatInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DailyRetentionFormatInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DailyRetentionFormatResponseOutput{})
 	pulumi.RegisterOutputType(DailyRetentionFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(DailyRetentionScheduleOutput{})
 	pulumi.RegisterOutputType(DailyRetentionSchedulePtrOutput{})
+	pulumi.RegisterOutputType(DailyRetentionScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DailyRetentionScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DailyRetentionScheduleResponseOutput{})
 	pulumi.RegisterOutputType(DailyRetentionScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(DayOutput{})
 	pulumi.RegisterOutputType(DayArrayOutput{})
+	pulumi.RegisterOutputType(DayInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DayInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DayResponseOutput{})
 	pulumi.RegisterOutputType(DayResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityDataOutput{})
 	pulumi.RegisterOutputType(IdentityDataPtrOutput{})
+	pulumi.RegisterOutputType(IdentityDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IdentityDataResponseOutput{})
 	pulumi.RegisterOutputType(IdentityDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(LongTermRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(LongTermRetentionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LongTermRetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(LongTermSchedulePolicyOutput{})
+	pulumi.RegisterOutputType(LongTermSchedulePolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LongTermSchedulePolicyResponseOutput{})
 	pulumi.RegisterOutputType(MabFileFolderProtectedItemOutput{})
 	pulumi.RegisterOutputType(MabFileFolderProtectedItemExtendedInfoOutput{})
 	pulumi.RegisterOutputType(MabFileFolderProtectedItemExtendedInfoPtrOutput{})
 	pulumi.RegisterOutputType(MabProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(MabProtectionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MabProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(MonthlyRetentionScheduleOutput{})
 	pulumi.RegisterOutputType(MonthlyRetentionSchedulePtrOutput{})
+	pulumi.RegisterOutputType(MonthlyRetentionScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MonthlyRetentionScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MonthlyRetentionScheduleResponseOutput{})
 	pulumi.RegisterOutputType(MonthlyRetentionScheduleResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionVaultPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionVaultPropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionVaultPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(RetentionDurationOutput{})
 	pulumi.RegisterOutputType(RetentionDurationPtrOutput{})
+	pulumi.RegisterOutputType(RetentionDurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RetentionDurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetentionDurationResponseOutput{})
 	pulumi.RegisterOutputType(RetentionDurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(SimpleRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(SimpleRetentionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SimpleRetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(SimpleSchedulePolicyOutput{})
+	pulumi.RegisterOutputType(SimpleSchedulePolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SimpleSchedulePolicyResponseOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(UpgradeDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UpgradeDetailsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(UpgradeDetailsResponseOutput{})
 	pulumi.RegisterOutputType(UpgradeDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(VaultPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatPtrOutput{})
+	pulumi.RegisterOutputType(WeeklyRetentionFormatInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WeeklyRetentionFormatInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatResponseOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionScheduleOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionSchedulePtrOutput{})
+	pulumi.RegisterOutputType(WeeklyRetentionScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WeeklyRetentionScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionScheduleResponseOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(YearlyRetentionScheduleOutput{})
 	pulumi.RegisterOutputType(YearlyRetentionSchedulePtrOutput{})
+	pulumi.RegisterOutputType(YearlyRetentionScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(YearlyRetentionScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(YearlyRetentionScheduleResponseOutput{})
 	pulumi.RegisterOutputType(YearlyRetentionScheduleResponsePtrOutput{})
 }

@@ -28,7 +28,7 @@ type LookupVirtualNetworkResourceArgs struct {
 // A virtual network.
 type LookupVirtualNetworkResourceResult struct {
 	// The allowed subnets of the virtual network.
-	AllowedSubnets []SubnetResponse `pulumi:"allowedSubnets"`
+	AllowedSubnets []SubnetInvokeResponse `pulumi:"allowedSubnets"`
 	// The description of the virtual network.
 	Description *string `pulumi:"description"`
 	// The Microsoft.Network resource identifier of the virtual network.
@@ -42,7 +42,7 @@ type LookupVirtualNetworkResourceResult struct {
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The subnet overrides of the virtual network.
-	SubnetOverrides []SubnetOverrideResponse `pulumi:"subnetOverrides"`
+	SubnetOverrides []SubnetOverrideInvokeResponse `pulumi:"subnetOverrides"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

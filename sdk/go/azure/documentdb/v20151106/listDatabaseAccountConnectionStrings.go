@@ -26,5 +26,5 @@ type ListDatabaseAccountConnectionStringsArgs struct {
 // The connection strings for the given database account.
 type ListDatabaseAccountConnectionStringsResult struct {
 	// An array that contains the connection strings for the Cosmos DB account.
-	ConnectionStrings []DatabaseAccountConnectionStringResponse `pulumi:"connectionStrings"`
+	ConnectionStrings []DatabaseAccountConnectionStringInvokeResponse `pulumi:"connectionStrings"`
 }

@@ -28,9 +28,9 @@ type LookupNetworkProfileArgs struct {
 // Network profile resource.
 type LookupNetworkProfileResult struct {
 	// List of chid container network interface configurations.
-	ContainerNetworkInterfaceConfigurations []ContainerNetworkInterfaceConfigurationResponse `pulumi:"containerNetworkInterfaceConfigurations"`
+	ContainerNetworkInterfaceConfigurations []ContainerNetworkInterfaceConfigurationInvokeResponse `pulumi:"containerNetworkInterfaceConfigurations"`
 	// List of child container network interfaces.
-	ContainerNetworkInterfaces []ContainerNetworkInterfaceResponse `pulumi:"containerNetworkInterfaces"`
+	ContainerNetworkInterfaces []ContainerNetworkInterfaceInvokeResponse `pulumi:"containerNetworkInterfaces"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.

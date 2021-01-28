@@ -28,7 +28,7 @@ type LookupStorageAccountCredentialArgs struct {
 // The storage account credential.
 type LookupStorageAccountCredentialResult struct {
 	// Encrypted storage key.
-	AccountKey *AsymmetricEncryptedSecretResponse `pulumi:"accountKey"`
+	AccountKey *AsymmetricEncryptedSecretInvokeResponse `pulumi:"accountKey"`
 	// Type of storage accessed on the storage account.
 	AccountType string `pulumi:"accountType"`
 	// Alias for the storage account.

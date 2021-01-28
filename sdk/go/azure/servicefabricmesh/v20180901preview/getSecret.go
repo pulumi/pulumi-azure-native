@@ -32,7 +32,7 @@ type LookupSecretResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Describes the properties of a secret resource.
-	Properties SecretResourcePropertiesResponse `pulumi:"properties"`
+	Properties SecretResourcePropertiesInvokeResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

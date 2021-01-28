@@ -32,7 +32,7 @@ type LookupNamespaceResult struct {
 	// Gets or sets name of the Namespace.
 	Name *string `pulumi:"name"`
 	// Gets or sets properties of the Namespace.
-	Properties NamespacePropertiesResponse `pulumi:"properties"`
+	Properties NamespacePropertiesInvokeResponse `pulumi:"properties"`
 	// Gets or sets tags of the Namespace.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets resource type of the Namespace.

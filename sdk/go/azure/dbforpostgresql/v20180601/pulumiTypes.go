@@ -141,6 +141,58 @@ func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PrivateEndpointPropertyInvokeResponse struct {
+	// Resource id of the private endpoint.
+	Id *string `pulumi:"id"`
+}
+
+// PrivateEndpointPropertyInvokeResponseInput is an input type that accepts PrivateEndpointPropertyInvokeResponseArgs and PrivateEndpointPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointPropertyInvokeResponseInput` via:
+//
+//          PrivateEndpointPropertyInvokeResponseArgs{...}
+type PrivateEndpointPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyInvokeResponseOutput() PrivateEndpointPropertyInvokeResponseOutput
+	ToPrivateEndpointPropertyInvokeResponseOutputWithContext(context.Context) PrivateEndpointPropertyInvokeResponseOutput
+}
+
+type PrivateEndpointPropertyInvokeResponseArgs struct {
+	// Resource id of the private endpoint.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointPropertyInvokeResponseArgs) ToPrivateEndpointPropertyInvokeResponseOutput() PrivateEndpointPropertyInvokeResponseOutput {
+	return i.ToPrivateEndpointPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyInvokeResponseArgs) ToPrivateEndpointPropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyInvokeResponseOutput)
+}
+
+type PrivateEndpointPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyInvokeResponseOutput) ToPrivateEndpointPropertyInvokeResponseOutput() PrivateEndpointPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyInvokeResponseOutput) ToPrivateEndpointPropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertyInvokeResponseOutput {
+	return o
+}
+
+// Resource id of the private endpoint.
+func (o PrivateEndpointPropertyInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointPropertyInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 type PrivateEndpointPropertyResponse struct {
 	// Resource id of the private endpoint.
 	Id *string `pulumi:"id"`
@@ -424,6 +476,76 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type PrivateLinkServiceConnectionStatePropertyInvokeResponse struct {
+	// The actions required for private link service connection.
+	ActionsRequired string `pulumi:"actionsRequired"`
+	// The private link service connection description.
+	Description string `pulumi:"description"`
+	// The private link service connection status.
+	Status string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStatePropertyInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs and PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePropertyInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionStatePropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput
+	ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput
+}
+
+type PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs struct {
+	// The actions required for private link service connection.
+	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	// The private link service connection description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The private link service connection status.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyInvokeResponseArgs) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutput() PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ToPrivateLinkServiceConnectionStatePropertyInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput {
+	return o
+}
+
+// The actions required for private link service connection.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) ActionsRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
+}
+
+// The private link service connection description.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The private link service connection status.
+func (o PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
 type PrivateLinkServiceConnectionStatePropertyResponse struct {
 	// The actions required for private link service connection.
 	ActionsRequired string `pulumi:"actionsRequired"`
@@ -598,10 +720,12 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointPropertyOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
 }

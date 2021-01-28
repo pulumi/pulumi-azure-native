@@ -28,15 +28,15 @@ type LookupAccountFilterArgs struct {
 // An Account Filter.
 type LookupAccountFilterResult struct {
 	// The first quality.
-	FirstQuality *FirstQualityResponse `pulumi:"firstQuality"`
+	FirstQuality *FirstQualityInvokeResponse `pulumi:"firstQuality"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The presentation time range.
-	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
+	PresentationTimeRange *PresentationTimeRangeInvokeResponse `pulumi:"presentationTimeRange"`
 	// The tracks selection conditions.
-	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
+	Tracks []FilterTrackSelectionInvokeResponse `pulumi:"tracks"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

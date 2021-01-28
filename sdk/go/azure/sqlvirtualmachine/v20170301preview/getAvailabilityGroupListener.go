@@ -34,7 +34,7 @@ type LookupAvailabilityGroupListenerResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// List of load balancer configurations for an availability group listener.
-	LoadBalancerConfigurations []LoadBalancerConfigurationResponse `pulumi:"loadBalancerConfigurations"`
+	LoadBalancerConfigurations []LoadBalancerConfigurationInvokeResponse `pulumi:"loadBalancerConfigurations"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Listener port.

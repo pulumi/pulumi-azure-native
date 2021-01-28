@@ -26,23 +26,23 @@ type LookupOrderArgs struct {
 // The order details.
 type LookupOrderResult struct {
 	// The contact details.
-	ContactInformation ContactDetailsResponse `pulumi:"contactInformation"`
+	ContactInformation ContactDetailsInvokeResponse `pulumi:"contactInformation"`
 	// Current status of the order.
-	CurrentStatus *OrderStatusResponse `pulumi:"currentStatus"`
+	CurrentStatus *OrderStatusInvokeResponse `pulumi:"currentStatus"`
 	// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
-	DeliveryTrackingInfo []TrackingInfoResponse `pulumi:"deliveryTrackingInfo"`
+	DeliveryTrackingInfo []TrackingInfoInvokeResponse `pulumi:"deliveryTrackingInfo"`
 	// The path ID that uniquely identifies the object.
 	Id string `pulumi:"id"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// List of status changes in the order.
-	OrderHistory []OrderStatusResponse `pulumi:"orderHistory"`
+	OrderHistory []OrderStatusInvokeResponse `pulumi:"orderHistory"`
 	// Tracking information for the package returned from the customer whether it has an original or a replacement device.
-	ReturnTrackingInfo []TrackingInfoResponse `pulumi:"returnTrackingInfo"`
+	ReturnTrackingInfo []TrackingInfoInvokeResponse `pulumi:"returnTrackingInfo"`
 	// Serial number of the device.
 	SerialNumber string `pulumi:"serialNumber"`
 	// The shipping address.
-	ShippingAddress AddressResponse `pulumi:"shippingAddress"`
+	ShippingAddress AddressInvokeResponse `pulumi:"shippingAddress"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

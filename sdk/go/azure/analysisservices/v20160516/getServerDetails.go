@@ -26,7 +26,7 @@ type LookupServerDetailsArgs struct {
 // Represents an instance of an Analysis Services resource.
 type LookupServerDetailsResult struct {
 	// A collection of AS server administrators
-	AsAdministrators *ServerAdministratorsResponse `pulumi:"asAdministrators"`
+	AsAdministrators *ServerAdministratorsInvokeResponse `pulumi:"asAdministrators"`
 	// The container URI of backup blob.
 	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
 	// An identifier that represents the Analysis Services resource.
@@ -44,7 +44,7 @@ type LookupServerDetailsResult struct {
 	// The server monitor mode for AS server
 	ServerMonitorMode *int `pulumi:"serverMonitorMode"`
 	// The SKU of the Analysis Services resource.
-	Sku ResourceSkuResponse `pulumi:"sku"`
+	Sku ResourceSkuInvokeResponse `pulumi:"sku"`
 	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
 	State string `pulumi:"state"`
 	// Key-value pairs of additional resource provisioning properties.

@@ -28,11 +28,11 @@ type LookupDedicatedHostGroupArgs struct {
 // Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
 type LookupDedicatedHostGroupResult struct {
 	// A list of references to all dedicated hosts in the dedicated host group.
-	Hosts []SubResourceReadOnlyResponse `pulumi:"hosts"`
+	Hosts []SubResourceReadOnlyInvokeResponse `pulumi:"hosts"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
-	InstanceView DedicatedHostGroupInstanceViewResponse `pulumi:"instanceView"`
+	InstanceView DedicatedHostGroupInstanceViewInvokeResponse `pulumi:"instanceView"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

@@ -26,15 +26,15 @@ type LookupApplicationGatewayArgs struct {
 // Application gateway resource.
 type LookupApplicationGatewayResult struct {
 	// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificateResponse `pulumi:"authenticationCertificates"`
+	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificateInvokeResponse `pulumi:"authenticationCertificates"`
 	// Autoscale Configuration.
-	AutoscaleConfiguration *ApplicationGatewayAutoscaleConfigurationResponse `pulumi:"autoscaleConfiguration"`
+	AutoscaleConfiguration *ApplicationGatewayAutoscaleConfigurationInvokeResponse `pulumi:"autoscaleConfiguration"`
 	// Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	BackendAddressPools []ApplicationGatewayBackendAddressPoolResponse `pulumi:"backendAddressPools"`
+	BackendAddressPools []ApplicationGatewayBackendAddressPoolInvokeResponse `pulumi:"backendAddressPools"`
 	// Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsResponse `pulumi:"backendHttpSettingsCollection"`
+	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsInvokeResponse `pulumi:"backendHttpSettingsCollection"`
 	// Custom error configurations of the application gateway resource.
-	CustomErrorConfigurations []ApplicationGatewayCustomErrorResponse `pulumi:"customErrorConfigurations"`
+	CustomErrorConfigurations []ApplicationGatewayCustomErrorInvokeResponse `pulumi:"customErrorConfigurations"`
 	// Whether FIPS is enabled on the application gateway resource.
 	EnableFips *bool `pulumi:"enableFips"`
 	// Whether HTTP2 is enabled on the application gateway resource.
@@ -42,21 +42,21 @@ type LookupApplicationGatewayResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Reference to the FirewallPolicy resource.
-	FirewallPolicy *SubResourceResponse `pulumi:"firewallPolicy"`
+	FirewallPolicy *SubResourceInvokeResponse `pulumi:"firewallPolicy"`
 	// If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
 	ForceFirewallPolicyAssociation *bool `pulumi:"forceFirewallPolicyAssociation"`
 	// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
+	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfigurationInvokeResponse `pulumi:"frontendIPConfigurations"`
 	// Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	FrontendPorts []ApplicationGatewayFrontendPortResponse `pulumi:"frontendPorts"`
+	FrontendPorts []ApplicationGatewayFrontendPortInvokeResponse `pulumi:"frontendPorts"`
 	// Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	GatewayIPConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"gatewayIPConfigurations"`
+	GatewayIPConfigurations []ApplicationGatewayIPConfigurationInvokeResponse `pulumi:"gatewayIPConfigurations"`
 	// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	HttpListeners []ApplicationGatewayHttpListenerResponse `pulumi:"httpListeners"`
+	HttpListeners []ApplicationGatewayHttpListenerInvokeResponse `pulumi:"httpListeners"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The identity of the application gateway, if configured.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	Identity *ManagedServiceIdentityInvokeResponse `pulumi:"identity"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -64,37 +64,37 @@ type LookupApplicationGatewayResult struct {
 	// Operational state of the application gateway resource.
 	OperationalState string `pulumi:"operationalState"`
 	// Private Endpoint connections on application gateway.
-	PrivateEndpointConnections []ApplicationGatewayPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []ApplicationGatewayPrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// PrivateLink configurations on application gateway.
-	PrivateLinkConfigurations []ApplicationGatewayPrivateLinkConfigurationResponse `pulumi:"privateLinkConfigurations"`
+	PrivateLinkConfigurations []ApplicationGatewayPrivateLinkConfigurationInvokeResponse `pulumi:"privateLinkConfigurations"`
 	// Probes of the application gateway resource.
-	Probes []ApplicationGatewayProbeResponse `pulumi:"probes"`
+	Probes []ApplicationGatewayProbeInvokeResponse `pulumi:"probes"`
 	// The provisioning state of the application gateway resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	RedirectConfigurations []ApplicationGatewayRedirectConfigurationResponse `pulumi:"redirectConfigurations"`
+	RedirectConfigurations []ApplicationGatewayRedirectConfigurationInvokeResponse `pulumi:"redirectConfigurations"`
 	// Request routing rules of the application gateway resource.
-	RequestRoutingRules []ApplicationGatewayRequestRoutingRuleResponse `pulumi:"requestRoutingRules"`
+	RequestRoutingRules []ApplicationGatewayRequestRoutingRuleInvokeResponse `pulumi:"requestRoutingRules"`
 	// The resource GUID property of the application gateway resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Rewrite rules for the application gateway resource.
-	RewriteRuleSets []ApplicationGatewayRewriteRuleSetResponse `pulumi:"rewriteRuleSets"`
+	RewriteRuleSets []ApplicationGatewayRewriteRuleSetInvokeResponse `pulumi:"rewriteRuleSets"`
 	// SKU of the application gateway resource.
-	Sku *ApplicationGatewaySkuResponse `pulumi:"sku"`
+	Sku *ApplicationGatewaySkuInvokeResponse `pulumi:"sku"`
 	// SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	SslCertificates []ApplicationGatewaySslCertificateResponse `pulumi:"sslCertificates"`
+	SslCertificates []ApplicationGatewaySslCertificateInvokeResponse `pulumi:"sslCertificates"`
 	// SSL policy of the application gateway resource.
-	SslPolicy *ApplicationGatewaySslPolicyResponse `pulumi:"sslPolicy"`
+	SslPolicy *ApplicationGatewaySslPolicyInvokeResponse `pulumi:"sslPolicy"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	TrustedRootCertificates []ApplicationGatewayTrustedRootCertificateResponse `pulumi:"trustedRootCertificates"`
+	TrustedRootCertificates []ApplicationGatewayTrustedRootCertificateInvokeResponse `pulumi:"trustedRootCertificates"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-	UrlPathMaps []ApplicationGatewayUrlPathMapResponse `pulumi:"urlPathMaps"`
+	UrlPathMaps []ApplicationGatewayUrlPathMapInvokeResponse `pulumi:"urlPathMaps"`
 	// Web application firewall configuration.
-	WebApplicationFirewallConfiguration *ApplicationGatewayWebApplicationFirewallConfigurationResponse `pulumi:"webApplicationFirewallConfiguration"`
+	WebApplicationFirewallConfiguration *ApplicationGatewayWebApplicationFirewallConfigurationInvokeResponse `pulumi:"webApplicationFirewallConfiguration"`
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones []string `pulumi:"zones"`
 }

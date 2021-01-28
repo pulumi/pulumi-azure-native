@@ -42,7 +42,7 @@ type LookupEnvironmentSettingResult struct {
 	// Time when the template VM was last sent for publishing.
 	LastPublished string `pulumi:"lastPublished"`
 	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
+	LatestOperationResult LatestOperationResultInvokeResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
@@ -52,7 +52,7 @@ type LookupEnvironmentSettingResult struct {
 	// Describes the readiness of this environment setting
 	PublishingState string `pulumi:"publishingState"`
 	// The resource specific settings
-	ResourceSettings ResourceSettingsResponse `pulumi:"resourceSettings"`
+	ResourceSettings ResourceSettingsInvokeResponse `pulumi:"resourceSettings"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Brief title describing the environment and its resource settings

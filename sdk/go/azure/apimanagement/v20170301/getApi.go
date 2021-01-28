@@ -34,11 +34,11 @@ type LookupApiResult struct {
 	// Indicates the Version identifier of the API if the API is versioned
 	ApiVersion *string `pulumi:"apiVersion"`
 	// Api Version Set Contract details.
-	ApiVersionSet *ApiVersionSetContractResponse `pulumi:"apiVersionSet"`
+	ApiVersionSet *ApiVersionSetContractInvokeResponse `pulumi:"apiVersionSet"`
 	// A resource identifier for the related ApiVersionSet.
 	ApiVersionSetId *string `pulumi:"apiVersionSetId"`
 	// Collection of authentication settings included into this API.
-	AuthenticationSettings *AuthenticationSettingsContractResponse `pulumi:"authenticationSettings"`
+	AuthenticationSettings *AuthenticationSettingsContractInvokeResponse `pulumi:"authenticationSettings"`
 	// Description of the API. May include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// API name.
@@ -58,7 +58,7 @@ type LookupApiResult struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// Protocols over which API is made available.
-	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContractResponse `pulumi:"subscriptionKeyParameterNames"`
+	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContractInvokeResponse `pulumi:"subscriptionKeyParameterNames"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

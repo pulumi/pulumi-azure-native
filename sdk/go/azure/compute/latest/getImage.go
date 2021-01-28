@@ -38,9 +38,9 @@ type LookupImageResult struct {
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The source virtual machine from which Image is created.
-	SourceVirtualMachine *SubResourceResponse `pulumi:"sourceVirtualMachine"`
+	SourceVirtualMachine *SubResourceInvokeResponse `pulumi:"sourceVirtualMachine"`
 	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile *ImageStorageProfileResponse `pulumi:"storageProfile"`
+	StorageProfile *ImageStorageProfileInvokeResponse `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

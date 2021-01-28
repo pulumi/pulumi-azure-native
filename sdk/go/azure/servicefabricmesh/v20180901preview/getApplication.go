@@ -30,7 +30,7 @@ type LookupApplicationResult struct {
 	// User readable description of the application.
 	Description *string `pulumi:"description"`
 	// Describes the diagnostics definition and usage for an application resource.
-	Diagnostics *DiagnosticsDescriptionResponse `pulumi:"diagnostics"`
+	Diagnostics *DiagnosticsDescriptionInvokeResponse `pulumi:"diagnostics"`
 	// Describes the health state of an application resource.
 	HealthState string `pulumi:"healthState"`
 	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -44,7 +44,7 @@ type LookupApplicationResult struct {
 	// Names of the services in the application.
 	ServiceNames []string `pulumi:"serviceNames"`
 	// Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
-	Services []ServiceResourceDescriptionResponse `pulumi:"services"`
+	Services []ServiceResourceDescriptionInvokeResponse `pulumi:"services"`
 	// Status of the application.
 	Status string `pulumi:"status"`
 	// Gives additional information about the current status of the application.

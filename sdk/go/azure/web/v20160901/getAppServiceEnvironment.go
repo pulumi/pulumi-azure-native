@@ -32,7 +32,7 @@ type LookupAppServiceEnvironmentResult struct {
 	// API Management Account associated with the App Service Environment.
 	ApiManagementAccountId *string `pulumi:"apiManagementAccountId"`
 	// Custom settings for changing the behavior of the App Service Environment.
-	ClusterSettings []NameValuePairResponse `pulumi:"clusterSettings"`
+	ClusterSettings []NameValuePairInvokeResponse `pulumi:"clusterSettings"`
 	// Edition of the metadata database for the App Service Environment, e.g. "Standard".
 	DatabaseEdition string `pulumi:"databaseEdition"`
 	// Service objective of the metadata database for the App Service Environment, e.g. "S0".
@@ -45,7 +45,7 @@ type LookupAppServiceEnvironmentResult struct {
 	// (most likely because NSG blocked the incoming traffic).
 	DynamicCacheEnabled *bool `pulumi:"dynamicCacheEnabled"`
 	// Current total, used, and available worker capacities.
-	EnvironmentCapacities []StampCapacityResponse `pulumi:"environmentCapacities"`
+	EnvironmentCapacities []StampCapacityInvokeResponse `pulumi:"environmentCapacities"`
 	// True/false indicating whether the App Service Environment is healthy.
 	EnvironmentIsHealthy bool `pulumi:"environmentIsHealthy"`
 	// Detailed message about with results of the last check of the App Service Environment.
@@ -75,7 +75,7 @@ type LookupAppServiceEnvironmentResult struct {
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// Access control list for controlling traffic to the App Service Environment.
-	NetworkAccessControlList []NetworkAccessControlEntryResponse `pulumi:"networkAccessControlList"`
+	NetworkAccessControlList []NetworkAccessControlEntryInvokeResponse `pulumi:"networkAccessControlList"`
 	// Provisioning state of the App Service Environment.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource group of the App Service Environment.
@@ -96,9 +96,9 @@ type LookupAppServiceEnvironmentResult struct {
 	// User added ip ranges to whitelist on ASE db
 	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
 	// Description of IP SSL mapping for the App Service Environment.
-	VipMappings []VirtualIPMappingResponse `pulumi:"vipMappings"`
+	VipMappings []VirtualIPMappingInvokeResponse `pulumi:"vipMappings"`
 	// Description of the Virtual Network.
-	VirtualNetwork VirtualNetworkProfileResponse `pulumi:"virtualNetwork"`
+	VirtualNetwork VirtualNetworkProfileInvokeResponse `pulumi:"virtualNetwork"`
 	// Name of the Virtual Network for the App Service Environment.
 	VnetName *string `pulumi:"vnetName"`
 	// Resource group of the Virtual Network.
@@ -106,5 +106,5 @@ type LookupAppServiceEnvironmentResult struct {
 	// Subnet of the Virtual Network.
 	VnetSubnetName *string `pulumi:"vnetSubnetName"`
 	// Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
-	WorkerPools []WorkerPoolResponse `pulumi:"workerPools"`
+	WorkerPools []WorkerPoolInvokeResponse `pulumi:"workerPools"`
 }

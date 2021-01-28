@@ -26,5 +26,5 @@ type ListAccountChannelTypesArgs struct {
 // List of the EngagementFabric channel descriptions
 type ListAccountChannelTypesResult struct {
 	// Channel descriptions
-	Value []ChannelTypeDescriptionResponse `pulumi:"value"`
+	Value []ChannelTypeDescriptionInvokeResponse `pulumi:"value"`
 }

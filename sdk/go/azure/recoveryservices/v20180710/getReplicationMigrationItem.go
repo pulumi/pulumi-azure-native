@@ -38,7 +38,7 @@ type LookupReplicationMigrationItemResult struct {
 	// Resource Name
 	Name string `pulumi:"name"`
 	// The migration item properties.
-	Properties MigrationItemPropertiesResponse `pulumi:"properties"`
+	Properties MigrationItemPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
 }

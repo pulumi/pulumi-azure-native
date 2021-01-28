@@ -28,7 +28,7 @@ type LookupStreamingJobArgs struct {
 // A streaming job object, containing all information associated with the named streaming job.
 type LookupStreamingJobResult struct {
 	// The cluster which streaming jobs will run on.
-	Cluster *ClusterInfoResponse `pulumi:"cluster"`
+	Cluster *ClusterInfoInvokeResponse `pulumi:"cluster"`
 	// Controls certain runtime behaviors of the streaming job.
 	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
 	// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
@@ -46,21 +46,21 @@ type LookupStreamingJobResult struct {
 	// Indicates the policy to apply to events that arrive out of order in the input event stream.
 	EventsOutOfOrderPolicy *string `pulumi:"eventsOutOfOrderPolicy"`
 	// The storage account where the custom code artifacts are located.
-	Externals *ExternalResponse `pulumi:"externals"`
+	Externals *ExternalInvokeResponse `pulumi:"externals"`
 	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-	Functions []FunctionResponse `pulumi:"functions"`
+	Functions []FunctionInvokeResponse `pulumi:"functions"`
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
-	Inputs []InputResponse `pulumi:"inputs"`
+	Inputs []InputInvokeResponse `pulumi:"inputs"`
 	// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
 	JobId string `pulumi:"jobId"`
 	// Describes the state of the streaming job.
 	JobState string `pulumi:"jobState"`
 	// The properties that are associated with an Azure Storage account with MSI
-	JobStorageAccount *JobStorageAccountResponse `pulumi:"jobStorageAccount"`
+	JobStorageAccount *JobStorageAccountInvokeResponse `pulumi:"jobStorageAccount"`
 	// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
 	JobType *string `pulumi:"jobType"`
 	// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
@@ -76,15 +76,15 @@ type LookupStreamingJobResult struct {
 	// Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
 	OutputStartTime *string `pulumi:"outputStartTime"`
 	// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-	Outputs []OutputResponse `pulumi:"outputs"`
+	Outputs []OutputInvokeResponse `pulumi:"outputs"`
 	// Describes the provisioning status of the streaming job.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
-	Sku *StreamingJobSkuResponse `pulumi:"sku"`
+	Sku *StreamingJobSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-	Transformation *TransformationResponse `pulumi:"transformation"`
+	Transformation *TransformationInvokeResponse `pulumi:"transformation"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

@@ -26,13 +26,13 @@ type LookupWebAppDiagnosticLogsConfigurationArgs struct {
 // Configuration of App Service site logs.
 type LookupWebAppDiagnosticLogsConfigurationResult struct {
 	// Application logs configuration.
-	ApplicationLogs *ApplicationLogsConfigResponse `pulumi:"applicationLogs"`
+	ApplicationLogs *ApplicationLogsConfigInvokeResponse `pulumi:"applicationLogs"`
 	// Detailed error messages configuration.
-	DetailedErrorMessages *EnabledConfigResponse `pulumi:"detailedErrorMessages"`
+	DetailedErrorMessages *EnabledConfigInvokeResponse `pulumi:"detailedErrorMessages"`
 	// Failed requests tracing configuration.
-	FailedRequestsTracing *EnabledConfigResponse `pulumi:"failedRequestsTracing"`
+	FailedRequestsTracing *EnabledConfigInvokeResponse `pulumi:"failedRequestsTracing"`
 	// HTTP logs configuration.
-	HttpLogs *HttpLogsConfigResponse `pulumi:"httpLogs"`
+	HttpLogs *HttpLogsConfigInvokeResponse `pulumi:"httpLogs"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Kind of resource.
@@ -40,7 +40,7 @@ type LookupWebAppDiagnosticLogsConfigurationResult struct {
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

@@ -36,7 +36,7 @@ type LookupReplicationvCenterResult struct {
 	// Resource Name
 	Name string `pulumi:"name"`
 	// VCenter related data.
-	Properties VCenterPropertiesResponse `pulumi:"properties"`
+	Properties VCenterPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
 }

@@ -26,5 +26,5 @@ type ListBitLockerKeyArgs struct {
 // GetBitLockerKeys response
 type ListBitLockerKeyResult struct {
 	// drive status
-	Value []DriveBitLockerKeyResponse `pulumi:"value"`
+	Value []DriveBitLockerKeyInvokeResponse `pulumi:"value"`
 }

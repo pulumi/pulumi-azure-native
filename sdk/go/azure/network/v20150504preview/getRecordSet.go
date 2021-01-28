@@ -30,11 +30,11 @@ type LookupRecordSetArgs struct {
 // Describes a DNS record set (a collection of DNS records with the same name and type).
 type LookupRecordSetResult struct {
 	// Gets or sets the list of AAAA records in the RecordSet.
-	AAAARecords []AaaaRecordResponse `pulumi:"aAAARecords"`
+	AAAARecords []AaaaRecordInvokeResponse `pulumi:"aAAARecords"`
 	// Gets or sets the list of A records in the RecordSet.
-	ARecords []ARecordResponse `pulumi:"aRecords"`
+	ARecords []ARecordInvokeResponse `pulumi:"aRecords"`
 	// Gets or sets the CNAME record in the RecordSet.
-	CNAMERecord *CnameRecordResponse `pulumi:"cNAMERecord"`
+	CNAMERecord *CnameRecordInvokeResponse `pulumi:"cNAMERecord"`
 	// The etag of the record set.
 	Etag *string `pulumi:"etag"`
 	// Fully qualified domain name of the record set.
@@ -42,19 +42,19 @@ type LookupRecordSetResult struct {
 	// The ID of the record set.
 	Id string `pulumi:"id"`
 	// Gets or sets the list of MX records in the RecordSet.
-	MXRecords []MxRecordResponse `pulumi:"mXRecords"`
+	MXRecords []MxRecordInvokeResponse `pulumi:"mXRecords"`
 	// Gets or sets the list of NS records in the RecordSet.
-	NSRecords []NsRecordResponse `pulumi:"nSRecords"`
+	NSRecords []NsRecordInvokeResponse `pulumi:"nSRecords"`
 	// The name of the record set.
 	Name string `pulumi:"name"`
 	// Gets or sets the list of PTR records in the RecordSet.
-	PTRRecords []PtrRecordResponse `pulumi:"pTRRecords"`
+	PTRRecords []PtrRecordInvokeResponse `pulumi:"pTRRecords"`
 	// Gets or sets the SOA record in the RecordSet.
-	SOARecord *SoaRecordResponse `pulumi:"sOARecord"`
+	SOARecord *SoaRecordInvokeResponse `pulumi:"sOARecord"`
 	// Gets or sets the list of SRV records in the RecordSet.
-	SRVRecords []SrvRecordResponse `pulumi:"sRVRecords"`
+	SRVRecords []SrvRecordInvokeResponse `pulumi:"sRVRecords"`
 	// Gets or sets the list of TXT records in the RecordSet.
-	TXTRecords []TxtRecordResponse `pulumi:"tXTRecords"`
+	TXTRecords []TxtRecordInvokeResponse `pulumi:"tXTRecords"`
 	// Gets or sets the TTL of the records in the RecordSet.
 	Ttl *float64 `pulumi:"ttl"`
 	// The type of the record set.

@@ -111,6 +111,106 @@ func (o DataPoolLocationArrayOutput) Index(i pulumi.IntInput) DataPoolLocationOu
 }
 
 // Location of a Data Pool
+type DataPoolLocationInvokeResponse struct {
+	// The location name
+	Name string `pulumi:"name"`
+}
+
+// DataPoolLocationInvokeResponseInput is an input type that accepts DataPoolLocationInvokeResponseArgs and DataPoolLocationInvokeResponseOutput values.
+// You can construct a concrete instance of `DataPoolLocationInvokeResponseInput` via:
+//
+//          DataPoolLocationInvokeResponseArgs{...}
+type DataPoolLocationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataPoolLocationInvokeResponseOutput() DataPoolLocationInvokeResponseOutput
+	ToDataPoolLocationInvokeResponseOutputWithContext(context.Context) DataPoolLocationInvokeResponseOutput
+}
+
+// Location of a Data Pool
+type DataPoolLocationInvokeResponseArgs struct {
+	// The location name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DataPoolLocationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPoolLocationInvokeResponse)(nil)).Elem()
+}
+
+func (i DataPoolLocationInvokeResponseArgs) ToDataPoolLocationInvokeResponseOutput() DataPoolLocationInvokeResponseOutput {
+	return i.ToDataPoolLocationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataPoolLocationInvokeResponseArgs) ToDataPoolLocationInvokeResponseOutputWithContext(ctx context.Context) DataPoolLocationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataPoolLocationInvokeResponseOutput)
+}
+
+// DataPoolLocationInvokeResponseArrayInput is an input type that accepts DataPoolLocationInvokeResponseArray and DataPoolLocationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataPoolLocationInvokeResponseArrayInput` via:
+//
+//          DataPoolLocationInvokeResponseArray{ DataPoolLocationInvokeResponseArgs{...} }
+type DataPoolLocationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataPoolLocationInvokeResponseArrayOutput() DataPoolLocationInvokeResponseArrayOutput
+	ToDataPoolLocationInvokeResponseArrayOutputWithContext(context.Context) DataPoolLocationInvokeResponseArrayOutput
+}
+
+type DataPoolLocationInvokeResponseArray []DataPoolLocationInvokeResponseInput
+
+func (DataPoolLocationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataPoolLocationInvokeResponse)(nil)).Elem()
+}
+
+func (i DataPoolLocationInvokeResponseArray) ToDataPoolLocationInvokeResponseArrayOutput() DataPoolLocationInvokeResponseArrayOutput {
+	return i.ToDataPoolLocationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataPoolLocationInvokeResponseArray) ToDataPoolLocationInvokeResponseArrayOutputWithContext(ctx context.Context) DataPoolLocationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataPoolLocationInvokeResponseArrayOutput)
+}
+
+// Location of a Data Pool
+type DataPoolLocationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataPoolLocationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPoolLocationInvokeResponse)(nil)).Elem()
+}
+
+func (o DataPoolLocationInvokeResponseOutput) ToDataPoolLocationInvokeResponseOutput() DataPoolLocationInvokeResponseOutput {
+	return o
+}
+
+func (o DataPoolLocationInvokeResponseOutput) ToDataPoolLocationInvokeResponseOutputWithContext(ctx context.Context) DataPoolLocationInvokeResponseOutput {
+	return o
+}
+
+// The location name
+func (o DataPoolLocationInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataPoolLocationInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DataPoolLocationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataPoolLocationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataPoolLocationInvokeResponse)(nil)).Elem()
+}
+
+func (o DataPoolLocationInvokeResponseArrayOutput) ToDataPoolLocationInvokeResponseArrayOutput() DataPoolLocationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataPoolLocationInvokeResponseArrayOutput) ToDataPoolLocationInvokeResponseArrayOutputWithContext(ctx context.Context) DataPoolLocationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataPoolLocationInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataPoolLocationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataPoolLocationInvokeResponse {
+		return vs[0].([]DataPoolLocationInvokeResponse)[vs[1].(int)]
+	}).(DataPoolLocationInvokeResponseOutput)
+}
+
+// Location of a Data Pool
 type DataPoolLocationResponse struct {
 	// The location name
 	Name string `pulumi:"name"`
@@ -208,6 +308,106 @@ func (o DataPoolLocationResponseArrayOutput) Index(i pulumi.IntInput) DataPoolLo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataPoolLocationResponse {
 		return vs[0].([]DataPoolLocationResponse)[vs[1].(int)]
 	}).(DataPoolLocationResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -442,8 +642,11 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(DataPoolLocationOutput{})
 	pulumi.RegisterOutputType(DataPoolLocationArrayOutput{})
+	pulumi.RegisterOutputType(DataPoolLocationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataPoolLocationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataPoolLocationResponseOutput{})
 	pulumi.RegisterOutputType(DataPoolLocationResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

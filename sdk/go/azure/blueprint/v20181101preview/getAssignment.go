@@ -34,23 +34,23 @@ type LookupAssignmentResult struct {
 	// String Id used to locate any resource on Azure.
 	Id string `pulumi:"id"`
 	// Managed identity for this blueprint assignment.
-	Identity ManagedServiceIdentityResponse `pulumi:"identity"`
+	Identity ManagedServiceIdentityInvokeResponse `pulumi:"identity"`
 	// The location of this blueprint assignment.
 	Location string `pulumi:"location"`
 	// Defines how resources deployed by a blueprint assignment are locked.
-	Locks *AssignmentLockSettingsResponse `pulumi:"locks"`
+	Locks *AssignmentLockSettingsInvokeResponse `pulumi:"locks"`
 	// Name of this resource.
 	Name string `pulumi:"name"`
 	// Blueprint assignment parameter values.
-	Parameters map[string]ParameterValueResponse `pulumi:"parameters"`
+	Parameters map[string]ParameterValueInvokeResponse `pulumi:"parameters"`
 	// State of the blueprint assignment.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Names and locations of resource group placeholders.
-	ResourceGroups map[string]ResourceGroupValueResponse `pulumi:"resourceGroups"`
+	ResourceGroups map[string]ResourceGroupValueInvokeResponse `pulumi:"resourceGroups"`
 	// The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
 	Scope *string `pulumi:"scope"`
 	// Status of blueprint assignment. This field is readonly.
-	Status AssignmentStatusResponse `pulumi:"status"`
+	Status AssignmentStatusInvokeResponse `pulumi:"status"`
 	// Type of this resource.
 	Type string `pulumi:"type"`
 }

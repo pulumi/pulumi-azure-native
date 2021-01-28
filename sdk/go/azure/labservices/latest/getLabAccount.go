@@ -32,7 +32,7 @@ type LookupLabAccountResult struct {
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
 	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
+	LatestOperationResult LatestOperationResultInvokeResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
@@ -40,7 +40,7 @@ type LookupLabAccountResult struct {
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Represents the size configuration under the lab account
-	SizeConfiguration SizeConfigurationPropertiesResponse `pulumi:"sizeConfiguration"`
+	SizeConfiguration SizeConfigurationPropertiesInvokeResponse `pulumi:"sizeConfiguration"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

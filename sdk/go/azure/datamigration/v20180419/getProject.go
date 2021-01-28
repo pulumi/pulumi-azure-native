@@ -30,7 +30,7 @@ type LookupProjectResult struct {
 	// UTC Date and time when project was created
 	CreationTime string `pulumi:"creationTime"`
 	// List of DatabaseInfo
-	DatabasesInfo []DatabaseInfoResponse `pulumi:"databasesInfo"`
+	DatabasesInfo []DatabaseInfoInvokeResponse `pulumi:"databasesInfo"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource location.

@@ -30,7 +30,7 @@ type LookupBatchAccountResult struct {
 	// The active job and job schedule quota for this Batch account.
 	ActiveJobAndJobScheduleQuota int `pulumi:"activeJobAndJobScheduleQuota"`
 	// The properties and status of any auto storage account associated with the account.
-	AutoStorage *AutoStoragePropertiesResponse `pulumi:"autoStorage"`
+	AutoStorage *AutoStoragePropertiesInvokeResponse `pulumi:"autoStorage"`
 	// The core quota for this Batch account.
 	CoreQuota int `pulumi:"coreQuota"`
 	// The ID of the resource

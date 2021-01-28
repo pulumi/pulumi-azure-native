@@ -30,7 +30,7 @@ type LookupOutputResult struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
 	Datasource interface{} `pulumi:"datasource"`
 	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-	Diagnostics DiagnosticsResponse `pulumi:"diagnostics"`
+	Diagnostics DiagnosticsInvokeResponse `pulumi:"diagnostics"`
 	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 	Etag string `pulumi:"etag"`
 	// Resource Id

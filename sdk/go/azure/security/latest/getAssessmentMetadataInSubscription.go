@@ -37,7 +37,7 @@ type LookupAssessmentMetadataInSubscriptionResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Describes the partner that created the assessment
-	PartnerData *SecurityAssessmentMetadataPartnerDataResponse `pulumi:"partnerData"`
+	PartnerData *SecurityAssessmentMetadataPartnerDataInvokeResponse `pulumi:"partnerData"`
 	// Azure resource ID of the policy definition that turns this assessment calculation on
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
 	// True if this assessment is in preview release status

@@ -31,7 +31,7 @@ type LookupIntegrationAccountMapResult struct {
 	// The content.
 	Content interface{} `pulumi:"content"`
 	// The content link.
-	ContentLink IntegrationAccountContentLinkResponse `pulumi:"contentLink"`
+	ContentLink IntegrationAccountContentLinkInvokeResponse `pulumi:"contentLink"`
 	// The content type.
 	ContentType *string `pulumi:"contentType"`
 	// The created time.

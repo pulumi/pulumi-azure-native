@@ -28,7 +28,7 @@ type LookupFileServicePropertiesArgs struct {
 // The properties of File services in storage account.
 type LookupFileServicePropertiesResult struct {
 	// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
-	Cors *CorsRulesResponse `pulumi:"cors"`
+	Cors *CorsRulesInvokeResponse `pulumi:"cors"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The name of the resource

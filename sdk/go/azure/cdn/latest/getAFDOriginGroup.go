@@ -29,21 +29,21 @@ type LookupAFDOriginGroupArgs struct {
 type LookupAFDOriginGroupResult struct {
 	DeploymentStatus string `pulumi:"deploymentStatus"`
 	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings *HealthProbeParametersResponse `pulumi:"healthProbeSettings"`
+	HealthProbeSettings *HealthProbeParametersInvokeResponse `pulumi:"healthProbeSettings"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Load balancing settings for a backend pool
-	LoadBalancingSettings *LoadBalancingSettingsParametersResponse `pulumi:"loadBalancingSettings"`
+	LoadBalancingSettings *LoadBalancingSettingsParametersInvokeResponse `pulumi:"loadBalancingSettings"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedAfdOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersResponse `pulumi:"responseBasedAfdOriginErrorDetectionSettings"`
+	ResponseBasedAfdOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersInvokeResponse `pulumi:"responseBasedAfdOriginErrorDetectionSettings"`
 	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 	SessionAffinityState *string `pulumi:"sessionAffinityState"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
 	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
 	// Resource type.

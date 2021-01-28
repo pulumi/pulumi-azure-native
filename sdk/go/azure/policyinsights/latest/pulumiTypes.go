@@ -11,149 +11,149 @@ import (
 )
 
 // Error definition.
-type ErrorDefinitionResponse struct {
+type ErrorDefinitionInvokeResponse struct {
 	// Additional scenario specific error details.
-	AdditionalInfo []TypedErrorInfoResponse `pulumi:"additionalInfo"`
+	AdditionalInfo []TypedErrorInfoInvokeResponse `pulumi:"additionalInfo"`
 	// Service specific error code which serves as the substatus for the HTTP error code.
 	Code string `pulumi:"code"`
 	// Internal error details.
-	Details []ErrorDefinitionResponse `pulumi:"details"`
+	Details []ErrorDefinitionInvokeResponse `pulumi:"details"`
 	// Description of the error.
 	Message string `pulumi:"message"`
 	// The target of the error.
 	Target string `pulumi:"target"`
 }
 
-// ErrorDefinitionResponseInput is an input type that accepts ErrorDefinitionResponseArgs and ErrorDefinitionResponseOutput values.
-// You can construct a concrete instance of `ErrorDefinitionResponseInput` via:
+// ErrorDefinitionInvokeResponseInput is an input type that accepts ErrorDefinitionInvokeResponseArgs and ErrorDefinitionInvokeResponseOutput values.
+// You can construct a concrete instance of `ErrorDefinitionInvokeResponseInput` via:
 //
-//          ErrorDefinitionResponseArgs{...}
-type ErrorDefinitionResponseInput interface {
+//          ErrorDefinitionInvokeResponseArgs{...}
+type ErrorDefinitionInvokeResponseInput interface {
 	pulumi.Input
 
-	ToErrorDefinitionResponseOutput() ErrorDefinitionResponseOutput
-	ToErrorDefinitionResponseOutputWithContext(context.Context) ErrorDefinitionResponseOutput
+	ToErrorDefinitionInvokeResponseOutput() ErrorDefinitionInvokeResponseOutput
+	ToErrorDefinitionInvokeResponseOutputWithContext(context.Context) ErrorDefinitionInvokeResponseOutput
 }
 
 // Error definition.
-type ErrorDefinitionResponseArgs struct {
+type ErrorDefinitionInvokeResponseArgs struct {
 	// Additional scenario specific error details.
-	AdditionalInfo TypedErrorInfoResponseArrayInput `pulumi:"additionalInfo"`
+	AdditionalInfo TypedErrorInfoInvokeResponseArrayInput `pulumi:"additionalInfo"`
 	// Service specific error code which serves as the substatus for the HTTP error code.
 	Code pulumi.StringInput `pulumi:"code"`
 	// Internal error details.
-	Details ErrorDefinitionResponseArrayInput `pulumi:"details"`
+	Details ErrorDefinitionInvokeResponseArrayInput `pulumi:"details"`
 	// Description of the error.
 	Message pulumi.StringInput `pulumi:"message"`
 	// The target of the error.
 	Target pulumi.StringInput `pulumi:"target"`
 }
 
-func (ErrorDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDefinitionResponse)(nil)).Elem()
+func (ErrorDefinitionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDefinitionInvokeResponse)(nil)).Elem()
 }
 
-func (i ErrorDefinitionResponseArgs) ToErrorDefinitionResponseOutput() ErrorDefinitionResponseOutput {
-	return i.ToErrorDefinitionResponseOutputWithContext(context.Background())
+func (i ErrorDefinitionInvokeResponseArgs) ToErrorDefinitionInvokeResponseOutput() ErrorDefinitionInvokeResponseOutput {
+	return i.ToErrorDefinitionInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ErrorDefinitionResponseArgs) ToErrorDefinitionResponseOutputWithContext(ctx context.Context) ErrorDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionResponseOutput)
+func (i ErrorDefinitionInvokeResponseArgs) ToErrorDefinitionInvokeResponseOutputWithContext(ctx context.Context) ErrorDefinitionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionInvokeResponseOutput)
 }
 
-// ErrorDefinitionResponseArrayInput is an input type that accepts ErrorDefinitionResponseArray and ErrorDefinitionResponseArrayOutput values.
-// You can construct a concrete instance of `ErrorDefinitionResponseArrayInput` via:
+// ErrorDefinitionInvokeResponseArrayInput is an input type that accepts ErrorDefinitionInvokeResponseArray and ErrorDefinitionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ErrorDefinitionInvokeResponseArrayInput` via:
 //
-//          ErrorDefinitionResponseArray{ ErrorDefinitionResponseArgs{...} }
-type ErrorDefinitionResponseArrayInput interface {
+//          ErrorDefinitionInvokeResponseArray{ ErrorDefinitionInvokeResponseArgs{...} }
+type ErrorDefinitionInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToErrorDefinitionResponseArrayOutput() ErrorDefinitionResponseArrayOutput
-	ToErrorDefinitionResponseArrayOutputWithContext(context.Context) ErrorDefinitionResponseArrayOutput
+	ToErrorDefinitionInvokeResponseArrayOutput() ErrorDefinitionInvokeResponseArrayOutput
+	ToErrorDefinitionInvokeResponseArrayOutputWithContext(context.Context) ErrorDefinitionInvokeResponseArrayOutput
 }
 
-type ErrorDefinitionResponseArray []ErrorDefinitionResponseInput
+type ErrorDefinitionInvokeResponseArray []ErrorDefinitionInvokeResponseInput
 
-func (ErrorDefinitionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ErrorDefinitionResponse)(nil)).Elem()
+func (ErrorDefinitionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDefinitionInvokeResponse)(nil)).Elem()
 }
 
-func (i ErrorDefinitionResponseArray) ToErrorDefinitionResponseArrayOutput() ErrorDefinitionResponseArrayOutput {
-	return i.ToErrorDefinitionResponseArrayOutputWithContext(context.Background())
+func (i ErrorDefinitionInvokeResponseArray) ToErrorDefinitionInvokeResponseArrayOutput() ErrorDefinitionInvokeResponseArrayOutput {
+	return i.ToErrorDefinitionInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ErrorDefinitionResponseArray) ToErrorDefinitionResponseArrayOutputWithContext(ctx context.Context) ErrorDefinitionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionResponseArrayOutput)
+func (i ErrorDefinitionInvokeResponseArray) ToErrorDefinitionInvokeResponseArrayOutputWithContext(ctx context.Context) ErrorDefinitionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDefinitionInvokeResponseArrayOutput)
 }
 
 // Error definition.
-type ErrorDefinitionResponseOutput struct{ *pulumi.OutputState }
+type ErrorDefinitionInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ErrorDefinitionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDefinitionResponse)(nil)).Elem()
+func (ErrorDefinitionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDefinitionInvokeResponse)(nil)).Elem()
 }
 
-func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponseOutput() ErrorDefinitionResponseOutput {
+func (o ErrorDefinitionInvokeResponseOutput) ToErrorDefinitionInvokeResponseOutput() ErrorDefinitionInvokeResponseOutput {
 	return o
 }
 
-func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponseOutputWithContext(ctx context.Context) ErrorDefinitionResponseOutput {
+func (o ErrorDefinitionInvokeResponseOutput) ToErrorDefinitionInvokeResponseOutputWithContext(ctx context.Context) ErrorDefinitionInvokeResponseOutput {
 	return o
 }
 
 // Additional scenario specific error details.
-func (o ErrorDefinitionResponseOutput) AdditionalInfo() TypedErrorInfoResponseArrayOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) []TypedErrorInfoResponse { return v.AdditionalInfo }).(TypedErrorInfoResponseArrayOutput)
+func (o ErrorDefinitionInvokeResponseOutput) AdditionalInfo() TypedErrorInfoInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ErrorDefinitionInvokeResponse) []TypedErrorInfoInvokeResponse { return v.AdditionalInfo }).(TypedErrorInfoInvokeResponseArrayOutput)
 }
 
 // Service specific error code which serves as the substatus for the HTTP error code.
-func (o ErrorDefinitionResponseOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Code }).(pulumi.StringOutput)
+func (o ErrorDefinitionInvokeResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDefinitionInvokeResponse) string { return v.Code }).(pulumi.StringOutput)
 }
 
 // Internal error details.
-func (o ErrorDefinitionResponseOutput) Details() ErrorDefinitionResponseArrayOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) []ErrorDefinitionResponse { return v.Details }).(ErrorDefinitionResponseArrayOutput)
+func (o ErrorDefinitionInvokeResponseOutput) Details() ErrorDefinitionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ErrorDefinitionInvokeResponse) []ErrorDefinitionInvokeResponse { return v.Details }).(ErrorDefinitionInvokeResponseArrayOutput)
 }
 
 // Description of the error.
-func (o ErrorDefinitionResponseOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Message }).(pulumi.StringOutput)
+func (o ErrorDefinitionInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDefinitionInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
 // The target of the error.
-func (o ErrorDefinitionResponseOutput) Target() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) string { return v.Target }).(pulumi.StringOutput)
+func (o ErrorDefinitionInvokeResponseOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDefinitionInvokeResponse) string { return v.Target }).(pulumi.StringOutput)
 }
 
-type ErrorDefinitionResponseArrayOutput struct{ *pulumi.OutputState }
+type ErrorDefinitionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ErrorDefinitionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ErrorDefinitionResponse)(nil)).Elem()
+func (ErrorDefinitionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDefinitionInvokeResponse)(nil)).Elem()
 }
 
-func (o ErrorDefinitionResponseArrayOutput) ToErrorDefinitionResponseArrayOutput() ErrorDefinitionResponseArrayOutput {
+func (o ErrorDefinitionInvokeResponseArrayOutput) ToErrorDefinitionInvokeResponseArrayOutput() ErrorDefinitionInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ErrorDefinitionResponseArrayOutput) ToErrorDefinitionResponseArrayOutputWithContext(ctx context.Context) ErrorDefinitionResponseArrayOutput {
+func (o ErrorDefinitionInvokeResponseArrayOutput) ToErrorDefinitionInvokeResponseArrayOutputWithContext(ctx context.Context) ErrorDefinitionInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ErrorDefinitionResponseArrayOutput) Index(i pulumi.IntInput) ErrorDefinitionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorDefinitionResponse {
-		return vs[0].([]ErrorDefinitionResponse)[vs[1].(int)]
-	}).(ErrorDefinitionResponseOutput)
+func (o ErrorDefinitionInvokeResponseArrayOutput) Index(i pulumi.IntInput) ErrorDefinitionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorDefinitionInvokeResponse {
+		return vs[0].([]ErrorDefinitionInvokeResponse)[vs[1].(int)]
+	}).(ErrorDefinitionInvokeResponseOutput)
 }
 
 // Details of a single deployment created by the remediation.
-type RemediationDeploymentResponse struct {
+type RemediationDeploymentInvokeResponse struct {
 	// The time at which the remediation was created.
 	CreatedOn string `pulumi:"createdOn"`
 	// Resource ID of the template deployment that will remediate the resource.
 	DeploymentId string `pulumi:"deploymentId"`
 	// Error encountered while remediated the resource.
-	Error ErrorDefinitionResponse `pulumi:"error"`
+	Error ErrorDefinitionInvokeResponse `pulumi:"error"`
 	// The time at which the remediation deployment was last updated.
 	LastUpdatedOn string `pulumi:"lastUpdatedOn"`
 	// Resource ID of the resource that is being remediated by the deployment.
@@ -164,25 +164,25 @@ type RemediationDeploymentResponse struct {
 	Status string `pulumi:"status"`
 }
 
-// RemediationDeploymentResponseInput is an input type that accepts RemediationDeploymentResponseArgs and RemediationDeploymentResponseOutput values.
-// You can construct a concrete instance of `RemediationDeploymentResponseInput` via:
+// RemediationDeploymentInvokeResponseInput is an input type that accepts RemediationDeploymentInvokeResponseArgs and RemediationDeploymentInvokeResponseOutput values.
+// You can construct a concrete instance of `RemediationDeploymentInvokeResponseInput` via:
 //
-//          RemediationDeploymentResponseArgs{...}
-type RemediationDeploymentResponseInput interface {
+//          RemediationDeploymentInvokeResponseArgs{...}
+type RemediationDeploymentInvokeResponseInput interface {
 	pulumi.Input
 
-	ToRemediationDeploymentResponseOutput() RemediationDeploymentResponseOutput
-	ToRemediationDeploymentResponseOutputWithContext(context.Context) RemediationDeploymentResponseOutput
+	ToRemediationDeploymentInvokeResponseOutput() RemediationDeploymentInvokeResponseOutput
+	ToRemediationDeploymentInvokeResponseOutputWithContext(context.Context) RemediationDeploymentInvokeResponseOutput
 }
 
 // Details of a single deployment created by the remediation.
-type RemediationDeploymentResponseArgs struct {
+type RemediationDeploymentInvokeResponseArgs struct {
 	// The time at which the remediation was created.
 	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
 	// Resource ID of the template deployment that will remediate the resource.
 	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
 	// Error encountered while remediated the resource.
-	Error ErrorDefinitionResponseInput `pulumi:"error"`
+	Error ErrorDefinitionInvokeResponseInput `pulumi:"error"`
 	// The time at which the remediation deployment was last updated.
 	LastUpdatedOn pulumi.StringInput `pulumi:"lastUpdatedOn"`
 	// Resource ID of the resource that is being remediated by the deployment.
@@ -193,111 +193,184 @@ type RemediationDeploymentResponseArgs struct {
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
-func (RemediationDeploymentResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationDeploymentResponse)(nil)).Elem()
+func (RemediationDeploymentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationDeploymentInvokeResponse)(nil)).Elem()
 }
 
-func (i RemediationDeploymentResponseArgs) ToRemediationDeploymentResponseOutput() RemediationDeploymentResponseOutput {
-	return i.ToRemediationDeploymentResponseOutputWithContext(context.Background())
+func (i RemediationDeploymentInvokeResponseArgs) ToRemediationDeploymentInvokeResponseOutput() RemediationDeploymentInvokeResponseOutput {
+	return i.ToRemediationDeploymentInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i RemediationDeploymentResponseArgs) ToRemediationDeploymentResponseOutputWithContext(ctx context.Context) RemediationDeploymentResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentResponseOutput)
+func (i RemediationDeploymentInvokeResponseArgs) ToRemediationDeploymentInvokeResponseOutputWithContext(ctx context.Context) RemediationDeploymentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentInvokeResponseOutput)
 }
 
-// RemediationDeploymentResponseArrayInput is an input type that accepts RemediationDeploymentResponseArray and RemediationDeploymentResponseArrayOutput values.
-// You can construct a concrete instance of `RemediationDeploymentResponseArrayInput` via:
+// RemediationDeploymentInvokeResponseArrayInput is an input type that accepts RemediationDeploymentInvokeResponseArray and RemediationDeploymentInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RemediationDeploymentInvokeResponseArrayInput` via:
 //
-//          RemediationDeploymentResponseArray{ RemediationDeploymentResponseArgs{...} }
-type RemediationDeploymentResponseArrayInput interface {
+//          RemediationDeploymentInvokeResponseArray{ RemediationDeploymentInvokeResponseArgs{...} }
+type RemediationDeploymentInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToRemediationDeploymentResponseArrayOutput() RemediationDeploymentResponseArrayOutput
-	ToRemediationDeploymentResponseArrayOutputWithContext(context.Context) RemediationDeploymentResponseArrayOutput
+	ToRemediationDeploymentInvokeResponseArrayOutput() RemediationDeploymentInvokeResponseArrayOutput
+	ToRemediationDeploymentInvokeResponseArrayOutputWithContext(context.Context) RemediationDeploymentInvokeResponseArrayOutput
 }
 
-type RemediationDeploymentResponseArray []RemediationDeploymentResponseInput
+type RemediationDeploymentInvokeResponseArray []RemediationDeploymentInvokeResponseInput
 
-func (RemediationDeploymentResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RemediationDeploymentResponse)(nil)).Elem()
+func (RemediationDeploymentInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemediationDeploymentInvokeResponse)(nil)).Elem()
 }
 
-func (i RemediationDeploymentResponseArray) ToRemediationDeploymentResponseArrayOutput() RemediationDeploymentResponseArrayOutput {
-	return i.ToRemediationDeploymentResponseArrayOutputWithContext(context.Background())
+func (i RemediationDeploymentInvokeResponseArray) ToRemediationDeploymentInvokeResponseArrayOutput() RemediationDeploymentInvokeResponseArrayOutput {
+	return i.ToRemediationDeploymentInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i RemediationDeploymentResponseArray) ToRemediationDeploymentResponseArrayOutputWithContext(ctx context.Context) RemediationDeploymentResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentResponseArrayOutput)
+func (i RemediationDeploymentInvokeResponseArray) ToRemediationDeploymentInvokeResponseArrayOutputWithContext(ctx context.Context) RemediationDeploymentInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentInvokeResponseArrayOutput)
 }
 
 // Details of a single deployment created by the remediation.
-type RemediationDeploymentResponseOutput struct{ *pulumi.OutputState }
+type RemediationDeploymentInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (RemediationDeploymentResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationDeploymentResponse)(nil)).Elem()
+func (RemediationDeploymentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationDeploymentInvokeResponse)(nil)).Elem()
 }
 
-func (o RemediationDeploymentResponseOutput) ToRemediationDeploymentResponseOutput() RemediationDeploymentResponseOutput {
+func (o RemediationDeploymentInvokeResponseOutput) ToRemediationDeploymentInvokeResponseOutput() RemediationDeploymentInvokeResponseOutput {
 	return o
 }
 
-func (o RemediationDeploymentResponseOutput) ToRemediationDeploymentResponseOutputWithContext(ctx context.Context) RemediationDeploymentResponseOutput {
+func (o RemediationDeploymentInvokeResponseOutput) ToRemediationDeploymentInvokeResponseOutputWithContext(ctx context.Context) RemediationDeploymentInvokeResponseOutput {
 	return o
 }
 
 // The time at which the remediation was created.
-func (o RemediationDeploymentResponseOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
+func (o RemediationDeploymentInvokeResponseOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationDeploymentInvokeResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
 // Resource ID of the template deployment that will remediate the resource.
-func (o RemediationDeploymentResponseOutput) DeploymentId() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.DeploymentId }).(pulumi.StringOutput)
+func (o RemediationDeploymentInvokeResponseOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationDeploymentInvokeResponse) string { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
 // Error encountered while remediated the resource.
-func (o RemediationDeploymentResponseOutput) Error() ErrorDefinitionResponseOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) ErrorDefinitionResponse { return v.Error }).(ErrorDefinitionResponseOutput)
+func (o RemediationDeploymentInvokeResponseOutput) Error() ErrorDefinitionInvokeResponseOutput {
+	return o.ApplyT(func(v RemediationDeploymentInvokeResponse) ErrorDefinitionInvokeResponse { return v.Error }).(ErrorDefinitionInvokeResponseOutput)
 }
 
 // The time at which the remediation deployment was last updated.
-func (o RemediationDeploymentResponseOutput) LastUpdatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.LastUpdatedOn }).(pulumi.StringOutput)
+func (o RemediationDeploymentInvokeResponseOutput) LastUpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationDeploymentInvokeResponse) string { return v.LastUpdatedOn }).(pulumi.StringOutput)
 }
 
 // Resource ID of the resource that is being remediated by the deployment.
-func (o RemediationDeploymentResponseOutput) RemediatedResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.RemediatedResourceId }).(pulumi.StringOutput)
+func (o RemediationDeploymentInvokeResponseOutput) RemediatedResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationDeploymentInvokeResponse) string { return v.RemediatedResourceId }).(pulumi.StringOutput)
 }
 
 // Location of the resource that is being remediated.
-func (o RemediationDeploymentResponseOutput) ResourceLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.ResourceLocation }).(pulumi.StringOutput)
+func (o RemediationDeploymentInvokeResponseOutput) ResourceLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationDeploymentInvokeResponse) string { return v.ResourceLocation }).(pulumi.StringOutput)
 }
 
 // Status of the remediation deployment.
-func (o RemediationDeploymentResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v RemediationDeploymentResponse) string { return v.Status }).(pulumi.StringOutput)
+func (o RemediationDeploymentInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RemediationDeploymentInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-type RemediationDeploymentResponseArrayOutput struct{ *pulumi.OutputState }
+type RemediationDeploymentInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (RemediationDeploymentResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RemediationDeploymentResponse)(nil)).Elem()
+func (RemediationDeploymentInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RemediationDeploymentInvokeResponse)(nil)).Elem()
 }
 
-func (o RemediationDeploymentResponseArrayOutput) ToRemediationDeploymentResponseArrayOutput() RemediationDeploymentResponseArrayOutput {
+func (o RemediationDeploymentInvokeResponseArrayOutput) ToRemediationDeploymentInvokeResponseArrayOutput() RemediationDeploymentInvokeResponseArrayOutput {
 	return o
 }
 
-func (o RemediationDeploymentResponseArrayOutput) ToRemediationDeploymentResponseArrayOutputWithContext(ctx context.Context) RemediationDeploymentResponseArrayOutput {
+func (o RemediationDeploymentInvokeResponseArrayOutput) ToRemediationDeploymentInvokeResponseArrayOutputWithContext(ctx context.Context) RemediationDeploymentInvokeResponseArrayOutput {
 	return o
 }
 
-func (o RemediationDeploymentResponseArrayOutput) Index(i pulumi.IntInput) RemediationDeploymentResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemediationDeploymentResponse {
-		return vs[0].([]RemediationDeploymentResponse)[vs[1].(int)]
-	}).(RemediationDeploymentResponseOutput)
+func (o RemediationDeploymentInvokeResponseArrayOutput) Index(i pulumi.IntInput) RemediationDeploymentInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemediationDeploymentInvokeResponse {
+		return vs[0].([]RemediationDeploymentInvokeResponse)[vs[1].(int)]
+	}).(RemediationDeploymentInvokeResponseOutput)
+}
+
+// The deployment status summary for all deployments created by the remediation.
+type RemediationDeploymentSummaryInvokeResponse struct {
+	// The number of deployments required by the remediation that have failed.
+	FailedDeployments int `pulumi:"failedDeployments"`
+	// The number of deployments required by the remediation that have succeeded.
+	SuccessfulDeployments int `pulumi:"successfulDeployments"`
+	// The number of deployments required by the remediation.
+	TotalDeployments int `pulumi:"totalDeployments"`
+}
+
+// RemediationDeploymentSummaryInvokeResponseInput is an input type that accepts RemediationDeploymentSummaryInvokeResponseArgs and RemediationDeploymentSummaryInvokeResponseOutput values.
+// You can construct a concrete instance of `RemediationDeploymentSummaryInvokeResponseInput` via:
+//
+//          RemediationDeploymentSummaryInvokeResponseArgs{...}
+type RemediationDeploymentSummaryInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRemediationDeploymentSummaryInvokeResponseOutput() RemediationDeploymentSummaryInvokeResponseOutput
+	ToRemediationDeploymentSummaryInvokeResponseOutputWithContext(context.Context) RemediationDeploymentSummaryInvokeResponseOutput
+}
+
+// The deployment status summary for all deployments created by the remediation.
+type RemediationDeploymentSummaryInvokeResponseArgs struct {
+	// The number of deployments required by the remediation that have failed.
+	FailedDeployments pulumi.IntInput `pulumi:"failedDeployments"`
+	// The number of deployments required by the remediation that have succeeded.
+	SuccessfulDeployments pulumi.IntInput `pulumi:"successfulDeployments"`
+	// The number of deployments required by the remediation.
+	TotalDeployments pulumi.IntInput `pulumi:"totalDeployments"`
+}
+
+func (RemediationDeploymentSummaryInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationDeploymentSummaryInvokeResponse)(nil)).Elem()
+}
+
+func (i RemediationDeploymentSummaryInvokeResponseArgs) ToRemediationDeploymentSummaryInvokeResponseOutput() RemediationDeploymentSummaryInvokeResponseOutput {
+	return i.ToRemediationDeploymentSummaryInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RemediationDeploymentSummaryInvokeResponseArgs) ToRemediationDeploymentSummaryInvokeResponseOutputWithContext(ctx context.Context) RemediationDeploymentSummaryInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationDeploymentSummaryInvokeResponseOutput)
+}
+
+// The deployment status summary for all deployments created by the remediation.
+type RemediationDeploymentSummaryInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RemediationDeploymentSummaryInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationDeploymentSummaryInvokeResponse)(nil)).Elem()
+}
+
+func (o RemediationDeploymentSummaryInvokeResponseOutput) ToRemediationDeploymentSummaryInvokeResponseOutput() RemediationDeploymentSummaryInvokeResponseOutput {
+	return o
+}
+
+func (o RemediationDeploymentSummaryInvokeResponseOutput) ToRemediationDeploymentSummaryInvokeResponseOutputWithContext(ctx context.Context) RemediationDeploymentSummaryInvokeResponseOutput {
+	return o
+}
+
+// The number of deployments required by the remediation that have failed.
+func (o RemediationDeploymentSummaryInvokeResponseOutput) FailedDeployments() pulumi.IntOutput {
+	return o.ApplyT(func(v RemediationDeploymentSummaryInvokeResponse) int { return v.FailedDeployments }).(pulumi.IntOutput)
+}
+
+// The number of deployments required by the remediation that have succeeded.
+func (o RemediationDeploymentSummaryInvokeResponseOutput) SuccessfulDeployments() pulumi.IntOutput {
+	return o.ApplyT(func(v RemediationDeploymentSummaryInvokeResponse) int { return v.SuccessfulDeployments }).(pulumi.IntOutput)
+}
+
+// The number of deployments required by the remediation.
+func (o RemediationDeploymentSummaryInvokeResponseOutput) TotalDeployments() pulumi.IntOutput {
+	return o.ApplyT(func(v RemediationDeploymentSummaryInvokeResponse) int { return v.TotalDeployments }).(pulumi.IntOutput)
 }
 
 // The deployment status summary for all deployments created by the remediation.
@@ -607,6 +680,61 @@ func (o RemediationFiltersPtrOutput) Locations() pulumi.StringArrayOutput {
 }
 
 // The filters that will be applied to determine which resources to remediate.
+type RemediationFiltersInvokeResponse struct {
+	// The resource locations that will be remediated.
+	Locations []string `pulumi:"locations"`
+}
+
+// RemediationFiltersInvokeResponseInput is an input type that accepts RemediationFiltersInvokeResponseArgs and RemediationFiltersInvokeResponseOutput values.
+// You can construct a concrete instance of `RemediationFiltersInvokeResponseInput` via:
+//
+//          RemediationFiltersInvokeResponseArgs{...}
+type RemediationFiltersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRemediationFiltersInvokeResponseOutput() RemediationFiltersInvokeResponseOutput
+	ToRemediationFiltersInvokeResponseOutputWithContext(context.Context) RemediationFiltersInvokeResponseOutput
+}
+
+// The filters that will be applied to determine which resources to remediate.
+type RemediationFiltersInvokeResponseArgs struct {
+	// The resource locations that will be remediated.
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
+}
+
+func (RemediationFiltersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationFiltersInvokeResponse)(nil)).Elem()
+}
+
+func (i RemediationFiltersInvokeResponseArgs) ToRemediationFiltersInvokeResponseOutput() RemediationFiltersInvokeResponseOutput {
+	return i.ToRemediationFiltersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RemediationFiltersInvokeResponseArgs) ToRemediationFiltersInvokeResponseOutputWithContext(ctx context.Context) RemediationFiltersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationFiltersInvokeResponseOutput)
+}
+
+// The filters that will be applied to determine which resources to remediate.
+type RemediationFiltersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RemediationFiltersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationFiltersInvokeResponse)(nil)).Elem()
+}
+
+func (o RemediationFiltersInvokeResponseOutput) ToRemediationFiltersInvokeResponseOutput() RemediationFiltersInvokeResponseOutput {
+	return o
+}
+
+func (o RemediationFiltersInvokeResponseOutput) ToRemediationFiltersInvokeResponseOutputWithContext(ctx context.Context) RemediationFiltersInvokeResponseOutput {
+	return o
+}
+
+// The resource locations that will be remediated.
+func (o RemediationFiltersInvokeResponseOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RemediationFiltersInvokeResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// The filters that will be applied to determine which resources to remediate.
 type RemediationFiltersResponse struct {
 	// The resource locations that will be remediated.
 	Locations []string `pulumi:"locations"`
@@ -741,125 +869,127 @@ func (o RemediationFiltersResponsePtrOutput) Locations() pulumi.StringArrayOutpu
 }
 
 // Scenario specific error details.
-type TypedErrorInfoResponse struct {
+type TypedErrorInfoInvokeResponse struct {
 	// The scenario specific error details.
 	Info interface{} `pulumi:"info"`
 	// The type of included error details.
 	Type string `pulumi:"type"`
 }
 
-// TypedErrorInfoResponseInput is an input type that accepts TypedErrorInfoResponseArgs and TypedErrorInfoResponseOutput values.
-// You can construct a concrete instance of `TypedErrorInfoResponseInput` via:
+// TypedErrorInfoInvokeResponseInput is an input type that accepts TypedErrorInfoInvokeResponseArgs and TypedErrorInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `TypedErrorInfoInvokeResponseInput` via:
 //
-//          TypedErrorInfoResponseArgs{...}
-type TypedErrorInfoResponseInput interface {
+//          TypedErrorInfoInvokeResponseArgs{...}
+type TypedErrorInfoInvokeResponseInput interface {
 	pulumi.Input
 
-	ToTypedErrorInfoResponseOutput() TypedErrorInfoResponseOutput
-	ToTypedErrorInfoResponseOutputWithContext(context.Context) TypedErrorInfoResponseOutput
+	ToTypedErrorInfoInvokeResponseOutput() TypedErrorInfoInvokeResponseOutput
+	ToTypedErrorInfoInvokeResponseOutputWithContext(context.Context) TypedErrorInfoInvokeResponseOutput
 }
 
 // Scenario specific error details.
-type TypedErrorInfoResponseArgs struct {
+type TypedErrorInfoInvokeResponseArgs struct {
 	// The scenario specific error details.
 	Info pulumi.Input `pulumi:"info"`
 	// The type of included error details.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (TypedErrorInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TypedErrorInfoResponse)(nil)).Elem()
+func (TypedErrorInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypedErrorInfoInvokeResponse)(nil)).Elem()
 }
 
-func (i TypedErrorInfoResponseArgs) ToTypedErrorInfoResponseOutput() TypedErrorInfoResponseOutput {
-	return i.ToTypedErrorInfoResponseOutputWithContext(context.Background())
+func (i TypedErrorInfoInvokeResponseArgs) ToTypedErrorInfoInvokeResponseOutput() TypedErrorInfoInvokeResponseOutput {
+	return i.ToTypedErrorInfoInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i TypedErrorInfoResponseArgs) ToTypedErrorInfoResponseOutputWithContext(ctx context.Context) TypedErrorInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TypedErrorInfoResponseOutput)
+func (i TypedErrorInfoInvokeResponseArgs) ToTypedErrorInfoInvokeResponseOutputWithContext(ctx context.Context) TypedErrorInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypedErrorInfoInvokeResponseOutput)
 }
 
-// TypedErrorInfoResponseArrayInput is an input type that accepts TypedErrorInfoResponseArray and TypedErrorInfoResponseArrayOutput values.
-// You can construct a concrete instance of `TypedErrorInfoResponseArrayInput` via:
+// TypedErrorInfoInvokeResponseArrayInput is an input type that accepts TypedErrorInfoInvokeResponseArray and TypedErrorInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TypedErrorInfoInvokeResponseArrayInput` via:
 //
-//          TypedErrorInfoResponseArray{ TypedErrorInfoResponseArgs{...} }
-type TypedErrorInfoResponseArrayInput interface {
+//          TypedErrorInfoInvokeResponseArray{ TypedErrorInfoInvokeResponseArgs{...} }
+type TypedErrorInfoInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToTypedErrorInfoResponseArrayOutput() TypedErrorInfoResponseArrayOutput
-	ToTypedErrorInfoResponseArrayOutputWithContext(context.Context) TypedErrorInfoResponseArrayOutput
+	ToTypedErrorInfoInvokeResponseArrayOutput() TypedErrorInfoInvokeResponseArrayOutput
+	ToTypedErrorInfoInvokeResponseArrayOutputWithContext(context.Context) TypedErrorInfoInvokeResponseArrayOutput
 }
 
-type TypedErrorInfoResponseArray []TypedErrorInfoResponseInput
+type TypedErrorInfoInvokeResponseArray []TypedErrorInfoInvokeResponseInput
 
-func (TypedErrorInfoResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TypedErrorInfoResponse)(nil)).Elem()
+func (TypedErrorInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TypedErrorInfoInvokeResponse)(nil)).Elem()
 }
 
-func (i TypedErrorInfoResponseArray) ToTypedErrorInfoResponseArrayOutput() TypedErrorInfoResponseArrayOutput {
-	return i.ToTypedErrorInfoResponseArrayOutputWithContext(context.Background())
+func (i TypedErrorInfoInvokeResponseArray) ToTypedErrorInfoInvokeResponseArrayOutput() TypedErrorInfoInvokeResponseArrayOutput {
+	return i.ToTypedErrorInfoInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i TypedErrorInfoResponseArray) ToTypedErrorInfoResponseArrayOutputWithContext(ctx context.Context) TypedErrorInfoResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TypedErrorInfoResponseArrayOutput)
+func (i TypedErrorInfoInvokeResponseArray) ToTypedErrorInfoInvokeResponseArrayOutputWithContext(ctx context.Context) TypedErrorInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypedErrorInfoInvokeResponseArrayOutput)
 }
 
 // Scenario specific error details.
-type TypedErrorInfoResponseOutput struct{ *pulumi.OutputState }
+type TypedErrorInfoInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (TypedErrorInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TypedErrorInfoResponse)(nil)).Elem()
+func (TypedErrorInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypedErrorInfoInvokeResponse)(nil)).Elem()
 }
 
-func (o TypedErrorInfoResponseOutput) ToTypedErrorInfoResponseOutput() TypedErrorInfoResponseOutput {
+func (o TypedErrorInfoInvokeResponseOutput) ToTypedErrorInfoInvokeResponseOutput() TypedErrorInfoInvokeResponseOutput {
 	return o
 }
 
-func (o TypedErrorInfoResponseOutput) ToTypedErrorInfoResponseOutputWithContext(ctx context.Context) TypedErrorInfoResponseOutput {
+func (o TypedErrorInfoInvokeResponseOutput) ToTypedErrorInfoInvokeResponseOutputWithContext(ctx context.Context) TypedErrorInfoInvokeResponseOutput {
 	return o
 }
 
 // The scenario specific error details.
-func (o TypedErrorInfoResponseOutput) Info() pulumi.AnyOutput {
-	return o.ApplyT(func(v TypedErrorInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
+func (o TypedErrorInfoInvokeResponseOutput) Info() pulumi.AnyOutput {
+	return o.ApplyT(func(v TypedErrorInfoInvokeResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
 }
 
 // The type of included error details.
-func (o TypedErrorInfoResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TypedErrorInfoResponse) string { return v.Type }).(pulumi.StringOutput)
+func (o TypedErrorInfoInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TypedErrorInfoInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type TypedErrorInfoResponseArrayOutput struct{ *pulumi.OutputState }
+type TypedErrorInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (TypedErrorInfoResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TypedErrorInfoResponse)(nil)).Elem()
+func (TypedErrorInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TypedErrorInfoInvokeResponse)(nil)).Elem()
 }
 
-func (o TypedErrorInfoResponseArrayOutput) ToTypedErrorInfoResponseArrayOutput() TypedErrorInfoResponseArrayOutput {
+func (o TypedErrorInfoInvokeResponseArrayOutput) ToTypedErrorInfoInvokeResponseArrayOutput() TypedErrorInfoInvokeResponseArrayOutput {
 	return o
 }
 
-func (o TypedErrorInfoResponseArrayOutput) ToTypedErrorInfoResponseArrayOutputWithContext(ctx context.Context) TypedErrorInfoResponseArrayOutput {
+func (o TypedErrorInfoInvokeResponseArrayOutput) ToTypedErrorInfoInvokeResponseArrayOutputWithContext(ctx context.Context) TypedErrorInfoInvokeResponseArrayOutput {
 	return o
 }
 
-func (o TypedErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) TypedErrorInfoResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TypedErrorInfoResponse {
-		return vs[0].([]TypedErrorInfoResponse)[vs[1].(int)]
-	}).(TypedErrorInfoResponseOutput)
+func (o TypedErrorInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) TypedErrorInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TypedErrorInfoInvokeResponse {
+		return vs[0].([]TypedErrorInfoInvokeResponse)[vs[1].(int)]
+	}).(TypedErrorInfoInvokeResponseOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(ErrorDefinitionResponseOutput{})
-	pulumi.RegisterOutputType(ErrorDefinitionResponseArrayOutput{})
-	pulumi.RegisterOutputType(RemediationDeploymentResponseOutput{})
-	pulumi.RegisterOutputType(RemediationDeploymentResponseArrayOutput{})
+	pulumi.RegisterOutputType(ErrorDefinitionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ErrorDefinitionInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(RemediationDeploymentInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RemediationDeploymentInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(RemediationDeploymentSummaryInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RemediationDeploymentSummaryResponseOutput{})
 	pulumi.RegisterOutputType(RemediationDeploymentSummaryResponsePtrOutput{})
 	pulumi.RegisterOutputType(RemediationFiltersOutput{})
 	pulumi.RegisterOutputType(RemediationFiltersPtrOutput{})
+	pulumi.RegisterOutputType(RemediationFiltersInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RemediationFiltersResponseOutput{})
 	pulumi.RegisterOutputType(RemediationFiltersResponsePtrOutput{})
-	pulumi.RegisterOutputType(TypedErrorInfoResponseOutput{})
-	pulumi.RegisterOutputType(TypedErrorInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(TypedErrorInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TypedErrorInfoInvokeResponseArrayOutput{})
 }

@@ -38,7 +38,7 @@ type LookupNotificationHubAuthorizationRuleResult struct {
 	// The rights associated with the rule.
 	Rights []string `pulumi:"rights"`
 	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

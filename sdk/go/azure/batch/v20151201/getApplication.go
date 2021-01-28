@@ -36,5 +36,5 @@ type LookupApplicationResult struct {
 	// A string that uniquely identifies the application within the account.
 	Id *string `pulumi:"id"`
 	// The list of packages under this application.
-	Packages []ApplicationPackageResponse `pulumi:"packages"`
+	Packages []ApplicationPackageInvokeResponse `pulumi:"packages"`
 }

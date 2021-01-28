@@ -183,6 +183,79 @@ func (o AsymmetricEncryptedSecretPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 // This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+type AsymmetricEncryptedSecretInvokeResponse struct {
+	// Algorithm used to encrypt "Value"
+	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	// Thumbprint certificate that was used to encrypt "Value"
+	EncryptionCertificateThumbprint *string `pulumi:"encryptionCertificateThumbprint"`
+	// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
+	Value string `pulumi:"value"`
+}
+
+// AsymmetricEncryptedSecretInvokeResponseInput is an input type that accepts AsymmetricEncryptedSecretInvokeResponseArgs and AsymmetricEncryptedSecretInvokeResponseOutput values.
+// You can construct a concrete instance of `AsymmetricEncryptedSecretInvokeResponseInput` via:
+//
+//          AsymmetricEncryptedSecretInvokeResponseArgs{...}
+type AsymmetricEncryptedSecretInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAsymmetricEncryptedSecretInvokeResponseOutput() AsymmetricEncryptedSecretInvokeResponseOutput
+	ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(context.Context) AsymmetricEncryptedSecretInvokeResponseOutput
+}
+
+// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+type AsymmetricEncryptedSecretInvokeResponseArgs struct {
+	// Algorithm used to encrypt "Value"
+	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	// Thumbprint certificate that was used to encrypt "Value"
+	EncryptionCertificateThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertificateThumbprint"`
+	// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AsymmetricEncryptedSecretInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AsymmetricEncryptedSecretInvokeResponse)(nil)).Elem()
+}
+
+func (i AsymmetricEncryptedSecretInvokeResponseArgs) ToAsymmetricEncryptedSecretInvokeResponseOutput() AsymmetricEncryptedSecretInvokeResponseOutput {
+	return i.ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AsymmetricEncryptedSecretInvokeResponseArgs) ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretInvokeResponseOutput)
+}
+
+// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+type AsymmetricEncryptedSecretInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AsymmetricEncryptedSecretInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AsymmetricEncryptedSecretInvokeResponse)(nil)).Elem()
+}
+
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) ToAsymmetricEncryptedSecretInvokeResponseOutput() AsymmetricEncryptedSecretInvokeResponseOutput {
+	return o
+}
+
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretInvokeResponseOutput {
+	return o
+}
+
+// Algorithm used to encrypt "Value"
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) EncryptionAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecretInvokeResponse) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+}
+
+// Thumbprint certificate that was used to encrypt "Value"
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) EncryptionCertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecretInvokeResponse) *string { return v.EncryptionCertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecretInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
 type AsymmetricEncryptedSecretResponse struct {
 	// Algorithm used to encrypt "Value"
 	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
@@ -489,6 +562,61 @@ func (o ManagerIntrinsicSettingsPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Intrinsic settings which refers to the type of the StorSimple manager
+type ManagerIntrinsicSettingsInvokeResponse struct {
+	// Refers to the type of the StorSimple Manager
+	Type string `pulumi:"type"`
+}
+
+// ManagerIntrinsicSettingsInvokeResponseInput is an input type that accepts ManagerIntrinsicSettingsInvokeResponseArgs and ManagerIntrinsicSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagerIntrinsicSettingsInvokeResponseInput` via:
+//
+//          ManagerIntrinsicSettingsInvokeResponseArgs{...}
+type ManagerIntrinsicSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagerIntrinsicSettingsInvokeResponseOutput() ManagerIntrinsicSettingsInvokeResponseOutput
+	ToManagerIntrinsicSettingsInvokeResponseOutputWithContext(context.Context) ManagerIntrinsicSettingsInvokeResponseOutput
+}
+
+// Intrinsic settings which refers to the type of the StorSimple manager
+type ManagerIntrinsicSettingsInvokeResponseArgs struct {
+	// Refers to the type of the StorSimple Manager
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagerIntrinsicSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerIntrinsicSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagerIntrinsicSettingsInvokeResponseArgs) ToManagerIntrinsicSettingsInvokeResponseOutput() ManagerIntrinsicSettingsInvokeResponseOutput {
+	return i.ToManagerIntrinsicSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagerIntrinsicSettingsInvokeResponseArgs) ToManagerIntrinsicSettingsInvokeResponseOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagerIntrinsicSettingsInvokeResponseOutput)
+}
+
+// Intrinsic settings which refers to the type of the StorSimple manager
+type ManagerIntrinsicSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagerIntrinsicSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerIntrinsicSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagerIntrinsicSettingsInvokeResponseOutput) ToManagerIntrinsicSettingsInvokeResponseOutput() ManagerIntrinsicSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o ManagerIntrinsicSettingsInvokeResponseOutput) ToManagerIntrinsicSettingsInvokeResponseOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsInvokeResponseOutput {
+	return o
+}
+
+// Refers to the type of the StorSimple Manager
+func (o ManagerIntrinsicSettingsInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagerIntrinsicSettingsInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Intrinsic settings which refers to the type of the StorSimple manager
 type ManagerIntrinsicSettingsResponse struct {
 	// Refers to the type of the StorSimple Manager
 	Type string `pulumi:"type"`
@@ -754,6 +882,61 @@ func (o ManagerSkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The Sku.
+type ManagerSkuInvokeResponse struct {
+	// Refers to the sku name which should be "Standard"
+	Name string `pulumi:"name"`
+}
+
+// ManagerSkuInvokeResponseInput is an input type that accepts ManagerSkuInvokeResponseArgs and ManagerSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagerSkuInvokeResponseInput` via:
+//
+//          ManagerSkuInvokeResponseArgs{...}
+type ManagerSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagerSkuInvokeResponseOutput() ManagerSkuInvokeResponseOutput
+	ToManagerSkuInvokeResponseOutputWithContext(context.Context) ManagerSkuInvokeResponseOutput
+}
+
+// The Sku.
+type ManagerSkuInvokeResponseArgs struct {
+	// Refers to the sku name which should be "Standard"
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ManagerSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagerSkuInvokeResponseArgs) ToManagerSkuInvokeResponseOutput() ManagerSkuInvokeResponseOutput {
+	return i.ToManagerSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagerSkuInvokeResponseArgs) ToManagerSkuInvokeResponseOutputWithContext(ctx context.Context) ManagerSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagerSkuInvokeResponseOutput)
+}
+
+// The Sku.
+type ManagerSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagerSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagerSkuInvokeResponseOutput) ToManagerSkuInvokeResponseOutput() ManagerSkuInvokeResponseOutput {
+	return o
+}
+
+func (o ManagerSkuInvokeResponseOutput) ToManagerSkuInvokeResponseOutputWithContext(ctx context.Context) ManagerSkuInvokeResponseOutput {
+	return o
+}
+
+// Refers to the sku name which should be "Standard"
+func (o ManagerSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagerSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The Sku.
@@ -1044,6 +1227,70 @@ func (o TimePtrOutput) Minute() pulumi.IntPtrOutput {
 }
 
 // The Time.
+type TimeInvokeResponse struct {
+	// The hour.
+	Hour int `pulumi:"hour"`
+	// The minute.
+	Minute int `pulumi:"minute"`
+}
+
+// TimeInvokeResponseInput is an input type that accepts TimeInvokeResponseArgs and TimeInvokeResponseOutput values.
+// You can construct a concrete instance of `TimeInvokeResponseInput` via:
+//
+//          TimeInvokeResponseArgs{...}
+type TimeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTimeInvokeResponseOutput() TimeInvokeResponseOutput
+	ToTimeInvokeResponseOutputWithContext(context.Context) TimeInvokeResponseOutput
+}
+
+// The Time.
+type TimeInvokeResponseArgs struct {
+	// The hour.
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// The minute.
+	Minute pulumi.IntInput `pulumi:"minute"`
+}
+
+func (TimeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeInvokeResponse)(nil)).Elem()
+}
+
+func (i TimeInvokeResponseArgs) ToTimeInvokeResponseOutput() TimeInvokeResponseOutput {
+	return i.ToTimeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TimeInvokeResponseArgs) ToTimeInvokeResponseOutputWithContext(ctx context.Context) TimeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeInvokeResponseOutput)
+}
+
+// The Time.
+type TimeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TimeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeInvokeResponse)(nil)).Elem()
+}
+
+func (o TimeInvokeResponseOutput) ToTimeInvokeResponseOutput() TimeInvokeResponseOutput {
+	return o
+}
+
+func (o TimeInvokeResponseOutput) ToTimeInvokeResponseOutputWithContext(ctx context.Context) TimeInvokeResponseOutput {
+	return o
+}
+
+// The hour.
+func (o TimeInvokeResponseOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeInvokeResponse) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// The minute.
+func (o TimeInvokeResponseOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeInvokeResponse) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+// The Time.
 type TimeResponse struct {
 	// The hour.
 	Hour int `pulumi:"hour"`
@@ -1199,18 +1446,22 @@ func (o TimeResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretPtrOutput{})
+	pulumi.RegisterOutputType(AsymmetricEncryptedSecretInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretResponseOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ManagerIntrinsicSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagerSkuOutput{})
 	pulumi.RegisterOutputType(ManagerSkuPtrOutput{})
+	pulumi.RegisterOutputType(ManagerSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagerSkuResponseOutput{})
 	pulumi.RegisterOutputType(ManagerSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(TimeOutput{})
 	pulumi.RegisterOutputType(TimePtrOutput{})
+	pulumi.RegisterOutputType(TimeInvokeResponseOutput{})
 	pulumi.RegisterOutputType(TimeResponseOutput{})
 	pulumi.RegisterOutputType(TimeResponsePtrOutput{})
 }

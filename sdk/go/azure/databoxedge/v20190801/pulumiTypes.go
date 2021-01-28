@@ -259,6 +259,115 @@ func (o AddressPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 // The shipping address of the customer.
+type AddressInvokeResponse struct {
+	// The address line1.
+	AddressLine1 string `pulumi:"addressLine1"`
+	// The address line2.
+	AddressLine2 *string `pulumi:"addressLine2"`
+	// The address line3.
+	AddressLine3 *string `pulumi:"addressLine3"`
+	// The city name.
+	City string `pulumi:"city"`
+	// The country name.
+	Country string `pulumi:"country"`
+	// The postal code.
+	PostalCode string `pulumi:"postalCode"`
+	// The state name.
+	State string `pulumi:"state"`
+}
+
+// AddressInvokeResponseInput is an input type that accepts AddressInvokeResponseArgs and AddressInvokeResponseOutput values.
+// You can construct a concrete instance of `AddressInvokeResponseInput` via:
+//
+//          AddressInvokeResponseArgs{...}
+type AddressInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAddressInvokeResponseOutput() AddressInvokeResponseOutput
+	ToAddressInvokeResponseOutputWithContext(context.Context) AddressInvokeResponseOutput
+}
+
+// The shipping address of the customer.
+type AddressInvokeResponseArgs struct {
+	// The address line1.
+	AddressLine1 pulumi.StringInput `pulumi:"addressLine1"`
+	// The address line2.
+	AddressLine2 pulumi.StringPtrInput `pulumi:"addressLine2"`
+	// The address line3.
+	AddressLine3 pulumi.StringPtrInput `pulumi:"addressLine3"`
+	// The city name.
+	City pulumi.StringInput `pulumi:"city"`
+	// The country name.
+	Country pulumi.StringInput `pulumi:"country"`
+	// The postal code.
+	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	// The state name.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (AddressInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddressInvokeResponse)(nil)).Elem()
+}
+
+func (i AddressInvokeResponseArgs) ToAddressInvokeResponseOutput() AddressInvokeResponseOutput {
+	return i.ToAddressInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AddressInvokeResponseArgs) ToAddressInvokeResponseOutputWithContext(ctx context.Context) AddressInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddressInvokeResponseOutput)
+}
+
+// The shipping address of the customer.
+type AddressInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AddressInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddressInvokeResponse)(nil)).Elem()
+}
+
+func (o AddressInvokeResponseOutput) ToAddressInvokeResponseOutput() AddressInvokeResponseOutput {
+	return o
+}
+
+func (o AddressInvokeResponseOutput) ToAddressInvokeResponseOutputWithContext(ctx context.Context) AddressInvokeResponseOutput {
+	return o
+}
+
+// The address line1.
+func (o AddressInvokeResponseOutput) AddressLine1() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) string { return v.AddressLine1 }).(pulumi.StringOutput)
+}
+
+// The address line2.
+func (o AddressInvokeResponseOutput) AddressLine2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) *string { return v.AddressLine2 }).(pulumi.StringPtrOutput)
+}
+
+// The address line3.
+func (o AddressInvokeResponseOutput) AddressLine3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) *string { return v.AddressLine3 }).(pulumi.StringPtrOutput)
+}
+
+// The city name.
+func (o AddressInvokeResponseOutput) City() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) string { return v.City }).(pulumi.StringOutput)
+}
+
+// The country name.
+func (o AddressInvokeResponseOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) string { return v.Country }).(pulumi.StringOutput)
+}
+
+// The postal code.
+func (o AddressInvokeResponseOutput) PostalCode() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) string { return v.PostalCode }).(pulumi.StringOutput)
+}
+
+// The state name.
+func (o AddressInvokeResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressInvokeResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The shipping address of the customer.
 type AddressResponse struct {
 	// The address line1.
 	AddressLine1 string `pulumi:"addressLine1"`
@@ -679,6 +788,79 @@ func (o AsymmetricEncryptedSecretPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 // Represent the secrets intended for encryption with asymmetric key pair.
+type AsymmetricEncryptedSecretInvokeResponse struct {
+	// The algorithm used to encrypt "Value".
+	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+	EncryptionCertThumbprint *string `pulumi:"encryptionCertThumbprint"`
+	// The value of the secret.
+	Value string `pulumi:"value"`
+}
+
+// AsymmetricEncryptedSecretInvokeResponseInput is an input type that accepts AsymmetricEncryptedSecretInvokeResponseArgs and AsymmetricEncryptedSecretInvokeResponseOutput values.
+// You can construct a concrete instance of `AsymmetricEncryptedSecretInvokeResponseInput` via:
+//
+//          AsymmetricEncryptedSecretInvokeResponseArgs{...}
+type AsymmetricEncryptedSecretInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAsymmetricEncryptedSecretInvokeResponseOutput() AsymmetricEncryptedSecretInvokeResponseOutput
+	ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(context.Context) AsymmetricEncryptedSecretInvokeResponseOutput
+}
+
+// Represent the secrets intended for encryption with asymmetric key pair.
+type AsymmetricEncryptedSecretInvokeResponseArgs struct {
+	// The algorithm used to encrypt "Value".
+	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+	EncryptionCertThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertThumbprint"`
+	// The value of the secret.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AsymmetricEncryptedSecretInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AsymmetricEncryptedSecretInvokeResponse)(nil)).Elem()
+}
+
+func (i AsymmetricEncryptedSecretInvokeResponseArgs) ToAsymmetricEncryptedSecretInvokeResponseOutput() AsymmetricEncryptedSecretInvokeResponseOutput {
+	return i.ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AsymmetricEncryptedSecretInvokeResponseArgs) ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretInvokeResponseOutput)
+}
+
+// Represent the secrets intended for encryption with asymmetric key pair.
+type AsymmetricEncryptedSecretInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AsymmetricEncryptedSecretInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AsymmetricEncryptedSecretInvokeResponse)(nil)).Elem()
+}
+
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) ToAsymmetricEncryptedSecretInvokeResponseOutput() AsymmetricEncryptedSecretInvokeResponseOutput {
+	return o
+}
+
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretInvokeResponseOutput {
+	return o
+}
+
+// The algorithm used to encrypt "Value".
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) EncryptionAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecretInvokeResponse) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+}
+
+// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) EncryptionCertThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecretInvokeResponse) *string { return v.EncryptionCertThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret.
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecretInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretResponse struct {
 	// The algorithm used to encrypt "Value".
 	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
@@ -1023,6 +1205,79 @@ func (o AzureContainerInfoPtrOutput) StorageAccountCredentialId() pulumi.StringP
 }
 
 // Azure container mapping of the endpoint.
+type AzureContainerInfoInvokeResponse struct {
+	// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
+	ContainerName string `pulumi:"containerName"`
+	// Storage format used for the file represented by the share.
+	DataFormat string `pulumi:"dataFormat"`
+	// ID of the storage account credential used to access storage.
+	StorageAccountCredentialId string `pulumi:"storageAccountCredentialId"`
+}
+
+// AzureContainerInfoInvokeResponseInput is an input type that accepts AzureContainerInfoInvokeResponseArgs and AzureContainerInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureContainerInfoInvokeResponseInput` via:
+//
+//          AzureContainerInfoInvokeResponseArgs{...}
+type AzureContainerInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureContainerInfoInvokeResponseOutput() AzureContainerInfoInvokeResponseOutput
+	ToAzureContainerInfoInvokeResponseOutputWithContext(context.Context) AzureContainerInfoInvokeResponseOutput
+}
+
+// Azure container mapping of the endpoint.
+type AzureContainerInfoInvokeResponseArgs struct {
+	// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Storage format used for the file represented by the share.
+	DataFormat pulumi.StringInput `pulumi:"dataFormat"`
+	// ID of the storage account credential used to access storage.
+	StorageAccountCredentialId pulumi.StringInput `pulumi:"storageAccountCredentialId"`
+}
+
+func (AzureContainerInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureContainerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureContainerInfoInvokeResponseArgs) ToAzureContainerInfoInvokeResponseOutput() AzureContainerInfoInvokeResponseOutput {
+	return i.ToAzureContainerInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureContainerInfoInvokeResponseArgs) ToAzureContainerInfoInvokeResponseOutputWithContext(ctx context.Context) AzureContainerInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureContainerInfoInvokeResponseOutput)
+}
+
+// Azure container mapping of the endpoint.
+type AzureContainerInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureContainerInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureContainerInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureContainerInfoInvokeResponseOutput) ToAzureContainerInfoInvokeResponseOutput() AzureContainerInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureContainerInfoInvokeResponseOutput) ToAzureContainerInfoInvokeResponseOutputWithContext(ctx context.Context) AzureContainerInfoInvokeResponseOutput {
+	return o
+}
+
+// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
+func (o AzureContainerInfoInvokeResponseOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureContainerInfoInvokeResponse) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Storage format used for the file represented by the share.
+func (o AzureContainerInfoInvokeResponseOutput) DataFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureContainerInfoInvokeResponse) string { return v.DataFormat }).(pulumi.StringOutput)
+}
+
+// ID of the storage account credential used to access storage.
+func (o AzureContainerInfoInvokeResponseOutput) StorageAccountCredentialId() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureContainerInfoInvokeResponse) string { return v.StorageAccountCredentialId }).(pulumi.StringOutput)
+}
+
+// Azure container mapping of the endpoint.
 type AzureContainerInfoResponse struct {
 	// Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
 	ContainerName string `pulumi:"containerName"`
@@ -1301,6 +1556,115 @@ func (o ClientAccessRightArrayOutput) Index(i pulumi.IntInput) ClientAccessRight
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientAccessRight {
 		return vs[0].([]ClientAccessRight)[vs[1].(int)]
 	}).(ClientAccessRightOutput)
+}
+
+// The mapping between a particular client IP and the type of access client has on the NFS share.
+type ClientAccessRightInvokeResponse struct {
+	// Type of access to be allowed for the client.
+	AccessPermission string `pulumi:"accessPermission"`
+	// IP of the client.
+	Client string `pulumi:"client"`
+}
+
+// ClientAccessRightInvokeResponseInput is an input type that accepts ClientAccessRightInvokeResponseArgs and ClientAccessRightInvokeResponseOutput values.
+// You can construct a concrete instance of `ClientAccessRightInvokeResponseInput` via:
+//
+//          ClientAccessRightInvokeResponseArgs{...}
+type ClientAccessRightInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClientAccessRightInvokeResponseOutput() ClientAccessRightInvokeResponseOutput
+	ToClientAccessRightInvokeResponseOutputWithContext(context.Context) ClientAccessRightInvokeResponseOutput
+}
+
+// The mapping between a particular client IP and the type of access client has on the NFS share.
+type ClientAccessRightInvokeResponseArgs struct {
+	// Type of access to be allowed for the client.
+	AccessPermission pulumi.StringInput `pulumi:"accessPermission"`
+	// IP of the client.
+	Client pulumi.StringInput `pulumi:"client"`
+}
+
+func (ClientAccessRightInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (i ClientAccessRightInvokeResponseArgs) ToClientAccessRightInvokeResponseOutput() ClientAccessRightInvokeResponseOutput {
+	return i.ToClientAccessRightInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClientAccessRightInvokeResponseArgs) ToClientAccessRightInvokeResponseOutputWithContext(ctx context.Context) ClientAccessRightInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientAccessRightInvokeResponseOutput)
+}
+
+// ClientAccessRightInvokeResponseArrayInput is an input type that accepts ClientAccessRightInvokeResponseArray and ClientAccessRightInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ClientAccessRightInvokeResponseArrayInput` via:
+//
+//          ClientAccessRightInvokeResponseArray{ ClientAccessRightInvokeResponseArgs{...} }
+type ClientAccessRightInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToClientAccessRightInvokeResponseArrayOutput() ClientAccessRightInvokeResponseArrayOutput
+	ToClientAccessRightInvokeResponseArrayOutputWithContext(context.Context) ClientAccessRightInvokeResponseArrayOutput
+}
+
+type ClientAccessRightInvokeResponseArray []ClientAccessRightInvokeResponseInput
+
+func (ClientAccessRightInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (i ClientAccessRightInvokeResponseArray) ToClientAccessRightInvokeResponseArrayOutput() ClientAccessRightInvokeResponseArrayOutput {
+	return i.ToClientAccessRightInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ClientAccessRightInvokeResponseArray) ToClientAccessRightInvokeResponseArrayOutputWithContext(ctx context.Context) ClientAccessRightInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientAccessRightInvokeResponseArrayOutput)
+}
+
+// The mapping between a particular client IP and the type of access client has on the NFS share.
+type ClientAccessRightInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClientAccessRightInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (o ClientAccessRightInvokeResponseOutput) ToClientAccessRightInvokeResponseOutput() ClientAccessRightInvokeResponseOutput {
+	return o
+}
+
+func (o ClientAccessRightInvokeResponseOutput) ToClientAccessRightInvokeResponseOutputWithContext(ctx context.Context) ClientAccessRightInvokeResponseOutput {
+	return o
+}
+
+// Type of access to be allowed for the client.
+func (o ClientAccessRightInvokeResponseOutput) AccessPermission() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientAccessRightInvokeResponse) string { return v.AccessPermission }).(pulumi.StringOutput)
+}
+
+// IP of the client.
+func (o ClientAccessRightInvokeResponseOutput) Client() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientAccessRightInvokeResponse) string { return v.Client }).(pulumi.StringOutput)
+}
+
+type ClientAccessRightInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientAccessRightInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (o ClientAccessRightInvokeResponseArrayOutput) ToClientAccessRightInvokeResponseArrayOutput() ClientAccessRightInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClientAccessRightInvokeResponseArrayOutput) ToClientAccessRightInvokeResponseArrayOutputWithContext(ctx context.Context) ClientAccessRightInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClientAccessRightInvokeResponseArrayOutput) Index(i pulumi.IntInput) ClientAccessRightInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientAccessRightInvokeResponse {
+		return vs[0].([]ClientAccessRightInvokeResponse)[vs[1].(int)]
+	}).(ClientAccessRightInvokeResponseOutput)
 }
 
 // The mapping between a particular client IP and the type of access client has on the NFS share.
@@ -1604,6 +1968,88 @@ func (o ContactDetailsPtrOutput) Phone() pulumi.StringPtrOutput {
 }
 
 // Contains all the contact details of the customer.
+type ContactDetailsInvokeResponse struct {
+	// The name of the company.
+	CompanyName string `pulumi:"companyName"`
+	// The contact person name.
+	ContactPerson string `pulumi:"contactPerson"`
+	// The email list.
+	EmailList []string `pulumi:"emailList"`
+	// The phone number.
+	Phone string `pulumi:"phone"`
+}
+
+// ContactDetailsInvokeResponseInput is an input type that accepts ContactDetailsInvokeResponseArgs and ContactDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `ContactDetailsInvokeResponseInput` via:
+//
+//          ContactDetailsInvokeResponseArgs{...}
+type ContactDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContactDetailsInvokeResponseOutput() ContactDetailsInvokeResponseOutput
+	ToContactDetailsInvokeResponseOutputWithContext(context.Context) ContactDetailsInvokeResponseOutput
+}
+
+// Contains all the contact details of the customer.
+type ContactDetailsInvokeResponseArgs struct {
+	// The name of the company.
+	CompanyName pulumi.StringInput `pulumi:"companyName"`
+	// The contact person name.
+	ContactPerson pulumi.StringInput `pulumi:"contactPerson"`
+	// The email list.
+	EmailList pulumi.StringArrayInput `pulumi:"emailList"`
+	// The phone number.
+	Phone pulumi.StringInput `pulumi:"phone"`
+}
+
+func (ContactDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i ContactDetailsInvokeResponseArgs) ToContactDetailsInvokeResponseOutput() ContactDetailsInvokeResponseOutput {
+	return i.ToContactDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContactDetailsInvokeResponseArgs) ToContactDetailsInvokeResponseOutputWithContext(ctx context.Context) ContactDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailsInvokeResponseOutput)
+}
+
+// Contains all the contact details of the customer.
+type ContactDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContactDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o ContactDetailsInvokeResponseOutput) ToContactDetailsInvokeResponseOutput() ContactDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o ContactDetailsInvokeResponseOutput) ToContactDetailsInvokeResponseOutputWithContext(ctx context.Context) ContactDetailsInvokeResponseOutput {
+	return o
+}
+
+// The name of the company.
+func (o ContactDetailsInvokeResponseOutput) CompanyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactDetailsInvokeResponse) string { return v.CompanyName }).(pulumi.StringOutput)
+}
+
+// The contact person name.
+func (o ContactDetailsInvokeResponseOutput) ContactPerson() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactDetailsInvokeResponse) string { return v.ContactPerson }).(pulumi.StringOutput)
+}
+
+// The email list.
+func (o ContactDetailsInvokeResponseOutput) EmailList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContactDetailsInvokeResponse) []string { return v.EmailList }).(pulumi.StringArrayOutput)
+}
+
+// The phone number.
+func (o ContactDetailsInvokeResponseOutput) Phone() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactDetailsInvokeResponse) string { return v.Phone }).(pulumi.StringOutput)
+}
+
+// Contains all the contact details of the customer.
 type ContactDetailsResponse struct {
 	// The name of the company.
 	CompanyName string `pulumi:"companyName"`
@@ -1792,6 +2238,133 @@ func (o ContactDetailsResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 		}
 		return &v.Phone
 	}).(pulumi.StringPtrOutput)
+}
+
+// The share mount point.
+type MountPointMapInvokeResponse struct {
+	// Mount point for the share.
+	MountPoint string `pulumi:"mountPoint"`
+	// ID of the role to which share is mounted.
+	RoleId string `pulumi:"roleId"`
+	// Role type.
+	RoleType string `pulumi:"roleType"`
+	// ID of the share mounted to the role VM.
+	ShareId string `pulumi:"shareId"`
+}
+
+// MountPointMapInvokeResponseInput is an input type that accepts MountPointMapInvokeResponseArgs and MountPointMapInvokeResponseOutput values.
+// You can construct a concrete instance of `MountPointMapInvokeResponseInput` via:
+//
+//          MountPointMapInvokeResponseArgs{...}
+type MountPointMapInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMountPointMapInvokeResponseOutput() MountPointMapInvokeResponseOutput
+	ToMountPointMapInvokeResponseOutputWithContext(context.Context) MountPointMapInvokeResponseOutput
+}
+
+// The share mount point.
+type MountPointMapInvokeResponseArgs struct {
+	// Mount point for the share.
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	// ID of the role to which share is mounted.
+	RoleId pulumi.StringInput `pulumi:"roleId"`
+	// Role type.
+	RoleType pulumi.StringInput `pulumi:"roleType"`
+	// ID of the share mounted to the role VM.
+	ShareId pulumi.StringInput `pulumi:"shareId"`
+}
+
+func (MountPointMapInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountPointMapInvokeResponse)(nil)).Elem()
+}
+
+func (i MountPointMapInvokeResponseArgs) ToMountPointMapInvokeResponseOutput() MountPointMapInvokeResponseOutput {
+	return i.ToMountPointMapInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MountPointMapInvokeResponseArgs) ToMountPointMapInvokeResponseOutputWithContext(ctx context.Context) MountPointMapInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MountPointMapInvokeResponseOutput)
+}
+
+// MountPointMapInvokeResponseArrayInput is an input type that accepts MountPointMapInvokeResponseArray and MountPointMapInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MountPointMapInvokeResponseArrayInput` via:
+//
+//          MountPointMapInvokeResponseArray{ MountPointMapInvokeResponseArgs{...} }
+type MountPointMapInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMountPointMapInvokeResponseArrayOutput() MountPointMapInvokeResponseArrayOutput
+	ToMountPointMapInvokeResponseArrayOutputWithContext(context.Context) MountPointMapInvokeResponseArrayOutput
+}
+
+type MountPointMapInvokeResponseArray []MountPointMapInvokeResponseInput
+
+func (MountPointMapInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MountPointMapInvokeResponse)(nil)).Elem()
+}
+
+func (i MountPointMapInvokeResponseArray) ToMountPointMapInvokeResponseArrayOutput() MountPointMapInvokeResponseArrayOutput {
+	return i.ToMountPointMapInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MountPointMapInvokeResponseArray) ToMountPointMapInvokeResponseArrayOutputWithContext(ctx context.Context) MountPointMapInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MountPointMapInvokeResponseArrayOutput)
+}
+
+// The share mount point.
+type MountPointMapInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MountPointMapInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountPointMapInvokeResponse)(nil)).Elem()
+}
+
+func (o MountPointMapInvokeResponseOutput) ToMountPointMapInvokeResponseOutput() MountPointMapInvokeResponseOutput {
+	return o
+}
+
+func (o MountPointMapInvokeResponseOutput) ToMountPointMapInvokeResponseOutputWithContext(ctx context.Context) MountPointMapInvokeResponseOutput {
+	return o
+}
+
+// Mount point for the share.
+func (o MountPointMapInvokeResponseOutput) MountPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v MountPointMapInvokeResponse) string { return v.MountPoint }).(pulumi.StringOutput)
+}
+
+// ID of the role to which share is mounted.
+func (o MountPointMapInvokeResponseOutput) RoleId() pulumi.StringOutput {
+	return o.ApplyT(func(v MountPointMapInvokeResponse) string { return v.RoleId }).(pulumi.StringOutput)
+}
+
+// Role type.
+func (o MountPointMapInvokeResponseOutput) RoleType() pulumi.StringOutput {
+	return o.ApplyT(func(v MountPointMapInvokeResponse) string { return v.RoleType }).(pulumi.StringOutput)
+}
+
+// ID of the share mounted to the role VM.
+func (o MountPointMapInvokeResponseOutput) ShareId() pulumi.StringOutput {
+	return o.ApplyT(func(v MountPointMapInvokeResponse) string { return v.ShareId }).(pulumi.StringOutput)
+}
+
+type MountPointMapInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MountPointMapInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MountPointMapInvokeResponse)(nil)).Elem()
+}
+
+func (o MountPointMapInvokeResponseArrayOutput) ToMountPointMapInvokeResponseArrayOutput() MountPointMapInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MountPointMapInvokeResponseArrayOutput) ToMountPointMapInvokeResponseArrayOutputWithContext(ctx context.Context) MountPointMapInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MountPointMapInvokeResponseArrayOutput) Index(i pulumi.IntInput) MountPointMapInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MountPointMapInvokeResponse {
+		return vs[0].([]MountPointMapInvokeResponse)[vs[1].(int)]
+	}).(MountPointMapInvokeResponseOutput)
 }
 
 // The share mount point.
@@ -2072,6 +2645,136 @@ func (o OrderStatusPtrOutput) Status() pulumi.StringPtrOutput {
 		}
 		return &v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// Represents a single status change.
+type OrderStatusInvokeResponse struct {
+	// Dictionary to hold generic information which is not stored
+	// by the already existing properties
+	AdditionalOrderDetails map[string]string `pulumi:"additionalOrderDetails"`
+	// Comments related to this status change.
+	Comments *string `pulumi:"comments"`
+	// Status of the order as per the allowed status types.
+	Status string `pulumi:"status"`
+	// Time of status update.
+	UpdateDateTime string `pulumi:"updateDateTime"`
+}
+
+// OrderStatusInvokeResponseInput is an input type that accepts OrderStatusInvokeResponseArgs and OrderStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `OrderStatusInvokeResponseInput` via:
+//
+//          OrderStatusInvokeResponseArgs{...}
+type OrderStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOrderStatusInvokeResponseOutput() OrderStatusInvokeResponseOutput
+	ToOrderStatusInvokeResponseOutputWithContext(context.Context) OrderStatusInvokeResponseOutput
+}
+
+// Represents a single status change.
+type OrderStatusInvokeResponseArgs struct {
+	// Dictionary to hold generic information which is not stored
+	// by the already existing properties
+	AdditionalOrderDetails pulumi.StringMapInput `pulumi:"additionalOrderDetails"`
+	// Comments related to this status change.
+	Comments pulumi.StringPtrInput `pulumi:"comments"`
+	// Status of the order as per the allowed status types.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Time of status update.
+	UpdateDateTime pulumi.StringInput `pulumi:"updateDateTime"`
+}
+
+func (OrderStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i OrderStatusInvokeResponseArgs) ToOrderStatusInvokeResponseOutput() OrderStatusInvokeResponseOutput {
+	return i.ToOrderStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OrderStatusInvokeResponseArgs) ToOrderStatusInvokeResponseOutputWithContext(ctx context.Context) OrderStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderStatusInvokeResponseOutput)
+}
+
+// OrderStatusInvokeResponseArrayInput is an input type that accepts OrderStatusInvokeResponseArray and OrderStatusInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `OrderStatusInvokeResponseArrayInput` via:
+//
+//          OrderStatusInvokeResponseArray{ OrderStatusInvokeResponseArgs{...} }
+type OrderStatusInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToOrderStatusInvokeResponseArrayOutput() OrderStatusInvokeResponseArrayOutput
+	ToOrderStatusInvokeResponseArrayOutputWithContext(context.Context) OrderStatusInvokeResponseArrayOutput
+}
+
+type OrderStatusInvokeResponseArray []OrderStatusInvokeResponseInput
+
+func (OrderStatusInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrderStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i OrderStatusInvokeResponseArray) ToOrderStatusInvokeResponseArrayOutput() OrderStatusInvokeResponseArrayOutput {
+	return i.ToOrderStatusInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i OrderStatusInvokeResponseArray) ToOrderStatusInvokeResponseArrayOutputWithContext(ctx context.Context) OrderStatusInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrderStatusInvokeResponseArrayOutput)
+}
+
+// Represents a single status change.
+type OrderStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OrderStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrderStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o OrderStatusInvokeResponseOutput) ToOrderStatusInvokeResponseOutput() OrderStatusInvokeResponseOutput {
+	return o
+}
+
+func (o OrderStatusInvokeResponseOutput) ToOrderStatusInvokeResponseOutputWithContext(ctx context.Context) OrderStatusInvokeResponseOutput {
+	return o
+}
+
+// Dictionary to hold generic information which is not stored
+// by the already existing properties
+func (o OrderStatusInvokeResponseOutput) AdditionalOrderDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v OrderStatusInvokeResponse) map[string]string { return v.AdditionalOrderDetails }).(pulumi.StringMapOutput)
+}
+
+// Comments related to this status change.
+func (o OrderStatusInvokeResponseOutput) Comments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrderStatusInvokeResponse) *string { return v.Comments }).(pulumi.StringPtrOutput)
+}
+
+// Status of the order as per the allowed status types.
+func (o OrderStatusInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderStatusInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Time of status update.
+func (o OrderStatusInvokeResponseOutput) UpdateDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v OrderStatusInvokeResponse) string { return v.UpdateDateTime }).(pulumi.StringOutput)
+}
+
+type OrderStatusInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OrderStatusInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrderStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o OrderStatusInvokeResponseArrayOutput) ToOrderStatusInvokeResponseArrayOutput() OrderStatusInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OrderStatusInvokeResponseArrayOutput) ToOrderStatusInvokeResponseArrayOutputWithContext(ctx context.Context) OrderStatusInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OrderStatusInvokeResponseArrayOutput) Index(i pulumi.IntInput) OrderStatusInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrderStatusInvokeResponse {
+		return vs[0].([]OrderStatusInvokeResponse)[vs[1].(int)]
+	}).(OrderStatusInvokeResponseOutput)
 }
 
 // Represents a single status change.
@@ -2506,6 +3209,88 @@ func (o RefreshDetailsPtrOutput) LastJob() pulumi.StringPtrOutput {
 }
 
 // Fields for tracking refresh job on the share or container.
+type RefreshDetailsInvokeResponse struct {
+	// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
+	ErrorManifestFile *string `pulumi:"errorManifestFile"`
+	// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
+	InProgressRefreshJobId *string `pulumi:"inProgressRefreshJobId"`
+	// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+	LastCompletedRefreshJobTimeInUTC *string `pulumi:"lastCompletedRefreshJobTimeInUTC"`
+	// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
+	LastJob *string `pulumi:"lastJob"`
+}
+
+// RefreshDetailsInvokeResponseInput is an input type that accepts RefreshDetailsInvokeResponseArgs and RefreshDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `RefreshDetailsInvokeResponseInput` via:
+//
+//          RefreshDetailsInvokeResponseArgs{...}
+type RefreshDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRefreshDetailsInvokeResponseOutput() RefreshDetailsInvokeResponseOutput
+	ToRefreshDetailsInvokeResponseOutputWithContext(context.Context) RefreshDetailsInvokeResponseOutput
+}
+
+// Fields for tracking refresh job on the share or container.
+type RefreshDetailsInvokeResponseArgs struct {
+	// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
+	ErrorManifestFile pulumi.StringPtrInput `pulumi:"errorManifestFile"`
+	// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
+	InProgressRefreshJobId pulumi.StringPtrInput `pulumi:"inProgressRefreshJobId"`
+	// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+	LastCompletedRefreshJobTimeInUTC pulumi.StringPtrInput `pulumi:"lastCompletedRefreshJobTimeInUTC"`
+	// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
+	LastJob pulumi.StringPtrInput `pulumi:"lastJob"`
+}
+
+func (RefreshDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i RefreshDetailsInvokeResponseArgs) ToRefreshDetailsInvokeResponseOutput() RefreshDetailsInvokeResponseOutput {
+	return i.ToRefreshDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RefreshDetailsInvokeResponseArgs) ToRefreshDetailsInvokeResponseOutputWithContext(ctx context.Context) RefreshDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshDetailsInvokeResponseOutput)
+}
+
+// Fields for tracking refresh job on the share or container.
+type RefreshDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RefreshDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o RefreshDetailsInvokeResponseOutput) ToRefreshDetailsInvokeResponseOutput() RefreshDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o RefreshDetailsInvokeResponseOutput) ToRefreshDetailsInvokeResponseOutputWithContext(ctx context.Context) RefreshDetailsInvokeResponseOutput {
+	return o
+}
+
+// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
+func (o RefreshDetailsInvokeResponseOutput) ErrorManifestFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshDetailsInvokeResponse) *string { return v.ErrorManifestFile }).(pulumi.StringPtrOutput)
+}
+
+// If a refresh job is currently in progress on this share or container, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
+func (o RefreshDetailsInvokeResponseOutput) InProgressRefreshJobId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshDetailsInvokeResponse) *string { return v.InProgressRefreshJobId }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the completed time for the last refresh job on this particular share or container, if any.This could be a failed job or a successful job.
+func (o RefreshDetailsInvokeResponseOutput) LastCompletedRefreshJobTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshDetailsInvokeResponse) *string { return v.LastCompletedRefreshJobTimeInUTC }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the id of the last refresh job on this particular share or container,if any. This could be a failed job or a successful job.
+func (o RefreshDetailsInvokeResponseOutput) LastJob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshDetailsInvokeResponse) *string { return v.LastJob }).(pulumi.StringPtrOutput)
+}
+
+// Fields for tracking refresh job on the share or container.
 type RefreshDetailsResponse struct {
 	// Indicates the relative path of the error xml for the last refresh job on this particular share or container, if any. This could be a failed job or a successful job.
 	ErrorManifestFile *string `pulumi:"errorManifestFile"`
@@ -2806,6 +3591,115 @@ func (o ShareAccessRightArrayOutput) Index(i pulumi.IntInput) ShareAccessRightOu
 }
 
 // Specifies the mapping between this particular user and the type of access he has on shares on this device.
+type ShareAccessRightInvokeResponse struct {
+	// Type of access to be allowed on the share for this user.
+	AccessType string `pulumi:"accessType"`
+	// The share ID.
+	ShareId string `pulumi:"shareId"`
+}
+
+// ShareAccessRightInvokeResponseInput is an input type that accepts ShareAccessRightInvokeResponseArgs and ShareAccessRightInvokeResponseOutput values.
+// You can construct a concrete instance of `ShareAccessRightInvokeResponseInput` via:
+//
+//          ShareAccessRightInvokeResponseArgs{...}
+type ShareAccessRightInvokeResponseInput interface {
+	pulumi.Input
+
+	ToShareAccessRightInvokeResponseOutput() ShareAccessRightInvokeResponseOutput
+	ToShareAccessRightInvokeResponseOutputWithContext(context.Context) ShareAccessRightInvokeResponseOutput
+}
+
+// Specifies the mapping between this particular user and the type of access he has on shares on this device.
+type ShareAccessRightInvokeResponseArgs struct {
+	// Type of access to be allowed on the share for this user.
+	AccessType pulumi.StringInput `pulumi:"accessType"`
+	// The share ID.
+	ShareId pulumi.StringInput `pulumi:"shareId"`
+}
+
+func (ShareAccessRightInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (i ShareAccessRightInvokeResponseArgs) ToShareAccessRightInvokeResponseOutput() ShareAccessRightInvokeResponseOutput {
+	return i.ToShareAccessRightInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ShareAccessRightInvokeResponseArgs) ToShareAccessRightInvokeResponseOutputWithContext(ctx context.Context) ShareAccessRightInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareAccessRightInvokeResponseOutput)
+}
+
+// ShareAccessRightInvokeResponseArrayInput is an input type that accepts ShareAccessRightInvokeResponseArray and ShareAccessRightInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ShareAccessRightInvokeResponseArrayInput` via:
+//
+//          ShareAccessRightInvokeResponseArray{ ShareAccessRightInvokeResponseArgs{...} }
+type ShareAccessRightInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToShareAccessRightInvokeResponseArrayOutput() ShareAccessRightInvokeResponseArrayOutput
+	ToShareAccessRightInvokeResponseArrayOutputWithContext(context.Context) ShareAccessRightInvokeResponseArrayOutput
+}
+
+type ShareAccessRightInvokeResponseArray []ShareAccessRightInvokeResponseInput
+
+func (ShareAccessRightInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ShareAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (i ShareAccessRightInvokeResponseArray) ToShareAccessRightInvokeResponseArrayOutput() ShareAccessRightInvokeResponseArrayOutput {
+	return i.ToShareAccessRightInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ShareAccessRightInvokeResponseArray) ToShareAccessRightInvokeResponseArrayOutputWithContext(ctx context.Context) ShareAccessRightInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareAccessRightInvokeResponseArrayOutput)
+}
+
+// Specifies the mapping between this particular user and the type of access he has on shares on this device.
+type ShareAccessRightInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ShareAccessRightInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (o ShareAccessRightInvokeResponseOutput) ToShareAccessRightInvokeResponseOutput() ShareAccessRightInvokeResponseOutput {
+	return o
+}
+
+func (o ShareAccessRightInvokeResponseOutput) ToShareAccessRightInvokeResponseOutputWithContext(ctx context.Context) ShareAccessRightInvokeResponseOutput {
+	return o
+}
+
+// Type of access to be allowed on the share for this user.
+func (o ShareAccessRightInvokeResponseOutput) AccessType() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareAccessRightInvokeResponse) string { return v.AccessType }).(pulumi.StringOutput)
+}
+
+// The share ID.
+func (o ShareAccessRightInvokeResponseOutput) ShareId() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareAccessRightInvokeResponse) string { return v.ShareId }).(pulumi.StringOutput)
+}
+
+type ShareAccessRightInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ShareAccessRightInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ShareAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (o ShareAccessRightInvokeResponseArrayOutput) ToShareAccessRightInvokeResponseArrayOutput() ShareAccessRightInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ShareAccessRightInvokeResponseArrayOutput) ToShareAccessRightInvokeResponseArrayOutputWithContext(ctx context.Context) ShareAccessRightInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ShareAccessRightInvokeResponseArrayOutput) Index(i pulumi.IntInput) ShareAccessRightInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareAccessRightInvokeResponse {
+		return vs[0].([]ShareAccessRightInvokeResponse)[vs[1].(int)]
+	}).(ShareAccessRightInvokeResponseOutput)
+}
+
+// Specifies the mapping between this particular user and the type of access he has on shares on this device.
 type ShareAccessRightResponse struct {
 	// Type of access to be allowed on the share for this user.
 	AccessType string `pulumi:"accessType"`
@@ -3068,6 +3962,70 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // The SKU type.
+type SkuInvokeResponse struct {
+	// SKU name.
+	Name *string `pulumi:"name"`
+	// The SKU tier. This is based on the SKU name.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The SKU type.
+type SkuInvokeResponseArgs struct {
+	// SKU name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The SKU tier. This is based on the SKU name.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The SKU type.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// SKU name.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The SKU tier. This is based on the SKU name.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The SKU type.
 type SkuResponse struct {
 	// SKU name.
 	Name *string `pulumi:"name"`
@@ -3218,6 +4176,133 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// Tracking courier information.
+type TrackingInfoInvokeResponse struct {
+	// Name of the carrier used in the delivery.
+	CarrierName *string `pulumi:"carrierName"`
+	// Serial number of the device being tracked.
+	SerialNumber *string `pulumi:"serialNumber"`
+	// Tracking ID of the shipment.
+	TrackingId *string `pulumi:"trackingId"`
+	// Tracking URL of the shipment.
+	TrackingUrl *string `pulumi:"trackingUrl"`
+}
+
+// TrackingInfoInvokeResponseInput is an input type that accepts TrackingInfoInvokeResponseArgs and TrackingInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `TrackingInfoInvokeResponseInput` via:
+//
+//          TrackingInfoInvokeResponseArgs{...}
+type TrackingInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTrackingInfoInvokeResponseOutput() TrackingInfoInvokeResponseOutput
+	ToTrackingInfoInvokeResponseOutputWithContext(context.Context) TrackingInfoInvokeResponseOutput
+}
+
+// Tracking courier information.
+type TrackingInfoInvokeResponseArgs struct {
+	// Name of the carrier used in the delivery.
+	CarrierName pulumi.StringPtrInput `pulumi:"carrierName"`
+	// Serial number of the device being tracked.
+	SerialNumber pulumi.StringPtrInput `pulumi:"serialNumber"`
+	// Tracking ID of the shipment.
+	TrackingId pulumi.StringPtrInput `pulumi:"trackingId"`
+	// Tracking URL of the shipment.
+	TrackingUrl pulumi.StringPtrInput `pulumi:"trackingUrl"`
+}
+
+func (TrackingInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrackingInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i TrackingInfoInvokeResponseArgs) ToTrackingInfoInvokeResponseOutput() TrackingInfoInvokeResponseOutput {
+	return i.ToTrackingInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TrackingInfoInvokeResponseArgs) ToTrackingInfoInvokeResponseOutputWithContext(ctx context.Context) TrackingInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrackingInfoInvokeResponseOutput)
+}
+
+// TrackingInfoInvokeResponseArrayInput is an input type that accepts TrackingInfoInvokeResponseArray and TrackingInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TrackingInfoInvokeResponseArrayInput` via:
+//
+//          TrackingInfoInvokeResponseArray{ TrackingInfoInvokeResponseArgs{...} }
+type TrackingInfoInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTrackingInfoInvokeResponseArrayOutput() TrackingInfoInvokeResponseArrayOutput
+	ToTrackingInfoInvokeResponseArrayOutputWithContext(context.Context) TrackingInfoInvokeResponseArrayOutput
+}
+
+type TrackingInfoInvokeResponseArray []TrackingInfoInvokeResponseInput
+
+func (TrackingInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrackingInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i TrackingInfoInvokeResponseArray) ToTrackingInfoInvokeResponseArrayOutput() TrackingInfoInvokeResponseArrayOutput {
+	return i.ToTrackingInfoInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TrackingInfoInvokeResponseArray) ToTrackingInfoInvokeResponseArrayOutputWithContext(ctx context.Context) TrackingInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrackingInfoInvokeResponseArrayOutput)
+}
+
+// Tracking courier information.
+type TrackingInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TrackingInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrackingInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o TrackingInfoInvokeResponseOutput) ToTrackingInfoInvokeResponseOutput() TrackingInfoInvokeResponseOutput {
+	return o
+}
+
+func (o TrackingInfoInvokeResponseOutput) ToTrackingInfoInvokeResponseOutputWithContext(ctx context.Context) TrackingInfoInvokeResponseOutput {
+	return o
+}
+
+// Name of the carrier used in the delivery.
+func (o TrackingInfoInvokeResponseOutput) CarrierName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrackingInfoInvokeResponse) *string { return v.CarrierName }).(pulumi.StringPtrOutput)
+}
+
+// Serial number of the device being tracked.
+func (o TrackingInfoInvokeResponseOutput) SerialNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrackingInfoInvokeResponse) *string { return v.SerialNumber }).(pulumi.StringPtrOutput)
+}
+
+// Tracking ID of the shipment.
+func (o TrackingInfoInvokeResponseOutput) TrackingId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrackingInfoInvokeResponse) *string { return v.TrackingId }).(pulumi.StringPtrOutput)
+}
+
+// Tracking URL of the shipment.
+func (o TrackingInfoInvokeResponseOutput) TrackingUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrackingInfoInvokeResponse) *string { return v.TrackingUrl }).(pulumi.StringPtrOutput)
+}
+
+type TrackingInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TrackingInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrackingInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o TrackingInfoInvokeResponseArrayOutput) ToTrackingInfoInvokeResponseArrayOutput() TrackingInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TrackingInfoInvokeResponseArrayOutput) ToTrackingInfoInvokeResponseArrayOutputWithContext(ctx context.Context) TrackingInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TrackingInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) TrackingInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrackingInfoInvokeResponse {
+		return vs[0].([]TrackingInfoInvokeResponse)[vs[1].(int)]
+	}).(TrackingInfoInvokeResponseOutput)
 }
 
 // Tracking courier information.
@@ -3457,6 +4542,115 @@ func (o UserAccessRightArrayOutput) Index(i pulumi.IntInput) UserAccessRightOutp
 }
 
 // The mapping between a particular user and the access type on the SMB share.
+type UserAccessRightInvokeResponse struct {
+	// Type of access to be allowed for the user.
+	AccessType string `pulumi:"accessType"`
+	// User ID (already existing in the device).
+	UserId string `pulumi:"userId"`
+}
+
+// UserAccessRightInvokeResponseInput is an input type that accepts UserAccessRightInvokeResponseArgs and UserAccessRightInvokeResponseOutput values.
+// You can construct a concrete instance of `UserAccessRightInvokeResponseInput` via:
+//
+//          UserAccessRightInvokeResponseArgs{...}
+type UserAccessRightInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserAccessRightInvokeResponseOutput() UserAccessRightInvokeResponseOutput
+	ToUserAccessRightInvokeResponseOutputWithContext(context.Context) UserAccessRightInvokeResponseOutput
+}
+
+// The mapping between a particular user and the access type on the SMB share.
+type UserAccessRightInvokeResponseArgs struct {
+	// Type of access to be allowed for the user.
+	AccessType pulumi.StringInput `pulumi:"accessType"`
+	// User ID (already existing in the device).
+	UserId pulumi.StringInput `pulumi:"userId"`
+}
+
+func (UserAccessRightInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (i UserAccessRightInvokeResponseArgs) ToUserAccessRightInvokeResponseOutput() UserAccessRightInvokeResponseOutput {
+	return i.ToUserAccessRightInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserAccessRightInvokeResponseArgs) ToUserAccessRightInvokeResponseOutputWithContext(ctx context.Context) UserAccessRightInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAccessRightInvokeResponseOutput)
+}
+
+// UserAccessRightInvokeResponseArrayInput is an input type that accepts UserAccessRightInvokeResponseArray and UserAccessRightInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `UserAccessRightInvokeResponseArrayInput` via:
+//
+//          UserAccessRightInvokeResponseArray{ UserAccessRightInvokeResponseArgs{...} }
+type UserAccessRightInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToUserAccessRightInvokeResponseArrayOutput() UserAccessRightInvokeResponseArrayOutput
+	ToUserAccessRightInvokeResponseArrayOutputWithContext(context.Context) UserAccessRightInvokeResponseArrayOutput
+}
+
+type UserAccessRightInvokeResponseArray []UserAccessRightInvokeResponseInput
+
+func (UserAccessRightInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (i UserAccessRightInvokeResponseArray) ToUserAccessRightInvokeResponseArrayOutput() UserAccessRightInvokeResponseArrayOutput {
+	return i.ToUserAccessRightInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i UserAccessRightInvokeResponseArray) ToUserAccessRightInvokeResponseArrayOutputWithContext(ctx context.Context) UserAccessRightInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAccessRightInvokeResponseArrayOutput)
+}
+
+// The mapping between a particular user and the access type on the SMB share.
+type UserAccessRightInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAccessRightInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (o UserAccessRightInvokeResponseOutput) ToUserAccessRightInvokeResponseOutput() UserAccessRightInvokeResponseOutput {
+	return o
+}
+
+func (o UserAccessRightInvokeResponseOutput) ToUserAccessRightInvokeResponseOutputWithContext(ctx context.Context) UserAccessRightInvokeResponseOutput {
+	return o
+}
+
+// Type of access to be allowed for the user.
+func (o UserAccessRightInvokeResponseOutput) AccessType() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAccessRightInvokeResponse) string { return v.AccessType }).(pulumi.StringOutput)
+}
+
+// User ID (already existing in the device).
+func (o UserAccessRightInvokeResponseOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAccessRightInvokeResponse) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+type UserAccessRightInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UserAccessRightInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserAccessRightInvokeResponse)(nil)).Elem()
+}
+
+func (o UserAccessRightInvokeResponseArrayOutput) ToUserAccessRightInvokeResponseArrayOutput() UserAccessRightInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UserAccessRightInvokeResponseArrayOutput) ToUserAccessRightInvokeResponseArrayOutputWithContext(ctx context.Context) UserAccessRightInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UserAccessRightInvokeResponseArrayOutput) Index(i pulumi.IntInput) UserAccessRightInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserAccessRightInvokeResponse {
+		return vs[0].([]UserAccessRightInvokeResponse)[vs[1].(int)]
+	}).(UserAccessRightInvokeResponseOutput)
+}
+
+// The mapping between a particular user and the access type on the SMB share.
 type UserAccessRightResponse struct {
 	// Type of access to be allowed for the user.
 	AccessType string `pulumi:"accessType"`
@@ -3568,47 +4762,65 @@ func (o UserAccessRightResponseArrayOutput) Index(i pulumi.IntInput) UserAccessR
 func init() {
 	pulumi.RegisterOutputType(AddressOutput{})
 	pulumi.RegisterOutputType(AddressPtrOutput{})
+	pulumi.RegisterOutputType(AddressInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AddressResponseOutput{})
 	pulumi.RegisterOutputType(AddressResponsePtrOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretPtrOutput{})
+	pulumi.RegisterOutputType(AsymmetricEncryptedSecretInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretResponseOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureContainerInfoOutput{})
 	pulumi.RegisterOutputType(AzureContainerInfoPtrOutput{})
+	pulumi.RegisterOutputType(AzureContainerInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureContainerInfoResponseOutput{})
 	pulumi.RegisterOutputType(AzureContainerInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClientAccessRightOutput{})
 	pulumi.RegisterOutputType(ClientAccessRightArrayOutput{})
+	pulumi.RegisterOutputType(ClientAccessRightInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ClientAccessRightInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClientAccessRightResponseOutput{})
 	pulumi.RegisterOutputType(ClientAccessRightResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContactDetailsOutput{})
 	pulumi.RegisterOutputType(ContactDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ContactDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(MountPointMapInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MountPointMapInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MountPointMapResponseOutput{})
 	pulumi.RegisterOutputType(MountPointMapResponseArrayOutput{})
 	pulumi.RegisterOutputType(OrderStatusOutput{})
 	pulumi.RegisterOutputType(OrderStatusPtrOutput{})
+	pulumi.RegisterOutputType(OrderStatusInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OrderStatusInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(OrderStatusResponseOutput{})
 	pulumi.RegisterOutputType(OrderStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(OrderStatusResponseArrayOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsPtrOutput{})
+	pulumi.RegisterOutputType(RefreshDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsResponseOutput{})
 	pulumi.RegisterOutputType(RefreshDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightArrayOutput{})
+	pulumi.RegisterOutputType(ShareAccessRightInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ShareAccessRightInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseOutput{})
 	pulumi.RegisterOutputType(ShareAccessRightResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(TrackingInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TrackingInfoInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TrackingInfoResponseOutput{})
 	pulumi.RegisterOutputType(TrackingInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserAccessRightOutput{})
 	pulumi.RegisterOutputType(UserAccessRightArrayOutput{})
+	pulumi.RegisterOutputType(UserAccessRightInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UserAccessRightInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserAccessRightResponseOutput{})
 	pulumi.RegisterOutputType(UserAccessRightResponseArrayOutput{})
 }

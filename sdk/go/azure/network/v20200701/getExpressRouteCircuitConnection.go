@@ -38,15 +38,15 @@ type LookupExpressRouteCircuitConnectionResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-	ExpressRouteCircuitPeering *SubResourceResponse `pulumi:"expressRouteCircuitPeering"`
+	ExpressRouteCircuitPeering *SubResourceInvokeResponse `pulumi:"expressRouteCircuitPeering"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// IPv6 Address PrefixProperties of the express route circuit connection.
-	Ipv6CircuitConnectionConfig *Ipv6CircuitConnectionConfigResponse `pulumi:"ipv6CircuitConnectionConfig"`
+	Ipv6CircuitConnectionConfig *Ipv6CircuitConnectionConfigInvokeResponse `pulumi:"ipv6CircuitConnectionConfig"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
-	PeerExpressRouteCircuitPeering *SubResourceResponse `pulumi:"peerExpressRouteCircuitPeering"`
+	PeerExpressRouteCircuitPeering *SubResourceInvokeResponse `pulumi:"peerExpressRouteCircuitPeering"`
 	// The provisioning state of the express route circuit connection resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Type of the resource.

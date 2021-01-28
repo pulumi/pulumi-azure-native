@@ -11,6 +11,88 @@ import (
 )
 
 // Compliance Status details
+type ComplianceStatusInvokeResponse struct {
+	// The compliance state of the configuration.
+	ComplianceState string `pulumi:"complianceState"`
+	// Datetime the configuration was last applied.
+	LastConfigApplied *string `pulumi:"lastConfigApplied"`
+	// Message from when the configuration was applied.
+	Message *string `pulumi:"message"`
+	// Level of the message.
+	MessageLevel *string `pulumi:"messageLevel"`
+}
+
+// ComplianceStatusInvokeResponseInput is an input type that accepts ComplianceStatusInvokeResponseArgs and ComplianceStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `ComplianceStatusInvokeResponseInput` via:
+//
+//          ComplianceStatusInvokeResponseArgs{...}
+type ComplianceStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToComplianceStatusInvokeResponseOutput() ComplianceStatusInvokeResponseOutput
+	ToComplianceStatusInvokeResponseOutputWithContext(context.Context) ComplianceStatusInvokeResponseOutput
+}
+
+// Compliance Status details
+type ComplianceStatusInvokeResponseArgs struct {
+	// The compliance state of the configuration.
+	ComplianceState pulumi.StringInput `pulumi:"complianceState"`
+	// Datetime the configuration was last applied.
+	LastConfigApplied pulumi.StringPtrInput `pulumi:"lastConfigApplied"`
+	// Message from when the configuration was applied.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Level of the message.
+	MessageLevel pulumi.StringPtrInput `pulumi:"messageLevel"`
+}
+
+func (ComplianceStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComplianceStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i ComplianceStatusInvokeResponseArgs) ToComplianceStatusInvokeResponseOutput() ComplianceStatusInvokeResponseOutput {
+	return i.ToComplianceStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ComplianceStatusInvokeResponseArgs) ToComplianceStatusInvokeResponseOutputWithContext(ctx context.Context) ComplianceStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComplianceStatusInvokeResponseOutput)
+}
+
+// Compliance Status details
+type ComplianceStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ComplianceStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComplianceStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o ComplianceStatusInvokeResponseOutput) ToComplianceStatusInvokeResponseOutput() ComplianceStatusInvokeResponseOutput {
+	return o
+}
+
+func (o ComplianceStatusInvokeResponseOutput) ToComplianceStatusInvokeResponseOutputWithContext(ctx context.Context) ComplianceStatusInvokeResponseOutput {
+	return o
+}
+
+// The compliance state of the configuration.
+func (o ComplianceStatusInvokeResponseOutput) ComplianceState() pulumi.StringOutput {
+	return o.ApplyT(func(v ComplianceStatusInvokeResponse) string { return v.ComplianceState }).(pulumi.StringOutput)
+}
+
+// Datetime the configuration was last applied.
+func (o ComplianceStatusInvokeResponseOutput) LastConfigApplied() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComplianceStatusInvokeResponse) *string { return v.LastConfigApplied }).(pulumi.StringPtrOutput)
+}
+
+// Message from when the configuration was applied.
+func (o ComplianceStatusInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComplianceStatusInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Level of the message.
+func (o ComplianceStatusInvokeResponseOutput) MessageLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComplianceStatusInvokeResponse) *string { return v.MessageLevel }).(pulumi.StringPtrOutput)
+}
+
+// Compliance Status details
 type ComplianceStatusResponse struct {
 	// The compliance state of the configuration.
 	ComplianceState string `pulumi:"complianceState"`
@@ -355,6 +437,70 @@ func (o HelmOperatorPropertiesPtrOutput) ChartVersion() pulumi.StringPtrOutput {
 }
 
 // Properties for Helm operator.
+type HelmOperatorPropertiesInvokeResponse struct {
+	// Values override for the operator Helm chart.
+	ChartValues *string `pulumi:"chartValues"`
+	// Version of the operator Helm chart.
+	ChartVersion *string `pulumi:"chartVersion"`
+}
+
+// HelmOperatorPropertiesInvokeResponseInput is an input type that accepts HelmOperatorPropertiesInvokeResponseArgs and HelmOperatorPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `HelmOperatorPropertiesInvokeResponseInput` via:
+//
+//          HelmOperatorPropertiesInvokeResponseArgs{...}
+type HelmOperatorPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHelmOperatorPropertiesInvokeResponseOutput() HelmOperatorPropertiesInvokeResponseOutput
+	ToHelmOperatorPropertiesInvokeResponseOutputWithContext(context.Context) HelmOperatorPropertiesInvokeResponseOutput
+}
+
+// Properties for Helm operator.
+type HelmOperatorPropertiesInvokeResponseArgs struct {
+	// Values override for the operator Helm chart.
+	ChartValues pulumi.StringPtrInput `pulumi:"chartValues"`
+	// Version of the operator Helm chart.
+	ChartVersion pulumi.StringPtrInput `pulumi:"chartVersion"`
+}
+
+func (HelmOperatorPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmOperatorPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i HelmOperatorPropertiesInvokeResponseArgs) ToHelmOperatorPropertiesInvokeResponseOutput() HelmOperatorPropertiesInvokeResponseOutput {
+	return i.ToHelmOperatorPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HelmOperatorPropertiesInvokeResponseArgs) ToHelmOperatorPropertiesInvokeResponseOutputWithContext(ctx context.Context) HelmOperatorPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HelmOperatorPropertiesInvokeResponseOutput)
+}
+
+// Properties for Helm operator.
+type HelmOperatorPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HelmOperatorPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HelmOperatorPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o HelmOperatorPropertiesInvokeResponseOutput) ToHelmOperatorPropertiesInvokeResponseOutput() HelmOperatorPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o HelmOperatorPropertiesInvokeResponseOutput) ToHelmOperatorPropertiesInvokeResponseOutputWithContext(ctx context.Context) HelmOperatorPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Values override for the operator Helm chart.
+func (o HelmOperatorPropertiesInvokeResponseOutput) ChartValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmOperatorPropertiesInvokeResponse) *string { return v.ChartValues }).(pulumi.StringPtrOutput)
+}
+
+// Version of the operator Helm chart.
+func (o HelmOperatorPropertiesInvokeResponseOutput) ChartVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HelmOperatorPropertiesInvokeResponse) *string { return v.ChartVersion }).(pulumi.StringPtrOutput)
+}
+
+// Properties for Helm operator.
 type HelmOperatorPropertiesResponse struct {
 	// Values override for the operator Helm chart.
 	ChartValues *string `pulumi:"chartValues"`
@@ -505,6 +651,106 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ChartVersion() pulumi.StringPtr
 		}
 		return v.ChartVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -737,12 +983,15 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(ComplianceStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ComplianceStatusResponseOutput{})
 	pulumi.RegisterOutputType(ComplianceStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(HelmOperatorPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HelmOperatorPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

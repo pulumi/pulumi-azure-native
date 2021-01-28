@@ -32,5 +32,5 @@ type ListAccountSasTokensResult struct {
 	// The link (url) to the next page of results.
 	NextLink string `pulumi:"nextLink"`
 	// The results of the list operation.
-	Value []SasTokenInformationResponse `pulumi:"value"`
+	Value []SasTokenInformationInvokeResponse `pulumi:"value"`
 }

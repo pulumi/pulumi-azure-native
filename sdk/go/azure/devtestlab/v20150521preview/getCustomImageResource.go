@@ -48,7 +48,7 @@ type LookupCustomImageResourceResult struct {
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 	// The VHD from which the image is to be created.
-	Vhd *CustomImagePropertiesCustomResponse `pulumi:"vhd"`
+	Vhd *CustomImagePropertiesCustomInvokeResponse `pulumi:"vhd"`
 	// Properties for creating a custom image from a virtual machine.
-	Vm *CustomImagePropertiesFromVmResponse `pulumi:"vm"`
+	Vm *CustomImagePropertiesFromVmInvokeResponse `pulumi:"vm"`
 }

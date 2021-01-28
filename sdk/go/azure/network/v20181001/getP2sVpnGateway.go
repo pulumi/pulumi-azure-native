@@ -34,7 +34,7 @@ type LookupP2sVpnGatewayResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
-	P2SVpnServerConfiguration *SubResourceResponse `pulumi:"p2SVpnServerConfiguration"`
+	P2SVpnServerConfiguration *SubResourceInvokeResponse `pulumi:"p2SVpnServerConfiguration"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
@@ -42,11 +42,11 @@ type LookupP2sVpnGatewayResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The VirtualHub to which the gateway belongs
-	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
+	VirtualHub *SubResourceInvokeResponse `pulumi:"virtualHub"`
 	// The reference of the address space resource which represents Address space for P2S VpnClient.
-	VpnClientAddressPool *AddressSpaceResponse `pulumi:"vpnClientAddressPool"`
+	VpnClientAddressPool *AddressSpaceInvokeResponse `pulumi:"vpnClientAddressPool"`
 	// All P2S VPN clients' connection health status.
-	VpnClientConnectionHealth VpnClientConnectionHealthResponse `pulumi:"vpnClientConnectionHealth"`
+	VpnClientConnectionHealth VpnClientConnectionHealthInvokeResponse `pulumi:"vpnClientConnectionHealth"`
 	// The scale unit for this p2s vpn gateway.
 	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
 }

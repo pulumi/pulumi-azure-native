@@ -30,13 +30,13 @@ type LookupClusterResult struct {
 	// Fully qualified resource Id for the resource.
 	Id string `pulumi:"id"`
 	// The identity of the cluster, if configured.
-	Identity *ClusterIdentityResponse `pulumi:"identity"`
+	Identity *ClusterIdentityInvokeResponse `pulumi:"identity"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The properties of the cluster.
-	Properties ClusterGetPropertiesResponse `pulumi:"properties"`
+	Properties ClusterGetPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

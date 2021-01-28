@@ -28,7 +28,7 @@ type LookupStorageAccountCredentialArgs struct {
 // The storage account credential
 type LookupStorageAccountCredentialResult struct {
 	// The details of the storage account password
-	AccessKey *AsymmetricEncryptedSecretResponse `pulumi:"accessKey"`
+	AccessKey *AsymmetricEncryptedSecretInvokeResponse `pulumi:"accessKey"`
 	// The cloud service provider
 	CloudType string `pulumi:"cloudType"`
 	// SSL needs to be enabled or not

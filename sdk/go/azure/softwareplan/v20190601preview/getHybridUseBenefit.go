@@ -38,7 +38,7 @@ type LookupHybridUseBenefitResult struct {
 	// Provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Hybrid use benefit SKU
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

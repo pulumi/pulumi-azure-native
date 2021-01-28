@@ -26,9 +26,9 @@ type LookupProfileArgs struct {
 // Class representing a Traffic Manager profile.
 type LookupProfileResult struct {
 	// The DNS settings of the Traffic Manager profile.
-	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
+	DnsConfig *DnsConfigInvokeResponse `pulumi:"dnsConfig"`
 	// The list of endpoints in the Traffic Manager profile.
-	Endpoints []EndpointResponse `pulumi:"endpoints"`
+	Endpoints []EndpointInvokeResponse `pulumi:"endpoints"`
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
 	Id *string `pulumi:"id"`
 	// The Azure Region where the resource lives
@@ -36,7 +36,7 @@ type LookupProfileResult struct {
 	// Maximum number of endpoints to be returned for MultiValue routing type.
 	MaxReturn *float64 `pulumi:"maxReturn"`
 	// The endpoint monitoring settings of the Traffic Manager profile.
-	MonitorConfig *MonitorConfigResponse `pulumi:"monitorConfig"`
+	MonitorConfig *MonitorConfigInvokeResponse `pulumi:"monitorConfig"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The status of the Traffic Manager profile.

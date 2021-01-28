@@ -24,8 +24,8 @@ type ListWorkspaceKeysArgs struct {
 }
 
 type ListWorkspaceKeysResult struct {
-	AppInsightsInstrumentationKey string                                `pulumi:"appInsightsInstrumentationKey"`
-	ContainerRegistryCredentials  RegistryListCredentialsResultResponse `pulumi:"containerRegistryCredentials"`
-	UserStorageKey                string                                `pulumi:"userStorageKey"`
-	UserStorageResourceId         string                                `pulumi:"userStorageResourceId"`
+	AppInsightsInstrumentationKey string                                      `pulumi:"appInsightsInstrumentationKey"`
+	ContainerRegistryCredentials  RegistryListCredentialsResultInvokeResponse `pulumi:"containerRegistryCredentials"`
+	UserStorageKey                string                                      `pulumi:"userStorageKey"`
+	UserStorageResourceId         string                                      `pulumi:"userStorageResourceId"`
 }

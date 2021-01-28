@@ -42,13 +42,13 @@ type LookupEnvironmentResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// The list of partition keys according to which the data in the environment will be ordered.
-	PartitionKeyProperties []PartitionKeyPropertyResponse `pulumi:"partitionKeyProperties"`
+	PartitionKeyProperties []PartitionKeyPropertyInvokeResponse `pulumi:"partitionKeyProperties"`
 	// Provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
-	Status EnvironmentStatusResponse `pulumi:"status"`
+	Status EnvironmentStatusInvokeResponse `pulumi:"status"`
 	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
 	StorageLimitExceededBehavior *string `pulumi:"storageLimitExceededBehavior"`
 	// Resource tags

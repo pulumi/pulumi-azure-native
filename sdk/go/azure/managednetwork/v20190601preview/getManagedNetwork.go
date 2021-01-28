@@ -26,7 +26,7 @@ type LookupManagedNetworkArgs struct {
 // The Managed Network resource
 type LookupManagedNetworkResult struct {
 	// The collection of groups and policies concerned with connectivity
-	Connectivity ConnectivityCollectionResponse `pulumi:"connectivity"`
+	Connectivity ConnectivityCollectionInvokeResponse `pulumi:"connectivity"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -38,7 +38,7 @@ type LookupManagedNetworkResult struct {
 	// Provisioning state of the ManagedNetwork resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
-	Scope *ScopeResponse `pulumi:"scope"`
+	Scope *ScopeInvokeResponse `pulumi:"scope"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

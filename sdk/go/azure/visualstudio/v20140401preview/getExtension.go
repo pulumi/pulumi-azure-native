@@ -34,7 +34,7 @@ type LookupExtensionResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The extension plan that was purchased.
-	Plan *ExtensionResourcePlanResponse `pulumi:"plan"`
+	Plan *ExtensionResourcePlanInvokeResponse `pulumi:"plan"`
 	// Resource properties.
 	Properties map[string]string `pulumi:"properties"`
 	// Resource tags.

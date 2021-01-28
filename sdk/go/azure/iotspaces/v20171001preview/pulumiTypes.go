@@ -145,6 +145,90 @@ func (o IoTSpacesPropertiesPtrOutput) StorageContainer() StorageContainerPropert
 }
 
 // The properties of an IoTSpaces instance.
+type IoTSpacesPropertiesInvokeResponse struct {
+	// The management Api endpoint.
+	ManagementApiUrl string `pulumi:"managementApiUrl"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The properties of the designated storage container.
+	StorageContainer *StorageContainerPropertiesInvokeResponse `pulumi:"storageContainer"`
+	// The management UI endpoint.
+	WebPortalUrl string `pulumi:"webPortalUrl"`
+}
+
+// IoTSpacesPropertiesInvokeResponseInput is an input type that accepts IoTSpacesPropertiesInvokeResponseArgs and IoTSpacesPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `IoTSpacesPropertiesInvokeResponseInput` via:
+//
+//          IoTSpacesPropertiesInvokeResponseArgs{...}
+type IoTSpacesPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIoTSpacesPropertiesInvokeResponseOutput() IoTSpacesPropertiesInvokeResponseOutput
+	ToIoTSpacesPropertiesInvokeResponseOutputWithContext(context.Context) IoTSpacesPropertiesInvokeResponseOutput
+}
+
+// The properties of an IoTSpaces instance.
+type IoTSpacesPropertiesInvokeResponseArgs struct {
+	// The management Api endpoint.
+	ManagementApiUrl pulumi.StringInput `pulumi:"managementApiUrl"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The properties of the designated storage container.
+	StorageContainer StorageContainerPropertiesInvokeResponsePtrInput `pulumi:"storageContainer"`
+	// The management UI endpoint.
+	WebPortalUrl pulumi.StringInput `pulumi:"webPortalUrl"`
+}
+
+func (IoTSpacesPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTSpacesPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i IoTSpacesPropertiesInvokeResponseArgs) ToIoTSpacesPropertiesInvokeResponseOutput() IoTSpacesPropertiesInvokeResponseOutput {
+	return i.ToIoTSpacesPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IoTSpacesPropertiesInvokeResponseArgs) ToIoTSpacesPropertiesInvokeResponseOutputWithContext(ctx context.Context) IoTSpacesPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTSpacesPropertiesInvokeResponseOutput)
+}
+
+// The properties of an IoTSpaces instance.
+type IoTSpacesPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IoTSpacesPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTSpacesPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o IoTSpacesPropertiesInvokeResponseOutput) ToIoTSpacesPropertiesInvokeResponseOutput() IoTSpacesPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o IoTSpacesPropertiesInvokeResponseOutput) ToIoTSpacesPropertiesInvokeResponseOutputWithContext(ctx context.Context) IoTSpacesPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The management Api endpoint.
+func (o IoTSpacesPropertiesInvokeResponseOutput) ManagementApiUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v IoTSpacesPropertiesInvokeResponse) string { return v.ManagementApiUrl }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o IoTSpacesPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v IoTSpacesPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The properties of the designated storage container.
+func (o IoTSpacesPropertiesInvokeResponseOutput) StorageContainer() StorageContainerPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IoTSpacesPropertiesInvokeResponse) *StorageContainerPropertiesInvokeResponse {
+		return v.StorageContainer
+	}).(StorageContainerPropertiesInvokeResponsePtrOutput)
+}
+
+// The management UI endpoint.
+func (o IoTSpacesPropertiesInvokeResponseOutput) WebPortalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v IoTSpacesPropertiesInvokeResponse) string { return v.WebPortalUrl }).(pulumi.StringOutput)
+}
+
+// The properties of an IoTSpaces instance.
 type IoTSpacesPropertiesResponse struct {
 	// The management Api endpoint.
 	ManagementApiUrl string `pulumi:"managementApiUrl"`
@@ -467,6 +551,61 @@ func (o IoTSpacesSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the SKU of the IoTSpaces instance.
+type IoTSpacesSkuInfoInvokeResponse struct {
+	// The name of the SKU.
+	Name string `pulumi:"name"`
+}
+
+// IoTSpacesSkuInfoInvokeResponseInput is an input type that accepts IoTSpacesSkuInfoInvokeResponseArgs and IoTSpacesSkuInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `IoTSpacesSkuInfoInvokeResponseInput` via:
+//
+//          IoTSpacesSkuInfoInvokeResponseArgs{...}
+type IoTSpacesSkuInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIoTSpacesSkuInfoInvokeResponseOutput() IoTSpacesSkuInfoInvokeResponseOutput
+	ToIoTSpacesSkuInfoInvokeResponseOutputWithContext(context.Context) IoTSpacesSkuInfoInvokeResponseOutput
+}
+
+// Information about the SKU of the IoTSpaces instance.
+type IoTSpacesSkuInfoInvokeResponseArgs struct {
+	// The name of the SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (IoTSpacesSkuInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTSpacesSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i IoTSpacesSkuInfoInvokeResponseArgs) ToIoTSpacesSkuInfoInvokeResponseOutput() IoTSpacesSkuInfoInvokeResponseOutput {
+	return i.ToIoTSpacesSkuInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IoTSpacesSkuInfoInvokeResponseArgs) ToIoTSpacesSkuInfoInvokeResponseOutputWithContext(ctx context.Context) IoTSpacesSkuInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IoTSpacesSkuInfoInvokeResponseOutput)
+}
+
+// Information about the SKU of the IoTSpaces instance.
+type IoTSpacesSkuInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IoTSpacesSkuInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IoTSpacesSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o IoTSpacesSkuInfoInvokeResponseOutput) ToIoTSpacesSkuInfoInvokeResponseOutput() IoTSpacesSkuInfoInvokeResponseOutput {
+	return o
+}
+
+func (o IoTSpacesSkuInfoInvokeResponseOutput) ToIoTSpacesSkuInfoInvokeResponseOutputWithContext(ctx context.Context) IoTSpacesSkuInfoInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU.
+func (o IoTSpacesSkuInfoInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IoTSpacesSkuInfoInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Information about the SKU of the IoTSpaces instance.
@@ -795,6 +934,197 @@ func (o StorageContainerPropertiesPtrOutput) SubscriptionId() pulumi.StringPtrOu
 }
 
 // The properties of the Azure Storage Container for file archive.
+type StorageContainerPropertiesInvokeResponse struct {
+	// The connection string of the storage account.
+	ConnectionString *string `pulumi:"connectionString"`
+	// The name of storage container in the storage account.
+	ContainerName *string `pulumi:"containerName"`
+	// The name of the resource group of the storage account.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// The subscription identifier of the storage account.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+}
+
+// StorageContainerPropertiesInvokeResponseInput is an input type that accepts StorageContainerPropertiesInvokeResponseArgs and StorageContainerPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageContainerPropertiesInvokeResponseInput` via:
+//
+//          StorageContainerPropertiesInvokeResponseArgs{...}
+type StorageContainerPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageContainerPropertiesInvokeResponseOutput() StorageContainerPropertiesInvokeResponseOutput
+	ToStorageContainerPropertiesInvokeResponseOutputWithContext(context.Context) StorageContainerPropertiesInvokeResponseOutput
+}
+
+// The properties of the Azure Storage Container for file archive.
+type StorageContainerPropertiesInvokeResponseArgs struct {
+	// The connection string of the storage account.
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
+	// The name of storage container in the storage account.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// The name of the resource group of the storage account.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// The subscription identifier of the storage account.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+}
+
+func (StorageContainerPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageContainerPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageContainerPropertiesInvokeResponseArgs) ToStorageContainerPropertiesInvokeResponseOutput() StorageContainerPropertiesInvokeResponseOutput {
+	return i.ToStorageContainerPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageContainerPropertiesInvokeResponseArgs) ToStorageContainerPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageContainerPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageContainerPropertiesInvokeResponseOutput)
+}
+
+func (i StorageContainerPropertiesInvokeResponseArgs) ToStorageContainerPropertiesInvokeResponsePtrOutput() StorageContainerPropertiesInvokeResponsePtrOutput {
+	return i.ToStorageContainerPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StorageContainerPropertiesInvokeResponseArgs) ToStorageContainerPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) StorageContainerPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageContainerPropertiesInvokeResponseOutput).ToStorageContainerPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// StorageContainerPropertiesInvokeResponsePtrInput is an input type that accepts StorageContainerPropertiesInvokeResponseArgs, StorageContainerPropertiesInvokeResponsePtr and StorageContainerPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `StorageContainerPropertiesInvokeResponsePtrInput` via:
+//
+//          StorageContainerPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageContainerPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToStorageContainerPropertiesInvokeResponsePtrOutput() StorageContainerPropertiesInvokeResponsePtrOutput
+	ToStorageContainerPropertiesInvokeResponsePtrOutputWithContext(context.Context) StorageContainerPropertiesInvokeResponsePtrOutput
+}
+
+type storageContainerPropertiesInvokeResponsePtrType StorageContainerPropertiesInvokeResponseArgs
+
+func StorageContainerPropertiesInvokeResponsePtr(v *StorageContainerPropertiesInvokeResponseArgs) StorageContainerPropertiesInvokeResponsePtrInput {
+	return (*storageContainerPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*storageContainerPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageContainerPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *storageContainerPropertiesInvokeResponsePtrType) ToStorageContainerPropertiesInvokeResponsePtrOutput() StorageContainerPropertiesInvokeResponsePtrOutput {
+	return i.ToStorageContainerPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *storageContainerPropertiesInvokeResponsePtrType) ToStorageContainerPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) StorageContainerPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageContainerPropertiesInvokeResponsePtrOutput)
+}
+
+// The properties of the Azure Storage Container for file archive.
+type StorageContainerPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageContainerPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageContainerPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageContainerPropertiesInvokeResponseOutput) ToStorageContainerPropertiesInvokeResponseOutput() StorageContainerPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o StorageContainerPropertiesInvokeResponseOutput) ToStorageContainerPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageContainerPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o StorageContainerPropertiesInvokeResponseOutput) ToStorageContainerPropertiesInvokeResponsePtrOutput() StorageContainerPropertiesInvokeResponsePtrOutput {
+	return o.ToStorageContainerPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StorageContainerPropertiesInvokeResponseOutput) ToStorageContainerPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) StorageContainerPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StorageContainerPropertiesInvokeResponse) *StorageContainerPropertiesInvokeResponse {
+		return &v
+	}).(StorageContainerPropertiesInvokeResponsePtrOutput)
+}
+
+// The connection string of the storage account.
+func (o StorageContainerPropertiesInvokeResponseOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageContainerPropertiesInvokeResponse) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The name of storage container in the storage account.
+func (o StorageContainerPropertiesInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageContainerPropertiesInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group of the storage account.
+func (o StorageContainerPropertiesInvokeResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageContainerPropertiesInvokeResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// The subscription identifier of the storage account.
+func (o StorageContainerPropertiesInvokeResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageContainerPropertiesInvokeResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+type StorageContainerPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageContainerPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageContainerPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageContainerPropertiesInvokeResponsePtrOutput) ToStorageContainerPropertiesInvokeResponsePtrOutput() StorageContainerPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StorageContainerPropertiesInvokeResponsePtrOutput) ToStorageContainerPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) StorageContainerPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StorageContainerPropertiesInvokeResponsePtrOutput) Elem() StorageContainerPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *StorageContainerPropertiesInvokeResponse) StorageContainerPropertiesInvokeResponse { return *v }).(StorageContainerPropertiesInvokeResponseOutput)
+}
+
+// The connection string of the storage account.
+func (o StorageContainerPropertiesInvokeResponsePtrOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageContainerPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of storage container in the storage account.
+func (o StorageContainerPropertiesInvokeResponsePtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageContainerPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group of the storage account.
+func (o StorageContainerPropertiesInvokeResponsePtrOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageContainerPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subscription identifier of the storage account.
+func (o StorageContainerPropertiesInvokeResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageContainerPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the Azure Storage Container for file archive.
 type StorageContainerPropertiesResponse struct {
 	// The connection string of the storage account.
 	ConnectionString *string `pulumi:"connectionString"`
@@ -988,14 +1318,18 @@ func (o StorageContainerPropertiesResponsePtrOutput) SubscriptionId() pulumi.Str
 func init() {
 	pulumi.RegisterOutputType(IoTSpacesPropertiesOutput{})
 	pulumi.RegisterOutputType(IoTSpacesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IoTSpacesPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IoTSpacesPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IoTSpacesPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IoTSpacesSkuInfoOutput{})
 	pulumi.RegisterOutputType(IoTSpacesSkuInfoPtrOutput{})
+	pulumi.RegisterOutputType(IoTSpacesSkuInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IoTSpacesSkuInfoResponseOutput{})
 	pulumi.RegisterOutputType(IoTSpacesSkuInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageContainerPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageContainerPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StorageContainerPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StorageContainerPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageContainerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageContainerPropertiesResponsePtrOutput{})
 }

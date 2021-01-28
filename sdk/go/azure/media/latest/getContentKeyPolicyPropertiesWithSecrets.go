@@ -34,7 +34,7 @@ type GetContentKeyPolicyPropertiesWithSecretsResult struct {
 	// The last modified date of the Policy
 	LastModified string `pulumi:"lastModified"`
 	// The Key Policy options.
-	Options []ContentKeyPolicyOptionResponse `pulumi:"options"`
+	Options []ContentKeyPolicyOptionInvokeResponse `pulumi:"options"`
 	// The legacy Policy ID.
 	PolicyId string `pulumi:"policyId"`
 }

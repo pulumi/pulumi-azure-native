@@ -40,7 +40,7 @@ type LookupLabResult struct {
 	// Invitation code that users can use to join a lab.
 	InvitationCode string `pulumi:"invitationCode"`
 	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
+	LatestOperationResult LatestOperationResultInvokeResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// Maximum number of users allowed in the lab.

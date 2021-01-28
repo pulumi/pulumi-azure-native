@@ -11,6 +11,199 @@ import (
 )
 
 // Details of any error encountered on last collection attempt
+type ConnectorCollectionErrorInfoInvokeResponse struct {
+	// Short error code
+	ErrorCode string `pulumi:"errorCode"`
+	// External Provider error message
+	ErrorInnerMessage string `pulumi:"errorInnerMessage"`
+	// Detailed error message
+	ErrorMessage string `pulumi:"errorMessage"`
+	// Time the error started occurring (Last time error occurred in lastChecked)
+	ErrorStartTime string `pulumi:"errorStartTime"`
+}
+
+// ConnectorCollectionErrorInfoInvokeResponseInput is an input type that accepts ConnectorCollectionErrorInfoInvokeResponseArgs and ConnectorCollectionErrorInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectorCollectionErrorInfoInvokeResponseInput` via:
+//
+//          ConnectorCollectionErrorInfoInvokeResponseArgs{...}
+type ConnectorCollectionErrorInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectorCollectionErrorInfoInvokeResponseOutput() ConnectorCollectionErrorInfoInvokeResponseOutput
+	ToConnectorCollectionErrorInfoInvokeResponseOutputWithContext(context.Context) ConnectorCollectionErrorInfoInvokeResponseOutput
+}
+
+// Details of any error encountered on last collection attempt
+type ConnectorCollectionErrorInfoInvokeResponseArgs struct {
+	// Short error code
+	ErrorCode pulumi.StringInput `pulumi:"errorCode"`
+	// External Provider error message
+	ErrorInnerMessage pulumi.StringInput `pulumi:"errorInnerMessage"`
+	// Detailed error message
+	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// Time the error started occurring (Last time error occurred in lastChecked)
+	ErrorStartTime pulumi.StringInput `pulumi:"errorStartTime"`
+}
+
+func (ConnectorCollectionErrorInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorCollectionErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectorCollectionErrorInfoInvokeResponseArgs) ToConnectorCollectionErrorInfoInvokeResponseOutput() ConnectorCollectionErrorInfoInvokeResponseOutput {
+	return i.ToConnectorCollectionErrorInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectorCollectionErrorInfoInvokeResponseArgs) ToConnectorCollectionErrorInfoInvokeResponseOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoInvokeResponseOutput)
+}
+
+func (i ConnectorCollectionErrorInfoInvokeResponseArgs) ToConnectorCollectionErrorInfoInvokeResponsePtrOutput() ConnectorCollectionErrorInfoInvokeResponsePtrOutput {
+	return i.ToConnectorCollectionErrorInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorCollectionErrorInfoInvokeResponseArgs) ToConnectorCollectionErrorInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoInvokeResponseOutput).ToConnectorCollectionErrorInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ConnectorCollectionErrorInfoInvokeResponsePtrInput is an input type that accepts ConnectorCollectionErrorInfoInvokeResponseArgs, ConnectorCollectionErrorInfoInvokeResponsePtr and ConnectorCollectionErrorInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ConnectorCollectionErrorInfoInvokeResponsePtrInput` via:
+//
+//          ConnectorCollectionErrorInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectorCollectionErrorInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToConnectorCollectionErrorInfoInvokeResponsePtrOutput() ConnectorCollectionErrorInfoInvokeResponsePtrOutput
+	ToConnectorCollectionErrorInfoInvokeResponsePtrOutputWithContext(context.Context) ConnectorCollectionErrorInfoInvokeResponsePtrOutput
+}
+
+type connectorCollectionErrorInfoInvokeResponsePtrType ConnectorCollectionErrorInfoInvokeResponseArgs
+
+func ConnectorCollectionErrorInfoInvokeResponsePtr(v *ConnectorCollectionErrorInfoInvokeResponseArgs) ConnectorCollectionErrorInfoInvokeResponsePtrInput {
+	return (*connectorCollectionErrorInfoInvokeResponsePtrType)(v)
+}
+
+func (*connectorCollectionErrorInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorCollectionErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *connectorCollectionErrorInfoInvokeResponsePtrType) ToConnectorCollectionErrorInfoInvokeResponsePtrOutput() ConnectorCollectionErrorInfoInvokeResponsePtrOutput {
+	return i.ToConnectorCollectionErrorInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *connectorCollectionErrorInfoInvokeResponsePtrType) ToConnectorCollectionErrorInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoInvokeResponsePtrOutput)
+}
+
+// Details of any error encountered on last collection attempt
+type ConnectorCollectionErrorInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectorCollectionErrorInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorCollectionErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectorCollectionErrorInfoInvokeResponseOutput) ToConnectorCollectionErrorInfoInvokeResponseOutput() ConnectorCollectionErrorInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectorCollectionErrorInfoInvokeResponseOutput) ToConnectorCollectionErrorInfoInvokeResponseOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectorCollectionErrorInfoInvokeResponseOutput) ToConnectorCollectionErrorInfoInvokeResponsePtrOutput() ConnectorCollectionErrorInfoInvokeResponsePtrOutput {
+	return o.ToConnectorCollectionErrorInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorCollectionErrorInfoInvokeResponseOutput) ToConnectorCollectionErrorInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConnectorCollectionErrorInfoInvokeResponse) *ConnectorCollectionErrorInfoInvokeResponse {
+		return &v
+	}).(ConnectorCollectionErrorInfoInvokeResponsePtrOutput)
+}
+
+// Short error code
+func (o ConnectorCollectionErrorInfoInvokeResponseOutput) ErrorCode() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionErrorInfoInvokeResponse) string { return v.ErrorCode }).(pulumi.StringOutput)
+}
+
+// External Provider error message
+func (o ConnectorCollectionErrorInfoInvokeResponseOutput) ErrorInnerMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionErrorInfoInvokeResponse) string { return v.ErrorInnerMessage }).(pulumi.StringOutput)
+}
+
+// Detailed error message
+func (o ConnectorCollectionErrorInfoInvokeResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionErrorInfoInvokeResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// Time the error started occurring (Last time error occurred in lastChecked)
+func (o ConnectorCollectionErrorInfoInvokeResponseOutput) ErrorStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionErrorInfoInvokeResponse) string { return v.ErrorStartTime }).(pulumi.StringOutput)
+}
+
+type ConnectorCollectionErrorInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorCollectionErrorInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorCollectionErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectorCollectionErrorInfoInvokeResponsePtrOutput) ToConnectorCollectionErrorInfoInvokeResponsePtrOutput() ConnectorCollectionErrorInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConnectorCollectionErrorInfoInvokeResponsePtrOutput) ToConnectorCollectionErrorInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConnectorCollectionErrorInfoInvokeResponsePtrOutput) Elem() ConnectorCollectionErrorInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoInvokeResponse) ConnectorCollectionErrorInfoInvokeResponse {
+		return *v
+	}).(ConnectorCollectionErrorInfoInvokeResponseOutput)
+}
+
+// Short error code
+func (o ConnectorCollectionErrorInfoInvokeResponsePtrOutput) ErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// External Provider error message
+func (o ConnectorCollectionErrorInfoInvokeResponsePtrOutput) ErrorInnerMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorInnerMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Detailed error message
+func (o ConnectorCollectionErrorInfoInvokeResponsePtrOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time the error started occurring (Last time error occurred in lastChecked)
+func (o ConnectorCollectionErrorInfoInvokeResponsePtrOutput) ErrorStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorCollectionErrorInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of any error encountered on last collection attempt
 type ConnectorCollectionErrorInfoResponse struct {
 	// Short error code
 	ErrorCode string `pulumi:"errorCode"`
@@ -199,6 +392,90 @@ func (o ConnectorCollectionErrorInfoResponsePtrOutput) ErrorStartTime() pulumi.S
 		}
 		return &v.ErrorStartTime
 	}).(pulumi.StringPtrOutput)
+}
+
+// Collection and ingestion information
+type ConnectorCollectionInfoInvokeResponse struct {
+	// Error information of last collection
+	Error *ConnectorCollectionErrorInfoInvokeResponse `pulumi:"error"`
+	// Last time the data acquisition process initiated connecting to the external provider
+	LastChecked string `pulumi:"lastChecked"`
+	// Last time the external data was updated into Azure
+	LastUpdated string `pulumi:"lastUpdated"`
+	// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+	SourceLastUpdated string `pulumi:"sourceLastUpdated"`
+}
+
+// ConnectorCollectionInfoInvokeResponseInput is an input type that accepts ConnectorCollectionInfoInvokeResponseArgs and ConnectorCollectionInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectorCollectionInfoInvokeResponseInput` via:
+//
+//          ConnectorCollectionInfoInvokeResponseArgs{...}
+type ConnectorCollectionInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectorCollectionInfoInvokeResponseOutput() ConnectorCollectionInfoInvokeResponseOutput
+	ToConnectorCollectionInfoInvokeResponseOutputWithContext(context.Context) ConnectorCollectionInfoInvokeResponseOutput
+}
+
+// Collection and ingestion information
+type ConnectorCollectionInfoInvokeResponseArgs struct {
+	// Error information of last collection
+	Error ConnectorCollectionErrorInfoInvokeResponsePtrInput `pulumi:"error"`
+	// Last time the data acquisition process initiated connecting to the external provider
+	LastChecked pulumi.StringInput `pulumi:"lastChecked"`
+	// Last time the external data was updated into Azure
+	LastUpdated pulumi.StringInput `pulumi:"lastUpdated"`
+	// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+	SourceLastUpdated pulumi.StringInput `pulumi:"sourceLastUpdated"`
+}
+
+func (ConnectorCollectionInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorCollectionInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectorCollectionInfoInvokeResponseArgs) ToConnectorCollectionInfoInvokeResponseOutput() ConnectorCollectionInfoInvokeResponseOutput {
+	return i.ToConnectorCollectionInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectorCollectionInfoInvokeResponseArgs) ToConnectorCollectionInfoInvokeResponseOutputWithContext(ctx context.Context) ConnectorCollectionInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoInvokeResponseOutput)
+}
+
+// Collection and ingestion information
+type ConnectorCollectionInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectorCollectionInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorCollectionInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectorCollectionInfoInvokeResponseOutput) ToConnectorCollectionInfoInvokeResponseOutput() ConnectorCollectionInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectorCollectionInfoInvokeResponseOutput) ToConnectorCollectionInfoInvokeResponseOutputWithContext(ctx context.Context) ConnectorCollectionInfoInvokeResponseOutput {
+	return o
+}
+
+// Error information of last collection
+func (o ConnectorCollectionInfoInvokeResponseOutput) Error() ConnectorCollectionErrorInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConnectorCollectionInfoInvokeResponse) *ConnectorCollectionErrorInfoInvokeResponse {
+		return v.Error
+	}).(ConnectorCollectionErrorInfoInvokeResponsePtrOutput)
+}
+
+// Last time the data acquisition process initiated connecting to the external provider
+func (o ConnectorCollectionInfoInvokeResponseOutput) LastChecked() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionInfoInvokeResponse) string { return v.LastChecked }).(pulumi.StringOutput)
+}
+
+// Last time the external data was updated into Azure
+func (o ConnectorCollectionInfoInvokeResponseOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionInfoInvokeResponse) string { return v.LastUpdated }).(pulumi.StringOutput)
+}
+
+// Source timestamp of external data currently available in Azure (eg AWS last processed CUR file timestamp)
+func (o ConnectorCollectionInfoInvokeResponseOutput) SourceLastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorCollectionInfoInvokeResponse) string { return v.SourceLastUpdated }).(pulumi.StringOutput)
 }
 
 // Collection and ingestion information
@@ -393,8 +670,11 @@ func (o ConnectorCollectionInfoResponsePtrOutput) SourceLastUpdated() pulumi.Str
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorCollectionInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorCollectionInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorCollectionInfoResponsePtrOutput{})
 }

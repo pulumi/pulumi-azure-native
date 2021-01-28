@@ -25,9 +25,9 @@ type LookupScheduledQueryRuleArgs struct {
 
 // The scheduled query rule resource.
 type LookupScheduledQueryRuleResult struct {
-	Actions []ActionResponse `pulumi:"actions"`
+	Actions []ActionInvokeResponse `pulumi:"actions"`
 	// The rule criteria that defines the conditions of the scheduled query rule.
-	Criteria ScheduledQueryRuleCriteriaResponse `pulumi:"criteria"`
+	Criteria ScheduledQueryRuleCriteriaInvokeResponse `pulumi:"criteria"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
 	// The display name of the alert rule

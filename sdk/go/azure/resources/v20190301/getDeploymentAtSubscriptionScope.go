@@ -30,7 +30,7 @@ type LookupDeploymentAtSubscriptionScopeResult struct {
 	// The name of the deployment.
 	Name string `pulumi:"name"`
 	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
+	Properties DeploymentPropertiesExtendedInvokeResponse `pulumi:"properties"`
 	// The type of the deployment.
 	Type string `pulumi:"type"`
 }

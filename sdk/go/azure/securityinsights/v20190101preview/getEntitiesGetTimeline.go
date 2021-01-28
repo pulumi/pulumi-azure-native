@@ -38,7 +38,7 @@ type GetEntitiesGetTimelineArgs struct {
 // The entity timeline result operation response.
 type GetEntitiesGetTimelineResult struct {
 	// The metadata from the timeline operation results.
-	MetaData *TimelineResultsMetadataResponse `pulumi:"metaData"`
+	MetaData *TimelineResultsMetadataInvokeResponse `pulumi:"metaData"`
 	// The timeline result values.
 	Value []interface{} `pulumi:"value"`
 }

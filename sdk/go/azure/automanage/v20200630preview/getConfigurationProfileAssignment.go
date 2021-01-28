@@ -32,7 +32,7 @@ type LookupConfigurationProfileAssignmentResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Properties of the configuration profile assignment.
-	Properties ConfigurationProfileAssignmentPropertiesResponse `pulumi:"properties"`
+	Properties ConfigurationProfileAssignmentPropertiesInvokeResponse `pulumi:"properties"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

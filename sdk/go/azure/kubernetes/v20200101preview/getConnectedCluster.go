@@ -26,7 +26,7 @@ type LookupConnectedClusterArgs struct {
 // Represents a connected cluster.
 type LookupConnectedClusterResult struct {
 	// AAD profile of the connected cluster.
-	AadProfile ConnectedClusterAADProfileResponse `pulumi:"aadProfile"`
+	AadProfile ConnectedClusterAADProfileInvokeResponse `pulumi:"aadProfile"`
 	// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
 	AgentPublicKeyCertificate string `pulumi:"agentPublicKeyCertificate"`
 	// Version of the agent running on the connected cluster resource
@@ -38,7 +38,7 @@ type LookupConnectedClusterResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the connected cluster.
-	Identity ConnectedClusterIdentityResponse `pulumi:"identity"`
+	Identity ConnectedClusterIdentityInvokeResponse `pulumi:"identity"`
 	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
 	Infrastructure *string `pulumi:"infrastructure"`
 	// The Kubernetes version of the connected cluster resource

@@ -145,6 +145,79 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Identity for the resource.
+type IdentityInvokeResponse struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type string `pulumi:"type"`
+}
+
+// IdentityInvokeResponseInput is an input type that accepts IdentityInvokeResponseArgs and IdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentityInvokeResponseInput` via:
+//
+//          IdentityInvokeResponseArgs{...}
+type IdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput
+	ToIdentityInvokeResponseOutputWithContext(context.Context) IdentityInvokeResponseOutput
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return i.ToIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityInvokeResponseOutput)
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o IdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o IdentityInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -417,6 +490,106 @@ func (o IpRuleArrayOutput) Index(i pulumi.IntInput) IpRuleOutput {
 }
 
 // The IP restriction rule of the Azure Cognitive Search service.
+type IpRuleInvokeResponse struct {
+	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
+	Value *string `pulumi:"value"`
+}
+
+// IpRuleInvokeResponseInput is an input type that accepts IpRuleInvokeResponseArgs and IpRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `IpRuleInvokeResponseInput` via:
+//
+//          IpRuleInvokeResponseArgs{...}
+type IpRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIpRuleInvokeResponseOutput() IpRuleInvokeResponseOutput
+	ToIpRuleInvokeResponseOutputWithContext(context.Context) IpRuleInvokeResponseOutput
+}
+
+// The IP restriction rule of the Azure Cognitive Search service.
+type IpRuleInvokeResponseArgs struct {
+	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (IpRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IpRuleInvokeResponseArgs) ToIpRuleInvokeResponseOutput() IpRuleInvokeResponseOutput {
+	return i.ToIpRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IpRuleInvokeResponseArgs) ToIpRuleInvokeResponseOutputWithContext(ctx context.Context) IpRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpRuleInvokeResponseOutput)
+}
+
+// IpRuleInvokeResponseArrayInput is an input type that accepts IpRuleInvokeResponseArray and IpRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IpRuleInvokeResponseArrayInput` via:
+//
+//          IpRuleInvokeResponseArray{ IpRuleInvokeResponseArgs{...} }
+type IpRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIpRuleInvokeResponseArrayOutput() IpRuleInvokeResponseArrayOutput
+	ToIpRuleInvokeResponseArrayOutputWithContext(context.Context) IpRuleInvokeResponseArrayOutput
+}
+
+type IpRuleInvokeResponseArray []IpRuleInvokeResponseInput
+
+func (IpRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IpRuleInvokeResponseArray) ToIpRuleInvokeResponseArrayOutput() IpRuleInvokeResponseArrayOutput {
+	return i.ToIpRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IpRuleInvokeResponseArray) ToIpRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IpRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpRuleInvokeResponseArrayOutput)
+}
+
+// The IP restriction rule of the Azure Cognitive Search service.
+type IpRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IpRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IpRuleInvokeResponseOutput) ToIpRuleInvokeResponseOutput() IpRuleInvokeResponseOutput {
+	return o
+}
+
+func (o IpRuleInvokeResponseOutput) ToIpRuleInvokeResponseOutputWithContext(ctx context.Context) IpRuleInvokeResponseOutput {
+	return o
+}
+
+// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
+func (o IpRuleInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpRuleInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type IpRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IpRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IpRuleInvokeResponseArrayOutput) ToIpRuleInvokeResponseArrayOutput() IpRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpRuleInvokeResponseArrayOutput) ToIpRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IpRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) IpRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpRuleInvokeResponse {
+		return vs[0].([]IpRuleInvokeResponse)[vs[1].(int)]
+	}).(IpRuleInvokeResponseOutput)
+}
+
+// The IP restriction rule of the Azure Cognitive Search service.
 type IpRuleResponse struct {
 	// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
 	Value *string `pulumi:"value"`
@@ -670,6 +843,70 @@ func (o NetworkRuleSetPtrOutput) IpRules() IpRuleArrayOutput {
 }
 
 // Network specific rules that determine how the Azure Cognitive Search service may be reached.
+type NetworkRuleSetInvokeResponse struct {
+	// The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
+	EndpointAccess *string `pulumi:"endpointAccess"`
+	// A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
+	IpRules []IpRuleInvokeResponse `pulumi:"ipRules"`
+}
+
+// NetworkRuleSetInvokeResponseInput is an input type that accepts NetworkRuleSetInvokeResponseArgs and NetworkRuleSetInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkRuleSetInvokeResponseInput` via:
+//
+//          NetworkRuleSetInvokeResponseArgs{...}
+type NetworkRuleSetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkRuleSetInvokeResponseOutput() NetworkRuleSetInvokeResponseOutput
+	ToNetworkRuleSetInvokeResponseOutputWithContext(context.Context) NetworkRuleSetInvokeResponseOutput
+}
+
+// Network specific rules that determine how the Azure Cognitive Search service may be reached.
+type NetworkRuleSetInvokeResponseArgs struct {
+	// The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
+	EndpointAccess pulumi.StringPtrInput `pulumi:"endpointAccess"`
+	// A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
+	IpRules IpRuleInvokeResponseArrayInput `pulumi:"ipRules"`
+}
+
+func (NetworkRuleSetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkRuleSetInvokeResponseArgs) ToNetworkRuleSetInvokeResponseOutput() NetworkRuleSetInvokeResponseOutput {
+	return i.ToNetworkRuleSetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleSetInvokeResponseArgs) ToNetworkRuleSetInvokeResponseOutputWithContext(ctx context.Context) NetworkRuleSetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetInvokeResponseOutput)
+}
+
+// Network specific rules that determine how the Azure Cognitive Search service may be reached.
+type NetworkRuleSetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleSetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkRuleSetInvokeResponseOutput) ToNetworkRuleSetInvokeResponseOutput() NetworkRuleSetInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkRuleSetInvokeResponseOutput) ToNetworkRuleSetInvokeResponseOutputWithContext(ctx context.Context) NetworkRuleSetInvokeResponseOutput {
+	return o
+}
+
+// The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
+func (o NetworkRuleSetInvokeResponseOutput) EndpointAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRuleSetInvokeResponse) *string { return v.EndpointAccess }).(pulumi.StringPtrOutput)
+}
+
+// A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
+func (o NetworkRuleSetInvokeResponseOutput) IpRules() IpRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NetworkRuleSetInvokeResponse) []IpRuleInvokeResponse { return v.IpRules }).(IpRuleInvokeResponseArrayOutput)
+}
+
+// Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetResponse struct {
 	// The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
 	EndpointAccess *string `pulumi:"endpointAccess"`
@@ -820,6 +1057,135 @@ func (o NetworkRuleSetResponsePtrOutput) IpRules() IpRuleResponseArrayOutput {
 		}
 		return v.IpRules
 	}).(IpRuleResponseArrayOutput)
+}
+
+// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+type PrivateEndpointConnectionInvokeResponse struct {
+	// The ID of the private endpoint connection. This can be used with the Azure Resource Manager to link resources together.
+	Id *string `pulumi:"id"`
+	// The name of the private endpoint connection.
+	Name string `pulumi:"name"`
+	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+	Properties *PrivateEndpointConnectionPropertiesInvokeResponse `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionInvokeResponseInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArgs and PrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArgs{...}
+type PrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput
+	ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseOutput
+}
+
+// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+type PrivateEndpointConnectionInvokeResponseArgs struct {
+	// The ID of the private endpoint connection. This can be used with the Azure Resource Manager to link resources together.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the private endpoint connection.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+	Properties PrivateEndpointConnectionPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// PrivateEndpointConnectionInvokeResponseArrayInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArray and PrivateEndpointConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArray{ PrivateEndpointConnectionInvokeResponseArgs{...} }
+type PrivateEndpointConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput
+	ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput
+}
+
+type PrivateEndpointConnectionInvokeResponseArray []PrivateEndpointConnectionInvokeResponseInput
+
+func (PrivateEndpointConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+type PrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// The ID of the private endpoint connection. This can be used with the Azure Resource Manager to link resources together.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the private endpoint connection.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Properties() PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *PrivateEndpointConnectionPropertiesInvokeResponse {
+		return v.Properties
+	}).(PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput)
+}
+
+// The resource type.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionInvokeResponse {
+		return vs[0].([]PrivateEndpointConnectionInvokeResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionInvokeResponseOutput)
 }
 
 // Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
@@ -977,6 +1343,481 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnecti
 		}
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+type PrivateEndpointConnectionPropertiesInvokeResponse struct {
+	// The private endpoint resource from Microsoft.Network provider.
+	PrivateEndpoint *PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint `pulumi:"privateEndpoint"`
+	// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+	PrivateLinkServiceConnectionState *PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
+}
+
+// PrivateEndpointConnectionPropertiesInvokeResponseInput is an input type that accepts PrivateEndpointConnectionPropertiesInvokeResponseArgs and PrivateEndpointConnectionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionPropertiesInvokeResponseArgs{...}
+type PrivateEndpointConnectionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionPropertiesInvokeResponseOutput() PrivateEndpointConnectionPropertiesInvokeResponseOutput
+	ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesInvokeResponseOutput
+}
+
+// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+type PrivateEndpointConnectionPropertiesInvokeResponseArgs struct {
+	// The private endpoint resource from Microsoft.Network provider.
+	PrivateEndpoint PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrInput `pulumi:"privateEndpoint"`
+	// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+	PrivateLinkServiceConnectionState PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
+}
+
+func (PrivateEndpointConnectionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponseArgs) ToPrivateEndpointConnectionPropertiesInvokeResponseOutput() PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponseArgs) ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponseOutput)
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponseArgs) ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponseArgs) ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponseOutput).ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointConnectionPropertiesInvokeResponsePtrInput is an input type that accepts PrivateEndpointConnectionPropertiesInvokeResponseArgs, PrivateEndpointConnectionPropertiesInvokeResponsePtr and PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInvokeResponsePtrInput` via:
+//
+//          PrivateEndpointConnectionPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointConnectionPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput
+	ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput
+}
+
+type privateEndpointConnectionPropertiesInvokeResponsePtrType PrivateEndpointConnectionPropertiesInvokeResponseArgs
+
+func PrivateEndpointConnectionPropertiesInvokeResponsePtr(v *PrivateEndpointConnectionPropertiesInvokeResponseArgs) PrivateEndpointConnectionPropertiesInvokeResponsePtrInput {
+	return (*privateEndpointConnectionPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*privateEndpointConnectionPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointConnectionPropertiesInvokeResponsePtrType) ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointConnectionPropertiesInvokeResponsePtrType) ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput)
+}
+
+// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+type PrivateEndpointConnectionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) ToPrivateEndpointConnectionPropertiesInvokeResponseOutput() PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) ToPrivateEndpointConnectionPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput {
+	return o.ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponse) *PrivateEndpointConnectionPropertiesInvokeResponse {
+		return &v
+	}).(PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput)
+}
+
+// The private endpoint resource from Microsoft.Network provider.
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) PrivateEndpoint() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponse) *PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput)
+}
+
+// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+func (o PrivateEndpointConnectionPropertiesInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponse) *PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput)
+}
+
+type PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesInvokeResponse) PrivateEndpointConnectionPropertiesInvokeResponse {
+		return *v
+	}).(PrivateEndpointConnectionPropertiesInvokeResponseOutput)
+}
+
+// The private endpoint resource from Microsoft.Network provider.
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput) PrivateEndpoint() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesInvokeResponse) *PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpoint
+	}).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput)
+}
+
+// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput) PrivateLinkServiceConnectionState() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesInvokeResponse) *PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// The private endpoint resource from Microsoft.Network provider.
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint struct {
+	// The resource id of the private endpoint resource from Microsoft.Network provider.
+	Id *string `pulumi:"id"`
+}
+
+// PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointInput is an input type that accepts PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs and PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointInput` via:
+//
+//          PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs{...}
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput
+	ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput
+}
+
+// The private endpoint resource from Microsoft.Network provider.
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs struct {
+	// The resource id of the private endpoint resource from Microsoft.Network provider.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput)
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput).ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrInput is an input type that accepts PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs, PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtr and PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrInput` via:
+//
+//          PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput
+	ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput
+}
+
+type privateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrType PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs
+
+func PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtr(v *PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointArgs) PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrInput {
+	return (*privateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrType)(v)
+}
+
+func (*privateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint)(nil)).Elem()
+}
+
+func (i *privateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrType) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrType) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput)
+}
+
+// The private endpoint resource from Microsoft.Network provider.
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o.ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint) *PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint {
+		return &v
+	}).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput)
+}
+
+// The resource id of the private endpoint resource from Microsoft.Network provider.
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput) Elem() PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint) PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint {
+		return *v
+	}).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput)
+}
+
+// The resource id of the private endpoint resource from Microsoft.Network provider.
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState struct {
+	// A description of any extra actions that may be required.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The description for the private link service connection state.
+	Description *string `pulumi:"description"`
+	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateInput is an input type that accepts PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs and PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateInput` via:
+//
+//          PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs{...}
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput
+	ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput
+}
+
+// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs struct {
+	// A description of any extra actions that may be required.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The description for the private link service connection state.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput)
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput).ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs, PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtr and PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrInput` via:
+//
+//          PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput
+	ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput
+}
+
+type privateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrType PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs
+
+func PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtr(v *PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrInput {
+	return (*privateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrType)(v)
+}
+
+func (*privateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i *privateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrType) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrType) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o.ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState {
+		return &v
+	}).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// A description of any extra actions that may be required.
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *string {
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description for the private link service connection state.
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *string {
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *string {
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) ToPrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState {
+		return *v
+	}).(PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput)
+}
+
+// A description of any extra actions that may be required.
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description for the private link service connection state.
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+func (o PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // The private endpoint resource from Microsoft.Network provider.
@@ -1898,112 +2739,112 @@ func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 // Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
-type QueryKeyResponse struct {
+type QueryKeyInvokeResponse struct {
 	// The value of the query API key.
 	Key string `pulumi:"key"`
 	// The name of the query API key; may be empty.
 	Name string `pulumi:"name"`
 }
 
-// QueryKeyResponseInput is an input type that accepts QueryKeyResponseArgs and QueryKeyResponseOutput values.
-// You can construct a concrete instance of `QueryKeyResponseInput` via:
+// QueryKeyInvokeResponseInput is an input type that accepts QueryKeyInvokeResponseArgs and QueryKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `QueryKeyInvokeResponseInput` via:
 //
-//          QueryKeyResponseArgs{...}
-type QueryKeyResponseInput interface {
+//          QueryKeyInvokeResponseArgs{...}
+type QueryKeyInvokeResponseInput interface {
 	pulumi.Input
 
-	ToQueryKeyResponseOutput() QueryKeyResponseOutput
-	ToQueryKeyResponseOutputWithContext(context.Context) QueryKeyResponseOutput
+	ToQueryKeyInvokeResponseOutput() QueryKeyInvokeResponseOutput
+	ToQueryKeyInvokeResponseOutputWithContext(context.Context) QueryKeyInvokeResponseOutput
 }
 
 // Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
-type QueryKeyResponseArgs struct {
+type QueryKeyInvokeResponseArgs struct {
 	// The value of the query API key.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The name of the query API key; may be empty.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
-func (QueryKeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryKeyResponse)(nil)).Elem()
+func (QueryKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryKeyInvokeResponse)(nil)).Elem()
 }
 
-func (i QueryKeyResponseArgs) ToQueryKeyResponseOutput() QueryKeyResponseOutput {
-	return i.ToQueryKeyResponseOutputWithContext(context.Background())
+func (i QueryKeyInvokeResponseArgs) ToQueryKeyInvokeResponseOutput() QueryKeyInvokeResponseOutput {
+	return i.ToQueryKeyInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i QueryKeyResponseArgs) ToQueryKeyResponseOutputWithContext(ctx context.Context) QueryKeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyResponseOutput)
+func (i QueryKeyInvokeResponseArgs) ToQueryKeyInvokeResponseOutputWithContext(ctx context.Context) QueryKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyInvokeResponseOutput)
 }
 
-// QueryKeyResponseArrayInput is an input type that accepts QueryKeyResponseArray and QueryKeyResponseArrayOutput values.
-// You can construct a concrete instance of `QueryKeyResponseArrayInput` via:
+// QueryKeyInvokeResponseArrayInput is an input type that accepts QueryKeyInvokeResponseArray and QueryKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `QueryKeyInvokeResponseArrayInput` via:
 //
-//          QueryKeyResponseArray{ QueryKeyResponseArgs{...} }
-type QueryKeyResponseArrayInput interface {
+//          QueryKeyInvokeResponseArray{ QueryKeyInvokeResponseArgs{...} }
+type QueryKeyInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToQueryKeyResponseArrayOutput() QueryKeyResponseArrayOutput
-	ToQueryKeyResponseArrayOutputWithContext(context.Context) QueryKeyResponseArrayOutput
+	ToQueryKeyInvokeResponseArrayOutput() QueryKeyInvokeResponseArrayOutput
+	ToQueryKeyInvokeResponseArrayOutputWithContext(context.Context) QueryKeyInvokeResponseArrayOutput
 }
 
-type QueryKeyResponseArray []QueryKeyResponseInput
+type QueryKeyInvokeResponseArray []QueryKeyInvokeResponseInput
 
-func (QueryKeyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]QueryKeyResponse)(nil)).Elem()
+func (QueryKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryKeyInvokeResponse)(nil)).Elem()
 }
 
-func (i QueryKeyResponseArray) ToQueryKeyResponseArrayOutput() QueryKeyResponseArrayOutput {
-	return i.ToQueryKeyResponseArrayOutputWithContext(context.Background())
+func (i QueryKeyInvokeResponseArray) ToQueryKeyInvokeResponseArrayOutput() QueryKeyInvokeResponseArrayOutput {
+	return i.ToQueryKeyInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i QueryKeyResponseArray) ToQueryKeyResponseArrayOutputWithContext(ctx context.Context) QueryKeyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyResponseArrayOutput)
+func (i QueryKeyInvokeResponseArray) ToQueryKeyInvokeResponseArrayOutputWithContext(ctx context.Context) QueryKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueryKeyInvokeResponseArrayOutput)
 }
 
 // Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
-type QueryKeyResponseOutput struct{ *pulumi.OutputState }
+type QueryKeyInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (QueryKeyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryKeyResponse)(nil)).Elem()
+func (QueryKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryKeyInvokeResponse)(nil)).Elem()
 }
 
-func (o QueryKeyResponseOutput) ToQueryKeyResponseOutput() QueryKeyResponseOutput {
+func (o QueryKeyInvokeResponseOutput) ToQueryKeyInvokeResponseOutput() QueryKeyInvokeResponseOutput {
 	return o
 }
 
-func (o QueryKeyResponseOutput) ToQueryKeyResponseOutputWithContext(ctx context.Context) QueryKeyResponseOutput {
+func (o QueryKeyInvokeResponseOutput) ToQueryKeyInvokeResponseOutputWithContext(ctx context.Context) QueryKeyInvokeResponseOutput {
 	return o
 }
 
 // The value of the query API key.
-func (o QueryKeyResponseOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v QueryKeyResponse) string { return v.Key }).(pulumi.StringOutput)
+func (o QueryKeyInvokeResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryKeyInvokeResponse) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The name of the query API key; may be empty.
-func (o QueryKeyResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v QueryKeyResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o QueryKeyInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v QueryKeyInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type QueryKeyResponseArrayOutput struct{ *pulumi.OutputState }
+type QueryKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (QueryKeyResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]QueryKeyResponse)(nil)).Elem()
+func (QueryKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueryKeyInvokeResponse)(nil)).Elem()
 }
 
-func (o QueryKeyResponseArrayOutput) ToQueryKeyResponseArrayOutput() QueryKeyResponseArrayOutput {
+func (o QueryKeyInvokeResponseArrayOutput) ToQueryKeyInvokeResponseArrayOutput() QueryKeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o QueryKeyResponseArrayOutput) ToQueryKeyResponseArrayOutputWithContext(ctx context.Context) QueryKeyResponseArrayOutput {
+func (o QueryKeyInvokeResponseArrayOutput) ToQueryKeyInvokeResponseArrayOutputWithContext(ctx context.Context) QueryKeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o QueryKeyResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueryKeyResponse {
-		return vs[0].([]QueryKeyResponse)[vs[1].(int)]
-	}).(QueryKeyResponseOutput)
+func (o QueryKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueryKeyInvokeResponse {
+		return vs[0].([]QueryKeyInvokeResponse)[vs[1].(int)]
+	}).(QueryKeyInvokeResponseOutput)
 }
 
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
@@ -2138,6 +2979,61 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+type SkuInvokeResponse struct {
+	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+	Name *string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+type SkuInvokeResponseArgs struct {
+	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
@@ -2277,18 +3173,30 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(IpRuleOutput{})
 	pulumi.RegisterOutputType(IpRuleArrayOutput{})
+	pulumi.RegisterOutputType(IpRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IpRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpRuleResponseOutput{})
 	pulumi.RegisterOutputType(IpRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
+	pulumi.RegisterOutputType(NetworkRuleSetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput{})
@@ -2301,10 +3209,11 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
-	pulumi.RegisterOutputType(QueryKeyResponseOutput{})
-	pulumi.RegisterOutputType(QueryKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(QueryKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(QueryKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

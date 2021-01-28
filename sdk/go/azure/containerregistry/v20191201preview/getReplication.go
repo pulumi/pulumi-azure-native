@@ -38,9 +38,9 @@ type LookupReplicationResult struct {
 	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
 	RegionEndpointEnabled *bool `pulumi:"regionEndpointEnabled"`
 	// The status of the replication at the time the operation was called.
-	Status StatusResponse `pulumi:"status"`
+	Status StatusInvokeResponse `pulumi:"status"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

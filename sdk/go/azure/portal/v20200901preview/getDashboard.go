@@ -28,7 +28,7 @@ type LookupDashboardResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The dashboard lenses.
-	Lenses []DashboardLensResponse `pulumi:"lenses"`
+	Lenses []DashboardLensInvokeResponse `pulumi:"lenses"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The dashboard metadata.

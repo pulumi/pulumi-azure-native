@@ -30,9 +30,9 @@ type LookupVirtualRouterResult struct {
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The Gateway on which VirtualRouter is hosted.
-	HostedGateway *SubResourceResponse `pulumi:"hostedGateway"`
+	HostedGateway *SubResourceInvokeResponse `pulumi:"hostedGateway"`
 	// The Subnet on which VirtualRouter is hosted.
-	HostedSubnet *SubResourceResponse `pulumi:"hostedSubnet"`
+	HostedSubnet *SubResourceInvokeResponse `pulumi:"hostedSubnet"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -40,7 +40,7 @@ type LookupVirtualRouterResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// List of references to VirtualRouterPeerings
-	Peerings []SubResourceResponse `pulumi:"peerings"`
+	Peerings []SubResourceInvokeResponse `pulumi:"peerings"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.

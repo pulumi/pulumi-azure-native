@@ -53,7 +53,7 @@ type LookupWebAppHybridConnectionResult struct {
 	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
 	ServiceBusSuffix *string `pulumi:"serviceBusSuffix"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

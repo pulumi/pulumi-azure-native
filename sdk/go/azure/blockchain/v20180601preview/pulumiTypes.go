@@ -11,112 +11,112 @@ import (
 )
 
 // API key payload which is exposed in the request/response of the resource provider.
-type ApiKeyResponse struct {
+type ApiKeyInvokeResponse struct {
 	// Gets or sets the API key name.
 	KeyName *string `pulumi:"keyName"`
 	// Gets or sets the API key value.
 	Value *string `pulumi:"value"`
 }
 
-// ApiKeyResponseInput is an input type that accepts ApiKeyResponseArgs and ApiKeyResponseOutput values.
-// You can construct a concrete instance of `ApiKeyResponseInput` via:
+// ApiKeyInvokeResponseInput is an input type that accepts ApiKeyInvokeResponseArgs and ApiKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiKeyInvokeResponseInput` via:
 //
-//          ApiKeyResponseArgs{...}
-type ApiKeyResponseInput interface {
+//          ApiKeyInvokeResponseArgs{...}
+type ApiKeyInvokeResponseInput interface {
 	pulumi.Input
 
-	ToApiKeyResponseOutput() ApiKeyResponseOutput
-	ToApiKeyResponseOutputWithContext(context.Context) ApiKeyResponseOutput
+	ToApiKeyInvokeResponseOutput() ApiKeyInvokeResponseOutput
+	ToApiKeyInvokeResponseOutputWithContext(context.Context) ApiKeyInvokeResponseOutput
 }
 
 // API key payload which is exposed in the request/response of the resource provider.
-type ApiKeyResponseArgs struct {
+type ApiKeyInvokeResponseArgs struct {
 	// Gets or sets the API key name.
 	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// Gets or sets the API key value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (ApiKeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiKeyResponse)(nil)).Elem()
+func (ApiKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyInvokeResponse)(nil)).Elem()
 }
 
-func (i ApiKeyResponseArgs) ToApiKeyResponseOutput() ApiKeyResponseOutput {
-	return i.ToApiKeyResponseOutputWithContext(context.Background())
+func (i ApiKeyInvokeResponseArgs) ToApiKeyInvokeResponseOutput() ApiKeyInvokeResponseOutput {
+	return i.ToApiKeyInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ApiKeyResponseArgs) ToApiKeyResponseOutputWithContext(ctx context.Context) ApiKeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyResponseOutput)
+func (i ApiKeyInvokeResponseArgs) ToApiKeyInvokeResponseOutputWithContext(ctx context.Context) ApiKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyInvokeResponseOutput)
 }
 
-// ApiKeyResponseArrayInput is an input type that accepts ApiKeyResponseArray and ApiKeyResponseArrayOutput values.
-// You can construct a concrete instance of `ApiKeyResponseArrayInput` via:
+// ApiKeyInvokeResponseArrayInput is an input type that accepts ApiKeyInvokeResponseArray and ApiKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ApiKeyInvokeResponseArrayInput` via:
 //
-//          ApiKeyResponseArray{ ApiKeyResponseArgs{...} }
-type ApiKeyResponseArrayInput interface {
+//          ApiKeyInvokeResponseArray{ ApiKeyInvokeResponseArgs{...} }
+type ApiKeyInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToApiKeyResponseArrayOutput() ApiKeyResponseArrayOutput
-	ToApiKeyResponseArrayOutputWithContext(context.Context) ApiKeyResponseArrayOutput
+	ToApiKeyInvokeResponseArrayOutput() ApiKeyInvokeResponseArrayOutput
+	ToApiKeyInvokeResponseArrayOutputWithContext(context.Context) ApiKeyInvokeResponseArrayOutput
 }
 
-type ApiKeyResponseArray []ApiKeyResponseInput
+type ApiKeyInvokeResponseArray []ApiKeyInvokeResponseInput
 
-func (ApiKeyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiKeyResponse)(nil)).Elem()
+func (ApiKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiKeyInvokeResponse)(nil)).Elem()
 }
 
-func (i ApiKeyResponseArray) ToApiKeyResponseArrayOutput() ApiKeyResponseArrayOutput {
-	return i.ToApiKeyResponseArrayOutputWithContext(context.Background())
+func (i ApiKeyInvokeResponseArray) ToApiKeyInvokeResponseArrayOutput() ApiKeyInvokeResponseArrayOutput {
+	return i.ToApiKeyInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ApiKeyResponseArray) ToApiKeyResponseArrayOutputWithContext(ctx context.Context) ApiKeyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyResponseArrayOutput)
+func (i ApiKeyInvokeResponseArray) ToApiKeyInvokeResponseArrayOutputWithContext(ctx context.Context) ApiKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyInvokeResponseArrayOutput)
 }
 
 // API key payload which is exposed in the request/response of the resource provider.
-type ApiKeyResponseOutput struct{ *pulumi.OutputState }
+type ApiKeyInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ApiKeyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiKeyResponse)(nil)).Elem()
+func (ApiKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyInvokeResponse)(nil)).Elem()
 }
 
-func (o ApiKeyResponseOutput) ToApiKeyResponseOutput() ApiKeyResponseOutput {
+func (o ApiKeyInvokeResponseOutput) ToApiKeyInvokeResponseOutput() ApiKeyInvokeResponseOutput {
 	return o
 }
 
-func (o ApiKeyResponseOutput) ToApiKeyResponseOutputWithContext(ctx context.Context) ApiKeyResponseOutput {
+func (o ApiKeyInvokeResponseOutput) ToApiKeyInvokeResponseOutputWithContext(ctx context.Context) ApiKeyInvokeResponseOutput {
 	return o
 }
 
 // Gets or sets the API key name.
-func (o ApiKeyResponseOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiKeyResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+func (o ApiKeyInvokeResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiKeyInvokeResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the API key value.
-func (o ApiKeyResponseOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiKeyResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o ApiKeyInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiKeyInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type ApiKeyResponseArrayOutput struct{ *pulumi.OutputState }
+type ApiKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ApiKeyResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiKeyResponse)(nil)).Elem()
+func (ApiKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiKeyInvokeResponse)(nil)).Elem()
 }
 
-func (o ApiKeyResponseArrayOutput) ToApiKeyResponseArrayOutput() ApiKeyResponseArrayOutput {
+func (o ApiKeyInvokeResponseArrayOutput) ToApiKeyInvokeResponseArrayOutput() ApiKeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ApiKeyResponseArrayOutput) ToApiKeyResponseArrayOutputWithContext(ctx context.Context) ApiKeyResponseArrayOutput {
+func (o ApiKeyInvokeResponseArrayOutput) ToApiKeyInvokeResponseArrayOutputWithContext(ctx context.Context) ApiKeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ApiKeyResponseArrayOutput) Index(i pulumi.IntInput) ApiKeyResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiKeyResponse {
-		return vs[0].([]ApiKeyResponse)[vs[1].(int)]
-	}).(ApiKeyResponseOutput)
+func (o ApiKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) ApiKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiKeyInvokeResponse {
+		return vs[0].([]ApiKeyInvokeResponse)[vs[1].(int)]
+	}).(ApiKeyInvokeResponseOutput)
 }
 
 // Payload of the blockchain member nodes Sku for a blockchain member.
@@ -254,6 +254,61 @@ func (o BlockchainMemberNodesSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 // Payload of the blockchain member nodes Sku for a blockchain member.
+type BlockchainMemberNodesSkuInvokeResponse struct {
+	// Gets or sets the nodes capacity.
+	Capacity *int `pulumi:"capacity"`
+}
+
+// BlockchainMemberNodesSkuInvokeResponseInput is an input type that accepts BlockchainMemberNodesSkuInvokeResponseArgs and BlockchainMemberNodesSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `BlockchainMemberNodesSkuInvokeResponseInput` via:
+//
+//          BlockchainMemberNodesSkuInvokeResponseArgs{...}
+type BlockchainMemberNodesSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBlockchainMemberNodesSkuInvokeResponseOutput() BlockchainMemberNodesSkuInvokeResponseOutput
+	ToBlockchainMemberNodesSkuInvokeResponseOutputWithContext(context.Context) BlockchainMemberNodesSkuInvokeResponseOutput
+}
+
+// Payload of the blockchain member nodes Sku for a blockchain member.
+type BlockchainMemberNodesSkuInvokeResponseArgs struct {
+	// Gets or sets the nodes capacity.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+}
+
+func (BlockchainMemberNodesSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlockchainMemberNodesSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i BlockchainMemberNodesSkuInvokeResponseArgs) ToBlockchainMemberNodesSkuInvokeResponseOutput() BlockchainMemberNodesSkuInvokeResponseOutput {
+	return i.ToBlockchainMemberNodesSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BlockchainMemberNodesSkuInvokeResponseArgs) ToBlockchainMemberNodesSkuInvokeResponseOutputWithContext(ctx context.Context) BlockchainMemberNodesSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlockchainMemberNodesSkuInvokeResponseOutput)
+}
+
+// Payload of the blockchain member nodes Sku for a blockchain member.
+type BlockchainMemberNodesSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BlockchainMemberNodesSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlockchainMemberNodesSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o BlockchainMemberNodesSkuInvokeResponseOutput) ToBlockchainMemberNodesSkuInvokeResponseOutput() BlockchainMemberNodesSkuInvokeResponseOutput {
+	return o
+}
+
+func (o BlockchainMemberNodesSkuInvokeResponseOutput) ToBlockchainMemberNodesSkuInvokeResponseOutputWithContext(ctx context.Context) BlockchainMemberNodesSkuInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the nodes capacity.
+func (o BlockchainMemberNodesSkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BlockchainMemberNodesSkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Payload of the blockchain member nodes Sku for a blockchain member.
 type BlockchainMemberNodesSkuResponse struct {
 	// Gets or sets the nodes capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -388,112 +443,112 @@ func (o BlockchainMemberNodesSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutpu
 }
 
 // Consortium payload
-type ConsortiumResponse struct {
+type ConsortiumInvokeResponse struct {
 	// Gets or sets the blockchain member name.
 	Name *string `pulumi:"name"`
 	// Gets or sets the protocol for the consortium.
 	Protocol *string `pulumi:"protocol"`
 }
 
-// ConsortiumResponseInput is an input type that accepts ConsortiumResponseArgs and ConsortiumResponseOutput values.
-// You can construct a concrete instance of `ConsortiumResponseInput` via:
+// ConsortiumInvokeResponseInput is an input type that accepts ConsortiumInvokeResponseArgs and ConsortiumInvokeResponseOutput values.
+// You can construct a concrete instance of `ConsortiumInvokeResponseInput` via:
 //
-//          ConsortiumResponseArgs{...}
-type ConsortiumResponseInput interface {
+//          ConsortiumInvokeResponseArgs{...}
+type ConsortiumInvokeResponseInput interface {
 	pulumi.Input
 
-	ToConsortiumResponseOutput() ConsortiumResponseOutput
-	ToConsortiumResponseOutputWithContext(context.Context) ConsortiumResponseOutput
+	ToConsortiumInvokeResponseOutput() ConsortiumInvokeResponseOutput
+	ToConsortiumInvokeResponseOutputWithContext(context.Context) ConsortiumInvokeResponseOutput
 }
 
 // Consortium payload
-type ConsortiumResponseArgs struct {
+type ConsortiumInvokeResponseArgs struct {
 	// Gets or sets the blockchain member name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Gets or sets the protocol for the consortium.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
-func (ConsortiumResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsortiumResponse)(nil)).Elem()
+func (ConsortiumInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsortiumInvokeResponse)(nil)).Elem()
 }
 
-func (i ConsortiumResponseArgs) ToConsortiumResponseOutput() ConsortiumResponseOutput {
-	return i.ToConsortiumResponseOutputWithContext(context.Background())
+func (i ConsortiumInvokeResponseArgs) ToConsortiumInvokeResponseOutput() ConsortiumInvokeResponseOutput {
+	return i.ToConsortiumInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ConsortiumResponseArgs) ToConsortiumResponseOutputWithContext(ctx context.Context) ConsortiumResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsortiumResponseOutput)
+func (i ConsortiumInvokeResponseArgs) ToConsortiumInvokeResponseOutputWithContext(ctx context.Context) ConsortiumInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsortiumInvokeResponseOutput)
 }
 
-// ConsortiumResponseArrayInput is an input type that accepts ConsortiumResponseArray and ConsortiumResponseArrayOutput values.
-// You can construct a concrete instance of `ConsortiumResponseArrayInput` via:
+// ConsortiumInvokeResponseArrayInput is an input type that accepts ConsortiumInvokeResponseArray and ConsortiumInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ConsortiumInvokeResponseArrayInput` via:
 //
-//          ConsortiumResponseArray{ ConsortiumResponseArgs{...} }
-type ConsortiumResponseArrayInput interface {
+//          ConsortiumInvokeResponseArray{ ConsortiumInvokeResponseArgs{...} }
+type ConsortiumInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToConsortiumResponseArrayOutput() ConsortiumResponseArrayOutput
-	ToConsortiumResponseArrayOutputWithContext(context.Context) ConsortiumResponseArrayOutput
+	ToConsortiumInvokeResponseArrayOutput() ConsortiumInvokeResponseArrayOutput
+	ToConsortiumInvokeResponseArrayOutputWithContext(context.Context) ConsortiumInvokeResponseArrayOutput
 }
 
-type ConsortiumResponseArray []ConsortiumResponseInput
+type ConsortiumInvokeResponseArray []ConsortiumInvokeResponseInput
 
-func (ConsortiumResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConsortiumResponse)(nil)).Elem()
+func (ConsortiumInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConsortiumInvokeResponse)(nil)).Elem()
 }
 
-func (i ConsortiumResponseArray) ToConsortiumResponseArrayOutput() ConsortiumResponseArrayOutput {
-	return i.ToConsortiumResponseArrayOutputWithContext(context.Background())
+func (i ConsortiumInvokeResponseArray) ToConsortiumInvokeResponseArrayOutput() ConsortiumInvokeResponseArrayOutput {
+	return i.ToConsortiumInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ConsortiumResponseArray) ToConsortiumResponseArrayOutputWithContext(ctx context.Context) ConsortiumResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsortiumResponseArrayOutput)
+func (i ConsortiumInvokeResponseArray) ToConsortiumInvokeResponseArrayOutputWithContext(ctx context.Context) ConsortiumInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsortiumInvokeResponseArrayOutput)
 }
 
 // Consortium payload
-type ConsortiumResponseOutput struct{ *pulumi.OutputState }
+type ConsortiumInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ConsortiumResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsortiumResponse)(nil)).Elem()
+func (ConsortiumInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsortiumInvokeResponse)(nil)).Elem()
 }
 
-func (o ConsortiumResponseOutput) ToConsortiumResponseOutput() ConsortiumResponseOutput {
+func (o ConsortiumInvokeResponseOutput) ToConsortiumInvokeResponseOutput() ConsortiumInvokeResponseOutput {
 	return o
 }
 
-func (o ConsortiumResponseOutput) ToConsortiumResponseOutputWithContext(ctx context.Context) ConsortiumResponseOutput {
+func (o ConsortiumInvokeResponseOutput) ToConsortiumInvokeResponseOutputWithContext(ctx context.Context) ConsortiumInvokeResponseOutput {
 	return o
 }
 
 // Gets or sets the blockchain member name.
-func (o ConsortiumResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsortiumResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ConsortiumInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsortiumInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the protocol for the consortium.
-func (o ConsortiumResponseOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsortiumResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+func (o ConsortiumInvokeResponseOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsortiumInvokeResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-type ConsortiumResponseArrayOutput struct{ *pulumi.OutputState }
+type ConsortiumInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ConsortiumResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConsortiumResponse)(nil)).Elem()
+func (ConsortiumInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConsortiumInvokeResponse)(nil)).Elem()
 }
 
-func (o ConsortiumResponseArrayOutput) ToConsortiumResponseArrayOutput() ConsortiumResponseArrayOutput {
+func (o ConsortiumInvokeResponseArrayOutput) ToConsortiumInvokeResponseArrayOutput() ConsortiumInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ConsortiumResponseArrayOutput) ToConsortiumResponseArrayOutputWithContext(ctx context.Context) ConsortiumResponseArrayOutput {
+func (o ConsortiumInvokeResponseArrayOutput) ToConsortiumInvokeResponseArrayOutputWithContext(ctx context.Context) ConsortiumInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ConsortiumResponseArrayOutput) Index(i pulumi.IntInput) ConsortiumResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConsortiumResponse {
-		return vs[0].([]ConsortiumResponse)[vs[1].(int)]
-	}).(ConsortiumResponseOutput)
+func (o ConsortiumInvokeResponseArrayOutput) Index(i pulumi.IntInput) ConsortiumInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConsortiumInvokeResponse {
+		return vs[0].([]ConsortiumInvokeResponse)[vs[1].(int)]
+	}).(ConsortiumInvokeResponseOutput)
 }
 
 // Ip range for firewall rules
@@ -612,6 +667,124 @@ func (o FirewallRuleArrayOutput) Index(i pulumi.IntInput) FirewallRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallRule {
 		return vs[0].([]FirewallRule)[vs[1].(int)]
 	}).(FirewallRuleOutput)
+}
+
+// Ip range for firewall rules
+type FirewallRuleInvokeResponse struct {
+	// Gets or sets the end IP address of the firewall rule range.
+	EndIpAddress *string `pulumi:"endIpAddress"`
+	// Gets or sets the name of the firewall rules.
+	RuleName *string `pulumi:"ruleName"`
+	// Gets or sets the start IP address of the firewall rule range.
+	StartIpAddress *string `pulumi:"startIpAddress"`
+}
+
+// FirewallRuleInvokeResponseInput is an input type that accepts FirewallRuleInvokeResponseArgs and FirewallRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `FirewallRuleInvokeResponseInput` via:
+//
+//          FirewallRuleInvokeResponseArgs{...}
+type FirewallRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFirewallRuleInvokeResponseOutput() FirewallRuleInvokeResponseOutput
+	ToFirewallRuleInvokeResponseOutputWithContext(context.Context) FirewallRuleInvokeResponseOutput
+}
+
+// Ip range for firewall rules
+type FirewallRuleInvokeResponseArgs struct {
+	// Gets or sets the end IP address of the firewall rule range.
+	EndIpAddress pulumi.StringPtrInput `pulumi:"endIpAddress"`
+	// Gets or sets the name of the firewall rules.
+	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
+	// Gets or sets the start IP address of the firewall rule range.
+	StartIpAddress pulumi.StringPtrInput `pulumi:"startIpAddress"`
+}
+
+func (FirewallRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i FirewallRuleInvokeResponseArgs) ToFirewallRuleInvokeResponseOutput() FirewallRuleInvokeResponseOutput {
+	return i.ToFirewallRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleInvokeResponseArgs) ToFirewallRuleInvokeResponseOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleInvokeResponseOutput)
+}
+
+// FirewallRuleInvokeResponseArrayInput is an input type that accepts FirewallRuleInvokeResponseArray and FirewallRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FirewallRuleInvokeResponseArrayInput` via:
+//
+//          FirewallRuleInvokeResponseArray{ FirewallRuleInvokeResponseArgs{...} }
+type FirewallRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFirewallRuleInvokeResponseArrayOutput() FirewallRuleInvokeResponseArrayOutput
+	ToFirewallRuleInvokeResponseArrayOutputWithContext(context.Context) FirewallRuleInvokeResponseArrayOutput
+}
+
+type FirewallRuleInvokeResponseArray []FirewallRuleInvokeResponseInput
+
+func (FirewallRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i FirewallRuleInvokeResponseArray) ToFirewallRuleInvokeResponseArrayOutput() FirewallRuleInvokeResponseArrayOutput {
+	return i.ToFirewallRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleInvokeResponseArray) ToFirewallRuleInvokeResponseArrayOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleInvokeResponseArrayOutput)
+}
+
+// Ip range for firewall rules
+type FirewallRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o FirewallRuleInvokeResponseOutput) ToFirewallRuleInvokeResponseOutput() FirewallRuleInvokeResponseOutput {
+	return o
+}
+
+func (o FirewallRuleInvokeResponseOutput) ToFirewallRuleInvokeResponseOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the end IP address of the firewall rule range.
+func (o FirewallRuleInvokeResponseOutput) EndIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) *string { return v.EndIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the name of the firewall rules.
+func (o FirewallRuleInvokeResponseOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) *string { return v.RuleName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the start IP address of the firewall rule range.
+func (o FirewallRuleInvokeResponseOutput) StartIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) *string { return v.StartIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type FirewallRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o FirewallRuleInvokeResponseArrayOutput) ToFirewallRuleInvokeResponseArrayOutput() FirewallRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FirewallRuleInvokeResponseArrayOutput) ToFirewallRuleInvokeResponseArrayOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FirewallRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) FirewallRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallRuleInvokeResponse {
+		return vs[0].([]FirewallRuleInvokeResponse)[vs[1].(int)]
+	}).(FirewallRuleInvokeResponseOutput)
 }
 
 // Ip range for firewall rules
@@ -886,6 +1059,70 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Blockchain member Sku in payload
+type SkuInvokeResponse struct {
+	// Gets or sets Sku name
+	Name *string `pulumi:"name"`
+	// Gets or sets Sku tier
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Blockchain member Sku in payload
+type SkuInvokeResponseArgs struct {
+	// Gets or sets Sku name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Gets or sets Sku tier
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Blockchain member Sku in payload
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets Sku name
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets Sku tier
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// Blockchain member Sku in payload
 type SkuResponse struct {
 	// Gets or sets Sku name
 	Name *string `pulumi:"name"`
@@ -1039,20 +1276,24 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ApiKeyResponseOutput{})
-	pulumi.RegisterOutputType(ApiKeyResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApiKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApiKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(BlockchainMemberNodesSkuOutput{})
 	pulumi.RegisterOutputType(BlockchainMemberNodesSkuPtrOutput{})
+	pulumi.RegisterOutputType(BlockchainMemberNodesSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BlockchainMemberNodesSkuResponseOutput{})
 	pulumi.RegisterOutputType(BlockchainMemberNodesSkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(ConsortiumResponseOutput{})
-	pulumi.RegisterOutputType(ConsortiumResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConsortiumInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConsortiumInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleOutput{})
 	pulumi.RegisterOutputType(FirewallRuleArrayOutput{})
+	pulumi.RegisterOutputType(FirewallRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FirewallRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

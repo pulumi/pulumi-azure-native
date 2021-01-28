@@ -38,17 +38,17 @@ type LookupPipelineResult struct {
 	// Etag identifies change in the resource.
 	Etag string `pulumi:"etag"`
 	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-	Folder *PipelineResponseFolder `pulumi:"folder"`
+	Folder *PipelineInvokeResponseFolder `pulumi:"folder"`
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// List of parameters for pipeline.
-	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	Parameters map[string]ParameterSpecificationInvokeResponse `pulumi:"parameters"`
 	// Dimensions emitted by Pipeline.
 	RunDimensions map[string]interface{} `pulumi:"runDimensions"`
 	// The resource type.
 	Type string `pulumi:"type"`
 	// List of variables for pipeline.
-	Variables map[string]VariableSpecificationResponse `pulumi:"variables"`
+	Variables map[string]VariableSpecificationInvokeResponse `pulumi:"variables"`
 }

@@ -11,6 +11,115 @@ import (
 )
 
 // Represents a configuration parameter.
+type ConfigurationParameterInvokeResponse struct {
+	// Name of the configuration parameter.
+	Name string `pulumi:"name"`
+	// Value of the configuration parameter.
+	Value string `pulumi:"value"`
+}
+
+// ConfigurationParameterInvokeResponseInput is an input type that accepts ConfigurationParameterInvokeResponseArgs and ConfigurationParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `ConfigurationParameterInvokeResponseInput` via:
+//
+//          ConfigurationParameterInvokeResponseArgs{...}
+type ConfigurationParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationParameterInvokeResponseOutput() ConfigurationParameterInvokeResponseOutput
+	ToConfigurationParameterInvokeResponseOutputWithContext(context.Context) ConfigurationParameterInvokeResponseOutput
+}
+
+// Represents a configuration parameter.
+type ConfigurationParameterInvokeResponseArgs struct {
+	// Name of the configuration parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the configuration parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConfigurationParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfigurationParameterInvokeResponseArgs) ToConfigurationParameterInvokeResponseOutput() ConfigurationParameterInvokeResponseOutput {
+	return i.ToConfigurationParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationParameterInvokeResponseArgs) ToConfigurationParameterInvokeResponseOutputWithContext(ctx context.Context) ConfigurationParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationParameterInvokeResponseOutput)
+}
+
+// ConfigurationParameterInvokeResponseArrayInput is an input type that accepts ConfigurationParameterInvokeResponseArray and ConfigurationParameterInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ConfigurationParameterInvokeResponseArrayInput` via:
+//
+//          ConfigurationParameterInvokeResponseArray{ ConfigurationParameterInvokeResponseArgs{...} }
+type ConfigurationParameterInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationParameterInvokeResponseArrayOutput() ConfigurationParameterInvokeResponseArrayOutput
+	ToConfigurationParameterInvokeResponseArrayOutputWithContext(context.Context) ConfigurationParameterInvokeResponseArrayOutput
+}
+
+type ConfigurationParameterInvokeResponseArray []ConfigurationParameterInvokeResponseInput
+
+func (ConfigurationParameterInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfigurationParameterInvokeResponseArray) ToConfigurationParameterInvokeResponseArrayOutput() ConfigurationParameterInvokeResponseArrayOutput {
+	return i.ToConfigurationParameterInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationParameterInvokeResponseArray) ToConfigurationParameterInvokeResponseArrayOutputWithContext(ctx context.Context) ConfigurationParameterInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationParameterInvokeResponseArrayOutput)
+}
+
+// Represents a configuration parameter.
+type ConfigurationParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationParameterInvokeResponseOutput) ToConfigurationParameterInvokeResponseOutput() ConfigurationParameterInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationParameterInvokeResponseOutput) ToConfigurationParameterInvokeResponseOutputWithContext(ctx context.Context) ConfigurationParameterInvokeResponseOutput {
+	return o
+}
+
+// Name of the configuration parameter.
+func (o ConfigurationParameterInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationParameterInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the configuration parameter.
+func (o ConfigurationParameterInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationParameterInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConfigurationParameterInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationParameterInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationParameterInvokeResponseArrayOutput) ToConfigurationParameterInvokeResponseArrayOutput() ConfigurationParameterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ConfigurationParameterInvokeResponseArrayOutput) ToConfigurationParameterInvokeResponseArrayOutputWithContext(ctx context.Context) ConfigurationParameterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ConfigurationParameterInvokeResponseArrayOutput) Index(i pulumi.IntInput) ConfigurationParameterInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationParameterInvokeResponse {
+		return vs[0].([]ConfigurationParameterInvokeResponse)[vs[1].(int)]
+	}).(ConfigurationParameterInvokeResponseOutput)
+}
+
+// Represents a configuration parameter.
 type ConfigurationParameterResponse struct {
 	// Name of the configuration parameter.
 	Name string `pulumi:"name"`
@@ -251,6 +360,235 @@ func (o ConfigurationSettingPtrOutput) AllowModuleOverwrite() pulumi.StringPtrOu
 		}
 		return v.AllowModuleOverwrite
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration setting of LCM (Local Configuration Manager).
+type ConfigurationSettingInvokeResponse struct {
+	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
+	ActionAfterReboot string `pulumi:"actionAfterReboot"`
+	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+	AllowModuleOverwrite *string `pulumi:"allowModuleOverwrite"`
+	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+	ConfigurationMode string `pulumi:"configurationMode"`
+	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+	ConfigurationModeFrequencyMins float64 `pulumi:"configurationModeFrequencyMins"`
+	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
+	RebootIfNeeded string `pulumi:"rebootIfNeeded"`
+	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
+	RefreshFrequencyMins float64 `pulumi:"refreshFrequencyMins"`
+}
+
+// ConfigurationSettingInvokeResponseInput is an input type that accepts ConfigurationSettingInvokeResponseArgs and ConfigurationSettingInvokeResponseOutput values.
+// You can construct a concrete instance of `ConfigurationSettingInvokeResponseInput` via:
+//
+//          ConfigurationSettingInvokeResponseArgs{...}
+type ConfigurationSettingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationSettingInvokeResponseOutput() ConfigurationSettingInvokeResponseOutput
+	ToConfigurationSettingInvokeResponseOutputWithContext(context.Context) ConfigurationSettingInvokeResponseOutput
+}
+
+// Configuration setting of LCM (Local Configuration Manager).
+type ConfigurationSettingInvokeResponseArgs struct {
+	// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
+	ActionAfterReboot pulumi.StringInput `pulumi:"actionAfterReboot"`
+	// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+	AllowModuleOverwrite pulumi.StringPtrInput `pulumi:"allowModuleOverwrite"`
+	// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+	ConfigurationMode pulumi.StringInput `pulumi:"configurationMode"`
+	// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+	ConfigurationModeFrequencyMins pulumi.Float64Input `pulumi:"configurationModeFrequencyMins"`
+	// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
+	RebootIfNeeded pulumi.StringInput `pulumi:"rebootIfNeeded"`
+	// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
+	RefreshFrequencyMins pulumi.Float64Input `pulumi:"refreshFrequencyMins"`
+}
+
+func (ConfigurationSettingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSettingInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfigurationSettingInvokeResponseArgs) ToConfigurationSettingInvokeResponseOutput() ConfigurationSettingInvokeResponseOutput {
+	return i.ToConfigurationSettingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSettingInvokeResponseArgs) ToConfigurationSettingInvokeResponseOutputWithContext(ctx context.Context) ConfigurationSettingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSettingInvokeResponseOutput)
+}
+
+func (i ConfigurationSettingInvokeResponseArgs) ToConfigurationSettingInvokeResponsePtrOutput() ConfigurationSettingInvokeResponsePtrOutput {
+	return i.ToConfigurationSettingInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSettingInvokeResponseArgs) ToConfigurationSettingInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationSettingInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSettingInvokeResponseOutput).ToConfigurationSettingInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ConfigurationSettingInvokeResponsePtrInput is an input type that accepts ConfigurationSettingInvokeResponseArgs, ConfigurationSettingInvokeResponsePtr and ConfigurationSettingInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ConfigurationSettingInvokeResponsePtrInput` via:
+//
+//          ConfigurationSettingInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSettingInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSettingInvokeResponsePtrOutput() ConfigurationSettingInvokeResponsePtrOutput
+	ToConfigurationSettingInvokeResponsePtrOutputWithContext(context.Context) ConfigurationSettingInvokeResponsePtrOutput
+}
+
+type configurationSettingInvokeResponsePtrType ConfigurationSettingInvokeResponseArgs
+
+func ConfigurationSettingInvokeResponsePtr(v *ConfigurationSettingInvokeResponseArgs) ConfigurationSettingInvokeResponsePtrInput {
+	return (*configurationSettingInvokeResponsePtrType)(v)
+}
+
+func (*configurationSettingInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSettingInvokeResponse)(nil)).Elem()
+}
+
+func (i *configurationSettingInvokeResponsePtrType) ToConfigurationSettingInvokeResponsePtrOutput() ConfigurationSettingInvokeResponsePtrOutput {
+	return i.ToConfigurationSettingInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSettingInvokeResponsePtrType) ToConfigurationSettingInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationSettingInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSettingInvokeResponsePtrOutput)
+}
+
+// Configuration setting of LCM (Local Configuration Manager).
+type ConfigurationSettingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSettingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSettingInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationSettingInvokeResponseOutput) ToConfigurationSettingInvokeResponseOutput() ConfigurationSettingInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationSettingInvokeResponseOutput) ToConfigurationSettingInvokeResponseOutputWithContext(ctx context.Context) ConfigurationSettingInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationSettingInvokeResponseOutput) ToConfigurationSettingInvokeResponsePtrOutput() ConfigurationSettingInvokeResponsePtrOutput {
+	return o.ToConfigurationSettingInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSettingInvokeResponseOutput) ToConfigurationSettingInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationSettingInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationSettingInvokeResponse) *ConfigurationSettingInvokeResponse {
+		return &v
+	}).(ConfigurationSettingInvokeResponsePtrOutput)
+}
+
+// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
+func (o ConfigurationSettingInvokeResponseOutput) ActionAfterReboot() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSettingInvokeResponse) string { return v.ActionAfterReboot }).(pulumi.StringOutput)
+}
+
+// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+func (o ConfigurationSettingInvokeResponseOutput) AllowModuleOverwrite() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSettingInvokeResponse) *string { return v.AllowModuleOverwrite }).(pulumi.StringPtrOutput)
+}
+
+// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+func (o ConfigurationSettingInvokeResponseOutput) ConfigurationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSettingInvokeResponse) string { return v.ConfigurationMode }).(pulumi.StringOutput)
+}
+
+// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+func (o ConfigurationSettingInvokeResponseOutput) ConfigurationModeFrequencyMins() pulumi.Float64Output {
+	return o.ApplyT(func(v ConfigurationSettingInvokeResponse) float64 { return v.ConfigurationModeFrequencyMins }).(pulumi.Float64Output)
+}
+
+// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
+func (o ConfigurationSettingInvokeResponseOutput) RebootIfNeeded() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSettingInvokeResponse) string { return v.RebootIfNeeded }).(pulumi.StringOutput)
+}
+
+// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
+func (o ConfigurationSettingInvokeResponseOutput) RefreshFrequencyMins() pulumi.Float64Output {
+	return o.ApplyT(func(v ConfigurationSettingInvokeResponse) float64 { return v.RefreshFrequencyMins }).(pulumi.Float64Output)
+}
+
+type ConfigurationSettingInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSettingInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSettingInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationSettingInvokeResponsePtrOutput) ToConfigurationSettingInvokeResponsePtrOutput() ConfigurationSettingInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationSettingInvokeResponsePtrOutput) ToConfigurationSettingInvokeResponsePtrOutputWithContext(ctx context.Context) ConfigurationSettingInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationSettingInvokeResponsePtrOutput) Elem() ConfigurationSettingInvokeResponseOutput {
+	return o.ApplyT(func(v *ConfigurationSettingInvokeResponse) ConfigurationSettingInvokeResponse { return *v }).(ConfigurationSettingInvokeResponseOutput)
+}
+
+// Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
+func (o ConfigurationSettingInvokeResponsePtrOutput) ActionAfterReboot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSettingInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ActionAfterReboot
+	}).(pulumi.StringPtrOutput)
+}
+
+// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+func (o ConfigurationSettingInvokeResponsePtrOutput) AllowModuleOverwrite() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSettingInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowModuleOverwrite
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
+func (o ConfigurationSettingInvokeResponsePtrOutput) ConfigurationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSettingInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConfigurationMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
+func (o ConfigurationSettingInvokeResponsePtrOutput) ConfigurationModeFrequencyMins() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfigurationSettingInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.ConfigurationModeFrequencyMins
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
+func (o ConfigurationSettingInvokeResponsePtrOutput) RebootIfNeeded() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSettingInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RebootIfNeeded
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
+func (o ConfigurationSettingInvokeResponsePtrOutput) RefreshFrequencyMins() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfigurationSettingInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.RefreshFrequencyMins
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Configuration setting of LCM (Local Configuration Manager).
@@ -635,6 +973,119 @@ func (o GuestConfigurationAssignmentPropertiesPtrOutput) GuestConfiguration() Gu
 		}
 		return v.GuestConfiguration
 	}).(GuestConfigurationNavigationPtrOutput)
+}
+
+// Guest configuration assignment properties.
+type GuestConfigurationAssignmentPropertiesInvokeResponse struct {
+	// Combined hash of the configuration package and parameters.
+	AssignmentHash string `pulumi:"assignmentHash"`
+	// A value indicating compliance status of the virtual machine for the assigned guest configuration.
+	ComplianceStatus string `pulumi:"complianceStatus"`
+	// The source which initiated the guest configuration assignment. Ex: Azure Policy
+	Context *string `pulumi:"context"`
+	// The guest configuration to assign.
+	GuestConfiguration *GuestConfigurationNavigationInvokeResponse `pulumi:"guestConfiguration"`
+	// Date and time when last compliance status was checked.
+	LastComplianceStatusChecked string `pulumi:"lastComplianceStatusChecked"`
+	// Id of the latest report for the guest configuration assignment.
+	LatestReportId string `pulumi:"latestReportId"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// GuestConfigurationAssignmentPropertiesInvokeResponseInput is an input type that accepts GuestConfigurationAssignmentPropertiesInvokeResponseArgs and GuestConfigurationAssignmentPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `GuestConfigurationAssignmentPropertiesInvokeResponseInput` via:
+//
+//          GuestConfigurationAssignmentPropertiesInvokeResponseArgs{...}
+type GuestConfigurationAssignmentPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGuestConfigurationAssignmentPropertiesInvokeResponseOutput() GuestConfigurationAssignmentPropertiesInvokeResponseOutput
+	ToGuestConfigurationAssignmentPropertiesInvokeResponseOutputWithContext(context.Context) GuestConfigurationAssignmentPropertiesInvokeResponseOutput
+}
+
+// Guest configuration assignment properties.
+type GuestConfigurationAssignmentPropertiesInvokeResponseArgs struct {
+	// Combined hash of the configuration package and parameters.
+	AssignmentHash pulumi.StringInput `pulumi:"assignmentHash"`
+	// A value indicating compliance status of the virtual machine for the assigned guest configuration.
+	ComplianceStatus pulumi.StringInput `pulumi:"complianceStatus"`
+	// The source which initiated the guest configuration assignment. Ex: Azure Policy
+	Context pulumi.StringPtrInput `pulumi:"context"`
+	// The guest configuration to assign.
+	GuestConfiguration GuestConfigurationNavigationInvokeResponsePtrInput `pulumi:"guestConfiguration"`
+	// Date and time when last compliance status was checked.
+	LastComplianceStatusChecked pulumi.StringInput `pulumi:"lastComplianceStatusChecked"`
+	// Id of the latest report for the guest configuration assignment.
+	LatestReportId pulumi.StringInput `pulumi:"latestReportId"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (GuestConfigurationAssignmentPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationAssignmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i GuestConfigurationAssignmentPropertiesInvokeResponseArgs) ToGuestConfigurationAssignmentPropertiesInvokeResponseOutput() GuestConfigurationAssignmentPropertiesInvokeResponseOutput {
+	return i.ToGuestConfigurationAssignmentPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GuestConfigurationAssignmentPropertiesInvokeResponseArgs) ToGuestConfigurationAssignmentPropertiesInvokeResponseOutputWithContext(ctx context.Context) GuestConfigurationAssignmentPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentPropertiesInvokeResponseOutput)
+}
+
+// Guest configuration assignment properties.
+type GuestConfigurationAssignmentPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GuestConfigurationAssignmentPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationAssignmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o GuestConfigurationAssignmentPropertiesInvokeResponseOutput) ToGuestConfigurationAssignmentPropertiesInvokeResponseOutput() GuestConfigurationAssignmentPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o GuestConfigurationAssignmentPropertiesInvokeResponseOutput) ToGuestConfigurationAssignmentPropertiesInvokeResponseOutputWithContext(ctx context.Context) GuestConfigurationAssignmentPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Combined hash of the configuration package and parameters.
+func (o GuestConfigurationAssignmentPropertiesInvokeResponseOutput) AssignmentHash() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesInvokeResponse) string { return v.AssignmentHash }).(pulumi.StringOutput)
+}
+
+// A value indicating compliance status of the virtual machine for the assigned guest configuration.
+func (o GuestConfigurationAssignmentPropertiesInvokeResponseOutput) ComplianceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesInvokeResponse) string { return v.ComplianceStatus }).(pulumi.StringOutput)
+}
+
+// The source which initiated the guest configuration assignment. Ex: Azure Policy
+func (o GuestConfigurationAssignmentPropertiesInvokeResponseOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesInvokeResponse) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// The guest configuration to assign.
+func (o GuestConfigurationAssignmentPropertiesInvokeResponseOutput) GuestConfiguration() GuestConfigurationNavigationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesInvokeResponse) *GuestConfigurationNavigationInvokeResponse {
+		return v.GuestConfiguration
+	}).(GuestConfigurationNavigationInvokeResponsePtrOutput)
+}
+
+// Date and time when last compliance status was checked.
+func (o GuestConfigurationAssignmentPropertiesInvokeResponseOutput) LastComplianceStatusChecked() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesInvokeResponse) string {
+		return v.LastComplianceStatusChecked
+	}).(pulumi.StringOutput)
+}
+
+// Id of the latest report for the guest configuration assignment.
+func (o GuestConfigurationAssignmentPropertiesInvokeResponseOutput) LatestReportId() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesInvokeResponse) string { return v.LatestReportId }).(pulumi.StringOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o GuestConfigurationAssignmentPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Guest configuration assignment properties.
@@ -1081,6 +1532,260 @@ func (o GuestConfigurationNavigationPtrOutput) Version() pulumi.StringPtrOutput 
 }
 
 // Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
+type GuestConfigurationNavigationInvokeResponse struct {
+	// The configuration parameters for the guest configuration.
+	ConfigurationParameter []ConfigurationParameterInvokeResponse `pulumi:"configurationParameter"`
+	// The configuration setting for the guest configuration.
+	ConfigurationSetting *ConfigurationSettingInvokeResponse `pulumi:"configurationSetting"`
+	// Combined hash of the guest configuration package and configuration parameters.
+	ContentHash string `pulumi:"contentHash"`
+	// Uri of the storage where guest configuration package is uploaded.
+	ContentUri string `pulumi:"contentUri"`
+	// Kind of the guest configuration. For example:DSC
+	Kind *string `pulumi:"kind"`
+	// Name of the guest configuration.
+	Name *string `pulumi:"name"`
+	// Version of the guest configuration.
+	Version *string `pulumi:"version"`
+}
+
+// GuestConfigurationNavigationInvokeResponseInput is an input type that accepts GuestConfigurationNavigationInvokeResponseArgs and GuestConfigurationNavigationInvokeResponseOutput values.
+// You can construct a concrete instance of `GuestConfigurationNavigationInvokeResponseInput` via:
+//
+//          GuestConfigurationNavigationInvokeResponseArgs{...}
+type GuestConfigurationNavigationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGuestConfigurationNavigationInvokeResponseOutput() GuestConfigurationNavigationInvokeResponseOutput
+	ToGuestConfigurationNavigationInvokeResponseOutputWithContext(context.Context) GuestConfigurationNavigationInvokeResponseOutput
+}
+
+// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
+type GuestConfigurationNavigationInvokeResponseArgs struct {
+	// The configuration parameters for the guest configuration.
+	ConfigurationParameter ConfigurationParameterInvokeResponseArrayInput `pulumi:"configurationParameter"`
+	// The configuration setting for the guest configuration.
+	ConfigurationSetting ConfigurationSettingInvokeResponsePtrInput `pulumi:"configurationSetting"`
+	// Combined hash of the guest configuration package and configuration parameters.
+	ContentHash pulumi.StringInput `pulumi:"contentHash"`
+	// Uri of the storage where guest configuration package is uploaded.
+	ContentUri pulumi.StringInput `pulumi:"contentUri"`
+	// Kind of the guest configuration. For example:DSC
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Name of the guest configuration.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Version of the guest configuration.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (GuestConfigurationNavigationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationNavigationInvokeResponse)(nil)).Elem()
+}
+
+func (i GuestConfigurationNavigationInvokeResponseArgs) ToGuestConfigurationNavigationInvokeResponseOutput() GuestConfigurationNavigationInvokeResponseOutput {
+	return i.ToGuestConfigurationNavigationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GuestConfigurationNavigationInvokeResponseArgs) ToGuestConfigurationNavigationInvokeResponseOutputWithContext(ctx context.Context) GuestConfigurationNavigationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationNavigationInvokeResponseOutput)
+}
+
+func (i GuestConfigurationNavigationInvokeResponseArgs) ToGuestConfigurationNavigationInvokeResponsePtrOutput() GuestConfigurationNavigationInvokeResponsePtrOutput {
+	return i.ToGuestConfigurationNavigationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GuestConfigurationNavigationInvokeResponseArgs) ToGuestConfigurationNavigationInvokeResponsePtrOutputWithContext(ctx context.Context) GuestConfigurationNavigationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationNavigationInvokeResponseOutput).ToGuestConfigurationNavigationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// GuestConfigurationNavigationInvokeResponsePtrInput is an input type that accepts GuestConfigurationNavigationInvokeResponseArgs, GuestConfigurationNavigationInvokeResponsePtr and GuestConfigurationNavigationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `GuestConfigurationNavigationInvokeResponsePtrInput` via:
+//
+//          GuestConfigurationNavigationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GuestConfigurationNavigationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToGuestConfigurationNavigationInvokeResponsePtrOutput() GuestConfigurationNavigationInvokeResponsePtrOutput
+	ToGuestConfigurationNavigationInvokeResponsePtrOutputWithContext(context.Context) GuestConfigurationNavigationInvokeResponsePtrOutput
+}
+
+type guestConfigurationNavigationInvokeResponsePtrType GuestConfigurationNavigationInvokeResponseArgs
+
+func GuestConfigurationNavigationInvokeResponsePtr(v *GuestConfigurationNavigationInvokeResponseArgs) GuestConfigurationNavigationInvokeResponsePtrInput {
+	return (*guestConfigurationNavigationInvokeResponsePtrType)(v)
+}
+
+func (*guestConfigurationNavigationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuestConfigurationNavigationInvokeResponse)(nil)).Elem()
+}
+
+func (i *guestConfigurationNavigationInvokeResponsePtrType) ToGuestConfigurationNavigationInvokeResponsePtrOutput() GuestConfigurationNavigationInvokeResponsePtrOutput {
+	return i.ToGuestConfigurationNavigationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *guestConfigurationNavigationInvokeResponsePtrType) ToGuestConfigurationNavigationInvokeResponsePtrOutputWithContext(ctx context.Context) GuestConfigurationNavigationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationNavigationInvokeResponsePtrOutput)
+}
+
+// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
+type GuestConfigurationNavigationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GuestConfigurationNavigationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestConfigurationNavigationInvokeResponse)(nil)).Elem()
+}
+
+func (o GuestConfigurationNavigationInvokeResponseOutput) ToGuestConfigurationNavigationInvokeResponseOutput() GuestConfigurationNavigationInvokeResponseOutput {
+	return o
+}
+
+func (o GuestConfigurationNavigationInvokeResponseOutput) ToGuestConfigurationNavigationInvokeResponseOutputWithContext(ctx context.Context) GuestConfigurationNavigationInvokeResponseOutput {
+	return o
+}
+
+func (o GuestConfigurationNavigationInvokeResponseOutput) ToGuestConfigurationNavigationInvokeResponsePtrOutput() GuestConfigurationNavigationInvokeResponsePtrOutput {
+	return o.ToGuestConfigurationNavigationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GuestConfigurationNavigationInvokeResponseOutput) ToGuestConfigurationNavigationInvokeResponsePtrOutputWithContext(ctx context.Context) GuestConfigurationNavigationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationInvokeResponse) *GuestConfigurationNavigationInvokeResponse {
+		return &v
+	}).(GuestConfigurationNavigationInvokeResponsePtrOutput)
+}
+
+// The configuration parameters for the guest configuration.
+func (o GuestConfigurationNavigationInvokeResponseOutput) ConfigurationParameter() ConfigurationParameterInvokeResponseArrayOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationInvokeResponse) []ConfigurationParameterInvokeResponse {
+		return v.ConfigurationParameter
+	}).(ConfigurationParameterInvokeResponseArrayOutput)
+}
+
+// The configuration setting for the guest configuration.
+func (o GuestConfigurationNavigationInvokeResponseOutput) ConfigurationSetting() ConfigurationSettingInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationInvokeResponse) *ConfigurationSettingInvokeResponse {
+		return v.ConfigurationSetting
+	}).(ConfigurationSettingInvokeResponsePtrOutput)
+}
+
+// Combined hash of the guest configuration package and configuration parameters.
+func (o GuestConfigurationNavigationInvokeResponseOutput) ContentHash() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationInvokeResponse) string { return v.ContentHash }).(pulumi.StringOutput)
+}
+
+// Uri of the storage where guest configuration package is uploaded.
+func (o GuestConfigurationNavigationInvokeResponseOutput) ContentUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationInvokeResponse) string { return v.ContentUri }).(pulumi.StringOutput)
+}
+
+// Kind of the guest configuration. For example:DSC
+func (o GuestConfigurationNavigationInvokeResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationInvokeResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Name of the guest configuration.
+func (o GuestConfigurationNavigationInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Version of the guest configuration.
+func (o GuestConfigurationNavigationInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestConfigurationNavigationInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type GuestConfigurationNavigationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GuestConfigurationNavigationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuestConfigurationNavigationInvokeResponse)(nil)).Elem()
+}
+
+func (o GuestConfigurationNavigationInvokeResponsePtrOutput) ToGuestConfigurationNavigationInvokeResponsePtrOutput() GuestConfigurationNavigationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GuestConfigurationNavigationInvokeResponsePtrOutput) ToGuestConfigurationNavigationInvokeResponsePtrOutputWithContext(ctx context.Context) GuestConfigurationNavigationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GuestConfigurationNavigationInvokeResponsePtrOutput) Elem() GuestConfigurationNavigationInvokeResponseOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationInvokeResponse) GuestConfigurationNavigationInvokeResponse {
+		return *v
+	}).(GuestConfigurationNavigationInvokeResponseOutput)
+}
+
+// The configuration parameters for the guest configuration.
+func (o GuestConfigurationNavigationInvokeResponsePtrOutput) ConfigurationParameter() ConfigurationParameterInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationInvokeResponse) []ConfigurationParameterInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationParameter
+	}).(ConfigurationParameterInvokeResponseArrayOutput)
+}
+
+// The configuration setting for the guest configuration.
+func (o GuestConfigurationNavigationInvokeResponsePtrOutput) ConfigurationSetting() ConfigurationSettingInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationInvokeResponse) *ConfigurationSettingInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationSetting
+	}).(ConfigurationSettingInvokeResponsePtrOutput)
+}
+
+// Combined hash of the guest configuration package and configuration parameters.
+func (o GuestConfigurationNavigationInvokeResponsePtrOutput) ContentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// Uri of the storage where guest configuration package is uploaded.
+func (o GuestConfigurationNavigationInvokeResponsePtrOutput) ContentUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kind of the guest configuration. For example:DSC
+func (o GuestConfigurationNavigationInvokeResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the guest configuration.
+func (o GuestConfigurationNavigationInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the guest configuration.
+func (o GuestConfigurationNavigationInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationNavigationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
 type GuestConfigurationNavigationResponse struct {
 	// The configuration parameters for the guest configuration.
 	ConfigurationParameter []ConfigurationParameterResponse `pulumi:"configurationParameter"`
@@ -1333,18 +2038,25 @@ func (o GuestConfigurationNavigationResponsePtrOutput) Version() pulumi.StringPt
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConfigurationParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConfigurationParameterInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationParameterResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationParameterResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationSettingOutput{})
 	pulumi.RegisterOutputType(ConfigurationSettingPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSettingInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConfigurationSettingInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSettingResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationSettingResponsePtrOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationNavigationOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationNavigationPtrOutput{})
+	pulumi.RegisterOutputType(GuestConfigurationNavigationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GuestConfigurationNavigationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationNavigationResponseOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationNavigationResponsePtrOutput{})
 }

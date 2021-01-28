@@ -30,7 +30,7 @@ type LookupVirtualHubResult struct {
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The expressRouteGateway associated with this VirtualHub.
-	ExpressRouteGateway *SubResourceResponse `pulumi:"expressRouteGateway"`
+	ExpressRouteGateway *SubResourceInvokeResponse `pulumi:"expressRouteGateway"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -38,19 +38,19 @@ type LookupVirtualHubResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The P2SVpnGateway associated with this VirtualHub.
-	P2SVpnGateway *SubResourceResponse `pulumi:"p2SVpnGateway"`
+	P2SVpnGateway *SubResourceInvokeResponse `pulumi:"p2SVpnGateway"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The routeTable associated with this virtual hub.
-	RouteTable *VirtualHubRouteTableResponse `pulumi:"routeTable"`
+	RouteTable *VirtualHubRouteTableInvokeResponse `pulumi:"routeTable"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// List of all vnet connections with this VirtualHub.
-	VirtualNetworkConnections []HubVirtualNetworkConnectionResponse `pulumi:"virtualNetworkConnections"`
+	VirtualNetworkConnections []HubVirtualNetworkConnectionInvokeResponse `pulumi:"virtualNetworkConnections"`
 	// The VirtualWAN to which the VirtualHub belongs.
-	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
+	VirtualWan *SubResourceInvokeResponse `pulumi:"virtualWan"`
 	// The VpnGateway associated with this VirtualHub.
-	VpnGateway *SubResourceResponse `pulumi:"vpnGateway"`
+	VpnGateway *SubResourceInvokeResponse `pulumi:"vpnGateway"`
 }

@@ -30,11 +30,11 @@ type LookupOrchestratorInstanceServiceDetailsResult struct {
 	// RootCA certificate of kubernetes cluster base64 encoded
 	ClusterRootCA *string `pulumi:"clusterRootCA"`
 	// controller details
-	ControllerDetails ControllerDetailsResponse `pulumi:"controllerDetails"`
+	ControllerDetails ControllerDetailsInvokeResponse `pulumi:"controllerDetails"`
 	// An identifier that represents the resource.
 	Id string `pulumi:"id"`
 	// The identity of the orchestrator
-	Identity *OrchestratorIdentityResponse `pulumi:"identity"`
+	Identity *OrchestratorIdentityInvokeResponse `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.
 	Kind string `pulumi:"kind"`
 	// Location of the resource.

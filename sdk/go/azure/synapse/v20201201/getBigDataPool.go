@@ -28,19 +28,19 @@ type LookupBigDataPoolArgs struct {
 // A Big Data pool
 type LookupBigDataPoolResult struct {
 	// Auto-pausing properties
-	AutoPause *AutoPausePropertiesResponse `pulumi:"autoPause"`
+	AutoPause *AutoPausePropertiesInvokeResponse `pulumi:"autoPause"`
 	// Auto-scaling properties
-	AutoScale *AutoScalePropertiesResponse `pulumi:"autoScale"`
+	AutoScale *AutoScalePropertiesInvokeResponse `pulumi:"autoScale"`
 	// The cache size
 	CacheSize *int `pulumi:"cacheSize"`
 	// The time when the Big Data pool was created.
 	CreationDate *string `pulumi:"creationDate"`
 	// List of custom libraries/packages associated with the spark pool.
-	CustomLibraries []LibraryInfoResponse `pulumi:"customLibraries"`
+	CustomLibraries []LibraryInfoInvokeResponse `pulumi:"customLibraries"`
 	// The default folder where Spark logs will be written.
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Dynamic Executor Allocation
-	DynamicExecutorAllocation *DynamicExecutorAllocationResponse `pulumi:"dynamicExecutorAllocation"`
+	DynamicExecutorAllocation *DynamicExecutorAllocationInvokeResponse `pulumi:"dynamicExecutorAllocation"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Whether compute isolation is required or not.
@@ -48,7 +48,7 @@ type LookupBigDataPoolResult struct {
 	// The time when the Big Data pool was updated successfully.
 	LastSucceededTimestamp string `pulumi:"lastSucceededTimestamp"`
 	// Library version requirements
-	LibraryRequirements *LibraryRequirementsResponse `pulumi:"libraryRequirements"`
+	LibraryRequirements *LibraryRequirementsInvokeResponse `pulumi:"libraryRequirements"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
@@ -64,7 +64,7 @@ type LookupBigDataPoolResult struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties *LibraryRequirementsResponse `pulumi:"sparkConfigProperties"`
+	SparkConfigProperties *LibraryRequirementsInvokeResponse `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.

@@ -32,7 +32,7 @@ type LookupCertificateResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Properties of the certificate resource payload.
-	Properties CertificatePropertiesResponse `pulumi:"properties"`
+	Properties CertificatePropertiesInvokeResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

@@ -30,7 +30,7 @@ type LookupFactoryResult struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// Managed service identity of the factory.
-	Identity *FactoryIdentityResponse `pulumi:"identity"`
+	Identity *FactoryIdentityInvokeResponse `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
@@ -44,5 +44,5 @@ type LookupFactoryResult struct {
 	// Version of the factory.
 	Version string `pulumi:"version"`
 	// VSTS repo information of the factory.
-	VstsConfiguration *FactoryVSTSConfigurationResponse `pulumi:"vstsConfiguration"`
+	VstsConfiguration *FactoryVSTSConfigurationInvokeResponse `pulumi:"vstsConfiguration"`
 }

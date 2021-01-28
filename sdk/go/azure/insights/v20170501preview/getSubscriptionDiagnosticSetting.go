@@ -32,7 +32,7 @@ type LookupSubscriptionDiagnosticSettingResult struct {
 	// Location of the resource
 	Location *string `pulumi:"location"`
 	// The list of logs settings.
-	Logs []SubscriptionLogSettingsResponse `pulumi:"logs"`
+	Logs []SubscriptionLogSettingsInvokeResponse `pulumi:"logs"`
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.

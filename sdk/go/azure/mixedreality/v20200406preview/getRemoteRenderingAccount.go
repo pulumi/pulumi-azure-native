@@ -30,8 +30,8 @@ type LookupRemoteRenderingAccountResult struct {
 	// unique id of certain account.
 	AccountId string `pulumi:"accountId"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id       string                                  `pulumi:"id"`
-	Identity *RemoteRenderingAccountResponseIdentity `pulumi:"identity"`
+	Id       string                                        `pulumi:"id"`
+	Identity *RemoteRenderingAccountInvokeResponseIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

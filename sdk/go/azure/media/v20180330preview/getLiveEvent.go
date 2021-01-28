@@ -30,15 +30,15 @@ type LookupLiveEventResult struct {
 	// The exact time the Live Event was created.
 	Created string `pulumi:"created"`
 	// The Live Event access policies.
-	CrossSiteAccessPolicies *CrossSiteAccessPoliciesResponse `pulumi:"crossSiteAccessPolicies"`
+	CrossSiteAccessPolicies *CrossSiteAccessPoliciesInvokeResponse `pulumi:"crossSiteAccessPolicies"`
 	// The Live Event description.
 	Description *string `pulumi:"description"`
 	// The Live Event encoding.
-	Encoding *LiveEventEncodingResponse `pulumi:"encoding"`
+	Encoding *LiveEventEncodingInvokeResponse `pulumi:"encoding"`
 	// Fully qualified resource ID for the resource.
 	Id string `pulumi:"id"`
 	// The Live Event input.
-	Input LiveEventInputResponse `pulumi:"input"`
+	Input LiveEventInputInvokeResponse `pulumi:"input"`
 	// The exact time the Live Event was last modified.
 	LastModified string `pulumi:"lastModified"`
 	// The Azure Region of the resource.
@@ -46,7 +46,7 @@ type LookupLiveEventResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The Live Event preview.
-	Preview *LiveEventPreviewResponse `pulumi:"preview"`
+	Preview *LiveEventPreviewInvokeResponse `pulumi:"preview"`
 	// The provisioning state of the Live Event.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource state of the Live Event.

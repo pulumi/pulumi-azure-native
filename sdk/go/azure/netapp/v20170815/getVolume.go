@@ -32,7 +32,7 @@ type LookupVolumeResult struct {
 	// A unique file path for the volume. Used when creating mount targets
 	CreationToken string `pulumi:"creationToken"`
 	// Export policy rule
-	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
+	ExportPolicy *VolumePropertiesInvokeResponseExportPolicy `pulumi:"exportPolicy"`
 	// Unique FileSystem Identifier.
 	FileSystemId string `pulumi:"fileSystemId"`
 	// Resource Id

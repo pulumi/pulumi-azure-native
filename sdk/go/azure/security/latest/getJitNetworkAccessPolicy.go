@@ -35,10 +35,10 @@ type LookupJitNetworkAccessPolicyResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Gets the provisioning state of the Just-in-Time policy.
-	ProvisioningState string                            `pulumi:"provisioningState"`
-	Requests          []JitNetworkAccessRequestResponse `pulumi:"requests"`
+	ProvisioningState string                                  `pulumi:"provisioningState"`
+	Requests          []JitNetworkAccessRequestInvokeResponse `pulumi:"requests"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// Configurations for Microsoft.Compute/virtualMachines resource type.
-	VirtualMachines []JitNetworkAccessPolicyVirtualMachineResponse `pulumi:"virtualMachines"`
+	VirtualMachines []JitNetworkAccessPolicyVirtualMachineInvokeResponse `pulumi:"virtualMachines"`
 }

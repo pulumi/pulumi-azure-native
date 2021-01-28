@@ -174,6 +174,169 @@ func (o AssetItemMapOutput) MapIndex(k pulumi.StringInput) AssetItemOutput {
 }
 
 // Information about an asset associated with the web service.
+type AssetItemInvokeResponse struct {
+	// Asset's Id.
+	Id *string `pulumi:"id"`
+	// Information about the asset's input ports.
+	InputPorts map[string]InputPortInvokeResponse `pulumi:"inputPorts"`
+	// Access information for the asset.
+	LocationInfo AssetLocationInvokeResponse `pulumi:"locationInfo"`
+	// If the asset is a custom module, this holds the module's metadata.
+	Metadata map[string]string `pulumi:"metadata"`
+	// Asset's friendly name.
+	Name string `pulumi:"name"`
+	// Information about the asset's output ports.
+	OutputPorts map[string]OutputPortInvokeResponse `pulumi:"outputPorts"`
+	// If the asset is a custom module, this holds the module's parameters.
+	Parameters []ModuleAssetParameterInvokeResponse `pulumi:"parameters"`
+	// Asset's type.
+	Type string `pulumi:"type"`
+}
+
+// AssetItemInvokeResponseInput is an input type that accepts AssetItemInvokeResponseArgs and AssetItemInvokeResponseOutput values.
+// You can construct a concrete instance of `AssetItemInvokeResponseInput` via:
+//
+//          AssetItemInvokeResponseArgs{...}
+type AssetItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAssetItemInvokeResponseOutput() AssetItemInvokeResponseOutput
+	ToAssetItemInvokeResponseOutputWithContext(context.Context) AssetItemInvokeResponseOutput
+}
+
+// Information about an asset associated with the web service.
+type AssetItemInvokeResponseArgs struct {
+	// Asset's Id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Information about the asset's input ports.
+	InputPorts InputPortInvokeResponseMapInput `pulumi:"inputPorts"`
+	// Access information for the asset.
+	LocationInfo AssetLocationInvokeResponseInput `pulumi:"locationInfo"`
+	// If the asset is a custom module, this holds the module's metadata.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// Asset's friendly name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Information about the asset's output ports.
+	OutputPorts OutputPortInvokeResponseMapInput `pulumi:"outputPorts"`
+	// If the asset is a custom module, this holds the module's parameters.
+	Parameters ModuleAssetParameterInvokeResponseArrayInput `pulumi:"parameters"`
+	// Asset's type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AssetItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AssetItemInvokeResponseArgs) ToAssetItemInvokeResponseOutput() AssetItemInvokeResponseOutput {
+	return i.ToAssetItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AssetItemInvokeResponseArgs) ToAssetItemInvokeResponseOutputWithContext(ctx context.Context) AssetItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetItemInvokeResponseOutput)
+}
+
+// AssetItemInvokeResponseMapInput is an input type that accepts AssetItemInvokeResponseMap and AssetItemInvokeResponseMapOutput values.
+// You can construct a concrete instance of `AssetItemInvokeResponseMapInput` via:
+//
+//          AssetItemInvokeResponseMap{ "key": AssetItemInvokeResponseArgs{...} }
+type AssetItemInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToAssetItemInvokeResponseMapOutput() AssetItemInvokeResponseMapOutput
+	ToAssetItemInvokeResponseMapOutputWithContext(context.Context) AssetItemInvokeResponseMapOutput
+}
+
+type AssetItemInvokeResponseMap map[string]AssetItemInvokeResponseInput
+
+func (AssetItemInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssetItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AssetItemInvokeResponseMap) ToAssetItemInvokeResponseMapOutput() AssetItemInvokeResponseMapOutput {
+	return i.ToAssetItemInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i AssetItemInvokeResponseMap) ToAssetItemInvokeResponseMapOutputWithContext(ctx context.Context) AssetItemInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetItemInvokeResponseMapOutput)
+}
+
+// Information about an asset associated with the web service.
+type AssetItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AssetItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AssetItemInvokeResponseOutput) ToAssetItemInvokeResponseOutput() AssetItemInvokeResponseOutput {
+	return o
+}
+
+func (o AssetItemInvokeResponseOutput) ToAssetItemInvokeResponseOutputWithContext(ctx context.Context) AssetItemInvokeResponseOutput {
+	return o
+}
+
+// Asset's Id.
+func (o AssetItemInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetItemInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Information about the asset's input ports.
+func (o AssetItemInvokeResponseOutput) InputPorts() InputPortInvokeResponseMapOutput {
+	return o.ApplyT(func(v AssetItemInvokeResponse) map[string]InputPortInvokeResponse { return v.InputPorts }).(InputPortInvokeResponseMapOutput)
+}
+
+// Access information for the asset.
+func (o AssetItemInvokeResponseOutput) LocationInfo() AssetLocationInvokeResponseOutput {
+	return o.ApplyT(func(v AssetItemInvokeResponse) AssetLocationInvokeResponse { return v.LocationInfo }).(AssetLocationInvokeResponseOutput)
+}
+
+// If the asset is a custom module, this holds the module's metadata.
+func (o AssetItemInvokeResponseOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AssetItemInvokeResponse) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// Asset's friendly name.
+func (o AssetItemInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetItemInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Information about the asset's output ports.
+func (o AssetItemInvokeResponseOutput) OutputPorts() OutputPortInvokeResponseMapOutput {
+	return o.ApplyT(func(v AssetItemInvokeResponse) map[string]OutputPortInvokeResponse { return v.OutputPorts }).(OutputPortInvokeResponseMapOutput)
+}
+
+// If the asset is a custom module, this holds the module's parameters.
+func (o AssetItemInvokeResponseOutput) Parameters() ModuleAssetParameterInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AssetItemInvokeResponse) []ModuleAssetParameterInvokeResponse { return v.Parameters }).(ModuleAssetParameterInvokeResponseArrayOutput)
+}
+
+// Asset's type.
+func (o AssetItemInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetItemInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AssetItemInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (AssetItemInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AssetItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AssetItemInvokeResponseMapOutput) ToAssetItemInvokeResponseMapOutput() AssetItemInvokeResponseMapOutput {
+	return o
+}
+
+func (o AssetItemInvokeResponseMapOutput) ToAssetItemInvokeResponseMapOutputWithContext(ctx context.Context) AssetItemInvokeResponseMapOutput {
+	return o
+}
+
+func (o AssetItemInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) AssetItemInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AssetItemInvokeResponse {
+		return vs[0].(map[string]AssetItemInvokeResponse)[vs[1].(string)]
+	}).(AssetItemInvokeResponseOutput)
+}
+
+// Information about an asset associated with the web service.
 type AssetItemResponse struct {
 	// Asset's Id.
 	Id *string `pulumi:"id"`
@@ -401,6 +564,70 @@ func (o AssetLocationOutput) Uri() pulumi.StringOutput {
 }
 
 // Describes the access location for a web service asset.
+type AssetLocationInvokeResponse struct {
+	// Access credentials for the asset, if applicable (e.g. asset specified by storage account connection string + blob URI)
+	Credentials *string `pulumi:"credentials"`
+	// The URI where the asset is accessible from, (e.g. aml://abc for system assets or https://xyz for user assets
+	Uri string `pulumi:"uri"`
+}
+
+// AssetLocationInvokeResponseInput is an input type that accepts AssetLocationInvokeResponseArgs and AssetLocationInvokeResponseOutput values.
+// You can construct a concrete instance of `AssetLocationInvokeResponseInput` via:
+//
+//          AssetLocationInvokeResponseArgs{...}
+type AssetLocationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAssetLocationInvokeResponseOutput() AssetLocationInvokeResponseOutput
+	ToAssetLocationInvokeResponseOutputWithContext(context.Context) AssetLocationInvokeResponseOutput
+}
+
+// Describes the access location for a web service asset.
+type AssetLocationInvokeResponseArgs struct {
+	// Access credentials for the asset, if applicable (e.g. asset specified by storage account connection string + blob URI)
+	Credentials pulumi.StringPtrInput `pulumi:"credentials"`
+	// The URI where the asset is accessible from, (e.g. aml://abc for system assets or https://xyz for user assets
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (AssetLocationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetLocationInvokeResponse)(nil)).Elem()
+}
+
+func (i AssetLocationInvokeResponseArgs) ToAssetLocationInvokeResponseOutput() AssetLocationInvokeResponseOutput {
+	return i.ToAssetLocationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AssetLocationInvokeResponseArgs) ToAssetLocationInvokeResponseOutputWithContext(ctx context.Context) AssetLocationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetLocationInvokeResponseOutput)
+}
+
+// Describes the access location for a web service asset.
+type AssetLocationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AssetLocationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetLocationInvokeResponse)(nil)).Elem()
+}
+
+func (o AssetLocationInvokeResponseOutput) ToAssetLocationInvokeResponseOutput() AssetLocationInvokeResponseOutput {
+	return o
+}
+
+func (o AssetLocationInvokeResponseOutput) ToAssetLocationInvokeResponseOutputWithContext(ctx context.Context) AssetLocationInvokeResponseOutput {
+	return o
+}
+
+// Access credentials for the asset, if applicable (e.g. asset specified by storage account connection string + blob URI)
+func (o AssetLocationInvokeResponseOutput) Credentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetLocationInvokeResponse) *string { return v.Credentials }).(pulumi.StringPtrOutput)
+}
+
+// The URI where the asset is accessible from, (e.g. aml://abc for system assets or https://xyz for user assets
+func (o AssetLocationInvokeResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetLocationInvokeResponse) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+// Describes the access location for a web service asset.
 type AssetLocationResponse struct {
 	// Access credentials for the asset, if applicable (e.g. asset specified by storage account connection string + blob URI)
 	Credentials *string `pulumi:"credentials"`
@@ -598,6 +825,142 @@ func (o ColumnSpecificationMapOutput) MapIndex(k pulumi.StringInput) ColumnSpeci
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ColumnSpecification {
 		return vs[0].(map[string]ColumnSpecification)[vs[1].(string)]
 	}).(ColumnSpecificationOutput)
+}
+
+// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+type ColumnSpecificationInvokeResponse struct {
+	// If the data type is categorical, this provides the list of accepted categories.
+	Enum []interface{} `pulumi:"enum"`
+	// Additional format information for the data type.
+	Format *string `pulumi:"format"`
+	// Data type of the column.
+	Type string `pulumi:"type"`
+	// Flag indicating if the type supports null values or not.
+	XMsIsnullable *bool `pulumi:"xMsIsnullable"`
+	// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+	XMsIsordered *bool `pulumi:"xMsIsordered"`
+}
+
+// ColumnSpecificationInvokeResponseInput is an input type that accepts ColumnSpecificationInvokeResponseArgs and ColumnSpecificationInvokeResponseOutput values.
+// You can construct a concrete instance of `ColumnSpecificationInvokeResponseInput` via:
+//
+//          ColumnSpecificationInvokeResponseArgs{...}
+type ColumnSpecificationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToColumnSpecificationInvokeResponseOutput() ColumnSpecificationInvokeResponseOutput
+	ToColumnSpecificationInvokeResponseOutputWithContext(context.Context) ColumnSpecificationInvokeResponseOutput
+}
+
+// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+type ColumnSpecificationInvokeResponseArgs struct {
+	// If the data type is categorical, this provides the list of accepted categories.
+	Enum pulumi.ArrayInput `pulumi:"enum"`
+	// Additional format information for the data type.
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// Data type of the column.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Flag indicating if the type supports null values or not.
+	XMsIsnullable pulumi.BoolPtrInput `pulumi:"xMsIsnullable"`
+	// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+	XMsIsordered pulumi.BoolPtrInput `pulumi:"xMsIsordered"`
+}
+
+func (ColumnSpecificationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (i ColumnSpecificationInvokeResponseArgs) ToColumnSpecificationInvokeResponseOutput() ColumnSpecificationInvokeResponseOutput {
+	return i.ToColumnSpecificationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ColumnSpecificationInvokeResponseArgs) ToColumnSpecificationInvokeResponseOutputWithContext(ctx context.Context) ColumnSpecificationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnSpecificationInvokeResponseOutput)
+}
+
+// ColumnSpecificationInvokeResponseMapInput is an input type that accepts ColumnSpecificationInvokeResponseMap and ColumnSpecificationInvokeResponseMapOutput values.
+// You can construct a concrete instance of `ColumnSpecificationInvokeResponseMapInput` via:
+//
+//          ColumnSpecificationInvokeResponseMap{ "key": ColumnSpecificationInvokeResponseArgs{...} }
+type ColumnSpecificationInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToColumnSpecificationInvokeResponseMapOutput() ColumnSpecificationInvokeResponseMapOutput
+	ToColumnSpecificationInvokeResponseMapOutputWithContext(context.Context) ColumnSpecificationInvokeResponseMapOutput
+}
+
+type ColumnSpecificationInvokeResponseMap map[string]ColumnSpecificationInvokeResponseInput
+
+func (ColumnSpecificationInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ColumnSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (i ColumnSpecificationInvokeResponseMap) ToColumnSpecificationInvokeResponseMapOutput() ColumnSpecificationInvokeResponseMapOutput {
+	return i.ToColumnSpecificationInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i ColumnSpecificationInvokeResponseMap) ToColumnSpecificationInvokeResponseMapOutputWithContext(ctx context.Context) ColumnSpecificationInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnSpecificationInvokeResponseMapOutput)
+}
+
+// Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
+type ColumnSpecificationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ColumnSpecificationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (o ColumnSpecificationInvokeResponseOutput) ToColumnSpecificationInvokeResponseOutput() ColumnSpecificationInvokeResponseOutput {
+	return o
+}
+
+func (o ColumnSpecificationInvokeResponseOutput) ToColumnSpecificationInvokeResponseOutputWithContext(ctx context.Context) ColumnSpecificationInvokeResponseOutput {
+	return o
+}
+
+// If the data type is categorical, this provides the list of accepted categories.
+func (o ColumnSpecificationInvokeResponseOutput) Enum() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ColumnSpecificationInvokeResponse) []interface{} { return v.Enum }).(pulumi.ArrayOutput)
+}
+
+// Additional format information for the data type.
+func (o ColumnSpecificationInvokeResponseOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnSpecificationInvokeResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Data type of the column.
+func (o ColumnSpecificationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ColumnSpecificationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Flag indicating if the type supports null values or not.
+func (o ColumnSpecificationInvokeResponseOutput) XMsIsnullable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ColumnSpecificationInvokeResponse) *bool { return v.XMsIsnullable }).(pulumi.BoolPtrOutput)
+}
+
+// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+func (o ColumnSpecificationInvokeResponseOutput) XMsIsordered() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ColumnSpecificationInvokeResponse) *bool { return v.XMsIsordered }).(pulumi.BoolPtrOutput)
+}
+
+type ColumnSpecificationInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ColumnSpecificationInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ColumnSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (o ColumnSpecificationInvokeResponseMapOutput) ToColumnSpecificationInvokeResponseMapOutput() ColumnSpecificationInvokeResponseMapOutput {
+	return o
+}
+
+func (o ColumnSpecificationInvokeResponseMapOutput) ToColumnSpecificationInvokeResponseMapOutputWithContext(ctx context.Context) ColumnSpecificationInvokeResponseMapOutput {
+	return o
+}
+
+func (o ColumnSpecificationInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) ColumnSpecificationInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ColumnSpecificationInvokeResponse {
+		return vs[0].(map[string]ColumnSpecificationInvokeResponse)[vs[1].(string)]
+	}).(ColumnSpecificationInvokeResponseOutput)
 }
 
 // Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
@@ -868,6 +1231,278 @@ func (o CommitmentPlanTypePtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the machine learning commitment plan associated with the web service.
+type CommitmentPlanInvokeResponse struct {
+	// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
+	Id string `pulumi:"id"`
+}
+
+// CommitmentPlanInvokeResponseInput is an input type that accepts CommitmentPlanInvokeResponseArgs and CommitmentPlanInvokeResponseOutput values.
+// You can construct a concrete instance of `CommitmentPlanInvokeResponseInput` via:
+//
+//          CommitmentPlanInvokeResponseArgs{...}
+type CommitmentPlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCommitmentPlanInvokeResponseOutput() CommitmentPlanInvokeResponseOutput
+	ToCommitmentPlanInvokeResponseOutputWithContext(context.Context) CommitmentPlanInvokeResponseOutput
+}
+
+// Information about the machine learning commitment plan associated with the web service.
+type CommitmentPlanInvokeResponseArgs struct {
+	// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (CommitmentPlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlanInvokeResponse)(nil)).Elem()
+}
+
+func (i CommitmentPlanInvokeResponseArgs) ToCommitmentPlanInvokeResponseOutput() CommitmentPlanInvokeResponseOutput {
+	return i.ToCommitmentPlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CommitmentPlanInvokeResponseArgs) ToCommitmentPlanInvokeResponseOutputWithContext(ctx context.Context) CommitmentPlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanInvokeResponseOutput)
+}
+
+func (i CommitmentPlanInvokeResponseArgs) ToCommitmentPlanInvokeResponsePtrOutput() CommitmentPlanInvokeResponsePtrOutput {
+	return i.ToCommitmentPlanInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CommitmentPlanInvokeResponseArgs) ToCommitmentPlanInvokeResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanInvokeResponseOutput).ToCommitmentPlanInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CommitmentPlanInvokeResponsePtrInput is an input type that accepts CommitmentPlanInvokeResponseArgs, CommitmentPlanInvokeResponsePtr and CommitmentPlanInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CommitmentPlanInvokeResponsePtrInput` via:
+//
+//          CommitmentPlanInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CommitmentPlanInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCommitmentPlanInvokeResponsePtrOutput() CommitmentPlanInvokeResponsePtrOutput
+	ToCommitmentPlanInvokeResponsePtrOutputWithContext(context.Context) CommitmentPlanInvokeResponsePtrOutput
+}
+
+type commitmentPlanInvokeResponsePtrType CommitmentPlanInvokeResponseArgs
+
+func CommitmentPlanInvokeResponsePtr(v *CommitmentPlanInvokeResponseArgs) CommitmentPlanInvokeResponsePtrInput {
+	return (*commitmentPlanInvokeResponsePtrType)(v)
+}
+
+func (*commitmentPlanInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPlanInvokeResponse)(nil)).Elem()
+}
+
+func (i *commitmentPlanInvokeResponsePtrType) ToCommitmentPlanInvokeResponsePtrOutput() CommitmentPlanInvokeResponsePtrOutput {
+	return i.ToCommitmentPlanInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *commitmentPlanInvokeResponsePtrType) ToCommitmentPlanInvokeResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanInvokeResponsePtrOutput)
+}
+
+// Information about the machine learning commitment plan associated with the web service.
+type CommitmentPlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlanInvokeResponse)(nil)).Elem()
+}
+
+func (o CommitmentPlanInvokeResponseOutput) ToCommitmentPlanInvokeResponseOutput() CommitmentPlanInvokeResponseOutput {
+	return o
+}
+
+func (o CommitmentPlanInvokeResponseOutput) ToCommitmentPlanInvokeResponseOutputWithContext(ctx context.Context) CommitmentPlanInvokeResponseOutput {
+	return o
+}
+
+func (o CommitmentPlanInvokeResponseOutput) ToCommitmentPlanInvokeResponsePtrOutput() CommitmentPlanInvokeResponsePtrOutput {
+	return o.ToCommitmentPlanInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CommitmentPlanInvokeResponseOutput) ToCommitmentPlanInvokeResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CommitmentPlanInvokeResponse) *CommitmentPlanInvokeResponse {
+		return &v
+	}).(CommitmentPlanInvokeResponsePtrOutput)
+}
+
+// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
+func (o CommitmentPlanInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CommitmentPlanInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type CommitmentPlanInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPlanInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPlanInvokeResponse)(nil)).Elem()
+}
+
+func (o CommitmentPlanInvokeResponsePtrOutput) ToCommitmentPlanInvokeResponsePtrOutput() CommitmentPlanInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CommitmentPlanInvokeResponsePtrOutput) ToCommitmentPlanInvokeResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CommitmentPlanInvokeResponsePtrOutput) Elem() CommitmentPlanInvokeResponseOutput {
+	return o.ApplyT(func(v *CommitmentPlanInvokeResponse) CommitmentPlanInvokeResponse { return *v }).(CommitmentPlanInvokeResponseOutput)
+}
+
+// Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
+func (o CommitmentPlanInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of an Azure ML commitment plan.
+type CommitmentPlanPropertiesInvokeResponse struct {
+	// Indicates whether usage beyond the commitment plan's included quantities will be charged.
+	ChargeForOverage bool `pulumi:"chargeForOverage"`
+	// Indicates whether the commitment plan will incur a charge.
+	ChargeForPlan bool `pulumi:"chargeForPlan"`
+	// The date at which this commitment plan was created, in ISO 8601 format.
+	CreationDate string `pulumi:"creationDate"`
+	// The included resource quantities this plan gives you.
+	IncludedQuantities map[string]PlanQuantityInvokeResponse `pulumi:"includedQuantities"`
+	// The maximum number of commitment associations that can be children of this commitment plan.
+	MaxAssociationLimit int `pulumi:"maxAssociationLimit"`
+	// The maximum scale-out capacity for this commitment plan.
+	MaxCapacityLimit int `pulumi:"maxCapacityLimit"`
+	// The minimum scale-out capacity for this commitment plan.
+	MinCapacityLimit int `pulumi:"minCapacityLimit"`
+	// The Azure meter which will be used to charge for this commitment plan.
+	PlanMeter string `pulumi:"planMeter"`
+	// The frequency at which this commitment plan's included quantities are refilled.
+	RefillFrequencyInDays int `pulumi:"refillFrequencyInDays"`
+	// Indicates whether this commitment plan will be moved into a suspended state if usage goes beyond the commitment plan's included quantities.
+	SuspendPlanOnOverage bool `pulumi:"suspendPlanOnOverage"`
+}
+
+// CommitmentPlanPropertiesInvokeResponseInput is an input type that accepts CommitmentPlanPropertiesInvokeResponseArgs and CommitmentPlanPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CommitmentPlanPropertiesInvokeResponseInput` via:
+//
+//          CommitmentPlanPropertiesInvokeResponseArgs{...}
+type CommitmentPlanPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCommitmentPlanPropertiesInvokeResponseOutput() CommitmentPlanPropertiesInvokeResponseOutput
+	ToCommitmentPlanPropertiesInvokeResponseOutputWithContext(context.Context) CommitmentPlanPropertiesInvokeResponseOutput
+}
+
+// Properties of an Azure ML commitment plan.
+type CommitmentPlanPropertiesInvokeResponseArgs struct {
+	// Indicates whether usage beyond the commitment plan's included quantities will be charged.
+	ChargeForOverage pulumi.BoolInput `pulumi:"chargeForOverage"`
+	// Indicates whether the commitment plan will incur a charge.
+	ChargeForPlan pulumi.BoolInput `pulumi:"chargeForPlan"`
+	// The date at which this commitment plan was created, in ISO 8601 format.
+	CreationDate pulumi.StringInput `pulumi:"creationDate"`
+	// The included resource quantities this plan gives you.
+	IncludedQuantities PlanQuantityInvokeResponseMapInput `pulumi:"includedQuantities"`
+	// The maximum number of commitment associations that can be children of this commitment plan.
+	MaxAssociationLimit pulumi.IntInput `pulumi:"maxAssociationLimit"`
+	// The maximum scale-out capacity for this commitment plan.
+	MaxCapacityLimit pulumi.IntInput `pulumi:"maxCapacityLimit"`
+	// The minimum scale-out capacity for this commitment plan.
+	MinCapacityLimit pulumi.IntInput `pulumi:"minCapacityLimit"`
+	// The Azure meter which will be used to charge for this commitment plan.
+	PlanMeter pulumi.StringInput `pulumi:"planMeter"`
+	// The frequency at which this commitment plan's included quantities are refilled.
+	RefillFrequencyInDays pulumi.IntInput `pulumi:"refillFrequencyInDays"`
+	// Indicates whether this commitment plan will be moved into a suspended state if usage goes beyond the commitment plan's included quantities.
+	SuspendPlanOnOverage pulumi.BoolInput `pulumi:"suspendPlanOnOverage"`
+}
+
+func (CommitmentPlanPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlanPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CommitmentPlanPropertiesInvokeResponseArgs) ToCommitmentPlanPropertiesInvokeResponseOutput() CommitmentPlanPropertiesInvokeResponseOutput {
+	return i.ToCommitmentPlanPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CommitmentPlanPropertiesInvokeResponseArgs) ToCommitmentPlanPropertiesInvokeResponseOutputWithContext(ctx context.Context) CommitmentPlanPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanPropertiesInvokeResponseOutput)
+}
+
+// Properties of an Azure ML commitment plan.
+type CommitmentPlanPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPlanPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlanPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CommitmentPlanPropertiesInvokeResponseOutput) ToCommitmentPlanPropertiesInvokeResponseOutput() CommitmentPlanPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CommitmentPlanPropertiesInvokeResponseOutput) ToCommitmentPlanPropertiesInvokeResponseOutputWithContext(ctx context.Context) CommitmentPlanPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Indicates whether usage beyond the commitment plan's included quantities will be charged.
+func (o CommitmentPlanPropertiesInvokeResponseOutput) ChargeForOverage() pulumi.BoolOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesInvokeResponse) bool { return v.ChargeForOverage }).(pulumi.BoolOutput)
+}
+
+// Indicates whether the commitment plan will incur a charge.
+func (o CommitmentPlanPropertiesInvokeResponseOutput) ChargeForPlan() pulumi.BoolOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesInvokeResponse) bool { return v.ChargeForPlan }).(pulumi.BoolOutput)
+}
+
+// The date at which this commitment plan was created, in ISO 8601 format.
+func (o CommitmentPlanPropertiesInvokeResponseOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesInvokeResponse) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The included resource quantities this plan gives you.
+func (o CommitmentPlanPropertiesInvokeResponseOutput) IncludedQuantities() PlanQuantityInvokeResponseMapOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesInvokeResponse) map[string]PlanQuantityInvokeResponse {
+		return v.IncludedQuantities
+	}).(PlanQuantityInvokeResponseMapOutput)
+}
+
+// The maximum number of commitment associations that can be children of this commitment plan.
+func (o CommitmentPlanPropertiesInvokeResponseOutput) MaxAssociationLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesInvokeResponse) int { return v.MaxAssociationLimit }).(pulumi.IntOutput)
+}
+
+// The maximum scale-out capacity for this commitment plan.
+func (o CommitmentPlanPropertiesInvokeResponseOutput) MaxCapacityLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesInvokeResponse) int { return v.MaxCapacityLimit }).(pulumi.IntOutput)
+}
+
+// The minimum scale-out capacity for this commitment plan.
+func (o CommitmentPlanPropertiesInvokeResponseOutput) MinCapacityLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesInvokeResponse) int { return v.MinCapacityLimit }).(pulumi.IntOutput)
+}
+
+// The Azure meter which will be used to charge for this commitment plan.
+func (o CommitmentPlanPropertiesInvokeResponseOutput) PlanMeter() pulumi.StringOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesInvokeResponse) string { return v.PlanMeter }).(pulumi.StringOutput)
+}
+
+// The frequency at which this commitment plan's included quantities are refilled.
+func (o CommitmentPlanPropertiesInvokeResponseOutput) RefillFrequencyInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesInvokeResponse) int { return v.RefillFrequencyInDays }).(pulumi.IntOutput)
+}
+
+// Indicates whether this commitment plan will be moved into a suspended state if usage goes beyond the commitment plan's included quantities.
+func (o CommitmentPlanPropertiesInvokeResponseOutput) SuspendPlanOnOverage() pulumi.BoolOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesInvokeResponse) bool { return v.SuspendPlanOnOverage }).(pulumi.BoolOutput)
 }
 
 // Properties of an Azure ML commitment plan.
@@ -1463,6 +2098,159 @@ func (o DiagnosticsConfigurationPtrOutput) Level() pulumi.StringPtrOutput {
 }
 
 // Diagnostics settings for an Azure ML web service.
+type DiagnosticsConfigurationInvokeResponse struct {
+	// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
+	Expiry *string `pulumi:"expiry"`
+	// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
+	Level string `pulumi:"level"`
+}
+
+// DiagnosticsConfigurationInvokeResponseInput is an input type that accepts DiagnosticsConfigurationInvokeResponseArgs and DiagnosticsConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `DiagnosticsConfigurationInvokeResponseInput` via:
+//
+//          DiagnosticsConfigurationInvokeResponseArgs{...}
+type DiagnosticsConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDiagnosticsConfigurationInvokeResponseOutput() DiagnosticsConfigurationInvokeResponseOutput
+	ToDiagnosticsConfigurationInvokeResponseOutputWithContext(context.Context) DiagnosticsConfigurationInvokeResponseOutput
+}
+
+// Diagnostics settings for an Azure ML web service.
+type DiagnosticsConfigurationInvokeResponseArgs struct {
+	// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
+	Level pulumi.StringInput `pulumi:"level"`
+}
+
+func (DiagnosticsConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticsConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i DiagnosticsConfigurationInvokeResponseArgs) ToDiagnosticsConfigurationInvokeResponseOutput() DiagnosticsConfigurationInvokeResponseOutput {
+	return i.ToDiagnosticsConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DiagnosticsConfigurationInvokeResponseArgs) ToDiagnosticsConfigurationInvokeResponseOutputWithContext(ctx context.Context) DiagnosticsConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsConfigurationInvokeResponseOutput)
+}
+
+func (i DiagnosticsConfigurationInvokeResponseArgs) ToDiagnosticsConfigurationInvokeResponsePtrOutput() DiagnosticsConfigurationInvokeResponsePtrOutput {
+	return i.ToDiagnosticsConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DiagnosticsConfigurationInvokeResponseArgs) ToDiagnosticsConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsConfigurationInvokeResponseOutput).ToDiagnosticsConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DiagnosticsConfigurationInvokeResponsePtrInput is an input type that accepts DiagnosticsConfigurationInvokeResponseArgs, DiagnosticsConfigurationInvokeResponsePtr and DiagnosticsConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DiagnosticsConfigurationInvokeResponsePtrInput` via:
+//
+//          DiagnosticsConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DiagnosticsConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDiagnosticsConfigurationInvokeResponsePtrOutput() DiagnosticsConfigurationInvokeResponsePtrOutput
+	ToDiagnosticsConfigurationInvokeResponsePtrOutputWithContext(context.Context) DiagnosticsConfigurationInvokeResponsePtrOutput
+}
+
+type diagnosticsConfigurationInvokeResponsePtrType DiagnosticsConfigurationInvokeResponseArgs
+
+func DiagnosticsConfigurationInvokeResponsePtr(v *DiagnosticsConfigurationInvokeResponseArgs) DiagnosticsConfigurationInvokeResponsePtrInput {
+	return (*diagnosticsConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*diagnosticsConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticsConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *diagnosticsConfigurationInvokeResponsePtrType) ToDiagnosticsConfigurationInvokeResponsePtrOutput() DiagnosticsConfigurationInvokeResponsePtrOutput {
+	return i.ToDiagnosticsConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *diagnosticsConfigurationInvokeResponsePtrType) ToDiagnosticsConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsConfigurationInvokeResponsePtrOutput)
+}
+
+// Diagnostics settings for an Azure ML web service.
+type DiagnosticsConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticsConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticsConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o DiagnosticsConfigurationInvokeResponseOutput) ToDiagnosticsConfigurationInvokeResponseOutput() DiagnosticsConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o DiagnosticsConfigurationInvokeResponseOutput) ToDiagnosticsConfigurationInvokeResponseOutputWithContext(ctx context.Context) DiagnosticsConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o DiagnosticsConfigurationInvokeResponseOutput) ToDiagnosticsConfigurationInvokeResponsePtrOutput() DiagnosticsConfigurationInvokeResponsePtrOutput {
+	return o.ToDiagnosticsConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DiagnosticsConfigurationInvokeResponseOutput) ToDiagnosticsConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DiagnosticsConfigurationInvokeResponse) *DiagnosticsConfigurationInvokeResponse {
+		return &v
+	}).(DiagnosticsConfigurationInvokeResponsePtrOutput)
+}
+
+// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
+func (o DiagnosticsConfigurationInvokeResponseOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiagnosticsConfigurationInvokeResponse) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
+func (o DiagnosticsConfigurationInvokeResponseOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticsConfigurationInvokeResponse) string { return v.Level }).(pulumi.StringOutput)
+}
+
+type DiagnosticsConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticsConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiagnosticsConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o DiagnosticsConfigurationInvokeResponsePtrOutput) ToDiagnosticsConfigurationInvokeResponsePtrOutput() DiagnosticsConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DiagnosticsConfigurationInvokeResponsePtrOutput) ToDiagnosticsConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DiagnosticsConfigurationInvokeResponsePtrOutput) Elem() DiagnosticsConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *DiagnosticsConfigurationInvokeResponse) DiagnosticsConfigurationInvokeResponse { return *v }).(DiagnosticsConfigurationInvokeResponseOutput)
+}
+
+// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
+func (o DiagnosticsConfigurationInvokeResponsePtrOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticsConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expiry
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
+func (o DiagnosticsConfigurationInvokeResponsePtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticsConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// Diagnostics settings for an Azure ML web service.
 type DiagnosticsConfigurationResponse struct {
 	// Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
 	Expiry *string `pulumi:"expiry"`
@@ -1769,6 +2557,159 @@ func (o ExampleRequestPtrOutput) Inputs() pulumi.ArrayArrayMapOutput {
 }
 
 // Sample input data for the service's input(s).
+type ExampleRequestInvokeResponse struct {
+	// Sample input data for the web service's global parameters
+	GlobalParameters map[string]interface{} `pulumi:"globalParameters"`
+	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+	Inputs map[string][][]interface{} `pulumi:"inputs"`
+}
+
+// ExampleRequestInvokeResponseInput is an input type that accepts ExampleRequestInvokeResponseArgs and ExampleRequestInvokeResponseOutput values.
+// You can construct a concrete instance of `ExampleRequestInvokeResponseInput` via:
+//
+//          ExampleRequestInvokeResponseArgs{...}
+type ExampleRequestInvokeResponseInput interface {
+	pulumi.Input
+
+	ToExampleRequestInvokeResponseOutput() ExampleRequestInvokeResponseOutput
+	ToExampleRequestInvokeResponseOutputWithContext(context.Context) ExampleRequestInvokeResponseOutput
+}
+
+// Sample input data for the service's input(s).
+type ExampleRequestInvokeResponseArgs struct {
+	// Sample input data for the web service's global parameters
+	GlobalParameters pulumi.MapInput `pulumi:"globalParameters"`
+	// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+	Inputs pulumi.ArrayArrayMapInput `pulumi:"inputs"`
+}
+
+func (ExampleRequestInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExampleRequestInvokeResponse)(nil)).Elem()
+}
+
+func (i ExampleRequestInvokeResponseArgs) ToExampleRequestInvokeResponseOutput() ExampleRequestInvokeResponseOutput {
+	return i.ToExampleRequestInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ExampleRequestInvokeResponseArgs) ToExampleRequestInvokeResponseOutputWithContext(ctx context.Context) ExampleRequestInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExampleRequestInvokeResponseOutput)
+}
+
+func (i ExampleRequestInvokeResponseArgs) ToExampleRequestInvokeResponsePtrOutput() ExampleRequestInvokeResponsePtrOutput {
+	return i.ToExampleRequestInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ExampleRequestInvokeResponseArgs) ToExampleRequestInvokeResponsePtrOutputWithContext(ctx context.Context) ExampleRequestInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExampleRequestInvokeResponseOutput).ToExampleRequestInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ExampleRequestInvokeResponsePtrInput is an input type that accepts ExampleRequestInvokeResponseArgs, ExampleRequestInvokeResponsePtr and ExampleRequestInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ExampleRequestInvokeResponsePtrInput` via:
+//
+//          ExampleRequestInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ExampleRequestInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToExampleRequestInvokeResponsePtrOutput() ExampleRequestInvokeResponsePtrOutput
+	ToExampleRequestInvokeResponsePtrOutputWithContext(context.Context) ExampleRequestInvokeResponsePtrOutput
+}
+
+type exampleRequestInvokeResponsePtrType ExampleRequestInvokeResponseArgs
+
+func ExampleRequestInvokeResponsePtr(v *ExampleRequestInvokeResponseArgs) ExampleRequestInvokeResponsePtrInput {
+	return (*exampleRequestInvokeResponsePtrType)(v)
+}
+
+func (*exampleRequestInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExampleRequestInvokeResponse)(nil)).Elem()
+}
+
+func (i *exampleRequestInvokeResponsePtrType) ToExampleRequestInvokeResponsePtrOutput() ExampleRequestInvokeResponsePtrOutput {
+	return i.ToExampleRequestInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *exampleRequestInvokeResponsePtrType) ToExampleRequestInvokeResponsePtrOutputWithContext(ctx context.Context) ExampleRequestInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExampleRequestInvokeResponsePtrOutput)
+}
+
+// Sample input data for the service's input(s).
+type ExampleRequestInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ExampleRequestInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExampleRequestInvokeResponse)(nil)).Elem()
+}
+
+func (o ExampleRequestInvokeResponseOutput) ToExampleRequestInvokeResponseOutput() ExampleRequestInvokeResponseOutput {
+	return o
+}
+
+func (o ExampleRequestInvokeResponseOutput) ToExampleRequestInvokeResponseOutputWithContext(ctx context.Context) ExampleRequestInvokeResponseOutput {
+	return o
+}
+
+func (o ExampleRequestInvokeResponseOutput) ToExampleRequestInvokeResponsePtrOutput() ExampleRequestInvokeResponsePtrOutput {
+	return o.ToExampleRequestInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ExampleRequestInvokeResponseOutput) ToExampleRequestInvokeResponsePtrOutputWithContext(ctx context.Context) ExampleRequestInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ExampleRequestInvokeResponse) *ExampleRequestInvokeResponse {
+		return &v
+	}).(ExampleRequestInvokeResponsePtrOutput)
+}
+
+// Sample input data for the web service's global parameters
+func (o ExampleRequestInvokeResponseOutput) GlobalParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v ExampleRequestInvokeResponse) map[string]interface{} { return v.GlobalParameters }).(pulumi.MapOutput)
+}
+
+// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+func (o ExampleRequestInvokeResponseOutput) Inputs() pulumi.ArrayArrayMapOutput {
+	return o.ApplyT(func(v ExampleRequestInvokeResponse) map[string][][]interface{} { return v.Inputs }).(pulumi.ArrayArrayMapOutput)
+}
+
+type ExampleRequestInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExampleRequestInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExampleRequestInvokeResponse)(nil)).Elem()
+}
+
+func (o ExampleRequestInvokeResponsePtrOutput) ToExampleRequestInvokeResponsePtrOutput() ExampleRequestInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ExampleRequestInvokeResponsePtrOutput) ToExampleRequestInvokeResponsePtrOutputWithContext(ctx context.Context) ExampleRequestInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ExampleRequestInvokeResponsePtrOutput) Elem() ExampleRequestInvokeResponseOutput {
+	return o.ApplyT(func(v *ExampleRequestInvokeResponse) ExampleRequestInvokeResponse { return *v }).(ExampleRequestInvokeResponseOutput)
+}
+
+// Sample input data for the web service's global parameters
+func (o ExampleRequestInvokeResponsePtrOutput) GlobalParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *ExampleRequestInvokeResponse) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalParameters
+	}).(pulumi.MapOutput)
+}
+
+// Sample input data for the web service's input(s) given as an input name to sample input values matrix map.
+func (o ExampleRequestInvokeResponsePtrOutput) Inputs() pulumi.ArrayArrayMapOutput {
+	return o.ApplyT(func(v *ExampleRequestInvokeResponse) map[string][][]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Inputs
+	}).(pulumi.ArrayArrayMapOutput)
+}
+
+// Sample input data for the service's input(s).
 type ExampleRequestResponse struct {
 	// Sample input data for the web service's global parameters
 	GlobalParameters map[string]interface{} `pulumi:"globalParameters"`
@@ -2049,6 +2990,133 @@ func (o GraphEdgeArrayOutput) Index(i pulumi.IntInput) GraphEdgeOutput {
 }
 
 // Defines an edge within the web service's graph.
+type GraphEdgeInvokeResponse struct {
+	// The source graph node's identifier.
+	SourceNodeId *string `pulumi:"sourceNodeId"`
+	// The identifier of the source node's port that the edge connects from.
+	SourcePortId *string `pulumi:"sourcePortId"`
+	// The destination graph node's identifier.
+	TargetNodeId *string `pulumi:"targetNodeId"`
+	// The identifier of the destination node's port that the edge connects into.
+	TargetPortId *string `pulumi:"targetPortId"`
+}
+
+// GraphEdgeInvokeResponseInput is an input type that accepts GraphEdgeInvokeResponseArgs and GraphEdgeInvokeResponseOutput values.
+// You can construct a concrete instance of `GraphEdgeInvokeResponseInput` via:
+//
+//          GraphEdgeInvokeResponseArgs{...}
+type GraphEdgeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGraphEdgeInvokeResponseOutput() GraphEdgeInvokeResponseOutput
+	ToGraphEdgeInvokeResponseOutputWithContext(context.Context) GraphEdgeInvokeResponseOutput
+}
+
+// Defines an edge within the web service's graph.
+type GraphEdgeInvokeResponseArgs struct {
+	// The source graph node's identifier.
+	SourceNodeId pulumi.StringPtrInput `pulumi:"sourceNodeId"`
+	// The identifier of the source node's port that the edge connects from.
+	SourcePortId pulumi.StringPtrInput `pulumi:"sourcePortId"`
+	// The destination graph node's identifier.
+	TargetNodeId pulumi.StringPtrInput `pulumi:"targetNodeId"`
+	// The identifier of the destination node's port that the edge connects into.
+	TargetPortId pulumi.StringPtrInput `pulumi:"targetPortId"`
+}
+
+func (GraphEdgeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphEdgeInvokeResponse)(nil)).Elem()
+}
+
+func (i GraphEdgeInvokeResponseArgs) ToGraphEdgeInvokeResponseOutput() GraphEdgeInvokeResponseOutput {
+	return i.ToGraphEdgeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GraphEdgeInvokeResponseArgs) ToGraphEdgeInvokeResponseOutputWithContext(ctx context.Context) GraphEdgeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphEdgeInvokeResponseOutput)
+}
+
+// GraphEdgeInvokeResponseArrayInput is an input type that accepts GraphEdgeInvokeResponseArray and GraphEdgeInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `GraphEdgeInvokeResponseArrayInput` via:
+//
+//          GraphEdgeInvokeResponseArray{ GraphEdgeInvokeResponseArgs{...} }
+type GraphEdgeInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToGraphEdgeInvokeResponseArrayOutput() GraphEdgeInvokeResponseArrayOutput
+	ToGraphEdgeInvokeResponseArrayOutputWithContext(context.Context) GraphEdgeInvokeResponseArrayOutput
+}
+
+type GraphEdgeInvokeResponseArray []GraphEdgeInvokeResponseInput
+
+func (GraphEdgeInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphEdgeInvokeResponse)(nil)).Elem()
+}
+
+func (i GraphEdgeInvokeResponseArray) ToGraphEdgeInvokeResponseArrayOutput() GraphEdgeInvokeResponseArrayOutput {
+	return i.ToGraphEdgeInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GraphEdgeInvokeResponseArray) ToGraphEdgeInvokeResponseArrayOutputWithContext(ctx context.Context) GraphEdgeInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphEdgeInvokeResponseArrayOutput)
+}
+
+// Defines an edge within the web service's graph.
+type GraphEdgeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GraphEdgeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphEdgeInvokeResponse)(nil)).Elem()
+}
+
+func (o GraphEdgeInvokeResponseOutput) ToGraphEdgeInvokeResponseOutput() GraphEdgeInvokeResponseOutput {
+	return o
+}
+
+func (o GraphEdgeInvokeResponseOutput) ToGraphEdgeInvokeResponseOutputWithContext(ctx context.Context) GraphEdgeInvokeResponseOutput {
+	return o
+}
+
+// The source graph node's identifier.
+func (o GraphEdgeInvokeResponseOutput) SourceNodeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdgeInvokeResponse) *string { return v.SourceNodeId }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source node's port that the edge connects from.
+func (o GraphEdgeInvokeResponseOutput) SourcePortId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdgeInvokeResponse) *string { return v.SourcePortId }).(pulumi.StringPtrOutput)
+}
+
+// The destination graph node's identifier.
+func (o GraphEdgeInvokeResponseOutput) TargetNodeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdgeInvokeResponse) *string { return v.TargetNodeId }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the destination node's port that the edge connects into.
+func (o GraphEdgeInvokeResponseOutput) TargetPortId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphEdgeInvokeResponse) *string { return v.TargetPortId }).(pulumi.StringPtrOutput)
+}
+
+type GraphEdgeInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GraphEdgeInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphEdgeInvokeResponse)(nil)).Elem()
+}
+
+func (o GraphEdgeInvokeResponseArrayOutput) ToGraphEdgeInvokeResponseArrayOutput() GraphEdgeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GraphEdgeInvokeResponseArrayOutput) ToGraphEdgeInvokeResponseArrayOutputWithContext(ctx context.Context) GraphEdgeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GraphEdgeInvokeResponseArrayOutput) Index(i pulumi.IntInput) GraphEdgeInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphEdgeInvokeResponse {
+		return vs[0].([]GraphEdgeInvokeResponse)[vs[1].(int)]
+	}).(GraphEdgeInvokeResponseOutput)
+}
+
+// Defines an edge within the web service's graph.
 type GraphEdgeResponse struct {
 	// The source graph node's identifier.
 	SourceNodeId *string `pulumi:"sourceNodeId"`
@@ -2300,6 +3368,133 @@ func (o GraphNodeMapOutput) MapIndex(k pulumi.StringInput) GraphNodeOutput {
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GraphNode {
 		return vs[0].(map[string]GraphNode)[vs[1].(string)]
 	}).(GraphNodeOutput)
+}
+
+// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+type GraphNodeInvokeResponse struct {
+	// The id of the asset represented by this node.
+	AssetId *string `pulumi:"assetId"`
+	// The id of the input element represented by this node.
+	InputId *string `pulumi:"inputId"`
+	// The id of the output element represented by this node.
+	OutputId *string `pulumi:"outputId"`
+	// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// GraphNodeInvokeResponseInput is an input type that accepts GraphNodeInvokeResponseArgs and GraphNodeInvokeResponseOutput values.
+// You can construct a concrete instance of `GraphNodeInvokeResponseInput` via:
+//
+//          GraphNodeInvokeResponseArgs{...}
+type GraphNodeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGraphNodeInvokeResponseOutput() GraphNodeInvokeResponseOutput
+	ToGraphNodeInvokeResponseOutputWithContext(context.Context) GraphNodeInvokeResponseOutput
+}
+
+// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+type GraphNodeInvokeResponseArgs struct {
+	// The id of the asset represented by this node.
+	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
+	// The id of the input element represented by this node.
+	InputId pulumi.StringPtrInput `pulumi:"inputId"`
+	// The id of the output element represented by this node.
+	OutputId pulumi.StringPtrInput `pulumi:"outputId"`
+	// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (GraphNodeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphNodeInvokeResponse)(nil)).Elem()
+}
+
+func (i GraphNodeInvokeResponseArgs) ToGraphNodeInvokeResponseOutput() GraphNodeInvokeResponseOutput {
+	return i.ToGraphNodeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GraphNodeInvokeResponseArgs) ToGraphNodeInvokeResponseOutputWithContext(ctx context.Context) GraphNodeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphNodeInvokeResponseOutput)
+}
+
+// GraphNodeInvokeResponseMapInput is an input type that accepts GraphNodeInvokeResponseMap and GraphNodeInvokeResponseMapOutput values.
+// You can construct a concrete instance of `GraphNodeInvokeResponseMapInput` via:
+//
+//          GraphNodeInvokeResponseMap{ "key": GraphNodeInvokeResponseArgs{...} }
+type GraphNodeInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToGraphNodeInvokeResponseMapOutput() GraphNodeInvokeResponseMapOutput
+	ToGraphNodeInvokeResponseMapOutputWithContext(context.Context) GraphNodeInvokeResponseMapOutput
+}
+
+type GraphNodeInvokeResponseMap map[string]GraphNodeInvokeResponseInput
+
+func (GraphNodeInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphNodeInvokeResponse)(nil)).Elem()
+}
+
+func (i GraphNodeInvokeResponseMap) ToGraphNodeInvokeResponseMapOutput() GraphNodeInvokeResponseMapOutput {
+	return i.ToGraphNodeInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i GraphNodeInvokeResponseMap) ToGraphNodeInvokeResponseMapOutputWithContext(ctx context.Context) GraphNodeInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphNodeInvokeResponseMapOutput)
+}
+
+// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+type GraphNodeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GraphNodeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphNodeInvokeResponse)(nil)).Elem()
+}
+
+func (o GraphNodeInvokeResponseOutput) ToGraphNodeInvokeResponseOutput() GraphNodeInvokeResponseOutput {
+	return o
+}
+
+func (o GraphNodeInvokeResponseOutput) ToGraphNodeInvokeResponseOutputWithContext(ctx context.Context) GraphNodeInvokeResponseOutput {
+	return o
+}
+
+// The id of the asset represented by this node.
+func (o GraphNodeInvokeResponseOutput) AssetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphNodeInvokeResponse) *string { return v.AssetId }).(pulumi.StringPtrOutput)
+}
+
+// The id of the input element represented by this node.
+func (o GraphNodeInvokeResponseOutput) InputId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphNodeInvokeResponse) *string { return v.InputId }).(pulumi.StringPtrOutput)
+}
+
+// The id of the output element represented by this node.
+func (o GraphNodeInvokeResponseOutput) OutputId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphNodeInvokeResponse) *string { return v.OutputId }).(pulumi.StringPtrOutput)
+}
+
+// If applicable, parameters of the node. Global graph parameters map into these, with values set at runtime.
+func (o GraphNodeInvokeResponseOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GraphNodeInvokeResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type GraphNodeInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (GraphNodeInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphNodeInvokeResponse)(nil)).Elem()
+}
+
+func (o GraphNodeInvokeResponseMapOutput) ToGraphNodeInvokeResponseMapOutput() GraphNodeInvokeResponseMapOutput {
+	return o
+}
+
+func (o GraphNodeInvokeResponseMapOutput) ToGraphNodeInvokeResponseMapOutputWithContext(ctx context.Context) GraphNodeInvokeResponseMapOutput {
+	return o
+}
+
+func (o GraphNodeInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) GraphNodeInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GraphNodeInvokeResponse {
+		return vs[0].(map[string]GraphNodeInvokeResponse)[vs[1].(string)]
+	}).(GraphNodeInvokeResponseOutput)
 }
 
 // Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
@@ -2602,6 +3797,178 @@ func (o GraphPackagePtrOutput) Nodes() GraphNodeMapOutput {
 }
 
 // Defines the graph of modules making up the machine learning solution.
+type GraphPackageInvokeResponse struct {
+	// The list of edges making up the graph.
+	Edges []GraphEdgeInvokeResponse `pulumi:"edges"`
+	// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+	GraphParameters map[string]GraphParameterInvokeResponse `pulumi:"graphParameters"`
+	// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+	Nodes map[string]GraphNodeInvokeResponse `pulumi:"nodes"`
+}
+
+// GraphPackageInvokeResponseInput is an input type that accepts GraphPackageInvokeResponseArgs and GraphPackageInvokeResponseOutput values.
+// You can construct a concrete instance of `GraphPackageInvokeResponseInput` via:
+//
+//          GraphPackageInvokeResponseArgs{...}
+type GraphPackageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGraphPackageInvokeResponseOutput() GraphPackageInvokeResponseOutput
+	ToGraphPackageInvokeResponseOutputWithContext(context.Context) GraphPackageInvokeResponseOutput
+}
+
+// Defines the graph of modules making up the machine learning solution.
+type GraphPackageInvokeResponseArgs struct {
+	// The list of edges making up the graph.
+	Edges GraphEdgeInvokeResponseArrayInput `pulumi:"edges"`
+	// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+	GraphParameters GraphParameterInvokeResponseMapInput `pulumi:"graphParameters"`
+	// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+	Nodes GraphNodeInvokeResponseMapInput `pulumi:"nodes"`
+}
+
+func (GraphPackageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphPackageInvokeResponse)(nil)).Elem()
+}
+
+func (i GraphPackageInvokeResponseArgs) ToGraphPackageInvokeResponseOutput() GraphPackageInvokeResponseOutput {
+	return i.ToGraphPackageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GraphPackageInvokeResponseArgs) ToGraphPackageInvokeResponseOutputWithContext(ctx context.Context) GraphPackageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageInvokeResponseOutput)
+}
+
+func (i GraphPackageInvokeResponseArgs) ToGraphPackageInvokeResponsePtrOutput() GraphPackageInvokeResponsePtrOutput {
+	return i.ToGraphPackageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GraphPackageInvokeResponseArgs) ToGraphPackageInvokeResponsePtrOutputWithContext(ctx context.Context) GraphPackageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageInvokeResponseOutput).ToGraphPackageInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// GraphPackageInvokeResponsePtrInput is an input type that accepts GraphPackageInvokeResponseArgs, GraphPackageInvokeResponsePtr and GraphPackageInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `GraphPackageInvokeResponsePtrInput` via:
+//
+//          GraphPackageInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GraphPackageInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToGraphPackageInvokeResponsePtrOutput() GraphPackageInvokeResponsePtrOutput
+	ToGraphPackageInvokeResponsePtrOutputWithContext(context.Context) GraphPackageInvokeResponsePtrOutput
+}
+
+type graphPackageInvokeResponsePtrType GraphPackageInvokeResponseArgs
+
+func GraphPackageInvokeResponsePtr(v *GraphPackageInvokeResponseArgs) GraphPackageInvokeResponsePtrInput {
+	return (*graphPackageInvokeResponsePtrType)(v)
+}
+
+func (*graphPackageInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphPackageInvokeResponse)(nil)).Elem()
+}
+
+func (i *graphPackageInvokeResponsePtrType) ToGraphPackageInvokeResponsePtrOutput() GraphPackageInvokeResponsePtrOutput {
+	return i.ToGraphPackageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *graphPackageInvokeResponsePtrType) ToGraphPackageInvokeResponsePtrOutputWithContext(ctx context.Context) GraphPackageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageInvokeResponsePtrOutput)
+}
+
+// Defines the graph of modules making up the machine learning solution.
+type GraphPackageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GraphPackageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphPackageInvokeResponse)(nil)).Elem()
+}
+
+func (o GraphPackageInvokeResponseOutput) ToGraphPackageInvokeResponseOutput() GraphPackageInvokeResponseOutput {
+	return o
+}
+
+func (o GraphPackageInvokeResponseOutput) ToGraphPackageInvokeResponseOutputWithContext(ctx context.Context) GraphPackageInvokeResponseOutput {
+	return o
+}
+
+func (o GraphPackageInvokeResponseOutput) ToGraphPackageInvokeResponsePtrOutput() GraphPackageInvokeResponsePtrOutput {
+	return o.ToGraphPackageInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GraphPackageInvokeResponseOutput) ToGraphPackageInvokeResponsePtrOutputWithContext(ctx context.Context) GraphPackageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GraphPackageInvokeResponse) *GraphPackageInvokeResponse {
+		return &v
+	}).(GraphPackageInvokeResponsePtrOutput)
+}
+
+// The list of edges making up the graph.
+func (o GraphPackageInvokeResponseOutput) Edges() GraphEdgeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v GraphPackageInvokeResponse) []GraphEdgeInvokeResponse { return v.Edges }).(GraphEdgeInvokeResponseArrayOutput)
+}
+
+// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+func (o GraphPackageInvokeResponseOutput) GraphParameters() GraphParameterInvokeResponseMapOutput {
+	return o.ApplyT(func(v GraphPackageInvokeResponse) map[string]GraphParameterInvokeResponse { return v.GraphParameters }).(GraphParameterInvokeResponseMapOutput)
+}
+
+// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+func (o GraphPackageInvokeResponseOutput) Nodes() GraphNodeInvokeResponseMapOutput {
+	return o.ApplyT(func(v GraphPackageInvokeResponse) map[string]GraphNodeInvokeResponse { return v.Nodes }).(GraphNodeInvokeResponseMapOutput)
+}
+
+type GraphPackageInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GraphPackageInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphPackageInvokeResponse)(nil)).Elem()
+}
+
+func (o GraphPackageInvokeResponsePtrOutput) ToGraphPackageInvokeResponsePtrOutput() GraphPackageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GraphPackageInvokeResponsePtrOutput) ToGraphPackageInvokeResponsePtrOutputWithContext(ctx context.Context) GraphPackageInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GraphPackageInvokeResponsePtrOutput) Elem() GraphPackageInvokeResponseOutput {
+	return o.ApplyT(func(v *GraphPackageInvokeResponse) GraphPackageInvokeResponse { return *v }).(GraphPackageInvokeResponseOutput)
+}
+
+// The list of edges making up the graph.
+func (o GraphPackageInvokeResponsePtrOutput) Edges() GraphEdgeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *GraphPackageInvokeResponse) []GraphEdgeInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Edges
+	}).(GraphEdgeInvokeResponseArrayOutput)
+}
+
+// The collection of global parameters for the graph, given as a global parameter name to GraphParameter map. Each parameter here has a 1:1 match with the global parameters values map declared at the WebServiceProperties level.
+func (o GraphPackageInvokeResponsePtrOutput) GraphParameters() GraphParameterInvokeResponseMapOutput {
+	return o.ApplyT(func(v *GraphPackageInvokeResponse) map[string]GraphParameterInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.GraphParameters
+	}).(GraphParameterInvokeResponseMapOutput)
+}
+
+// The set of nodes making up the graph, provided as a nodeId to GraphNode map
+func (o GraphPackageInvokeResponsePtrOutput) Nodes() GraphNodeInvokeResponseMapOutput {
+	return o.ApplyT(func(v *GraphPackageInvokeResponse) map[string]GraphNodeInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Nodes
+	}).(GraphNodeInvokeResponseMapOutput)
+}
+
+// Defines the graph of modules making up the machine learning solution.
 type GraphPackageResponse struct {
 	// The list of edges making up the graph.
 	Edges []GraphEdgeResponse `pulumi:"edges"`
@@ -2891,6 +4258,124 @@ func (o GraphParameterMapOutput) MapIndex(k pulumi.StringInput) GraphParameterOu
 	}).(GraphParameterOutput)
 }
 
+// Defines a global parameter in the graph.
+type GraphParameterInvokeResponse struct {
+	// Description of this graph parameter.
+	Description *string `pulumi:"description"`
+	// Association links for this parameter to nodes in the graph.
+	Links []GraphParameterLinkInvokeResponse `pulumi:"links"`
+	// Graph parameter's type.
+	Type string `pulumi:"type"`
+}
+
+// GraphParameterInvokeResponseInput is an input type that accepts GraphParameterInvokeResponseArgs and GraphParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `GraphParameterInvokeResponseInput` via:
+//
+//          GraphParameterInvokeResponseArgs{...}
+type GraphParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGraphParameterInvokeResponseOutput() GraphParameterInvokeResponseOutput
+	ToGraphParameterInvokeResponseOutputWithContext(context.Context) GraphParameterInvokeResponseOutput
+}
+
+// Defines a global parameter in the graph.
+type GraphParameterInvokeResponseArgs struct {
+	// Description of this graph parameter.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Association links for this parameter to nodes in the graph.
+	Links GraphParameterLinkInvokeResponseArrayInput `pulumi:"links"`
+	// Graph parameter's type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GraphParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i GraphParameterInvokeResponseArgs) ToGraphParameterInvokeResponseOutput() GraphParameterInvokeResponseOutput {
+	return i.ToGraphParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GraphParameterInvokeResponseArgs) ToGraphParameterInvokeResponseOutputWithContext(ctx context.Context) GraphParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterInvokeResponseOutput)
+}
+
+// GraphParameterInvokeResponseMapInput is an input type that accepts GraphParameterInvokeResponseMap and GraphParameterInvokeResponseMapOutput values.
+// You can construct a concrete instance of `GraphParameterInvokeResponseMapInput` via:
+//
+//          GraphParameterInvokeResponseMap{ "key": GraphParameterInvokeResponseArgs{...} }
+type GraphParameterInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToGraphParameterInvokeResponseMapOutput() GraphParameterInvokeResponseMapOutput
+	ToGraphParameterInvokeResponseMapOutputWithContext(context.Context) GraphParameterInvokeResponseMapOutput
+}
+
+type GraphParameterInvokeResponseMap map[string]GraphParameterInvokeResponseInput
+
+func (GraphParameterInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i GraphParameterInvokeResponseMap) ToGraphParameterInvokeResponseMapOutput() GraphParameterInvokeResponseMapOutput {
+	return i.ToGraphParameterInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i GraphParameterInvokeResponseMap) ToGraphParameterInvokeResponseMapOutputWithContext(ctx context.Context) GraphParameterInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterInvokeResponseMapOutput)
+}
+
+// Defines a global parameter in the graph.
+type GraphParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o GraphParameterInvokeResponseOutput) ToGraphParameterInvokeResponseOutput() GraphParameterInvokeResponseOutput {
+	return o
+}
+
+func (o GraphParameterInvokeResponseOutput) ToGraphParameterInvokeResponseOutputWithContext(ctx context.Context) GraphParameterInvokeResponseOutput {
+	return o
+}
+
+// Description of this graph parameter.
+func (o GraphParameterInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphParameterInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Association links for this parameter to nodes in the graph.
+func (o GraphParameterInvokeResponseOutput) Links() GraphParameterLinkInvokeResponseArrayOutput {
+	return o.ApplyT(func(v GraphParameterInvokeResponse) []GraphParameterLinkInvokeResponse { return v.Links }).(GraphParameterLinkInvokeResponseArrayOutput)
+}
+
+// Graph parameter's type.
+func (o GraphParameterInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphParameterInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GraphParameterInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GraphParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o GraphParameterInvokeResponseMapOutput) ToGraphParameterInvokeResponseMapOutput() GraphParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o GraphParameterInvokeResponseMapOutput) ToGraphParameterInvokeResponseMapOutputWithContext(ctx context.Context) GraphParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o GraphParameterInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) GraphParameterInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GraphParameterInvokeResponse {
+		return vs[0].(map[string]GraphParameterInvokeResponse)[vs[1].(string)]
+	}).(GraphParameterInvokeResponseOutput)
+}
+
 // Association link for a graph global parameter to a node in the graph.
 type GraphParameterLink struct {
 	// The graph node's identifier
@@ -2998,6 +4483,115 @@ func (o GraphParameterLinkArrayOutput) Index(i pulumi.IntInput) GraphParameterLi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphParameterLink {
 		return vs[0].([]GraphParameterLink)[vs[1].(int)]
 	}).(GraphParameterLinkOutput)
+}
+
+// Association link for a graph global parameter to a node in the graph.
+type GraphParameterLinkInvokeResponse struct {
+	// The graph node's identifier
+	NodeId string `pulumi:"nodeId"`
+	// The identifier of the node parameter that the global parameter maps to.
+	ParameterKey string `pulumi:"parameterKey"`
+}
+
+// GraphParameterLinkInvokeResponseInput is an input type that accepts GraphParameterLinkInvokeResponseArgs and GraphParameterLinkInvokeResponseOutput values.
+// You can construct a concrete instance of `GraphParameterLinkInvokeResponseInput` via:
+//
+//          GraphParameterLinkInvokeResponseArgs{...}
+type GraphParameterLinkInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGraphParameterLinkInvokeResponseOutput() GraphParameterLinkInvokeResponseOutput
+	ToGraphParameterLinkInvokeResponseOutputWithContext(context.Context) GraphParameterLinkInvokeResponseOutput
+}
+
+// Association link for a graph global parameter to a node in the graph.
+type GraphParameterLinkInvokeResponseArgs struct {
+	// The graph node's identifier
+	NodeId pulumi.StringInput `pulumi:"nodeId"`
+	// The identifier of the node parameter that the global parameter maps to.
+	ParameterKey pulumi.StringInput `pulumi:"parameterKey"`
+}
+
+func (GraphParameterLinkInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameterLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i GraphParameterLinkInvokeResponseArgs) ToGraphParameterLinkInvokeResponseOutput() GraphParameterLinkInvokeResponseOutput {
+	return i.ToGraphParameterLinkInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GraphParameterLinkInvokeResponseArgs) ToGraphParameterLinkInvokeResponseOutputWithContext(ctx context.Context) GraphParameterLinkInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterLinkInvokeResponseOutput)
+}
+
+// GraphParameterLinkInvokeResponseArrayInput is an input type that accepts GraphParameterLinkInvokeResponseArray and GraphParameterLinkInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `GraphParameterLinkInvokeResponseArrayInput` via:
+//
+//          GraphParameterLinkInvokeResponseArray{ GraphParameterLinkInvokeResponseArgs{...} }
+type GraphParameterLinkInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToGraphParameterLinkInvokeResponseArrayOutput() GraphParameterLinkInvokeResponseArrayOutput
+	ToGraphParameterLinkInvokeResponseArrayOutputWithContext(context.Context) GraphParameterLinkInvokeResponseArrayOutput
+}
+
+type GraphParameterLinkInvokeResponseArray []GraphParameterLinkInvokeResponseInput
+
+func (GraphParameterLinkInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphParameterLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i GraphParameterLinkInvokeResponseArray) ToGraphParameterLinkInvokeResponseArrayOutput() GraphParameterLinkInvokeResponseArrayOutput {
+	return i.ToGraphParameterLinkInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GraphParameterLinkInvokeResponseArray) ToGraphParameterLinkInvokeResponseArrayOutputWithContext(ctx context.Context) GraphParameterLinkInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterLinkInvokeResponseArrayOutput)
+}
+
+// Association link for a graph global parameter to a node in the graph.
+type GraphParameterLinkInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterLinkInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphParameterLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o GraphParameterLinkInvokeResponseOutput) ToGraphParameterLinkInvokeResponseOutput() GraphParameterLinkInvokeResponseOutput {
+	return o
+}
+
+func (o GraphParameterLinkInvokeResponseOutput) ToGraphParameterLinkInvokeResponseOutputWithContext(ctx context.Context) GraphParameterLinkInvokeResponseOutput {
+	return o
+}
+
+// The graph node's identifier
+func (o GraphParameterLinkInvokeResponseOutput) NodeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphParameterLinkInvokeResponse) string { return v.NodeId }).(pulumi.StringOutput)
+}
+
+// The identifier of the node parameter that the global parameter maps to.
+func (o GraphParameterLinkInvokeResponseOutput) ParameterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphParameterLinkInvokeResponse) string { return v.ParameterKey }).(pulumi.StringOutput)
+}
+
+type GraphParameterLinkInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GraphParameterLinkInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GraphParameterLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o GraphParameterLinkInvokeResponseArrayOutput) ToGraphParameterLinkInvokeResponseArrayOutput() GraphParameterLinkInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GraphParameterLinkInvokeResponseArrayOutput) ToGraphParameterLinkInvokeResponseArrayOutputWithContext(ctx context.Context) GraphParameterLinkInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GraphParameterLinkInvokeResponseArrayOutput) Index(i pulumi.IntInput) GraphParameterLinkInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphParameterLinkInvokeResponse {
+		return vs[0].([]GraphParameterLinkInvokeResponse)[vs[1].(int)]
+	}).(GraphParameterLinkInvokeResponseOutput)
 }
 
 // Association link for a graph global parameter to a node in the graph.
@@ -3328,6 +4922,106 @@ func (o InputPortMapOutput) MapIndex(k pulumi.StringInput) InputPortOutput {
 }
 
 // Asset input port
+type InputPortInvokeResponse struct {
+	// Port data type.
+	Type *string `pulumi:"type"`
+}
+
+// InputPortInvokeResponseInput is an input type that accepts InputPortInvokeResponseArgs and InputPortInvokeResponseOutput values.
+// You can construct a concrete instance of `InputPortInvokeResponseInput` via:
+//
+//          InputPortInvokeResponseArgs{...}
+type InputPortInvokeResponseInput interface {
+	pulumi.Input
+
+	ToInputPortInvokeResponseOutput() InputPortInvokeResponseOutput
+	ToInputPortInvokeResponseOutputWithContext(context.Context) InputPortInvokeResponseOutput
+}
+
+// Asset input port
+type InputPortInvokeResponseArgs struct {
+	// Port data type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (InputPortInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputPortInvokeResponse)(nil)).Elem()
+}
+
+func (i InputPortInvokeResponseArgs) ToInputPortInvokeResponseOutput() InputPortInvokeResponseOutput {
+	return i.ToInputPortInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i InputPortInvokeResponseArgs) ToInputPortInvokeResponseOutputWithContext(ctx context.Context) InputPortInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputPortInvokeResponseOutput)
+}
+
+// InputPortInvokeResponseMapInput is an input type that accepts InputPortInvokeResponseMap and InputPortInvokeResponseMapOutput values.
+// You can construct a concrete instance of `InputPortInvokeResponseMapInput` via:
+//
+//          InputPortInvokeResponseMap{ "key": InputPortInvokeResponseArgs{...} }
+type InputPortInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToInputPortInvokeResponseMapOutput() InputPortInvokeResponseMapOutput
+	ToInputPortInvokeResponseMapOutputWithContext(context.Context) InputPortInvokeResponseMapOutput
+}
+
+type InputPortInvokeResponseMap map[string]InputPortInvokeResponseInput
+
+func (InputPortInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InputPortInvokeResponse)(nil)).Elem()
+}
+
+func (i InputPortInvokeResponseMap) ToInputPortInvokeResponseMapOutput() InputPortInvokeResponseMapOutput {
+	return i.ToInputPortInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i InputPortInvokeResponseMap) ToInputPortInvokeResponseMapOutputWithContext(ctx context.Context) InputPortInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputPortInvokeResponseMapOutput)
+}
+
+// Asset input port
+type InputPortInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (InputPortInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputPortInvokeResponse)(nil)).Elem()
+}
+
+func (o InputPortInvokeResponseOutput) ToInputPortInvokeResponseOutput() InputPortInvokeResponseOutput {
+	return o
+}
+
+func (o InputPortInvokeResponseOutput) ToInputPortInvokeResponseOutputWithContext(ctx context.Context) InputPortInvokeResponseOutput {
+	return o
+}
+
+// Port data type.
+func (o InputPortInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputPortInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type InputPortInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (InputPortInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InputPortInvokeResponse)(nil)).Elem()
+}
+
+func (o InputPortInvokeResponseMapOutput) ToInputPortInvokeResponseMapOutput() InputPortInvokeResponseMapOutput {
+	return o
+}
+
+func (o InputPortInvokeResponseMapOutput) ToInputPortInvokeResponseMapOutputWithContext(ctx context.Context) InputPortInvokeResponseMapOutput {
+	return o
+}
+
+func (o InputPortInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) InputPortInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InputPortInvokeResponse {
+		return vs[0].(map[string]InputPortInvokeResponse)[vs[1].(string)]
+	}).(InputPortInvokeResponseOutput)
+}
+
+// Asset input port
 type InputPortResponse struct {
 	// Port data type.
 	Type *string `pulumi:"type"`
@@ -3554,6 +5248,140 @@ func (o MachineLearningWorkspacePtrOutput) Elem() MachineLearningWorkspaceOutput
 // Specifies the workspace ID of the machine learning workspace associated with the web service
 func (o MachineLearningWorkspacePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MachineLearningWorkspace) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the machine learning workspace containing the experiment that is source for the web service.
+type MachineLearningWorkspaceInvokeResponse struct {
+	// Specifies the workspace ID of the machine learning workspace associated with the web service
+	Id string `pulumi:"id"`
+}
+
+// MachineLearningWorkspaceInvokeResponseInput is an input type that accepts MachineLearningWorkspaceInvokeResponseArgs and MachineLearningWorkspaceInvokeResponseOutput values.
+// You can construct a concrete instance of `MachineLearningWorkspaceInvokeResponseInput` via:
+//
+//          MachineLearningWorkspaceInvokeResponseArgs{...}
+type MachineLearningWorkspaceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMachineLearningWorkspaceInvokeResponseOutput() MachineLearningWorkspaceInvokeResponseOutput
+	ToMachineLearningWorkspaceInvokeResponseOutputWithContext(context.Context) MachineLearningWorkspaceInvokeResponseOutput
+}
+
+// Information about the machine learning workspace containing the experiment that is source for the web service.
+type MachineLearningWorkspaceInvokeResponseArgs struct {
+	// Specifies the workspace ID of the machine learning workspace associated with the web service
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (MachineLearningWorkspaceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineLearningWorkspaceInvokeResponse)(nil)).Elem()
+}
+
+func (i MachineLearningWorkspaceInvokeResponseArgs) ToMachineLearningWorkspaceInvokeResponseOutput() MachineLearningWorkspaceInvokeResponseOutput {
+	return i.ToMachineLearningWorkspaceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MachineLearningWorkspaceInvokeResponseArgs) ToMachineLearningWorkspaceInvokeResponseOutputWithContext(ctx context.Context) MachineLearningWorkspaceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningWorkspaceInvokeResponseOutput)
+}
+
+func (i MachineLearningWorkspaceInvokeResponseArgs) ToMachineLearningWorkspaceInvokeResponsePtrOutput() MachineLearningWorkspaceInvokeResponsePtrOutput {
+	return i.ToMachineLearningWorkspaceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MachineLearningWorkspaceInvokeResponseArgs) ToMachineLearningWorkspaceInvokeResponsePtrOutputWithContext(ctx context.Context) MachineLearningWorkspaceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningWorkspaceInvokeResponseOutput).ToMachineLearningWorkspaceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MachineLearningWorkspaceInvokeResponsePtrInput is an input type that accepts MachineLearningWorkspaceInvokeResponseArgs, MachineLearningWorkspaceInvokeResponsePtr and MachineLearningWorkspaceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MachineLearningWorkspaceInvokeResponsePtrInput` via:
+//
+//          MachineLearningWorkspaceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MachineLearningWorkspaceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMachineLearningWorkspaceInvokeResponsePtrOutput() MachineLearningWorkspaceInvokeResponsePtrOutput
+	ToMachineLearningWorkspaceInvokeResponsePtrOutputWithContext(context.Context) MachineLearningWorkspaceInvokeResponsePtrOutput
+}
+
+type machineLearningWorkspaceInvokeResponsePtrType MachineLearningWorkspaceInvokeResponseArgs
+
+func MachineLearningWorkspaceInvokeResponsePtr(v *MachineLearningWorkspaceInvokeResponseArgs) MachineLearningWorkspaceInvokeResponsePtrInput {
+	return (*machineLearningWorkspaceInvokeResponsePtrType)(v)
+}
+
+func (*machineLearningWorkspaceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineLearningWorkspaceInvokeResponse)(nil)).Elem()
+}
+
+func (i *machineLearningWorkspaceInvokeResponsePtrType) ToMachineLearningWorkspaceInvokeResponsePtrOutput() MachineLearningWorkspaceInvokeResponsePtrOutput {
+	return i.ToMachineLearningWorkspaceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *machineLearningWorkspaceInvokeResponsePtrType) ToMachineLearningWorkspaceInvokeResponsePtrOutputWithContext(ctx context.Context) MachineLearningWorkspaceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningWorkspaceInvokeResponsePtrOutput)
+}
+
+// Information about the machine learning workspace containing the experiment that is source for the web service.
+type MachineLearningWorkspaceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MachineLearningWorkspaceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineLearningWorkspaceInvokeResponse)(nil)).Elem()
+}
+
+func (o MachineLearningWorkspaceInvokeResponseOutput) ToMachineLearningWorkspaceInvokeResponseOutput() MachineLearningWorkspaceInvokeResponseOutput {
+	return o
+}
+
+func (o MachineLearningWorkspaceInvokeResponseOutput) ToMachineLearningWorkspaceInvokeResponseOutputWithContext(ctx context.Context) MachineLearningWorkspaceInvokeResponseOutput {
+	return o
+}
+
+func (o MachineLearningWorkspaceInvokeResponseOutput) ToMachineLearningWorkspaceInvokeResponsePtrOutput() MachineLearningWorkspaceInvokeResponsePtrOutput {
+	return o.ToMachineLearningWorkspaceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MachineLearningWorkspaceInvokeResponseOutput) ToMachineLearningWorkspaceInvokeResponsePtrOutputWithContext(ctx context.Context) MachineLearningWorkspaceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MachineLearningWorkspaceInvokeResponse) *MachineLearningWorkspaceInvokeResponse {
+		return &v
+	}).(MachineLearningWorkspaceInvokeResponsePtrOutput)
+}
+
+// Specifies the workspace ID of the machine learning workspace associated with the web service
+func (o MachineLearningWorkspaceInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineLearningWorkspaceInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type MachineLearningWorkspaceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MachineLearningWorkspaceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineLearningWorkspaceInvokeResponse)(nil)).Elem()
+}
+
+func (o MachineLearningWorkspaceInvokeResponsePtrOutput) ToMachineLearningWorkspaceInvokeResponsePtrOutput() MachineLearningWorkspaceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MachineLearningWorkspaceInvokeResponsePtrOutput) ToMachineLearningWorkspaceInvokeResponsePtrOutputWithContext(ctx context.Context) MachineLearningWorkspaceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MachineLearningWorkspaceInvokeResponsePtrOutput) Elem() MachineLearningWorkspaceInvokeResponseOutput {
+	return o.ApplyT(func(v *MachineLearningWorkspaceInvokeResponse) MachineLearningWorkspaceInvokeResponse { return *v }).(MachineLearningWorkspaceInvokeResponseOutput)
+}
+
+// Specifies the workspace ID of the machine learning workspace associated with the web service
+func (o MachineLearningWorkspaceInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineLearningWorkspaceInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3805,6 +5633,115 @@ func (o ModeValueInfoMapOutput) MapIndex(k pulumi.StringInput) ModeValueInfoOutp
 }
 
 // Nested parameter definition.
+type ModeValueInfoInvokeResponse struct {
+	// The interface string name for the nested parameter.
+	InterfaceString *string `pulumi:"interfaceString"`
+	// The definition of the parameter.
+	Parameters []ModuleAssetParameterInvokeResponse `pulumi:"parameters"`
+}
+
+// ModeValueInfoInvokeResponseInput is an input type that accepts ModeValueInfoInvokeResponseArgs and ModeValueInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ModeValueInfoInvokeResponseInput` via:
+//
+//          ModeValueInfoInvokeResponseArgs{...}
+type ModeValueInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToModeValueInfoInvokeResponseOutput() ModeValueInfoInvokeResponseOutput
+	ToModeValueInfoInvokeResponseOutputWithContext(context.Context) ModeValueInfoInvokeResponseOutput
+}
+
+// Nested parameter definition.
+type ModeValueInfoInvokeResponseArgs struct {
+	// The interface string name for the nested parameter.
+	InterfaceString pulumi.StringPtrInput `pulumi:"interfaceString"`
+	// The definition of the parameter.
+	Parameters ModuleAssetParameterInvokeResponseArrayInput `pulumi:"parameters"`
+}
+
+func (ModeValueInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModeValueInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ModeValueInfoInvokeResponseArgs) ToModeValueInfoInvokeResponseOutput() ModeValueInfoInvokeResponseOutput {
+	return i.ToModeValueInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ModeValueInfoInvokeResponseArgs) ToModeValueInfoInvokeResponseOutputWithContext(ctx context.Context) ModeValueInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModeValueInfoInvokeResponseOutput)
+}
+
+// ModeValueInfoInvokeResponseMapInput is an input type that accepts ModeValueInfoInvokeResponseMap and ModeValueInfoInvokeResponseMapOutput values.
+// You can construct a concrete instance of `ModeValueInfoInvokeResponseMapInput` via:
+//
+//          ModeValueInfoInvokeResponseMap{ "key": ModeValueInfoInvokeResponseArgs{...} }
+type ModeValueInfoInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToModeValueInfoInvokeResponseMapOutput() ModeValueInfoInvokeResponseMapOutput
+	ToModeValueInfoInvokeResponseMapOutputWithContext(context.Context) ModeValueInfoInvokeResponseMapOutput
+}
+
+type ModeValueInfoInvokeResponseMap map[string]ModeValueInfoInvokeResponseInput
+
+func (ModeValueInfoInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ModeValueInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ModeValueInfoInvokeResponseMap) ToModeValueInfoInvokeResponseMapOutput() ModeValueInfoInvokeResponseMapOutput {
+	return i.ToModeValueInfoInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i ModeValueInfoInvokeResponseMap) ToModeValueInfoInvokeResponseMapOutputWithContext(ctx context.Context) ModeValueInfoInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModeValueInfoInvokeResponseMapOutput)
+}
+
+// Nested parameter definition.
+type ModeValueInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ModeValueInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModeValueInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ModeValueInfoInvokeResponseOutput) ToModeValueInfoInvokeResponseOutput() ModeValueInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ModeValueInfoInvokeResponseOutput) ToModeValueInfoInvokeResponseOutputWithContext(ctx context.Context) ModeValueInfoInvokeResponseOutput {
+	return o
+}
+
+// The interface string name for the nested parameter.
+func (o ModeValueInfoInvokeResponseOutput) InterfaceString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModeValueInfoInvokeResponse) *string { return v.InterfaceString }).(pulumi.StringPtrOutput)
+}
+
+// The definition of the parameter.
+func (o ModeValueInfoInvokeResponseOutput) Parameters() ModuleAssetParameterInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ModeValueInfoInvokeResponse) []ModuleAssetParameterInvokeResponse { return v.Parameters }).(ModuleAssetParameterInvokeResponseArrayOutput)
+}
+
+type ModeValueInfoInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ModeValueInfoInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ModeValueInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ModeValueInfoInvokeResponseMapOutput) ToModeValueInfoInvokeResponseMapOutput() ModeValueInfoInvokeResponseMapOutput {
+	return o
+}
+
+func (o ModeValueInfoInvokeResponseMapOutput) ToModeValueInfoInvokeResponseMapOutputWithContext(ctx context.Context) ModeValueInfoInvokeResponseMapOutput {
+	return o
+}
+
+func (o ModeValueInfoInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) ModeValueInfoInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ModeValueInfoInvokeResponse {
+		return vs[0].(map[string]ModeValueInfoInvokeResponse)[vs[1].(string)]
+	}).(ModeValueInfoInvokeResponseOutput)
+}
+
+// Nested parameter definition.
 type ModeValueInfoResponse struct {
 	// The interface string name for the nested parameter.
 	InterfaceString *string `pulumi:"interfaceString"`
@@ -4032,6 +5969,126 @@ func (o ModuleAssetParameterArrayOutput) Index(i pulumi.IntInput) ModuleAssetPar
 }
 
 // Parameter definition for a module asset.
+type ModuleAssetParameterInvokeResponse struct {
+	// Definitions for nested interface parameters if this is a complex module parameter.
+	ModeValuesInfo map[string]ModeValueInfoInvokeResponse `pulumi:"modeValuesInfo"`
+	// Parameter name.
+	Name *string `pulumi:"name"`
+	// Parameter type.
+	ParameterType *string `pulumi:"parameterType"`
+}
+
+// ModuleAssetParameterInvokeResponseInput is an input type that accepts ModuleAssetParameterInvokeResponseArgs and ModuleAssetParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `ModuleAssetParameterInvokeResponseInput` via:
+//
+//          ModuleAssetParameterInvokeResponseArgs{...}
+type ModuleAssetParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToModuleAssetParameterInvokeResponseOutput() ModuleAssetParameterInvokeResponseOutput
+	ToModuleAssetParameterInvokeResponseOutputWithContext(context.Context) ModuleAssetParameterInvokeResponseOutput
+}
+
+// Parameter definition for a module asset.
+type ModuleAssetParameterInvokeResponseArgs struct {
+	// Definitions for nested interface parameters if this is a complex module parameter.
+	ModeValuesInfo ModeValueInfoInvokeResponseMapInput `pulumi:"modeValuesInfo"`
+	// Parameter name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Parameter type.
+	ParameterType pulumi.StringPtrInput `pulumi:"parameterType"`
+}
+
+func (ModuleAssetParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleAssetParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i ModuleAssetParameterInvokeResponseArgs) ToModuleAssetParameterInvokeResponseOutput() ModuleAssetParameterInvokeResponseOutput {
+	return i.ToModuleAssetParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ModuleAssetParameterInvokeResponseArgs) ToModuleAssetParameterInvokeResponseOutputWithContext(ctx context.Context) ModuleAssetParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleAssetParameterInvokeResponseOutput)
+}
+
+// ModuleAssetParameterInvokeResponseArrayInput is an input type that accepts ModuleAssetParameterInvokeResponseArray and ModuleAssetParameterInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ModuleAssetParameterInvokeResponseArrayInput` via:
+//
+//          ModuleAssetParameterInvokeResponseArray{ ModuleAssetParameterInvokeResponseArgs{...} }
+type ModuleAssetParameterInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToModuleAssetParameterInvokeResponseArrayOutput() ModuleAssetParameterInvokeResponseArrayOutput
+	ToModuleAssetParameterInvokeResponseArrayOutputWithContext(context.Context) ModuleAssetParameterInvokeResponseArrayOutput
+}
+
+type ModuleAssetParameterInvokeResponseArray []ModuleAssetParameterInvokeResponseInput
+
+func (ModuleAssetParameterInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModuleAssetParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i ModuleAssetParameterInvokeResponseArray) ToModuleAssetParameterInvokeResponseArrayOutput() ModuleAssetParameterInvokeResponseArrayOutput {
+	return i.ToModuleAssetParameterInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ModuleAssetParameterInvokeResponseArray) ToModuleAssetParameterInvokeResponseArrayOutputWithContext(ctx context.Context) ModuleAssetParameterInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleAssetParameterInvokeResponseArrayOutput)
+}
+
+// Parameter definition for a module asset.
+type ModuleAssetParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ModuleAssetParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleAssetParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o ModuleAssetParameterInvokeResponseOutput) ToModuleAssetParameterInvokeResponseOutput() ModuleAssetParameterInvokeResponseOutput {
+	return o
+}
+
+func (o ModuleAssetParameterInvokeResponseOutput) ToModuleAssetParameterInvokeResponseOutputWithContext(ctx context.Context) ModuleAssetParameterInvokeResponseOutput {
+	return o
+}
+
+// Definitions for nested interface parameters if this is a complex module parameter.
+func (o ModuleAssetParameterInvokeResponseOutput) ModeValuesInfo() ModeValueInfoInvokeResponseMapOutput {
+	return o.ApplyT(func(v ModuleAssetParameterInvokeResponse) map[string]ModeValueInfoInvokeResponse {
+		return v.ModeValuesInfo
+	}).(ModeValueInfoInvokeResponseMapOutput)
+}
+
+// Parameter name.
+func (o ModuleAssetParameterInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleAssetParameterInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Parameter type.
+func (o ModuleAssetParameterInvokeResponseOutput) ParameterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleAssetParameterInvokeResponse) *string { return v.ParameterType }).(pulumi.StringPtrOutput)
+}
+
+type ModuleAssetParameterInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ModuleAssetParameterInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModuleAssetParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o ModuleAssetParameterInvokeResponseArrayOutput) ToModuleAssetParameterInvokeResponseArrayOutput() ModuleAssetParameterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ModuleAssetParameterInvokeResponseArrayOutput) ToModuleAssetParameterInvokeResponseArrayOutputWithContext(ctx context.Context) ModuleAssetParameterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ModuleAssetParameterInvokeResponseArrayOutput) Index(i pulumi.IntInput) ModuleAssetParameterInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModuleAssetParameterInvokeResponse {
+		return vs[0].([]ModuleAssetParameterInvokeResponse)[vs[1].(int)]
+	}).(ModuleAssetParameterInvokeResponseOutput)
+}
+
+// Parameter definition for a module asset.
 type ModuleAssetParameterResponse struct {
 	// Definitions for nested interface parameters if this is a complex module parameter.
 	ModeValuesInfo map[string]ModeValueInfoResponse `pulumi:"modeValuesInfo"`
@@ -4250,6 +6307,106 @@ func (o OutputPortMapOutput) MapIndex(k pulumi.StringInput) OutputPortOutput {
 }
 
 // Asset output port
+type OutputPortInvokeResponse struct {
+	// Port data type.
+	Type *string `pulumi:"type"`
+}
+
+// OutputPortInvokeResponseInput is an input type that accepts OutputPortInvokeResponseArgs and OutputPortInvokeResponseOutput values.
+// You can construct a concrete instance of `OutputPortInvokeResponseInput` via:
+//
+//          OutputPortInvokeResponseArgs{...}
+type OutputPortInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOutputPortInvokeResponseOutput() OutputPortInvokeResponseOutput
+	ToOutputPortInvokeResponseOutputWithContext(context.Context) OutputPortInvokeResponseOutput
+}
+
+// Asset output port
+type OutputPortInvokeResponseArgs struct {
+	// Port data type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (OutputPortInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputPortInvokeResponse)(nil)).Elem()
+}
+
+func (i OutputPortInvokeResponseArgs) ToOutputPortInvokeResponseOutput() OutputPortInvokeResponseOutput {
+	return i.ToOutputPortInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OutputPortInvokeResponseArgs) ToOutputPortInvokeResponseOutputWithContext(ctx context.Context) OutputPortInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputPortInvokeResponseOutput)
+}
+
+// OutputPortInvokeResponseMapInput is an input type that accepts OutputPortInvokeResponseMap and OutputPortInvokeResponseMapOutput values.
+// You can construct a concrete instance of `OutputPortInvokeResponseMapInput` via:
+//
+//          OutputPortInvokeResponseMap{ "key": OutputPortInvokeResponseArgs{...} }
+type OutputPortInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToOutputPortInvokeResponseMapOutput() OutputPortInvokeResponseMapOutput
+	ToOutputPortInvokeResponseMapOutputWithContext(context.Context) OutputPortInvokeResponseMapOutput
+}
+
+type OutputPortInvokeResponseMap map[string]OutputPortInvokeResponseInput
+
+func (OutputPortInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutputPortInvokeResponse)(nil)).Elem()
+}
+
+func (i OutputPortInvokeResponseMap) ToOutputPortInvokeResponseMapOutput() OutputPortInvokeResponseMapOutput {
+	return i.ToOutputPortInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i OutputPortInvokeResponseMap) ToOutputPortInvokeResponseMapOutputWithContext(ctx context.Context) OutputPortInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputPortInvokeResponseMapOutput)
+}
+
+// Asset output port
+type OutputPortInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OutputPortInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputPortInvokeResponse)(nil)).Elem()
+}
+
+func (o OutputPortInvokeResponseOutput) ToOutputPortInvokeResponseOutput() OutputPortInvokeResponseOutput {
+	return o
+}
+
+func (o OutputPortInvokeResponseOutput) ToOutputPortInvokeResponseOutputWithContext(ctx context.Context) OutputPortInvokeResponseOutput {
+	return o
+}
+
+// Port data type.
+func (o OutputPortInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutputPortInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type OutputPortInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (OutputPortInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]OutputPortInvokeResponse)(nil)).Elem()
+}
+
+func (o OutputPortInvokeResponseMapOutput) ToOutputPortInvokeResponseMapOutput() OutputPortInvokeResponseMapOutput {
+	return o
+}
+
+func (o OutputPortInvokeResponseMapOutput) ToOutputPortInvokeResponseMapOutputWithContext(ctx context.Context) OutputPortInvokeResponseMapOutput {
+	return o
+}
+
+func (o OutputPortInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) OutputPortInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputPortInvokeResponse {
+		return vs[0].(map[string]OutputPortInvokeResponse)[vs[1].(string)]
+	}).(OutputPortInvokeResponseOutput)
+}
+
+// Asset output port
 type OutputPortResponse struct {
 	// Port data type.
 	Type *string `pulumi:"type"`
@@ -4347,6 +6504,133 @@ func (o OutputPortResponseMapOutput) MapIndex(k pulumi.StringInput) OutputPortRe
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OutputPortResponse {
 		return vs[0].(map[string]OutputPortResponse)[vs[1].(string)]
 	}).(OutputPortResponseOutput)
+}
+
+// Represents the quantity a commitment plan provides of a metered resource.
+type PlanQuantityInvokeResponse struct {
+	// The quantity added to the commitment plan at an interval specified by its allowance frequency.
+	Allowance float64 `pulumi:"allowance"`
+	// The quantity available to the plan the last time usage was calculated.
+	Amount float64 `pulumi:"amount"`
+	// The Azure meter for usage against included quantities.
+	IncludedQuantityMeter string `pulumi:"includedQuantityMeter"`
+	// The Azure meter for usage which exceeds included quantities.
+	OverageMeter string `pulumi:"overageMeter"`
+}
+
+// PlanQuantityInvokeResponseInput is an input type that accepts PlanQuantityInvokeResponseArgs and PlanQuantityInvokeResponseOutput values.
+// You can construct a concrete instance of `PlanQuantityInvokeResponseInput` via:
+//
+//          PlanQuantityInvokeResponseArgs{...}
+type PlanQuantityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPlanQuantityInvokeResponseOutput() PlanQuantityInvokeResponseOutput
+	ToPlanQuantityInvokeResponseOutputWithContext(context.Context) PlanQuantityInvokeResponseOutput
+}
+
+// Represents the quantity a commitment plan provides of a metered resource.
+type PlanQuantityInvokeResponseArgs struct {
+	// The quantity added to the commitment plan at an interval specified by its allowance frequency.
+	Allowance pulumi.Float64Input `pulumi:"allowance"`
+	// The quantity available to the plan the last time usage was calculated.
+	Amount pulumi.Float64Input `pulumi:"amount"`
+	// The Azure meter for usage against included quantities.
+	IncludedQuantityMeter pulumi.StringInput `pulumi:"includedQuantityMeter"`
+	// The Azure meter for usage which exceeds included quantities.
+	OverageMeter pulumi.StringInput `pulumi:"overageMeter"`
+}
+
+func (PlanQuantityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanQuantityInvokeResponse)(nil)).Elem()
+}
+
+func (i PlanQuantityInvokeResponseArgs) ToPlanQuantityInvokeResponseOutput() PlanQuantityInvokeResponseOutput {
+	return i.ToPlanQuantityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PlanQuantityInvokeResponseArgs) ToPlanQuantityInvokeResponseOutputWithContext(ctx context.Context) PlanQuantityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanQuantityInvokeResponseOutput)
+}
+
+// PlanQuantityInvokeResponseMapInput is an input type that accepts PlanQuantityInvokeResponseMap and PlanQuantityInvokeResponseMapOutput values.
+// You can construct a concrete instance of `PlanQuantityInvokeResponseMapInput` via:
+//
+//          PlanQuantityInvokeResponseMap{ "key": PlanQuantityInvokeResponseArgs{...} }
+type PlanQuantityInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToPlanQuantityInvokeResponseMapOutput() PlanQuantityInvokeResponseMapOutput
+	ToPlanQuantityInvokeResponseMapOutputWithContext(context.Context) PlanQuantityInvokeResponseMapOutput
+}
+
+type PlanQuantityInvokeResponseMap map[string]PlanQuantityInvokeResponseInput
+
+func (PlanQuantityInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PlanQuantityInvokeResponse)(nil)).Elem()
+}
+
+func (i PlanQuantityInvokeResponseMap) ToPlanQuantityInvokeResponseMapOutput() PlanQuantityInvokeResponseMapOutput {
+	return i.ToPlanQuantityInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i PlanQuantityInvokeResponseMap) ToPlanQuantityInvokeResponseMapOutputWithContext(ctx context.Context) PlanQuantityInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanQuantityInvokeResponseMapOutput)
+}
+
+// Represents the quantity a commitment plan provides of a metered resource.
+type PlanQuantityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PlanQuantityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanQuantityInvokeResponse)(nil)).Elem()
+}
+
+func (o PlanQuantityInvokeResponseOutput) ToPlanQuantityInvokeResponseOutput() PlanQuantityInvokeResponseOutput {
+	return o
+}
+
+func (o PlanQuantityInvokeResponseOutput) ToPlanQuantityInvokeResponseOutputWithContext(ctx context.Context) PlanQuantityInvokeResponseOutput {
+	return o
+}
+
+// The quantity added to the commitment plan at an interval specified by its allowance frequency.
+func (o PlanQuantityInvokeResponseOutput) Allowance() pulumi.Float64Output {
+	return o.ApplyT(func(v PlanQuantityInvokeResponse) float64 { return v.Allowance }).(pulumi.Float64Output)
+}
+
+// The quantity available to the plan the last time usage was calculated.
+func (o PlanQuantityInvokeResponseOutput) Amount() pulumi.Float64Output {
+	return o.ApplyT(func(v PlanQuantityInvokeResponse) float64 { return v.Amount }).(pulumi.Float64Output)
+}
+
+// The Azure meter for usage against included quantities.
+func (o PlanQuantityInvokeResponseOutput) IncludedQuantityMeter() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanQuantityInvokeResponse) string { return v.IncludedQuantityMeter }).(pulumi.StringOutput)
+}
+
+// The Azure meter for usage which exceeds included quantities.
+func (o PlanQuantityInvokeResponseOutput) OverageMeter() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanQuantityInvokeResponse) string { return v.OverageMeter }).(pulumi.StringOutput)
+}
+
+type PlanQuantityInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (PlanQuantityInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PlanQuantityInvokeResponse)(nil)).Elem()
+}
+
+func (o PlanQuantityInvokeResponseMapOutput) ToPlanQuantityInvokeResponseMapOutput() PlanQuantityInvokeResponseMapOutput {
+	return o
+}
+
+func (o PlanQuantityInvokeResponseMapOutput) ToPlanQuantityInvokeResponseMapOutputWithContext(ctx context.Context) PlanQuantityInvokeResponseMapOutput {
+	return o
+}
+
+func (o PlanQuantityInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) PlanQuantityInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PlanQuantityInvokeResponse {
+		return vs[0].(map[string]PlanQuantityInvokeResponse)[vs[1].(string)]
+	}).(PlanQuantityInvokeResponseOutput)
 }
 
 // Represents the quantity a commitment plan provides of a metered resource.
@@ -4603,6 +6887,140 @@ func (o RealtimeConfigurationPtrOutput) Elem() RealtimeConfigurationOutput {
 // Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
 func (o RealtimeConfigurationPtrOutput) MaxConcurrentCalls() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RealtimeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentCalls
+	}).(pulumi.IntPtrOutput)
+}
+
+// Holds the available configuration options for an Azure ML web service endpoint.
+type RealtimeConfigurationInvokeResponse struct {
+	// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
+	MaxConcurrentCalls *int `pulumi:"maxConcurrentCalls"`
+}
+
+// RealtimeConfigurationInvokeResponseInput is an input type that accepts RealtimeConfigurationInvokeResponseArgs and RealtimeConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `RealtimeConfigurationInvokeResponseInput` via:
+//
+//          RealtimeConfigurationInvokeResponseArgs{...}
+type RealtimeConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRealtimeConfigurationInvokeResponseOutput() RealtimeConfigurationInvokeResponseOutput
+	ToRealtimeConfigurationInvokeResponseOutputWithContext(context.Context) RealtimeConfigurationInvokeResponseOutput
+}
+
+// Holds the available configuration options for an Azure ML web service endpoint.
+type RealtimeConfigurationInvokeResponseArgs struct {
+	// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
+	MaxConcurrentCalls pulumi.IntPtrInput `pulumi:"maxConcurrentCalls"`
+}
+
+func (RealtimeConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i RealtimeConfigurationInvokeResponseArgs) ToRealtimeConfigurationInvokeResponseOutput() RealtimeConfigurationInvokeResponseOutput {
+	return i.ToRealtimeConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RealtimeConfigurationInvokeResponseArgs) ToRealtimeConfigurationInvokeResponseOutputWithContext(ctx context.Context) RealtimeConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeConfigurationInvokeResponseOutput)
+}
+
+func (i RealtimeConfigurationInvokeResponseArgs) ToRealtimeConfigurationInvokeResponsePtrOutput() RealtimeConfigurationInvokeResponsePtrOutput {
+	return i.ToRealtimeConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RealtimeConfigurationInvokeResponseArgs) ToRealtimeConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) RealtimeConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeConfigurationInvokeResponseOutput).ToRealtimeConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// RealtimeConfigurationInvokeResponsePtrInput is an input type that accepts RealtimeConfigurationInvokeResponseArgs, RealtimeConfigurationInvokeResponsePtr and RealtimeConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `RealtimeConfigurationInvokeResponsePtrInput` via:
+//
+//          RealtimeConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RealtimeConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToRealtimeConfigurationInvokeResponsePtrOutput() RealtimeConfigurationInvokeResponsePtrOutput
+	ToRealtimeConfigurationInvokeResponsePtrOutputWithContext(context.Context) RealtimeConfigurationInvokeResponsePtrOutput
+}
+
+type realtimeConfigurationInvokeResponsePtrType RealtimeConfigurationInvokeResponseArgs
+
+func RealtimeConfigurationInvokeResponsePtr(v *RealtimeConfigurationInvokeResponseArgs) RealtimeConfigurationInvokeResponsePtrInput {
+	return (*realtimeConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*realtimeConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RealtimeConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *realtimeConfigurationInvokeResponsePtrType) ToRealtimeConfigurationInvokeResponsePtrOutput() RealtimeConfigurationInvokeResponsePtrOutput {
+	return i.ToRealtimeConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *realtimeConfigurationInvokeResponsePtrType) ToRealtimeConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) RealtimeConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RealtimeConfigurationInvokeResponsePtrOutput)
+}
+
+// Holds the available configuration options for an Azure ML web service endpoint.
+type RealtimeConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RealtimeConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RealtimeConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o RealtimeConfigurationInvokeResponseOutput) ToRealtimeConfigurationInvokeResponseOutput() RealtimeConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o RealtimeConfigurationInvokeResponseOutput) ToRealtimeConfigurationInvokeResponseOutputWithContext(ctx context.Context) RealtimeConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o RealtimeConfigurationInvokeResponseOutput) ToRealtimeConfigurationInvokeResponsePtrOutput() RealtimeConfigurationInvokeResponsePtrOutput {
+	return o.ToRealtimeConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RealtimeConfigurationInvokeResponseOutput) ToRealtimeConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) RealtimeConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RealtimeConfigurationInvokeResponse) *RealtimeConfigurationInvokeResponse {
+		return &v
+	}).(RealtimeConfigurationInvokeResponsePtrOutput)
+}
+
+// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
+func (o RealtimeConfigurationInvokeResponseOutput) MaxConcurrentCalls() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RealtimeConfigurationInvokeResponse) *int { return v.MaxConcurrentCalls }).(pulumi.IntPtrOutput)
+}
+
+type RealtimeConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RealtimeConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RealtimeConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o RealtimeConfigurationInvokeResponsePtrOutput) ToRealtimeConfigurationInvokeResponsePtrOutput() RealtimeConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RealtimeConfigurationInvokeResponsePtrOutput) ToRealtimeConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) RealtimeConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RealtimeConfigurationInvokeResponsePtrOutput) Elem() RealtimeConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *RealtimeConfigurationInvokeResponse) RealtimeConfigurationInvokeResponse { return *v }).(RealtimeConfigurationInvokeResponseOutput)
+}
+
+// Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
+func (o RealtimeConfigurationInvokeResponsePtrOutput) MaxConcurrentCalls() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RealtimeConfigurationInvokeResponse) *int {
 		if v == nil {
 			return nil
 		}
@@ -4914,6 +7332,79 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// The SKU of a resource.
+type ResourceSkuInvokeResponse struct {
+	// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
+	Capacity *int `pulumi:"capacity"`
+	// The SKU name. Along with tier, uniquely identifies the SKU.
+	Name *string `pulumi:"name"`
+	// The SKU tier. Along with name, uniquely identifies the SKU.
+	Tier *string `pulumi:"tier"`
+}
+
+// ResourceSkuInvokeResponseInput is an input type that accepts ResourceSkuInvokeResponseArgs and ResourceSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceSkuInvokeResponseInput` via:
+//
+//          ResourceSkuInvokeResponseArgs{...}
+type ResourceSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput
+	ToResourceSkuInvokeResponseOutputWithContext(context.Context) ResourceSkuInvokeResponseOutput
+}
+
+// The SKU of a resource.
+type ResourceSkuInvokeResponseArgs struct {
+	// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The SKU name. Along with tier, uniquely identifies the SKU.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The SKU tier. Along with name, uniquely identifies the SKU.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (ResourceSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return i.ToResourceSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuInvokeResponseOutput)
+}
+
+// The SKU of a resource.
+type ResourceSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+// The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
+func (o ResourceSkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The SKU name. Along with tier, uniquely identifies the SKU.
+func (o ResourceSkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The SKU tier. Along with name, uniquely identifies the SKU.
+func (o ResourceSkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 // The SKU of a resource.
@@ -5280,6 +7771,201 @@ func (o ServiceInputOutputSpecificationPtrOutput) Type() pulumi.StringPtrOutput 
 }
 
 // The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
+type ServiceInputOutputSpecificationInvokeResponse struct {
+	// The description of the Swagger schema.
+	Description *string `pulumi:"description"`
+	// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
+	Properties map[string]TableSpecificationInvokeResponse `pulumi:"properties"`
+	// The title of your Swagger schema.
+	Title *string `pulumi:"title"`
+	// The type of the entity described in swagger. Always 'object'.
+	Type string `pulumi:"type"`
+}
+
+// ServiceInputOutputSpecificationInvokeResponseInput is an input type that accepts ServiceInputOutputSpecificationInvokeResponseArgs and ServiceInputOutputSpecificationInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceInputOutputSpecificationInvokeResponseInput` via:
+//
+//          ServiceInputOutputSpecificationInvokeResponseArgs{...}
+type ServiceInputOutputSpecificationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceInputOutputSpecificationInvokeResponseOutput() ServiceInputOutputSpecificationInvokeResponseOutput
+	ToServiceInputOutputSpecificationInvokeResponseOutputWithContext(context.Context) ServiceInputOutputSpecificationInvokeResponseOutput
+}
+
+// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
+type ServiceInputOutputSpecificationInvokeResponseArgs struct {
+	// The description of the Swagger schema.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
+	Properties TableSpecificationInvokeResponseMapInput `pulumi:"properties"`
+	// The title of your Swagger schema.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The type of the entity described in swagger. Always 'object'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ServiceInputOutputSpecificationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceInputOutputSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceInputOutputSpecificationInvokeResponseArgs) ToServiceInputOutputSpecificationInvokeResponseOutput() ServiceInputOutputSpecificationInvokeResponseOutput {
+	return i.ToServiceInputOutputSpecificationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceInputOutputSpecificationInvokeResponseArgs) ToServiceInputOutputSpecificationInvokeResponseOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceInputOutputSpecificationInvokeResponseOutput)
+}
+
+func (i ServiceInputOutputSpecificationInvokeResponseArgs) ToServiceInputOutputSpecificationInvokeResponsePtrOutput() ServiceInputOutputSpecificationInvokeResponsePtrOutput {
+	return i.ToServiceInputOutputSpecificationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceInputOutputSpecificationInvokeResponseArgs) ToServiceInputOutputSpecificationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceInputOutputSpecificationInvokeResponseOutput).ToServiceInputOutputSpecificationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceInputOutputSpecificationInvokeResponsePtrInput is an input type that accepts ServiceInputOutputSpecificationInvokeResponseArgs, ServiceInputOutputSpecificationInvokeResponsePtr and ServiceInputOutputSpecificationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceInputOutputSpecificationInvokeResponsePtrInput` via:
+//
+//          ServiceInputOutputSpecificationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceInputOutputSpecificationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceInputOutputSpecificationInvokeResponsePtrOutput() ServiceInputOutputSpecificationInvokeResponsePtrOutput
+	ToServiceInputOutputSpecificationInvokeResponsePtrOutputWithContext(context.Context) ServiceInputOutputSpecificationInvokeResponsePtrOutput
+}
+
+type serviceInputOutputSpecificationInvokeResponsePtrType ServiceInputOutputSpecificationInvokeResponseArgs
+
+func ServiceInputOutputSpecificationInvokeResponsePtr(v *ServiceInputOutputSpecificationInvokeResponseArgs) ServiceInputOutputSpecificationInvokeResponsePtrInput {
+	return (*serviceInputOutputSpecificationInvokeResponsePtrType)(v)
+}
+
+func (*serviceInputOutputSpecificationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceInputOutputSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (i *serviceInputOutputSpecificationInvokeResponsePtrType) ToServiceInputOutputSpecificationInvokeResponsePtrOutput() ServiceInputOutputSpecificationInvokeResponsePtrOutput {
+	return i.ToServiceInputOutputSpecificationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceInputOutputSpecificationInvokeResponsePtrType) ToServiceInputOutputSpecificationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceInputOutputSpecificationInvokeResponsePtrOutput)
+}
+
+// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
+type ServiceInputOutputSpecificationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceInputOutputSpecificationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceInputOutputSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceInputOutputSpecificationInvokeResponseOutput) ToServiceInputOutputSpecificationInvokeResponseOutput() ServiceInputOutputSpecificationInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceInputOutputSpecificationInvokeResponseOutput) ToServiceInputOutputSpecificationInvokeResponseOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceInputOutputSpecificationInvokeResponseOutput) ToServiceInputOutputSpecificationInvokeResponsePtrOutput() ServiceInputOutputSpecificationInvokeResponsePtrOutput {
+	return o.ToServiceInputOutputSpecificationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceInputOutputSpecificationInvokeResponseOutput) ToServiceInputOutputSpecificationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceInputOutputSpecificationInvokeResponse) *ServiceInputOutputSpecificationInvokeResponse {
+		return &v
+	}).(ServiceInputOutputSpecificationInvokeResponsePtrOutput)
+}
+
+// The description of the Swagger schema.
+func (o ServiceInputOutputSpecificationInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceInputOutputSpecificationInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
+func (o ServiceInputOutputSpecificationInvokeResponseOutput) Properties() TableSpecificationInvokeResponseMapOutput {
+	return o.ApplyT(func(v ServiceInputOutputSpecificationInvokeResponse) map[string]TableSpecificationInvokeResponse {
+		return v.Properties
+	}).(TableSpecificationInvokeResponseMapOutput)
+}
+
+// The title of your Swagger schema.
+func (o ServiceInputOutputSpecificationInvokeResponseOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceInputOutputSpecificationInvokeResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The type of the entity described in swagger. Always 'object'.
+func (o ServiceInputOutputSpecificationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceInputOutputSpecificationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ServiceInputOutputSpecificationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceInputOutputSpecificationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceInputOutputSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceInputOutputSpecificationInvokeResponsePtrOutput) ToServiceInputOutputSpecificationInvokeResponsePtrOutput() ServiceInputOutputSpecificationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceInputOutputSpecificationInvokeResponsePtrOutput) ToServiceInputOutputSpecificationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceInputOutputSpecificationInvokeResponsePtrOutput) Elem() ServiceInputOutputSpecificationInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceInputOutputSpecificationInvokeResponse) ServiceInputOutputSpecificationInvokeResponse {
+		return *v
+	}).(ServiceInputOutputSpecificationInvokeResponseOutput)
+}
+
+// The description of the Swagger schema.
+func (o ServiceInputOutputSpecificationInvokeResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceInputOutputSpecificationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a collection that contains the column schema for each input or output of the web service. For more information, see the Swagger specification.
+func (o ServiceInputOutputSpecificationInvokeResponsePtrOutput) Properties() TableSpecificationInvokeResponseMapOutput {
+	return o.ApplyT(func(v *ServiceInputOutputSpecificationInvokeResponse) map[string]TableSpecificationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(TableSpecificationInvokeResponseMapOutput)
+}
+
+// The title of your Swagger schema.
+func (o ServiceInputOutputSpecificationInvokeResponsePtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceInputOutputSpecificationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the entity described in swagger. Always 'object'.
+func (o ServiceInputOutputSpecificationInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceInputOutputSpecificationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
 type ServiceInputOutputSpecificationResponse struct {
 	// The description of the Swagger schema.
 	Description *string `pulumi:"description"`
@@ -5626,6 +8312,159 @@ func (o StorageAccountPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Access information for a storage account.
+type StorageAccountInvokeResponse struct {
+	// Specifies the key used to access the storage account.
+	Key *string `pulumi:"key"`
+	// Specifies the name of the storage account.
+	Name *string `pulumi:"name"`
+}
+
+// StorageAccountInvokeResponseInput is an input type that accepts StorageAccountInvokeResponseArgs and StorageAccountInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountInvokeResponseInput` via:
+//
+//          StorageAccountInvokeResponseArgs{...}
+type StorageAccountInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput
+	ToStorageAccountInvokeResponseOutputWithContext(context.Context) StorageAccountInvokeResponseOutput
+}
+
+// Access information for a storage account.
+type StorageAccountInvokeResponseArgs struct {
+	// Specifies the key used to access the storage account.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Specifies the name of the storage account.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (StorageAccountInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput {
+	return i.ToStorageAccountInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponseOutputWithContext(ctx context.Context) StorageAccountInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInvokeResponseOutput)
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponsePtrOutput() StorageAccountInvokeResponsePtrOutput {
+	return i.ToStorageAccountInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponsePtrOutputWithContext(ctx context.Context) StorageAccountInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInvokeResponseOutput).ToStorageAccountInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// StorageAccountInvokeResponsePtrInput is an input type that accepts StorageAccountInvokeResponseArgs, StorageAccountInvokeResponsePtr and StorageAccountInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `StorageAccountInvokeResponsePtrInput` via:
+//
+//          StorageAccountInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageAccountInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToStorageAccountInvokeResponsePtrOutput() StorageAccountInvokeResponsePtrOutput
+	ToStorageAccountInvokeResponsePtrOutputWithContext(context.Context) StorageAccountInvokeResponsePtrOutput
+}
+
+type storageAccountInvokeResponsePtrType StorageAccountInvokeResponseArgs
+
+func StorageAccountInvokeResponsePtr(v *StorageAccountInvokeResponseArgs) StorageAccountInvokeResponsePtrInput {
+	return (*storageAccountInvokeResponsePtrType)(v)
+}
+
+func (*storageAccountInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i *storageAccountInvokeResponsePtrType) ToStorageAccountInvokeResponsePtrOutput() StorageAccountInvokeResponsePtrOutput {
+	return i.ToStorageAccountInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *storageAccountInvokeResponsePtrType) ToStorageAccountInvokeResponsePtrOutputWithContext(ctx context.Context) StorageAccountInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInvokeResponsePtrOutput)
+}
+
+// Access information for a storage account.
+type StorageAccountInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponseOutputWithContext(ctx context.Context) StorageAccountInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponsePtrOutput() StorageAccountInvokeResponsePtrOutput {
+	return o.ToStorageAccountInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponsePtrOutputWithContext(ctx context.Context) StorageAccountInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StorageAccountInvokeResponse) *StorageAccountInvokeResponse {
+		return &v
+	}).(StorageAccountInvokeResponsePtrOutput)
+}
+
+// Specifies the key used to access the storage account.
+func (o StorageAccountInvokeResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountInvokeResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the storage account.
+func (o StorageAccountInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type StorageAccountInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountInvokeResponsePtrOutput) ToStorageAccountInvokeResponsePtrOutput() StorageAccountInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponsePtrOutput) ToStorageAccountInvokeResponsePtrOutputWithContext(ctx context.Context) StorageAccountInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponsePtrOutput) Elem() StorageAccountInvokeResponseOutput {
+	return o.ApplyT(func(v *StorageAccountInvokeResponse) StorageAccountInvokeResponse { return *v }).(StorageAccountInvokeResponseOutput)
+}
+
+// Specifies the key used to access the storage account.
+func (o StorageAccountInvokeResponsePtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the storage account.
+func (o StorageAccountInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Access information for a storage account.
 type StorageAccountResponse struct {
 	// Specifies the key used to access the storage account.
 	Key *string `pulumi:"key"`
@@ -5915,6 +8754,144 @@ func (o TableSpecificationMapOutput) MapIndex(k pulumi.StringInput) TableSpecifi
 }
 
 // The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+type TableSpecificationInvokeResponse struct {
+	// Swagger schema description.
+	Description *string `pulumi:"description"`
+	// The format, if 'type' is not 'object'
+	Format *string `pulumi:"format"`
+	// The set of columns within the data table.
+	Properties map[string]ColumnSpecificationInvokeResponse `pulumi:"properties"`
+	// Swagger schema title.
+	Title *string `pulumi:"title"`
+	// The type of the entity described in swagger.
+	Type string `pulumi:"type"`
+}
+
+// TableSpecificationInvokeResponseInput is an input type that accepts TableSpecificationInvokeResponseArgs and TableSpecificationInvokeResponseOutput values.
+// You can construct a concrete instance of `TableSpecificationInvokeResponseInput` via:
+//
+//          TableSpecificationInvokeResponseArgs{...}
+type TableSpecificationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTableSpecificationInvokeResponseOutput() TableSpecificationInvokeResponseOutput
+	ToTableSpecificationInvokeResponseOutputWithContext(context.Context) TableSpecificationInvokeResponseOutput
+}
+
+// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+type TableSpecificationInvokeResponseArgs struct {
+	// Swagger schema description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The format, if 'type' is not 'object'
+	Format pulumi.StringPtrInput `pulumi:"format"`
+	// The set of columns within the data table.
+	Properties ColumnSpecificationInvokeResponseMapInput `pulumi:"properties"`
+	// Swagger schema title.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+	// The type of the entity described in swagger.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TableSpecificationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (i TableSpecificationInvokeResponseArgs) ToTableSpecificationInvokeResponseOutput() TableSpecificationInvokeResponseOutput {
+	return i.ToTableSpecificationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TableSpecificationInvokeResponseArgs) ToTableSpecificationInvokeResponseOutputWithContext(ctx context.Context) TableSpecificationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSpecificationInvokeResponseOutput)
+}
+
+// TableSpecificationInvokeResponseMapInput is an input type that accepts TableSpecificationInvokeResponseMap and TableSpecificationInvokeResponseMapOutput values.
+// You can construct a concrete instance of `TableSpecificationInvokeResponseMapInput` via:
+//
+//          TableSpecificationInvokeResponseMap{ "key": TableSpecificationInvokeResponseArgs{...} }
+type TableSpecificationInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToTableSpecificationInvokeResponseMapOutput() TableSpecificationInvokeResponseMapOutput
+	ToTableSpecificationInvokeResponseMapOutputWithContext(context.Context) TableSpecificationInvokeResponseMapOutput
+}
+
+type TableSpecificationInvokeResponseMap map[string]TableSpecificationInvokeResponseInput
+
+func (TableSpecificationInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TableSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (i TableSpecificationInvokeResponseMap) ToTableSpecificationInvokeResponseMapOutput() TableSpecificationInvokeResponseMapOutput {
+	return i.ToTableSpecificationInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i TableSpecificationInvokeResponseMap) ToTableSpecificationInvokeResponseMapOutputWithContext(ctx context.Context) TableSpecificationInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSpecificationInvokeResponseMapOutput)
+}
+
+// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
+type TableSpecificationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TableSpecificationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (o TableSpecificationInvokeResponseOutput) ToTableSpecificationInvokeResponseOutput() TableSpecificationInvokeResponseOutput {
+	return o
+}
+
+func (o TableSpecificationInvokeResponseOutput) ToTableSpecificationInvokeResponseOutputWithContext(ctx context.Context) TableSpecificationInvokeResponseOutput {
+	return o
+}
+
+// Swagger schema description.
+func (o TableSpecificationInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSpecificationInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The format, if 'type' is not 'object'
+func (o TableSpecificationInvokeResponseOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSpecificationInvokeResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The set of columns within the data table.
+func (o TableSpecificationInvokeResponseOutput) Properties() ColumnSpecificationInvokeResponseMapOutput {
+	return o.ApplyT(func(v TableSpecificationInvokeResponse) map[string]ColumnSpecificationInvokeResponse {
+		return v.Properties
+	}).(ColumnSpecificationInvokeResponseMapOutput)
+}
+
+// Swagger schema title.
+func (o TableSpecificationInvokeResponseOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSpecificationInvokeResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The type of the entity described in swagger.
+func (o TableSpecificationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TableSpecificationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TableSpecificationInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (TableSpecificationInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TableSpecificationInvokeResponse)(nil)).Elem()
+}
+
+func (o TableSpecificationInvokeResponseMapOutput) ToTableSpecificationInvokeResponseMapOutput() TableSpecificationInvokeResponseMapOutput {
+	return o
+}
+
+func (o TableSpecificationInvokeResponseMapOutput) ToTableSpecificationInvokeResponseMapOutputWithContext(ctx context.Context) TableSpecificationInvokeResponseMapOutput {
+	return o
+}
+
+func (o TableSpecificationInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) TableSpecificationInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TableSpecificationInvokeResponse {
+		return vs[0].(map[string]TableSpecificationInvokeResponse)[vs[1].(string)]
+	}).(TableSpecificationInvokeResponseOutput)
+}
+
+// The swagger 2.0 schema describing a single service input or output. See Swagger specification: http://swagger.io/specification/
 type TableSpecificationResponse struct {
 	// Swagger schema description.
 	Description *string `pulumi:"description"`
@@ -6196,6 +9173,159 @@ func (o WebServiceKeysPtrOutput) Primary() pulumi.StringPtrOutput {
 // The secondary access key.
 func (o WebServiceKeysPtrOutput) Secondary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebServiceKeys) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Secondary
+	}).(pulumi.StringPtrOutput)
+}
+
+// Access keys for the web service calls.
+type WebServiceKeysInvokeResponse struct {
+	// The primary access key.
+	Primary *string `pulumi:"primary"`
+	// The secondary access key.
+	Secondary *string `pulumi:"secondary"`
+}
+
+// WebServiceKeysInvokeResponseInput is an input type that accepts WebServiceKeysInvokeResponseArgs and WebServiceKeysInvokeResponseOutput values.
+// You can construct a concrete instance of `WebServiceKeysInvokeResponseInput` via:
+//
+//          WebServiceKeysInvokeResponseArgs{...}
+type WebServiceKeysInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWebServiceKeysInvokeResponseOutput() WebServiceKeysInvokeResponseOutput
+	ToWebServiceKeysInvokeResponseOutputWithContext(context.Context) WebServiceKeysInvokeResponseOutput
+}
+
+// Access keys for the web service calls.
+type WebServiceKeysInvokeResponseArgs struct {
+	// The primary access key.
+	Primary pulumi.StringPtrInput `pulumi:"primary"`
+	// The secondary access key.
+	Secondary pulumi.StringPtrInput `pulumi:"secondary"`
+}
+
+func (WebServiceKeysInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServiceKeysInvokeResponse)(nil)).Elem()
+}
+
+func (i WebServiceKeysInvokeResponseArgs) ToWebServiceKeysInvokeResponseOutput() WebServiceKeysInvokeResponseOutput {
+	return i.ToWebServiceKeysInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WebServiceKeysInvokeResponseArgs) ToWebServiceKeysInvokeResponseOutputWithContext(ctx context.Context) WebServiceKeysInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServiceKeysInvokeResponseOutput)
+}
+
+func (i WebServiceKeysInvokeResponseArgs) ToWebServiceKeysInvokeResponsePtrOutput() WebServiceKeysInvokeResponsePtrOutput {
+	return i.ToWebServiceKeysInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WebServiceKeysInvokeResponseArgs) ToWebServiceKeysInvokeResponsePtrOutputWithContext(ctx context.Context) WebServiceKeysInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServiceKeysInvokeResponseOutput).ToWebServiceKeysInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WebServiceKeysInvokeResponsePtrInput is an input type that accepts WebServiceKeysInvokeResponseArgs, WebServiceKeysInvokeResponsePtr and WebServiceKeysInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WebServiceKeysInvokeResponsePtrInput` via:
+//
+//          WebServiceKeysInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WebServiceKeysInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWebServiceKeysInvokeResponsePtrOutput() WebServiceKeysInvokeResponsePtrOutput
+	ToWebServiceKeysInvokeResponsePtrOutputWithContext(context.Context) WebServiceKeysInvokeResponsePtrOutput
+}
+
+type webServiceKeysInvokeResponsePtrType WebServiceKeysInvokeResponseArgs
+
+func WebServiceKeysInvokeResponsePtr(v *WebServiceKeysInvokeResponseArgs) WebServiceKeysInvokeResponsePtrInput {
+	return (*webServiceKeysInvokeResponsePtrType)(v)
+}
+
+func (*webServiceKeysInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebServiceKeysInvokeResponse)(nil)).Elem()
+}
+
+func (i *webServiceKeysInvokeResponsePtrType) ToWebServiceKeysInvokeResponsePtrOutput() WebServiceKeysInvokeResponsePtrOutput {
+	return i.ToWebServiceKeysInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *webServiceKeysInvokeResponsePtrType) ToWebServiceKeysInvokeResponsePtrOutputWithContext(ctx context.Context) WebServiceKeysInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServiceKeysInvokeResponsePtrOutput)
+}
+
+// Access keys for the web service calls.
+type WebServiceKeysInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WebServiceKeysInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServiceKeysInvokeResponse)(nil)).Elem()
+}
+
+func (o WebServiceKeysInvokeResponseOutput) ToWebServiceKeysInvokeResponseOutput() WebServiceKeysInvokeResponseOutput {
+	return o
+}
+
+func (o WebServiceKeysInvokeResponseOutput) ToWebServiceKeysInvokeResponseOutputWithContext(ctx context.Context) WebServiceKeysInvokeResponseOutput {
+	return o
+}
+
+func (o WebServiceKeysInvokeResponseOutput) ToWebServiceKeysInvokeResponsePtrOutput() WebServiceKeysInvokeResponsePtrOutput {
+	return o.ToWebServiceKeysInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WebServiceKeysInvokeResponseOutput) ToWebServiceKeysInvokeResponsePtrOutputWithContext(ctx context.Context) WebServiceKeysInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServiceKeysInvokeResponse) *WebServiceKeysInvokeResponse {
+		return &v
+	}).(WebServiceKeysInvokeResponsePtrOutput)
+}
+
+// The primary access key.
+func (o WebServiceKeysInvokeResponseOutput) Primary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebServiceKeysInvokeResponse) *string { return v.Primary }).(pulumi.StringPtrOutput)
+}
+
+// The secondary access key.
+func (o WebServiceKeysInvokeResponseOutput) Secondary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebServiceKeysInvokeResponse) *string { return v.Secondary }).(pulumi.StringPtrOutput)
+}
+
+type WebServiceKeysInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WebServiceKeysInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebServiceKeysInvokeResponse)(nil)).Elem()
+}
+
+func (o WebServiceKeysInvokeResponsePtrOutput) ToWebServiceKeysInvokeResponsePtrOutput() WebServiceKeysInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WebServiceKeysInvokeResponsePtrOutput) ToWebServiceKeysInvokeResponsePtrOutputWithContext(ctx context.Context) WebServiceKeysInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WebServiceKeysInvokeResponsePtrOutput) Elem() WebServiceKeysInvokeResponseOutput {
+	return o.ApplyT(func(v *WebServiceKeysInvokeResponse) WebServiceKeysInvokeResponse { return *v }).(WebServiceKeysInvokeResponseOutput)
+}
+
+// The primary access key.
+func (o WebServiceKeysInvokeResponsePtrOutput) Primary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServiceKeysInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secondary access key.
+func (o WebServiceKeysInvokeResponsePtrOutput) Secondary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebServiceKeysInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -6799,6 +9929,260 @@ func (o WebServicePropertiesForGraphPtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 // Properties specific to a Graph based web service.
+type WebServicePropertiesForGraphInvokeResponse struct {
+	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
+	Assets map[string]AssetItemInvokeResponse `pulumi:"assets"`
+	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
+	CommitmentPlan *CommitmentPlanInvokeResponse `pulumi:"commitmentPlan"`
+	// Read Only: The date and time when the web service was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// The description of the web service.
+	Description *string `pulumi:"description"`
+	// Settings controlling the diagnostics traces collection for the web service.
+	Diagnostics *DiagnosticsConfigurationInvokeResponse `pulumi:"diagnostics"`
+	// Defines sample input data for one or more of the service's inputs.
+	ExampleRequest *ExampleRequestInvokeResponse `pulumi:"exampleRequest"`
+	// When set to true, sample data is included in the web service's swagger definition. The default value is true.
+	ExposeSampleData *bool `pulumi:"exposeSampleData"`
+	// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
+	Input *ServiceInputOutputSpecificationInvokeResponse `pulumi:"input"`
+	// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
+	Keys *WebServiceKeysInvokeResponse `pulumi:"keys"`
+	// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
+	MachineLearningWorkspace *MachineLearningWorkspaceInvokeResponse `pulumi:"machineLearningWorkspace"`
+	// Read Only: The date and time when the web service was last modified.
+	ModifiedOn string `pulumi:"modifiedOn"`
+	// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
+	Output *ServiceInputOutputSpecificationInvokeResponse `pulumi:"output"`
+	// The definition of the graph package making up this web service.
+	Package *GraphPackageInvokeResponse `pulumi:"package"`
+	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+	// Expected value is 'Graph'.
+	PackageType string `pulumi:"packageType"`
+	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// Contains the configuration settings for the web service endpoint.
+	RealtimeConfiguration *RealtimeConfigurationInvokeResponse `pulumi:"realtimeConfiguration"`
+	// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
+	StorageAccount *StorageAccountInvokeResponse `pulumi:"storageAccount"`
+	// Read Only: Contains the URI of the swagger spec associated with this web service.
+	SwaggerLocation string `pulumi:"swaggerLocation"`
+	// The title of the web service.
+	Title *string `pulumi:"title"`
+}
+
+// WebServicePropertiesForGraphInvokeResponseInput is an input type that accepts WebServicePropertiesForGraphInvokeResponseArgs and WebServicePropertiesForGraphInvokeResponseOutput values.
+// You can construct a concrete instance of `WebServicePropertiesForGraphInvokeResponseInput` via:
+//
+//          WebServicePropertiesForGraphInvokeResponseArgs{...}
+type WebServicePropertiesForGraphInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWebServicePropertiesForGraphInvokeResponseOutput() WebServicePropertiesForGraphInvokeResponseOutput
+	ToWebServicePropertiesForGraphInvokeResponseOutputWithContext(context.Context) WebServicePropertiesForGraphInvokeResponseOutput
+}
+
+// Properties specific to a Graph based web service.
+type WebServicePropertiesForGraphInvokeResponseArgs struct {
+	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
+	Assets AssetItemInvokeResponseMapInput `pulumi:"assets"`
+	// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
+	CommitmentPlan CommitmentPlanInvokeResponsePtrInput `pulumi:"commitmentPlan"`
+	// Read Only: The date and time when the web service was created.
+	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
+	// The description of the web service.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Settings controlling the diagnostics traces collection for the web service.
+	Diagnostics DiagnosticsConfigurationInvokeResponsePtrInput `pulumi:"diagnostics"`
+	// Defines sample input data for one or more of the service's inputs.
+	ExampleRequest ExampleRequestInvokeResponsePtrInput `pulumi:"exampleRequest"`
+	// When set to true, sample data is included in the web service's swagger definition. The default value is true.
+	ExposeSampleData pulumi.BoolPtrInput `pulumi:"exposeSampleData"`
+	// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
+	Input ServiceInputOutputSpecificationInvokeResponsePtrInput `pulumi:"input"`
+	// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
+	Keys WebServiceKeysInvokeResponsePtrInput `pulumi:"keys"`
+	// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
+	MachineLearningWorkspace MachineLearningWorkspaceInvokeResponsePtrInput `pulumi:"machineLearningWorkspace"`
+	// Read Only: The date and time when the web service was last modified.
+	ModifiedOn pulumi.StringInput `pulumi:"modifiedOn"`
+	// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
+	Output ServiceInputOutputSpecificationInvokeResponsePtrInput `pulumi:"output"`
+	// The definition of the graph package making up this web service.
+	Package GraphPackageInvokeResponsePtrInput `pulumi:"package"`
+	// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+	// Expected value is 'Graph'.
+	PackageType pulumi.StringInput `pulumi:"packageType"`
+	// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
+	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	// Contains the configuration settings for the web service endpoint.
+	RealtimeConfiguration RealtimeConfigurationInvokeResponsePtrInput `pulumi:"realtimeConfiguration"`
+	// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
+	StorageAccount StorageAccountInvokeResponsePtrInput `pulumi:"storageAccount"`
+	// Read Only: Contains the URI of the swagger spec associated with this web service.
+	SwaggerLocation pulumi.StringInput `pulumi:"swaggerLocation"`
+	// The title of the web service.
+	Title pulumi.StringPtrInput `pulumi:"title"`
+}
+
+func (WebServicePropertiesForGraphInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServicePropertiesForGraphInvokeResponse)(nil)).Elem()
+}
+
+func (i WebServicePropertiesForGraphInvokeResponseArgs) ToWebServicePropertiesForGraphInvokeResponseOutput() WebServicePropertiesForGraphInvokeResponseOutput {
+	return i.ToWebServicePropertiesForGraphInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WebServicePropertiesForGraphInvokeResponseArgs) ToWebServicePropertiesForGraphInvokeResponseOutputWithContext(ctx context.Context) WebServicePropertiesForGraphInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphInvokeResponseOutput)
+}
+
+// Properties specific to a Graph based web service.
+type WebServicePropertiesForGraphInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WebServicePropertiesForGraphInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebServicePropertiesForGraphInvokeResponse)(nil)).Elem()
+}
+
+func (o WebServicePropertiesForGraphInvokeResponseOutput) ToWebServicePropertiesForGraphInvokeResponseOutput() WebServicePropertiesForGraphInvokeResponseOutput {
+	return o
+}
+
+func (o WebServicePropertiesForGraphInvokeResponseOutput) ToWebServicePropertiesForGraphInvokeResponseOutputWithContext(ctx context.Context) WebServicePropertiesForGraphInvokeResponseOutput {
+	return o
+}
+
+// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) Assets() AssetItemInvokeResponseMapOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) map[string]AssetItemInvokeResponse { return v.Assets }).(AssetItemInvokeResponseMapOutput)
+}
+
+// Contains the commitment plan associated with this web service. Set at creation time. Once set, this value cannot be changed. Note: The commitment plan is not returned from calls to GET operations.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) CommitmentPlan() CommitmentPlanInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *CommitmentPlanInvokeResponse {
+		return v.CommitmentPlan
+	}).(CommitmentPlanInvokeResponsePtrOutput)
+}
+
+// Read Only: The date and time when the web service was created.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The description of the web service.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Settings controlling the diagnostics traces collection for the web service.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) Diagnostics() DiagnosticsConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *DiagnosticsConfigurationInvokeResponse {
+		return v.Diagnostics
+	}).(DiagnosticsConfigurationInvokeResponsePtrOutput)
+}
+
+// Defines sample input data for one or more of the service's inputs.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) ExampleRequest() ExampleRequestInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *ExampleRequestInvokeResponse {
+		return v.ExampleRequest
+	}).(ExampleRequestInvokeResponsePtrOutput)
+}
+
+// When set to true, sample data is included in the web service's swagger definition. The default value is true.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) ExposeSampleData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *bool { return v.ExposeSampleData }).(pulumi.BoolPtrOutput)
+}
+
+// Contains the Swagger 2.0 schema describing one or more of the web service's inputs. For more information, see the Swagger specification.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) Input() ServiceInputOutputSpecificationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *ServiceInputOutputSpecificationInvokeResponse {
+		return v.Input
+	}).(ServiceInputOutputSpecificationInvokeResponsePtrOutput)
+}
+
+// Contains the web service provisioning keys. If you do not specify provisioning keys, the Azure Machine Learning system generates them for you. Note: The keys are not returned from calls to GET operations.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) Keys() WebServiceKeysInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *WebServiceKeysInvokeResponse { return v.Keys }).(WebServiceKeysInvokeResponsePtrOutput)
+}
+
+// Specifies the Machine Learning workspace containing the experiment that is source for the web service.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) MachineLearningWorkspace() MachineLearningWorkspaceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *MachineLearningWorkspaceInvokeResponse {
+		return v.MachineLearningWorkspace
+	}).(MachineLearningWorkspaceInvokeResponsePtrOutput)
+}
+
+// Read Only: The date and time when the web service was last modified.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) ModifiedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) string { return v.ModifiedOn }).(pulumi.StringOutput)
+}
+
+// Contains the Swagger 2.0 schema describing one or more of the web service's outputs. For more information, see the Swagger specification.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) Output() ServiceInputOutputSpecificationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *ServiceInputOutputSpecificationInvokeResponse {
+		return v.Output
+	}).(ServiceInputOutputSpecificationInvokeResponsePtrOutput)
+}
+
+// The definition of the graph package making up this web service.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) Package() GraphPackageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *GraphPackageInvokeResponse { return v.Package }).(GraphPackageInvokeResponsePtrOutput)
+}
+
+// Specifies the package type. Valid values are Graph (Specifies a web service published through the Machine Learning Studio) and Code (Specifies a web service published using code such as Python). Note: Code is not supported at this time.
+// Expected value is 'Graph'.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) PackageType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) string { return v.PackageType }).(pulumi.StringOutput)
+}
+
+// The set of global parameters values defined for the web service, given as a global parameter name to default value map. If no default value is specified, the parameter is considered to be required.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Read Only: The provision state of the web service. Valid values are Unknown, Provisioning, Succeeded, and Failed.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// When set to true, indicates that the web service is read-only and can no longer be updated or patched, only removed. Default, is false. Note: Once set to true, you cannot change its value.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Contains the configuration settings for the web service endpoint.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) RealtimeConfiguration() RealtimeConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *RealtimeConfigurationInvokeResponse {
+		return v.RealtimeConfiguration
+	}).(RealtimeConfigurationInvokeResponsePtrOutput)
+}
+
+// Specifies the storage account that Azure Machine Learning uses to store information about the web service. Only the name of the storage account is returned from calls to GET operations. When updating the storage account information, you must ensure that all necessary assets are available in the new storage account or calls to your web service will fail.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) StorageAccount() StorageAccountInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *StorageAccountInvokeResponse {
+		return v.StorageAccount
+	}).(StorageAccountInvokeResponsePtrOutput)
+}
+
+// Read Only: Contains the URI of the swagger spec associated with this web service.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) SwaggerLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) string { return v.SwaggerLocation }).(pulumi.StringOutput)
+}
+
+// The title of the web service.
+func (o WebServicePropertiesForGraphInvokeResponseOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebServicePropertiesForGraphInvokeResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// Properties specific to a Graph based web service.
 type WebServicePropertiesForGraphResponse struct {
 	// Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
 	Assets map[string]AssetItemResponse `pulumi:"assets"`
@@ -7323,96 +10707,142 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) Title() pulumi.StringPtrO
 func init() {
 	pulumi.RegisterOutputType(AssetItemOutput{})
 	pulumi.RegisterOutputType(AssetItemMapOutput{})
+	pulumi.RegisterOutputType(AssetItemInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AssetItemInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(AssetItemResponseOutput{})
 	pulumi.RegisterOutputType(AssetItemResponseMapOutput{})
 	pulumi.RegisterOutputType(AssetLocationOutput{})
+	pulumi.RegisterOutputType(AssetLocationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AssetLocationResponseOutput{})
 	pulumi.RegisterOutputType(ColumnSpecificationOutput{})
 	pulumi.RegisterOutputType(ColumnSpecificationMapOutput{})
+	pulumi.RegisterOutputType(ColumnSpecificationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ColumnSpecificationInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(ColumnSpecificationResponseOutput{})
 	pulumi.RegisterOutputType(ColumnSpecificationResponseMapOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanTypeOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanTypePtrOutput{})
+	pulumi.RegisterOutputType(CommitmentPlanInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CommitmentPlanInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(CommitmentPlanPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanResponseOutput{})
 	pulumi.RegisterOutputType(CommitmentPlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsConfigurationOutput{})
 	pulumi.RegisterOutputType(DiagnosticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticsConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DiagnosticsConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticsConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExampleRequestOutput{})
 	pulumi.RegisterOutputType(ExampleRequestPtrOutput{})
+	pulumi.RegisterOutputType(ExampleRequestInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ExampleRequestInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExampleRequestResponseOutput{})
 	pulumi.RegisterOutputType(ExampleRequestResponsePtrOutput{})
 	pulumi.RegisterOutputType(GraphEdgeOutput{})
 	pulumi.RegisterOutputType(GraphEdgeArrayOutput{})
+	pulumi.RegisterOutputType(GraphEdgeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GraphEdgeInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(GraphEdgeResponseOutput{})
 	pulumi.RegisterOutputType(GraphEdgeResponseArrayOutput{})
 	pulumi.RegisterOutputType(GraphNodeOutput{})
 	pulumi.RegisterOutputType(GraphNodeMapOutput{})
+	pulumi.RegisterOutputType(GraphNodeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GraphNodeInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(GraphNodeResponseOutput{})
 	pulumi.RegisterOutputType(GraphNodeResponseMapOutput{})
 	pulumi.RegisterOutputType(GraphPackageOutput{})
 	pulumi.RegisterOutputType(GraphPackagePtrOutput{})
+	pulumi.RegisterOutputType(GraphPackageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GraphPackageInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(GraphPackageResponseOutput{})
 	pulumi.RegisterOutputType(GraphPackageResponsePtrOutput{})
 	pulumi.RegisterOutputType(GraphParameterOutput{})
 	pulumi.RegisterOutputType(GraphParameterMapOutput{})
+	pulumi.RegisterOutputType(GraphParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GraphParameterInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(GraphParameterLinkOutput{})
 	pulumi.RegisterOutputType(GraphParameterLinkArrayOutput{})
+	pulumi.RegisterOutputType(GraphParameterLinkInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GraphParameterLinkInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(GraphParameterLinkResponseOutput{})
 	pulumi.RegisterOutputType(GraphParameterLinkResponseArrayOutput{})
 	pulumi.RegisterOutputType(GraphParameterResponseOutput{})
 	pulumi.RegisterOutputType(GraphParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(InputPortOutput{})
 	pulumi.RegisterOutputType(InputPortMapOutput{})
+	pulumi.RegisterOutputType(InputPortInvokeResponseOutput{})
+	pulumi.RegisterOutputType(InputPortInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(InputPortResponseOutput{})
 	pulumi.RegisterOutputType(InputPortResponseMapOutput{})
 	pulumi.RegisterOutputType(MachineLearningWorkspaceOutput{})
 	pulumi.RegisterOutputType(MachineLearningWorkspacePtrOutput{})
+	pulumi.RegisterOutputType(MachineLearningWorkspaceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MachineLearningWorkspaceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MachineLearningWorkspaceResponseOutput{})
 	pulumi.RegisterOutputType(MachineLearningWorkspaceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ModeValueInfoOutput{})
 	pulumi.RegisterOutputType(ModeValueInfoMapOutput{})
+	pulumi.RegisterOutputType(ModeValueInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ModeValueInfoInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(ModeValueInfoResponseOutput{})
 	pulumi.RegisterOutputType(ModeValueInfoResponseMapOutput{})
 	pulumi.RegisterOutputType(ModuleAssetParameterOutput{})
 	pulumi.RegisterOutputType(ModuleAssetParameterArrayOutput{})
+	pulumi.RegisterOutputType(ModuleAssetParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ModuleAssetParameterInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ModuleAssetParameterResponseOutput{})
 	pulumi.RegisterOutputType(ModuleAssetParameterResponseArrayOutput{})
 	pulumi.RegisterOutputType(OutputPortOutput{})
 	pulumi.RegisterOutputType(OutputPortMapOutput{})
+	pulumi.RegisterOutputType(OutputPortInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OutputPortInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(OutputPortResponseOutput{})
 	pulumi.RegisterOutputType(OutputPortResponseMapOutput{})
+	pulumi.RegisterOutputType(PlanQuantityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PlanQuantityInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(PlanQuantityResponseOutput{})
 	pulumi.RegisterOutputType(PlanQuantityResponseMapOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RealtimeConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RealtimeConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(RealtimeConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceInputOutputSpecificationOutput{})
 	pulumi.RegisterOutputType(ServiceInputOutputSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceInputOutputSpecificationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceInputOutputSpecificationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceInputOutputSpecificationResponseOutput{})
 	pulumi.RegisterOutputType(ServiceInputOutputSpecificationResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountPtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponsePtrOutput{})
 	pulumi.RegisterOutputType(TableSpecificationOutput{})
 	pulumi.RegisterOutputType(TableSpecificationMapOutput{})
+	pulumi.RegisterOutputType(TableSpecificationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TableSpecificationInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(TableSpecificationResponseOutput{})
 	pulumi.RegisterOutputType(TableSpecificationResponseMapOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysPtrOutput{})
+	pulumi.RegisterOutputType(WebServiceKeysInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WebServiceKeysInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysResponseOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysResponsePtrOutput{})
 	pulumi.RegisterOutputType(WebServicePropertiesForGraphOutput{})
 	pulumi.RegisterOutputType(WebServicePropertiesForGraphPtrOutput{})
+	pulumi.RegisterOutputType(WebServicePropertiesForGraphInvokeResponseOutput{})
 	pulumi.RegisterOutputType(WebServicePropertiesForGraphResponseOutput{})
 	pulumi.RegisterOutputType(WebServicePropertiesForGraphResponsePtrOutput{})
 }

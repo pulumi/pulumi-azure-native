@@ -26,9 +26,9 @@ type LookupVirtualNetworkTapArgs struct {
 // Virtual Network Tap resource
 type LookupVirtualNetworkTapResult struct {
 	// The reference to the private IP address on the internal Load Balancer that will receive the tap
-	DestinationLoadBalancerFrontEndIPConfiguration *FrontendIPConfigurationResponse `pulumi:"destinationLoadBalancerFrontEndIPConfiguration"`
+	DestinationLoadBalancerFrontEndIPConfiguration *FrontendIPConfigurationInvokeResponse `pulumi:"destinationLoadBalancerFrontEndIPConfiguration"`
 	// The reference to the private IP Address of the collector nic that will receive the tap
-	DestinationNetworkInterfaceIPConfiguration *NetworkInterfaceIPConfigurationResponse `pulumi:"destinationNetworkInterfaceIPConfiguration"`
+	DestinationNetworkInterfaceIPConfiguration *NetworkInterfaceIPConfigurationInvokeResponse `pulumi:"destinationNetworkInterfaceIPConfiguration"`
 	// The VXLAN destination port that will receive the tapped traffic.
 	DestinationPort *int `pulumi:"destinationPort"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
@@ -40,7 +40,7 @@ type LookupVirtualNetworkTapResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
-	NetworkInterfaceTapConfigurations []NetworkInterfaceTapConfigurationResponse `pulumi:"networkInterfaceTapConfigurations"`
+	NetworkInterfaceTapConfigurations []NetworkInterfaceTapConfigurationInvokeResponse `pulumi:"networkInterfaceTapConfigurations"`
 	// The provisioning state of the virtual network tap. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resourceGuid property of the virtual network tap.

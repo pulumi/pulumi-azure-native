@@ -26,5 +26,5 @@ type LookupUserSettingsWithLocationArgs struct {
 // Response to get user settings
 type LookupUserSettingsWithLocationResult struct {
 	// The cloud shell user settings properties.
-	Properties UserPropertiesResponse `pulumi:"properties"`
+	Properties UserPropertiesInvokeResponse `pulumi:"properties"`
 }

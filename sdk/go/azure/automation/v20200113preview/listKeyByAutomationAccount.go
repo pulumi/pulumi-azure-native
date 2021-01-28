@@ -25,5 +25,5 @@ type ListKeyByAutomationAccountArgs struct {
 
 type ListKeyByAutomationAccountResult struct {
 	// Lists the automation keys.
-	Keys []KeyResponse `pulumi:"keys"`
+	Keys []KeyInvokeResponse `pulumi:"keys"`
 }

@@ -26,7 +26,7 @@ type LookupPublicIpAddressArgs struct {
 // PublicIPAddress resource
 type LookupPublicIpAddressResult struct {
 	// Gets or sets FQDN of the DNS record associated with the public IP address
-	DnsSettings *PublicIpAddressDnsSettingsResponse `pulumi:"dnsSettings"`
+	DnsSettings *PublicIpAddressDnsSettingsInvokeResponse `pulumi:"dnsSettings"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource Id
@@ -36,7 +36,7 @@ type LookupPublicIpAddressResult struct {
 	// Gets the assigned public IP address
 	IpAddress *string `pulumi:"ipAddress"`
 	// Gets a reference to the network interface IP configurations using this public IP address
-	IpConfiguration *SubResourceResponse `pulumi:"ipConfiguration"`
+	IpConfiguration *SubResourceInvokeResponse `pulumi:"ipConfiguration"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

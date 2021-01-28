@@ -28,7 +28,7 @@ type LookupKeyArgs struct {
 // The key resource.
 type LookupKeyResult struct {
 	// The attributes of the key.
-	Attributes *KeyAttributesResponse `pulumi:"attributes"`
+	Attributes *KeyAttributesInvokeResponse `pulumi:"attributes"`
 	// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
 	CurveName *string `pulumi:"curveName"`
 	// Fully qualified identifier of the key vault resource.

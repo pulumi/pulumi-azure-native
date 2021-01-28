@@ -36,7 +36,7 @@ type LookupReplicationRecoveryServicesProviderResult struct {
 	// Resource Name
 	Name string `pulumi:"name"`
 	// Provider properties.
-	Properties RecoveryServicesProviderPropertiesResponse `pulumi:"properties"`
+	Properties RecoveryServicesProviderPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
 }

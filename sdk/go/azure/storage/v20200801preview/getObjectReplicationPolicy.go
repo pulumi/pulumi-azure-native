@@ -38,7 +38,7 @@ type LookupObjectReplicationPolicyResult struct {
 	// A unique id for object replication policy.
 	PolicyId string `pulumi:"policyId"`
 	// The storage account object replication rules.
-	Rules []ObjectReplicationPolicyRuleResponse `pulumi:"rules"`
+	Rules []ObjectReplicationPolicyRuleInvokeResponse `pulumi:"rules"`
 	// Required. Source account name.
 	SourceAccount string `pulumi:"sourceAccount"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

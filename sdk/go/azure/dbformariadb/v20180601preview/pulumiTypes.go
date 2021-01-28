@@ -11,6 +11,79 @@ import (
 )
 
 // Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponse struct {
+	// The Azure Active Directory principal id.
+	PrincipalId string `pulumi:"principalId"`
+	// The Azure Active Directory tenant id.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+	Type *string `pulumi:"type"`
+}
+
+// ResourceIdentityInvokeResponseInput is an input type that accepts ResourceIdentityInvokeResponseArgs and ResourceIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceIdentityInvokeResponseInput` via:
+//
+//          ResourceIdentityInvokeResponseArgs{...}
+type ResourceIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput
+	ToResourceIdentityInvokeResponseOutputWithContext(context.Context) ResourceIdentityInvokeResponseOutput
+}
+
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponseArgs struct {
+	// The Azure Active Directory principal id.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Azure Active Directory tenant id.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return i.ToResourceIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityInvokeResponseOutput)
+}
+
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+// The Azure Active Directory principal id.
+func (o ResourceIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory tenant id.
+func (o ResourceIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+func (o ResourceIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory identity configuration for a resource.
 type ResourceIdentityResponse struct {
 	// The Azure Active Directory principal id.
 	PrincipalId string `pulumi:"principalId"`
@@ -787,6 +860,97 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Billing information related properties of a server.
+type SkuInvokeResponse struct {
+	// The scale up/out capacity, representing server's compute units.
+	Capacity *int `pulumi:"capacity"`
+	// The family of hardware.
+	Family *string `pulumi:"family"`
+	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+	Name string `pulumi:"name"`
+	// The size code, to be interpreted by resource as appropriate.
+	Size *string `pulumi:"size"`
+	// The tier of the particular SKU, e.g. Basic.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Billing information related properties of a server.
+type SkuInvokeResponseArgs struct {
+	// The scale up/out capacity, representing server's compute units.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The family of hardware.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The size code, to be interpreted by resource as appropriate.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The tier of the particular SKU, e.g. Basic.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Billing information related properties of a server.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The scale up/out capacity, representing server's compute units.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The family of hardware.
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the sku, typically, tier + family + cores, e.g. B_Gen4_1, GP_Gen5_8.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The size code, to be interpreted by resource as appropriate.
+func (o SkuInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The tier of the particular SKU, e.g. Basic.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// Billing information related properties of a server.
 type SkuResponse struct {
 	// The scale up/out capacity, representing server's compute units.
 	Capacity *int `pulumi:"capacity"`
@@ -1188,6 +1352,88 @@ func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 }
 
 // Storage Profile properties of a server
+type StorageProfileInvokeResponse struct {
+	// Backup retention days for the server.
+	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
+	// Enable Geo-redundant or not for server backup.
+	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
+	// Enable Storage Auto Grow.
+	StorageAutogrow *string `pulumi:"storageAutogrow"`
+	// Max storage allowed for a server.
+	StorageMB *int `pulumi:"storageMB"`
+}
+
+// StorageProfileInvokeResponseInput is an input type that accepts StorageProfileInvokeResponseArgs and StorageProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageProfileInvokeResponseInput` via:
+//
+//          StorageProfileInvokeResponseArgs{...}
+type StorageProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput
+	ToStorageProfileInvokeResponseOutputWithContext(context.Context) StorageProfileInvokeResponseOutput
+}
+
+// Storage Profile properties of a server
+type StorageProfileInvokeResponseArgs struct {
+	// Backup retention days for the server.
+	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
+	// Enable Geo-redundant or not for server backup.
+	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
+	// Enable Storage Auto Grow.
+	StorageAutogrow pulumi.StringPtrInput `pulumi:"storageAutogrow"`
+	// Max storage allowed for a server.
+	StorageMB pulumi.IntPtrInput `pulumi:"storageMB"`
+}
+
+func (StorageProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput {
+	return i.ToStorageProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponseOutputWithContext(ctx context.Context) StorageProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileInvokeResponseOutput)
+}
+
+// Storage Profile properties of a server
+type StorageProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput {
+	return o
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponseOutputWithContext(ctx context.Context) StorageProfileInvokeResponseOutput {
+	return o
+}
+
+// Backup retention days for the server.
+func (o StorageProfileInvokeResponseOutput) BackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Enable Geo-redundant or not for server backup.
+func (o StorageProfileInvokeResponseOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
+}
+
+// Enable Storage Auto Grow.
+func (o StorageProfileInvokeResponseOutput) StorageAutogrow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *string { return v.StorageAutogrow }).(pulumi.StringPtrOutput)
+}
+
+// Max storage allowed for a server.
+func (o StorageProfileInvokeResponseOutput) StorageMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *int { return v.StorageMB }).(pulumi.IntPtrOutput)
+}
+
+// Storage Profile properties of a server
 type StorageProfileResponse struct {
 	// Backup retention days for the server.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
@@ -1379,6 +1625,7 @@ func (o StorageProfileResponsePtrOutput) StorageMB() pulumi.IntPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ResourceIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesForDefaultCreateOutput{})
@@ -1387,10 +1634,12 @@ func init() {
 	pulumi.RegisterOutputType(ServerPropertiesForRestoreOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileOutput{})
 	pulumi.RegisterOutputType(StorageProfilePtrOutput{})
+	pulumi.RegisterOutputType(StorageProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponsePtrOutput{})
 }

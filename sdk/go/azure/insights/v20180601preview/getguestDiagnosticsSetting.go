@@ -26,7 +26,7 @@ type GetguestDiagnosticsSettingArgs struct {
 // Virtual machine guest diagnostics settings resource.
 type GetguestDiagnosticsSettingResult struct {
 	// the array of data source object which are configured to collect and send data
-	DataSources []DataSourceResponse `pulumi:"dataSources"`
+	DataSources []DataSourceInvokeResponse `pulumi:"dataSources"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// Resource location

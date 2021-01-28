@@ -40,7 +40,7 @@ type LookupVirtualMachineScaleSetVMExtensionResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The virtual machine extension instance view.
-	InstanceView *VirtualMachineExtensionInstanceViewResponse `pulumi:"instanceView"`
+	InstanceView *VirtualMachineExtensionInstanceViewInvokeResponse `pulumi:"instanceView"`
 	// The name of the extension.
 	Name string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.

@@ -34,9 +34,9 @@ type GetvNetPeeringResult struct {
 	// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// The reference to the databricks virtual network address space.
-	DatabricksAddressSpace *AddressSpaceResponse `pulumi:"databricksAddressSpace"`
+	DatabricksAddressSpace *AddressSpaceInvokeResponse `pulumi:"databricksAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork `pulumi:"databricksVirtualNetwork"`
+	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatInvokeResponseDatabricksVirtualNetwork `pulumi:"databricksVirtualNetwork"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Name of the virtual network peering resource
@@ -46,9 +46,9 @@ type GetvNetPeeringResult struct {
 	// The provisioning state of the virtual network peering resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The reference to the remote virtual network address space.
-	RemoteAddressSpace *AddressSpaceResponse `pulumi:"remoteAddressSpace"`
+	RemoteAddressSpace *AddressSpaceInvokeResponse `pulumi:"remoteAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork `pulumi:"remoteVirtualNetwork"`
+	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatInvokeResponseRemoteVirtualNetwork `pulumi:"remoteVirtualNetwork"`
 	// type of the virtual network peering resource
 	Type string `pulumi:"type"`
 	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.

@@ -28,9 +28,9 @@ type LookupManagementGroupArgs struct {
 // The management group details.
 type LookupManagementGroupResult struct {
 	// The list of children.
-	Children []ManagementGroupChildInfoResponse `pulumi:"children"`
+	Children []ManagementGroupChildInfoInvokeResponse `pulumi:"children"`
 	// The details of a management group.
-	Details *ManagementGroupDetailsResponse `pulumi:"details"`
+	Details *ManagementGroupDetailsInvokeResponse `pulumi:"details"`
 	// The friendly name of the management group.
 	DisplayName *string `pulumi:"displayName"`
 	// The fully qualified ID for the management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000

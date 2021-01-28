@@ -28,11 +28,11 @@ type LookupSmartDetectorAlertRuleArgs struct {
 // The alert rule information
 type LookupSmartDetectorAlertRuleResult struct {
 	// The alert rule actions.
-	ActionGroups ActionGroupsInformationResponse `pulumi:"actionGroups"`
+	ActionGroups ActionGroupsInformationInvokeResponse `pulumi:"actionGroups"`
 	// The alert rule description.
 	Description *string `pulumi:"description"`
 	// The alert rule's detector.
-	Detector DetectorResponse `pulumi:"detector"`
+	Detector DetectorInvokeResponse `pulumi:"detector"`
 	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
 	Frequency string `pulumi:"frequency"`
 	// The resource ID.
@@ -46,7 +46,7 @@ type LookupSmartDetectorAlertRuleResult struct {
 	// The alert rule state.
 	State string `pulumi:"state"`
 	// The alert rule throttling information.
-	Throttling *ThrottlingInformationResponse `pulumi:"throttling"`
+	Throttling *ThrottlingInformationInvokeResponse `pulumi:"throttling"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

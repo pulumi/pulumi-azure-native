@@ -36,29 +36,29 @@ type LookupClusterResult struct {
 	// The number of compute nodes currently assigned to the cluster.
 	CurrentNodeCount int `pulumi:"currentNodeCount"`
 	// Collection of errors encountered by various compute nodes during node setup.
-	Errors []BatchAIErrorResponse `pulumi:"errors"`
+	Errors []BatchAIErrorInvokeResponse `pulumi:"errors"`
 	// The ID of the resource.
 	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
-	NodeSetup *NodeSetupResponse `pulumi:"nodeSetup"`
+	NodeSetup *NodeSetupInvokeResponse `pulumi:"nodeSetup"`
 	// Counts of various node states on the cluster.
-	NodeStateCounts NodeStateCountsResponse `pulumi:"nodeStateCounts"`
+	NodeStateCounts NodeStateCountsInvokeResponse `pulumi:"nodeStateCounts"`
 	// Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Time when the provisioning state was changed.
 	ProvisioningStateTransitionTime string `pulumi:"provisioningStateTransitionTime"`
 	// Scale settings of the cluster.
-	ScaleSettings *ScaleSettingsResponse `pulumi:"scaleSettings"`
+	ScaleSettings *ScaleSettingsInvokeResponse `pulumi:"scaleSettings"`
 	// Virtual network subnet resource ID the cluster nodes belong to.
-	Subnet *ResourceIdResponse `pulumi:"subnet"`
+	Subnet *ResourceIdInvokeResponse `pulumi:"subnet"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 	// Administrator user account settings which can be used to SSH to compute nodes.
-	UserAccountSettings *UserAccountSettingsResponse `pulumi:"userAccountSettings"`
+	UserAccountSettings *UserAccountSettingsInvokeResponse `pulumi:"userAccountSettings"`
 	// Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
-	VirtualMachineConfiguration *VirtualMachineConfigurationResponse `pulumi:"virtualMachineConfiguration"`
+	VirtualMachineConfiguration *VirtualMachineConfigurationInvokeResponse `pulumi:"virtualMachineConfiguration"`
 	// VM priority of cluster nodes.
 	VmPriority *string `pulumi:"vmPriority"`
 	// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.

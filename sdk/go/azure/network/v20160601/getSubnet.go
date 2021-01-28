@@ -36,15 +36,15 @@ type LookupSubnetResult struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Gets array of references to the network interface IP configurations using subnet
-	IpConfigurations []IPConfigurationResponse `pulumi:"ipConfigurations"`
+	IpConfigurations []IPConfigurationInvokeResponse `pulumi:"ipConfigurations"`
 	// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
 	Name *string `pulumi:"name"`
 	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
+	NetworkSecurityGroup *NetworkSecurityGroupInvokeResponse `pulumi:"networkSecurityGroup"`
 	// Gets provisioning state of the resource
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets array of references to the external resources using subnet
-	ResourceNavigationLinks []ResourceNavigationLinkResponse `pulumi:"resourceNavigationLinks"`
+	ResourceNavigationLinks []ResourceNavigationLinkInvokeResponse `pulumi:"resourceNavigationLinks"`
 	// Gets or sets the reference of the RouteTable resource
-	RouteTable *RouteTableResponse `pulumi:"routeTable"`
+	RouteTable *RouteTableInvokeResponse `pulumi:"routeTable"`
 }

@@ -26,7 +26,7 @@ type LookupDeviceArgs struct {
 // Device resource.
 type LookupDeviceResult struct {
 	// The reference to the Azure stack edge device.
-	AzureStackEdge *SubResourceResponse `pulumi:"azureStackEdge"`
+	AzureStackEdge *SubResourceInvokeResponse `pulumi:"azureStackEdge"`
 	// The type of the device.
 	DeviceType string `pulumi:"deviceType"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -36,7 +36,7 @@ type LookupDeviceResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The list of network functions deployed on the device.
-	NetworkFunctions []SubResourceResponse `pulumi:"networkFunctions"`
+	NetworkFunctions []SubResourceInvokeResponse `pulumi:"networkFunctions"`
 	// The provisioning state of the device resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The current device status.

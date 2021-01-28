@@ -42,7 +42,7 @@ type LookupPipelineResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// List of parameters for pipeline.
-	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	Parameters map[string]ParameterSpecificationInvokeResponse `pulumi:"parameters"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

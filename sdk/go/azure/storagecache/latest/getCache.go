@@ -28,15 +28,15 @@ type LookupCacheResult struct {
 	// The size of this Cache, in GB.
 	CacheSizeGB *int `pulumi:"cacheSizeGB"`
 	// Specifies Directory Services settings of the cache.
-	DirectoryServicesSettings *CacheDirectorySettingsResponse `pulumi:"directoryServicesSettings"`
+	DirectoryServicesSettings *CacheDirectorySettingsInvokeResponse `pulumi:"directoryServicesSettings"`
 	// Specifies encryption settings of the cache.
-	EncryptionSettings *CacheEncryptionSettingsResponse `pulumi:"encryptionSettings"`
+	EncryptionSettings *CacheEncryptionSettingsInvokeResponse `pulumi:"encryptionSettings"`
 	// Health of the Cache.
-	Health CacheHealthResponse `pulumi:"health"`
+	Health CacheHealthInvokeResponse `pulumi:"health"`
 	// Resource ID of the Cache.
 	Id string `pulumi:"id"`
 	// The identity of the cache, if configured.
-	Identity *CacheIdentityResponse `pulumi:"identity"`
+	Identity *CacheIdentityInvokeResponse `pulumi:"identity"`
 	// Region name string.
 	Location *string `pulumi:"location"`
 	// Array of IP addresses that can be used by clients mounting this Cache.
@@ -44,21 +44,21 @@ type LookupCacheResult struct {
 	// Name of Cache.
 	Name string `pulumi:"name"`
 	// Specifies network settings of the cache.
-	NetworkSettings *CacheNetworkSettingsResponse `pulumi:"networkSettings"`
+	NetworkSettings *CacheNetworkSettingsInvokeResponse `pulumi:"networkSettings"`
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Specifies security settings of the cache.
-	SecuritySettings *CacheSecuritySettingsResponse `pulumi:"securitySettings"`
+	SecuritySettings *CacheSecuritySettingsInvokeResponse `pulumi:"securitySettings"`
 	// SKU for the Cache.
-	Sku *CacheResponseSku `pulumi:"sku"`
+	Sku *CacheInvokeResponseSku `pulumi:"sku"`
 	// Subnet used for the Cache.
 	Subnet *string `pulumi:"subnet"`
 	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// ARM tags as name/value pairs.
 	Tags interface{} `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type string `pulumi:"type"`
 	// Upgrade status of the Cache.
-	UpgradeStatus *CacheUpgradeStatusResponse `pulumi:"upgradeStatus"`
+	UpgradeStatus *CacheUpgradeStatusInvokeResponse `pulumi:"upgradeStatus"`
 }

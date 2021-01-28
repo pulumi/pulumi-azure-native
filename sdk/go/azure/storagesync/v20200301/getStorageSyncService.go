@@ -38,7 +38,7 @@ type LookupStorageSyncServiceResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of private endpoint connection associated with the specified storage sync service
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// StorageSyncService Provisioning State
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Storage Sync service status.

@@ -26,5 +26,5 @@ type ListSiteIdentifiersAssignedToHostNameResult struct {
 	// Link to next page of resources.
 	NextLink string `pulumi:"nextLink"`
 	// Collection of resources.
-	Value []IdentifierResponse `pulumi:"value"`
+	Value []IdentifierInvokeResponse `pulumi:"value"`
 }

@@ -28,7 +28,7 @@ type LookupDeploymentScriptResult struct {
 	// String Id used to locate any resource on Azure.
 	Id string `pulumi:"id"`
 	// Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-	Identity ManagedServiceIdentityResponse `pulumi:"identity"`
+	Identity ManagedServiceIdentityInvokeResponse `pulumi:"identity"`
 	// Type of the script.
 	Kind string `pulumi:"kind"`
 	// The location of the ACI and the storage account for the deployment script.
@@ -36,7 +36,7 @@ type LookupDeploymentScriptResult struct {
 	// Name of this resource.
 	Name string `pulumi:"name"`
 	// The system metadata related to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of this resource.

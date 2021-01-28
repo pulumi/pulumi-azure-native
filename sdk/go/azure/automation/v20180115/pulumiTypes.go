@@ -489,6 +489,61 @@ func (o DscConfigurationAssociationPropertyPtrOutput) Name() pulumi.StringPtrOut
 }
 
 // The Dsc configuration property associated with the entity.
+type DscConfigurationAssociationPropertyInvokeResponse struct {
+	// Gets or sets the name of the Dsc configuration.
+	Name *string `pulumi:"name"`
+}
+
+// DscConfigurationAssociationPropertyInvokeResponseInput is an input type that accepts DscConfigurationAssociationPropertyInvokeResponseArgs and DscConfigurationAssociationPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `DscConfigurationAssociationPropertyInvokeResponseInput` via:
+//
+//          DscConfigurationAssociationPropertyInvokeResponseArgs{...}
+type DscConfigurationAssociationPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDscConfigurationAssociationPropertyInvokeResponseOutput() DscConfigurationAssociationPropertyInvokeResponseOutput
+	ToDscConfigurationAssociationPropertyInvokeResponseOutputWithContext(context.Context) DscConfigurationAssociationPropertyInvokeResponseOutput
+}
+
+// The Dsc configuration property associated with the entity.
+type DscConfigurationAssociationPropertyInvokeResponseArgs struct {
+	// Gets or sets the name of the Dsc configuration.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DscConfigurationAssociationPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfigurationAssociationPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i DscConfigurationAssociationPropertyInvokeResponseArgs) ToDscConfigurationAssociationPropertyInvokeResponseOutput() DscConfigurationAssociationPropertyInvokeResponseOutput {
+	return i.ToDscConfigurationAssociationPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DscConfigurationAssociationPropertyInvokeResponseArgs) ToDscConfigurationAssociationPropertyInvokeResponseOutputWithContext(ctx context.Context) DscConfigurationAssociationPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationAssociationPropertyInvokeResponseOutput)
+}
+
+// The Dsc configuration property associated with the entity.
+type DscConfigurationAssociationPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DscConfigurationAssociationPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DscConfigurationAssociationPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o DscConfigurationAssociationPropertyInvokeResponseOutput) ToDscConfigurationAssociationPropertyInvokeResponseOutput() DscConfigurationAssociationPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o DscConfigurationAssociationPropertyInvokeResponseOutput) ToDscConfigurationAssociationPropertyInvokeResponseOutputWithContext(ctx context.Context) DscConfigurationAssociationPropertyInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the name of the Dsc configuration.
+func (o DscConfigurationAssociationPropertyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DscConfigurationAssociationPropertyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The Dsc configuration property associated with the entity.
 type DscConfigurationAssociationPropertyResponse struct {
 	// Gets or sets the name of the Dsc configuration.
 	Name *string `pulumi:"name"`
@@ -631,6 +686,7 @@ func init() {
 	pulumi.RegisterOutputType(ContentSourcePtrOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyResponseOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyResponsePtrOutput{})
 }

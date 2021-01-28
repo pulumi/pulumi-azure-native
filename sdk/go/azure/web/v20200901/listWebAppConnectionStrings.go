@@ -32,9 +32,9 @@ type ListWebAppConnectionStringsResult struct {
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// Connection strings.
-	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
+	Properties map[string]ConnStringValueTypePairInvokeResponse `pulumi:"properties"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

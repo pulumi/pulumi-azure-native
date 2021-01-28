@@ -56,7 +56,7 @@ type LookupDatabaseResult struct {
 	// The current service level objective name of the database.
 	CurrentServiceObjectiveName string `pulumi:"currentServiceObjectiveName"`
 	// The name and tier of the SKU.
-	CurrentSku SkuResponse `pulumi:"currentSku"`
+	CurrentSku SkuInvokeResponse `pulumi:"currentSku"`
 	// The ID of the database.
 	DatabaseId string `pulumi:"databaseId"`
 	// The default secondary region for this database.
@@ -114,7 +114,7 @@ type LookupDatabaseResult struct {
 	// The database SKU.
 	//
 	// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Specifies the time that the database was deleted.
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
 	// The resource identifier of the source database associated with create operation of this database.

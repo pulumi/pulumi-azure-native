@@ -40,5 +40,5 @@ type GetFactoryDataPlaneAccessResult struct {
 	// Data Plane service base URL.
 	DataPlaneUrl *string `pulumi:"dataPlaneUrl"`
 	// The user access policy.
-	Policy *UserAccessPolicyResponse `pulumi:"policy"`
+	Policy *UserAccessPolicyInvokeResponse `pulumi:"policy"`
 }

@@ -32,7 +32,7 @@ type LookupJobTargetGroupResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Members of the target group.
-	Members []JobTargetResponse `pulumi:"members"`
+	Members []JobTargetInvokeResponse `pulumi:"members"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type.

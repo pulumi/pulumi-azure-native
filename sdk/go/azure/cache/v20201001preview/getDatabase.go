@@ -36,7 +36,7 @@ type LookupDatabaseResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
-	Modules []ModuleResponse `pulumi:"modules"`
+	Modules []ModuleInvokeResponse `pulumi:"modules"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.

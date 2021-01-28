@@ -31,7 +31,7 @@ type LookupIntegrationAccountResult struct {
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// The sku.
-	Sku *IntegrationAccountSkuResponse `pulumi:"sku"`
+	Sku *IntegrationAccountSkuInvokeResponse `pulumi:"sku"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

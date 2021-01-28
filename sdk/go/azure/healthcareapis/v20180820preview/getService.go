@@ -36,7 +36,7 @@ type LookupServiceResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The common properties of a service.
-	Properties ServicesPropertiesResponse `pulumi:"properties"`
+	Properties ServicesPropertiesInvokeResponse `pulumi:"properties"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

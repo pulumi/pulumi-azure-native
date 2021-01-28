@@ -30,7 +30,7 @@ type LookupExportPipelineResult struct {
 	// The resource ID.
 	Id string `pulumi:"id"`
 	// The identity of the export pipeline.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	Identity *IdentityPropertiesInvokeResponse `pulumi:"identity"`
 	// The location of the export pipeline.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
@@ -40,9 +40,9 @@ type LookupExportPipelineResult struct {
 	// The provisioning state of the pipeline at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The target properties of the export pipeline.
-	Target ExportPipelineTargetPropertiesResponse `pulumi:"target"`
+	Target ExportPipelineTargetPropertiesInvokeResponse `pulumi:"target"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

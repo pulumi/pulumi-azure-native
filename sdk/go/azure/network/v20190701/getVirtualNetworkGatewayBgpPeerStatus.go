@@ -28,5 +28,5 @@ type GetVirtualNetworkGatewayBgpPeerStatusArgs struct {
 // Response for list BGP peer status API service call.
 type GetVirtualNetworkGatewayBgpPeerStatusResult struct {
 	// List of BGP peers.
-	Value []BgpPeerStatusResponse `pulumi:"value"`
+	Value []BgpPeerStatusInvokeResponse `pulumi:"value"`
 }

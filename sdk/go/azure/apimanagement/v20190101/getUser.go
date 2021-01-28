@@ -32,11 +32,11 @@ type LookupUserResult struct {
 	// First name.
 	FirstName *string `pulumi:"firstName"`
 	// Collection of groups user is part of.
-	Groups []GroupContractPropertiesResponse `pulumi:"groups"`
+	Groups []GroupContractPropertiesInvokeResponse `pulumi:"groups"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Collection of user identities.
-	Identities []UserIdentityContractResponse `pulumi:"identities"`
+	Identities []UserIdentityContractInvokeResponse `pulumi:"identities"`
 	// Last name.
 	LastName *string `pulumi:"lastName"`
 	// Resource name.

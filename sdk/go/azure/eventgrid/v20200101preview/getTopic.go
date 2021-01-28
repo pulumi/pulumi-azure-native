@@ -32,7 +32,7 @@ type LookupTopicResult struct {
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
 	InputSchema *string `pulumi:"inputSchema"`
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
+	InputSchemaMapping *JsonInputSchemaMappingInvokeResponse `pulumi:"inputSchemaMapping"`
 	// Location of the resource
 	Location string `pulumi:"location"`
 	// Metric resource id for the topic.

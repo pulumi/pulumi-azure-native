@@ -32,7 +32,7 @@ type LookupIncidentCommentArgs struct {
 // Represents an incident comment
 type LookupIncidentCommentResult struct {
 	// Describes the client that created the comment
-	Author ClientInfoResponse `pulumi:"author"`
+	Author ClientInfoInvokeResponse `pulumi:"author"`
 	// The time the comment was created
 	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
 	// Etag of the azure resource

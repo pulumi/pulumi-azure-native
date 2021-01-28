@@ -36,7 +36,7 @@ type LookupAssessmentResult struct {
 	// Unique name of an assessment.
 	Name string `pulumi:"name"`
 	// Properties of the assessment.
-	Properties AssessmentPropertiesResponse `pulumi:"properties"`
+	Properties AssessmentPropertiesInvokeResponse `pulumi:"properties"`
 	// Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
 	Type string `pulumi:"type"`
 }

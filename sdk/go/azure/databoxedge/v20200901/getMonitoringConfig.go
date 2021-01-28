@@ -30,7 +30,7 @@ type LookupMonitoringConfigResult struct {
 	// The path ID that uniquely identifies the object.
 	Id string `pulumi:"id"`
 	// The metrics configuration details
-	MetricConfigurations []MetricConfigurationResponse `pulumi:"metricConfigurations"`
+	MetricConfigurations []MetricConfigurationInvokeResponse `pulumi:"metricConfigurations"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// The hierarchical type of the object.

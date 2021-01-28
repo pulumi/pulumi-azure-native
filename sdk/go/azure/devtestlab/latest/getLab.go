@@ -28,7 +28,7 @@ type LookupLabArgs struct {
 // A lab.
 type LookupLabResult struct {
 	// The properties of any lab announcement associated with this lab
-	Announcement *LabAnnouncementPropertiesResponse `pulumi:"announcement"`
+	Announcement *LabAnnouncementPropertiesInvokeResponse `pulumi:"announcement"`
 	// The lab's artifact storage account.
 	ArtifactsStorageAccount string `pulumi:"artifactsStorageAccount"`
 	// The creation date of the lab.
@@ -68,7 +68,7 @@ type LookupLabResult struct {
 	// The public IP address for the lab's load balancer.
 	PublicIpId string `pulumi:"publicIpId"`
 	// The properties of any lab support message associated with this lab
-	Support *LabSupportPropertiesResponse `pulumi:"support"`
+	Support *LabSupportPropertiesInvokeResponse `pulumi:"support"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

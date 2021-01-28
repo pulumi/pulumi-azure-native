@@ -393,6 +393,413 @@ func (o CacheActiveDirectorySettingsCredentialsPtrOutput) Username() pulumi.Stri
 }
 
 // Active Directory settings used to join a cache to a domain.
+type CacheActiveDirectorySettingsInvokeResponse struct {
+	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+	CacheNetBiosName string `pulumi:"cacheNetBiosName"`
+	// Active Directory admin credentials used to join the HPC Cache to a domain.
+	Credentials *CacheActiveDirectorySettingsInvokeResponseCredentials `pulumi:"credentials"`
+	// True if the HPC Cache is joined to the Active Directory domain.
+	DomainJoined string `pulumi:"domainJoined"`
+	// The fully qualified domain name of the Active Directory domain controller.
+	DomainName string `pulumi:"domainName"`
+	// The Active Directory domain's NetBIOS name.
+	DomainNetBiosName string `pulumi:"domainNetBiosName"`
+	// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	PrimaryDnsIpAddress string `pulumi:"primaryDnsIpAddress"`
+	// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	SecondaryDnsIpAddress *string `pulumi:"secondaryDnsIpAddress"`
+}
+
+// CacheActiveDirectorySettingsInvokeResponseInput is an input type that accepts CacheActiveDirectorySettingsInvokeResponseArgs and CacheActiveDirectorySettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsInvokeResponseInput` via:
+//
+//          CacheActiveDirectorySettingsInvokeResponseArgs{...}
+type CacheActiveDirectorySettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsInvokeResponseOutput() CacheActiveDirectorySettingsInvokeResponseOutput
+	ToCacheActiveDirectorySettingsInvokeResponseOutputWithContext(context.Context) CacheActiveDirectorySettingsInvokeResponseOutput
+}
+
+// Active Directory settings used to join a cache to a domain.
+type CacheActiveDirectorySettingsInvokeResponseArgs struct {
+	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+	CacheNetBiosName pulumi.StringInput `pulumi:"cacheNetBiosName"`
+	// Active Directory admin credentials used to join the HPC Cache to a domain.
+	Credentials CacheActiveDirectorySettingsInvokeResponseCredentialsPtrInput `pulumi:"credentials"`
+	// True if the HPC Cache is joined to the Active Directory domain.
+	DomainJoined pulumi.StringInput `pulumi:"domainJoined"`
+	// The fully qualified domain name of the Active Directory domain controller.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The Active Directory domain's NetBIOS name.
+	DomainNetBiosName pulumi.StringInput `pulumi:"domainNetBiosName"`
+	// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	PrimaryDnsIpAddress pulumi.StringInput `pulumi:"primaryDnsIpAddress"`
+	// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+	SecondaryDnsIpAddress pulumi.StringPtrInput `pulumi:"secondaryDnsIpAddress"`
+}
+
+func (CacheActiveDirectorySettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheActiveDirectorySettingsInvokeResponseArgs) ToCacheActiveDirectorySettingsInvokeResponseOutput() CacheActiveDirectorySettingsInvokeResponseOutput {
+	return i.ToCacheActiveDirectorySettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsInvokeResponseArgs) ToCacheActiveDirectorySettingsInvokeResponseOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsInvokeResponseOutput)
+}
+
+func (i CacheActiveDirectorySettingsInvokeResponseArgs) ToCacheActiveDirectorySettingsInvokeResponsePtrOutput() CacheActiveDirectorySettingsInvokeResponsePtrOutput {
+	return i.ToCacheActiveDirectorySettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsInvokeResponseArgs) ToCacheActiveDirectorySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsInvokeResponseOutput).ToCacheActiveDirectorySettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CacheActiveDirectorySettingsInvokeResponsePtrInput is an input type that accepts CacheActiveDirectorySettingsInvokeResponseArgs, CacheActiveDirectorySettingsInvokeResponsePtr and CacheActiveDirectorySettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsInvokeResponsePtrInput` via:
+//
+//          CacheActiveDirectorySettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheActiveDirectorySettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsInvokeResponsePtrOutput() CacheActiveDirectorySettingsInvokeResponsePtrOutput
+	ToCacheActiveDirectorySettingsInvokeResponsePtrOutputWithContext(context.Context) CacheActiveDirectorySettingsInvokeResponsePtrOutput
+}
+
+type cacheActiveDirectorySettingsInvokeResponsePtrType CacheActiveDirectorySettingsInvokeResponseArgs
+
+func CacheActiveDirectorySettingsInvokeResponsePtr(v *CacheActiveDirectorySettingsInvokeResponseArgs) CacheActiveDirectorySettingsInvokeResponsePtrInput {
+	return (*cacheActiveDirectorySettingsInvokeResponsePtrType)(v)
+}
+
+func (*cacheActiveDirectorySettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *cacheActiveDirectorySettingsInvokeResponsePtrType) ToCacheActiveDirectorySettingsInvokeResponsePtrOutput() CacheActiveDirectorySettingsInvokeResponsePtrOutput {
+	return i.ToCacheActiveDirectorySettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheActiveDirectorySettingsInvokeResponsePtrType) ToCacheActiveDirectorySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsInvokeResponsePtrOutput)
+}
+
+// Active Directory settings used to join a cache to a domain.
+type CacheActiveDirectorySettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) ToCacheActiveDirectorySettingsInvokeResponseOutput() CacheActiveDirectorySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) ToCacheActiveDirectorySettingsInvokeResponseOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) ToCacheActiveDirectorySettingsInvokeResponsePtrOutput() CacheActiveDirectorySettingsInvokeResponsePtrOutput {
+	return o.ToCacheActiveDirectorySettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) ToCacheActiveDirectorySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponse) *CacheActiveDirectorySettingsInvokeResponse {
+		return &v
+	}).(CacheActiveDirectorySettingsInvokeResponsePtrOutput)
+}
+
+// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) CacheNetBiosName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponse) string { return v.CacheNetBiosName }).(pulumi.StringOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) Credentials() CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponse) *CacheActiveDirectorySettingsInvokeResponseCredentials {
+		return v.Credentials
+	}).(CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput)
+}
+
+// True if the HPC Cache is joined to the Active Directory domain.
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) DomainJoined() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponse) string { return v.DomainJoined }).(pulumi.StringOutput)
+}
+
+// The fully qualified domain name of the Active Directory domain controller.
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponse) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The Active Directory domain's NetBIOS name.
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) DomainNetBiosName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponse) string { return v.DomainNetBiosName }).(pulumi.StringOutput)
+}
+
+// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) PrimaryDnsIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponse) string { return v.PrimaryDnsIpAddress }).(pulumi.StringOutput)
+}
+
+// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsInvokeResponseOutput) SecondaryDnsIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponse) *string { return v.SecondaryDnsIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type CacheActiveDirectorySettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponsePtrOutput) ToCacheActiveDirectorySettingsInvokeResponsePtrOutput() CacheActiveDirectorySettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponsePtrOutput) ToCacheActiveDirectorySettingsInvokeResponsePtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponsePtrOutput) Elem() CacheActiveDirectorySettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponse) CacheActiveDirectorySettingsInvokeResponse {
+		return *v
+	}).(CacheActiveDirectorySettingsInvokeResponseOutput)
+}
+
+// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
+func (o CacheActiveDirectorySettingsInvokeResponsePtrOutput) CacheNetBiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CacheNetBiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+func (o CacheActiveDirectorySettingsInvokeResponsePtrOutput) Credentials() CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponse) *CacheActiveDirectorySettingsInvokeResponseCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput)
+}
+
+// True if the HPC Cache is joined to the Active Directory domain.
+func (o CacheActiveDirectorySettingsInvokeResponsePtrOutput) DomainJoined() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainJoined
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name of the Active Directory domain controller.
+func (o CacheActiveDirectorySettingsInvokeResponsePtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Active Directory domain's NetBIOS name.
+func (o CacheActiveDirectorySettingsInvokeResponsePtrOutput) DomainNetBiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainNetBiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsInvokeResponsePtrOutput) PrimaryDnsIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryDnsIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.
+func (o CacheActiveDirectorySettingsInvokeResponsePtrOutput) SecondaryDnsIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryDnsIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+type CacheActiveDirectorySettingsInvokeResponseCredentials struct {
+	// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Password string `pulumi:"password"`
+	// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Username string `pulumi:"username"`
+}
+
+// CacheActiveDirectorySettingsInvokeResponseCredentialsInput is an input type that accepts CacheActiveDirectorySettingsInvokeResponseCredentialsArgs and CacheActiveDirectorySettingsInvokeResponseCredentialsOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsInvokeResponseCredentialsInput` via:
+//
+//          CacheActiveDirectorySettingsInvokeResponseCredentialsArgs{...}
+type CacheActiveDirectorySettingsInvokeResponseCredentialsInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsInvokeResponseCredentialsOutput() CacheActiveDirectorySettingsInvokeResponseCredentialsOutput
+	ToCacheActiveDirectorySettingsInvokeResponseCredentialsOutputWithContext(context.Context) CacheActiveDirectorySettingsInvokeResponseCredentialsOutput
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+type CacheActiveDirectorySettingsInvokeResponseCredentialsArgs struct {
+	// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (CacheActiveDirectorySettingsInvokeResponseCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettingsInvokeResponseCredentials)(nil)).Elem()
+}
+
+func (i CacheActiveDirectorySettingsInvokeResponseCredentialsArgs) ToCacheActiveDirectorySettingsInvokeResponseCredentialsOutput() CacheActiveDirectorySettingsInvokeResponseCredentialsOutput {
+	return i.ToCacheActiveDirectorySettingsInvokeResponseCredentialsOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsInvokeResponseCredentialsArgs) ToCacheActiveDirectorySettingsInvokeResponseCredentialsOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponseCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsInvokeResponseCredentialsOutput)
+}
+
+func (i CacheActiveDirectorySettingsInvokeResponseCredentialsArgs) ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput() CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput {
+	return i.ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheActiveDirectorySettingsInvokeResponseCredentialsArgs) ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsInvokeResponseCredentialsOutput).ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutputWithContext(ctx)
+}
+
+// CacheActiveDirectorySettingsInvokeResponseCredentialsPtrInput is an input type that accepts CacheActiveDirectorySettingsInvokeResponseCredentialsArgs, CacheActiveDirectorySettingsInvokeResponseCredentialsPtr and CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput values.
+// You can construct a concrete instance of `CacheActiveDirectorySettingsInvokeResponseCredentialsPtrInput` via:
+//
+//          CacheActiveDirectorySettingsInvokeResponseCredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheActiveDirectorySettingsInvokeResponseCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput() CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput
+	ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutputWithContext(context.Context) CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput
+}
+
+type cacheActiveDirectorySettingsInvokeResponseCredentialsPtrType CacheActiveDirectorySettingsInvokeResponseCredentialsArgs
+
+func CacheActiveDirectorySettingsInvokeResponseCredentialsPtr(v *CacheActiveDirectorySettingsInvokeResponseCredentialsArgs) CacheActiveDirectorySettingsInvokeResponseCredentialsPtrInput {
+	return (*cacheActiveDirectorySettingsInvokeResponseCredentialsPtrType)(v)
+}
+
+func (*cacheActiveDirectorySettingsInvokeResponseCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettingsInvokeResponseCredentials)(nil)).Elem()
+}
+
+func (i *cacheActiveDirectorySettingsInvokeResponseCredentialsPtrType) ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput() CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput {
+	return i.ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheActiveDirectorySettingsInvokeResponseCredentialsPtrType) ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput)
+}
+
+// Active Directory admin credentials used to join the HPC Cache to a domain.
+type CacheActiveDirectorySettingsInvokeResponseCredentialsOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsInvokeResponseCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheActiveDirectorySettingsInvokeResponseCredentials)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsOutput) ToCacheActiveDirectorySettingsInvokeResponseCredentialsOutput() CacheActiveDirectorySettingsInvokeResponseCredentialsOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsOutput) ToCacheActiveDirectorySettingsInvokeResponseCredentialsOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponseCredentialsOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsOutput) ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput() CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput {
+	return o.ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsOutput) ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponseCredentials) *CacheActiveDirectorySettingsInvokeResponseCredentials {
+		return &v
+	}).(CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput)
+}
+
+// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponseCredentials) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheActiveDirectorySettingsInvokeResponseCredentials) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheActiveDirectorySettingsInvokeResponseCredentials)(nil)).Elem()
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput) ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput() CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput) ToCacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput) Elem() CacheActiveDirectorySettingsInvokeResponseCredentialsOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponseCredentials) CacheActiveDirectorySettingsInvokeResponseCredentials {
+		return *v
+	}).(CacheActiveDirectorySettingsInvokeResponseCredentialsOutput)
+}
+
+// Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponseCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+func (o CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheActiveDirectorySettingsInvokeResponseCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+// Active Directory settings used to join a cache to a domain.
 type CacheActiveDirectorySettingsResponse struct {
 	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].
 	CacheNetBiosName string `pulumi:"cacheNetBiosName"`
@@ -951,6 +1358,74 @@ func (o CacheDirectorySettingsPtrOutput) UsernameDownload() CacheUsernameDownloa
 }
 
 // Cache Directory Services settings.
+type CacheDirectorySettingsInvokeResponse struct {
+	// Specifies settings for joining the HPC Cache to an Active Directory domain.
+	ActiveDirectory *CacheActiveDirectorySettingsInvokeResponse `pulumi:"activeDirectory"`
+	// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+	UsernameDownload *CacheUsernameDownloadSettingsInvokeResponse `pulumi:"usernameDownload"`
+}
+
+// CacheDirectorySettingsInvokeResponseInput is an input type that accepts CacheDirectorySettingsInvokeResponseArgs and CacheDirectorySettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheDirectorySettingsInvokeResponseInput` via:
+//
+//          CacheDirectorySettingsInvokeResponseArgs{...}
+type CacheDirectorySettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheDirectorySettingsInvokeResponseOutput() CacheDirectorySettingsInvokeResponseOutput
+	ToCacheDirectorySettingsInvokeResponseOutputWithContext(context.Context) CacheDirectorySettingsInvokeResponseOutput
+}
+
+// Cache Directory Services settings.
+type CacheDirectorySettingsInvokeResponseArgs struct {
+	// Specifies settings for joining the HPC Cache to an Active Directory domain.
+	ActiveDirectory CacheActiveDirectorySettingsInvokeResponsePtrInput `pulumi:"activeDirectory"`
+	// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+	UsernameDownload CacheUsernameDownloadSettingsInvokeResponsePtrInput `pulumi:"usernameDownload"`
+}
+
+func (CacheDirectorySettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectorySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheDirectorySettingsInvokeResponseArgs) ToCacheDirectorySettingsInvokeResponseOutput() CacheDirectorySettingsInvokeResponseOutput {
+	return i.ToCacheDirectorySettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheDirectorySettingsInvokeResponseArgs) ToCacheDirectorySettingsInvokeResponseOutputWithContext(ctx context.Context) CacheDirectorySettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectorySettingsInvokeResponseOutput)
+}
+
+// Cache Directory Services settings.
+type CacheDirectorySettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectorySettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectorySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheDirectorySettingsInvokeResponseOutput) ToCacheDirectorySettingsInvokeResponseOutput() CacheDirectorySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheDirectorySettingsInvokeResponseOutput) ToCacheDirectorySettingsInvokeResponseOutputWithContext(ctx context.Context) CacheDirectorySettingsInvokeResponseOutput {
+	return o
+}
+
+// Specifies settings for joining the HPC Cache to an Active Directory domain.
+func (o CacheDirectorySettingsInvokeResponseOutput) ActiveDirectory() CacheActiveDirectorySettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CacheDirectorySettingsInvokeResponse) *CacheActiveDirectorySettingsInvokeResponse {
+		return v.ActiveDirectory
+	}).(CacheActiveDirectorySettingsInvokeResponsePtrOutput)
+}
+
+// Specifies settings for Extended Groups. Extended Groups allows users to be members of more than 16 groups.
+func (o CacheDirectorySettingsInvokeResponseOutput) UsernameDownload() CacheUsernameDownloadSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CacheDirectorySettingsInvokeResponse) *CacheUsernameDownloadSettingsInvokeResponse {
+		return v.UsernameDownload
+	}).(CacheUsernameDownloadSettingsInvokeResponsePtrOutput)
+}
+
+// Cache Directory Services settings.
 type CacheDirectorySettingsResponse struct {
 	// Specifies settings for joining the HPC Cache to an Active Directory domain.
 	ActiveDirectory *CacheActiveDirectorySettingsResponse `pulumi:"activeDirectory"`
@@ -1240,6 +1715,63 @@ func (o CacheEncryptionSettingsPtrOutput) KeyEncryptionKey() KeyVaultKeyReferenc
 }
 
 // Cache encryption settings.
+type CacheEncryptionSettingsInvokeResponse struct {
+	// Specifies the location of the key encryption key in Key Vault.
+	KeyEncryptionKey *KeyVaultKeyReferenceInvokeResponse `pulumi:"keyEncryptionKey"`
+}
+
+// CacheEncryptionSettingsInvokeResponseInput is an input type that accepts CacheEncryptionSettingsInvokeResponseArgs and CacheEncryptionSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheEncryptionSettingsInvokeResponseInput` via:
+//
+//          CacheEncryptionSettingsInvokeResponseArgs{...}
+type CacheEncryptionSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheEncryptionSettingsInvokeResponseOutput() CacheEncryptionSettingsInvokeResponseOutput
+	ToCacheEncryptionSettingsInvokeResponseOutputWithContext(context.Context) CacheEncryptionSettingsInvokeResponseOutput
+}
+
+// Cache encryption settings.
+type CacheEncryptionSettingsInvokeResponseArgs struct {
+	// Specifies the location of the key encryption key in Key Vault.
+	KeyEncryptionKey KeyVaultKeyReferenceInvokeResponsePtrInput `pulumi:"keyEncryptionKey"`
+}
+
+func (CacheEncryptionSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheEncryptionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheEncryptionSettingsInvokeResponseArgs) ToCacheEncryptionSettingsInvokeResponseOutput() CacheEncryptionSettingsInvokeResponseOutput {
+	return i.ToCacheEncryptionSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheEncryptionSettingsInvokeResponseArgs) ToCacheEncryptionSettingsInvokeResponseOutputWithContext(ctx context.Context) CacheEncryptionSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheEncryptionSettingsInvokeResponseOutput)
+}
+
+// Cache encryption settings.
+type CacheEncryptionSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheEncryptionSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheEncryptionSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheEncryptionSettingsInvokeResponseOutput) ToCacheEncryptionSettingsInvokeResponseOutput() CacheEncryptionSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheEncryptionSettingsInvokeResponseOutput) ToCacheEncryptionSettingsInvokeResponseOutputWithContext(ctx context.Context) CacheEncryptionSettingsInvokeResponseOutput {
+	return o
+}
+
+// Specifies the location of the key encryption key in Key Vault.
+func (o CacheEncryptionSettingsInvokeResponseOutput) KeyEncryptionKey() KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CacheEncryptionSettingsInvokeResponse) *KeyVaultKeyReferenceInvokeResponse {
+		return v.KeyEncryptionKey
+	}).(KeyVaultKeyReferenceInvokeResponsePtrOutput)
+}
+
+// Cache encryption settings.
 type CacheEncryptionSettingsResponse struct {
 	// Specifies the location of the key encryption key in Key Vault.
 	KeyEncryptionKey *KeyVaultKeyReferenceResponse `pulumi:"keyEncryptionKey"`
@@ -1371,6 +1903,70 @@ func (o CacheEncryptionSettingsResponsePtrOutput) KeyEncryptionKey() KeyVaultKey
 		}
 		return v.KeyEncryptionKey
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+// An indication of Cache health. Gives more information about health than just that related to provisioning.
+type CacheHealthInvokeResponse struct {
+	// List of Cache health states.
+	State *string `pulumi:"state"`
+	// Describes explanation of state.
+	StatusDescription *string `pulumi:"statusDescription"`
+}
+
+// CacheHealthInvokeResponseInput is an input type that accepts CacheHealthInvokeResponseArgs and CacheHealthInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheHealthInvokeResponseInput` via:
+//
+//          CacheHealthInvokeResponseArgs{...}
+type CacheHealthInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheHealthInvokeResponseOutput() CacheHealthInvokeResponseOutput
+	ToCacheHealthInvokeResponseOutputWithContext(context.Context) CacheHealthInvokeResponseOutput
+}
+
+// An indication of Cache health. Gives more information about health than just that related to provisioning.
+type CacheHealthInvokeResponseArgs struct {
+	// List of Cache health states.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Describes explanation of state.
+	StatusDescription pulumi.StringPtrInput `pulumi:"statusDescription"`
+}
+
+func (CacheHealthInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheHealthInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheHealthInvokeResponseArgs) ToCacheHealthInvokeResponseOutput() CacheHealthInvokeResponseOutput {
+	return i.ToCacheHealthInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheHealthInvokeResponseArgs) ToCacheHealthInvokeResponseOutputWithContext(ctx context.Context) CacheHealthInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheHealthInvokeResponseOutput)
+}
+
+// An indication of Cache health. Gives more information about health than just that related to provisioning.
+type CacheHealthInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheHealthInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheHealthInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheHealthInvokeResponseOutput) ToCacheHealthInvokeResponseOutput() CacheHealthInvokeResponseOutput {
+	return o
+}
+
+func (o CacheHealthInvokeResponseOutput) ToCacheHealthInvokeResponseOutputWithContext(ctx context.Context) CacheHealthInvokeResponseOutput {
+	return o
+}
+
+// List of Cache health states.
+func (o CacheHealthInvokeResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheHealthInvokeResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Describes explanation of state.
+func (o CacheHealthInvokeResponseOutput) StatusDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheHealthInvokeResponse) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
 }
 
 // An indication of Cache health. Gives more information about health than just that related to provisioning.
@@ -1661,6 +2257,79 @@ func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Cache identity properties.
+type CacheIdentityInvokeResponse struct {
+	// The principal id of the cache.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id associated with the cache.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for the cache
+	Type *string `pulumi:"type"`
+}
+
+// CacheIdentityInvokeResponseInput is an input type that accepts CacheIdentityInvokeResponseArgs and CacheIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheIdentityInvokeResponseInput` via:
+//
+//          CacheIdentityInvokeResponseArgs{...}
+type CacheIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheIdentityInvokeResponseOutput() CacheIdentityInvokeResponseOutput
+	ToCacheIdentityInvokeResponseOutputWithContext(context.Context) CacheIdentityInvokeResponseOutput
+}
+
+// Cache identity properties.
+type CacheIdentityInvokeResponseArgs struct {
+	// The principal id of the cache.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id associated with the cache.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for the cache
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CacheIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheIdentityInvokeResponseArgs) ToCacheIdentityInvokeResponseOutput() CacheIdentityInvokeResponseOutput {
+	return i.ToCacheIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheIdentityInvokeResponseArgs) ToCacheIdentityInvokeResponseOutputWithContext(ctx context.Context) CacheIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityInvokeResponseOutput)
+}
+
+// Cache identity properties.
+type CacheIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheIdentityInvokeResponseOutput) ToCacheIdentityInvokeResponseOutput() CacheIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o CacheIdentityInvokeResponseOutput) ToCacheIdentityInvokeResponseOutputWithContext(ctx context.Context) CacheIdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal id of the cache.
+func (o CacheIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id associated with the cache.
+func (o CacheIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the cache
+func (o CacheIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Cache identity properties.
 type CacheIdentityResponse struct {
 	// The principal id of the cache.
 	PrincipalId string `pulumi:"principalId"`
@@ -1832,6 +2501,61 @@ func (o CacheIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// SKU for the Cache.
+type CacheInvokeResponseSku struct {
+	// SKU name for this Cache.
+	Name *string `pulumi:"name"`
+}
+
+// CacheInvokeResponseSkuInput is an input type that accepts CacheInvokeResponseSkuArgs and CacheInvokeResponseSkuOutput values.
+// You can construct a concrete instance of `CacheInvokeResponseSkuInput` via:
+//
+//          CacheInvokeResponseSkuArgs{...}
+type CacheInvokeResponseSkuInput interface {
+	pulumi.Input
+
+	ToCacheInvokeResponseSkuOutput() CacheInvokeResponseSkuOutput
+	ToCacheInvokeResponseSkuOutputWithContext(context.Context) CacheInvokeResponseSkuOutput
+}
+
+// SKU for the Cache.
+type CacheInvokeResponseSkuArgs struct {
+	// SKU name for this Cache.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (CacheInvokeResponseSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheInvokeResponseSku)(nil)).Elem()
+}
+
+func (i CacheInvokeResponseSkuArgs) ToCacheInvokeResponseSkuOutput() CacheInvokeResponseSkuOutput {
+	return i.ToCacheInvokeResponseSkuOutputWithContext(context.Background())
+}
+
+func (i CacheInvokeResponseSkuArgs) ToCacheInvokeResponseSkuOutputWithContext(ctx context.Context) CacheInvokeResponseSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheInvokeResponseSkuOutput)
+}
+
+// SKU for the Cache.
+type CacheInvokeResponseSkuOutput struct{ *pulumi.OutputState }
+
+func (CacheInvokeResponseSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheInvokeResponseSku)(nil)).Elem()
+}
+
+func (o CacheInvokeResponseSkuOutput) ToCacheInvokeResponseSkuOutput() CacheInvokeResponseSkuOutput {
+	return o
+}
+
+func (o CacheInvokeResponseSkuOutput) ToCacheInvokeResponseSkuOutputWithContext(ctx context.Context) CacheInvokeResponseSkuOutput {
+	return o
+}
+
+// SKU name for this Cache.
+func (o CacheInvokeResponseSkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheInvokeResponseSku) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 // Cache network settings.
 type CacheNetworkSettings struct {
 	// The IPv4 maximum transmission unit configured for the subnet.
@@ -1964,6 +2688,70 @@ func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
 		}
 		return v.Mtu
 	}).(pulumi.IntPtrOutput)
+}
+
+// Cache network settings.
+type CacheNetworkSettingsInvokeResponse struct {
+	// The IPv4 maximum transmission unit configured for the subnet.
+	Mtu *int `pulumi:"mtu"`
+	// Array of additional IP addresses used by this Cache.
+	UtilityAddresses []string `pulumi:"utilityAddresses"`
+}
+
+// CacheNetworkSettingsInvokeResponseInput is an input type that accepts CacheNetworkSettingsInvokeResponseArgs and CacheNetworkSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheNetworkSettingsInvokeResponseInput` via:
+//
+//          CacheNetworkSettingsInvokeResponseArgs{...}
+type CacheNetworkSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheNetworkSettingsInvokeResponseOutput() CacheNetworkSettingsInvokeResponseOutput
+	ToCacheNetworkSettingsInvokeResponseOutputWithContext(context.Context) CacheNetworkSettingsInvokeResponseOutput
+}
+
+// Cache network settings.
+type CacheNetworkSettingsInvokeResponseArgs struct {
+	// The IPv4 maximum transmission unit configured for the subnet.
+	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
+	// Array of additional IP addresses used by this Cache.
+	UtilityAddresses pulumi.StringArrayInput `pulumi:"utilityAddresses"`
+}
+
+func (CacheNetworkSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNetworkSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheNetworkSettingsInvokeResponseArgs) ToCacheNetworkSettingsInvokeResponseOutput() CacheNetworkSettingsInvokeResponseOutput {
+	return i.ToCacheNetworkSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheNetworkSettingsInvokeResponseArgs) ToCacheNetworkSettingsInvokeResponseOutputWithContext(ctx context.Context) CacheNetworkSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheNetworkSettingsInvokeResponseOutput)
+}
+
+// Cache network settings.
+type CacheNetworkSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheNetworkSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheNetworkSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheNetworkSettingsInvokeResponseOutput) ToCacheNetworkSettingsInvokeResponseOutput() CacheNetworkSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheNetworkSettingsInvokeResponseOutput) ToCacheNetworkSettingsInvokeResponseOutputWithContext(ctx context.Context) CacheNetworkSettingsInvokeResponseOutput {
+	return o
+}
+
+// The IPv4 maximum transmission unit configured for the subnet.
+func (o CacheNetworkSettingsInvokeResponseOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CacheNetworkSettingsInvokeResponse) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+// Array of additional IP addresses used by this Cache.
+func (o CacheNetworkSettingsInvokeResponseOutput) UtilityAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CacheNetworkSettingsInvokeResponse) []string { return v.UtilityAddresses }).(pulumi.StringArrayOutput)
 }
 
 // Cache network settings.
@@ -2388,6 +3176,61 @@ func (o CacheSecuritySettingsPtrOutput) AccessPolicies() NfsAccessPolicyArrayOut
 }
 
 // Cache security settings.
+type CacheSecuritySettingsInvokeResponse struct {
+	// NFS access policies defined for this cache.
+	AccessPolicies []NfsAccessPolicyInvokeResponse `pulumi:"accessPolicies"`
+}
+
+// CacheSecuritySettingsInvokeResponseInput is an input type that accepts CacheSecuritySettingsInvokeResponseArgs and CacheSecuritySettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheSecuritySettingsInvokeResponseInput` via:
+//
+//          CacheSecuritySettingsInvokeResponseArgs{...}
+type CacheSecuritySettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheSecuritySettingsInvokeResponseOutput() CacheSecuritySettingsInvokeResponseOutput
+	ToCacheSecuritySettingsInvokeResponseOutputWithContext(context.Context) CacheSecuritySettingsInvokeResponseOutput
+}
+
+// Cache security settings.
+type CacheSecuritySettingsInvokeResponseArgs struct {
+	// NFS access policies defined for this cache.
+	AccessPolicies NfsAccessPolicyInvokeResponseArrayInput `pulumi:"accessPolicies"`
+}
+
+func (CacheSecuritySettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheSecuritySettingsInvokeResponseArgs) ToCacheSecuritySettingsInvokeResponseOutput() CacheSecuritySettingsInvokeResponseOutput {
+	return i.ToCacheSecuritySettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheSecuritySettingsInvokeResponseArgs) ToCacheSecuritySettingsInvokeResponseOutputWithContext(ctx context.Context) CacheSecuritySettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSecuritySettingsInvokeResponseOutput)
+}
+
+// Cache security settings.
+type CacheSecuritySettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheSecuritySettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSecuritySettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheSecuritySettingsInvokeResponseOutput) ToCacheSecuritySettingsInvokeResponseOutput() CacheSecuritySettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheSecuritySettingsInvokeResponseOutput) ToCacheSecuritySettingsInvokeResponseOutputWithContext(ctx context.Context) CacheSecuritySettingsInvokeResponseOutput {
+	return o
+}
+
+// NFS access policies defined for this cache.
+func (o CacheSecuritySettingsInvokeResponseOutput) AccessPolicies() NfsAccessPolicyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CacheSecuritySettingsInvokeResponse) []NfsAccessPolicyInvokeResponse { return v.AccessPolicies }).(NfsAccessPolicyInvokeResponseArrayOutput)
+}
+
+// Cache security settings.
 type CacheSecuritySettingsResponse struct {
 	// NFS access policies defined for this cache.
 	AccessPolicies []NfsAccessPolicyResponse `pulumi:"accessPolicies"`
@@ -2653,6 +3496,97 @@ func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// Properties describing the software upgrade state of the Cache.
+type CacheUpgradeStatusInvokeResponse struct {
+	// Version string of the firmware currently installed on this Cache.
+	CurrentFirmwareVersion string `pulumi:"currentFirmwareVersion"`
+	// Time at which the pending firmware update will automatically be installed on the Cache.
+	FirmwareUpdateDeadline string `pulumi:"firmwareUpdateDeadline"`
+	// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+	FirmwareUpdateStatus string `pulumi:"firmwareUpdateStatus"`
+	// Time of the last successful firmware update.
+	LastFirmwareUpdate string `pulumi:"lastFirmwareUpdate"`
+	// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+	PendingFirmwareVersion string `pulumi:"pendingFirmwareVersion"`
+}
+
+// CacheUpgradeStatusInvokeResponseInput is an input type that accepts CacheUpgradeStatusInvokeResponseArgs and CacheUpgradeStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheUpgradeStatusInvokeResponseInput` via:
+//
+//          CacheUpgradeStatusInvokeResponseArgs{...}
+type CacheUpgradeStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheUpgradeStatusInvokeResponseOutput() CacheUpgradeStatusInvokeResponseOutput
+	ToCacheUpgradeStatusInvokeResponseOutputWithContext(context.Context) CacheUpgradeStatusInvokeResponseOutput
+}
+
+// Properties describing the software upgrade state of the Cache.
+type CacheUpgradeStatusInvokeResponseArgs struct {
+	// Version string of the firmware currently installed on this Cache.
+	CurrentFirmwareVersion pulumi.StringInput `pulumi:"currentFirmwareVersion"`
+	// Time at which the pending firmware update will automatically be installed on the Cache.
+	FirmwareUpdateDeadline pulumi.StringInput `pulumi:"firmwareUpdateDeadline"`
+	// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+	FirmwareUpdateStatus pulumi.StringInput `pulumi:"firmwareUpdateStatus"`
+	// Time of the last successful firmware update.
+	LastFirmwareUpdate pulumi.StringInput `pulumi:"lastFirmwareUpdate"`
+	// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+	PendingFirmwareVersion pulumi.StringInput `pulumi:"pendingFirmwareVersion"`
+}
+
+func (CacheUpgradeStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUpgradeStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheUpgradeStatusInvokeResponseArgs) ToCacheUpgradeStatusInvokeResponseOutput() CacheUpgradeStatusInvokeResponseOutput {
+	return i.ToCacheUpgradeStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheUpgradeStatusInvokeResponseArgs) ToCacheUpgradeStatusInvokeResponseOutputWithContext(ctx context.Context) CacheUpgradeStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusInvokeResponseOutput)
+}
+
+// Properties describing the software upgrade state of the Cache.
+type CacheUpgradeStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheUpgradeStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUpgradeStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheUpgradeStatusInvokeResponseOutput) ToCacheUpgradeStatusInvokeResponseOutput() CacheUpgradeStatusInvokeResponseOutput {
+	return o
+}
+
+func (o CacheUpgradeStatusInvokeResponseOutput) ToCacheUpgradeStatusInvokeResponseOutputWithContext(ctx context.Context) CacheUpgradeStatusInvokeResponseOutput {
+	return o
+}
+
+// Version string of the firmware currently installed on this Cache.
+func (o CacheUpgradeStatusInvokeResponseOutput) CurrentFirmwareVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusInvokeResponse) string { return v.CurrentFirmwareVersion }).(pulumi.StringOutput)
+}
+
+// Time at which the pending firmware update will automatically be installed on the Cache.
+func (o CacheUpgradeStatusInvokeResponseOutput) FirmwareUpdateDeadline() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusInvokeResponse) string { return v.FirmwareUpdateDeadline }).(pulumi.StringOutput)
+}
+
+// True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+func (o CacheUpgradeStatusInvokeResponseOutput) FirmwareUpdateStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusInvokeResponse) string { return v.FirmwareUpdateStatus }).(pulumi.StringOutput)
+}
+
+// Time of the last successful firmware update.
+func (o CacheUpgradeStatusInvokeResponseOutput) LastFirmwareUpdate() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusInvokeResponse) string { return v.LastFirmwareUpdate }).(pulumi.StringOutput)
+}
+
+// When firmwareUpdateAvailable is true, this field holds the version string for the update.
+func (o CacheUpgradeStatusInvokeResponseOutput) PendingFirmwareVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUpgradeStatusInvokeResponse) string { return v.PendingFirmwareVersion }).(pulumi.StringOutput)
 }
 
 // Properties describing the software upgrade state of the Cache.
@@ -3343,6 +4277,508 @@ func (o CacheUsernameDownloadSettingsCredentialsPtrOutput) BindPassword() pulumi
 }
 
 // Settings for Extended Groups username and group download.
+type CacheUsernameDownloadSettingsInvokeResponse struct {
+	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+	AutoDownloadCertificate *bool `pulumi:"autoDownloadCertificate"`
+	// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+	CaCertificateURI *string `pulumi:"caCertificateURI"`
+	// When present, these are the credentials for the secure LDAP connection.
+	Credentials *CacheUsernameDownloadSettingsInvokeResponseCredentials `pulumi:"credentials"`
+	// Whether or not the LDAP connection should be encrypted.
+	EncryptLdapConnection *bool `pulumi:"encryptLdapConnection"`
+	// Whether or not Extended Groups is enabled.
+	ExtendedGroupsEnabled *bool `pulumi:"extendedGroupsEnabled"`
+	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+	GroupFileURI *string `pulumi:"groupFileURI"`
+	// The base distinguished name for the LDAP domain.
+	LdapBaseDn *string `pulumi:"ldapBaseDn"`
+	// The fully qualified domain name or IP address of the LDAP server to use.
+	LdapServer *string `pulumi:"ldapServer"`
+	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+	RequireValidCertificate *bool `pulumi:"requireValidCertificate"`
+	// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+	UserFileURI *string `pulumi:"userFileURI"`
+	// Indicates whether or not the HPC Cache has performed the username download successfully.
+	UsernameDownloaded string `pulumi:"usernameDownloaded"`
+	// This setting determines how the cache gets username and group names for clients.
+	UsernameSource *string `pulumi:"usernameSource"`
+}
+
+// CacheUsernameDownloadSettingsInvokeResponseInput is an input type that accepts CacheUsernameDownloadSettingsInvokeResponseArgs and CacheUsernameDownloadSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsInvokeResponseInput` via:
+//
+//          CacheUsernameDownloadSettingsInvokeResponseArgs{...}
+type CacheUsernameDownloadSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsInvokeResponseOutput() CacheUsernameDownloadSettingsInvokeResponseOutput
+	ToCacheUsernameDownloadSettingsInvokeResponseOutputWithContext(context.Context) CacheUsernameDownloadSettingsInvokeResponseOutput
+}
+
+// Settings for Extended Groups username and group download.
+type CacheUsernameDownloadSettingsInvokeResponseArgs struct {
+	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+	AutoDownloadCertificate pulumi.BoolPtrInput `pulumi:"autoDownloadCertificate"`
+	// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+	CaCertificateURI pulumi.StringPtrInput `pulumi:"caCertificateURI"`
+	// When present, these are the credentials for the secure LDAP connection.
+	Credentials CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrInput `pulumi:"credentials"`
+	// Whether or not the LDAP connection should be encrypted.
+	EncryptLdapConnection pulumi.BoolPtrInput `pulumi:"encryptLdapConnection"`
+	// Whether or not Extended Groups is enabled.
+	ExtendedGroupsEnabled pulumi.BoolPtrInput `pulumi:"extendedGroupsEnabled"`
+	// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+	GroupFileURI pulumi.StringPtrInput `pulumi:"groupFileURI"`
+	// The base distinguished name for the LDAP domain.
+	LdapBaseDn pulumi.StringPtrInput `pulumi:"ldapBaseDn"`
+	// The fully qualified domain name or IP address of the LDAP server to use.
+	LdapServer pulumi.StringPtrInput `pulumi:"ldapServer"`
+	// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+	RequireValidCertificate pulumi.BoolPtrInput `pulumi:"requireValidCertificate"`
+	// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+	UserFileURI pulumi.StringPtrInput `pulumi:"userFileURI"`
+	// Indicates whether or not the HPC Cache has performed the username download successfully.
+	UsernameDownloaded pulumi.StringInput `pulumi:"usernameDownloaded"`
+	// This setting determines how the cache gets username and group names for clients.
+	UsernameSource pulumi.StringPtrInput `pulumi:"usernameSource"`
+}
+
+func (CacheUsernameDownloadSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i CacheUsernameDownloadSettingsInvokeResponseArgs) ToCacheUsernameDownloadSettingsInvokeResponseOutput() CacheUsernameDownloadSettingsInvokeResponseOutput {
+	return i.ToCacheUsernameDownloadSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsInvokeResponseArgs) ToCacheUsernameDownloadSettingsInvokeResponseOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsInvokeResponseOutput)
+}
+
+func (i CacheUsernameDownloadSettingsInvokeResponseArgs) ToCacheUsernameDownloadSettingsInvokeResponsePtrOutput() CacheUsernameDownloadSettingsInvokeResponsePtrOutput {
+	return i.ToCacheUsernameDownloadSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsInvokeResponseArgs) ToCacheUsernameDownloadSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsInvokeResponseOutput).ToCacheUsernameDownloadSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CacheUsernameDownloadSettingsInvokeResponsePtrInput is an input type that accepts CacheUsernameDownloadSettingsInvokeResponseArgs, CacheUsernameDownloadSettingsInvokeResponsePtr and CacheUsernameDownloadSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsInvokeResponsePtrInput` via:
+//
+//          CacheUsernameDownloadSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheUsernameDownloadSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsInvokeResponsePtrOutput() CacheUsernameDownloadSettingsInvokeResponsePtrOutput
+	ToCacheUsernameDownloadSettingsInvokeResponsePtrOutputWithContext(context.Context) CacheUsernameDownloadSettingsInvokeResponsePtrOutput
+}
+
+type cacheUsernameDownloadSettingsInvokeResponsePtrType CacheUsernameDownloadSettingsInvokeResponseArgs
+
+func CacheUsernameDownloadSettingsInvokeResponsePtr(v *CacheUsernameDownloadSettingsInvokeResponseArgs) CacheUsernameDownloadSettingsInvokeResponsePtrInput {
+	return (*cacheUsernameDownloadSettingsInvokeResponsePtrType)(v)
+}
+
+func (*cacheUsernameDownloadSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *cacheUsernameDownloadSettingsInvokeResponsePtrType) ToCacheUsernameDownloadSettingsInvokeResponsePtrOutput() CacheUsernameDownloadSettingsInvokeResponsePtrOutput {
+	return i.ToCacheUsernameDownloadSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheUsernameDownloadSettingsInvokeResponsePtrType) ToCacheUsernameDownloadSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsInvokeResponsePtrOutput)
+}
+
+// Settings for Extended Groups username and group download.
+type CacheUsernameDownloadSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) ToCacheUsernameDownloadSettingsInvokeResponseOutput() CacheUsernameDownloadSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) ToCacheUsernameDownloadSettingsInvokeResponseOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) ToCacheUsernameDownloadSettingsInvokeResponsePtrOutput() CacheUsernameDownloadSettingsInvokeResponsePtrOutput {
+	return o.ToCacheUsernameDownloadSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) ToCacheUsernameDownloadSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *CacheUsernameDownloadSettingsInvokeResponse {
+		return &v
+	}).(CacheUsernameDownloadSettingsInvokeResponsePtrOutput)
+}
+
+// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) AutoDownloadCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *bool { return v.AutoDownloadCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) CaCertificateURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *string { return v.CaCertificateURI }).(pulumi.StringPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) Credentials() CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *CacheUsernameDownloadSettingsInvokeResponseCredentials {
+		return v.Credentials
+	}).(CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput)
+}
+
+// Whether or not the LDAP connection should be encrypted.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) EncryptLdapConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *bool { return v.EncryptLdapConnection }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not Extended Groups is enabled.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) ExtendedGroupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *bool { return v.ExtendedGroupsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) GroupFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *string { return v.GroupFileURI }).(pulumi.StringPtrOutput)
+}
+
+// The base distinguished name for the LDAP domain.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) LdapBaseDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *string { return v.LdapBaseDn }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name or IP address of the LDAP server to use.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) LdapServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *string { return v.LdapServer }).(pulumi.StringPtrOutput)
+}
+
+// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) RequireValidCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *bool { return v.RequireValidCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) UserFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *string { return v.UserFileURI }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether or not the HPC Cache has performed the username download successfully.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) UsernameDownloaded() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) string { return v.UsernameDownloaded }).(pulumi.StringOutput)
+}
+
+// This setting determines how the cache gets username and group names for clients.
+func (o CacheUsernameDownloadSettingsInvokeResponseOutput) UsernameSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponse) *string { return v.UsernameSource }).(pulumi.StringPtrOutput)
+}
+
+type CacheUsernameDownloadSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) ToCacheUsernameDownloadSettingsInvokeResponsePtrOutput() CacheUsernameDownloadSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) ToCacheUsernameDownloadSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) Elem() CacheUsernameDownloadSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) CacheUsernameDownloadSettingsInvokeResponse {
+		return *v
+	}).(CacheUsernameDownloadSettingsInvokeResponseOutput)
+}
+
+// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) AutoDownloadCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoDownloadCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the CA certificate to validate the LDAP secure connection. This field must be populated when 'requireValidCertificate' is set to true.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) CaCertificateURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaCertificateURI
+	}).(pulumi.StringPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) Credentials() CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *CacheUsernameDownloadSettingsInvokeResponseCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput)
+}
+
+// Whether or not the LDAP connection should be encrypted.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) EncryptLdapConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptLdapConnection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not Extended Groups is enabled.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) ExtendedGroupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExtendedGroupsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing group information (in /etc/group file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) GroupFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupFileURI
+	}).(pulumi.StringPtrOutput)
+}
+
+// The base distinguished name for the LDAP domain.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) LdapBaseDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapBaseDn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name or IP address of the LDAP server to use.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) LdapServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LdapServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines if the certificates must be validated by a certificate authority. When true, caCertificateURI must be provided.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) RequireValidCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireValidCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) UserFileURI() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserFileURI
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether or not the HPC Cache has performed the username download successfully.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) UsernameDownloaded() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UsernameDownloaded
+	}).(pulumi.StringPtrOutput)
+}
+
+// This setting determines how the cache gets username and group names for clients.
+func (o CacheUsernameDownloadSettingsInvokeResponsePtrOutput) UsernameSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+type CacheUsernameDownloadSettingsInvokeResponseCredentials struct {
+	// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindDn *string `pulumi:"bindDn"`
+	// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindPassword *string `pulumi:"bindPassword"`
+}
+
+// CacheUsernameDownloadSettingsInvokeResponseCredentialsInput is an input type that accepts CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs and CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsInvokeResponseCredentialsInput` via:
+//
+//          CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs{...}
+type CacheUsernameDownloadSettingsInvokeResponseCredentialsInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsInvokeResponseCredentialsOutput() CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput
+	ToCacheUsernameDownloadSettingsInvokeResponseCredentialsOutputWithContext(context.Context) CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+type CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs struct {
+	// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindDn pulumi.StringPtrInput `pulumi:"bindDn"`
+	// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+	BindPassword pulumi.StringPtrInput `pulumi:"bindPassword"`
+}
+
+func (CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettingsInvokeResponseCredentials)(nil)).Elem()
+}
+
+func (i CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsOutput() CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput {
+	return i.ToCacheUsernameDownloadSettingsInvokeResponseCredentialsOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput)
+}
+
+func (i CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput() CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput {
+	return i.ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput).ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutputWithContext(ctx)
+}
+
+// CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrInput is an input type that accepts CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs, CacheUsernameDownloadSettingsInvokeResponseCredentialsPtr and CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput values.
+// You can construct a concrete instance of `CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrInput` via:
+//
+//          CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput() CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput
+	ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutputWithContext(context.Context) CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput
+}
+
+type cacheUsernameDownloadSettingsInvokeResponseCredentialsPtrType CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs
+
+func CacheUsernameDownloadSettingsInvokeResponseCredentialsPtr(v *CacheUsernameDownloadSettingsInvokeResponseCredentialsArgs) CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrInput {
+	return (*cacheUsernameDownloadSettingsInvokeResponseCredentialsPtrType)(v)
+}
+
+func (*cacheUsernameDownloadSettingsInvokeResponseCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettingsInvokeResponseCredentials)(nil)).Elem()
+}
+
+func (i *cacheUsernameDownloadSettingsInvokeResponseCredentialsPtrType) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput() CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput {
+	return i.ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheUsernameDownloadSettingsInvokeResponseCredentialsPtrType) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput)
+}
+
+// When present, these are the credentials for the secure LDAP connection.
+type CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheUsernameDownloadSettingsInvokeResponseCredentials)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsOutput() CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput() CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput {
+	return o.ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponseCredentials) *CacheUsernameDownloadSettingsInvokeResponseCredentials {
+		return &v
+	}).(CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput)
+}
+
+// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput) BindDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponseCredentials) *string { return v.BindDn }).(pulumi.StringPtrOutput)
+}
+
+// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput) BindPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheUsernameDownloadSettingsInvokeResponseCredentials) *string { return v.BindPassword }).(pulumi.StringPtrOutput)
+}
+
+type CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheUsernameDownloadSettingsInvokeResponseCredentials)(nil)).Elem()
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput() CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput) ToCacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutputWithContext(ctx context.Context) CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput {
+	return o
+}
+
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput) Elem() CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponseCredentials) CacheUsernameDownloadSettingsInvokeResponseCredentials {
+		return *v
+	}).(CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput)
+}
+
+// The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput) BindDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponseCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BindDn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+func (o CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput) BindPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheUsernameDownloadSettingsInvokeResponseCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BindPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for Extended Groups username and group download.
 type CacheUsernameDownloadSettingsResponse struct {
 	// Determines if the certificate should be automatically downloaded. This applies to 'caCertificateURI' only if 'requireValidCertificate' is true.
 	AutoDownloadCertificate *bool `pulumi:"autoDownloadCertificate"`
@@ -3977,6 +5413,61 @@ func (o ClfsTargetPtrOutput) Target() pulumi.StringPtrOutput {
 }
 
 // Properties pertaining to the ClfsTarget
+type ClfsTargetInvokeResponse struct {
+	// Resource ID of storage container.
+	Target *string `pulumi:"target"`
+}
+
+// ClfsTargetInvokeResponseInput is an input type that accepts ClfsTargetInvokeResponseArgs and ClfsTargetInvokeResponseOutput values.
+// You can construct a concrete instance of `ClfsTargetInvokeResponseInput` via:
+//
+//          ClfsTargetInvokeResponseArgs{...}
+type ClfsTargetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClfsTargetInvokeResponseOutput() ClfsTargetInvokeResponseOutput
+	ToClfsTargetInvokeResponseOutputWithContext(context.Context) ClfsTargetInvokeResponseOutput
+}
+
+// Properties pertaining to the ClfsTarget
+type ClfsTargetInvokeResponseArgs struct {
+	// Resource ID of storage container.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (ClfsTargetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClfsTargetInvokeResponse)(nil)).Elem()
+}
+
+func (i ClfsTargetInvokeResponseArgs) ToClfsTargetInvokeResponseOutput() ClfsTargetInvokeResponseOutput {
+	return i.ToClfsTargetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClfsTargetInvokeResponseArgs) ToClfsTargetInvokeResponseOutputWithContext(ctx context.Context) ClfsTargetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClfsTargetInvokeResponseOutput)
+}
+
+// Properties pertaining to the ClfsTarget
+type ClfsTargetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClfsTargetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClfsTargetInvokeResponse)(nil)).Elem()
+}
+
+func (o ClfsTargetInvokeResponseOutput) ToClfsTargetInvokeResponseOutput() ClfsTargetInvokeResponseOutput {
+	return o
+}
+
+func (o ClfsTargetInvokeResponseOutput) ToClfsTargetInvokeResponseOutputWithContext(ctx context.Context) ClfsTargetInvokeResponseOutput {
+	return o
+}
+
+// Resource ID of storage container.
+func (o ClfsTargetInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClfsTargetInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Properties pertaining to the ClfsTarget
 type ClfsTargetResponse struct {
 	// Resource ID of storage container.
 	Target *string `pulumi:"target"`
@@ -4261,6 +5752,297 @@ func (o KeyVaultKeyReferencePtrOutput) SourceVault() KeyVaultKeyReferenceSourceV
 		}
 		return &v.SourceVault
 	}).(KeyVaultKeyReferenceSourceVaultPtrOutput)
+}
+
+// Describes a reference to Key Vault Key.
+type KeyVaultKeyReferenceInvokeResponse struct {
+	// The URL referencing a key encryption key in Key Vault.
+	KeyUrl string `pulumi:"keyUrl"`
+	// Describes a resource Id to source Key Vault.
+	SourceVault KeyVaultKeyReferenceInvokeResponseSourceVault `pulumi:"sourceVault"`
+}
+
+// KeyVaultKeyReferenceInvokeResponseInput is an input type that accepts KeyVaultKeyReferenceInvokeResponseArgs and KeyVaultKeyReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceInvokeResponseInput` via:
+//
+//          KeyVaultKeyReferenceInvokeResponseArgs{...}
+type KeyVaultKeyReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceInvokeResponseOutput() KeyVaultKeyReferenceInvokeResponseOutput
+	ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(context.Context) KeyVaultKeyReferenceInvokeResponseOutput
+}
+
+// Describes a reference to Key Vault Key.
+type KeyVaultKeyReferenceInvokeResponseArgs struct {
+	// The URL referencing a key encryption key in Key Vault.
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// Describes a resource Id to source Key Vault.
+	SourceVault KeyVaultKeyReferenceInvokeResponseSourceVaultInput `pulumi:"sourceVault"`
+}
+
+func (KeyVaultKeyReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseArgs) ToKeyVaultKeyReferenceInvokeResponseOutput() KeyVaultKeyReferenceInvokeResponseOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseArgs) ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseOutput)
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseArgs) ToKeyVaultKeyReferenceInvokeResponsePtrOutput() KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseArgs) ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseOutput).ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// KeyVaultKeyReferenceInvokeResponsePtrInput is an input type that accepts KeyVaultKeyReferenceInvokeResponseArgs, KeyVaultKeyReferenceInvokeResponsePtr and KeyVaultKeyReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceInvokeResponsePtrInput` via:
+//
+//          KeyVaultKeyReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultKeyReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceInvokeResponsePtrOutput() KeyVaultKeyReferenceInvokeResponsePtrOutput
+	ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(context.Context) KeyVaultKeyReferenceInvokeResponsePtrOutput
+}
+
+type keyVaultKeyReferenceInvokeResponsePtrType KeyVaultKeyReferenceInvokeResponseArgs
+
+func KeyVaultKeyReferenceInvokeResponsePtr(v *KeyVaultKeyReferenceInvokeResponseArgs) KeyVaultKeyReferenceInvokeResponsePtrInput {
+	return (*keyVaultKeyReferenceInvokeResponsePtrType)(v)
+}
+
+func (*keyVaultKeyReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *keyVaultKeyReferenceInvokeResponsePtrType) ToKeyVaultKeyReferenceInvokeResponsePtrOutput() KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultKeyReferenceInvokeResponsePtrType) ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponsePtrOutput)
+}
+
+// Describes a reference to Key Vault Key.
+type KeyVaultKeyReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseOutput) ToKeyVaultKeyReferenceInvokeResponseOutput() KeyVaultKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseOutput) ToKeyVaultKeyReferenceInvokeResponseOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseOutput) ToKeyVaultKeyReferenceInvokeResponsePtrOutput() KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return o.ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseOutput) ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponse) *KeyVaultKeyReferenceInvokeResponse {
+		return &v
+	}).(KeyVaultKeyReferenceInvokeResponsePtrOutput)
+}
+
+// The URL referencing a key encryption key in Key Vault.
+func (o KeyVaultKeyReferenceInvokeResponseOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponse) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// Describes a resource Id to source Key Vault.
+func (o KeyVaultKeyReferenceInvokeResponseOutput) SourceVault() KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponse) KeyVaultKeyReferenceInvokeResponseSourceVault {
+		return v.SourceVault
+	}).(KeyVaultKeyReferenceInvokeResponseSourceVaultOutput)
+}
+
+type KeyVaultKeyReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceInvokeResponsePtrOutput) ToKeyVaultKeyReferenceInvokeResponsePtrOutput() KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponsePtrOutput) ToKeyVaultKeyReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponsePtrOutput) Elem() KeyVaultKeyReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceInvokeResponse) KeyVaultKeyReferenceInvokeResponse { return *v }).(KeyVaultKeyReferenceInvokeResponseOutput)
+}
+
+// The URL referencing a key encryption key in Key Vault.
+func (o KeyVaultKeyReferenceInvokeResponsePtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes a resource Id to source Key Vault.
+func (o KeyVaultKeyReferenceInvokeResponsePtrOutput) SourceVault() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceInvokeResponse) *KeyVaultKeyReferenceInvokeResponseSourceVault {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceVault
+	}).(KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput)
+}
+
+// Describes a resource Id to source Key Vault.
+type KeyVaultKeyReferenceInvokeResponseSourceVault struct {
+	// Resource Id.
+	Id *string `pulumi:"id"`
+}
+
+// KeyVaultKeyReferenceInvokeResponseSourceVaultInput is an input type that accepts KeyVaultKeyReferenceInvokeResponseSourceVaultArgs and KeyVaultKeyReferenceInvokeResponseSourceVaultOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceInvokeResponseSourceVaultInput` via:
+//
+//          KeyVaultKeyReferenceInvokeResponseSourceVaultArgs{...}
+type KeyVaultKeyReferenceInvokeResponseSourceVaultInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultOutput
+	ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutputWithContext(context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultOutput
+}
+
+// Describes a resource Id to source Key Vault.
+type KeyVaultKeyReferenceInvokeResponseSourceVaultArgs struct {
+	// Resource Id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponseSourceVault)(nil)).Elem()
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseSourceVaultOutput)
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseSourceVaultOutput).ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(ctx)
+}
+
+// KeyVaultKeyReferenceInvokeResponseSourceVaultPtrInput is an input type that accepts KeyVaultKeyReferenceInvokeResponseSourceVaultArgs, KeyVaultKeyReferenceInvokeResponseSourceVaultPtr and KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceInvokeResponseSourceVaultPtrInput` via:
+//
+//          KeyVaultKeyReferenceInvokeResponseSourceVaultArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultKeyReferenceInvokeResponseSourceVaultPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput
+	ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput
+}
+
+type keyVaultKeyReferenceInvokeResponseSourceVaultPtrType KeyVaultKeyReferenceInvokeResponseSourceVaultArgs
+
+func KeyVaultKeyReferenceInvokeResponseSourceVaultPtr(v *KeyVaultKeyReferenceInvokeResponseSourceVaultArgs) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrInput {
+	return (*keyVaultKeyReferenceInvokeResponseSourceVaultPtrType)(v)
+}
+
+func (*keyVaultKeyReferenceInvokeResponseSourceVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceInvokeResponseSourceVault)(nil)).Elem()
+}
+
+func (i *keyVaultKeyReferenceInvokeResponseSourceVaultPtrType) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultKeyReferenceInvokeResponseSourceVaultPtrType) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput)
+}
+
+// Describes a resource Id to source Key Vault.
+type KeyVaultKeyReferenceInvokeResponseSourceVaultOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceInvokeResponseSourceVault)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return o.ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponseSourceVault) *KeyVaultKeyReferenceInvokeResponseSourceVault {
+		return &v
+	}).(KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput)
+}
+
+// Resource Id.
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceInvokeResponseSourceVault) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceInvokeResponseSourceVault)(nil)).Elem()
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput() KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput) ToKeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput {
+	return o
+}
+
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput) Elem() KeyVaultKeyReferenceInvokeResponseSourceVaultOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceInvokeResponseSourceVault) KeyVaultKeyReferenceInvokeResponseSourceVault {
+		return *v
+	}).(KeyVaultKeyReferenceInvokeResponseSourceVaultOutput)
+}
+
+// Resource Id.
+func (o KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceInvokeResponseSourceVault) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes a reference to Key Vault Key.
@@ -4812,6 +6594,133 @@ func (o NamespaceJunctionArrayOutput) Index(i pulumi.IntInput) NamespaceJunction
 }
 
 // A namespace junction.
+type NamespaceJunctionInvokeResponse struct {
+	// Namespace path on a Cache for a Storage Target.
+	NamespacePath *string `pulumi:"namespacePath"`
+	// Name of the access policy applied to this junction.
+	NfsAccessPolicy *string `pulumi:"nfsAccessPolicy"`
+	// NFS export where targetPath exists.
+	NfsExport *string `pulumi:"nfsExport"`
+	// Path in Storage Target to which namespacePath points.
+	TargetPath *string `pulumi:"targetPath"`
+}
+
+// NamespaceJunctionInvokeResponseInput is an input type that accepts NamespaceJunctionInvokeResponseArgs and NamespaceJunctionInvokeResponseOutput values.
+// You can construct a concrete instance of `NamespaceJunctionInvokeResponseInput` via:
+//
+//          NamespaceJunctionInvokeResponseArgs{...}
+type NamespaceJunctionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNamespaceJunctionInvokeResponseOutput() NamespaceJunctionInvokeResponseOutput
+	ToNamespaceJunctionInvokeResponseOutputWithContext(context.Context) NamespaceJunctionInvokeResponseOutput
+}
+
+// A namespace junction.
+type NamespaceJunctionInvokeResponseArgs struct {
+	// Namespace path on a Cache for a Storage Target.
+	NamespacePath pulumi.StringPtrInput `pulumi:"namespacePath"`
+	// Name of the access policy applied to this junction.
+	NfsAccessPolicy pulumi.StringPtrInput `pulumi:"nfsAccessPolicy"`
+	// NFS export where targetPath exists.
+	NfsExport pulumi.StringPtrInput `pulumi:"nfsExport"`
+	// Path in Storage Target to which namespacePath points.
+	TargetPath pulumi.StringPtrInput `pulumi:"targetPath"`
+}
+
+func (NamespaceJunctionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceJunctionInvokeResponse)(nil)).Elem()
+}
+
+func (i NamespaceJunctionInvokeResponseArgs) ToNamespaceJunctionInvokeResponseOutput() NamespaceJunctionInvokeResponseOutput {
+	return i.ToNamespaceJunctionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NamespaceJunctionInvokeResponseArgs) ToNamespaceJunctionInvokeResponseOutputWithContext(ctx context.Context) NamespaceJunctionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionInvokeResponseOutput)
+}
+
+// NamespaceJunctionInvokeResponseArrayInput is an input type that accepts NamespaceJunctionInvokeResponseArray and NamespaceJunctionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NamespaceJunctionInvokeResponseArrayInput` via:
+//
+//          NamespaceJunctionInvokeResponseArray{ NamespaceJunctionInvokeResponseArgs{...} }
+type NamespaceJunctionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNamespaceJunctionInvokeResponseArrayOutput() NamespaceJunctionInvokeResponseArrayOutput
+	ToNamespaceJunctionInvokeResponseArrayOutputWithContext(context.Context) NamespaceJunctionInvokeResponseArrayOutput
+}
+
+type NamespaceJunctionInvokeResponseArray []NamespaceJunctionInvokeResponseInput
+
+func (NamespaceJunctionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceJunctionInvokeResponse)(nil)).Elem()
+}
+
+func (i NamespaceJunctionInvokeResponseArray) ToNamespaceJunctionInvokeResponseArrayOutput() NamespaceJunctionInvokeResponseArrayOutput {
+	return i.ToNamespaceJunctionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NamespaceJunctionInvokeResponseArray) ToNamespaceJunctionInvokeResponseArrayOutputWithContext(ctx context.Context) NamespaceJunctionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespaceJunctionInvokeResponseArrayOutput)
+}
+
+// A namespace junction.
+type NamespaceJunctionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NamespaceJunctionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespaceJunctionInvokeResponse)(nil)).Elem()
+}
+
+func (o NamespaceJunctionInvokeResponseOutput) ToNamespaceJunctionInvokeResponseOutput() NamespaceJunctionInvokeResponseOutput {
+	return o
+}
+
+func (o NamespaceJunctionInvokeResponseOutput) ToNamespaceJunctionInvokeResponseOutputWithContext(ctx context.Context) NamespaceJunctionInvokeResponseOutput {
+	return o
+}
+
+// Namespace path on a Cache for a Storage Target.
+func (o NamespaceJunctionInvokeResponseOutput) NamespacePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionInvokeResponse) *string { return v.NamespacePath }).(pulumi.StringPtrOutput)
+}
+
+// Name of the access policy applied to this junction.
+func (o NamespaceJunctionInvokeResponseOutput) NfsAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionInvokeResponse) *string { return v.NfsAccessPolicy }).(pulumi.StringPtrOutput)
+}
+
+// NFS export where targetPath exists.
+func (o NamespaceJunctionInvokeResponseOutput) NfsExport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionInvokeResponse) *string { return v.NfsExport }).(pulumi.StringPtrOutput)
+}
+
+// Path in Storage Target to which namespacePath points.
+func (o NamespaceJunctionInvokeResponseOutput) TargetPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceJunctionInvokeResponse) *string { return v.TargetPath }).(pulumi.StringPtrOutput)
+}
+
+type NamespaceJunctionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NamespaceJunctionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NamespaceJunctionInvokeResponse)(nil)).Elem()
+}
+
+func (o NamespaceJunctionInvokeResponseArrayOutput) ToNamespaceJunctionInvokeResponseArrayOutput() NamespaceJunctionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NamespaceJunctionInvokeResponseArrayOutput) ToNamespaceJunctionInvokeResponseArrayOutputWithContext(ctx context.Context) NamespaceJunctionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NamespaceJunctionInvokeResponseArrayOutput) Index(i pulumi.IntInput) NamespaceJunctionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NamespaceJunctionInvokeResponse {
+		return vs[0].([]NamespaceJunctionInvokeResponse)[vs[1].(int)]
+	}).(NamespaceJunctionInvokeResponseOutput)
+}
+
+// A namespace junction.
 type NamespaceJunctionResponse struct {
 	// Namespace path on a Cache for a Storage Target.
 	NamespacePath *string `pulumi:"namespacePath"`
@@ -5092,6 +7001,70 @@ func (o Nfs3TargetPtrOutput) UsageModel() pulumi.StringPtrOutput {
 }
 
 // Properties pertaining to the Nfs3Target
+type Nfs3TargetInvokeResponse struct {
+	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
+	Target *string `pulumi:"target"`
+	// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+	UsageModel *string `pulumi:"usageModel"`
+}
+
+// Nfs3TargetInvokeResponseInput is an input type that accepts Nfs3TargetInvokeResponseArgs and Nfs3TargetInvokeResponseOutput values.
+// You can construct a concrete instance of `Nfs3TargetInvokeResponseInput` via:
+//
+//          Nfs3TargetInvokeResponseArgs{...}
+type Nfs3TargetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNfs3TargetInvokeResponseOutput() Nfs3TargetInvokeResponseOutput
+	ToNfs3TargetInvokeResponseOutputWithContext(context.Context) Nfs3TargetInvokeResponseOutput
+}
+
+// Properties pertaining to the Nfs3Target
+type Nfs3TargetInvokeResponseArgs struct {
+	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+	UsageModel pulumi.StringPtrInput `pulumi:"usageModel"`
+}
+
+func (Nfs3TargetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Nfs3TargetInvokeResponse)(nil)).Elem()
+}
+
+func (i Nfs3TargetInvokeResponseArgs) ToNfs3TargetInvokeResponseOutput() Nfs3TargetInvokeResponseOutput {
+	return i.ToNfs3TargetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i Nfs3TargetInvokeResponseArgs) ToNfs3TargetInvokeResponseOutputWithContext(ctx context.Context) Nfs3TargetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Nfs3TargetInvokeResponseOutput)
+}
+
+// Properties pertaining to the Nfs3Target
+type Nfs3TargetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (Nfs3TargetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Nfs3TargetInvokeResponse)(nil)).Elem()
+}
+
+func (o Nfs3TargetInvokeResponseOutput) ToNfs3TargetInvokeResponseOutput() Nfs3TargetInvokeResponseOutput {
+	return o
+}
+
+func (o Nfs3TargetInvokeResponseOutput) ToNfs3TargetInvokeResponseOutputWithContext(ctx context.Context) Nfs3TargetInvokeResponseOutput {
+	return o
+}
+
+// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
+func (o Nfs3TargetInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Nfs3TargetInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Identifies the usage model to be used for this Storage Target. Get choices from .../usageModels
+func (o Nfs3TargetInvokeResponseOutput) UsageModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Nfs3TargetInvokeResponse) *string { return v.UsageModel }).(pulumi.StringPtrOutput)
+}
+
+// Properties pertaining to the Nfs3Target
 type Nfs3TargetResponse struct {
 	// IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
 	Target *string `pulumi:"target"`
@@ -5351,6 +7324,115 @@ func (o NfsAccessPolicyArrayOutput) Index(i pulumi.IntInput) NfsAccessPolicyOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NfsAccessPolicy {
 		return vs[0].([]NfsAccessPolicy)[vs[1].(int)]
 	}).(NfsAccessPolicyOutput)
+}
+
+// A set of rules describing access policies applied to NFSv3 clients of the cache.
+type NfsAccessPolicyInvokeResponse struct {
+	// The set of rules describing client accesses allowed under this policy.
+	AccessRules []NfsAccessRuleInvokeResponse `pulumi:"accessRules"`
+	// Name identifying this policy. Access Policy names are not case sensitive.
+	Name string `pulumi:"name"`
+}
+
+// NfsAccessPolicyInvokeResponseInput is an input type that accepts NfsAccessPolicyInvokeResponseArgs and NfsAccessPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `NfsAccessPolicyInvokeResponseInput` via:
+//
+//          NfsAccessPolicyInvokeResponseArgs{...}
+type NfsAccessPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNfsAccessPolicyInvokeResponseOutput() NfsAccessPolicyInvokeResponseOutput
+	ToNfsAccessPolicyInvokeResponseOutputWithContext(context.Context) NfsAccessPolicyInvokeResponseOutput
+}
+
+// A set of rules describing access policies applied to NFSv3 clients of the cache.
+type NfsAccessPolicyInvokeResponseArgs struct {
+	// The set of rules describing client accesses allowed under this policy.
+	AccessRules NfsAccessRuleInvokeResponseArrayInput `pulumi:"accessRules"`
+	// Name identifying this policy. Access Policy names are not case sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (NfsAccessPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i NfsAccessPolicyInvokeResponseArgs) ToNfsAccessPolicyInvokeResponseOutput() NfsAccessPolicyInvokeResponseOutput {
+	return i.ToNfsAccessPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NfsAccessPolicyInvokeResponseArgs) ToNfsAccessPolicyInvokeResponseOutputWithContext(ctx context.Context) NfsAccessPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessPolicyInvokeResponseOutput)
+}
+
+// NfsAccessPolicyInvokeResponseArrayInput is an input type that accepts NfsAccessPolicyInvokeResponseArray and NfsAccessPolicyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NfsAccessPolicyInvokeResponseArrayInput` via:
+//
+//          NfsAccessPolicyInvokeResponseArray{ NfsAccessPolicyInvokeResponseArgs{...} }
+type NfsAccessPolicyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNfsAccessPolicyInvokeResponseArrayOutput() NfsAccessPolicyInvokeResponseArrayOutput
+	ToNfsAccessPolicyInvokeResponseArrayOutputWithContext(context.Context) NfsAccessPolicyInvokeResponseArrayOutput
+}
+
+type NfsAccessPolicyInvokeResponseArray []NfsAccessPolicyInvokeResponseInput
+
+func (NfsAccessPolicyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i NfsAccessPolicyInvokeResponseArray) ToNfsAccessPolicyInvokeResponseArrayOutput() NfsAccessPolicyInvokeResponseArrayOutput {
+	return i.ToNfsAccessPolicyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NfsAccessPolicyInvokeResponseArray) ToNfsAccessPolicyInvokeResponseArrayOutputWithContext(ctx context.Context) NfsAccessPolicyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessPolicyInvokeResponseArrayOutput)
+}
+
+// A set of rules describing access policies applied to NFSv3 clients of the cache.
+type NfsAccessPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o NfsAccessPolicyInvokeResponseOutput) ToNfsAccessPolicyInvokeResponseOutput() NfsAccessPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o NfsAccessPolicyInvokeResponseOutput) ToNfsAccessPolicyInvokeResponseOutputWithContext(ctx context.Context) NfsAccessPolicyInvokeResponseOutput {
+	return o
+}
+
+// The set of rules describing client accesses allowed under this policy.
+func (o NfsAccessPolicyInvokeResponseOutput) AccessRules() NfsAccessRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NfsAccessPolicyInvokeResponse) []NfsAccessRuleInvokeResponse { return v.AccessRules }).(NfsAccessRuleInvokeResponseArrayOutput)
+}
+
+// Name identifying this policy. Access Policy names are not case sensitive.
+func (o NfsAccessPolicyInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NfsAccessPolicyInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type NfsAccessPolicyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessPolicyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o NfsAccessPolicyInvokeResponseArrayOutput) ToNfsAccessPolicyInvokeResponseArrayOutput() NfsAccessPolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NfsAccessPolicyInvokeResponseArrayOutput) ToNfsAccessPolicyInvokeResponseArrayOutputWithContext(ctx context.Context) NfsAccessPolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NfsAccessPolicyInvokeResponseArrayOutput) Index(i pulumi.IntInput) NfsAccessPolicyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NfsAccessPolicyInvokeResponse {
+		return vs[0].([]NfsAccessPolicyInvokeResponse)[vs[1].(int)]
+	}).(NfsAccessPolicyInvokeResponseOutput)
 }
 
 // A set of rules describing access policies applied to NFSv3 clients of the cache.
@@ -5626,6 +7708,169 @@ func (o NfsAccessRuleArrayOutput) Index(i pulumi.IntInput) NfsAccessRuleOutput {
 }
 
 // Rule to place restrictions on portions of the cache namespace being presented to clients.
+type NfsAccessRuleInvokeResponse struct {
+	// Access allowed by this rule.
+	Access string `pulumi:"access"`
+	// GID value that replaces 0 when rootSquash is true.
+	AnonymousGID *string `pulumi:"anonymousGID"`
+	// UID value that replaces 0 when rootSquash is true.
+	AnonymousUID *string `pulumi:"anonymousUID"`
+	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
+	Filter *string `pulumi:"filter"`
+	// Map root accesses to anonymousUID and anonymousGID.
+	RootSquash *bool `pulumi:"rootSquash"`
+	// Scope for this rule. The scope and filter determine which clients match the rule.
+	Scope string `pulumi:"scope"`
+	// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
+	SubmountAccess *bool `pulumi:"submountAccess"`
+	// Allow SUID semantics.
+	Suid *bool `pulumi:"suid"`
+}
+
+// NfsAccessRuleInvokeResponseInput is an input type that accepts NfsAccessRuleInvokeResponseArgs and NfsAccessRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `NfsAccessRuleInvokeResponseInput` via:
+//
+//          NfsAccessRuleInvokeResponseArgs{...}
+type NfsAccessRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNfsAccessRuleInvokeResponseOutput() NfsAccessRuleInvokeResponseOutput
+	ToNfsAccessRuleInvokeResponseOutputWithContext(context.Context) NfsAccessRuleInvokeResponseOutput
+}
+
+// Rule to place restrictions on portions of the cache namespace being presented to clients.
+type NfsAccessRuleInvokeResponseArgs struct {
+	// Access allowed by this rule.
+	Access pulumi.StringInput `pulumi:"access"`
+	// GID value that replaces 0 when rootSquash is true.
+	AnonymousGID pulumi.StringPtrInput `pulumi:"anonymousGID"`
+	// UID value that replaces 0 when rootSquash is true.
+	AnonymousUID pulumi.StringPtrInput `pulumi:"anonymousUID"`
+	// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	// Map root accesses to anonymousUID and anonymousGID.
+	RootSquash pulumi.BoolPtrInput `pulumi:"rootSquash"`
+	// Scope for this rule. The scope and filter determine which clients match the rule.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
+	SubmountAccess pulumi.BoolPtrInput `pulumi:"submountAccess"`
+	// Allow SUID semantics.
+	Suid pulumi.BoolPtrInput `pulumi:"suid"`
+}
+
+func (NfsAccessRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i NfsAccessRuleInvokeResponseArgs) ToNfsAccessRuleInvokeResponseOutput() NfsAccessRuleInvokeResponseOutput {
+	return i.ToNfsAccessRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NfsAccessRuleInvokeResponseArgs) ToNfsAccessRuleInvokeResponseOutputWithContext(ctx context.Context) NfsAccessRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessRuleInvokeResponseOutput)
+}
+
+// NfsAccessRuleInvokeResponseArrayInput is an input type that accepts NfsAccessRuleInvokeResponseArray and NfsAccessRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NfsAccessRuleInvokeResponseArrayInput` via:
+//
+//          NfsAccessRuleInvokeResponseArray{ NfsAccessRuleInvokeResponseArgs{...} }
+type NfsAccessRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNfsAccessRuleInvokeResponseArrayOutput() NfsAccessRuleInvokeResponseArrayOutput
+	ToNfsAccessRuleInvokeResponseArrayOutputWithContext(context.Context) NfsAccessRuleInvokeResponseArrayOutput
+}
+
+type NfsAccessRuleInvokeResponseArray []NfsAccessRuleInvokeResponseInput
+
+func (NfsAccessRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i NfsAccessRuleInvokeResponseArray) ToNfsAccessRuleInvokeResponseArrayOutput() NfsAccessRuleInvokeResponseArrayOutput {
+	return i.ToNfsAccessRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NfsAccessRuleInvokeResponseArray) ToNfsAccessRuleInvokeResponseArrayOutputWithContext(ctx context.Context) NfsAccessRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsAccessRuleInvokeResponseArrayOutput)
+}
+
+// Rule to place restrictions on portions of the cache namespace being presented to clients.
+type NfsAccessRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsAccessRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o NfsAccessRuleInvokeResponseOutput) ToNfsAccessRuleInvokeResponseOutput() NfsAccessRuleInvokeResponseOutput {
+	return o
+}
+
+func (o NfsAccessRuleInvokeResponseOutput) ToNfsAccessRuleInvokeResponseOutputWithContext(ctx context.Context) NfsAccessRuleInvokeResponseOutput {
+	return o
+}
+
+// Access allowed by this rule.
+func (o NfsAccessRuleInvokeResponseOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v NfsAccessRuleInvokeResponse) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// GID value that replaces 0 when rootSquash is true.
+func (o NfsAccessRuleInvokeResponseOutput) AnonymousGID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleInvokeResponse) *string { return v.AnonymousGID }).(pulumi.StringPtrOutput)
+}
+
+// UID value that replaces 0 when rootSquash is true.
+func (o NfsAccessRuleInvokeResponseOutput) AnonymousUID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleInvokeResponse) *string { return v.AnonymousUID }).(pulumi.StringPtrOutput)
+}
+
+// Filter applied to the scope for this rule. The filter's format depends on its scope. 'default' scope matches all clients and has no filter value. 'network' scope takes a filter in CIDR format (for example, 10.99.1.0/24). 'host' takes an IP address or fully qualified domain name as filter. If a client does not match any filter rule and there is no default rule, access is denied.
+func (o NfsAccessRuleInvokeResponseOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleInvokeResponse) *string { return v.Filter }).(pulumi.StringPtrOutput)
+}
+
+// Map root accesses to anonymousUID and anonymousGID.
+func (o NfsAccessRuleInvokeResponseOutput) RootSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleInvokeResponse) *bool { return v.RootSquash }).(pulumi.BoolPtrOutput)
+}
+
+// Scope for this rule. The scope and filter determine which clients match the rule.
+func (o NfsAccessRuleInvokeResponseOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v NfsAccessRuleInvokeResponse) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// For the default policy, allow access to subdirectories under the root export. If this is set to no, clients can only mount the path '/'. If set to yes, clients can mount a deeper path, like '/a/b'.
+func (o NfsAccessRuleInvokeResponseOutput) SubmountAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleInvokeResponse) *bool { return v.SubmountAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Allow SUID semantics.
+func (o NfsAccessRuleInvokeResponseOutput) Suid() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NfsAccessRuleInvokeResponse) *bool { return v.Suid }).(pulumi.BoolPtrOutput)
+}
+
+type NfsAccessRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NfsAccessRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NfsAccessRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o NfsAccessRuleInvokeResponseArrayOutput) ToNfsAccessRuleInvokeResponseArrayOutput() NfsAccessRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NfsAccessRuleInvokeResponseArrayOutput) ToNfsAccessRuleInvokeResponseArrayOutputWithContext(ctx context.Context) NfsAccessRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NfsAccessRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) NfsAccessRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NfsAccessRuleInvokeResponse {
+		return vs[0].([]NfsAccessRuleInvokeResponse)[vs[1].(int)]
+	}).(NfsAccessRuleInvokeResponseOutput)
+}
+
+// Rule to place restrictions on portions of the cache namespace being presented to clients.
 type NfsAccessRuleResponse struct {
 	// Access allowed by this rule.
 	Access string `pulumi:"access"`
@@ -5786,6 +8031,106 @@ func (o NfsAccessRuleResponseArrayOutput) Index(i pulumi.IntInput) NfsAccessRule
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NfsAccessRuleResponse {
 		return vs[0].([]NfsAccessRuleResponse)[vs[1].(int)]
 	}).(NfsAccessRuleResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -6152,6 +8497,61 @@ func (o UnknownTargetPtrOutput) UnknownMap() pulumi.StringMapOutput {
 }
 
 // Properties pertaining to the UnknownTarget
+type UnknownTargetInvokeResponse struct {
+	// Dictionary of string->string pairs containing information about the Storage Target.
+	UnknownMap map[string]string `pulumi:"unknownMap"`
+}
+
+// UnknownTargetInvokeResponseInput is an input type that accepts UnknownTargetInvokeResponseArgs and UnknownTargetInvokeResponseOutput values.
+// You can construct a concrete instance of `UnknownTargetInvokeResponseInput` via:
+//
+//          UnknownTargetInvokeResponseArgs{...}
+type UnknownTargetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUnknownTargetInvokeResponseOutput() UnknownTargetInvokeResponseOutput
+	ToUnknownTargetInvokeResponseOutputWithContext(context.Context) UnknownTargetInvokeResponseOutput
+}
+
+// Properties pertaining to the UnknownTarget
+type UnknownTargetInvokeResponseArgs struct {
+	// Dictionary of string->string pairs containing information about the Storage Target.
+	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
+}
+
+func (UnknownTargetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnknownTargetInvokeResponse)(nil)).Elem()
+}
+
+func (i UnknownTargetInvokeResponseArgs) ToUnknownTargetInvokeResponseOutput() UnknownTargetInvokeResponseOutput {
+	return i.ToUnknownTargetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UnknownTargetInvokeResponseArgs) ToUnknownTargetInvokeResponseOutputWithContext(ctx context.Context) UnknownTargetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnknownTargetInvokeResponseOutput)
+}
+
+// Properties pertaining to the UnknownTarget
+type UnknownTargetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UnknownTargetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnknownTargetInvokeResponse)(nil)).Elem()
+}
+
+func (o UnknownTargetInvokeResponseOutput) ToUnknownTargetInvokeResponseOutput() UnknownTargetInvokeResponseOutput {
+	return o
+}
+
+func (o UnknownTargetInvokeResponseOutput) ToUnknownTargetInvokeResponseOutputWithContext(ctx context.Context) UnknownTargetInvokeResponseOutput {
+	return o
+}
+
+// Dictionary of string->string pairs containing information about the Storage Target.
+func (o UnknownTargetInvokeResponseOutput) UnknownMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UnknownTargetInvokeResponse) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
+}
+
+// Properties pertaining to the UnknownTarget
 type UnknownTargetResponse struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
 	UnknownMap map[string]string `pulumi:"unknownMap"`
@@ -6290,52 +8690,73 @@ func init() {
 	pulumi.RegisterOutputType(CacheActiveDirectorySettingsPtrOutput{})
 	pulumi.RegisterOutputType(CacheActiveDirectorySettingsCredentialsOutput{})
 	pulumi.RegisterOutputType(CacheActiveDirectorySettingsCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsInvokeResponseCredentialsOutput{})
+	pulumi.RegisterOutputType(CacheActiveDirectorySettingsInvokeResponseCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(CacheActiveDirectorySettingsResponseOutput{})
 	pulumi.RegisterOutputType(CacheActiveDirectorySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheActiveDirectorySettingsResponseCredentialsOutput{})
 	pulumi.RegisterOutputType(CacheActiveDirectorySettingsResponseCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(CacheDirectorySettingsOutput{})
 	pulumi.RegisterOutputType(CacheDirectorySettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheDirectorySettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheDirectorySettingsResponseOutput{})
 	pulumi.RegisterOutputType(CacheDirectorySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheEncryptionSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsResponseOutput{})
 	pulumi.RegisterOutputType(CacheEncryptionSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheHealthInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheHealthResponseOutput{})
 	pulumi.RegisterOutputType(CacheHealthResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheIdentityOutput{})
 	pulumi.RegisterOutputType(CacheIdentityPtrOutput{})
+	pulumi.RegisterOutputType(CacheIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheIdentityResponseOutput{})
 	pulumi.RegisterOutputType(CacheIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheInvokeResponseSkuOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheNetworkSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsResponseOutput{})
 	pulumi.RegisterOutputType(CacheNetworkSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheResponseSkuOutput{})
 	pulumi.RegisterOutputType(CacheResponseSkuPtrOutput{})
 	pulumi.RegisterOutputType(CacheSecuritySettingsOutput{})
 	pulumi.RegisterOutputType(CacheSecuritySettingsPtrOutput{})
+	pulumi.RegisterOutputType(CacheSecuritySettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheSecuritySettingsResponseOutput{})
 	pulumi.RegisterOutputType(CacheSecuritySettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheSkuOutput{})
 	pulumi.RegisterOutputType(CacheSkuPtrOutput{})
+	pulumi.RegisterOutputType(CacheUpgradeStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CacheUpgradeStatusResponseOutput{})
 	pulumi.RegisterOutputType(CacheUpgradeStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsCredentialsOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsInvokeResponseCredentialsOutput{})
+	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsInvokeResponseCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsResponseOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsResponseCredentialsOutput{})
 	pulumi.RegisterOutputType(CacheUsernameDownloadSettingsResponseCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ClfsTargetOutput{})
 	pulumi.RegisterOutputType(ClfsTargetPtrOutput{})
+	pulumi.RegisterOutputType(ClfsTargetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClfsTargetResponseOutput{})
 	pulumi.RegisterOutputType(ClfsTargetResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferencePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceInvokeResponseSourceVaultOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceInvokeResponseSourceVaultPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseSourceVaultOutput{})
@@ -6344,24 +8765,33 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceSourceVaultPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceJunctionOutput{})
 	pulumi.RegisterOutputType(NamespaceJunctionArrayOutput{})
+	pulumi.RegisterOutputType(NamespaceJunctionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NamespaceJunctionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NamespaceJunctionResponseOutput{})
 	pulumi.RegisterOutputType(NamespaceJunctionResponseArrayOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetPtrOutput{})
+	pulumi.RegisterOutputType(Nfs3TargetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponseOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponsePtrOutput{})
 	pulumi.RegisterOutputType(NfsAccessPolicyOutput{})
 	pulumi.RegisterOutputType(NfsAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(NfsAccessPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NfsAccessPolicyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NfsAccessPolicyResponseOutput{})
 	pulumi.RegisterOutputType(NfsAccessPolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(NfsAccessRuleOutput{})
 	pulumi.RegisterOutputType(NfsAccessRuleArrayOutput{})
+	pulumi.RegisterOutputType(NfsAccessRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NfsAccessRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NfsAccessRuleResponseOutput{})
 	pulumi.RegisterOutputType(NfsAccessRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UnknownTargetOutput{})
 	pulumi.RegisterOutputType(UnknownTargetPtrOutput{})
+	pulumi.RegisterOutputType(UnknownTargetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UnknownTargetResponseOutput{})
 	pulumi.RegisterOutputType(UnknownTargetResponsePtrOutput{})
 }

@@ -30,19 +30,19 @@ type LookupGalleryImageResult struct {
 	// The description of this gallery image definition resource. This property is updatable.
 	Description *string `pulumi:"description"`
 	// Describes the disallowed disk types.
-	Disallowed *DisallowedResponse `pulumi:"disallowed"`
+	Disallowed *DisallowedInvokeResponse `pulumi:"disallowed"`
 	// The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// The Eula agreement for the gallery image definition.
 	Eula *string `pulumi:"eula"`
 	// A list of gallery image features.
-	Features []GalleryImageFeatureResponse `pulumi:"features"`
+	Features []GalleryImageFeatureInvokeResponse `pulumi:"features"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// This is the gallery image definition identifier.
-	Identifier GalleryImageIdentifierResponse `pulumi:"identifier"`
+	Identifier GalleryImageIdentifierInvokeResponse `pulumi:"identifier"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
@@ -56,9 +56,9 @@ type LookupGalleryImageResult struct {
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Describes the gallery image definition purchase plan. This is used by marketplace images.
-	PurchasePlan *ImagePurchasePlanResponse `pulumi:"purchasePlan"`
+	PurchasePlan *ImagePurchasePlanInvokeResponse `pulumi:"purchasePlan"`
 	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-	Recommended *RecommendedMachineConfigurationResponse `pulumi:"recommended"`
+	Recommended *RecommendedMachineConfigurationInvokeResponse `pulumi:"recommended"`
 	// The release note uri.
 	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
 	// Resource tags

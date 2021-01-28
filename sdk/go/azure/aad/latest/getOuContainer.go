@@ -28,7 +28,7 @@ type LookupOuContainerArgs struct {
 // Resource for OuContainer.
 type LookupOuContainerResult struct {
 	// The list of container accounts
-	Accounts []ContainerAccountResponse `pulumi:"accounts"`
+	Accounts []ContainerAccountInvokeResponse `pulumi:"accounts"`
 	// The OuContainer name
 	ContainerId string `pulumi:"containerId"`
 	// The Deployment id

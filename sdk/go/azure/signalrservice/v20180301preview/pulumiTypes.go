@@ -225,6 +225,100 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // The billing information of the resource.(e.g. basic vs. standard)
+type ResourceSkuInvokeResponse struct {
+	// Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not
+	// possible for the resource this may be omitted.
+	Capacity *int `pulumi:"capacity"`
+	// Optional, string. If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family *string `pulumi:"family"`
+	// The name of the SKU. This is typically a letter + number code, such as A0 or P3.  Required (if sku is specified)
+	Name string `pulumi:"name"`
+	// Optional, string. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size *string `pulumi:"size"`
+	// Optional tier of this particular SKU. `Basic` is deprecated, use `Standard` instead for Basic tier
+	Tier *string `pulumi:"tier"`
+}
+
+// ResourceSkuInvokeResponseInput is an input type that accepts ResourceSkuInvokeResponseArgs and ResourceSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceSkuInvokeResponseInput` via:
+//
+//          ResourceSkuInvokeResponseArgs{...}
+type ResourceSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput
+	ToResourceSkuInvokeResponseOutputWithContext(context.Context) ResourceSkuInvokeResponseOutput
+}
+
+// The billing information of the resource.(e.g. basic vs. standard)
+type ResourceSkuInvokeResponseArgs struct {
+	// Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not
+	// possible for the resource this may be omitted.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Optional, string. If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the SKU. This is typically a letter + number code, such as A0 or P3.  Required (if sku is specified)
+	Name pulumi.StringInput `pulumi:"name"`
+	// Optional, string. When the name field is the combination of tier and some other value, this would be the standalone code.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// Optional tier of this particular SKU. `Basic` is deprecated, use `Standard` instead for Basic tier
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (ResourceSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return i.ToResourceSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuInvokeResponseOutput)
+}
+
+// The billing information of the resource.(e.g. basic vs. standard)
+type ResourceSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+// Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not
+// possible for the resource this may be omitted.
+func (o ResourceSkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Optional, string. If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o ResourceSkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU. This is typically a letter + number code, such as A0 or P3.  Required (if sku is specified)
+func (o ResourceSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Optional, string. When the name field is the combination of tier and some other value, this would be the standalone code.
+func (o ResourceSkuInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// Optional tier of this particular SKU. `Basic` is deprecated, use `Standard` instead for Basic tier
+func (o ResourceSkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The billing information of the resource.(e.g. basic vs. standard)
 type ResourceSkuResponse struct {
 	// Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not
 	// possible for the resource this may be omitted.
@@ -579,6 +673,7 @@ func (o SignalRCreateOrUpdatePropertiesPtrOutput) HostNamePrefix() pulumi.String
 func init() {
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SignalRCreateOrUpdatePropertiesOutput{})

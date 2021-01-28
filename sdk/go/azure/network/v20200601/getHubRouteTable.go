@@ -42,7 +42,7 @@ type LookupHubRouteTableResult struct {
 	// The provisioning state of the RouteTable resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// List of all routes.
-	Routes []HubRouteResponse `pulumi:"routes"`
+	Routes []HubRouteInvokeResponse `pulumi:"routes"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

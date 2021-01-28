@@ -26,5 +26,5 @@ type GetVirtualNetworkGatewayLearnedRoutesArgs struct {
 // List of virtual network gateway routes.
 type GetVirtualNetworkGatewayLearnedRoutesResult struct {
 	// List of gateway routes.
-	Value []GatewayRouteResponse `pulumi:"value"`
+	Value []GatewayRouteInvokeResponse `pulumi:"value"`
 }

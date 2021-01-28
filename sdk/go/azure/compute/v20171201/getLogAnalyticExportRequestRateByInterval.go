@@ -40,11 +40,11 @@ type GetLogAnalyticExportRequestRateByIntervalResult struct {
 	// End time of the operation
 	EndTime string `pulumi:"endTime"`
 	// Api error
-	Error ApiErrorResponse `pulumi:"error"`
+	Error ApiErrorInvokeResponse `pulumi:"error"`
 	// Operation ID
 	Name string `pulumi:"name"`
 	// LogAnalyticsOutput
-	Properties LogAnalyticsOutputResponse `pulumi:"properties"`
+	Properties LogAnalyticsOutputInvokeResponse `pulumi:"properties"`
 	// Start time of the operation
 	StartTime string `pulumi:"startTime"`
 	// Operation status

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type DatadogApiKeyResponse struct {
+type DatadogApiKeyInvokeResponse struct {
 	// The time of creation of the API key.
 	Created *string `pulumi:"created"`
 	// The user that created the API key.
@@ -21,18 +21,18 @@ type DatadogApiKeyResponse struct {
 	Name *string `pulumi:"name"`
 }
 
-// DatadogApiKeyResponseInput is an input type that accepts DatadogApiKeyResponseArgs and DatadogApiKeyResponseOutput values.
-// You can construct a concrete instance of `DatadogApiKeyResponseInput` via:
+// DatadogApiKeyInvokeResponseInput is an input type that accepts DatadogApiKeyInvokeResponseArgs and DatadogApiKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `DatadogApiKeyInvokeResponseInput` via:
 //
-//          DatadogApiKeyResponseArgs{...}
-type DatadogApiKeyResponseInput interface {
+//          DatadogApiKeyInvokeResponseArgs{...}
+type DatadogApiKeyInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDatadogApiKeyResponseOutput() DatadogApiKeyResponseOutput
-	ToDatadogApiKeyResponseOutputWithContext(context.Context) DatadogApiKeyResponseOutput
+	ToDatadogApiKeyInvokeResponseOutput() DatadogApiKeyInvokeResponseOutput
+	ToDatadogApiKeyInvokeResponseOutputWithContext(context.Context) DatadogApiKeyInvokeResponseOutput
 }
 
-type DatadogApiKeyResponseArgs struct {
+type DatadogApiKeyInvokeResponseArgs struct {
 	// The time of creation of the API key.
 	Created pulumi.StringPtrInput `pulumi:"created"`
 	// The user that created the API key.
@@ -43,233 +43,354 @@ type DatadogApiKeyResponseArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (DatadogApiKeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatadogApiKeyResponse)(nil)).Elem()
+func (DatadogApiKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogApiKeyInvokeResponse)(nil)).Elem()
 }
 
-func (i DatadogApiKeyResponseArgs) ToDatadogApiKeyResponseOutput() DatadogApiKeyResponseOutput {
-	return i.ToDatadogApiKeyResponseOutputWithContext(context.Background())
+func (i DatadogApiKeyInvokeResponseArgs) ToDatadogApiKeyInvokeResponseOutput() DatadogApiKeyInvokeResponseOutput {
+	return i.ToDatadogApiKeyInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DatadogApiKeyResponseArgs) ToDatadogApiKeyResponseOutputWithContext(ctx context.Context) DatadogApiKeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogApiKeyResponseOutput)
+func (i DatadogApiKeyInvokeResponseArgs) ToDatadogApiKeyInvokeResponseOutputWithContext(ctx context.Context) DatadogApiKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogApiKeyInvokeResponseOutput)
 }
 
-// DatadogApiKeyResponseArrayInput is an input type that accepts DatadogApiKeyResponseArray and DatadogApiKeyResponseArrayOutput values.
-// You can construct a concrete instance of `DatadogApiKeyResponseArrayInput` via:
+// DatadogApiKeyInvokeResponseArrayInput is an input type that accepts DatadogApiKeyInvokeResponseArray and DatadogApiKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DatadogApiKeyInvokeResponseArrayInput` via:
 //
-//          DatadogApiKeyResponseArray{ DatadogApiKeyResponseArgs{...} }
-type DatadogApiKeyResponseArrayInput interface {
+//          DatadogApiKeyInvokeResponseArray{ DatadogApiKeyInvokeResponseArgs{...} }
+type DatadogApiKeyInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToDatadogApiKeyResponseArrayOutput() DatadogApiKeyResponseArrayOutput
-	ToDatadogApiKeyResponseArrayOutputWithContext(context.Context) DatadogApiKeyResponseArrayOutput
+	ToDatadogApiKeyInvokeResponseArrayOutput() DatadogApiKeyInvokeResponseArrayOutput
+	ToDatadogApiKeyInvokeResponseArrayOutputWithContext(context.Context) DatadogApiKeyInvokeResponseArrayOutput
 }
 
-type DatadogApiKeyResponseArray []DatadogApiKeyResponseInput
+type DatadogApiKeyInvokeResponseArray []DatadogApiKeyInvokeResponseInput
 
-func (DatadogApiKeyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatadogApiKeyResponse)(nil)).Elem()
+func (DatadogApiKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatadogApiKeyInvokeResponse)(nil)).Elem()
 }
 
-func (i DatadogApiKeyResponseArray) ToDatadogApiKeyResponseArrayOutput() DatadogApiKeyResponseArrayOutput {
-	return i.ToDatadogApiKeyResponseArrayOutputWithContext(context.Background())
+func (i DatadogApiKeyInvokeResponseArray) ToDatadogApiKeyInvokeResponseArrayOutput() DatadogApiKeyInvokeResponseArrayOutput {
+	return i.ToDatadogApiKeyInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i DatadogApiKeyResponseArray) ToDatadogApiKeyResponseArrayOutputWithContext(ctx context.Context) DatadogApiKeyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogApiKeyResponseArrayOutput)
+func (i DatadogApiKeyInvokeResponseArray) ToDatadogApiKeyInvokeResponseArrayOutputWithContext(ctx context.Context) DatadogApiKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogApiKeyInvokeResponseArrayOutput)
 }
 
-type DatadogApiKeyResponseOutput struct{ *pulumi.OutputState }
+type DatadogApiKeyInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DatadogApiKeyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatadogApiKeyResponse)(nil)).Elem()
+func (DatadogApiKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogApiKeyInvokeResponse)(nil)).Elem()
 }
 
-func (o DatadogApiKeyResponseOutput) ToDatadogApiKeyResponseOutput() DatadogApiKeyResponseOutput {
+func (o DatadogApiKeyInvokeResponseOutput) ToDatadogApiKeyInvokeResponseOutput() DatadogApiKeyInvokeResponseOutput {
 	return o
 }
 
-func (o DatadogApiKeyResponseOutput) ToDatadogApiKeyResponseOutputWithContext(ctx context.Context) DatadogApiKeyResponseOutput {
+func (o DatadogApiKeyInvokeResponseOutput) ToDatadogApiKeyInvokeResponseOutputWithContext(ctx context.Context) DatadogApiKeyInvokeResponseOutput {
 	return o
 }
 
 // The time of creation of the API key.
-func (o DatadogApiKeyResponseOutput) Created() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogApiKeyResponse) *string { return v.Created }).(pulumi.StringPtrOutput)
+func (o DatadogApiKeyInvokeResponseOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogApiKeyInvokeResponse) *string { return v.Created }).(pulumi.StringPtrOutput)
 }
 
 // The user that created the API key.
-func (o DatadogApiKeyResponseOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogApiKeyResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+func (o DatadogApiKeyInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogApiKeyInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
 // The value of the API key.
-func (o DatadogApiKeyResponseOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v DatadogApiKeyResponse) string { return v.Key }).(pulumi.StringOutput)
+func (o DatadogApiKeyInvokeResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DatadogApiKeyInvokeResponse) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The name of the API key.
-func (o DatadogApiKeyResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogApiKeyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o DatadogApiKeyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogApiKeyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type DatadogApiKeyResponseArrayOutput struct{ *pulumi.OutputState }
+type DatadogApiKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (DatadogApiKeyResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatadogApiKeyResponse)(nil)).Elem()
+func (DatadogApiKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatadogApiKeyInvokeResponse)(nil)).Elem()
 }
 
-func (o DatadogApiKeyResponseArrayOutput) ToDatadogApiKeyResponseArrayOutput() DatadogApiKeyResponseArrayOutput {
+func (o DatadogApiKeyInvokeResponseArrayOutput) ToDatadogApiKeyInvokeResponseArrayOutput() DatadogApiKeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DatadogApiKeyResponseArrayOutput) ToDatadogApiKeyResponseArrayOutputWithContext(ctx context.Context) DatadogApiKeyResponseArrayOutput {
+func (o DatadogApiKeyInvokeResponseArrayOutput) ToDatadogApiKeyInvokeResponseArrayOutputWithContext(ctx context.Context) DatadogApiKeyInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DatadogApiKeyResponseArrayOutput) Index(i pulumi.IntInput) DatadogApiKeyResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatadogApiKeyResponse {
-		return vs[0].([]DatadogApiKeyResponse)[vs[1].(int)]
-	}).(DatadogApiKeyResponseOutput)
+func (o DatadogApiKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) DatadogApiKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatadogApiKeyInvokeResponse {
+		return vs[0].([]DatadogApiKeyInvokeResponse)[vs[1].(int)]
+	}).(DatadogApiKeyInvokeResponseOutput)
 }
 
-type DatadogHostMetadataResponse struct {
-	// The agent version.
-	AgentVersion  *string                       `pulumi:"agentVersion"`
-	InstallMethod *DatadogInstallMethodResponse `pulumi:"installMethod"`
-	LogsAgent     *DatadogLogsAgentResponse     `pulumi:"logsAgent"`
+type DatadogHostInvokeResponse struct {
+	// The aliases for the host.
+	Aliases []string `pulumi:"aliases"`
+	// The Datadog integrations reporting metrics for the host.
+	Apps []string                           `pulumi:"apps"`
+	Meta *DatadogHostMetadataInvokeResponse `pulumi:"meta"`
+	// The name of the host.
+	Name *string `pulumi:"name"`
 }
 
-// DatadogHostMetadataResponseInput is an input type that accepts DatadogHostMetadataResponseArgs and DatadogHostMetadataResponseOutput values.
-// You can construct a concrete instance of `DatadogHostMetadataResponseInput` via:
+// DatadogHostInvokeResponseInput is an input type that accepts DatadogHostInvokeResponseArgs and DatadogHostInvokeResponseOutput values.
+// You can construct a concrete instance of `DatadogHostInvokeResponseInput` via:
 //
-//          DatadogHostMetadataResponseArgs{...}
-type DatadogHostMetadataResponseInput interface {
+//          DatadogHostInvokeResponseArgs{...}
+type DatadogHostInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDatadogHostMetadataResponseOutput() DatadogHostMetadataResponseOutput
-	ToDatadogHostMetadataResponseOutputWithContext(context.Context) DatadogHostMetadataResponseOutput
+	ToDatadogHostInvokeResponseOutput() DatadogHostInvokeResponseOutput
+	ToDatadogHostInvokeResponseOutputWithContext(context.Context) DatadogHostInvokeResponseOutput
 }
 
-type DatadogHostMetadataResponseArgs struct {
-	// The agent version.
-	AgentVersion  pulumi.StringPtrInput                `pulumi:"agentVersion"`
-	InstallMethod DatadogInstallMethodResponsePtrInput `pulumi:"installMethod"`
-	LogsAgent     DatadogLogsAgentResponsePtrInput     `pulumi:"logsAgent"`
+type DatadogHostInvokeResponseArgs struct {
+	// The aliases for the host.
+	Aliases pulumi.StringArrayInput `pulumi:"aliases"`
+	// The Datadog integrations reporting metrics for the host.
+	Apps pulumi.StringArrayInput                   `pulumi:"apps"`
+	Meta DatadogHostMetadataInvokeResponsePtrInput `pulumi:"meta"`
+	// The name of the host.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (DatadogHostMetadataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatadogHostMetadataResponse)(nil)).Elem()
+func (DatadogHostInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogHostInvokeResponse)(nil)).Elem()
 }
 
-func (i DatadogHostMetadataResponseArgs) ToDatadogHostMetadataResponseOutput() DatadogHostMetadataResponseOutput {
-	return i.ToDatadogHostMetadataResponseOutputWithContext(context.Background())
+func (i DatadogHostInvokeResponseArgs) ToDatadogHostInvokeResponseOutput() DatadogHostInvokeResponseOutput {
+	return i.ToDatadogHostInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DatadogHostMetadataResponseArgs) ToDatadogHostMetadataResponseOutputWithContext(ctx context.Context) DatadogHostMetadataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogHostMetadataResponseOutput)
+func (i DatadogHostInvokeResponseArgs) ToDatadogHostInvokeResponseOutputWithContext(ctx context.Context) DatadogHostInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogHostInvokeResponseOutput)
 }
 
-func (i DatadogHostMetadataResponseArgs) ToDatadogHostMetadataResponsePtrOutput() DatadogHostMetadataResponsePtrOutput {
-	return i.ToDatadogHostMetadataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DatadogHostMetadataResponseArgs) ToDatadogHostMetadataResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogHostMetadataResponseOutput).ToDatadogHostMetadataResponsePtrOutputWithContext(ctx)
-}
-
-// DatadogHostMetadataResponsePtrInput is an input type that accepts DatadogHostMetadataResponseArgs, DatadogHostMetadataResponsePtr and DatadogHostMetadataResponsePtrOutput values.
-// You can construct a concrete instance of `DatadogHostMetadataResponsePtrInput` via:
+// DatadogHostInvokeResponseArrayInput is an input type that accepts DatadogHostInvokeResponseArray and DatadogHostInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DatadogHostInvokeResponseArrayInput` via:
 //
-//          DatadogHostMetadataResponseArgs{...}
+//          DatadogHostInvokeResponseArray{ DatadogHostInvokeResponseArgs{...} }
+type DatadogHostInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDatadogHostInvokeResponseArrayOutput() DatadogHostInvokeResponseArrayOutput
+	ToDatadogHostInvokeResponseArrayOutputWithContext(context.Context) DatadogHostInvokeResponseArrayOutput
+}
+
+type DatadogHostInvokeResponseArray []DatadogHostInvokeResponseInput
+
+func (DatadogHostInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatadogHostInvokeResponse)(nil)).Elem()
+}
+
+func (i DatadogHostInvokeResponseArray) ToDatadogHostInvokeResponseArrayOutput() DatadogHostInvokeResponseArrayOutput {
+	return i.ToDatadogHostInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DatadogHostInvokeResponseArray) ToDatadogHostInvokeResponseArrayOutputWithContext(ctx context.Context) DatadogHostInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogHostInvokeResponseArrayOutput)
+}
+
+type DatadogHostInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DatadogHostInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogHostInvokeResponse)(nil)).Elem()
+}
+
+func (o DatadogHostInvokeResponseOutput) ToDatadogHostInvokeResponseOutput() DatadogHostInvokeResponseOutput {
+	return o
+}
+
+func (o DatadogHostInvokeResponseOutput) ToDatadogHostInvokeResponseOutputWithContext(ctx context.Context) DatadogHostInvokeResponseOutput {
+	return o
+}
+
+// The aliases for the host.
+func (o DatadogHostInvokeResponseOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatadogHostInvokeResponse) []string { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+// The Datadog integrations reporting metrics for the host.
+func (o DatadogHostInvokeResponseOutput) Apps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatadogHostInvokeResponse) []string { return v.Apps }).(pulumi.StringArrayOutput)
+}
+
+func (o DatadogHostInvokeResponseOutput) Meta() DatadogHostMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DatadogHostInvokeResponse) *DatadogHostMetadataInvokeResponse { return v.Meta }).(DatadogHostMetadataInvokeResponsePtrOutput)
+}
+
+// The name of the host.
+func (o DatadogHostInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogHostInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DatadogHostInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatadogHostInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatadogHostInvokeResponse)(nil)).Elem()
+}
+
+func (o DatadogHostInvokeResponseArrayOutput) ToDatadogHostInvokeResponseArrayOutput() DatadogHostInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DatadogHostInvokeResponseArrayOutput) ToDatadogHostInvokeResponseArrayOutputWithContext(ctx context.Context) DatadogHostInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DatadogHostInvokeResponseArrayOutput) Index(i pulumi.IntInput) DatadogHostInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatadogHostInvokeResponse {
+		return vs[0].([]DatadogHostInvokeResponse)[vs[1].(int)]
+	}).(DatadogHostInvokeResponseOutput)
+}
+
+type DatadogHostMetadataInvokeResponse struct {
+	// The agent version.
+	AgentVersion  *string                             `pulumi:"agentVersion"`
+	InstallMethod *DatadogInstallMethodInvokeResponse `pulumi:"installMethod"`
+	LogsAgent     *DatadogLogsAgentInvokeResponse     `pulumi:"logsAgent"`
+}
+
+// DatadogHostMetadataInvokeResponseInput is an input type that accepts DatadogHostMetadataInvokeResponseArgs and DatadogHostMetadataInvokeResponseOutput values.
+// You can construct a concrete instance of `DatadogHostMetadataInvokeResponseInput` via:
+//
+//          DatadogHostMetadataInvokeResponseArgs{...}
+type DatadogHostMetadataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDatadogHostMetadataInvokeResponseOutput() DatadogHostMetadataInvokeResponseOutput
+	ToDatadogHostMetadataInvokeResponseOutputWithContext(context.Context) DatadogHostMetadataInvokeResponseOutput
+}
+
+type DatadogHostMetadataInvokeResponseArgs struct {
+	// The agent version.
+	AgentVersion  pulumi.StringPtrInput                      `pulumi:"agentVersion"`
+	InstallMethod DatadogInstallMethodInvokeResponsePtrInput `pulumi:"installMethod"`
+	LogsAgent     DatadogLogsAgentInvokeResponsePtrInput     `pulumi:"logsAgent"`
+}
+
+func (DatadogHostMetadataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogHostMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i DatadogHostMetadataInvokeResponseArgs) ToDatadogHostMetadataInvokeResponseOutput() DatadogHostMetadataInvokeResponseOutput {
+	return i.ToDatadogHostMetadataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DatadogHostMetadataInvokeResponseArgs) ToDatadogHostMetadataInvokeResponseOutputWithContext(ctx context.Context) DatadogHostMetadataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogHostMetadataInvokeResponseOutput)
+}
+
+func (i DatadogHostMetadataInvokeResponseArgs) ToDatadogHostMetadataInvokeResponsePtrOutput() DatadogHostMetadataInvokeResponsePtrOutput {
+	return i.ToDatadogHostMetadataInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DatadogHostMetadataInvokeResponseArgs) ToDatadogHostMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogHostMetadataInvokeResponseOutput).ToDatadogHostMetadataInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DatadogHostMetadataInvokeResponsePtrInput is an input type that accepts DatadogHostMetadataInvokeResponseArgs, DatadogHostMetadataInvokeResponsePtr and DatadogHostMetadataInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DatadogHostMetadataInvokeResponsePtrInput` via:
+//
+//          DatadogHostMetadataInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type DatadogHostMetadataResponsePtrInput interface {
+type DatadogHostMetadataInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToDatadogHostMetadataResponsePtrOutput() DatadogHostMetadataResponsePtrOutput
-	ToDatadogHostMetadataResponsePtrOutputWithContext(context.Context) DatadogHostMetadataResponsePtrOutput
+	ToDatadogHostMetadataInvokeResponsePtrOutput() DatadogHostMetadataInvokeResponsePtrOutput
+	ToDatadogHostMetadataInvokeResponsePtrOutputWithContext(context.Context) DatadogHostMetadataInvokeResponsePtrOutput
 }
 
-type datadogHostMetadataResponsePtrType DatadogHostMetadataResponseArgs
+type datadogHostMetadataInvokeResponsePtrType DatadogHostMetadataInvokeResponseArgs
 
-func DatadogHostMetadataResponsePtr(v *DatadogHostMetadataResponseArgs) DatadogHostMetadataResponsePtrInput {
-	return (*datadogHostMetadataResponsePtrType)(v)
+func DatadogHostMetadataInvokeResponsePtr(v *DatadogHostMetadataInvokeResponseArgs) DatadogHostMetadataInvokeResponsePtrInput {
+	return (*datadogHostMetadataInvokeResponsePtrType)(v)
 }
 
-func (*datadogHostMetadataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatadogHostMetadataResponse)(nil)).Elem()
+func (*datadogHostMetadataInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogHostMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (i *datadogHostMetadataResponsePtrType) ToDatadogHostMetadataResponsePtrOutput() DatadogHostMetadataResponsePtrOutput {
-	return i.ToDatadogHostMetadataResponsePtrOutputWithContext(context.Background())
+func (i *datadogHostMetadataInvokeResponsePtrType) ToDatadogHostMetadataInvokeResponsePtrOutput() DatadogHostMetadataInvokeResponsePtrOutput {
+	return i.ToDatadogHostMetadataInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *datadogHostMetadataResponsePtrType) ToDatadogHostMetadataResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogHostMetadataResponsePtrOutput)
+func (i *datadogHostMetadataInvokeResponsePtrType) ToDatadogHostMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogHostMetadataInvokeResponsePtrOutput)
 }
 
-type DatadogHostMetadataResponseOutput struct{ *pulumi.OutputState }
+type DatadogHostMetadataInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DatadogHostMetadataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatadogHostMetadataResponse)(nil)).Elem()
+func (DatadogHostMetadataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogHostMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (o DatadogHostMetadataResponseOutput) ToDatadogHostMetadataResponseOutput() DatadogHostMetadataResponseOutput {
+func (o DatadogHostMetadataInvokeResponseOutput) ToDatadogHostMetadataInvokeResponseOutput() DatadogHostMetadataInvokeResponseOutput {
 	return o
 }
 
-func (o DatadogHostMetadataResponseOutput) ToDatadogHostMetadataResponseOutputWithContext(ctx context.Context) DatadogHostMetadataResponseOutput {
+func (o DatadogHostMetadataInvokeResponseOutput) ToDatadogHostMetadataInvokeResponseOutputWithContext(ctx context.Context) DatadogHostMetadataInvokeResponseOutput {
 	return o
 }
 
-func (o DatadogHostMetadataResponseOutput) ToDatadogHostMetadataResponsePtrOutput() DatadogHostMetadataResponsePtrOutput {
-	return o.ToDatadogHostMetadataResponsePtrOutputWithContext(context.Background())
+func (o DatadogHostMetadataInvokeResponseOutput) ToDatadogHostMetadataInvokeResponsePtrOutput() DatadogHostMetadataInvokeResponsePtrOutput {
+	return o.ToDatadogHostMetadataInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o DatadogHostMetadataResponseOutput) ToDatadogHostMetadataResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataResponsePtrOutput {
-	return o.ApplyT(func(v DatadogHostMetadataResponse) *DatadogHostMetadataResponse {
+func (o DatadogHostMetadataInvokeResponseOutput) ToDatadogHostMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DatadogHostMetadataInvokeResponse) *DatadogHostMetadataInvokeResponse {
 		return &v
-	}).(DatadogHostMetadataResponsePtrOutput)
+	}).(DatadogHostMetadataInvokeResponsePtrOutput)
 }
 
 // The agent version.
-func (o DatadogHostMetadataResponseOutput) AgentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogHostMetadataResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
+func (o DatadogHostMetadataInvokeResponseOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogHostMetadataInvokeResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o DatadogHostMetadataResponseOutput) InstallMethod() DatadogInstallMethodResponsePtrOutput {
-	return o.ApplyT(func(v DatadogHostMetadataResponse) *DatadogInstallMethodResponse { return v.InstallMethod }).(DatadogInstallMethodResponsePtrOutput)
+func (o DatadogHostMetadataInvokeResponseOutput) InstallMethod() DatadogInstallMethodInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DatadogHostMetadataInvokeResponse) *DatadogInstallMethodInvokeResponse { return v.InstallMethod }).(DatadogInstallMethodInvokeResponsePtrOutput)
 }
 
-func (o DatadogHostMetadataResponseOutput) LogsAgent() DatadogLogsAgentResponsePtrOutput {
-	return o.ApplyT(func(v DatadogHostMetadataResponse) *DatadogLogsAgentResponse { return v.LogsAgent }).(DatadogLogsAgentResponsePtrOutput)
+func (o DatadogHostMetadataInvokeResponseOutput) LogsAgent() DatadogLogsAgentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DatadogHostMetadataInvokeResponse) *DatadogLogsAgentInvokeResponse { return v.LogsAgent }).(DatadogLogsAgentInvokeResponsePtrOutput)
 }
 
-type DatadogHostMetadataResponsePtrOutput struct{ *pulumi.OutputState }
+type DatadogHostMetadataInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (DatadogHostMetadataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatadogHostMetadataResponse)(nil)).Elem()
+func (DatadogHostMetadataInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogHostMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (o DatadogHostMetadataResponsePtrOutput) ToDatadogHostMetadataResponsePtrOutput() DatadogHostMetadataResponsePtrOutput {
+func (o DatadogHostMetadataInvokeResponsePtrOutput) ToDatadogHostMetadataInvokeResponsePtrOutput() DatadogHostMetadataInvokeResponsePtrOutput {
 	return o
 }
 
-func (o DatadogHostMetadataResponsePtrOutput) ToDatadogHostMetadataResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataResponsePtrOutput {
+func (o DatadogHostMetadataInvokeResponsePtrOutput) ToDatadogHostMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataInvokeResponsePtrOutput {
 	return o
 }
 
-func (o DatadogHostMetadataResponsePtrOutput) Elem() DatadogHostMetadataResponseOutput {
-	return o.ApplyT(func(v *DatadogHostMetadataResponse) DatadogHostMetadataResponse { return *v }).(DatadogHostMetadataResponseOutput)
+func (o DatadogHostMetadataInvokeResponsePtrOutput) Elem() DatadogHostMetadataInvokeResponseOutput {
+	return o.ApplyT(func(v *DatadogHostMetadataInvokeResponse) DatadogHostMetadataInvokeResponse { return *v }).(DatadogHostMetadataInvokeResponseOutput)
 }
 
 // The agent version.
-func (o DatadogHostMetadataResponsePtrOutput) AgentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogHostMetadataResponse) *string {
+func (o DatadogHostMetadataInvokeResponsePtrOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogHostMetadataInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -277,146 +398,25 @@ func (o DatadogHostMetadataResponsePtrOutput) AgentVersion() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DatadogHostMetadataResponsePtrOutput) InstallMethod() DatadogInstallMethodResponsePtrOutput {
-	return o.ApplyT(func(v *DatadogHostMetadataResponse) *DatadogInstallMethodResponse {
+func (o DatadogHostMetadataInvokeResponsePtrOutput) InstallMethod() DatadogInstallMethodInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *DatadogHostMetadataInvokeResponse) *DatadogInstallMethodInvokeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.InstallMethod
-	}).(DatadogInstallMethodResponsePtrOutput)
+	}).(DatadogInstallMethodInvokeResponsePtrOutput)
 }
 
-func (o DatadogHostMetadataResponsePtrOutput) LogsAgent() DatadogLogsAgentResponsePtrOutput {
-	return o.ApplyT(func(v *DatadogHostMetadataResponse) *DatadogLogsAgentResponse {
+func (o DatadogHostMetadataInvokeResponsePtrOutput) LogsAgent() DatadogLogsAgentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *DatadogHostMetadataInvokeResponse) *DatadogLogsAgentInvokeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.LogsAgent
-	}).(DatadogLogsAgentResponsePtrOutput)
+	}).(DatadogLogsAgentInvokeResponsePtrOutput)
 }
 
-type DatadogHostResponse struct {
-	// The aliases for the host.
-	Aliases []string `pulumi:"aliases"`
-	// The Datadog integrations reporting metrics for the host.
-	Apps []string                     `pulumi:"apps"`
-	Meta *DatadogHostMetadataResponse `pulumi:"meta"`
-	// The name of the host.
-	Name *string `pulumi:"name"`
-}
-
-// DatadogHostResponseInput is an input type that accepts DatadogHostResponseArgs and DatadogHostResponseOutput values.
-// You can construct a concrete instance of `DatadogHostResponseInput` via:
-//
-//          DatadogHostResponseArgs{...}
-type DatadogHostResponseInput interface {
-	pulumi.Input
-
-	ToDatadogHostResponseOutput() DatadogHostResponseOutput
-	ToDatadogHostResponseOutputWithContext(context.Context) DatadogHostResponseOutput
-}
-
-type DatadogHostResponseArgs struct {
-	// The aliases for the host.
-	Aliases pulumi.StringArrayInput `pulumi:"aliases"`
-	// The Datadog integrations reporting metrics for the host.
-	Apps pulumi.StringArrayInput             `pulumi:"apps"`
-	Meta DatadogHostMetadataResponsePtrInput `pulumi:"meta"`
-	// The name of the host.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (DatadogHostResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatadogHostResponse)(nil)).Elem()
-}
-
-func (i DatadogHostResponseArgs) ToDatadogHostResponseOutput() DatadogHostResponseOutput {
-	return i.ToDatadogHostResponseOutputWithContext(context.Background())
-}
-
-func (i DatadogHostResponseArgs) ToDatadogHostResponseOutputWithContext(ctx context.Context) DatadogHostResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogHostResponseOutput)
-}
-
-// DatadogHostResponseArrayInput is an input type that accepts DatadogHostResponseArray and DatadogHostResponseArrayOutput values.
-// You can construct a concrete instance of `DatadogHostResponseArrayInput` via:
-//
-//          DatadogHostResponseArray{ DatadogHostResponseArgs{...} }
-type DatadogHostResponseArrayInput interface {
-	pulumi.Input
-
-	ToDatadogHostResponseArrayOutput() DatadogHostResponseArrayOutput
-	ToDatadogHostResponseArrayOutputWithContext(context.Context) DatadogHostResponseArrayOutput
-}
-
-type DatadogHostResponseArray []DatadogHostResponseInput
-
-func (DatadogHostResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatadogHostResponse)(nil)).Elem()
-}
-
-func (i DatadogHostResponseArray) ToDatadogHostResponseArrayOutput() DatadogHostResponseArrayOutput {
-	return i.ToDatadogHostResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DatadogHostResponseArray) ToDatadogHostResponseArrayOutputWithContext(ctx context.Context) DatadogHostResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogHostResponseArrayOutput)
-}
-
-type DatadogHostResponseOutput struct{ *pulumi.OutputState }
-
-func (DatadogHostResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatadogHostResponse)(nil)).Elem()
-}
-
-func (o DatadogHostResponseOutput) ToDatadogHostResponseOutput() DatadogHostResponseOutput {
-	return o
-}
-
-func (o DatadogHostResponseOutput) ToDatadogHostResponseOutputWithContext(ctx context.Context) DatadogHostResponseOutput {
-	return o
-}
-
-// The aliases for the host.
-func (o DatadogHostResponseOutput) Aliases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DatadogHostResponse) []string { return v.Aliases }).(pulumi.StringArrayOutput)
-}
-
-// The Datadog integrations reporting metrics for the host.
-func (o DatadogHostResponseOutput) Apps() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DatadogHostResponse) []string { return v.Apps }).(pulumi.StringArrayOutput)
-}
-
-func (o DatadogHostResponseOutput) Meta() DatadogHostMetadataResponsePtrOutput {
-	return o.ApplyT(func(v DatadogHostResponse) *DatadogHostMetadataResponse { return v.Meta }).(DatadogHostMetadataResponsePtrOutput)
-}
-
-// The name of the host.
-func (o DatadogHostResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogHostResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type DatadogHostResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (DatadogHostResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatadogHostResponse)(nil)).Elem()
-}
-
-func (o DatadogHostResponseArrayOutput) ToDatadogHostResponseArrayOutput() DatadogHostResponseArrayOutput {
-	return o
-}
-
-func (o DatadogHostResponseArrayOutput) ToDatadogHostResponseArrayOutputWithContext(ctx context.Context) DatadogHostResponseArrayOutput {
-	return o
-}
-
-func (o DatadogHostResponseArrayOutput) Index(i pulumi.IntInput) DatadogHostResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatadogHostResponse {
-		return vs[0].([]DatadogHostResponse)[vs[1].(int)]
-	}).(DatadogHostResponseOutput)
-}
-
-type DatadogInstallMethodResponse struct {
+type DatadogInstallMethodInvokeResponse struct {
 	// The installer version.
 	InstallerVersion *string `pulumi:"installerVersion"`
 	// The tool.
@@ -425,18 +425,18 @@ type DatadogInstallMethodResponse struct {
 	ToolVersion *string `pulumi:"toolVersion"`
 }
 
-// DatadogInstallMethodResponseInput is an input type that accepts DatadogInstallMethodResponseArgs and DatadogInstallMethodResponseOutput values.
-// You can construct a concrete instance of `DatadogInstallMethodResponseInput` via:
+// DatadogInstallMethodInvokeResponseInput is an input type that accepts DatadogInstallMethodInvokeResponseArgs and DatadogInstallMethodInvokeResponseOutput values.
+// You can construct a concrete instance of `DatadogInstallMethodInvokeResponseInput` via:
 //
-//          DatadogInstallMethodResponseArgs{...}
-type DatadogInstallMethodResponseInput interface {
+//          DatadogInstallMethodInvokeResponseArgs{...}
+type DatadogInstallMethodInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDatadogInstallMethodResponseOutput() DatadogInstallMethodResponseOutput
-	ToDatadogInstallMethodResponseOutputWithContext(context.Context) DatadogInstallMethodResponseOutput
+	ToDatadogInstallMethodInvokeResponseOutput() DatadogInstallMethodInvokeResponseOutput
+	ToDatadogInstallMethodInvokeResponseOutputWithContext(context.Context) DatadogInstallMethodInvokeResponseOutput
 }
 
-type DatadogInstallMethodResponseArgs struct {
+type DatadogInstallMethodInvokeResponseArgs struct {
 	// The installer version.
 	InstallerVersion pulumi.StringPtrInput `pulumi:"installerVersion"`
 	// The tool.
@@ -445,119 +445,119 @@ type DatadogInstallMethodResponseArgs struct {
 	ToolVersion pulumi.StringPtrInput `pulumi:"toolVersion"`
 }
 
-func (DatadogInstallMethodResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatadogInstallMethodResponse)(nil)).Elem()
+func (DatadogInstallMethodInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogInstallMethodInvokeResponse)(nil)).Elem()
 }
 
-func (i DatadogInstallMethodResponseArgs) ToDatadogInstallMethodResponseOutput() DatadogInstallMethodResponseOutput {
-	return i.ToDatadogInstallMethodResponseOutputWithContext(context.Background())
+func (i DatadogInstallMethodInvokeResponseArgs) ToDatadogInstallMethodInvokeResponseOutput() DatadogInstallMethodInvokeResponseOutput {
+	return i.ToDatadogInstallMethodInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DatadogInstallMethodResponseArgs) ToDatadogInstallMethodResponseOutputWithContext(ctx context.Context) DatadogInstallMethodResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogInstallMethodResponseOutput)
+func (i DatadogInstallMethodInvokeResponseArgs) ToDatadogInstallMethodInvokeResponseOutputWithContext(ctx context.Context) DatadogInstallMethodInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogInstallMethodInvokeResponseOutput)
 }
 
-func (i DatadogInstallMethodResponseArgs) ToDatadogInstallMethodResponsePtrOutput() DatadogInstallMethodResponsePtrOutput {
-	return i.ToDatadogInstallMethodResponsePtrOutputWithContext(context.Background())
+func (i DatadogInstallMethodInvokeResponseArgs) ToDatadogInstallMethodInvokeResponsePtrOutput() DatadogInstallMethodInvokeResponsePtrOutput {
+	return i.ToDatadogInstallMethodInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i DatadogInstallMethodResponseArgs) ToDatadogInstallMethodResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogInstallMethodResponseOutput).ToDatadogInstallMethodResponsePtrOutputWithContext(ctx)
+func (i DatadogInstallMethodInvokeResponseArgs) ToDatadogInstallMethodInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogInstallMethodInvokeResponseOutput).ToDatadogInstallMethodInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// DatadogInstallMethodResponsePtrInput is an input type that accepts DatadogInstallMethodResponseArgs, DatadogInstallMethodResponsePtr and DatadogInstallMethodResponsePtrOutput values.
-// You can construct a concrete instance of `DatadogInstallMethodResponsePtrInput` via:
+// DatadogInstallMethodInvokeResponsePtrInput is an input type that accepts DatadogInstallMethodInvokeResponseArgs, DatadogInstallMethodInvokeResponsePtr and DatadogInstallMethodInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DatadogInstallMethodInvokeResponsePtrInput` via:
 //
-//          DatadogInstallMethodResponseArgs{...}
+//          DatadogInstallMethodInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type DatadogInstallMethodResponsePtrInput interface {
+type DatadogInstallMethodInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToDatadogInstallMethodResponsePtrOutput() DatadogInstallMethodResponsePtrOutput
-	ToDatadogInstallMethodResponsePtrOutputWithContext(context.Context) DatadogInstallMethodResponsePtrOutput
+	ToDatadogInstallMethodInvokeResponsePtrOutput() DatadogInstallMethodInvokeResponsePtrOutput
+	ToDatadogInstallMethodInvokeResponsePtrOutputWithContext(context.Context) DatadogInstallMethodInvokeResponsePtrOutput
 }
 
-type datadogInstallMethodResponsePtrType DatadogInstallMethodResponseArgs
+type datadogInstallMethodInvokeResponsePtrType DatadogInstallMethodInvokeResponseArgs
 
-func DatadogInstallMethodResponsePtr(v *DatadogInstallMethodResponseArgs) DatadogInstallMethodResponsePtrInput {
-	return (*datadogInstallMethodResponsePtrType)(v)
+func DatadogInstallMethodInvokeResponsePtr(v *DatadogInstallMethodInvokeResponseArgs) DatadogInstallMethodInvokeResponsePtrInput {
+	return (*datadogInstallMethodInvokeResponsePtrType)(v)
 }
 
-func (*datadogInstallMethodResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatadogInstallMethodResponse)(nil)).Elem()
+func (*datadogInstallMethodInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogInstallMethodInvokeResponse)(nil)).Elem()
 }
 
-func (i *datadogInstallMethodResponsePtrType) ToDatadogInstallMethodResponsePtrOutput() DatadogInstallMethodResponsePtrOutput {
-	return i.ToDatadogInstallMethodResponsePtrOutputWithContext(context.Background())
+func (i *datadogInstallMethodInvokeResponsePtrType) ToDatadogInstallMethodInvokeResponsePtrOutput() DatadogInstallMethodInvokeResponsePtrOutput {
+	return i.ToDatadogInstallMethodInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *datadogInstallMethodResponsePtrType) ToDatadogInstallMethodResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogInstallMethodResponsePtrOutput)
+func (i *datadogInstallMethodInvokeResponsePtrType) ToDatadogInstallMethodInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogInstallMethodInvokeResponsePtrOutput)
 }
 
-type DatadogInstallMethodResponseOutput struct{ *pulumi.OutputState }
+type DatadogInstallMethodInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DatadogInstallMethodResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatadogInstallMethodResponse)(nil)).Elem()
+func (DatadogInstallMethodInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogInstallMethodInvokeResponse)(nil)).Elem()
 }
 
-func (o DatadogInstallMethodResponseOutput) ToDatadogInstallMethodResponseOutput() DatadogInstallMethodResponseOutput {
+func (o DatadogInstallMethodInvokeResponseOutput) ToDatadogInstallMethodInvokeResponseOutput() DatadogInstallMethodInvokeResponseOutput {
 	return o
 }
 
-func (o DatadogInstallMethodResponseOutput) ToDatadogInstallMethodResponseOutputWithContext(ctx context.Context) DatadogInstallMethodResponseOutput {
+func (o DatadogInstallMethodInvokeResponseOutput) ToDatadogInstallMethodInvokeResponseOutputWithContext(ctx context.Context) DatadogInstallMethodInvokeResponseOutput {
 	return o
 }
 
-func (o DatadogInstallMethodResponseOutput) ToDatadogInstallMethodResponsePtrOutput() DatadogInstallMethodResponsePtrOutput {
-	return o.ToDatadogInstallMethodResponsePtrOutputWithContext(context.Background())
+func (o DatadogInstallMethodInvokeResponseOutput) ToDatadogInstallMethodInvokeResponsePtrOutput() DatadogInstallMethodInvokeResponsePtrOutput {
+	return o.ToDatadogInstallMethodInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o DatadogInstallMethodResponseOutput) ToDatadogInstallMethodResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodResponsePtrOutput {
-	return o.ApplyT(func(v DatadogInstallMethodResponse) *DatadogInstallMethodResponse {
+func (o DatadogInstallMethodInvokeResponseOutput) ToDatadogInstallMethodInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DatadogInstallMethodInvokeResponse) *DatadogInstallMethodInvokeResponse {
 		return &v
-	}).(DatadogInstallMethodResponsePtrOutput)
+	}).(DatadogInstallMethodInvokeResponsePtrOutput)
 }
 
 // The installer version.
-func (o DatadogInstallMethodResponseOutput) InstallerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogInstallMethodResponse) *string { return v.InstallerVersion }).(pulumi.StringPtrOutput)
+func (o DatadogInstallMethodInvokeResponseOutput) InstallerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogInstallMethodInvokeResponse) *string { return v.InstallerVersion }).(pulumi.StringPtrOutput)
 }
 
 // The tool.
-func (o DatadogInstallMethodResponseOutput) Tool() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogInstallMethodResponse) *string { return v.Tool }).(pulumi.StringPtrOutput)
+func (o DatadogInstallMethodInvokeResponseOutput) Tool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogInstallMethodInvokeResponse) *string { return v.Tool }).(pulumi.StringPtrOutput)
 }
 
 // The tool version.
-func (o DatadogInstallMethodResponseOutput) ToolVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogInstallMethodResponse) *string { return v.ToolVersion }).(pulumi.StringPtrOutput)
+func (o DatadogInstallMethodInvokeResponseOutput) ToolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogInstallMethodInvokeResponse) *string { return v.ToolVersion }).(pulumi.StringPtrOutput)
 }
 
-type DatadogInstallMethodResponsePtrOutput struct{ *pulumi.OutputState }
+type DatadogInstallMethodInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (DatadogInstallMethodResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatadogInstallMethodResponse)(nil)).Elem()
+func (DatadogInstallMethodInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogInstallMethodInvokeResponse)(nil)).Elem()
 }
 
-func (o DatadogInstallMethodResponsePtrOutput) ToDatadogInstallMethodResponsePtrOutput() DatadogInstallMethodResponsePtrOutput {
+func (o DatadogInstallMethodInvokeResponsePtrOutput) ToDatadogInstallMethodInvokeResponsePtrOutput() DatadogInstallMethodInvokeResponsePtrOutput {
 	return o
 }
 
-func (o DatadogInstallMethodResponsePtrOutput) ToDatadogInstallMethodResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodResponsePtrOutput {
+func (o DatadogInstallMethodInvokeResponsePtrOutput) ToDatadogInstallMethodInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodInvokeResponsePtrOutput {
 	return o
 }
 
-func (o DatadogInstallMethodResponsePtrOutput) Elem() DatadogInstallMethodResponseOutput {
-	return o.ApplyT(func(v *DatadogInstallMethodResponse) DatadogInstallMethodResponse { return *v }).(DatadogInstallMethodResponseOutput)
+func (o DatadogInstallMethodInvokeResponsePtrOutput) Elem() DatadogInstallMethodInvokeResponseOutput {
+	return o.ApplyT(func(v *DatadogInstallMethodInvokeResponse) DatadogInstallMethodInvokeResponse { return *v }).(DatadogInstallMethodInvokeResponseOutput)
 }
 
 // The installer version.
-func (o DatadogInstallMethodResponsePtrOutput) InstallerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogInstallMethodResponse) *string {
+func (o DatadogInstallMethodInvokeResponsePtrOutput) InstallerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogInstallMethodInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -566,8 +566,8 @@ func (o DatadogInstallMethodResponsePtrOutput) InstallerVersion() pulumi.StringP
 }
 
 // The tool.
-func (o DatadogInstallMethodResponsePtrOutput) Tool() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogInstallMethodResponse) *string {
+func (o DatadogInstallMethodInvokeResponsePtrOutput) Tool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogInstallMethodInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -576,8 +576,8 @@ func (o DatadogInstallMethodResponsePtrOutput) Tool() pulumi.StringPtrOutput {
 }
 
 // The tool version.
-func (o DatadogInstallMethodResponsePtrOutput) ToolVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogInstallMethodResponse) *string {
+func (o DatadogInstallMethodInvokeResponsePtrOutput) ToolVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogInstallMethodInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -585,130 +585,130 @@ func (o DatadogInstallMethodResponsePtrOutput) ToolVersion() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-type DatadogLogsAgentResponse struct {
+type DatadogLogsAgentInvokeResponse struct {
 	// The transport.
 	Transport *string `pulumi:"transport"`
 }
 
-// DatadogLogsAgentResponseInput is an input type that accepts DatadogLogsAgentResponseArgs and DatadogLogsAgentResponseOutput values.
-// You can construct a concrete instance of `DatadogLogsAgentResponseInput` via:
+// DatadogLogsAgentInvokeResponseInput is an input type that accepts DatadogLogsAgentInvokeResponseArgs and DatadogLogsAgentInvokeResponseOutput values.
+// You can construct a concrete instance of `DatadogLogsAgentInvokeResponseInput` via:
 //
-//          DatadogLogsAgentResponseArgs{...}
-type DatadogLogsAgentResponseInput interface {
+//          DatadogLogsAgentInvokeResponseArgs{...}
+type DatadogLogsAgentInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDatadogLogsAgentResponseOutput() DatadogLogsAgentResponseOutput
-	ToDatadogLogsAgentResponseOutputWithContext(context.Context) DatadogLogsAgentResponseOutput
+	ToDatadogLogsAgentInvokeResponseOutput() DatadogLogsAgentInvokeResponseOutput
+	ToDatadogLogsAgentInvokeResponseOutputWithContext(context.Context) DatadogLogsAgentInvokeResponseOutput
 }
 
-type DatadogLogsAgentResponseArgs struct {
+type DatadogLogsAgentInvokeResponseArgs struct {
 	// The transport.
 	Transport pulumi.StringPtrInput `pulumi:"transport"`
 }
 
-func (DatadogLogsAgentResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatadogLogsAgentResponse)(nil)).Elem()
+func (DatadogLogsAgentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogLogsAgentInvokeResponse)(nil)).Elem()
 }
 
-func (i DatadogLogsAgentResponseArgs) ToDatadogLogsAgentResponseOutput() DatadogLogsAgentResponseOutput {
-	return i.ToDatadogLogsAgentResponseOutputWithContext(context.Background())
+func (i DatadogLogsAgentInvokeResponseArgs) ToDatadogLogsAgentInvokeResponseOutput() DatadogLogsAgentInvokeResponseOutput {
+	return i.ToDatadogLogsAgentInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DatadogLogsAgentResponseArgs) ToDatadogLogsAgentResponseOutputWithContext(ctx context.Context) DatadogLogsAgentResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogLogsAgentResponseOutput)
+func (i DatadogLogsAgentInvokeResponseArgs) ToDatadogLogsAgentInvokeResponseOutputWithContext(ctx context.Context) DatadogLogsAgentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogLogsAgentInvokeResponseOutput)
 }
 
-func (i DatadogLogsAgentResponseArgs) ToDatadogLogsAgentResponsePtrOutput() DatadogLogsAgentResponsePtrOutput {
-	return i.ToDatadogLogsAgentResponsePtrOutputWithContext(context.Background())
+func (i DatadogLogsAgentInvokeResponseArgs) ToDatadogLogsAgentInvokeResponsePtrOutput() DatadogLogsAgentInvokeResponsePtrOutput {
+	return i.ToDatadogLogsAgentInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i DatadogLogsAgentResponseArgs) ToDatadogLogsAgentResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogLogsAgentResponseOutput).ToDatadogLogsAgentResponsePtrOutputWithContext(ctx)
+func (i DatadogLogsAgentInvokeResponseArgs) ToDatadogLogsAgentInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogLogsAgentInvokeResponseOutput).ToDatadogLogsAgentInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// DatadogLogsAgentResponsePtrInput is an input type that accepts DatadogLogsAgentResponseArgs, DatadogLogsAgentResponsePtr and DatadogLogsAgentResponsePtrOutput values.
-// You can construct a concrete instance of `DatadogLogsAgentResponsePtrInput` via:
+// DatadogLogsAgentInvokeResponsePtrInput is an input type that accepts DatadogLogsAgentInvokeResponseArgs, DatadogLogsAgentInvokeResponsePtr and DatadogLogsAgentInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DatadogLogsAgentInvokeResponsePtrInput` via:
 //
-//          DatadogLogsAgentResponseArgs{...}
+//          DatadogLogsAgentInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type DatadogLogsAgentResponsePtrInput interface {
+type DatadogLogsAgentInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToDatadogLogsAgentResponsePtrOutput() DatadogLogsAgentResponsePtrOutput
-	ToDatadogLogsAgentResponsePtrOutputWithContext(context.Context) DatadogLogsAgentResponsePtrOutput
+	ToDatadogLogsAgentInvokeResponsePtrOutput() DatadogLogsAgentInvokeResponsePtrOutput
+	ToDatadogLogsAgentInvokeResponsePtrOutputWithContext(context.Context) DatadogLogsAgentInvokeResponsePtrOutput
 }
 
-type datadogLogsAgentResponsePtrType DatadogLogsAgentResponseArgs
+type datadogLogsAgentInvokeResponsePtrType DatadogLogsAgentInvokeResponseArgs
 
-func DatadogLogsAgentResponsePtr(v *DatadogLogsAgentResponseArgs) DatadogLogsAgentResponsePtrInput {
-	return (*datadogLogsAgentResponsePtrType)(v)
+func DatadogLogsAgentInvokeResponsePtr(v *DatadogLogsAgentInvokeResponseArgs) DatadogLogsAgentInvokeResponsePtrInput {
+	return (*datadogLogsAgentInvokeResponsePtrType)(v)
 }
 
-func (*datadogLogsAgentResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatadogLogsAgentResponse)(nil)).Elem()
+func (*datadogLogsAgentInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogLogsAgentInvokeResponse)(nil)).Elem()
 }
 
-func (i *datadogLogsAgentResponsePtrType) ToDatadogLogsAgentResponsePtrOutput() DatadogLogsAgentResponsePtrOutput {
-	return i.ToDatadogLogsAgentResponsePtrOutputWithContext(context.Background())
+func (i *datadogLogsAgentInvokeResponsePtrType) ToDatadogLogsAgentInvokeResponsePtrOutput() DatadogLogsAgentInvokeResponsePtrOutput {
+	return i.ToDatadogLogsAgentInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *datadogLogsAgentResponsePtrType) ToDatadogLogsAgentResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatadogLogsAgentResponsePtrOutput)
+func (i *datadogLogsAgentInvokeResponsePtrType) ToDatadogLogsAgentInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogLogsAgentInvokeResponsePtrOutput)
 }
 
-type DatadogLogsAgentResponseOutput struct{ *pulumi.OutputState }
+type DatadogLogsAgentInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DatadogLogsAgentResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatadogLogsAgentResponse)(nil)).Elem()
+func (DatadogLogsAgentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogLogsAgentInvokeResponse)(nil)).Elem()
 }
 
-func (o DatadogLogsAgentResponseOutput) ToDatadogLogsAgentResponseOutput() DatadogLogsAgentResponseOutput {
+func (o DatadogLogsAgentInvokeResponseOutput) ToDatadogLogsAgentInvokeResponseOutput() DatadogLogsAgentInvokeResponseOutput {
 	return o
 }
 
-func (o DatadogLogsAgentResponseOutput) ToDatadogLogsAgentResponseOutputWithContext(ctx context.Context) DatadogLogsAgentResponseOutput {
+func (o DatadogLogsAgentInvokeResponseOutput) ToDatadogLogsAgentInvokeResponseOutputWithContext(ctx context.Context) DatadogLogsAgentInvokeResponseOutput {
 	return o
 }
 
-func (o DatadogLogsAgentResponseOutput) ToDatadogLogsAgentResponsePtrOutput() DatadogLogsAgentResponsePtrOutput {
-	return o.ToDatadogLogsAgentResponsePtrOutputWithContext(context.Background())
+func (o DatadogLogsAgentInvokeResponseOutput) ToDatadogLogsAgentInvokeResponsePtrOutput() DatadogLogsAgentInvokeResponsePtrOutput {
+	return o.ToDatadogLogsAgentInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o DatadogLogsAgentResponseOutput) ToDatadogLogsAgentResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentResponsePtrOutput {
-	return o.ApplyT(func(v DatadogLogsAgentResponse) *DatadogLogsAgentResponse {
+func (o DatadogLogsAgentInvokeResponseOutput) ToDatadogLogsAgentInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DatadogLogsAgentInvokeResponse) *DatadogLogsAgentInvokeResponse {
 		return &v
-	}).(DatadogLogsAgentResponsePtrOutput)
+	}).(DatadogLogsAgentInvokeResponsePtrOutput)
 }
 
 // The transport.
-func (o DatadogLogsAgentResponseOutput) Transport() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatadogLogsAgentResponse) *string { return v.Transport }).(pulumi.StringPtrOutput)
+func (o DatadogLogsAgentInvokeResponseOutput) Transport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogLogsAgentInvokeResponse) *string { return v.Transport }).(pulumi.StringPtrOutput)
 }
 
-type DatadogLogsAgentResponsePtrOutput struct{ *pulumi.OutputState }
+type DatadogLogsAgentInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (DatadogLogsAgentResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatadogLogsAgentResponse)(nil)).Elem()
+func (DatadogLogsAgentInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogLogsAgentInvokeResponse)(nil)).Elem()
 }
 
-func (o DatadogLogsAgentResponsePtrOutput) ToDatadogLogsAgentResponsePtrOutput() DatadogLogsAgentResponsePtrOutput {
+func (o DatadogLogsAgentInvokeResponsePtrOutput) ToDatadogLogsAgentInvokeResponsePtrOutput() DatadogLogsAgentInvokeResponsePtrOutput {
 	return o
 }
 
-func (o DatadogLogsAgentResponsePtrOutput) ToDatadogLogsAgentResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentResponsePtrOutput {
+func (o DatadogLogsAgentInvokeResponsePtrOutput) ToDatadogLogsAgentInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentInvokeResponsePtrOutput {
 	return o
 }
 
-func (o DatadogLogsAgentResponsePtrOutput) Elem() DatadogLogsAgentResponseOutput {
-	return o.ApplyT(func(v *DatadogLogsAgentResponse) DatadogLogsAgentResponse { return *v }).(DatadogLogsAgentResponseOutput)
+func (o DatadogLogsAgentInvokeResponsePtrOutput) Elem() DatadogLogsAgentInvokeResponseOutput {
+	return o.ApplyT(func(v *DatadogLogsAgentInvokeResponse) DatadogLogsAgentInvokeResponse { return *v }).(DatadogLogsAgentInvokeResponseOutput)
 }
 
 // The transport.
-func (o DatadogLogsAgentResponsePtrOutput) Transport() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatadogLogsAgentResponse) *string {
+func (o DatadogLogsAgentInvokeResponsePtrOutput) Transport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogLogsAgentInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -885,6 +885,218 @@ func (o DatadogOrganizationPropertiesPtrOutput) LinkingClientId() pulumi.StringP
 			return nil
 		}
 		return v.LinkingClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Datadog organization properties
+type DatadogOrganizationPropertiesInvokeResponse struct {
+	// The Id of the Enterprise App used for Single sign on.
+	EnterpriseAppId *string `pulumi:"enterpriseAppId"`
+	// Id of the Datadog organization.
+	Id string `pulumi:"id"`
+	// The auth code used to linking to an existing datadog organization.
+	LinkingAuthCode *string `pulumi:"linkingAuthCode"`
+	// The client_id from an existing in exchange for an auth token to link organization.
+	LinkingClientId *string `pulumi:"linkingClientId"`
+	// Name of the Datadog organization.
+	Name string `pulumi:"name"`
+}
+
+// DatadogOrganizationPropertiesInvokeResponseInput is an input type that accepts DatadogOrganizationPropertiesInvokeResponseArgs and DatadogOrganizationPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `DatadogOrganizationPropertiesInvokeResponseInput` via:
+//
+//          DatadogOrganizationPropertiesInvokeResponseArgs{...}
+type DatadogOrganizationPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDatadogOrganizationPropertiesInvokeResponseOutput() DatadogOrganizationPropertiesInvokeResponseOutput
+	ToDatadogOrganizationPropertiesInvokeResponseOutputWithContext(context.Context) DatadogOrganizationPropertiesInvokeResponseOutput
+}
+
+// Datadog organization properties
+type DatadogOrganizationPropertiesInvokeResponseArgs struct {
+	// The Id of the Enterprise App used for Single sign on.
+	EnterpriseAppId pulumi.StringPtrInput `pulumi:"enterpriseAppId"`
+	// Id of the Datadog organization.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The auth code used to linking to an existing datadog organization.
+	LinkingAuthCode pulumi.StringPtrInput `pulumi:"linkingAuthCode"`
+	// The client_id from an existing in exchange for an auth token to link organization.
+	LinkingClientId pulumi.StringPtrInput `pulumi:"linkingClientId"`
+	// Name of the Datadog organization.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DatadogOrganizationPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogOrganizationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i DatadogOrganizationPropertiesInvokeResponseArgs) ToDatadogOrganizationPropertiesInvokeResponseOutput() DatadogOrganizationPropertiesInvokeResponseOutput {
+	return i.ToDatadogOrganizationPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DatadogOrganizationPropertiesInvokeResponseArgs) ToDatadogOrganizationPropertiesInvokeResponseOutputWithContext(ctx context.Context) DatadogOrganizationPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogOrganizationPropertiesInvokeResponseOutput)
+}
+
+func (i DatadogOrganizationPropertiesInvokeResponseArgs) ToDatadogOrganizationPropertiesInvokeResponsePtrOutput() DatadogOrganizationPropertiesInvokeResponsePtrOutput {
+	return i.ToDatadogOrganizationPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DatadogOrganizationPropertiesInvokeResponseArgs) ToDatadogOrganizationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogOrganizationPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogOrganizationPropertiesInvokeResponseOutput).ToDatadogOrganizationPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DatadogOrganizationPropertiesInvokeResponsePtrInput is an input type that accepts DatadogOrganizationPropertiesInvokeResponseArgs, DatadogOrganizationPropertiesInvokeResponsePtr and DatadogOrganizationPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DatadogOrganizationPropertiesInvokeResponsePtrInput` via:
+//
+//          DatadogOrganizationPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DatadogOrganizationPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDatadogOrganizationPropertiesInvokeResponsePtrOutput() DatadogOrganizationPropertiesInvokeResponsePtrOutput
+	ToDatadogOrganizationPropertiesInvokeResponsePtrOutputWithContext(context.Context) DatadogOrganizationPropertiesInvokeResponsePtrOutput
+}
+
+type datadogOrganizationPropertiesInvokeResponsePtrType DatadogOrganizationPropertiesInvokeResponseArgs
+
+func DatadogOrganizationPropertiesInvokeResponsePtr(v *DatadogOrganizationPropertiesInvokeResponseArgs) DatadogOrganizationPropertiesInvokeResponsePtrInput {
+	return (*datadogOrganizationPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*datadogOrganizationPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogOrganizationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *datadogOrganizationPropertiesInvokeResponsePtrType) ToDatadogOrganizationPropertiesInvokeResponsePtrOutput() DatadogOrganizationPropertiesInvokeResponsePtrOutput {
+	return i.ToDatadogOrganizationPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *datadogOrganizationPropertiesInvokeResponsePtrType) ToDatadogOrganizationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogOrganizationPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatadogOrganizationPropertiesInvokeResponsePtrOutput)
+}
+
+// Datadog organization properties
+type DatadogOrganizationPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DatadogOrganizationPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatadogOrganizationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o DatadogOrganizationPropertiesInvokeResponseOutput) ToDatadogOrganizationPropertiesInvokeResponseOutput() DatadogOrganizationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o DatadogOrganizationPropertiesInvokeResponseOutput) ToDatadogOrganizationPropertiesInvokeResponseOutputWithContext(ctx context.Context) DatadogOrganizationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o DatadogOrganizationPropertiesInvokeResponseOutput) ToDatadogOrganizationPropertiesInvokeResponsePtrOutput() DatadogOrganizationPropertiesInvokeResponsePtrOutput {
+	return o.ToDatadogOrganizationPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DatadogOrganizationPropertiesInvokeResponseOutput) ToDatadogOrganizationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogOrganizationPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DatadogOrganizationPropertiesInvokeResponse) *DatadogOrganizationPropertiesInvokeResponse {
+		return &v
+	}).(DatadogOrganizationPropertiesInvokeResponsePtrOutput)
+}
+
+// The Id of the Enterprise App used for Single sign on.
+func (o DatadogOrganizationPropertiesInvokeResponseOutput) EnterpriseAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogOrganizationPropertiesInvokeResponse) *string { return v.EnterpriseAppId }).(pulumi.StringPtrOutput)
+}
+
+// Id of the Datadog organization.
+func (o DatadogOrganizationPropertiesInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DatadogOrganizationPropertiesInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The auth code used to linking to an existing datadog organization.
+func (o DatadogOrganizationPropertiesInvokeResponseOutput) LinkingAuthCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogOrganizationPropertiesInvokeResponse) *string { return v.LinkingAuthCode }).(pulumi.StringPtrOutput)
+}
+
+// The client_id from an existing in exchange for an auth token to link organization.
+func (o DatadogOrganizationPropertiesInvokeResponseOutput) LinkingClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatadogOrganizationPropertiesInvokeResponse) *string { return v.LinkingClientId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Datadog organization.
+func (o DatadogOrganizationPropertiesInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatadogOrganizationPropertiesInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DatadogOrganizationPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DatadogOrganizationPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatadogOrganizationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o DatadogOrganizationPropertiesInvokeResponsePtrOutput) ToDatadogOrganizationPropertiesInvokeResponsePtrOutput() DatadogOrganizationPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DatadogOrganizationPropertiesInvokeResponsePtrOutput) ToDatadogOrganizationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DatadogOrganizationPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DatadogOrganizationPropertiesInvokeResponsePtrOutput) Elem() DatadogOrganizationPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesInvokeResponse) DatadogOrganizationPropertiesInvokeResponse {
+		return *v
+	}).(DatadogOrganizationPropertiesInvokeResponseOutput)
+}
+
+// The Id of the Enterprise App used for Single sign on.
+func (o DatadogOrganizationPropertiesInvokeResponsePtrOutput) EnterpriseAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnterpriseAppId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Id of the Datadog organization.
+func (o DatadogOrganizationPropertiesInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The auth code used to linking to an existing datadog organization.
+func (o DatadogOrganizationPropertiesInvokeResponsePtrOutput) LinkingAuthCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinkingAuthCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client_id from an existing in exchange for an auth token to link organization.
+func (o DatadogOrganizationPropertiesInvokeResponsePtrOutput) LinkingClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinkingClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Datadog organization.
+func (o DatadogOrganizationPropertiesInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1229,6 +1441,76 @@ func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type IdentityPropertiesInvokeResponse struct {
+	// The identity ID.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// Identity type
+	Type *string `pulumi:"type"`
+}
+
+// IdentityPropertiesInvokeResponseInput is an input type that accepts IdentityPropertiesInvokeResponseArgs and IdentityPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentityPropertiesInvokeResponseInput` via:
+//
+//          IdentityPropertiesInvokeResponseArgs{...}
+type IdentityPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentityPropertiesInvokeResponseOutput() IdentityPropertiesInvokeResponseOutput
+	ToIdentityPropertiesInvokeResponseOutputWithContext(context.Context) IdentityPropertiesInvokeResponseOutput
+}
+
+type IdentityPropertiesInvokeResponseArgs struct {
+	// The identity ID.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Identity type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IdentityPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentityPropertiesInvokeResponseArgs) ToIdentityPropertiesInvokeResponseOutput() IdentityPropertiesInvokeResponseOutput {
+	return i.ToIdentityPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityPropertiesInvokeResponseArgs) ToIdentityPropertiesInvokeResponseOutputWithContext(ctx context.Context) IdentityPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesInvokeResponseOutput)
+}
+
+type IdentityPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentityPropertiesInvokeResponseOutput) ToIdentityPropertiesInvokeResponseOutput() IdentityPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityPropertiesInvokeResponseOutput) ToIdentityPropertiesInvokeResponseOutputWithContext(ctx context.Context) IdentityPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The identity ID.
+func (o IdentityPropertiesInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityPropertiesInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityPropertiesInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityPropertiesInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Identity type
+func (o IdentityPropertiesInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityPropertiesInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 type IdentityPropertiesResponse struct {
 	// The identity ID.
 	PrincipalId string `pulumi:"principalId"`
@@ -1399,103 +1681,103 @@ func (o IdentityPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The definition of a linked resource.
-type LinkedResourceResponse struct {
+type LinkedResourceInvokeResponse struct {
 	// The ARM id of the linked resource.
 	Id *string `pulumi:"id"`
 }
 
-// LinkedResourceResponseInput is an input type that accepts LinkedResourceResponseArgs and LinkedResourceResponseOutput values.
-// You can construct a concrete instance of `LinkedResourceResponseInput` via:
+// LinkedResourceInvokeResponseInput is an input type that accepts LinkedResourceInvokeResponseArgs and LinkedResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `LinkedResourceInvokeResponseInput` via:
 //
-//          LinkedResourceResponseArgs{...}
-type LinkedResourceResponseInput interface {
+//          LinkedResourceInvokeResponseArgs{...}
+type LinkedResourceInvokeResponseInput interface {
 	pulumi.Input
 
-	ToLinkedResourceResponseOutput() LinkedResourceResponseOutput
-	ToLinkedResourceResponseOutputWithContext(context.Context) LinkedResourceResponseOutput
+	ToLinkedResourceInvokeResponseOutput() LinkedResourceInvokeResponseOutput
+	ToLinkedResourceInvokeResponseOutputWithContext(context.Context) LinkedResourceInvokeResponseOutput
 }
 
 // The definition of a linked resource.
-type LinkedResourceResponseArgs struct {
+type LinkedResourceInvokeResponseArgs struct {
 	// The ARM id of the linked resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (LinkedResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedResourceResponse)(nil)).Elem()
+func (LinkedResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedResourceInvokeResponse)(nil)).Elem()
 }
 
-func (i LinkedResourceResponseArgs) ToLinkedResourceResponseOutput() LinkedResourceResponseOutput {
-	return i.ToLinkedResourceResponseOutputWithContext(context.Background())
+func (i LinkedResourceInvokeResponseArgs) ToLinkedResourceInvokeResponseOutput() LinkedResourceInvokeResponseOutput {
+	return i.ToLinkedResourceInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i LinkedResourceResponseArgs) ToLinkedResourceResponseOutputWithContext(ctx context.Context) LinkedResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedResourceResponseOutput)
+func (i LinkedResourceInvokeResponseArgs) ToLinkedResourceInvokeResponseOutputWithContext(ctx context.Context) LinkedResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedResourceInvokeResponseOutput)
 }
 
-// LinkedResourceResponseArrayInput is an input type that accepts LinkedResourceResponseArray and LinkedResourceResponseArrayOutput values.
-// You can construct a concrete instance of `LinkedResourceResponseArrayInput` via:
+// LinkedResourceInvokeResponseArrayInput is an input type that accepts LinkedResourceInvokeResponseArray and LinkedResourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LinkedResourceInvokeResponseArrayInput` via:
 //
-//          LinkedResourceResponseArray{ LinkedResourceResponseArgs{...} }
-type LinkedResourceResponseArrayInput interface {
+//          LinkedResourceInvokeResponseArray{ LinkedResourceInvokeResponseArgs{...} }
+type LinkedResourceInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToLinkedResourceResponseArrayOutput() LinkedResourceResponseArrayOutput
-	ToLinkedResourceResponseArrayOutputWithContext(context.Context) LinkedResourceResponseArrayOutput
+	ToLinkedResourceInvokeResponseArrayOutput() LinkedResourceInvokeResponseArrayOutput
+	ToLinkedResourceInvokeResponseArrayOutputWithContext(context.Context) LinkedResourceInvokeResponseArrayOutput
 }
 
-type LinkedResourceResponseArray []LinkedResourceResponseInput
+type LinkedResourceInvokeResponseArray []LinkedResourceInvokeResponseInput
 
-func (LinkedResourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedResourceResponse)(nil)).Elem()
+func (LinkedResourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedResourceInvokeResponse)(nil)).Elem()
 }
 
-func (i LinkedResourceResponseArray) ToLinkedResourceResponseArrayOutput() LinkedResourceResponseArrayOutput {
-	return i.ToLinkedResourceResponseArrayOutputWithContext(context.Background())
+func (i LinkedResourceInvokeResponseArray) ToLinkedResourceInvokeResponseArrayOutput() LinkedResourceInvokeResponseArrayOutput {
+	return i.ToLinkedResourceInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i LinkedResourceResponseArray) ToLinkedResourceResponseArrayOutputWithContext(ctx context.Context) LinkedResourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedResourceResponseArrayOutput)
+func (i LinkedResourceInvokeResponseArray) ToLinkedResourceInvokeResponseArrayOutputWithContext(ctx context.Context) LinkedResourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedResourceInvokeResponseArrayOutput)
 }
 
 // The definition of a linked resource.
-type LinkedResourceResponseOutput struct{ *pulumi.OutputState }
+type LinkedResourceInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (LinkedResourceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedResourceResponse)(nil)).Elem()
+func (LinkedResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedResourceInvokeResponse)(nil)).Elem()
 }
 
-func (o LinkedResourceResponseOutput) ToLinkedResourceResponseOutput() LinkedResourceResponseOutput {
+func (o LinkedResourceInvokeResponseOutput) ToLinkedResourceInvokeResponseOutput() LinkedResourceInvokeResponseOutput {
 	return o
 }
 
-func (o LinkedResourceResponseOutput) ToLinkedResourceResponseOutputWithContext(ctx context.Context) LinkedResourceResponseOutput {
+func (o LinkedResourceInvokeResponseOutput) ToLinkedResourceInvokeResponseOutputWithContext(ctx context.Context) LinkedResourceInvokeResponseOutput {
 	return o
 }
 
 // The ARM id of the linked resource.
-func (o LinkedResourceResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LinkedResourceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedResourceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-type LinkedResourceResponseArrayOutput struct{ *pulumi.OutputState }
+type LinkedResourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (LinkedResourceResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LinkedResourceResponse)(nil)).Elem()
+func (LinkedResourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedResourceInvokeResponse)(nil)).Elem()
 }
 
-func (o LinkedResourceResponseArrayOutput) ToLinkedResourceResponseArrayOutput() LinkedResourceResponseArrayOutput {
+func (o LinkedResourceInvokeResponseArrayOutput) ToLinkedResourceInvokeResponseArrayOutput() LinkedResourceInvokeResponseArrayOutput {
 	return o
 }
 
-func (o LinkedResourceResponseArrayOutput) ToLinkedResourceResponseArrayOutputWithContext(ctx context.Context) LinkedResourceResponseArrayOutput {
+func (o LinkedResourceInvokeResponseArrayOutput) ToLinkedResourceInvokeResponseArrayOutputWithContext(ctx context.Context) LinkedResourceInvokeResponseArrayOutput {
 	return o
 }
 
-func (o LinkedResourceResponseArrayOutput) Index(i pulumi.IntInput) LinkedResourceResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedResourceResponse {
-		return vs[0].([]LinkedResourceResponse)[vs[1].(int)]
-	}).(LinkedResourceResponseOutput)
+func (o LinkedResourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) LinkedResourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedResourceInvokeResponse {
+		return vs[0].([]LinkedResourceInvokeResponse)[vs[1].(int)]
+	}).(LinkedResourceInvokeResponseOutput)
 }
 
 // Properties specific to the monitor resource.
@@ -1664,6 +1946,111 @@ func (o MonitorPropertiesPtrOutput) UserInfo() UserInfoPtrOutput {
 		}
 		return v.UserInfo
 	}).(UserInfoPtrOutput)
+}
+
+// Properties specific to the monitor resource.
+type MonitorPropertiesInvokeResponse struct {
+	// Datadog organization properties
+	DatadogOrganizationProperties *DatadogOrganizationPropertiesInvokeResponse `pulumi:"datadogOrganizationProperties"`
+	LiftrResourceCategory         string                                       `pulumi:"liftrResourceCategory"`
+	// The priority of the resource.
+	LiftrResourcePreference int `pulumi:"liftrResourcePreference"`
+	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
+	MarketplaceSubscriptionStatus string `pulumi:"marketplaceSubscriptionStatus"`
+	// Flag specifying if the resource monitoring is enabled or disabled.
+	MonitoringStatus  string  `pulumi:"monitoringStatus"`
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// User info
+	UserInfo *UserInfoInvokeResponse `pulumi:"userInfo"`
+}
+
+// MonitorPropertiesInvokeResponseInput is an input type that accepts MonitorPropertiesInvokeResponseArgs and MonitorPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `MonitorPropertiesInvokeResponseInput` via:
+//
+//          MonitorPropertiesInvokeResponseArgs{...}
+type MonitorPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMonitorPropertiesInvokeResponseOutput() MonitorPropertiesInvokeResponseOutput
+	ToMonitorPropertiesInvokeResponseOutputWithContext(context.Context) MonitorPropertiesInvokeResponseOutput
+}
+
+// Properties specific to the monitor resource.
+type MonitorPropertiesInvokeResponseArgs struct {
+	// Datadog organization properties
+	DatadogOrganizationProperties DatadogOrganizationPropertiesInvokeResponsePtrInput `pulumi:"datadogOrganizationProperties"`
+	LiftrResourceCategory         pulumi.StringInput                                  `pulumi:"liftrResourceCategory"`
+	// The priority of the resource.
+	LiftrResourcePreference pulumi.IntInput `pulumi:"liftrResourcePreference"`
+	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
+	MarketplaceSubscriptionStatus pulumi.StringInput `pulumi:"marketplaceSubscriptionStatus"`
+	// Flag specifying if the resource monitoring is enabled or disabled.
+	MonitoringStatus  pulumi.StringInput    `pulumi:"monitoringStatus"`
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// User info
+	UserInfo UserInfoInvokeResponsePtrInput `pulumi:"userInfo"`
+}
+
+func (MonitorPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MonitorPropertiesInvokeResponseArgs) ToMonitorPropertiesInvokeResponseOutput() MonitorPropertiesInvokeResponseOutput {
+	return i.ToMonitorPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MonitorPropertiesInvokeResponseArgs) ToMonitorPropertiesInvokeResponseOutputWithContext(ctx context.Context) MonitorPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorPropertiesInvokeResponseOutput)
+}
+
+// Properties specific to the monitor resource.
+type MonitorPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MonitorPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MonitorPropertiesInvokeResponseOutput) ToMonitorPropertiesInvokeResponseOutput() MonitorPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MonitorPropertiesInvokeResponseOutput) ToMonitorPropertiesInvokeResponseOutputWithContext(ctx context.Context) MonitorPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Datadog organization properties
+func (o MonitorPropertiesInvokeResponseOutput) DatadogOrganizationProperties() DatadogOrganizationPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MonitorPropertiesInvokeResponse) *DatadogOrganizationPropertiesInvokeResponse {
+		return v.DatadogOrganizationProperties
+	}).(DatadogOrganizationPropertiesInvokeResponsePtrOutput)
+}
+
+func (o MonitorPropertiesInvokeResponseOutput) LiftrResourceCategory() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorPropertiesInvokeResponse) string { return v.LiftrResourceCategory }).(pulumi.StringOutput)
+}
+
+// The priority of the resource.
+func (o MonitorPropertiesInvokeResponseOutput) LiftrResourcePreference() pulumi.IntOutput {
+	return o.ApplyT(func(v MonitorPropertiesInvokeResponse) int { return v.LiftrResourcePreference }).(pulumi.IntOutput)
+}
+
+// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
+func (o MonitorPropertiesInvokeResponseOutput) MarketplaceSubscriptionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorPropertiesInvokeResponse) string { return v.MarketplaceSubscriptionStatus }).(pulumi.StringOutput)
+}
+
+// Flag specifying if the resource monitoring is enabled or disabled.
+func (o MonitorPropertiesInvokeResponseOutput) MonitoringStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorPropertiesInvokeResponse) string { return v.MonitoringStatus }).(pulumi.StringOutput)
+}
+
+func (o MonitorPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorPropertiesInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// User info
+func (o MonitorPropertiesInvokeResponseOutput) UserInfo() UserInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MonitorPropertiesInvokeResponse) *UserInfoInvokeResponse { return v.UserInfo }).(UserInfoInvokeResponsePtrOutput)
 }
 
 // Properties specific to the monitor resource.
@@ -1909,7 +2296,7 @@ func (o MonitorPropertiesResponsePtrOutput) UserInfo() UserInfoResponsePtrOutput
 }
 
 // The properties of a resource currently being monitored by the Datadog monitor resource.
-type MonitoredResourceResponse struct {
+type MonitoredResourceInvokeResponse struct {
 	// The ARM id of the resource.
 	Id *string `pulumi:"id"`
 	// Reason for why the resource is sending logs (or why it is not sending).
@@ -1922,19 +2309,19 @@ type MonitoredResourceResponse struct {
 	SendingMetrics *bool `pulumi:"sendingMetrics"`
 }
 
-// MonitoredResourceResponseInput is an input type that accepts MonitoredResourceResponseArgs and MonitoredResourceResponseOutput values.
-// You can construct a concrete instance of `MonitoredResourceResponseInput` via:
+// MonitoredResourceInvokeResponseInput is an input type that accepts MonitoredResourceInvokeResponseArgs and MonitoredResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `MonitoredResourceInvokeResponseInput` via:
 //
-//          MonitoredResourceResponseArgs{...}
-type MonitoredResourceResponseInput interface {
+//          MonitoredResourceInvokeResponseArgs{...}
+type MonitoredResourceInvokeResponseInput interface {
 	pulumi.Input
 
-	ToMonitoredResourceResponseOutput() MonitoredResourceResponseOutput
-	ToMonitoredResourceResponseOutputWithContext(context.Context) MonitoredResourceResponseOutput
+	ToMonitoredResourceInvokeResponseOutput() MonitoredResourceInvokeResponseOutput
+	ToMonitoredResourceInvokeResponseOutputWithContext(context.Context) MonitoredResourceInvokeResponseOutput
 }
 
 // The properties of a resource currently being monitored by the Datadog monitor resource.
-type MonitoredResourceResponseArgs struct {
+type MonitoredResourceInvokeResponseArgs struct {
 	// The ARM id of the resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Reason for why the resource is sending logs (or why it is not sending).
@@ -1947,101 +2334,101 @@ type MonitoredResourceResponseArgs struct {
 	SendingMetrics pulumi.BoolPtrInput `pulumi:"sendingMetrics"`
 }
 
-func (MonitoredResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoredResourceResponse)(nil)).Elem()
+func (MonitoredResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoredResourceInvokeResponse)(nil)).Elem()
 }
 
-func (i MonitoredResourceResponseArgs) ToMonitoredResourceResponseOutput() MonitoredResourceResponseOutput {
-	return i.ToMonitoredResourceResponseOutputWithContext(context.Background())
+func (i MonitoredResourceInvokeResponseArgs) ToMonitoredResourceInvokeResponseOutput() MonitoredResourceInvokeResponseOutput {
+	return i.ToMonitoredResourceInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i MonitoredResourceResponseArgs) ToMonitoredResourceResponseOutputWithContext(ctx context.Context) MonitoredResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoredResourceResponseOutput)
+func (i MonitoredResourceInvokeResponseArgs) ToMonitoredResourceInvokeResponseOutputWithContext(ctx context.Context) MonitoredResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoredResourceInvokeResponseOutput)
 }
 
-// MonitoredResourceResponseArrayInput is an input type that accepts MonitoredResourceResponseArray and MonitoredResourceResponseArrayOutput values.
-// You can construct a concrete instance of `MonitoredResourceResponseArrayInput` via:
+// MonitoredResourceInvokeResponseArrayInput is an input type that accepts MonitoredResourceInvokeResponseArray and MonitoredResourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MonitoredResourceInvokeResponseArrayInput` via:
 //
-//          MonitoredResourceResponseArray{ MonitoredResourceResponseArgs{...} }
-type MonitoredResourceResponseArrayInput interface {
+//          MonitoredResourceInvokeResponseArray{ MonitoredResourceInvokeResponseArgs{...} }
+type MonitoredResourceInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToMonitoredResourceResponseArrayOutput() MonitoredResourceResponseArrayOutput
-	ToMonitoredResourceResponseArrayOutputWithContext(context.Context) MonitoredResourceResponseArrayOutput
+	ToMonitoredResourceInvokeResponseArrayOutput() MonitoredResourceInvokeResponseArrayOutput
+	ToMonitoredResourceInvokeResponseArrayOutputWithContext(context.Context) MonitoredResourceInvokeResponseArrayOutput
 }
 
-type MonitoredResourceResponseArray []MonitoredResourceResponseInput
+type MonitoredResourceInvokeResponseArray []MonitoredResourceInvokeResponseInput
 
-func (MonitoredResourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitoredResourceResponse)(nil)).Elem()
+func (MonitoredResourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitoredResourceInvokeResponse)(nil)).Elem()
 }
 
-func (i MonitoredResourceResponseArray) ToMonitoredResourceResponseArrayOutput() MonitoredResourceResponseArrayOutput {
-	return i.ToMonitoredResourceResponseArrayOutputWithContext(context.Background())
+func (i MonitoredResourceInvokeResponseArray) ToMonitoredResourceInvokeResponseArrayOutput() MonitoredResourceInvokeResponseArrayOutput {
+	return i.ToMonitoredResourceInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i MonitoredResourceResponseArray) ToMonitoredResourceResponseArrayOutputWithContext(ctx context.Context) MonitoredResourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoredResourceResponseArrayOutput)
+func (i MonitoredResourceInvokeResponseArray) ToMonitoredResourceInvokeResponseArrayOutputWithContext(ctx context.Context) MonitoredResourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoredResourceInvokeResponseArrayOutput)
 }
 
 // The properties of a resource currently being monitored by the Datadog monitor resource.
-type MonitoredResourceResponseOutput struct{ *pulumi.OutputState }
+type MonitoredResourceInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (MonitoredResourceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoredResourceResponse)(nil)).Elem()
+func (MonitoredResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoredResourceInvokeResponse)(nil)).Elem()
 }
 
-func (o MonitoredResourceResponseOutput) ToMonitoredResourceResponseOutput() MonitoredResourceResponseOutput {
+func (o MonitoredResourceInvokeResponseOutput) ToMonitoredResourceInvokeResponseOutput() MonitoredResourceInvokeResponseOutput {
 	return o
 }
 
-func (o MonitoredResourceResponseOutput) ToMonitoredResourceResponseOutputWithContext(ctx context.Context) MonitoredResourceResponseOutput {
+func (o MonitoredResourceInvokeResponseOutput) ToMonitoredResourceInvokeResponseOutputWithContext(ctx context.Context) MonitoredResourceInvokeResponseOutput {
 	return o
 }
 
 // The ARM id of the resource.
-func (o MonitoredResourceResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o MonitoredResourceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Reason for why the resource is sending logs (or why it is not sending).
-func (o MonitoredResourceResponseOutput) ReasonForLogsStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.ReasonForLogsStatus }).(pulumi.StringPtrOutput)
+func (o MonitoredResourceInvokeResponseOutput) ReasonForLogsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceInvokeResponse) *string { return v.ReasonForLogsStatus }).(pulumi.StringPtrOutput)
 }
 
 // Reason for why the resource is sending metrics (or why it is not sending).
-func (o MonitoredResourceResponseOutput) ReasonForMetricsStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitoredResourceResponse) *string { return v.ReasonForMetricsStatus }).(pulumi.StringPtrOutput)
+func (o MonitoredResourceInvokeResponseOutput) ReasonForMetricsStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceInvokeResponse) *string { return v.ReasonForMetricsStatus }).(pulumi.StringPtrOutput)
 }
 
 // Flag indicating if resource is sending logs to Datadog.
-func (o MonitoredResourceResponseOutput) SendingLogs() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MonitoredResourceResponse) *bool { return v.SendingLogs }).(pulumi.BoolPtrOutput)
+func (o MonitoredResourceInvokeResponseOutput) SendingLogs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceInvokeResponse) *bool { return v.SendingLogs }).(pulumi.BoolPtrOutput)
 }
 
 // Flag indicating if resource is sending metrics to Datadog.
-func (o MonitoredResourceResponseOutput) SendingMetrics() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MonitoredResourceResponse) *bool { return v.SendingMetrics }).(pulumi.BoolPtrOutput)
+func (o MonitoredResourceInvokeResponseOutput) SendingMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoredResourceInvokeResponse) *bool { return v.SendingMetrics }).(pulumi.BoolPtrOutput)
 }
 
-type MonitoredResourceResponseArrayOutput struct{ *pulumi.OutputState }
+type MonitoredResourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (MonitoredResourceResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitoredResourceResponse)(nil)).Elem()
+func (MonitoredResourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitoredResourceInvokeResponse)(nil)).Elem()
 }
 
-func (o MonitoredResourceResponseArrayOutput) ToMonitoredResourceResponseArrayOutput() MonitoredResourceResponseArrayOutput {
+func (o MonitoredResourceInvokeResponseArrayOutput) ToMonitoredResourceInvokeResponseArrayOutput() MonitoredResourceInvokeResponseArrayOutput {
 	return o
 }
 
-func (o MonitoredResourceResponseArrayOutput) ToMonitoredResourceResponseArrayOutputWithContext(ctx context.Context) MonitoredResourceResponseArrayOutput {
+func (o MonitoredResourceInvokeResponseArrayOutput) ToMonitoredResourceInvokeResponseArrayOutputWithContext(ctx context.Context) MonitoredResourceInvokeResponseArrayOutput {
 	return o
 }
 
-func (o MonitoredResourceResponseArrayOutput) Index(i pulumi.IntInput) MonitoredResourceResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitoredResourceResponse {
-		return vs[0].([]MonitoredResourceResponse)[vs[1].(int)]
-	}).(MonitoredResourceResponseOutput)
+func (o MonitoredResourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) MonitoredResourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitoredResourceInvokeResponse {
+		return vs[0].([]MonitoredResourceInvokeResponse)[vs[1].(int)]
+	}).(MonitoredResourceInvokeResponseOutput)
 }
 
 type ResourceSku struct {
@@ -2173,6 +2560,58 @@ func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceSkuInvokeResponse struct {
+	// Name of the SKU.
+	Name string `pulumi:"name"`
+}
+
+// ResourceSkuInvokeResponseInput is an input type that accepts ResourceSkuInvokeResponseArgs and ResourceSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceSkuInvokeResponseInput` via:
+//
+//          ResourceSkuInvokeResponseArgs{...}
+type ResourceSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput
+	ToResourceSkuInvokeResponseOutputWithContext(context.Context) ResourceSkuInvokeResponseOutput
+}
+
+type ResourceSkuInvokeResponseArgs struct {
+	// Name of the SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ResourceSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return i.ToResourceSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuInvokeResponseOutput)
+}
+
+type ResourceSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+// Name of the SKU.
+func (o ResourceSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type ResourceSkuResponse struct {
@@ -2479,6 +2918,178 @@ func (o UserInfoPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 }
 
 // User info
+type UserInfoInvokeResponse struct {
+	// Email of the user used by Datadog for contacting them if needed
+	EmailAddress *string `pulumi:"emailAddress"`
+	// Name of the user
+	Name *string `pulumi:"name"`
+	// Phone number of the user used by Datadog for contacting them if needed
+	PhoneNumber *string `pulumi:"phoneNumber"`
+}
+
+// UserInfoInvokeResponseInput is an input type that accepts UserInfoInvokeResponseArgs and UserInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `UserInfoInvokeResponseInput` via:
+//
+//          UserInfoInvokeResponseArgs{...}
+type UserInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserInfoInvokeResponseOutput() UserInfoInvokeResponseOutput
+	ToUserInfoInvokeResponseOutputWithContext(context.Context) UserInfoInvokeResponseOutput
+}
+
+// User info
+type UserInfoInvokeResponseArgs struct {
+	// Email of the user used by Datadog for contacting them if needed
+	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
+	// Name of the user
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Phone number of the user used by Datadog for contacting them if needed
+	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
+}
+
+func (UserInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i UserInfoInvokeResponseArgs) ToUserInfoInvokeResponseOutput() UserInfoInvokeResponseOutput {
+	return i.ToUserInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserInfoInvokeResponseArgs) ToUserInfoInvokeResponseOutputWithContext(ctx context.Context) UserInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoInvokeResponseOutput)
+}
+
+func (i UserInfoInvokeResponseArgs) ToUserInfoInvokeResponsePtrOutput() UserInfoInvokeResponsePtrOutput {
+	return i.ToUserInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UserInfoInvokeResponseArgs) ToUserInfoInvokeResponsePtrOutputWithContext(ctx context.Context) UserInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoInvokeResponseOutput).ToUserInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// UserInfoInvokeResponsePtrInput is an input type that accepts UserInfoInvokeResponseArgs, UserInfoInvokeResponsePtr and UserInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `UserInfoInvokeResponsePtrInput` via:
+//
+//          UserInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UserInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToUserInfoInvokeResponsePtrOutput() UserInfoInvokeResponsePtrOutput
+	ToUserInfoInvokeResponsePtrOutputWithContext(context.Context) UserInfoInvokeResponsePtrOutput
+}
+
+type userInfoInvokeResponsePtrType UserInfoInvokeResponseArgs
+
+func UserInfoInvokeResponsePtr(v *UserInfoInvokeResponseArgs) UserInfoInvokeResponsePtrInput {
+	return (*userInfoInvokeResponsePtrType)(v)
+}
+
+func (*userInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *userInfoInvokeResponsePtrType) ToUserInfoInvokeResponsePtrOutput() UserInfoInvokeResponsePtrOutput {
+	return i.ToUserInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *userInfoInvokeResponsePtrType) ToUserInfoInvokeResponsePtrOutputWithContext(ctx context.Context) UserInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserInfoInvokeResponsePtrOutput)
+}
+
+// User info
+type UserInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o UserInfoInvokeResponseOutput) ToUserInfoInvokeResponseOutput() UserInfoInvokeResponseOutput {
+	return o
+}
+
+func (o UserInfoInvokeResponseOutput) ToUserInfoInvokeResponseOutputWithContext(ctx context.Context) UserInfoInvokeResponseOutput {
+	return o
+}
+
+func (o UserInfoInvokeResponseOutput) ToUserInfoInvokeResponsePtrOutput() UserInfoInvokeResponsePtrOutput {
+	return o.ToUserInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UserInfoInvokeResponseOutput) ToUserInfoInvokeResponsePtrOutputWithContext(ctx context.Context) UserInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v UserInfoInvokeResponse) *UserInfoInvokeResponse {
+		return &v
+	}).(UserInfoInvokeResponsePtrOutput)
+}
+
+// Email of the user used by Datadog for contacting them if needed
+func (o UserInfoInvokeResponseOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserInfoInvokeResponse) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
+}
+
+// Name of the user
+func (o UserInfoInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserInfoInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Phone number of the user used by Datadog for contacting them if needed
+func (o UserInfoInvokeResponseOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserInfoInvokeResponse) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+type UserInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o UserInfoInvokeResponsePtrOutput) ToUserInfoInvokeResponsePtrOutput() UserInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o UserInfoInvokeResponsePtrOutput) ToUserInfoInvokeResponsePtrOutputWithContext(ctx context.Context) UserInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o UserInfoInvokeResponsePtrOutput) Elem() UserInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *UserInfoInvokeResponse) UserInfoInvokeResponse { return *v }).(UserInfoInvokeResponseOutput)
+}
+
+// Email of the user used by Datadog for contacting them if needed
+func (o UserInfoInvokeResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the user
+func (o UserInfoInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Phone number of the user used by Datadog for contacting them if needed
+func (o UserInfoInvokeResponsePtrOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// User info
 type UserInfoResponse struct {
 	// Email of the user used by Datadog for contacting them if needed
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -2651,38 +3262,45 @@ func (o UserInfoResponsePtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(DatadogApiKeyResponseOutput{})
-	pulumi.RegisterOutputType(DatadogApiKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(DatadogHostMetadataResponseOutput{})
-	pulumi.RegisterOutputType(DatadogHostMetadataResponsePtrOutput{})
-	pulumi.RegisterOutputType(DatadogHostResponseOutput{})
-	pulumi.RegisterOutputType(DatadogHostResponseArrayOutput{})
-	pulumi.RegisterOutputType(DatadogInstallMethodResponseOutput{})
-	pulumi.RegisterOutputType(DatadogInstallMethodResponsePtrOutput{})
-	pulumi.RegisterOutputType(DatadogLogsAgentResponseOutput{})
-	pulumi.RegisterOutputType(DatadogLogsAgentResponsePtrOutput{})
+	pulumi.RegisterOutputType(DatadogApiKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DatadogApiKeyInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatadogHostInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DatadogHostInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatadogHostMetadataInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DatadogHostMetadataInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(DatadogInstallMethodInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DatadogInstallMethodInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(DatadogLogsAgentInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DatadogLogsAgentInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DatadogOrganizationPropertiesOutput{})
 	pulumi.RegisterOutputType(DatadogOrganizationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DatadogOrganizationPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DatadogOrganizationPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DatadogOrganizationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DatadogOrganizationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IdentityPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IdentityPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LinkedResourceResponseOutput{})
-	pulumi.RegisterOutputType(LinkedResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(LinkedResourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LinkedResourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MonitorPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MonitorPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(MonitoredResourceResponseOutput{})
-	pulumi.RegisterOutputType(MonitoredResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(MonitoredResourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MonitoredResourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserInfoOutput{})
 	pulumi.RegisterOutputType(UserInfoPtrOutput{})
+	pulumi.RegisterOutputType(UserInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UserInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserInfoResponseOutput{})
 	pulumi.RegisterOutputType(UserInfoResponsePtrOutput{})
 }

@@ -26,7 +26,7 @@ type ListRegistryCredentialsArgs struct {
 // The response from the ListCredentials operation.
 type ListRegistryCredentialsResult struct {
 	// The list of passwords for a container registry.
-	Passwords []RegistryPasswordResponse `pulumi:"passwords"`
+	Passwords []RegistryPasswordInvokeResponse `pulumi:"passwords"`
 	// The username for a container registry.
 	Username *string `pulumi:"username"`
 }

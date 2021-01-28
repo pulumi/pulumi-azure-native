@@ -34,9 +34,9 @@ type LookupCommitmentPlanResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The commitment plan properties.
-	Properties CommitmentPlanPropertiesResponse `pulumi:"properties"`
+	Properties CommitmentPlanPropertiesInvokeResponse `pulumi:"properties"`
 	// The commitment plan SKU.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
+	Sku *ResourceSkuInvokeResponse `pulumi:"sku"`
 	// User-defined tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

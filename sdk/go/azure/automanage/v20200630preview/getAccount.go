@@ -28,7 +28,7 @@ type LookupAccountResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the Automanage account.
-	Identity *AccountIdentityResponse `pulumi:"identity"`
+	Identity *AccountIdentityInvokeResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

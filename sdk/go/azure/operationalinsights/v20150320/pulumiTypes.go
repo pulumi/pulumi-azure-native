@@ -164,6 +164,70 @@ func (o StorageAccountPtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 // Describes a storage account connection.
+type StorageAccountInvokeResponse struct {
+	// The Azure Resource Manager ID of the storage account resource.
+	Id string `pulumi:"id"`
+	// The storage account key.
+	Key string `pulumi:"key"`
+}
+
+// StorageAccountInvokeResponseInput is an input type that accepts StorageAccountInvokeResponseArgs and StorageAccountInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountInvokeResponseInput` via:
+//
+//          StorageAccountInvokeResponseArgs{...}
+type StorageAccountInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput
+	ToStorageAccountInvokeResponseOutputWithContext(context.Context) StorageAccountInvokeResponseOutput
+}
+
+// Describes a storage account connection.
+type StorageAccountInvokeResponseArgs struct {
+	// The Azure Resource Manager ID of the storage account resource.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The storage account key.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (StorageAccountInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput {
+	return i.ToStorageAccountInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponseOutputWithContext(ctx context.Context) StorageAccountInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInvokeResponseOutput)
+}
+
+// Describes a storage account connection.
+type StorageAccountInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponseOutputWithContext(ctx context.Context) StorageAccountInvokeResponseOutput {
+	return o
+}
+
+// The Azure Resource Manager ID of the storage account resource.
+func (o StorageAccountInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The storage account key.
+func (o StorageAccountInvokeResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountInvokeResponse) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Describes a storage account connection.
 type StorageAccountResponse struct {
 	// The Azure Resource Manager ID of the storage account resource.
 	Id string `pulumi:"id"`
@@ -314,6 +378,70 @@ func (o StorageAccountResponsePtrOutput) Key() pulumi.StringPtrOutput {
 		}
 		return &v.Key
 	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the storage insight.
+type StorageInsightStatusInvokeResponse struct {
+	// Description of the state of the storage insight.
+	Description *string `pulumi:"description"`
+	// The state of the storage insight connection to the workspace
+	State string `pulumi:"state"`
+}
+
+// StorageInsightStatusInvokeResponseInput is an input type that accepts StorageInsightStatusInvokeResponseArgs and StorageInsightStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageInsightStatusInvokeResponseInput` via:
+//
+//          StorageInsightStatusInvokeResponseArgs{...}
+type StorageInsightStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageInsightStatusInvokeResponseOutput() StorageInsightStatusInvokeResponseOutput
+	ToStorageInsightStatusInvokeResponseOutputWithContext(context.Context) StorageInsightStatusInvokeResponseOutput
+}
+
+// The status of the storage insight.
+type StorageInsightStatusInvokeResponseArgs struct {
+	// Description of the state of the storage insight.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The state of the storage insight connection to the workspace
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (StorageInsightStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsightStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageInsightStatusInvokeResponseArgs) ToStorageInsightStatusInvokeResponseOutput() StorageInsightStatusInvokeResponseOutput {
+	return i.ToStorageInsightStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageInsightStatusInvokeResponseArgs) ToStorageInsightStatusInvokeResponseOutputWithContext(ctx context.Context) StorageInsightStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightStatusInvokeResponseOutput)
+}
+
+// The status of the storage insight.
+type StorageInsightStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageInsightStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageInsightStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageInsightStatusInvokeResponseOutput) ToStorageInsightStatusInvokeResponseOutput() StorageInsightStatusInvokeResponseOutput {
+	return o
+}
+
+func (o StorageInsightStatusInvokeResponseOutput) ToStorageInsightStatusInvokeResponseOutputWithContext(ctx context.Context) StorageInsightStatusInvokeResponseOutput {
+	return o
+}
+
+// Description of the state of the storage insight.
+func (o StorageInsightStatusInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageInsightStatusInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The state of the storage insight connection to the workspace
+func (o StorageInsightStatusInvokeResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageInsightStatusInvokeResponse) string { return v.State }).(pulumi.StringOutput)
 }
 
 // The status of the storage insight.
@@ -579,6 +707,115 @@ func (o TagArrayOutput) Index(i pulumi.IntInput) TagOutput {
 }
 
 // A tag of a saved search.
+type TagInvokeResponse struct {
+	// The tag name.
+	Name string `pulumi:"name"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// TagInvokeResponseInput is an input type that accepts TagInvokeResponseArgs and TagInvokeResponseOutput values.
+// You can construct a concrete instance of `TagInvokeResponseInput` via:
+//
+//          TagInvokeResponseArgs{...}
+type TagInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTagInvokeResponseOutput() TagInvokeResponseOutput
+	ToTagInvokeResponseOutputWithContext(context.Context) TagInvokeResponseOutput
+}
+
+// A tag of a saved search.
+type TagInvokeResponseArgs struct {
+	// The tag name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tag value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TagInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagInvokeResponse)(nil)).Elem()
+}
+
+func (i TagInvokeResponseArgs) ToTagInvokeResponseOutput() TagInvokeResponseOutput {
+	return i.ToTagInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TagInvokeResponseArgs) ToTagInvokeResponseOutputWithContext(ctx context.Context) TagInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagInvokeResponseOutput)
+}
+
+// TagInvokeResponseArrayInput is an input type that accepts TagInvokeResponseArray and TagInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TagInvokeResponseArrayInput` via:
+//
+//          TagInvokeResponseArray{ TagInvokeResponseArgs{...} }
+type TagInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTagInvokeResponseArrayOutput() TagInvokeResponseArrayOutput
+	ToTagInvokeResponseArrayOutputWithContext(context.Context) TagInvokeResponseArrayOutput
+}
+
+type TagInvokeResponseArray []TagInvokeResponseInput
+
+func (TagInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagInvokeResponse)(nil)).Elem()
+}
+
+func (i TagInvokeResponseArray) ToTagInvokeResponseArrayOutput() TagInvokeResponseArrayOutput {
+	return i.ToTagInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TagInvokeResponseArray) ToTagInvokeResponseArrayOutputWithContext(ctx context.Context) TagInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagInvokeResponseArrayOutput)
+}
+
+// A tag of a saved search.
+type TagInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TagInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagInvokeResponse)(nil)).Elem()
+}
+
+func (o TagInvokeResponseOutput) ToTagInvokeResponseOutput() TagInvokeResponseOutput {
+	return o
+}
+
+func (o TagInvokeResponseOutput) ToTagInvokeResponseOutputWithContext(ctx context.Context) TagInvokeResponseOutput {
+	return o
+}
+
+// The tag name.
+func (o TagInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TagInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tag value.
+func (o TagInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TagInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TagInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TagInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TagInvokeResponse)(nil)).Elem()
+}
+
+func (o TagInvokeResponseArrayOutput) ToTagInvokeResponseArrayOutput() TagInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TagInvokeResponseArrayOutput) ToTagInvokeResponseArrayOutputWithContext(ctx context.Context) TagInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TagInvokeResponseArrayOutput) Index(i pulumi.IntInput) TagInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TagInvokeResponse {
+		return vs[0].([]TagInvokeResponse)[vs[1].(int)]
+	}).(TagInvokeResponseOutput)
+}
+
+// A tag of a saved search.
 type TagResponse struct {
 	// The tag name.
 	Name string `pulumi:"name"`
@@ -690,12 +927,16 @@ func (o TagResponseArrayOutput) Index(i pulumi.IntInput) TagResponseOutput {
 func init() {
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountPtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageInsightStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageInsightStatusResponseOutput{})
 	pulumi.RegisterOutputType(StorageInsightStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(TagOutput{})
 	pulumi.RegisterOutputType(TagArrayOutput{})
+	pulumi.RegisterOutputType(TagInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TagInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TagResponseOutput{})
 	pulumi.RegisterOutputType(TagResponseArrayOutput{})
 }

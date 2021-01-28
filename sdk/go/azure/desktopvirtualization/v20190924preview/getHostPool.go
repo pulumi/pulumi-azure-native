@@ -50,7 +50,7 @@ type LookupHostPoolResult struct {
 	// The type of preferred application group type, default to Desktop Application Group
 	PreferredAppGroupType string `pulumi:"preferredAppGroupType"`
 	// The registration info of HostPool.
-	RegistrationInfo *RegistrationInfoResponse `pulumi:"registrationInfo"`
+	RegistrationInfo *RegistrationInfoInvokeResponse `pulumi:"registrationInfo"`
 	// The ring number of HostPool.
 	Ring *int `pulumi:"ring"`
 	// Path to keyvault containing ssoContext secret.

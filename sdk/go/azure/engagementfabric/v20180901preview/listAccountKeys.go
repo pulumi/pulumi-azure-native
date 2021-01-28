@@ -26,5 +26,5 @@ type ListAccountKeysArgs struct {
 // The list of the EngagementFabric account keys
 type ListAccountKeysResult struct {
 	// Account keys
-	Value []KeyDescriptionResponse `pulumi:"value"`
+	Value []KeyDescriptionInvokeResponse `pulumi:"value"`
 }

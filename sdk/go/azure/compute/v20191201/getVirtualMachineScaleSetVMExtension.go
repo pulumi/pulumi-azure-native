@@ -38,7 +38,7 @@ type LookupVirtualMachineScaleSetVMExtensionResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The virtual machine extension instance view.
-	InstanceView *VirtualMachineExtensionInstanceViewResponse `pulumi:"instanceView"`
+	InstanceView *VirtualMachineExtensionInstanceViewInvokeResponse `pulumi:"instanceView"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

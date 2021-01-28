@@ -26,7 +26,7 @@ type LookupVolumeArgs struct {
 // This type describes a volume resource.
 type LookupVolumeResult struct {
 	// This type describes a volume provided by an Azure Files file share.
-	AzureFileParameters *VolumeProviderParametersAzureFileResponse `pulumi:"azureFileParameters"`
+	AzureFileParameters *VolumeProviderParametersAzureFileInvokeResponse `pulumi:"azureFileParameters"`
 	// User readable description of the volume.
 	Description *string `pulumi:"description"`
 	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

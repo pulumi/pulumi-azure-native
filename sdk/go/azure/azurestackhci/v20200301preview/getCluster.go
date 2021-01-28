@@ -48,7 +48,7 @@ type LookupClusterResult struct {
 	// First cluster sync timestamp.
 	RegistrationTimestamp string `pulumi:"registrationTimestamp"`
 	// Properties reported by cluster agent.
-	ReportedProperties *ClusterReportedPropertiesResponse `pulumi:"reportedProperties"`
+	ReportedProperties *ClusterReportedPropertiesInvokeResponse `pulumi:"reportedProperties"`
 	// Status of the cluster agent.
 	Status string `pulumi:"status"`
 	// Resource tags.

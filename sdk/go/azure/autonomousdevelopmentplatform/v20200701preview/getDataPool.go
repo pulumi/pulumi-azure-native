@@ -32,13 +32,13 @@ type LookupDataPoolResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Gets or sets the collection of locations where Data Pool resources should be created.
-	Locations []DataPoolLocationResponse `pulumi:"locations"`
+	Locations []DataPoolLocationInvokeResponse `pulumi:"locations"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Gets the status of the data pool at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

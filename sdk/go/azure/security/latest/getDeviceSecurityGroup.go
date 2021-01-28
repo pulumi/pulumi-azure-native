@@ -26,17 +26,17 @@ type LookupDeviceSecurityGroupArgs struct {
 // The device security group resource
 type LookupDeviceSecurityGroupResult struct {
 	// The allow-list custom alert rules.
-	AllowlistRules []AllowlistCustomAlertRuleResponse `pulumi:"allowlistRules"`
+	AllowlistRules []AllowlistCustomAlertRuleInvokeResponse `pulumi:"allowlistRules"`
 	// The deny-list custom alert rules.
-	DenylistRules []DenylistCustomAlertRuleResponse `pulumi:"denylistRules"`
+	DenylistRules []DenylistCustomAlertRuleInvokeResponse `pulumi:"denylistRules"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// The list of custom alert threshold rules.
-	ThresholdRules []ThresholdCustomAlertRuleResponse `pulumi:"thresholdRules"`
+	ThresholdRules []ThresholdCustomAlertRuleInvokeResponse `pulumi:"thresholdRules"`
 	// The list of custom alert time-window rules.
-	TimeWindowRules []TimeWindowCustomAlertRuleResponse `pulumi:"timeWindowRules"`
+	TimeWindowRules []TimeWindowCustomAlertRuleInvokeResponse `pulumi:"timeWindowRules"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

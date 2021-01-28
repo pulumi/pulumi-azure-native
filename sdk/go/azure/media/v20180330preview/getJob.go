@@ -42,7 +42,7 @@ type LookupJobResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The outputs for the Job.
-	Outputs []JobOutputAssetResponse `pulumi:"outputs"`
+	Outputs []JobOutputAssetInvokeResponse `pulumi:"outputs"`
 	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
 	Priority *string `pulumi:"priority"`
 	// The current state of the job.

@@ -183,6 +183,79 @@ func (o ActionGroupsInformationPtrOutput) GroupIds() pulumi.StringArrayOutput {
 }
 
 // The Action Groups information, used by the alert rule.
+type ActionGroupsInformationInvokeResponse struct {
+	// An optional custom email subject to use in email notifications.
+	CustomEmailSubject *string `pulumi:"customEmailSubject"`
+	// An optional custom web-hook payload to use in web-hook notifications.
+	CustomWebhookPayload *string `pulumi:"customWebhookPayload"`
+	// The Action Group resource IDs.
+	GroupIds []string `pulumi:"groupIds"`
+}
+
+// ActionGroupsInformationInvokeResponseInput is an input type that accepts ActionGroupsInformationInvokeResponseArgs and ActionGroupsInformationInvokeResponseOutput values.
+// You can construct a concrete instance of `ActionGroupsInformationInvokeResponseInput` via:
+//
+//          ActionGroupsInformationInvokeResponseArgs{...}
+type ActionGroupsInformationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToActionGroupsInformationInvokeResponseOutput() ActionGroupsInformationInvokeResponseOutput
+	ToActionGroupsInformationInvokeResponseOutputWithContext(context.Context) ActionGroupsInformationInvokeResponseOutput
+}
+
+// The Action Groups information, used by the alert rule.
+type ActionGroupsInformationInvokeResponseArgs struct {
+	// An optional custom email subject to use in email notifications.
+	CustomEmailSubject pulumi.StringPtrInput `pulumi:"customEmailSubject"`
+	// An optional custom web-hook payload to use in web-hook notifications.
+	CustomWebhookPayload pulumi.StringPtrInput `pulumi:"customWebhookPayload"`
+	// The Action Group resource IDs.
+	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
+}
+
+func (ActionGroupsInformationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupsInformationInvokeResponse)(nil)).Elem()
+}
+
+func (i ActionGroupsInformationInvokeResponseArgs) ToActionGroupsInformationInvokeResponseOutput() ActionGroupsInformationInvokeResponseOutput {
+	return i.ToActionGroupsInformationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ActionGroupsInformationInvokeResponseArgs) ToActionGroupsInformationInvokeResponseOutputWithContext(ctx context.Context) ActionGroupsInformationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupsInformationInvokeResponseOutput)
+}
+
+// The Action Groups information, used by the alert rule.
+type ActionGroupsInformationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ActionGroupsInformationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionGroupsInformationInvokeResponse)(nil)).Elem()
+}
+
+func (o ActionGroupsInformationInvokeResponseOutput) ToActionGroupsInformationInvokeResponseOutput() ActionGroupsInformationInvokeResponseOutput {
+	return o
+}
+
+func (o ActionGroupsInformationInvokeResponseOutput) ToActionGroupsInformationInvokeResponseOutputWithContext(ctx context.Context) ActionGroupsInformationInvokeResponseOutput {
+	return o
+}
+
+// An optional custom email subject to use in email notifications.
+func (o ActionGroupsInformationInvokeResponseOutput) CustomEmailSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionGroupsInformationInvokeResponse) *string { return v.CustomEmailSubject }).(pulumi.StringPtrOutput)
+}
+
+// An optional custom web-hook payload to use in web-hook notifications.
+func (o ActionGroupsInformationInvokeResponseOutput) CustomWebhookPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionGroupsInformationInvokeResponse) *string { return v.CustomWebhookPayload }).(pulumi.StringPtrOutput)
+}
+
+// The Action Group resource IDs.
+func (o ActionGroupsInformationInvokeResponseOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActionGroupsInformationInvokeResponse) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The Action Groups information, used by the alert rule.
 type ActionGroupsInformationResponse struct {
 	// An optional custom email subject to use in email notifications.
 	CustomEmailSubject *string `pulumi:"customEmailSubject"`
@@ -584,6 +657,106 @@ func (o DetectorPtrOutput) SupportedResourceTypes() pulumi.StringArrayOutput {
 }
 
 // The detector information. By default this is not populated, unless it's specified in expandDetector
+type DetectorInvokeResponse struct {
+	// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+	Description *string `pulumi:"description"`
+	// The detector id.
+	Id string `pulumi:"id"`
+	// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+	ImagePaths []string `pulumi:"imagePaths"`
+	// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+	Name *string `pulumi:"name"`
+	// The detector's parameters.'
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+	SupportedResourceTypes []string `pulumi:"supportedResourceTypes"`
+}
+
+// DetectorInvokeResponseInput is an input type that accepts DetectorInvokeResponseArgs and DetectorInvokeResponseOutput values.
+// You can construct a concrete instance of `DetectorInvokeResponseInput` via:
+//
+//          DetectorInvokeResponseArgs{...}
+type DetectorInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDetectorInvokeResponseOutput() DetectorInvokeResponseOutput
+	ToDetectorInvokeResponseOutputWithContext(context.Context) DetectorInvokeResponseOutput
+}
+
+// The detector information. By default this is not populated, unless it's specified in expandDetector
+type DetectorInvokeResponseArgs struct {
+	// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The detector id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+	ImagePaths pulumi.StringArrayInput `pulumi:"imagePaths"`
+	// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The detector's parameters.'
+	Parameters pulumi.MapInput `pulumi:"parameters"`
+	// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+	SupportedResourceTypes pulumi.StringArrayInput `pulumi:"supportedResourceTypes"`
+}
+
+func (DetectorInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorInvokeResponse)(nil)).Elem()
+}
+
+func (i DetectorInvokeResponseArgs) ToDetectorInvokeResponseOutput() DetectorInvokeResponseOutput {
+	return i.ToDetectorInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DetectorInvokeResponseArgs) ToDetectorInvokeResponseOutputWithContext(ctx context.Context) DetectorInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorInvokeResponseOutput)
+}
+
+// The detector information. By default this is not populated, unless it's specified in expandDetector
+type DetectorInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DetectorInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorInvokeResponse)(nil)).Elem()
+}
+
+func (o DetectorInvokeResponseOutput) ToDetectorInvokeResponseOutput() DetectorInvokeResponseOutput {
+	return o
+}
+
+func (o DetectorInvokeResponseOutput) ToDetectorInvokeResponseOutputWithContext(ctx context.Context) DetectorInvokeResponseOutput {
+	return o
+}
+
+// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The detector id.
+func (o DetectorInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorInvokeResponseOutput) ImagePaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DetectorInvokeResponse) []string { return v.ImagePaths }).(pulumi.StringArrayOutput)
+}
+
+// The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DetectorInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The detector's parameters.'
+func (o DetectorInvokeResponseOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v DetectorInvokeResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+}
+
+// The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+func (o DetectorInvokeResponseOutput) SupportedResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DetectorInvokeResponse) []string { return v.SupportedResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// The detector information. By default this is not populated, unless it's specified in expandDetector
 type DetectorResponse struct {
 	// The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
 	Description *string `pulumi:"description"`
@@ -947,6 +1120,61 @@ func (o ThrottlingInformationPtrOutput) Duration() pulumi.StringPtrOutput {
 }
 
 // Optional throttling information for the alert rule.
+type ThrottlingInformationInvokeResponse struct {
+	// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
+	Duration *string `pulumi:"duration"`
+}
+
+// ThrottlingInformationInvokeResponseInput is an input type that accepts ThrottlingInformationInvokeResponseArgs and ThrottlingInformationInvokeResponseOutput values.
+// You can construct a concrete instance of `ThrottlingInformationInvokeResponseInput` via:
+//
+//          ThrottlingInformationInvokeResponseArgs{...}
+type ThrottlingInformationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToThrottlingInformationInvokeResponseOutput() ThrottlingInformationInvokeResponseOutput
+	ToThrottlingInformationInvokeResponseOutputWithContext(context.Context) ThrottlingInformationInvokeResponseOutput
+}
+
+// Optional throttling information for the alert rule.
+type ThrottlingInformationInvokeResponseArgs struct {
+	// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+}
+
+func (ThrottlingInformationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThrottlingInformationInvokeResponse)(nil)).Elem()
+}
+
+func (i ThrottlingInformationInvokeResponseArgs) ToThrottlingInformationInvokeResponseOutput() ThrottlingInformationInvokeResponseOutput {
+	return i.ToThrottlingInformationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ThrottlingInformationInvokeResponseArgs) ToThrottlingInformationInvokeResponseOutputWithContext(ctx context.Context) ThrottlingInformationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThrottlingInformationInvokeResponseOutput)
+}
+
+// Optional throttling information for the alert rule.
+type ThrottlingInformationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ThrottlingInformationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThrottlingInformationInvokeResponse)(nil)).Elem()
+}
+
+func (o ThrottlingInformationInvokeResponseOutput) ToThrottlingInformationInvokeResponseOutput() ThrottlingInformationInvokeResponseOutput {
+	return o
+}
+
+func (o ThrottlingInformationInvokeResponseOutput) ToThrottlingInformationInvokeResponseOutputWithContext(ctx context.Context) ThrottlingInformationInvokeResponseOutput {
+	return o
+}
+
+// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
+func (o ThrottlingInformationInvokeResponseOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThrottlingInformationInvokeResponse) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+// Optional throttling information for the alert rule.
 type ThrottlingInformationResponse struct {
 	// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
 	Duration *string `pulumi:"duration"`
@@ -1083,14 +1311,17 @@ func (o ThrottlingInformationResponsePtrOutput) Duration() pulumi.StringPtrOutpu
 func init() {
 	pulumi.RegisterOutputType(ActionGroupsInformationOutput{})
 	pulumi.RegisterOutputType(ActionGroupsInformationPtrOutput{})
+	pulumi.RegisterOutputType(ActionGroupsInformationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ActionGroupsInformationResponseOutput{})
 	pulumi.RegisterOutputType(ActionGroupsInformationResponsePtrOutput{})
 	pulumi.RegisterOutputType(DetectorOutput{})
 	pulumi.RegisterOutputType(DetectorPtrOutput{})
+	pulumi.RegisterOutputType(DetectorInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DetectorResponseOutput{})
 	pulumi.RegisterOutputType(DetectorResponsePtrOutput{})
 	pulumi.RegisterOutputType(ThrottlingInformationOutput{})
 	pulumi.RegisterOutputType(ThrottlingInformationPtrOutput{})
+	pulumi.RegisterOutputType(ThrottlingInformationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ThrottlingInformationResponseOutput{})
 	pulumi.RegisterOutputType(ThrottlingInformationResponsePtrOutput{})
 }

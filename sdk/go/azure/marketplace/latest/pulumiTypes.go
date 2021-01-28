@@ -107,6 +107,148 @@ func (o PlanArrayOutput) Index(i pulumi.IntInput) PlanOutput {
 	}).(PlanOutput)
 }
 
+type PlanInvokeResponse struct {
+	// Plan accessibility
+	Accessibility *string `pulumi:"accessibility"`
+	// Alternative stack type
+	AltStackReference string `pulumi:"altStackReference"`
+	// Friendly name for the plan for display in the marketplace
+	PlanDisplayName string `pulumi:"planDisplayName"`
+	// Text identifier for this plan
+	PlanId string `pulumi:"planId"`
+	// Identifier for this plan
+	SkuId string `pulumi:"skuId"`
+	// Stack type (classic or arm)
+	StackType string `pulumi:"stackType"`
+}
+
+// PlanInvokeResponseInput is an input type that accepts PlanInvokeResponseArgs and PlanInvokeResponseOutput values.
+// You can construct a concrete instance of `PlanInvokeResponseInput` via:
+//
+//          PlanInvokeResponseArgs{...}
+type PlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPlanInvokeResponseOutput() PlanInvokeResponseOutput
+	ToPlanInvokeResponseOutputWithContext(context.Context) PlanInvokeResponseOutput
+}
+
+type PlanInvokeResponseArgs struct {
+	// Plan accessibility
+	Accessibility pulumi.StringPtrInput `pulumi:"accessibility"`
+	// Alternative stack type
+	AltStackReference pulumi.StringInput `pulumi:"altStackReference"`
+	// Friendly name for the plan for display in the marketplace
+	PlanDisplayName pulumi.StringInput `pulumi:"planDisplayName"`
+	// Text identifier for this plan
+	PlanId pulumi.StringInput `pulumi:"planId"`
+	// Identifier for this plan
+	SkuId pulumi.StringInput `pulumi:"skuId"`
+	// Stack type (classic or arm)
+	StackType pulumi.StringInput `pulumi:"stackType"`
+}
+
+func (PlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanInvokeResponse)(nil)).Elem()
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponseOutput() PlanInvokeResponseOutput {
+	return i.ToPlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponseOutputWithContext(ctx context.Context) PlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanInvokeResponseOutput)
+}
+
+// PlanInvokeResponseArrayInput is an input type that accepts PlanInvokeResponseArray and PlanInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PlanInvokeResponseArrayInput` via:
+//
+//          PlanInvokeResponseArray{ PlanInvokeResponseArgs{...} }
+type PlanInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPlanInvokeResponseArrayOutput() PlanInvokeResponseArrayOutput
+	ToPlanInvokeResponseArrayOutputWithContext(context.Context) PlanInvokeResponseArrayOutput
+}
+
+type PlanInvokeResponseArray []PlanInvokeResponseInput
+
+func (PlanInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanInvokeResponse)(nil)).Elem()
+}
+
+func (i PlanInvokeResponseArray) ToPlanInvokeResponseArrayOutput() PlanInvokeResponseArrayOutput {
+	return i.ToPlanInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PlanInvokeResponseArray) ToPlanInvokeResponseArrayOutputWithContext(ctx context.Context) PlanInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanInvokeResponseArrayOutput)
+}
+
+type PlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanInvokeResponse)(nil)).Elem()
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponseOutput() PlanInvokeResponseOutput {
+	return o
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponseOutputWithContext(ctx context.Context) PlanInvokeResponseOutput {
+	return o
+}
+
+// Plan accessibility
+func (o PlanInvokeResponseOutput) Accessibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) *string { return v.Accessibility }).(pulumi.StringPtrOutput)
+}
+
+// Alternative stack type
+func (o PlanInvokeResponseOutput) AltStackReference() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.AltStackReference }).(pulumi.StringOutput)
+}
+
+// Friendly name for the plan for display in the marketplace
+func (o PlanInvokeResponseOutput) PlanDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.PlanDisplayName }).(pulumi.StringOutput)
+}
+
+// Text identifier for this plan
+func (o PlanInvokeResponseOutput) PlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.PlanId }).(pulumi.StringOutput)
+}
+
+// Identifier for this plan
+func (o PlanInvokeResponseOutput) SkuId() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.SkuId }).(pulumi.StringOutput)
+}
+
+// Stack type (classic or arm)
+func (o PlanInvokeResponseOutput) StackType() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.StackType }).(pulumi.StringOutput)
+}
+
+type PlanInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanInvokeResponse)(nil)).Elem()
+}
+
+func (o PlanInvokeResponseArrayOutput) ToPlanInvokeResponseArrayOutput() PlanInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PlanInvokeResponseArrayOutput) ToPlanInvokeResponseArrayOutputWithContext(ctx context.Context) PlanInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PlanInvokeResponseArrayOutput) Index(i pulumi.IntInput) PlanInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanInvokeResponse {
+		return vs[0].([]PlanInvokeResponse)[vs[1].(int)]
+	}).(PlanInvokeResponseOutput)
+}
+
 type PlanResponse struct {
 	// Plan accessibility
 	Accessibility *string `pulumi:"accessibility"`
@@ -252,6 +394,8 @@ func (o PlanResponseArrayOutput) Index(i pulumi.IntInput) PlanResponseOutput {
 func init() {
 	pulumi.RegisterOutputType(PlanOutput{})
 	pulumi.RegisterOutputType(PlanArrayOutput{})
+	pulumi.RegisterOutputType(PlanInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PlanInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponseArrayOutput{})
 }

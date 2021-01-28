@@ -183,6 +183,79 @@ func (o AzureActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The settings to enable AAD authentication on the cluster.
+type AzureActiveDirectoryInvokeResponse struct {
+	// Azure active directory client application id.
+	ClientApplication *string `pulumi:"clientApplication"`
+	// Azure active directory cluster application id.
+	ClusterApplication *string `pulumi:"clusterApplication"`
+	// Azure active directory tenant id.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// AzureActiveDirectoryInvokeResponseInput is an input type that accepts AzureActiveDirectoryInvokeResponseArgs and AzureActiveDirectoryInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureActiveDirectoryInvokeResponseInput` via:
+//
+//          AzureActiveDirectoryInvokeResponseArgs{...}
+type AzureActiveDirectoryInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureActiveDirectoryInvokeResponseOutput() AzureActiveDirectoryInvokeResponseOutput
+	ToAzureActiveDirectoryInvokeResponseOutputWithContext(context.Context) AzureActiveDirectoryInvokeResponseOutput
+}
+
+// The settings to enable AAD authentication on the cluster.
+type AzureActiveDirectoryInvokeResponseArgs struct {
+	// Azure active directory client application id.
+	ClientApplication pulumi.StringPtrInput `pulumi:"clientApplication"`
+	// Azure active directory cluster application id.
+	ClusterApplication pulumi.StringPtrInput `pulumi:"clusterApplication"`
+	// Azure active directory tenant id.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (AzureActiveDirectoryInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureActiveDirectoryInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureActiveDirectoryInvokeResponseArgs) ToAzureActiveDirectoryInvokeResponseOutput() AzureActiveDirectoryInvokeResponseOutput {
+	return i.ToAzureActiveDirectoryInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureActiveDirectoryInvokeResponseArgs) ToAzureActiveDirectoryInvokeResponseOutputWithContext(ctx context.Context) AzureActiveDirectoryInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryInvokeResponseOutput)
+}
+
+// The settings to enable AAD authentication on the cluster.
+type AzureActiveDirectoryInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureActiveDirectoryInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureActiveDirectoryInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureActiveDirectoryInvokeResponseOutput) ToAzureActiveDirectoryInvokeResponseOutput() AzureActiveDirectoryInvokeResponseOutput {
+	return o
+}
+
+func (o AzureActiveDirectoryInvokeResponseOutput) ToAzureActiveDirectoryInvokeResponseOutputWithContext(ctx context.Context) AzureActiveDirectoryInvokeResponseOutput {
+	return o
+}
+
+// Azure active directory client application id.
+func (o AzureActiveDirectoryInvokeResponseOutput) ClientApplication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureActiveDirectoryInvokeResponse) *string { return v.ClientApplication }).(pulumi.StringPtrOutput)
+}
+
+// Azure active directory cluster application id.
+func (o AzureActiveDirectoryInvokeResponseOutput) ClusterApplication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureActiveDirectoryInvokeResponse) *string { return v.ClusterApplication }).(pulumi.StringPtrOutput)
+}
+
+// Azure active directory tenant id.
+func (o AzureActiveDirectoryInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureActiveDirectoryInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The settings to enable AAD authentication on the cluster.
 type AzureActiveDirectoryResponse struct {
 	// Azure active directory client application id.
 	ClientApplication *string `pulumi:"clientApplication"`
@@ -482,6 +555,133 @@ func (o ClientCertificateArrayOutput) Index(i pulumi.IntInput) ClientCertificate
 }
 
 // Client Certificate definition.
+type ClientCertificateInvokeResponse struct {
+	// Certificate Common name.
+	CommonName *string `pulumi:"commonName"`
+	// Whether the certificate is admin or not.
+	IsAdmin bool `pulumi:"isAdmin"`
+	// Issuer thumbprint for the certificate. Only used together with CommonName.
+	IssuerThumbprint *string `pulumi:"issuerThumbprint"`
+	// Certificate Thumbprint.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// ClientCertificateInvokeResponseInput is an input type that accepts ClientCertificateInvokeResponseArgs and ClientCertificateInvokeResponseOutput values.
+// You can construct a concrete instance of `ClientCertificateInvokeResponseInput` via:
+//
+//          ClientCertificateInvokeResponseArgs{...}
+type ClientCertificateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClientCertificateInvokeResponseOutput() ClientCertificateInvokeResponseOutput
+	ToClientCertificateInvokeResponseOutputWithContext(context.Context) ClientCertificateInvokeResponseOutput
+}
+
+// Client Certificate definition.
+type ClientCertificateInvokeResponseArgs struct {
+	// Certificate Common name.
+	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
+	// Whether the certificate is admin or not.
+	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
+	// Issuer thumbprint for the certificate. Only used together with CommonName.
+	IssuerThumbprint pulumi.StringPtrInput `pulumi:"issuerThumbprint"`
+	// Certificate Thumbprint.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (ClientCertificateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (i ClientCertificateInvokeResponseArgs) ToClientCertificateInvokeResponseOutput() ClientCertificateInvokeResponseOutput {
+	return i.ToClientCertificateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateInvokeResponseArgs) ToClientCertificateInvokeResponseOutputWithContext(ctx context.Context) ClientCertificateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateInvokeResponseOutput)
+}
+
+// ClientCertificateInvokeResponseArrayInput is an input type that accepts ClientCertificateInvokeResponseArray and ClientCertificateInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ClientCertificateInvokeResponseArrayInput` via:
+//
+//          ClientCertificateInvokeResponseArray{ ClientCertificateInvokeResponseArgs{...} }
+type ClientCertificateInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToClientCertificateInvokeResponseArrayOutput() ClientCertificateInvokeResponseArrayOutput
+	ToClientCertificateInvokeResponseArrayOutputWithContext(context.Context) ClientCertificateInvokeResponseArrayOutput
+}
+
+type ClientCertificateInvokeResponseArray []ClientCertificateInvokeResponseInput
+
+func (ClientCertificateInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (i ClientCertificateInvokeResponseArray) ToClientCertificateInvokeResponseArrayOutput() ClientCertificateInvokeResponseArrayOutput {
+	return i.ToClientCertificateInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateInvokeResponseArray) ToClientCertificateInvokeResponseArrayOutputWithContext(ctx context.Context) ClientCertificateInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateInvokeResponseArrayOutput)
+}
+
+// Client Certificate definition.
+type ClientCertificateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (o ClientCertificateInvokeResponseOutput) ToClientCertificateInvokeResponseOutput() ClientCertificateInvokeResponseOutput {
+	return o
+}
+
+func (o ClientCertificateInvokeResponseOutput) ToClientCertificateInvokeResponseOutputWithContext(ctx context.Context) ClientCertificateInvokeResponseOutput {
+	return o
+}
+
+// Certificate Common name.
+func (o ClientCertificateInvokeResponseOutput) CommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertificateInvokeResponse) *string { return v.CommonName }).(pulumi.StringPtrOutput)
+}
+
+// Whether the certificate is admin or not.
+func (o ClientCertificateInvokeResponseOutput) IsAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientCertificateInvokeResponse) bool { return v.IsAdmin }).(pulumi.BoolOutput)
+}
+
+// Issuer thumbprint for the certificate. Only used together with CommonName.
+func (o ClientCertificateInvokeResponseOutput) IssuerThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertificateInvokeResponse) *string { return v.IssuerThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Certificate Thumbprint.
+func (o ClientCertificateInvokeResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientCertificateInvokeResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type ClientCertificateInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (o ClientCertificateInvokeResponseArrayOutput) ToClientCertificateInvokeResponseArrayOutput() ClientCertificateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClientCertificateInvokeResponseArrayOutput) ToClientCertificateInvokeResponseArrayOutputWithContext(ctx context.Context) ClientCertificateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClientCertificateInvokeResponseArrayOutput) Index(i pulumi.IntInput) ClientCertificateInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateInvokeResponse {
+		return vs[0].([]ClientCertificateInvokeResponse)[vs[1].(int)]
+	}).(ClientCertificateInvokeResponseOutput)
+}
+
+// Client Certificate definition.
 type ClientCertificateResponse struct {
 	// Certificate Common name.
 	CommonName *string `pulumi:"commonName"`
@@ -759,6 +959,70 @@ func (o EndpointRangeDescriptionPtrOutput) StartPort() pulumi.IntPtrOutput {
 		}
 		return &v.StartPort
 	}).(pulumi.IntPtrOutput)
+}
+
+// Port range details
+type EndpointRangeDescriptionInvokeResponse struct {
+	// End port of a range of ports
+	EndPort int `pulumi:"endPort"`
+	// Starting port of a range of ports
+	StartPort int `pulumi:"startPort"`
+}
+
+// EndpointRangeDescriptionInvokeResponseInput is an input type that accepts EndpointRangeDescriptionInvokeResponseArgs and EndpointRangeDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `EndpointRangeDescriptionInvokeResponseInput` via:
+//
+//          EndpointRangeDescriptionInvokeResponseArgs{...}
+type EndpointRangeDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEndpointRangeDescriptionInvokeResponseOutput() EndpointRangeDescriptionInvokeResponseOutput
+	ToEndpointRangeDescriptionInvokeResponseOutputWithContext(context.Context) EndpointRangeDescriptionInvokeResponseOutput
+}
+
+// Port range details
+type EndpointRangeDescriptionInvokeResponseArgs struct {
+	// End port of a range of ports
+	EndPort pulumi.IntInput `pulumi:"endPort"`
+	// Starting port of a range of ports
+	StartPort pulumi.IntInput `pulumi:"startPort"`
+}
+
+func (EndpointRangeDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRangeDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i EndpointRangeDescriptionInvokeResponseArgs) ToEndpointRangeDescriptionInvokeResponseOutput() EndpointRangeDescriptionInvokeResponseOutput {
+	return i.ToEndpointRangeDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EndpointRangeDescriptionInvokeResponseArgs) ToEndpointRangeDescriptionInvokeResponseOutputWithContext(ctx context.Context) EndpointRangeDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionInvokeResponseOutput)
+}
+
+// Port range details
+type EndpointRangeDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EndpointRangeDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRangeDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o EndpointRangeDescriptionInvokeResponseOutput) ToEndpointRangeDescriptionInvokeResponseOutput() EndpointRangeDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o EndpointRangeDescriptionInvokeResponseOutput) ToEndpointRangeDescriptionInvokeResponseOutputWithContext(ctx context.Context) EndpointRangeDescriptionInvokeResponseOutput {
+	return o
+}
+
+// End port of a range of ports
+func (o EndpointRangeDescriptionInvokeResponseOutput) EndPort() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointRangeDescriptionInvokeResponse) int { return v.EndPort }).(pulumi.IntOutput)
+}
+
+// Starting port of a range of ports
+func (o EndpointRangeDescriptionInvokeResponseOutput) StartPort() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointRangeDescriptionInvokeResponse) int { return v.StartPort }).(pulumi.IntOutput)
 }
 
 // Port range details
@@ -1051,6 +1315,142 @@ func (o LoadBalancingRuleArrayOutput) Index(i pulumi.IntInput) LoadBalancingRule
 }
 
 // Describes a load balancing rule.
+type LoadBalancingRuleInvokeResponse struct {
+	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+	BackendPort int `pulumi:"backendPort"`
+	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+	FrontendPort int `pulumi:"frontendPort"`
+	// the reference to the load balancer probe used by the load balancing rule.
+	ProbeProtocol string `pulumi:"probeProtocol"`
+	// The probe request path. Only supported for HTTP/HTTPS probes.
+	ProbeRequestPath *string `pulumi:"probeRequestPath"`
+	// The reference to the transport protocol used by the load balancing rule.
+	Protocol string `pulumi:"protocol"`
+}
+
+// LoadBalancingRuleInvokeResponseInput is an input type that accepts LoadBalancingRuleInvokeResponseArgs and LoadBalancingRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `LoadBalancingRuleInvokeResponseInput` via:
+//
+//          LoadBalancingRuleInvokeResponseArgs{...}
+type LoadBalancingRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLoadBalancingRuleInvokeResponseOutput() LoadBalancingRuleInvokeResponseOutput
+	ToLoadBalancingRuleInvokeResponseOutputWithContext(context.Context) LoadBalancingRuleInvokeResponseOutput
+}
+
+// Describes a load balancing rule.
+type LoadBalancingRuleInvokeResponseArgs struct {
+	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+	BackendPort pulumi.IntInput `pulumi:"backendPort"`
+	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+	FrontendPort pulumi.IntInput `pulumi:"frontendPort"`
+	// the reference to the load balancer probe used by the load balancing rule.
+	ProbeProtocol pulumi.StringInput `pulumi:"probeProtocol"`
+	// The probe request path. Only supported for HTTP/HTTPS probes.
+	ProbeRequestPath pulumi.StringPtrInput `pulumi:"probeRequestPath"`
+	// The reference to the transport protocol used by the load balancing rule.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (LoadBalancingRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancingRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i LoadBalancingRuleInvokeResponseArgs) ToLoadBalancingRuleInvokeResponseOutput() LoadBalancingRuleInvokeResponseOutput {
+	return i.ToLoadBalancingRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LoadBalancingRuleInvokeResponseArgs) ToLoadBalancingRuleInvokeResponseOutputWithContext(ctx context.Context) LoadBalancingRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleInvokeResponseOutput)
+}
+
+// LoadBalancingRuleInvokeResponseArrayInput is an input type that accepts LoadBalancingRuleInvokeResponseArray and LoadBalancingRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LoadBalancingRuleInvokeResponseArrayInput` via:
+//
+//          LoadBalancingRuleInvokeResponseArray{ LoadBalancingRuleInvokeResponseArgs{...} }
+type LoadBalancingRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancingRuleInvokeResponseArrayOutput() LoadBalancingRuleInvokeResponseArrayOutput
+	ToLoadBalancingRuleInvokeResponseArrayOutputWithContext(context.Context) LoadBalancingRuleInvokeResponseArrayOutput
+}
+
+type LoadBalancingRuleInvokeResponseArray []LoadBalancingRuleInvokeResponseInput
+
+func (LoadBalancingRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancingRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i LoadBalancingRuleInvokeResponseArray) ToLoadBalancingRuleInvokeResponseArrayOutput() LoadBalancingRuleInvokeResponseArrayOutput {
+	return i.ToLoadBalancingRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancingRuleInvokeResponseArray) ToLoadBalancingRuleInvokeResponseArrayOutputWithContext(ctx context.Context) LoadBalancingRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancingRuleInvokeResponseArrayOutput)
+}
+
+// Describes a load balancing rule.
+type LoadBalancingRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancingRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancingRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancingRuleInvokeResponseOutput) ToLoadBalancingRuleInvokeResponseOutput() LoadBalancingRuleInvokeResponseOutput {
+	return o
+}
+
+func (o LoadBalancingRuleInvokeResponseOutput) ToLoadBalancingRuleInvokeResponseOutputWithContext(ctx context.Context) LoadBalancingRuleInvokeResponseOutput {
+	return o
+}
+
+// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+func (o LoadBalancingRuleInvokeResponseOutput) BackendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancingRuleInvokeResponse) int { return v.BackendPort }).(pulumi.IntOutput)
+}
+
+// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
+func (o LoadBalancingRuleInvokeResponseOutput) FrontendPort() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancingRuleInvokeResponse) int { return v.FrontendPort }).(pulumi.IntOutput)
+}
+
+// the reference to the load balancer probe used by the load balancing rule.
+func (o LoadBalancingRuleInvokeResponseOutput) ProbeProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancingRuleInvokeResponse) string { return v.ProbeProtocol }).(pulumi.StringOutput)
+}
+
+// The probe request path. Only supported for HTTP/HTTPS probes.
+func (o LoadBalancingRuleInvokeResponseOutput) ProbeRequestPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancingRuleInvokeResponse) *string { return v.ProbeRequestPath }).(pulumi.StringPtrOutput)
+}
+
+// The reference to the transport protocol used by the load balancing rule.
+func (o LoadBalancingRuleInvokeResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancingRuleInvokeResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type LoadBalancingRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancingRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancingRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancingRuleInvokeResponseArrayOutput) ToLoadBalancingRuleInvokeResponseArrayOutput() LoadBalancingRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancingRuleInvokeResponseArrayOutput) ToLoadBalancingRuleInvokeResponseArrayOutputWithContext(ctx context.Context) LoadBalancingRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancingRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) LoadBalancingRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancingRuleInvokeResponse {
+		return vs[0].([]LoadBalancingRuleInvokeResponse)[vs[1].(int)]
+	}).(LoadBalancingRuleInvokeResponseOutput)
+}
+
+// Describes a load balancing rule.
 type LoadBalancingRuleResponse struct {
 	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
 	BackendPort int `pulumi:"backendPort"`
@@ -1296,6 +1696,115 @@ func (o SettingsParameterDescriptionArrayOutput) Index(i pulumi.IntInput) Settin
 }
 
 // Describes a parameter in fabric settings of the cluster.
+type SettingsParameterDescriptionInvokeResponse struct {
+	// The parameter name of fabric setting.
+	Name string `pulumi:"name"`
+	// The parameter value of fabric setting.
+	Value string `pulumi:"value"`
+}
+
+// SettingsParameterDescriptionInvokeResponseInput is an input type that accepts SettingsParameterDescriptionInvokeResponseArgs and SettingsParameterDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `SettingsParameterDescriptionInvokeResponseInput` via:
+//
+//          SettingsParameterDescriptionInvokeResponseArgs{...}
+type SettingsParameterDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSettingsParameterDescriptionInvokeResponseOutput() SettingsParameterDescriptionInvokeResponseOutput
+	ToSettingsParameterDescriptionInvokeResponseOutputWithContext(context.Context) SettingsParameterDescriptionInvokeResponseOutput
+}
+
+// Describes a parameter in fabric settings of the cluster.
+type SettingsParameterDescriptionInvokeResponseArgs struct {
+	// The parameter name of fabric setting.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The parameter value of fabric setting.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SettingsParameterDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsParameterDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SettingsParameterDescriptionInvokeResponseArgs) ToSettingsParameterDescriptionInvokeResponseOutput() SettingsParameterDescriptionInvokeResponseOutput {
+	return i.ToSettingsParameterDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SettingsParameterDescriptionInvokeResponseArgs) ToSettingsParameterDescriptionInvokeResponseOutputWithContext(ctx context.Context) SettingsParameterDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsParameterDescriptionInvokeResponseOutput)
+}
+
+// SettingsParameterDescriptionInvokeResponseArrayInput is an input type that accepts SettingsParameterDescriptionInvokeResponseArray and SettingsParameterDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SettingsParameterDescriptionInvokeResponseArrayInput` via:
+//
+//          SettingsParameterDescriptionInvokeResponseArray{ SettingsParameterDescriptionInvokeResponseArgs{...} }
+type SettingsParameterDescriptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSettingsParameterDescriptionInvokeResponseArrayOutput() SettingsParameterDescriptionInvokeResponseArrayOutput
+	ToSettingsParameterDescriptionInvokeResponseArrayOutputWithContext(context.Context) SettingsParameterDescriptionInvokeResponseArrayOutput
+}
+
+type SettingsParameterDescriptionInvokeResponseArray []SettingsParameterDescriptionInvokeResponseInput
+
+func (SettingsParameterDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsParameterDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SettingsParameterDescriptionInvokeResponseArray) ToSettingsParameterDescriptionInvokeResponseArrayOutput() SettingsParameterDescriptionInvokeResponseArrayOutput {
+	return i.ToSettingsParameterDescriptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SettingsParameterDescriptionInvokeResponseArray) ToSettingsParameterDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SettingsParameterDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsParameterDescriptionInvokeResponseArrayOutput)
+}
+
+// Describes a parameter in fabric settings of the cluster.
+type SettingsParameterDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SettingsParameterDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsParameterDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SettingsParameterDescriptionInvokeResponseOutput) ToSettingsParameterDescriptionInvokeResponseOutput() SettingsParameterDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o SettingsParameterDescriptionInvokeResponseOutput) ToSettingsParameterDescriptionInvokeResponseOutputWithContext(ctx context.Context) SettingsParameterDescriptionInvokeResponseOutput {
+	return o
+}
+
+// The parameter name of fabric setting.
+func (o SettingsParameterDescriptionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsParameterDescriptionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameter value of fabric setting.
+func (o SettingsParameterDescriptionInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsParameterDescriptionInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SettingsParameterDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SettingsParameterDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsParameterDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SettingsParameterDescriptionInvokeResponseArrayOutput) ToSettingsParameterDescriptionInvokeResponseArrayOutput() SettingsParameterDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SettingsParameterDescriptionInvokeResponseArrayOutput) ToSettingsParameterDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SettingsParameterDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SettingsParameterDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) SettingsParameterDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SettingsParameterDescriptionInvokeResponse {
+		return vs[0].([]SettingsParameterDescriptionInvokeResponse)[vs[1].(int)]
+	}).(SettingsParameterDescriptionInvokeResponseOutput)
+}
+
+// Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescriptionResponse struct {
 	// The parameter name of fabric setting.
 	Name string `pulumi:"name"`
@@ -1511,6 +2020,117 @@ func (o SettingsSectionDescriptionArrayOutput) Index(i pulumi.IntInput) Settings
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SettingsSectionDescription {
 		return vs[0].([]SettingsSectionDescription)[vs[1].(int)]
 	}).(SettingsSectionDescriptionOutput)
+}
+
+// Describes a section in the fabric settings of the cluster.
+type SettingsSectionDescriptionInvokeResponse struct {
+	// The section name of the fabric settings.
+	Name string `pulumi:"name"`
+	// The collection of parameters in the section.
+	Parameters []SettingsParameterDescriptionInvokeResponse `pulumi:"parameters"`
+}
+
+// SettingsSectionDescriptionInvokeResponseInput is an input type that accepts SettingsSectionDescriptionInvokeResponseArgs and SettingsSectionDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `SettingsSectionDescriptionInvokeResponseInput` via:
+//
+//          SettingsSectionDescriptionInvokeResponseArgs{...}
+type SettingsSectionDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSettingsSectionDescriptionInvokeResponseOutput() SettingsSectionDescriptionInvokeResponseOutput
+	ToSettingsSectionDescriptionInvokeResponseOutputWithContext(context.Context) SettingsSectionDescriptionInvokeResponseOutput
+}
+
+// Describes a section in the fabric settings of the cluster.
+type SettingsSectionDescriptionInvokeResponseArgs struct {
+	// The section name of the fabric settings.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The collection of parameters in the section.
+	Parameters SettingsParameterDescriptionInvokeResponseArrayInput `pulumi:"parameters"`
+}
+
+func (SettingsSectionDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsSectionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SettingsSectionDescriptionInvokeResponseArgs) ToSettingsSectionDescriptionInvokeResponseOutput() SettingsSectionDescriptionInvokeResponseOutput {
+	return i.ToSettingsSectionDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SettingsSectionDescriptionInvokeResponseArgs) ToSettingsSectionDescriptionInvokeResponseOutputWithContext(ctx context.Context) SettingsSectionDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsSectionDescriptionInvokeResponseOutput)
+}
+
+// SettingsSectionDescriptionInvokeResponseArrayInput is an input type that accepts SettingsSectionDescriptionInvokeResponseArray and SettingsSectionDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SettingsSectionDescriptionInvokeResponseArrayInput` via:
+//
+//          SettingsSectionDescriptionInvokeResponseArray{ SettingsSectionDescriptionInvokeResponseArgs{...} }
+type SettingsSectionDescriptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSettingsSectionDescriptionInvokeResponseArrayOutput() SettingsSectionDescriptionInvokeResponseArrayOutput
+	ToSettingsSectionDescriptionInvokeResponseArrayOutputWithContext(context.Context) SettingsSectionDescriptionInvokeResponseArrayOutput
+}
+
+type SettingsSectionDescriptionInvokeResponseArray []SettingsSectionDescriptionInvokeResponseInput
+
+func (SettingsSectionDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsSectionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SettingsSectionDescriptionInvokeResponseArray) ToSettingsSectionDescriptionInvokeResponseArrayOutput() SettingsSectionDescriptionInvokeResponseArrayOutput {
+	return i.ToSettingsSectionDescriptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SettingsSectionDescriptionInvokeResponseArray) ToSettingsSectionDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SettingsSectionDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsSectionDescriptionInvokeResponseArrayOutput)
+}
+
+// Describes a section in the fabric settings of the cluster.
+type SettingsSectionDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SettingsSectionDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsSectionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SettingsSectionDescriptionInvokeResponseOutput) ToSettingsSectionDescriptionInvokeResponseOutput() SettingsSectionDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o SettingsSectionDescriptionInvokeResponseOutput) ToSettingsSectionDescriptionInvokeResponseOutputWithContext(ctx context.Context) SettingsSectionDescriptionInvokeResponseOutput {
+	return o
+}
+
+// The section name of the fabric settings.
+func (o SettingsSectionDescriptionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsSectionDescriptionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The collection of parameters in the section.
+func (o SettingsSectionDescriptionInvokeResponseOutput) Parameters() SettingsParameterDescriptionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SettingsSectionDescriptionInvokeResponse) []SettingsParameterDescriptionInvokeResponse {
+		return v.Parameters
+	}).(SettingsParameterDescriptionInvokeResponseArrayOutput)
+}
+
+type SettingsSectionDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SettingsSectionDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsSectionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SettingsSectionDescriptionInvokeResponseArrayOutput) ToSettingsSectionDescriptionInvokeResponseArrayOutput() SettingsSectionDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SettingsSectionDescriptionInvokeResponseArrayOutput) ToSettingsSectionDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SettingsSectionDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SettingsSectionDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) SettingsSectionDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SettingsSectionDescriptionInvokeResponse {
+		return vs[0].([]SettingsSectionDescriptionInvokeResponse)[vs[1].(int)]
+	}).(SettingsSectionDescriptionInvokeResponseOutput)
 }
 
 // Describes a section in the fabric settings of the cluster.
@@ -1757,6 +2377,61 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Sku definition
+type SkuInvokeResponse struct {
+	// Sku Name.
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Sku definition
+type SkuInvokeResponseArgs struct {
+	// Sku Name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Sku definition
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Sku Name.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sku definition
 type SkuResponse struct {
 	// Sku Name.
 	Name string `pulumi:"name"`
@@ -1943,6 +2618,61 @@ func (o SubResourceOutput) ToSubResourceOutputWithContext(ctx context.Context) S
 // Azure resource identifier.
 func (o SubResourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResource) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource identifier.
+type SubResourceInvokeResponse struct {
+	// Azure resource identifier.
+	Id *string `pulumi:"id"`
+}
+
+// SubResourceInvokeResponseInput is an input type that accepts SubResourceInvokeResponseArgs and SubResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `SubResourceInvokeResponseInput` via:
+//
+//          SubResourceInvokeResponseArgs{...}
+type SubResourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput
+	ToSubResourceInvokeResponseOutputWithContext(context.Context) SubResourceInvokeResponseOutput
+}
+
+// Azure resource identifier.
+type SubResourceInvokeResponseArgs struct {
+	// Azure resource identifier.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SubResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput {
+	return i.ToSubResourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponseOutputWithContext(ctx context.Context) SubResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceInvokeResponseOutput)
+}
+
+// Azure resource identifier.
+type SubResourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponseOutputWithContext(ctx context.Context) SubResourceInvokeResponseOutput {
+	return o
+}
+
+// Azure resource identifier.
+func (o SubResourceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubResourceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // Azure resource identifier.
@@ -2170,6 +2900,187 @@ func (o VMSSExtensionArrayOutput) Index(i pulumi.IntInput) VMSSExtensionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VMSSExtension {
 		return vs[0].([]VMSSExtension)[vs[1].(int)]
 	}).(VMSSExtensionOutput)
+}
+
+// Specifies set of extensions that should be installed onto the virtual machines.
+type VMSSExtensionInvokeResponse struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// The name of the extension.
+	Name string `pulumi:"name"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings interface{} `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher string `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings interface{} `pulumi:"settings"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type string `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+}
+
+// VMSSExtensionInvokeResponseInput is an input type that accepts VMSSExtensionInvokeResponseArgs and VMSSExtensionInvokeResponseOutput values.
+// You can construct a concrete instance of `VMSSExtensionInvokeResponseInput` via:
+//
+//          VMSSExtensionInvokeResponseArgs{...}
+type VMSSExtensionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVMSSExtensionInvokeResponseOutput() VMSSExtensionInvokeResponseOutput
+	ToVMSSExtensionInvokeResponseOutputWithContext(context.Context) VMSSExtensionInvokeResponseOutput
+}
+
+// Specifies set of extensions that should be installed onto the virtual machines.
+type VMSSExtensionInvokeResponseArgs struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
+	// The name of the extension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.Input `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings pulumi.Input `pulumi:"settings"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+}
+
+func (VMSSExtensionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMSSExtensionInvokeResponse)(nil)).Elem()
+}
+
+func (i VMSSExtensionInvokeResponseArgs) ToVMSSExtensionInvokeResponseOutput() VMSSExtensionInvokeResponseOutput {
+	return i.ToVMSSExtensionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VMSSExtensionInvokeResponseArgs) ToVMSSExtensionInvokeResponseOutputWithContext(ctx context.Context) VMSSExtensionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMSSExtensionInvokeResponseOutput)
+}
+
+// VMSSExtensionInvokeResponseArrayInput is an input type that accepts VMSSExtensionInvokeResponseArray and VMSSExtensionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VMSSExtensionInvokeResponseArrayInput` via:
+//
+//          VMSSExtensionInvokeResponseArray{ VMSSExtensionInvokeResponseArgs{...} }
+type VMSSExtensionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVMSSExtensionInvokeResponseArrayOutput() VMSSExtensionInvokeResponseArrayOutput
+	ToVMSSExtensionInvokeResponseArrayOutputWithContext(context.Context) VMSSExtensionInvokeResponseArrayOutput
+}
+
+type VMSSExtensionInvokeResponseArray []VMSSExtensionInvokeResponseInput
+
+func (VMSSExtensionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMSSExtensionInvokeResponse)(nil)).Elem()
+}
+
+func (i VMSSExtensionInvokeResponseArray) ToVMSSExtensionInvokeResponseArrayOutput() VMSSExtensionInvokeResponseArrayOutput {
+	return i.ToVMSSExtensionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VMSSExtensionInvokeResponseArray) ToVMSSExtensionInvokeResponseArrayOutputWithContext(ctx context.Context) VMSSExtensionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VMSSExtensionInvokeResponseArrayOutput)
+}
+
+// Specifies set of extensions that should be installed onto the virtual machines.
+type VMSSExtensionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VMSSExtensionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VMSSExtensionInvokeResponse)(nil)).Elem()
+}
+
+func (o VMSSExtensionInvokeResponseOutput) ToVMSSExtensionInvokeResponseOutput() VMSSExtensionInvokeResponseOutput {
+	return o
+}
+
+func (o VMSSExtensionInvokeResponseOutput) ToVMSSExtensionInvokeResponseOutputWithContext(ctx context.Context) VMSSExtensionInvokeResponseOutput {
+	return o
+}
+
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o VMSSExtensionInvokeResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VMSSExtensionInvokeResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+func (o VMSSExtensionInvokeResponseOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VMSSExtensionInvokeResponse) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the extension.
+func (o VMSSExtensionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtensionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o VMSSExtensionInvokeResponseOutput) ProtectedSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v VMSSExtensionInvokeResponse) interface{} { return v.ProtectedSettings }).(pulumi.AnyOutput)
+}
+
+// Collection of extension names after which this extension needs to be provisioned.
+func (o VMSSExtensionInvokeResponseOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VMSSExtensionInvokeResponse) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VMSSExtensionInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtensionInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the extension handler publisher.
+func (o VMSSExtensionInvokeResponseOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtensionInvokeResponse) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// Json formatted public settings for the extension.
+func (o VMSSExtensionInvokeResponseOutput) Settings() pulumi.AnyOutput {
+	return o.ApplyT(func(v VMSSExtensionInvokeResponse) interface{} { return v.Settings }).(pulumi.AnyOutput)
+}
+
+// Specifies the type of the extension; an example is "CustomScriptExtension".
+func (o VMSSExtensionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtensionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the script handler.
+func (o VMSSExtensionInvokeResponseOutput) TypeHandlerVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v VMSSExtensionInvokeResponse) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
+}
+
+type VMSSExtensionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VMSSExtensionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VMSSExtensionInvokeResponse)(nil)).Elem()
+}
+
+func (o VMSSExtensionInvokeResponseArrayOutput) ToVMSSExtensionInvokeResponseArrayOutput() VMSSExtensionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VMSSExtensionInvokeResponseArrayOutput) ToVMSSExtensionInvokeResponseArrayOutputWithContext(ctx context.Context) VMSSExtensionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VMSSExtensionInvokeResponseArrayOutput) Index(i pulumi.IntInput) VMSSExtensionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VMSSExtensionInvokeResponse {
+		return vs[0].([]VMSSExtensionInvokeResponse)[vs[1].(int)]
+	}).(VMSSExtensionInvokeResponseOutput)
 }
 
 // Specifies set of extensions that should be installed onto the virtual machines.
@@ -2463,6 +3374,115 @@ func (o VaultCertificateArrayOutput) Index(i pulumi.IntInput) VaultCertificateOu
 }
 
 // Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+type VaultCertificateInvokeResponse struct {
+	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+	CertificateStore string `pulumi:"certificateStore"`
+	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+	CertificateUrl string `pulumi:"certificateUrl"`
+}
+
+// VaultCertificateInvokeResponseInput is an input type that accepts VaultCertificateInvokeResponseArgs and VaultCertificateInvokeResponseOutput values.
+// You can construct a concrete instance of `VaultCertificateInvokeResponseInput` via:
+//
+//          VaultCertificateInvokeResponseArgs{...}
+type VaultCertificateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVaultCertificateInvokeResponseOutput() VaultCertificateInvokeResponseOutput
+	ToVaultCertificateInvokeResponseOutputWithContext(context.Context) VaultCertificateInvokeResponseOutput
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+type VaultCertificateInvokeResponseArgs struct {
+	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+	CertificateStore pulumi.StringInput `pulumi:"certificateStore"`
+	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+	CertificateUrl pulumi.StringInput `pulumi:"certificateUrl"`
+}
+
+func (VaultCertificateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (i VaultCertificateInvokeResponseArgs) ToVaultCertificateInvokeResponseOutput() VaultCertificateInvokeResponseOutput {
+	return i.ToVaultCertificateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VaultCertificateInvokeResponseArgs) ToVaultCertificateInvokeResponseOutputWithContext(ctx context.Context) VaultCertificateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateInvokeResponseOutput)
+}
+
+// VaultCertificateInvokeResponseArrayInput is an input type that accepts VaultCertificateInvokeResponseArray and VaultCertificateInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VaultCertificateInvokeResponseArrayInput` via:
+//
+//          VaultCertificateInvokeResponseArray{ VaultCertificateInvokeResponseArgs{...} }
+type VaultCertificateInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVaultCertificateInvokeResponseArrayOutput() VaultCertificateInvokeResponseArrayOutput
+	ToVaultCertificateInvokeResponseArrayOutputWithContext(context.Context) VaultCertificateInvokeResponseArrayOutput
+}
+
+type VaultCertificateInvokeResponseArray []VaultCertificateInvokeResponseInput
+
+func (VaultCertificateInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (i VaultCertificateInvokeResponseArray) ToVaultCertificateInvokeResponseArrayOutput() VaultCertificateInvokeResponseArrayOutput {
+	return i.ToVaultCertificateInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VaultCertificateInvokeResponseArray) ToVaultCertificateInvokeResponseArrayOutputWithContext(ctx context.Context) VaultCertificateInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultCertificateInvokeResponseArrayOutput)
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
+type VaultCertificateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VaultCertificateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (o VaultCertificateInvokeResponseOutput) ToVaultCertificateInvokeResponseOutput() VaultCertificateInvokeResponseOutput {
+	return o
+}
+
+func (o VaultCertificateInvokeResponseOutput) ToVaultCertificateInvokeResponseOutputWithContext(ctx context.Context) VaultCertificateInvokeResponseOutput {
+	return o
+}
+
+// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
+func (o VaultCertificateInvokeResponseOutput) CertificateStore() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultCertificateInvokeResponse) string { return v.CertificateStore }).(pulumi.StringOutput)
+}
+
+// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+func (o VaultCertificateInvokeResponseOutput) CertificateUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v VaultCertificateInvokeResponse) string { return v.CertificateUrl }).(pulumi.StringOutput)
+}
+
+type VaultCertificateInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VaultCertificateInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (o VaultCertificateInvokeResponseArrayOutput) ToVaultCertificateInvokeResponseArrayOutput() VaultCertificateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VaultCertificateInvokeResponseArrayOutput) ToVaultCertificateInvokeResponseArrayOutputWithContext(ctx context.Context) VaultCertificateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VaultCertificateInvokeResponseArrayOutput) Index(i pulumi.IntInput) VaultCertificateInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultCertificateInvokeResponse {
+		return vs[0].([]VaultCertificateInvokeResponse)[vs[1].(int)]
+	}).(VaultCertificateInvokeResponseOutput)
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the VM.
 type VaultCertificateResponse struct {
 	// For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name <UppercaseThumbprint>.crt for the X509 certificate file and <UppercaseThumbprint>.prv for private key. Both of these files are .pem formatted.
 	CertificateStore string `pulumi:"certificateStore"`
@@ -2681,6 +3701,115 @@ func (o VaultSecretGroupArrayOutput) Index(i pulumi.IntInput) VaultSecretGroupOu
 }
 
 // Specifies set of certificates that should be installed onto the virtual machines.
+type VaultSecretGroupInvokeResponse struct {
+	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+	SourceVault SubResourceInvokeResponse `pulumi:"sourceVault"`
+	// The list of key vault references in SourceVault which contain certificates.
+	VaultCertificates []VaultCertificateInvokeResponse `pulumi:"vaultCertificates"`
+}
+
+// VaultSecretGroupInvokeResponseInput is an input type that accepts VaultSecretGroupInvokeResponseArgs and VaultSecretGroupInvokeResponseOutput values.
+// You can construct a concrete instance of `VaultSecretGroupInvokeResponseInput` via:
+//
+//          VaultSecretGroupInvokeResponseArgs{...}
+type VaultSecretGroupInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVaultSecretGroupInvokeResponseOutput() VaultSecretGroupInvokeResponseOutput
+	ToVaultSecretGroupInvokeResponseOutputWithContext(context.Context) VaultSecretGroupInvokeResponseOutput
+}
+
+// Specifies set of certificates that should be installed onto the virtual machines.
+type VaultSecretGroupInvokeResponseArgs struct {
+	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+	SourceVault SubResourceInvokeResponseInput `pulumi:"sourceVault"`
+	// The list of key vault references in SourceVault which contain certificates.
+	VaultCertificates VaultCertificateInvokeResponseArrayInput `pulumi:"vaultCertificates"`
+}
+
+func (VaultSecretGroupInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultSecretGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i VaultSecretGroupInvokeResponseArgs) ToVaultSecretGroupInvokeResponseOutput() VaultSecretGroupInvokeResponseOutput {
+	return i.ToVaultSecretGroupInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VaultSecretGroupInvokeResponseArgs) ToVaultSecretGroupInvokeResponseOutputWithContext(ctx context.Context) VaultSecretGroupInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupInvokeResponseOutput)
+}
+
+// VaultSecretGroupInvokeResponseArrayInput is an input type that accepts VaultSecretGroupInvokeResponseArray and VaultSecretGroupInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VaultSecretGroupInvokeResponseArrayInput` via:
+//
+//          VaultSecretGroupInvokeResponseArray{ VaultSecretGroupInvokeResponseArgs{...} }
+type VaultSecretGroupInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVaultSecretGroupInvokeResponseArrayOutput() VaultSecretGroupInvokeResponseArrayOutput
+	ToVaultSecretGroupInvokeResponseArrayOutputWithContext(context.Context) VaultSecretGroupInvokeResponseArrayOutput
+}
+
+type VaultSecretGroupInvokeResponseArray []VaultSecretGroupInvokeResponseInput
+
+func (VaultSecretGroupInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultSecretGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i VaultSecretGroupInvokeResponseArray) ToVaultSecretGroupInvokeResponseArrayOutput() VaultSecretGroupInvokeResponseArrayOutput {
+	return i.ToVaultSecretGroupInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VaultSecretGroupInvokeResponseArray) ToVaultSecretGroupInvokeResponseArrayOutputWithContext(ctx context.Context) VaultSecretGroupInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VaultSecretGroupInvokeResponseArrayOutput)
+}
+
+// Specifies set of certificates that should be installed onto the virtual machines.
+type VaultSecretGroupInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VaultSecretGroupInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VaultSecretGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o VaultSecretGroupInvokeResponseOutput) ToVaultSecretGroupInvokeResponseOutput() VaultSecretGroupInvokeResponseOutput {
+	return o
+}
+
+func (o VaultSecretGroupInvokeResponseOutput) ToVaultSecretGroupInvokeResponseOutputWithContext(ctx context.Context) VaultSecretGroupInvokeResponseOutput {
+	return o
+}
+
+// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+func (o VaultSecretGroupInvokeResponseOutput) SourceVault() SubResourceInvokeResponseOutput {
+	return o.ApplyT(func(v VaultSecretGroupInvokeResponse) SubResourceInvokeResponse { return v.SourceVault }).(SubResourceInvokeResponseOutput)
+}
+
+// The list of key vault references in SourceVault which contain certificates.
+func (o VaultSecretGroupInvokeResponseOutput) VaultCertificates() VaultCertificateInvokeResponseArrayOutput {
+	return o.ApplyT(func(v VaultSecretGroupInvokeResponse) []VaultCertificateInvokeResponse { return v.VaultCertificates }).(VaultCertificateInvokeResponseArrayOutput)
+}
+
+type VaultSecretGroupInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VaultSecretGroupInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VaultSecretGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o VaultSecretGroupInvokeResponseArrayOutput) ToVaultSecretGroupInvokeResponseArrayOutput() VaultSecretGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VaultSecretGroupInvokeResponseArrayOutput) ToVaultSecretGroupInvokeResponseArrayOutputWithContext(ctx context.Context) VaultSecretGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VaultSecretGroupInvokeResponseArrayOutput) Index(i pulumi.IntInput) VaultSecretGroupInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultSecretGroupInvokeResponse {
+		return vs[0].([]VaultSecretGroupInvokeResponse)[vs[1].(int)]
+	}).(VaultSecretGroupInvokeResponseOutput)
+}
+
+// Specifies set of certificates that should be installed onto the virtual machines.
 type VaultSecretGroupResponse struct {
 	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
 	SourceVault SubResourceResponse `pulumi:"sourceVault"`
@@ -2792,44 +3921,62 @@ func (o VaultSecretGroupResponseArrayOutput) Index(i pulumi.IntInput) VaultSecre
 func init() {
 	pulumi.RegisterOutputType(AzureActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(AzureActiveDirectoryInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryResponseOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClientCertificateOutput{})
 	pulumi.RegisterOutputType(ClientCertificateArrayOutput{})
+	pulumi.RegisterOutputType(ClientCertificateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ClientCertificateInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertificateResponseArrayOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointRangeDescriptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancingRuleOutput{})
 	pulumi.RegisterOutputType(LoadBalancingRuleArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancingRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LoadBalancingRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancingRuleResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancingRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(SettingsParameterDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SettingsParameterDescriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(SettingsSectionDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SettingsSectionDescriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceOutput{})
+	pulumi.RegisterOutputType(SubResourceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseOutput{})
 	pulumi.RegisterOutputType(VMSSExtensionOutput{})
 	pulumi.RegisterOutputType(VMSSExtensionArrayOutput{})
+	pulumi.RegisterOutputType(VMSSExtensionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VMSSExtensionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VMSSExtensionResponseOutput{})
 	pulumi.RegisterOutputType(VMSSExtensionResponseArrayOutput{})
 	pulumi.RegisterOutputType(VaultCertificateOutput{})
 	pulumi.RegisterOutputType(VaultCertificateArrayOutput{})
+	pulumi.RegisterOutputType(VaultCertificateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VaultCertificateInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VaultCertificateResponseOutput{})
 	pulumi.RegisterOutputType(VaultCertificateResponseArrayOutput{})
 	pulumi.RegisterOutputType(VaultSecretGroupOutput{})
 	pulumi.RegisterOutputType(VaultSecretGroupArrayOutput{})
+	pulumi.RegisterOutputType(VaultSecretGroupInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VaultSecretGroupInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VaultSecretGroupResponseOutput{})
 	pulumi.RegisterOutputType(VaultSecretGroupResponseArrayOutput{})
 }

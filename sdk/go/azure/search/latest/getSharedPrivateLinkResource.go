@@ -32,7 +32,7 @@ type LookupSharedPrivateLinkResourceResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-	Properties SharedPrivateLinkResourcePropertiesResponse `pulumi:"properties"`
+	Properties SharedPrivateLinkResourcePropertiesInvokeResponse `pulumi:"properties"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

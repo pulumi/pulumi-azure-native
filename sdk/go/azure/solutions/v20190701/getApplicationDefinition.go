@@ -26,13 +26,13 @@ type LookupApplicationDefinitionArgs struct {
 // Information about managed application definition.
 type LookupApplicationDefinitionResult struct {
 	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-	Artifacts []ApplicationDefinitionArtifactResponse `pulumi:"artifacts"`
+	Artifacts []ApplicationDefinitionArtifactInvokeResponse `pulumi:"artifacts"`
 	// The managed application provider authorizations.
-	Authorizations []ApplicationAuthorizationResponse `pulumi:"authorizations"`
+	Authorizations []ApplicationAuthorizationInvokeResponse `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
 	CreateUiDefinition interface{} `pulumi:"createUiDefinition"`
 	// The managed application deployment policy.
-	DeploymentPolicy *ApplicationDeploymentPolicyResponse `pulumi:"deploymentPolicy"`
+	DeploymentPolicy *ApplicationDeploymentPolicyInvokeResponse `pulumi:"deploymentPolicy"`
 	// The managed application definition description.
 	Description *string `pulumi:"description"`
 	// The managed application definition display name.
@@ -46,23 +46,23 @@ type LookupApplicationDefinitionResult struct {
 	// The managed application lock level.
 	LockLevel string `pulumi:"lockLevel"`
 	// The managed application locking policy.
-	LockingPolicy *ApplicationPackageLockingPolicyDefinitionResponse `pulumi:"lockingPolicy"`
+	LockingPolicy *ApplicationPackageLockingPolicyDefinitionInvokeResponse `pulumi:"lockingPolicy"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
 	MainTemplate interface{} `pulumi:"mainTemplate"`
 	// ID of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The managed application management policy that determines publisher's access to the managed resource group.
-	ManagementPolicy *ApplicationManagementPolicyResponse `pulumi:"managementPolicy"`
+	ManagementPolicy *ApplicationManagementPolicyInvokeResponse `pulumi:"managementPolicy"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// The managed application notification policy.
-	NotificationPolicy *ApplicationNotificationPolicyResponse `pulumi:"notificationPolicy"`
+	NotificationPolicy *ApplicationNotificationPolicyInvokeResponse `pulumi:"notificationPolicy"`
 	// The managed application definition package file Uri. Use this element
 	PackageFileUri *string `pulumi:"packageFileUri"`
 	// The managed application provider policies.
-	Policies []ApplicationPolicyResponse `pulumi:"policies"`
+	Policies []ApplicationPolicyInvokeResponse `pulumi:"policies"`
 	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

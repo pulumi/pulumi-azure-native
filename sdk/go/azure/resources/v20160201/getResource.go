@@ -34,7 +34,7 @@ type LookupResourceResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// The kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// Resource location
@@ -44,11 +44,11 @@ type LookupResourceResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// The plan of the resource.
-	Plan *PlanResponse `pulumi:"plan"`
+	Plan *PlanInvokeResponse `pulumi:"plan"`
 	// The resource properties.
 	Properties interface{} `pulumi:"properties"`
 	// The sku of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

@@ -25,15 +25,15 @@ type LookupMonitorArgs struct {
 
 type LookupMonitorResult struct {
 	// ARM id of the monitor resource.
-	Id       string                      `pulumi:"id"`
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
-	Location string                      `pulumi:"location"`
+	Id       string                            `pulumi:"id"`
+	Identity *IdentityPropertiesInvokeResponse `pulumi:"identity"`
+	Location string                            `pulumi:"location"`
 	// Name of the monitor resource.
 	Name string `pulumi:"name"`
 	// Properties specific to the monitor resource.
-	Properties MonitorPropertiesResponse `pulumi:"properties"`
-	Sku        *ResourceSkuResponse      `pulumi:"sku"`
-	Tags       map[string]string         `pulumi:"tags"`
+	Properties MonitorPropertiesInvokeResponse `pulumi:"properties"`
+	Sku        *ResourceSkuInvokeResponse      `pulumi:"sku"`
+	Tags       map[string]string               `pulumi:"tags"`
 	// The type of the monitor resource.
 	Type string `pulumi:"type"`
 }

@@ -120,6 +120,115 @@ func (o ArmTemplateParameterArrayOutput) Index(i pulumi.IntInput) ArmTemplatePar
 }
 
 // Parameter to pass to ARM template
+type ArmTemplateParameterInvokeResponse struct {
+	// name of the parameter.
+	Name *string `pulumi:"name"`
+	// value for the parameter. In Jtoken
+	Value *string `pulumi:"value"`
+}
+
+// ArmTemplateParameterInvokeResponseInput is an input type that accepts ArmTemplateParameterInvokeResponseArgs and ArmTemplateParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `ArmTemplateParameterInvokeResponseInput` via:
+//
+//          ArmTemplateParameterInvokeResponseArgs{...}
+type ArmTemplateParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToArmTemplateParameterInvokeResponseOutput() ArmTemplateParameterInvokeResponseOutput
+	ToArmTemplateParameterInvokeResponseOutputWithContext(context.Context) ArmTemplateParameterInvokeResponseOutput
+}
+
+// Parameter to pass to ARM template
+type ArmTemplateParameterInvokeResponseArgs struct {
+	// name of the parameter.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// value for the parameter. In Jtoken
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ArmTemplateParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmTemplateParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i ArmTemplateParameterInvokeResponseArgs) ToArmTemplateParameterInvokeResponseOutput() ArmTemplateParameterInvokeResponseOutput {
+	return i.ToArmTemplateParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ArmTemplateParameterInvokeResponseArgs) ToArmTemplateParameterInvokeResponseOutputWithContext(ctx context.Context) ArmTemplateParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmTemplateParameterInvokeResponseOutput)
+}
+
+// ArmTemplateParameterInvokeResponseArrayInput is an input type that accepts ArmTemplateParameterInvokeResponseArray and ArmTemplateParameterInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ArmTemplateParameterInvokeResponseArrayInput` via:
+//
+//          ArmTemplateParameterInvokeResponseArray{ ArmTemplateParameterInvokeResponseArgs{...} }
+type ArmTemplateParameterInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToArmTemplateParameterInvokeResponseArrayOutput() ArmTemplateParameterInvokeResponseArrayOutput
+	ToArmTemplateParameterInvokeResponseArrayOutputWithContext(context.Context) ArmTemplateParameterInvokeResponseArrayOutput
+}
+
+type ArmTemplateParameterInvokeResponseArray []ArmTemplateParameterInvokeResponseInput
+
+func (ArmTemplateParameterInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArmTemplateParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i ArmTemplateParameterInvokeResponseArray) ToArmTemplateParameterInvokeResponseArrayOutput() ArmTemplateParameterInvokeResponseArrayOutput {
+	return i.ToArmTemplateParameterInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ArmTemplateParameterInvokeResponseArray) ToArmTemplateParameterInvokeResponseArrayOutputWithContext(ctx context.Context) ArmTemplateParameterInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmTemplateParameterInvokeResponseArrayOutput)
+}
+
+// Parameter to pass to ARM template
+type ArmTemplateParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmTemplateParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmTemplateParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o ArmTemplateParameterInvokeResponseOutput) ToArmTemplateParameterInvokeResponseOutput() ArmTemplateParameterInvokeResponseOutput {
+	return o
+}
+
+func (o ArmTemplateParameterInvokeResponseOutput) ToArmTemplateParameterInvokeResponseOutputWithContext(ctx context.Context) ArmTemplateParameterInvokeResponseOutput {
+	return o
+}
+
+// name of the parameter.
+func (o ArmTemplateParameterInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmTemplateParameterInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// value for the parameter. In Jtoken
+func (o ArmTemplateParameterInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmTemplateParameterInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ArmTemplateParameterInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ArmTemplateParameterInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArmTemplateParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o ArmTemplateParameterInvokeResponseArrayOutput) ToArmTemplateParameterInvokeResponseArrayOutput() ArmTemplateParameterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ArmTemplateParameterInvokeResponseArrayOutput) ToArmTemplateParameterInvokeResponseArrayOutputWithContext(ctx context.Context) ArmTemplateParameterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ArmTemplateParameterInvokeResponseArrayOutput) Index(i pulumi.IntInput) ArmTemplateParameterInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ArmTemplateParameterInvokeResponse {
+		return vs[0].([]ArmTemplateParameterInvokeResponse)[vs[1].(int)]
+	}).(ArmTemplateParameterInvokeResponseOutput)
+}
+
+// Parameter to pass to ARM template
 type ArmTemplateParameterResponse struct {
 	// name of the parameter.
 	Name *string `pulumi:"name"`
@@ -360,6 +469,61 @@ func (o ManagementAssociationPropertiesPtrOutput) ApplicationId() pulumi.StringP
 		}
 		return &v.ApplicationId
 	}).(pulumi.StringPtrOutput)
+}
+
+// ManagementAssociation properties supported by the OperationsManagement resource provider.
+type ManagementAssociationPropertiesInvokeResponse struct {
+	// The applicationId of the appliance for this association.
+	ApplicationId string `pulumi:"applicationId"`
+}
+
+// ManagementAssociationPropertiesInvokeResponseInput is an input type that accepts ManagementAssociationPropertiesInvokeResponseArgs and ManagementAssociationPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagementAssociationPropertiesInvokeResponseInput` via:
+//
+//          ManagementAssociationPropertiesInvokeResponseArgs{...}
+type ManagementAssociationPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagementAssociationPropertiesInvokeResponseOutput() ManagementAssociationPropertiesInvokeResponseOutput
+	ToManagementAssociationPropertiesInvokeResponseOutputWithContext(context.Context) ManagementAssociationPropertiesInvokeResponseOutput
+}
+
+// ManagementAssociation properties supported by the OperationsManagement resource provider.
+type ManagementAssociationPropertiesInvokeResponseArgs struct {
+	// The applicationId of the appliance for this association.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+}
+
+func (ManagementAssociationPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementAssociationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagementAssociationPropertiesInvokeResponseArgs) ToManagementAssociationPropertiesInvokeResponseOutput() ManagementAssociationPropertiesInvokeResponseOutput {
+	return i.ToManagementAssociationPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementAssociationPropertiesInvokeResponseArgs) ToManagementAssociationPropertiesInvokeResponseOutputWithContext(ctx context.Context) ManagementAssociationPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementAssociationPropertiesInvokeResponseOutput)
+}
+
+// ManagementAssociation properties supported by the OperationsManagement resource provider.
+type ManagementAssociationPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementAssociationPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementAssociationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagementAssociationPropertiesInvokeResponseOutput) ToManagementAssociationPropertiesInvokeResponseOutput() ManagementAssociationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ManagementAssociationPropertiesInvokeResponseOutput) ToManagementAssociationPropertiesInvokeResponseOutputWithContext(ctx context.Context) ManagementAssociationPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The applicationId of the appliance for this association.
+func (o ManagementAssociationPropertiesInvokeResponseOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementAssociationPropertiesInvokeResponse) string { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
 // ManagementAssociation properties supported by the OperationsManagement resource provider.
@@ -685,6 +849,99 @@ func (o ManagementConfigurationPropertiesPtrOutput) Template() pulumi.AnyOutput 
 		}
 		return v.Template
 	}).(pulumi.AnyOutput)
+}
+
+// ManagementConfiguration properties supported by the OperationsManagement resource provider.
+type ManagementConfigurationPropertiesInvokeResponse struct {
+	// The applicationId of the appliance for this Management.
+	ApplicationId *string `pulumi:"applicationId"`
+	// Parameters to run the ARM template
+	Parameters []ArmTemplateParameterInvokeResponse `pulumi:"parameters"`
+	// The type of the parent resource.
+	ParentResourceType string `pulumi:"parentResourceType"`
+	// The provisioning state for the ManagementConfiguration.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The Json object containing the ARM template to deploy
+	Template interface{} `pulumi:"template"`
+}
+
+// ManagementConfigurationPropertiesInvokeResponseInput is an input type that accepts ManagementConfigurationPropertiesInvokeResponseArgs and ManagementConfigurationPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagementConfigurationPropertiesInvokeResponseInput` via:
+//
+//          ManagementConfigurationPropertiesInvokeResponseArgs{...}
+type ManagementConfigurationPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagementConfigurationPropertiesInvokeResponseOutput() ManagementConfigurationPropertiesInvokeResponseOutput
+	ToManagementConfigurationPropertiesInvokeResponseOutputWithContext(context.Context) ManagementConfigurationPropertiesInvokeResponseOutput
+}
+
+// ManagementConfiguration properties supported by the OperationsManagement resource provider.
+type ManagementConfigurationPropertiesInvokeResponseArgs struct {
+	// The applicationId of the appliance for this Management.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// Parameters to run the ARM template
+	Parameters ArmTemplateParameterInvokeResponseArrayInput `pulumi:"parameters"`
+	// The type of the parent resource.
+	ParentResourceType pulumi.StringInput `pulumi:"parentResourceType"`
+	// The provisioning state for the ManagementConfiguration.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The Json object containing the ARM template to deploy
+	Template pulumi.Input `pulumi:"template"`
+}
+
+func (ManagementConfigurationPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagementConfigurationPropertiesInvokeResponseArgs) ToManagementConfigurationPropertiesInvokeResponseOutput() ManagementConfigurationPropertiesInvokeResponseOutput {
+	return i.ToManagementConfigurationPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementConfigurationPropertiesInvokeResponseArgs) ToManagementConfigurationPropertiesInvokeResponseOutputWithContext(ctx context.Context) ManagementConfigurationPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementConfigurationPropertiesInvokeResponseOutput)
+}
+
+// ManagementConfiguration properties supported by the OperationsManagement resource provider.
+type ManagementConfigurationPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementConfigurationPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagementConfigurationPropertiesInvokeResponseOutput) ToManagementConfigurationPropertiesInvokeResponseOutput() ManagementConfigurationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ManagementConfigurationPropertiesInvokeResponseOutput) ToManagementConfigurationPropertiesInvokeResponseOutputWithContext(ctx context.Context) ManagementConfigurationPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The applicationId of the appliance for this Management.
+func (o ManagementConfigurationPropertiesInvokeResponseOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementConfigurationPropertiesInvokeResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// Parameters to run the ARM template
+func (o ManagementConfigurationPropertiesInvokeResponseOutput) Parameters() ArmTemplateParameterInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagementConfigurationPropertiesInvokeResponse) []ArmTemplateParameterInvokeResponse {
+		return v.Parameters
+	}).(ArmTemplateParameterInvokeResponseArrayOutput)
+}
+
+// The type of the parent resource.
+func (o ManagementConfigurationPropertiesInvokeResponseOutput) ParentResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementConfigurationPropertiesInvokeResponse) string { return v.ParentResourceType }).(pulumi.StringOutput)
+}
+
+// The provisioning state for the ManagementConfiguration.
+func (o ManagementConfigurationPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementConfigurationPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The Json object containing the ARM template to deploy
+func (o ManagementConfigurationPropertiesInvokeResponseOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v ManagementConfigurationPropertiesInvokeResponse) interface{} { return v.Template }).(pulumi.AnyOutput)
 }
 
 // ManagementConfiguration properties supported by the OperationsManagement resource provider.
@@ -1091,6 +1348,88 @@ func (o SolutionPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 // Plan for solution object supported by the OperationsManagement resource provider.
+type SolutionPlanInvokeResponse struct {
+	// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
+	Name *string `pulumi:"name"`
+	// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
+	Product *string `pulumi:"product"`
+	// promotionCode, Not really used now, can you left as empty
+	PromotionCode *string `pulumi:"promotionCode"`
+	// Publisher name. For gallery solution, it is Microsoft.
+	Publisher *string `pulumi:"publisher"`
+}
+
+// SolutionPlanInvokeResponseInput is an input type that accepts SolutionPlanInvokeResponseArgs and SolutionPlanInvokeResponseOutput values.
+// You can construct a concrete instance of `SolutionPlanInvokeResponseInput` via:
+//
+//          SolutionPlanInvokeResponseArgs{...}
+type SolutionPlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSolutionPlanInvokeResponseOutput() SolutionPlanInvokeResponseOutput
+	ToSolutionPlanInvokeResponseOutputWithContext(context.Context) SolutionPlanInvokeResponseOutput
+}
+
+// Plan for solution object supported by the OperationsManagement resource provider.
+type SolutionPlanInvokeResponseArgs struct {
+	// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
+	Product pulumi.StringPtrInput `pulumi:"product"`
+	// promotionCode, Not really used now, can you left as empty
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// Publisher name. For gallery solution, it is Microsoft.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+}
+
+func (SolutionPlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SolutionPlanInvokeResponse)(nil)).Elem()
+}
+
+func (i SolutionPlanInvokeResponseArgs) ToSolutionPlanInvokeResponseOutput() SolutionPlanInvokeResponseOutput {
+	return i.ToSolutionPlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SolutionPlanInvokeResponseArgs) ToSolutionPlanInvokeResponseOutputWithContext(ctx context.Context) SolutionPlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SolutionPlanInvokeResponseOutput)
+}
+
+// Plan for solution object supported by the OperationsManagement resource provider.
+type SolutionPlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SolutionPlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SolutionPlanInvokeResponse)(nil)).Elem()
+}
+
+func (o SolutionPlanInvokeResponseOutput) ToSolutionPlanInvokeResponseOutput() SolutionPlanInvokeResponseOutput {
+	return o
+}
+
+func (o SolutionPlanInvokeResponseOutput) ToSolutionPlanInvokeResponseOutputWithContext(ctx context.Context) SolutionPlanInvokeResponseOutput {
+	return o
+}
+
+// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
+func (o SolutionPlanInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SolutionPlanInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// name of the solution to enabled/add. For Microsoft published gallery solution it should be in the format of OMSGallery/<solutionType>. This is case sensitive
+func (o SolutionPlanInvokeResponseOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SolutionPlanInvokeResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
+}
+
+// promotionCode, Not really used now, can you left as empty
+func (o SolutionPlanInvokeResponseOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SolutionPlanInvokeResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// Publisher name. For gallery solution, it is Microsoft.
+func (o SolutionPlanInvokeResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SolutionPlanInvokeResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Plan for solution object supported by the OperationsManagement resource provider.
 type SolutionPlanResponse struct {
 	// name of the solution to be created. For Microsoft published solution it should be in the format of solutionType(workspaceName). SolutionType part is case sensitive. For third party solution, it can be anything.
 	Name *string `pulumi:"name"`
@@ -1454,6 +1793,88 @@ func (o SolutionPropertiesPtrOutput) WorkspaceResourceId() pulumi.StringPtrOutpu
 }
 
 // Solution properties supported by the OperationsManagement resource provider.
+type SolutionPropertiesInvokeResponse struct {
+	// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
+	ContainedResources []string `pulumi:"containedResources"`
+	// The provisioning state for the solution.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+	ReferencedResources []string `pulumi:"referencedResources"`
+	// The azure resourceId for the workspace where the solution will be deployed/enabled.
+	WorkspaceResourceId string `pulumi:"workspaceResourceId"`
+}
+
+// SolutionPropertiesInvokeResponseInput is an input type that accepts SolutionPropertiesInvokeResponseArgs and SolutionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SolutionPropertiesInvokeResponseInput` via:
+//
+//          SolutionPropertiesInvokeResponseArgs{...}
+type SolutionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSolutionPropertiesInvokeResponseOutput() SolutionPropertiesInvokeResponseOutput
+	ToSolutionPropertiesInvokeResponseOutputWithContext(context.Context) SolutionPropertiesInvokeResponseOutput
+}
+
+// Solution properties supported by the OperationsManagement resource provider.
+type SolutionPropertiesInvokeResponseArgs struct {
+	// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
+	ContainedResources pulumi.StringArrayInput `pulumi:"containedResources"`
+	// The provisioning state for the solution.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+	ReferencedResources pulumi.StringArrayInput `pulumi:"referencedResources"`
+	// The azure resourceId for the workspace where the solution will be deployed/enabled.
+	WorkspaceResourceId pulumi.StringInput `pulumi:"workspaceResourceId"`
+}
+
+func (SolutionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SolutionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SolutionPropertiesInvokeResponseArgs) ToSolutionPropertiesInvokeResponseOutput() SolutionPropertiesInvokeResponseOutput {
+	return i.ToSolutionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SolutionPropertiesInvokeResponseArgs) ToSolutionPropertiesInvokeResponseOutputWithContext(ctx context.Context) SolutionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SolutionPropertiesInvokeResponseOutput)
+}
+
+// Solution properties supported by the OperationsManagement resource provider.
+type SolutionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SolutionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SolutionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SolutionPropertiesInvokeResponseOutput) ToSolutionPropertiesInvokeResponseOutput() SolutionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SolutionPropertiesInvokeResponseOutput) ToSolutionPropertiesInvokeResponseOutputWithContext(ctx context.Context) SolutionPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
+func (o SolutionPropertiesInvokeResponseOutput) ContainedResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SolutionPropertiesInvokeResponse) []string { return v.ContainedResources }).(pulumi.StringArrayOutput)
+}
+
+// The provisioning state for the solution.
+func (o SolutionPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v SolutionPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.
+func (o SolutionPropertiesInvokeResponseOutput) ReferencedResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SolutionPropertiesInvokeResponse) []string { return v.ReferencedResources }).(pulumi.StringArrayOutput)
+}
+
+// The azure resourceId for the workspace where the solution will be deployed/enabled.
+func (o SolutionPropertiesInvokeResponseOutput) WorkspaceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v SolutionPropertiesInvokeResponse) string { return v.WorkspaceResourceId }).(pulumi.StringOutput)
+}
+
+// Solution properties supported by the OperationsManagement resource provider.
 type SolutionPropertiesResponse struct {
 	// The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.
 	ContainedResources []string `pulumi:"containedResources"`
@@ -1647,22 +2068,28 @@ func (o SolutionPropertiesResponsePtrOutput) WorkspaceResourceId() pulumi.String
 func init() {
 	pulumi.RegisterOutputType(ArmTemplateParameterOutput{})
 	pulumi.RegisterOutputType(ArmTemplateParameterArrayOutput{})
+	pulumi.RegisterOutputType(ArmTemplateParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ArmTemplateParameterInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ArmTemplateParameterResponseOutput{})
 	pulumi.RegisterOutputType(ArmTemplateParameterResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagementAssociationPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagementAssociationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ManagementAssociationPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagementAssociationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ManagementAssociationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagementConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagementConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ManagementConfigurationPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagementConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ManagementConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SolutionPlanOutput{})
 	pulumi.RegisterOutputType(SolutionPlanPtrOutput{})
+	pulumi.RegisterOutputType(SolutionPlanInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SolutionPlanResponseOutput{})
 	pulumi.RegisterOutputType(SolutionPlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(SolutionPropertiesOutput{})
 	pulumi.RegisterOutputType(SolutionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SolutionPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SolutionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SolutionPropertiesResponsePtrOutput{})
 }

@@ -120,6 +120,115 @@ func (o ActionArrayOutput) Index(i pulumi.IntInput) ActionOutput {
 }
 
 // Actions to invoke when the alert fires.
+type ActionInvokeResponse struct {
+	// Action Group resource Id to invoke when the alert fires.
+	ActionGroupId *string `pulumi:"actionGroupId"`
+	// The properties of a webhook object.
+	WebHookProperties map[string]string `pulumi:"webHookProperties"`
+}
+
+// ActionInvokeResponseInput is an input type that accepts ActionInvokeResponseArgs and ActionInvokeResponseOutput values.
+// You can construct a concrete instance of `ActionInvokeResponseInput` via:
+//
+//          ActionInvokeResponseArgs{...}
+type ActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToActionInvokeResponseOutput() ActionInvokeResponseOutput
+	ToActionInvokeResponseOutputWithContext(context.Context) ActionInvokeResponseOutput
+}
+
+// Actions to invoke when the alert fires.
+type ActionInvokeResponseArgs struct {
+	// Action Group resource Id to invoke when the alert fires.
+	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
+	// The properties of a webhook object.
+	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
+}
+
+func (ActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionInvokeResponse)(nil)).Elem()
+}
+
+func (i ActionInvokeResponseArgs) ToActionInvokeResponseOutput() ActionInvokeResponseOutput {
+	return i.ToActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ActionInvokeResponseArgs) ToActionInvokeResponseOutputWithContext(ctx context.Context) ActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionInvokeResponseOutput)
+}
+
+// ActionInvokeResponseArrayInput is an input type that accepts ActionInvokeResponseArray and ActionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ActionInvokeResponseArrayInput` via:
+//
+//          ActionInvokeResponseArray{ ActionInvokeResponseArgs{...} }
+type ActionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToActionInvokeResponseArrayOutput() ActionInvokeResponseArrayOutput
+	ToActionInvokeResponseArrayOutputWithContext(context.Context) ActionInvokeResponseArrayOutput
+}
+
+type ActionInvokeResponseArray []ActionInvokeResponseInput
+
+func (ActionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionInvokeResponse)(nil)).Elem()
+}
+
+func (i ActionInvokeResponseArray) ToActionInvokeResponseArrayOutput() ActionInvokeResponseArrayOutput {
+	return i.ToActionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ActionInvokeResponseArray) ToActionInvokeResponseArrayOutputWithContext(ctx context.Context) ActionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionInvokeResponseArrayOutput)
+}
+
+// Actions to invoke when the alert fires.
+type ActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionInvokeResponse)(nil)).Elem()
+}
+
+func (o ActionInvokeResponseOutput) ToActionInvokeResponseOutput() ActionInvokeResponseOutput {
+	return o
+}
+
+func (o ActionInvokeResponseOutput) ToActionInvokeResponseOutputWithContext(ctx context.Context) ActionInvokeResponseOutput {
+	return o
+}
+
+// Action Group resource Id to invoke when the alert fires.
+func (o ActionInvokeResponseOutput) ActionGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionInvokeResponse) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The properties of a webhook object.
+func (o ActionInvokeResponseOutput) WebHookProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ActionInvokeResponse) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
+}
+
+type ActionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ActionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActionInvokeResponse)(nil)).Elem()
+}
+
+func (o ActionInvokeResponseArrayOutput) ToActionInvokeResponseArrayOutput() ActionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ActionInvokeResponseArrayOutput) ToActionInvokeResponseArrayOutputWithContext(ctx context.Context) ActionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ActionInvokeResponseArrayOutput) Index(i pulumi.IntInput) ActionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionInvokeResponse {
+		return vs[0].([]ActionInvokeResponse)[vs[1].(int)]
+	}).(ActionInvokeResponseOutput)
+}
+
+// Actions to invoke when the alert fires.
 type ActionResponse struct {
 	// Action Group resource Id to invoke when the alert fires.
 	ActionGroupId *string `pulumi:"actionGroupId"`
@@ -537,6 +646,322 @@ func (o ConditionFailingPeriodsPtrOutput) MinFailingPeriodsToAlert() pulumi.Floa
 // The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
 func (o ConditionFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ConditionFailingPeriods) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfEvaluationPeriods
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A condition of the scheduled query rule.
+type ConditionInvokeResponse struct {
+	// List of Dimensions conditions
+	Dimensions []DimensionInvokeResponse `pulumi:"dimensions"`
+	// The minimum number of violations required within the selected lookback time window required to raise an alert.
+	FailingPeriods *ConditionInvokeResponseFailingPeriods `pulumi:"failingPeriods"`
+	// The column containing the metric measure number.
+	MetricMeasureColumn *string `pulumi:"metricMeasureColumn"`
+	// The criteria operator.
+	Operator string `pulumi:"operator"`
+	// Log query alert
+	Query *string `pulumi:"query"`
+	// The column containing the resource id. The content of the column must be a uri formatted as resource id
+	ResourceIdColumn *string `pulumi:"resourceIdColumn"`
+	// the criteria threshold value that activates the alert.
+	Threshold float64 `pulumi:"threshold"`
+	// Aggregation type
+	TimeAggregation string `pulumi:"timeAggregation"`
+}
+
+// ConditionInvokeResponseInput is an input type that accepts ConditionInvokeResponseArgs and ConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `ConditionInvokeResponseInput` via:
+//
+//          ConditionInvokeResponseArgs{...}
+type ConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConditionInvokeResponseOutput() ConditionInvokeResponseOutput
+	ToConditionInvokeResponseOutputWithContext(context.Context) ConditionInvokeResponseOutput
+}
+
+// A condition of the scheduled query rule.
+type ConditionInvokeResponseArgs struct {
+	// List of Dimensions conditions
+	Dimensions DimensionInvokeResponseArrayInput `pulumi:"dimensions"`
+	// The minimum number of violations required within the selected lookback time window required to raise an alert.
+	FailingPeriods ConditionInvokeResponseFailingPeriodsPtrInput `pulumi:"failingPeriods"`
+	// The column containing the metric measure number.
+	MetricMeasureColumn pulumi.StringPtrInput `pulumi:"metricMeasureColumn"`
+	// The criteria operator.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Log query alert
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// The column containing the resource id. The content of the column must be a uri formatted as resource id
+	ResourceIdColumn pulumi.StringPtrInput `pulumi:"resourceIdColumn"`
+	// the criteria threshold value that activates the alert.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// Aggregation type
+	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+}
+
+func (ConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i ConditionInvokeResponseArgs) ToConditionInvokeResponseOutput() ConditionInvokeResponseOutput {
+	return i.ToConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConditionInvokeResponseArgs) ToConditionInvokeResponseOutputWithContext(ctx context.Context) ConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionInvokeResponseOutput)
+}
+
+// ConditionInvokeResponseArrayInput is an input type that accepts ConditionInvokeResponseArray and ConditionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ConditionInvokeResponseArrayInput` via:
+//
+//          ConditionInvokeResponseArray{ ConditionInvokeResponseArgs{...} }
+type ConditionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToConditionInvokeResponseArrayOutput() ConditionInvokeResponseArrayOutput
+	ToConditionInvokeResponseArrayOutputWithContext(context.Context) ConditionInvokeResponseArrayOutput
+}
+
+type ConditionInvokeResponseArray []ConditionInvokeResponseInput
+
+func (ConditionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i ConditionInvokeResponseArray) ToConditionInvokeResponseArrayOutput() ConditionInvokeResponseArrayOutput {
+	return i.ToConditionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ConditionInvokeResponseArray) ToConditionInvokeResponseArrayOutputWithContext(ctx context.Context) ConditionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionInvokeResponseArrayOutput)
+}
+
+// A condition of the scheduled query rule.
+type ConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o ConditionInvokeResponseOutput) ToConditionInvokeResponseOutput() ConditionInvokeResponseOutput {
+	return o
+}
+
+func (o ConditionInvokeResponseOutput) ToConditionInvokeResponseOutputWithContext(ctx context.Context) ConditionInvokeResponseOutput {
+	return o
+}
+
+// List of Dimensions conditions
+func (o ConditionInvokeResponseOutput) Dimensions() DimensionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ConditionInvokeResponse) []DimensionInvokeResponse { return v.Dimensions }).(DimensionInvokeResponseArrayOutput)
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+func (o ConditionInvokeResponseOutput) FailingPeriods() ConditionInvokeResponseFailingPeriodsPtrOutput {
+	return o.ApplyT(func(v ConditionInvokeResponse) *ConditionInvokeResponseFailingPeriods { return v.FailingPeriods }).(ConditionInvokeResponseFailingPeriodsPtrOutput)
+}
+
+// The column containing the metric measure number.
+func (o ConditionInvokeResponseOutput) MetricMeasureColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConditionInvokeResponse) *string { return v.MetricMeasureColumn }).(pulumi.StringPtrOutput)
+}
+
+// The criteria operator.
+func (o ConditionInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ConditionInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Log query alert
+func (o ConditionInvokeResponseOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConditionInvokeResponse) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// The column containing the resource id. The content of the column must be a uri formatted as resource id
+func (o ConditionInvokeResponseOutput) ResourceIdColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConditionInvokeResponse) *string { return v.ResourceIdColumn }).(pulumi.StringPtrOutput)
+}
+
+// the criteria threshold value that activates the alert.
+func (o ConditionInvokeResponseOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ConditionInvokeResponse) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// Aggregation type
+func (o ConditionInvokeResponseOutput) TimeAggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v ConditionInvokeResponse) string { return v.TimeAggregation }).(pulumi.StringOutput)
+}
+
+type ConditionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConditionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o ConditionInvokeResponseArrayOutput) ToConditionInvokeResponseArrayOutput() ConditionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ConditionInvokeResponseArrayOutput) ToConditionInvokeResponseArrayOutputWithContext(ctx context.Context) ConditionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ConditionInvokeResponseArrayOutput) Index(i pulumi.IntInput) ConditionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConditionInvokeResponse {
+		return vs[0].([]ConditionInvokeResponse)[vs[1].(int)]
+	}).(ConditionInvokeResponseOutput)
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+type ConditionInvokeResponseFailingPeriods struct {
+	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+	MinFailingPeriodsToAlert *float64 `pulumi:"minFailingPeriodsToAlert"`
+	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+	NumberOfEvaluationPeriods *float64 `pulumi:"numberOfEvaluationPeriods"`
+}
+
+// ConditionInvokeResponseFailingPeriodsInput is an input type that accepts ConditionInvokeResponseFailingPeriodsArgs and ConditionInvokeResponseFailingPeriodsOutput values.
+// You can construct a concrete instance of `ConditionInvokeResponseFailingPeriodsInput` via:
+//
+//          ConditionInvokeResponseFailingPeriodsArgs{...}
+type ConditionInvokeResponseFailingPeriodsInput interface {
+	pulumi.Input
+
+	ToConditionInvokeResponseFailingPeriodsOutput() ConditionInvokeResponseFailingPeriodsOutput
+	ToConditionInvokeResponseFailingPeriodsOutputWithContext(context.Context) ConditionInvokeResponseFailingPeriodsOutput
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+type ConditionInvokeResponseFailingPeriodsArgs struct {
+	// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+	MinFailingPeriodsToAlert pulumi.Float64PtrInput `pulumi:"minFailingPeriodsToAlert"`
+	// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+	NumberOfEvaluationPeriods pulumi.Float64PtrInput `pulumi:"numberOfEvaluationPeriods"`
+}
+
+func (ConditionInvokeResponseFailingPeriodsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionInvokeResponseFailingPeriods)(nil)).Elem()
+}
+
+func (i ConditionInvokeResponseFailingPeriodsArgs) ToConditionInvokeResponseFailingPeriodsOutput() ConditionInvokeResponseFailingPeriodsOutput {
+	return i.ToConditionInvokeResponseFailingPeriodsOutputWithContext(context.Background())
+}
+
+func (i ConditionInvokeResponseFailingPeriodsArgs) ToConditionInvokeResponseFailingPeriodsOutputWithContext(ctx context.Context) ConditionInvokeResponseFailingPeriodsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionInvokeResponseFailingPeriodsOutput)
+}
+
+func (i ConditionInvokeResponseFailingPeriodsArgs) ToConditionInvokeResponseFailingPeriodsPtrOutput() ConditionInvokeResponseFailingPeriodsPtrOutput {
+	return i.ToConditionInvokeResponseFailingPeriodsPtrOutputWithContext(context.Background())
+}
+
+func (i ConditionInvokeResponseFailingPeriodsArgs) ToConditionInvokeResponseFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionInvokeResponseFailingPeriodsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionInvokeResponseFailingPeriodsOutput).ToConditionInvokeResponseFailingPeriodsPtrOutputWithContext(ctx)
+}
+
+// ConditionInvokeResponseFailingPeriodsPtrInput is an input type that accepts ConditionInvokeResponseFailingPeriodsArgs, ConditionInvokeResponseFailingPeriodsPtr and ConditionInvokeResponseFailingPeriodsPtrOutput values.
+// You can construct a concrete instance of `ConditionInvokeResponseFailingPeriodsPtrInput` via:
+//
+//          ConditionInvokeResponseFailingPeriodsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConditionInvokeResponseFailingPeriodsPtrInput interface {
+	pulumi.Input
+
+	ToConditionInvokeResponseFailingPeriodsPtrOutput() ConditionInvokeResponseFailingPeriodsPtrOutput
+	ToConditionInvokeResponseFailingPeriodsPtrOutputWithContext(context.Context) ConditionInvokeResponseFailingPeriodsPtrOutput
+}
+
+type conditionInvokeResponseFailingPeriodsPtrType ConditionInvokeResponseFailingPeriodsArgs
+
+func ConditionInvokeResponseFailingPeriodsPtr(v *ConditionInvokeResponseFailingPeriodsArgs) ConditionInvokeResponseFailingPeriodsPtrInput {
+	return (*conditionInvokeResponseFailingPeriodsPtrType)(v)
+}
+
+func (*conditionInvokeResponseFailingPeriodsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConditionInvokeResponseFailingPeriods)(nil)).Elem()
+}
+
+func (i *conditionInvokeResponseFailingPeriodsPtrType) ToConditionInvokeResponseFailingPeriodsPtrOutput() ConditionInvokeResponseFailingPeriodsPtrOutput {
+	return i.ToConditionInvokeResponseFailingPeriodsPtrOutputWithContext(context.Background())
+}
+
+func (i *conditionInvokeResponseFailingPeriodsPtrType) ToConditionInvokeResponseFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionInvokeResponseFailingPeriodsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionInvokeResponseFailingPeriodsPtrOutput)
+}
+
+// The minimum number of violations required within the selected lookback time window required to raise an alert.
+type ConditionInvokeResponseFailingPeriodsOutput struct{ *pulumi.OutputState }
+
+func (ConditionInvokeResponseFailingPeriodsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionInvokeResponseFailingPeriods)(nil)).Elem()
+}
+
+func (o ConditionInvokeResponseFailingPeriodsOutput) ToConditionInvokeResponseFailingPeriodsOutput() ConditionInvokeResponseFailingPeriodsOutput {
+	return o
+}
+
+func (o ConditionInvokeResponseFailingPeriodsOutput) ToConditionInvokeResponseFailingPeriodsOutputWithContext(ctx context.Context) ConditionInvokeResponseFailingPeriodsOutput {
+	return o
+}
+
+func (o ConditionInvokeResponseFailingPeriodsOutput) ToConditionInvokeResponseFailingPeriodsPtrOutput() ConditionInvokeResponseFailingPeriodsPtrOutput {
+	return o.ToConditionInvokeResponseFailingPeriodsPtrOutputWithContext(context.Background())
+}
+
+func (o ConditionInvokeResponseFailingPeriodsOutput) ToConditionInvokeResponseFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionInvokeResponseFailingPeriodsPtrOutput {
+	return o.ApplyT(func(v ConditionInvokeResponseFailingPeriods) *ConditionInvokeResponseFailingPeriods {
+		return &v
+	}).(ConditionInvokeResponseFailingPeriodsPtrOutput)
+}
+
+// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+func (o ConditionInvokeResponseFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConditionInvokeResponseFailingPeriods) *float64 { return v.MinFailingPeriodsToAlert }).(pulumi.Float64PtrOutput)
+}
+
+// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+func (o ConditionInvokeResponseFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConditionInvokeResponseFailingPeriods) *float64 { return v.NumberOfEvaluationPeriods }).(pulumi.Float64PtrOutput)
+}
+
+type ConditionInvokeResponseFailingPeriodsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConditionInvokeResponseFailingPeriodsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConditionInvokeResponseFailingPeriods)(nil)).Elem()
+}
+
+func (o ConditionInvokeResponseFailingPeriodsPtrOutput) ToConditionInvokeResponseFailingPeriodsPtrOutput() ConditionInvokeResponseFailingPeriodsPtrOutput {
+	return o
+}
+
+func (o ConditionInvokeResponseFailingPeriodsPtrOutput) ToConditionInvokeResponseFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionInvokeResponseFailingPeriodsPtrOutput {
+	return o
+}
+
+func (o ConditionInvokeResponseFailingPeriodsPtrOutput) Elem() ConditionInvokeResponseFailingPeriodsOutput {
+	return o.ApplyT(func(v *ConditionInvokeResponseFailingPeriods) ConditionInvokeResponseFailingPeriods { return *v }).(ConditionInvokeResponseFailingPeriodsOutput)
+}
+
+// The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+func (o ConditionInvokeResponseFailingPeriodsPtrOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConditionInvokeResponseFailingPeriods) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinFailingPeriodsToAlert
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+func (o ConditionInvokeResponseFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConditionInvokeResponseFailingPeriods) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -979,6 +1404,124 @@ func (o DimensionArrayOutput) Index(i pulumi.IntInput) DimensionOutput {
 }
 
 // Dimension splitting and filtering definition
+type DimensionInvokeResponse struct {
+	// Name of the dimension
+	Name string `pulumi:"name"`
+	// Operator for dimension values
+	Operator string `pulumi:"operator"`
+	// List of dimension values
+	Values []string `pulumi:"values"`
+}
+
+// DimensionInvokeResponseInput is an input type that accepts DimensionInvokeResponseArgs and DimensionInvokeResponseOutput values.
+// You can construct a concrete instance of `DimensionInvokeResponseInput` via:
+//
+//          DimensionInvokeResponseArgs{...}
+type DimensionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDimensionInvokeResponseOutput() DimensionInvokeResponseOutput
+	ToDimensionInvokeResponseOutputWithContext(context.Context) DimensionInvokeResponseOutput
+}
+
+// Dimension splitting and filtering definition
+type DimensionInvokeResponseArgs struct {
+	// Name of the dimension
+	Name pulumi.StringInput `pulumi:"name"`
+	// Operator for dimension values
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of dimension values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (DimensionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DimensionInvokeResponse)(nil)).Elem()
+}
+
+func (i DimensionInvokeResponseArgs) ToDimensionInvokeResponseOutput() DimensionInvokeResponseOutput {
+	return i.ToDimensionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DimensionInvokeResponseArgs) ToDimensionInvokeResponseOutputWithContext(ctx context.Context) DimensionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DimensionInvokeResponseOutput)
+}
+
+// DimensionInvokeResponseArrayInput is an input type that accepts DimensionInvokeResponseArray and DimensionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DimensionInvokeResponseArrayInput` via:
+//
+//          DimensionInvokeResponseArray{ DimensionInvokeResponseArgs{...} }
+type DimensionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDimensionInvokeResponseArrayOutput() DimensionInvokeResponseArrayOutput
+	ToDimensionInvokeResponseArrayOutputWithContext(context.Context) DimensionInvokeResponseArrayOutput
+}
+
+type DimensionInvokeResponseArray []DimensionInvokeResponseInput
+
+func (DimensionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DimensionInvokeResponse)(nil)).Elem()
+}
+
+func (i DimensionInvokeResponseArray) ToDimensionInvokeResponseArrayOutput() DimensionInvokeResponseArrayOutput {
+	return i.ToDimensionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DimensionInvokeResponseArray) ToDimensionInvokeResponseArrayOutputWithContext(ctx context.Context) DimensionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DimensionInvokeResponseArrayOutput)
+}
+
+// Dimension splitting and filtering definition
+type DimensionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DimensionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DimensionInvokeResponse)(nil)).Elem()
+}
+
+func (o DimensionInvokeResponseOutput) ToDimensionInvokeResponseOutput() DimensionInvokeResponseOutput {
+	return o
+}
+
+func (o DimensionInvokeResponseOutput) ToDimensionInvokeResponseOutputWithContext(ctx context.Context) DimensionInvokeResponseOutput {
+	return o
+}
+
+// Name of the dimension
+func (o DimensionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DimensionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operator for dimension values
+func (o DimensionInvokeResponseOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v DimensionInvokeResponse) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of dimension values
+func (o DimensionInvokeResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DimensionInvokeResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type DimensionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DimensionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DimensionInvokeResponse)(nil)).Elem()
+}
+
+func (o DimensionInvokeResponseArrayOutput) ToDimensionInvokeResponseArrayOutput() DimensionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DimensionInvokeResponseArrayOutput) ToDimensionInvokeResponseArrayOutputWithContext(ctx context.Context) DimensionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DimensionInvokeResponseArrayOutput) Index(i pulumi.IntInput) DimensionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DimensionInvokeResponse {
+		return vs[0].([]DimensionInvokeResponse)[vs[1].(int)]
+	}).(DimensionInvokeResponseOutput)
+}
+
+// Dimension splitting and filtering definition
 type DimensionResponse struct {
 	// Name of the dimension
 	Name string `pulumi:"name"`
@@ -1231,6 +1774,61 @@ func (o ScheduledQueryRuleCriteriaPtrOutput) AllOf() ConditionArrayOutput {
 }
 
 // The rule criteria that defines the conditions of the scheduled query rule.
+type ScheduledQueryRuleCriteriaInvokeResponse struct {
+	// A list of conditions to evaluate against the specified scopes
+	AllOf []ConditionInvokeResponse `pulumi:"allOf"`
+}
+
+// ScheduledQueryRuleCriteriaInvokeResponseInput is an input type that accepts ScheduledQueryRuleCriteriaInvokeResponseArgs and ScheduledQueryRuleCriteriaInvokeResponseOutput values.
+// You can construct a concrete instance of `ScheduledQueryRuleCriteriaInvokeResponseInput` via:
+//
+//          ScheduledQueryRuleCriteriaInvokeResponseArgs{...}
+type ScheduledQueryRuleCriteriaInvokeResponseInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRuleCriteriaInvokeResponseOutput() ScheduledQueryRuleCriteriaInvokeResponseOutput
+	ToScheduledQueryRuleCriteriaInvokeResponseOutputWithContext(context.Context) ScheduledQueryRuleCriteriaInvokeResponseOutput
+}
+
+// The rule criteria that defines the conditions of the scheduled query rule.
+type ScheduledQueryRuleCriteriaInvokeResponseArgs struct {
+	// A list of conditions to evaluate against the specified scopes
+	AllOf ConditionInvokeResponseArrayInput `pulumi:"allOf"`
+}
+
+func (ScheduledQueryRuleCriteriaInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRuleCriteriaInvokeResponse)(nil)).Elem()
+}
+
+func (i ScheduledQueryRuleCriteriaInvokeResponseArgs) ToScheduledQueryRuleCriteriaInvokeResponseOutput() ScheduledQueryRuleCriteriaInvokeResponseOutput {
+	return i.ToScheduledQueryRuleCriteriaInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRuleCriteriaInvokeResponseArgs) ToScheduledQueryRuleCriteriaInvokeResponseOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleCriteriaInvokeResponseOutput)
+}
+
+// The rule criteria that defines the conditions of the scheduled query rule.
+type ScheduledQueryRuleCriteriaInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRuleCriteriaInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRuleCriteriaInvokeResponse)(nil)).Elem()
+}
+
+func (o ScheduledQueryRuleCriteriaInvokeResponseOutput) ToScheduledQueryRuleCriteriaInvokeResponseOutput() ScheduledQueryRuleCriteriaInvokeResponseOutput {
+	return o
+}
+
+func (o ScheduledQueryRuleCriteriaInvokeResponseOutput) ToScheduledQueryRuleCriteriaInvokeResponseOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaInvokeResponseOutput {
+	return o
+}
+
+// A list of conditions to evaluate against the specified scopes
+func (o ScheduledQueryRuleCriteriaInvokeResponseOutput) AllOf() ConditionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryRuleCriteriaInvokeResponse) []ConditionInvokeResponse { return v.AllOf }).(ConditionInvokeResponseArrayOutput)
+}
+
+// The rule criteria that defines the conditions of the scheduled query rule.
 type ScheduledQueryRuleCriteriaResponse struct {
 	// A list of conditions to evaluate against the specified scopes
 	AllOf []ConditionResponse `pulumi:"allOf"`
@@ -1367,22 +1965,31 @@ func (o ScheduledQueryRuleCriteriaResponsePtrOutput) AllOf() ConditionResponseAr
 func init() {
 	pulumi.RegisterOutputType(ActionOutput{})
 	pulumi.RegisterOutputType(ActionArrayOutput{})
+	pulumi.RegisterOutputType(ActionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ActionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ActionResponseOutput{})
 	pulumi.RegisterOutputType(ActionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConditionOutput{})
 	pulumi.RegisterOutputType(ConditionArrayOutput{})
 	pulumi.RegisterOutputType(ConditionFailingPeriodsOutput{})
 	pulumi.RegisterOutputType(ConditionFailingPeriodsPtrOutput{})
+	pulumi.RegisterOutputType(ConditionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConditionInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ConditionInvokeResponseFailingPeriodsOutput{})
+	pulumi.RegisterOutputType(ConditionInvokeResponseFailingPeriodsPtrOutput{})
 	pulumi.RegisterOutputType(ConditionResponseOutput{})
 	pulumi.RegisterOutputType(ConditionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConditionResponseFailingPeriodsOutput{})
 	pulumi.RegisterOutputType(ConditionResponseFailingPeriodsPtrOutput{})
 	pulumi.RegisterOutputType(DimensionOutput{})
 	pulumi.RegisterOutputType(DimensionArrayOutput{})
+	pulumi.RegisterOutputType(DimensionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DimensionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DimensionResponseOutput{})
 	pulumi.RegisterOutputType(DimensionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRuleCriteriaOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRuleCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRuleCriteriaInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRuleCriteriaResponseOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRuleCriteriaResponsePtrOutput{})
 }

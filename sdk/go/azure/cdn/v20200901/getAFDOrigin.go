@@ -30,8 +30,8 @@ type LookupAFDOriginArgs struct {
 // CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 type LookupAFDOriginResult struct {
 	// Resource reference to the Azure origin resource.
-	AzureOrigin      *ResourceReferenceResponse `pulumi:"azureOrigin"`
-	DeploymentStatus string                     `pulumi:"deploymentStatus"`
+	AzureOrigin      *ResourceReferenceInvokeResponse `pulumi:"azureOrigin"`
+	DeploymentStatus string                           `pulumi:"deploymentStatus"`
 	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
 	EnabledState *string `pulumi:"enabledState"`
 	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
@@ -51,9 +51,9 @@ type LookupAFDOriginResult struct {
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The properties of the private link resource for private origin.
-	SharedPrivateLinkResource []SharedPrivateLinkResourcePropertiesResponse `pulumi:"sharedPrivateLinkResource"`
+	SharedPrivateLinkResource []SharedPrivateLinkResourcePropertiesInvokeResponse `pulumi:"sharedPrivateLinkResource"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000

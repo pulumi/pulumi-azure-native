@@ -42,9 +42,9 @@ type LookupQueryResult struct {
 	// Additional properties that can be set for the query.
 	Properties interface{} `pulumi:"properties"`
 	// The related metadata items for the function.
-	Related *LogAnalyticsQueryPackQueryPropertiesResponseRelated `pulumi:"related"`
+	Related *LogAnalyticsQueryPackQueryPropertiesInvokeResponseRelated `pulumi:"related"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Tags associated with the query.
 	Tags map[string][]string `pulumi:"tags"`
 	// Creation Date for the Log Analytics Query, in ISO 8601 format.

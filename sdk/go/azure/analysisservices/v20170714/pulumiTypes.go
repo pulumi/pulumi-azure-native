@@ -145,6 +145,79 @@ func (o GatewayDetailsPtrOutput) GatewayResourceId() pulumi.StringPtrOutput {
 }
 
 // The gateway details.
+type GatewayDetailsInvokeResponse struct {
+	// Uri of the DMTS cluster.
+	DmtsClusterUri string `pulumi:"dmtsClusterUri"`
+	// Gateway object id from in the DMTS cluster for the gateway resource.
+	GatewayObjectId string `pulumi:"gatewayObjectId"`
+	// Gateway resource to be associated with the server.
+	GatewayResourceId *string `pulumi:"gatewayResourceId"`
+}
+
+// GatewayDetailsInvokeResponseInput is an input type that accepts GatewayDetailsInvokeResponseArgs and GatewayDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `GatewayDetailsInvokeResponseInput` via:
+//
+//          GatewayDetailsInvokeResponseArgs{...}
+type GatewayDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGatewayDetailsInvokeResponseOutput() GatewayDetailsInvokeResponseOutput
+	ToGatewayDetailsInvokeResponseOutputWithContext(context.Context) GatewayDetailsInvokeResponseOutput
+}
+
+// The gateway details.
+type GatewayDetailsInvokeResponseArgs struct {
+	// Uri of the DMTS cluster.
+	DmtsClusterUri pulumi.StringInput `pulumi:"dmtsClusterUri"`
+	// Gateway object id from in the DMTS cluster for the gateway resource.
+	GatewayObjectId pulumi.StringInput `pulumi:"gatewayObjectId"`
+	// Gateway resource to be associated with the server.
+	GatewayResourceId pulumi.StringPtrInput `pulumi:"gatewayResourceId"`
+}
+
+func (GatewayDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i GatewayDetailsInvokeResponseArgs) ToGatewayDetailsInvokeResponseOutput() GatewayDetailsInvokeResponseOutput {
+	return i.ToGatewayDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GatewayDetailsInvokeResponseArgs) ToGatewayDetailsInvokeResponseOutputWithContext(ctx context.Context) GatewayDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayDetailsInvokeResponseOutput)
+}
+
+// The gateway details.
+type GatewayDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GatewayDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o GatewayDetailsInvokeResponseOutput) ToGatewayDetailsInvokeResponseOutput() GatewayDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o GatewayDetailsInvokeResponseOutput) ToGatewayDetailsInvokeResponseOutputWithContext(ctx context.Context) GatewayDetailsInvokeResponseOutput {
+	return o
+}
+
+// Uri of the DMTS cluster.
+func (o GatewayDetailsInvokeResponseOutput) DmtsClusterUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayDetailsInvokeResponse) string { return v.DmtsClusterUri }).(pulumi.StringOutput)
+}
+
+// Gateway object id from in the DMTS cluster for the gateway resource.
+func (o GatewayDetailsInvokeResponseOutput) GatewayObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayDetailsInvokeResponse) string { return v.GatewayObjectId }).(pulumi.StringOutput)
+}
+
+// Gateway resource to be associated with the server.
+func (o GatewayDetailsInvokeResponseOutput) GatewayResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayDetailsInvokeResponse) *string { return v.GatewayResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The gateway details.
 type GatewayDetailsResponse struct {
 	// Uri of the DMTS cluster.
 	DmtsClusterUri string `pulumi:"dmtsClusterUri"`
@@ -470,6 +543,70 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Represents the SKU name and Azure pricing tier for Analysis Services resource.
+type ResourceSkuInvokeResponse struct {
+	// Name of the SKU level.
+	Name string `pulumi:"name"`
+	// The name of the Azure pricing tier to which the SKU applies.
+	Tier *string `pulumi:"tier"`
+}
+
+// ResourceSkuInvokeResponseInput is an input type that accepts ResourceSkuInvokeResponseArgs and ResourceSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceSkuInvokeResponseInput` via:
+//
+//          ResourceSkuInvokeResponseArgs{...}
+type ResourceSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput
+	ToResourceSkuInvokeResponseOutputWithContext(context.Context) ResourceSkuInvokeResponseOutput
+}
+
+// Represents the SKU name and Azure pricing tier for Analysis Services resource.
+type ResourceSkuInvokeResponseArgs struct {
+	// Name of the SKU level.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Azure pricing tier to which the SKU applies.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (ResourceSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return i.ToResourceSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuInvokeResponseOutput)
+}
+
+// Represents the SKU name and Azure pricing tier for Analysis Services resource.
+type ResourceSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+// Name of the SKU level.
+func (o ResourceSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the Azure pricing tier to which the SKU applies.
+func (o ResourceSkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponse struct {
 	// Name of the SKU level.
 	Name string `pulumi:"name"`
@@ -757,6 +894,61 @@ func (o ServerAdministratorsPtrOutput) Members() pulumi.StringArrayOutput {
 }
 
 // An array of administrator user identities
+type ServerAdministratorsInvokeResponse struct {
+	// An array of administrator user identities.
+	Members []string `pulumi:"members"`
+}
+
+// ServerAdministratorsInvokeResponseInput is an input type that accepts ServerAdministratorsInvokeResponseArgs and ServerAdministratorsInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerAdministratorsInvokeResponseInput` via:
+//
+//          ServerAdministratorsInvokeResponseArgs{...}
+type ServerAdministratorsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerAdministratorsInvokeResponseOutput() ServerAdministratorsInvokeResponseOutput
+	ToServerAdministratorsInvokeResponseOutputWithContext(context.Context) ServerAdministratorsInvokeResponseOutput
+}
+
+// An array of administrator user identities
+type ServerAdministratorsInvokeResponseArgs struct {
+	// An array of administrator user identities.
+	Members pulumi.StringArrayInput `pulumi:"members"`
+}
+
+func (ServerAdministratorsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAdministratorsInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerAdministratorsInvokeResponseArgs) ToServerAdministratorsInvokeResponseOutput() ServerAdministratorsInvokeResponseOutput {
+	return i.ToServerAdministratorsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerAdministratorsInvokeResponseArgs) ToServerAdministratorsInvokeResponseOutputWithContext(ctx context.Context) ServerAdministratorsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorsInvokeResponseOutput)
+}
+
+// An array of administrator user identities
+type ServerAdministratorsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerAdministratorsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAdministratorsInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerAdministratorsInvokeResponseOutput) ToServerAdministratorsInvokeResponseOutput() ServerAdministratorsInvokeResponseOutput {
+	return o
+}
+
+func (o ServerAdministratorsInvokeResponseOutput) ToServerAdministratorsInvokeResponseOutputWithContext(ctx context.Context) ServerAdministratorsInvokeResponseOutput {
+	return o
+}
+
+// An array of administrator user identities.
+func (o ServerAdministratorsInvokeResponseOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerAdministratorsInvokeResponse) []string { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+// An array of administrator user identities
 type ServerAdministratorsResponse struct {
 	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
@@ -893,14 +1085,17 @@ func (o ServerAdministratorsResponsePtrOutput) Members() pulumi.StringArrayOutpu
 func init() {
 	pulumi.RegisterOutputType(GatewayDetailsOutput{})
 	pulumi.RegisterOutputType(GatewayDetailsPtrOutput{})
+	pulumi.RegisterOutputType(GatewayDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GatewayDetailsResponseOutput{})
 	pulumi.RegisterOutputType(GatewayDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsPtrOutput{})
+	pulumi.RegisterOutputType(ServerAdministratorsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsResponseOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsResponsePtrOutput{})
 }

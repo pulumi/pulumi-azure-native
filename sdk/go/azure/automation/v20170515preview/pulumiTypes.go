@@ -182,6 +182,180 @@ func (o AdvancedSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The properties of the create Advanced Schedule.
+type AdvancedScheduleInvokeResponse struct {
+	// Days of the month that the job should execute on. Must be between 1 and 31.
+	MonthDays []int `pulumi:"monthDays"`
+	// Occurrences of days within a month.
+	MonthlyOccurrences []AdvancedScheduleMonthlyOccurrenceInvokeResponse `pulumi:"monthlyOccurrences"`
+	// Days of the week that the job should execute on.
+	WeekDays []string `pulumi:"weekDays"`
+}
+
+// AdvancedScheduleInvokeResponseInput is an input type that accepts AdvancedScheduleInvokeResponseArgs and AdvancedScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `AdvancedScheduleInvokeResponseInput` via:
+//
+//          AdvancedScheduleInvokeResponseArgs{...}
+type AdvancedScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdvancedScheduleInvokeResponseOutput() AdvancedScheduleInvokeResponseOutput
+	ToAdvancedScheduleInvokeResponseOutputWithContext(context.Context) AdvancedScheduleInvokeResponseOutput
+}
+
+// The properties of the create Advanced Schedule.
+type AdvancedScheduleInvokeResponseArgs struct {
+	// Days of the month that the job should execute on. Must be between 1 and 31.
+	MonthDays pulumi.IntArrayInput `pulumi:"monthDays"`
+	// Occurrences of days within a month.
+	MonthlyOccurrences AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayInput `pulumi:"monthlyOccurrences"`
+	// Days of the week that the job should execute on.
+	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+}
+
+func (AdvancedScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdvancedScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i AdvancedScheduleInvokeResponseArgs) ToAdvancedScheduleInvokeResponseOutput() AdvancedScheduleInvokeResponseOutput {
+	return i.ToAdvancedScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdvancedScheduleInvokeResponseArgs) ToAdvancedScheduleInvokeResponseOutputWithContext(ctx context.Context) AdvancedScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleInvokeResponseOutput)
+}
+
+func (i AdvancedScheduleInvokeResponseArgs) ToAdvancedScheduleInvokeResponsePtrOutput() AdvancedScheduleInvokeResponsePtrOutput {
+	return i.ToAdvancedScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AdvancedScheduleInvokeResponseArgs) ToAdvancedScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) AdvancedScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleInvokeResponseOutput).ToAdvancedScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AdvancedScheduleInvokeResponsePtrInput is an input type that accepts AdvancedScheduleInvokeResponseArgs, AdvancedScheduleInvokeResponsePtr and AdvancedScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AdvancedScheduleInvokeResponsePtrInput` via:
+//
+//          AdvancedScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AdvancedScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAdvancedScheduleInvokeResponsePtrOutput() AdvancedScheduleInvokeResponsePtrOutput
+	ToAdvancedScheduleInvokeResponsePtrOutputWithContext(context.Context) AdvancedScheduleInvokeResponsePtrOutput
+}
+
+type advancedScheduleInvokeResponsePtrType AdvancedScheduleInvokeResponseArgs
+
+func AdvancedScheduleInvokeResponsePtr(v *AdvancedScheduleInvokeResponseArgs) AdvancedScheduleInvokeResponsePtrInput {
+	return (*advancedScheduleInvokeResponsePtrType)(v)
+}
+
+func (*advancedScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdvancedScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *advancedScheduleInvokeResponsePtrType) ToAdvancedScheduleInvokeResponsePtrOutput() AdvancedScheduleInvokeResponsePtrOutput {
+	return i.ToAdvancedScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *advancedScheduleInvokeResponsePtrType) ToAdvancedScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) AdvancedScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleInvokeResponsePtrOutput)
+}
+
+// The properties of the create Advanced Schedule.
+type AdvancedScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdvancedScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdvancedScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o AdvancedScheduleInvokeResponseOutput) ToAdvancedScheduleInvokeResponseOutput() AdvancedScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o AdvancedScheduleInvokeResponseOutput) ToAdvancedScheduleInvokeResponseOutputWithContext(ctx context.Context) AdvancedScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o AdvancedScheduleInvokeResponseOutput) ToAdvancedScheduleInvokeResponsePtrOutput() AdvancedScheduleInvokeResponsePtrOutput {
+	return o.ToAdvancedScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AdvancedScheduleInvokeResponseOutput) ToAdvancedScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) AdvancedScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AdvancedScheduleInvokeResponse) *AdvancedScheduleInvokeResponse {
+		return &v
+	}).(AdvancedScheduleInvokeResponsePtrOutput)
+}
+
+// Days of the month that the job should execute on. Must be between 1 and 31.
+func (o AdvancedScheduleInvokeResponseOutput) MonthDays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v AdvancedScheduleInvokeResponse) []int { return v.MonthDays }).(pulumi.IntArrayOutput)
+}
+
+// Occurrences of days within a month.
+func (o AdvancedScheduleInvokeResponseOutput) MonthlyOccurrences() AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AdvancedScheduleInvokeResponse) []AdvancedScheduleMonthlyOccurrenceInvokeResponse {
+		return v.MonthlyOccurrences
+	}).(AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput)
+}
+
+// Days of the week that the job should execute on.
+func (o AdvancedScheduleInvokeResponseOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdvancedScheduleInvokeResponse) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+}
+
+type AdvancedScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AdvancedScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdvancedScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o AdvancedScheduleInvokeResponsePtrOutput) ToAdvancedScheduleInvokeResponsePtrOutput() AdvancedScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AdvancedScheduleInvokeResponsePtrOutput) ToAdvancedScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) AdvancedScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AdvancedScheduleInvokeResponsePtrOutput) Elem() AdvancedScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *AdvancedScheduleInvokeResponse) AdvancedScheduleInvokeResponse { return *v }).(AdvancedScheduleInvokeResponseOutput)
+}
+
+// Days of the month that the job should execute on. Must be between 1 and 31.
+func (o AdvancedScheduleInvokeResponsePtrOutput) MonthDays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *AdvancedScheduleInvokeResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.MonthDays
+	}).(pulumi.IntArrayOutput)
+}
+
+// Occurrences of days within a month.
+func (o AdvancedScheduleInvokeResponsePtrOutput) MonthlyOccurrences() AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *AdvancedScheduleInvokeResponse) []AdvancedScheduleMonthlyOccurrenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MonthlyOccurrences
+	}).(AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput)
+}
+
+// Days of the week that the job should execute on.
+func (o AdvancedScheduleInvokeResponsePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AdvancedScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeekDays
+	}).(pulumi.StringArrayOutput)
+}
+
 // The properties of the create advanced schedule monthly occurrence.
 type AdvancedScheduleMonthlyOccurrence struct {
 	// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
@@ -289,6 +463,115 @@ func (o AdvancedScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) A
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdvancedScheduleMonthlyOccurrence {
 		return vs[0].([]AdvancedScheduleMonthlyOccurrence)[vs[1].(int)]
 	}).(AdvancedScheduleMonthlyOccurrenceOutput)
+}
+
+// The properties of the create advanced schedule monthly occurrence.
+type AdvancedScheduleMonthlyOccurrenceInvokeResponse struct {
+	// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+	Day *string `pulumi:"day"`
+	// Occurrence of the week within the month. Must be between 1 and 5
+	Occurrence *int `pulumi:"occurrence"`
+}
+
+// AdvancedScheduleMonthlyOccurrenceInvokeResponseInput is an input type that accepts AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs and AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput values.
+// You can construct a concrete instance of `AdvancedScheduleMonthlyOccurrenceInvokeResponseInput` via:
+//
+//          AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs{...}
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput
+	ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput
+}
+
+// The properties of the create advanced schedule monthly occurrence.
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs struct {
+	// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+	Day pulumi.StringPtrInput `pulumi:"day"`
+	// Occurrence of the week within the month. Must be between 1 and 5
+	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
+}
+
+func (AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdvancedScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return i.ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(ctx context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput)
+}
+
+// AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayInput is an input type that accepts AdvancedScheduleMonthlyOccurrenceInvokeResponseArray and AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayInput` via:
+//
+//          AdvancedScheduleMonthlyOccurrenceInvokeResponseArray{ AdvancedScheduleMonthlyOccurrenceInvokeResponseArgs{...} }
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput
+	ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput
+}
+
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseArray []AdvancedScheduleMonthlyOccurrenceInvokeResponseInput
+
+func (AdvancedScheduleMonthlyOccurrenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdvancedScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i AdvancedScheduleMonthlyOccurrenceInvokeResponseArray) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return i.ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AdvancedScheduleMonthlyOccurrenceInvokeResponseArray) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(ctx context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput)
+}
+
+// The properties of the create advanced schedule monthly occurrence.
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdvancedScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseOutputWithContext(ctx context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return o
+}
+
+// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdvancedScheduleMonthlyOccurrenceInvokeResponse) *string { return v.Day }).(pulumi.StringPtrOutput)
+}
+
+// Occurrence of the week within the month. Must be between 1 and 5
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput) Occurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AdvancedScheduleMonthlyOccurrenceInvokeResponse) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
+}
+
+type AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdvancedScheduleMonthlyOccurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput() AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput) ToAdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutputWithContext(ctx context.Context) AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdvancedScheduleMonthlyOccurrenceInvokeResponse {
+		return vs[0].([]AdvancedScheduleMonthlyOccurrenceInvokeResponse)[vs[1].(int)]
+	}).(AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput)
 }
 
 // The properties of the create advanced schedule monthly occurrence.
@@ -693,6 +976,124 @@ func (o AzureQueryPropertiesArrayOutput) Index(i pulumi.IntInput) AzureQueryProp
 }
 
 // Azure query for the update configuration.
+type AzureQueryPropertiesInvokeResponse struct {
+	// List of locations to scope the query to.
+	Locations []string `pulumi:"locations"`
+	// List of Subscription or Resource Group ARM Ids.
+	Scope []string `pulumi:"scope"`
+	// Tag settings for the VM.
+	TagSettings *TagSettingsPropertiesInvokeResponse `pulumi:"tagSettings"`
+}
+
+// AzureQueryPropertiesInvokeResponseInput is an input type that accepts AzureQueryPropertiesInvokeResponseArgs and AzureQueryPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureQueryPropertiesInvokeResponseInput` via:
+//
+//          AzureQueryPropertiesInvokeResponseArgs{...}
+type AzureQueryPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureQueryPropertiesInvokeResponseOutput() AzureQueryPropertiesInvokeResponseOutput
+	ToAzureQueryPropertiesInvokeResponseOutputWithContext(context.Context) AzureQueryPropertiesInvokeResponseOutput
+}
+
+// Azure query for the update configuration.
+type AzureQueryPropertiesInvokeResponseArgs struct {
+	// List of locations to scope the query to.
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
+	// List of Subscription or Resource Group ARM Ids.
+	Scope pulumi.StringArrayInput `pulumi:"scope"`
+	// Tag settings for the VM.
+	TagSettings TagSettingsPropertiesInvokeResponsePtrInput `pulumi:"tagSettings"`
+}
+
+func (AzureQueryPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureQueryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureQueryPropertiesInvokeResponseArgs) ToAzureQueryPropertiesInvokeResponseOutput() AzureQueryPropertiesInvokeResponseOutput {
+	return i.ToAzureQueryPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureQueryPropertiesInvokeResponseArgs) ToAzureQueryPropertiesInvokeResponseOutputWithContext(ctx context.Context) AzureQueryPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureQueryPropertiesInvokeResponseOutput)
+}
+
+// AzureQueryPropertiesInvokeResponseArrayInput is an input type that accepts AzureQueryPropertiesInvokeResponseArray and AzureQueryPropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AzureQueryPropertiesInvokeResponseArrayInput` via:
+//
+//          AzureQueryPropertiesInvokeResponseArray{ AzureQueryPropertiesInvokeResponseArgs{...} }
+type AzureQueryPropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureQueryPropertiesInvokeResponseArrayOutput() AzureQueryPropertiesInvokeResponseArrayOutput
+	ToAzureQueryPropertiesInvokeResponseArrayOutputWithContext(context.Context) AzureQueryPropertiesInvokeResponseArrayOutput
+}
+
+type AzureQueryPropertiesInvokeResponseArray []AzureQueryPropertiesInvokeResponseInput
+
+func (AzureQueryPropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureQueryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureQueryPropertiesInvokeResponseArray) ToAzureQueryPropertiesInvokeResponseArrayOutput() AzureQueryPropertiesInvokeResponseArrayOutput {
+	return i.ToAzureQueryPropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureQueryPropertiesInvokeResponseArray) ToAzureQueryPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) AzureQueryPropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureQueryPropertiesInvokeResponseArrayOutput)
+}
+
+// Azure query for the update configuration.
+type AzureQueryPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureQueryPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureQueryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureQueryPropertiesInvokeResponseOutput) ToAzureQueryPropertiesInvokeResponseOutput() AzureQueryPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AzureQueryPropertiesInvokeResponseOutput) ToAzureQueryPropertiesInvokeResponseOutputWithContext(ctx context.Context) AzureQueryPropertiesInvokeResponseOutput {
+	return o
+}
+
+// List of locations to scope the query to.
+func (o AzureQueryPropertiesInvokeResponseOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureQueryPropertiesInvokeResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// List of Subscription or Resource Group ARM Ids.
+func (o AzureQueryPropertiesInvokeResponseOutput) Scope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureQueryPropertiesInvokeResponse) []string { return v.Scope }).(pulumi.StringArrayOutput)
+}
+
+// Tag settings for the VM.
+func (o AzureQueryPropertiesInvokeResponseOutput) TagSettings() TagSettingsPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureQueryPropertiesInvokeResponse) *TagSettingsPropertiesInvokeResponse { return v.TagSettings }).(TagSettingsPropertiesInvokeResponsePtrOutput)
+}
+
+type AzureQueryPropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureQueryPropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureQueryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureQueryPropertiesInvokeResponseArrayOutput) ToAzureQueryPropertiesInvokeResponseArrayOutput() AzureQueryPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureQueryPropertiesInvokeResponseArrayOutput) ToAzureQueryPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) AzureQueryPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureQueryPropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) AzureQueryPropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureQueryPropertiesInvokeResponse {
+		return vs[0].([]AzureQueryPropertiesInvokeResponse)[vs[1].(int)]
+	}).(AzureQueryPropertiesInvokeResponseOutput)
+}
+
+// Azure query for the update configuration.
 type AzureQueryPropertiesResponse struct {
 	// List of locations to scope the query to.
 	Locations []string `pulumi:"locations"`
@@ -961,6 +1362,70 @@ func (o ErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 		}
 		return v.Message
 	}).(pulumi.StringPtrOutput)
+}
+
+// Error response of an operation failure
+type ErrorResponseInvokeResponse struct {
+	// Error code
+	Code *string `pulumi:"code"`
+	// Error message indicating why the operation failed.
+	Message *string `pulumi:"message"`
+}
+
+// ErrorResponseInvokeResponseInput is an input type that accepts ErrorResponseInvokeResponseArgs and ErrorResponseInvokeResponseOutput values.
+// You can construct a concrete instance of `ErrorResponseInvokeResponseInput` via:
+//
+//          ErrorResponseInvokeResponseArgs{...}
+type ErrorResponseInvokeResponseInput interface {
+	pulumi.Input
+
+	ToErrorResponseInvokeResponseOutput() ErrorResponseInvokeResponseOutput
+	ToErrorResponseInvokeResponseOutputWithContext(context.Context) ErrorResponseInvokeResponseOutput
+}
+
+// Error response of an operation failure
+type ErrorResponseInvokeResponseArgs struct {
+	// Error code
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// Error message indicating why the operation failed.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+}
+
+func (ErrorResponseInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorResponseInvokeResponse)(nil)).Elem()
+}
+
+func (i ErrorResponseInvokeResponseArgs) ToErrorResponseInvokeResponseOutput() ErrorResponseInvokeResponseOutput {
+	return i.ToErrorResponseInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ErrorResponseInvokeResponseArgs) ToErrorResponseInvokeResponseOutputWithContext(ctx context.Context) ErrorResponseInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseInvokeResponseOutput)
+}
+
+// Error response of an operation failure
+type ErrorResponseInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorResponseInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorResponseInvokeResponse)(nil)).Elem()
+}
+
+func (o ErrorResponseInvokeResponseOutput) ToErrorResponseInvokeResponseOutput() ErrorResponseInvokeResponseOutput {
+	return o
+}
+
+func (o ErrorResponseInvokeResponseOutput) ToErrorResponseInvokeResponseOutputWithContext(ctx context.Context) ErrorResponseInvokeResponseOutput {
+	return o
+}
+
+// Error code
+func (o ErrorResponseInvokeResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ErrorResponseInvokeResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// Error message indicating why the operation failed.
+func (o ErrorResponseInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ErrorResponseInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
 // Error response of an operation failure
@@ -1308,6 +1773,197 @@ func (o LinuxPropertiesPtrOutput) RebootSetting() pulumi.StringPtrOutput {
 }
 
 // Linux specific update configuration.
+type LinuxPropertiesInvokeResponse struct {
+	// packages excluded from the software update configuration.
+	ExcludedPackageNameMasks []string `pulumi:"excludedPackageNameMasks"`
+	// Update classifications included in the software update configuration.
+	IncludedPackageClassifications *string `pulumi:"includedPackageClassifications"`
+	// packages included from the software update configuration.
+	IncludedPackageNameMasks []string `pulumi:"includedPackageNameMasks"`
+	// Reboot setting for the software update configuration.
+	RebootSetting *string `pulumi:"rebootSetting"`
+}
+
+// LinuxPropertiesInvokeResponseInput is an input type that accepts LinuxPropertiesInvokeResponseArgs and LinuxPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `LinuxPropertiesInvokeResponseInput` via:
+//
+//          LinuxPropertiesInvokeResponseArgs{...}
+type LinuxPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLinuxPropertiesInvokeResponseOutput() LinuxPropertiesInvokeResponseOutput
+	ToLinuxPropertiesInvokeResponseOutputWithContext(context.Context) LinuxPropertiesInvokeResponseOutput
+}
+
+// Linux specific update configuration.
+type LinuxPropertiesInvokeResponseArgs struct {
+	// packages excluded from the software update configuration.
+	ExcludedPackageNameMasks pulumi.StringArrayInput `pulumi:"excludedPackageNameMasks"`
+	// Update classifications included in the software update configuration.
+	IncludedPackageClassifications pulumi.StringPtrInput `pulumi:"includedPackageClassifications"`
+	// packages included from the software update configuration.
+	IncludedPackageNameMasks pulumi.StringArrayInput `pulumi:"includedPackageNameMasks"`
+	// Reboot setting for the software update configuration.
+	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
+}
+
+func (LinuxPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i LinuxPropertiesInvokeResponseArgs) ToLinuxPropertiesInvokeResponseOutput() LinuxPropertiesInvokeResponseOutput {
+	return i.ToLinuxPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LinuxPropertiesInvokeResponseArgs) ToLinuxPropertiesInvokeResponseOutputWithContext(ctx context.Context) LinuxPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxPropertiesInvokeResponseOutput)
+}
+
+func (i LinuxPropertiesInvokeResponseArgs) ToLinuxPropertiesInvokeResponsePtrOutput() LinuxPropertiesInvokeResponsePtrOutput {
+	return i.ToLinuxPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LinuxPropertiesInvokeResponseArgs) ToLinuxPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxPropertiesInvokeResponseOutput).ToLinuxPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// LinuxPropertiesInvokeResponsePtrInput is an input type that accepts LinuxPropertiesInvokeResponseArgs, LinuxPropertiesInvokeResponsePtr and LinuxPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `LinuxPropertiesInvokeResponsePtrInput` via:
+//
+//          LinuxPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LinuxPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToLinuxPropertiesInvokeResponsePtrOutput() LinuxPropertiesInvokeResponsePtrOutput
+	ToLinuxPropertiesInvokeResponsePtrOutputWithContext(context.Context) LinuxPropertiesInvokeResponsePtrOutput
+}
+
+type linuxPropertiesInvokeResponsePtrType LinuxPropertiesInvokeResponseArgs
+
+func LinuxPropertiesInvokeResponsePtr(v *LinuxPropertiesInvokeResponseArgs) LinuxPropertiesInvokeResponsePtrInput {
+	return (*linuxPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*linuxPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *linuxPropertiesInvokeResponsePtrType) ToLinuxPropertiesInvokeResponsePtrOutput() LinuxPropertiesInvokeResponsePtrOutput {
+	return i.ToLinuxPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *linuxPropertiesInvokeResponsePtrType) ToLinuxPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxPropertiesInvokeResponsePtrOutput)
+}
+
+// Linux specific update configuration.
+type LinuxPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LinuxPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o LinuxPropertiesInvokeResponseOutput) ToLinuxPropertiesInvokeResponseOutput() LinuxPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o LinuxPropertiesInvokeResponseOutput) ToLinuxPropertiesInvokeResponseOutputWithContext(ctx context.Context) LinuxPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o LinuxPropertiesInvokeResponseOutput) ToLinuxPropertiesInvokeResponsePtrOutput() LinuxPropertiesInvokeResponsePtrOutput {
+	return o.ToLinuxPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LinuxPropertiesInvokeResponseOutput) ToLinuxPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LinuxPropertiesInvokeResponse) *LinuxPropertiesInvokeResponse {
+		return &v
+	}).(LinuxPropertiesInvokeResponsePtrOutput)
+}
+
+// packages excluded from the software update configuration.
+func (o LinuxPropertiesInvokeResponseOutput) ExcludedPackageNameMasks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxPropertiesInvokeResponse) []string { return v.ExcludedPackageNameMasks }).(pulumi.StringArrayOutput)
+}
+
+// Update classifications included in the software update configuration.
+func (o LinuxPropertiesInvokeResponseOutput) IncludedPackageClassifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxPropertiesInvokeResponse) *string { return v.IncludedPackageClassifications }).(pulumi.StringPtrOutput)
+}
+
+// packages included from the software update configuration.
+func (o LinuxPropertiesInvokeResponseOutput) IncludedPackageNameMasks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinuxPropertiesInvokeResponse) []string { return v.IncludedPackageNameMasks }).(pulumi.StringArrayOutput)
+}
+
+// Reboot setting for the software update configuration.
+func (o LinuxPropertiesInvokeResponseOutput) RebootSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxPropertiesInvokeResponse) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
+}
+
+type LinuxPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o LinuxPropertiesInvokeResponsePtrOutput) ToLinuxPropertiesInvokeResponsePtrOutput() LinuxPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LinuxPropertiesInvokeResponsePtrOutput) ToLinuxPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LinuxPropertiesInvokeResponsePtrOutput) Elem() LinuxPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *LinuxPropertiesInvokeResponse) LinuxPropertiesInvokeResponse { return *v }).(LinuxPropertiesInvokeResponseOutput)
+}
+
+// packages excluded from the software update configuration.
+func (o LinuxPropertiesInvokeResponsePtrOutput) ExcludedPackageNameMasks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LinuxPropertiesInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedPackageNameMasks
+	}).(pulumi.StringArrayOutput)
+}
+
+// Update classifications included in the software update configuration.
+func (o LinuxPropertiesInvokeResponsePtrOutput) IncludedPackageClassifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPackageClassifications
+	}).(pulumi.StringPtrOutput)
+}
+
+// packages included from the software update configuration.
+func (o LinuxPropertiesInvokeResponsePtrOutput) IncludedPackageNameMasks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LinuxPropertiesInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPackageNameMasks
+	}).(pulumi.StringArrayOutput)
+}
+
+// Reboot setting for the software update configuration.
+func (o LinuxPropertiesInvokeResponsePtrOutput) RebootSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RebootSetting
+	}).(pulumi.StringPtrOutput)
+}
+
+// Linux specific update configuration.
 type LinuxPropertiesResponse struct {
 	// packages excluded from the software update configuration.
 	ExcludedPackageNameMasks []string `pulumi:"excludedPackageNameMasks"`
@@ -1605,6 +2261,115 @@ func (o NonAzureQueryPropertiesArrayOutput) Index(i pulumi.IntInput) NonAzureQue
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NonAzureQueryProperties {
 		return vs[0].([]NonAzureQueryProperties)[vs[1].(int)]
 	}).(NonAzureQueryPropertiesOutput)
+}
+
+// Non Azure query for the update configuration.
+type NonAzureQueryPropertiesInvokeResponse struct {
+	// Log Analytics Saved Search name.
+	FunctionAlias *string `pulumi:"functionAlias"`
+	// Workspace Id for Log Analytics in which the saved Search is resided.
+	WorkspaceId *string `pulumi:"workspaceId"`
+}
+
+// NonAzureQueryPropertiesInvokeResponseInput is an input type that accepts NonAzureQueryPropertiesInvokeResponseArgs and NonAzureQueryPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `NonAzureQueryPropertiesInvokeResponseInput` via:
+//
+//          NonAzureQueryPropertiesInvokeResponseArgs{...}
+type NonAzureQueryPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNonAzureQueryPropertiesInvokeResponseOutput() NonAzureQueryPropertiesInvokeResponseOutput
+	ToNonAzureQueryPropertiesInvokeResponseOutputWithContext(context.Context) NonAzureQueryPropertiesInvokeResponseOutput
+}
+
+// Non Azure query for the update configuration.
+type NonAzureQueryPropertiesInvokeResponseArgs struct {
+	// Log Analytics Saved Search name.
+	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
+	// Workspace Id for Log Analytics in which the saved Search is resided.
+	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
+}
+
+func (NonAzureQueryPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NonAzureQueryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i NonAzureQueryPropertiesInvokeResponseArgs) ToNonAzureQueryPropertiesInvokeResponseOutput() NonAzureQueryPropertiesInvokeResponseOutput {
+	return i.ToNonAzureQueryPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NonAzureQueryPropertiesInvokeResponseArgs) ToNonAzureQueryPropertiesInvokeResponseOutputWithContext(ctx context.Context) NonAzureQueryPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NonAzureQueryPropertiesInvokeResponseOutput)
+}
+
+// NonAzureQueryPropertiesInvokeResponseArrayInput is an input type that accepts NonAzureQueryPropertiesInvokeResponseArray and NonAzureQueryPropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NonAzureQueryPropertiesInvokeResponseArrayInput` via:
+//
+//          NonAzureQueryPropertiesInvokeResponseArray{ NonAzureQueryPropertiesInvokeResponseArgs{...} }
+type NonAzureQueryPropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNonAzureQueryPropertiesInvokeResponseArrayOutput() NonAzureQueryPropertiesInvokeResponseArrayOutput
+	ToNonAzureQueryPropertiesInvokeResponseArrayOutputWithContext(context.Context) NonAzureQueryPropertiesInvokeResponseArrayOutput
+}
+
+type NonAzureQueryPropertiesInvokeResponseArray []NonAzureQueryPropertiesInvokeResponseInput
+
+func (NonAzureQueryPropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NonAzureQueryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i NonAzureQueryPropertiesInvokeResponseArray) ToNonAzureQueryPropertiesInvokeResponseArrayOutput() NonAzureQueryPropertiesInvokeResponseArrayOutput {
+	return i.ToNonAzureQueryPropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NonAzureQueryPropertiesInvokeResponseArray) ToNonAzureQueryPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) NonAzureQueryPropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NonAzureQueryPropertiesInvokeResponseArrayOutput)
+}
+
+// Non Azure query for the update configuration.
+type NonAzureQueryPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NonAzureQueryPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NonAzureQueryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o NonAzureQueryPropertiesInvokeResponseOutput) ToNonAzureQueryPropertiesInvokeResponseOutput() NonAzureQueryPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o NonAzureQueryPropertiesInvokeResponseOutput) ToNonAzureQueryPropertiesInvokeResponseOutputWithContext(ctx context.Context) NonAzureQueryPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Log Analytics Saved Search name.
+func (o NonAzureQueryPropertiesInvokeResponseOutput) FunctionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NonAzureQueryPropertiesInvokeResponse) *string { return v.FunctionAlias }).(pulumi.StringPtrOutput)
+}
+
+// Workspace Id for Log Analytics in which the saved Search is resided.
+func (o NonAzureQueryPropertiesInvokeResponseOutput) WorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NonAzureQueryPropertiesInvokeResponse) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
+}
+
+type NonAzureQueryPropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NonAzureQueryPropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NonAzureQueryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o NonAzureQueryPropertiesInvokeResponseArrayOutput) ToNonAzureQueryPropertiesInvokeResponseArrayOutput() NonAzureQueryPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NonAzureQueryPropertiesInvokeResponseArrayOutput) ToNonAzureQueryPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) NonAzureQueryPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NonAzureQueryPropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) NonAzureQueryPropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NonAzureQueryPropertiesInvokeResponse {
+		return vs[0].([]NonAzureQueryPropertiesInvokeResponse)[vs[1].(int)]
+	}).(NonAzureQueryPropertiesInvokeResponseOutput)
 }
 
 // Non Azure query for the update configuration.
@@ -2076,6 +2841,178 @@ func (o SchedulePropertiesPtrOutput) TimeZone() pulumi.StringPtrOutput {
 		}
 		return v.TimeZone
 	}).(pulumi.StringPtrOutput)
+}
+
+// Definition of schedule parameters.
+type SchedulePropertiesInvokeResponse struct {
+	// Gets or sets the advanced schedule.
+	AdvancedSchedule *AdvancedScheduleInvokeResponse `pulumi:"advancedSchedule"`
+	// Gets or sets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets or sets the end time of the schedule.
+	ExpiryTime *string `pulumi:"expiryTime"`
+	// Gets or sets the expiry time's offset in minutes.
+	ExpiryTimeOffsetMinutes *float64 `pulumi:"expiryTimeOffsetMinutes"`
+	// Gets or sets the frequency of the schedule.
+	Frequency *string `pulumi:"frequency"`
+	// Gets or sets the interval of the schedule.
+	Interval *int `pulumi:"interval"`
+	// Gets or sets a value indicating whether this schedule is enabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// Gets or sets the next run time of the schedule.
+	NextRun *string `pulumi:"nextRun"`
+	// Gets or sets the next run time's offset in minutes.
+	NextRunOffsetMinutes *float64 `pulumi:"nextRunOffsetMinutes"`
+	// Gets or sets the start time of the schedule.
+	StartTime *string `pulumi:"startTime"`
+	// Gets the start time's offset in minutes.
+	StartTimeOffsetMinutes float64 `pulumi:"startTimeOffsetMinutes"`
+	// Gets or sets the time zone of the schedule.
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// SchedulePropertiesInvokeResponseInput is an input type that accepts SchedulePropertiesInvokeResponseArgs and SchedulePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SchedulePropertiesInvokeResponseInput` via:
+//
+//          SchedulePropertiesInvokeResponseArgs{...}
+type SchedulePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSchedulePropertiesInvokeResponseOutput() SchedulePropertiesInvokeResponseOutput
+	ToSchedulePropertiesInvokeResponseOutputWithContext(context.Context) SchedulePropertiesInvokeResponseOutput
+}
+
+// Definition of schedule parameters.
+type SchedulePropertiesInvokeResponseArgs struct {
+	// Gets or sets the advanced schedule.
+	AdvancedSchedule AdvancedScheduleInvokeResponsePtrInput `pulumi:"advancedSchedule"`
+	// Gets or sets the creation time.
+	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Gets or sets the end time of the schedule.
+	ExpiryTime pulumi.StringPtrInput `pulumi:"expiryTime"`
+	// Gets or sets the expiry time's offset in minutes.
+	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput `pulumi:"expiryTimeOffsetMinutes"`
+	// Gets or sets the frequency of the schedule.
+	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+	// Gets or sets the interval of the schedule.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// Gets or sets a value indicating whether this schedule is enabled.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Gets or sets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
+	// Gets or sets the next run time of the schedule.
+	NextRun pulumi.StringPtrInput `pulumi:"nextRun"`
+	// Gets or sets the next run time's offset in minutes.
+	NextRunOffsetMinutes pulumi.Float64PtrInput `pulumi:"nextRunOffsetMinutes"`
+	// Gets or sets the start time of the schedule.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// Gets the start time's offset in minutes.
+	StartTimeOffsetMinutes pulumi.Float64Input `pulumi:"startTimeOffsetMinutes"`
+	// Gets or sets the time zone of the schedule.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (SchedulePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchedulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SchedulePropertiesInvokeResponseArgs) ToSchedulePropertiesInvokeResponseOutput() SchedulePropertiesInvokeResponseOutput {
+	return i.ToSchedulePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SchedulePropertiesInvokeResponseArgs) ToSchedulePropertiesInvokeResponseOutputWithContext(ctx context.Context) SchedulePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchedulePropertiesInvokeResponseOutput)
+}
+
+// Definition of schedule parameters.
+type SchedulePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SchedulePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchedulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SchedulePropertiesInvokeResponseOutput) ToSchedulePropertiesInvokeResponseOutput() SchedulePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SchedulePropertiesInvokeResponseOutput) ToSchedulePropertiesInvokeResponseOutputWithContext(ctx context.Context) SchedulePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the advanced schedule.
+func (o SchedulePropertiesInvokeResponseOutput) AdvancedSchedule() AdvancedScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *AdvancedScheduleInvokeResponse { return v.AdvancedSchedule }).(AdvancedScheduleInvokeResponsePtrOutput)
+}
+
+// Gets or sets the creation time.
+func (o SchedulePropertiesInvokeResponseOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the description.
+func (o SchedulePropertiesInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the end time of the schedule.
+func (o SchedulePropertiesInvokeResponseOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *string { return v.ExpiryTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the expiry time's offset in minutes.
+func (o SchedulePropertiesInvokeResponseOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *float64 { return v.ExpiryTimeOffsetMinutes }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the frequency of the schedule.
+func (o SchedulePropertiesInvokeResponseOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the interval of the schedule.
+func (o SchedulePropertiesInvokeResponseOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets a value indicating whether this schedule is enabled.
+func (o SchedulePropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o SchedulePropertiesInvokeResponseOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the next run time of the schedule.
+func (o SchedulePropertiesInvokeResponseOutput) NextRun() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *string { return v.NextRun }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the next run time's offset in minutes.
+func (o SchedulePropertiesInvokeResponseOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *float64 { return v.NextRunOffsetMinutes }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the start time of the schedule.
+func (o SchedulePropertiesInvokeResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets the start time's offset in minutes.
+func (o SchedulePropertiesInvokeResponseOutput) StartTimeOffsetMinutes() pulumi.Float64Output {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) float64 { return v.StartTimeOffsetMinutes }).(pulumi.Float64Output)
+}
+
+// Gets or sets the time zone of the schedule.
+func (o SchedulePropertiesInvokeResponseOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchedulePropertiesInvokeResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
 // Definition of schedule parameters.
@@ -2613,6 +3550,72 @@ func (o SoftwareUpdateConfigurationTasksPtrOutput) PreTask() TaskPropertiesPtrOu
 }
 
 // Task properties of the software update configuration.
+type SoftwareUpdateConfigurationTasksInvokeResponse struct {
+	// Post task properties.
+	PostTask *TaskPropertiesInvokeResponse `pulumi:"postTask"`
+	// Pre task properties.
+	PreTask *TaskPropertiesInvokeResponse `pulumi:"preTask"`
+}
+
+// SoftwareUpdateConfigurationTasksInvokeResponseInput is an input type that accepts SoftwareUpdateConfigurationTasksInvokeResponseArgs and SoftwareUpdateConfigurationTasksInvokeResponseOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationTasksInvokeResponseInput` via:
+//
+//          SoftwareUpdateConfigurationTasksInvokeResponseArgs{...}
+type SoftwareUpdateConfigurationTasksInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSoftwareUpdateConfigurationTasksInvokeResponseOutput() SoftwareUpdateConfigurationTasksInvokeResponseOutput
+	ToSoftwareUpdateConfigurationTasksInvokeResponseOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksInvokeResponseOutput
+}
+
+// Task properties of the software update configuration.
+type SoftwareUpdateConfigurationTasksInvokeResponseArgs struct {
+	// Post task properties.
+	PostTask TaskPropertiesInvokeResponsePtrInput `pulumi:"postTask"`
+	// Pre task properties.
+	PreTask TaskPropertiesInvokeResponsePtrInput `pulumi:"preTask"`
+}
+
+func (SoftwareUpdateConfigurationTasksInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationTasksInvokeResponse)(nil)).Elem()
+}
+
+func (i SoftwareUpdateConfigurationTasksInvokeResponseArgs) ToSoftwareUpdateConfigurationTasksInvokeResponseOutput() SoftwareUpdateConfigurationTasksInvokeResponseOutput {
+	return i.ToSoftwareUpdateConfigurationTasksInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationTasksInvokeResponseArgs) ToSoftwareUpdateConfigurationTasksInvokeResponseOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksInvokeResponseOutput)
+}
+
+// Task properties of the software update configuration.
+type SoftwareUpdateConfigurationTasksInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SoftwareUpdateConfigurationTasksInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationTasksInvokeResponse)(nil)).Elem()
+}
+
+func (o SoftwareUpdateConfigurationTasksInvokeResponseOutput) ToSoftwareUpdateConfigurationTasksInvokeResponseOutput() SoftwareUpdateConfigurationTasksInvokeResponseOutput {
+	return o
+}
+
+func (o SoftwareUpdateConfigurationTasksInvokeResponseOutput) ToSoftwareUpdateConfigurationTasksInvokeResponseOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksInvokeResponseOutput {
+	return o
+}
+
+// Post task properties.
+func (o SoftwareUpdateConfigurationTasksInvokeResponseOutput) PostTask() TaskPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksInvokeResponse) *TaskPropertiesInvokeResponse {
+		return v.PostTask
+	}).(TaskPropertiesInvokeResponsePtrOutput)
+}
+
+// Pre task properties.
+func (o SoftwareUpdateConfigurationTasksInvokeResponseOutput) PreTask() TaskPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationTasksInvokeResponse) *TaskPropertiesInvokeResponse { return v.PreTask }).(TaskPropertiesInvokeResponsePtrOutput)
+}
+
+// Task properties of the software update configuration.
 type SoftwareUpdateConfigurationTasksResponse struct {
 	// Post task properties.
 	PostTask *TaskPropertiesResponse `pulumi:"postTask"`
@@ -3088,6 +4091,159 @@ func (o TagSettingsPropertiesPtrOutput) Tags() pulumi.StringArrayMapOutput {
 }
 
 // Tag filter information for the VM.
+type TagSettingsPropertiesInvokeResponse struct {
+	// Filter VMs by Any or All specified tags.
+	FilterOperator *string `pulumi:"filterOperator"`
+	// Dictionary of tags with its list of values.
+	Tags map[string][]string `pulumi:"tags"`
+}
+
+// TagSettingsPropertiesInvokeResponseInput is an input type that accepts TagSettingsPropertiesInvokeResponseArgs and TagSettingsPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `TagSettingsPropertiesInvokeResponseInput` via:
+//
+//          TagSettingsPropertiesInvokeResponseArgs{...}
+type TagSettingsPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTagSettingsPropertiesInvokeResponseOutput() TagSettingsPropertiesInvokeResponseOutput
+	ToTagSettingsPropertiesInvokeResponseOutputWithContext(context.Context) TagSettingsPropertiesInvokeResponseOutput
+}
+
+// Tag filter information for the VM.
+type TagSettingsPropertiesInvokeResponseArgs struct {
+	// Filter VMs by Any or All specified tags.
+	FilterOperator pulumi.StringPtrInput `pulumi:"filterOperator"`
+	// Dictionary of tags with its list of values.
+	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
+}
+
+func (TagSettingsPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagSettingsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i TagSettingsPropertiesInvokeResponseArgs) ToTagSettingsPropertiesInvokeResponseOutput() TagSettingsPropertiesInvokeResponseOutput {
+	return i.ToTagSettingsPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TagSettingsPropertiesInvokeResponseArgs) ToTagSettingsPropertiesInvokeResponseOutputWithContext(ctx context.Context) TagSettingsPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagSettingsPropertiesInvokeResponseOutput)
+}
+
+func (i TagSettingsPropertiesInvokeResponseArgs) ToTagSettingsPropertiesInvokeResponsePtrOutput() TagSettingsPropertiesInvokeResponsePtrOutput {
+	return i.ToTagSettingsPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TagSettingsPropertiesInvokeResponseArgs) ToTagSettingsPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TagSettingsPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagSettingsPropertiesInvokeResponseOutput).ToTagSettingsPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// TagSettingsPropertiesInvokeResponsePtrInput is an input type that accepts TagSettingsPropertiesInvokeResponseArgs, TagSettingsPropertiesInvokeResponsePtr and TagSettingsPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TagSettingsPropertiesInvokeResponsePtrInput` via:
+//
+//          TagSettingsPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TagSettingsPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToTagSettingsPropertiesInvokeResponsePtrOutput() TagSettingsPropertiesInvokeResponsePtrOutput
+	ToTagSettingsPropertiesInvokeResponsePtrOutputWithContext(context.Context) TagSettingsPropertiesInvokeResponsePtrOutput
+}
+
+type tagSettingsPropertiesInvokeResponsePtrType TagSettingsPropertiesInvokeResponseArgs
+
+func TagSettingsPropertiesInvokeResponsePtr(v *TagSettingsPropertiesInvokeResponseArgs) TagSettingsPropertiesInvokeResponsePtrInput {
+	return (*tagSettingsPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*tagSettingsPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagSettingsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *tagSettingsPropertiesInvokeResponsePtrType) ToTagSettingsPropertiesInvokeResponsePtrOutput() TagSettingsPropertiesInvokeResponsePtrOutput {
+	return i.ToTagSettingsPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *tagSettingsPropertiesInvokeResponsePtrType) ToTagSettingsPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TagSettingsPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagSettingsPropertiesInvokeResponsePtrOutput)
+}
+
+// Tag filter information for the VM.
+type TagSettingsPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TagSettingsPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagSettingsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o TagSettingsPropertiesInvokeResponseOutput) ToTagSettingsPropertiesInvokeResponseOutput() TagSettingsPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o TagSettingsPropertiesInvokeResponseOutput) ToTagSettingsPropertiesInvokeResponseOutputWithContext(ctx context.Context) TagSettingsPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o TagSettingsPropertiesInvokeResponseOutput) ToTagSettingsPropertiesInvokeResponsePtrOutput() TagSettingsPropertiesInvokeResponsePtrOutput {
+	return o.ToTagSettingsPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TagSettingsPropertiesInvokeResponseOutput) ToTagSettingsPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TagSettingsPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TagSettingsPropertiesInvokeResponse) *TagSettingsPropertiesInvokeResponse {
+		return &v
+	}).(TagSettingsPropertiesInvokeResponsePtrOutput)
+}
+
+// Filter VMs by Any or All specified tags.
+func (o TagSettingsPropertiesInvokeResponseOutput) FilterOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TagSettingsPropertiesInvokeResponse) *string { return v.FilterOperator }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of tags with its list of values.
+func (o TagSettingsPropertiesInvokeResponseOutput) Tags() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v TagSettingsPropertiesInvokeResponse) map[string][]string { return v.Tags }).(pulumi.StringArrayMapOutput)
+}
+
+type TagSettingsPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TagSettingsPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagSettingsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o TagSettingsPropertiesInvokeResponsePtrOutput) ToTagSettingsPropertiesInvokeResponsePtrOutput() TagSettingsPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TagSettingsPropertiesInvokeResponsePtrOutput) ToTagSettingsPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TagSettingsPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TagSettingsPropertiesInvokeResponsePtrOutput) Elem() TagSettingsPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *TagSettingsPropertiesInvokeResponse) TagSettingsPropertiesInvokeResponse { return *v }).(TagSettingsPropertiesInvokeResponseOutput)
+}
+
+// Filter VMs by Any or All specified tags.
+func (o TagSettingsPropertiesInvokeResponsePtrOutput) FilterOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagSettingsPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterOperator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of tags with its list of values.
+func (o TagSettingsPropertiesInvokeResponsePtrOutput) Tags() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *TagSettingsPropertiesInvokeResponse) map[string][]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringArrayMapOutput)
+}
+
+// Tag filter information for the VM.
 type TagSettingsPropertiesResponse struct {
 	// Filter VMs by Any or All specified tags.
 	FilterOperator *string `pulumi:"filterOperator"`
@@ -3394,6 +4550,161 @@ func (o TargetPropertiesPtrOutput) NonAzureQueries() NonAzureQueryPropertiesArra
 }
 
 // Group specific to the update configuration.
+type TargetPropertiesInvokeResponse struct {
+	// List of Azure queries in the software update configuration.
+	AzureQueries []AzureQueryPropertiesInvokeResponse `pulumi:"azureQueries"`
+	// List of non Azure queries in the software update configuration.
+	NonAzureQueries []NonAzureQueryPropertiesInvokeResponse `pulumi:"nonAzureQueries"`
+}
+
+// TargetPropertiesInvokeResponseInput is an input type that accepts TargetPropertiesInvokeResponseArgs and TargetPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `TargetPropertiesInvokeResponseInput` via:
+//
+//          TargetPropertiesInvokeResponseArgs{...}
+type TargetPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTargetPropertiesInvokeResponseOutput() TargetPropertiesInvokeResponseOutput
+	ToTargetPropertiesInvokeResponseOutputWithContext(context.Context) TargetPropertiesInvokeResponseOutput
+}
+
+// Group specific to the update configuration.
+type TargetPropertiesInvokeResponseArgs struct {
+	// List of Azure queries in the software update configuration.
+	AzureQueries AzureQueryPropertiesInvokeResponseArrayInput `pulumi:"azureQueries"`
+	// List of non Azure queries in the software update configuration.
+	NonAzureQueries NonAzureQueryPropertiesInvokeResponseArrayInput `pulumi:"nonAzureQueries"`
+}
+
+func (TargetPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i TargetPropertiesInvokeResponseArgs) ToTargetPropertiesInvokeResponseOutput() TargetPropertiesInvokeResponseOutput {
+	return i.ToTargetPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TargetPropertiesInvokeResponseArgs) ToTargetPropertiesInvokeResponseOutputWithContext(ctx context.Context) TargetPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetPropertiesInvokeResponseOutput)
+}
+
+func (i TargetPropertiesInvokeResponseArgs) ToTargetPropertiesInvokeResponsePtrOutput() TargetPropertiesInvokeResponsePtrOutput {
+	return i.ToTargetPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TargetPropertiesInvokeResponseArgs) ToTargetPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TargetPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetPropertiesInvokeResponseOutput).ToTargetPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// TargetPropertiesInvokeResponsePtrInput is an input type that accepts TargetPropertiesInvokeResponseArgs, TargetPropertiesInvokeResponsePtr and TargetPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TargetPropertiesInvokeResponsePtrInput` via:
+//
+//          TargetPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TargetPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToTargetPropertiesInvokeResponsePtrOutput() TargetPropertiesInvokeResponsePtrOutput
+	ToTargetPropertiesInvokeResponsePtrOutputWithContext(context.Context) TargetPropertiesInvokeResponsePtrOutput
+}
+
+type targetPropertiesInvokeResponsePtrType TargetPropertiesInvokeResponseArgs
+
+func TargetPropertiesInvokeResponsePtr(v *TargetPropertiesInvokeResponseArgs) TargetPropertiesInvokeResponsePtrInput {
+	return (*targetPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*targetPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *targetPropertiesInvokeResponsePtrType) ToTargetPropertiesInvokeResponsePtrOutput() TargetPropertiesInvokeResponsePtrOutput {
+	return i.ToTargetPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *targetPropertiesInvokeResponsePtrType) ToTargetPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TargetPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetPropertiesInvokeResponsePtrOutput)
+}
+
+// Group specific to the update configuration.
+type TargetPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TargetPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o TargetPropertiesInvokeResponseOutput) ToTargetPropertiesInvokeResponseOutput() TargetPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o TargetPropertiesInvokeResponseOutput) ToTargetPropertiesInvokeResponseOutputWithContext(ctx context.Context) TargetPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o TargetPropertiesInvokeResponseOutput) ToTargetPropertiesInvokeResponsePtrOutput() TargetPropertiesInvokeResponsePtrOutput {
+	return o.ToTargetPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TargetPropertiesInvokeResponseOutput) ToTargetPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TargetPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TargetPropertiesInvokeResponse) *TargetPropertiesInvokeResponse {
+		return &v
+	}).(TargetPropertiesInvokeResponsePtrOutput)
+}
+
+// List of Azure queries in the software update configuration.
+func (o TargetPropertiesInvokeResponseOutput) AzureQueries() AzureQueryPropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v TargetPropertiesInvokeResponse) []AzureQueryPropertiesInvokeResponse { return v.AzureQueries }).(AzureQueryPropertiesInvokeResponseArrayOutput)
+}
+
+// List of non Azure queries in the software update configuration.
+func (o TargetPropertiesInvokeResponseOutput) NonAzureQueries() NonAzureQueryPropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v TargetPropertiesInvokeResponse) []NonAzureQueryPropertiesInvokeResponse {
+		return v.NonAzureQueries
+	}).(NonAzureQueryPropertiesInvokeResponseArrayOutput)
+}
+
+type TargetPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TargetPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o TargetPropertiesInvokeResponsePtrOutput) ToTargetPropertiesInvokeResponsePtrOutput() TargetPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TargetPropertiesInvokeResponsePtrOutput) ToTargetPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TargetPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TargetPropertiesInvokeResponsePtrOutput) Elem() TargetPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *TargetPropertiesInvokeResponse) TargetPropertiesInvokeResponse { return *v }).(TargetPropertiesInvokeResponseOutput)
+}
+
+// List of Azure queries in the software update configuration.
+func (o TargetPropertiesInvokeResponsePtrOutput) AzureQueries() AzureQueryPropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *TargetPropertiesInvokeResponse) []AzureQueryPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureQueries
+	}).(AzureQueryPropertiesInvokeResponseArrayOutput)
+}
+
+// List of non Azure queries in the software update configuration.
+func (o TargetPropertiesInvokeResponsePtrOutput) NonAzureQueries() NonAzureQueryPropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *TargetPropertiesInvokeResponse) []NonAzureQueryPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.NonAzureQueries
+	}).(NonAzureQueryPropertiesInvokeResponseArrayOutput)
+}
+
+// Group specific to the update configuration.
 type TargetPropertiesResponse struct {
 	// List of Azure queries in the software update configuration.
 	AzureQueries []AzureQueryPropertiesResponse `pulumi:"azureQueries"`
@@ -3692,6 +5003,159 @@ func (o TaskPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
 // Gets or sets the name of the runbook.
 func (o TaskPropertiesPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// Task properties of the software update configuration.
+type TaskPropertiesInvokeResponse struct {
+	// Gets or sets the parameters of the task.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Gets or sets the name of the runbook.
+	Source *string `pulumi:"source"`
+}
+
+// TaskPropertiesInvokeResponseInput is an input type that accepts TaskPropertiesInvokeResponseArgs and TaskPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `TaskPropertiesInvokeResponseInput` via:
+//
+//          TaskPropertiesInvokeResponseArgs{...}
+type TaskPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTaskPropertiesInvokeResponseOutput() TaskPropertiesInvokeResponseOutput
+	ToTaskPropertiesInvokeResponseOutputWithContext(context.Context) TaskPropertiesInvokeResponseOutput
+}
+
+// Task properties of the software update configuration.
+type TaskPropertiesInvokeResponseArgs struct {
+	// Gets or sets the parameters of the task.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Gets or sets the name of the runbook.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (TaskPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i TaskPropertiesInvokeResponseArgs) ToTaskPropertiesInvokeResponseOutput() TaskPropertiesInvokeResponseOutput {
+	return i.ToTaskPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TaskPropertiesInvokeResponseArgs) ToTaskPropertiesInvokeResponseOutputWithContext(ctx context.Context) TaskPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskPropertiesInvokeResponseOutput)
+}
+
+func (i TaskPropertiesInvokeResponseArgs) ToTaskPropertiesInvokeResponsePtrOutput() TaskPropertiesInvokeResponsePtrOutput {
+	return i.ToTaskPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TaskPropertiesInvokeResponseArgs) ToTaskPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TaskPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskPropertiesInvokeResponseOutput).ToTaskPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// TaskPropertiesInvokeResponsePtrInput is an input type that accepts TaskPropertiesInvokeResponseArgs, TaskPropertiesInvokeResponsePtr and TaskPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TaskPropertiesInvokeResponsePtrInput` via:
+//
+//          TaskPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToTaskPropertiesInvokeResponsePtrOutput() TaskPropertiesInvokeResponsePtrOutput
+	ToTaskPropertiesInvokeResponsePtrOutputWithContext(context.Context) TaskPropertiesInvokeResponsePtrOutput
+}
+
+type taskPropertiesInvokeResponsePtrType TaskPropertiesInvokeResponseArgs
+
+func TaskPropertiesInvokeResponsePtr(v *TaskPropertiesInvokeResponseArgs) TaskPropertiesInvokeResponsePtrInput {
+	return (*taskPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*taskPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *taskPropertiesInvokeResponsePtrType) ToTaskPropertiesInvokeResponsePtrOutput() TaskPropertiesInvokeResponsePtrOutput {
+	return i.ToTaskPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *taskPropertiesInvokeResponsePtrType) ToTaskPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TaskPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskPropertiesInvokeResponsePtrOutput)
+}
+
+// Task properties of the software update configuration.
+type TaskPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TaskPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o TaskPropertiesInvokeResponseOutput) ToTaskPropertiesInvokeResponseOutput() TaskPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o TaskPropertiesInvokeResponseOutput) ToTaskPropertiesInvokeResponseOutputWithContext(ctx context.Context) TaskPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o TaskPropertiesInvokeResponseOutput) ToTaskPropertiesInvokeResponsePtrOutput() TaskPropertiesInvokeResponsePtrOutput {
+	return o.ToTaskPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TaskPropertiesInvokeResponseOutput) ToTaskPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TaskPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TaskPropertiesInvokeResponse) *TaskPropertiesInvokeResponse {
+		return &v
+	}).(TaskPropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the parameters of the task.
+func (o TaskPropertiesInvokeResponseOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TaskPropertiesInvokeResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the name of the runbook.
+func (o TaskPropertiesInvokeResponseOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskPropertiesInvokeResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type TaskPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o TaskPropertiesInvokeResponsePtrOutput) ToTaskPropertiesInvokeResponsePtrOutput() TaskPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TaskPropertiesInvokeResponsePtrOutput) ToTaskPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TaskPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TaskPropertiesInvokeResponsePtrOutput) Elem() TaskPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *TaskPropertiesInvokeResponse) TaskPropertiesInvokeResponse { return *v }).(TaskPropertiesInvokeResponseOutput)
+}
+
+// Gets or sets the parameters of the task.
+func (o TaskPropertiesInvokeResponsePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TaskPropertiesInvokeResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the name of the runbook.
+func (o TaskPropertiesInvokeResponsePtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4098,6 +5562,115 @@ func (o UpdateConfigurationPtrOutput) Windows() WindowsPropertiesPtrOutput {
 		}
 		return v.Windows
 	}).(WindowsPropertiesPtrOutput)
+}
+
+// Update specific properties of the software update configuration.
+type UpdateConfigurationInvokeResponse struct {
+	// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
+	AzureVirtualMachines []string `pulumi:"azureVirtualMachines"`
+	// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
+	Duration *string `pulumi:"duration"`
+	// Linux specific update configuration.
+	Linux *LinuxPropertiesInvokeResponse `pulumi:"linux"`
+	// List of names of non-azure machines targeted by the software update configuration.
+	NonAzureComputerNames []string `pulumi:"nonAzureComputerNames"`
+	// operating system of target machines
+	OperatingSystem string `pulumi:"operatingSystem"`
+	// Group targets for the software update configuration.
+	Targets *TargetPropertiesInvokeResponse `pulumi:"targets"`
+	// Windows specific update configuration.
+	Windows *WindowsPropertiesInvokeResponse `pulumi:"windows"`
+}
+
+// UpdateConfigurationInvokeResponseInput is an input type that accepts UpdateConfigurationInvokeResponseArgs and UpdateConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `UpdateConfigurationInvokeResponseInput` via:
+//
+//          UpdateConfigurationInvokeResponseArgs{...}
+type UpdateConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUpdateConfigurationInvokeResponseOutput() UpdateConfigurationInvokeResponseOutput
+	ToUpdateConfigurationInvokeResponseOutputWithContext(context.Context) UpdateConfigurationInvokeResponseOutput
+}
+
+// Update specific properties of the software update configuration.
+type UpdateConfigurationInvokeResponseArgs struct {
+	// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
+	AzureVirtualMachines pulumi.StringArrayInput `pulumi:"azureVirtualMachines"`
+	// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// Linux specific update configuration.
+	Linux LinuxPropertiesInvokeResponsePtrInput `pulumi:"linux"`
+	// List of names of non-azure machines targeted by the software update configuration.
+	NonAzureComputerNames pulumi.StringArrayInput `pulumi:"nonAzureComputerNames"`
+	// operating system of target machines
+	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
+	// Group targets for the software update configuration.
+	Targets TargetPropertiesInvokeResponsePtrInput `pulumi:"targets"`
+	// Windows specific update configuration.
+	Windows WindowsPropertiesInvokeResponsePtrInput `pulumi:"windows"`
+}
+
+func (UpdateConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpdateConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i UpdateConfigurationInvokeResponseArgs) ToUpdateConfigurationInvokeResponseOutput() UpdateConfigurationInvokeResponseOutput {
+	return i.ToUpdateConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UpdateConfigurationInvokeResponseArgs) ToUpdateConfigurationInvokeResponseOutputWithContext(ctx context.Context) UpdateConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UpdateConfigurationInvokeResponseOutput)
+}
+
+// Update specific properties of the software update configuration.
+type UpdateConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UpdateConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UpdateConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o UpdateConfigurationInvokeResponseOutput) ToUpdateConfigurationInvokeResponseOutput() UpdateConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o UpdateConfigurationInvokeResponseOutput) ToUpdateConfigurationInvokeResponseOutputWithContext(ctx context.Context) UpdateConfigurationInvokeResponseOutput {
+	return o
+}
+
+// List of azure resource Ids for azure virtual machines targeted by the software update configuration.
+func (o UpdateConfigurationInvokeResponseOutput) AzureVirtualMachines() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UpdateConfigurationInvokeResponse) []string { return v.AzureVirtualMachines }).(pulumi.StringArrayOutput)
+}
+
+// Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
+func (o UpdateConfigurationInvokeResponseOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UpdateConfigurationInvokeResponse) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+// Linux specific update configuration.
+func (o UpdateConfigurationInvokeResponseOutput) Linux() LinuxPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v UpdateConfigurationInvokeResponse) *LinuxPropertiesInvokeResponse { return v.Linux }).(LinuxPropertiesInvokeResponsePtrOutput)
+}
+
+// List of names of non-azure machines targeted by the software update configuration.
+func (o UpdateConfigurationInvokeResponseOutput) NonAzureComputerNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UpdateConfigurationInvokeResponse) []string { return v.NonAzureComputerNames }).(pulumi.StringArrayOutput)
+}
+
+// operating system of target machines
+func (o UpdateConfigurationInvokeResponseOutput) OperatingSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v UpdateConfigurationInvokeResponse) string { return v.OperatingSystem }).(pulumi.StringOutput)
+}
+
+// Group targets for the software update configuration.
+func (o UpdateConfigurationInvokeResponseOutput) Targets() TargetPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v UpdateConfigurationInvokeResponse) *TargetPropertiesInvokeResponse { return v.Targets }).(TargetPropertiesInvokeResponsePtrOutput)
+}
+
+// Windows specific update configuration.
+func (o UpdateConfigurationInvokeResponseOutput) Windows() WindowsPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v UpdateConfigurationInvokeResponse) *WindowsPropertiesInvokeResponse { return v.Windows }).(WindowsPropertiesInvokeResponsePtrOutput)
 }
 
 // Update specific properties of the software update configuration.
@@ -4540,6 +6113,197 @@ func (o WindowsPropertiesPtrOutput) RebootSetting() pulumi.StringPtrOutput {
 }
 
 // Windows specific update configuration.
+type WindowsPropertiesInvokeResponse struct {
+	// KB numbers excluded from the software update configuration.
+	ExcludedKbNumbers []string `pulumi:"excludedKbNumbers"`
+	// KB numbers included from the software update configuration.
+	IncludedKbNumbers []string `pulumi:"includedKbNumbers"`
+	// Update classification included in the software update configuration. A comma separated string with required values
+	IncludedUpdateClassifications *string `pulumi:"includedUpdateClassifications"`
+	// Reboot setting for the software update configuration.
+	RebootSetting *string `pulumi:"rebootSetting"`
+}
+
+// WindowsPropertiesInvokeResponseInput is an input type that accepts WindowsPropertiesInvokeResponseArgs and WindowsPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `WindowsPropertiesInvokeResponseInput` via:
+//
+//          WindowsPropertiesInvokeResponseArgs{...}
+type WindowsPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWindowsPropertiesInvokeResponseOutput() WindowsPropertiesInvokeResponseOutput
+	ToWindowsPropertiesInvokeResponseOutputWithContext(context.Context) WindowsPropertiesInvokeResponseOutput
+}
+
+// Windows specific update configuration.
+type WindowsPropertiesInvokeResponseArgs struct {
+	// KB numbers excluded from the software update configuration.
+	ExcludedKbNumbers pulumi.StringArrayInput `pulumi:"excludedKbNumbers"`
+	// KB numbers included from the software update configuration.
+	IncludedKbNumbers pulumi.StringArrayInput `pulumi:"includedKbNumbers"`
+	// Update classification included in the software update configuration. A comma separated string with required values
+	IncludedUpdateClassifications pulumi.StringPtrInput `pulumi:"includedUpdateClassifications"`
+	// Reboot setting for the software update configuration.
+	RebootSetting pulumi.StringPtrInput `pulumi:"rebootSetting"`
+}
+
+func (WindowsPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i WindowsPropertiesInvokeResponseArgs) ToWindowsPropertiesInvokeResponseOutput() WindowsPropertiesInvokeResponseOutput {
+	return i.ToWindowsPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WindowsPropertiesInvokeResponseArgs) ToWindowsPropertiesInvokeResponseOutputWithContext(ctx context.Context) WindowsPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesInvokeResponseOutput)
+}
+
+func (i WindowsPropertiesInvokeResponseArgs) ToWindowsPropertiesInvokeResponsePtrOutput() WindowsPropertiesInvokeResponsePtrOutput {
+	return i.ToWindowsPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WindowsPropertiesInvokeResponseArgs) ToWindowsPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesInvokeResponseOutput).ToWindowsPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WindowsPropertiesInvokeResponsePtrInput is an input type that accepts WindowsPropertiesInvokeResponseArgs, WindowsPropertiesInvokeResponsePtr and WindowsPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WindowsPropertiesInvokeResponsePtrInput` via:
+//
+//          WindowsPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WindowsPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWindowsPropertiesInvokeResponsePtrOutput() WindowsPropertiesInvokeResponsePtrOutput
+	ToWindowsPropertiesInvokeResponsePtrOutputWithContext(context.Context) WindowsPropertiesInvokeResponsePtrOutput
+}
+
+type windowsPropertiesInvokeResponsePtrType WindowsPropertiesInvokeResponseArgs
+
+func WindowsPropertiesInvokeResponsePtr(v *WindowsPropertiesInvokeResponseArgs) WindowsPropertiesInvokeResponsePtrInput {
+	return (*windowsPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*windowsPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *windowsPropertiesInvokeResponsePtrType) ToWindowsPropertiesInvokeResponsePtrOutput() WindowsPropertiesInvokeResponsePtrOutput {
+	return i.ToWindowsPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *windowsPropertiesInvokeResponsePtrType) ToWindowsPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesInvokeResponsePtrOutput)
+}
+
+// Windows specific update configuration.
+type WindowsPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WindowsPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o WindowsPropertiesInvokeResponseOutput) ToWindowsPropertiesInvokeResponseOutput() WindowsPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o WindowsPropertiesInvokeResponseOutput) ToWindowsPropertiesInvokeResponseOutputWithContext(ctx context.Context) WindowsPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o WindowsPropertiesInvokeResponseOutput) ToWindowsPropertiesInvokeResponsePtrOutput() WindowsPropertiesInvokeResponsePtrOutput {
+	return o.ToWindowsPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WindowsPropertiesInvokeResponseOutput) ToWindowsPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WindowsPropertiesInvokeResponse) *WindowsPropertiesInvokeResponse {
+		return &v
+	}).(WindowsPropertiesInvokeResponsePtrOutput)
+}
+
+// KB numbers excluded from the software update configuration.
+func (o WindowsPropertiesInvokeResponseOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsPropertiesInvokeResponse) []string { return v.ExcludedKbNumbers }).(pulumi.StringArrayOutput)
+}
+
+// KB numbers included from the software update configuration.
+func (o WindowsPropertiesInvokeResponseOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WindowsPropertiesInvokeResponse) []string { return v.IncludedKbNumbers }).(pulumi.StringArrayOutput)
+}
+
+// Update classification included in the software update configuration. A comma separated string with required values
+func (o WindowsPropertiesInvokeResponseOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsPropertiesInvokeResponse) *string { return v.IncludedUpdateClassifications }).(pulumi.StringPtrOutput)
+}
+
+// Reboot setting for the software update configuration.
+func (o WindowsPropertiesInvokeResponseOutput) RebootSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsPropertiesInvokeResponse) *string { return v.RebootSetting }).(pulumi.StringPtrOutput)
+}
+
+type WindowsPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o WindowsPropertiesInvokeResponsePtrOutput) ToWindowsPropertiesInvokeResponsePtrOutput() WindowsPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WindowsPropertiesInvokeResponsePtrOutput) ToWindowsPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WindowsPropertiesInvokeResponsePtrOutput) Elem() WindowsPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *WindowsPropertiesInvokeResponse) WindowsPropertiesInvokeResponse { return *v }).(WindowsPropertiesInvokeResponseOutput)
+}
+
+// KB numbers excluded from the software update configuration.
+func (o WindowsPropertiesInvokeResponsePtrOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WindowsPropertiesInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedKbNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+// KB numbers included from the software update configuration.
+func (o WindowsPropertiesInvokeResponsePtrOutput) IncludedKbNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WindowsPropertiesInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedKbNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Update classification included in the software update configuration. A comma separated string with required values
+func (o WindowsPropertiesInvokeResponsePtrOutput) IncludedUpdateClassifications() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedUpdateClassifications
+	}).(pulumi.StringPtrOutput)
+}
+
+// Reboot setting for the software update configuration.
+func (o WindowsPropertiesInvokeResponsePtrOutput) RebootSetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RebootSetting
+	}).(pulumi.StringPtrOutput)
+}
+
+// Windows specific update configuration.
 type WindowsPropertiesResponse struct {
 	// KB numbers excluded from the software update configuration.
 	ExcludedKbNumbers []string `pulumi:"excludedKbNumbers"`
@@ -4733,56 +6497,78 @@ func (o WindowsPropertiesResponsePtrOutput) RebootSetting() pulumi.StringPtrOutp
 func init() {
 	pulumi.RegisterOutputType(AdvancedScheduleOutput{})
 	pulumi.RegisterOutputType(AdvancedSchedulePtrOutput{})
+	pulumi.RegisterOutputType(AdvancedScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AdvancedScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceArrayOutput{})
+	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceResponseOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleResponseOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureQueryPropertiesOutput{})
 	pulumi.RegisterOutputType(AzureQueryPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(AzureQueryPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureQueryPropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureQueryPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AzureQueryPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(ErrorResponseOutput{})
 	pulumi.RegisterOutputType(ErrorResponsePtrOutput{})
+	pulumi.RegisterOutputType(ErrorResponseInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponseOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinuxPropertiesOutput{})
 	pulumi.RegisterOutputType(LinuxPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LinuxPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LinuxPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinuxPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LinuxPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NonAzureQueryPropertiesOutput{})
 	pulumi.RegisterOutputType(NonAzureQueryPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(NonAzureQueryPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NonAzureQueryPropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NonAzureQueryPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NonAzureQueryPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(SchedulePropertiesOutput{})
 	pulumi.RegisterOutputType(SchedulePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SchedulePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SchedulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SchedulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksPtrOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksResponseOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceControlSecurityTokenPropertiesOutput{})
 	pulumi.RegisterOutputType(SourceControlSecurityTokenPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TagSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(TagSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TagSettingsPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TagSettingsPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TagSettingsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TagSettingsPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TargetPropertiesOutput{})
 	pulumi.RegisterOutputType(TargetPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TargetPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TargetPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TargetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TargetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TaskPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TaskPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(UpdateConfigurationOutput{})
 	pulumi.RegisterOutputType(UpdateConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UpdateConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UpdateConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(UpdateConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(WindowsPropertiesOutput{})
 	pulumi.RegisterOutputType(WindowsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WindowsPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WindowsPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WindowsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WindowsPropertiesResponsePtrOutput{})
 }

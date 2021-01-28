@@ -28,7 +28,7 @@ type LookupAliasResult struct {
 	// Alias ID.
 	Name string `pulumi:"name"`
 	// Put Alias response properties.
-	Properties PutAliasResponsePropertiesResponse `pulumi:"properties"`
+	Properties PutAliasResponsePropertiesInvokeResponse `pulumi:"properties"`
 	// Resource type, Microsoft.Subscription/aliases.
 	Type string `pulumi:"type"`
 }

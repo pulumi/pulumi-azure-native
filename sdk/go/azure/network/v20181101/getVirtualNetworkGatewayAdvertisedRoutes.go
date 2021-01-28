@@ -28,5 +28,5 @@ type GetVirtualNetworkGatewayAdvertisedRoutesArgs struct {
 // List of virtual network gateway routes
 type GetVirtualNetworkGatewayAdvertisedRoutesResult struct {
 	// List of gateway routes
-	Value []GatewayRouteResponse `pulumi:"value"`
+	Value []GatewayRouteInvokeResponse `pulumi:"value"`
 }

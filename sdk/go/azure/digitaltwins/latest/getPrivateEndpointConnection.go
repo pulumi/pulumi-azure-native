@@ -30,8 +30,8 @@ type LookupPrivateEndpointConnectionResult struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// The resource name.
-	Name       string                                      `pulumi:"name"`
-	Properties PrivateEndpointConnectionResponseProperties `pulumi:"properties"`
+	Name       string                                            `pulumi:"name"`
+	Properties PrivateEndpointConnectionInvokeResponseProperties `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

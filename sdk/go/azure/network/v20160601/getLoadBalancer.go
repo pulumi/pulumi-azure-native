@@ -28,27 +28,27 @@ type LookupLoadBalancerArgs struct {
 // LoadBalancer resource
 type LookupLoadBalancerResult struct {
 	// Gets or sets Pools of backend IP addresses
-	BackendAddressPools []BackendAddressPoolResponse `pulumi:"backendAddressPools"`
+	BackendAddressPools []BackendAddressPoolInvokeResponse `pulumi:"backendAddressPools"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Gets or sets frontend IP addresses of the load balancer
-	FrontendIPConfigurations []FrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
+	FrontendIPConfigurations []FrontendIPConfigurationInvokeResponse `pulumi:"frontendIPConfigurations"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Gets or sets inbound NAT pools
-	InboundNatPools []InboundNatPoolResponse `pulumi:"inboundNatPools"`
+	InboundNatPools []InboundNatPoolInvokeResponse `pulumi:"inboundNatPools"`
 	// Gets or sets list of inbound rules
-	InboundNatRules []InboundNatRuleResponse `pulumi:"inboundNatRules"`
+	InboundNatRules []InboundNatRuleInvokeResponse `pulumi:"inboundNatRules"`
 	// Gets or sets load balancing rules
-	LoadBalancingRules []LoadBalancingRuleResponse `pulumi:"loadBalancingRules"`
+	LoadBalancingRules []LoadBalancingRuleInvokeResponse `pulumi:"loadBalancingRules"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Gets or sets outbound NAT rules
-	OutboundNatRules []OutboundNatRuleResponse `pulumi:"outboundNatRules"`
+	OutboundNatRules []OutboundNatRuleInvokeResponse `pulumi:"outboundNatRules"`
 	// Gets or sets list of Load balancer probes
-	Probes []ProbeResponse `pulumi:"probes"`
+	Probes []ProbeInvokeResponse `pulumi:"probes"`
 	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets resource guid property of the Load balancer resource

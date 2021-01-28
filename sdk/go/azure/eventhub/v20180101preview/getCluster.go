@@ -36,7 +36,7 @@ type LookupClusterResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Properties of the cluster SKU.
-	Sku *ClusterSkuResponse `pulumi:"sku"`
+	Sku *ClusterSkuInvokeResponse `pulumi:"sku"`
 	// Status of the Cluster resource
 	Status string `pulumi:"status"`
 	// Resource tags.

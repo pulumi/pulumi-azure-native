@@ -34,7 +34,7 @@ type LookupServerResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityInvokeResponse `pulumi:"identity"`
 	// Kind of sql server. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// Resource location.
@@ -44,7 +44,7 @@ type LookupServerResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// List of private endpoint connections on a server
-	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []ServerPrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The state of the server.

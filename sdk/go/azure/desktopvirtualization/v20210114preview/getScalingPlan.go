@@ -32,7 +32,7 @@ type LookupScalingPlanResult struct {
 	// User friendly name of scaling plan.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// List of ScalingHostPoolReference definitions.
-	HostPoolReferences []ScalingHostPoolReferenceResponse `pulumi:"hostPoolReferences"`
+	HostPoolReferences []ScalingHostPoolReferenceInvokeResponse `pulumi:"hostPoolReferences"`
 	// HostPool type for scaling plan.
 	HostPoolType *string `pulumi:"hostPoolType"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -42,7 +42,7 @@ type LookupScalingPlanResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of ScalingSchedule definitions.
-	Schedules []ScalingScheduleResponse `pulumi:"schedules"`
+	Schedules []ScalingScheduleInvokeResponse `pulumi:"schedules"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Timezone of the scaling plan.

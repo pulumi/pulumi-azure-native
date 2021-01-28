@@ -26,9 +26,9 @@ type LookupExportArgs struct {
 // A export resource.
 type LookupExportResult struct {
 	// Has definition for the export.
-	Definition QueryDefinitionResponse `pulumi:"definition"`
+	Definition QueryDefinitionInvokeResponse `pulumi:"definition"`
 	// Has delivery information for the export.
-	DeliveryInfo ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
+	DeliveryInfo ExportDeliveryInfoInvokeResponse `pulumi:"deliveryInfo"`
 	// The format of the export being delivered.
 	Format *string `pulumi:"format"`
 	// Resource Id.
@@ -36,7 +36,7 @@ type LookupExportResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Has schedule information for the export.
-	Schedule *ExportScheduleResponse `pulumi:"schedule"`
+	Schedule *ExportScheduleInvokeResponse `pulumi:"schedule"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

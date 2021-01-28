@@ -42,7 +42,7 @@ type LookupHubVirtualNetworkConnectionResult struct {
 	// The provisioning state of the hub virtual network connection resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Reference to the remote virtual network.
-	RemoteVirtualNetwork *SubResourceResponse `pulumi:"remoteVirtualNetwork"`
+	RemoteVirtualNetwork *SubResourceInvokeResponse `pulumi:"remoteVirtualNetwork"`
 	// The Routing Configuration indicating the associated and propagated route tables on this connection.
-	RoutingConfiguration *RoutingConfigurationResponse `pulumi:"routingConfiguration"`
+	RoutingConfiguration *RoutingConfigurationInvokeResponse `pulumi:"routingConfiguration"`
 }

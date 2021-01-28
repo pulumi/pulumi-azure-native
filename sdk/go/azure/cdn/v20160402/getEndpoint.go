@@ -48,7 +48,7 @@ type LookupEndpointResult struct {
 	// The path used for origin requests.
 	OriginPath *string `pulumi:"originPath"`
 	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
-	Origins []DeepCreatedOriginResponse `pulumi:"origins"`
+	Origins []DeepCreatedOriginInvokeResponse `pulumi:"origins"`
 	// Provisioning status of the endpoint.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Defines the query string caching behavior.

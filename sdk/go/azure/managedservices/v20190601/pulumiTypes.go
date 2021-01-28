@@ -138,6 +138,133 @@ func (o AuthorizationArrayOutput) Index(i pulumi.IntInput) AuthorizationOutput {
 }
 
 // Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
+type AuthorizationInvokeResponse struct {
+	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
+	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
+	PrincipalId string `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName *string `pulumi:"principalIdDisplayName"`
+	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// AuthorizationInvokeResponseInput is an input type that accepts AuthorizationInvokeResponseArgs and AuthorizationInvokeResponseOutput values.
+// You can construct a concrete instance of `AuthorizationInvokeResponseInput` via:
+//
+//          AuthorizationInvokeResponseArgs{...}
+type AuthorizationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAuthorizationInvokeResponseOutput() AuthorizationInvokeResponseOutput
+	ToAuthorizationInvokeResponseOutputWithContext(context.Context) AuthorizationInvokeResponseOutput
+}
+
+// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
+type AuthorizationInvokeResponseArgs struct {
+	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+	DelegatedRoleDefinitionIds pulumi.StringArrayInput `pulumi:"delegatedRoleDefinitionIds"`
+	// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Display name of the principal Id.
+	PrincipalIdDisplayName pulumi.StringPtrInput `pulumi:"principalIdDisplayName"`
+	// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (AuthorizationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (i AuthorizationInvokeResponseArgs) ToAuthorizationInvokeResponseOutput() AuthorizationInvokeResponseOutput {
+	return i.ToAuthorizationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AuthorizationInvokeResponseArgs) ToAuthorizationInvokeResponseOutputWithContext(ctx context.Context) AuthorizationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationInvokeResponseOutput)
+}
+
+// AuthorizationInvokeResponseArrayInput is an input type that accepts AuthorizationInvokeResponseArray and AuthorizationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AuthorizationInvokeResponseArrayInput` via:
+//
+//          AuthorizationInvokeResponseArray{ AuthorizationInvokeResponseArgs{...} }
+type AuthorizationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAuthorizationInvokeResponseArrayOutput() AuthorizationInvokeResponseArrayOutput
+	ToAuthorizationInvokeResponseArrayOutputWithContext(context.Context) AuthorizationInvokeResponseArrayOutput
+}
+
+type AuthorizationInvokeResponseArray []AuthorizationInvokeResponseInput
+
+func (AuthorizationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (i AuthorizationInvokeResponseArray) ToAuthorizationInvokeResponseArrayOutput() AuthorizationInvokeResponseArrayOutput {
+	return i.ToAuthorizationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AuthorizationInvokeResponseArray) ToAuthorizationInvokeResponseArrayOutputWithContext(ctx context.Context) AuthorizationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationInvokeResponseArrayOutput)
+}
+
+// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
+type AuthorizationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AuthorizationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (o AuthorizationInvokeResponseOutput) ToAuthorizationInvokeResponseOutput() AuthorizationInvokeResponseOutput {
+	return o
+}
+
+func (o AuthorizationInvokeResponseOutput) ToAuthorizationInvokeResponseOutputWithContext(ctx context.Context) AuthorizationInvokeResponseOutput {
+	return o
+}
+
+// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
+func (o AuthorizationInvokeResponseOutput) DelegatedRoleDefinitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthorizationInvokeResponse) []string { return v.DelegatedRoleDefinitionIds }).(pulumi.StringArrayOutput)
+}
+
+// Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
+func (o AuthorizationInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizationInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Display name of the principal Id.
+func (o AuthorizationInvokeResponseOutput) PrincipalIdDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthorizationInvokeResponse) *string { return v.PrincipalIdDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+func (o AuthorizationInvokeResponseOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizationInvokeResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type AuthorizationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthorizationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (o AuthorizationInvokeResponseArrayOutput) ToAuthorizationInvokeResponseArrayOutput() AuthorizationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AuthorizationInvokeResponseArrayOutput) ToAuthorizationInvokeResponseArrayOutputWithContext(ctx context.Context) AuthorizationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AuthorizationInvokeResponseArrayOutput) Index(i pulumi.IntInput) AuthorizationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthorizationInvokeResponse {
+		return vs[0].([]AuthorizationInvokeResponse)[vs[1].(int)]
+	}).(AuthorizationInvokeResponseOutput)
+}
+
+// Authorization tuple containing principal Id (of user/service principal/security group) and role definition id.
 type AuthorizationResponse struct {
 	// The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other security groups/service principals/users.
 	DelegatedRoleDefinitionIds []string `pulumi:"delegatedRoleDefinitionIds"`
@@ -448,6 +575,197 @@ func (o PlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 // The plan's version.
 func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Plan) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// Plan details for the managed services.
+type PlanInvokeResponse struct {
+	// The plan name.
+	Name string `pulumi:"name"`
+	// The product code.
+	Product string `pulumi:"product"`
+	// The publisher ID.
+	Publisher string `pulumi:"publisher"`
+	// The plan's version.
+	Version string `pulumi:"version"`
+}
+
+// PlanInvokeResponseInput is an input type that accepts PlanInvokeResponseArgs and PlanInvokeResponseOutput values.
+// You can construct a concrete instance of `PlanInvokeResponseInput` via:
+//
+//          PlanInvokeResponseArgs{...}
+type PlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPlanInvokeResponseOutput() PlanInvokeResponseOutput
+	ToPlanInvokeResponseOutputWithContext(context.Context) PlanInvokeResponseOutput
+}
+
+// Plan details for the managed services.
+type PlanInvokeResponseArgs struct {
+	// The plan name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The product code.
+	Product pulumi.StringInput `pulumi:"product"`
+	// The publisher ID.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The plan's version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (PlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanInvokeResponse)(nil)).Elem()
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponseOutput() PlanInvokeResponseOutput {
+	return i.ToPlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponseOutputWithContext(ctx context.Context) PlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanInvokeResponseOutput)
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponsePtrOutput() PlanInvokeResponsePtrOutput {
+	return i.ToPlanInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponsePtrOutputWithContext(ctx context.Context) PlanInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanInvokeResponseOutput).ToPlanInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PlanInvokeResponsePtrInput is an input type that accepts PlanInvokeResponseArgs, PlanInvokeResponsePtr and PlanInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PlanInvokeResponsePtrInput` via:
+//
+//          PlanInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PlanInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPlanInvokeResponsePtrOutput() PlanInvokeResponsePtrOutput
+	ToPlanInvokeResponsePtrOutputWithContext(context.Context) PlanInvokeResponsePtrOutput
+}
+
+type planInvokeResponsePtrType PlanInvokeResponseArgs
+
+func PlanInvokeResponsePtr(v *PlanInvokeResponseArgs) PlanInvokeResponsePtrInput {
+	return (*planInvokeResponsePtrType)(v)
+}
+
+func (*planInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanInvokeResponse)(nil)).Elem()
+}
+
+func (i *planInvokeResponsePtrType) ToPlanInvokeResponsePtrOutput() PlanInvokeResponsePtrOutput {
+	return i.ToPlanInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *planInvokeResponsePtrType) ToPlanInvokeResponsePtrOutputWithContext(ctx context.Context) PlanInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanInvokeResponsePtrOutput)
+}
+
+// Plan details for the managed services.
+type PlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanInvokeResponse)(nil)).Elem()
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponseOutput() PlanInvokeResponseOutput {
+	return o
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponseOutputWithContext(ctx context.Context) PlanInvokeResponseOutput {
+	return o
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponsePtrOutput() PlanInvokeResponsePtrOutput {
+	return o.ToPlanInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponsePtrOutputWithContext(ctx context.Context) PlanInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) *PlanInvokeResponse {
+		return &v
+	}).(PlanInvokeResponsePtrOutput)
+}
+
+// The plan name.
+func (o PlanInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The product code.
+func (o PlanInvokeResponseOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// The publisher ID.
+func (o PlanInvokeResponseOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The plan's version.
+func (o PlanInvokeResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type PlanInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PlanInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanInvokeResponse)(nil)).Elem()
+}
+
+func (o PlanInvokeResponsePtrOutput) ToPlanInvokeResponsePtrOutput() PlanInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PlanInvokeResponsePtrOutput) ToPlanInvokeResponsePtrOutputWithContext(ctx context.Context) PlanInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PlanInvokeResponsePtrOutput) Elem() PlanInvokeResponseOutput {
+	return o.ApplyT(func(v *PlanInvokeResponse) PlanInvokeResponse { return *v }).(PlanInvokeResponseOutput)
+}
+
+// The plan name.
+func (o PlanInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlanInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The product code.
+func (o PlanInvokeResponsePtrOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlanInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Product
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID.
+func (o PlanInvokeResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlanInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The plan's version.
+func (o PlanInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlanInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -778,6 +1096,449 @@ func (o RegistrationAssignmentPropertiesPtrOutput) RegistrationDefinitionId() pu
 		}
 		return &v.RegistrationDefinitionId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a registration assignment.
+type RegistrationAssignmentPropertiesInvokeResponse struct {
+	// Current state of the registration assignment.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Registration definition inside registration assignment.
+	RegistrationDefinition RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinition `pulumi:"registrationDefinition"`
+	// Fully qualified path of the registration definition.
+	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
+}
+
+// RegistrationAssignmentPropertiesInvokeResponseInput is an input type that accepts RegistrationAssignmentPropertiesInvokeResponseArgs and RegistrationAssignmentPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `RegistrationAssignmentPropertiesInvokeResponseInput` via:
+//
+//          RegistrationAssignmentPropertiesInvokeResponseArgs{...}
+type RegistrationAssignmentPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRegistrationAssignmentPropertiesInvokeResponseOutput() RegistrationAssignmentPropertiesInvokeResponseOutput
+	ToRegistrationAssignmentPropertiesInvokeResponseOutputWithContext(context.Context) RegistrationAssignmentPropertiesInvokeResponseOutput
+}
+
+// Properties of a registration assignment.
+type RegistrationAssignmentPropertiesInvokeResponseArgs struct {
+	// Current state of the registration assignment.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Registration definition inside registration assignment.
+	RegistrationDefinition RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionInput `pulumi:"registrationDefinition"`
+	// Fully qualified path of the registration definition.
+	RegistrationDefinitionId pulumi.StringInput `pulumi:"registrationDefinitionId"`
+}
+
+func (RegistrationAssignmentPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i RegistrationAssignmentPropertiesInvokeResponseArgs) ToRegistrationAssignmentPropertiesInvokeResponseOutput() RegistrationAssignmentPropertiesInvokeResponseOutput {
+	return i.ToRegistrationAssignmentPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RegistrationAssignmentPropertiesInvokeResponseArgs) ToRegistrationAssignmentPropertiesInvokeResponseOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesInvokeResponseOutput)
+}
+
+// Properties of a registration assignment.
+type RegistrationAssignmentPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RegistrationAssignmentPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponseOutput) ToRegistrationAssignmentPropertiesInvokeResponseOutput() RegistrationAssignmentPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponseOutput) ToRegistrationAssignmentPropertiesInvokeResponseOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Current state of the registration assignment.
+func (o RegistrationAssignmentPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Registration definition inside registration assignment.
+func (o RegistrationAssignmentPropertiesInvokeResponseOutput) RegistrationDefinition() RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponse) RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinition {
+		return v.RegistrationDefinition
+	}).(RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput)
+}
+
+// Fully qualified path of the registration definition.
+func (o RegistrationAssignmentPropertiesInvokeResponseOutput) RegistrationDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponse) string { return v.RegistrationDefinitionId }).(pulumi.StringOutput)
+}
+
+// Properties of registration definition inside registration assignment.
+type RegistrationAssignmentPropertiesInvokeResponseProperties struct {
+	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+	Authorizations []AuthorizationInvokeResponse `pulumi:"authorizations"`
+	// Description of the registration definition.
+	Description *string `pulumi:"description"`
+	// Id of the managedBy tenant.
+	ManagedByTenantId *string `pulumi:"managedByTenantId"`
+	// Name of the managedBy tenant.
+	ManagedByTenantName *string `pulumi:"managedByTenantName"`
+	// Id of the home tenant.
+	ManageeTenantId *string `pulumi:"manageeTenantId"`
+	// Name of the home tenant.
+	ManageeTenantName *string `pulumi:"manageeTenantName"`
+	// Current state of the registration definition.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Name of the registration definition.
+	RegistrationDefinitionName *string `pulumi:"registrationDefinitionName"`
+}
+
+// RegistrationAssignmentPropertiesInvokeResponsePropertiesInput is an input type that accepts RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs and RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput values.
+// You can construct a concrete instance of `RegistrationAssignmentPropertiesInvokeResponsePropertiesInput` via:
+//
+//          RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs{...}
+type RegistrationAssignmentPropertiesInvokeResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToRegistrationAssignmentPropertiesInvokeResponsePropertiesOutput() RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput
+	ToRegistrationAssignmentPropertiesInvokeResponsePropertiesOutputWithContext(context.Context) RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput
+}
+
+// Properties of registration definition inside registration assignment.
+type RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs struct {
+	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+	Authorizations AuthorizationInvokeResponseArrayInput `pulumi:"authorizations"`
+	// Description of the registration definition.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Id of the managedBy tenant.
+	ManagedByTenantId pulumi.StringPtrInput `pulumi:"managedByTenantId"`
+	// Name of the managedBy tenant.
+	ManagedByTenantName pulumi.StringPtrInput `pulumi:"managedByTenantName"`
+	// Id of the home tenant.
+	ManageeTenantId pulumi.StringPtrInput `pulumi:"manageeTenantId"`
+	// Name of the home tenant.
+	ManageeTenantName pulumi.StringPtrInput `pulumi:"manageeTenantName"`
+	// Current state of the registration definition.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Name of the registration definition.
+	RegistrationDefinitionName pulumi.StringPtrInput `pulumi:"registrationDefinitionName"`
+}
+
+func (RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignmentPropertiesInvokeResponseProperties)(nil)).Elem()
+}
+
+func (i RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesOutput() RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput {
+	return i.ToRegistrationAssignmentPropertiesInvokeResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput)
+}
+
+func (i RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput() RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput {
+	return i.ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput).ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutputWithContext(ctx)
+}
+
+// RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrInput is an input type that accepts RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs, RegistrationAssignmentPropertiesInvokeResponsePropertiesPtr and RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput values.
+// You can construct a concrete instance of `RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrInput` via:
+//
+//          RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput() RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput
+	ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutputWithContext(context.Context) RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput
+}
+
+type registrationAssignmentPropertiesInvokeResponsePropertiesPtrType RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs
+
+func RegistrationAssignmentPropertiesInvokeResponsePropertiesPtr(v *RegistrationAssignmentPropertiesInvokeResponsePropertiesArgs) RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrInput {
+	return (*registrationAssignmentPropertiesInvokeResponsePropertiesPtrType)(v)
+}
+
+func (*registrationAssignmentPropertiesInvokeResponsePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistrationAssignmentPropertiesInvokeResponseProperties)(nil)).Elem()
+}
+
+func (i *registrationAssignmentPropertiesInvokeResponsePropertiesPtrType) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput() RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput {
+	return i.ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *registrationAssignmentPropertiesInvokeResponsePropertiesPtrType) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput)
+}
+
+// Properties of registration definition inside registration assignment.
+type RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignmentPropertiesInvokeResponseProperties)(nil)).Elem()
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesOutput() RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput {
+	return o
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput {
+	return o
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput() RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput {
+	return o.ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseProperties) *RegistrationAssignmentPropertiesInvokeResponseProperties {
+		return &v
+	}).(RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput)
+}
+
+// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) Authorizations() AuthorizationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseProperties) []AuthorizationInvokeResponse {
+		return v.Authorizations
+	}).(AuthorizationInvokeResponseArrayOutput)
+}
+
+// Description of the registration definition.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Id of the managedBy tenant.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) ManagedByTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseProperties) *string { return v.ManagedByTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the managedBy tenant.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) ManagedByTenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseProperties) *string { return v.ManagedByTenantName }).(pulumi.StringPtrOutput)
+}
+
+// Id of the home tenant.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) ManageeTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseProperties) *string { return v.ManageeTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the home tenant.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) ManageeTenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseProperties) *string { return v.ManageeTenantName }).(pulumi.StringPtrOutput)
+}
+
+// Current state of the registration definition.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Name of the registration definition.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseProperties) *string {
+		return v.RegistrationDefinitionName
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistrationAssignmentPropertiesInvokeResponseProperties)(nil)).Elem()
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput() RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) ToRegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) Elem() RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesInvokeResponseProperties) RegistrationAssignmentPropertiesInvokeResponseProperties {
+		return *v
+	}).(RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput)
+}
+
+// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) Authorizations() AuthorizationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesInvokeResponseProperties) []AuthorizationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Authorizations
+	}).(AuthorizationInvokeResponseArrayOutput)
+}
+
+// Description of the registration definition.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesInvokeResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Id of the managedBy tenant.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesInvokeResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedByTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the managedBy tenant.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) ManagedByTenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesInvokeResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedByTenantName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Id of the home tenant.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) ManageeTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesInvokeResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManageeTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the home tenant.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) ManageeTenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesInvokeResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManageeTenantName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Current state of the registration definition.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesInvokeResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the registration definition.
+func (o RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesInvokeResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistrationDefinitionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Registration definition inside registration assignment.
+type RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinition struct {
+	// Fully qualified path of the registration definition.
+	Id string `pulumi:"id"`
+	// Name of the registration definition.
+	Name string `pulumi:"name"`
+	// Plan details for the managed services.
+	Plan *PlanInvokeResponse `pulumi:"plan"`
+	// Properties of registration definition inside registration assignment.
+	Properties *RegistrationAssignmentPropertiesInvokeResponseProperties `pulumi:"properties"`
+	// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
+	Type string `pulumi:"type"`
+}
+
+// RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionInput is an input type that accepts RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionArgs and RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput values.
+// You can construct a concrete instance of `RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionInput` via:
+//
+//          RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionArgs{...}
+type RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionInput interface {
+	pulumi.Input
+
+	ToRegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput() RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput
+	ToRegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutputWithContext(context.Context) RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput
+}
+
+// Registration definition inside registration assignment.
+type RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionArgs struct {
+	// Fully qualified path of the registration definition.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the registration definition.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Plan details for the managed services.
+	Plan PlanInvokeResponsePtrInput `pulumi:"plan"`
+	// Properties of registration definition inside registration assignment.
+	Properties RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrInput `pulumi:"properties"`
+	// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinition)(nil)).Elem()
+}
+
+func (i RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionArgs) ToRegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput() RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput {
+	return i.ToRegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutputWithContext(context.Background())
+}
+
+func (i RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionArgs) ToRegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput)
+}
+
+// Registration definition inside registration assignment.
+type RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput struct{ *pulumi.OutputState }
+
+func (RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinition)(nil)).Elem()
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput() RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput {
+	return o
+}
+
+func (o RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput {
+	return o
+}
+
+// Fully qualified path of the registration definition.
+func (o RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinition) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the registration definition.
+func (o RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Plan details for the managed services.
+func (o RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput) Plan() PlanInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinition) *PlanInvokeResponse {
+		return v.Plan
+	}).(PlanInvokeResponsePtrOutput)
+}
+
+// Properties of registration definition inside registration assignment.
+func (o RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput) Properties() RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinition) *RegistrationAssignmentPropertiesInvokeResponseProperties {
+		return v.Properties
+	}).(RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput)
+}
+
+// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
+func (o RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a registration assignment.
@@ -1633,6 +2394,108 @@ func (o RegistrationDefinitionPropertiesPtrOutput) RegistrationDefinitionName() 
 }
 
 // Properties of a registration definition.
+type RegistrationDefinitionPropertiesInvokeResponse struct {
+	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+	Authorizations []AuthorizationInvokeResponse `pulumi:"authorizations"`
+	// Description of the registration definition.
+	Description *string `pulumi:"description"`
+	// Id of the managedBy tenant.
+	ManagedByTenantId string `pulumi:"managedByTenantId"`
+	// Name of the managedBy tenant.
+	ManagedByTenantName string `pulumi:"managedByTenantName"`
+	// Current state of the registration definition.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Name of the registration definition.
+	RegistrationDefinitionName *string `pulumi:"registrationDefinitionName"`
+}
+
+// RegistrationDefinitionPropertiesInvokeResponseInput is an input type that accepts RegistrationDefinitionPropertiesInvokeResponseArgs and RegistrationDefinitionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `RegistrationDefinitionPropertiesInvokeResponseInput` via:
+//
+//          RegistrationDefinitionPropertiesInvokeResponseArgs{...}
+type RegistrationDefinitionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRegistrationDefinitionPropertiesInvokeResponseOutput() RegistrationDefinitionPropertiesInvokeResponseOutput
+	ToRegistrationDefinitionPropertiesInvokeResponseOutputWithContext(context.Context) RegistrationDefinitionPropertiesInvokeResponseOutput
+}
+
+// Properties of a registration definition.
+type RegistrationDefinitionPropertiesInvokeResponseArgs struct {
+	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+	Authorizations AuthorizationInvokeResponseArrayInput `pulumi:"authorizations"`
+	// Description of the registration definition.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Id of the managedBy tenant.
+	ManagedByTenantId pulumi.StringInput `pulumi:"managedByTenantId"`
+	// Name of the managedBy tenant.
+	ManagedByTenantName pulumi.StringInput `pulumi:"managedByTenantName"`
+	// Current state of the registration definition.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Name of the registration definition.
+	RegistrationDefinitionName pulumi.StringPtrInput `pulumi:"registrationDefinitionName"`
+}
+
+func (RegistrationDefinitionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationDefinitionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i RegistrationDefinitionPropertiesInvokeResponseArgs) ToRegistrationDefinitionPropertiesInvokeResponseOutput() RegistrationDefinitionPropertiesInvokeResponseOutput {
+	return i.ToRegistrationDefinitionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RegistrationDefinitionPropertiesInvokeResponseArgs) ToRegistrationDefinitionPropertiesInvokeResponseOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionPropertiesInvokeResponseOutput)
+}
+
+// Properties of a registration definition.
+type RegistrationDefinitionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RegistrationDefinitionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationDefinitionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o RegistrationDefinitionPropertiesInvokeResponseOutput) ToRegistrationDefinitionPropertiesInvokeResponseOutput() RegistrationDefinitionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o RegistrationDefinitionPropertiesInvokeResponseOutput) ToRegistrationDefinitionPropertiesInvokeResponseOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+func (o RegistrationDefinitionPropertiesInvokeResponseOutput) Authorizations() AuthorizationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v RegistrationDefinitionPropertiesInvokeResponse) []AuthorizationInvokeResponse {
+		return v.Authorizations
+	}).(AuthorizationInvokeResponseArrayOutput)
+}
+
+// Description of the registration definition.
+func (o RegistrationDefinitionPropertiesInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationDefinitionPropertiesInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Id of the managedBy tenant.
+func (o RegistrationDefinitionPropertiesInvokeResponseOutput) ManagedByTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationDefinitionPropertiesInvokeResponse) string { return v.ManagedByTenantId }).(pulumi.StringOutput)
+}
+
+// Name of the managedBy tenant.
+func (o RegistrationDefinitionPropertiesInvokeResponseOutput) ManagedByTenantName() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationDefinitionPropertiesInvokeResponse) string { return v.ManagedByTenantName }).(pulumi.StringOutput)
+}
+
+// Current state of the registration definition.
+func (o RegistrationDefinitionPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationDefinitionPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Name of the registration definition.
+func (o RegistrationDefinitionPropertiesInvokeResponseOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationDefinitionPropertiesInvokeResponse) *string { return v.RegistrationDefinitionName }).(pulumi.StringPtrOutput)
+}
+
+// Properties of a registration definition.
 type RegistrationDefinitionPropertiesResponse struct {
 	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
 	Authorizations []AuthorizationResponse `pulumi:"authorizations"`
@@ -1864,14 +2727,22 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) RegistrationDefinitio
 func init() {
 	pulumi.RegisterOutputType(AuthorizationOutput{})
 	pulumi.RegisterOutputType(AuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(AuthorizationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AuthorizationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(AuthorizationResponseArrayOutput{})
 	pulumi.RegisterOutputType(PlanOutput{})
 	pulumi.RegisterOutputType(PlanPtrOutput{})
+	pulumi.RegisterOutputType(PlanInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PlanInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesInvokeResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesInvokeResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesInvokeResponseRegistrationDefinitionOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponsePropertiesOutput{})
@@ -1880,6 +2751,7 @@ func init() {
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesOutput{})
 	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesResponsePtrOutput{})
 }

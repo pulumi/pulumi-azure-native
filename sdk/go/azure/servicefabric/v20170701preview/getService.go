@@ -30,7 +30,7 @@ type LookupServiceArgs struct {
 // The service resource.
 type LookupServiceResult struct {
 	// A list that describes the correlation of the service with other services.
-	CorrelationScheme []ServiceCorrelationDescriptionResponse `pulumi:"correlationScheme"`
+	CorrelationScheme []ServiceCorrelationDescriptionInvokeResponse `pulumi:"correlationScheme"`
 	// Specifies the move cost for the service.
 	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
 	// Azure resource identifier.
@@ -48,9 +48,9 @@ type LookupServiceResult struct {
 	// The kind of service (Stateless or Stateful).
 	ServiceKind string `pulumi:"serviceKind"`
 	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-	ServiceLoadMetrics []ServiceLoadMetricDescriptionResponse `pulumi:"serviceLoadMetrics"`
+	ServiceLoadMetrics []ServiceLoadMetricDescriptionInvokeResponse `pulumi:"serviceLoadMetrics"`
 	// A list that describes the correlation of the service with other services.
-	ServicePlacementPolicies []ServicePlacementPolicyDescriptionResponse `pulumi:"servicePlacementPolicies"`
+	ServicePlacementPolicies []ServicePlacementPolicyDescriptionInvokeResponse `pulumi:"servicePlacementPolicies"`
 	// The name of the service type
 	ServiceTypeName *string `pulumi:"serviceTypeName"`
 	// Azure resource type.

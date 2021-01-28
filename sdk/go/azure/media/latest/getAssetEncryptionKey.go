@@ -28,7 +28,7 @@ type GetAssetEncryptionKeyArgs struct {
 // Data needed to decrypt asset files encrypted with legacy storage encryption.
 type GetAssetEncryptionKeyResult struct {
 	// Asset File encryption metadata.
-	AssetFileEncryptionMetadata []AssetFileEncryptionMetadataResponse `pulumi:"assetFileEncryptionMetadata"`
+	AssetFileEncryptionMetadata []AssetFileEncryptionMetadataInvokeResponse `pulumi:"assetFileEncryptionMetadata"`
 	// The Asset File storage encryption key.
 	Key *string `pulumi:"key"`
 }

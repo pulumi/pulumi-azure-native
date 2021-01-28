@@ -36,5 +36,5 @@ type GetLogAnalyticExportThrottledRequestsArgs struct {
 // LogAnalytics operation status response
 type GetLogAnalyticExportThrottledRequestsResult struct {
 	// LogAnalyticsOutput
-	Properties LogAnalyticsOutputResponse `pulumi:"properties"`
+	Properties LogAnalyticsOutputInvokeResponse `pulumi:"properties"`
 }

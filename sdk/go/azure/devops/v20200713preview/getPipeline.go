@@ -26,7 +26,7 @@ type LookupPipelineArgs struct {
 // Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
 type LookupPipelineResult struct {
 	// Configuration used to bootstrap the Pipeline.
-	BootstrapConfiguration BootstrapConfigurationResponse `pulumi:"bootstrapConfiguration"`
+	BootstrapConfiguration BootstrapConfigurationInvokeResponse `pulumi:"bootstrapConfiguration"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource Location
@@ -38,7 +38,7 @@ type LookupPipelineResult struct {
 	// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
 	PipelineType string `pulumi:"pipelineType"`
 	// The system metadata pertaining to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource Tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource Type

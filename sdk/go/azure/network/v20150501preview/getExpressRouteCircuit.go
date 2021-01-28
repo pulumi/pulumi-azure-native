@@ -26,7 +26,7 @@ type LookupExpressRouteCircuitArgs struct {
 // ExpressRouteCircuit resource
 type LookupExpressRouteCircuitResult struct {
 	// Gets or sets list of authorizations
-	Authorizations []ExpressRouteCircuitAuthorizationResponse `pulumi:"authorizations"`
+	Authorizations []ExpressRouteCircuitAuthorizationInvokeResponse `pulumi:"authorizations"`
 	// Gets or sets CircuitProvisioningState state of the resource
 	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
 	// Gets a unique read-only string that changes whenever the resource is updated
@@ -38,7 +38,7 @@ type LookupExpressRouteCircuitResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Gets or sets list of peerings
-	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
+	Peerings []ExpressRouteCircuitPeeringInvokeResponse `pulumi:"peerings"`
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets ServiceKey
@@ -46,11 +46,11 @@ type LookupExpressRouteCircuitResult struct {
 	// Gets or sets ServiceProviderNotes
 	ServiceProviderNotes *string `pulumi:"serviceProviderNotes"`
 	// Gets or sets ServiceProviderProperties
-	ServiceProviderProperties *ExpressRouteCircuitServiceProviderPropertiesResponse `pulumi:"serviceProviderProperties"`
+	ServiceProviderProperties *ExpressRouteCircuitServiceProviderPropertiesInvokeResponse `pulumi:"serviceProviderProperties"`
 	// Gets or sets ServiceProviderProvisioningState state of the resource
 	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
 	// Gets or sets sku
-	Sku *ExpressRouteCircuitSkuResponse `pulumi:"sku"`
+	Sku *ExpressRouteCircuitSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

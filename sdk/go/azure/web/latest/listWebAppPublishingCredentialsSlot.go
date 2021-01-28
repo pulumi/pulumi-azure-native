@@ -44,7 +44,7 @@ type ListWebAppPublishingCredentialsSlotResult struct {
 	// Url of SCM site.
 	ScmUri *string `pulumi:"scmUri"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

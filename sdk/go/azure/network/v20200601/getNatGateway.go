@@ -40,15 +40,15 @@ type LookupNatGatewayResult struct {
 	// The provisioning state of the NAT gateway resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// An array of public ip addresses associated with the nat gateway resource.
-	PublicIpAddresses []SubResourceResponse `pulumi:"publicIpAddresses"`
+	PublicIpAddresses []SubResourceInvokeResponse `pulumi:"publicIpAddresses"`
 	// An array of public ip prefixes associated with the nat gateway resource.
-	PublicIpPrefixes []SubResourceResponse `pulumi:"publicIpPrefixes"`
+	PublicIpPrefixes []SubResourceInvokeResponse `pulumi:"publicIpPrefixes"`
 	// The resource GUID property of the NAT gateway resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// The nat gateway SKU.
-	Sku *NatGatewaySkuResponse `pulumi:"sku"`
+	Sku *NatGatewaySkuInvokeResponse `pulumi:"sku"`
 	// An array of references to the subnets using this nat gateway resource.
-	Subnets []SubResourceResponse `pulumi:"subnets"`
+	Subnets []SubResourceInvokeResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

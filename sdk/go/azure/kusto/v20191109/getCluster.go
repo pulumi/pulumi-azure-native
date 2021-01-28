@@ -34,19 +34,19 @@ type LookupClusterResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the cluster, if configured.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// KeyVault properties for the cluster encryption.
-	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	KeyVaultProperties *KeyVaultPropertiesInvokeResponse `pulumi:"keyVaultProperties"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Optimized auto scale definition.
-	OptimizedAutoscale *OptimizedAutoscaleResponse `pulumi:"optimizedAutoscale"`
+	OptimizedAutoscale *OptimizedAutoscaleInvokeResponse `pulumi:"optimizedAutoscale"`
 	// The provisioned state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU of the cluster.
-	Sku AzureSkuResponse `pulumi:"sku"`
+	Sku AzureSkuInvokeResponse `pulumi:"sku"`
 	// The state of the resource.
 	State string `pulumi:"state"`
 	// The reason for the cluster's current state.
@@ -54,13 +54,13 @@ type LookupClusterResult struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The cluster's external tenants.
-	TrustedExternalTenants []TrustedExternalTenantResponse `pulumi:"trustedExternalTenants"`
+	TrustedExternalTenants []TrustedExternalTenantInvokeResponse `pulumi:"trustedExternalTenants"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// The cluster URI.
 	Uri string `pulumi:"uri"`
 	// Virtual network definition.
-	VirtualNetworkConfiguration *VirtualNetworkConfigurationResponse `pulumi:"virtualNetworkConfiguration"`
+	VirtualNetworkConfiguration *VirtualNetworkConfigurationInvokeResponse `pulumi:"virtualNetworkConfiguration"`
 	// The availability zones of the cluster.
 	Zones []string `pulumi:"zones"`
 }

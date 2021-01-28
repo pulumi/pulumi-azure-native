@@ -129,6 +129,124 @@ func (o AdditionalWorkspacesPropertiesArrayOutput) Index(i pulumi.IntInput) Addi
 }
 
 // Properties of the additional workspaces.
+type AdditionalWorkspacesPropertiesInvokeResponse struct {
+	// List of data types sent to workspace
+	DataTypes []string `pulumi:"dataTypes"`
+	// Workspace type.
+	Type *string `pulumi:"type"`
+	// Workspace resource id
+	Workspace *string `pulumi:"workspace"`
+}
+
+// AdditionalWorkspacesPropertiesInvokeResponseInput is an input type that accepts AdditionalWorkspacesPropertiesInvokeResponseArgs and AdditionalWorkspacesPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AdditionalWorkspacesPropertiesInvokeResponseInput` via:
+//
+//          AdditionalWorkspacesPropertiesInvokeResponseArgs{...}
+type AdditionalWorkspacesPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdditionalWorkspacesPropertiesInvokeResponseOutput() AdditionalWorkspacesPropertiesInvokeResponseOutput
+	ToAdditionalWorkspacesPropertiesInvokeResponseOutputWithContext(context.Context) AdditionalWorkspacesPropertiesInvokeResponseOutput
+}
+
+// Properties of the additional workspaces.
+type AdditionalWorkspacesPropertiesInvokeResponseArgs struct {
+	// List of data types sent to workspace
+	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
+	// Workspace type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Workspace resource id
+	Workspace pulumi.StringPtrInput `pulumi:"workspace"`
+}
+
+func (AdditionalWorkspacesPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalWorkspacesPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AdditionalWorkspacesPropertiesInvokeResponseArgs) ToAdditionalWorkspacesPropertiesInvokeResponseOutput() AdditionalWorkspacesPropertiesInvokeResponseOutput {
+	return i.ToAdditionalWorkspacesPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdditionalWorkspacesPropertiesInvokeResponseArgs) ToAdditionalWorkspacesPropertiesInvokeResponseOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalWorkspacesPropertiesInvokeResponseOutput)
+}
+
+// AdditionalWorkspacesPropertiesInvokeResponseArrayInput is an input type that accepts AdditionalWorkspacesPropertiesInvokeResponseArray and AdditionalWorkspacesPropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AdditionalWorkspacesPropertiesInvokeResponseArrayInput` via:
+//
+//          AdditionalWorkspacesPropertiesInvokeResponseArray{ AdditionalWorkspacesPropertiesInvokeResponseArgs{...} }
+type AdditionalWorkspacesPropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAdditionalWorkspacesPropertiesInvokeResponseArrayOutput() AdditionalWorkspacesPropertiesInvokeResponseArrayOutput
+	ToAdditionalWorkspacesPropertiesInvokeResponseArrayOutputWithContext(context.Context) AdditionalWorkspacesPropertiesInvokeResponseArrayOutput
+}
+
+type AdditionalWorkspacesPropertiesInvokeResponseArray []AdditionalWorkspacesPropertiesInvokeResponseInput
+
+func (AdditionalWorkspacesPropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdditionalWorkspacesPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AdditionalWorkspacesPropertiesInvokeResponseArray) ToAdditionalWorkspacesPropertiesInvokeResponseArrayOutput() AdditionalWorkspacesPropertiesInvokeResponseArrayOutput {
+	return i.ToAdditionalWorkspacesPropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AdditionalWorkspacesPropertiesInvokeResponseArray) ToAdditionalWorkspacesPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalWorkspacesPropertiesInvokeResponseArrayOutput)
+}
+
+// Properties of the additional workspaces.
+type AdditionalWorkspacesPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdditionalWorkspacesPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalWorkspacesPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AdditionalWorkspacesPropertiesInvokeResponseOutput) ToAdditionalWorkspacesPropertiesInvokeResponseOutput() AdditionalWorkspacesPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AdditionalWorkspacesPropertiesInvokeResponseOutput) ToAdditionalWorkspacesPropertiesInvokeResponseOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesInvokeResponseOutput {
+	return o
+}
+
+// List of data types sent to workspace
+func (o AdditionalWorkspacesPropertiesInvokeResponseOutput) DataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdditionalWorkspacesPropertiesInvokeResponse) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
+}
+
+// Workspace type.
+func (o AdditionalWorkspacesPropertiesInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdditionalWorkspacesPropertiesInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Workspace resource id
+func (o AdditionalWorkspacesPropertiesInvokeResponseOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdditionalWorkspacesPropertiesInvokeResponse) *string { return v.Workspace }).(pulumi.StringPtrOutput)
+}
+
+type AdditionalWorkspacesPropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AdditionalWorkspacesPropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdditionalWorkspacesPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AdditionalWorkspacesPropertiesInvokeResponseArrayOutput) ToAdditionalWorkspacesPropertiesInvokeResponseArrayOutput() AdditionalWorkspacesPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AdditionalWorkspacesPropertiesInvokeResponseArrayOutput) ToAdditionalWorkspacesPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) AdditionalWorkspacesPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AdditionalWorkspacesPropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) AdditionalWorkspacesPropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdditionalWorkspacesPropertiesInvokeResponse {
+		return vs[0].([]AdditionalWorkspacesPropertiesInvokeResponse)[vs[1].(int)]
+	}).(AdditionalWorkspacesPropertiesInvokeResponseOutput)
+}
+
+// Properties of the additional workspaces.
 type AdditionalWorkspacesPropertiesResponse struct {
 	// List of data types sent to workspace
 	DataTypes []string `pulumi:"dataTypes"`
@@ -365,6 +483,154 @@ func (o AllowlistCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) AllowlistC
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AllowlistCustomAlertRule {
 		return vs[0].([]AllowlistCustomAlertRule)[vs[1].(int)]
 	}).(AllowlistCustomAlertRuleOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+type AllowlistCustomAlertRuleInvokeResponse struct {
+	// The values to allow. The format of the values depends on the rule type.
+	AllowlistValues []string `pulumi:"allowlistValues"`
+	// The description of the custom alert.
+	Description string `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName string `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	// Expected value is 'ListCustomAlertRule'.
+	RuleType string `pulumi:"ruleType"`
+	// The value type of the items in the list.
+	ValueType string `pulumi:"valueType"`
+}
+
+// AllowlistCustomAlertRuleInvokeResponseInput is an input type that accepts AllowlistCustomAlertRuleInvokeResponseArgs and AllowlistCustomAlertRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `AllowlistCustomAlertRuleInvokeResponseInput` via:
+//
+//          AllowlistCustomAlertRuleInvokeResponseArgs{...}
+type AllowlistCustomAlertRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAllowlistCustomAlertRuleInvokeResponseOutput() AllowlistCustomAlertRuleInvokeResponseOutput
+	ToAllowlistCustomAlertRuleInvokeResponseOutputWithContext(context.Context) AllowlistCustomAlertRuleInvokeResponseOutput
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+type AllowlistCustomAlertRuleInvokeResponseArgs struct {
+	// The values to allow. The format of the values depends on the rule type.
+	AllowlistValues pulumi.StringArrayInput `pulumi:"allowlistValues"`
+	// The description of the custom alert.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	// Expected value is 'ListCustomAlertRule'.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// The value type of the items in the list.
+	ValueType pulumi.StringInput `pulumi:"valueType"`
+}
+
+func (AllowlistCustomAlertRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowlistCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i AllowlistCustomAlertRuleInvokeResponseArgs) ToAllowlistCustomAlertRuleInvokeResponseOutput() AllowlistCustomAlertRuleInvokeResponseOutput {
+	return i.ToAllowlistCustomAlertRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AllowlistCustomAlertRuleInvokeResponseArgs) ToAllowlistCustomAlertRuleInvokeResponseOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleInvokeResponseOutput)
+}
+
+// AllowlistCustomAlertRuleInvokeResponseArrayInput is an input type that accepts AllowlistCustomAlertRuleInvokeResponseArray and AllowlistCustomAlertRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AllowlistCustomAlertRuleInvokeResponseArrayInput` via:
+//
+//          AllowlistCustomAlertRuleInvokeResponseArray{ AllowlistCustomAlertRuleInvokeResponseArgs{...} }
+type AllowlistCustomAlertRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAllowlistCustomAlertRuleInvokeResponseArrayOutput() AllowlistCustomAlertRuleInvokeResponseArrayOutput
+	ToAllowlistCustomAlertRuleInvokeResponseArrayOutputWithContext(context.Context) AllowlistCustomAlertRuleInvokeResponseArrayOutput
+}
+
+type AllowlistCustomAlertRuleInvokeResponseArray []AllowlistCustomAlertRuleInvokeResponseInput
+
+func (AllowlistCustomAlertRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AllowlistCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i AllowlistCustomAlertRuleInvokeResponseArray) ToAllowlistCustomAlertRuleInvokeResponseArrayOutput() AllowlistCustomAlertRuleInvokeResponseArrayOutput {
+	return i.ToAllowlistCustomAlertRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AllowlistCustomAlertRuleInvokeResponseArray) ToAllowlistCustomAlertRuleInvokeResponseArrayOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AllowlistCustomAlertRuleInvokeResponseArrayOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
+type AllowlistCustomAlertRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AllowlistCustomAlertRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AllowlistCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o AllowlistCustomAlertRuleInvokeResponseOutput) ToAllowlistCustomAlertRuleInvokeResponseOutput() AllowlistCustomAlertRuleInvokeResponseOutput {
+	return o
+}
+
+func (o AllowlistCustomAlertRuleInvokeResponseOutput) ToAllowlistCustomAlertRuleInvokeResponseOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleInvokeResponseOutput {
+	return o
+}
+
+// The values to allow. The format of the values depends on the rule type.
+func (o AllowlistCustomAlertRuleInvokeResponseOutput) AllowlistValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleInvokeResponse) []string { return v.AllowlistValues }).(pulumi.StringArrayOutput)
+}
+
+// The description of the custom alert.
+func (o AllowlistCustomAlertRuleInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the custom alert.
+func (o AllowlistCustomAlertRuleInvokeResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleInvokeResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Status of the custom alert.
+func (o AllowlistCustomAlertRuleInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The type of the custom alert rule.
+// Expected value is 'ListCustomAlertRule'.
+func (o AllowlistCustomAlertRuleInvokeResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleInvokeResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// The value type of the items in the list.
+func (o AllowlistCustomAlertRuleInvokeResponseOutput) ValueType() pulumi.StringOutput {
+	return o.ApplyT(func(v AllowlistCustomAlertRuleInvokeResponse) string { return v.ValueType }).(pulumi.StringOutput)
+}
+
+type AllowlistCustomAlertRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AllowlistCustomAlertRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AllowlistCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o AllowlistCustomAlertRuleInvokeResponseArrayOutput) ToAllowlistCustomAlertRuleInvokeResponseArrayOutput() AllowlistCustomAlertRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AllowlistCustomAlertRuleInvokeResponseArrayOutput) ToAllowlistCustomAlertRuleInvokeResponseArrayOutputWithContext(ctx context.Context) AllowlistCustomAlertRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AllowlistCustomAlertRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) AllowlistCustomAlertRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AllowlistCustomAlertRuleInvokeResponse {
+		return vs[0].([]AllowlistCustomAlertRuleInvokeResponse)[vs[1].(int)]
+	}).(AllowlistCustomAlertRuleInvokeResponseOutput)
 }
 
 // A custom alert rule that checks if a value (depends on the custom alert type) is allowed.
@@ -637,6 +903,154 @@ func (o DenylistCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) DenylistCus
 }
 
 // A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+type DenylistCustomAlertRuleInvokeResponse struct {
+	// The values to deny. The format of the values depends on the rule type.
+	DenylistValues []string `pulumi:"denylistValues"`
+	// The description of the custom alert.
+	Description string `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName string `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	// Expected value is 'ListCustomAlertRule'.
+	RuleType string `pulumi:"ruleType"`
+	// The value type of the items in the list.
+	ValueType string `pulumi:"valueType"`
+}
+
+// DenylistCustomAlertRuleInvokeResponseInput is an input type that accepts DenylistCustomAlertRuleInvokeResponseArgs and DenylistCustomAlertRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `DenylistCustomAlertRuleInvokeResponseInput` via:
+//
+//          DenylistCustomAlertRuleInvokeResponseArgs{...}
+type DenylistCustomAlertRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDenylistCustomAlertRuleInvokeResponseOutput() DenylistCustomAlertRuleInvokeResponseOutput
+	ToDenylistCustomAlertRuleInvokeResponseOutputWithContext(context.Context) DenylistCustomAlertRuleInvokeResponseOutput
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+type DenylistCustomAlertRuleInvokeResponseArgs struct {
+	// The values to deny. The format of the values depends on the rule type.
+	DenylistValues pulumi.StringArrayInput `pulumi:"denylistValues"`
+	// The description of the custom alert.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The type of the custom alert rule.
+	// Expected value is 'ListCustomAlertRule'.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// The value type of the items in the list.
+	ValueType pulumi.StringInput `pulumi:"valueType"`
+}
+
+func (DenylistCustomAlertRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DenylistCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i DenylistCustomAlertRuleInvokeResponseArgs) ToDenylistCustomAlertRuleInvokeResponseOutput() DenylistCustomAlertRuleInvokeResponseOutput {
+	return i.ToDenylistCustomAlertRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DenylistCustomAlertRuleInvokeResponseArgs) ToDenylistCustomAlertRuleInvokeResponseOutputWithContext(ctx context.Context) DenylistCustomAlertRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleInvokeResponseOutput)
+}
+
+// DenylistCustomAlertRuleInvokeResponseArrayInput is an input type that accepts DenylistCustomAlertRuleInvokeResponseArray and DenylistCustomAlertRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DenylistCustomAlertRuleInvokeResponseArrayInput` via:
+//
+//          DenylistCustomAlertRuleInvokeResponseArray{ DenylistCustomAlertRuleInvokeResponseArgs{...} }
+type DenylistCustomAlertRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDenylistCustomAlertRuleInvokeResponseArrayOutput() DenylistCustomAlertRuleInvokeResponseArrayOutput
+	ToDenylistCustomAlertRuleInvokeResponseArrayOutputWithContext(context.Context) DenylistCustomAlertRuleInvokeResponseArrayOutput
+}
+
+type DenylistCustomAlertRuleInvokeResponseArray []DenylistCustomAlertRuleInvokeResponseInput
+
+func (DenylistCustomAlertRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DenylistCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i DenylistCustomAlertRuleInvokeResponseArray) ToDenylistCustomAlertRuleInvokeResponseArrayOutput() DenylistCustomAlertRuleInvokeResponseArrayOutput {
+	return i.ToDenylistCustomAlertRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DenylistCustomAlertRuleInvokeResponseArray) ToDenylistCustomAlertRuleInvokeResponseArrayOutputWithContext(ctx context.Context) DenylistCustomAlertRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DenylistCustomAlertRuleInvokeResponseArrayOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
+type DenylistCustomAlertRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DenylistCustomAlertRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DenylistCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o DenylistCustomAlertRuleInvokeResponseOutput) ToDenylistCustomAlertRuleInvokeResponseOutput() DenylistCustomAlertRuleInvokeResponseOutput {
+	return o
+}
+
+func (o DenylistCustomAlertRuleInvokeResponseOutput) ToDenylistCustomAlertRuleInvokeResponseOutputWithContext(ctx context.Context) DenylistCustomAlertRuleInvokeResponseOutput {
+	return o
+}
+
+// The values to deny. The format of the values depends on the rule type.
+func (o DenylistCustomAlertRuleInvokeResponseOutput) DenylistValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleInvokeResponse) []string { return v.DenylistValues }).(pulumi.StringArrayOutput)
+}
+
+// The description of the custom alert.
+func (o DenylistCustomAlertRuleInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the custom alert.
+func (o DenylistCustomAlertRuleInvokeResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleInvokeResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Status of the custom alert.
+func (o DenylistCustomAlertRuleInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The type of the custom alert rule.
+// Expected value is 'ListCustomAlertRule'.
+func (o DenylistCustomAlertRuleInvokeResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleInvokeResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// The value type of the items in the list.
+func (o DenylistCustomAlertRuleInvokeResponseOutput) ValueType() pulumi.StringOutput {
+	return o.ApplyT(func(v DenylistCustomAlertRuleInvokeResponse) string { return v.ValueType }).(pulumi.StringOutput)
+}
+
+type DenylistCustomAlertRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DenylistCustomAlertRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DenylistCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o DenylistCustomAlertRuleInvokeResponseArrayOutput) ToDenylistCustomAlertRuleInvokeResponseArrayOutput() DenylistCustomAlertRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DenylistCustomAlertRuleInvokeResponseArrayOutput) ToDenylistCustomAlertRuleInvokeResponseArrayOutputWithContext(ctx context.Context) DenylistCustomAlertRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DenylistCustomAlertRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) DenylistCustomAlertRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DenylistCustomAlertRuleInvokeResponse {
+		return vs[0].([]DenylistCustomAlertRuleInvokeResponse)[vs[1].(int)]
+	}).(DenylistCustomAlertRuleInvokeResponseOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is denied.
 type DenylistCustomAlertRuleResponse struct {
 	// The values to deny. The format of the values depends on the rule type.
 	DenylistValues []string `pulumi:"denylistValues"`
@@ -894,6 +1308,121 @@ func (o RecommendationConfigurationPropertiesArrayOutput) Index(i pulumi.IntInpu
 }
 
 // The type of IoT Security recommendation.
+type RecommendationConfigurationPropertiesInvokeResponse struct {
+	Name string `pulumi:"name"`
+	// The type of IoT Security recommendation.
+	RecommendationType string `pulumi:"recommendationType"`
+	// Recommendation status. When the recommendation status is disabled recommendations are not generated.
+	Status string `pulumi:"status"`
+}
+
+// RecommendationConfigurationPropertiesInvokeResponseInput is an input type that accepts RecommendationConfigurationPropertiesInvokeResponseArgs and RecommendationConfigurationPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `RecommendationConfigurationPropertiesInvokeResponseInput` via:
+//
+//          RecommendationConfigurationPropertiesInvokeResponseArgs{...}
+type RecommendationConfigurationPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRecommendationConfigurationPropertiesInvokeResponseOutput() RecommendationConfigurationPropertiesInvokeResponseOutput
+	ToRecommendationConfigurationPropertiesInvokeResponseOutputWithContext(context.Context) RecommendationConfigurationPropertiesInvokeResponseOutput
+}
+
+// The type of IoT Security recommendation.
+type RecommendationConfigurationPropertiesInvokeResponseArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of IoT Security recommendation.
+	RecommendationType pulumi.StringInput `pulumi:"recommendationType"`
+	// Recommendation status. When the recommendation status is disabled recommendations are not generated.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RecommendationConfigurationPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendationConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i RecommendationConfigurationPropertiesInvokeResponseArgs) ToRecommendationConfigurationPropertiesInvokeResponseOutput() RecommendationConfigurationPropertiesInvokeResponseOutput {
+	return i.ToRecommendationConfigurationPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RecommendationConfigurationPropertiesInvokeResponseArgs) ToRecommendationConfigurationPropertiesInvokeResponseOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesInvokeResponseOutput)
+}
+
+// RecommendationConfigurationPropertiesInvokeResponseArrayInput is an input type that accepts RecommendationConfigurationPropertiesInvokeResponseArray and RecommendationConfigurationPropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RecommendationConfigurationPropertiesInvokeResponseArrayInput` via:
+//
+//          RecommendationConfigurationPropertiesInvokeResponseArray{ RecommendationConfigurationPropertiesInvokeResponseArgs{...} }
+type RecommendationConfigurationPropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToRecommendationConfigurationPropertiesInvokeResponseArrayOutput() RecommendationConfigurationPropertiesInvokeResponseArrayOutput
+	ToRecommendationConfigurationPropertiesInvokeResponseArrayOutputWithContext(context.Context) RecommendationConfigurationPropertiesInvokeResponseArrayOutput
+}
+
+type RecommendationConfigurationPropertiesInvokeResponseArray []RecommendationConfigurationPropertiesInvokeResponseInput
+
+func (RecommendationConfigurationPropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendationConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i RecommendationConfigurationPropertiesInvokeResponseArray) ToRecommendationConfigurationPropertiesInvokeResponseArrayOutput() RecommendationConfigurationPropertiesInvokeResponseArrayOutput {
+	return i.ToRecommendationConfigurationPropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RecommendationConfigurationPropertiesInvokeResponseArray) ToRecommendationConfigurationPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesInvokeResponseArrayOutput)
+}
+
+// The type of IoT Security recommendation.
+type RecommendationConfigurationPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RecommendationConfigurationPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendationConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o RecommendationConfigurationPropertiesInvokeResponseOutput) ToRecommendationConfigurationPropertiesInvokeResponseOutput() RecommendationConfigurationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o RecommendationConfigurationPropertiesInvokeResponseOutput) ToRecommendationConfigurationPropertiesInvokeResponseOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o RecommendationConfigurationPropertiesInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendationConfigurationPropertiesInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of IoT Security recommendation.
+func (o RecommendationConfigurationPropertiesInvokeResponseOutput) RecommendationType() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendationConfigurationPropertiesInvokeResponse) string { return v.RecommendationType }).(pulumi.StringOutput)
+}
+
+// Recommendation status. When the recommendation status is disabled recommendations are not generated.
+func (o RecommendationConfigurationPropertiesInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendationConfigurationPropertiesInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RecommendationConfigurationPropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RecommendationConfigurationPropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendationConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o RecommendationConfigurationPropertiesInvokeResponseArrayOutput) ToRecommendationConfigurationPropertiesInvokeResponseArrayOutput() RecommendationConfigurationPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RecommendationConfigurationPropertiesInvokeResponseArrayOutput) ToRecommendationConfigurationPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RecommendationConfigurationPropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) RecommendationConfigurationPropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendationConfigurationPropertiesInvokeResponse {
+		return vs[0].([]RecommendationConfigurationPropertiesInvokeResponse)[vs[1].(int)]
+	}).(RecommendationConfigurationPropertiesInvokeResponseOutput)
+}
+
+// The type of IoT Security recommendation.
 type RecommendationConfigurationPropertiesResponse struct {
 	Name string `pulumi:"name"`
 	// The type of IoT Security recommendation.
@@ -1006,6 +1535,106 @@ func (o RecommendationConfigurationPropertiesResponseArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendationConfigurationPropertiesResponse {
 		return vs[0].([]RecommendationConfigurationPropertiesResponse)[vs[1].(int)]
 	}).(RecommendationConfigurationPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -1368,6 +1997,154 @@ func (o ThresholdCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) ThresholdC
 }
 
 // A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+type ThresholdCustomAlertRuleInvokeResponse struct {
+	// The description of the custom alert.
+	Description string `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName string `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold int `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold int `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	// Expected value is 'ThresholdCustomAlertRule'.
+	RuleType string `pulumi:"ruleType"`
+}
+
+// ThresholdCustomAlertRuleInvokeResponseInput is an input type that accepts ThresholdCustomAlertRuleInvokeResponseArgs and ThresholdCustomAlertRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `ThresholdCustomAlertRuleInvokeResponseInput` via:
+//
+//          ThresholdCustomAlertRuleInvokeResponseArgs{...}
+type ThresholdCustomAlertRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToThresholdCustomAlertRuleInvokeResponseOutput() ThresholdCustomAlertRuleInvokeResponseOutput
+	ToThresholdCustomAlertRuleInvokeResponseOutputWithContext(context.Context) ThresholdCustomAlertRuleInvokeResponseOutput
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+type ThresholdCustomAlertRuleInvokeResponseArgs struct {
+	// The description of the custom alert.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	// Expected value is 'ThresholdCustomAlertRule'.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+}
+
+func (ThresholdCustomAlertRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThresholdCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i ThresholdCustomAlertRuleInvokeResponseArgs) ToThresholdCustomAlertRuleInvokeResponseOutput() ThresholdCustomAlertRuleInvokeResponseOutput {
+	return i.ToThresholdCustomAlertRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ThresholdCustomAlertRuleInvokeResponseArgs) ToThresholdCustomAlertRuleInvokeResponseOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleInvokeResponseOutput)
+}
+
+// ThresholdCustomAlertRuleInvokeResponseArrayInput is an input type that accepts ThresholdCustomAlertRuleInvokeResponseArray and ThresholdCustomAlertRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ThresholdCustomAlertRuleInvokeResponseArrayInput` via:
+//
+//          ThresholdCustomAlertRuleInvokeResponseArray{ ThresholdCustomAlertRuleInvokeResponseArgs{...} }
+type ThresholdCustomAlertRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToThresholdCustomAlertRuleInvokeResponseArrayOutput() ThresholdCustomAlertRuleInvokeResponseArrayOutput
+	ToThresholdCustomAlertRuleInvokeResponseArrayOutputWithContext(context.Context) ThresholdCustomAlertRuleInvokeResponseArrayOutput
+}
+
+type ThresholdCustomAlertRuleInvokeResponseArray []ThresholdCustomAlertRuleInvokeResponseInput
+
+func (ThresholdCustomAlertRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThresholdCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i ThresholdCustomAlertRuleInvokeResponseArray) ToThresholdCustomAlertRuleInvokeResponseArrayOutput() ThresholdCustomAlertRuleInvokeResponseArrayOutput {
+	return i.ToThresholdCustomAlertRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ThresholdCustomAlertRuleInvokeResponseArray) ToThresholdCustomAlertRuleInvokeResponseArrayOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThresholdCustomAlertRuleInvokeResponseArrayOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+type ThresholdCustomAlertRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ThresholdCustomAlertRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThresholdCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o ThresholdCustomAlertRuleInvokeResponseOutput) ToThresholdCustomAlertRuleInvokeResponseOutput() ThresholdCustomAlertRuleInvokeResponseOutput {
+	return o
+}
+
+func (o ThresholdCustomAlertRuleInvokeResponseOutput) ToThresholdCustomAlertRuleInvokeResponseOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleInvokeResponseOutput {
+	return o
+}
+
+// The description of the custom alert.
+func (o ThresholdCustomAlertRuleInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the custom alert.
+func (o ThresholdCustomAlertRuleInvokeResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleInvokeResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Status of the custom alert.
+func (o ThresholdCustomAlertRuleInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The maximum threshold.
+func (o ThresholdCustomAlertRuleInvokeResponseOutput) MaxThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleInvokeResponse) int { return v.MaxThreshold }).(pulumi.IntOutput)
+}
+
+// The minimum threshold.
+func (o ThresholdCustomAlertRuleInvokeResponseOutput) MinThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleInvokeResponse) int { return v.MinThreshold }).(pulumi.IntOutput)
+}
+
+// The type of the custom alert rule.
+// Expected value is 'ThresholdCustomAlertRule'.
+func (o ThresholdCustomAlertRuleInvokeResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdCustomAlertRuleInvokeResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+type ThresholdCustomAlertRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ThresholdCustomAlertRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThresholdCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o ThresholdCustomAlertRuleInvokeResponseArrayOutput) ToThresholdCustomAlertRuleInvokeResponseArrayOutput() ThresholdCustomAlertRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ThresholdCustomAlertRuleInvokeResponseArrayOutput) ToThresholdCustomAlertRuleInvokeResponseArrayOutputWithContext(ctx context.Context) ThresholdCustomAlertRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ThresholdCustomAlertRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) ThresholdCustomAlertRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThresholdCustomAlertRuleInvokeResponse {
+		return vs[0].([]ThresholdCustomAlertRuleInvokeResponse)[vs[1].(int)]
+	}).(ThresholdCustomAlertRuleInvokeResponseOutput)
+}
+
+// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
 type ThresholdCustomAlertRuleResponse struct {
 	// The description of the custom alert.
 	Description string `pulumi:"description"`
@@ -1652,6 +2429,163 @@ func (o TimeWindowCustomAlertRuleArrayOutput) Index(i pulumi.IntInput) TimeWindo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeWindowCustomAlertRule {
 		return vs[0].([]TimeWindowCustomAlertRule)[vs[1].(int)]
 	}).(TimeWindowCustomAlertRuleOutput)
+}
+
+// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+type TimeWindowCustomAlertRuleInvokeResponse struct {
+	// The description of the custom alert.
+	Description string `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName string `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold int `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold int `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	// Expected value is 'ThresholdCustomAlertRule'.
+	RuleType string `pulumi:"ruleType"`
+	// The time window size in iso8601 format.
+	TimeWindowSize string `pulumi:"timeWindowSize"`
+}
+
+// TimeWindowCustomAlertRuleInvokeResponseInput is an input type that accepts TimeWindowCustomAlertRuleInvokeResponseArgs and TimeWindowCustomAlertRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `TimeWindowCustomAlertRuleInvokeResponseInput` via:
+//
+//          TimeWindowCustomAlertRuleInvokeResponseArgs{...}
+type TimeWindowCustomAlertRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTimeWindowCustomAlertRuleInvokeResponseOutput() TimeWindowCustomAlertRuleInvokeResponseOutput
+	ToTimeWindowCustomAlertRuleInvokeResponseOutputWithContext(context.Context) TimeWindowCustomAlertRuleInvokeResponseOutput
+}
+
+// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+type TimeWindowCustomAlertRuleInvokeResponseArgs struct {
+	// The description of the custom alert.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The display name of the custom alert.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Status of the custom alert.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The maximum threshold.
+	MaxThreshold pulumi.IntInput `pulumi:"maxThreshold"`
+	// The minimum threshold.
+	MinThreshold pulumi.IntInput `pulumi:"minThreshold"`
+	// The type of the custom alert rule.
+	// Expected value is 'ThresholdCustomAlertRule'.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// The time window size in iso8601 format.
+	TimeWindowSize pulumi.StringInput `pulumi:"timeWindowSize"`
+}
+
+func (TimeWindowCustomAlertRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeWindowCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i TimeWindowCustomAlertRuleInvokeResponseArgs) ToTimeWindowCustomAlertRuleInvokeResponseOutput() TimeWindowCustomAlertRuleInvokeResponseOutput {
+	return i.ToTimeWindowCustomAlertRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TimeWindowCustomAlertRuleInvokeResponseArgs) ToTimeWindowCustomAlertRuleInvokeResponseOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleInvokeResponseOutput)
+}
+
+// TimeWindowCustomAlertRuleInvokeResponseArrayInput is an input type that accepts TimeWindowCustomAlertRuleInvokeResponseArray and TimeWindowCustomAlertRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TimeWindowCustomAlertRuleInvokeResponseArrayInput` via:
+//
+//          TimeWindowCustomAlertRuleInvokeResponseArray{ TimeWindowCustomAlertRuleInvokeResponseArgs{...} }
+type TimeWindowCustomAlertRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTimeWindowCustomAlertRuleInvokeResponseArrayOutput() TimeWindowCustomAlertRuleInvokeResponseArrayOutput
+	ToTimeWindowCustomAlertRuleInvokeResponseArrayOutputWithContext(context.Context) TimeWindowCustomAlertRuleInvokeResponseArrayOutput
+}
+
+type TimeWindowCustomAlertRuleInvokeResponseArray []TimeWindowCustomAlertRuleInvokeResponseInput
+
+func (TimeWindowCustomAlertRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeWindowCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i TimeWindowCustomAlertRuleInvokeResponseArray) ToTimeWindowCustomAlertRuleInvokeResponseArrayOutput() TimeWindowCustomAlertRuleInvokeResponseArrayOutput {
+	return i.ToTimeWindowCustomAlertRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TimeWindowCustomAlertRuleInvokeResponseArray) ToTimeWindowCustomAlertRuleInvokeResponseArrayOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeWindowCustomAlertRuleInvokeResponseArrayOutput)
+}
+
+// A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
+type TimeWindowCustomAlertRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TimeWindowCustomAlertRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeWindowCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o TimeWindowCustomAlertRuleInvokeResponseOutput) ToTimeWindowCustomAlertRuleInvokeResponseOutput() TimeWindowCustomAlertRuleInvokeResponseOutput {
+	return o
+}
+
+func (o TimeWindowCustomAlertRuleInvokeResponseOutput) ToTimeWindowCustomAlertRuleInvokeResponseOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleInvokeResponseOutput {
+	return o
+}
+
+// The description of the custom alert.
+func (o TimeWindowCustomAlertRuleInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name of the custom alert.
+func (o TimeWindowCustomAlertRuleInvokeResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleInvokeResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Status of the custom alert.
+func (o TimeWindowCustomAlertRuleInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The maximum threshold.
+func (o TimeWindowCustomAlertRuleInvokeResponseOutput) MaxThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleInvokeResponse) int { return v.MaxThreshold }).(pulumi.IntOutput)
+}
+
+// The minimum threshold.
+func (o TimeWindowCustomAlertRuleInvokeResponseOutput) MinThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleInvokeResponse) int { return v.MinThreshold }).(pulumi.IntOutput)
+}
+
+// The type of the custom alert rule.
+// Expected value is 'ThresholdCustomAlertRule'.
+func (o TimeWindowCustomAlertRuleInvokeResponseOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleInvokeResponse) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// The time window size in iso8601 format.
+func (o TimeWindowCustomAlertRuleInvokeResponseOutput) TimeWindowSize() pulumi.StringOutput {
+	return o.ApplyT(func(v TimeWindowCustomAlertRuleInvokeResponse) string { return v.TimeWindowSize }).(pulumi.StringOutput)
+}
+
+type TimeWindowCustomAlertRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TimeWindowCustomAlertRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TimeWindowCustomAlertRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o TimeWindowCustomAlertRuleInvokeResponseArrayOutput) ToTimeWindowCustomAlertRuleInvokeResponseArrayOutput() TimeWindowCustomAlertRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TimeWindowCustomAlertRuleInvokeResponseArrayOutput) ToTimeWindowCustomAlertRuleInvokeResponseArrayOutputWithContext(ctx context.Context) TimeWindowCustomAlertRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TimeWindowCustomAlertRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) TimeWindowCustomAlertRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TimeWindowCustomAlertRuleInvokeResponse {
+		return vs[0].([]TimeWindowCustomAlertRuleInvokeResponse)[vs[1].(int)]
+	}).(TimeWindowCustomAlertRuleInvokeResponseOutput)
 }
 
 // A custom alert rule that checks if the number of activities (depends on the custom alert type) in a time window is within the given range.
@@ -1965,6 +2899,70 @@ func (o UserDefinedResourcesPropertiesPtrOutput) QuerySubscriptions() pulumi.Str
 }
 
 // Properties of the IoT Security solution's user defined resources.
+type UserDefinedResourcesPropertiesInvokeResponse struct {
+	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
+	Query string `pulumi:"query"`
+	// List of Azure subscription ids on which the user defined resources query should be executed.
+	QuerySubscriptions []string `pulumi:"querySubscriptions"`
+}
+
+// UserDefinedResourcesPropertiesInvokeResponseInput is an input type that accepts UserDefinedResourcesPropertiesInvokeResponseArgs and UserDefinedResourcesPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `UserDefinedResourcesPropertiesInvokeResponseInput` via:
+//
+//          UserDefinedResourcesPropertiesInvokeResponseArgs{...}
+type UserDefinedResourcesPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserDefinedResourcesPropertiesInvokeResponseOutput() UserDefinedResourcesPropertiesInvokeResponseOutput
+	ToUserDefinedResourcesPropertiesInvokeResponseOutputWithContext(context.Context) UserDefinedResourcesPropertiesInvokeResponseOutput
+}
+
+// Properties of the IoT Security solution's user defined resources.
+type UserDefinedResourcesPropertiesInvokeResponseArgs struct {
+	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
+	Query pulumi.StringInput `pulumi:"query"`
+	// List of Azure subscription ids on which the user defined resources query should be executed.
+	QuerySubscriptions pulumi.StringArrayInput `pulumi:"querySubscriptions"`
+}
+
+func (UserDefinedResourcesPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedResourcesPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i UserDefinedResourcesPropertiesInvokeResponseArgs) ToUserDefinedResourcesPropertiesInvokeResponseOutput() UserDefinedResourcesPropertiesInvokeResponseOutput {
+	return i.ToUserDefinedResourcesPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserDefinedResourcesPropertiesInvokeResponseArgs) ToUserDefinedResourcesPropertiesInvokeResponseOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedResourcesPropertiesInvokeResponseOutput)
+}
+
+// Properties of the IoT Security solution's user defined resources.
+type UserDefinedResourcesPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserDefinedResourcesPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserDefinedResourcesPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o UserDefinedResourcesPropertiesInvokeResponseOutput) ToUserDefinedResourcesPropertiesInvokeResponseOutput() UserDefinedResourcesPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o UserDefinedResourcesPropertiesInvokeResponseOutput) ToUserDefinedResourcesPropertiesInvokeResponseOutputWithContext(ctx context.Context) UserDefinedResourcesPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
+func (o UserDefinedResourcesPropertiesInvokeResponseOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v UserDefinedResourcesPropertiesInvokeResponse) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// List of Azure subscription ids on which the user defined resources query should be executed.
+func (o UserDefinedResourcesPropertiesInvokeResponseOutput) QuerySubscriptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserDefinedResourcesPropertiesInvokeResponse) []string { return v.QuerySubscriptions }).(pulumi.StringArrayOutput)
+}
+
+// Properties of the IoT Security solution's user defined resources.
 type UserDefinedResourcesPropertiesResponse struct {
 	// Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
 	Query string `pulumi:"query"`
@@ -2120,32 +3118,46 @@ func (o UserDefinedResourcesPropertiesResponsePtrOutput) QuerySubscriptions() pu
 func init() {
 	pulumi.RegisterOutputType(AdditionalWorkspacesPropertiesOutput{})
 	pulumi.RegisterOutputType(AdditionalWorkspacesPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(AdditionalWorkspacesPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AdditionalWorkspacesPropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AdditionalWorkspacesPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AdditionalWorkspacesPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(AllowlistCustomAlertRuleOutput{})
 	pulumi.RegisterOutputType(AllowlistCustomAlertRuleArrayOutput{})
+	pulumi.RegisterOutputType(AllowlistCustomAlertRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AllowlistCustomAlertRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AllowlistCustomAlertRuleResponseOutput{})
 	pulumi.RegisterOutputType(AllowlistCustomAlertRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleOutput{})
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleArrayOutput{})
+	pulumi.RegisterOutputType(DenylistCustomAlertRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DenylistCustomAlertRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleResponseOutput{})
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleArrayOutput{})
+	pulumi.RegisterOutputType(ThresholdCustomAlertRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ThresholdCustomAlertRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleResponseOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(TimeWindowCustomAlertRuleOutput{})
 	pulumi.RegisterOutputType(TimeWindowCustomAlertRuleArrayOutput{})
+	pulumi.RegisterOutputType(TimeWindowCustomAlertRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TimeWindowCustomAlertRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TimeWindowCustomAlertRuleResponseOutput{})
 	pulumi.RegisterOutputType(TimeWindowCustomAlertRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserDefinedResourcesPropertiesOutput{})
 	pulumi.RegisterOutputType(UserDefinedResourcesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(UserDefinedResourcesPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UserDefinedResourcesPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserDefinedResourcesPropertiesResponsePtrOutput{})
 }

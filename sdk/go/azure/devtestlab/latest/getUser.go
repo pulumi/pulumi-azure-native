@@ -34,7 +34,7 @@ type LookupUserResult struct {
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
 	// The identity of the user.
-	Identity *UserIdentityResponse `pulumi:"identity"`
+	Identity *UserIdentityInvokeResponse `pulumi:"identity"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
@@ -42,7 +42,7 @@ type LookupUserResult struct {
 	// The provisioning status of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The secret store of the user.
-	SecretStore *UserSecretStoreResponse `pulumi:"secretStore"`
+	SecretStore *UserSecretStoreInvokeResponse `pulumi:"secretStore"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

@@ -52,7 +52,7 @@ type LookupNamespaceAuthorizationRuleResult struct {
 	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 	SecondaryKey string `pulumi:"secondaryKey"`
 	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

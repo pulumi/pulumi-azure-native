@@ -26,9 +26,9 @@ type LookupApplianceDefinitionArgs struct {
 // Information about appliance definition.
 type LookupApplianceDefinitionResult struct {
 	// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
-	Artifacts []ApplianceArtifactResponse `pulumi:"artifacts"`
+	Artifacts []ApplianceArtifactInvokeResponse `pulumi:"artifacts"`
 	// The appliance provider authorizations.
-	Authorizations []ApplianceProviderAuthorizationResponse `pulumi:"authorizations"`
+	Authorizations []ApplianceProviderAuthorizationInvokeResponse `pulumi:"authorizations"`
 	// The appliance definition description.
 	Description *string `pulumi:"description"`
 	// The appliance definition display name.
@@ -36,7 +36,7 @@ type LookupApplianceDefinitionResult struct {
 	// Resource ID
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The appliance lock level.
@@ -48,7 +48,7 @@ type LookupApplianceDefinitionResult struct {
 	// The appliance definition package file Uri.
 	PackageFileUri string `pulumi:"packageFileUri"`
 	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

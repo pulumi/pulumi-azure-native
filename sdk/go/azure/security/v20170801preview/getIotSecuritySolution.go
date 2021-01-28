@@ -42,7 +42,7 @@ type LookupIotSecuritySolutionResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// List of recommendation configuration
-	RecommendationsConfiguration []RecommendationConfigurationPropertiesResponse `pulumi:"recommendationsConfiguration"`
+	RecommendationsConfiguration []RecommendationConfigurationPropertiesInvokeResponse `pulumi:"recommendationsConfiguration"`
 	// Security solution status
 	Status *string `pulumi:"status"`
 	// Resource tags
@@ -50,7 +50,7 @@ type LookupIotSecuritySolutionResult struct {
 	// Resource type
 	Type string `pulumi:"type"`
 	// Properties of the solution's user defined resources.
-	UserDefinedResources *UserDefinedResourcesPropertiesResponse `pulumi:"userDefinedResources"`
+	UserDefinedResources *UserDefinedResourcesPropertiesInvokeResponse `pulumi:"userDefinedResources"`
 	// Workspace resource ID
 	Workspace string `pulumi:"workspace"`
 }

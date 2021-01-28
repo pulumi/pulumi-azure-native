@@ -32,9 +32,9 @@ type ListServiceFabricApplicableSchedulesResult struct {
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
 	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-	LabVmsShutdown *ScheduleResponse `pulumi:"labVmsShutdown"`
+	LabVmsShutdown *ScheduleInvokeResponse `pulumi:"labVmsShutdown"`
 	// The auto-startup schedule, if one has been set at the lab or lab resource level.
-	LabVmsStartup *ScheduleResponse `pulumi:"labVmsStartup"`
+	LabVmsStartup *ScheduleInvokeResponse `pulumi:"labVmsStartup"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

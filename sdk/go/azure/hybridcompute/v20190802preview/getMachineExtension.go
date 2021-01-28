@@ -34,7 +34,7 @@ type LookupMachineExtensionResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The machine extension instance view.
-	InstanceView *MachineExtensionInstanceViewResponse `pulumi:"instanceView"`
+	InstanceView *MachineExtensionInstanceViewInvokeResponse `pulumi:"instanceView"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

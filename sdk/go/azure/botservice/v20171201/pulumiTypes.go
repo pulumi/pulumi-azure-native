@@ -316,6 +316,169 @@ func (o BotPropertiesPtrOutput) MsaAppId() pulumi.StringPtrOutput {
 }
 
 // The parameters to provide for the Bot.
+type BotPropertiesInvokeResponse struct {
+	// Collection of channels for which the bot is configured
+	ConfiguredChannels []string `pulumi:"configuredChannels"`
+	// The description of the bot
+	Description *string `pulumi:"description"`
+	// The Application Insights key
+	DeveloperAppInsightKey *string `pulumi:"developerAppInsightKey"`
+	// The Application Insights Api Key
+	DeveloperAppInsightsApiKey *string `pulumi:"developerAppInsightsApiKey"`
+	// The Application Insights App Id
+	DeveloperAppInsightsApplicationId *string `pulumi:"developerAppInsightsApplicationId"`
+	// The Name of the bot
+	DisplayName string `pulumi:"displayName"`
+	// Collection of channels for which the bot is enabled
+	EnabledChannels []string `pulumi:"enabledChannels"`
+	// The bot's endpoint
+	Endpoint string `pulumi:"endpoint"`
+	// The bot's endpoint version
+	EndpointVersion string `pulumi:"endpointVersion"`
+	// The Icon Url of the bot
+	IconUrl *string `pulumi:"iconUrl"`
+	// Collection of LUIS App Ids
+	LuisAppIds []string `pulumi:"luisAppIds"`
+	// The LUIS Key
+	LuisKey *string `pulumi:"luisKey"`
+	// Microsoft App Id for the bot
+	MsaAppId string `pulumi:"msaAppId"`
+}
+
+// BotPropertiesInvokeResponseInput is an input type that accepts BotPropertiesInvokeResponseArgs and BotPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `BotPropertiesInvokeResponseInput` via:
+//
+//          BotPropertiesInvokeResponseArgs{...}
+type BotPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBotPropertiesInvokeResponseOutput() BotPropertiesInvokeResponseOutput
+	ToBotPropertiesInvokeResponseOutputWithContext(context.Context) BotPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Bot.
+type BotPropertiesInvokeResponseArgs struct {
+	// Collection of channels for which the bot is configured
+	ConfiguredChannels pulumi.StringArrayInput `pulumi:"configuredChannels"`
+	// The description of the bot
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The Application Insights key
+	DeveloperAppInsightKey pulumi.StringPtrInput `pulumi:"developerAppInsightKey"`
+	// The Application Insights Api Key
+	DeveloperAppInsightsApiKey pulumi.StringPtrInput `pulumi:"developerAppInsightsApiKey"`
+	// The Application Insights App Id
+	DeveloperAppInsightsApplicationId pulumi.StringPtrInput `pulumi:"developerAppInsightsApplicationId"`
+	// The Name of the bot
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Collection of channels for which the bot is enabled
+	EnabledChannels pulumi.StringArrayInput `pulumi:"enabledChannels"`
+	// The bot's endpoint
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The bot's endpoint version
+	EndpointVersion pulumi.StringInput `pulumi:"endpointVersion"`
+	// The Icon Url of the bot
+	IconUrl pulumi.StringPtrInput `pulumi:"iconUrl"`
+	// Collection of LUIS App Ids
+	LuisAppIds pulumi.StringArrayInput `pulumi:"luisAppIds"`
+	// The LUIS Key
+	LuisKey pulumi.StringPtrInput `pulumi:"luisKey"`
+	// Microsoft App Id for the bot
+	MsaAppId pulumi.StringInput `pulumi:"msaAppId"`
+}
+
+func (BotPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i BotPropertiesInvokeResponseArgs) ToBotPropertiesInvokeResponseOutput() BotPropertiesInvokeResponseOutput {
+	return i.ToBotPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BotPropertiesInvokeResponseArgs) ToBotPropertiesInvokeResponseOutputWithContext(ctx context.Context) BotPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotPropertiesInvokeResponseOutput)
+}
+
+// The parameters to provide for the Bot.
+type BotPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BotPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o BotPropertiesInvokeResponseOutput) ToBotPropertiesInvokeResponseOutput() BotPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o BotPropertiesInvokeResponseOutput) ToBotPropertiesInvokeResponseOutputWithContext(ctx context.Context) BotPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Collection of channels for which the bot is configured
+func (o BotPropertiesInvokeResponseOutput) ConfiguredChannels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) []string { return v.ConfiguredChannels }).(pulumi.StringArrayOutput)
+}
+
+// The description of the bot
+func (o BotPropertiesInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Application Insights key
+func (o BotPropertiesInvokeResponseOutput) DeveloperAppInsightKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) *string { return v.DeveloperAppInsightKey }).(pulumi.StringPtrOutput)
+}
+
+// The Application Insights Api Key
+func (o BotPropertiesInvokeResponseOutput) DeveloperAppInsightsApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) *string { return v.DeveloperAppInsightsApiKey }).(pulumi.StringPtrOutput)
+}
+
+// The Application Insights App Id
+func (o BotPropertiesInvokeResponseOutput) DeveloperAppInsightsApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) *string { return v.DeveloperAppInsightsApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// The Name of the bot
+func (o BotPropertiesInvokeResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Collection of channels for which the bot is enabled
+func (o BotPropertiesInvokeResponseOutput) EnabledChannels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) []string { return v.EnabledChannels }).(pulumi.StringArrayOutput)
+}
+
+// The bot's endpoint
+func (o BotPropertiesInvokeResponseOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The bot's endpoint version
+func (o BotPropertiesInvokeResponseOutput) EndpointVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) string { return v.EndpointVersion }).(pulumi.StringOutput)
+}
+
+// The Icon Url of the bot
+func (o BotPropertiesInvokeResponseOutput) IconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) *string { return v.IconUrl }).(pulumi.StringPtrOutput)
+}
+
+// Collection of LUIS App Ids
+func (o BotPropertiesInvokeResponseOutput) LuisAppIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) []string { return v.LuisAppIds }).(pulumi.StringArrayOutput)
+}
+
+// The LUIS Key
+func (o BotPropertiesInvokeResponseOutput) LuisKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) *string { return v.LuisKey }).(pulumi.StringPtrOutput)
+}
+
+// Microsoft App Id for the bot
+func (o BotPropertiesInvokeResponseOutput) MsaAppId() pulumi.StringOutput {
+	return o.ApplyT(func(v BotPropertiesInvokeResponse) string { return v.MsaAppId }).(pulumi.StringOutput)
+}
+
+// The parameters to provide for the Bot.
 type BotPropertiesResponse struct {
 	// Collection of channels for which the bot is configured
 	ConfiguredChannels []string `pulumi:"configuredChannels"`
@@ -787,6 +950,115 @@ func (o ConnectionSettingParameterArrayOutput) Index(i pulumi.IntInput) Connecti
 }
 
 // Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
+type ConnectionSettingParameterInvokeResponse struct {
+	// Key for the Connection Setting Parameter.
+	Key *string `pulumi:"key"`
+	// Value associated with the Connection Setting Parameter.
+	Value *string `pulumi:"value"`
+}
+
+// ConnectionSettingParameterInvokeResponseInput is an input type that accepts ConnectionSettingParameterInvokeResponseArgs and ConnectionSettingParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectionSettingParameterInvokeResponseInput` via:
+//
+//          ConnectionSettingParameterInvokeResponseArgs{...}
+type ConnectionSettingParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectionSettingParameterInvokeResponseOutput() ConnectionSettingParameterInvokeResponseOutput
+	ToConnectionSettingParameterInvokeResponseOutputWithContext(context.Context) ConnectionSettingParameterInvokeResponseOutput
+}
+
+// Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
+type ConnectionSettingParameterInvokeResponseArgs struct {
+	// Key for the Connection Setting Parameter.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Value associated with the Connection Setting Parameter.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ConnectionSettingParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionSettingParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectionSettingParameterInvokeResponseArgs) ToConnectionSettingParameterInvokeResponseOutput() ConnectionSettingParameterInvokeResponseOutput {
+	return i.ToConnectionSettingParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectionSettingParameterInvokeResponseArgs) ToConnectionSettingParameterInvokeResponseOutputWithContext(ctx context.Context) ConnectionSettingParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSettingParameterInvokeResponseOutput)
+}
+
+// ConnectionSettingParameterInvokeResponseArrayInput is an input type that accepts ConnectionSettingParameterInvokeResponseArray and ConnectionSettingParameterInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ConnectionSettingParameterInvokeResponseArrayInput` via:
+//
+//          ConnectionSettingParameterInvokeResponseArray{ ConnectionSettingParameterInvokeResponseArgs{...} }
+type ConnectionSettingParameterInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToConnectionSettingParameterInvokeResponseArrayOutput() ConnectionSettingParameterInvokeResponseArrayOutput
+	ToConnectionSettingParameterInvokeResponseArrayOutputWithContext(context.Context) ConnectionSettingParameterInvokeResponseArrayOutput
+}
+
+type ConnectionSettingParameterInvokeResponseArray []ConnectionSettingParameterInvokeResponseInput
+
+func (ConnectionSettingParameterInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionSettingParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectionSettingParameterInvokeResponseArray) ToConnectionSettingParameterInvokeResponseArrayOutput() ConnectionSettingParameterInvokeResponseArrayOutput {
+	return i.ToConnectionSettingParameterInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionSettingParameterInvokeResponseArray) ToConnectionSettingParameterInvokeResponseArrayOutputWithContext(ctx context.Context) ConnectionSettingParameterInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSettingParameterInvokeResponseArrayOutput)
+}
+
+// Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
+type ConnectionSettingParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectionSettingParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionSettingParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectionSettingParameterInvokeResponseOutput) ToConnectionSettingParameterInvokeResponseOutput() ConnectionSettingParameterInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectionSettingParameterInvokeResponseOutput) ToConnectionSettingParameterInvokeResponseOutputWithContext(ctx context.Context) ConnectionSettingParameterInvokeResponseOutput {
+	return o
+}
+
+// Key for the Connection Setting Parameter.
+func (o ConnectionSettingParameterInvokeResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingParameterInvokeResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Value associated with the Connection Setting Parameter.
+func (o ConnectionSettingParameterInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingParameterInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionSettingParameterInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionSettingParameterInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionSettingParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectionSettingParameterInvokeResponseArrayOutput) ToConnectionSettingParameterInvokeResponseArrayOutput() ConnectionSettingParameterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ConnectionSettingParameterInvokeResponseArrayOutput) ToConnectionSettingParameterInvokeResponseArrayOutputWithContext(ctx context.Context) ConnectionSettingParameterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ConnectionSettingParameterInvokeResponseArrayOutput) Index(i pulumi.IntInput) ConnectionSettingParameterInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionSettingParameterInvokeResponse {
+		return vs[0].([]ConnectionSettingParameterInvokeResponse)[vs[1].(int)]
+	}).(ConnectionSettingParameterInvokeResponseOutput)
+}
+
+// Extra Parameter in a Connection Setting Properties to indicate service provider specific properties
 type ConnectionSettingParameterResponse struct {
 	// Key for the Connection Setting Parameter.
 	Key *string `pulumi:"key"`
@@ -1125,6 +1397,117 @@ func (o ConnectionSettingPropertiesPtrOutput) ServiceProviderId() pulumi.StringP
 }
 
 // Properties for a Connection Setting Item
+type ConnectionSettingPropertiesInvokeResponse struct {
+	// Client Id associated with the Connection Setting.
+	ClientId *string `pulumi:"clientId"`
+	// Client Secret associated with the Connection Setting
+	ClientSecret *string `pulumi:"clientSecret"`
+	// Service Provider Parameters associated with the Connection Setting
+	Parameters []ConnectionSettingParameterInvokeResponse `pulumi:"parameters"`
+	// Scopes associated with the Connection Setting
+	Scopes *string `pulumi:"scopes"`
+	// Service Provider Display Name associated with the Connection Setting
+	ServiceProviderDisplayName *string `pulumi:"serviceProviderDisplayName"`
+	// Service Provider Id associated with the Connection Setting
+	ServiceProviderId *string `pulumi:"serviceProviderId"`
+	// Setting Id set by the service for the Connection Setting.
+	SettingId string `pulumi:"settingId"`
+}
+
+// ConnectionSettingPropertiesInvokeResponseInput is an input type that accepts ConnectionSettingPropertiesInvokeResponseArgs and ConnectionSettingPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectionSettingPropertiesInvokeResponseInput` via:
+//
+//          ConnectionSettingPropertiesInvokeResponseArgs{...}
+type ConnectionSettingPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectionSettingPropertiesInvokeResponseOutput() ConnectionSettingPropertiesInvokeResponseOutput
+	ToConnectionSettingPropertiesInvokeResponseOutputWithContext(context.Context) ConnectionSettingPropertiesInvokeResponseOutput
+}
+
+// Properties for a Connection Setting Item
+type ConnectionSettingPropertiesInvokeResponseArgs struct {
+	// Client Id associated with the Connection Setting.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Client Secret associated with the Connection Setting
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// Service Provider Parameters associated with the Connection Setting
+	Parameters ConnectionSettingParameterInvokeResponseArrayInput `pulumi:"parameters"`
+	// Scopes associated with the Connection Setting
+	Scopes pulumi.StringPtrInput `pulumi:"scopes"`
+	// Service Provider Display Name associated with the Connection Setting
+	ServiceProviderDisplayName pulumi.StringPtrInput `pulumi:"serviceProviderDisplayName"`
+	// Service Provider Id associated with the Connection Setting
+	ServiceProviderId pulumi.StringPtrInput `pulumi:"serviceProviderId"`
+	// Setting Id set by the service for the Connection Setting.
+	SettingId pulumi.StringInput `pulumi:"settingId"`
+}
+
+func (ConnectionSettingPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionSettingPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectionSettingPropertiesInvokeResponseArgs) ToConnectionSettingPropertiesInvokeResponseOutput() ConnectionSettingPropertiesInvokeResponseOutput {
+	return i.ToConnectionSettingPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectionSettingPropertiesInvokeResponseArgs) ToConnectionSettingPropertiesInvokeResponseOutputWithContext(ctx context.Context) ConnectionSettingPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionSettingPropertiesInvokeResponseOutput)
+}
+
+// Properties for a Connection Setting Item
+type ConnectionSettingPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectionSettingPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionSettingPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectionSettingPropertiesInvokeResponseOutput) ToConnectionSettingPropertiesInvokeResponseOutput() ConnectionSettingPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectionSettingPropertiesInvokeResponseOutput) ToConnectionSettingPropertiesInvokeResponseOutputWithContext(ctx context.Context) ConnectionSettingPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Client Id associated with the Connection Setting.
+func (o ConnectionSettingPropertiesInvokeResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingPropertiesInvokeResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Client Secret associated with the Connection Setting
+func (o ConnectionSettingPropertiesInvokeResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingPropertiesInvokeResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Service Provider Parameters associated with the Connection Setting
+func (o ConnectionSettingPropertiesInvokeResponseOutput) Parameters() ConnectionSettingParameterInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ConnectionSettingPropertiesInvokeResponse) []ConnectionSettingParameterInvokeResponse {
+		return v.Parameters
+	}).(ConnectionSettingParameterInvokeResponseArrayOutput)
+}
+
+// Scopes associated with the Connection Setting
+func (o ConnectionSettingPropertiesInvokeResponseOutput) Scopes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingPropertiesInvokeResponse) *string { return v.Scopes }).(pulumi.StringPtrOutput)
+}
+
+// Service Provider Display Name associated with the Connection Setting
+func (o ConnectionSettingPropertiesInvokeResponseOutput) ServiceProviderDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingPropertiesInvokeResponse) *string { return v.ServiceProviderDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Service Provider Id associated with the Connection Setting
+func (o ConnectionSettingPropertiesInvokeResponseOutput) ServiceProviderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingPropertiesInvokeResponse) *string { return v.ServiceProviderId }).(pulumi.StringPtrOutput)
+}
+
+// Setting Id set by the service for the Connection Setting.
+func (o ConnectionSettingPropertiesInvokeResponseOutput) SettingId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionSettingPropertiesInvokeResponse) string { return v.SettingId }).(pulumi.StringOutput)
+}
+
+// Properties for a Connection Setting Item
 type ConnectionSettingPropertiesResponse struct {
 	// Client Id associated with the Connection Setting.
 	ClientId *string `pulumi:"clientId"`
@@ -1439,6 +1822,75 @@ func (o DirectLineChannelOutput) Properties() DirectLineChannelPropertiesPtrOutp
 	return o.ApplyT(func(v DirectLineChannel) *DirectLineChannelProperties { return v.Properties }).(DirectLineChannelPropertiesPtrOutput)
 }
 
+// Direct Line channel definition
+type DirectLineChannelInvokeResponse struct {
+	// The channel name
+	// Expected value is 'DirectLineChannel'.
+	ChannelName string `pulumi:"channelName"`
+	// The set of properties specific to Direct Line channel resource
+	Properties *DirectLineChannelPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// DirectLineChannelInvokeResponseInput is an input type that accepts DirectLineChannelInvokeResponseArgs and DirectLineChannelInvokeResponseOutput values.
+// You can construct a concrete instance of `DirectLineChannelInvokeResponseInput` via:
+//
+//          DirectLineChannelInvokeResponseArgs{...}
+type DirectLineChannelInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDirectLineChannelInvokeResponseOutput() DirectLineChannelInvokeResponseOutput
+	ToDirectLineChannelInvokeResponseOutputWithContext(context.Context) DirectLineChannelInvokeResponseOutput
+}
+
+// Direct Line channel definition
+type DirectLineChannelInvokeResponseArgs struct {
+	// The channel name
+	// Expected value is 'DirectLineChannel'.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The set of properties specific to Direct Line channel resource
+	Properties DirectLineChannelPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (DirectLineChannelInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectLineChannelInvokeResponse)(nil)).Elem()
+}
+
+func (i DirectLineChannelInvokeResponseArgs) ToDirectLineChannelInvokeResponseOutput() DirectLineChannelInvokeResponseOutput {
+	return i.ToDirectLineChannelInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DirectLineChannelInvokeResponseArgs) ToDirectLineChannelInvokeResponseOutputWithContext(ctx context.Context) DirectLineChannelInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectLineChannelInvokeResponseOutput)
+}
+
+// Direct Line channel definition
+type DirectLineChannelInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DirectLineChannelInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectLineChannelInvokeResponse)(nil)).Elem()
+}
+
+func (o DirectLineChannelInvokeResponseOutput) ToDirectLineChannelInvokeResponseOutput() DirectLineChannelInvokeResponseOutput {
+	return o
+}
+
+func (o DirectLineChannelInvokeResponseOutput) ToDirectLineChannelInvokeResponseOutputWithContext(ctx context.Context) DirectLineChannelInvokeResponseOutput {
+	return o
+}
+
+// The channel name
+// Expected value is 'DirectLineChannel'.
+func (o DirectLineChannelInvokeResponseOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineChannelInvokeResponse) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to Direct Line channel resource
+func (o DirectLineChannelInvokeResponseOutput) Properties() DirectLineChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DirectLineChannelInvokeResponse) *DirectLineChannelPropertiesInvokeResponse {
+		return v.Properties
+	}).(DirectLineChannelPropertiesInvokeResponsePtrOutput)
+}
+
 // The parameters to provide for the Direct Line channel.
 type DirectLineChannelProperties struct {
 	// The list of Direct Line sites
@@ -1571,6 +2023,142 @@ func (o DirectLineChannelPropertiesPtrOutput) Sites() DirectLineSiteArrayOutput 
 		}
 		return v.Sites
 	}).(DirectLineSiteArrayOutput)
+}
+
+// The parameters to provide for the Direct Line channel.
+type DirectLineChannelPropertiesInvokeResponse struct {
+	// The list of Direct Line sites
+	Sites []DirectLineSiteInvokeResponse `pulumi:"sites"`
+}
+
+// DirectLineChannelPropertiesInvokeResponseInput is an input type that accepts DirectLineChannelPropertiesInvokeResponseArgs and DirectLineChannelPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `DirectLineChannelPropertiesInvokeResponseInput` via:
+//
+//          DirectLineChannelPropertiesInvokeResponseArgs{...}
+type DirectLineChannelPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDirectLineChannelPropertiesInvokeResponseOutput() DirectLineChannelPropertiesInvokeResponseOutput
+	ToDirectLineChannelPropertiesInvokeResponseOutputWithContext(context.Context) DirectLineChannelPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Direct Line channel.
+type DirectLineChannelPropertiesInvokeResponseArgs struct {
+	// The list of Direct Line sites
+	Sites DirectLineSiteInvokeResponseArrayInput `pulumi:"sites"`
+}
+
+func (DirectLineChannelPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectLineChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i DirectLineChannelPropertiesInvokeResponseArgs) ToDirectLineChannelPropertiesInvokeResponseOutput() DirectLineChannelPropertiesInvokeResponseOutput {
+	return i.ToDirectLineChannelPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DirectLineChannelPropertiesInvokeResponseArgs) ToDirectLineChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) DirectLineChannelPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectLineChannelPropertiesInvokeResponseOutput)
+}
+
+func (i DirectLineChannelPropertiesInvokeResponseArgs) ToDirectLineChannelPropertiesInvokeResponsePtrOutput() DirectLineChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToDirectLineChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DirectLineChannelPropertiesInvokeResponseArgs) ToDirectLineChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DirectLineChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectLineChannelPropertiesInvokeResponseOutput).ToDirectLineChannelPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DirectLineChannelPropertiesInvokeResponsePtrInput is an input type that accepts DirectLineChannelPropertiesInvokeResponseArgs, DirectLineChannelPropertiesInvokeResponsePtr and DirectLineChannelPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DirectLineChannelPropertiesInvokeResponsePtrInput` via:
+//
+//          DirectLineChannelPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DirectLineChannelPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDirectLineChannelPropertiesInvokeResponsePtrOutput() DirectLineChannelPropertiesInvokeResponsePtrOutput
+	ToDirectLineChannelPropertiesInvokeResponsePtrOutputWithContext(context.Context) DirectLineChannelPropertiesInvokeResponsePtrOutput
+}
+
+type directLineChannelPropertiesInvokeResponsePtrType DirectLineChannelPropertiesInvokeResponseArgs
+
+func DirectLineChannelPropertiesInvokeResponsePtr(v *DirectLineChannelPropertiesInvokeResponseArgs) DirectLineChannelPropertiesInvokeResponsePtrInput {
+	return (*directLineChannelPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*directLineChannelPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectLineChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *directLineChannelPropertiesInvokeResponsePtrType) ToDirectLineChannelPropertiesInvokeResponsePtrOutput() DirectLineChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToDirectLineChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *directLineChannelPropertiesInvokeResponsePtrType) ToDirectLineChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DirectLineChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectLineChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The parameters to provide for the Direct Line channel.
+type DirectLineChannelPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DirectLineChannelPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectLineChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o DirectLineChannelPropertiesInvokeResponseOutput) ToDirectLineChannelPropertiesInvokeResponseOutput() DirectLineChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o DirectLineChannelPropertiesInvokeResponseOutput) ToDirectLineChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) DirectLineChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o DirectLineChannelPropertiesInvokeResponseOutput) ToDirectLineChannelPropertiesInvokeResponsePtrOutput() DirectLineChannelPropertiesInvokeResponsePtrOutput {
+	return o.ToDirectLineChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DirectLineChannelPropertiesInvokeResponseOutput) ToDirectLineChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DirectLineChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DirectLineChannelPropertiesInvokeResponse) *DirectLineChannelPropertiesInvokeResponse {
+		return &v
+	}).(DirectLineChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The list of Direct Line sites
+func (o DirectLineChannelPropertiesInvokeResponseOutput) Sites() DirectLineSiteInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DirectLineChannelPropertiesInvokeResponse) []DirectLineSiteInvokeResponse { return v.Sites }).(DirectLineSiteInvokeResponseArrayOutput)
+}
+
+type DirectLineChannelPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectLineChannelPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectLineChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o DirectLineChannelPropertiesInvokeResponsePtrOutput) ToDirectLineChannelPropertiesInvokeResponsePtrOutput() DirectLineChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DirectLineChannelPropertiesInvokeResponsePtrOutput) ToDirectLineChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DirectLineChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DirectLineChannelPropertiesInvokeResponsePtrOutput) Elem() DirectLineChannelPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *DirectLineChannelPropertiesInvokeResponse) DirectLineChannelPropertiesInvokeResponse {
+		return *v
+	}).(DirectLineChannelPropertiesInvokeResponseOutput)
+}
+
+// The list of Direct Line sites
+func (o DirectLineChannelPropertiesInvokeResponsePtrOutput) Sites() DirectLineSiteInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *DirectLineChannelPropertiesInvokeResponse) []DirectLineSiteInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Sites
+	}).(DirectLineSiteInvokeResponseArrayOutput)
 }
 
 // The parameters to provide for the Direct Line channel.
@@ -1902,6 +2490,160 @@ func (o DirectLineSiteArrayOutput) Index(i pulumi.IntInput) DirectLineSiteOutput
 }
 
 // A site for the Direct Line channel
+type DirectLineSiteInvokeResponse struct {
+	// Whether this site is enabled for DirectLine channel
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Whether this site is enabled for Bot Framework V1 protocol
+	IsV1Enabled bool `pulumi:"isV1Enabled"`
+	// Whether this site is enabled for Bot Framework V1 protocol
+	IsV3Enabled bool `pulumi:"isV3Enabled"`
+	// Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+	Key string `pulumi:"key"`
+	// Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+	Key2 string `pulumi:"key2"`
+	// Site Id
+	SiteId string `pulumi:"siteId"`
+	// Site name
+	SiteName string `pulumi:"siteName"`
+}
+
+// DirectLineSiteInvokeResponseInput is an input type that accepts DirectLineSiteInvokeResponseArgs and DirectLineSiteInvokeResponseOutput values.
+// You can construct a concrete instance of `DirectLineSiteInvokeResponseInput` via:
+//
+//          DirectLineSiteInvokeResponseArgs{...}
+type DirectLineSiteInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDirectLineSiteInvokeResponseOutput() DirectLineSiteInvokeResponseOutput
+	ToDirectLineSiteInvokeResponseOutputWithContext(context.Context) DirectLineSiteInvokeResponseOutput
+}
+
+// A site for the Direct Line channel
+type DirectLineSiteInvokeResponseArgs struct {
+	// Whether this site is enabled for DirectLine channel
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// Whether this site is enabled for Bot Framework V1 protocol
+	IsV1Enabled pulumi.BoolInput `pulumi:"isV1Enabled"`
+	// Whether this site is enabled for Bot Framework V1 protocol
+	IsV3Enabled pulumi.BoolInput `pulumi:"isV3Enabled"`
+	// Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+	Key2 pulumi.StringInput `pulumi:"key2"`
+	// Site Id
+	SiteId pulumi.StringInput `pulumi:"siteId"`
+	// Site name
+	SiteName pulumi.StringInput `pulumi:"siteName"`
+}
+
+func (DirectLineSiteInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectLineSiteInvokeResponse)(nil)).Elem()
+}
+
+func (i DirectLineSiteInvokeResponseArgs) ToDirectLineSiteInvokeResponseOutput() DirectLineSiteInvokeResponseOutput {
+	return i.ToDirectLineSiteInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DirectLineSiteInvokeResponseArgs) ToDirectLineSiteInvokeResponseOutputWithContext(ctx context.Context) DirectLineSiteInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectLineSiteInvokeResponseOutput)
+}
+
+// DirectLineSiteInvokeResponseArrayInput is an input type that accepts DirectLineSiteInvokeResponseArray and DirectLineSiteInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DirectLineSiteInvokeResponseArrayInput` via:
+//
+//          DirectLineSiteInvokeResponseArray{ DirectLineSiteInvokeResponseArgs{...} }
+type DirectLineSiteInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDirectLineSiteInvokeResponseArrayOutput() DirectLineSiteInvokeResponseArrayOutput
+	ToDirectLineSiteInvokeResponseArrayOutputWithContext(context.Context) DirectLineSiteInvokeResponseArrayOutput
+}
+
+type DirectLineSiteInvokeResponseArray []DirectLineSiteInvokeResponseInput
+
+func (DirectLineSiteInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectLineSiteInvokeResponse)(nil)).Elem()
+}
+
+func (i DirectLineSiteInvokeResponseArray) ToDirectLineSiteInvokeResponseArrayOutput() DirectLineSiteInvokeResponseArrayOutput {
+	return i.ToDirectLineSiteInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DirectLineSiteInvokeResponseArray) ToDirectLineSiteInvokeResponseArrayOutputWithContext(ctx context.Context) DirectLineSiteInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectLineSiteInvokeResponseArrayOutput)
+}
+
+// A site for the Direct Line channel
+type DirectLineSiteInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DirectLineSiteInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectLineSiteInvokeResponse)(nil)).Elem()
+}
+
+func (o DirectLineSiteInvokeResponseOutput) ToDirectLineSiteInvokeResponseOutput() DirectLineSiteInvokeResponseOutput {
+	return o
+}
+
+func (o DirectLineSiteInvokeResponseOutput) ToDirectLineSiteInvokeResponseOutputWithContext(ctx context.Context) DirectLineSiteInvokeResponseOutput {
+	return o
+}
+
+// Whether this site is enabled for DirectLine channel
+func (o DirectLineSiteInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DirectLineSiteInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether this site is enabled for Bot Framework V1 protocol
+func (o DirectLineSiteInvokeResponseOutput) IsV1Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DirectLineSiteInvokeResponse) bool { return v.IsV1Enabled }).(pulumi.BoolOutput)
+}
+
+// Whether this site is enabled for Bot Framework V1 protocol
+func (o DirectLineSiteInvokeResponseOutput) IsV3Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DirectLineSiteInvokeResponse) bool { return v.IsV3Enabled }).(pulumi.BoolOutput)
+}
+
+// Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o DirectLineSiteInvokeResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineSiteInvokeResponse) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o DirectLineSiteInvokeResponseOutput) Key2() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineSiteInvokeResponse) string { return v.Key2 }).(pulumi.StringOutput)
+}
+
+// Site Id
+func (o DirectLineSiteInvokeResponseOutput) SiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineSiteInvokeResponse) string { return v.SiteId }).(pulumi.StringOutput)
+}
+
+// Site name
+func (o DirectLineSiteInvokeResponseOutput) SiteName() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineSiteInvokeResponse) string { return v.SiteName }).(pulumi.StringOutput)
+}
+
+type DirectLineSiteInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectLineSiteInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectLineSiteInvokeResponse)(nil)).Elem()
+}
+
+func (o DirectLineSiteInvokeResponseArrayOutput) ToDirectLineSiteInvokeResponseArrayOutput() DirectLineSiteInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DirectLineSiteInvokeResponseArrayOutput) ToDirectLineSiteInvokeResponseArrayOutputWithContext(ctx context.Context) DirectLineSiteInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DirectLineSiteInvokeResponseArrayOutput) Index(i pulumi.IntInput) DirectLineSiteInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectLineSiteInvokeResponse {
+		return vs[0].([]DirectLineSiteInvokeResponse)[vs[1].(int)]
+	}).(DirectLineSiteInvokeResponseOutput)
+}
+
+// A site for the Direct Line channel
 type DirectLineSiteResponse struct {
 	// Whether this site is enabled for DirectLine channel
 	IsEnabled bool `pulumi:"isEnabled"`
@@ -2122,6 +2864,73 @@ func (o EmailChannelOutput) Properties() EmailChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v EmailChannel) *EmailChannelProperties { return v.Properties }).(EmailChannelPropertiesPtrOutput)
 }
 
+// Email channel definition
+type EmailChannelInvokeResponse struct {
+	// The channel name
+	// Expected value is 'EmailChannel'.
+	ChannelName string `pulumi:"channelName"`
+	// The set of properties specific to email channel resource
+	Properties *EmailChannelPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// EmailChannelInvokeResponseInput is an input type that accepts EmailChannelInvokeResponseArgs and EmailChannelInvokeResponseOutput values.
+// You can construct a concrete instance of `EmailChannelInvokeResponseInput` via:
+//
+//          EmailChannelInvokeResponseArgs{...}
+type EmailChannelInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEmailChannelInvokeResponseOutput() EmailChannelInvokeResponseOutput
+	ToEmailChannelInvokeResponseOutputWithContext(context.Context) EmailChannelInvokeResponseOutput
+}
+
+// Email channel definition
+type EmailChannelInvokeResponseArgs struct {
+	// The channel name
+	// Expected value is 'EmailChannel'.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The set of properties specific to email channel resource
+	Properties EmailChannelPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (EmailChannelInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailChannelInvokeResponse)(nil)).Elem()
+}
+
+func (i EmailChannelInvokeResponseArgs) ToEmailChannelInvokeResponseOutput() EmailChannelInvokeResponseOutput {
+	return i.ToEmailChannelInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EmailChannelInvokeResponseArgs) ToEmailChannelInvokeResponseOutputWithContext(ctx context.Context) EmailChannelInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelInvokeResponseOutput)
+}
+
+// Email channel definition
+type EmailChannelInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EmailChannelInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailChannelInvokeResponse)(nil)).Elem()
+}
+
+func (o EmailChannelInvokeResponseOutput) ToEmailChannelInvokeResponseOutput() EmailChannelInvokeResponseOutput {
+	return o
+}
+
+func (o EmailChannelInvokeResponseOutput) ToEmailChannelInvokeResponseOutputWithContext(ctx context.Context) EmailChannelInvokeResponseOutput {
+	return o
+}
+
+// The channel name
+// Expected value is 'EmailChannel'.
+func (o EmailChannelInvokeResponseOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v EmailChannelInvokeResponse) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to email channel resource
+func (o EmailChannelInvokeResponseOutput) Properties() EmailChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EmailChannelInvokeResponse) *EmailChannelPropertiesInvokeResponse { return v.Properties }).(EmailChannelPropertiesInvokeResponsePtrOutput)
+}
+
 // The parameters to provide for the Email channel.
 type EmailChannelProperties struct {
 	// The email address
@@ -2287,6 +3096,178 @@ func (o EmailChannelPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 // The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
 func (o EmailChannelPropertiesPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailChannelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The parameters to provide for the Email channel.
+type EmailChannelPropertiesInvokeResponse struct {
+	// The email address
+	EmailAddress string `pulumi:"emailAddress"`
+	// Whether this channel is enabled for the bot
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
+	Password string `pulumi:"password"`
+}
+
+// EmailChannelPropertiesInvokeResponseInput is an input type that accepts EmailChannelPropertiesInvokeResponseArgs and EmailChannelPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `EmailChannelPropertiesInvokeResponseInput` via:
+//
+//          EmailChannelPropertiesInvokeResponseArgs{...}
+type EmailChannelPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEmailChannelPropertiesInvokeResponseOutput() EmailChannelPropertiesInvokeResponseOutput
+	ToEmailChannelPropertiesInvokeResponseOutputWithContext(context.Context) EmailChannelPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Email channel.
+type EmailChannelPropertiesInvokeResponseArgs struct {
+	// The email address
+	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
+	// Whether this channel is enabled for the bot
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
+	Password pulumi.StringInput `pulumi:"password"`
+}
+
+func (EmailChannelPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i EmailChannelPropertiesInvokeResponseArgs) ToEmailChannelPropertiesInvokeResponseOutput() EmailChannelPropertiesInvokeResponseOutput {
+	return i.ToEmailChannelPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EmailChannelPropertiesInvokeResponseArgs) ToEmailChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) EmailChannelPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelPropertiesInvokeResponseOutput)
+}
+
+func (i EmailChannelPropertiesInvokeResponseArgs) ToEmailChannelPropertiesInvokeResponsePtrOutput() EmailChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToEmailChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EmailChannelPropertiesInvokeResponseArgs) ToEmailChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) EmailChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelPropertiesInvokeResponseOutput).ToEmailChannelPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EmailChannelPropertiesInvokeResponsePtrInput is an input type that accepts EmailChannelPropertiesInvokeResponseArgs, EmailChannelPropertiesInvokeResponsePtr and EmailChannelPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EmailChannelPropertiesInvokeResponsePtrInput` via:
+//
+//          EmailChannelPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EmailChannelPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEmailChannelPropertiesInvokeResponsePtrOutput() EmailChannelPropertiesInvokeResponsePtrOutput
+	ToEmailChannelPropertiesInvokeResponsePtrOutputWithContext(context.Context) EmailChannelPropertiesInvokeResponsePtrOutput
+}
+
+type emailChannelPropertiesInvokeResponsePtrType EmailChannelPropertiesInvokeResponseArgs
+
+func EmailChannelPropertiesInvokeResponsePtr(v *EmailChannelPropertiesInvokeResponseArgs) EmailChannelPropertiesInvokeResponsePtrInput {
+	return (*emailChannelPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*emailChannelPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *emailChannelPropertiesInvokeResponsePtrType) ToEmailChannelPropertiesInvokeResponsePtrOutput() EmailChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToEmailChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *emailChannelPropertiesInvokeResponsePtrType) ToEmailChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) EmailChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The parameters to provide for the Email channel.
+type EmailChannelPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EmailChannelPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EmailChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o EmailChannelPropertiesInvokeResponseOutput) ToEmailChannelPropertiesInvokeResponseOutput() EmailChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o EmailChannelPropertiesInvokeResponseOutput) ToEmailChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) EmailChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o EmailChannelPropertiesInvokeResponseOutput) ToEmailChannelPropertiesInvokeResponsePtrOutput() EmailChannelPropertiesInvokeResponsePtrOutput {
+	return o.ToEmailChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EmailChannelPropertiesInvokeResponseOutput) ToEmailChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) EmailChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EmailChannelPropertiesInvokeResponse) *EmailChannelPropertiesInvokeResponse {
+		return &v
+	}).(EmailChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The email address
+func (o EmailChannelPropertiesInvokeResponseOutput) EmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v EmailChannelPropertiesInvokeResponse) string { return v.EmailAddress }).(pulumi.StringOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o EmailChannelPropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v EmailChannelPropertiesInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o EmailChannelPropertiesInvokeResponseOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v EmailChannelPropertiesInvokeResponse) string { return v.Password }).(pulumi.StringOutput)
+}
+
+type EmailChannelPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EmailChannelPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EmailChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o EmailChannelPropertiesInvokeResponsePtrOutput) ToEmailChannelPropertiesInvokeResponsePtrOutput() EmailChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EmailChannelPropertiesInvokeResponsePtrOutput) ToEmailChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) EmailChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EmailChannelPropertiesInvokeResponsePtrOutput) Elem() EmailChannelPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *EmailChannelPropertiesInvokeResponse) EmailChannelPropertiesInvokeResponse { return *v }).(EmailChannelPropertiesInvokeResponseOutput)
+}
+
+// The email address
+func (o EmailChannelPropertiesInvokeResponsePtrOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EmailAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o EmailChannelPropertiesInvokeResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EmailChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The password for the email address. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o EmailChannelPropertiesInvokeResponsePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailChannelPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2600,6 +3581,73 @@ func (o FacebookChannelOutput) Properties() FacebookChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v FacebookChannel) *FacebookChannelProperties { return v.Properties }).(FacebookChannelPropertiesPtrOutput)
 }
 
+// Facebook channel definition
+type FacebookChannelInvokeResponse struct {
+	// The channel name
+	// Expected value is 'FacebookChannel'.
+	ChannelName string `pulumi:"channelName"`
+	// The set of properties specific to bot facebook channel
+	Properties *FacebookChannelPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// FacebookChannelInvokeResponseInput is an input type that accepts FacebookChannelInvokeResponseArgs and FacebookChannelInvokeResponseOutput values.
+// You can construct a concrete instance of `FacebookChannelInvokeResponseInput` via:
+//
+//          FacebookChannelInvokeResponseArgs{...}
+type FacebookChannelInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFacebookChannelInvokeResponseOutput() FacebookChannelInvokeResponseOutput
+	ToFacebookChannelInvokeResponseOutputWithContext(context.Context) FacebookChannelInvokeResponseOutput
+}
+
+// Facebook channel definition
+type FacebookChannelInvokeResponseArgs struct {
+	// The channel name
+	// Expected value is 'FacebookChannel'.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The set of properties specific to bot facebook channel
+	Properties FacebookChannelPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (FacebookChannelInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FacebookChannelInvokeResponse)(nil)).Elem()
+}
+
+func (i FacebookChannelInvokeResponseArgs) ToFacebookChannelInvokeResponseOutput() FacebookChannelInvokeResponseOutput {
+	return i.ToFacebookChannelInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FacebookChannelInvokeResponseArgs) ToFacebookChannelInvokeResponseOutputWithContext(ctx context.Context) FacebookChannelInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FacebookChannelInvokeResponseOutput)
+}
+
+// Facebook channel definition
+type FacebookChannelInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FacebookChannelInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FacebookChannelInvokeResponse)(nil)).Elem()
+}
+
+func (o FacebookChannelInvokeResponseOutput) ToFacebookChannelInvokeResponseOutput() FacebookChannelInvokeResponseOutput {
+	return o
+}
+
+func (o FacebookChannelInvokeResponseOutput) ToFacebookChannelInvokeResponseOutputWithContext(ctx context.Context) FacebookChannelInvokeResponseOutput {
+	return o
+}
+
+// The channel name
+// Expected value is 'FacebookChannel'.
+func (o FacebookChannelInvokeResponseOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v FacebookChannelInvokeResponse) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to bot facebook channel
+func (o FacebookChannelInvokeResponseOutput) Properties() FacebookChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FacebookChannelInvokeResponse) *FacebookChannelPropertiesInvokeResponse { return v.Properties }).(FacebookChannelPropertiesInvokeResponsePtrOutput)
+}
+
 // The parameters to provide for the Facebook channel.
 type FacebookChannelProperties struct {
 	// Facebook application id
@@ -2789,6 +3837,235 @@ func (o FacebookChannelPropertiesPtrOutput) Pages() FacebookPageArrayOutput {
 		}
 		return v.Pages
 	}).(FacebookPageArrayOutput)
+}
+
+// The parameters to provide for the Facebook channel.
+type FacebookChannelPropertiesInvokeResponse struct {
+	// Facebook application id
+	AppId string `pulumi:"appId"`
+	// Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
+	AppSecret string `pulumi:"appSecret"`
+	// Callback Url
+	CallbackUrl string `pulumi:"callbackUrl"`
+	// Whether this channel is enabled for the bot
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The list of Facebook pages
+	Pages []FacebookPageInvokeResponse `pulumi:"pages"`
+	// Verify token. Value only returned through POST to the action Channel List API, otherwise empty.
+	VerifyToken string `pulumi:"verifyToken"`
+}
+
+// FacebookChannelPropertiesInvokeResponseInput is an input type that accepts FacebookChannelPropertiesInvokeResponseArgs and FacebookChannelPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `FacebookChannelPropertiesInvokeResponseInput` via:
+//
+//          FacebookChannelPropertiesInvokeResponseArgs{...}
+type FacebookChannelPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFacebookChannelPropertiesInvokeResponseOutput() FacebookChannelPropertiesInvokeResponseOutput
+	ToFacebookChannelPropertiesInvokeResponseOutputWithContext(context.Context) FacebookChannelPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Facebook channel.
+type FacebookChannelPropertiesInvokeResponseArgs struct {
+	// Facebook application id
+	AppId pulumi.StringInput `pulumi:"appId"`
+	// Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
+	AppSecret pulumi.StringInput `pulumi:"appSecret"`
+	// Callback Url
+	CallbackUrl pulumi.StringInput `pulumi:"callbackUrl"`
+	// Whether this channel is enabled for the bot
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The list of Facebook pages
+	Pages FacebookPageInvokeResponseArrayInput `pulumi:"pages"`
+	// Verify token. Value only returned through POST to the action Channel List API, otherwise empty.
+	VerifyToken pulumi.StringInput `pulumi:"verifyToken"`
+}
+
+func (FacebookChannelPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FacebookChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i FacebookChannelPropertiesInvokeResponseArgs) ToFacebookChannelPropertiesInvokeResponseOutput() FacebookChannelPropertiesInvokeResponseOutput {
+	return i.ToFacebookChannelPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FacebookChannelPropertiesInvokeResponseArgs) ToFacebookChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) FacebookChannelPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FacebookChannelPropertiesInvokeResponseOutput)
+}
+
+func (i FacebookChannelPropertiesInvokeResponseArgs) ToFacebookChannelPropertiesInvokeResponsePtrOutput() FacebookChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToFacebookChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FacebookChannelPropertiesInvokeResponseArgs) ToFacebookChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) FacebookChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FacebookChannelPropertiesInvokeResponseOutput).ToFacebookChannelPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// FacebookChannelPropertiesInvokeResponsePtrInput is an input type that accepts FacebookChannelPropertiesInvokeResponseArgs, FacebookChannelPropertiesInvokeResponsePtr and FacebookChannelPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `FacebookChannelPropertiesInvokeResponsePtrInput` via:
+//
+//          FacebookChannelPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FacebookChannelPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToFacebookChannelPropertiesInvokeResponsePtrOutput() FacebookChannelPropertiesInvokeResponsePtrOutput
+	ToFacebookChannelPropertiesInvokeResponsePtrOutputWithContext(context.Context) FacebookChannelPropertiesInvokeResponsePtrOutput
+}
+
+type facebookChannelPropertiesInvokeResponsePtrType FacebookChannelPropertiesInvokeResponseArgs
+
+func FacebookChannelPropertiesInvokeResponsePtr(v *FacebookChannelPropertiesInvokeResponseArgs) FacebookChannelPropertiesInvokeResponsePtrInput {
+	return (*facebookChannelPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*facebookChannelPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FacebookChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *facebookChannelPropertiesInvokeResponsePtrType) ToFacebookChannelPropertiesInvokeResponsePtrOutput() FacebookChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToFacebookChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *facebookChannelPropertiesInvokeResponsePtrType) ToFacebookChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) FacebookChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FacebookChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The parameters to provide for the Facebook channel.
+type FacebookChannelPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FacebookChannelPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FacebookChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o FacebookChannelPropertiesInvokeResponseOutput) ToFacebookChannelPropertiesInvokeResponseOutput() FacebookChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o FacebookChannelPropertiesInvokeResponseOutput) ToFacebookChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) FacebookChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o FacebookChannelPropertiesInvokeResponseOutput) ToFacebookChannelPropertiesInvokeResponsePtrOutput() FacebookChannelPropertiesInvokeResponsePtrOutput {
+	return o.ToFacebookChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FacebookChannelPropertiesInvokeResponseOutput) ToFacebookChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) FacebookChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FacebookChannelPropertiesInvokeResponse) *FacebookChannelPropertiesInvokeResponse {
+		return &v
+	}).(FacebookChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// Facebook application id
+func (o FacebookChannelPropertiesInvokeResponseOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v FacebookChannelPropertiesInvokeResponse) string { return v.AppId }).(pulumi.StringOutput)
+}
+
+// Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o FacebookChannelPropertiesInvokeResponseOutput) AppSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v FacebookChannelPropertiesInvokeResponse) string { return v.AppSecret }).(pulumi.StringOutput)
+}
+
+// Callback Url
+func (o FacebookChannelPropertiesInvokeResponseOutput) CallbackUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v FacebookChannelPropertiesInvokeResponse) string { return v.CallbackUrl }).(pulumi.StringOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o FacebookChannelPropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FacebookChannelPropertiesInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The list of Facebook pages
+func (o FacebookChannelPropertiesInvokeResponseOutput) Pages() FacebookPageInvokeResponseArrayOutput {
+	return o.ApplyT(func(v FacebookChannelPropertiesInvokeResponse) []FacebookPageInvokeResponse { return v.Pages }).(FacebookPageInvokeResponseArrayOutput)
+}
+
+// Verify token. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o FacebookChannelPropertiesInvokeResponseOutput) VerifyToken() pulumi.StringOutput {
+	return o.ApplyT(func(v FacebookChannelPropertiesInvokeResponse) string { return v.VerifyToken }).(pulumi.StringOutput)
+}
+
+type FacebookChannelPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FacebookChannelPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FacebookChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o FacebookChannelPropertiesInvokeResponsePtrOutput) ToFacebookChannelPropertiesInvokeResponsePtrOutput() FacebookChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FacebookChannelPropertiesInvokeResponsePtrOutput) ToFacebookChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) FacebookChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FacebookChannelPropertiesInvokeResponsePtrOutput) Elem() FacebookChannelPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *FacebookChannelPropertiesInvokeResponse) FacebookChannelPropertiesInvokeResponse { return *v }).(FacebookChannelPropertiesInvokeResponseOutput)
+}
+
+// Facebook application id
+func (o FacebookChannelPropertiesInvokeResponsePtrOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FacebookChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AppId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Facebook application secret. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o FacebookChannelPropertiesInvokeResponsePtrOutput) AppSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FacebookChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AppSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Callback Url
+func (o FacebookChannelPropertiesInvokeResponsePtrOutput) CallbackUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FacebookChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CallbackUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o FacebookChannelPropertiesInvokeResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FacebookChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The list of Facebook pages
+func (o FacebookChannelPropertiesInvokeResponsePtrOutput) Pages() FacebookPageInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *FacebookChannelPropertiesInvokeResponse) []FacebookPageInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Pages
+	}).(FacebookPageInvokeResponseArrayOutput)
+}
+
+// Verify token. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o FacebookChannelPropertiesInvokeResponsePtrOutput) VerifyToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FacebookChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VerifyToken
+	}).(pulumi.StringPtrOutput)
 }
 
 // The parameters to provide for the Facebook channel.
@@ -3197,6 +4474,115 @@ func (o FacebookPageArrayOutput) Index(i pulumi.IntInput) FacebookPageOutput {
 }
 
 // A Facebook page for Facebook channel registration
+type FacebookPageInvokeResponse struct {
+	// Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
+	AccessToken string `pulumi:"accessToken"`
+	// Page id
+	Id string `pulumi:"id"`
+}
+
+// FacebookPageInvokeResponseInput is an input type that accepts FacebookPageInvokeResponseArgs and FacebookPageInvokeResponseOutput values.
+// You can construct a concrete instance of `FacebookPageInvokeResponseInput` via:
+//
+//          FacebookPageInvokeResponseArgs{...}
+type FacebookPageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFacebookPageInvokeResponseOutput() FacebookPageInvokeResponseOutput
+	ToFacebookPageInvokeResponseOutputWithContext(context.Context) FacebookPageInvokeResponseOutput
+}
+
+// A Facebook page for Facebook channel registration
+type FacebookPageInvokeResponseArgs struct {
+	// Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
+	AccessToken pulumi.StringInput `pulumi:"accessToken"`
+	// Page id
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (FacebookPageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FacebookPageInvokeResponse)(nil)).Elem()
+}
+
+func (i FacebookPageInvokeResponseArgs) ToFacebookPageInvokeResponseOutput() FacebookPageInvokeResponseOutput {
+	return i.ToFacebookPageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FacebookPageInvokeResponseArgs) ToFacebookPageInvokeResponseOutputWithContext(ctx context.Context) FacebookPageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FacebookPageInvokeResponseOutput)
+}
+
+// FacebookPageInvokeResponseArrayInput is an input type that accepts FacebookPageInvokeResponseArray and FacebookPageInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FacebookPageInvokeResponseArrayInput` via:
+//
+//          FacebookPageInvokeResponseArray{ FacebookPageInvokeResponseArgs{...} }
+type FacebookPageInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFacebookPageInvokeResponseArrayOutput() FacebookPageInvokeResponseArrayOutput
+	ToFacebookPageInvokeResponseArrayOutputWithContext(context.Context) FacebookPageInvokeResponseArrayOutput
+}
+
+type FacebookPageInvokeResponseArray []FacebookPageInvokeResponseInput
+
+func (FacebookPageInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FacebookPageInvokeResponse)(nil)).Elem()
+}
+
+func (i FacebookPageInvokeResponseArray) ToFacebookPageInvokeResponseArrayOutput() FacebookPageInvokeResponseArrayOutput {
+	return i.ToFacebookPageInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FacebookPageInvokeResponseArray) ToFacebookPageInvokeResponseArrayOutputWithContext(ctx context.Context) FacebookPageInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FacebookPageInvokeResponseArrayOutput)
+}
+
+// A Facebook page for Facebook channel registration
+type FacebookPageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FacebookPageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FacebookPageInvokeResponse)(nil)).Elem()
+}
+
+func (o FacebookPageInvokeResponseOutput) ToFacebookPageInvokeResponseOutput() FacebookPageInvokeResponseOutput {
+	return o
+}
+
+func (o FacebookPageInvokeResponseOutput) ToFacebookPageInvokeResponseOutputWithContext(ctx context.Context) FacebookPageInvokeResponseOutput {
+	return o
+}
+
+// Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o FacebookPageInvokeResponseOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v FacebookPageInvokeResponse) string { return v.AccessToken }).(pulumi.StringOutput)
+}
+
+// Page id
+func (o FacebookPageInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FacebookPageInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type FacebookPageInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FacebookPageInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FacebookPageInvokeResponse)(nil)).Elem()
+}
+
+func (o FacebookPageInvokeResponseArrayOutput) ToFacebookPageInvokeResponseArrayOutput() FacebookPageInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FacebookPageInvokeResponseArrayOutput) ToFacebookPageInvokeResponseArrayOutputWithContext(ctx context.Context) FacebookPageInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FacebookPageInvokeResponseArrayOutput) Index(i pulumi.IntInput) FacebookPageInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FacebookPageInvokeResponse {
+		return vs[0].([]FacebookPageInvokeResponse)[vs[1].(int)]
+	}).(FacebookPageInvokeResponseOutput)
+}
+
+// A Facebook page for Facebook channel registration
 type FacebookPageResponse struct {
 	// Facebook application access token. Value only returned through POST to the action Channel List API, otherwise empty.
 	AccessToken string `pulumi:"accessToken"`
@@ -3370,6 +4756,73 @@ func (o KikChannelOutput) ChannelName() pulumi.StringOutput {
 // The set of properties specific to Kik channel resource
 func (o KikChannelOutput) Properties() KikChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v KikChannel) *KikChannelProperties { return v.Properties }).(KikChannelPropertiesPtrOutput)
+}
+
+// Kik channel definition
+type KikChannelInvokeResponse struct {
+	// The channel name
+	// Expected value is 'KikChannel'.
+	ChannelName string `pulumi:"channelName"`
+	// The set of properties specific to Kik channel resource
+	Properties *KikChannelPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// KikChannelInvokeResponseInput is an input type that accepts KikChannelInvokeResponseArgs and KikChannelInvokeResponseOutput values.
+// You can construct a concrete instance of `KikChannelInvokeResponseInput` via:
+//
+//          KikChannelInvokeResponseArgs{...}
+type KikChannelInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKikChannelInvokeResponseOutput() KikChannelInvokeResponseOutput
+	ToKikChannelInvokeResponseOutputWithContext(context.Context) KikChannelInvokeResponseOutput
+}
+
+// Kik channel definition
+type KikChannelInvokeResponseArgs struct {
+	// The channel name
+	// Expected value is 'KikChannel'.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The set of properties specific to Kik channel resource
+	Properties KikChannelPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (KikChannelInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KikChannelInvokeResponse)(nil)).Elem()
+}
+
+func (i KikChannelInvokeResponseArgs) ToKikChannelInvokeResponseOutput() KikChannelInvokeResponseOutput {
+	return i.ToKikChannelInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KikChannelInvokeResponseArgs) ToKikChannelInvokeResponseOutputWithContext(ctx context.Context) KikChannelInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KikChannelInvokeResponseOutput)
+}
+
+// Kik channel definition
+type KikChannelInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KikChannelInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KikChannelInvokeResponse)(nil)).Elem()
+}
+
+func (o KikChannelInvokeResponseOutput) ToKikChannelInvokeResponseOutput() KikChannelInvokeResponseOutput {
+	return o
+}
+
+func (o KikChannelInvokeResponseOutput) ToKikChannelInvokeResponseOutputWithContext(ctx context.Context) KikChannelInvokeResponseOutput {
+	return o
+}
+
+// The channel name
+// Expected value is 'KikChannel'.
+func (o KikChannelInvokeResponseOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v KikChannelInvokeResponse) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to Kik channel resource
+func (o KikChannelInvokeResponseOutput) Properties() KikChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KikChannelInvokeResponse) *KikChannelPropertiesInvokeResponse { return v.Properties }).(KikChannelPropertiesInvokeResponsePtrOutput)
 }
 
 // The parameters to provide for the Kik channel.
@@ -3556,6 +5009,197 @@ func (o KikChannelPropertiesPtrOutput) IsValidated() pulumi.BoolPtrOutput {
 // The Kik user name
 func (o KikChannelPropertiesPtrOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KikChannelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The parameters to provide for the Kik channel.
+type KikChannelPropertiesInvokeResponse struct {
+	// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
+	ApiKey string `pulumi:"apiKey"`
+	// Whether this channel is enabled for the bot
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Whether this channel is validated for the bot
+	IsValidated *bool `pulumi:"isValidated"`
+	// The Kik user name
+	UserName string `pulumi:"userName"`
+}
+
+// KikChannelPropertiesInvokeResponseInput is an input type that accepts KikChannelPropertiesInvokeResponseArgs and KikChannelPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `KikChannelPropertiesInvokeResponseInput` via:
+//
+//          KikChannelPropertiesInvokeResponseArgs{...}
+type KikChannelPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKikChannelPropertiesInvokeResponseOutput() KikChannelPropertiesInvokeResponseOutput
+	ToKikChannelPropertiesInvokeResponseOutputWithContext(context.Context) KikChannelPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Kik channel.
+type KikChannelPropertiesInvokeResponseArgs struct {
+	// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
+	ApiKey pulumi.StringInput `pulumi:"apiKey"`
+	// Whether this channel is enabled for the bot
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// Whether this channel is validated for the bot
+	IsValidated pulumi.BoolPtrInput `pulumi:"isValidated"`
+	// The Kik user name
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (KikChannelPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KikChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i KikChannelPropertiesInvokeResponseArgs) ToKikChannelPropertiesInvokeResponseOutput() KikChannelPropertiesInvokeResponseOutput {
+	return i.ToKikChannelPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KikChannelPropertiesInvokeResponseArgs) ToKikChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) KikChannelPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KikChannelPropertiesInvokeResponseOutput)
+}
+
+func (i KikChannelPropertiesInvokeResponseArgs) ToKikChannelPropertiesInvokeResponsePtrOutput() KikChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToKikChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i KikChannelPropertiesInvokeResponseArgs) ToKikChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) KikChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KikChannelPropertiesInvokeResponseOutput).ToKikChannelPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// KikChannelPropertiesInvokeResponsePtrInput is an input type that accepts KikChannelPropertiesInvokeResponseArgs, KikChannelPropertiesInvokeResponsePtr and KikChannelPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `KikChannelPropertiesInvokeResponsePtrInput` via:
+//
+//          KikChannelPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type KikChannelPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToKikChannelPropertiesInvokeResponsePtrOutput() KikChannelPropertiesInvokeResponsePtrOutput
+	ToKikChannelPropertiesInvokeResponsePtrOutputWithContext(context.Context) KikChannelPropertiesInvokeResponsePtrOutput
+}
+
+type kikChannelPropertiesInvokeResponsePtrType KikChannelPropertiesInvokeResponseArgs
+
+func KikChannelPropertiesInvokeResponsePtr(v *KikChannelPropertiesInvokeResponseArgs) KikChannelPropertiesInvokeResponsePtrInput {
+	return (*kikChannelPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*kikChannelPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KikChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *kikChannelPropertiesInvokeResponsePtrType) ToKikChannelPropertiesInvokeResponsePtrOutput() KikChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToKikChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *kikChannelPropertiesInvokeResponsePtrType) ToKikChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) KikChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KikChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The parameters to provide for the Kik channel.
+type KikChannelPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KikChannelPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KikChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o KikChannelPropertiesInvokeResponseOutput) ToKikChannelPropertiesInvokeResponseOutput() KikChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o KikChannelPropertiesInvokeResponseOutput) ToKikChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) KikChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o KikChannelPropertiesInvokeResponseOutput) ToKikChannelPropertiesInvokeResponsePtrOutput() KikChannelPropertiesInvokeResponsePtrOutput {
+	return o.ToKikChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o KikChannelPropertiesInvokeResponseOutput) ToKikChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) KikChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KikChannelPropertiesInvokeResponse) *KikChannelPropertiesInvokeResponse {
+		return &v
+	}).(KikChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o KikChannelPropertiesInvokeResponseOutput) ApiKey() pulumi.StringOutput {
+	return o.ApplyT(func(v KikChannelPropertiesInvokeResponse) string { return v.ApiKey }).(pulumi.StringOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o KikChannelPropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v KikChannelPropertiesInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether this channel is validated for the bot
+func (o KikChannelPropertiesInvokeResponseOutput) IsValidated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KikChannelPropertiesInvokeResponse) *bool { return v.IsValidated }).(pulumi.BoolPtrOutput)
+}
+
+// The Kik user name
+func (o KikChannelPropertiesInvokeResponseOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v KikChannelPropertiesInvokeResponse) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type KikChannelPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KikChannelPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KikChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o KikChannelPropertiesInvokeResponsePtrOutput) ToKikChannelPropertiesInvokeResponsePtrOutput() KikChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KikChannelPropertiesInvokeResponsePtrOutput) ToKikChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) KikChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o KikChannelPropertiesInvokeResponsePtrOutput) Elem() KikChannelPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *KikChannelPropertiesInvokeResponse) KikChannelPropertiesInvokeResponse { return *v }).(KikChannelPropertiesInvokeResponseOutput)
+}
+
+// Kik API key. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o KikChannelPropertiesInvokeResponsePtrOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KikChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o KikChannelPropertiesInvokeResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KikChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether this channel is validated for the bot
+func (o KikChannelPropertiesInvokeResponsePtrOutput) IsValidated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KikChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsValidated
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Kik user name
+func (o KikChannelPropertiesInvokeResponsePtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KikChannelPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3888,6 +5532,73 @@ func (o MsTeamsChannelOutput) Properties() MsTeamsChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v MsTeamsChannel) *MsTeamsChannelProperties { return v.Properties }).(MsTeamsChannelPropertiesPtrOutput)
 }
 
+// Microsoft Teams channel definition
+type MsTeamsChannelInvokeResponse struct {
+	// The channel name
+	// Expected value is 'MsTeamsChannel'.
+	ChannelName string `pulumi:"channelName"`
+	// The set of properties specific to Microsoft Teams channel resource
+	Properties *MsTeamsChannelPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// MsTeamsChannelInvokeResponseInput is an input type that accepts MsTeamsChannelInvokeResponseArgs and MsTeamsChannelInvokeResponseOutput values.
+// You can construct a concrete instance of `MsTeamsChannelInvokeResponseInput` via:
+//
+//          MsTeamsChannelInvokeResponseArgs{...}
+type MsTeamsChannelInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMsTeamsChannelInvokeResponseOutput() MsTeamsChannelInvokeResponseOutput
+	ToMsTeamsChannelInvokeResponseOutputWithContext(context.Context) MsTeamsChannelInvokeResponseOutput
+}
+
+// Microsoft Teams channel definition
+type MsTeamsChannelInvokeResponseArgs struct {
+	// The channel name
+	// Expected value is 'MsTeamsChannel'.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The set of properties specific to Microsoft Teams channel resource
+	Properties MsTeamsChannelPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (MsTeamsChannelInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsTeamsChannelInvokeResponse)(nil)).Elem()
+}
+
+func (i MsTeamsChannelInvokeResponseArgs) ToMsTeamsChannelInvokeResponseOutput() MsTeamsChannelInvokeResponseOutput {
+	return i.ToMsTeamsChannelInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MsTeamsChannelInvokeResponseArgs) ToMsTeamsChannelInvokeResponseOutputWithContext(ctx context.Context) MsTeamsChannelInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsTeamsChannelInvokeResponseOutput)
+}
+
+// Microsoft Teams channel definition
+type MsTeamsChannelInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MsTeamsChannelInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsTeamsChannelInvokeResponse)(nil)).Elem()
+}
+
+func (o MsTeamsChannelInvokeResponseOutput) ToMsTeamsChannelInvokeResponseOutput() MsTeamsChannelInvokeResponseOutput {
+	return o
+}
+
+func (o MsTeamsChannelInvokeResponseOutput) ToMsTeamsChannelInvokeResponseOutputWithContext(ctx context.Context) MsTeamsChannelInvokeResponseOutput {
+	return o
+}
+
+// The channel name
+// Expected value is 'MsTeamsChannel'.
+func (o MsTeamsChannelInvokeResponseOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v MsTeamsChannelInvokeResponse) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to Microsoft Teams channel resource
+func (o MsTeamsChannelInvokeResponseOutput) Properties() MsTeamsChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelInvokeResponse) *MsTeamsChannelPropertiesInvokeResponse { return v.Properties }).(MsTeamsChannelPropertiesInvokeResponsePtrOutput)
+}
+
 // The parameters to provide for the Microsoft Teams channel.
 type MsTeamsChannelProperties struct {
 	// Enable messaging for Microsoft Teams channel
@@ -4110,6 +5821,235 @@ func (o MsTeamsChannelPropertiesPtrOutput) EnableVideo() pulumi.BoolPtrOutput {
 // Whether this channel is enabled for the bot
 func (o MsTeamsChannelPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MsTeamsChannelProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The parameters to provide for the Microsoft Teams channel.
+type MsTeamsChannelPropertiesInvokeResponse struct {
+	// Enable messaging for Microsoft Teams channel
+	CallMode *string `pulumi:"callMode"`
+	// Enable calling for Microsoft Teams channel
+	EnableCalling *bool `pulumi:"enableCalling"`
+	// Enable media cards for Microsoft Teams channel
+	EnableMediaCards *bool `pulumi:"enableMediaCards"`
+	// Enable messaging for Microsoft Teams channel
+	EnableMessaging *bool `pulumi:"enableMessaging"`
+	// Enable video for Microsoft Teams channel
+	EnableVideo *bool `pulumi:"enableVideo"`
+	// Whether this channel is enabled for the bot
+	IsEnabled bool `pulumi:"isEnabled"`
+}
+
+// MsTeamsChannelPropertiesInvokeResponseInput is an input type that accepts MsTeamsChannelPropertiesInvokeResponseArgs and MsTeamsChannelPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `MsTeamsChannelPropertiesInvokeResponseInput` via:
+//
+//          MsTeamsChannelPropertiesInvokeResponseArgs{...}
+type MsTeamsChannelPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMsTeamsChannelPropertiesInvokeResponseOutput() MsTeamsChannelPropertiesInvokeResponseOutput
+	ToMsTeamsChannelPropertiesInvokeResponseOutputWithContext(context.Context) MsTeamsChannelPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Microsoft Teams channel.
+type MsTeamsChannelPropertiesInvokeResponseArgs struct {
+	// Enable messaging for Microsoft Teams channel
+	CallMode pulumi.StringPtrInput `pulumi:"callMode"`
+	// Enable calling for Microsoft Teams channel
+	EnableCalling pulumi.BoolPtrInput `pulumi:"enableCalling"`
+	// Enable media cards for Microsoft Teams channel
+	EnableMediaCards pulumi.BoolPtrInput `pulumi:"enableMediaCards"`
+	// Enable messaging for Microsoft Teams channel
+	EnableMessaging pulumi.BoolPtrInput `pulumi:"enableMessaging"`
+	// Enable video for Microsoft Teams channel
+	EnableVideo pulumi.BoolPtrInput `pulumi:"enableVideo"`
+	// Whether this channel is enabled for the bot
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+}
+
+func (MsTeamsChannelPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsTeamsChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MsTeamsChannelPropertiesInvokeResponseArgs) ToMsTeamsChannelPropertiesInvokeResponseOutput() MsTeamsChannelPropertiesInvokeResponseOutput {
+	return i.ToMsTeamsChannelPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MsTeamsChannelPropertiesInvokeResponseArgs) ToMsTeamsChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) MsTeamsChannelPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsTeamsChannelPropertiesInvokeResponseOutput)
+}
+
+func (i MsTeamsChannelPropertiesInvokeResponseArgs) ToMsTeamsChannelPropertiesInvokeResponsePtrOutput() MsTeamsChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToMsTeamsChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MsTeamsChannelPropertiesInvokeResponseArgs) ToMsTeamsChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) MsTeamsChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsTeamsChannelPropertiesInvokeResponseOutput).ToMsTeamsChannelPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MsTeamsChannelPropertiesInvokeResponsePtrInput is an input type that accepts MsTeamsChannelPropertiesInvokeResponseArgs, MsTeamsChannelPropertiesInvokeResponsePtr and MsTeamsChannelPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MsTeamsChannelPropertiesInvokeResponsePtrInput` via:
+//
+//          MsTeamsChannelPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MsTeamsChannelPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMsTeamsChannelPropertiesInvokeResponsePtrOutput() MsTeamsChannelPropertiesInvokeResponsePtrOutput
+	ToMsTeamsChannelPropertiesInvokeResponsePtrOutputWithContext(context.Context) MsTeamsChannelPropertiesInvokeResponsePtrOutput
+}
+
+type msTeamsChannelPropertiesInvokeResponsePtrType MsTeamsChannelPropertiesInvokeResponseArgs
+
+func MsTeamsChannelPropertiesInvokeResponsePtr(v *MsTeamsChannelPropertiesInvokeResponseArgs) MsTeamsChannelPropertiesInvokeResponsePtrInput {
+	return (*msTeamsChannelPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*msTeamsChannelPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MsTeamsChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *msTeamsChannelPropertiesInvokeResponsePtrType) ToMsTeamsChannelPropertiesInvokeResponsePtrOutput() MsTeamsChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToMsTeamsChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *msTeamsChannelPropertiesInvokeResponsePtrType) ToMsTeamsChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) MsTeamsChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsTeamsChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The parameters to provide for the Microsoft Teams channel.
+type MsTeamsChannelPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MsTeamsChannelPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsTeamsChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MsTeamsChannelPropertiesInvokeResponseOutput) ToMsTeamsChannelPropertiesInvokeResponseOutput() MsTeamsChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MsTeamsChannelPropertiesInvokeResponseOutput) ToMsTeamsChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) MsTeamsChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MsTeamsChannelPropertiesInvokeResponseOutput) ToMsTeamsChannelPropertiesInvokeResponsePtrOutput() MsTeamsChannelPropertiesInvokeResponsePtrOutput {
+	return o.ToMsTeamsChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MsTeamsChannelPropertiesInvokeResponseOutput) ToMsTeamsChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) MsTeamsChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelPropertiesInvokeResponse) *MsTeamsChannelPropertiesInvokeResponse {
+		return &v
+	}).(MsTeamsChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// Enable messaging for Microsoft Teams channel
+func (o MsTeamsChannelPropertiesInvokeResponseOutput) CallMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelPropertiesInvokeResponse) *string { return v.CallMode }).(pulumi.StringPtrOutput)
+}
+
+// Enable calling for Microsoft Teams channel
+func (o MsTeamsChannelPropertiesInvokeResponseOutput) EnableCalling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelPropertiesInvokeResponse) *bool { return v.EnableCalling }).(pulumi.BoolPtrOutput)
+}
+
+// Enable media cards for Microsoft Teams channel
+func (o MsTeamsChannelPropertiesInvokeResponseOutput) EnableMediaCards() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelPropertiesInvokeResponse) *bool { return v.EnableMediaCards }).(pulumi.BoolPtrOutput)
+}
+
+// Enable messaging for Microsoft Teams channel
+func (o MsTeamsChannelPropertiesInvokeResponseOutput) EnableMessaging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelPropertiesInvokeResponse) *bool { return v.EnableMessaging }).(pulumi.BoolPtrOutput)
+}
+
+// Enable video for Microsoft Teams channel
+func (o MsTeamsChannelPropertiesInvokeResponseOutput) EnableVideo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelPropertiesInvokeResponse) *bool { return v.EnableVideo }).(pulumi.BoolPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o MsTeamsChannelPropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v MsTeamsChannelPropertiesInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+type MsTeamsChannelPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MsTeamsChannelPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MsTeamsChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MsTeamsChannelPropertiesInvokeResponsePtrOutput) ToMsTeamsChannelPropertiesInvokeResponsePtrOutput() MsTeamsChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MsTeamsChannelPropertiesInvokeResponsePtrOutput) ToMsTeamsChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) MsTeamsChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MsTeamsChannelPropertiesInvokeResponsePtrOutput) Elem() MsTeamsChannelPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *MsTeamsChannelPropertiesInvokeResponse) MsTeamsChannelPropertiesInvokeResponse { return *v }).(MsTeamsChannelPropertiesInvokeResponseOutput)
+}
+
+// Enable messaging for Microsoft Teams channel
+func (o MsTeamsChannelPropertiesInvokeResponsePtrOutput) CallMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MsTeamsChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CallMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable calling for Microsoft Teams channel
+func (o MsTeamsChannelPropertiesInvokeResponsePtrOutput) EnableCalling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MsTeamsChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableCalling
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable media cards for Microsoft Teams channel
+func (o MsTeamsChannelPropertiesInvokeResponsePtrOutput) EnableMediaCards() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MsTeamsChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMediaCards
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable messaging for Microsoft Teams channel
+func (o MsTeamsChannelPropertiesInvokeResponsePtrOutput) EnableMessaging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MsTeamsChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMessaging
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable video for Microsoft Teams channel
+func (o MsTeamsChannelPropertiesInvokeResponsePtrOutput) EnableVideo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MsTeamsChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableVideo
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o MsTeamsChannelPropertiesInvokeResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MsTeamsChannelPropertiesInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -4413,8 +6353,108 @@ func (o MsTeamsChannelResponseOutput) Properties() MsTeamsChannelPropertiesRespo
 	return o.ApplyT(func(v MsTeamsChannelResponse) *MsTeamsChannelPropertiesResponse { return v.Properties }).(MsTeamsChannelPropertiesResponsePtrOutput)
 }
 
+// Service Provider Definition
+type ServiceProviderInvokeResponse struct {
+	// The Properties of a Service Provider Object
+	Properties *ServiceProviderPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// ServiceProviderInvokeResponseInput is an input type that accepts ServiceProviderInvokeResponseArgs and ServiceProviderInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceProviderInvokeResponseInput` via:
+//
+//          ServiceProviderInvokeResponseArgs{...}
+type ServiceProviderInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceProviderInvokeResponseOutput() ServiceProviderInvokeResponseOutput
+	ToServiceProviderInvokeResponseOutputWithContext(context.Context) ServiceProviderInvokeResponseOutput
+}
+
+// Service Provider Definition
+type ServiceProviderInvokeResponseArgs struct {
+	// The Properties of a Service Provider Object
+	Properties ServiceProviderPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (ServiceProviderInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceProviderInvokeResponseArgs) ToServiceProviderInvokeResponseOutput() ServiceProviderInvokeResponseOutput {
+	return i.ToServiceProviderInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderInvokeResponseArgs) ToServiceProviderInvokeResponseOutputWithContext(ctx context.Context) ServiceProviderInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderInvokeResponseOutput)
+}
+
+// ServiceProviderInvokeResponseArrayInput is an input type that accepts ServiceProviderInvokeResponseArray and ServiceProviderInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ServiceProviderInvokeResponseArrayInput` via:
+//
+//          ServiceProviderInvokeResponseArray{ ServiceProviderInvokeResponseArgs{...} }
+type ServiceProviderInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToServiceProviderInvokeResponseArrayOutput() ServiceProviderInvokeResponseArrayOutput
+	ToServiceProviderInvokeResponseArrayOutputWithContext(context.Context) ServiceProviderInvokeResponseArrayOutput
+}
+
+type ServiceProviderInvokeResponseArray []ServiceProviderInvokeResponseInput
+
+func (ServiceProviderInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceProviderInvokeResponseArray) ToServiceProviderInvokeResponseArrayOutput() ServiceProviderInvokeResponseArrayOutput {
+	return i.ToServiceProviderInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderInvokeResponseArray) ToServiceProviderInvokeResponseArrayOutputWithContext(ctx context.Context) ServiceProviderInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderInvokeResponseArrayOutput)
+}
+
+// Service Provider Definition
+type ServiceProviderInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceProviderInvokeResponseOutput) ToServiceProviderInvokeResponseOutput() ServiceProviderInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceProviderInvokeResponseOutput) ToServiceProviderInvokeResponseOutputWithContext(ctx context.Context) ServiceProviderInvokeResponseOutput {
+	return o
+}
+
+// The Properties of a Service Provider Object
+func (o ServiceProviderInvokeResponseOutput) Properties() ServiceProviderPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceProviderInvokeResponse) *ServiceProviderPropertiesInvokeResponse { return v.Properties }).(ServiceProviderPropertiesInvokeResponsePtrOutput)
+}
+
+type ServiceProviderInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceProviderInvokeResponseArrayOutput) ToServiceProviderInvokeResponseArrayOutput() ServiceProviderInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServiceProviderInvokeResponseArrayOutput) ToServiceProviderInvokeResponseArrayOutputWithContext(ctx context.Context) ServiceProviderInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServiceProviderInvokeResponseArrayOutput) Index(i pulumi.IntInput) ServiceProviderInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceProviderInvokeResponse {
+		return vs[0].([]ServiceProviderInvokeResponse)[vs[1].(int)]
+	}).(ServiceProviderInvokeResponseOutput)
+}
+
 // Extra Parameters specific to each Service Provider
-type ServiceProviderParameterResponse struct {
+type ServiceProviderParameterInvokeResponse struct {
 	// Default Name for the Service Provider
 	Default string `pulumi:"default"`
 	// Description of the Service Provider
@@ -4429,19 +6469,19 @@ type ServiceProviderParameterResponse struct {
 	Type string `pulumi:"type"`
 }
 
-// ServiceProviderParameterResponseInput is an input type that accepts ServiceProviderParameterResponseArgs and ServiceProviderParameterResponseOutput values.
-// You can construct a concrete instance of `ServiceProviderParameterResponseInput` via:
+// ServiceProviderParameterInvokeResponseInput is an input type that accepts ServiceProviderParameterInvokeResponseArgs and ServiceProviderParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceProviderParameterInvokeResponseInput` via:
 //
-//          ServiceProviderParameterResponseArgs{...}
-type ServiceProviderParameterResponseInput interface {
+//          ServiceProviderParameterInvokeResponseArgs{...}
+type ServiceProviderParameterInvokeResponseInput interface {
 	pulumi.Input
 
-	ToServiceProviderParameterResponseOutput() ServiceProviderParameterResponseOutput
-	ToServiceProviderParameterResponseOutputWithContext(context.Context) ServiceProviderParameterResponseOutput
+	ToServiceProviderParameterInvokeResponseOutput() ServiceProviderParameterInvokeResponseOutput
+	ToServiceProviderParameterInvokeResponseOutputWithContext(context.Context) ServiceProviderParameterInvokeResponseOutput
 }
 
 // Extra Parameters specific to each Service Provider
-type ServiceProviderParameterResponseArgs struct {
+type ServiceProviderParameterInvokeResponseArgs struct {
 	// Default Name for the Service Provider
 	Default pulumi.StringInput `pulumi:"default"`
 	// Description of the Service Provider
@@ -4456,110 +6496,110 @@ type ServiceProviderParameterResponseArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (ServiceProviderParameterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProviderParameterResponse)(nil)).Elem()
+func (ServiceProviderParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderParameterInvokeResponse)(nil)).Elem()
 }
 
-func (i ServiceProviderParameterResponseArgs) ToServiceProviderParameterResponseOutput() ServiceProviderParameterResponseOutput {
-	return i.ToServiceProviderParameterResponseOutputWithContext(context.Background())
+func (i ServiceProviderParameterInvokeResponseArgs) ToServiceProviderParameterInvokeResponseOutput() ServiceProviderParameterInvokeResponseOutput {
+	return i.ToServiceProviderParameterInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ServiceProviderParameterResponseArgs) ToServiceProviderParameterResponseOutputWithContext(ctx context.Context) ServiceProviderParameterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterResponseOutput)
+func (i ServiceProviderParameterInvokeResponseArgs) ToServiceProviderParameterInvokeResponseOutputWithContext(ctx context.Context) ServiceProviderParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterInvokeResponseOutput)
 }
 
-// ServiceProviderParameterResponseArrayInput is an input type that accepts ServiceProviderParameterResponseArray and ServiceProviderParameterResponseArrayOutput values.
-// You can construct a concrete instance of `ServiceProviderParameterResponseArrayInput` via:
+// ServiceProviderParameterInvokeResponseArrayInput is an input type that accepts ServiceProviderParameterInvokeResponseArray and ServiceProviderParameterInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ServiceProviderParameterInvokeResponseArrayInput` via:
 //
-//          ServiceProviderParameterResponseArray{ ServiceProviderParameterResponseArgs{...} }
-type ServiceProviderParameterResponseArrayInput interface {
+//          ServiceProviderParameterInvokeResponseArray{ ServiceProviderParameterInvokeResponseArgs{...} }
+type ServiceProviderParameterInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToServiceProviderParameterResponseArrayOutput() ServiceProviderParameterResponseArrayOutput
-	ToServiceProviderParameterResponseArrayOutputWithContext(context.Context) ServiceProviderParameterResponseArrayOutput
+	ToServiceProviderParameterInvokeResponseArrayOutput() ServiceProviderParameterInvokeResponseArrayOutput
+	ToServiceProviderParameterInvokeResponseArrayOutputWithContext(context.Context) ServiceProviderParameterInvokeResponseArrayOutput
 }
 
-type ServiceProviderParameterResponseArray []ServiceProviderParameterResponseInput
+type ServiceProviderParameterInvokeResponseArray []ServiceProviderParameterInvokeResponseInput
 
-func (ServiceProviderParameterResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceProviderParameterResponse)(nil)).Elem()
+func (ServiceProviderParameterInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceProviderParameterInvokeResponse)(nil)).Elem()
 }
 
-func (i ServiceProviderParameterResponseArray) ToServiceProviderParameterResponseArrayOutput() ServiceProviderParameterResponseArrayOutput {
-	return i.ToServiceProviderParameterResponseArrayOutputWithContext(context.Background())
+func (i ServiceProviderParameterInvokeResponseArray) ToServiceProviderParameterInvokeResponseArrayOutput() ServiceProviderParameterInvokeResponseArrayOutput {
+	return i.ToServiceProviderParameterInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ServiceProviderParameterResponseArray) ToServiceProviderParameterResponseArrayOutputWithContext(ctx context.Context) ServiceProviderParameterResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterResponseArrayOutput)
+func (i ServiceProviderParameterInvokeResponseArray) ToServiceProviderParameterInvokeResponseArrayOutputWithContext(ctx context.Context) ServiceProviderParameterInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterInvokeResponseArrayOutput)
 }
 
 // Extra Parameters specific to each Service Provider
-type ServiceProviderParameterResponseOutput struct{ *pulumi.OutputState }
+type ServiceProviderParameterInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ServiceProviderParameterResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProviderParameterResponse)(nil)).Elem()
+func (ServiceProviderParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderParameterInvokeResponse)(nil)).Elem()
 }
 
-func (o ServiceProviderParameterResponseOutput) ToServiceProviderParameterResponseOutput() ServiceProviderParameterResponseOutput {
+func (o ServiceProviderParameterInvokeResponseOutput) ToServiceProviderParameterInvokeResponseOutput() ServiceProviderParameterInvokeResponseOutput {
 	return o
 }
 
-func (o ServiceProviderParameterResponseOutput) ToServiceProviderParameterResponseOutputWithContext(ctx context.Context) ServiceProviderParameterResponseOutput {
+func (o ServiceProviderParameterInvokeResponseOutput) ToServiceProviderParameterInvokeResponseOutputWithContext(ctx context.Context) ServiceProviderParameterInvokeResponseOutput {
 	return o
 }
 
 // Default Name for the Service Provider
-func (o ServiceProviderParameterResponseOutput) Default() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.Default }).(pulumi.StringOutput)
+func (o ServiceProviderParameterInvokeResponseOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterInvokeResponse) string { return v.Default }).(pulumi.StringOutput)
 }
 
 // Description of the Service Provider
-func (o ServiceProviderParameterResponseOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.Description }).(pulumi.StringOutput)
+func (o ServiceProviderParameterInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Display Name of the Service Provider
-func (o ServiceProviderParameterResponseOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o ServiceProviderParameterInvokeResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterInvokeResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // Help Url for the  Service Provider
-func (o ServiceProviderParameterResponseOutput) HelpUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.HelpUrl }).(pulumi.StringOutput)
+func (o ServiceProviderParameterInvokeResponseOutput) HelpUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterInvokeResponse) string { return v.HelpUrl }).(pulumi.StringOutput)
 }
 
 // Name of the Service Provider
-func (o ServiceProviderParameterResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o ServiceProviderParameterInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Type of the Service Provider
-func (o ServiceProviderParameterResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.Type }).(pulumi.StringOutput)
+func (o ServiceProviderParameterInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderParameterInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ServiceProviderParameterResponseArrayOutput struct{ *pulumi.OutputState }
+type ServiceProviderParameterInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ServiceProviderParameterResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceProviderParameterResponse)(nil)).Elem()
+func (ServiceProviderParameterInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceProviderParameterInvokeResponse)(nil)).Elem()
 }
 
-func (o ServiceProviderParameterResponseArrayOutput) ToServiceProviderParameterResponseArrayOutput() ServiceProviderParameterResponseArrayOutput {
+func (o ServiceProviderParameterInvokeResponseArrayOutput) ToServiceProviderParameterInvokeResponseArrayOutput() ServiceProviderParameterInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ServiceProviderParameterResponseArrayOutput) ToServiceProviderParameterResponseArrayOutputWithContext(ctx context.Context) ServiceProviderParameterResponseArrayOutput {
+func (o ServiceProviderParameterInvokeResponseArrayOutput) ToServiceProviderParameterInvokeResponseArrayOutputWithContext(ctx context.Context) ServiceProviderParameterInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ServiceProviderParameterResponseArrayOutput) Index(i pulumi.IntInput) ServiceProviderParameterResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceProviderParameterResponse {
-		return vs[0].([]ServiceProviderParameterResponse)[vs[1].(int)]
-	}).(ServiceProviderParameterResponseOutput)
+func (o ServiceProviderParameterInvokeResponseArrayOutput) Index(i pulumi.IntInput) ServiceProviderParameterInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceProviderParameterInvokeResponse {
+		return vs[0].([]ServiceProviderParameterInvokeResponse)[vs[1].(int)]
+	}).(ServiceProviderParameterInvokeResponseOutput)
 }
 
 // The Object used to describe a Service Provider supported by Bot Service
-type ServiceProviderPropertiesResponse struct {
+type ServiceProviderPropertiesInvokeResponse struct {
 	// Display Name of the Service Provider
 	DevPortalUrl string `pulumi:"devPortalUrl"`
 	// Display Name of the Service Provider
@@ -4569,24 +6609,24 @@ type ServiceProviderPropertiesResponse struct {
 	// Id for Service Provider
 	Id string `pulumi:"id"`
 	// The list of parameters for the Service Provider
-	Parameters []ServiceProviderParameterResponse `pulumi:"parameters"`
+	Parameters []ServiceProviderParameterInvokeResponse `pulumi:"parameters"`
 	// Display Name of the Service Provider
 	ServiceProviderName string `pulumi:"serviceProviderName"`
 }
 
-// ServiceProviderPropertiesResponseInput is an input type that accepts ServiceProviderPropertiesResponseArgs and ServiceProviderPropertiesResponseOutput values.
-// You can construct a concrete instance of `ServiceProviderPropertiesResponseInput` via:
+// ServiceProviderPropertiesInvokeResponseInput is an input type that accepts ServiceProviderPropertiesInvokeResponseArgs and ServiceProviderPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceProviderPropertiesInvokeResponseInput` via:
 //
-//          ServiceProviderPropertiesResponseArgs{...}
-type ServiceProviderPropertiesResponseInput interface {
+//          ServiceProviderPropertiesInvokeResponseArgs{...}
+type ServiceProviderPropertiesInvokeResponseInput interface {
 	pulumi.Input
 
-	ToServiceProviderPropertiesResponseOutput() ServiceProviderPropertiesResponseOutput
-	ToServiceProviderPropertiesResponseOutputWithContext(context.Context) ServiceProviderPropertiesResponseOutput
+	ToServiceProviderPropertiesInvokeResponseOutput() ServiceProviderPropertiesInvokeResponseOutput
+	ToServiceProviderPropertiesInvokeResponseOutputWithContext(context.Context) ServiceProviderPropertiesInvokeResponseOutput
 }
 
 // The Object used to describe a Service Provider supported by Bot Service
-type ServiceProviderPropertiesResponseArgs struct {
+type ServiceProviderPropertiesInvokeResponseArgs struct {
 	// Display Name of the Service Provider
 	DevPortalUrl pulumi.StringInput `pulumi:"devPortalUrl"`
 	// Display Name of the Service Provider
@@ -4596,140 +6636,142 @@ type ServiceProviderPropertiesResponseArgs struct {
 	// Id for Service Provider
 	Id pulumi.StringInput `pulumi:"id"`
 	// The list of parameters for the Service Provider
-	Parameters ServiceProviderParameterResponseArrayInput `pulumi:"parameters"`
+	Parameters ServiceProviderParameterInvokeResponseArrayInput `pulumi:"parameters"`
 	// Display Name of the Service Provider
 	ServiceProviderName pulumi.StringInput `pulumi:"serviceProviderName"`
 }
 
-func (ServiceProviderPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProviderPropertiesResponse)(nil)).Elem()
+func (ServiceProviderPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderPropertiesInvokeResponse)(nil)).Elem()
 }
 
-func (i ServiceProviderPropertiesResponseArgs) ToServiceProviderPropertiesResponseOutput() ServiceProviderPropertiesResponseOutput {
-	return i.ToServiceProviderPropertiesResponseOutputWithContext(context.Background())
+func (i ServiceProviderPropertiesInvokeResponseArgs) ToServiceProviderPropertiesInvokeResponseOutput() ServiceProviderPropertiesInvokeResponseOutput {
+	return i.ToServiceProviderPropertiesInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ServiceProviderPropertiesResponseArgs) ToServiceProviderPropertiesResponseOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderPropertiesResponseOutput)
+func (i ServiceProviderPropertiesInvokeResponseArgs) ToServiceProviderPropertiesInvokeResponseOutputWithContext(ctx context.Context) ServiceProviderPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderPropertiesInvokeResponseOutput)
 }
 
-func (i ServiceProviderPropertiesResponseArgs) ToServiceProviderPropertiesResponsePtrOutput() ServiceProviderPropertiesResponsePtrOutput {
-	return i.ToServiceProviderPropertiesResponsePtrOutputWithContext(context.Background())
+func (i ServiceProviderPropertiesInvokeResponseArgs) ToServiceProviderPropertiesInvokeResponsePtrOutput() ServiceProviderPropertiesInvokeResponsePtrOutput {
+	return i.ToServiceProviderPropertiesInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i ServiceProviderPropertiesResponseArgs) ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderPropertiesResponseOutput).ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx)
+func (i ServiceProviderPropertiesInvokeResponseArgs) ToServiceProviderPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderPropertiesInvokeResponseOutput).ToServiceProviderPropertiesInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// ServiceProviderPropertiesResponsePtrInput is an input type that accepts ServiceProviderPropertiesResponseArgs, ServiceProviderPropertiesResponsePtr and ServiceProviderPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ServiceProviderPropertiesResponsePtrInput` via:
+// ServiceProviderPropertiesInvokeResponsePtrInput is an input type that accepts ServiceProviderPropertiesInvokeResponseArgs, ServiceProviderPropertiesInvokeResponsePtr and ServiceProviderPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceProviderPropertiesInvokeResponsePtrInput` via:
 //
-//          ServiceProviderPropertiesResponseArgs{...}
+//          ServiceProviderPropertiesInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type ServiceProviderPropertiesResponsePtrInput interface {
+type ServiceProviderPropertiesInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToServiceProviderPropertiesResponsePtrOutput() ServiceProviderPropertiesResponsePtrOutput
-	ToServiceProviderPropertiesResponsePtrOutputWithContext(context.Context) ServiceProviderPropertiesResponsePtrOutput
+	ToServiceProviderPropertiesInvokeResponsePtrOutput() ServiceProviderPropertiesInvokeResponsePtrOutput
+	ToServiceProviderPropertiesInvokeResponsePtrOutputWithContext(context.Context) ServiceProviderPropertiesInvokeResponsePtrOutput
 }
 
-type serviceProviderPropertiesResponsePtrType ServiceProviderPropertiesResponseArgs
+type serviceProviderPropertiesInvokeResponsePtrType ServiceProviderPropertiesInvokeResponseArgs
 
-func ServiceProviderPropertiesResponsePtr(v *ServiceProviderPropertiesResponseArgs) ServiceProviderPropertiesResponsePtrInput {
-	return (*serviceProviderPropertiesResponsePtrType)(v)
+func ServiceProviderPropertiesInvokeResponsePtr(v *ServiceProviderPropertiesInvokeResponseArgs) ServiceProviderPropertiesInvokeResponsePtrInput {
+	return (*serviceProviderPropertiesInvokeResponsePtrType)(v)
 }
 
-func (*serviceProviderPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceProviderPropertiesResponse)(nil)).Elem()
+func (*serviceProviderPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceProviderPropertiesInvokeResponse)(nil)).Elem()
 }
 
-func (i *serviceProviderPropertiesResponsePtrType) ToServiceProviderPropertiesResponsePtrOutput() ServiceProviderPropertiesResponsePtrOutput {
-	return i.ToServiceProviderPropertiesResponsePtrOutputWithContext(context.Background())
+func (i *serviceProviderPropertiesInvokeResponsePtrType) ToServiceProviderPropertiesInvokeResponsePtrOutput() ServiceProviderPropertiesInvokeResponsePtrOutput {
+	return i.ToServiceProviderPropertiesInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *serviceProviderPropertiesResponsePtrType) ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderPropertiesResponsePtrOutput)
+func (i *serviceProviderPropertiesInvokeResponsePtrType) ToServiceProviderPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderPropertiesInvokeResponsePtrOutput)
 }
 
 // The Object used to describe a Service Provider supported by Bot Service
-type ServiceProviderPropertiesResponseOutput struct{ *pulumi.OutputState }
+type ServiceProviderPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ServiceProviderPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProviderPropertiesResponse)(nil)).Elem()
+func (ServiceProviderPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderPropertiesInvokeResponse)(nil)).Elem()
 }
 
-func (o ServiceProviderPropertiesResponseOutput) ToServiceProviderPropertiesResponseOutput() ServiceProviderPropertiesResponseOutput {
+func (o ServiceProviderPropertiesInvokeResponseOutput) ToServiceProviderPropertiesInvokeResponseOutput() ServiceProviderPropertiesInvokeResponseOutput {
 	return o
 }
 
-func (o ServiceProviderPropertiesResponseOutput) ToServiceProviderPropertiesResponseOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponseOutput {
+func (o ServiceProviderPropertiesInvokeResponseOutput) ToServiceProviderPropertiesInvokeResponseOutputWithContext(ctx context.Context) ServiceProviderPropertiesInvokeResponseOutput {
 	return o
 }
 
-func (o ServiceProviderPropertiesResponseOutput) ToServiceProviderPropertiesResponsePtrOutput() ServiceProviderPropertiesResponsePtrOutput {
-	return o.ToServiceProviderPropertiesResponsePtrOutputWithContext(context.Background())
+func (o ServiceProviderPropertiesInvokeResponseOutput) ToServiceProviderPropertiesInvokeResponsePtrOutput() ServiceProviderPropertiesInvokeResponsePtrOutput {
+	return o.ToServiceProviderPropertiesInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o ServiceProviderPropertiesResponseOutput) ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ServiceProviderPropertiesResponse) *ServiceProviderPropertiesResponse {
+func (o ServiceProviderPropertiesInvokeResponseOutput) ToServiceProviderPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesInvokeResponse) *ServiceProviderPropertiesInvokeResponse {
 		return &v
-	}).(ServiceProviderPropertiesResponsePtrOutput)
+	}).(ServiceProviderPropertiesInvokeResponsePtrOutput)
 }
 
 // Display Name of the Service Provider
-func (o ServiceProviderPropertiesResponseOutput) DevPortalUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderPropertiesResponse) string { return v.DevPortalUrl }).(pulumi.StringOutput)
+func (o ServiceProviderPropertiesInvokeResponseOutput) DevPortalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesInvokeResponse) string { return v.DevPortalUrl }).(pulumi.StringOutput)
 }
 
 // Display Name of the Service Provider
-func (o ServiceProviderPropertiesResponseOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderPropertiesResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o ServiceProviderPropertiesInvokeResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesInvokeResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // Display Name of the Service Provider
-func (o ServiceProviderPropertiesResponseOutput) IconUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderPropertiesResponse) string { return v.IconUrl }).(pulumi.StringOutput)
+func (o ServiceProviderPropertiesInvokeResponseOutput) IconUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesInvokeResponse) string { return v.IconUrl }).(pulumi.StringOutput)
 }
 
 // Id for Service Provider
-func (o ServiceProviderPropertiesResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderPropertiesResponse) string { return v.Id }).(pulumi.StringOutput)
+func (o ServiceProviderPropertiesInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The list of parameters for the Service Provider
-func (o ServiceProviderPropertiesResponseOutput) Parameters() ServiceProviderParameterResponseArrayOutput {
-	return o.ApplyT(func(v ServiceProviderPropertiesResponse) []ServiceProviderParameterResponse { return v.Parameters }).(ServiceProviderParameterResponseArrayOutput)
+func (o ServiceProviderPropertiesInvokeResponseOutput) Parameters() ServiceProviderParameterInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesInvokeResponse) []ServiceProviderParameterInvokeResponse {
+		return v.Parameters
+	}).(ServiceProviderParameterInvokeResponseArrayOutput)
 }
 
 // Display Name of the Service Provider
-func (o ServiceProviderPropertiesResponseOutput) ServiceProviderName() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceProviderPropertiesResponse) string { return v.ServiceProviderName }).(pulumi.StringOutput)
+func (o ServiceProviderPropertiesInvokeResponseOutput) ServiceProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceProviderPropertiesInvokeResponse) string { return v.ServiceProviderName }).(pulumi.StringOutput)
 }
 
-type ServiceProviderPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+type ServiceProviderPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (ServiceProviderPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceProviderPropertiesResponse)(nil)).Elem()
+func (ServiceProviderPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceProviderPropertiesInvokeResponse)(nil)).Elem()
 }
 
-func (o ServiceProviderPropertiesResponsePtrOutput) ToServiceProviderPropertiesResponsePtrOutput() ServiceProviderPropertiesResponsePtrOutput {
+func (o ServiceProviderPropertiesInvokeResponsePtrOutput) ToServiceProviderPropertiesInvokeResponsePtrOutput() ServiceProviderPropertiesInvokeResponsePtrOutput {
 	return o
 }
 
-func (o ServiceProviderPropertiesResponsePtrOutput) ToServiceProviderPropertiesResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesResponsePtrOutput {
+func (o ServiceProviderPropertiesInvokeResponsePtrOutput) ToServiceProviderPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceProviderPropertiesInvokeResponsePtrOutput {
 	return o
 }
 
-func (o ServiceProviderPropertiesResponsePtrOutput) Elem() ServiceProviderPropertiesResponseOutput {
-	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) ServiceProviderPropertiesResponse { return *v }).(ServiceProviderPropertiesResponseOutput)
+func (o ServiceProviderPropertiesInvokeResponsePtrOutput) Elem() ServiceProviderPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesInvokeResponse) ServiceProviderPropertiesInvokeResponse { return *v }).(ServiceProviderPropertiesInvokeResponseOutput)
 }
 
 // Display Name of the Service Provider
-func (o ServiceProviderPropertiesResponsePtrOutput) DevPortalUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) *string {
+func (o ServiceProviderPropertiesInvokeResponsePtrOutput) DevPortalUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4738,8 +6780,8 @@ func (o ServiceProviderPropertiesResponsePtrOutput) DevPortalUrl() pulumi.String
 }
 
 // Display Name of the Service Provider
-func (o ServiceProviderPropertiesResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) *string {
+func (o ServiceProviderPropertiesInvokeResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4748,8 +6790,8 @@ func (o ServiceProviderPropertiesResponsePtrOutput) DisplayName() pulumi.StringP
 }
 
 // Display Name of the Service Provider
-func (o ServiceProviderPropertiesResponsePtrOutput) IconUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) *string {
+func (o ServiceProviderPropertiesInvokeResponsePtrOutput) IconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4758,8 +6800,8 @@ func (o ServiceProviderPropertiesResponsePtrOutput) IconUrl() pulumi.StringPtrOu
 }
 
 // Id for Service Provider
-func (o ServiceProviderPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) *string {
+func (o ServiceProviderPropertiesInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4768,123 +6810,23 @@ func (o ServiceProviderPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput 
 }
 
 // The list of parameters for the Service Provider
-func (o ServiceProviderPropertiesResponsePtrOutput) Parameters() ServiceProviderParameterResponseArrayOutput {
-	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) []ServiceProviderParameterResponse {
+func (o ServiceProviderPropertiesInvokeResponsePtrOutput) Parameters() ServiceProviderParameterInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesInvokeResponse) []ServiceProviderParameterInvokeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(ServiceProviderParameterResponseArrayOutput)
+	}).(ServiceProviderParameterInvokeResponseArrayOutput)
 }
 
 // Display Name of the Service Provider
-func (o ServiceProviderPropertiesResponsePtrOutput) ServiceProviderName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceProviderPropertiesResponse) *string {
+func (o ServiceProviderPropertiesInvokeResponsePtrOutput) ServiceProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.ServiceProviderName
 	}).(pulumi.StringPtrOutput)
-}
-
-// Service Provider Definition
-type ServiceProviderResponse struct {
-	// The Properties of a Service Provider Object
-	Properties *ServiceProviderPropertiesResponse `pulumi:"properties"`
-}
-
-// ServiceProviderResponseInput is an input type that accepts ServiceProviderResponseArgs and ServiceProviderResponseOutput values.
-// You can construct a concrete instance of `ServiceProviderResponseInput` via:
-//
-//          ServiceProviderResponseArgs{...}
-type ServiceProviderResponseInput interface {
-	pulumi.Input
-
-	ToServiceProviderResponseOutput() ServiceProviderResponseOutput
-	ToServiceProviderResponseOutputWithContext(context.Context) ServiceProviderResponseOutput
-}
-
-// Service Provider Definition
-type ServiceProviderResponseArgs struct {
-	// The Properties of a Service Provider Object
-	Properties ServiceProviderPropertiesResponsePtrInput `pulumi:"properties"`
-}
-
-func (ServiceProviderResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProviderResponse)(nil)).Elem()
-}
-
-func (i ServiceProviderResponseArgs) ToServiceProviderResponseOutput() ServiceProviderResponseOutput {
-	return i.ToServiceProviderResponseOutputWithContext(context.Background())
-}
-
-func (i ServiceProviderResponseArgs) ToServiceProviderResponseOutputWithContext(ctx context.Context) ServiceProviderResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderResponseOutput)
-}
-
-// ServiceProviderResponseArrayInput is an input type that accepts ServiceProviderResponseArray and ServiceProviderResponseArrayOutput values.
-// You can construct a concrete instance of `ServiceProviderResponseArrayInput` via:
-//
-//          ServiceProviderResponseArray{ ServiceProviderResponseArgs{...} }
-type ServiceProviderResponseArrayInput interface {
-	pulumi.Input
-
-	ToServiceProviderResponseArrayOutput() ServiceProviderResponseArrayOutput
-	ToServiceProviderResponseArrayOutputWithContext(context.Context) ServiceProviderResponseArrayOutput
-}
-
-type ServiceProviderResponseArray []ServiceProviderResponseInput
-
-func (ServiceProviderResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceProviderResponse)(nil)).Elem()
-}
-
-func (i ServiceProviderResponseArray) ToServiceProviderResponseArrayOutput() ServiceProviderResponseArrayOutput {
-	return i.ToServiceProviderResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ServiceProviderResponseArray) ToServiceProviderResponseArrayOutputWithContext(ctx context.Context) ServiceProviderResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderResponseArrayOutput)
-}
-
-// Service Provider Definition
-type ServiceProviderResponseOutput struct{ *pulumi.OutputState }
-
-func (ServiceProviderResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceProviderResponse)(nil)).Elem()
-}
-
-func (o ServiceProviderResponseOutput) ToServiceProviderResponseOutput() ServiceProviderResponseOutput {
-	return o
-}
-
-func (o ServiceProviderResponseOutput) ToServiceProviderResponseOutputWithContext(ctx context.Context) ServiceProviderResponseOutput {
-	return o
-}
-
-// The Properties of a Service Provider Object
-func (o ServiceProviderResponseOutput) Properties() ServiceProviderPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ServiceProviderResponse) *ServiceProviderPropertiesResponse { return v.Properties }).(ServiceProviderPropertiesResponsePtrOutput)
-}
-
-type ServiceProviderResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ServiceProviderResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceProviderResponse)(nil)).Elem()
-}
-
-func (o ServiceProviderResponseArrayOutput) ToServiceProviderResponseArrayOutput() ServiceProviderResponseArrayOutput {
-	return o
-}
-
-func (o ServiceProviderResponseArrayOutput) ToServiceProviderResponseArrayOutputWithContext(ctx context.Context) ServiceProviderResponseArrayOutput {
-	return o
-}
-
-func (o ServiceProviderResponseArrayOutput) Index(i pulumi.IntInput) ServiceProviderResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceProviderResponse {
-		return vs[0].([]ServiceProviderResponse)[vs[1].(int)]
-	}).(ServiceProviderResponseOutput)
 }
 
 // The SKU of the cognitive services account.
@@ -5019,6 +6961,70 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The SKU of the cognitive services account.
+type SkuInvokeResponse struct {
+	// The sku name
+	Name string `pulumi:"name"`
+	// Gets the sku tier. This is based on the SKU name.
+	Tier string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The SKU of the cognitive services account.
+type SkuInvokeResponseArgs struct {
+	// The sku name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gets the sku tier. This is based on the SKU name.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The SKU of the cognitive services account.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The sku name
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the sku tier. This is based on the SKU name.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 // The SKU of the cognitive services account.
@@ -5239,6 +7245,73 @@ func (o SkypeChannelOutput) ChannelName() pulumi.StringOutput {
 // The set of properties specific to Skype channel resource
 func (o SkypeChannelOutput) Properties() SkypeChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v SkypeChannel) *SkypeChannelProperties { return v.Properties }).(SkypeChannelPropertiesPtrOutput)
+}
+
+// Skype channel definition
+type SkypeChannelInvokeResponse struct {
+	// The channel name
+	// Expected value is 'SkypeChannel'.
+	ChannelName string `pulumi:"channelName"`
+	// The set of properties specific to Skype channel resource
+	Properties *SkypeChannelPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// SkypeChannelInvokeResponseInput is an input type that accepts SkypeChannelInvokeResponseArgs and SkypeChannelInvokeResponseOutput values.
+// You can construct a concrete instance of `SkypeChannelInvokeResponseInput` via:
+//
+//          SkypeChannelInvokeResponseArgs{...}
+type SkypeChannelInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkypeChannelInvokeResponseOutput() SkypeChannelInvokeResponseOutput
+	ToSkypeChannelInvokeResponseOutputWithContext(context.Context) SkypeChannelInvokeResponseOutput
+}
+
+// Skype channel definition
+type SkypeChannelInvokeResponseArgs struct {
+	// The channel name
+	// Expected value is 'SkypeChannel'.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The set of properties specific to Skype channel resource
+	Properties SkypeChannelPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (SkypeChannelInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkypeChannelInvokeResponse)(nil)).Elem()
+}
+
+func (i SkypeChannelInvokeResponseArgs) ToSkypeChannelInvokeResponseOutput() SkypeChannelInvokeResponseOutput {
+	return i.ToSkypeChannelInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkypeChannelInvokeResponseArgs) ToSkypeChannelInvokeResponseOutputWithContext(ctx context.Context) SkypeChannelInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkypeChannelInvokeResponseOutput)
+}
+
+// Skype channel definition
+type SkypeChannelInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkypeChannelInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkypeChannelInvokeResponse)(nil)).Elem()
+}
+
+func (o SkypeChannelInvokeResponseOutput) ToSkypeChannelInvokeResponseOutput() SkypeChannelInvokeResponseOutput {
+	return o
+}
+
+func (o SkypeChannelInvokeResponseOutput) ToSkypeChannelInvokeResponseOutputWithContext(ctx context.Context) SkypeChannelInvokeResponseOutput {
+	return o
+}
+
+// The channel name
+// Expected value is 'SkypeChannel'.
+func (o SkypeChannelInvokeResponseOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v SkypeChannelInvokeResponse) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to Skype channel resource
+func (o SkypeChannelInvokeResponseOutput) Properties() SkypeChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SkypeChannelInvokeResponse) *SkypeChannelPropertiesInvokeResponse { return v.Properties }).(SkypeChannelPropertiesInvokeResponsePtrOutput)
 }
 
 // The parameters to provide for the Microsoft Teams channel.
@@ -5520,6 +7593,292 @@ func (o SkypeChannelPropertiesPtrOutput) GroupsMode() pulumi.StringPtrOutput {
 // Whether this channel is enabled for the bot
 func (o SkypeChannelPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SkypeChannelProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The parameters to provide for the Microsoft Teams channel.
+type SkypeChannelPropertiesInvokeResponse struct {
+	// Calling web hook for Skype channel
+	CallingWebHook *string `pulumi:"callingWebHook"`
+	// Enable calling for Skype channel
+	EnableCalling *bool `pulumi:"enableCalling"`
+	// Enable groups for Skype channel
+	EnableGroups *bool `pulumi:"enableGroups"`
+	// Enable media cards for Skype channel
+	EnableMediaCards *bool `pulumi:"enableMediaCards"`
+	// Enable messaging for Skype channel
+	EnableMessaging *bool `pulumi:"enableMessaging"`
+	// Enable screen sharing for Skype channel
+	EnableScreenSharing *bool `pulumi:"enableScreenSharing"`
+	// Enable video for Skype channel
+	EnableVideo *bool `pulumi:"enableVideo"`
+	// Group mode for Skype channel
+	GroupsMode *string `pulumi:"groupsMode"`
+	// Whether this channel is enabled for the bot
+	IsEnabled bool `pulumi:"isEnabled"`
+}
+
+// SkypeChannelPropertiesInvokeResponseInput is an input type that accepts SkypeChannelPropertiesInvokeResponseArgs and SkypeChannelPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SkypeChannelPropertiesInvokeResponseInput` via:
+//
+//          SkypeChannelPropertiesInvokeResponseArgs{...}
+type SkypeChannelPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkypeChannelPropertiesInvokeResponseOutput() SkypeChannelPropertiesInvokeResponseOutput
+	ToSkypeChannelPropertiesInvokeResponseOutputWithContext(context.Context) SkypeChannelPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Microsoft Teams channel.
+type SkypeChannelPropertiesInvokeResponseArgs struct {
+	// Calling web hook for Skype channel
+	CallingWebHook pulumi.StringPtrInput `pulumi:"callingWebHook"`
+	// Enable calling for Skype channel
+	EnableCalling pulumi.BoolPtrInput `pulumi:"enableCalling"`
+	// Enable groups for Skype channel
+	EnableGroups pulumi.BoolPtrInput `pulumi:"enableGroups"`
+	// Enable media cards for Skype channel
+	EnableMediaCards pulumi.BoolPtrInput `pulumi:"enableMediaCards"`
+	// Enable messaging for Skype channel
+	EnableMessaging pulumi.BoolPtrInput `pulumi:"enableMessaging"`
+	// Enable screen sharing for Skype channel
+	EnableScreenSharing pulumi.BoolPtrInput `pulumi:"enableScreenSharing"`
+	// Enable video for Skype channel
+	EnableVideo pulumi.BoolPtrInput `pulumi:"enableVideo"`
+	// Group mode for Skype channel
+	GroupsMode pulumi.StringPtrInput `pulumi:"groupsMode"`
+	// Whether this channel is enabled for the bot
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+}
+
+func (SkypeChannelPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkypeChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SkypeChannelPropertiesInvokeResponseArgs) ToSkypeChannelPropertiesInvokeResponseOutput() SkypeChannelPropertiesInvokeResponseOutput {
+	return i.ToSkypeChannelPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkypeChannelPropertiesInvokeResponseArgs) ToSkypeChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) SkypeChannelPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkypeChannelPropertiesInvokeResponseOutput)
+}
+
+func (i SkypeChannelPropertiesInvokeResponseArgs) ToSkypeChannelPropertiesInvokeResponsePtrOutput() SkypeChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToSkypeChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SkypeChannelPropertiesInvokeResponseArgs) ToSkypeChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SkypeChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkypeChannelPropertiesInvokeResponseOutput).ToSkypeChannelPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SkypeChannelPropertiesInvokeResponsePtrInput is an input type that accepts SkypeChannelPropertiesInvokeResponseArgs, SkypeChannelPropertiesInvokeResponsePtr and SkypeChannelPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SkypeChannelPropertiesInvokeResponsePtrInput` via:
+//
+//          SkypeChannelPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SkypeChannelPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSkypeChannelPropertiesInvokeResponsePtrOutput() SkypeChannelPropertiesInvokeResponsePtrOutput
+	ToSkypeChannelPropertiesInvokeResponsePtrOutputWithContext(context.Context) SkypeChannelPropertiesInvokeResponsePtrOutput
+}
+
+type skypeChannelPropertiesInvokeResponsePtrType SkypeChannelPropertiesInvokeResponseArgs
+
+func SkypeChannelPropertiesInvokeResponsePtr(v *SkypeChannelPropertiesInvokeResponseArgs) SkypeChannelPropertiesInvokeResponsePtrInput {
+	return (*skypeChannelPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*skypeChannelPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkypeChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *skypeChannelPropertiesInvokeResponsePtrType) ToSkypeChannelPropertiesInvokeResponsePtrOutput() SkypeChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToSkypeChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *skypeChannelPropertiesInvokeResponsePtrType) ToSkypeChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SkypeChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkypeChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The parameters to provide for the Microsoft Teams channel.
+type SkypeChannelPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkypeChannelPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkypeChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SkypeChannelPropertiesInvokeResponseOutput) ToSkypeChannelPropertiesInvokeResponseOutput() SkypeChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SkypeChannelPropertiesInvokeResponseOutput) ToSkypeChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) SkypeChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SkypeChannelPropertiesInvokeResponseOutput) ToSkypeChannelPropertiesInvokeResponsePtrOutput() SkypeChannelPropertiesInvokeResponsePtrOutput {
+	return o.ToSkypeChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SkypeChannelPropertiesInvokeResponseOutput) ToSkypeChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SkypeChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SkypeChannelPropertiesInvokeResponse) *SkypeChannelPropertiesInvokeResponse {
+		return &v
+	}).(SkypeChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// Calling web hook for Skype channel
+func (o SkypeChannelPropertiesInvokeResponseOutput) CallingWebHook() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkypeChannelPropertiesInvokeResponse) *string { return v.CallingWebHook }).(pulumi.StringPtrOutput)
+}
+
+// Enable calling for Skype channel
+func (o SkypeChannelPropertiesInvokeResponseOutput) EnableCalling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SkypeChannelPropertiesInvokeResponse) *bool { return v.EnableCalling }).(pulumi.BoolPtrOutput)
+}
+
+// Enable groups for Skype channel
+func (o SkypeChannelPropertiesInvokeResponseOutput) EnableGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SkypeChannelPropertiesInvokeResponse) *bool { return v.EnableGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Enable media cards for Skype channel
+func (o SkypeChannelPropertiesInvokeResponseOutput) EnableMediaCards() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SkypeChannelPropertiesInvokeResponse) *bool { return v.EnableMediaCards }).(pulumi.BoolPtrOutput)
+}
+
+// Enable messaging for Skype channel
+func (o SkypeChannelPropertiesInvokeResponseOutput) EnableMessaging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SkypeChannelPropertiesInvokeResponse) *bool { return v.EnableMessaging }).(pulumi.BoolPtrOutput)
+}
+
+// Enable screen sharing for Skype channel
+func (o SkypeChannelPropertiesInvokeResponseOutput) EnableScreenSharing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SkypeChannelPropertiesInvokeResponse) *bool { return v.EnableScreenSharing }).(pulumi.BoolPtrOutput)
+}
+
+// Enable video for Skype channel
+func (o SkypeChannelPropertiesInvokeResponseOutput) EnableVideo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SkypeChannelPropertiesInvokeResponse) *bool { return v.EnableVideo }).(pulumi.BoolPtrOutput)
+}
+
+// Group mode for Skype channel
+func (o SkypeChannelPropertiesInvokeResponseOutput) GroupsMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkypeChannelPropertiesInvokeResponse) *string { return v.GroupsMode }).(pulumi.StringPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o SkypeChannelPropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SkypeChannelPropertiesInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+type SkypeChannelPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SkypeChannelPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkypeChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) ToSkypeChannelPropertiesInvokeResponsePtrOutput() SkypeChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) ToSkypeChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SkypeChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) Elem() SkypeChannelPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *SkypeChannelPropertiesInvokeResponse) SkypeChannelPropertiesInvokeResponse { return *v }).(SkypeChannelPropertiesInvokeResponseOutput)
+}
+
+// Calling web hook for Skype channel
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) CallingWebHook() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkypeChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CallingWebHook
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable calling for Skype channel
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) EnableCalling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SkypeChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableCalling
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable groups for Skype channel
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) EnableGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SkypeChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableGroups
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable media cards for Skype channel
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) EnableMediaCards() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SkypeChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMediaCards
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable messaging for Skype channel
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) EnableMessaging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SkypeChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMessaging
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable screen sharing for Skype channel
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) EnableScreenSharing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SkypeChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableScreenSharing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable video for Skype channel
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) EnableVideo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SkypeChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableVideo
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Group mode for Skype channel
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) GroupsMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkypeChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupsMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o SkypeChannelPropertiesInvokeResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SkypeChannelPropertiesInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5947,6 +8306,73 @@ func (o SlackChannelOutput) Properties() SlackChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v SlackChannel) *SlackChannelProperties { return v.Properties }).(SlackChannelPropertiesPtrOutput)
 }
 
+// Slack channel definition
+type SlackChannelInvokeResponse struct {
+	// The channel name
+	// Expected value is 'SlackChannel'.
+	ChannelName string `pulumi:"channelName"`
+	// The set of properties specific to Slack channel resource
+	Properties *SlackChannelPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// SlackChannelInvokeResponseInput is an input type that accepts SlackChannelInvokeResponseArgs and SlackChannelInvokeResponseOutput values.
+// You can construct a concrete instance of `SlackChannelInvokeResponseInput` via:
+//
+//          SlackChannelInvokeResponseArgs{...}
+type SlackChannelInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSlackChannelInvokeResponseOutput() SlackChannelInvokeResponseOutput
+	ToSlackChannelInvokeResponseOutputWithContext(context.Context) SlackChannelInvokeResponseOutput
+}
+
+// Slack channel definition
+type SlackChannelInvokeResponseArgs struct {
+	// The channel name
+	// Expected value is 'SlackChannel'.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The set of properties specific to Slack channel resource
+	Properties SlackChannelPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (SlackChannelInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlackChannelInvokeResponse)(nil)).Elem()
+}
+
+func (i SlackChannelInvokeResponseArgs) ToSlackChannelInvokeResponseOutput() SlackChannelInvokeResponseOutput {
+	return i.ToSlackChannelInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SlackChannelInvokeResponseArgs) ToSlackChannelInvokeResponseOutputWithContext(ctx context.Context) SlackChannelInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlackChannelInvokeResponseOutput)
+}
+
+// Slack channel definition
+type SlackChannelInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SlackChannelInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlackChannelInvokeResponse)(nil)).Elem()
+}
+
+func (o SlackChannelInvokeResponseOutput) ToSlackChannelInvokeResponseOutput() SlackChannelInvokeResponseOutput {
+	return o
+}
+
+func (o SlackChannelInvokeResponseOutput) ToSlackChannelInvokeResponseOutputWithContext(ctx context.Context) SlackChannelInvokeResponseOutput {
+	return o
+}
+
+// The channel name
+// Expected value is 'SlackChannel'.
+func (o SlackChannelInvokeResponseOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v SlackChannelInvokeResponse) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to Slack channel resource
+func (o SlackChannelInvokeResponseOutput) Properties() SlackChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SlackChannelInvokeResponse) *SlackChannelPropertiesInvokeResponse { return v.Properties }).(SlackChannelPropertiesInvokeResponsePtrOutput)
+}
+
 // The parameters to provide for the Slack channel.
 type SlackChannelProperties struct {
 	// The Slack client id
@@ -6150,6 +8576,292 @@ func (o SlackChannelPropertiesPtrOutput) LandingPageUrl() pulumi.StringPtrOutput
 // The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
 func (o SlackChannelPropertiesPtrOutput) VerificationToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlackChannelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VerificationToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The parameters to provide for the Slack channel.
+type SlackChannelPropertiesInvokeResponse struct {
+	// The Slack client id
+	ClientId string `pulumi:"clientId"`
+	// The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
+	ClientSecret string `pulumi:"clientSecret"`
+	// Whether this channel is enabled for the bot
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Whether this channel is validated for the bot
+	IsValidated bool `pulumi:"isValidated"`
+	// The Slack landing page Url
+	LandingPageUrl *string `pulumi:"landingPageUrl"`
+	// The Sms auth token
+	LastSubmissionId string `pulumi:"lastSubmissionId"`
+	// The Slack redirect action
+	RedirectAction string `pulumi:"redirectAction"`
+	// Whether to register the settings before OAuth validation is performed. Recommended to True.
+	RegisterBeforeOAuthFlow bool `pulumi:"registerBeforeOAuthFlow"`
+	// The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
+	VerificationToken string `pulumi:"verificationToken"`
+}
+
+// SlackChannelPropertiesInvokeResponseInput is an input type that accepts SlackChannelPropertiesInvokeResponseArgs and SlackChannelPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SlackChannelPropertiesInvokeResponseInput` via:
+//
+//          SlackChannelPropertiesInvokeResponseArgs{...}
+type SlackChannelPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSlackChannelPropertiesInvokeResponseOutput() SlackChannelPropertiesInvokeResponseOutput
+	ToSlackChannelPropertiesInvokeResponseOutputWithContext(context.Context) SlackChannelPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Slack channel.
+type SlackChannelPropertiesInvokeResponseArgs struct {
+	// The Slack client id
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// Whether this channel is enabled for the bot
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// Whether this channel is validated for the bot
+	IsValidated pulumi.BoolInput `pulumi:"isValidated"`
+	// The Slack landing page Url
+	LandingPageUrl pulumi.StringPtrInput `pulumi:"landingPageUrl"`
+	// The Sms auth token
+	LastSubmissionId pulumi.StringInput `pulumi:"lastSubmissionId"`
+	// The Slack redirect action
+	RedirectAction pulumi.StringInput `pulumi:"redirectAction"`
+	// Whether to register the settings before OAuth validation is performed. Recommended to True.
+	RegisterBeforeOAuthFlow pulumi.BoolInput `pulumi:"registerBeforeOAuthFlow"`
+	// The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
+	VerificationToken pulumi.StringInput `pulumi:"verificationToken"`
+}
+
+func (SlackChannelPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlackChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SlackChannelPropertiesInvokeResponseArgs) ToSlackChannelPropertiesInvokeResponseOutput() SlackChannelPropertiesInvokeResponseOutput {
+	return i.ToSlackChannelPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SlackChannelPropertiesInvokeResponseArgs) ToSlackChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) SlackChannelPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlackChannelPropertiesInvokeResponseOutput)
+}
+
+func (i SlackChannelPropertiesInvokeResponseArgs) ToSlackChannelPropertiesInvokeResponsePtrOutput() SlackChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToSlackChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SlackChannelPropertiesInvokeResponseArgs) ToSlackChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SlackChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlackChannelPropertiesInvokeResponseOutput).ToSlackChannelPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SlackChannelPropertiesInvokeResponsePtrInput is an input type that accepts SlackChannelPropertiesInvokeResponseArgs, SlackChannelPropertiesInvokeResponsePtr and SlackChannelPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SlackChannelPropertiesInvokeResponsePtrInput` via:
+//
+//          SlackChannelPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SlackChannelPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSlackChannelPropertiesInvokeResponsePtrOutput() SlackChannelPropertiesInvokeResponsePtrOutput
+	ToSlackChannelPropertiesInvokeResponsePtrOutputWithContext(context.Context) SlackChannelPropertiesInvokeResponsePtrOutput
+}
+
+type slackChannelPropertiesInvokeResponsePtrType SlackChannelPropertiesInvokeResponseArgs
+
+func SlackChannelPropertiesInvokeResponsePtr(v *SlackChannelPropertiesInvokeResponseArgs) SlackChannelPropertiesInvokeResponsePtrInput {
+	return (*slackChannelPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*slackChannelPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SlackChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *slackChannelPropertiesInvokeResponsePtrType) ToSlackChannelPropertiesInvokeResponsePtrOutput() SlackChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToSlackChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *slackChannelPropertiesInvokeResponsePtrType) ToSlackChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SlackChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlackChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The parameters to provide for the Slack channel.
+type SlackChannelPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SlackChannelPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlackChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SlackChannelPropertiesInvokeResponseOutput) ToSlackChannelPropertiesInvokeResponseOutput() SlackChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SlackChannelPropertiesInvokeResponseOutput) ToSlackChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) SlackChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SlackChannelPropertiesInvokeResponseOutput) ToSlackChannelPropertiesInvokeResponsePtrOutput() SlackChannelPropertiesInvokeResponsePtrOutput {
+	return o.ToSlackChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SlackChannelPropertiesInvokeResponseOutput) ToSlackChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SlackChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesInvokeResponse) *SlackChannelPropertiesInvokeResponse {
+		return &v
+	}).(SlackChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The Slack client id
+func (o SlackChannelPropertiesInvokeResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesInvokeResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o SlackChannelPropertiesInvokeResponseOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesInvokeResponse) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o SlackChannelPropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether this channel is validated for the bot
+func (o SlackChannelPropertiesInvokeResponseOutput) IsValidated() pulumi.BoolOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesInvokeResponse) bool { return v.IsValidated }).(pulumi.BoolOutput)
+}
+
+// The Slack landing page Url
+func (o SlackChannelPropertiesInvokeResponseOutput) LandingPageUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesInvokeResponse) *string { return v.LandingPageUrl }).(pulumi.StringPtrOutput)
+}
+
+// The Sms auth token
+func (o SlackChannelPropertiesInvokeResponseOutput) LastSubmissionId() pulumi.StringOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesInvokeResponse) string { return v.LastSubmissionId }).(pulumi.StringOutput)
+}
+
+// The Slack redirect action
+func (o SlackChannelPropertiesInvokeResponseOutput) RedirectAction() pulumi.StringOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesInvokeResponse) string { return v.RedirectAction }).(pulumi.StringOutput)
+}
+
+// Whether to register the settings before OAuth validation is performed. Recommended to True.
+func (o SlackChannelPropertiesInvokeResponseOutput) RegisterBeforeOAuthFlow() pulumi.BoolOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesInvokeResponse) bool { return v.RegisterBeforeOAuthFlow }).(pulumi.BoolOutput)
+}
+
+// The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o SlackChannelPropertiesInvokeResponseOutput) VerificationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesInvokeResponse) string { return v.VerificationToken }).(pulumi.StringOutput)
+}
+
+type SlackChannelPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SlackChannelPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SlackChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) ToSlackChannelPropertiesInvokeResponsePtrOutput() SlackChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) ToSlackChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SlackChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) Elem() SlackChannelPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesInvokeResponse) SlackChannelPropertiesInvokeResponse { return *v }).(SlackChannelPropertiesInvokeResponseOutput)
+}
+
+// The Slack client id
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether this channel is validated for the bot
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) IsValidated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsValidated
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Slack landing page Url
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) LandingPageUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LandingPageUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Sms auth token
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) LastSubmissionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastSubmissionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Slack redirect action
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) RedirectAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RedirectAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to register the settings before OAuth validation is performed. Recommended to True.
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) RegisterBeforeOAuthFlow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RegisterBeforeOAuthFlow
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o SlackChannelPropertiesInvokeResponsePtrOutput) VerificationToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -6577,6 +9289,73 @@ func (o SmsChannelOutput) Properties() SmsChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v SmsChannel) *SmsChannelProperties { return v.Properties }).(SmsChannelPropertiesPtrOutput)
 }
 
+// Sms channel definition
+type SmsChannelInvokeResponse struct {
+	// The channel name
+	// Expected value is 'SmsChannel'.
+	ChannelName string `pulumi:"channelName"`
+	// The set of properties specific to Sms channel resource
+	Properties *SmsChannelPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// SmsChannelInvokeResponseInput is an input type that accepts SmsChannelInvokeResponseArgs and SmsChannelInvokeResponseOutput values.
+// You can construct a concrete instance of `SmsChannelInvokeResponseInput` via:
+//
+//          SmsChannelInvokeResponseArgs{...}
+type SmsChannelInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSmsChannelInvokeResponseOutput() SmsChannelInvokeResponseOutput
+	ToSmsChannelInvokeResponseOutputWithContext(context.Context) SmsChannelInvokeResponseOutput
+}
+
+// Sms channel definition
+type SmsChannelInvokeResponseArgs struct {
+	// The channel name
+	// Expected value is 'SmsChannel'.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The set of properties specific to Sms channel resource
+	Properties SmsChannelPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (SmsChannelInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsChannelInvokeResponse)(nil)).Elem()
+}
+
+func (i SmsChannelInvokeResponseArgs) ToSmsChannelInvokeResponseOutput() SmsChannelInvokeResponseOutput {
+	return i.ToSmsChannelInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SmsChannelInvokeResponseArgs) ToSmsChannelInvokeResponseOutputWithContext(ctx context.Context) SmsChannelInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelInvokeResponseOutput)
+}
+
+// Sms channel definition
+type SmsChannelInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SmsChannelInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsChannelInvokeResponse)(nil)).Elem()
+}
+
+func (o SmsChannelInvokeResponseOutput) ToSmsChannelInvokeResponseOutput() SmsChannelInvokeResponseOutput {
+	return o
+}
+
+func (o SmsChannelInvokeResponseOutput) ToSmsChannelInvokeResponseOutputWithContext(ctx context.Context) SmsChannelInvokeResponseOutput {
+	return o
+}
+
+// The channel name
+// Expected value is 'SmsChannel'.
+func (o SmsChannelInvokeResponseOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v SmsChannelInvokeResponse) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to Sms channel resource
+func (o SmsChannelInvokeResponseOutput) Properties() SmsChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SmsChannelInvokeResponse) *SmsChannelPropertiesInvokeResponse { return v.Properties }).(SmsChannelPropertiesInvokeResponsePtrOutput)
+}
+
 // The parameters to provide for the Sms channel.
 type SmsChannelProperties struct {
 	// The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -6780,6 +9559,216 @@ func (o SmsChannelPropertiesPtrOutput) IsValidated() pulumi.BoolPtrOutput {
 // The Sms phone
 func (o SmsChannelPropertiesPtrOutput) Phone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmsChannelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Phone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The parameters to provide for the Sms channel.
+type SmsChannelPropertiesInvokeResponse struct {
+	// The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
+	AccountSID string `pulumi:"accountSID"`
+	// The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
+	AuthToken string `pulumi:"authToken"`
+	// Whether this channel is enabled for the bot
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Whether this channel is validated for the bot
+	IsValidated *bool `pulumi:"isValidated"`
+	// The Sms phone
+	Phone string `pulumi:"phone"`
+}
+
+// SmsChannelPropertiesInvokeResponseInput is an input type that accepts SmsChannelPropertiesInvokeResponseArgs and SmsChannelPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SmsChannelPropertiesInvokeResponseInput` via:
+//
+//          SmsChannelPropertiesInvokeResponseArgs{...}
+type SmsChannelPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSmsChannelPropertiesInvokeResponseOutput() SmsChannelPropertiesInvokeResponseOutput
+	ToSmsChannelPropertiesInvokeResponseOutputWithContext(context.Context) SmsChannelPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Sms channel.
+type SmsChannelPropertiesInvokeResponseArgs struct {
+	// The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
+	AccountSID pulumi.StringInput `pulumi:"accountSID"`
+	// The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
+	AuthToken pulumi.StringInput `pulumi:"authToken"`
+	// Whether this channel is enabled for the bot
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// Whether this channel is validated for the bot
+	IsValidated pulumi.BoolPtrInput `pulumi:"isValidated"`
+	// The Sms phone
+	Phone pulumi.StringInput `pulumi:"phone"`
+}
+
+func (SmsChannelPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SmsChannelPropertiesInvokeResponseArgs) ToSmsChannelPropertiesInvokeResponseOutput() SmsChannelPropertiesInvokeResponseOutput {
+	return i.ToSmsChannelPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SmsChannelPropertiesInvokeResponseArgs) ToSmsChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) SmsChannelPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelPropertiesInvokeResponseOutput)
+}
+
+func (i SmsChannelPropertiesInvokeResponseArgs) ToSmsChannelPropertiesInvokeResponsePtrOutput() SmsChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToSmsChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SmsChannelPropertiesInvokeResponseArgs) ToSmsChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SmsChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelPropertiesInvokeResponseOutput).ToSmsChannelPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SmsChannelPropertiesInvokeResponsePtrInput is an input type that accepts SmsChannelPropertiesInvokeResponseArgs, SmsChannelPropertiesInvokeResponsePtr and SmsChannelPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SmsChannelPropertiesInvokeResponsePtrInput` via:
+//
+//          SmsChannelPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SmsChannelPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSmsChannelPropertiesInvokeResponsePtrOutput() SmsChannelPropertiesInvokeResponsePtrOutput
+	ToSmsChannelPropertiesInvokeResponsePtrOutputWithContext(context.Context) SmsChannelPropertiesInvokeResponsePtrOutput
+}
+
+type smsChannelPropertiesInvokeResponsePtrType SmsChannelPropertiesInvokeResponseArgs
+
+func SmsChannelPropertiesInvokeResponsePtr(v *SmsChannelPropertiesInvokeResponseArgs) SmsChannelPropertiesInvokeResponsePtrInput {
+	return (*smsChannelPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*smsChannelPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmsChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *smsChannelPropertiesInvokeResponsePtrType) ToSmsChannelPropertiesInvokeResponsePtrOutput() SmsChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToSmsChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *smsChannelPropertiesInvokeResponsePtrType) ToSmsChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SmsChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The parameters to provide for the Sms channel.
+type SmsChannelPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SmsChannelPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SmsChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SmsChannelPropertiesInvokeResponseOutput) ToSmsChannelPropertiesInvokeResponseOutput() SmsChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SmsChannelPropertiesInvokeResponseOutput) ToSmsChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) SmsChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SmsChannelPropertiesInvokeResponseOutput) ToSmsChannelPropertiesInvokeResponsePtrOutput() SmsChannelPropertiesInvokeResponsePtrOutput {
+	return o.ToSmsChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SmsChannelPropertiesInvokeResponseOutput) ToSmsChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SmsChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SmsChannelPropertiesInvokeResponse) *SmsChannelPropertiesInvokeResponse {
+		return &v
+	}).(SmsChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o SmsChannelPropertiesInvokeResponseOutput) AccountSID() pulumi.StringOutput {
+	return o.ApplyT(func(v SmsChannelPropertiesInvokeResponse) string { return v.AccountSID }).(pulumi.StringOutput)
+}
+
+// The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o SmsChannelPropertiesInvokeResponseOutput) AuthToken() pulumi.StringOutput {
+	return o.ApplyT(func(v SmsChannelPropertiesInvokeResponse) string { return v.AuthToken }).(pulumi.StringOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o SmsChannelPropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SmsChannelPropertiesInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether this channel is validated for the bot
+func (o SmsChannelPropertiesInvokeResponseOutput) IsValidated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SmsChannelPropertiesInvokeResponse) *bool { return v.IsValidated }).(pulumi.BoolPtrOutput)
+}
+
+// The Sms phone
+func (o SmsChannelPropertiesInvokeResponseOutput) Phone() pulumi.StringOutput {
+	return o.ApplyT(func(v SmsChannelPropertiesInvokeResponse) string { return v.Phone }).(pulumi.StringOutput)
+}
+
+type SmsChannelPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SmsChannelPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SmsChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SmsChannelPropertiesInvokeResponsePtrOutput) ToSmsChannelPropertiesInvokeResponsePtrOutput() SmsChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SmsChannelPropertiesInvokeResponsePtrOutput) ToSmsChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SmsChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SmsChannelPropertiesInvokeResponsePtrOutput) Elem() SmsChannelPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *SmsChannelPropertiesInvokeResponse) SmsChannelPropertiesInvokeResponse { return *v }).(SmsChannelPropertiesInvokeResponseOutput)
+}
+
+// The Sms account SID. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o SmsChannelPropertiesInvokeResponsePtrOutput) AccountSID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmsChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountSID
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Sms auth token. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o SmsChannelPropertiesInvokeResponsePtrOutput) AuthToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmsChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o SmsChannelPropertiesInvokeResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SmsChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether this channel is validated for the bot
+func (o SmsChannelPropertiesInvokeResponsePtrOutput) IsValidated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SmsChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsValidated
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Sms phone
+func (o SmsChannelPropertiesInvokeResponsePtrOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmsChannelPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -7131,6 +10120,73 @@ func (o TelegramChannelOutput) Properties() TelegramChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v TelegramChannel) *TelegramChannelProperties { return v.Properties }).(TelegramChannelPropertiesPtrOutput)
 }
 
+// Telegram channel definition
+type TelegramChannelInvokeResponse struct {
+	// The channel name
+	// Expected value is 'TelegramChannel'.
+	ChannelName string `pulumi:"channelName"`
+	// The set of properties specific to Telegram channel resource
+	Properties *TelegramChannelPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// TelegramChannelInvokeResponseInput is an input type that accepts TelegramChannelInvokeResponseArgs and TelegramChannelInvokeResponseOutput values.
+// You can construct a concrete instance of `TelegramChannelInvokeResponseInput` via:
+//
+//          TelegramChannelInvokeResponseArgs{...}
+type TelegramChannelInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTelegramChannelInvokeResponseOutput() TelegramChannelInvokeResponseOutput
+	ToTelegramChannelInvokeResponseOutputWithContext(context.Context) TelegramChannelInvokeResponseOutput
+}
+
+// Telegram channel definition
+type TelegramChannelInvokeResponseArgs struct {
+	// The channel name
+	// Expected value is 'TelegramChannel'.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The set of properties specific to Telegram channel resource
+	Properties TelegramChannelPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (TelegramChannelInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelegramChannelInvokeResponse)(nil)).Elem()
+}
+
+func (i TelegramChannelInvokeResponseArgs) ToTelegramChannelInvokeResponseOutput() TelegramChannelInvokeResponseOutput {
+	return i.ToTelegramChannelInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TelegramChannelInvokeResponseArgs) ToTelegramChannelInvokeResponseOutputWithContext(ctx context.Context) TelegramChannelInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelegramChannelInvokeResponseOutput)
+}
+
+// Telegram channel definition
+type TelegramChannelInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TelegramChannelInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelegramChannelInvokeResponse)(nil)).Elem()
+}
+
+func (o TelegramChannelInvokeResponseOutput) ToTelegramChannelInvokeResponseOutput() TelegramChannelInvokeResponseOutput {
+	return o
+}
+
+func (o TelegramChannelInvokeResponseOutput) ToTelegramChannelInvokeResponseOutputWithContext(ctx context.Context) TelegramChannelInvokeResponseOutput {
+	return o
+}
+
+// The channel name
+// Expected value is 'TelegramChannel'.
+func (o TelegramChannelInvokeResponseOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v TelegramChannelInvokeResponse) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to Telegram channel resource
+func (o TelegramChannelInvokeResponseOutput) Properties() TelegramChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TelegramChannelInvokeResponse) *TelegramChannelPropertiesInvokeResponse { return v.Properties }).(TelegramChannelPropertiesInvokeResponsePtrOutput)
+}
+
 // The parameters to provide for the Telegram channel.
 type TelegramChannelProperties struct {
 	// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -7296,6 +10352,178 @@ func (o TelegramChannelPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 // Whether this channel is validated for the bot
 func (o TelegramChannelPropertiesPtrOutput) IsValidated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TelegramChannelProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsValidated
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The parameters to provide for the Telegram channel.
+type TelegramChannelPropertiesInvokeResponse struct {
+	// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
+	AccessToken string `pulumi:"accessToken"`
+	// Whether this channel is enabled for the bot
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Whether this channel is validated for the bot
+	IsValidated *bool `pulumi:"isValidated"`
+}
+
+// TelegramChannelPropertiesInvokeResponseInput is an input type that accepts TelegramChannelPropertiesInvokeResponseArgs and TelegramChannelPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `TelegramChannelPropertiesInvokeResponseInput` via:
+//
+//          TelegramChannelPropertiesInvokeResponseArgs{...}
+type TelegramChannelPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTelegramChannelPropertiesInvokeResponseOutput() TelegramChannelPropertiesInvokeResponseOutput
+	ToTelegramChannelPropertiesInvokeResponseOutputWithContext(context.Context) TelegramChannelPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Telegram channel.
+type TelegramChannelPropertiesInvokeResponseArgs struct {
+	// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
+	AccessToken pulumi.StringInput `pulumi:"accessToken"`
+	// Whether this channel is enabled for the bot
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// Whether this channel is validated for the bot
+	IsValidated pulumi.BoolPtrInput `pulumi:"isValidated"`
+}
+
+func (TelegramChannelPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelegramChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i TelegramChannelPropertiesInvokeResponseArgs) ToTelegramChannelPropertiesInvokeResponseOutput() TelegramChannelPropertiesInvokeResponseOutput {
+	return i.ToTelegramChannelPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TelegramChannelPropertiesInvokeResponseArgs) ToTelegramChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) TelegramChannelPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelegramChannelPropertiesInvokeResponseOutput)
+}
+
+func (i TelegramChannelPropertiesInvokeResponseArgs) ToTelegramChannelPropertiesInvokeResponsePtrOutput() TelegramChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToTelegramChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TelegramChannelPropertiesInvokeResponseArgs) ToTelegramChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TelegramChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelegramChannelPropertiesInvokeResponseOutput).ToTelegramChannelPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// TelegramChannelPropertiesInvokeResponsePtrInput is an input type that accepts TelegramChannelPropertiesInvokeResponseArgs, TelegramChannelPropertiesInvokeResponsePtr and TelegramChannelPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TelegramChannelPropertiesInvokeResponsePtrInput` via:
+//
+//          TelegramChannelPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TelegramChannelPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToTelegramChannelPropertiesInvokeResponsePtrOutput() TelegramChannelPropertiesInvokeResponsePtrOutput
+	ToTelegramChannelPropertiesInvokeResponsePtrOutputWithContext(context.Context) TelegramChannelPropertiesInvokeResponsePtrOutput
+}
+
+type telegramChannelPropertiesInvokeResponsePtrType TelegramChannelPropertiesInvokeResponseArgs
+
+func TelegramChannelPropertiesInvokeResponsePtr(v *TelegramChannelPropertiesInvokeResponseArgs) TelegramChannelPropertiesInvokeResponsePtrInput {
+	return (*telegramChannelPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*telegramChannelPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelegramChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *telegramChannelPropertiesInvokeResponsePtrType) ToTelegramChannelPropertiesInvokeResponsePtrOutput() TelegramChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToTelegramChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *telegramChannelPropertiesInvokeResponsePtrType) ToTelegramChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TelegramChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelegramChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The parameters to provide for the Telegram channel.
+type TelegramChannelPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TelegramChannelPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelegramChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o TelegramChannelPropertiesInvokeResponseOutput) ToTelegramChannelPropertiesInvokeResponseOutput() TelegramChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o TelegramChannelPropertiesInvokeResponseOutput) ToTelegramChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) TelegramChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o TelegramChannelPropertiesInvokeResponseOutput) ToTelegramChannelPropertiesInvokeResponsePtrOutput() TelegramChannelPropertiesInvokeResponsePtrOutput {
+	return o.ToTelegramChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TelegramChannelPropertiesInvokeResponseOutput) ToTelegramChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TelegramChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TelegramChannelPropertiesInvokeResponse) *TelegramChannelPropertiesInvokeResponse {
+		return &v
+	}).(TelegramChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o TelegramChannelPropertiesInvokeResponseOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v TelegramChannelPropertiesInvokeResponse) string { return v.AccessToken }).(pulumi.StringOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o TelegramChannelPropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TelegramChannelPropertiesInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether this channel is validated for the bot
+func (o TelegramChannelPropertiesInvokeResponseOutput) IsValidated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TelegramChannelPropertiesInvokeResponse) *bool { return v.IsValidated }).(pulumi.BoolPtrOutput)
+}
+
+type TelegramChannelPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TelegramChannelPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelegramChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o TelegramChannelPropertiesInvokeResponsePtrOutput) ToTelegramChannelPropertiesInvokeResponsePtrOutput() TelegramChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TelegramChannelPropertiesInvokeResponsePtrOutput) ToTelegramChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) TelegramChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TelegramChannelPropertiesInvokeResponsePtrOutput) Elem() TelegramChannelPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *TelegramChannelPropertiesInvokeResponse) TelegramChannelPropertiesInvokeResponse { return *v }).(TelegramChannelPropertiesInvokeResponseOutput)
+}
+
+// The Telegram access token. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o TelegramChannelPropertiesInvokeResponsePtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelegramChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether this channel is enabled for the bot
+func (o TelegramChannelPropertiesInvokeResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelegramChannelPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether this channel is validated for the bot
+func (o TelegramChannelPropertiesInvokeResponsePtrOutput) IsValidated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelegramChannelPropertiesInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -7609,6 +10837,73 @@ func (o WebChatChannelOutput) Properties() WebChatChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v WebChatChannel) *WebChatChannelProperties { return v.Properties }).(WebChatChannelPropertiesPtrOutput)
 }
 
+// Web Chat channel definition
+type WebChatChannelInvokeResponse struct {
+	// The channel name
+	// Expected value is 'WebChatChannel'.
+	ChannelName string `pulumi:"channelName"`
+	// The set of properties specific to Web Chat channel resource
+	Properties *WebChatChannelPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// WebChatChannelInvokeResponseInput is an input type that accepts WebChatChannelInvokeResponseArgs and WebChatChannelInvokeResponseOutput values.
+// You can construct a concrete instance of `WebChatChannelInvokeResponseInput` via:
+//
+//          WebChatChannelInvokeResponseArgs{...}
+type WebChatChannelInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWebChatChannelInvokeResponseOutput() WebChatChannelInvokeResponseOutput
+	ToWebChatChannelInvokeResponseOutputWithContext(context.Context) WebChatChannelInvokeResponseOutput
+}
+
+// Web Chat channel definition
+type WebChatChannelInvokeResponseArgs struct {
+	// The channel name
+	// Expected value is 'WebChatChannel'.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The set of properties specific to Web Chat channel resource
+	Properties WebChatChannelPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (WebChatChannelInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebChatChannelInvokeResponse)(nil)).Elem()
+}
+
+func (i WebChatChannelInvokeResponseArgs) ToWebChatChannelInvokeResponseOutput() WebChatChannelInvokeResponseOutput {
+	return i.ToWebChatChannelInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WebChatChannelInvokeResponseArgs) ToWebChatChannelInvokeResponseOutputWithContext(ctx context.Context) WebChatChannelInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebChatChannelInvokeResponseOutput)
+}
+
+// Web Chat channel definition
+type WebChatChannelInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WebChatChannelInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebChatChannelInvokeResponse)(nil)).Elem()
+}
+
+func (o WebChatChannelInvokeResponseOutput) ToWebChatChannelInvokeResponseOutput() WebChatChannelInvokeResponseOutput {
+	return o
+}
+
+func (o WebChatChannelInvokeResponseOutput) ToWebChatChannelInvokeResponseOutputWithContext(ctx context.Context) WebChatChannelInvokeResponseOutput {
+	return o
+}
+
+// The channel name
+// Expected value is 'WebChatChannel'.
+func (o WebChatChannelInvokeResponseOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v WebChatChannelInvokeResponse) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to Web Chat channel resource
+func (o WebChatChannelInvokeResponseOutput) Properties() WebChatChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebChatChannelInvokeResponse) *WebChatChannelPropertiesInvokeResponse { return v.Properties }).(WebChatChannelPropertiesInvokeResponsePtrOutput)
+}
+
 // The parameters to provide for the Web Chat channel.
 type WebChatChannelProperties struct {
 	// The list of Web Chat sites
@@ -7741,6 +11036,159 @@ func (o WebChatChannelPropertiesPtrOutput) Sites() WebChatSiteArrayOutput {
 		}
 		return v.Sites
 	}).(WebChatSiteArrayOutput)
+}
+
+// The parameters to provide for the Web Chat channel.
+type WebChatChannelPropertiesInvokeResponse struct {
+	// The list of Web Chat sites
+	Sites []WebChatSiteInvokeResponse `pulumi:"sites"`
+	// Web chat control embed code
+	WebChatEmbedCode string `pulumi:"webChatEmbedCode"`
+}
+
+// WebChatChannelPropertiesInvokeResponseInput is an input type that accepts WebChatChannelPropertiesInvokeResponseArgs and WebChatChannelPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `WebChatChannelPropertiesInvokeResponseInput` via:
+//
+//          WebChatChannelPropertiesInvokeResponseArgs{...}
+type WebChatChannelPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWebChatChannelPropertiesInvokeResponseOutput() WebChatChannelPropertiesInvokeResponseOutput
+	ToWebChatChannelPropertiesInvokeResponseOutputWithContext(context.Context) WebChatChannelPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the Web Chat channel.
+type WebChatChannelPropertiesInvokeResponseArgs struct {
+	// The list of Web Chat sites
+	Sites WebChatSiteInvokeResponseArrayInput `pulumi:"sites"`
+	// Web chat control embed code
+	WebChatEmbedCode pulumi.StringInput `pulumi:"webChatEmbedCode"`
+}
+
+func (WebChatChannelPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebChatChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i WebChatChannelPropertiesInvokeResponseArgs) ToWebChatChannelPropertiesInvokeResponseOutput() WebChatChannelPropertiesInvokeResponseOutput {
+	return i.ToWebChatChannelPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WebChatChannelPropertiesInvokeResponseArgs) ToWebChatChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) WebChatChannelPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebChatChannelPropertiesInvokeResponseOutput)
+}
+
+func (i WebChatChannelPropertiesInvokeResponseArgs) ToWebChatChannelPropertiesInvokeResponsePtrOutput() WebChatChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToWebChatChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WebChatChannelPropertiesInvokeResponseArgs) ToWebChatChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WebChatChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebChatChannelPropertiesInvokeResponseOutput).ToWebChatChannelPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WebChatChannelPropertiesInvokeResponsePtrInput is an input type that accepts WebChatChannelPropertiesInvokeResponseArgs, WebChatChannelPropertiesInvokeResponsePtr and WebChatChannelPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WebChatChannelPropertiesInvokeResponsePtrInput` via:
+//
+//          WebChatChannelPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WebChatChannelPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWebChatChannelPropertiesInvokeResponsePtrOutput() WebChatChannelPropertiesInvokeResponsePtrOutput
+	ToWebChatChannelPropertiesInvokeResponsePtrOutputWithContext(context.Context) WebChatChannelPropertiesInvokeResponsePtrOutput
+}
+
+type webChatChannelPropertiesInvokeResponsePtrType WebChatChannelPropertiesInvokeResponseArgs
+
+func WebChatChannelPropertiesInvokeResponsePtr(v *WebChatChannelPropertiesInvokeResponseArgs) WebChatChannelPropertiesInvokeResponsePtrInput {
+	return (*webChatChannelPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*webChatChannelPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebChatChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *webChatChannelPropertiesInvokeResponsePtrType) ToWebChatChannelPropertiesInvokeResponsePtrOutput() WebChatChannelPropertiesInvokeResponsePtrOutput {
+	return i.ToWebChatChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *webChatChannelPropertiesInvokeResponsePtrType) ToWebChatChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WebChatChannelPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebChatChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The parameters to provide for the Web Chat channel.
+type WebChatChannelPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WebChatChannelPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebChatChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o WebChatChannelPropertiesInvokeResponseOutput) ToWebChatChannelPropertiesInvokeResponseOutput() WebChatChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o WebChatChannelPropertiesInvokeResponseOutput) ToWebChatChannelPropertiesInvokeResponseOutputWithContext(ctx context.Context) WebChatChannelPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o WebChatChannelPropertiesInvokeResponseOutput) ToWebChatChannelPropertiesInvokeResponsePtrOutput() WebChatChannelPropertiesInvokeResponsePtrOutput {
+	return o.ToWebChatChannelPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WebChatChannelPropertiesInvokeResponseOutput) ToWebChatChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WebChatChannelPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WebChatChannelPropertiesInvokeResponse) *WebChatChannelPropertiesInvokeResponse {
+		return &v
+	}).(WebChatChannelPropertiesInvokeResponsePtrOutput)
+}
+
+// The list of Web Chat sites
+func (o WebChatChannelPropertiesInvokeResponseOutput) Sites() WebChatSiteInvokeResponseArrayOutput {
+	return o.ApplyT(func(v WebChatChannelPropertiesInvokeResponse) []WebChatSiteInvokeResponse { return v.Sites }).(WebChatSiteInvokeResponseArrayOutput)
+}
+
+// Web chat control embed code
+func (o WebChatChannelPropertiesInvokeResponseOutput) WebChatEmbedCode() pulumi.StringOutput {
+	return o.ApplyT(func(v WebChatChannelPropertiesInvokeResponse) string { return v.WebChatEmbedCode }).(pulumi.StringOutput)
+}
+
+type WebChatChannelPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WebChatChannelPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebChatChannelPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o WebChatChannelPropertiesInvokeResponsePtrOutput) ToWebChatChannelPropertiesInvokeResponsePtrOutput() WebChatChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WebChatChannelPropertiesInvokeResponsePtrOutput) ToWebChatChannelPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WebChatChannelPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WebChatChannelPropertiesInvokeResponsePtrOutput) Elem() WebChatChannelPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *WebChatChannelPropertiesInvokeResponse) WebChatChannelPropertiesInvokeResponse { return *v }).(WebChatChannelPropertiesInvokeResponseOutput)
+}
+
+// The list of Web Chat sites
+func (o WebChatChannelPropertiesInvokeResponsePtrOutput) Sites() WebChatSiteInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *WebChatChannelPropertiesInvokeResponse) []WebChatSiteInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Sites
+	}).(WebChatSiteInvokeResponseArrayOutput)
+}
+
+// Web chat control embed code
+func (o WebChatChannelPropertiesInvokeResponsePtrOutput) WebChatEmbedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebChatChannelPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WebChatEmbedCode
+	}).(pulumi.StringPtrOutput)
 }
 
 // The parameters to provide for the Web Chat channel.
@@ -8082,6 +11530,151 @@ func (o WebChatSiteArrayOutput) Index(i pulumi.IntInput) WebChatSiteOutput {
 }
 
 // A site for the Webchat channel
+type WebChatSiteInvokeResponse struct {
+	// Whether this site is enabled for preview versions of Webchat
+	EnablePreview bool `pulumi:"enablePreview"`
+	// Whether this site is enabled for DirectLine channel
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+	Key string `pulumi:"key"`
+	// Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+	Key2 string `pulumi:"key2"`
+	// Site Id
+	SiteId string `pulumi:"siteId"`
+	// Site name
+	SiteName string `pulumi:"siteName"`
+}
+
+// WebChatSiteInvokeResponseInput is an input type that accepts WebChatSiteInvokeResponseArgs and WebChatSiteInvokeResponseOutput values.
+// You can construct a concrete instance of `WebChatSiteInvokeResponseInput` via:
+//
+//          WebChatSiteInvokeResponseArgs{...}
+type WebChatSiteInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWebChatSiteInvokeResponseOutput() WebChatSiteInvokeResponseOutput
+	ToWebChatSiteInvokeResponseOutputWithContext(context.Context) WebChatSiteInvokeResponseOutput
+}
+
+// A site for the Webchat channel
+type WebChatSiteInvokeResponseArgs struct {
+	// Whether this site is enabled for preview versions of Webchat
+	EnablePreview pulumi.BoolInput `pulumi:"enablePreview"`
+	// Whether this site is enabled for DirectLine channel
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+	Key2 pulumi.StringInput `pulumi:"key2"`
+	// Site Id
+	SiteId pulumi.StringInput `pulumi:"siteId"`
+	// Site name
+	SiteName pulumi.StringInput `pulumi:"siteName"`
+}
+
+func (WebChatSiteInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebChatSiteInvokeResponse)(nil)).Elem()
+}
+
+func (i WebChatSiteInvokeResponseArgs) ToWebChatSiteInvokeResponseOutput() WebChatSiteInvokeResponseOutput {
+	return i.ToWebChatSiteInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WebChatSiteInvokeResponseArgs) ToWebChatSiteInvokeResponseOutputWithContext(ctx context.Context) WebChatSiteInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebChatSiteInvokeResponseOutput)
+}
+
+// WebChatSiteInvokeResponseArrayInput is an input type that accepts WebChatSiteInvokeResponseArray and WebChatSiteInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `WebChatSiteInvokeResponseArrayInput` via:
+//
+//          WebChatSiteInvokeResponseArray{ WebChatSiteInvokeResponseArgs{...} }
+type WebChatSiteInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToWebChatSiteInvokeResponseArrayOutput() WebChatSiteInvokeResponseArrayOutput
+	ToWebChatSiteInvokeResponseArrayOutputWithContext(context.Context) WebChatSiteInvokeResponseArrayOutput
+}
+
+type WebChatSiteInvokeResponseArray []WebChatSiteInvokeResponseInput
+
+func (WebChatSiteInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebChatSiteInvokeResponse)(nil)).Elem()
+}
+
+func (i WebChatSiteInvokeResponseArray) ToWebChatSiteInvokeResponseArrayOutput() WebChatSiteInvokeResponseArrayOutput {
+	return i.ToWebChatSiteInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WebChatSiteInvokeResponseArray) ToWebChatSiteInvokeResponseArrayOutputWithContext(ctx context.Context) WebChatSiteInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebChatSiteInvokeResponseArrayOutput)
+}
+
+// A site for the Webchat channel
+type WebChatSiteInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WebChatSiteInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebChatSiteInvokeResponse)(nil)).Elem()
+}
+
+func (o WebChatSiteInvokeResponseOutput) ToWebChatSiteInvokeResponseOutput() WebChatSiteInvokeResponseOutput {
+	return o
+}
+
+func (o WebChatSiteInvokeResponseOutput) ToWebChatSiteInvokeResponseOutputWithContext(ctx context.Context) WebChatSiteInvokeResponseOutput {
+	return o
+}
+
+// Whether this site is enabled for preview versions of Webchat
+func (o WebChatSiteInvokeResponseOutput) EnablePreview() pulumi.BoolOutput {
+	return o.ApplyT(func(v WebChatSiteInvokeResponse) bool { return v.EnablePreview }).(pulumi.BoolOutput)
+}
+
+// Whether this site is enabled for DirectLine channel
+func (o WebChatSiteInvokeResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v WebChatSiteInvokeResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o WebChatSiteInvokeResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WebChatSiteInvokeResponse) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Secondary key. Value only returned through POST to the action Channel List API, otherwise empty.
+func (o WebChatSiteInvokeResponseOutput) Key2() pulumi.StringOutput {
+	return o.ApplyT(func(v WebChatSiteInvokeResponse) string { return v.Key2 }).(pulumi.StringOutput)
+}
+
+// Site Id
+func (o WebChatSiteInvokeResponseOutput) SiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v WebChatSiteInvokeResponse) string { return v.SiteId }).(pulumi.StringOutput)
+}
+
+// Site name
+func (o WebChatSiteInvokeResponseOutput) SiteName() pulumi.StringOutput {
+	return o.ApplyT(func(v WebChatSiteInvokeResponse) string { return v.SiteName }).(pulumi.StringOutput)
+}
+
+type WebChatSiteInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WebChatSiteInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebChatSiteInvokeResponse)(nil)).Elem()
+}
+
+func (o WebChatSiteInvokeResponseArrayOutput) ToWebChatSiteInvokeResponseArrayOutput() WebChatSiteInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WebChatSiteInvokeResponseArrayOutput) ToWebChatSiteInvokeResponseArrayOutputWithContext(ctx context.Context) WebChatSiteInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WebChatSiteInvokeResponseArrayOutput) Index(i pulumi.IntInput) WebChatSiteInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebChatSiteInvokeResponse {
+		return vs[0].([]WebChatSiteInvokeResponse)[vs[1].(int)]
+	}).(WebChatSiteInvokeResponseOutput)
+}
+
+// A site for the Webchat channel
 type WebChatSiteResponse struct {
 	// Whether this site is enabled for preview versions of Webchat
 	EnablePreview bool `pulumi:"enablePreview"`
@@ -8229,96 +11822,137 @@ func (o WebChatSiteResponseArrayOutput) Index(i pulumi.IntInput) WebChatSiteResp
 func init() {
 	pulumi.RegisterOutputType(BotPropertiesOutput{})
 	pulumi.RegisterOutputType(BotPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BotPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BotPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionSettingParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConnectionSettingParameterInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionSettingPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DirectLineChannelOutput{})
+	pulumi.RegisterOutputType(DirectLineChannelInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DirectLineChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(DirectLineChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DirectLineChannelPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DirectLineChannelPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DirectLineChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DirectLineChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DirectLineChannelResponseOutput{})
 	pulumi.RegisterOutputType(DirectLineSiteOutput{})
 	pulumi.RegisterOutputType(DirectLineSiteArrayOutput{})
+	pulumi.RegisterOutputType(DirectLineSiteInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DirectLineSiteInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DirectLineSiteResponseOutput{})
 	pulumi.RegisterOutputType(DirectLineSiteResponseArrayOutput{})
 	pulumi.RegisterOutputType(EmailChannelOutput{})
+	pulumi.RegisterOutputType(EmailChannelInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EmailChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(EmailChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EmailChannelPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EmailChannelPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EmailChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EmailChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EmailChannelResponseOutput{})
 	pulumi.RegisterOutputType(FacebookChannelOutput{})
+	pulumi.RegisterOutputType(FacebookChannelInvokeResponseOutput{})
 	pulumi.RegisterOutputType(FacebookChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(FacebookChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FacebookChannelPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FacebookChannelPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(FacebookChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FacebookChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FacebookChannelResponseOutput{})
 	pulumi.RegisterOutputType(FacebookPageOutput{})
 	pulumi.RegisterOutputType(FacebookPageArrayOutput{})
+	pulumi.RegisterOutputType(FacebookPageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FacebookPageInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FacebookPageResponseOutput{})
 	pulumi.RegisterOutputType(FacebookPageResponseArrayOutput{})
 	pulumi.RegisterOutputType(KikChannelOutput{})
+	pulumi.RegisterOutputType(KikChannelInvokeResponseOutput{})
 	pulumi.RegisterOutputType(KikChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(KikChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KikChannelPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KikChannelPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(KikChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KikChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(KikChannelResponseOutput{})
 	pulumi.RegisterOutputType(MsTeamsChannelOutput{})
+	pulumi.RegisterOutputType(MsTeamsChannelInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MsTeamsChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(MsTeamsChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MsTeamsChannelPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MsTeamsChannelPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MsTeamsChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MsTeamsChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MsTeamsChannelResponseOutput{})
-	pulumi.RegisterOutputType(ServiceProviderParameterResponseOutput{})
-	pulumi.RegisterOutputType(ServiceProviderParameterResponseArrayOutput{})
-	pulumi.RegisterOutputType(ServiceProviderPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ServiceProviderPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServiceProviderResponseOutput{})
-	pulumi.RegisterOutputType(ServiceProviderResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServiceProviderInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceProviderInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServiceProviderParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceProviderParameterInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServiceProviderPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceProviderPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkypeChannelOutput{})
+	pulumi.RegisterOutputType(SkypeChannelInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkypeChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(SkypeChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SkypeChannelPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SkypeChannelPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkypeChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SkypeChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkypeChannelResponseOutput{})
 	pulumi.RegisterOutputType(SlackChannelOutput{})
+	pulumi.RegisterOutputType(SlackChannelInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SlackChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(SlackChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SlackChannelPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SlackChannelPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SlackChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SlackChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SlackChannelResponseOutput{})
 	pulumi.RegisterOutputType(SmsChannelOutput{})
+	pulumi.RegisterOutputType(SmsChannelInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SmsChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(SmsChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SmsChannelPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SmsChannelPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SmsChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SmsChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SmsChannelResponseOutput{})
 	pulumi.RegisterOutputType(TelegramChannelOutput{})
+	pulumi.RegisterOutputType(TelegramChannelInvokeResponseOutput{})
 	pulumi.RegisterOutputType(TelegramChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(TelegramChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TelegramChannelPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TelegramChannelPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TelegramChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TelegramChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TelegramChannelResponseOutput{})
 	pulumi.RegisterOutputType(WebChatChannelOutput{})
+	pulumi.RegisterOutputType(WebChatChannelInvokeResponseOutput{})
 	pulumi.RegisterOutputType(WebChatChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(WebChatChannelPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WebChatChannelPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WebChatChannelPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WebChatChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WebChatChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WebChatChannelResponseOutput{})
 	pulumi.RegisterOutputType(WebChatSiteOutput{})
 	pulumi.RegisterOutputType(WebChatSiteArrayOutput{})
+	pulumi.RegisterOutputType(WebChatSiteInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WebChatSiteInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(WebChatSiteResponseOutput{})
 	pulumi.RegisterOutputType(WebChatSiteResponseArrayOutput{})
 }

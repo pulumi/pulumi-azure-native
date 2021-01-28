@@ -37,7 +37,7 @@ type LookupControllerResult struct {
 	// Provisioning state of the Azure Dev Spaces Controller.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Model representing SKU for Azure Dev Spaces Controller.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Tags for the Azure resource.
 	Tags map[string]string `pulumi:"tags"`
 	// DNS of the target container host's API server

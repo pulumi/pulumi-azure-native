@@ -37,7 +37,7 @@ type LookupSiteResult struct {
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
 	// This is only valid for web app creation. If specified, web app is cloned from
 	//             a source web app
-	CloningInfo *CloningInfoResponse `pulumi:"cloningInfo"`
+	CloningInfo *CloningInfoInvokeResponse `pulumi:"cloningInfo"`
 	// Size of a function container
 	ContainerSize *int `pulumi:"containerSize"`
 	// Default hostname of the web app
@@ -50,14 +50,14 @@ type LookupSiteResult struct {
 	// Name of gateway app associated with web app
 	GatewaySiteName *string `pulumi:"gatewaySiteName"`
 	// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
-	HostNameSslStates []HostNameSslStateResponse `pulumi:"hostNameSslStates"`
+	HostNameSslStates []HostNameSslStateInvokeResponse `pulumi:"hostNameSslStates"`
 	// Hostnames associated with web app
 	HostNames []string `pulumi:"hostNames"`
 	// Specifies if the public hostnames are disabled the web app.
 	//             If set to true the app is only accessible via API Management process
 	HostNamesDisabled *bool `pulumi:"hostNamesDisabled"`
 	// Specification for the hosting environment (App Service Environment) to use for the web app
-	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	HostingEnvironmentProfile *HostingEnvironmentProfileInvokeResponse `pulumi:"hostingEnvironmentProfile"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Site is a default container
@@ -86,7 +86,7 @@ type LookupSiteResult struct {
 	ScmSiteAlsoStopped *bool   `pulumi:"scmSiteAlsoStopped"`
 	ServerFarmId       *string `pulumi:"serverFarmId"`
 	// Configuration of web app
-	SiteConfig *SiteConfigResponse `pulumi:"siteConfig"`
+	SiteConfig *SiteConfigInvokeResponse `pulumi:"siteConfig"`
 	// State of the web app
 	State string `pulumi:"state"`
 	// Resource tags

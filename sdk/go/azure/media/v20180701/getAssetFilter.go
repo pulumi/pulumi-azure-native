@@ -30,15 +30,15 @@ type LookupAssetFilterArgs struct {
 // An Asset Filter.
 type LookupAssetFilterResult struct {
 	// The first quality.
-	FirstQuality *FirstQualityResponse `pulumi:"firstQuality"`
+	FirstQuality *FirstQualityInvokeResponse `pulumi:"firstQuality"`
 	// Fully qualified resource ID for the resource.
 	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The presentation time range.
-	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
+	PresentationTimeRange *PresentationTimeRangeInvokeResponse `pulumi:"presentationTimeRange"`
 	// The tracks selection conditions.
-	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
+	Tracks []FilterTrackSelectionInvokeResponse `pulumi:"tracks"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

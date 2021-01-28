@@ -28,17 +28,17 @@ type LookupNatRuleArgs struct {
 // VpnGatewayNatRule Resource.
 type LookupNatRuleResult struct {
 	// List of egress VpnSiteLinkConnections.
-	EgressVpnSiteLinkConnections []SubResourceResponse `pulumi:"egressVpnSiteLinkConnections"`
+	EgressVpnSiteLinkConnections []SubResourceInvokeResponse `pulumi:"egressVpnSiteLinkConnections"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The private IP address external mapping for NAT.
-	ExternalMappings []VpnNatRuleMappingResponse `pulumi:"externalMappings"`
+	ExternalMappings []VpnNatRuleMappingInvokeResponse `pulumi:"externalMappings"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// List of ingress VpnSiteLinkConnections.
-	IngressVpnSiteLinkConnections []SubResourceResponse `pulumi:"ingressVpnSiteLinkConnections"`
+	IngressVpnSiteLinkConnections []SubResourceInvokeResponse `pulumi:"ingressVpnSiteLinkConnections"`
 	// The private IP address internal mapping for NAT.
-	InternalMappings []VpnNatRuleMappingResponse `pulumi:"internalMappings"`
+	InternalMappings []VpnNatRuleMappingInvokeResponse `pulumi:"internalMappings"`
 	// The IP Configuration ID this NAT rule applies to.
 	IpConfigurationId *string `pulumi:"ipConfigurationId"`
 	// The Source NAT direction of a VPN NAT.

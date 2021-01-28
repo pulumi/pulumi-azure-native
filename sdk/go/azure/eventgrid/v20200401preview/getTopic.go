@@ -30,27 +30,27 @@ type LookupTopicResult struct {
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
 	// Identity information for the resource.
-	Identity *IdentityInfoResponse `pulumi:"identity"`
+	Identity *IdentityInfoInvokeResponse `pulumi:"identity"`
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-	InboundIpRules []InboundIpRuleResponse `pulumi:"inboundIpRules"`
+	InboundIpRules []InboundIpRuleInvokeResponse `pulumi:"inboundIpRules"`
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
 	InputSchema *string `pulumi:"inputSchema"`
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
+	InputSchemaMapping *JsonInputSchemaMappingInvokeResponse `pulumi:"inputSchemaMapping"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Metric resource id for the topic.
 	MetricResourceId string `pulumi:"metricResourceId"`
 	// Name of the resource
-	Name                       string                              `pulumi:"name"`
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	Name                       string                                    `pulumi:"name"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the topic.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// This determines if traffic is allowed over public network. By default it is enabled.
 	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The Sku pricing tier for the topic.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
+	Sku *ResourceSkuInvokeResponse `pulumi:"sku"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource

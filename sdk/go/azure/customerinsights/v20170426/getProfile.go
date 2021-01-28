@@ -40,7 +40,7 @@ type LookupProfileResult struct {
 	// Type of entity.
 	EntityType *string `pulumi:"entityType"`
 	// The properties of the Profile.
-	Fields []PropertyDefinitionResponse `pulumi:"fields"`
+	Fields []PropertyDefinitionInvokeResponse `pulumi:"fields"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// The instance count.
@@ -62,7 +62,7 @@ type LookupProfileResult struct {
 	// Small Image associated with the Property or EntityType.
 	SmallImage *string `pulumi:"smallImage"`
 	// The strong IDs.
-	StrongIds []StrongIdResponse `pulumi:"strongIds"`
+	StrongIds []StrongIdInvokeResponse `pulumi:"strongIds"`
 	// The hub name.
 	TenantId string `pulumi:"tenantId"`
 	// The timestamp property name. Represents the time when the interaction or profile update happened.

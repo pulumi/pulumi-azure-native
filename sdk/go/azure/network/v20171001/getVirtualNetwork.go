@@ -28,9 +28,9 @@ type LookupVirtualNetworkArgs struct {
 // Virtual Network resource.
 type LookupVirtualNetworkResult struct {
 	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
+	AddressSpace *AddressSpaceInvokeResponse `pulumi:"addressSpace"`
 	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-	DhcpOptions *DhcpOptionsResponse `pulumi:"dhcpOptions"`
+	DhcpOptions *DhcpOptionsInvokeResponse `pulumi:"dhcpOptions"`
 	// Indicates if DDoS protection is enabled for all the protected resources in a Virtual Network.
 	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
 	// Indicates if Vm protection is enabled for all the subnets in a Virtual Network.
@@ -48,11 +48,11 @@ type LookupVirtualNetworkResult struct {
 	// The resourceGuid property of the Virtual Network resource.
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// A list of subnets in a Virtual Network.
-	Subnets []SubnetResponse `pulumi:"subnets"`
+	Subnets []SubnetInvokeResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// A list of peerings in a Virtual Network.
-	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"virtualNetworkPeerings"`
+	VirtualNetworkPeerings []VirtualNetworkPeeringInvokeResponse `pulumi:"virtualNetworkPeerings"`
 }

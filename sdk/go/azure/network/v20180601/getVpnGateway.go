@@ -26,9 +26,9 @@ type LookupVpnGatewayArgs struct {
 // VpnGateway Resource.
 type LookupVpnGatewayResult struct {
 	// Local network gateway's BGP speaker settings.
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
+	BgpSettings *BgpSettingsInvokeResponse `pulumi:"bgpSettings"`
 	// list of all vpn connections to the gateway.
-	Connections []VpnConnectionResponse `pulumi:"connections"`
+	Connections []VpnConnectionInvokeResponse `pulumi:"connections"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource ID.
@@ -38,7 +38,7 @@ type LookupVpnGatewayResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The policies applied to this vpn gateway.
-	Policies *PoliciesResponse `pulumi:"policies"`
+	Policies *PoliciesInvokeResponse `pulumi:"policies"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
@@ -46,5 +46,5 @@ type LookupVpnGatewayResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The VirtualHub to which the gateway belongs
-	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
+	VirtualHub *SubResourceInvokeResponse `pulumi:"virtualHub"`
 }

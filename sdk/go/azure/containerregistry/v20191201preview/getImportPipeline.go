@@ -30,7 +30,7 @@ type LookupImportPipelineResult struct {
 	// The resource ID.
 	Id string `pulumi:"id"`
 	// The identity of the import pipeline.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	Identity *IdentityPropertiesInvokeResponse `pulumi:"identity"`
 	// The location of the import pipeline.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
@@ -40,11 +40,11 @@ type LookupImportPipelineResult struct {
 	// The provisioning state of the pipeline at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The source properties of the import pipeline.
-	Source ImportPipelineSourcePropertiesResponse `pulumi:"source"`
+	Source ImportPipelineSourcePropertiesInvokeResponse `pulumi:"source"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The properties that describe the trigger of the import pipeline.
-	Trigger *PipelineTriggerPropertiesResponse `pulumi:"trigger"`
+	Trigger *PipelineTriggerPropertiesInvokeResponse `pulumi:"trigger"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

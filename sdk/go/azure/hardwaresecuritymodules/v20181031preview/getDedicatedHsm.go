@@ -32,11 +32,11 @@ type LookupDedicatedHsmResult struct {
 	// The name of the dedicated HSM.
 	Name string `pulumi:"name"`
 	// Specifies the network interfaces of the dedicated hsm.
-	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
+	NetworkProfile *NetworkProfileInvokeResponse `pulumi:"networkProfile"`
 	// Provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// SKU details
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// This field will be used when RP does not support Availability zones.
 	StampId *string `pulumi:"stampId"`
 	// Resource Status Message.

@@ -30,10 +30,10 @@ type LookupRouteArgs struct {
 // Friendly Routes name mapping to the any Routes or secret related information.
 type LookupRouteResult struct {
 	// compression settings.
-	CompressionSettings []CompressionSettingsResponse `pulumi:"compressionSettings"`
+	CompressionSettings []CompressionSettingsInvokeResponse `pulumi:"compressionSettings"`
 	// Domains referenced by this endpoint.
-	CustomDomains    []ResourceReferenceResponse `pulumi:"customDomains"`
-	DeploymentStatus string                      `pulumi:"deploymentStatus"`
+	CustomDomains    []ResourceReferenceInvokeResponse `pulumi:"customDomains"`
+	DeploymentStatus string                            `pulumi:"deploymentStatus"`
 	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
 	EnabledState *string `pulumi:"enabledState"`
 	// Protocol this rule will use when forwarding traffic to backends.
@@ -47,7 +47,7 @@ type LookupRouteResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// A reference to the origin group.
-	OriginGroup ResourceReferenceResponse `pulumi:"originGroup"`
+	OriginGroup ResourceReferenceInvokeResponse `pulumi:"originGroup"`
 	// A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
 	OriginPath *string `pulumi:"originPath"`
 	// The route patterns of the rule.
@@ -57,11 +57,11 @@ type LookupRouteResult struct {
 	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// rule sets referenced by this endpoint.
-	RuleSets []ResourceReferenceResponse `pulumi:"ruleSets"`
+	RuleSets []ResourceReferenceInvokeResponse `pulumi:"ruleSets"`
 	// List of supported protocols for this route.
 	SupportedProtocols []string `pulumi:"supportedProtocols"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

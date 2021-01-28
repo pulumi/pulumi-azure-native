@@ -30,7 +30,7 @@ type LookupGalleryImageResult struct {
 	// The description of this gallery Image Definition resource. This property is updatable.
 	Description *string `pulumi:"description"`
 	// Describes the disallowed disk types.
-	Disallowed *DisallowedResponse `pulumi:"disallowed"`
+	Disallowed *DisallowedInvokeResponse `pulumi:"disallowed"`
 	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// The Eula agreement for the gallery Image Definition.
@@ -40,7 +40,7 @@ type LookupGalleryImageResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// This is the gallery Image Definition identifier.
-	Identifier GalleryImageIdentifierResponse `pulumi:"identifier"`
+	Identifier GalleryImageIdentifierInvokeResponse `pulumi:"identifier"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
@@ -54,9 +54,9 @@ type LookupGalleryImageResult struct {
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
-	PurchasePlan *ImagePurchasePlanResponse `pulumi:"purchasePlan"`
+	PurchasePlan *ImagePurchasePlanInvokeResponse `pulumi:"purchasePlan"`
 	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-	Recommended *RecommendedMachineConfigurationResponse `pulumi:"recommended"`
+	Recommended *RecommendedMachineConfigurationInvokeResponse `pulumi:"recommended"`
 	// The release note uri.
 	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
 	// Resource tags

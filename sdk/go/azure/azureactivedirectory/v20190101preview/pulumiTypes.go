@@ -164,6 +164,70 @@ func (o B2CResourceSKUPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+type B2CResourceSKUInvokeResponse struct {
+	// The name of the SKU for the tenant.
+	Name *string `pulumi:"name"`
+	// The tier of the tenant.
+	Tier *string `pulumi:"tier"`
+}
+
+// B2CResourceSKUInvokeResponseInput is an input type that accepts B2CResourceSKUInvokeResponseArgs and B2CResourceSKUInvokeResponseOutput values.
+// You can construct a concrete instance of `B2CResourceSKUInvokeResponseInput` via:
+//
+//          B2CResourceSKUInvokeResponseArgs{...}
+type B2CResourceSKUInvokeResponseInput interface {
+	pulumi.Input
+
+	ToB2CResourceSKUInvokeResponseOutput() B2CResourceSKUInvokeResponseOutput
+	ToB2CResourceSKUInvokeResponseOutputWithContext(context.Context) B2CResourceSKUInvokeResponseOutput
+}
+
+// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+type B2CResourceSKUInvokeResponseArgs struct {
+	// The name of the SKU for the tenant.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The tier of the tenant.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (B2CResourceSKUInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*B2CResourceSKUInvokeResponse)(nil)).Elem()
+}
+
+func (i B2CResourceSKUInvokeResponseArgs) ToB2CResourceSKUInvokeResponseOutput() B2CResourceSKUInvokeResponseOutput {
+	return i.ToB2CResourceSKUInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i B2CResourceSKUInvokeResponseArgs) ToB2CResourceSKUInvokeResponseOutputWithContext(ctx context.Context) B2CResourceSKUInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(B2CResourceSKUInvokeResponseOutput)
+}
+
+// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+type B2CResourceSKUInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (B2CResourceSKUInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*B2CResourceSKUInvokeResponse)(nil)).Elem()
+}
+
+func (o B2CResourceSKUInvokeResponseOutput) ToB2CResourceSKUInvokeResponseOutput() B2CResourceSKUInvokeResponseOutput {
+	return o
+}
+
+func (o B2CResourceSKUInvokeResponseOutput) ToB2CResourceSKUInvokeResponseOutputWithContext(ctx context.Context) B2CResourceSKUInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU for the tenant.
+func (o B2CResourceSKUInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v B2CResourceSKUInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The tier of the tenant.
+func (o B2CResourceSKUInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v B2CResourceSKUInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUResponse struct {
 	// The name of the SKU for the tenant.
 	Name *string `pulumi:"name"`
@@ -314,6 +378,70 @@ func (o B2CResourceSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// The billing configuration for the tenant.
+type B2CTenantResourcePropertiesInvokeResponseBillingConfig struct {
+	// The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
+	BillingType *string `pulumi:"billingType"`
+	// The data from which the billing type took effect
+	EffectiveStartDateUtc string `pulumi:"effectiveStartDateUtc"`
+}
+
+// B2CTenantResourcePropertiesInvokeResponseBillingConfigInput is an input type that accepts B2CTenantResourcePropertiesInvokeResponseBillingConfigArgs and B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput values.
+// You can construct a concrete instance of `B2CTenantResourcePropertiesInvokeResponseBillingConfigInput` via:
+//
+//          B2CTenantResourcePropertiesInvokeResponseBillingConfigArgs{...}
+type B2CTenantResourcePropertiesInvokeResponseBillingConfigInput interface {
+	pulumi.Input
+
+	ToB2CTenantResourcePropertiesInvokeResponseBillingConfigOutput() B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput
+	ToB2CTenantResourcePropertiesInvokeResponseBillingConfigOutputWithContext(context.Context) B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput
+}
+
+// The billing configuration for the tenant.
+type B2CTenantResourcePropertiesInvokeResponseBillingConfigArgs struct {
+	// The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
+	BillingType pulumi.StringPtrInput `pulumi:"billingType"`
+	// The data from which the billing type took effect
+	EffectiveStartDateUtc pulumi.StringInput `pulumi:"effectiveStartDateUtc"`
+}
+
+func (B2CTenantResourcePropertiesInvokeResponseBillingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*B2CTenantResourcePropertiesInvokeResponseBillingConfig)(nil)).Elem()
+}
+
+func (i B2CTenantResourcePropertiesInvokeResponseBillingConfigArgs) ToB2CTenantResourcePropertiesInvokeResponseBillingConfigOutput() B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput {
+	return i.ToB2CTenantResourcePropertiesInvokeResponseBillingConfigOutputWithContext(context.Background())
+}
+
+func (i B2CTenantResourcePropertiesInvokeResponseBillingConfigArgs) ToB2CTenantResourcePropertiesInvokeResponseBillingConfigOutputWithContext(ctx context.Context) B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput)
+}
+
+// The billing configuration for the tenant.
+type B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput struct{ *pulumi.OutputState }
+
+func (B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*B2CTenantResourcePropertiesInvokeResponseBillingConfig)(nil)).Elem()
+}
+
+func (o B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput) ToB2CTenantResourcePropertiesInvokeResponseBillingConfigOutput() B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput {
+	return o
+}
+
+func (o B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput) ToB2CTenantResourcePropertiesInvokeResponseBillingConfigOutputWithContext(ctx context.Context) B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput {
+	return o
+}
+
+// The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
+func (o B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput) BillingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v B2CTenantResourcePropertiesInvokeResponseBillingConfig) *string { return v.BillingType }).(pulumi.StringPtrOutput)
+}
+
+// The data from which the billing type took effect
+func (o B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput) EffectiveStartDateUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v B2CTenantResourcePropertiesInvokeResponseBillingConfig) string { return v.EffectiveStartDateUtc }).(pulumi.StringOutput)
 }
 
 // The billing configuration for the tenant.
@@ -624,8 +752,10 @@ func (o CreateTenantRequestBodyPropertiesPtrOutput) DisplayName() pulumi.StringP
 func init() {
 	pulumi.RegisterOutputType(B2CResourceSKUOutput{})
 	pulumi.RegisterOutputType(B2CResourceSKUPtrOutput{})
+	pulumi.RegisterOutputType(B2CResourceSKUInvokeResponseOutput{})
 	pulumi.RegisterOutputType(B2CResourceSKUResponseOutput{})
 	pulumi.RegisterOutputType(B2CResourceSKUResponsePtrOutput{})
+	pulumi.RegisterOutputType(B2CTenantResourcePropertiesInvokeResponseBillingConfigOutput{})
 	pulumi.RegisterOutputType(B2CTenantResourcePropertiesResponseBillingConfigOutput{})
 	pulumi.RegisterOutputType(B2CTenantResourcePropertiesResponseBillingConfigPtrOutput{})
 	pulumi.RegisterOutputType(CreateTenantRequestBodyPropertiesOutput{})

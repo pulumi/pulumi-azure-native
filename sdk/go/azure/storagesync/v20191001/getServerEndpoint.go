@@ -32,7 +32,7 @@ type LookupServerEndpointResult struct {
 	// Cloud Tiering.
 	CloudTiering *string `pulumi:"cloudTiering"`
 	// Cloud tiering status. Only populated if cloud tiering is enabled.
-	CloudTieringStatus ServerEndpointCloudTieringStatusResponse `pulumi:"cloudTieringStatus"`
+	CloudTieringStatus ServerEndpointCloudTieringStatusInvokeResponse `pulumi:"cloudTieringStatus"`
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -54,13 +54,13 @@ type LookupServerEndpointResult struct {
 	// ServerEndpoint Provisioning State
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Recall status. Only populated if cloud tiering is enabled.
-	RecallStatus ServerEndpointRecallStatusResponse `pulumi:"recallStatus"`
+	RecallStatus ServerEndpointRecallStatusInvokeResponse `pulumi:"recallStatus"`
 	// Server Local path.
 	ServerLocalPath *string `pulumi:"serverLocalPath"`
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Server Endpoint sync status
-	SyncStatus ServerEndpointSyncStatusResponse `pulumi:"syncStatus"`
+	SyncStatus ServerEndpointSyncStatusInvokeResponse `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -32,9 +32,9 @@ type LookupPrivateEndpointConnectionResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
+	PrivateEndpoint *PrivateEndpointPropertyInvokeResponse `pulumi:"privateEndpoint"`
 	// Connection State of the Private Endpoint Connection.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

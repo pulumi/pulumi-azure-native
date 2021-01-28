@@ -52,7 +52,7 @@ type LookupCustomImageResult struct {
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 	// The VHD from which the image is to be created.
-	Vhd *CustomImagePropertiesCustomResponse `pulumi:"vhd"`
+	Vhd *CustomImagePropertiesCustomInvokeResponse `pulumi:"vhd"`
 	// The virtual machine from which the image is to be created.
-	Vm *CustomImagePropertiesFromVmResponse `pulumi:"vm"`
+	Vm *CustomImagePropertiesFromVmInvokeResponse `pulumi:"vm"`
 }

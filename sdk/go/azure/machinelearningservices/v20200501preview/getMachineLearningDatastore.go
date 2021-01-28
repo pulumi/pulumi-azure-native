@@ -30,15 +30,15 @@ type LookupMachineLearningDatastoreResult struct {
 	// Specifies the resource ID.
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the resource.
 	Name string `pulumi:"name"`
 	// Datastore properties
-	Properties DatastoreResponse `pulumi:"properties"`
+	Properties DatastoreInvokeResponse `pulumi:"properties"`
 	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the type of the resource.

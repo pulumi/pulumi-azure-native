@@ -34,7 +34,7 @@ type LookupReplicationPolicyResult struct {
 	// Resource Name
 	Name string `pulumi:"name"`
 	// The custom data.
-	Properties PolicyPropertiesResponse `pulumi:"properties"`
+	Properties PolicyPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
 }

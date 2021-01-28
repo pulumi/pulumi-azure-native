@@ -28,7 +28,7 @@ type LookupArtifactSourceResult struct {
 	// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
 	ArtifactRoot *string `pulumi:"artifactRoot"`
 	// The authentication method to use to access the artifact source.
-	Authentication SasAuthenticationResponse `pulumi:"authentication"`
+	Authentication SasAuthenticationInvokeResponse `pulumi:"authentication"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The geo-location where the resource lives

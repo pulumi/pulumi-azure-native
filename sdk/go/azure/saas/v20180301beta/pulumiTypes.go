@@ -354,6 +354,178 @@ func (o SaasCreationPropertiesPtrOutput) TermId() pulumi.StringPtrOutput {
 }
 
 // The current Term object.
+type SaasPropertiesInvokeResponseTerm struct {
+	// The end date of the current term
+	EndDate *string `pulumi:"endDate"`
+	// The start date of the current term
+	StartDate *string `pulumi:"startDate"`
+	// The unit indicating Monthly / Yearly
+	TermUnit *string `pulumi:"termUnit"`
+}
+
+// SaasPropertiesInvokeResponseTermInput is an input type that accepts SaasPropertiesInvokeResponseTermArgs and SaasPropertiesInvokeResponseTermOutput values.
+// You can construct a concrete instance of `SaasPropertiesInvokeResponseTermInput` via:
+//
+//          SaasPropertiesInvokeResponseTermArgs{...}
+type SaasPropertiesInvokeResponseTermInput interface {
+	pulumi.Input
+
+	ToSaasPropertiesInvokeResponseTermOutput() SaasPropertiesInvokeResponseTermOutput
+	ToSaasPropertiesInvokeResponseTermOutputWithContext(context.Context) SaasPropertiesInvokeResponseTermOutput
+}
+
+// The current Term object.
+type SaasPropertiesInvokeResponseTermArgs struct {
+	// The end date of the current term
+	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
+	// The start date of the current term
+	StartDate pulumi.StringPtrInput `pulumi:"startDate"`
+	// The unit indicating Monthly / Yearly
+	TermUnit pulumi.StringPtrInput `pulumi:"termUnit"`
+}
+
+func (SaasPropertiesInvokeResponseTermArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SaasPropertiesInvokeResponseTerm)(nil)).Elem()
+}
+
+func (i SaasPropertiesInvokeResponseTermArgs) ToSaasPropertiesInvokeResponseTermOutput() SaasPropertiesInvokeResponseTermOutput {
+	return i.ToSaasPropertiesInvokeResponseTermOutputWithContext(context.Background())
+}
+
+func (i SaasPropertiesInvokeResponseTermArgs) ToSaasPropertiesInvokeResponseTermOutputWithContext(ctx context.Context) SaasPropertiesInvokeResponseTermOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SaasPropertiesInvokeResponseTermOutput)
+}
+
+func (i SaasPropertiesInvokeResponseTermArgs) ToSaasPropertiesInvokeResponseTermPtrOutput() SaasPropertiesInvokeResponseTermPtrOutput {
+	return i.ToSaasPropertiesInvokeResponseTermPtrOutputWithContext(context.Background())
+}
+
+func (i SaasPropertiesInvokeResponseTermArgs) ToSaasPropertiesInvokeResponseTermPtrOutputWithContext(ctx context.Context) SaasPropertiesInvokeResponseTermPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SaasPropertiesInvokeResponseTermOutput).ToSaasPropertiesInvokeResponseTermPtrOutputWithContext(ctx)
+}
+
+// SaasPropertiesInvokeResponseTermPtrInput is an input type that accepts SaasPropertiesInvokeResponseTermArgs, SaasPropertiesInvokeResponseTermPtr and SaasPropertiesInvokeResponseTermPtrOutput values.
+// You can construct a concrete instance of `SaasPropertiesInvokeResponseTermPtrInput` via:
+//
+//          SaasPropertiesInvokeResponseTermArgs{...}
+//
+//  or:
+//
+//          nil
+type SaasPropertiesInvokeResponseTermPtrInput interface {
+	pulumi.Input
+
+	ToSaasPropertiesInvokeResponseTermPtrOutput() SaasPropertiesInvokeResponseTermPtrOutput
+	ToSaasPropertiesInvokeResponseTermPtrOutputWithContext(context.Context) SaasPropertiesInvokeResponseTermPtrOutput
+}
+
+type saasPropertiesInvokeResponseTermPtrType SaasPropertiesInvokeResponseTermArgs
+
+func SaasPropertiesInvokeResponseTermPtr(v *SaasPropertiesInvokeResponseTermArgs) SaasPropertiesInvokeResponseTermPtrInput {
+	return (*saasPropertiesInvokeResponseTermPtrType)(v)
+}
+
+func (*saasPropertiesInvokeResponseTermPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SaasPropertiesInvokeResponseTerm)(nil)).Elem()
+}
+
+func (i *saasPropertiesInvokeResponseTermPtrType) ToSaasPropertiesInvokeResponseTermPtrOutput() SaasPropertiesInvokeResponseTermPtrOutput {
+	return i.ToSaasPropertiesInvokeResponseTermPtrOutputWithContext(context.Background())
+}
+
+func (i *saasPropertiesInvokeResponseTermPtrType) ToSaasPropertiesInvokeResponseTermPtrOutputWithContext(ctx context.Context) SaasPropertiesInvokeResponseTermPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SaasPropertiesInvokeResponseTermPtrOutput)
+}
+
+// The current Term object.
+type SaasPropertiesInvokeResponseTermOutput struct{ *pulumi.OutputState }
+
+func (SaasPropertiesInvokeResponseTermOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SaasPropertiesInvokeResponseTerm)(nil)).Elem()
+}
+
+func (o SaasPropertiesInvokeResponseTermOutput) ToSaasPropertiesInvokeResponseTermOutput() SaasPropertiesInvokeResponseTermOutput {
+	return o
+}
+
+func (o SaasPropertiesInvokeResponseTermOutput) ToSaasPropertiesInvokeResponseTermOutputWithContext(ctx context.Context) SaasPropertiesInvokeResponseTermOutput {
+	return o
+}
+
+func (o SaasPropertiesInvokeResponseTermOutput) ToSaasPropertiesInvokeResponseTermPtrOutput() SaasPropertiesInvokeResponseTermPtrOutput {
+	return o.ToSaasPropertiesInvokeResponseTermPtrOutputWithContext(context.Background())
+}
+
+func (o SaasPropertiesInvokeResponseTermOutput) ToSaasPropertiesInvokeResponseTermPtrOutputWithContext(ctx context.Context) SaasPropertiesInvokeResponseTermPtrOutput {
+	return o.ApplyT(func(v SaasPropertiesInvokeResponseTerm) *SaasPropertiesInvokeResponseTerm {
+		return &v
+	}).(SaasPropertiesInvokeResponseTermPtrOutput)
+}
+
+// The end date of the current term
+func (o SaasPropertiesInvokeResponseTermOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasPropertiesInvokeResponseTerm) *string { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// The start date of the current term
+func (o SaasPropertiesInvokeResponseTermOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasPropertiesInvokeResponseTerm) *string { return v.StartDate }).(pulumi.StringPtrOutput)
+}
+
+// The unit indicating Monthly / Yearly
+func (o SaasPropertiesInvokeResponseTermOutput) TermUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasPropertiesInvokeResponseTerm) *string { return v.TermUnit }).(pulumi.StringPtrOutput)
+}
+
+type SaasPropertiesInvokeResponseTermPtrOutput struct{ *pulumi.OutputState }
+
+func (SaasPropertiesInvokeResponseTermPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SaasPropertiesInvokeResponseTerm)(nil)).Elem()
+}
+
+func (o SaasPropertiesInvokeResponseTermPtrOutput) ToSaasPropertiesInvokeResponseTermPtrOutput() SaasPropertiesInvokeResponseTermPtrOutput {
+	return o
+}
+
+func (o SaasPropertiesInvokeResponseTermPtrOutput) ToSaasPropertiesInvokeResponseTermPtrOutputWithContext(ctx context.Context) SaasPropertiesInvokeResponseTermPtrOutput {
+	return o
+}
+
+func (o SaasPropertiesInvokeResponseTermPtrOutput) Elem() SaasPropertiesInvokeResponseTermOutput {
+	return o.ApplyT(func(v *SaasPropertiesInvokeResponseTerm) SaasPropertiesInvokeResponseTerm { return *v }).(SaasPropertiesInvokeResponseTermOutput)
+}
+
+// The end date of the current term
+func (o SaasPropertiesInvokeResponseTermPtrOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SaasPropertiesInvokeResponseTerm) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start date of the current term
+func (o SaasPropertiesInvokeResponseTermPtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SaasPropertiesInvokeResponseTerm) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unit indicating Monthly / Yearly
+func (o SaasPropertiesInvokeResponseTermPtrOutput) TermUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SaasPropertiesInvokeResponseTerm) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TermUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current Term object.
 type SaasPropertiesResponseTerm struct {
 	// The end date of the current term
 	EndDate *string `pulumi:"endDate"`
@@ -523,6 +695,205 @@ func (o SaasPropertiesResponseTermPtrOutput) TermUnit() pulumi.StringPtrOutput {
 		}
 		return v.TermUnit
 	}).(pulumi.StringPtrOutput)
+}
+
+// saas properties
+type SaasResourceInvokeResponseProperties struct {
+	// Whether the SaaS subscription will auto renew upon term end.
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// The created date of this resource.
+	Created string `pulumi:"created"`
+	// Whether the current term is a Free Trial term
+	IsFreeTrial *bool `pulumi:"isFreeTrial"`
+	// The last modifier date if this resource.
+	LastModified *string `pulumi:"lastModified"`
+	// The offer id.
+	OfferId *string `pulumi:"offerId"`
+	// The metadata about the SaaS subscription such as the AzureSubscriptionId and ResourceUri.
+	PaymentChannelMetadata map[string]string `pulumi:"paymentChannelMetadata"`
+	// The Payment channel for the SaasSubscription.
+	PaymentChannelType *string `pulumi:"paymentChannelType"`
+	// The publisher id.
+	PublisherId *string `pulumi:"publisherId"`
+	// The environment in the publisher side for this resource.
+	PublisherTestEnvironment *string `pulumi:"publisherTestEnvironment"`
+	// The seat count.
+	Quantity *float64 `pulumi:"quantity"`
+	// The SaaS resource name.
+	SaasResourceName *string `pulumi:"saasResourceName"`
+	// The saas session id used for dev service migration request.
+	SaasSessionId *string `pulumi:"saasSessionId"`
+	// The saas subscription id used for tenant to subscription level migration request.
+	SaasSubscriptionId *string `pulumi:"saasSubscriptionId"`
+	// The plan id.
+	SkuId *string `pulumi:"skuId"`
+	// The SaaS Subscription Status.
+	Status *string `pulumi:"status"`
+	// The current Term object.
+	Term *SaasPropertiesInvokeResponseTerm `pulumi:"term"`
+	// The current Term id.
+	TermId *string `pulumi:"termId"`
+}
+
+// SaasResourceInvokeResponsePropertiesInput is an input type that accepts SaasResourceInvokeResponsePropertiesArgs and SaasResourceInvokeResponsePropertiesOutput values.
+// You can construct a concrete instance of `SaasResourceInvokeResponsePropertiesInput` via:
+//
+//          SaasResourceInvokeResponsePropertiesArgs{...}
+type SaasResourceInvokeResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToSaasResourceInvokeResponsePropertiesOutput() SaasResourceInvokeResponsePropertiesOutput
+	ToSaasResourceInvokeResponsePropertiesOutputWithContext(context.Context) SaasResourceInvokeResponsePropertiesOutput
+}
+
+// saas properties
+type SaasResourceInvokeResponsePropertiesArgs struct {
+	// Whether the SaaS subscription will auto renew upon term end.
+	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
+	// The created date of this resource.
+	Created pulumi.StringInput `pulumi:"created"`
+	// Whether the current term is a Free Trial term
+	IsFreeTrial pulumi.BoolPtrInput `pulumi:"isFreeTrial"`
+	// The last modifier date if this resource.
+	LastModified pulumi.StringPtrInput `pulumi:"lastModified"`
+	// The offer id.
+	OfferId pulumi.StringPtrInput `pulumi:"offerId"`
+	// The metadata about the SaaS subscription such as the AzureSubscriptionId and ResourceUri.
+	PaymentChannelMetadata pulumi.StringMapInput `pulumi:"paymentChannelMetadata"`
+	// The Payment channel for the SaasSubscription.
+	PaymentChannelType pulumi.StringPtrInput `pulumi:"paymentChannelType"`
+	// The publisher id.
+	PublisherId pulumi.StringPtrInput `pulumi:"publisherId"`
+	// The environment in the publisher side for this resource.
+	PublisherTestEnvironment pulumi.StringPtrInput `pulumi:"publisherTestEnvironment"`
+	// The seat count.
+	Quantity pulumi.Float64PtrInput `pulumi:"quantity"`
+	// The SaaS resource name.
+	SaasResourceName pulumi.StringPtrInput `pulumi:"saasResourceName"`
+	// The saas session id used for dev service migration request.
+	SaasSessionId pulumi.StringPtrInput `pulumi:"saasSessionId"`
+	// The saas subscription id used for tenant to subscription level migration request.
+	SaasSubscriptionId pulumi.StringPtrInput `pulumi:"saasSubscriptionId"`
+	// The plan id.
+	SkuId pulumi.StringPtrInput `pulumi:"skuId"`
+	// The SaaS Subscription Status.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The current Term object.
+	Term SaasPropertiesInvokeResponseTermPtrInput `pulumi:"term"`
+	// The current Term id.
+	TermId pulumi.StringPtrInput `pulumi:"termId"`
+}
+
+func (SaasResourceInvokeResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SaasResourceInvokeResponseProperties)(nil)).Elem()
+}
+
+func (i SaasResourceInvokeResponsePropertiesArgs) ToSaasResourceInvokeResponsePropertiesOutput() SaasResourceInvokeResponsePropertiesOutput {
+	return i.ToSaasResourceInvokeResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i SaasResourceInvokeResponsePropertiesArgs) ToSaasResourceInvokeResponsePropertiesOutputWithContext(ctx context.Context) SaasResourceInvokeResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SaasResourceInvokeResponsePropertiesOutput)
+}
+
+// saas properties
+type SaasResourceInvokeResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (SaasResourceInvokeResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SaasResourceInvokeResponseProperties)(nil)).Elem()
+}
+
+func (o SaasResourceInvokeResponsePropertiesOutput) ToSaasResourceInvokeResponsePropertiesOutput() SaasResourceInvokeResponsePropertiesOutput {
+	return o
+}
+
+func (o SaasResourceInvokeResponsePropertiesOutput) ToSaasResourceInvokeResponsePropertiesOutputWithContext(ctx context.Context) SaasResourceInvokeResponsePropertiesOutput {
+	return o
+}
+
+// Whether the SaaS subscription will auto renew upon term end.
+func (o SaasResourceInvokeResponsePropertiesOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
+}
+
+// The created date of this resource.
+func (o SaasResourceInvokeResponsePropertiesOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// Whether the current term is a Free Trial term
+func (o SaasResourceInvokeResponsePropertiesOutput) IsFreeTrial() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *bool { return v.IsFreeTrial }).(pulumi.BoolPtrOutput)
+}
+
+// The last modifier date if this resource.
+func (o SaasResourceInvokeResponsePropertiesOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.LastModified }).(pulumi.StringPtrOutput)
+}
+
+// The offer id.
+func (o SaasResourceInvokeResponsePropertiesOutput) OfferId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.OfferId }).(pulumi.StringPtrOutput)
+}
+
+// The metadata about the SaaS subscription such as the AzureSubscriptionId and ResourceUri.
+func (o SaasResourceInvokeResponsePropertiesOutput) PaymentChannelMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) map[string]string { return v.PaymentChannelMetadata }).(pulumi.StringMapOutput)
+}
+
+// The Payment channel for the SaasSubscription.
+func (o SaasResourceInvokeResponsePropertiesOutput) PaymentChannelType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.PaymentChannelType }).(pulumi.StringPtrOutput)
+}
+
+// The publisher id.
+func (o SaasResourceInvokeResponsePropertiesOutput) PublisherId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
+}
+
+// The environment in the publisher side for this resource.
+func (o SaasResourceInvokeResponsePropertiesOutput) PublisherTestEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.PublisherTestEnvironment }).(pulumi.StringPtrOutput)
+}
+
+// The seat count.
+func (o SaasResourceInvokeResponsePropertiesOutput) Quantity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *float64 { return v.Quantity }).(pulumi.Float64PtrOutput)
+}
+
+// The SaaS resource name.
+func (o SaasResourceInvokeResponsePropertiesOutput) SaasResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.SaasResourceName }).(pulumi.StringPtrOutput)
+}
+
+// The saas session id used for dev service migration request.
+func (o SaasResourceInvokeResponsePropertiesOutput) SaasSessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.SaasSessionId }).(pulumi.StringPtrOutput)
+}
+
+// The saas subscription id used for tenant to subscription level migration request.
+func (o SaasResourceInvokeResponsePropertiesOutput) SaasSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.SaasSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The plan id.
+func (o SaasResourceInvokeResponsePropertiesOutput) SkuId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.SkuId }).(pulumi.StringPtrOutput)
+}
+
+// The SaaS Subscription Status.
+func (o SaasResourceInvokeResponsePropertiesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The current Term object.
+func (o SaasResourceInvokeResponsePropertiesOutput) Term() SaasPropertiesInvokeResponseTermPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *SaasPropertiesInvokeResponseTerm { return v.Term }).(SaasPropertiesInvokeResponseTermPtrOutput)
+}
+
+// The current Term id.
+func (o SaasResourceInvokeResponsePropertiesOutput) TermId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SaasResourceInvokeResponseProperties) *string { return v.TermId }).(pulumi.StringPtrOutput)
 }
 
 // saas properties
@@ -966,8 +1337,11 @@ func (o SaasResourceResponsePropertiesPtrOutput) TermId() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(SaasCreationPropertiesOutput{})
 	pulumi.RegisterOutputType(SaasCreationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SaasPropertiesInvokeResponseTermOutput{})
+	pulumi.RegisterOutputType(SaasPropertiesInvokeResponseTermPtrOutput{})
 	pulumi.RegisterOutputType(SaasPropertiesResponseTermOutput{})
 	pulumi.RegisterOutputType(SaasPropertiesResponseTermPtrOutput{})
+	pulumi.RegisterOutputType(SaasResourceInvokeResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(SaasResourceResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(SaasResourceResponsePropertiesPtrOutput{})
 }

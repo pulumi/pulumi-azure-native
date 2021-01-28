@@ -123,6 +123,154 @@ func (o MachineReferenceWithHintsArrayOutput) Index(i pulumi.IntInput) MachineRe
 }
 
 // A machine reference with a hint of the machine's name and operating system.
+type MachineReferenceWithHintsInvokeResponse struct {
+	// Last known display name.
+	DisplayNameHint string `pulumi:"displayNameHint"`
+	// Resource URI.
+	Id string `pulumi:"id"`
+	// Specifies the sub-class of the reference.
+	// Expected value is 'ref:machinewithhints'.
+	Kind string `pulumi:"kind"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// Last known operating system family.
+	OsFamilyHint string `pulumi:"osFamilyHint"`
+	// Resource type qualifier.
+	Type string `pulumi:"type"`
+}
+
+// MachineReferenceWithHintsInvokeResponseInput is an input type that accepts MachineReferenceWithHintsInvokeResponseArgs and MachineReferenceWithHintsInvokeResponseOutput values.
+// You can construct a concrete instance of `MachineReferenceWithHintsInvokeResponseInput` via:
+//
+//          MachineReferenceWithHintsInvokeResponseArgs{...}
+type MachineReferenceWithHintsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMachineReferenceWithHintsInvokeResponseOutput() MachineReferenceWithHintsInvokeResponseOutput
+	ToMachineReferenceWithHintsInvokeResponseOutputWithContext(context.Context) MachineReferenceWithHintsInvokeResponseOutput
+}
+
+// A machine reference with a hint of the machine's name and operating system.
+type MachineReferenceWithHintsInvokeResponseArgs struct {
+	// Last known display name.
+	DisplayNameHint pulumi.StringInput `pulumi:"displayNameHint"`
+	// Resource URI.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Specifies the sub-class of the reference.
+	// Expected value is 'ref:machinewithhints'.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Last known operating system family.
+	OsFamilyHint pulumi.StringInput `pulumi:"osFamilyHint"`
+	// Resource type qualifier.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MachineReferenceWithHintsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineReferenceWithHintsInvokeResponse)(nil)).Elem()
+}
+
+func (i MachineReferenceWithHintsInvokeResponseArgs) ToMachineReferenceWithHintsInvokeResponseOutput() MachineReferenceWithHintsInvokeResponseOutput {
+	return i.ToMachineReferenceWithHintsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MachineReferenceWithHintsInvokeResponseArgs) ToMachineReferenceWithHintsInvokeResponseOutputWithContext(ctx context.Context) MachineReferenceWithHintsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineReferenceWithHintsInvokeResponseOutput)
+}
+
+// MachineReferenceWithHintsInvokeResponseArrayInput is an input type that accepts MachineReferenceWithHintsInvokeResponseArray and MachineReferenceWithHintsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MachineReferenceWithHintsInvokeResponseArrayInput` via:
+//
+//          MachineReferenceWithHintsInvokeResponseArray{ MachineReferenceWithHintsInvokeResponseArgs{...} }
+type MachineReferenceWithHintsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMachineReferenceWithHintsInvokeResponseArrayOutput() MachineReferenceWithHintsInvokeResponseArrayOutput
+	ToMachineReferenceWithHintsInvokeResponseArrayOutputWithContext(context.Context) MachineReferenceWithHintsInvokeResponseArrayOutput
+}
+
+type MachineReferenceWithHintsInvokeResponseArray []MachineReferenceWithHintsInvokeResponseInput
+
+func (MachineReferenceWithHintsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MachineReferenceWithHintsInvokeResponse)(nil)).Elem()
+}
+
+func (i MachineReferenceWithHintsInvokeResponseArray) ToMachineReferenceWithHintsInvokeResponseArrayOutput() MachineReferenceWithHintsInvokeResponseArrayOutput {
+	return i.ToMachineReferenceWithHintsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MachineReferenceWithHintsInvokeResponseArray) ToMachineReferenceWithHintsInvokeResponseArrayOutputWithContext(ctx context.Context) MachineReferenceWithHintsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineReferenceWithHintsInvokeResponseArrayOutput)
+}
+
+// A machine reference with a hint of the machine's name and operating system.
+type MachineReferenceWithHintsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MachineReferenceWithHintsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineReferenceWithHintsInvokeResponse)(nil)).Elem()
+}
+
+func (o MachineReferenceWithHintsInvokeResponseOutput) ToMachineReferenceWithHintsInvokeResponseOutput() MachineReferenceWithHintsInvokeResponseOutput {
+	return o
+}
+
+func (o MachineReferenceWithHintsInvokeResponseOutput) ToMachineReferenceWithHintsInvokeResponseOutputWithContext(ctx context.Context) MachineReferenceWithHintsInvokeResponseOutput {
+	return o
+}
+
+// Last known display name.
+func (o MachineReferenceWithHintsInvokeResponseOutput) DisplayNameHint() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineReferenceWithHintsInvokeResponse) string { return v.DisplayNameHint }).(pulumi.StringOutput)
+}
+
+// Resource URI.
+func (o MachineReferenceWithHintsInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineReferenceWithHintsInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the sub-class of the reference.
+// Expected value is 'ref:machinewithhints'.
+func (o MachineReferenceWithHintsInvokeResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineReferenceWithHintsInvokeResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o MachineReferenceWithHintsInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineReferenceWithHintsInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Last known operating system family.
+func (o MachineReferenceWithHintsInvokeResponseOutput) OsFamilyHint() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineReferenceWithHintsInvokeResponse) string { return v.OsFamilyHint }).(pulumi.StringOutput)
+}
+
+// Resource type qualifier.
+func (o MachineReferenceWithHintsInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineReferenceWithHintsInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type MachineReferenceWithHintsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MachineReferenceWithHintsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MachineReferenceWithHintsInvokeResponse)(nil)).Elem()
+}
+
+func (o MachineReferenceWithHintsInvokeResponseArrayOutput) ToMachineReferenceWithHintsInvokeResponseArrayOutput() MachineReferenceWithHintsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MachineReferenceWithHintsInvokeResponseArrayOutput) ToMachineReferenceWithHintsInvokeResponseArrayOutputWithContext(ctx context.Context) MachineReferenceWithHintsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MachineReferenceWithHintsInvokeResponseArrayOutput) Index(i pulumi.IntInput) MachineReferenceWithHintsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MachineReferenceWithHintsInvokeResponse {
+		return vs[0].([]MachineReferenceWithHintsInvokeResponse)[vs[1].(int)]
+	}).(MachineReferenceWithHintsInvokeResponseOutput)
+}
+
+// A machine reference with a hint of the machine's name and operating system.
 type MachineReferenceWithHintsResponse struct {
 	// Last known display name.
 	DisplayNameHint string `pulumi:"displayNameHint"`
@@ -405,6 +553,61 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The SKU (tier) of a workspace.
+type SkuInvokeResponse struct {
+	// The name of the SKU.
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The SKU (tier) of a workspace.
+type SkuInvokeResponseArgs struct {
+	// The name of the SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The SKU (tier) of a workspace.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU (tier) of a workspace.
 type SkuResponse struct {
 	// The name of the SKU.
 	Name string `pulumi:"name"`
@@ -541,10 +744,13 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(MachineReferenceWithHintsOutput{})
 	pulumi.RegisterOutputType(MachineReferenceWithHintsArrayOutput{})
+	pulumi.RegisterOutputType(MachineReferenceWithHintsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MachineReferenceWithHintsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MachineReferenceWithHintsResponseOutput{})
 	pulumi.RegisterOutputType(MachineReferenceWithHintsResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

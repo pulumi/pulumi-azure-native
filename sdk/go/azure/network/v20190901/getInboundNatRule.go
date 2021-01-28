@@ -30,7 +30,7 @@ type LookupInboundNatRuleArgs struct {
 // Inbound NAT rule of the load balancer.
 type LookupInboundNatRuleResult struct {
 	// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
-	BackendIPConfiguration NetworkInterfaceIPConfigurationResponse `pulumi:"backendIPConfiguration"`
+	BackendIPConfiguration NetworkInterfaceIPConfigurationInvokeResponse `pulumi:"backendIPConfiguration"`
 	// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
 	BackendPort *int `pulumi:"backendPort"`
 	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
@@ -40,7 +40,7 @@ type LookupInboundNatRuleResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// A reference to frontend IP addresses.
-	FrontendIPConfiguration *SubResourceResponse `pulumi:"frontendIPConfiguration"`
+	FrontendIPConfiguration *SubResourceInvokeResponse `pulumi:"frontendIPConfiguration"`
 	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
 	FrontendPort *int `pulumi:"frontendPort"`
 	// Resource ID.

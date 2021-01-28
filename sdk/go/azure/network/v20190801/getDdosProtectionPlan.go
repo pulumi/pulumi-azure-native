@@ -42,5 +42,5 @@ type LookupDdosProtectionPlanResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
-	VirtualNetworks []SubResourceResponse `pulumi:"virtualNetworks"`
+	VirtualNetworks []SubResourceInvokeResponse `pulumi:"virtualNetworks"`
 }

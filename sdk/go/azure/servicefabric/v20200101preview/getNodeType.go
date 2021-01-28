@@ -28,13 +28,13 @@ type LookupNodeTypeArgs struct {
 // Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 type LookupNodeTypeResult struct {
 	// The range of ports from which cluster assigned port to Service Fabric applications.
-	ApplicationPorts *EndpointRangeDescriptionResponse `pulumi:"applicationPorts"`
+	ApplicationPorts *EndpointRangeDescriptionInvokeResponse `pulumi:"applicationPorts"`
 	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
 	Capacities map[string]string `pulumi:"capacities"`
 	// Disk size for each vm in the node type in GBs.
 	DataDiskSizeGB int `pulumi:"dataDiskSizeGB"`
 	// The range of ephemeral ports that nodes in this node type should be configured with.
-	EphemeralPorts *EndpointRangeDescriptionResponse `pulumi:"ephemeralPorts"`
+	EphemeralPorts *EndpointRangeDescriptionInvokeResponse `pulumi:"ephemeralPorts"`
 	// Azure resource identifier.
 	Id string `pulumi:"id"`
 	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
@@ -50,7 +50,7 @@ type LookupNodeTypeResult struct {
 	// Azure resource type.
 	Type string `pulumi:"type"`
 	// Set of extensions that should be installed onto the virtual machines.
-	VmExtensions []VMSSExtensionResponse `pulumi:"vmExtensions"`
+	VmExtensions []VMSSExtensionInvokeResponse `pulumi:"vmExtensions"`
 	// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
 	VmImageOffer *string `pulumi:"vmImageOffer"`
 	// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
@@ -62,7 +62,7 @@ type LookupNodeTypeResult struct {
 	// The number of nodes in the node type.
 	VmInstanceCount int `pulumi:"vmInstanceCount"`
 	// The secrets to install in the virtual machines.
-	VmSecrets []VaultSecretGroupResponse `pulumi:"vmSecrets"`
+	VmSecrets []VaultSecretGroupInvokeResponse `pulumi:"vmSecrets"`
 	// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
 	VmSize *string `pulumi:"vmSize"`
 }

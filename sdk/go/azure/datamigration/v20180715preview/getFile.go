@@ -36,7 +36,7 @@ type LookupFileResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Custom file properties
-	Properties ProjectFilePropertiesResponse `pulumi:"properties"`
+	Properties ProjectFilePropertiesInvokeResponse `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

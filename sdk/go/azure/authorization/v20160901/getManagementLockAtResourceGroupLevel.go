@@ -34,7 +34,7 @@ type LookupManagementLockAtResourceGroupLevelResult struct {
 	// Notes about the lock. Maximum of 512 characters.
 	Notes *string `pulumi:"notes"`
 	// The owners of the lock.
-	Owners []ManagementLockOwnerResponse `pulumi:"owners"`
+	Owners []ManagementLockOwnerInvokeResponse `pulumi:"owners"`
 	// The resource type of the lock - Microsoft.Authorization/locks.
 	Type string `pulumi:"type"`
 }

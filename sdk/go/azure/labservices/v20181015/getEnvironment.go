@@ -46,19 +46,19 @@ type LookupEnvironmentResult struct {
 	// Last known power state of the environment
 	LastKnownPowerState string `pulumi:"lastKnownPowerState"`
 	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
+	LatestOperationResult LatestOperationResultInvokeResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Network details of the environment
-	NetworkInterface NetworkInterfaceResponse `pulumi:"networkInterface"`
+	NetworkInterface NetworkInterfaceInvokeResponse `pulumi:"networkInterface"`
 	// When the password was last reset on the environment.
 	PasswordLastReset string `pulumi:"passwordLastReset"`
 	// The provisioning status of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The set of a VM and the setting id it was created for
-	ResourceSets *ResourceSetResponse `pulumi:"resourceSets"`
+	ResourceSets *ResourceSetInvokeResponse `pulumi:"resourceSets"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// How long the environment has been used by a lab user

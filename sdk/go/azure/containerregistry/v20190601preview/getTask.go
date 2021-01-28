@@ -29,17 +29,17 @@ type LookupTaskArgs struct {
 // The task will have all information to schedule a run against it.
 type LookupTaskResult struct {
 	// The machine configuration of the run agent.
-	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
+	AgentConfiguration *AgentPropertiesInvokeResponse `pulumi:"agentConfiguration"`
 	// The dedicated agent pool for the task.
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// The creation date of task.
 	CreationDate string `pulumi:"creationDate"`
 	// The properties that describes a set of credentials that will be used when this run is invoked.
-	Credentials *CredentialsResponse `pulumi:"credentials"`
+	Credentials *CredentialsInvokeResponse `pulumi:"credentials"`
 	// The resource ID.
 	Id string `pulumi:"id"`
 	// Identity for the resource.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	Identity *IdentityPropertiesInvokeResponse `pulumi:"identity"`
 	// The value of this property indicates whether the task resource is system task or not.
 	IsSystemTask *bool `pulumi:"isSystemTask"`
 	// The location of the resource. This cannot be changed after the resource is created.
@@ -49,7 +49,7 @@ type LookupTaskResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The platform properties against which the run has to happen.
-	Platform *PlatformPropertiesResponse `pulumi:"platform"`
+	Platform *PlatformPropertiesInvokeResponse `pulumi:"platform"`
 	// The provisioning state of the task.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The current status of task.
@@ -57,13 +57,13 @@ type LookupTaskResult struct {
 	// The properties of a task step.
 	Step interface{} `pulumi:"step"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Run timeout in seconds.
 	Timeout *int `pulumi:"timeout"`
 	// The properties that describe all triggers for the task.
-	Trigger *TriggerPropertiesResponse `pulumi:"trigger"`
+	Trigger *TriggerPropertiesInvokeResponse `pulumi:"trigger"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

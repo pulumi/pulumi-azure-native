@@ -32,9 +32,9 @@ type LookupSignalRPrivateEndpointConnectionResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	PrivateEndpoint *PrivateEndpointInvokeResponse `pulumi:"privateEndpoint"`
 	// Connection state
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
 	// Provisioning state of the private endpoint connection
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"

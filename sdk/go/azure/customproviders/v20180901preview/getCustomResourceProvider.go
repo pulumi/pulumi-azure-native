@@ -26,7 +26,7 @@ type LookupCustomResourceProviderArgs struct {
 // A manifest file that defines the custom resource provider resources.
 type LookupCustomResourceProviderResult struct {
 	// A list of actions that the custom resource provider implements.
-	Actions []CustomRPActionRouteDefinitionResponse `pulumi:"actions"`
+	Actions []CustomRPActionRouteDefinitionInvokeResponse `pulumi:"actions"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location
@@ -36,11 +36,11 @@ type LookupCustomResourceProviderResult struct {
 	// The provisioning state of the resource provider.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// A list of resource types that the custom resource provider implements.
-	ResourceTypes []CustomRPResourceTypeRouteDefinitionResponse `pulumi:"resourceTypes"`
+	ResourceTypes []CustomRPResourceTypeRouteDefinitionInvokeResponse `pulumi:"resourceTypes"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// A list of validations to run on the custom resource provider's requests.
-	Validations []CustomRPValidationsResponse `pulumi:"validations"`
+	Validations []CustomRPValidationsInvokeResponse `pulumi:"validations"`
 }

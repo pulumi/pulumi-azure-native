@@ -40,7 +40,7 @@ type LookupPrivateStoreOfferResult struct {
 	// It will be displayed prominently in the marketplace
 	OfferDisplayName string `pulumi:"offerDisplayName"`
 	// Offer plans
-	Plans []PlanResponse `pulumi:"plans"`
+	Plans []PlanInvokeResponse `pulumi:"plans"`
 	// Private store unique id
 	PrivateStoreId string `pulumi:"privateStoreId"`
 	// Publisher name that will be displayed prominently in the marketplace

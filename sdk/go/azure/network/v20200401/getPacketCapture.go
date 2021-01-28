@@ -32,7 +32,7 @@ type LookupPacketCaptureResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// A list of packet capture filters.
-	Filters []PacketCaptureFilterResponse `pulumi:"filters"`
+	Filters []PacketCaptureFilterInvokeResponse `pulumi:"filters"`
 	// ID of the packet capture operation.
 	Id string `pulumi:"id"`
 	// Name of the packet capture session.
@@ -40,7 +40,7 @@ type LookupPacketCaptureResult struct {
 	// The provisioning state of the packet capture session.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The storage location for a packet capture session.
-	StorageLocation PacketCaptureStorageLocationResponse `pulumi:"storageLocation"`
+	StorageLocation PacketCaptureStorageLocationInvokeResponse `pulumi:"storageLocation"`
 	// The ID of the targeted resource, only VM is currently supported.
 	Target string `pulumi:"target"`
 	// Maximum duration of the capture session in seconds.

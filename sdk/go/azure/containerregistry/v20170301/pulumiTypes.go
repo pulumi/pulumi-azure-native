@@ -11,112 +11,112 @@ import (
 )
 
 // The login password for the container registry.
-type RegistryPasswordResponse struct {
+type RegistryPasswordInvokeResponse struct {
 	// The password name.
 	Name *string `pulumi:"name"`
 	// The password value.
 	Value *string `pulumi:"value"`
 }
 
-// RegistryPasswordResponseInput is an input type that accepts RegistryPasswordResponseArgs and RegistryPasswordResponseOutput values.
-// You can construct a concrete instance of `RegistryPasswordResponseInput` via:
+// RegistryPasswordInvokeResponseInput is an input type that accepts RegistryPasswordInvokeResponseArgs and RegistryPasswordInvokeResponseOutput values.
+// You can construct a concrete instance of `RegistryPasswordInvokeResponseInput` via:
 //
-//          RegistryPasswordResponseArgs{...}
-type RegistryPasswordResponseInput interface {
+//          RegistryPasswordInvokeResponseArgs{...}
+type RegistryPasswordInvokeResponseInput interface {
 	pulumi.Input
 
-	ToRegistryPasswordResponseOutput() RegistryPasswordResponseOutput
-	ToRegistryPasswordResponseOutputWithContext(context.Context) RegistryPasswordResponseOutput
+	ToRegistryPasswordInvokeResponseOutput() RegistryPasswordInvokeResponseOutput
+	ToRegistryPasswordInvokeResponseOutputWithContext(context.Context) RegistryPasswordInvokeResponseOutput
 }
 
 // The login password for the container registry.
-type RegistryPasswordResponseArgs struct {
+type RegistryPasswordInvokeResponseArgs struct {
 	// The password name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The password value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (RegistryPasswordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryPasswordResponse)(nil)).Elem()
+func (RegistryPasswordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryPasswordInvokeResponse)(nil)).Elem()
 }
 
-func (i RegistryPasswordResponseArgs) ToRegistryPasswordResponseOutput() RegistryPasswordResponseOutput {
-	return i.ToRegistryPasswordResponseOutputWithContext(context.Background())
+func (i RegistryPasswordInvokeResponseArgs) ToRegistryPasswordInvokeResponseOutput() RegistryPasswordInvokeResponseOutput {
+	return i.ToRegistryPasswordInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i RegistryPasswordResponseArgs) ToRegistryPasswordResponseOutputWithContext(ctx context.Context) RegistryPasswordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryPasswordResponseOutput)
+func (i RegistryPasswordInvokeResponseArgs) ToRegistryPasswordInvokeResponseOutputWithContext(ctx context.Context) RegistryPasswordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryPasswordInvokeResponseOutput)
 }
 
-// RegistryPasswordResponseArrayInput is an input type that accepts RegistryPasswordResponseArray and RegistryPasswordResponseArrayOutput values.
-// You can construct a concrete instance of `RegistryPasswordResponseArrayInput` via:
+// RegistryPasswordInvokeResponseArrayInput is an input type that accepts RegistryPasswordInvokeResponseArray and RegistryPasswordInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RegistryPasswordInvokeResponseArrayInput` via:
 //
-//          RegistryPasswordResponseArray{ RegistryPasswordResponseArgs{...} }
-type RegistryPasswordResponseArrayInput interface {
+//          RegistryPasswordInvokeResponseArray{ RegistryPasswordInvokeResponseArgs{...} }
+type RegistryPasswordInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToRegistryPasswordResponseArrayOutput() RegistryPasswordResponseArrayOutput
-	ToRegistryPasswordResponseArrayOutputWithContext(context.Context) RegistryPasswordResponseArrayOutput
+	ToRegistryPasswordInvokeResponseArrayOutput() RegistryPasswordInvokeResponseArrayOutput
+	ToRegistryPasswordInvokeResponseArrayOutputWithContext(context.Context) RegistryPasswordInvokeResponseArrayOutput
 }
 
-type RegistryPasswordResponseArray []RegistryPasswordResponseInput
+type RegistryPasswordInvokeResponseArray []RegistryPasswordInvokeResponseInput
 
-func (RegistryPasswordResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryPasswordResponse)(nil)).Elem()
+func (RegistryPasswordInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryPasswordInvokeResponse)(nil)).Elem()
 }
 
-func (i RegistryPasswordResponseArray) ToRegistryPasswordResponseArrayOutput() RegistryPasswordResponseArrayOutput {
-	return i.ToRegistryPasswordResponseArrayOutputWithContext(context.Background())
+func (i RegistryPasswordInvokeResponseArray) ToRegistryPasswordInvokeResponseArrayOutput() RegistryPasswordInvokeResponseArrayOutput {
+	return i.ToRegistryPasswordInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i RegistryPasswordResponseArray) ToRegistryPasswordResponseArrayOutputWithContext(ctx context.Context) RegistryPasswordResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryPasswordResponseArrayOutput)
+func (i RegistryPasswordInvokeResponseArray) ToRegistryPasswordInvokeResponseArrayOutputWithContext(ctx context.Context) RegistryPasswordInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryPasswordInvokeResponseArrayOutput)
 }
 
 // The login password for the container registry.
-type RegistryPasswordResponseOutput struct{ *pulumi.OutputState }
+type RegistryPasswordInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (RegistryPasswordResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryPasswordResponse)(nil)).Elem()
+func (RegistryPasswordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryPasswordInvokeResponse)(nil)).Elem()
 }
 
-func (o RegistryPasswordResponseOutput) ToRegistryPasswordResponseOutput() RegistryPasswordResponseOutput {
+func (o RegistryPasswordInvokeResponseOutput) ToRegistryPasswordInvokeResponseOutput() RegistryPasswordInvokeResponseOutput {
 	return o
 }
 
-func (o RegistryPasswordResponseOutput) ToRegistryPasswordResponseOutputWithContext(ctx context.Context) RegistryPasswordResponseOutput {
+func (o RegistryPasswordInvokeResponseOutput) ToRegistryPasswordInvokeResponseOutputWithContext(ctx context.Context) RegistryPasswordInvokeResponseOutput {
 	return o
 }
 
 // The password name.
-func (o RegistryPasswordResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RegistryPasswordResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o RegistryPasswordInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryPasswordInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The password value.
-func (o RegistryPasswordResponseOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RegistryPasswordResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o RegistryPasswordInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryPasswordInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type RegistryPasswordResponseArrayOutput struct{ *pulumi.OutputState }
+type RegistryPasswordInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (RegistryPasswordResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryPasswordResponse)(nil)).Elem()
+func (RegistryPasswordInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryPasswordInvokeResponse)(nil)).Elem()
 }
 
-func (o RegistryPasswordResponseArrayOutput) ToRegistryPasswordResponseArrayOutput() RegistryPasswordResponseArrayOutput {
+func (o RegistryPasswordInvokeResponseArrayOutput) ToRegistryPasswordInvokeResponseArrayOutput() RegistryPasswordInvokeResponseArrayOutput {
 	return o
 }
 
-func (o RegistryPasswordResponseArrayOutput) ToRegistryPasswordResponseArrayOutputWithContext(ctx context.Context) RegistryPasswordResponseArrayOutput {
+func (o RegistryPasswordInvokeResponseArrayOutput) ToRegistryPasswordInvokeResponseArrayOutputWithContext(ctx context.Context) RegistryPasswordInvokeResponseArrayOutput {
 	return o
 }
 
-func (o RegistryPasswordResponseArrayOutput) Index(i pulumi.IntInput) RegistryPasswordResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryPasswordResponse {
-		return vs[0].([]RegistryPasswordResponse)[vs[1].(int)]
-	}).(RegistryPasswordResponseOutput)
+func (o RegistryPasswordInvokeResponseArrayOutput) Index(i pulumi.IntInput) RegistryPasswordInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryPasswordInvokeResponse {
+		return vs[0].([]RegistryPasswordInvokeResponse)[vs[1].(int)]
+	}).(RegistryPasswordInvokeResponseOutput)
 }
 
 // The SKU of a container registry.
@@ -251,6 +251,70 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The SKU of a container registry.
+type SkuInvokeResponse struct {
+	// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
+	Name string `pulumi:"name"`
+	// The SKU tier based on the SKU name.
+	Tier string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The SKU of a container registry.
+type SkuInvokeResponseArgs struct {
+	// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The SKU tier based on the SKU name.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The SKU of a container registry.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU tier based on the SKU name.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 // The SKU of a container registry.
@@ -560,6 +624,61 @@ func (o StorageAccountParametersPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The properties of a storage account for a container registry.
+type StorageAccountPropertiesInvokeResponse struct {
+	// The name of the storage account.
+	Name *string `pulumi:"name"`
+}
+
+// StorageAccountPropertiesInvokeResponseInput is an input type that accepts StorageAccountPropertiesInvokeResponseArgs and StorageAccountPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountPropertiesInvokeResponseInput` via:
+//
+//          StorageAccountPropertiesInvokeResponseArgs{...}
+type StorageAccountPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput
+	ToStorageAccountPropertiesInvokeResponseOutputWithContext(context.Context) StorageAccountPropertiesInvokeResponseOutput
+}
+
+// The properties of a storage account for a container registry.
+type StorageAccountPropertiesInvokeResponseArgs struct {
+	// The name of the storage account.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (StorageAccountPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountPropertiesInvokeResponseArgs) ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput {
+	return i.ToStorageAccountPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountPropertiesInvokeResponseArgs) ToStorageAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesInvokeResponseOutput)
+}
+
+// The properties of a storage account for a container registry.
+type StorageAccountPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountPropertiesInvokeResponseOutput) ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountPropertiesInvokeResponseOutput) ToStorageAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The name of the storage account.
+func (o StorageAccountPropertiesInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The properties of a storage account for a container registry.
 type StorageAccountPropertiesResponse struct {
 	// The name of the storage account.
 	Name *string `pulumi:"name"`
@@ -694,14 +813,16 @@ func (o StorageAccountPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterOutputType(RegistryPasswordResponseOutput{})
-	pulumi.RegisterOutputType(RegistryPasswordResponseArrayOutput{})
+	pulumi.RegisterOutputType(RegistryPasswordInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RegistryPasswordInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountParametersOutput{})
 	pulumi.RegisterOutputType(StorageAccountParametersPtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
 }

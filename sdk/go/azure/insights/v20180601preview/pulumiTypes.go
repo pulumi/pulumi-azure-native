@@ -192,6 +192,82 @@ func (o DataSourceConfigurationOutput) Providers() EtwProviderConfigurationArray
 	return o.ApplyT(func(v DataSourceConfiguration) []EtwProviderConfiguration { return v.Providers }).(EtwProviderConfigurationArrayOutput)
 }
 
+type DataSourceConfigurationInvokeResponse struct {
+	// Windows event logs configuration.
+	EventLogs []EventLogConfigurationInvokeResponse `pulumi:"eventLogs"`
+	// Performance counter configuration
+	PerfCounters []PerformanceCounterConfigurationInvokeResponse `pulumi:"perfCounters"`
+	// ETW providers configuration
+	Providers []EtwProviderConfigurationInvokeResponse `pulumi:"providers"`
+}
+
+// DataSourceConfigurationInvokeResponseInput is an input type that accepts DataSourceConfigurationInvokeResponseArgs and DataSourceConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationInvokeResponseInput` via:
+//
+//          DataSourceConfigurationInvokeResponseArgs{...}
+type DataSourceConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationInvokeResponseOutput() DataSourceConfigurationInvokeResponseOutput
+	ToDataSourceConfigurationInvokeResponseOutputWithContext(context.Context) DataSourceConfigurationInvokeResponseOutput
+}
+
+type DataSourceConfigurationInvokeResponseArgs struct {
+	// Windows event logs configuration.
+	EventLogs EventLogConfigurationInvokeResponseArrayInput `pulumi:"eventLogs"`
+	// Performance counter configuration
+	PerfCounters PerformanceCounterConfigurationInvokeResponseArrayInput `pulumi:"perfCounters"`
+	// ETW providers configuration
+	Providers EtwProviderConfigurationInvokeResponseArrayInput `pulumi:"providers"`
+}
+
+func (DataSourceConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationInvokeResponseArgs) ToDataSourceConfigurationInvokeResponseOutput() DataSourceConfigurationInvokeResponseOutput {
+	return i.ToDataSourceConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationInvokeResponseArgs) ToDataSourceConfigurationInvokeResponseOutputWithContext(ctx context.Context) DataSourceConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInvokeResponseOutput)
+}
+
+type DataSourceConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationInvokeResponseOutput) ToDataSourceConfigurationInvokeResponseOutput() DataSourceConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInvokeResponseOutput) ToDataSourceConfigurationInvokeResponseOutputWithContext(ctx context.Context) DataSourceConfigurationInvokeResponseOutput {
+	return o
+}
+
+// Windows event logs configuration.
+func (o DataSourceConfigurationInvokeResponseOutput) EventLogs() EventLogConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationInvokeResponse) []EventLogConfigurationInvokeResponse {
+		return v.EventLogs
+	}).(EventLogConfigurationInvokeResponseArrayOutput)
+}
+
+// Performance counter configuration
+func (o DataSourceConfigurationInvokeResponseOutput) PerfCounters() PerformanceCounterConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationInvokeResponse) []PerformanceCounterConfigurationInvokeResponse {
+		return v.PerfCounters
+	}).(PerformanceCounterConfigurationInvokeResponseArrayOutput)
+}
+
+// ETW providers configuration
+func (o DataSourceConfigurationInvokeResponseOutput) Providers() EtwProviderConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataSourceConfigurationInvokeResponse) []EtwProviderConfigurationInvokeResponse {
+		return v.Providers
+	}).(EtwProviderConfigurationInvokeResponseArrayOutput)
+}
+
 type DataSourceConfigurationResponse struct {
 	// Windows event logs configuration.
 	EventLogs []EventLogConfigurationResponse `pulumi:"eventLogs"`
@@ -262,6 +338,118 @@ func (o DataSourceConfigurationResponseOutput) PerfCounters() PerformanceCounter
 // ETW providers configuration
 func (o DataSourceConfigurationResponseOutput) Providers() EtwProviderConfigurationResponseArrayOutput {
 	return o.ApplyT(func(v DataSourceConfigurationResponse) []EtwProviderConfigurationResponse { return v.Providers }).(EtwProviderConfigurationResponseArrayOutput)
+}
+
+// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+type DataSourceInvokeResponse struct {
+	Configuration DataSourceConfigurationInvokeResponse `pulumi:"configuration"`
+	// Datasource kind
+	Kind  string                            `pulumi:"kind"`
+	Sinks []SinkConfigurationInvokeResponse `pulumi:"sinks"`
+}
+
+// DataSourceInvokeResponseInput is an input type that accepts DataSourceInvokeResponseArgs and DataSourceInvokeResponseOutput values.
+// You can construct a concrete instance of `DataSourceInvokeResponseInput` via:
+//
+//          DataSourceInvokeResponseArgs{...}
+type DataSourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataSourceInvokeResponseOutput() DataSourceInvokeResponseOutput
+	ToDataSourceInvokeResponseOutputWithContext(context.Context) DataSourceInvokeResponseOutput
+}
+
+// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+type DataSourceInvokeResponseArgs struct {
+	Configuration DataSourceConfigurationInvokeResponseInput `pulumi:"configuration"`
+	// Datasource kind
+	Kind  pulumi.StringInput                        `pulumi:"kind"`
+	Sinks SinkConfigurationInvokeResponseArrayInput `pulumi:"sinks"`
+}
+
+func (DataSourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i DataSourceInvokeResponseArgs) ToDataSourceInvokeResponseOutput() DataSourceInvokeResponseOutput {
+	return i.ToDataSourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataSourceInvokeResponseArgs) ToDataSourceInvokeResponseOutputWithContext(ctx context.Context) DataSourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceInvokeResponseOutput)
+}
+
+// DataSourceInvokeResponseArrayInput is an input type that accepts DataSourceInvokeResponseArray and DataSourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataSourceInvokeResponseArrayInput` via:
+//
+//          DataSourceInvokeResponseArray{ DataSourceInvokeResponseArgs{...} }
+type DataSourceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceInvokeResponseArrayOutput() DataSourceInvokeResponseArrayOutput
+	ToDataSourceInvokeResponseArrayOutputWithContext(context.Context) DataSourceInvokeResponseArrayOutput
+}
+
+type DataSourceInvokeResponseArray []DataSourceInvokeResponseInput
+
+func (DataSourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (i DataSourceInvokeResponseArray) ToDataSourceInvokeResponseArrayOutput() DataSourceInvokeResponseArrayOutput {
+	return i.ToDataSourceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceInvokeResponseArray) ToDataSourceInvokeResponseArrayOutputWithContext(ctx context.Context) DataSourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceInvokeResponseArrayOutput)
+}
+
+// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+type DataSourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataSourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o DataSourceInvokeResponseOutput) ToDataSourceInvokeResponseOutput() DataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o DataSourceInvokeResponseOutput) ToDataSourceInvokeResponseOutputWithContext(ctx context.Context) DataSourceInvokeResponseOutput {
+	return o
+}
+
+func (o DataSourceInvokeResponseOutput) Configuration() DataSourceConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v DataSourceInvokeResponse) DataSourceConfigurationInvokeResponse { return v.Configuration }).(DataSourceConfigurationInvokeResponseOutput)
+}
+
+// Datasource kind
+func (o DataSourceInvokeResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceInvokeResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+func (o DataSourceInvokeResponseOutput) Sinks() SinkConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataSourceInvokeResponse) []SinkConfigurationInvokeResponse { return v.Sinks }).(SinkConfigurationInvokeResponseArrayOutput)
+}
+
+type DataSourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceInvokeResponse)(nil)).Elem()
+}
+
+func (o DataSourceInvokeResponseArrayOutput) ToDataSourceInvokeResponseArrayOutput() DataSourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataSourceInvokeResponseArrayOutput) ToDataSourceInvokeResponseArrayOutputWithContext(ctx context.Context) DataSourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataSourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataSourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceInvokeResponse {
+		return vs[0].([]DataSourceInvokeResponse)[vs[1].(int)]
+	}).(DataSourceInvokeResponseOutput)
 }
 
 // Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
@@ -482,6 +670,112 @@ func (o EtwEventConfigurationArrayOutput) Index(i pulumi.IntInput) EtwEventConfi
 	}).(EtwEventConfigurationOutput)
 }
 
+type EtwEventConfigurationInvokeResponse struct {
+	Filter *string `pulumi:"filter"`
+	Id     int     `pulumi:"id"`
+	Name   string  `pulumi:"name"`
+}
+
+// EtwEventConfigurationInvokeResponseInput is an input type that accepts EtwEventConfigurationInvokeResponseArgs and EtwEventConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `EtwEventConfigurationInvokeResponseInput` via:
+//
+//          EtwEventConfigurationInvokeResponseArgs{...}
+type EtwEventConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEtwEventConfigurationInvokeResponseOutput() EtwEventConfigurationInvokeResponseOutput
+	ToEtwEventConfigurationInvokeResponseOutputWithContext(context.Context) EtwEventConfigurationInvokeResponseOutput
+}
+
+type EtwEventConfigurationInvokeResponseArgs struct {
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
+	Id     pulumi.IntInput       `pulumi:"id"`
+	Name   pulumi.StringInput    `pulumi:"name"`
+}
+
+func (EtwEventConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EtwEventConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i EtwEventConfigurationInvokeResponseArgs) ToEtwEventConfigurationInvokeResponseOutput() EtwEventConfigurationInvokeResponseOutput {
+	return i.ToEtwEventConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EtwEventConfigurationInvokeResponseArgs) ToEtwEventConfigurationInvokeResponseOutputWithContext(ctx context.Context) EtwEventConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EtwEventConfigurationInvokeResponseOutput)
+}
+
+// EtwEventConfigurationInvokeResponseArrayInput is an input type that accepts EtwEventConfigurationInvokeResponseArray and EtwEventConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EtwEventConfigurationInvokeResponseArrayInput` via:
+//
+//          EtwEventConfigurationInvokeResponseArray{ EtwEventConfigurationInvokeResponseArgs{...} }
+type EtwEventConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEtwEventConfigurationInvokeResponseArrayOutput() EtwEventConfigurationInvokeResponseArrayOutput
+	ToEtwEventConfigurationInvokeResponseArrayOutputWithContext(context.Context) EtwEventConfigurationInvokeResponseArrayOutput
+}
+
+type EtwEventConfigurationInvokeResponseArray []EtwEventConfigurationInvokeResponseInput
+
+func (EtwEventConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EtwEventConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i EtwEventConfigurationInvokeResponseArray) ToEtwEventConfigurationInvokeResponseArrayOutput() EtwEventConfigurationInvokeResponseArrayOutput {
+	return i.ToEtwEventConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EtwEventConfigurationInvokeResponseArray) ToEtwEventConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) EtwEventConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EtwEventConfigurationInvokeResponseArrayOutput)
+}
+
+type EtwEventConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EtwEventConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EtwEventConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o EtwEventConfigurationInvokeResponseOutput) ToEtwEventConfigurationInvokeResponseOutput() EtwEventConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o EtwEventConfigurationInvokeResponseOutput) ToEtwEventConfigurationInvokeResponseOutputWithContext(ctx context.Context) EtwEventConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o EtwEventConfigurationInvokeResponseOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EtwEventConfigurationInvokeResponse) *string { return v.Filter }).(pulumi.StringPtrOutput)
+}
+
+func (o EtwEventConfigurationInvokeResponseOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v EtwEventConfigurationInvokeResponse) int { return v.Id }).(pulumi.IntOutput)
+}
+
+func (o EtwEventConfigurationInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EtwEventConfigurationInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type EtwEventConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EtwEventConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EtwEventConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o EtwEventConfigurationInvokeResponseArrayOutput) ToEtwEventConfigurationInvokeResponseArrayOutput() EtwEventConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EtwEventConfigurationInvokeResponseArrayOutput) ToEtwEventConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) EtwEventConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EtwEventConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) EtwEventConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EtwEventConfigurationInvokeResponse {
+		return vs[0].([]EtwEventConfigurationInvokeResponse)[vs[1].(int)]
+	}).(EtwEventConfigurationInvokeResponseOutput)
+}
+
 type EtwEventConfigurationResponse struct {
 	Filter *string `pulumi:"filter"`
 	Id     int     `pulumi:"id"`
@@ -688,6 +982,106 @@ func (o EtwProviderConfigurationArrayOutput) Index(i pulumi.IntInput) EtwProvide
 	}).(EtwProviderConfigurationOutput)
 }
 
+type EtwProviderConfigurationInvokeResponse struct {
+	Events []EtwEventConfigurationInvokeResponse `pulumi:"events"`
+	Id     string                                `pulumi:"id"`
+}
+
+// EtwProviderConfigurationInvokeResponseInput is an input type that accepts EtwProviderConfigurationInvokeResponseArgs and EtwProviderConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `EtwProviderConfigurationInvokeResponseInput` via:
+//
+//          EtwProviderConfigurationInvokeResponseArgs{...}
+type EtwProviderConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEtwProviderConfigurationInvokeResponseOutput() EtwProviderConfigurationInvokeResponseOutput
+	ToEtwProviderConfigurationInvokeResponseOutputWithContext(context.Context) EtwProviderConfigurationInvokeResponseOutput
+}
+
+type EtwProviderConfigurationInvokeResponseArgs struct {
+	Events EtwEventConfigurationInvokeResponseArrayInput `pulumi:"events"`
+	Id     pulumi.StringInput                            `pulumi:"id"`
+}
+
+func (EtwProviderConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EtwProviderConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i EtwProviderConfigurationInvokeResponseArgs) ToEtwProviderConfigurationInvokeResponseOutput() EtwProviderConfigurationInvokeResponseOutput {
+	return i.ToEtwProviderConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EtwProviderConfigurationInvokeResponseArgs) ToEtwProviderConfigurationInvokeResponseOutputWithContext(ctx context.Context) EtwProviderConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EtwProviderConfigurationInvokeResponseOutput)
+}
+
+// EtwProviderConfigurationInvokeResponseArrayInput is an input type that accepts EtwProviderConfigurationInvokeResponseArray and EtwProviderConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EtwProviderConfigurationInvokeResponseArrayInput` via:
+//
+//          EtwProviderConfigurationInvokeResponseArray{ EtwProviderConfigurationInvokeResponseArgs{...} }
+type EtwProviderConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEtwProviderConfigurationInvokeResponseArrayOutput() EtwProviderConfigurationInvokeResponseArrayOutput
+	ToEtwProviderConfigurationInvokeResponseArrayOutputWithContext(context.Context) EtwProviderConfigurationInvokeResponseArrayOutput
+}
+
+type EtwProviderConfigurationInvokeResponseArray []EtwProviderConfigurationInvokeResponseInput
+
+func (EtwProviderConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EtwProviderConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i EtwProviderConfigurationInvokeResponseArray) ToEtwProviderConfigurationInvokeResponseArrayOutput() EtwProviderConfigurationInvokeResponseArrayOutput {
+	return i.ToEtwProviderConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EtwProviderConfigurationInvokeResponseArray) ToEtwProviderConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) EtwProviderConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EtwProviderConfigurationInvokeResponseArrayOutput)
+}
+
+type EtwProviderConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EtwProviderConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EtwProviderConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o EtwProviderConfigurationInvokeResponseOutput) ToEtwProviderConfigurationInvokeResponseOutput() EtwProviderConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o EtwProviderConfigurationInvokeResponseOutput) ToEtwProviderConfigurationInvokeResponseOutputWithContext(ctx context.Context) EtwProviderConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o EtwProviderConfigurationInvokeResponseOutput) Events() EtwEventConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EtwProviderConfigurationInvokeResponse) []EtwEventConfigurationInvokeResponse { return v.Events }).(EtwEventConfigurationInvokeResponseArrayOutput)
+}
+
+func (o EtwProviderConfigurationInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v EtwProviderConfigurationInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type EtwProviderConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EtwProviderConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EtwProviderConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o EtwProviderConfigurationInvokeResponseArrayOutput) ToEtwProviderConfigurationInvokeResponseArrayOutput() EtwProviderConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EtwProviderConfigurationInvokeResponseArrayOutput) ToEtwProviderConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) EtwProviderConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EtwProviderConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) EtwProviderConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EtwProviderConfigurationInvokeResponse {
+		return vs[0].([]EtwProviderConfigurationInvokeResponse)[vs[1].(int)]
+	}).(EtwProviderConfigurationInvokeResponseOutput)
+}
+
 type EtwProviderConfigurationResponse struct {
 	Events []EtwEventConfigurationResponse `pulumi:"events"`
 	Id     string                          `pulumi:"id"`
@@ -886,6 +1280,106 @@ func (o EventLogConfigurationArrayOutput) Index(i pulumi.IntInput) EventLogConfi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventLogConfiguration {
 		return vs[0].([]EventLogConfiguration)[vs[1].(int)]
 	}).(EventLogConfigurationOutput)
+}
+
+type EventLogConfigurationInvokeResponse struct {
+	Filter  *string `pulumi:"filter"`
+	LogName string  `pulumi:"logName"`
+}
+
+// EventLogConfigurationInvokeResponseInput is an input type that accepts EventLogConfigurationInvokeResponseArgs and EventLogConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `EventLogConfigurationInvokeResponseInput` via:
+//
+//          EventLogConfigurationInvokeResponseArgs{...}
+type EventLogConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventLogConfigurationInvokeResponseOutput() EventLogConfigurationInvokeResponseOutput
+	ToEventLogConfigurationInvokeResponseOutputWithContext(context.Context) EventLogConfigurationInvokeResponseOutput
+}
+
+type EventLogConfigurationInvokeResponseArgs struct {
+	Filter  pulumi.StringPtrInput `pulumi:"filter"`
+	LogName pulumi.StringInput    `pulumi:"logName"`
+}
+
+func (EventLogConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventLogConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i EventLogConfigurationInvokeResponseArgs) ToEventLogConfigurationInvokeResponseOutput() EventLogConfigurationInvokeResponseOutput {
+	return i.ToEventLogConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventLogConfigurationInvokeResponseArgs) ToEventLogConfigurationInvokeResponseOutputWithContext(ctx context.Context) EventLogConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventLogConfigurationInvokeResponseOutput)
+}
+
+// EventLogConfigurationInvokeResponseArrayInput is an input type that accepts EventLogConfigurationInvokeResponseArray and EventLogConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EventLogConfigurationInvokeResponseArrayInput` via:
+//
+//          EventLogConfigurationInvokeResponseArray{ EventLogConfigurationInvokeResponseArgs{...} }
+type EventLogConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEventLogConfigurationInvokeResponseArrayOutput() EventLogConfigurationInvokeResponseArrayOutput
+	ToEventLogConfigurationInvokeResponseArrayOutputWithContext(context.Context) EventLogConfigurationInvokeResponseArrayOutput
+}
+
+type EventLogConfigurationInvokeResponseArray []EventLogConfigurationInvokeResponseInput
+
+func (EventLogConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventLogConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i EventLogConfigurationInvokeResponseArray) ToEventLogConfigurationInvokeResponseArrayOutput() EventLogConfigurationInvokeResponseArrayOutput {
+	return i.ToEventLogConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EventLogConfigurationInvokeResponseArray) ToEventLogConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) EventLogConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventLogConfigurationInvokeResponseArrayOutput)
+}
+
+type EventLogConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventLogConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventLogConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o EventLogConfigurationInvokeResponseOutput) ToEventLogConfigurationInvokeResponseOutput() EventLogConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o EventLogConfigurationInvokeResponseOutput) ToEventLogConfigurationInvokeResponseOutputWithContext(ctx context.Context) EventLogConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o EventLogConfigurationInvokeResponseOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventLogConfigurationInvokeResponse) *string { return v.Filter }).(pulumi.StringPtrOutput)
+}
+
+func (o EventLogConfigurationInvokeResponseOutput) LogName() pulumi.StringOutput {
+	return o.ApplyT(func(v EventLogConfigurationInvokeResponse) string { return v.LogName }).(pulumi.StringOutput)
+}
+
+type EventLogConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EventLogConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventLogConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o EventLogConfigurationInvokeResponseArrayOutput) ToEventLogConfigurationInvokeResponseArrayOutput() EventLogConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EventLogConfigurationInvokeResponseArrayOutput) ToEventLogConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) EventLogConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EventLogConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) EventLogConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventLogConfigurationInvokeResponse {
+		return vs[0].([]EventLogConfigurationInvokeResponse)[vs[1].(int)]
+	}).(EventLogConfigurationInvokeResponseOutput)
 }
 
 type EventLogConfigurationResponse struct {
@@ -1094,6 +1588,112 @@ func (o PerformanceCounterConfigurationArrayOutput) Index(i pulumi.IntInput) Per
 	}).(PerformanceCounterConfigurationOutput)
 }
 
+type PerformanceCounterConfigurationInvokeResponse struct {
+	Instance       *string `pulumi:"instance"`
+	Name           string  `pulumi:"name"`
+	SamplingPeriod string  `pulumi:"samplingPeriod"`
+}
+
+// PerformanceCounterConfigurationInvokeResponseInput is an input type that accepts PerformanceCounterConfigurationInvokeResponseArgs and PerformanceCounterConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `PerformanceCounterConfigurationInvokeResponseInput` via:
+//
+//          PerformanceCounterConfigurationInvokeResponseArgs{...}
+type PerformanceCounterConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPerformanceCounterConfigurationInvokeResponseOutput() PerformanceCounterConfigurationInvokeResponseOutput
+	ToPerformanceCounterConfigurationInvokeResponseOutputWithContext(context.Context) PerformanceCounterConfigurationInvokeResponseOutput
+}
+
+type PerformanceCounterConfigurationInvokeResponseArgs struct {
+	Instance       pulumi.StringPtrInput `pulumi:"instance"`
+	Name           pulumi.StringInput    `pulumi:"name"`
+	SamplingPeriod pulumi.StringInput    `pulumi:"samplingPeriod"`
+}
+
+func (PerformanceCounterConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerformanceCounterConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i PerformanceCounterConfigurationInvokeResponseArgs) ToPerformanceCounterConfigurationInvokeResponseOutput() PerformanceCounterConfigurationInvokeResponseOutput {
+	return i.ToPerformanceCounterConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PerformanceCounterConfigurationInvokeResponseArgs) ToPerformanceCounterConfigurationInvokeResponseOutputWithContext(ctx context.Context) PerformanceCounterConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerformanceCounterConfigurationInvokeResponseOutput)
+}
+
+// PerformanceCounterConfigurationInvokeResponseArrayInput is an input type that accepts PerformanceCounterConfigurationInvokeResponseArray and PerformanceCounterConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PerformanceCounterConfigurationInvokeResponseArrayInput` via:
+//
+//          PerformanceCounterConfigurationInvokeResponseArray{ PerformanceCounterConfigurationInvokeResponseArgs{...} }
+type PerformanceCounterConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPerformanceCounterConfigurationInvokeResponseArrayOutput() PerformanceCounterConfigurationInvokeResponseArrayOutput
+	ToPerformanceCounterConfigurationInvokeResponseArrayOutputWithContext(context.Context) PerformanceCounterConfigurationInvokeResponseArrayOutput
+}
+
+type PerformanceCounterConfigurationInvokeResponseArray []PerformanceCounterConfigurationInvokeResponseInput
+
+func (PerformanceCounterConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerformanceCounterConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i PerformanceCounterConfigurationInvokeResponseArray) ToPerformanceCounterConfigurationInvokeResponseArrayOutput() PerformanceCounterConfigurationInvokeResponseArrayOutput {
+	return i.ToPerformanceCounterConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PerformanceCounterConfigurationInvokeResponseArray) ToPerformanceCounterConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) PerformanceCounterConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerformanceCounterConfigurationInvokeResponseArrayOutput)
+}
+
+type PerformanceCounterConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PerformanceCounterConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerformanceCounterConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o PerformanceCounterConfigurationInvokeResponseOutput) ToPerformanceCounterConfigurationInvokeResponseOutput() PerformanceCounterConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o PerformanceCounterConfigurationInvokeResponseOutput) ToPerformanceCounterConfigurationInvokeResponseOutputWithContext(ctx context.Context) PerformanceCounterConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o PerformanceCounterConfigurationInvokeResponseOutput) Instance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PerformanceCounterConfigurationInvokeResponse) *string { return v.Instance }).(pulumi.StringPtrOutput)
+}
+
+func (o PerformanceCounterConfigurationInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PerformanceCounterConfigurationInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PerformanceCounterConfigurationInvokeResponseOutput) SamplingPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v PerformanceCounterConfigurationInvokeResponse) string { return v.SamplingPeriod }).(pulumi.StringOutput)
+}
+
+type PerformanceCounterConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PerformanceCounterConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerformanceCounterConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o PerformanceCounterConfigurationInvokeResponseArrayOutput) ToPerformanceCounterConfigurationInvokeResponseArrayOutput() PerformanceCounterConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PerformanceCounterConfigurationInvokeResponseArrayOutput) ToPerformanceCounterConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) PerformanceCounterConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PerformanceCounterConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) PerformanceCounterConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PerformanceCounterConfigurationInvokeResponse {
+		return vs[0].([]PerformanceCounterConfigurationInvokeResponse)[vs[1].(int)]
+	}).(PerformanceCounterConfigurationInvokeResponseOutput)
+}
+
 type PerformanceCounterConfigurationResponse struct {
 	Instance       *string `pulumi:"instance"`
 	Name           string  `pulumi:"name"`
@@ -1294,6 +1894,100 @@ func (o SinkConfigurationArrayOutput) Index(i pulumi.IntInput) SinkConfiguration
 	}).(SinkConfigurationOutput)
 }
 
+type SinkConfigurationInvokeResponse struct {
+	Kind string `pulumi:"kind"`
+}
+
+// SinkConfigurationInvokeResponseInput is an input type that accepts SinkConfigurationInvokeResponseArgs and SinkConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `SinkConfigurationInvokeResponseInput` via:
+//
+//          SinkConfigurationInvokeResponseArgs{...}
+type SinkConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSinkConfigurationInvokeResponseOutput() SinkConfigurationInvokeResponseOutput
+	ToSinkConfigurationInvokeResponseOutputWithContext(context.Context) SinkConfigurationInvokeResponseOutput
+}
+
+type SinkConfigurationInvokeResponseArgs struct {
+	Kind pulumi.StringInput `pulumi:"kind"`
+}
+
+func (SinkConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SinkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i SinkConfigurationInvokeResponseArgs) ToSinkConfigurationInvokeResponseOutput() SinkConfigurationInvokeResponseOutput {
+	return i.ToSinkConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SinkConfigurationInvokeResponseArgs) ToSinkConfigurationInvokeResponseOutputWithContext(ctx context.Context) SinkConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SinkConfigurationInvokeResponseOutput)
+}
+
+// SinkConfigurationInvokeResponseArrayInput is an input type that accepts SinkConfigurationInvokeResponseArray and SinkConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SinkConfigurationInvokeResponseArrayInput` via:
+//
+//          SinkConfigurationInvokeResponseArray{ SinkConfigurationInvokeResponseArgs{...} }
+type SinkConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSinkConfigurationInvokeResponseArrayOutput() SinkConfigurationInvokeResponseArrayOutput
+	ToSinkConfigurationInvokeResponseArrayOutputWithContext(context.Context) SinkConfigurationInvokeResponseArrayOutput
+}
+
+type SinkConfigurationInvokeResponseArray []SinkConfigurationInvokeResponseInput
+
+func (SinkConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SinkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i SinkConfigurationInvokeResponseArray) ToSinkConfigurationInvokeResponseArrayOutput() SinkConfigurationInvokeResponseArrayOutput {
+	return i.ToSinkConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SinkConfigurationInvokeResponseArray) ToSinkConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) SinkConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SinkConfigurationInvokeResponseArrayOutput)
+}
+
+type SinkConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SinkConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SinkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o SinkConfigurationInvokeResponseOutput) ToSinkConfigurationInvokeResponseOutput() SinkConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o SinkConfigurationInvokeResponseOutput) ToSinkConfigurationInvokeResponseOutputWithContext(ctx context.Context) SinkConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o SinkConfigurationInvokeResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v SinkConfigurationInvokeResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+type SinkConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SinkConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SinkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o SinkConfigurationInvokeResponseArrayOutput) ToSinkConfigurationInvokeResponseArrayOutput() SinkConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SinkConfigurationInvokeResponseArrayOutput) ToSinkConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) SinkConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SinkConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) SinkConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SinkConfigurationInvokeResponse {
+		return vs[0].([]SinkConfigurationInvokeResponse)[vs[1].(int)]
+	}).(SinkConfigurationInvokeResponseOutput)
+}
+
 type SinkConfigurationResponse struct {
 	Kind string `pulumi:"kind"`
 }
@@ -1392,27 +2086,40 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceOutput{})
 	pulumi.RegisterOutputType(DataSourceArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(DataSourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataSourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceResponseOutput{})
 	pulumi.RegisterOutputType(DataSourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(EtwEventConfigurationOutput{})
 	pulumi.RegisterOutputType(EtwEventConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(EtwEventConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EtwEventConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EtwEventConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(EtwEventConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(EtwProviderConfigurationOutput{})
 	pulumi.RegisterOutputType(EtwProviderConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(EtwProviderConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EtwProviderConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EtwProviderConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(EtwProviderConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(EventLogConfigurationOutput{})
 	pulumi.RegisterOutputType(EventLogConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(EventLogConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EventLogConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EventLogConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(EventLogConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(PerformanceCounterConfigurationOutput{})
 	pulumi.RegisterOutputType(PerformanceCounterConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(PerformanceCounterConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PerformanceCounterConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PerformanceCounterConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(PerformanceCounterConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(SinkConfigurationOutput{})
 	pulumi.RegisterOutputType(SinkConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(SinkConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SinkConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SinkConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(SinkConfigurationResponseArrayOutput{})
 }

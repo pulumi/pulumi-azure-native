@@ -24,5 +24,5 @@ type ListListTenantConfigurationViolationResult struct {
 	// The URL to use for getting the next set of results.
 	NextLink *string `pulumi:"nextLink"`
 	// The array of violations.
-	Value []ViolationResponse `pulumi:"value"`
+	Value []ViolationInvokeResponse `pulumi:"value"`
 }

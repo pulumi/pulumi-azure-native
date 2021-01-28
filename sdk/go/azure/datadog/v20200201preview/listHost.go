@@ -28,5 +28,5 @@ type ListHostResult struct {
 	// Link to the next set of results, if any.
 	NextLink *string `pulumi:"nextLink"`
 	// Results of a list operation.
-	Value []DatadogHostResponse `pulumi:"value"`
+	Value []DatadogHostInvokeResponse `pulumi:"value"`
 }

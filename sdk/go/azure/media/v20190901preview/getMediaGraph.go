@@ -38,9 +38,9 @@ type LookupMediaGraphResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Media Graph sinks
-	Sinks []MediaGraphAssetSinkResponse `pulumi:"sinks"`
+	Sinks []MediaGraphAssetSinkInvokeResponse `pulumi:"sinks"`
 	// Media Graph sources
-	Sources []MediaGraphRtspSourceResponse `pulumi:"sources"`
+	Sources []MediaGraphRtspSourceInvokeResponse `pulumi:"sources"`
 	// Media Graph state
 	State string `pulumi:"state"`
 	// The type of the resource.

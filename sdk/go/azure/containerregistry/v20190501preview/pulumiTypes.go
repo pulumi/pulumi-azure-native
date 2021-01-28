@@ -164,6 +164,159 @@ func (o ActiveDirectoryObjectPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The Active Directory Object that will be used for authenticating the token of a container registry.
+type ActiveDirectoryObjectInvokeResponse struct {
+	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+	ObjectId *string `pulumi:"objectId"`
+	// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// ActiveDirectoryObjectInvokeResponseInput is an input type that accepts ActiveDirectoryObjectInvokeResponseArgs and ActiveDirectoryObjectInvokeResponseOutput values.
+// You can construct a concrete instance of `ActiveDirectoryObjectInvokeResponseInput` via:
+//
+//          ActiveDirectoryObjectInvokeResponseArgs{...}
+type ActiveDirectoryObjectInvokeResponseInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryObjectInvokeResponseOutput() ActiveDirectoryObjectInvokeResponseOutput
+	ToActiveDirectoryObjectInvokeResponseOutputWithContext(context.Context) ActiveDirectoryObjectInvokeResponseOutput
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+type ActiveDirectoryObjectInvokeResponseArgs struct {
+	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (ActiveDirectoryObjectInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryObjectInvokeResponse)(nil)).Elem()
+}
+
+func (i ActiveDirectoryObjectInvokeResponseArgs) ToActiveDirectoryObjectInvokeResponseOutput() ActiveDirectoryObjectInvokeResponseOutput {
+	return i.ToActiveDirectoryObjectInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryObjectInvokeResponseArgs) ToActiveDirectoryObjectInvokeResponseOutputWithContext(ctx context.Context) ActiveDirectoryObjectInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectInvokeResponseOutput)
+}
+
+func (i ActiveDirectoryObjectInvokeResponseArgs) ToActiveDirectoryObjectInvokeResponsePtrOutput() ActiveDirectoryObjectInvokeResponsePtrOutput {
+	return i.ToActiveDirectoryObjectInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryObjectInvokeResponseArgs) ToActiveDirectoryObjectInvokeResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectInvokeResponseOutput).ToActiveDirectoryObjectInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ActiveDirectoryObjectInvokeResponsePtrInput is an input type that accepts ActiveDirectoryObjectInvokeResponseArgs, ActiveDirectoryObjectInvokeResponsePtr and ActiveDirectoryObjectInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ActiveDirectoryObjectInvokeResponsePtrInput` via:
+//
+//          ActiveDirectoryObjectInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ActiveDirectoryObjectInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryObjectInvokeResponsePtrOutput() ActiveDirectoryObjectInvokeResponsePtrOutput
+	ToActiveDirectoryObjectInvokeResponsePtrOutputWithContext(context.Context) ActiveDirectoryObjectInvokeResponsePtrOutput
+}
+
+type activeDirectoryObjectInvokeResponsePtrType ActiveDirectoryObjectInvokeResponseArgs
+
+func ActiveDirectoryObjectInvokeResponsePtr(v *ActiveDirectoryObjectInvokeResponseArgs) ActiveDirectoryObjectInvokeResponsePtrInput {
+	return (*activeDirectoryObjectInvokeResponsePtrType)(v)
+}
+
+func (*activeDirectoryObjectInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryObjectInvokeResponse)(nil)).Elem()
+}
+
+func (i *activeDirectoryObjectInvokeResponsePtrType) ToActiveDirectoryObjectInvokeResponsePtrOutput() ActiveDirectoryObjectInvokeResponsePtrOutput {
+	return i.ToActiveDirectoryObjectInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *activeDirectoryObjectInvokeResponsePtrType) ToActiveDirectoryObjectInvokeResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryObjectInvokeResponsePtrOutput)
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+type ActiveDirectoryObjectInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryObjectInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryObjectInvokeResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryObjectInvokeResponseOutput) ToActiveDirectoryObjectInvokeResponseOutput() ActiveDirectoryObjectInvokeResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectInvokeResponseOutput) ToActiveDirectoryObjectInvokeResponseOutputWithContext(ctx context.Context) ActiveDirectoryObjectInvokeResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectInvokeResponseOutput) ToActiveDirectoryObjectInvokeResponsePtrOutput() ActiveDirectoryObjectInvokeResponsePtrOutput {
+	return o.ToActiveDirectoryObjectInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ActiveDirectoryObjectInvokeResponseOutput) ToActiveDirectoryObjectInvokeResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryObjectInvokeResponse) *ActiveDirectoryObjectInvokeResponse {
+		return &v
+	}).(ActiveDirectoryObjectInvokeResponsePtrOutput)
+}
+
+// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectInvokeResponseOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryObjectInvokeResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryObjectInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type ActiveDirectoryObjectInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryObjectInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryObjectInvokeResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryObjectInvokeResponsePtrOutput) ToActiveDirectoryObjectInvokeResponsePtrOutput() ActiveDirectoryObjectInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectInvokeResponsePtrOutput) ToActiveDirectoryObjectInvokeResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryObjectInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryObjectInvokeResponsePtrOutput) Elem() ActiveDirectoryObjectInvokeResponseOutput {
+	return o.ApplyT(func(v *ActiveDirectoryObjectInvokeResponse) ActiveDirectoryObjectInvokeResponse { return *v }).(ActiveDirectoryObjectInvokeResponseOutput)
+}
+
+// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectInvokeResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryObjectInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of user/group/application object Active Directory Object that will be used for authenticating the token of a container registry.
+func (o ActiveDirectoryObjectInvokeResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryObjectInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
 type ActiveDirectoryObjectResponse struct {
 	// The user/group/application object ID for Active Directory Object that will be used for authenticating the token of a container registry.
 	ObjectId *string `pulumi:"objectId"`
@@ -314,6 +467,106 @@ func (o ActiveDirectoryObjectResponsePtrOutput) TenantId() pulumi.StringPtrOutpu
 		}
 		return v.TenantId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource modification (UTC).
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource modification (UTC).
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource modification (UTC).
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -670,6 +923,130 @@ func (o TokenCertificateArrayOutput) Index(i pulumi.IntInput) TokenCertificateOu
 }
 
 // The properties of a certificate used for authenticating a token.
+type TokenCertificateInvokeResponse struct {
+	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+	EncodedPemCertificate *string `pulumi:"encodedPemCertificate"`
+	// The expiry datetime of the certificate.
+	Expiry *string `pulumi:"expiry"`
+	Name   *string `pulumi:"name"`
+	// The thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// TokenCertificateInvokeResponseInput is an input type that accepts TokenCertificateInvokeResponseArgs and TokenCertificateInvokeResponseOutput values.
+// You can construct a concrete instance of `TokenCertificateInvokeResponseInput` via:
+//
+//          TokenCertificateInvokeResponseArgs{...}
+type TokenCertificateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTokenCertificateInvokeResponseOutput() TokenCertificateInvokeResponseOutput
+	ToTokenCertificateInvokeResponseOutputWithContext(context.Context) TokenCertificateInvokeResponseOutput
+}
+
+// The properties of a certificate used for authenticating a token.
+type TokenCertificateInvokeResponseArgs struct {
+	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+	EncodedPemCertificate pulumi.StringPtrInput `pulumi:"encodedPemCertificate"`
+	// The expiry datetime of the certificate.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	Name   pulumi.StringPtrInput `pulumi:"name"`
+	// The thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (TokenCertificateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (i TokenCertificateInvokeResponseArgs) ToTokenCertificateInvokeResponseOutput() TokenCertificateInvokeResponseOutput {
+	return i.ToTokenCertificateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TokenCertificateInvokeResponseArgs) ToTokenCertificateInvokeResponseOutputWithContext(ctx context.Context) TokenCertificateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateInvokeResponseOutput)
+}
+
+// TokenCertificateInvokeResponseArrayInput is an input type that accepts TokenCertificateInvokeResponseArray and TokenCertificateInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TokenCertificateInvokeResponseArrayInput` via:
+//
+//          TokenCertificateInvokeResponseArray{ TokenCertificateInvokeResponseArgs{...} }
+type TokenCertificateInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTokenCertificateInvokeResponseArrayOutput() TokenCertificateInvokeResponseArrayOutput
+	ToTokenCertificateInvokeResponseArrayOutputWithContext(context.Context) TokenCertificateInvokeResponseArrayOutput
+}
+
+type TokenCertificateInvokeResponseArray []TokenCertificateInvokeResponseInput
+
+func (TokenCertificateInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (i TokenCertificateInvokeResponseArray) ToTokenCertificateInvokeResponseArrayOutput() TokenCertificateInvokeResponseArrayOutput {
+	return i.ToTokenCertificateInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TokenCertificateInvokeResponseArray) ToTokenCertificateInvokeResponseArrayOutputWithContext(ctx context.Context) TokenCertificateInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCertificateInvokeResponseArrayOutput)
+}
+
+// The properties of a certificate used for authenticating a token.
+type TokenCertificateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TokenCertificateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (o TokenCertificateInvokeResponseOutput) ToTokenCertificateInvokeResponseOutput() TokenCertificateInvokeResponseOutput {
+	return o
+}
+
+func (o TokenCertificateInvokeResponseOutput) ToTokenCertificateInvokeResponseOutputWithContext(ctx context.Context) TokenCertificateInvokeResponseOutput {
+	return o
+}
+
+// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
+func (o TokenCertificateInvokeResponseOutput) EncodedPemCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificateInvokeResponse) *string { return v.EncodedPemCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The expiry datetime of the certificate.
+func (o TokenCertificateInvokeResponseOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificateInvokeResponse) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+func (o TokenCertificateInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificateInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of the certificate.
+func (o TokenCertificateInvokeResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenCertificateInvokeResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type TokenCertificateInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TokenCertificateInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (o TokenCertificateInvokeResponseArrayOutput) ToTokenCertificateInvokeResponseArrayOutput() TokenCertificateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TokenCertificateInvokeResponseArrayOutput) ToTokenCertificateInvokeResponseArrayOutputWithContext(ctx context.Context) TokenCertificateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TokenCertificateInvokeResponseArrayOutput) Index(i pulumi.IntInput) TokenCertificateInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TokenCertificateInvokeResponse {
+		return vs[0].([]TokenCertificateInvokeResponse)[vs[1].(int)]
+	}).(TokenCertificateInvokeResponseOutput)
+}
+
+// The properties of a certificate used for authenticating a token.
 type TokenCertificateResponse struct {
 	// Base 64 encoded string of the public certificate1 in PEM format that will be used for authenticating the token.
 	EncodedPemCertificate *string `pulumi:"encodedPemCertificate"`
@@ -958,6 +1335,77 @@ func (o TokenCredentialsPropertiesPtrOutput) Passwords() TokenPasswordArrayOutpu
 }
 
 // The properties of the credentials that can be used for authenticating the token.
+type TokenCredentialsPropertiesInvokeResponse struct {
+	// The Active Directory Object that will be used for authenticating the token of a container registry.
+	ActiveDirectoryObject *ActiveDirectoryObjectInvokeResponse `pulumi:"activeDirectoryObject"`
+	Certificates          []TokenCertificateInvokeResponse     `pulumi:"certificates"`
+	Passwords             []TokenPasswordInvokeResponse        `pulumi:"passwords"`
+}
+
+// TokenCredentialsPropertiesInvokeResponseInput is an input type that accepts TokenCredentialsPropertiesInvokeResponseArgs and TokenCredentialsPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `TokenCredentialsPropertiesInvokeResponseInput` via:
+//
+//          TokenCredentialsPropertiesInvokeResponseArgs{...}
+type TokenCredentialsPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTokenCredentialsPropertiesInvokeResponseOutput() TokenCredentialsPropertiesInvokeResponseOutput
+	ToTokenCredentialsPropertiesInvokeResponseOutputWithContext(context.Context) TokenCredentialsPropertiesInvokeResponseOutput
+}
+
+// The properties of the credentials that can be used for authenticating the token.
+type TokenCredentialsPropertiesInvokeResponseArgs struct {
+	// The Active Directory Object that will be used for authenticating the token of a container registry.
+	ActiveDirectoryObject ActiveDirectoryObjectInvokeResponsePtrInput `pulumi:"activeDirectoryObject"`
+	Certificates          TokenCertificateInvokeResponseArrayInput    `pulumi:"certificates"`
+	Passwords             TokenPasswordInvokeResponseArrayInput       `pulumi:"passwords"`
+}
+
+func (TokenCredentialsPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCredentialsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i TokenCredentialsPropertiesInvokeResponseArgs) ToTokenCredentialsPropertiesInvokeResponseOutput() TokenCredentialsPropertiesInvokeResponseOutput {
+	return i.ToTokenCredentialsPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TokenCredentialsPropertiesInvokeResponseArgs) ToTokenCredentialsPropertiesInvokeResponseOutputWithContext(ctx context.Context) TokenCredentialsPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenCredentialsPropertiesInvokeResponseOutput)
+}
+
+// The properties of the credentials that can be used for authenticating the token.
+type TokenCredentialsPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TokenCredentialsPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenCredentialsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o TokenCredentialsPropertiesInvokeResponseOutput) ToTokenCredentialsPropertiesInvokeResponseOutput() TokenCredentialsPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o TokenCredentialsPropertiesInvokeResponseOutput) ToTokenCredentialsPropertiesInvokeResponseOutputWithContext(ctx context.Context) TokenCredentialsPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The Active Directory Object that will be used for authenticating the token of a container registry.
+func (o TokenCredentialsPropertiesInvokeResponseOutput) ActiveDirectoryObject() ActiveDirectoryObjectInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TokenCredentialsPropertiesInvokeResponse) *ActiveDirectoryObjectInvokeResponse {
+		return v.ActiveDirectoryObject
+	}).(ActiveDirectoryObjectInvokeResponsePtrOutput)
+}
+
+func (o TokenCredentialsPropertiesInvokeResponseOutput) Certificates() TokenCertificateInvokeResponseArrayOutput {
+	return o.ApplyT(func(v TokenCredentialsPropertiesInvokeResponse) []TokenCertificateInvokeResponse {
+		return v.Certificates
+	}).(TokenCertificateInvokeResponseArrayOutput)
+}
+
+func (o TokenCredentialsPropertiesInvokeResponseOutput) Passwords() TokenPasswordInvokeResponseArrayOutput {
+	return o.ApplyT(func(v TokenCredentialsPropertiesInvokeResponse) []TokenPasswordInvokeResponse { return v.Passwords }).(TokenPasswordInvokeResponseArrayOutput)
+}
+
+// The properties of the credentials that can be used for authenticating the token.
 type TokenCredentialsPropertiesResponse struct {
 	// The Active Directory Object that will be used for authenticating the token of a container registry.
 	ActiveDirectoryObject *ActiveDirectoryObjectResponse `pulumi:"activeDirectoryObject"`
@@ -1242,6 +1690,133 @@ func (o TokenPasswordArrayOutput) Index(i pulumi.IntInput) TokenPasswordOutput {
 }
 
 // The password that will be used for authenticating the token of a container registry.
+type TokenPasswordInvokeResponse struct {
+	// The creation datetime of the password.
+	CreationTime *string `pulumi:"creationTime"`
+	// The expiry datetime of the password.
+	Expiry *string `pulumi:"expiry"`
+	// The password name "password1" or "password2"
+	Name *string `pulumi:"name"`
+	// The password value.
+	Value string `pulumi:"value"`
+}
+
+// TokenPasswordInvokeResponseInput is an input type that accepts TokenPasswordInvokeResponseArgs and TokenPasswordInvokeResponseOutput values.
+// You can construct a concrete instance of `TokenPasswordInvokeResponseInput` via:
+//
+//          TokenPasswordInvokeResponseArgs{...}
+type TokenPasswordInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTokenPasswordInvokeResponseOutput() TokenPasswordInvokeResponseOutput
+	ToTokenPasswordInvokeResponseOutputWithContext(context.Context) TokenPasswordInvokeResponseOutput
+}
+
+// The password that will be used for authenticating the token of a container registry.
+type TokenPasswordInvokeResponseArgs struct {
+	// The creation datetime of the password.
+	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
+	// The expiry datetime of the password.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	// The password name "password1" or "password2"
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The password value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TokenPasswordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenPasswordInvokeResponse)(nil)).Elem()
+}
+
+func (i TokenPasswordInvokeResponseArgs) ToTokenPasswordInvokeResponseOutput() TokenPasswordInvokeResponseOutput {
+	return i.ToTokenPasswordInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TokenPasswordInvokeResponseArgs) ToTokenPasswordInvokeResponseOutputWithContext(ctx context.Context) TokenPasswordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordInvokeResponseOutput)
+}
+
+// TokenPasswordInvokeResponseArrayInput is an input type that accepts TokenPasswordInvokeResponseArray and TokenPasswordInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TokenPasswordInvokeResponseArrayInput` via:
+//
+//          TokenPasswordInvokeResponseArray{ TokenPasswordInvokeResponseArgs{...} }
+type TokenPasswordInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTokenPasswordInvokeResponseArrayOutput() TokenPasswordInvokeResponseArrayOutput
+	ToTokenPasswordInvokeResponseArrayOutputWithContext(context.Context) TokenPasswordInvokeResponseArrayOutput
+}
+
+type TokenPasswordInvokeResponseArray []TokenPasswordInvokeResponseInput
+
+func (TokenPasswordInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenPasswordInvokeResponse)(nil)).Elem()
+}
+
+func (i TokenPasswordInvokeResponseArray) ToTokenPasswordInvokeResponseArrayOutput() TokenPasswordInvokeResponseArrayOutput {
+	return i.ToTokenPasswordInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TokenPasswordInvokeResponseArray) ToTokenPasswordInvokeResponseArrayOutputWithContext(ctx context.Context) TokenPasswordInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordInvokeResponseArrayOutput)
+}
+
+// The password that will be used for authenticating the token of a container registry.
+type TokenPasswordInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TokenPasswordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenPasswordInvokeResponse)(nil)).Elem()
+}
+
+func (o TokenPasswordInvokeResponseOutput) ToTokenPasswordInvokeResponseOutput() TokenPasswordInvokeResponseOutput {
+	return o
+}
+
+func (o TokenPasswordInvokeResponseOutput) ToTokenPasswordInvokeResponseOutputWithContext(ctx context.Context) TokenPasswordInvokeResponseOutput {
+	return o
+}
+
+// The creation datetime of the password.
+func (o TokenPasswordInvokeResponseOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPasswordInvokeResponse) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// The expiry datetime of the password.
+func (o TokenPasswordInvokeResponseOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPasswordInvokeResponse) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+// The password name "password1" or "password2"
+func (o TokenPasswordInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPasswordInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The password value.
+func (o TokenPasswordInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TokenPasswordInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TokenPasswordInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TokenPasswordInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TokenPasswordInvokeResponse)(nil)).Elem()
+}
+
+func (o TokenPasswordInvokeResponseArrayOutput) ToTokenPasswordInvokeResponseArrayOutput() TokenPasswordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TokenPasswordInvokeResponseArrayOutput) ToTokenPasswordInvokeResponseArrayOutputWithContext(ctx context.Context) TokenPasswordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TokenPasswordInvokeResponseArrayOutput) Index(i pulumi.IntInput) TokenPasswordInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TokenPasswordInvokeResponse {
+		return vs[0].([]TokenPasswordInvokeResponse)[vs[1].(int)]
+	}).(TokenPasswordInvokeResponseOutput)
+}
+
+// The password that will be used for authenticating the token of a container registry.
 type TokenPasswordResponse struct {
 	// The creation datetime of the password.
 	CreationTime *string `pulumi:"creationTime"`
@@ -1371,20 +1946,28 @@ func (o TokenPasswordResponseArrayOutput) Index(i pulumi.IntInput) TokenPassword
 func init() {
 	pulumi.RegisterOutputType(ActiveDirectoryObjectOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryObjectPtrOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryObjectInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryObjectInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryObjectResponseOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryObjectResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TokenCertificateOutput{})
 	pulumi.RegisterOutputType(TokenCertificateArrayOutput{})
+	pulumi.RegisterOutputType(TokenCertificateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TokenCertificateInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TokenCertificateResponseOutput{})
 	pulumi.RegisterOutputType(TokenCertificateResponseArrayOutput{})
 	pulumi.RegisterOutputType(TokenCredentialsPropertiesOutput{})
 	pulumi.RegisterOutputType(TokenCredentialsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TokenCredentialsPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(TokenCredentialsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TokenCredentialsPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TokenPasswordOutput{})
 	pulumi.RegisterOutputType(TokenPasswordArrayOutput{})
+	pulumi.RegisterOutputType(TokenPasswordInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TokenPasswordInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TokenPasswordResponseOutput{})
 	pulumi.RegisterOutputType(TokenPasswordResponseArrayOutput{})
 }

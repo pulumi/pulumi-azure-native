@@ -26,7 +26,7 @@ type LookupMetricAlertArgs struct {
 // The metric alert resource.
 type LookupMetricAlertResult struct {
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions []MetricAlertActionResponse `pulumi:"actions"`
+	Actions []MetricAlertActionInvokeResponse `pulumi:"actions"`
 	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// defines the specific alert criteria information.

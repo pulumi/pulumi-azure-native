@@ -11,6 +11,106 @@ import (
 )
 
 // Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -361,6 +461,127 @@ func (o TemplateSpecTemplateArtifactArrayOutput) Index(i pulumi.IntInput) Templa
 }
 
 // Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+type TemplateSpecTemplateArtifactInvokeResponse struct {
+	// The kind of artifact.
+	// Expected value is 'template'.
+	Kind string `pulumi:"kind"`
+	// A filesystem safe relative path of the artifact.
+	Path string `pulumi:"path"`
+	// The Azure Resource Manager template.
+	Template interface{} `pulumi:"template"`
+}
+
+// TemplateSpecTemplateArtifactInvokeResponseInput is an input type that accepts TemplateSpecTemplateArtifactInvokeResponseArgs and TemplateSpecTemplateArtifactInvokeResponseOutput values.
+// You can construct a concrete instance of `TemplateSpecTemplateArtifactInvokeResponseInput` via:
+//
+//          TemplateSpecTemplateArtifactInvokeResponseArgs{...}
+type TemplateSpecTemplateArtifactInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTemplateSpecTemplateArtifactInvokeResponseOutput() TemplateSpecTemplateArtifactInvokeResponseOutput
+	ToTemplateSpecTemplateArtifactInvokeResponseOutputWithContext(context.Context) TemplateSpecTemplateArtifactInvokeResponseOutput
+}
+
+// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+type TemplateSpecTemplateArtifactInvokeResponseArgs struct {
+	// The kind of artifact.
+	// Expected value is 'template'.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// A filesystem safe relative path of the artifact.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The Azure Resource Manager template.
+	Template pulumi.Input `pulumi:"template"`
+}
+
+func (TemplateSpecTemplateArtifactInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecTemplateArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (i TemplateSpecTemplateArtifactInvokeResponseArgs) ToTemplateSpecTemplateArtifactInvokeResponseOutput() TemplateSpecTemplateArtifactInvokeResponseOutput {
+	return i.ToTemplateSpecTemplateArtifactInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TemplateSpecTemplateArtifactInvokeResponseArgs) ToTemplateSpecTemplateArtifactInvokeResponseOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecTemplateArtifactInvokeResponseOutput)
+}
+
+// TemplateSpecTemplateArtifactInvokeResponseArrayInput is an input type that accepts TemplateSpecTemplateArtifactInvokeResponseArray and TemplateSpecTemplateArtifactInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TemplateSpecTemplateArtifactInvokeResponseArrayInput` via:
+//
+//          TemplateSpecTemplateArtifactInvokeResponseArray{ TemplateSpecTemplateArtifactInvokeResponseArgs{...} }
+type TemplateSpecTemplateArtifactInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTemplateSpecTemplateArtifactInvokeResponseArrayOutput() TemplateSpecTemplateArtifactInvokeResponseArrayOutput
+	ToTemplateSpecTemplateArtifactInvokeResponseArrayOutputWithContext(context.Context) TemplateSpecTemplateArtifactInvokeResponseArrayOutput
+}
+
+type TemplateSpecTemplateArtifactInvokeResponseArray []TemplateSpecTemplateArtifactInvokeResponseInput
+
+func (TemplateSpecTemplateArtifactInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateSpecTemplateArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (i TemplateSpecTemplateArtifactInvokeResponseArray) ToTemplateSpecTemplateArtifactInvokeResponseArrayOutput() TemplateSpecTemplateArtifactInvokeResponseArrayOutput {
+	return i.ToTemplateSpecTemplateArtifactInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateSpecTemplateArtifactInvokeResponseArray) ToTemplateSpecTemplateArtifactInvokeResponseArrayOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecTemplateArtifactInvokeResponseArrayOutput)
+}
+
+// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+type TemplateSpecTemplateArtifactInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TemplateSpecTemplateArtifactInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecTemplateArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (o TemplateSpecTemplateArtifactInvokeResponseOutput) ToTemplateSpecTemplateArtifactInvokeResponseOutput() TemplateSpecTemplateArtifactInvokeResponseOutput {
+	return o
+}
+
+func (o TemplateSpecTemplateArtifactInvokeResponseOutput) ToTemplateSpecTemplateArtifactInvokeResponseOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactInvokeResponseOutput {
+	return o
+}
+
+// The kind of artifact.
+// Expected value is 'template'.
+func (o TemplateSpecTemplateArtifactInvokeResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifactInvokeResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// A filesystem safe relative path of the artifact.
+func (o TemplateSpecTemplateArtifactInvokeResponseOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifactInvokeResponse) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The Azure Resource Manager template.
+func (o TemplateSpecTemplateArtifactInvokeResponseOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateSpecTemplateArtifactInvokeResponse) interface{} { return v.Template }).(pulumi.AnyOutput)
+}
+
+type TemplateSpecTemplateArtifactInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateSpecTemplateArtifactInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateSpecTemplateArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (o TemplateSpecTemplateArtifactInvokeResponseArrayOutput) ToTemplateSpecTemplateArtifactInvokeResponseArrayOutput() TemplateSpecTemplateArtifactInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TemplateSpecTemplateArtifactInvokeResponseArrayOutput) ToTemplateSpecTemplateArtifactInvokeResponseArrayOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TemplateSpecTemplateArtifactInvokeResponseArrayOutput) Index(i pulumi.IntInput) TemplateSpecTemplateArtifactInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateSpecTemplateArtifactInvokeResponse {
+		return vs[0].([]TemplateSpecTemplateArtifactInvokeResponse)[vs[1].(int)]
+	}).(TemplateSpecTemplateArtifactInvokeResponseOutput)
+}
+
+// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
 type TemplateSpecTemplateArtifactResponse struct {
 	// The kind of artifact.
 	// Expected value is 'template'.
@@ -482,6 +703,124 @@ func (o TemplateSpecTemplateArtifactResponseArrayOutput) Index(i pulumi.IntInput
 }
 
 // High-level information about a Template Spec version.
+type TemplateSpecVersionInfoInvokeResponse struct {
+	// Template Spec version description.
+	Description string `pulumi:"description"`
+	// The timestamp of when the version was created.
+	TimeCreated string `pulumi:"timeCreated"`
+	// The timestamp of when the version was last modified.
+	TimeModified string `pulumi:"timeModified"`
+}
+
+// TemplateSpecVersionInfoInvokeResponseInput is an input type that accepts TemplateSpecVersionInfoInvokeResponseArgs and TemplateSpecVersionInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `TemplateSpecVersionInfoInvokeResponseInput` via:
+//
+//          TemplateSpecVersionInfoInvokeResponseArgs{...}
+type TemplateSpecVersionInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTemplateSpecVersionInfoInvokeResponseOutput() TemplateSpecVersionInfoInvokeResponseOutput
+	ToTemplateSpecVersionInfoInvokeResponseOutputWithContext(context.Context) TemplateSpecVersionInfoInvokeResponseOutput
+}
+
+// High-level information about a Template Spec version.
+type TemplateSpecVersionInfoInvokeResponseArgs struct {
+	// Template Spec version description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The timestamp of when the version was created.
+	TimeCreated pulumi.StringInput `pulumi:"timeCreated"`
+	// The timestamp of when the version was last modified.
+	TimeModified pulumi.StringInput `pulumi:"timeModified"`
+}
+
+func (TemplateSpecVersionInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecVersionInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i TemplateSpecVersionInfoInvokeResponseArgs) ToTemplateSpecVersionInfoInvokeResponseOutput() TemplateSpecVersionInfoInvokeResponseOutput {
+	return i.ToTemplateSpecVersionInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TemplateSpecVersionInfoInvokeResponseArgs) ToTemplateSpecVersionInfoInvokeResponseOutputWithContext(ctx context.Context) TemplateSpecVersionInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecVersionInfoInvokeResponseOutput)
+}
+
+// TemplateSpecVersionInfoInvokeResponseMapInput is an input type that accepts TemplateSpecVersionInfoInvokeResponseMap and TemplateSpecVersionInfoInvokeResponseMapOutput values.
+// You can construct a concrete instance of `TemplateSpecVersionInfoInvokeResponseMapInput` via:
+//
+//          TemplateSpecVersionInfoInvokeResponseMap{ "key": TemplateSpecVersionInfoInvokeResponseArgs{...} }
+type TemplateSpecVersionInfoInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToTemplateSpecVersionInfoInvokeResponseMapOutput() TemplateSpecVersionInfoInvokeResponseMapOutput
+	ToTemplateSpecVersionInfoInvokeResponseMapOutputWithContext(context.Context) TemplateSpecVersionInfoInvokeResponseMapOutput
+}
+
+type TemplateSpecVersionInfoInvokeResponseMap map[string]TemplateSpecVersionInfoInvokeResponseInput
+
+func (TemplateSpecVersionInfoInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TemplateSpecVersionInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i TemplateSpecVersionInfoInvokeResponseMap) ToTemplateSpecVersionInfoInvokeResponseMapOutput() TemplateSpecVersionInfoInvokeResponseMapOutput {
+	return i.ToTemplateSpecVersionInfoInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i TemplateSpecVersionInfoInvokeResponseMap) ToTemplateSpecVersionInfoInvokeResponseMapOutputWithContext(ctx context.Context) TemplateSpecVersionInfoInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecVersionInfoInvokeResponseMapOutput)
+}
+
+// High-level information about a Template Spec version.
+type TemplateSpecVersionInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TemplateSpecVersionInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecVersionInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o TemplateSpecVersionInfoInvokeResponseOutput) ToTemplateSpecVersionInfoInvokeResponseOutput() TemplateSpecVersionInfoInvokeResponseOutput {
+	return o
+}
+
+func (o TemplateSpecVersionInfoInvokeResponseOutput) ToTemplateSpecVersionInfoInvokeResponseOutputWithContext(ctx context.Context) TemplateSpecVersionInfoInvokeResponseOutput {
+	return o
+}
+
+// Template Spec version description.
+func (o TemplateSpecVersionInfoInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecVersionInfoInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The timestamp of when the version was created.
+func (o TemplateSpecVersionInfoInvokeResponseOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecVersionInfoInvokeResponse) string { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// The timestamp of when the version was last modified.
+func (o TemplateSpecVersionInfoInvokeResponseOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSpecVersionInfoInvokeResponse) string { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+type TemplateSpecVersionInfoInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (TemplateSpecVersionInfoInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]TemplateSpecVersionInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o TemplateSpecVersionInfoInvokeResponseMapOutput) ToTemplateSpecVersionInfoInvokeResponseMapOutput() TemplateSpecVersionInfoInvokeResponseMapOutput {
+	return o
+}
+
+func (o TemplateSpecVersionInfoInvokeResponseMapOutput) ToTemplateSpecVersionInfoInvokeResponseMapOutputWithContext(ctx context.Context) TemplateSpecVersionInfoInvokeResponseMapOutput {
+	return o
+}
+
+func (o TemplateSpecVersionInfoInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) TemplateSpecVersionInfoInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TemplateSpecVersionInfoInvokeResponse {
+		return vs[0].(map[string]TemplateSpecVersionInfoInvokeResponse)[vs[1].(string)]
+	}).(TemplateSpecVersionInfoInvokeResponseOutput)
+}
+
+// High-level information about a Template Spec version.
 type TemplateSpecVersionInfoResponse struct {
 	// Template Spec version description.
 	Description string `pulumi:"description"`
@@ -600,12 +939,17 @@ func (o TemplateSpecVersionInfoResponseMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactOutput{})
 	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactArrayOutput{})
+	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactResponseOutput{})
 	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactResponseArrayOutput{})
+	pulumi.RegisterOutputType(TemplateSpecVersionInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TemplateSpecVersionInfoInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(TemplateSpecVersionInfoResponseOutput{})
 	pulumi.RegisterOutputType(TemplateSpecVersionInfoResponseMapOutput{})
 }

@@ -46,13 +46,13 @@ type LookupVpnConnectionResult struct {
 	// Ingress bytes transferred.
 	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.
-	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
+	IpsecPolicies []IpsecPolicyInvokeResponse `pulumi:"ipsecPolicies"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Id of the connected vpn site.
-	RemoteVpnSite *SubResourceResponse `pulumi:"remoteVpnSite"`
+	RemoteVpnSite *SubResourceInvokeResponse `pulumi:"remoteVpnSite"`
 	// routing weight for vpn connection.
 	RoutingWeight *int `pulumi:"routingWeight"`
 	// SharedKey for the vpn connection.

@@ -30,5 +30,5 @@ type ListConfigurationStoreKeysResult struct {
 	// The URI that can be used to request the next set of paged results.
 	NextLink *string `pulumi:"nextLink"`
 	// The collection value.
-	Value []ApiKeyResponse `pulumi:"value"`
+	Value []ApiKeyInvokeResponse `pulumi:"value"`
 }

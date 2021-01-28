@@ -44,5 +44,5 @@ type LookupSecurityPartnerProviderResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The virtualHub to which the Security Partner Provider belongs.
-	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
+	VirtualHub *SubResourceInvokeResponse `pulumi:"virtualHub"`
 }

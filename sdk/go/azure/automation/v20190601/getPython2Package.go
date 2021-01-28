@@ -30,13 +30,13 @@ type LookupPython2PackageResult struct {
 	// Gets or sets the activity count of the module.
 	ActivityCount *int `pulumi:"activityCount"`
 	// Gets or sets the contentLink of the module.
-	ContentLink *ContentLinkResponse `pulumi:"contentLink"`
+	ContentLink *ContentLinkInvokeResponse `pulumi:"contentLink"`
 	// Gets or sets the creation time.
 	CreationTime *string `pulumi:"creationTime"`
 	// Gets or sets the description.
 	Description *string `pulumi:"description"`
 	// Gets or sets the error info of the module.
-	Error *ModuleErrorInfoResponse `pulumi:"error"`
+	Error *ModuleErrorInfoInvokeResponse `pulumi:"error"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
 	// Fully qualified resource Id for the resource

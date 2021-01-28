@@ -25,7 +25,7 @@ type LookupB2CTenantArgs struct {
 
 type LookupB2CTenantResult struct {
 	// The billing configuration for the tenant.
-	BillingConfig *B2CTenantResourcePropertiesResponseBillingConfig `pulumi:"billingConfig"`
+	BillingConfig *B2CTenantResourcePropertiesInvokeResponseBillingConfig `pulumi:"billingConfig"`
 	// An identifier that represents the B2C tenant resource.
 	Id string `pulumi:"id"`
 	// The location in which the resource is hosted and data resides. Refer to [this documentation](https://aka.ms/B2CDataResidency) to see valid data residency locations. Please choose one of 'United States', 'Europe', and 'Asia Pacific'.
@@ -33,7 +33,7 @@ type LookupB2CTenantResult struct {
 	// The name of the B2C tenant resource.
 	Name string `pulumi:"name"`
 	// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
-	Sku B2CResourceSKUResponse `pulumi:"sku"`
+	Sku B2CResourceSKUInvokeResponse `pulumi:"sku"`
 	// Resource Tags
 	Tags map[string]string `pulumi:"tags"`
 	// An identifier of the B2C tenant.

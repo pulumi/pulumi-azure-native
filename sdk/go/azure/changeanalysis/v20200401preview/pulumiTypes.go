@@ -164,6 +164,161 @@ func (o AzureMonitorWorkspacePropertiesPtrOutput) WorkspaceResourceId() pulumi.S
 }
 
 // Configuration properties of an Azure Monitor workspace that receives change notifications.
+type AzureMonitorWorkspacePropertiesInvokeResponse struct {
+	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
+	WorkspaceId *string `pulumi:"workspaceId"`
+	// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
+}
+
+// AzureMonitorWorkspacePropertiesInvokeResponseInput is an input type that accepts AzureMonitorWorkspacePropertiesInvokeResponseArgs and AzureMonitorWorkspacePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureMonitorWorkspacePropertiesInvokeResponseInput` via:
+//
+//          AzureMonitorWorkspacePropertiesInvokeResponseArgs{...}
+type AzureMonitorWorkspacePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureMonitorWorkspacePropertiesInvokeResponseOutput() AzureMonitorWorkspacePropertiesInvokeResponseOutput
+	ToAzureMonitorWorkspacePropertiesInvokeResponseOutputWithContext(context.Context) AzureMonitorWorkspacePropertiesInvokeResponseOutput
+}
+
+// Configuration properties of an Azure Monitor workspace that receives change notifications.
+type AzureMonitorWorkspacePropertiesInvokeResponseArgs struct {
+	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
+	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
+	// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
+	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
+}
+
+func (AzureMonitorWorkspacePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorWorkspacePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureMonitorWorkspacePropertiesInvokeResponseArgs) ToAzureMonitorWorkspacePropertiesInvokeResponseOutput() AzureMonitorWorkspacePropertiesInvokeResponseOutput {
+	return i.ToAzureMonitorWorkspacePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureMonitorWorkspacePropertiesInvokeResponseArgs) ToAzureMonitorWorkspacePropertiesInvokeResponseOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorWorkspacePropertiesInvokeResponseOutput)
+}
+
+func (i AzureMonitorWorkspacePropertiesInvokeResponseArgs) ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutput() AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput {
+	return i.ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureMonitorWorkspacePropertiesInvokeResponseArgs) ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorWorkspacePropertiesInvokeResponseOutput).ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AzureMonitorWorkspacePropertiesInvokeResponsePtrInput is an input type that accepts AzureMonitorWorkspacePropertiesInvokeResponseArgs, AzureMonitorWorkspacePropertiesInvokeResponsePtr and AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AzureMonitorWorkspacePropertiesInvokeResponsePtrInput` via:
+//
+//          AzureMonitorWorkspacePropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureMonitorWorkspacePropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutput() AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput
+	ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutputWithContext(context.Context) AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput
+}
+
+type azureMonitorWorkspacePropertiesInvokeResponsePtrType AzureMonitorWorkspacePropertiesInvokeResponseArgs
+
+func AzureMonitorWorkspacePropertiesInvokeResponsePtr(v *AzureMonitorWorkspacePropertiesInvokeResponseArgs) AzureMonitorWorkspacePropertiesInvokeResponsePtrInput {
+	return (*azureMonitorWorkspacePropertiesInvokeResponsePtrType)(v)
+}
+
+func (*azureMonitorWorkspacePropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMonitorWorkspacePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *azureMonitorWorkspacePropertiesInvokeResponsePtrType) ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutput() AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput {
+	return i.ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureMonitorWorkspacePropertiesInvokeResponsePtrType) ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput)
+}
+
+// Configuration properties of an Azure Monitor workspace that receives change notifications.
+type AzureMonitorWorkspacePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorWorkspacePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureMonitorWorkspacePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMonitorWorkspacePropertiesInvokeResponseOutput) ToAzureMonitorWorkspacePropertiesInvokeResponseOutput() AzureMonitorWorkspacePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AzureMonitorWorkspacePropertiesInvokeResponseOutput) ToAzureMonitorWorkspacePropertiesInvokeResponseOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AzureMonitorWorkspacePropertiesInvokeResponseOutput) ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutput() AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput {
+	return o.ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureMonitorWorkspacePropertiesInvokeResponseOutput) ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureMonitorWorkspacePropertiesInvokeResponse) *AzureMonitorWorkspacePropertiesInvokeResponse {
+		return &v
+	}).(AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput)
+}
+
+// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
+func (o AzureMonitorWorkspacePropertiesInvokeResponseOutput) WorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMonitorWorkspacePropertiesInvokeResponse) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
+func (o AzureMonitorWorkspacePropertiesInvokeResponseOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMonitorWorkspacePropertiesInvokeResponse) *string { return v.WorkspaceResourceId }).(pulumi.StringPtrOutput)
+}
+
+type AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureMonitorWorkspacePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput) ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutput() AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput) ToAzureMonitorWorkspacePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput) Elem() AzureMonitorWorkspacePropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *AzureMonitorWorkspacePropertiesInvokeResponse) AzureMonitorWorkspacePropertiesInvokeResponse {
+		return *v
+	}).(AzureMonitorWorkspacePropertiesInvokeResponseOutput)
+}
+
+// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
+func (o AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput) WorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMonitorWorkspacePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkspaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
+func (o AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput) WorkspaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMonitorWorkspacePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkspaceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspacePropertiesResponse struct {
 	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 	WorkspaceId *string `pulumi:"workspaceId"`
@@ -448,6 +603,63 @@ func (o ConfigurationProfileResourcePropertiesPtrOutput) Notifications() Notific
 		}
 		return v.Notifications
 	}).(NotificationSettingsPtrOutput)
+}
+
+// The properties of a configuration profile.
+type ConfigurationProfileResourcePropertiesInvokeResponse struct {
+	// Settings of change notification configuration for a subscription.
+	Notifications *NotificationSettingsInvokeResponse `pulumi:"notifications"`
+}
+
+// ConfigurationProfileResourcePropertiesInvokeResponseInput is an input type that accepts ConfigurationProfileResourcePropertiesInvokeResponseArgs and ConfigurationProfileResourcePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ConfigurationProfileResourcePropertiesInvokeResponseInput` via:
+//
+//          ConfigurationProfileResourcePropertiesInvokeResponseArgs{...}
+type ConfigurationProfileResourcePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileResourcePropertiesInvokeResponseOutput() ConfigurationProfileResourcePropertiesInvokeResponseOutput
+	ToConfigurationProfileResourcePropertiesInvokeResponseOutputWithContext(context.Context) ConfigurationProfileResourcePropertiesInvokeResponseOutput
+}
+
+// The properties of a configuration profile.
+type ConfigurationProfileResourcePropertiesInvokeResponseArgs struct {
+	// Settings of change notification configuration for a subscription.
+	Notifications NotificationSettingsInvokeResponsePtrInput `pulumi:"notifications"`
+}
+
+func (ConfigurationProfileResourcePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfigurationProfileResourcePropertiesInvokeResponseArgs) ToConfigurationProfileResourcePropertiesInvokeResponseOutput() ConfigurationProfileResourcePropertiesInvokeResponseOutput {
+	return i.ToConfigurationProfileResourcePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfileResourcePropertiesInvokeResponseArgs) ToConfigurationProfileResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfileResourcePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileResourcePropertiesInvokeResponseOutput)
+}
+
+// The properties of a configuration profile.
+type ConfigurationProfileResourcePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfileResourcePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfileResourcePropertiesInvokeResponseOutput) ToConfigurationProfileResourcePropertiesInvokeResponseOutput() ConfigurationProfileResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfileResourcePropertiesInvokeResponseOutput) ToConfigurationProfileResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) ConfigurationProfileResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Settings of change notification configuration for a subscription.
+func (o ConfigurationProfileResourcePropertiesInvokeResponseOutput) Notifications() NotificationSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileResourcePropertiesInvokeResponse) *NotificationSettingsInvokeResponse {
+		return v.Notifications
+	}).(NotificationSettingsInvokeResponsePtrOutput)
 }
 
 // The properties of a configuration profile.
@@ -744,6 +956,161 @@ func (o NotificationSettingsPtrOutput) AzureMonitorWorkspaceProperties() AzureMo
 }
 
 // Settings of change notification configuration for a subscription.
+type NotificationSettingsInvokeResponse struct {
+	// The state of notifications feature.
+	ActivationState *string `pulumi:"activationState"`
+	// Configuration properties of an Azure Monitor workspace that receives change notifications.
+	AzureMonitorWorkspaceProperties *AzureMonitorWorkspacePropertiesInvokeResponse `pulumi:"azureMonitorWorkspaceProperties"`
+}
+
+// NotificationSettingsInvokeResponseInput is an input type that accepts NotificationSettingsInvokeResponseArgs and NotificationSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `NotificationSettingsInvokeResponseInput` via:
+//
+//          NotificationSettingsInvokeResponseArgs{...}
+type NotificationSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNotificationSettingsInvokeResponseOutput() NotificationSettingsInvokeResponseOutput
+	ToNotificationSettingsInvokeResponseOutputWithContext(context.Context) NotificationSettingsInvokeResponseOutput
+}
+
+// Settings of change notification configuration for a subscription.
+type NotificationSettingsInvokeResponseArgs struct {
+	// The state of notifications feature.
+	ActivationState pulumi.StringPtrInput `pulumi:"activationState"`
+	// Configuration properties of an Azure Monitor workspace that receives change notifications.
+	AzureMonitorWorkspaceProperties AzureMonitorWorkspacePropertiesInvokeResponsePtrInput `pulumi:"azureMonitorWorkspaceProperties"`
+}
+
+func (NotificationSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i NotificationSettingsInvokeResponseArgs) ToNotificationSettingsInvokeResponseOutput() NotificationSettingsInvokeResponseOutput {
+	return i.ToNotificationSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NotificationSettingsInvokeResponseArgs) ToNotificationSettingsInvokeResponseOutputWithContext(ctx context.Context) NotificationSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsInvokeResponseOutput)
+}
+
+func (i NotificationSettingsInvokeResponseArgs) ToNotificationSettingsInvokeResponsePtrOutput() NotificationSettingsInvokeResponsePtrOutput {
+	return i.ToNotificationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NotificationSettingsInvokeResponseArgs) ToNotificationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsInvokeResponseOutput).ToNotificationSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// NotificationSettingsInvokeResponsePtrInput is an input type that accepts NotificationSettingsInvokeResponseArgs, NotificationSettingsInvokeResponsePtr and NotificationSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `NotificationSettingsInvokeResponsePtrInput` via:
+//
+//          NotificationSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NotificationSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToNotificationSettingsInvokeResponsePtrOutput() NotificationSettingsInvokeResponsePtrOutput
+	ToNotificationSettingsInvokeResponsePtrOutputWithContext(context.Context) NotificationSettingsInvokeResponsePtrOutput
+}
+
+type notificationSettingsInvokeResponsePtrType NotificationSettingsInvokeResponseArgs
+
+func NotificationSettingsInvokeResponsePtr(v *NotificationSettingsInvokeResponseArgs) NotificationSettingsInvokeResponsePtrInput {
+	return (*notificationSettingsInvokeResponsePtrType)(v)
+}
+
+func (*notificationSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *notificationSettingsInvokeResponsePtrType) ToNotificationSettingsInvokeResponsePtrOutput() NotificationSettingsInvokeResponsePtrOutput {
+	return i.ToNotificationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *notificationSettingsInvokeResponsePtrType) ToNotificationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsInvokeResponsePtrOutput)
+}
+
+// Settings of change notification configuration for a subscription.
+type NotificationSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NotificationSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o NotificationSettingsInvokeResponseOutput) ToNotificationSettingsInvokeResponseOutput() NotificationSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o NotificationSettingsInvokeResponseOutput) ToNotificationSettingsInvokeResponseOutputWithContext(ctx context.Context) NotificationSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o NotificationSettingsInvokeResponseOutput) ToNotificationSettingsInvokeResponsePtrOutput() NotificationSettingsInvokeResponsePtrOutput {
+	return o.ToNotificationSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NotificationSettingsInvokeResponseOutput) ToNotificationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NotificationSettingsInvokeResponse) *NotificationSettingsInvokeResponse {
+		return &v
+	}).(NotificationSettingsInvokeResponsePtrOutput)
+}
+
+// The state of notifications feature.
+func (o NotificationSettingsInvokeResponseOutput) ActivationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationSettingsInvokeResponse) *string { return v.ActivationState }).(pulumi.StringPtrOutput)
+}
+
+// Configuration properties of an Azure Monitor workspace that receives change notifications.
+func (o NotificationSettingsInvokeResponseOutput) AzureMonitorWorkspaceProperties() AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NotificationSettingsInvokeResponse) *AzureMonitorWorkspacePropertiesInvokeResponse {
+		return v.AzureMonitorWorkspaceProperties
+	}).(AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput)
+}
+
+type NotificationSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o NotificationSettingsInvokeResponsePtrOutput) ToNotificationSettingsInvokeResponsePtrOutput() NotificationSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o NotificationSettingsInvokeResponsePtrOutput) ToNotificationSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o NotificationSettingsInvokeResponsePtrOutput) Elem() NotificationSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *NotificationSettingsInvokeResponse) NotificationSettingsInvokeResponse { return *v }).(NotificationSettingsInvokeResponseOutput)
+}
+
+// The state of notifications feature.
+func (o NotificationSettingsInvokeResponsePtrOutput) ActivationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActivationState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration properties of an Azure Monitor workspace that receives change notifications.
+func (o NotificationSettingsInvokeResponsePtrOutput) AzureMonitorWorkspaceProperties() AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *NotificationSettingsInvokeResponse) *AzureMonitorWorkspacePropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureMonitorWorkspaceProperties
+	}).(AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput)
+}
+
+// Settings of change notification configuration for a subscription.
 type NotificationSettingsResponse struct {
 	// The state of notifications feature.
 	ActivationState *string `pulumi:"activationState"`
@@ -1033,6 +1400,79 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The identity block returned by ARM resource that supports managed identity.
+type ResourceIdentityInvokeResponse struct {
+	// The principal id of the identity. This property will only be provided for a system-assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
+	TenantId string `pulumi:"tenantId"`
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+	Type *string `pulumi:"type"`
+}
+
+// ResourceIdentityInvokeResponseInput is an input type that accepts ResourceIdentityInvokeResponseArgs and ResourceIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceIdentityInvokeResponseInput` via:
+//
+//          ResourceIdentityInvokeResponseArgs{...}
+type ResourceIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput
+	ToResourceIdentityInvokeResponseOutputWithContext(context.Context) ResourceIdentityInvokeResponseOutput
+}
+
+// The identity block returned by ARM resource that supports managed identity.
+type ResourceIdentityInvokeResponseArgs struct {
+	// The principal id of the identity. This property will only be provided for a system-assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return i.ToResourceIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityInvokeResponseOutput)
+}
+
+// The identity block returned by ARM resource that supports managed identity.
+type ResourceIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal id of the identity. This property will only be provided for a system-assigned identity.
+func (o ResourceIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id associated with the resource's identity. This property will only be provided for a system-assigned identity.
+func (o ResourceIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+func (o ResourceIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The identity block returned by ARM resource that supports managed identity.
 type ResourceIdentityResponse struct {
 	// The principal id of the identity. This property will only be provided for a system-assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -1202,6 +1642,106 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC)
+	CreatedAt string `pulumi:"createdAt"`
+	// A string identifier for the identity that created the resource
+	CreatedBy string `pulumi:"createdBy"`
+	// The type of identity that created the resource: user, application, managedIdentity, key
+	CreatedByType string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt string `pulumi:"lastModifiedAt"`
+	// A string identifier for the identity that last modified the resource
+	LastModifiedBy string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource: user, application, managedIdentity, key
+	LastModifiedByType string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC)
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// A string identifier for the identity that created the resource
+	CreatedBy pulumi.StringInput `pulumi:"createdBy"`
+	// The type of identity that created the resource: user, application, managedIdentity, key
+	CreatedByType pulumi.StringInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringInput `pulumi:"lastModifiedAt"`
+	// A string identifier for the identity that last modified the resource
+	LastModifiedBy pulumi.StringInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource: user, application, managedIdentity, key
+	LastModifiedByType pulumi.StringInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC)
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// A string identifier for the identity that created the resource
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// The type of identity that created the resource: user, application, managedIdentity, key
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.CreatedByType }).(pulumi.StringOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.LastModifiedAt }).(pulumi.StringOutput)
+}
+
+// A string identifier for the identity that last modified the resource
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.LastModifiedBy }).(pulumi.StringOutput)
+}
+
+// The type of identity that last modified the resource: user, application, managedIdentity, key
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.LastModifiedByType }).(pulumi.StringOutput)
 }
 
 // Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
@@ -1436,20 +1976,27 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(AzureMonitorWorkspacePropertiesOutput{})
 	pulumi.RegisterOutputType(AzureMonitorWorkspacePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AzureMonitorWorkspacePropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureMonitorWorkspacePropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureMonitorWorkspacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AzureMonitorWorkspacePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileResourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfileResourcePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(NotificationSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NotificationSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsResponseOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

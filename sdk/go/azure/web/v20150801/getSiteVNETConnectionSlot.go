@@ -47,7 +47,7 @@ type LookupSiteVNETConnectionSlotResult struct {
 	// Flag to determine if a resync is required
 	ResyncRequired *bool `pulumi:"resyncRequired"`
 	// The routes that this virtual network connection uses.
-	Routes []VnetRouteResponse `pulumi:"routes"`
+	Routes []VnetRouteInvokeResponse `pulumi:"routes"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

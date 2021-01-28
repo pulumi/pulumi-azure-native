@@ -40,7 +40,7 @@ type LookupBandwidthScheduleResult struct {
 	// The stop time of the schedule in UTC.
 	Stop string `pulumi:"stop"`
 	// Bandwidth object related to ASE resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

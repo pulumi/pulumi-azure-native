@@ -120,6 +120,124 @@ func (o DiskArrayOutput) Index(i pulumi.IntInput) DiskOutput {
 }
 
 // Specifies the disk information fo the HANA instance
+type DiskInvokeResponse struct {
+	// Specifies the size of an empty data disk in gigabytes.
+	DiskSizeGB *int `pulumi:"diskSizeGB"`
+	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+	Lun int `pulumi:"lun"`
+	// The disk name.
+	Name *string `pulumi:"name"`
+}
+
+// DiskInvokeResponseInput is an input type that accepts DiskInvokeResponseArgs and DiskInvokeResponseOutput values.
+// You can construct a concrete instance of `DiskInvokeResponseInput` via:
+//
+//          DiskInvokeResponseArgs{...}
+type DiskInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDiskInvokeResponseOutput() DiskInvokeResponseOutput
+	ToDiskInvokeResponseOutputWithContext(context.Context) DiskInvokeResponseOutput
+}
+
+// Specifies the disk information fo the HANA instance
+type DiskInvokeResponseArgs struct {
+	// Specifies the size of an empty data disk in gigabytes.
+	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
+	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+	Lun pulumi.IntInput `pulumi:"lun"`
+	// The disk name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (DiskInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskInvokeResponse)(nil)).Elem()
+}
+
+func (i DiskInvokeResponseArgs) ToDiskInvokeResponseOutput() DiskInvokeResponseOutput {
+	return i.ToDiskInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DiskInvokeResponseArgs) ToDiskInvokeResponseOutputWithContext(ctx context.Context) DiskInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskInvokeResponseOutput)
+}
+
+// DiskInvokeResponseArrayInput is an input type that accepts DiskInvokeResponseArray and DiskInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DiskInvokeResponseArrayInput` via:
+//
+//          DiskInvokeResponseArray{ DiskInvokeResponseArgs{...} }
+type DiskInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDiskInvokeResponseArrayOutput() DiskInvokeResponseArrayOutput
+	ToDiskInvokeResponseArrayOutputWithContext(context.Context) DiskInvokeResponseArrayOutput
+}
+
+type DiskInvokeResponseArray []DiskInvokeResponseInput
+
+func (DiskInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiskInvokeResponse)(nil)).Elem()
+}
+
+func (i DiskInvokeResponseArray) ToDiskInvokeResponseArrayOutput() DiskInvokeResponseArrayOutput {
+	return i.ToDiskInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DiskInvokeResponseArray) ToDiskInvokeResponseArrayOutputWithContext(ctx context.Context) DiskInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskInvokeResponseArrayOutput)
+}
+
+// Specifies the disk information fo the HANA instance
+type DiskInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DiskInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskInvokeResponse)(nil)).Elem()
+}
+
+func (o DiskInvokeResponseOutput) ToDiskInvokeResponseOutput() DiskInvokeResponseOutput {
+	return o
+}
+
+func (o DiskInvokeResponseOutput) ToDiskInvokeResponseOutputWithContext(ctx context.Context) DiskInvokeResponseOutput {
+	return o
+}
+
+// Specifies the size of an empty data disk in gigabytes.
+func (o DiskInvokeResponseOutput) DiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DiskInvokeResponse) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+func (o DiskInvokeResponseOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v DiskInvokeResponse) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+// The disk name.
+func (o DiskInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiskInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type DiskInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DiskInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiskInvokeResponse)(nil)).Elem()
+}
+
+func (o DiskInvokeResponseArrayOutput) ToDiskInvokeResponseArrayOutput() DiskInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DiskInvokeResponseArrayOutput) ToDiskInvokeResponseArrayOutputWithContext(ctx context.Context) DiskInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DiskInvokeResponseArrayOutput) Index(i pulumi.IntInput) DiskInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskInvokeResponse {
+		return vs[0].([]DiskInvokeResponse)[vs[1].(int)]
+	}).(DiskInvokeResponseOutput)
+}
+
+// Specifies the disk information fo the HANA instance
 type DiskResponse struct {
 	// Specifies the size of an empty data disk in gigabytes.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
@@ -391,6 +509,70 @@ func (o HardwareProfilePtrOutput) HardwareType() pulumi.StringPtrOutput {
 }
 
 // Specifies the hardware settings for the HANA instance.
+type HardwareProfileInvokeResponse struct {
+	// Specifies the HANA instance SKU.
+	HanaInstanceSize *string `pulumi:"hanaInstanceSize"`
+	// Name of the hardware type (vendor and/or their product name)
+	HardwareType *string `pulumi:"hardwareType"`
+}
+
+// HardwareProfileInvokeResponseInput is an input type that accepts HardwareProfileInvokeResponseArgs and HardwareProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `HardwareProfileInvokeResponseInput` via:
+//
+//          HardwareProfileInvokeResponseArgs{...}
+type HardwareProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHardwareProfileInvokeResponseOutput() HardwareProfileInvokeResponseOutput
+	ToHardwareProfileInvokeResponseOutputWithContext(context.Context) HardwareProfileInvokeResponseOutput
+}
+
+// Specifies the hardware settings for the HANA instance.
+type HardwareProfileInvokeResponseArgs struct {
+	// Specifies the HANA instance SKU.
+	HanaInstanceSize pulumi.StringPtrInput `pulumi:"hanaInstanceSize"`
+	// Name of the hardware type (vendor and/or their product name)
+	HardwareType pulumi.StringPtrInput `pulumi:"hardwareType"`
+}
+
+func (HardwareProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HardwareProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i HardwareProfileInvokeResponseArgs) ToHardwareProfileInvokeResponseOutput() HardwareProfileInvokeResponseOutput {
+	return i.ToHardwareProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HardwareProfileInvokeResponseArgs) ToHardwareProfileInvokeResponseOutputWithContext(ctx context.Context) HardwareProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HardwareProfileInvokeResponseOutput)
+}
+
+// Specifies the hardware settings for the HANA instance.
+type HardwareProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HardwareProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HardwareProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o HardwareProfileInvokeResponseOutput) ToHardwareProfileInvokeResponseOutput() HardwareProfileInvokeResponseOutput {
+	return o
+}
+
+func (o HardwareProfileInvokeResponseOutput) ToHardwareProfileInvokeResponseOutputWithContext(ctx context.Context) HardwareProfileInvokeResponseOutput {
+	return o
+}
+
+// Specifies the HANA instance SKU.
+func (o HardwareProfileInvokeResponseOutput) HanaInstanceSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HardwareProfileInvokeResponse) *string { return v.HanaInstanceSize }).(pulumi.StringPtrOutput)
+}
+
+// Name of the hardware type (vendor and/or their product name)
+func (o HardwareProfileInvokeResponseOutput) HardwareType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HardwareProfileInvokeResponse) *string { return v.HardwareType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the hardware settings for the HANA instance.
 type HardwareProfileResponse struct {
 	// Specifies the HANA instance SKU.
 	HanaInstanceSize *string `pulumi:"hanaInstanceSize"`
@@ -644,6 +826,106 @@ func (o IpAddressArrayOutput) Index(i pulumi.IntInput) IpAddressOutput {
 }
 
 // Specifies the IP address of the network interface.
+type IpAddressInvokeResponse struct {
+	// Specifies the IP address of the network interface.
+	IpAddress *string `pulumi:"ipAddress"`
+}
+
+// IpAddressInvokeResponseInput is an input type that accepts IpAddressInvokeResponseArgs and IpAddressInvokeResponseOutput values.
+// You can construct a concrete instance of `IpAddressInvokeResponseInput` via:
+//
+//          IpAddressInvokeResponseArgs{...}
+type IpAddressInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIpAddressInvokeResponseOutput() IpAddressInvokeResponseOutput
+	ToIpAddressInvokeResponseOutputWithContext(context.Context) IpAddressInvokeResponseOutput
+}
+
+// Specifies the IP address of the network interface.
+type IpAddressInvokeResponseArgs struct {
+	// Specifies the IP address of the network interface.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+}
+
+func (IpAddressInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAddressInvokeResponse)(nil)).Elem()
+}
+
+func (i IpAddressInvokeResponseArgs) ToIpAddressInvokeResponseOutput() IpAddressInvokeResponseOutput {
+	return i.ToIpAddressInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IpAddressInvokeResponseArgs) ToIpAddressInvokeResponseOutputWithContext(ctx context.Context) IpAddressInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAddressInvokeResponseOutput)
+}
+
+// IpAddressInvokeResponseArrayInput is an input type that accepts IpAddressInvokeResponseArray and IpAddressInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IpAddressInvokeResponseArrayInput` via:
+//
+//          IpAddressInvokeResponseArray{ IpAddressInvokeResponseArgs{...} }
+type IpAddressInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIpAddressInvokeResponseArrayOutput() IpAddressInvokeResponseArrayOutput
+	ToIpAddressInvokeResponseArrayOutputWithContext(context.Context) IpAddressInvokeResponseArrayOutput
+}
+
+type IpAddressInvokeResponseArray []IpAddressInvokeResponseInput
+
+func (IpAddressInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpAddressInvokeResponse)(nil)).Elem()
+}
+
+func (i IpAddressInvokeResponseArray) ToIpAddressInvokeResponseArrayOutput() IpAddressInvokeResponseArrayOutput {
+	return i.ToIpAddressInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IpAddressInvokeResponseArray) ToIpAddressInvokeResponseArrayOutputWithContext(ctx context.Context) IpAddressInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpAddressInvokeResponseArrayOutput)
+}
+
+// Specifies the IP address of the network interface.
+type IpAddressInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IpAddressInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAddressInvokeResponse)(nil)).Elem()
+}
+
+func (o IpAddressInvokeResponseOutput) ToIpAddressInvokeResponseOutput() IpAddressInvokeResponseOutput {
+	return o
+}
+
+func (o IpAddressInvokeResponseOutput) ToIpAddressInvokeResponseOutputWithContext(ctx context.Context) IpAddressInvokeResponseOutput {
+	return o
+}
+
+// Specifies the IP address of the network interface.
+func (o IpAddressInvokeResponseOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpAddressInvokeResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+type IpAddressInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IpAddressInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpAddressInvokeResponse)(nil)).Elem()
+}
+
+func (o IpAddressInvokeResponseArrayOutput) ToIpAddressInvokeResponseArrayOutput() IpAddressInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpAddressInvokeResponseArrayOutput) ToIpAddressInvokeResponseArrayOutputWithContext(ctx context.Context) IpAddressInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpAddressInvokeResponseArrayOutput) Index(i pulumi.IntInput) IpAddressInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpAddressInvokeResponse {
+		return vs[0].([]IpAddressInvokeResponse)[vs[1].(int)]
+	}).(IpAddressInvokeResponseOutput)
+}
+
+// Specifies the IP address of the network interface.
 type IpAddressResponse struct {
 	// Specifies the IP address of the network interface.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -894,6 +1176,70 @@ func (o NetworkProfilePtrOutput) NetworkInterfaces() IpAddressArrayOutput {
 		}
 		return v.NetworkInterfaces
 	}).(IpAddressArrayOutput)
+}
+
+// Specifies the network settings for the HANA instance disks.
+type NetworkProfileInvokeResponse struct {
+	// Specifies the circuit id for connecting to express route.
+	CircuitId *string `pulumi:"circuitId"`
+	// Specifies the network interfaces for the HANA instance.
+	NetworkInterfaces []IpAddressInvokeResponse `pulumi:"networkInterfaces"`
+}
+
+// NetworkProfileInvokeResponseInput is an input type that accepts NetworkProfileInvokeResponseArgs and NetworkProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkProfileInvokeResponseInput` via:
+//
+//          NetworkProfileInvokeResponseArgs{...}
+type NetworkProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput
+	ToNetworkProfileInvokeResponseOutputWithContext(context.Context) NetworkProfileInvokeResponseOutput
+}
+
+// Specifies the network settings for the HANA instance disks.
+type NetworkProfileInvokeResponseArgs struct {
+	// Specifies the circuit id for connecting to express route.
+	CircuitId pulumi.StringPtrInput `pulumi:"circuitId"`
+	// Specifies the network interfaces for the HANA instance.
+	NetworkInterfaces IpAddressInvokeResponseArrayInput `pulumi:"networkInterfaces"`
+}
+
+func (NetworkProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput {
+	return i.ToNetworkProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileInvokeResponseOutput)
+}
+
+// Specifies the network settings for the HANA instance disks.
+type NetworkProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutput {
+	return o
+}
+
+// Specifies the circuit id for connecting to express route.
+func (o NetworkProfileInvokeResponseOutput) CircuitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.CircuitId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the network interfaces for the HANA instance.
+func (o NetworkProfileInvokeResponseOutput) NetworkInterfaces() IpAddressInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) []IpAddressInvokeResponse { return v.NetworkInterfaces }).(IpAddressInvokeResponseArrayOutput)
 }
 
 // Specifies the network settings for the HANA instance disks.
@@ -1241,6 +1587,88 @@ func (o OSProfilePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 // Specifies the operating system settings for the HANA instance.
+type OSProfileInvokeResponse struct {
+	// Specifies the host OS name of the HANA instance.
+	ComputerName *string `pulumi:"computerName"`
+	// This property allows you to specify the type of the OS.
+	OsType *string `pulumi:"osType"`
+	// Specifies the SSH public key used to access the operating system.
+	SshPublicKey *string `pulumi:"sshPublicKey"`
+	// Specifies version of operating system.
+	Version *string `pulumi:"version"`
+}
+
+// OSProfileInvokeResponseInput is an input type that accepts OSProfileInvokeResponseArgs and OSProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `OSProfileInvokeResponseInput` via:
+//
+//          OSProfileInvokeResponseArgs{...}
+type OSProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOSProfileInvokeResponseOutput() OSProfileInvokeResponseOutput
+	ToOSProfileInvokeResponseOutputWithContext(context.Context) OSProfileInvokeResponseOutput
+}
+
+// Specifies the operating system settings for the HANA instance.
+type OSProfileInvokeResponseArgs struct {
+	// Specifies the host OS name of the HANA instance.
+	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
+	// This property allows you to specify the type of the OS.
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// Specifies the SSH public key used to access the operating system.
+	SshPublicKey pulumi.StringPtrInput `pulumi:"sshPublicKey"`
+	// Specifies version of operating system.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (OSProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i OSProfileInvokeResponseArgs) ToOSProfileInvokeResponseOutput() OSProfileInvokeResponseOutput {
+	return i.ToOSProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OSProfileInvokeResponseArgs) ToOSProfileInvokeResponseOutputWithContext(ctx context.Context) OSProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OSProfileInvokeResponseOutput)
+}
+
+// Specifies the operating system settings for the HANA instance.
+type OSProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OSProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OSProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OSProfileInvokeResponseOutput) ToOSProfileInvokeResponseOutput() OSProfileInvokeResponseOutput {
+	return o
+}
+
+func (o OSProfileInvokeResponseOutput) ToOSProfileInvokeResponseOutputWithContext(ctx context.Context) OSProfileInvokeResponseOutput {
+	return o
+}
+
+// Specifies the host OS name of the HANA instance.
+func (o OSProfileInvokeResponseOutput) ComputerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OSProfileInvokeResponse) *string { return v.ComputerName }).(pulumi.StringPtrOutput)
+}
+
+// This property allows you to specify the type of the OS.
+func (o OSProfileInvokeResponseOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OSProfileInvokeResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the SSH public key used to access the operating system.
+func (o OSProfileInvokeResponseOutput) SshPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OSProfileInvokeResponse) *string { return v.SshPublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies version of operating system.
+func (o OSProfileInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OSProfileInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the operating system settings for the HANA instance.
 type OSProfileResponse struct {
 	// Specifies the host OS name of the HANA instance.
 	ComputerName *string `pulumi:"computerName"`
@@ -1585,6 +2013,70 @@ func (o StorageProfilePtrOutput) OsDisks() DiskArrayOutput {
 }
 
 // Specifies the storage settings for the HANA instance disks.
+type StorageProfileInvokeResponse struct {
+	// IP Address to connect to storage.
+	NfsIpAddress *string `pulumi:"nfsIpAddress"`
+	// Specifies information about the operating system disk used by the hana instance.
+	OsDisks []DiskInvokeResponse `pulumi:"osDisks"`
+}
+
+// StorageProfileInvokeResponseInput is an input type that accepts StorageProfileInvokeResponseArgs and StorageProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageProfileInvokeResponseInput` via:
+//
+//          StorageProfileInvokeResponseArgs{...}
+type StorageProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput
+	ToStorageProfileInvokeResponseOutputWithContext(context.Context) StorageProfileInvokeResponseOutput
+}
+
+// Specifies the storage settings for the HANA instance disks.
+type StorageProfileInvokeResponseArgs struct {
+	// IP Address to connect to storage.
+	NfsIpAddress pulumi.StringPtrInput `pulumi:"nfsIpAddress"`
+	// Specifies information about the operating system disk used by the hana instance.
+	OsDisks DiskInvokeResponseArrayInput `pulumi:"osDisks"`
+}
+
+func (StorageProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput {
+	return i.ToStorageProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponseOutputWithContext(ctx context.Context) StorageProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileInvokeResponseOutput)
+}
+
+// Specifies the storage settings for the HANA instance disks.
+type StorageProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput {
+	return o
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponseOutputWithContext(ctx context.Context) StorageProfileInvokeResponseOutput {
+	return o
+}
+
+// IP Address to connect to storage.
+func (o StorageProfileInvokeResponseOutput) NfsIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *string { return v.NfsIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Specifies information about the operating system disk used by the hana instance.
+func (o StorageProfileInvokeResponseOutput) OsDisks() DiskInvokeResponseArrayOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) []DiskInvokeResponse { return v.OsDisks }).(DiskInvokeResponseArrayOutput)
+}
+
+// Specifies the storage settings for the HANA instance disks.
 type StorageProfileResponse struct {
 	// IP Address to connect to storage.
 	NfsIpAddress *string `pulumi:"nfsIpAddress"`
@@ -1740,26 +2232,34 @@ func (o StorageProfileResponsePtrOutput) OsDisks() DiskResponseArrayOutput {
 func init() {
 	pulumi.RegisterOutputType(DiskOutput{})
 	pulumi.RegisterOutputType(DiskArrayOutput{})
+	pulumi.RegisterOutputType(DiskInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DiskInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DiskResponseOutput{})
 	pulumi.RegisterOutputType(DiskResponseArrayOutput{})
 	pulumi.RegisterOutputType(HardwareProfileOutput{})
 	pulumi.RegisterOutputType(HardwareProfilePtrOutput{})
+	pulumi.RegisterOutputType(HardwareProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponseOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(IpAddressOutput{})
 	pulumi.RegisterOutputType(IpAddressArrayOutput{})
+	pulumi.RegisterOutputType(IpAddressInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IpAddressInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpAddressResponseOutput{})
 	pulumi.RegisterOutputType(IpAddressResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkProfileOutput{})
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(NetworkProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(OSProfileOutput{})
 	pulumi.RegisterOutputType(OSProfilePtrOutput{})
+	pulumi.RegisterOutputType(OSProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(OSProfileResponseOutput{})
 	pulumi.RegisterOutputType(OSProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileOutput{})
 	pulumi.RegisterOutputType(StorageProfilePtrOutput{})
+	pulumi.RegisterOutputType(StorageProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponsePtrOutput{})
 }

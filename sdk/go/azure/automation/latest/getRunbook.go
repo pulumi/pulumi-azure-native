@@ -32,7 +32,7 @@ type LookupRunbookResult struct {
 	// Gets or sets the description.
 	Description *string `pulumi:"description"`
 	// Gets or sets the draft runbook properties.
-	Draft *RunbookDraftResponse `pulumi:"draft"`
+	Draft *RunbookDraftInvokeResponse `pulumi:"draft"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
 	// Fully qualified resource Id for the resource
@@ -56,11 +56,11 @@ type LookupRunbookResult struct {
 	// Gets or sets the runbook output types.
 	OutputTypes []string `pulumi:"outputTypes"`
 	// Gets or sets the runbook parameters.
-	Parameters map[string]RunbookParameterResponse `pulumi:"parameters"`
+	Parameters map[string]RunbookParameterInvokeResponse `pulumi:"parameters"`
 	// Gets or sets the provisioning state of the runbook.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets the published runbook content link.
-	PublishContentLink *ContentLinkResponse `pulumi:"publishContentLink"`
+	PublishContentLink *ContentLinkInvokeResponse `pulumi:"publishContentLink"`
 	// Gets or sets the type of the runbook.
 	RunbookType *string `pulumi:"runbookType"`
 	// Gets or sets the state of the runbook.

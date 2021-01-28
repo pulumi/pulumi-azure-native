@@ -42,7 +42,7 @@ type LookupWorkspaceResult struct {
 	// The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// The SKU of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// This is a read-only legacy property. It is always set to 'Azure' by the service. Kept here for backward compatibility.
 	Source string `pulumi:"source"`
 	// Resource tags

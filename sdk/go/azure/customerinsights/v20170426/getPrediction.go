@@ -34,7 +34,7 @@ type LookupPredictionResult struct {
 	// Display name of the prediction.
 	DisplayName map[string]string `pulumi:"displayName"`
 	// The prediction grades.
-	Grades []PredictionResponseGrades `pulumi:"grades"`
+	Grades []PredictionInvokeResponseGrades `pulumi:"grades"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Interaction types involved in the prediction.
@@ -44,7 +44,7 @@ type LookupPredictionResult struct {
 	// Relationships involved in the prediction.
 	InvolvedRelationships []string `pulumi:"involvedRelationships"`
 	// Definition of the link mapping of prediction.
-	Mappings PredictionResponseMappings `pulumi:"mappings"`
+	Mappings PredictionInvokeResponseMappings `pulumi:"mappings"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Negative outcome expression.
@@ -62,7 +62,7 @@ type LookupPredictionResult struct {
 	// Score label.
 	ScoreLabel string `pulumi:"scoreLabel"`
 	// System generated entities.
-	SystemGeneratedEntities PredictionResponseSystemGeneratedEntities `pulumi:"systemGeneratedEntities"`
+	SystemGeneratedEntities PredictionInvokeResponseSystemGeneratedEntities `pulumi:"systemGeneratedEntities"`
 	// The hub name.
 	TenantId string `pulumi:"tenantId"`
 	// Resource type.

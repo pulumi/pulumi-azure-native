@@ -26,9 +26,9 @@ type LookupPolicyArgs struct {
 // Defines web application firewall policy for Azure CDN.
 type LookupPolicyResult struct {
 	// Describes custom rules inside the policy.
-	CustomRules *CustomRuleListResponse `pulumi:"customRules"`
+	CustomRules *CustomRuleListInvokeResponse `pulumi:"customRules"`
 	// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
-	EndpointLinks []CdnEndpointResponse `pulumi:"endpointLinks"`
+	EndpointLinks []CdnEndpointInvokeResponse `pulumi:"endpointLinks"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
@@ -36,20 +36,20 @@ type LookupPolicyResult struct {
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Describes managed rules inside the policy.
-	ManagedRules *ManagedRuleSetListResponse `pulumi:"managedRules"`
+	ManagedRules *ManagedRuleSetListInvokeResponse `pulumi:"managedRules"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Describes  policySettings for policy
-	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
+	PolicySettings *PolicySettingsInvokeResponse `pulumi:"policySettings"`
 	// Provisioning state of the WebApplicationFirewallPolicy.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Describes rate limit rules inside the policy.
-	RateLimitRules *RateLimitRuleListResponse `pulumi:"rateLimitRules"`
-	ResourceState  string                     `pulumi:"resourceState"`
+	RateLimitRules *RateLimitRuleListInvokeResponse `pulumi:"rateLimitRules"`
+	ResourceState  string                           `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

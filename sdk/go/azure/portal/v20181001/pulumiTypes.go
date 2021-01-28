@@ -183,6 +183,79 @@ func (o ConsoleCreatePropertiesPtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 // Cloud shell console properties.
+type ConsolePropertiesInvokeResponse struct {
+	// The operating system type of the cloud shell.
+	OsType string `pulumi:"osType"`
+	// Provisioning state of the console.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Uri of the console.
+	Uri string `pulumi:"uri"`
+}
+
+// ConsolePropertiesInvokeResponseInput is an input type that accepts ConsolePropertiesInvokeResponseArgs and ConsolePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ConsolePropertiesInvokeResponseInput` via:
+//
+//          ConsolePropertiesInvokeResponseArgs{...}
+type ConsolePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConsolePropertiesInvokeResponseOutput() ConsolePropertiesInvokeResponseOutput
+	ToConsolePropertiesInvokeResponseOutputWithContext(context.Context) ConsolePropertiesInvokeResponseOutput
+}
+
+// Cloud shell console properties.
+type ConsolePropertiesInvokeResponseArgs struct {
+	// The operating system type of the cloud shell.
+	OsType pulumi.StringInput `pulumi:"osType"`
+	// Provisioning state of the console.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Uri of the console.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (ConsolePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsolePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ConsolePropertiesInvokeResponseArgs) ToConsolePropertiesInvokeResponseOutput() ConsolePropertiesInvokeResponseOutput {
+	return i.ToConsolePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConsolePropertiesInvokeResponseArgs) ToConsolePropertiesInvokeResponseOutputWithContext(ctx context.Context) ConsolePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsolePropertiesInvokeResponseOutput)
+}
+
+// Cloud shell console properties.
+type ConsolePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConsolePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsolePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ConsolePropertiesInvokeResponseOutput) ToConsolePropertiesInvokeResponseOutput() ConsolePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ConsolePropertiesInvokeResponseOutput) ToConsolePropertiesInvokeResponseOutputWithContext(ctx context.Context) ConsolePropertiesInvokeResponseOutput {
+	return o
+}
+
+// The operating system type of the cloud shell.
+func (o ConsolePropertiesInvokeResponseOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConsolePropertiesInvokeResponse) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the console.
+func (o ConsolePropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ConsolePropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Uri of the console.
+func (o ConsolePropertiesInvokeResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ConsolePropertiesInvokeResponse) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+// Cloud shell console properties.
 type ConsolePropertiesResponse struct {
 	// The operating system type of the cloud shell.
 	OsType string `pulumi:"osType"`
@@ -527,6 +600,79 @@ func (o StorageProfilePtrOutput) StorageAccountResourceId() pulumi.StringPtrOutp
 }
 
 // The storage profile of the user settings.
+type StorageProfileInvokeResponse struct {
+	// Size of file share
+	DiskSizeInGB *int `pulumi:"diskSizeInGB"`
+	// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
+	FileShareName *string `pulumi:"fileShareName"`
+	// Full resource ID of storage account.
+	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
+}
+
+// StorageProfileInvokeResponseInput is an input type that accepts StorageProfileInvokeResponseArgs and StorageProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageProfileInvokeResponseInput` via:
+//
+//          StorageProfileInvokeResponseArgs{...}
+type StorageProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput
+	ToStorageProfileInvokeResponseOutputWithContext(context.Context) StorageProfileInvokeResponseOutput
+}
+
+// The storage profile of the user settings.
+type StorageProfileInvokeResponseArgs struct {
+	// Size of file share
+	DiskSizeInGB pulumi.IntPtrInput `pulumi:"diskSizeInGB"`
+	// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
+	FileShareName pulumi.StringPtrInput `pulumi:"fileShareName"`
+	// Full resource ID of storage account.
+	StorageAccountResourceId pulumi.StringPtrInput `pulumi:"storageAccountResourceId"`
+}
+
+func (StorageProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput {
+	return i.ToStorageProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponseOutputWithContext(ctx context.Context) StorageProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileInvokeResponseOutput)
+}
+
+// The storage profile of the user settings.
+type StorageProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput {
+	return o
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponseOutputWithContext(ctx context.Context) StorageProfileInvokeResponseOutput {
+	return o
+}
+
+// Size of file share
+func (o StorageProfileInvokeResponseOutput) DiskSizeInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *int { return v.DiskSizeInGB }).(pulumi.IntPtrOutput)
+}
+
+// Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
+func (o StorageProfileInvokeResponseOutput) FileShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *string { return v.FileShareName }).(pulumi.StringPtrOutput)
+}
+
+// Full resource ID of storage account.
+func (o StorageProfileInvokeResponseOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The storage profile of the user settings.
 type StorageProfileResponse struct {
 	// Size of file share
 	DiskSizeInGB *int `pulumi:"diskSizeInGB"`
@@ -849,6 +995,70 @@ func (o TerminalSettingsPtrOutput) FontStyle() pulumi.StringPtrOutput {
 		}
 		return v.FontStyle
 	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for terminal appearance.
+type TerminalSettingsInvokeResponse struct {
+	// Size of terminal font.
+	FontSize *string `pulumi:"fontSize"`
+	// Style of terminal font.
+	FontStyle *string `pulumi:"fontStyle"`
+}
+
+// TerminalSettingsInvokeResponseInput is an input type that accepts TerminalSettingsInvokeResponseArgs and TerminalSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `TerminalSettingsInvokeResponseInput` via:
+//
+//          TerminalSettingsInvokeResponseArgs{...}
+type TerminalSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTerminalSettingsInvokeResponseOutput() TerminalSettingsInvokeResponseOutput
+	ToTerminalSettingsInvokeResponseOutputWithContext(context.Context) TerminalSettingsInvokeResponseOutput
+}
+
+// Settings for terminal appearance.
+type TerminalSettingsInvokeResponseArgs struct {
+	// Size of terminal font.
+	FontSize pulumi.StringPtrInput `pulumi:"fontSize"`
+	// Style of terminal font.
+	FontStyle pulumi.StringPtrInput `pulumi:"fontStyle"`
+}
+
+func (TerminalSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminalSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i TerminalSettingsInvokeResponseArgs) ToTerminalSettingsInvokeResponseOutput() TerminalSettingsInvokeResponseOutput {
+	return i.ToTerminalSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TerminalSettingsInvokeResponseArgs) ToTerminalSettingsInvokeResponseOutputWithContext(ctx context.Context) TerminalSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TerminalSettingsInvokeResponseOutput)
+}
+
+// Settings for terminal appearance.
+type TerminalSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TerminalSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminalSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o TerminalSettingsInvokeResponseOutput) ToTerminalSettingsInvokeResponseOutput() TerminalSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o TerminalSettingsInvokeResponseOutput) ToTerminalSettingsInvokeResponseOutputWithContext(ctx context.Context) TerminalSettingsInvokeResponseOutput {
+	return o
+}
+
+// Size of terminal font.
+func (o TerminalSettingsInvokeResponseOutput) FontSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TerminalSettingsInvokeResponse) *string { return v.FontSize }).(pulumi.StringPtrOutput)
+}
+
+// Style of terminal font.
+func (o TerminalSettingsInvokeResponseOutput) FontStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TerminalSettingsInvokeResponse) *string { return v.FontStyle }).(pulumi.StringPtrOutput)
 }
 
 // Settings for terminal appearance.
@@ -1215,6 +1425,97 @@ func (o UserPropertiesPtrOutput) TerminalSettings() TerminalSettingsPtrOutput {
 }
 
 // The cloud shell user settings properties.
+type UserPropertiesInvokeResponse struct {
+	// The preferred location of the cloud shell.
+	PreferredLocation string `pulumi:"preferredLocation"`
+	// The operating system type of the cloud shell. Deprecated, use preferredShellType.
+	PreferredOsType string `pulumi:"preferredOsType"`
+	// The shell type of the cloud shell.
+	PreferredShellType string `pulumi:"preferredShellType"`
+	// The storage profile of the user settings.
+	StorageProfile StorageProfileInvokeResponse `pulumi:"storageProfile"`
+	// Settings for terminal appearance.
+	TerminalSettings TerminalSettingsInvokeResponse `pulumi:"terminalSettings"`
+}
+
+// UserPropertiesInvokeResponseInput is an input type that accepts UserPropertiesInvokeResponseArgs and UserPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `UserPropertiesInvokeResponseInput` via:
+//
+//          UserPropertiesInvokeResponseArgs{...}
+type UserPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserPropertiesInvokeResponseOutput() UserPropertiesInvokeResponseOutput
+	ToUserPropertiesInvokeResponseOutputWithContext(context.Context) UserPropertiesInvokeResponseOutput
+}
+
+// The cloud shell user settings properties.
+type UserPropertiesInvokeResponseArgs struct {
+	// The preferred location of the cloud shell.
+	PreferredLocation pulumi.StringInput `pulumi:"preferredLocation"`
+	// The operating system type of the cloud shell. Deprecated, use preferredShellType.
+	PreferredOsType pulumi.StringInput `pulumi:"preferredOsType"`
+	// The shell type of the cloud shell.
+	PreferredShellType pulumi.StringInput `pulumi:"preferredShellType"`
+	// The storage profile of the user settings.
+	StorageProfile StorageProfileInvokeResponseInput `pulumi:"storageProfile"`
+	// Settings for terminal appearance.
+	TerminalSettings TerminalSettingsInvokeResponseInput `pulumi:"terminalSettings"`
+}
+
+func (UserPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i UserPropertiesInvokeResponseArgs) ToUserPropertiesInvokeResponseOutput() UserPropertiesInvokeResponseOutput {
+	return i.ToUserPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserPropertiesInvokeResponseArgs) ToUserPropertiesInvokeResponseOutputWithContext(ctx context.Context) UserPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPropertiesInvokeResponseOutput)
+}
+
+// The cloud shell user settings properties.
+type UserPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o UserPropertiesInvokeResponseOutput) ToUserPropertiesInvokeResponseOutput() UserPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o UserPropertiesInvokeResponseOutput) ToUserPropertiesInvokeResponseOutputWithContext(ctx context.Context) UserPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The preferred location of the cloud shell.
+func (o UserPropertiesInvokeResponseOutput) PreferredLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPropertiesInvokeResponse) string { return v.PreferredLocation }).(pulumi.StringOutput)
+}
+
+// The operating system type of the cloud shell. Deprecated, use preferredShellType.
+func (o UserPropertiesInvokeResponseOutput) PreferredOsType() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPropertiesInvokeResponse) string { return v.PreferredOsType }).(pulumi.StringOutput)
+}
+
+// The shell type of the cloud shell.
+func (o UserPropertiesInvokeResponseOutput) PreferredShellType() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPropertiesInvokeResponse) string { return v.PreferredShellType }).(pulumi.StringOutput)
+}
+
+// The storage profile of the user settings.
+func (o UserPropertiesInvokeResponseOutput) StorageProfile() StorageProfileInvokeResponseOutput {
+	return o.ApplyT(func(v UserPropertiesInvokeResponse) StorageProfileInvokeResponse { return v.StorageProfile }).(StorageProfileInvokeResponseOutput)
+}
+
+// Settings for terminal appearance.
+func (o UserPropertiesInvokeResponseOutput) TerminalSettings() TerminalSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v UserPropertiesInvokeResponse) TerminalSettingsInvokeResponse { return v.TerminalSettings }).(TerminalSettingsInvokeResponseOutput)
+}
+
+// The cloud shell user settings properties.
 type UserPropertiesResponse struct {
 	// The preferred location of the cloud shell.
 	PreferredLocation string `pulumi:"preferredLocation"`
@@ -1427,18 +1728,22 @@ func (o UserPropertiesResponsePtrOutput) TerminalSettings() TerminalSettingsResp
 func init() {
 	pulumi.RegisterOutputType(ConsoleCreatePropertiesOutput{})
 	pulumi.RegisterOutputType(ConsoleCreatePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConsolePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConsolePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConsolePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileOutput{})
 	pulumi.RegisterOutputType(StorageProfilePtrOutput{})
+	pulumi.RegisterOutputType(StorageProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(TerminalSettingsOutput{})
 	pulumi.RegisterOutputType(TerminalSettingsPtrOutput{})
+	pulumi.RegisterOutputType(TerminalSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(TerminalSettingsResponseOutput{})
 	pulumi.RegisterOutputType(TerminalSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserPropertiesOutput{})
 	pulumi.RegisterOutputType(UserPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(UserPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(UserPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserPropertiesResponsePtrOutput{})
 }

@@ -36,7 +36,7 @@ type LookupSecurityRuleResult struct {
 	// The destination address prefixes. CIDR or destination IP ranges.
 	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
 	// The application security group specified as destination.
-	DestinationApplicationSecurityGroups []ApplicationSecurityGroupResponse `pulumi:"destinationApplicationSecurityGroups"`
+	DestinationApplicationSecurityGroups []ApplicationSecurityGroupInvokeResponse `pulumi:"destinationApplicationSecurityGroups"`
 	// The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
 	DestinationPortRange *string `pulumi:"destinationPortRange"`
 	// The destination port ranges.
@@ -60,7 +60,7 @@ type LookupSecurityRuleResult struct {
 	// The CIDR or source IP ranges.
 	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
 	// The application security group specified as source.
-	SourceApplicationSecurityGroups []ApplicationSecurityGroupResponse `pulumi:"sourceApplicationSecurityGroups"`
+	SourceApplicationSecurityGroups []ApplicationSecurityGroupInvokeResponse `pulumi:"sourceApplicationSecurityGroups"`
 	// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
 	SourcePortRange *string `pulumi:"sourcePortRange"`
 	// The source port ranges.

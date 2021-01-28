@@ -11,7 +11,7 @@ import (
 )
 
 // EngagementFabric channel description
-type ChannelTypeDescriptionResponse struct {
+type ChannelTypeDescriptionInvokeResponse struct {
 	// Text description for the channel
 	ChannelDescription *string `pulumi:"channelDescription"`
 	// All the available functions for the channel
@@ -20,19 +20,19 @@ type ChannelTypeDescriptionResponse struct {
 	ChannelType *string `pulumi:"channelType"`
 }
 
-// ChannelTypeDescriptionResponseInput is an input type that accepts ChannelTypeDescriptionResponseArgs and ChannelTypeDescriptionResponseOutput values.
-// You can construct a concrete instance of `ChannelTypeDescriptionResponseInput` via:
+// ChannelTypeDescriptionInvokeResponseInput is an input type that accepts ChannelTypeDescriptionInvokeResponseArgs and ChannelTypeDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `ChannelTypeDescriptionInvokeResponseInput` via:
 //
-//          ChannelTypeDescriptionResponseArgs{...}
-type ChannelTypeDescriptionResponseInput interface {
+//          ChannelTypeDescriptionInvokeResponseArgs{...}
+type ChannelTypeDescriptionInvokeResponseInput interface {
 	pulumi.Input
 
-	ToChannelTypeDescriptionResponseOutput() ChannelTypeDescriptionResponseOutput
-	ToChannelTypeDescriptionResponseOutputWithContext(context.Context) ChannelTypeDescriptionResponseOutput
+	ToChannelTypeDescriptionInvokeResponseOutput() ChannelTypeDescriptionInvokeResponseOutput
+	ToChannelTypeDescriptionInvokeResponseOutputWithContext(context.Context) ChannelTypeDescriptionInvokeResponseOutput
 }
 
 // EngagementFabric channel description
-type ChannelTypeDescriptionResponseArgs struct {
+type ChannelTypeDescriptionInvokeResponseArgs struct {
 	// Text description for the channel
 	ChannelDescription pulumi.StringPtrInput `pulumi:"channelDescription"`
 	// All the available functions for the channel
@@ -41,95 +41,95 @@ type ChannelTypeDescriptionResponseArgs struct {
 	ChannelType pulumi.StringPtrInput `pulumi:"channelType"`
 }
 
-func (ChannelTypeDescriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTypeDescriptionResponse)(nil)).Elem()
+func (ChannelTypeDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTypeDescriptionInvokeResponse)(nil)).Elem()
 }
 
-func (i ChannelTypeDescriptionResponseArgs) ToChannelTypeDescriptionResponseOutput() ChannelTypeDescriptionResponseOutput {
-	return i.ToChannelTypeDescriptionResponseOutputWithContext(context.Background())
+func (i ChannelTypeDescriptionInvokeResponseArgs) ToChannelTypeDescriptionInvokeResponseOutput() ChannelTypeDescriptionInvokeResponseOutput {
+	return i.ToChannelTypeDescriptionInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ChannelTypeDescriptionResponseArgs) ToChannelTypeDescriptionResponseOutputWithContext(ctx context.Context) ChannelTypeDescriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelTypeDescriptionResponseOutput)
+func (i ChannelTypeDescriptionInvokeResponseArgs) ToChannelTypeDescriptionInvokeResponseOutputWithContext(ctx context.Context) ChannelTypeDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTypeDescriptionInvokeResponseOutput)
 }
 
-// ChannelTypeDescriptionResponseArrayInput is an input type that accepts ChannelTypeDescriptionResponseArray and ChannelTypeDescriptionResponseArrayOutput values.
-// You can construct a concrete instance of `ChannelTypeDescriptionResponseArrayInput` via:
+// ChannelTypeDescriptionInvokeResponseArrayInput is an input type that accepts ChannelTypeDescriptionInvokeResponseArray and ChannelTypeDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ChannelTypeDescriptionInvokeResponseArrayInput` via:
 //
-//          ChannelTypeDescriptionResponseArray{ ChannelTypeDescriptionResponseArgs{...} }
-type ChannelTypeDescriptionResponseArrayInput interface {
+//          ChannelTypeDescriptionInvokeResponseArray{ ChannelTypeDescriptionInvokeResponseArgs{...} }
+type ChannelTypeDescriptionInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToChannelTypeDescriptionResponseArrayOutput() ChannelTypeDescriptionResponseArrayOutput
-	ToChannelTypeDescriptionResponseArrayOutputWithContext(context.Context) ChannelTypeDescriptionResponseArrayOutput
+	ToChannelTypeDescriptionInvokeResponseArrayOutput() ChannelTypeDescriptionInvokeResponseArrayOutput
+	ToChannelTypeDescriptionInvokeResponseArrayOutputWithContext(context.Context) ChannelTypeDescriptionInvokeResponseArrayOutput
 }
 
-type ChannelTypeDescriptionResponseArray []ChannelTypeDescriptionResponseInput
+type ChannelTypeDescriptionInvokeResponseArray []ChannelTypeDescriptionInvokeResponseInput
 
-func (ChannelTypeDescriptionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelTypeDescriptionResponse)(nil)).Elem()
+func (ChannelTypeDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTypeDescriptionInvokeResponse)(nil)).Elem()
 }
 
-func (i ChannelTypeDescriptionResponseArray) ToChannelTypeDescriptionResponseArrayOutput() ChannelTypeDescriptionResponseArrayOutput {
-	return i.ToChannelTypeDescriptionResponseArrayOutputWithContext(context.Background())
+func (i ChannelTypeDescriptionInvokeResponseArray) ToChannelTypeDescriptionInvokeResponseArrayOutput() ChannelTypeDescriptionInvokeResponseArrayOutput {
+	return i.ToChannelTypeDescriptionInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ChannelTypeDescriptionResponseArray) ToChannelTypeDescriptionResponseArrayOutputWithContext(ctx context.Context) ChannelTypeDescriptionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelTypeDescriptionResponseArrayOutput)
+func (i ChannelTypeDescriptionInvokeResponseArray) ToChannelTypeDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) ChannelTypeDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTypeDescriptionInvokeResponseArrayOutput)
 }
 
 // EngagementFabric channel description
-type ChannelTypeDescriptionResponseOutput struct{ *pulumi.OutputState }
+type ChannelTypeDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ChannelTypeDescriptionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelTypeDescriptionResponse)(nil)).Elem()
+func (ChannelTypeDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTypeDescriptionInvokeResponse)(nil)).Elem()
 }
 
-func (o ChannelTypeDescriptionResponseOutput) ToChannelTypeDescriptionResponseOutput() ChannelTypeDescriptionResponseOutput {
+func (o ChannelTypeDescriptionInvokeResponseOutput) ToChannelTypeDescriptionInvokeResponseOutput() ChannelTypeDescriptionInvokeResponseOutput {
 	return o
 }
 
-func (o ChannelTypeDescriptionResponseOutput) ToChannelTypeDescriptionResponseOutputWithContext(ctx context.Context) ChannelTypeDescriptionResponseOutput {
+func (o ChannelTypeDescriptionInvokeResponseOutput) ToChannelTypeDescriptionInvokeResponseOutputWithContext(ctx context.Context) ChannelTypeDescriptionInvokeResponseOutput {
 	return o
 }
 
 // Text description for the channel
-func (o ChannelTypeDescriptionResponseOutput) ChannelDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelTypeDescriptionResponse) *string { return v.ChannelDescription }).(pulumi.StringPtrOutput)
+func (o ChannelTypeDescriptionInvokeResponseOutput) ChannelDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelTypeDescriptionInvokeResponse) *string { return v.ChannelDescription }).(pulumi.StringPtrOutput)
 }
 
 // All the available functions for the channel
-func (o ChannelTypeDescriptionResponseOutput) ChannelFunctions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ChannelTypeDescriptionResponse) []string { return v.ChannelFunctions }).(pulumi.StringArrayOutput)
+func (o ChannelTypeDescriptionInvokeResponseOutput) ChannelFunctions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ChannelTypeDescriptionInvokeResponse) []string { return v.ChannelFunctions }).(pulumi.StringArrayOutput)
 }
 
 // Channel type
-func (o ChannelTypeDescriptionResponseOutput) ChannelType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelTypeDescriptionResponse) *string { return v.ChannelType }).(pulumi.StringPtrOutput)
+func (o ChannelTypeDescriptionInvokeResponseOutput) ChannelType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelTypeDescriptionInvokeResponse) *string { return v.ChannelType }).(pulumi.StringPtrOutput)
 }
 
-type ChannelTypeDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
+type ChannelTypeDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ChannelTypeDescriptionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ChannelTypeDescriptionResponse)(nil)).Elem()
+func (ChannelTypeDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTypeDescriptionInvokeResponse)(nil)).Elem()
 }
 
-func (o ChannelTypeDescriptionResponseArrayOutput) ToChannelTypeDescriptionResponseArrayOutput() ChannelTypeDescriptionResponseArrayOutput {
+func (o ChannelTypeDescriptionInvokeResponseArrayOutput) ToChannelTypeDescriptionInvokeResponseArrayOutput() ChannelTypeDescriptionInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ChannelTypeDescriptionResponseArrayOutput) ToChannelTypeDescriptionResponseArrayOutputWithContext(ctx context.Context) ChannelTypeDescriptionResponseArrayOutput {
+func (o ChannelTypeDescriptionInvokeResponseArrayOutput) ToChannelTypeDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) ChannelTypeDescriptionInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ChannelTypeDescriptionResponseArrayOutput) Index(i pulumi.IntInput) ChannelTypeDescriptionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTypeDescriptionResponse {
-		return vs[0].([]ChannelTypeDescriptionResponse)[vs[1].(int)]
-	}).(ChannelTypeDescriptionResponseOutput)
+func (o ChannelTypeDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) ChannelTypeDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTypeDescriptionInvokeResponse {
+		return vs[0].([]ChannelTypeDescriptionInvokeResponse)[vs[1].(int)]
+	}).(ChannelTypeDescriptionInvokeResponseOutput)
 }
 
 // The description of the EngagementFabric account key
-type KeyDescriptionResponse struct {
+type KeyDescriptionInvokeResponse struct {
 	// The name of the key
 	Name string `pulumi:"name"`
 	// The rank of the key
@@ -138,19 +138,19 @@ type KeyDescriptionResponse struct {
 	Value string `pulumi:"value"`
 }
 
-// KeyDescriptionResponseInput is an input type that accepts KeyDescriptionResponseArgs and KeyDescriptionResponseOutput values.
-// You can construct a concrete instance of `KeyDescriptionResponseInput` via:
+// KeyDescriptionInvokeResponseInput is an input type that accepts KeyDescriptionInvokeResponseArgs and KeyDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyDescriptionInvokeResponseInput` via:
 //
-//          KeyDescriptionResponseArgs{...}
-type KeyDescriptionResponseInput interface {
+//          KeyDescriptionInvokeResponseArgs{...}
+type KeyDescriptionInvokeResponseInput interface {
 	pulumi.Input
 
-	ToKeyDescriptionResponseOutput() KeyDescriptionResponseOutput
-	ToKeyDescriptionResponseOutputWithContext(context.Context) KeyDescriptionResponseOutput
+	ToKeyDescriptionInvokeResponseOutput() KeyDescriptionInvokeResponseOutput
+	ToKeyDescriptionInvokeResponseOutputWithContext(context.Context) KeyDescriptionInvokeResponseOutput
 }
 
 // The description of the EngagementFabric account key
-type KeyDescriptionResponseArgs struct {
+type KeyDescriptionInvokeResponseArgs struct {
 	// The name of the key
 	Name pulumi.StringInput `pulumi:"name"`
 	// The rank of the key
@@ -159,91 +159,91 @@ type KeyDescriptionResponseArgs struct {
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (KeyDescriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyDescriptionResponse)(nil)).Elem()
+func (KeyDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDescriptionInvokeResponse)(nil)).Elem()
 }
 
-func (i KeyDescriptionResponseArgs) ToKeyDescriptionResponseOutput() KeyDescriptionResponseOutput {
-	return i.ToKeyDescriptionResponseOutputWithContext(context.Background())
+func (i KeyDescriptionInvokeResponseArgs) ToKeyDescriptionInvokeResponseOutput() KeyDescriptionInvokeResponseOutput {
+	return i.ToKeyDescriptionInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i KeyDescriptionResponseArgs) ToKeyDescriptionResponseOutputWithContext(ctx context.Context) KeyDescriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyDescriptionResponseOutput)
+func (i KeyDescriptionInvokeResponseArgs) ToKeyDescriptionInvokeResponseOutputWithContext(ctx context.Context) KeyDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyDescriptionInvokeResponseOutput)
 }
 
-// KeyDescriptionResponseArrayInput is an input type that accepts KeyDescriptionResponseArray and KeyDescriptionResponseArrayOutput values.
-// You can construct a concrete instance of `KeyDescriptionResponseArrayInput` via:
+// KeyDescriptionInvokeResponseArrayInput is an input type that accepts KeyDescriptionInvokeResponseArray and KeyDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `KeyDescriptionInvokeResponseArrayInput` via:
 //
-//          KeyDescriptionResponseArray{ KeyDescriptionResponseArgs{...} }
-type KeyDescriptionResponseArrayInput interface {
+//          KeyDescriptionInvokeResponseArray{ KeyDescriptionInvokeResponseArgs{...} }
+type KeyDescriptionInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToKeyDescriptionResponseArrayOutput() KeyDescriptionResponseArrayOutput
-	ToKeyDescriptionResponseArrayOutputWithContext(context.Context) KeyDescriptionResponseArrayOutput
+	ToKeyDescriptionInvokeResponseArrayOutput() KeyDescriptionInvokeResponseArrayOutput
+	ToKeyDescriptionInvokeResponseArrayOutputWithContext(context.Context) KeyDescriptionInvokeResponseArrayOutput
 }
 
-type KeyDescriptionResponseArray []KeyDescriptionResponseInput
+type KeyDescriptionInvokeResponseArray []KeyDescriptionInvokeResponseInput
 
-func (KeyDescriptionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyDescriptionResponse)(nil)).Elem()
+func (KeyDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyDescriptionInvokeResponse)(nil)).Elem()
 }
 
-func (i KeyDescriptionResponseArray) ToKeyDescriptionResponseArrayOutput() KeyDescriptionResponseArrayOutput {
-	return i.ToKeyDescriptionResponseArrayOutputWithContext(context.Background())
+func (i KeyDescriptionInvokeResponseArray) ToKeyDescriptionInvokeResponseArrayOutput() KeyDescriptionInvokeResponseArrayOutput {
+	return i.ToKeyDescriptionInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i KeyDescriptionResponseArray) ToKeyDescriptionResponseArrayOutputWithContext(ctx context.Context) KeyDescriptionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyDescriptionResponseArrayOutput)
+func (i KeyDescriptionInvokeResponseArray) ToKeyDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) KeyDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyDescriptionInvokeResponseArrayOutput)
 }
 
 // The description of the EngagementFabric account key
-type KeyDescriptionResponseOutput struct{ *pulumi.OutputState }
+type KeyDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (KeyDescriptionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyDescriptionResponse)(nil)).Elem()
+func (KeyDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDescriptionInvokeResponse)(nil)).Elem()
 }
 
-func (o KeyDescriptionResponseOutput) ToKeyDescriptionResponseOutput() KeyDescriptionResponseOutput {
+func (o KeyDescriptionInvokeResponseOutput) ToKeyDescriptionInvokeResponseOutput() KeyDescriptionInvokeResponseOutput {
 	return o
 }
 
-func (o KeyDescriptionResponseOutput) ToKeyDescriptionResponseOutputWithContext(ctx context.Context) KeyDescriptionResponseOutput {
+func (o KeyDescriptionInvokeResponseOutput) ToKeyDescriptionInvokeResponseOutputWithContext(ctx context.Context) KeyDescriptionInvokeResponseOutput {
 	return o
 }
 
 // The name of the key
-func (o KeyDescriptionResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyDescriptionResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o KeyDescriptionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyDescriptionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The rank of the key
-func (o KeyDescriptionResponseOutput) Rank() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyDescriptionResponse) string { return v.Rank }).(pulumi.StringOutput)
+func (o KeyDescriptionInvokeResponseOutput) Rank() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyDescriptionInvokeResponse) string { return v.Rank }).(pulumi.StringOutput)
 }
 
 // The value of the key
-func (o KeyDescriptionResponseOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyDescriptionResponse) string { return v.Value }).(pulumi.StringOutput)
+func (o KeyDescriptionInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyDescriptionInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type KeyDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
+type KeyDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (KeyDescriptionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeyDescriptionResponse)(nil)).Elem()
+func (KeyDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyDescriptionInvokeResponse)(nil)).Elem()
 }
 
-func (o KeyDescriptionResponseArrayOutput) ToKeyDescriptionResponseArrayOutput() KeyDescriptionResponseArrayOutput {
+func (o KeyDescriptionInvokeResponseArrayOutput) ToKeyDescriptionInvokeResponseArrayOutput() KeyDescriptionInvokeResponseArrayOutput {
 	return o
 }
 
-func (o KeyDescriptionResponseArrayOutput) ToKeyDescriptionResponseArrayOutputWithContext(ctx context.Context) KeyDescriptionResponseArrayOutput {
+func (o KeyDescriptionInvokeResponseArrayOutput) ToKeyDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) KeyDescriptionInvokeResponseArrayOutput {
 	return o
 }
 
-func (o KeyDescriptionResponseArrayOutput) Index(i pulumi.IntInput) KeyDescriptionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyDescriptionResponse {
-		return vs[0].([]KeyDescriptionResponse)[vs[1].(int)]
-	}).(KeyDescriptionResponseOutput)
+func (o KeyDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) KeyDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyDescriptionInvokeResponse {
+		return vs[0].([]KeyDescriptionInvokeResponse)[vs[1].(int)]
+	}).(KeyDescriptionInvokeResponseOutput)
 }
 
 // The EngagementFabric SKU
@@ -400,6 +400,70 @@ func (o SKUPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // The EngagementFabric SKU
+type SKUInvokeResponse struct {
+	// The name of the SKU
+	Name string `pulumi:"name"`
+	// The price tier of the SKU
+	Tier *string `pulumi:"tier"`
+}
+
+// SKUInvokeResponseInput is an input type that accepts SKUInvokeResponseArgs and SKUInvokeResponseOutput values.
+// You can construct a concrete instance of `SKUInvokeResponseInput` via:
+//
+//          SKUInvokeResponseArgs{...}
+type SKUInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSKUInvokeResponseOutput() SKUInvokeResponseOutput
+	ToSKUInvokeResponseOutputWithContext(context.Context) SKUInvokeResponseOutput
+}
+
+// The EngagementFabric SKU
+type SKUInvokeResponseArgs struct {
+	// The name of the SKU
+	Name pulumi.StringInput `pulumi:"name"`
+	// The price tier of the SKU
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SKUInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SKUInvokeResponse)(nil)).Elem()
+}
+
+func (i SKUInvokeResponseArgs) ToSKUInvokeResponseOutput() SKUInvokeResponseOutput {
+	return i.ToSKUInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SKUInvokeResponseArgs) ToSKUInvokeResponseOutputWithContext(ctx context.Context) SKUInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SKUInvokeResponseOutput)
+}
+
+// The EngagementFabric SKU
+type SKUInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SKUInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SKUInvokeResponse)(nil)).Elem()
+}
+
+func (o SKUInvokeResponseOutput) ToSKUInvokeResponseOutput() SKUInvokeResponseOutput {
+	return o
+}
+
+func (o SKUInvokeResponseOutput) ToSKUInvokeResponseOutputWithContext(ctx context.Context) SKUInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU
+func (o SKUInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SKUInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The price tier of the SKU
+func (o SKUInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SKUInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The EngagementFabric SKU
 type SKUResponse struct {
 	// The name of the SKU
 	Name string `pulumi:"name"`
@@ -553,12 +617,13 @@ func (o SKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ChannelTypeDescriptionResponseOutput{})
-	pulumi.RegisterOutputType(ChannelTypeDescriptionResponseArrayOutput{})
-	pulumi.RegisterOutputType(KeyDescriptionResponseOutput{})
-	pulumi.RegisterOutputType(KeyDescriptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ChannelTypeDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ChannelTypeDescriptionInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KeyDescriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SKUOutput{})
 	pulumi.RegisterOutputType(SKUPtrOutput{})
+	pulumi.RegisterOutputType(SKUInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SKUResponseOutput{})
 	pulumi.RegisterOutputType(SKUResponsePtrOutput{})
 }

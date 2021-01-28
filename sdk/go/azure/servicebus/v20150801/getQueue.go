@@ -32,7 +32,7 @@ type LookupQueueResult struct {
 	// the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
 	// Message Count Details.
-	CountDetails MessageCountDetailsResponse `pulumi:"countDetails"`
+	CountDetails MessageCountDetailsInvokeResponse `pulumi:"countDetails"`
 	// The exact time the message was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// A value that indicates whether this queue has dead letter support when a message expires.

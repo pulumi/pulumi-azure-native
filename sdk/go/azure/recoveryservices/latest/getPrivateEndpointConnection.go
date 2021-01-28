@@ -36,7 +36,7 @@ type LookupPrivateEndpointConnectionResult struct {
 	// Resource name associated with the resource.
 	Name string `pulumi:"name"`
 	// PrivateEndpointConnectionResource properties
-	Properties PrivateEndpointConnectionResponse `pulumi:"properties"`
+	Properties PrivateEndpointConnectionInvokeResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...

@@ -34,7 +34,7 @@ type LookupIntegrationServiceEnvironmentManagedApiResult struct {
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The api resource properties.
-	Properties ApiResourcePropertiesResponse `pulumi:"properties"`
+	Properties ApiResourcePropertiesInvokeResponse `pulumi:"properties"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

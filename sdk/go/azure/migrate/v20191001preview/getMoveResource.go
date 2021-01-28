@@ -32,7 +32,7 @@ type LookupMoveResourceResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Defines the move resource properties.
-	Properties MoveResourcePropertiesResponse `pulumi:"properties"`
+	Properties MoveResourcePropertiesInvokeResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

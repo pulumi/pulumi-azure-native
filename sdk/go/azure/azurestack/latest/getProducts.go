@@ -30,5 +30,5 @@ type GetProductsResult struct {
 	// URI to the next page.
 	NextLink *string `pulumi:"nextLink"`
 	// List of products.
-	Value []ProductResponse `pulumi:"value"`
+	Value []ProductInvokeResponse `pulumi:"value"`
 }

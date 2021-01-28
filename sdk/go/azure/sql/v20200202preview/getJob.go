@@ -36,7 +36,7 @@ type LookupJobResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Schedule properties of the job.
-	Schedule *JobScheduleResponse `pulumi:"schedule"`
+	Schedule *JobScheduleInvokeResponse `pulumi:"schedule"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The job version number.

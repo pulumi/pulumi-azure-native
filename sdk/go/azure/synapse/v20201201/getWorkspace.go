@@ -30,15 +30,15 @@ type LookupWorkspaceResult struct {
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Workspace default data lake storage account details
-	DefaultDataLakeStorage *DataLakeStorageAccountDetailsResponse `pulumi:"defaultDataLakeStorage"`
+	DefaultDataLakeStorage *DataLakeStorageAccountDetailsInvokeResponse `pulumi:"defaultDataLakeStorage"`
 	// The encryption details of the workspace
-	Encryption *EncryptionDetailsResponse `pulumi:"encryption"`
+	Encryption *EncryptionDetailsInvokeResponse `pulumi:"encryption"`
 	// Workspace level configs and feature flags
 	ExtraProperties map[string]interface{} `pulumi:"extraProperties"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Identity of the workspace
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
+	Identity *ManagedIdentityInvokeResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
@@ -46,15 +46,15 @@ type LookupWorkspaceResult struct {
 	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
 	ManagedVirtualNetwork *string `pulumi:"managedVirtualNetwork"`
 	// Managed Virtual Network Settings
-	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettingsResponse `pulumi:"managedVirtualNetworkSettings"`
+	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettingsInvokeResponse `pulumi:"managedVirtualNetworkSettings"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Private endpoint connections to the workspace
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Resource provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Purview Configuration
-	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
+	PurviewConfiguration *PurviewConfigurationInvokeResponse `pulumi:"purviewConfiguration"`
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
 	// SQL administrator login password
@@ -64,9 +64,9 @@ type LookupWorkspaceResult struct {
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Virtual Network profile
-	VirtualNetworkProfile *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
+	VirtualNetworkProfile *VirtualNetworkProfileInvokeResponse `pulumi:"virtualNetworkProfile"`
 	// Git integration settings
-	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfigurationResponse `pulumi:"workspaceRepositoryConfiguration"`
+	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfigurationInvokeResponse `pulumi:"workspaceRepositoryConfiguration"`
 	// The workspace unique identifier
 	WorkspaceUID string `pulumi:"workspaceUID"`
 }

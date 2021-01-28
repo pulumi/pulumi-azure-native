@@ -40,7 +40,7 @@ type LookupGraphQueryResult struct {
 	// Enum indicating a type of graph query.
 	ResultKind string `pulumi:"resultKind"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this graph query definition.

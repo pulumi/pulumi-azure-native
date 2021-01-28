@@ -30,21 +30,21 @@ type LookupOriginGroupArgs struct {
 // Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 type LookupOriginGroupResult struct {
 	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings *HealthProbeParametersResponse `pulumi:"healthProbeSettings"`
+	HealthProbeSettings *HealthProbeParametersInvokeResponse `pulumi:"healthProbeSettings"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The source of the content being delivered via CDN within given origin group.
-	Origins []ResourceReferenceResponse `pulumi:"origins"`
+	Origins []ResourceReferenceInvokeResponse `pulumi:"origins"`
 	// Provisioning status of the origin group.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource status of the origin group.
 	ResourceState string `pulumi:"resourceState"`
 	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersResponse `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	ResponseBasedOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersInvokeResponse `pulumi:"responseBasedOriginErrorDetectionSettings"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
 	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
 	// Resource type.

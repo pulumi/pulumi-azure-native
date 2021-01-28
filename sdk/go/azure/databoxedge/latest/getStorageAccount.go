@@ -44,7 +44,7 @@ type LookupStorageAccountResult struct {
 	// Current status of the storage account
 	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
 	// StorageAccount object on ASE device
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

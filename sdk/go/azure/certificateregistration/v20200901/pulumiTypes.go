@@ -120,6 +120,124 @@ func (o AppServiceCertificateMapOutput) MapIndex(k pulumi.StringInput) AppServic
 }
 
 // Key Vault container for a certificate that is purchased through Azure.
+type AppServiceCertificateInvokeResponse struct {
+	// Key Vault resource Id.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
+	// Status of the Key Vault secret.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// AppServiceCertificateInvokeResponseInput is an input type that accepts AppServiceCertificateInvokeResponseArgs and AppServiceCertificateInvokeResponseOutput values.
+// You can construct a concrete instance of `AppServiceCertificateInvokeResponseInput` via:
+//
+//          AppServiceCertificateInvokeResponseArgs{...}
+type AppServiceCertificateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAppServiceCertificateInvokeResponseOutput() AppServiceCertificateInvokeResponseOutput
+	ToAppServiceCertificateInvokeResponseOutputWithContext(context.Context) AppServiceCertificateInvokeResponseOutput
+}
+
+// Key Vault container for a certificate that is purchased through Azure.
+type AppServiceCertificateInvokeResponseArgs struct {
+	// Key Vault resource Id.
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName pulumi.StringPtrInput `pulumi:"keyVaultSecretName"`
+	// Status of the Key Vault secret.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (AppServiceCertificateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (i AppServiceCertificateInvokeResponseArgs) ToAppServiceCertificateInvokeResponseOutput() AppServiceCertificateInvokeResponseOutput {
+	return i.ToAppServiceCertificateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AppServiceCertificateInvokeResponseArgs) ToAppServiceCertificateInvokeResponseOutputWithContext(ctx context.Context) AppServiceCertificateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateInvokeResponseOutput)
+}
+
+// AppServiceCertificateInvokeResponseMapInput is an input type that accepts AppServiceCertificateInvokeResponseMap and AppServiceCertificateInvokeResponseMapOutput values.
+// You can construct a concrete instance of `AppServiceCertificateInvokeResponseMapInput` via:
+//
+//          AppServiceCertificateInvokeResponseMap{ "key": AppServiceCertificateInvokeResponseArgs{...} }
+type AppServiceCertificateInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToAppServiceCertificateInvokeResponseMapOutput() AppServiceCertificateInvokeResponseMapOutput
+	ToAppServiceCertificateInvokeResponseMapOutputWithContext(context.Context) AppServiceCertificateInvokeResponseMapOutput
+}
+
+type AppServiceCertificateInvokeResponseMap map[string]AppServiceCertificateInvokeResponseInput
+
+func (AppServiceCertificateInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AppServiceCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (i AppServiceCertificateInvokeResponseMap) ToAppServiceCertificateInvokeResponseMapOutput() AppServiceCertificateInvokeResponseMapOutput {
+	return i.ToAppServiceCertificateInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i AppServiceCertificateInvokeResponseMap) ToAppServiceCertificateInvokeResponseMapOutputWithContext(ctx context.Context) AppServiceCertificateInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateInvokeResponseMapOutput)
+}
+
+// Key Vault container for a certificate that is purchased through Azure.
+type AppServiceCertificateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AppServiceCertificateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (o AppServiceCertificateInvokeResponseOutput) ToAppServiceCertificateInvokeResponseOutput() AppServiceCertificateInvokeResponseOutput {
+	return o
+}
+
+func (o AppServiceCertificateInvokeResponseOutput) ToAppServiceCertificateInvokeResponseOutputWithContext(ctx context.Context) AppServiceCertificateInvokeResponseOutput {
+	return o
+}
+
+// Key Vault resource Id.
+func (o AppServiceCertificateInvokeResponseOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceCertificateInvokeResponse) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Key Vault secret name.
+func (o AppServiceCertificateInvokeResponseOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceCertificateInvokeResponse) *string { return v.KeyVaultSecretName }).(pulumi.StringPtrOutput)
+}
+
+// Status of the Key Vault secret.
+func (o AppServiceCertificateInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AppServiceCertificateInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type AppServiceCertificateInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (AppServiceCertificateInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AppServiceCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (o AppServiceCertificateInvokeResponseMapOutput) ToAppServiceCertificateInvokeResponseMapOutput() AppServiceCertificateInvokeResponseMapOutput {
+	return o
+}
+
+func (o AppServiceCertificateInvokeResponseMapOutput) ToAppServiceCertificateInvokeResponseMapOutputWithContext(ctx context.Context) AppServiceCertificateInvokeResponseMapOutput {
+	return o
+}
+
+func (o AppServiceCertificateInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) AppServiceCertificateInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppServiceCertificateInvokeResponse {
+		return vs[0].(map[string]AppServiceCertificateInvokeResponse)[vs[1].(string)]
+	}).(AppServiceCertificateInvokeResponseOutput)
+}
+
+// Key Vault container for a certificate that is purchased through Azure.
 type AppServiceCertificateResponse struct {
 	// Key Vault resource Id.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -235,6 +353,133 @@ func (o AppServiceCertificateResponseMapOutput) MapIndex(k pulumi.StringInput) A
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AppServiceCertificateResponse {
 		return vs[0].(map[string]AppServiceCertificateResponse)[vs[1].(string)]
 	}).(AppServiceCertificateResponseOutput)
+}
+
+// SSL certificate details.
+type CertificateDetailsInvokeResponse struct {
+	// Certificate Issuer.
+	Issuer string `pulumi:"issuer"`
+	// Date Certificate is valid to.
+	NotAfter string `pulumi:"notAfter"`
+	// Date Certificate is valid from.
+	NotBefore string `pulumi:"notBefore"`
+	// Raw certificate data.
+	RawData string `pulumi:"rawData"`
+	// Certificate Serial Number.
+	SerialNumber string `pulumi:"serialNumber"`
+	// Certificate Signature algorithm.
+	SignatureAlgorithm string `pulumi:"signatureAlgorithm"`
+	// Certificate Subject.
+	Subject string `pulumi:"subject"`
+	// Certificate Thumbprint.
+	Thumbprint string `pulumi:"thumbprint"`
+	// Certificate Version.
+	Version int `pulumi:"version"`
+}
+
+// CertificateDetailsInvokeResponseInput is an input type that accepts CertificateDetailsInvokeResponseArgs and CertificateDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `CertificateDetailsInvokeResponseInput` via:
+//
+//          CertificateDetailsInvokeResponseArgs{...}
+type CertificateDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCertificateDetailsInvokeResponseOutput() CertificateDetailsInvokeResponseOutput
+	ToCertificateDetailsInvokeResponseOutputWithContext(context.Context) CertificateDetailsInvokeResponseOutput
+}
+
+// SSL certificate details.
+type CertificateDetailsInvokeResponseArgs struct {
+	// Certificate Issuer.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// Date Certificate is valid to.
+	NotAfter pulumi.StringInput `pulumi:"notAfter"`
+	// Date Certificate is valid from.
+	NotBefore pulumi.StringInput `pulumi:"notBefore"`
+	// Raw certificate data.
+	RawData pulumi.StringInput `pulumi:"rawData"`
+	// Certificate Serial Number.
+	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
+	// Certificate Signature algorithm.
+	SignatureAlgorithm pulumi.StringInput `pulumi:"signatureAlgorithm"`
+	// Certificate Subject.
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// Certificate Thumbprint.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	// Certificate Version.
+	Version pulumi.IntInput `pulumi:"version"`
+}
+
+func (CertificateDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i CertificateDetailsInvokeResponseArgs) ToCertificateDetailsInvokeResponseOutput() CertificateDetailsInvokeResponseOutput {
+	return i.ToCertificateDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CertificateDetailsInvokeResponseArgs) ToCertificateDetailsInvokeResponseOutputWithContext(ctx context.Context) CertificateDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsInvokeResponseOutput)
+}
+
+// SSL certificate details.
+type CertificateDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CertificateDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o CertificateDetailsInvokeResponseOutput) ToCertificateDetailsInvokeResponseOutput() CertificateDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o CertificateDetailsInvokeResponseOutput) ToCertificateDetailsInvokeResponseOutputWithContext(ctx context.Context) CertificateDetailsInvokeResponseOutput {
+	return o
+}
+
+// Certificate Issuer.
+func (o CertificateDetailsInvokeResponseOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateDetailsInvokeResponse) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// Date Certificate is valid to.
+func (o CertificateDetailsInvokeResponseOutput) NotAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateDetailsInvokeResponse) string { return v.NotAfter }).(pulumi.StringOutput)
+}
+
+// Date Certificate is valid from.
+func (o CertificateDetailsInvokeResponseOutput) NotBefore() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateDetailsInvokeResponse) string { return v.NotBefore }).(pulumi.StringOutput)
+}
+
+// Raw certificate data.
+func (o CertificateDetailsInvokeResponseOutput) RawData() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateDetailsInvokeResponse) string { return v.RawData }).(pulumi.StringOutput)
+}
+
+// Certificate Serial Number.
+func (o CertificateDetailsInvokeResponseOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateDetailsInvokeResponse) string { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
+// Certificate Signature algorithm.
+func (o CertificateDetailsInvokeResponseOutput) SignatureAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateDetailsInvokeResponse) string { return v.SignatureAlgorithm }).(pulumi.StringOutput)
+}
+
+// Certificate Subject.
+func (o CertificateDetailsInvokeResponseOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateDetailsInvokeResponse) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+// Certificate Thumbprint.
+func (o CertificateDetailsInvokeResponseOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateDetailsInvokeResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Certificate Version.
+func (o CertificateDetailsInvokeResponseOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v CertificateDetailsInvokeResponse) int { return v.Version }).(pulumi.IntOutput)
 }
 
 // SSL certificate details.
@@ -524,6 +769,106 @@ func (o CertificateDetailsResponsePtrOutput) Version() pulumi.IntPtrOutput {
 }
 
 // Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -755,10 +1100,14 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateMapOutput{})
+	pulumi.RegisterOutputType(AppServiceCertificateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AppServiceCertificateInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponseOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponseMapOutput{})
+	pulumi.RegisterOutputType(CertificateDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsResponseOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

@@ -30,9 +30,9 @@ type LookupEndpointResult struct {
 	// List of content types on which compression applies. The value should be a valid MIME type.
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
 	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy *EndpointPropertiesUpdateParametersResponseDeliveryPolicy `pulumi:"deliveryPolicy"`
+	DeliveryPolicy *EndpointPropertiesUpdateParametersInvokeResponseDeliveryPolicy `pulumi:"deliveryPolicy"`
 	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-	GeoFilters []GeoFilterResponse `pulumi:"geoFilters"`
+	GeoFilters []GeoFilterInvokeResponse `pulumi:"geoFilters"`
 	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
 	HostName string `pulumi:"hostName"`
 	// Resource ID.
@@ -54,7 +54,7 @@ type LookupEndpointResult struct {
 	// A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
 	OriginPath *string `pulumi:"originPath"`
 	// The source of the content being delivered via CDN.
-	Origins []DeepCreatedOriginResponse `pulumi:"origins"`
+	Origins []DeepCreatedOriginInvokeResponse `pulumi:"origins"`
 	// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
 	ProbePath *string `pulumi:"probePath"`
 	// Provisioning status of the endpoint.

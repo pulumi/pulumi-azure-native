@@ -40,11 +40,11 @@ type LookupRegistryResult struct {
 	// The provisioning state of the container registry at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU of the container registry.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
-	Status StatusResponse `pulumi:"status"`
+	Status StatusInvokeResponse `pulumi:"status"`
 	// The properties of the storage account for the container registry. Only applicable to Basic SKU.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
+	StorageAccount *StorageAccountPropertiesInvokeResponse `pulumi:"storageAccount"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

@@ -30,7 +30,7 @@ type LookupBookmarkResult struct {
 	// The time the bookmark was created
 	Created *string `pulumi:"created"`
 	// Describes a user that created the bookmark
-	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
+	CreatedBy *UserInfoInvokeResponse `pulumi:"createdBy"`
 	// The display name of the bookmark
 	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
@@ -38,7 +38,7 @@ type LookupBookmarkResult struct {
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// Describes an incident that relates to bookmark
-	IncidentInfo *IncidentInfoResponse `pulumi:"incidentInfo"`
+	IncidentInfo *IncidentInfoInvokeResponse `pulumi:"incidentInfo"`
 	// List of labels relevant to this bookmark
 	Labels []string `pulumi:"labels"`
 	// Azure resource name
@@ -54,5 +54,5 @@ type LookupBookmarkResult struct {
 	// The last time the bookmark was updated
 	Updated *string `pulumi:"updated"`
 	// Describes a user that updated the bookmark
-	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
+	UpdatedBy *UserInfoInvokeResponse `pulumi:"updatedBy"`
 }

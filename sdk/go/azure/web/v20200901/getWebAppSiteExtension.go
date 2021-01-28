@@ -70,8 +70,8 @@ type LookupWebAppSiteExtensionResult struct {
 	// Summary description.
 	Summary *string `pulumi:"summary"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	Title      *string            `pulumi:"title"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
+	Title      *string                  `pulumi:"title"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Version information.

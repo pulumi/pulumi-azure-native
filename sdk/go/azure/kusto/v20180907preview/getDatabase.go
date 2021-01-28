@@ -42,7 +42,7 @@ type LookupDatabaseResult struct {
 	// The number of days data should be kept before it stops being accessible to queries.
 	SoftDeletePeriodInDays int `pulumi:"softDeletePeriodInDays"`
 	// The statistics of the database.
-	Statistics DatabaseStatisticsResponse `pulumi:"statistics"`
+	Statistics DatabaseStatisticsInvokeResponse `pulumi:"statistics"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -30,15 +30,15 @@ type LookupIotHubResourceResult struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// The managed identities for the IotHub.
-	Identity *ArmIdentityResponse `pulumi:"identity"`
+	Identity *ArmIdentityInvokeResponse `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// IotHub properties
-	Properties IotHubPropertiesResponse `pulumi:"properties"`
+	Properties IotHubPropertiesInvokeResponse `pulumi:"properties"`
 	// IotHub SKU info
-	Sku IotHubSkuInfoResponse `pulumi:"sku"`
+	Sku IotHubSkuInfoInvokeResponse `pulumi:"sku"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

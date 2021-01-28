@@ -40,18 +40,18 @@ type LookupMachineResult struct {
 	// Specifies the Windows domain name.
 	DomainName string `pulumi:"domainName"`
 	// Details about the error state.
-	ErrorDetails []ErrorDetailResponse `pulumi:"errorDetails"`
+	ErrorDetails []ErrorDetailInvokeResponse `pulumi:"errorDetails"`
 	// Machine Extensions information
-	Extensions []MachineExtensionInstanceViewResponse `pulumi:"extensions"`
+	Extensions []MachineExtensionInstanceViewInvokeResponse `pulumi:"extensions"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-	Id       string                   `pulumi:"id"`
-	Identity *MachineResponseIdentity `pulumi:"identity"`
+	Id       string                         `pulumi:"id"`
+	Identity *MachineInvokeResponseIdentity `pulumi:"identity"`
 	// The time of the last status change.
 	LastStatusChange string `pulumi:"lastStatusChange"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Metadata pertaining to the geographic location of the resource.
-	LocationData *LocationDataResponse `pulumi:"locationData"`
+	LocationData *LocationDataInvokeResponse `pulumi:"locationData"`
 	// Specifies the hybrid machine FQDN.
 	MachineFqdn string `pulumi:"machineFqdn"`
 	// The name of the resource
@@ -59,7 +59,7 @@ type LookupMachineResult struct {
 	// The Operating System running on the hybrid machine.
 	OsName string `pulumi:"osName"`
 	// Specifies the operating system settings for the hybrid machine.
-	OsProfile *MachinePropertiesResponseOsProfile `pulumi:"osProfile"`
+	OsProfile *MachinePropertiesInvokeResponseOsProfile `pulumi:"osProfile"`
 	// Specifies the Operating System product SKU.
 	OsSku string `pulumi:"osSku"`
 	// The version of Operating System running on the hybrid machine.

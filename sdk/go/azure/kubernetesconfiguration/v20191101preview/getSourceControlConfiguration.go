@@ -32,11 +32,11 @@ type LookupSourceControlConfigurationArgs struct {
 // The SourceControl Configuration object.
 type LookupSourceControlConfigurationResult struct {
 	// Compliance Status of the Configuration
-	ComplianceStatus ComplianceStatusResponse `pulumi:"complianceStatus"`
+	ComplianceStatus ComplianceStatusInvokeResponse `pulumi:"complianceStatus"`
 	// Option to enable Helm Operator for this git configuration.
 	EnableHelmOperator *string `pulumi:"enableHelmOperator"`
 	// Properties for Helm operator.
-	HelmOperatorProperties *HelmOperatorPropertiesResponse `pulumi:"helmOperatorProperties"`
+	HelmOperatorProperties *HelmOperatorPropertiesInvokeResponse `pulumi:"helmOperatorProperties"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource name

@@ -26,5 +26,5 @@ type ListClusterFollowerDatabasesArgs struct {
 // The list Kusto database principals operation response.
 type ListClusterFollowerDatabasesResult struct {
 	// The list of follower database result.
-	Value []FollowerDatabaseDefinitionResponse `pulumi:"value"`
+	Value []FollowerDatabaseDefinitionInvokeResponse `pulumi:"value"`
 }

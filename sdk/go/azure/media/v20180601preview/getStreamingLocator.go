@@ -32,7 +32,7 @@ type LookupStreamingLocatorResult struct {
 	// Asset Name
 	AssetName string `pulumi:"assetName"`
 	// ContentKeys used by this Streaming Locator
-	ContentKeys []StreamingLocatorContentKeyResponse `pulumi:"contentKeys"`
+	ContentKeys []StreamingLocatorContentKeyInvokeResponse `pulumi:"contentKeys"`
 	// Creation time of Streaming Locator
 	Created string `pulumi:"created"`
 	// Default ContentKeyPolicy used by this Streaming Locator

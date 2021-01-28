@@ -120,6 +120,115 @@ func (o HealthAlertActionArrayOutput) Index(i pulumi.IntInput) HealthAlertAction
 }
 
 // An alert action.
+type HealthAlertActionInvokeResponse struct {
+	// the id of the action group to use.
+	ActionGroupId *string `pulumi:"actionGroupId"`
+	// The properties of a webhook object.
+	WebHookProperties map[string]string `pulumi:"webHookProperties"`
+}
+
+// HealthAlertActionInvokeResponseInput is an input type that accepts HealthAlertActionInvokeResponseArgs and HealthAlertActionInvokeResponseOutput values.
+// You can construct a concrete instance of `HealthAlertActionInvokeResponseInput` via:
+//
+//          HealthAlertActionInvokeResponseArgs{...}
+type HealthAlertActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHealthAlertActionInvokeResponseOutput() HealthAlertActionInvokeResponseOutput
+	ToHealthAlertActionInvokeResponseOutputWithContext(context.Context) HealthAlertActionInvokeResponseOutput
+}
+
+// An alert action.
+type HealthAlertActionInvokeResponseArgs struct {
+	// the id of the action group to use.
+	ActionGroupId pulumi.StringPtrInput `pulumi:"actionGroupId"`
+	// The properties of a webhook object.
+	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
+}
+
+func (HealthAlertActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthAlertActionInvokeResponse)(nil)).Elem()
+}
+
+func (i HealthAlertActionInvokeResponseArgs) ToHealthAlertActionInvokeResponseOutput() HealthAlertActionInvokeResponseOutput {
+	return i.ToHealthAlertActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HealthAlertActionInvokeResponseArgs) ToHealthAlertActionInvokeResponseOutputWithContext(ctx context.Context) HealthAlertActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertActionInvokeResponseOutput)
+}
+
+// HealthAlertActionInvokeResponseArrayInput is an input type that accepts HealthAlertActionInvokeResponseArray and HealthAlertActionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `HealthAlertActionInvokeResponseArrayInput` via:
+//
+//          HealthAlertActionInvokeResponseArray{ HealthAlertActionInvokeResponseArgs{...} }
+type HealthAlertActionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToHealthAlertActionInvokeResponseArrayOutput() HealthAlertActionInvokeResponseArrayOutput
+	ToHealthAlertActionInvokeResponseArrayOutputWithContext(context.Context) HealthAlertActionInvokeResponseArrayOutput
+}
+
+type HealthAlertActionInvokeResponseArray []HealthAlertActionInvokeResponseInput
+
+func (HealthAlertActionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthAlertActionInvokeResponse)(nil)).Elem()
+}
+
+func (i HealthAlertActionInvokeResponseArray) ToHealthAlertActionInvokeResponseArrayOutput() HealthAlertActionInvokeResponseArrayOutput {
+	return i.ToHealthAlertActionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HealthAlertActionInvokeResponseArray) ToHealthAlertActionInvokeResponseArrayOutputWithContext(ctx context.Context) HealthAlertActionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertActionInvokeResponseArrayOutput)
+}
+
+// An alert action.
+type HealthAlertActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HealthAlertActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthAlertActionInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthAlertActionInvokeResponseOutput) ToHealthAlertActionInvokeResponseOutput() HealthAlertActionInvokeResponseOutput {
+	return o
+}
+
+func (o HealthAlertActionInvokeResponseOutput) ToHealthAlertActionInvokeResponseOutputWithContext(ctx context.Context) HealthAlertActionInvokeResponseOutput {
+	return o
+}
+
+// the id of the action group to use.
+func (o HealthAlertActionInvokeResponseOutput) ActionGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthAlertActionInvokeResponse) *string { return v.ActionGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The properties of a webhook object.
+func (o HealthAlertActionInvokeResponseOutput) WebHookProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v HealthAlertActionInvokeResponse) map[string]string { return v.WebHookProperties }).(pulumi.StringMapOutput)
+}
+
+type HealthAlertActionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HealthAlertActionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthAlertActionInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthAlertActionInvokeResponseArrayOutput) ToHealthAlertActionInvokeResponseArrayOutput() HealthAlertActionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HealthAlertActionInvokeResponseArrayOutput) ToHealthAlertActionInvokeResponseArrayOutputWithContext(ctx context.Context) HealthAlertActionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HealthAlertActionInvokeResponseArrayOutput) Index(i pulumi.IntInput) HealthAlertActionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthAlertActionInvokeResponse {
+		return vs[0].([]HealthAlertActionInvokeResponse)[vs[1].(int)]
+	}).(HealthAlertActionInvokeResponseOutput)
+}
+
+// An alert action.
 type HealthAlertActionResponse struct {
 	// the id of the action group to use.
 	ActionGroupId *string `pulumi:"actionGroupId"`
@@ -360,6 +469,61 @@ func (o HealthAlertCriteriaPtrOutput) AllOf() VmGuestHealthAlertCriterionArrayOu
 		}
 		return v.AllOf
 	}).(VmGuestHealthAlertCriterionArrayOutput)
+}
+
+// Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
+type HealthAlertCriteriaInvokeResponse struct {
+	// The list of metric criteria for this 'all of' operation.
+	AllOf []VmGuestHealthAlertCriterionInvokeResponse `pulumi:"allOf"`
+}
+
+// HealthAlertCriteriaInvokeResponseInput is an input type that accepts HealthAlertCriteriaInvokeResponseArgs and HealthAlertCriteriaInvokeResponseOutput values.
+// You can construct a concrete instance of `HealthAlertCriteriaInvokeResponseInput` via:
+//
+//          HealthAlertCriteriaInvokeResponseArgs{...}
+type HealthAlertCriteriaInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHealthAlertCriteriaInvokeResponseOutput() HealthAlertCriteriaInvokeResponseOutput
+	ToHealthAlertCriteriaInvokeResponseOutputWithContext(context.Context) HealthAlertCriteriaInvokeResponseOutput
+}
+
+// Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
+type HealthAlertCriteriaInvokeResponseArgs struct {
+	// The list of metric criteria for this 'all of' operation.
+	AllOf VmGuestHealthAlertCriterionInvokeResponseArrayInput `pulumi:"allOf"`
+}
+
+func (HealthAlertCriteriaInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthAlertCriteriaInvokeResponse)(nil)).Elem()
+}
+
+func (i HealthAlertCriteriaInvokeResponseArgs) ToHealthAlertCriteriaInvokeResponseOutput() HealthAlertCriteriaInvokeResponseOutput {
+	return i.ToHealthAlertCriteriaInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HealthAlertCriteriaInvokeResponseArgs) ToHealthAlertCriteriaInvokeResponseOutputWithContext(ctx context.Context) HealthAlertCriteriaInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertCriteriaInvokeResponseOutput)
+}
+
+// Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
+type HealthAlertCriteriaInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HealthAlertCriteriaInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthAlertCriteriaInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthAlertCriteriaInvokeResponseOutput) ToHealthAlertCriteriaInvokeResponseOutput() HealthAlertCriteriaInvokeResponseOutput {
+	return o
+}
+
+func (o HealthAlertCriteriaInvokeResponseOutput) ToHealthAlertCriteriaInvokeResponseOutputWithContext(ctx context.Context) HealthAlertCriteriaInvokeResponseOutput {
+	return o
+}
+
+// The list of metric criteria for this 'all of' operation.
+func (o HealthAlertCriteriaInvokeResponseOutput) AllOf() VmGuestHealthAlertCriterionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v HealthAlertCriteriaInvokeResponse) []VmGuestHealthAlertCriterionInvokeResponse { return v.AllOf }).(VmGuestHealthAlertCriterionInvokeResponseArrayOutput)
 }
 
 // Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
@@ -606,6 +770,115 @@ func (o HealthStateArrayOutput) Index(i pulumi.IntInput) HealthStateOutput {
 }
 
 // Specifies the health state to alert on and the corresponding severity
+type HealthStateInvokeResponse struct {
+	// Health state name
+	HealthStateName string `pulumi:"healthStateName"`
+	// Severity of alert fired
+	Severity float64 `pulumi:"severity"`
+}
+
+// HealthStateInvokeResponseInput is an input type that accepts HealthStateInvokeResponseArgs and HealthStateInvokeResponseOutput values.
+// You can construct a concrete instance of `HealthStateInvokeResponseInput` via:
+//
+//          HealthStateInvokeResponseArgs{...}
+type HealthStateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHealthStateInvokeResponseOutput() HealthStateInvokeResponseOutput
+	ToHealthStateInvokeResponseOutputWithContext(context.Context) HealthStateInvokeResponseOutput
+}
+
+// Specifies the health state to alert on and the corresponding severity
+type HealthStateInvokeResponseArgs struct {
+	// Health state name
+	HealthStateName pulumi.StringInput `pulumi:"healthStateName"`
+	// Severity of alert fired
+	Severity pulumi.Float64Input `pulumi:"severity"`
+}
+
+func (HealthStateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthStateInvokeResponse)(nil)).Elem()
+}
+
+func (i HealthStateInvokeResponseArgs) ToHealthStateInvokeResponseOutput() HealthStateInvokeResponseOutput {
+	return i.ToHealthStateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HealthStateInvokeResponseArgs) ToHealthStateInvokeResponseOutputWithContext(ctx context.Context) HealthStateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthStateInvokeResponseOutput)
+}
+
+// HealthStateInvokeResponseArrayInput is an input type that accepts HealthStateInvokeResponseArray and HealthStateInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `HealthStateInvokeResponseArrayInput` via:
+//
+//          HealthStateInvokeResponseArray{ HealthStateInvokeResponseArgs{...} }
+type HealthStateInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToHealthStateInvokeResponseArrayOutput() HealthStateInvokeResponseArrayOutput
+	ToHealthStateInvokeResponseArrayOutputWithContext(context.Context) HealthStateInvokeResponseArrayOutput
+}
+
+type HealthStateInvokeResponseArray []HealthStateInvokeResponseInput
+
+func (HealthStateInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthStateInvokeResponse)(nil)).Elem()
+}
+
+func (i HealthStateInvokeResponseArray) ToHealthStateInvokeResponseArrayOutput() HealthStateInvokeResponseArrayOutput {
+	return i.ToHealthStateInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HealthStateInvokeResponseArray) ToHealthStateInvokeResponseArrayOutputWithContext(ctx context.Context) HealthStateInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthStateInvokeResponseArrayOutput)
+}
+
+// Specifies the health state to alert on and the corresponding severity
+type HealthStateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HealthStateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthStateInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthStateInvokeResponseOutput) ToHealthStateInvokeResponseOutput() HealthStateInvokeResponseOutput {
+	return o
+}
+
+func (o HealthStateInvokeResponseOutput) ToHealthStateInvokeResponseOutputWithContext(ctx context.Context) HealthStateInvokeResponseOutput {
+	return o
+}
+
+// Health state name
+func (o HealthStateInvokeResponseOutput) HealthStateName() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthStateInvokeResponse) string { return v.HealthStateName }).(pulumi.StringOutput)
+}
+
+// Severity of alert fired
+func (o HealthStateInvokeResponseOutput) Severity() pulumi.Float64Output {
+	return o.ApplyT(func(v HealthStateInvokeResponse) float64 { return v.Severity }).(pulumi.Float64Output)
+}
+
+type HealthStateInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HealthStateInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthStateInvokeResponse)(nil)).Elem()
+}
+
+func (o HealthStateInvokeResponseArrayOutput) ToHealthStateInvokeResponseArrayOutput() HealthStateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HealthStateInvokeResponseArrayOutput) ToHealthStateInvokeResponseArrayOutputWithContext(ctx context.Context) HealthStateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HealthStateInvokeResponseArrayOutput) Index(i pulumi.IntInput) HealthStateInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthStateInvokeResponse {
+		return vs[0].([]HealthStateInvokeResponse)[vs[1].(int)]
+	}).(HealthStateInvokeResponseOutput)
+}
+
+// Specifies the health state to alert on and the corresponding severity
 type HealthStateResponse struct {
 	// Health state name
 	HealthStateName string `pulumi:"healthStateName"`
@@ -845,6 +1118,136 @@ func (o VmGuestHealthAlertCriterionArrayOutput) Index(i pulumi.IntInput) VmGuest
 }
 
 // Specifies the health alert criteria to alert on.
+type VmGuestHealthAlertCriterionInvokeResponse struct {
+	// Health states to alert on
+	HealthStates []HealthStateInvokeResponse `pulumi:"healthStates"`
+	// Names of health monitor on which to define alert
+	MonitorNames []string `pulumi:"monitorNames"`
+	// Names of health monitor type on which to define alert
+	MonitorTypes []string `pulumi:"monitorTypes"`
+	// specifies the type of the alert criterion.
+	// Expected value is 'GuestVmHealth'.
+	Namespace string `pulumi:"namespace"`
+}
+
+// VmGuestHealthAlertCriterionInvokeResponseInput is an input type that accepts VmGuestHealthAlertCriterionInvokeResponseArgs and VmGuestHealthAlertCriterionInvokeResponseOutput values.
+// You can construct a concrete instance of `VmGuestHealthAlertCriterionInvokeResponseInput` via:
+//
+//          VmGuestHealthAlertCriterionInvokeResponseArgs{...}
+type VmGuestHealthAlertCriterionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVmGuestHealthAlertCriterionInvokeResponseOutput() VmGuestHealthAlertCriterionInvokeResponseOutput
+	ToVmGuestHealthAlertCriterionInvokeResponseOutputWithContext(context.Context) VmGuestHealthAlertCriterionInvokeResponseOutput
+}
+
+// Specifies the health alert criteria to alert on.
+type VmGuestHealthAlertCriterionInvokeResponseArgs struct {
+	// Health states to alert on
+	HealthStates HealthStateInvokeResponseArrayInput `pulumi:"healthStates"`
+	// Names of health monitor on which to define alert
+	MonitorNames pulumi.StringArrayInput `pulumi:"monitorNames"`
+	// Names of health monitor type on which to define alert
+	MonitorTypes pulumi.StringArrayInput `pulumi:"monitorTypes"`
+	// specifies the type of the alert criterion.
+	// Expected value is 'GuestVmHealth'.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (VmGuestHealthAlertCriterionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmGuestHealthAlertCriterionInvokeResponse)(nil)).Elem()
+}
+
+func (i VmGuestHealthAlertCriterionInvokeResponseArgs) ToVmGuestHealthAlertCriterionInvokeResponseOutput() VmGuestHealthAlertCriterionInvokeResponseOutput {
+	return i.ToVmGuestHealthAlertCriterionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VmGuestHealthAlertCriterionInvokeResponseArgs) ToVmGuestHealthAlertCriterionInvokeResponseOutputWithContext(ctx context.Context) VmGuestHealthAlertCriterionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmGuestHealthAlertCriterionInvokeResponseOutput)
+}
+
+// VmGuestHealthAlertCriterionInvokeResponseArrayInput is an input type that accepts VmGuestHealthAlertCriterionInvokeResponseArray and VmGuestHealthAlertCriterionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VmGuestHealthAlertCriterionInvokeResponseArrayInput` via:
+//
+//          VmGuestHealthAlertCriterionInvokeResponseArray{ VmGuestHealthAlertCriterionInvokeResponseArgs{...} }
+type VmGuestHealthAlertCriterionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVmGuestHealthAlertCriterionInvokeResponseArrayOutput() VmGuestHealthAlertCriterionInvokeResponseArrayOutput
+	ToVmGuestHealthAlertCriterionInvokeResponseArrayOutputWithContext(context.Context) VmGuestHealthAlertCriterionInvokeResponseArrayOutput
+}
+
+type VmGuestHealthAlertCriterionInvokeResponseArray []VmGuestHealthAlertCriterionInvokeResponseInput
+
+func (VmGuestHealthAlertCriterionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmGuestHealthAlertCriterionInvokeResponse)(nil)).Elem()
+}
+
+func (i VmGuestHealthAlertCriterionInvokeResponseArray) ToVmGuestHealthAlertCriterionInvokeResponseArrayOutput() VmGuestHealthAlertCriterionInvokeResponseArrayOutput {
+	return i.ToVmGuestHealthAlertCriterionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VmGuestHealthAlertCriterionInvokeResponseArray) ToVmGuestHealthAlertCriterionInvokeResponseArrayOutputWithContext(ctx context.Context) VmGuestHealthAlertCriterionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmGuestHealthAlertCriterionInvokeResponseArrayOutput)
+}
+
+// Specifies the health alert criteria to alert on.
+type VmGuestHealthAlertCriterionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VmGuestHealthAlertCriterionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmGuestHealthAlertCriterionInvokeResponse)(nil)).Elem()
+}
+
+func (o VmGuestHealthAlertCriterionInvokeResponseOutput) ToVmGuestHealthAlertCriterionInvokeResponseOutput() VmGuestHealthAlertCriterionInvokeResponseOutput {
+	return o
+}
+
+func (o VmGuestHealthAlertCriterionInvokeResponseOutput) ToVmGuestHealthAlertCriterionInvokeResponseOutputWithContext(ctx context.Context) VmGuestHealthAlertCriterionInvokeResponseOutput {
+	return o
+}
+
+// Health states to alert on
+func (o VmGuestHealthAlertCriterionInvokeResponseOutput) HealthStates() HealthStateInvokeResponseArrayOutput {
+	return o.ApplyT(func(v VmGuestHealthAlertCriterionInvokeResponse) []HealthStateInvokeResponse { return v.HealthStates }).(HealthStateInvokeResponseArrayOutput)
+}
+
+// Names of health monitor on which to define alert
+func (o VmGuestHealthAlertCriterionInvokeResponseOutput) MonitorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmGuestHealthAlertCriterionInvokeResponse) []string { return v.MonitorNames }).(pulumi.StringArrayOutput)
+}
+
+// Names of health monitor type on which to define alert
+func (o VmGuestHealthAlertCriterionInvokeResponseOutput) MonitorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmGuestHealthAlertCriterionInvokeResponse) []string { return v.MonitorTypes }).(pulumi.StringArrayOutput)
+}
+
+// specifies the type of the alert criterion.
+// Expected value is 'GuestVmHealth'.
+func (o VmGuestHealthAlertCriterionInvokeResponseOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v VmGuestHealthAlertCriterionInvokeResponse) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type VmGuestHealthAlertCriterionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VmGuestHealthAlertCriterionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmGuestHealthAlertCriterionInvokeResponse)(nil)).Elem()
+}
+
+func (o VmGuestHealthAlertCriterionInvokeResponseArrayOutput) ToVmGuestHealthAlertCriterionInvokeResponseArrayOutput() VmGuestHealthAlertCriterionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VmGuestHealthAlertCriterionInvokeResponseArrayOutput) ToVmGuestHealthAlertCriterionInvokeResponseArrayOutputWithContext(ctx context.Context) VmGuestHealthAlertCriterionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VmGuestHealthAlertCriterionInvokeResponseArrayOutput) Index(i pulumi.IntInput) VmGuestHealthAlertCriterionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VmGuestHealthAlertCriterionInvokeResponse {
+		return vs[0].([]VmGuestHealthAlertCriterionInvokeResponse)[vs[1].(int)]
+	}).(VmGuestHealthAlertCriterionInvokeResponseOutput)
+}
+
+// Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterionResponse struct {
 	// Health states to alert on
 	HealthStates []HealthStateResponse `pulumi:"healthStates"`
@@ -977,18 +1380,25 @@ func (o VmGuestHealthAlertCriterionResponseArrayOutput) Index(i pulumi.IntInput)
 func init() {
 	pulumi.RegisterOutputType(HealthAlertActionOutput{})
 	pulumi.RegisterOutputType(HealthAlertActionArrayOutput{})
+	pulumi.RegisterOutputType(HealthAlertActionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HealthAlertActionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(HealthAlertActionResponseOutput{})
 	pulumi.RegisterOutputType(HealthAlertActionResponseArrayOutput{})
 	pulumi.RegisterOutputType(HealthAlertCriteriaOutput{})
 	pulumi.RegisterOutputType(HealthAlertCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(HealthAlertCriteriaInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HealthAlertCriteriaResponseOutput{})
 	pulumi.RegisterOutputType(HealthAlertCriteriaResponsePtrOutput{})
 	pulumi.RegisterOutputType(HealthStateOutput{})
 	pulumi.RegisterOutputType(HealthStateArrayOutput{})
+	pulumi.RegisterOutputType(HealthStateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HealthStateInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(HealthStateResponseOutput{})
 	pulumi.RegisterOutputType(HealthStateResponseArrayOutput{})
 	pulumi.RegisterOutputType(VmGuestHealthAlertCriterionOutput{})
 	pulumi.RegisterOutputType(VmGuestHealthAlertCriterionArrayOutput{})
+	pulumi.RegisterOutputType(VmGuestHealthAlertCriterionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VmGuestHealthAlertCriterionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VmGuestHealthAlertCriterionResponseOutput{})
 	pulumi.RegisterOutputType(VmGuestHealthAlertCriterionResponseArrayOutput{})
 }

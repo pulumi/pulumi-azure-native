@@ -145,6 +145,61 @@ func (o AppSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Information about the SKU of the IoT Central application.
+type AppSkuInfoInvokeResponse struct {
+	// The name of the SKU.
+	Name string `pulumi:"name"`
+}
+
+// AppSkuInfoInvokeResponseInput is an input type that accepts AppSkuInfoInvokeResponseArgs and AppSkuInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `AppSkuInfoInvokeResponseInput` via:
+//
+//          AppSkuInfoInvokeResponseArgs{...}
+type AppSkuInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAppSkuInfoInvokeResponseOutput() AppSkuInfoInvokeResponseOutput
+	ToAppSkuInfoInvokeResponseOutputWithContext(context.Context) AppSkuInfoInvokeResponseOutput
+}
+
+// Information about the SKU of the IoT Central application.
+type AppSkuInfoInvokeResponseArgs struct {
+	// The name of the SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AppSkuInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i AppSkuInfoInvokeResponseArgs) ToAppSkuInfoInvokeResponseOutput() AppSkuInfoInvokeResponseOutput {
+	return i.ToAppSkuInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AppSkuInfoInvokeResponseArgs) ToAppSkuInfoInvokeResponseOutputWithContext(ctx context.Context) AppSkuInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoInvokeResponseOutput)
+}
+
+// Information about the SKU of the IoT Central application.
+type AppSkuInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AppSkuInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AppSkuInfoInvokeResponseOutput) ToAppSkuInfoInvokeResponseOutput() AppSkuInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AppSkuInfoInvokeResponseOutput) ToAppSkuInfoInvokeResponseOutputWithContext(ctx context.Context) AppSkuInfoInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU.
+func (o AppSkuInfoInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppSkuInfoInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Information about the SKU of the IoT Central application.
 type AppSkuInfoResponse struct {
 	// The name of the SKU.
 	Name string `pulumi:"name"`
@@ -281,6 +336,7 @@ func (o AppSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(AppSkuInfoOutput{})
 	pulumi.RegisterOutputType(AppSkuInfoPtrOutput{})
+	pulumi.RegisterOutputType(AppSkuInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AppSkuInfoResponseOutput{})
 	pulumi.RegisterOutputType(AppSkuInfoResponsePtrOutput{})
 }

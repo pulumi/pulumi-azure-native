@@ -36,7 +36,7 @@ type LookupAddonResult struct {
 	// The object name.
 	Name string `pulumi:"name"`
 	// Addon type
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

@@ -26,5 +26,5 @@ type ListBlockchainMemberApiKeysArgs struct {
 // Collection of the API key payload which is exposed in the response of the resource provider.
 type ListBlockchainMemberApiKeysResult struct {
 	// Gets or sets the collection of API key.
-	Keys []ApiKeyResponse `pulumi:"keys"`
+	Keys []ApiKeyInvokeResponse `pulumi:"keys"`
 }

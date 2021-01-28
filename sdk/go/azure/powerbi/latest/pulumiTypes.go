@@ -160,6 +160,67 @@ func (o AzureSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AzureSkuInvokeResponse struct {
+	// SKU name
+	Name string `pulumi:"name"`
+	// SKU tier
+	Tier string `pulumi:"tier"`
+}
+
+// AzureSkuInvokeResponseInput is an input type that accepts AzureSkuInvokeResponseArgs and AzureSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSkuInvokeResponseInput` via:
+//
+//          AzureSkuInvokeResponseArgs{...}
+type AzureSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSkuInvokeResponseOutput() AzureSkuInvokeResponseOutput
+	ToAzureSkuInvokeResponseOutputWithContext(context.Context) AzureSkuInvokeResponseOutput
+}
+
+type AzureSkuInvokeResponseArgs struct {
+	// SKU name
+	Name pulumi.StringInput `pulumi:"name"`
+	// SKU tier
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (AzureSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSkuInvokeResponseArgs) ToAzureSkuInvokeResponseOutput() AzureSkuInvokeResponseOutput {
+	return i.ToAzureSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSkuInvokeResponseArgs) ToAzureSkuInvokeResponseOutputWithContext(ctx context.Context) AzureSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuInvokeResponseOutput)
+}
+
+type AzureSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSkuInvokeResponseOutput) ToAzureSkuInvokeResponseOutput() AzureSkuInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSkuInvokeResponseOutput) ToAzureSkuInvokeResponseOutputWithContext(ctx context.Context) AzureSkuInvokeResponseOutput {
+	return o
+}
+
+// SKU name
+func (o AzureSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SKU tier
+func (o AzureSkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
 type AzureSkuResponse struct {
 	// SKU name
 	Name string `pulumi:"name"`
@@ -313,6 +374,7 @@ func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(AzureSkuOutput{})
 	pulumi.RegisterOutputType(AzureSkuPtrOutput{})
+	pulumi.RegisterOutputType(AzureSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponseOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponsePtrOutput{})
 }

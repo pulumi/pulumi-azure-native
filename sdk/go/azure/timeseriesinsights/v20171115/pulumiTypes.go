@@ -11,6 +11,70 @@ import (
 )
 
 // An object that contains the details about an environment's state.
+type EnvironmentStateDetailsInvokeResponse struct {
+	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
+	Code *string `pulumi:"code"`
+	// A message that describes the state in detail.
+	Message *string `pulumi:"message"`
+}
+
+// EnvironmentStateDetailsInvokeResponseInput is an input type that accepts EnvironmentStateDetailsInvokeResponseArgs and EnvironmentStateDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `EnvironmentStateDetailsInvokeResponseInput` via:
+//
+//          EnvironmentStateDetailsInvokeResponseArgs{...}
+type EnvironmentStateDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEnvironmentStateDetailsInvokeResponseOutput() EnvironmentStateDetailsInvokeResponseOutput
+	ToEnvironmentStateDetailsInvokeResponseOutputWithContext(context.Context) EnvironmentStateDetailsInvokeResponseOutput
+}
+
+// An object that contains the details about an environment's state.
+type EnvironmentStateDetailsInvokeResponseArgs struct {
+	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// A message that describes the state in detail.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+}
+
+func (EnvironmentStateDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentStateDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i EnvironmentStateDetailsInvokeResponseArgs) ToEnvironmentStateDetailsInvokeResponseOutput() EnvironmentStateDetailsInvokeResponseOutput {
+	return i.ToEnvironmentStateDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EnvironmentStateDetailsInvokeResponseArgs) ToEnvironmentStateDetailsInvokeResponseOutputWithContext(ctx context.Context) EnvironmentStateDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStateDetailsInvokeResponseOutput)
+}
+
+// An object that contains the details about an environment's state.
+type EnvironmentStateDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentStateDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentStateDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o EnvironmentStateDetailsInvokeResponseOutput) ToEnvironmentStateDetailsInvokeResponseOutput() EnvironmentStateDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o EnvironmentStateDetailsInvokeResponseOutput) ToEnvironmentStateDetailsInvokeResponseOutputWithContext(ctx context.Context) EnvironmentStateDetailsInvokeResponseOutput {
+	return o
+}
+
+// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
+func (o EnvironmentStateDetailsInvokeResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentStateDetailsInvokeResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// A message that describes the state in detail.
+func (o EnvironmentStateDetailsInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentStateDetailsInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// An object that contains the details about an environment's state.
 type EnvironmentStateDetailsResponse struct {
 	// Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
 	Code *string `pulumi:"code"`
@@ -164,6 +228,61 @@ func (o EnvironmentStateDetailsResponsePtrOutput) Message() pulumi.StringPtrOutp
 }
 
 // An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+type EnvironmentStatusInvokeResponse struct {
+	// An object that represents the status of ingress on an environment.
+	Ingress IngressEnvironmentStatusInvokeResponse `pulumi:"ingress"`
+}
+
+// EnvironmentStatusInvokeResponseInput is an input type that accepts EnvironmentStatusInvokeResponseArgs and EnvironmentStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `EnvironmentStatusInvokeResponseInput` via:
+//
+//          EnvironmentStatusInvokeResponseArgs{...}
+type EnvironmentStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEnvironmentStatusInvokeResponseOutput() EnvironmentStatusInvokeResponseOutput
+	ToEnvironmentStatusInvokeResponseOutputWithContext(context.Context) EnvironmentStatusInvokeResponseOutput
+}
+
+// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+type EnvironmentStatusInvokeResponseArgs struct {
+	// An object that represents the status of ingress on an environment.
+	Ingress IngressEnvironmentStatusInvokeResponseInput `pulumi:"ingress"`
+}
+
+func (EnvironmentStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i EnvironmentStatusInvokeResponseArgs) ToEnvironmentStatusInvokeResponseOutput() EnvironmentStatusInvokeResponseOutput {
+	return i.ToEnvironmentStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EnvironmentStatusInvokeResponseArgs) ToEnvironmentStatusInvokeResponseOutputWithContext(ctx context.Context) EnvironmentStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStatusInvokeResponseOutput)
+}
+
+// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+type EnvironmentStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o EnvironmentStatusInvokeResponseOutput) ToEnvironmentStatusInvokeResponseOutput() EnvironmentStatusInvokeResponseOutput {
+	return o
+}
+
+func (o EnvironmentStatusInvokeResponseOutput) ToEnvironmentStatusInvokeResponseOutputWithContext(ctx context.Context) EnvironmentStatusInvokeResponseOutput {
+	return o
+}
+
+// An object that represents the status of ingress on an environment.
+func (o EnvironmentStatusInvokeResponseOutput) Ingress() IngressEnvironmentStatusInvokeResponseOutput {
+	return o.ApplyT(func(v EnvironmentStatusInvokeResponse) IngressEnvironmentStatusInvokeResponse { return v.Ingress }).(IngressEnvironmentStatusInvokeResponseOutput)
+}
+
+// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
 type EnvironmentStatusResponse struct {
 	// An object that represents the status of ingress on an environment.
 	Ingress IngressEnvironmentStatusResponse `pulumi:"ingress"`
@@ -295,6 +414,72 @@ func (o EnvironmentStatusResponsePtrOutput) Ingress() IngressEnvironmentStatusRe
 		}
 		return &v.Ingress
 	}).(IngressEnvironmentStatusResponsePtrOutput)
+}
+
+// An object that represents the status of ingress on an environment.
+type IngressEnvironmentStatusInvokeResponse struct {
+	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
+	State *string `pulumi:"state"`
+	// An object that contains the details about an environment's state.
+	StateDetails EnvironmentStateDetailsInvokeResponse `pulumi:"stateDetails"`
+}
+
+// IngressEnvironmentStatusInvokeResponseInput is an input type that accepts IngressEnvironmentStatusInvokeResponseArgs and IngressEnvironmentStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `IngressEnvironmentStatusInvokeResponseInput` via:
+//
+//          IngressEnvironmentStatusInvokeResponseArgs{...}
+type IngressEnvironmentStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIngressEnvironmentStatusInvokeResponseOutput() IngressEnvironmentStatusInvokeResponseOutput
+	ToIngressEnvironmentStatusInvokeResponseOutputWithContext(context.Context) IngressEnvironmentStatusInvokeResponseOutput
+}
+
+// An object that represents the status of ingress on an environment.
+type IngressEnvironmentStatusInvokeResponseArgs struct {
+	// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// An object that contains the details about an environment's state.
+	StateDetails EnvironmentStateDetailsInvokeResponseInput `pulumi:"stateDetails"`
+}
+
+func (IngressEnvironmentStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressEnvironmentStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i IngressEnvironmentStatusInvokeResponseArgs) ToIngressEnvironmentStatusInvokeResponseOutput() IngressEnvironmentStatusInvokeResponseOutput {
+	return i.ToIngressEnvironmentStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IngressEnvironmentStatusInvokeResponseArgs) ToIngressEnvironmentStatusInvokeResponseOutputWithContext(ctx context.Context) IngressEnvironmentStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressEnvironmentStatusInvokeResponseOutput)
+}
+
+// An object that represents the status of ingress on an environment.
+type IngressEnvironmentStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IngressEnvironmentStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressEnvironmentStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o IngressEnvironmentStatusInvokeResponseOutput) ToIngressEnvironmentStatusInvokeResponseOutput() IngressEnvironmentStatusInvokeResponseOutput {
+	return o
+}
+
+func (o IngressEnvironmentStatusInvokeResponseOutput) ToIngressEnvironmentStatusInvokeResponseOutputWithContext(ctx context.Context) IngressEnvironmentStatusInvokeResponseOutput {
+	return o
+}
+
+// This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
+func (o IngressEnvironmentStatusInvokeResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressEnvironmentStatusInvokeResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// An object that contains the details about an environment's state.
+func (o IngressEnvironmentStatusInvokeResponseOutput) StateDetails() EnvironmentStateDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v IngressEnvironmentStatusInvokeResponse) EnvironmentStateDetailsInvokeResponse {
+		return v.StateDetails
+	}).(EnvironmentStateDetailsInvokeResponseOutput)
 }
 
 // An object that represents the status of ingress on an environment.
@@ -560,6 +745,115 @@ func (o PartitionKeyPropertyArrayOutput) Index(i pulumi.IntInput) PartitionKeyPr
 }
 
 // The structure of the property that a partition key can have. An environment can have multiple such properties.
+type PartitionKeyPropertyInvokeResponse struct {
+	// The name of the property.
+	Name *string `pulumi:"name"`
+	// The type of the property.
+	Type *string `pulumi:"type"`
+}
+
+// PartitionKeyPropertyInvokeResponseInput is an input type that accepts PartitionKeyPropertyInvokeResponseArgs and PartitionKeyPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `PartitionKeyPropertyInvokeResponseInput` via:
+//
+//          PartitionKeyPropertyInvokeResponseArgs{...}
+type PartitionKeyPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPartitionKeyPropertyInvokeResponseOutput() PartitionKeyPropertyInvokeResponseOutput
+	ToPartitionKeyPropertyInvokeResponseOutputWithContext(context.Context) PartitionKeyPropertyInvokeResponseOutput
+}
+
+// The structure of the property that a partition key can have. An environment can have multiple such properties.
+type PartitionKeyPropertyInvokeResponseArgs struct {
+	// The name of the property.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the property.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PartitionKeyPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i PartitionKeyPropertyInvokeResponseArgs) ToPartitionKeyPropertyInvokeResponseOutput() PartitionKeyPropertyInvokeResponseOutput {
+	return i.ToPartitionKeyPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PartitionKeyPropertyInvokeResponseArgs) ToPartitionKeyPropertyInvokeResponseOutputWithContext(ctx context.Context) PartitionKeyPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionKeyPropertyInvokeResponseOutput)
+}
+
+// PartitionKeyPropertyInvokeResponseArrayInput is an input type that accepts PartitionKeyPropertyInvokeResponseArray and PartitionKeyPropertyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PartitionKeyPropertyInvokeResponseArrayInput` via:
+//
+//          PartitionKeyPropertyInvokeResponseArray{ PartitionKeyPropertyInvokeResponseArgs{...} }
+type PartitionKeyPropertyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPartitionKeyPropertyInvokeResponseArrayOutput() PartitionKeyPropertyInvokeResponseArrayOutput
+	ToPartitionKeyPropertyInvokeResponseArrayOutputWithContext(context.Context) PartitionKeyPropertyInvokeResponseArrayOutput
+}
+
+type PartitionKeyPropertyInvokeResponseArray []PartitionKeyPropertyInvokeResponseInput
+
+func (PartitionKeyPropertyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i PartitionKeyPropertyInvokeResponseArray) ToPartitionKeyPropertyInvokeResponseArrayOutput() PartitionKeyPropertyInvokeResponseArrayOutput {
+	return i.ToPartitionKeyPropertyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PartitionKeyPropertyInvokeResponseArray) ToPartitionKeyPropertyInvokeResponseArrayOutputWithContext(ctx context.Context) PartitionKeyPropertyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionKeyPropertyInvokeResponseArrayOutput)
+}
+
+// The structure of the property that a partition key can have. An environment can have multiple such properties.
+type PartitionKeyPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PartitionKeyPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PartitionKeyPropertyInvokeResponseOutput) ToPartitionKeyPropertyInvokeResponseOutput() PartitionKeyPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o PartitionKeyPropertyInvokeResponseOutput) ToPartitionKeyPropertyInvokeResponseOutputWithContext(ctx context.Context) PartitionKeyPropertyInvokeResponseOutput {
+	return o
+}
+
+// The name of the property.
+func (o PartitionKeyPropertyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionKeyPropertyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the property.
+func (o PartitionKeyPropertyInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionKeyPropertyInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PartitionKeyPropertyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PartitionKeyPropertyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o PartitionKeyPropertyInvokeResponseArrayOutput) ToPartitionKeyPropertyInvokeResponseArrayOutput() PartitionKeyPropertyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PartitionKeyPropertyInvokeResponseArrayOutput) ToPartitionKeyPropertyInvokeResponseArrayOutputWithContext(ctx context.Context) PartitionKeyPropertyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PartitionKeyPropertyInvokeResponseArrayOutput) Index(i pulumi.IntInput) PartitionKeyPropertyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartitionKeyPropertyInvokeResponse {
+		return vs[0].([]PartitionKeyPropertyInvokeResponse)[vs[1].(int)]
+	}).(PartitionKeyPropertyInvokeResponseOutput)
+}
+
+// The structure of the property that a partition key can have. An environment can have multiple such properties.
 type PartitionKeyPropertyResponse struct {
 	// The name of the property.
 	Name *string `pulumi:"name"`
@@ -775,6 +1069,115 @@ func (o ReferenceDataSetKeyPropertyArrayOutput) Index(i pulumi.IntInput) Referen
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReferenceDataSetKeyProperty {
 		return vs[0].([]ReferenceDataSetKeyProperty)[vs[1].(int)]
 	}).(ReferenceDataSetKeyPropertyOutput)
+}
+
+// A key property for the reference data set. A reference data set can have multiple key properties.
+type ReferenceDataSetKeyPropertyInvokeResponse struct {
+	// The name of the key property.
+	Name *string `pulumi:"name"`
+	// The type of the key property.
+	Type *string `pulumi:"type"`
+}
+
+// ReferenceDataSetKeyPropertyInvokeResponseInput is an input type that accepts ReferenceDataSetKeyPropertyInvokeResponseArgs and ReferenceDataSetKeyPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `ReferenceDataSetKeyPropertyInvokeResponseInput` via:
+//
+//          ReferenceDataSetKeyPropertyInvokeResponseArgs{...}
+type ReferenceDataSetKeyPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToReferenceDataSetKeyPropertyInvokeResponseOutput() ReferenceDataSetKeyPropertyInvokeResponseOutput
+	ToReferenceDataSetKeyPropertyInvokeResponseOutputWithContext(context.Context) ReferenceDataSetKeyPropertyInvokeResponseOutput
+}
+
+// A key property for the reference data set. A reference data set can have multiple key properties.
+type ReferenceDataSetKeyPropertyInvokeResponseArgs struct {
+	// The name of the key property.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the key property.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ReferenceDataSetKeyPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceDataSetKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i ReferenceDataSetKeyPropertyInvokeResponseArgs) ToReferenceDataSetKeyPropertyInvokeResponseOutput() ReferenceDataSetKeyPropertyInvokeResponseOutput {
+	return i.ToReferenceDataSetKeyPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ReferenceDataSetKeyPropertyInvokeResponseArgs) ToReferenceDataSetKeyPropertyInvokeResponseOutputWithContext(ctx context.Context) ReferenceDataSetKeyPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetKeyPropertyInvokeResponseOutput)
+}
+
+// ReferenceDataSetKeyPropertyInvokeResponseArrayInput is an input type that accepts ReferenceDataSetKeyPropertyInvokeResponseArray and ReferenceDataSetKeyPropertyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ReferenceDataSetKeyPropertyInvokeResponseArrayInput` via:
+//
+//          ReferenceDataSetKeyPropertyInvokeResponseArray{ ReferenceDataSetKeyPropertyInvokeResponseArgs{...} }
+type ReferenceDataSetKeyPropertyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToReferenceDataSetKeyPropertyInvokeResponseArrayOutput() ReferenceDataSetKeyPropertyInvokeResponseArrayOutput
+	ToReferenceDataSetKeyPropertyInvokeResponseArrayOutputWithContext(context.Context) ReferenceDataSetKeyPropertyInvokeResponseArrayOutput
+}
+
+type ReferenceDataSetKeyPropertyInvokeResponseArray []ReferenceDataSetKeyPropertyInvokeResponseInput
+
+func (ReferenceDataSetKeyPropertyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReferenceDataSetKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i ReferenceDataSetKeyPropertyInvokeResponseArray) ToReferenceDataSetKeyPropertyInvokeResponseArrayOutput() ReferenceDataSetKeyPropertyInvokeResponseArrayOutput {
+	return i.ToReferenceDataSetKeyPropertyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ReferenceDataSetKeyPropertyInvokeResponseArray) ToReferenceDataSetKeyPropertyInvokeResponseArrayOutputWithContext(ctx context.Context) ReferenceDataSetKeyPropertyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetKeyPropertyInvokeResponseArrayOutput)
+}
+
+// A key property for the reference data set. A reference data set can have multiple key properties.
+type ReferenceDataSetKeyPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ReferenceDataSetKeyPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceDataSetKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ReferenceDataSetKeyPropertyInvokeResponseOutput) ToReferenceDataSetKeyPropertyInvokeResponseOutput() ReferenceDataSetKeyPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o ReferenceDataSetKeyPropertyInvokeResponseOutput) ToReferenceDataSetKeyPropertyInvokeResponseOutputWithContext(ctx context.Context) ReferenceDataSetKeyPropertyInvokeResponseOutput {
+	return o
+}
+
+// The name of the key property.
+func (o ReferenceDataSetKeyPropertyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceDataSetKeyPropertyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the key property.
+func (o ReferenceDataSetKeyPropertyInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceDataSetKeyPropertyInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ReferenceDataSetKeyPropertyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ReferenceDataSetKeyPropertyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReferenceDataSetKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ReferenceDataSetKeyPropertyInvokeResponseArrayOutput) ToReferenceDataSetKeyPropertyInvokeResponseArrayOutput() ReferenceDataSetKeyPropertyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ReferenceDataSetKeyPropertyInvokeResponseArrayOutput) ToReferenceDataSetKeyPropertyInvokeResponseArrayOutputWithContext(ctx context.Context) ReferenceDataSetKeyPropertyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ReferenceDataSetKeyPropertyInvokeResponseArrayOutput) Index(i pulumi.IntInput) ReferenceDataSetKeyPropertyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReferenceDataSetKeyPropertyInvokeResponse {
+		return vs[0].([]ReferenceDataSetKeyPropertyInvokeResponse)[vs[1].(int)]
+	}).(ReferenceDataSetKeyPropertyInvokeResponseOutput)
 }
 
 // A key property for the reference data set. A reference data set can have multiple key properties.
@@ -1040,6 +1443,70 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+type SkuInvokeResponse struct {
+	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+	Capacity int `pulumi:"capacity"`
+	// The name of this SKU.
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+type SkuInvokeResponseArgs struct {
+	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The name of this SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// The name of this SKU.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuResponse struct {
 	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 	Capacity int `pulumi:"capacity"`
@@ -1193,22 +1660,30 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(EnvironmentStateDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentStateDetailsResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentStateDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(IngressEnvironmentStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IngressEnvironmentStatusResponseOutput{})
 	pulumi.RegisterOutputType(IngressEnvironmentStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(PartitionKeyPropertyOutput{})
 	pulumi.RegisterOutputType(PartitionKeyPropertyArrayOutput{})
+	pulumi.RegisterOutputType(PartitionKeyPropertyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PartitionKeyPropertyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PartitionKeyPropertyResponseOutput{})
 	pulumi.RegisterOutputType(PartitionKeyPropertyResponseArrayOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyArrayOutput{})
+	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyResponseOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

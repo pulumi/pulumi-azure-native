@@ -31,7 +31,7 @@ type LookupJobCollectionResult struct {
 	// Gets or sets the job collection resource name.
 	Name *string `pulumi:"name"`
 	// Gets or sets the job collection properties.
-	Properties JobCollectionPropertiesResponse `pulumi:"properties"`
+	Properties JobCollectionPropertiesInvokeResponse `pulumi:"properties"`
 	// Gets or sets the tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the job collection resource type.

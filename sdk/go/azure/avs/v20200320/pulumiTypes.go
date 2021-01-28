@@ -11,6 +11,88 @@ import (
 )
 
 // An ExpressRoute Circuit
+type CircuitInvokeResponse struct {
+	// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
+	ExpressRouteID string `pulumi:"expressRouteID"`
+	// ExpressRoute Circuit private peering identifier
+	ExpressRoutePrivatePeeringID string `pulumi:"expressRoutePrivatePeeringID"`
+	// CIDR of primary subnet
+	PrimarySubnet string `pulumi:"primarySubnet"`
+	// CIDR of secondary subnet
+	SecondarySubnet string `pulumi:"secondarySubnet"`
+}
+
+// CircuitInvokeResponseInput is an input type that accepts CircuitInvokeResponseArgs and CircuitInvokeResponseOutput values.
+// You can construct a concrete instance of `CircuitInvokeResponseInput` via:
+//
+//          CircuitInvokeResponseArgs{...}
+type CircuitInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCircuitInvokeResponseOutput() CircuitInvokeResponseOutput
+	ToCircuitInvokeResponseOutputWithContext(context.Context) CircuitInvokeResponseOutput
+}
+
+// An ExpressRoute Circuit
+type CircuitInvokeResponseArgs struct {
+	// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
+	ExpressRouteID pulumi.StringInput `pulumi:"expressRouteID"`
+	// ExpressRoute Circuit private peering identifier
+	ExpressRoutePrivatePeeringID pulumi.StringInput `pulumi:"expressRoutePrivatePeeringID"`
+	// CIDR of primary subnet
+	PrimarySubnet pulumi.StringInput `pulumi:"primarySubnet"`
+	// CIDR of secondary subnet
+	SecondarySubnet pulumi.StringInput `pulumi:"secondarySubnet"`
+}
+
+func (CircuitInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CircuitInvokeResponse)(nil)).Elem()
+}
+
+func (i CircuitInvokeResponseArgs) ToCircuitInvokeResponseOutput() CircuitInvokeResponseOutput {
+	return i.ToCircuitInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CircuitInvokeResponseArgs) ToCircuitInvokeResponseOutputWithContext(ctx context.Context) CircuitInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CircuitInvokeResponseOutput)
+}
+
+// An ExpressRoute Circuit
+type CircuitInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CircuitInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CircuitInvokeResponse)(nil)).Elem()
+}
+
+func (o CircuitInvokeResponseOutput) ToCircuitInvokeResponseOutput() CircuitInvokeResponseOutput {
+	return o
+}
+
+func (o CircuitInvokeResponseOutput) ToCircuitInvokeResponseOutputWithContext(ctx context.Context) CircuitInvokeResponseOutput {
+	return o
+}
+
+// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
+func (o CircuitInvokeResponseOutput) ExpressRouteID() pulumi.StringOutput {
+	return o.ApplyT(func(v CircuitInvokeResponse) string { return v.ExpressRouteID }).(pulumi.StringOutput)
+}
+
+// ExpressRoute Circuit private peering identifier
+func (o CircuitInvokeResponseOutput) ExpressRoutePrivatePeeringID() pulumi.StringOutput {
+	return o.ApplyT(func(v CircuitInvokeResponse) string { return v.ExpressRoutePrivatePeeringID }).(pulumi.StringOutput)
+}
+
+// CIDR of primary subnet
+func (o CircuitInvokeResponseOutput) PrimarySubnet() pulumi.StringOutput {
+	return o.ApplyT(func(v CircuitInvokeResponse) string { return v.PrimarySubnet }).(pulumi.StringOutput)
+}
+
+// CIDR of secondary subnet
+func (o CircuitInvokeResponseOutput) SecondarySubnet() pulumi.StringOutput {
+	return o.ApplyT(func(v CircuitInvokeResponse) string { return v.SecondarySubnet }).(pulumi.StringOutput)
+}
+
+// An ExpressRoute Circuit
 type CircuitResponse struct {
 	// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
 	ExpressRouteID string `pulumi:"expressRouteID"`
@@ -199,6 +281,79 @@ func (o CircuitResponsePtrOutput) SecondarySubnet() pulumi.StringPtrOutput {
 		}
 		return &v.SecondarySubnet
 	}).(pulumi.StringPtrOutput)
+}
+
+// Endpoint addresses
+type EndpointsInvokeResponse struct {
+	// Endpoint for the HCX Cloud Manager
+	HcxCloudManager string `pulumi:"hcxCloudManager"`
+	// Endpoint for the NSX-T Data Center manager
+	NsxtManager string `pulumi:"nsxtManager"`
+	// Endpoint for Virtual Center Server Appliance
+	Vcsa string `pulumi:"vcsa"`
+}
+
+// EndpointsInvokeResponseInput is an input type that accepts EndpointsInvokeResponseArgs and EndpointsInvokeResponseOutput values.
+// You can construct a concrete instance of `EndpointsInvokeResponseInput` via:
+//
+//          EndpointsInvokeResponseArgs{...}
+type EndpointsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEndpointsInvokeResponseOutput() EndpointsInvokeResponseOutput
+	ToEndpointsInvokeResponseOutputWithContext(context.Context) EndpointsInvokeResponseOutput
+}
+
+// Endpoint addresses
+type EndpointsInvokeResponseArgs struct {
+	// Endpoint for the HCX Cloud Manager
+	HcxCloudManager pulumi.StringInput `pulumi:"hcxCloudManager"`
+	// Endpoint for the NSX-T Data Center manager
+	NsxtManager pulumi.StringInput `pulumi:"nsxtManager"`
+	// Endpoint for Virtual Center Server Appliance
+	Vcsa pulumi.StringInput `pulumi:"vcsa"`
+}
+
+func (EndpointsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointsInvokeResponse)(nil)).Elem()
+}
+
+func (i EndpointsInvokeResponseArgs) ToEndpointsInvokeResponseOutput() EndpointsInvokeResponseOutput {
+	return i.ToEndpointsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EndpointsInvokeResponseArgs) ToEndpointsInvokeResponseOutputWithContext(ctx context.Context) EndpointsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointsInvokeResponseOutput)
+}
+
+// Endpoint addresses
+type EndpointsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EndpointsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointsInvokeResponse)(nil)).Elem()
+}
+
+func (o EndpointsInvokeResponseOutput) ToEndpointsInvokeResponseOutput() EndpointsInvokeResponseOutput {
+	return o
+}
+
+func (o EndpointsInvokeResponseOutput) ToEndpointsInvokeResponseOutputWithContext(ctx context.Context) EndpointsInvokeResponseOutput {
+	return o
+}
+
+// Endpoint for the HCX Cloud Manager
+func (o EndpointsInvokeResponseOutput) HcxCloudManager() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointsInvokeResponse) string { return v.HcxCloudManager }).(pulumi.StringOutput)
+}
+
+// Endpoint for the NSX-T Data Center manager
+func (o EndpointsInvokeResponseOutput) NsxtManager() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointsInvokeResponse) string { return v.NsxtManager }).(pulumi.StringOutput)
+}
+
+// Endpoint for Virtual Center Server Appliance
+func (o EndpointsInvokeResponseOutput) Vcsa() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointsInvokeResponse) string { return v.Vcsa }).(pulumi.StringOutput)
 }
 
 // Endpoint addresses
@@ -555,6 +710,187 @@ func (o IdentitySourceArrayOutput) Index(i pulumi.IntInput) IdentitySourceOutput
 }
 
 // vCenter Single Sign On Identity Source
+type IdentitySourceInvokeResponse struct {
+	// The domain's NetBIOS name
+	Alias *string `pulumi:"alias"`
+	// The base distinguished name for groups
+	BaseGroupDN *string `pulumi:"baseGroupDN"`
+	// The base distinguished name for users
+	BaseUserDN *string `pulumi:"baseUserDN"`
+	// The domain's dns name
+	Domain *string `pulumi:"domain"`
+	// The name of the identity source
+	Name *string `pulumi:"name"`
+	// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+	Password *string `pulumi:"password"`
+	// Primary server URL
+	PrimaryServer *string `pulumi:"primaryServer"`
+	// Secondary server URL
+	SecondaryServer *string `pulumi:"secondaryServer"`
+	// Protect LDAP communication using SSL certificate (LDAPS)
+	Ssl *string `pulumi:"ssl"`
+	// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+	Username *string `pulumi:"username"`
+}
+
+// IdentitySourceInvokeResponseInput is an input type that accepts IdentitySourceInvokeResponseArgs and IdentitySourceInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentitySourceInvokeResponseInput` via:
+//
+//          IdentitySourceInvokeResponseArgs{...}
+type IdentitySourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentitySourceInvokeResponseOutput() IdentitySourceInvokeResponseOutput
+	ToIdentitySourceInvokeResponseOutputWithContext(context.Context) IdentitySourceInvokeResponseOutput
+}
+
+// vCenter Single Sign On Identity Source
+type IdentitySourceInvokeResponseArgs struct {
+	// The domain's NetBIOS name
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// The base distinguished name for groups
+	BaseGroupDN pulumi.StringPtrInput `pulumi:"baseGroupDN"`
+	// The base distinguished name for users
+	BaseUserDN pulumi.StringPtrInput `pulumi:"baseUserDN"`
+	// The domain's dns name
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// The name of the identity source
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Primary server URL
+	PrimaryServer pulumi.StringPtrInput `pulumi:"primaryServer"`
+	// Secondary server URL
+	SecondaryServer pulumi.StringPtrInput `pulumi:"secondaryServer"`
+	// Protect LDAP communication using SSL certificate (LDAPS)
+	Ssl pulumi.StringPtrInput `pulumi:"ssl"`
+	// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (IdentitySourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentitySourceInvokeResponseArgs) ToIdentitySourceInvokeResponseOutput() IdentitySourceInvokeResponseOutput {
+	return i.ToIdentitySourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceInvokeResponseArgs) ToIdentitySourceInvokeResponseOutputWithContext(ctx context.Context) IdentitySourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceInvokeResponseOutput)
+}
+
+// IdentitySourceInvokeResponseArrayInput is an input type that accepts IdentitySourceInvokeResponseArray and IdentitySourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IdentitySourceInvokeResponseArrayInput` via:
+//
+//          IdentitySourceInvokeResponseArray{ IdentitySourceInvokeResponseArgs{...} }
+type IdentitySourceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIdentitySourceInvokeResponseArrayOutput() IdentitySourceInvokeResponseArrayOutput
+	ToIdentitySourceInvokeResponseArrayOutputWithContext(context.Context) IdentitySourceInvokeResponseArrayOutput
+}
+
+type IdentitySourceInvokeResponseArray []IdentitySourceInvokeResponseInput
+
+func (IdentitySourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentitySourceInvokeResponseArray) ToIdentitySourceInvokeResponseArrayOutput() IdentitySourceInvokeResponseArrayOutput {
+	return i.ToIdentitySourceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceInvokeResponseArray) ToIdentitySourceInvokeResponseArrayOutputWithContext(ctx context.Context) IdentitySourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceInvokeResponseArrayOutput)
+}
+
+// vCenter Single Sign On Identity Source
+type IdentitySourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentitySourceInvokeResponseOutput) ToIdentitySourceInvokeResponseOutput() IdentitySourceInvokeResponseOutput {
+	return o
+}
+
+func (o IdentitySourceInvokeResponseOutput) ToIdentitySourceInvokeResponseOutputWithContext(ctx context.Context) IdentitySourceInvokeResponseOutput {
+	return o
+}
+
+// The domain's NetBIOS name
+func (o IdentitySourceInvokeResponseOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceInvokeResponse) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// The base distinguished name for groups
+func (o IdentitySourceInvokeResponseOutput) BaseGroupDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceInvokeResponse) *string { return v.BaseGroupDN }).(pulumi.StringPtrOutput)
+}
+
+// The base distinguished name for users
+func (o IdentitySourceInvokeResponseOutput) BaseUserDN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceInvokeResponse) *string { return v.BaseUserDN }).(pulumi.StringPtrOutput)
+}
+
+// The domain's dns name
+func (o IdentitySourceInvokeResponseOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceInvokeResponse) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The name of the identity source
+func (o IdentitySourceInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+func (o IdentitySourceInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Primary server URL
+func (o IdentitySourceInvokeResponseOutput) PrimaryServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceInvokeResponse) *string { return v.PrimaryServer }).(pulumi.StringPtrOutput)
+}
+
+// Secondary server URL
+func (o IdentitySourceInvokeResponseOutput) SecondaryServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceInvokeResponse) *string { return v.SecondaryServer }).(pulumi.StringPtrOutput)
+}
+
+// Protect LDAP communication using SSL certificate (LDAPS)
+func (o IdentitySourceInvokeResponseOutput) Ssl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceInvokeResponse) *string { return v.Ssl }).(pulumi.StringPtrOutput)
+}
+
+// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+func (o IdentitySourceInvokeResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceInvokeResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IdentitySourceInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentitySourceInvokeResponseArrayOutput) ToIdentitySourceInvokeResponseArrayOutput() IdentitySourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IdentitySourceInvokeResponseArrayOutput) ToIdentitySourceInvokeResponseArrayOutputWithContext(ctx context.Context) IdentitySourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IdentitySourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) IdentitySourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IdentitySourceInvokeResponse {
+		return vs[0].([]IdentitySourceInvokeResponse)[vs[1].(int)]
+	}).(IdentitySourceInvokeResponseOutput)
+}
+
+// vCenter Single Sign On Identity Source
 type IdentitySourceResponse struct {
 	// The domain's NetBIOS name
 	Alias *string `pulumi:"alias"`
@@ -867,6 +1203,88 @@ func (o ManagementClusterPtrOutput) ClusterSize() pulumi.IntPtrOutput {
 		}
 		return &v.ClusterSize
 	}).(pulumi.IntPtrOutput)
+}
+
+// The properties of a default cluster
+type ManagementClusterInvokeResponse struct {
+	// The identity
+	ClusterId int `pulumi:"clusterId"`
+	// The cluster size
+	ClusterSize int `pulumi:"clusterSize"`
+	// The hosts
+	Hosts []string `pulumi:"hosts"`
+	// The state of the cluster provisioning
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// ManagementClusterInvokeResponseInput is an input type that accepts ManagementClusterInvokeResponseArgs and ManagementClusterInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagementClusterInvokeResponseInput` via:
+//
+//          ManagementClusterInvokeResponseArgs{...}
+type ManagementClusterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagementClusterInvokeResponseOutput() ManagementClusterInvokeResponseOutput
+	ToManagementClusterInvokeResponseOutputWithContext(context.Context) ManagementClusterInvokeResponseOutput
+}
+
+// The properties of a default cluster
+type ManagementClusterInvokeResponseArgs struct {
+	// The identity
+	ClusterId pulumi.IntInput `pulumi:"clusterId"`
+	// The cluster size
+	ClusterSize pulumi.IntInput `pulumi:"clusterSize"`
+	// The hosts
+	Hosts pulumi.StringArrayInput `pulumi:"hosts"`
+	// The state of the cluster provisioning
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (ManagementClusterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementClusterInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagementClusterInvokeResponseArgs) ToManagementClusterInvokeResponseOutput() ManagementClusterInvokeResponseOutput {
+	return i.ToManagementClusterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementClusterInvokeResponseArgs) ToManagementClusterInvokeResponseOutputWithContext(ctx context.Context) ManagementClusterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementClusterInvokeResponseOutput)
+}
+
+// The properties of a default cluster
+type ManagementClusterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementClusterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementClusterInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagementClusterInvokeResponseOutput) ToManagementClusterInvokeResponseOutput() ManagementClusterInvokeResponseOutput {
+	return o
+}
+
+func (o ManagementClusterInvokeResponseOutput) ToManagementClusterInvokeResponseOutputWithContext(ctx context.Context) ManagementClusterInvokeResponseOutput {
+	return o
+}
+
+// The identity
+func (o ManagementClusterInvokeResponseOutput) ClusterId() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagementClusterInvokeResponse) int { return v.ClusterId }).(pulumi.IntOutput)
+}
+
+// The cluster size
+func (o ManagementClusterInvokeResponseOutput) ClusterSize() pulumi.IntOutput {
+	return o.ApplyT(func(v ManagementClusterInvokeResponse) int { return v.ClusterSize }).(pulumi.IntOutput)
+}
+
+// The hosts
+func (o ManagementClusterInvokeResponseOutput) Hosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagementClusterInvokeResponse) []string { return v.Hosts }).(pulumi.StringArrayOutput)
+}
+
+// The state of the cluster provisioning
+func (o ManagementClusterInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementClusterInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The properties of a default cluster
@@ -1195,6 +1613,61 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The resource model definition representing SKU
+type SkuInvokeResponse struct {
+	// The name of the SKU.
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The resource model definition representing SKU
+type SkuInvokeResponseArgs struct {
+	// The name of the SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The resource model definition representing SKU
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource model definition representing SKU
 type SkuResponse struct {
 	// The name of the SKU.
 	Name string `pulumi:"name"`
@@ -1329,20 +1802,26 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(CircuitInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CircuitResponseOutput{})
 	pulumi.RegisterOutputType(CircuitResponsePtrOutput{})
+	pulumi.RegisterOutputType(EndpointsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceOutput{})
 	pulumi.RegisterOutputType(IdentitySourceArrayOutput{})
+	pulumi.RegisterOutputType(IdentitySourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IdentitySourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentitySourceResponseOutput{})
 	pulumi.RegisterOutputType(IdentitySourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagementClusterOutput{})
 	pulumi.RegisterOutputType(ManagementClusterPtrOutput{})
+	pulumi.RegisterOutputType(ManagementClusterInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagementClusterResponseOutput{})
 	pulumi.RegisterOutputType(ManagementClusterResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

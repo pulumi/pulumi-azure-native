@@ -30,7 +30,7 @@ type LookupVendorResult struct {
 	// The provisioning state of the vendor resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// A list of IDs of the vendor skus offered by the vendor.
-	Skus []SubResourceResponse `pulumi:"skus"`
+	Skus []SubResourceInvokeResponse `pulumi:"skus"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

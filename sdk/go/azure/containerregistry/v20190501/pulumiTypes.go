@@ -11,132 +11,132 @@ import (
 )
 
 // The agent that initiated the event. For most situations, this could be from the authorization context of the request.
-type ActorResponse struct {
+type ActorInvokeResponse struct {
 	// The subject or username associated with the request context that generated the event.
 	Name *string `pulumi:"name"`
 }
 
-// ActorResponseInput is an input type that accepts ActorResponseArgs and ActorResponseOutput values.
-// You can construct a concrete instance of `ActorResponseInput` via:
+// ActorInvokeResponseInput is an input type that accepts ActorInvokeResponseArgs and ActorInvokeResponseOutput values.
+// You can construct a concrete instance of `ActorInvokeResponseInput` via:
 //
-//          ActorResponseArgs{...}
-type ActorResponseInput interface {
+//          ActorInvokeResponseArgs{...}
+type ActorInvokeResponseInput interface {
 	pulumi.Input
 
-	ToActorResponseOutput() ActorResponseOutput
-	ToActorResponseOutputWithContext(context.Context) ActorResponseOutput
+	ToActorInvokeResponseOutput() ActorInvokeResponseOutput
+	ToActorInvokeResponseOutputWithContext(context.Context) ActorInvokeResponseOutput
 }
 
 // The agent that initiated the event. For most situations, this could be from the authorization context of the request.
-type ActorResponseArgs struct {
+type ActorInvokeResponseArgs struct {
 	// The subject or username associated with the request context that generated the event.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (ActorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActorResponse)(nil)).Elem()
+func (ActorInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActorInvokeResponse)(nil)).Elem()
 }
 
-func (i ActorResponseArgs) ToActorResponseOutput() ActorResponseOutput {
-	return i.ToActorResponseOutputWithContext(context.Background())
+func (i ActorInvokeResponseArgs) ToActorInvokeResponseOutput() ActorInvokeResponseOutput {
+	return i.ToActorInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ActorResponseArgs) ToActorResponseOutputWithContext(ctx context.Context) ActorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActorResponseOutput)
+func (i ActorInvokeResponseArgs) ToActorInvokeResponseOutputWithContext(ctx context.Context) ActorInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActorInvokeResponseOutput)
 }
 
-func (i ActorResponseArgs) ToActorResponsePtrOutput() ActorResponsePtrOutput {
-	return i.ToActorResponsePtrOutputWithContext(context.Background())
+func (i ActorInvokeResponseArgs) ToActorInvokeResponsePtrOutput() ActorInvokeResponsePtrOutput {
+	return i.ToActorInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i ActorResponseArgs) ToActorResponsePtrOutputWithContext(ctx context.Context) ActorResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActorResponseOutput).ToActorResponsePtrOutputWithContext(ctx)
+func (i ActorInvokeResponseArgs) ToActorInvokeResponsePtrOutputWithContext(ctx context.Context) ActorInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActorInvokeResponseOutput).ToActorInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// ActorResponsePtrInput is an input type that accepts ActorResponseArgs, ActorResponsePtr and ActorResponsePtrOutput values.
-// You can construct a concrete instance of `ActorResponsePtrInput` via:
+// ActorInvokeResponsePtrInput is an input type that accepts ActorInvokeResponseArgs, ActorInvokeResponsePtr and ActorInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ActorInvokeResponsePtrInput` via:
 //
-//          ActorResponseArgs{...}
+//          ActorInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type ActorResponsePtrInput interface {
+type ActorInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToActorResponsePtrOutput() ActorResponsePtrOutput
-	ToActorResponsePtrOutputWithContext(context.Context) ActorResponsePtrOutput
+	ToActorInvokeResponsePtrOutput() ActorInvokeResponsePtrOutput
+	ToActorInvokeResponsePtrOutputWithContext(context.Context) ActorInvokeResponsePtrOutput
 }
 
-type actorResponsePtrType ActorResponseArgs
+type actorInvokeResponsePtrType ActorInvokeResponseArgs
 
-func ActorResponsePtr(v *ActorResponseArgs) ActorResponsePtrInput {
-	return (*actorResponsePtrType)(v)
+func ActorInvokeResponsePtr(v *ActorInvokeResponseArgs) ActorInvokeResponsePtrInput {
+	return (*actorInvokeResponsePtrType)(v)
 }
 
-func (*actorResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActorResponse)(nil)).Elem()
+func (*actorInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActorInvokeResponse)(nil)).Elem()
 }
 
-func (i *actorResponsePtrType) ToActorResponsePtrOutput() ActorResponsePtrOutput {
-	return i.ToActorResponsePtrOutputWithContext(context.Background())
+func (i *actorInvokeResponsePtrType) ToActorInvokeResponsePtrOutput() ActorInvokeResponsePtrOutput {
+	return i.ToActorInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *actorResponsePtrType) ToActorResponsePtrOutputWithContext(ctx context.Context) ActorResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActorResponsePtrOutput)
+func (i *actorInvokeResponsePtrType) ToActorInvokeResponsePtrOutputWithContext(ctx context.Context) ActorInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActorInvokeResponsePtrOutput)
 }
 
 // The agent that initiated the event. For most situations, this could be from the authorization context of the request.
-type ActorResponseOutput struct{ *pulumi.OutputState }
+type ActorInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ActorResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActorResponse)(nil)).Elem()
+func (ActorInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActorInvokeResponse)(nil)).Elem()
 }
 
-func (o ActorResponseOutput) ToActorResponseOutput() ActorResponseOutput {
+func (o ActorInvokeResponseOutput) ToActorInvokeResponseOutput() ActorInvokeResponseOutput {
 	return o
 }
 
-func (o ActorResponseOutput) ToActorResponseOutputWithContext(ctx context.Context) ActorResponseOutput {
+func (o ActorInvokeResponseOutput) ToActorInvokeResponseOutputWithContext(ctx context.Context) ActorInvokeResponseOutput {
 	return o
 }
 
-func (o ActorResponseOutput) ToActorResponsePtrOutput() ActorResponsePtrOutput {
-	return o.ToActorResponsePtrOutputWithContext(context.Background())
+func (o ActorInvokeResponseOutput) ToActorInvokeResponsePtrOutput() ActorInvokeResponsePtrOutput {
+	return o.ToActorInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o ActorResponseOutput) ToActorResponsePtrOutputWithContext(ctx context.Context) ActorResponsePtrOutput {
-	return o.ApplyT(func(v ActorResponse) *ActorResponse {
+func (o ActorInvokeResponseOutput) ToActorInvokeResponsePtrOutputWithContext(ctx context.Context) ActorInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ActorInvokeResponse) *ActorInvokeResponse {
 		return &v
-	}).(ActorResponsePtrOutput)
+	}).(ActorInvokeResponsePtrOutput)
 }
 
 // The subject or username associated with the request context that generated the event.
-func (o ActorResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActorResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ActorInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActorInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type ActorResponsePtrOutput struct{ *pulumi.OutputState }
+type ActorInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (ActorResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActorResponse)(nil)).Elem()
+func (ActorInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActorInvokeResponse)(nil)).Elem()
 }
 
-func (o ActorResponsePtrOutput) ToActorResponsePtrOutput() ActorResponsePtrOutput {
+func (o ActorInvokeResponsePtrOutput) ToActorInvokeResponsePtrOutput() ActorInvokeResponsePtrOutput {
 	return o
 }
 
-func (o ActorResponsePtrOutput) ToActorResponsePtrOutputWithContext(ctx context.Context) ActorResponsePtrOutput {
+func (o ActorInvokeResponsePtrOutput) ToActorInvokeResponsePtrOutputWithContext(ctx context.Context) ActorInvokeResponsePtrOutput {
 	return o
 }
 
-func (o ActorResponsePtrOutput) Elem() ActorResponseOutput {
-	return o.ApplyT(func(v *ActorResponse) ActorResponse { return *v }).(ActorResponseOutput)
+func (o ActorInvokeResponsePtrOutput) Elem() ActorInvokeResponseOutput {
+	return o.ApplyT(func(v *ActorInvokeResponse) ActorInvokeResponse { return *v }).(ActorInvokeResponseOutput)
 }
 
 // The subject or username associated with the request context that generated the event.
-func (o ActorResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActorResponse) *string {
+func (o ActorInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActorInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -145,186 +145,186 @@ func (o ActorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The content of the event request message.
-type EventContentResponse struct {
+type EventContentInvokeResponse struct {
 	// The action that encompasses the provided event.
 	Action *string `pulumi:"action"`
 	// The agent that initiated the event. For most situations, this could be from the authorization context of the request.
-	Actor *ActorResponse `pulumi:"actor"`
+	Actor *ActorInvokeResponse `pulumi:"actor"`
 	// The event ID.
 	Id *string `pulumi:"id"`
 	// The request that generated the event.
-	Request *RequestResponse `pulumi:"request"`
+	Request *RequestInvokeResponse `pulumi:"request"`
 	// The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-	Source *SourceResponse `pulumi:"source"`
+	Source *SourceInvokeResponse `pulumi:"source"`
 	// The target of the event.
-	Target *TargetResponse `pulumi:"target"`
+	Target *TargetInvokeResponse `pulumi:"target"`
 	// The time at which the event occurred.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
-// EventContentResponseInput is an input type that accepts EventContentResponseArgs and EventContentResponseOutput values.
-// You can construct a concrete instance of `EventContentResponseInput` via:
+// EventContentInvokeResponseInput is an input type that accepts EventContentInvokeResponseArgs and EventContentInvokeResponseOutput values.
+// You can construct a concrete instance of `EventContentInvokeResponseInput` via:
 //
-//          EventContentResponseArgs{...}
-type EventContentResponseInput interface {
+//          EventContentInvokeResponseArgs{...}
+type EventContentInvokeResponseInput interface {
 	pulumi.Input
 
-	ToEventContentResponseOutput() EventContentResponseOutput
-	ToEventContentResponseOutputWithContext(context.Context) EventContentResponseOutput
+	ToEventContentInvokeResponseOutput() EventContentInvokeResponseOutput
+	ToEventContentInvokeResponseOutputWithContext(context.Context) EventContentInvokeResponseOutput
 }
 
 // The content of the event request message.
-type EventContentResponseArgs struct {
+type EventContentInvokeResponseArgs struct {
 	// The action that encompasses the provided event.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// The agent that initiated the event. For most situations, this could be from the authorization context of the request.
-	Actor ActorResponsePtrInput `pulumi:"actor"`
+	Actor ActorInvokeResponsePtrInput `pulumi:"actor"`
 	// The event ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The request that generated the event.
-	Request RequestResponsePtrInput `pulumi:"request"`
+	Request RequestInvokeResponsePtrInput `pulumi:"request"`
 	// The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-	Source SourceResponsePtrInput `pulumi:"source"`
+	Source SourceInvokeResponsePtrInput `pulumi:"source"`
 	// The target of the event.
-	Target TargetResponsePtrInput `pulumi:"target"`
+	Target TargetInvokeResponsePtrInput `pulumi:"target"`
 	// The time at which the event occurred.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
-func (EventContentResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventContentResponse)(nil)).Elem()
+func (EventContentInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventContentInvokeResponse)(nil)).Elem()
 }
 
-func (i EventContentResponseArgs) ToEventContentResponseOutput() EventContentResponseOutput {
-	return i.ToEventContentResponseOutputWithContext(context.Background())
+func (i EventContentInvokeResponseArgs) ToEventContentInvokeResponseOutput() EventContentInvokeResponseOutput {
+	return i.ToEventContentInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i EventContentResponseArgs) ToEventContentResponseOutputWithContext(ctx context.Context) EventContentResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventContentResponseOutput)
+func (i EventContentInvokeResponseArgs) ToEventContentInvokeResponseOutputWithContext(ctx context.Context) EventContentInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventContentInvokeResponseOutput)
 }
 
-func (i EventContentResponseArgs) ToEventContentResponsePtrOutput() EventContentResponsePtrOutput {
-	return i.ToEventContentResponsePtrOutputWithContext(context.Background())
+func (i EventContentInvokeResponseArgs) ToEventContentInvokeResponsePtrOutput() EventContentInvokeResponsePtrOutput {
+	return i.ToEventContentInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i EventContentResponseArgs) ToEventContentResponsePtrOutputWithContext(ctx context.Context) EventContentResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventContentResponseOutput).ToEventContentResponsePtrOutputWithContext(ctx)
+func (i EventContentInvokeResponseArgs) ToEventContentInvokeResponsePtrOutputWithContext(ctx context.Context) EventContentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventContentInvokeResponseOutput).ToEventContentInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// EventContentResponsePtrInput is an input type that accepts EventContentResponseArgs, EventContentResponsePtr and EventContentResponsePtrOutput values.
-// You can construct a concrete instance of `EventContentResponsePtrInput` via:
+// EventContentInvokeResponsePtrInput is an input type that accepts EventContentInvokeResponseArgs, EventContentInvokeResponsePtr and EventContentInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EventContentInvokeResponsePtrInput` via:
 //
-//          EventContentResponseArgs{...}
+//          EventContentInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type EventContentResponsePtrInput interface {
+type EventContentInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToEventContentResponsePtrOutput() EventContentResponsePtrOutput
-	ToEventContentResponsePtrOutputWithContext(context.Context) EventContentResponsePtrOutput
+	ToEventContentInvokeResponsePtrOutput() EventContentInvokeResponsePtrOutput
+	ToEventContentInvokeResponsePtrOutputWithContext(context.Context) EventContentInvokeResponsePtrOutput
 }
 
-type eventContentResponsePtrType EventContentResponseArgs
+type eventContentInvokeResponsePtrType EventContentInvokeResponseArgs
 
-func EventContentResponsePtr(v *EventContentResponseArgs) EventContentResponsePtrInput {
-	return (*eventContentResponsePtrType)(v)
+func EventContentInvokeResponsePtr(v *EventContentInvokeResponseArgs) EventContentInvokeResponsePtrInput {
+	return (*eventContentInvokeResponsePtrType)(v)
 }
 
-func (*eventContentResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventContentResponse)(nil)).Elem()
+func (*eventContentInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventContentInvokeResponse)(nil)).Elem()
 }
 
-func (i *eventContentResponsePtrType) ToEventContentResponsePtrOutput() EventContentResponsePtrOutput {
-	return i.ToEventContentResponsePtrOutputWithContext(context.Background())
+func (i *eventContentInvokeResponsePtrType) ToEventContentInvokeResponsePtrOutput() EventContentInvokeResponsePtrOutput {
+	return i.ToEventContentInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *eventContentResponsePtrType) ToEventContentResponsePtrOutputWithContext(ctx context.Context) EventContentResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventContentResponsePtrOutput)
+func (i *eventContentInvokeResponsePtrType) ToEventContentInvokeResponsePtrOutputWithContext(ctx context.Context) EventContentInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventContentInvokeResponsePtrOutput)
 }
 
 // The content of the event request message.
-type EventContentResponseOutput struct{ *pulumi.OutputState }
+type EventContentInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (EventContentResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventContentResponse)(nil)).Elem()
+func (EventContentInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventContentInvokeResponse)(nil)).Elem()
 }
 
-func (o EventContentResponseOutput) ToEventContentResponseOutput() EventContentResponseOutput {
+func (o EventContentInvokeResponseOutput) ToEventContentInvokeResponseOutput() EventContentInvokeResponseOutput {
 	return o
 }
 
-func (o EventContentResponseOutput) ToEventContentResponseOutputWithContext(ctx context.Context) EventContentResponseOutput {
+func (o EventContentInvokeResponseOutput) ToEventContentInvokeResponseOutputWithContext(ctx context.Context) EventContentInvokeResponseOutput {
 	return o
 }
 
-func (o EventContentResponseOutput) ToEventContentResponsePtrOutput() EventContentResponsePtrOutput {
-	return o.ToEventContentResponsePtrOutputWithContext(context.Background())
+func (o EventContentInvokeResponseOutput) ToEventContentInvokeResponsePtrOutput() EventContentInvokeResponsePtrOutput {
+	return o.ToEventContentInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o EventContentResponseOutput) ToEventContentResponsePtrOutputWithContext(ctx context.Context) EventContentResponsePtrOutput {
-	return o.ApplyT(func(v EventContentResponse) *EventContentResponse {
+func (o EventContentInvokeResponseOutput) ToEventContentInvokeResponsePtrOutputWithContext(ctx context.Context) EventContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EventContentInvokeResponse) *EventContentInvokeResponse {
 		return &v
-	}).(EventContentResponsePtrOutput)
+	}).(EventContentInvokeResponsePtrOutput)
 }
 
 // The action that encompasses the provided event.
-func (o EventContentResponseOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventContentResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o EventContentInvokeResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventContentInvokeResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
 // The agent that initiated the event. For most situations, this could be from the authorization context of the request.
-func (o EventContentResponseOutput) Actor() ActorResponsePtrOutput {
-	return o.ApplyT(func(v EventContentResponse) *ActorResponse { return v.Actor }).(ActorResponsePtrOutput)
+func (o EventContentInvokeResponseOutput) Actor() ActorInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EventContentInvokeResponse) *ActorInvokeResponse { return v.Actor }).(ActorInvokeResponsePtrOutput)
 }
 
 // The event ID.
-func (o EventContentResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventContentResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o EventContentInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventContentInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The request that generated the event.
-func (o EventContentResponseOutput) Request() RequestResponsePtrOutput {
-	return o.ApplyT(func(v EventContentResponse) *RequestResponse { return v.Request }).(RequestResponsePtrOutput)
+func (o EventContentInvokeResponseOutput) Request() RequestInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EventContentInvokeResponse) *RequestInvokeResponse { return v.Request }).(RequestInvokeResponsePtrOutput)
 }
 
 // The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-func (o EventContentResponseOutput) Source() SourceResponsePtrOutput {
-	return o.ApplyT(func(v EventContentResponse) *SourceResponse { return v.Source }).(SourceResponsePtrOutput)
+func (o EventContentInvokeResponseOutput) Source() SourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EventContentInvokeResponse) *SourceInvokeResponse { return v.Source }).(SourceInvokeResponsePtrOutput)
 }
 
 // The target of the event.
-func (o EventContentResponseOutput) Target() TargetResponsePtrOutput {
-	return o.ApplyT(func(v EventContentResponse) *TargetResponse { return v.Target }).(TargetResponsePtrOutput)
+func (o EventContentInvokeResponseOutput) Target() TargetInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EventContentInvokeResponse) *TargetInvokeResponse { return v.Target }).(TargetInvokeResponsePtrOutput)
 }
 
 // The time at which the event occurred.
-func (o EventContentResponseOutput) Timestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventContentResponse) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
+func (o EventContentInvokeResponseOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventContentInvokeResponse) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
 
-type EventContentResponsePtrOutput struct{ *pulumi.OutputState }
+type EventContentInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (EventContentResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventContentResponse)(nil)).Elem()
+func (EventContentInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventContentInvokeResponse)(nil)).Elem()
 }
 
-func (o EventContentResponsePtrOutput) ToEventContentResponsePtrOutput() EventContentResponsePtrOutput {
+func (o EventContentInvokeResponsePtrOutput) ToEventContentInvokeResponsePtrOutput() EventContentInvokeResponsePtrOutput {
 	return o
 }
 
-func (o EventContentResponsePtrOutput) ToEventContentResponsePtrOutputWithContext(ctx context.Context) EventContentResponsePtrOutput {
+func (o EventContentInvokeResponsePtrOutput) ToEventContentInvokeResponsePtrOutputWithContext(ctx context.Context) EventContentInvokeResponsePtrOutput {
 	return o
 }
 
-func (o EventContentResponsePtrOutput) Elem() EventContentResponseOutput {
-	return o.ApplyT(func(v *EventContentResponse) EventContentResponse { return *v }).(EventContentResponseOutput)
+func (o EventContentInvokeResponsePtrOutput) Elem() EventContentInvokeResponseOutput {
+	return o.ApplyT(func(v *EventContentInvokeResponse) EventContentInvokeResponse { return *v }).(EventContentInvokeResponseOutput)
 }
 
 // The action that encompasses the provided event.
-func (o EventContentResponsePtrOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventContentResponse) *string {
+func (o EventContentInvokeResponsePtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventContentInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -333,18 +333,18 @@ func (o EventContentResponsePtrOutput) Action() pulumi.StringPtrOutput {
 }
 
 // The agent that initiated the event. For most situations, this could be from the authorization context of the request.
-func (o EventContentResponsePtrOutput) Actor() ActorResponsePtrOutput {
-	return o.ApplyT(func(v *EventContentResponse) *ActorResponse {
+func (o EventContentInvokeResponsePtrOutput) Actor() ActorInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EventContentInvokeResponse) *ActorInvokeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Actor
-	}).(ActorResponsePtrOutput)
+	}).(ActorInvokeResponsePtrOutput)
 }
 
 // The event ID.
-func (o EventContentResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventContentResponse) *string {
+func (o EventContentInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventContentInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -353,38 +353,38 @@ func (o EventContentResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The request that generated the event.
-func (o EventContentResponsePtrOutput) Request() RequestResponsePtrOutput {
-	return o.ApplyT(func(v *EventContentResponse) *RequestResponse {
+func (o EventContentInvokeResponsePtrOutput) Request() RequestInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EventContentInvokeResponse) *RequestInvokeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Request
-	}).(RequestResponsePtrOutput)
+	}).(RequestInvokeResponsePtrOutput)
 }
 
 // The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-func (o EventContentResponsePtrOutput) Source() SourceResponsePtrOutput {
-	return o.ApplyT(func(v *EventContentResponse) *SourceResponse {
+func (o EventContentInvokeResponsePtrOutput) Source() SourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EventContentInvokeResponse) *SourceInvokeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Source
-	}).(SourceResponsePtrOutput)
+	}).(SourceInvokeResponsePtrOutput)
 }
 
 // The target of the event.
-func (o EventContentResponsePtrOutput) Target() TargetResponsePtrOutput {
-	return o.ApplyT(func(v *EventContentResponse) *TargetResponse {
+func (o EventContentInvokeResponsePtrOutput) Target() TargetInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EventContentInvokeResponse) *TargetInvokeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Target
-	}).(TargetResponsePtrOutput)
+	}).(TargetInvokeResponsePtrOutput)
 }
 
 // The time at which the event occurred.
-func (o EventContentResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventContentResponse) *string {
+func (o EventContentInvokeResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventContentInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -392,10 +392,128 @@ func (o EventContentResponsePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The event for a webhook.
+type EventInvokeResponse struct {
+	// The event request message sent to the service URI.
+	EventRequestMessage *EventRequestMessageInvokeResponse `pulumi:"eventRequestMessage"`
+	// The event response message received from the service URI.
+	EventResponseMessage *EventResponseMessageInvokeResponse `pulumi:"eventResponseMessage"`
+	// The event ID.
+	Id *string `pulumi:"id"`
+}
+
+// EventInvokeResponseInput is an input type that accepts EventInvokeResponseArgs and EventInvokeResponseOutput values.
+// You can construct a concrete instance of `EventInvokeResponseInput` via:
+//
+//          EventInvokeResponseArgs{...}
+type EventInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventInvokeResponseOutput() EventInvokeResponseOutput
+	ToEventInvokeResponseOutputWithContext(context.Context) EventInvokeResponseOutput
+}
+
+// The event for a webhook.
+type EventInvokeResponseArgs struct {
+	// The event request message sent to the service URI.
+	EventRequestMessage EventRequestMessageInvokeResponsePtrInput `pulumi:"eventRequestMessage"`
+	// The event response message received from the service URI.
+	EventResponseMessage EventResponseMessageInvokeResponsePtrInput `pulumi:"eventResponseMessage"`
+	// The event ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (EventInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventInvokeResponse)(nil)).Elem()
+}
+
+func (i EventInvokeResponseArgs) ToEventInvokeResponseOutput() EventInvokeResponseOutput {
+	return i.ToEventInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventInvokeResponseArgs) ToEventInvokeResponseOutputWithContext(ctx context.Context) EventInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeResponseOutput)
+}
+
+// EventInvokeResponseArrayInput is an input type that accepts EventInvokeResponseArray and EventInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EventInvokeResponseArrayInput` via:
+//
+//          EventInvokeResponseArray{ EventInvokeResponseArgs{...} }
+type EventInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEventInvokeResponseArrayOutput() EventInvokeResponseArrayOutput
+	ToEventInvokeResponseArrayOutputWithContext(context.Context) EventInvokeResponseArrayOutput
+}
+
+type EventInvokeResponseArray []EventInvokeResponseInput
+
+func (EventInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventInvokeResponse)(nil)).Elem()
+}
+
+func (i EventInvokeResponseArray) ToEventInvokeResponseArrayOutput() EventInvokeResponseArrayOutput {
+	return i.ToEventInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EventInvokeResponseArray) ToEventInvokeResponseArrayOutputWithContext(ctx context.Context) EventInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeResponseArrayOutput)
+}
+
+// The event for a webhook.
+type EventInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventInvokeResponse)(nil)).Elem()
+}
+
+func (o EventInvokeResponseOutput) ToEventInvokeResponseOutput() EventInvokeResponseOutput {
+	return o
+}
+
+func (o EventInvokeResponseOutput) ToEventInvokeResponseOutputWithContext(ctx context.Context) EventInvokeResponseOutput {
+	return o
+}
+
 // The event request message sent to the service URI.
-type EventRequestMessageResponse struct {
+func (o EventInvokeResponseOutput) EventRequestMessage() EventRequestMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EventInvokeResponse) *EventRequestMessageInvokeResponse { return v.EventRequestMessage }).(EventRequestMessageInvokeResponsePtrOutput)
+}
+
+// The event response message received from the service URI.
+func (o EventInvokeResponseOutput) EventResponseMessage() EventResponseMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EventInvokeResponse) *EventResponseMessageInvokeResponse { return v.EventResponseMessage }).(EventResponseMessageInvokeResponsePtrOutput)
+}
+
+// The event ID.
+func (o EventInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type EventInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EventInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventInvokeResponse)(nil)).Elem()
+}
+
+func (o EventInvokeResponseArrayOutput) ToEventInvokeResponseArrayOutput() EventInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EventInvokeResponseArrayOutput) ToEventInvokeResponseArrayOutputWithContext(ctx context.Context) EventInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EventInvokeResponseArrayOutput) Index(i pulumi.IntInput) EventInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventInvokeResponse {
+		return vs[0].([]EventInvokeResponse)[vs[1].(int)]
+	}).(EventInvokeResponseOutput)
+}
+
+// The event request message sent to the service URI.
+type EventRequestMessageInvokeResponse struct {
 	// The content of the event request message.
-	Content *EventContentResponse `pulumi:"content"`
+	Content *EventContentInvokeResponse `pulumi:"content"`
 	// The headers of the event request message.
 	Headers map[string]string `pulumi:"headers"`
 	// The HTTP method used to send the event request message.
@@ -406,21 +524,21 @@ type EventRequestMessageResponse struct {
 	Version *string `pulumi:"version"`
 }
 
-// EventRequestMessageResponseInput is an input type that accepts EventRequestMessageResponseArgs and EventRequestMessageResponseOutput values.
-// You can construct a concrete instance of `EventRequestMessageResponseInput` via:
+// EventRequestMessageInvokeResponseInput is an input type that accepts EventRequestMessageInvokeResponseArgs and EventRequestMessageInvokeResponseOutput values.
+// You can construct a concrete instance of `EventRequestMessageInvokeResponseInput` via:
 //
-//          EventRequestMessageResponseArgs{...}
-type EventRequestMessageResponseInput interface {
+//          EventRequestMessageInvokeResponseArgs{...}
+type EventRequestMessageInvokeResponseInput interface {
 	pulumi.Input
 
-	ToEventRequestMessageResponseOutput() EventRequestMessageResponseOutput
-	ToEventRequestMessageResponseOutputWithContext(context.Context) EventRequestMessageResponseOutput
+	ToEventRequestMessageInvokeResponseOutput() EventRequestMessageInvokeResponseOutput
+	ToEventRequestMessageInvokeResponseOutputWithContext(context.Context) EventRequestMessageInvokeResponseOutput
 }
 
 // The event request message sent to the service URI.
-type EventRequestMessageResponseArgs struct {
+type EventRequestMessageInvokeResponseArgs struct {
 	// The content of the event request message.
-	Content EventContentResponsePtrInput `pulumi:"content"`
+	Content EventContentInvokeResponsePtrInput `pulumi:"content"`
 	// The headers of the event request message.
 	Headers pulumi.StringMapInput `pulumi:"headers"`
 	// The HTTP method used to send the event request message.
@@ -431,140 +549,140 @@ type EventRequestMessageResponseArgs struct {
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
-func (EventRequestMessageResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventRequestMessageResponse)(nil)).Elem()
+func (EventRequestMessageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventRequestMessageInvokeResponse)(nil)).Elem()
 }
 
-func (i EventRequestMessageResponseArgs) ToEventRequestMessageResponseOutput() EventRequestMessageResponseOutput {
-	return i.ToEventRequestMessageResponseOutputWithContext(context.Background())
+func (i EventRequestMessageInvokeResponseArgs) ToEventRequestMessageInvokeResponseOutput() EventRequestMessageInvokeResponseOutput {
+	return i.ToEventRequestMessageInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i EventRequestMessageResponseArgs) ToEventRequestMessageResponseOutputWithContext(ctx context.Context) EventRequestMessageResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventRequestMessageResponseOutput)
+func (i EventRequestMessageInvokeResponseArgs) ToEventRequestMessageInvokeResponseOutputWithContext(ctx context.Context) EventRequestMessageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventRequestMessageInvokeResponseOutput)
 }
 
-func (i EventRequestMessageResponseArgs) ToEventRequestMessageResponsePtrOutput() EventRequestMessageResponsePtrOutput {
-	return i.ToEventRequestMessageResponsePtrOutputWithContext(context.Background())
+func (i EventRequestMessageInvokeResponseArgs) ToEventRequestMessageInvokeResponsePtrOutput() EventRequestMessageInvokeResponsePtrOutput {
+	return i.ToEventRequestMessageInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i EventRequestMessageResponseArgs) ToEventRequestMessageResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventRequestMessageResponseOutput).ToEventRequestMessageResponsePtrOutputWithContext(ctx)
+func (i EventRequestMessageInvokeResponseArgs) ToEventRequestMessageInvokeResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventRequestMessageInvokeResponseOutput).ToEventRequestMessageInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// EventRequestMessageResponsePtrInput is an input type that accepts EventRequestMessageResponseArgs, EventRequestMessageResponsePtr and EventRequestMessageResponsePtrOutput values.
-// You can construct a concrete instance of `EventRequestMessageResponsePtrInput` via:
+// EventRequestMessageInvokeResponsePtrInput is an input type that accepts EventRequestMessageInvokeResponseArgs, EventRequestMessageInvokeResponsePtr and EventRequestMessageInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EventRequestMessageInvokeResponsePtrInput` via:
 //
-//          EventRequestMessageResponseArgs{...}
+//          EventRequestMessageInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type EventRequestMessageResponsePtrInput interface {
+type EventRequestMessageInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToEventRequestMessageResponsePtrOutput() EventRequestMessageResponsePtrOutput
-	ToEventRequestMessageResponsePtrOutputWithContext(context.Context) EventRequestMessageResponsePtrOutput
+	ToEventRequestMessageInvokeResponsePtrOutput() EventRequestMessageInvokeResponsePtrOutput
+	ToEventRequestMessageInvokeResponsePtrOutputWithContext(context.Context) EventRequestMessageInvokeResponsePtrOutput
 }
 
-type eventRequestMessageResponsePtrType EventRequestMessageResponseArgs
+type eventRequestMessageInvokeResponsePtrType EventRequestMessageInvokeResponseArgs
 
-func EventRequestMessageResponsePtr(v *EventRequestMessageResponseArgs) EventRequestMessageResponsePtrInput {
-	return (*eventRequestMessageResponsePtrType)(v)
+func EventRequestMessageInvokeResponsePtr(v *EventRequestMessageInvokeResponseArgs) EventRequestMessageInvokeResponsePtrInput {
+	return (*eventRequestMessageInvokeResponsePtrType)(v)
 }
 
-func (*eventRequestMessageResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventRequestMessageResponse)(nil)).Elem()
+func (*eventRequestMessageInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventRequestMessageInvokeResponse)(nil)).Elem()
 }
 
-func (i *eventRequestMessageResponsePtrType) ToEventRequestMessageResponsePtrOutput() EventRequestMessageResponsePtrOutput {
-	return i.ToEventRequestMessageResponsePtrOutputWithContext(context.Background())
+func (i *eventRequestMessageInvokeResponsePtrType) ToEventRequestMessageInvokeResponsePtrOutput() EventRequestMessageInvokeResponsePtrOutput {
+	return i.ToEventRequestMessageInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *eventRequestMessageResponsePtrType) ToEventRequestMessageResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventRequestMessageResponsePtrOutput)
+func (i *eventRequestMessageInvokeResponsePtrType) ToEventRequestMessageInvokeResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventRequestMessageInvokeResponsePtrOutput)
 }
 
 // The event request message sent to the service URI.
-type EventRequestMessageResponseOutput struct{ *pulumi.OutputState }
+type EventRequestMessageInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (EventRequestMessageResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventRequestMessageResponse)(nil)).Elem()
+func (EventRequestMessageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventRequestMessageInvokeResponse)(nil)).Elem()
 }
 
-func (o EventRequestMessageResponseOutput) ToEventRequestMessageResponseOutput() EventRequestMessageResponseOutput {
+func (o EventRequestMessageInvokeResponseOutput) ToEventRequestMessageInvokeResponseOutput() EventRequestMessageInvokeResponseOutput {
 	return o
 }
 
-func (o EventRequestMessageResponseOutput) ToEventRequestMessageResponseOutputWithContext(ctx context.Context) EventRequestMessageResponseOutput {
+func (o EventRequestMessageInvokeResponseOutput) ToEventRequestMessageInvokeResponseOutputWithContext(ctx context.Context) EventRequestMessageInvokeResponseOutput {
 	return o
 }
 
-func (o EventRequestMessageResponseOutput) ToEventRequestMessageResponsePtrOutput() EventRequestMessageResponsePtrOutput {
-	return o.ToEventRequestMessageResponsePtrOutputWithContext(context.Background())
+func (o EventRequestMessageInvokeResponseOutput) ToEventRequestMessageInvokeResponsePtrOutput() EventRequestMessageInvokeResponsePtrOutput {
+	return o.ToEventRequestMessageInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o EventRequestMessageResponseOutput) ToEventRequestMessageResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageResponsePtrOutput {
-	return o.ApplyT(func(v EventRequestMessageResponse) *EventRequestMessageResponse {
+func (o EventRequestMessageInvokeResponseOutput) ToEventRequestMessageInvokeResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EventRequestMessageInvokeResponse) *EventRequestMessageInvokeResponse {
 		return &v
-	}).(EventRequestMessageResponsePtrOutput)
+	}).(EventRequestMessageInvokeResponsePtrOutput)
 }
 
 // The content of the event request message.
-func (o EventRequestMessageResponseOutput) Content() EventContentResponsePtrOutput {
-	return o.ApplyT(func(v EventRequestMessageResponse) *EventContentResponse { return v.Content }).(EventContentResponsePtrOutput)
+func (o EventRequestMessageInvokeResponseOutput) Content() EventContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EventRequestMessageInvokeResponse) *EventContentInvokeResponse { return v.Content }).(EventContentInvokeResponsePtrOutput)
 }
 
 // The headers of the event request message.
-func (o EventRequestMessageResponseOutput) Headers() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EventRequestMessageResponse) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+func (o EventRequestMessageInvokeResponseOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventRequestMessageInvokeResponse) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
 }
 
 // The HTTP method used to send the event request message.
-func (o EventRequestMessageResponseOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventRequestMessageResponse) *string { return v.Method }).(pulumi.StringPtrOutput)
+func (o EventRequestMessageInvokeResponseOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventRequestMessageInvokeResponse) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // The URI used to send the event request message.
-func (o EventRequestMessageResponseOutput) RequestUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventRequestMessageResponse) *string { return v.RequestUri }).(pulumi.StringPtrOutput)
+func (o EventRequestMessageInvokeResponseOutput) RequestUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventRequestMessageInvokeResponse) *string { return v.RequestUri }).(pulumi.StringPtrOutput)
 }
 
 // The HTTP message version.
-func (o EventRequestMessageResponseOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventRequestMessageResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+func (o EventRequestMessageInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventRequestMessageInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type EventRequestMessageResponsePtrOutput struct{ *pulumi.OutputState }
+type EventRequestMessageInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (EventRequestMessageResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventRequestMessageResponse)(nil)).Elem()
+func (EventRequestMessageInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventRequestMessageInvokeResponse)(nil)).Elem()
 }
 
-func (o EventRequestMessageResponsePtrOutput) ToEventRequestMessageResponsePtrOutput() EventRequestMessageResponsePtrOutput {
+func (o EventRequestMessageInvokeResponsePtrOutput) ToEventRequestMessageInvokeResponsePtrOutput() EventRequestMessageInvokeResponsePtrOutput {
 	return o
 }
 
-func (o EventRequestMessageResponsePtrOutput) ToEventRequestMessageResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageResponsePtrOutput {
+func (o EventRequestMessageInvokeResponsePtrOutput) ToEventRequestMessageInvokeResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageInvokeResponsePtrOutput {
 	return o
 }
 
-func (o EventRequestMessageResponsePtrOutput) Elem() EventRequestMessageResponseOutput {
-	return o.ApplyT(func(v *EventRequestMessageResponse) EventRequestMessageResponse { return *v }).(EventRequestMessageResponseOutput)
+func (o EventRequestMessageInvokeResponsePtrOutput) Elem() EventRequestMessageInvokeResponseOutput {
+	return o.ApplyT(func(v *EventRequestMessageInvokeResponse) EventRequestMessageInvokeResponse { return *v }).(EventRequestMessageInvokeResponseOutput)
 }
 
 // The content of the event request message.
-func (o EventRequestMessageResponsePtrOutput) Content() EventContentResponsePtrOutput {
-	return o.ApplyT(func(v *EventRequestMessageResponse) *EventContentResponse {
+func (o EventRequestMessageInvokeResponsePtrOutput) Content() EventContentInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *EventRequestMessageInvokeResponse) *EventContentInvokeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Content
-	}).(EventContentResponsePtrOutput)
+	}).(EventContentInvokeResponsePtrOutput)
 }
 
 // The headers of the event request message.
-func (o EventRequestMessageResponsePtrOutput) Headers() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *EventRequestMessageResponse) map[string]string {
+func (o EventRequestMessageInvokeResponsePtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventRequestMessageInvokeResponse) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -573,8 +691,8 @@ func (o EventRequestMessageResponsePtrOutput) Headers() pulumi.StringMapOutput {
 }
 
 // The HTTP method used to send the event request message.
-func (o EventRequestMessageResponsePtrOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventRequestMessageResponse) *string {
+func (o EventRequestMessageInvokeResponsePtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventRequestMessageInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -583,8 +701,8 @@ func (o EventRequestMessageResponsePtrOutput) Method() pulumi.StringPtrOutput {
 }
 
 // The URI used to send the event request message.
-func (o EventRequestMessageResponsePtrOutput) RequestUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventRequestMessageResponse) *string {
+func (o EventRequestMessageInvokeResponsePtrOutput) RequestUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventRequestMessageInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -593,8 +711,8 @@ func (o EventRequestMessageResponsePtrOutput) RequestUri() pulumi.StringPtrOutpu
 }
 
 // The HTTP message version.
-func (o EventRequestMessageResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventRequestMessageResponse) *string {
+func (o EventRequestMessageInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventRequestMessageInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -602,126 +720,8 @@ func (o EventRequestMessageResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The event for a webhook.
-type EventResponse struct {
-	// The event request message sent to the service URI.
-	EventRequestMessage *EventRequestMessageResponse `pulumi:"eventRequestMessage"`
-	// The event response message received from the service URI.
-	EventResponseMessage *EventResponseMessageResponse `pulumi:"eventResponseMessage"`
-	// The event ID.
-	Id *string `pulumi:"id"`
-}
-
-// EventResponseInput is an input type that accepts EventResponseArgs and EventResponseOutput values.
-// You can construct a concrete instance of `EventResponseInput` via:
-//
-//          EventResponseArgs{...}
-type EventResponseInput interface {
-	pulumi.Input
-
-	ToEventResponseOutput() EventResponseOutput
-	ToEventResponseOutputWithContext(context.Context) EventResponseOutput
-}
-
-// The event for a webhook.
-type EventResponseArgs struct {
-	// The event request message sent to the service URI.
-	EventRequestMessage EventRequestMessageResponsePtrInput `pulumi:"eventRequestMessage"`
-	// The event response message received from the service URI.
-	EventResponseMessage EventResponseMessageResponsePtrInput `pulumi:"eventResponseMessage"`
-	// The event ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (EventResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventResponse)(nil)).Elem()
-}
-
-func (i EventResponseArgs) ToEventResponseOutput() EventResponseOutput {
-	return i.ToEventResponseOutputWithContext(context.Background())
-}
-
-func (i EventResponseArgs) ToEventResponseOutputWithContext(ctx context.Context) EventResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventResponseOutput)
-}
-
-// EventResponseArrayInput is an input type that accepts EventResponseArray and EventResponseArrayOutput values.
-// You can construct a concrete instance of `EventResponseArrayInput` via:
-//
-//          EventResponseArray{ EventResponseArgs{...} }
-type EventResponseArrayInput interface {
-	pulumi.Input
-
-	ToEventResponseArrayOutput() EventResponseArrayOutput
-	ToEventResponseArrayOutputWithContext(context.Context) EventResponseArrayOutput
-}
-
-type EventResponseArray []EventResponseInput
-
-func (EventResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventResponse)(nil)).Elem()
-}
-
-func (i EventResponseArray) ToEventResponseArrayOutput() EventResponseArrayOutput {
-	return i.ToEventResponseArrayOutputWithContext(context.Background())
-}
-
-func (i EventResponseArray) ToEventResponseArrayOutputWithContext(ctx context.Context) EventResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventResponseArrayOutput)
-}
-
-// The event for a webhook.
-type EventResponseOutput struct{ *pulumi.OutputState }
-
-func (EventResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventResponse)(nil)).Elem()
-}
-
-func (o EventResponseOutput) ToEventResponseOutput() EventResponseOutput {
-	return o
-}
-
-func (o EventResponseOutput) ToEventResponseOutputWithContext(ctx context.Context) EventResponseOutput {
-	return o
-}
-
-// The event request message sent to the service URI.
-func (o EventResponseOutput) EventRequestMessage() EventRequestMessageResponsePtrOutput {
-	return o.ApplyT(func(v EventResponse) *EventRequestMessageResponse { return v.EventRequestMessage }).(EventRequestMessageResponsePtrOutput)
-}
-
 // The event response message received from the service URI.
-func (o EventResponseOutput) EventResponseMessage() EventResponseMessageResponsePtrOutput {
-	return o.ApplyT(func(v EventResponse) *EventResponseMessageResponse { return v.EventResponseMessage }).(EventResponseMessageResponsePtrOutput)
-}
-
-// The event ID.
-func (o EventResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-type EventResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (EventResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventResponse)(nil)).Elem()
-}
-
-func (o EventResponseArrayOutput) ToEventResponseArrayOutput() EventResponseArrayOutput {
-	return o
-}
-
-func (o EventResponseArrayOutput) ToEventResponseArrayOutputWithContext(ctx context.Context) EventResponseArrayOutput {
-	return o
-}
-
-func (o EventResponseArrayOutput) Index(i pulumi.IntInput) EventResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventResponse {
-		return vs[0].([]EventResponse)[vs[1].(int)]
-	}).(EventResponseOutput)
-}
-
-// The event response message received from the service URI.
-type EventResponseMessageResponse struct {
+type EventResponseMessageInvokeResponse struct {
 	// The content of the event response message.
 	Content *string `pulumi:"content"`
 	// The headers of the event response message.
@@ -734,19 +734,19 @@ type EventResponseMessageResponse struct {
 	Version *string `pulumi:"version"`
 }
 
-// EventResponseMessageResponseInput is an input type that accepts EventResponseMessageResponseArgs and EventResponseMessageResponseOutput values.
-// You can construct a concrete instance of `EventResponseMessageResponseInput` via:
+// EventResponseMessageInvokeResponseInput is an input type that accepts EventResponseMessageInvokeResponseArgs and EventResponseMessageInvokeResponseOutput values.
+// You can construct a concrete instance of `EventResponseMessageInvokeResponseInput` via:
 //
-//          EventResponseMessageResponseArgs{...}
-type EventResponseMessageResponseInput interface {
+//          EventResponseMessageInvokeResponseArgs{...}
+type EventResponseMessageInvokeResponseInput interface {
 	pulumi.Input
 
-	ToEventResponseMessageResponseOutput() EventResponseMessageResponseOutput
-	ToEventResponseMessageResponseOutputWithContext(context.Context) EventResponseMessageResponseOutput
+	ToEventResponseMessageInvokeResponseOutput() EventResponseMessageInvokeResponseOutput
+	ToEventResponseMessageInvokeResponseOutputWithContext(context.Context) EventResponseMessageInvokeResponseOutput
 }
 
 // The event response message received from the service URI.
-type EventResponseMessageResponseArgs struct {
+type EventResponseMessageInvokeResponseArgs struct {
 	// The content of the event response message.
 	Content pulumi.StringPtrInput `pulumi:"content"`
 	// The headers of the event response message.
@@ -759,130 +759,130 @@ type EventResponseMessageResponseArgs struct {
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
-func (EventResponseMessageResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventResponseMessageResponse)(nil)).Elem()
+func (EventResponseMessageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventResponseMessageInvokeResponse)(nil)).Elem()
 }
 
-func (i EventResponseMessageResponseArgs) ToEventResponseMessageResponseOutput() EventResponseMessageResponseOutput {
-	return i.ToEventResponseMessageResponseOutputWithContext(context.Background())
+func (i EventResponseMessageInvokeResponseArgs) ToEventResponseMessageInvokeResponseOutput() EventResponseMessageInvokeResponseOutput {
+	return i.ToEventResponseMessageInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i EventResponseMessageResponseArgs) ToEventResponseMessageResponseOutputWithContext(ctx context.Context) EventResponseMessageResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventResponseMessageResponseOutput)
+func (i EventResponseMessageInvokeResponseArgs) ToEventResponseMessageInvokeResponseOutputWithContext(ctx context.Context) EventResponseMessageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventResponseMessageInvokeResponseOutput)
 }
 
-func (i EventResponseMessageResponseArgs) ToEventResponseMessageResponsePtrOutput() EventResponseMessageResponsePtrOutput {
-	return i.ToEventResponseMessageResponsePtrOutputWithContext(context.Background())
+func (i EventResponseMessageInvokeResponseArgs) ToEventResponseMessageInvokeResponsePtrOutput() EventResponseMessageInvokeResponsePtrOutput {
+	return i.ToEventResponseMessageInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i EventResponseMessageResponseArgs) ToEventResponseMessageResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventResponseMessageResponseOutput).ToEventResponseMessageResponsePtrOutputWithContext(ctx)
+func (i EventResponseMessageInvokeResponseArgs) ToEventResponseMessageInvokeResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventResponseMessageInvokeResponseOutput).ToEventResponseMessageInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// EventResponseMessageResponsePtrInput is an input type that accepts EventResponseMessageResponseArgs, EventResponseMessageResponsePtr and EventResponseMessageResponsePtrOutput values.
-// You can construct a concrete instance of `EventResponseMessageResponsePtrInput` via:
+// EventResponseMessageInvokeResponsePtrInput is an input type that accepts EventResponseMessageInvokeResponseArgs, EventResponseMessageInvokeResponsePtr and EventResponseMessageInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EventResponseMessageInvokeResponsePtrInput` via:
 //
-//          EventResponseMessageResponseArgs{...}
+//          EventResponseMessageInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type EventResponseMessageResponsePtrInput interface {
+type EventResponseMessageInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToEventResponseMessageResponsePtrOutput() EventResponseMessageResponsePtrOutput
-	ToEventResponseMessageResponsePtrOutputWithContext(context.Context) EventResponseMessageResponsePtrOutput
+	ToEventResponseMessageInvokeResponsePtrOutput() EventResponseMessageInvokeResponsePtrOutput
+	ToEventResponseMessageInvokeResponsePtrOutputWithContext(context.Context) EventResponseMessageInvokeResponsePtrOutput
 }
 
-type eventResponseMessageResponsePtrType EventResponseMessageResponseArgs
+type eventResponseMessageInvokeResponsePtrType EventResponseMessageInvokeResponseArgs
 
-func EventResponseMessageResponsePtr(v *EventResponseMessageResponseArgs) EventResponseMessageResponsePtrInput {
-	return (*eventResponseMessageResponsePtrType)(v)
+func EventResponseMessageInvokeResponsePtr(v *EventResponseMessageInvokeResponseArgs) EventResponseMessageInvokeResponsePtrInput {
+	return (*eventResponseMessageInvokeResponsePtrType)(v)
 }
 
-func (*eventResponseMessageResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventResponseMessageResponse)(nil)).Elem()
+func (*eventResponseMessageInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventResponseMessageInvokeResponse)(nil)).Elem()
 }
 
-func (i *eventResponseMessageResponsePtrType) ToEventResponseMessageResponsePtrOutput() EventResponseMessageResponsePtrOutput {
-	return i.ToEventResponseMessageResponsePtrOutputWithContext(context.Background())
+func (i *eventResponseMessageInvokeResponsePtrType) ToEventResponseMessageInvokeResponsePtrOutput() EventResponseMessageInvokeResponsePtrOutput {
+	return i.ToEventResponseMessageInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *eventResponseMessageResponsePtrType) ToEventResponseMessageResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventResponseMessageResponsePtrOutput)
+func (i *eventResponseMessageInvokeResponsePtrType) ToEventResponseMessageInvokeResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventResponseMessageInvokeResponsePtrOutput)
 }
 
 // The event response message received from the service URI.
-type EventResponseMessageResponseOutput struct{ *pulumi.OutputState }
+type EventResponseMessageInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (EventResponseMessageResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventResponseMessageResponse)(nil)).Elem()
+func (EventResponseMessageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventResponseMessageInvokeResponse)(nil)).Elem()
 }
 
-func (o EventResponseMessageResponseOutput) ToEventResponseMessageResponseOutput() EventResponseMessageResponseOutput {
+func (o EventResponseMessageInvokeResponseOutput) ToEventResponseMessageInvokeResponseOutput() EventResponseMessageInvokeResponseOutput {
 	return o
 }
 
-func (o EventResponseMessageResponseOutput) ToEventResponseMessageResponseOutputWithContext(ctx context.Context) EventResponseMessageResponseOutput {
+func (o EventResponseMessageInvokeResponseOutput) ToEventResponseMessageInvokeResponseOutputWithContext(ctx context.Context) EventResponseMessageInvokeResponseOutput {
 	return o
 }
 
-func (o EventResponseMessageResponseOutput) ToEventResponseMessageResponsePtrOutput() EventResponseMessageResponsePtrOutput {
-	return o.ToEventResponseMessageResponsePtrOutputWithContext(context.Background())
+func (o EventResponseMessageInvokeResponseOutput) ToEventResponseMessageInvokeResponsePtrOutput() EventResponseMessageInvokeResponsePtrOutput {
+	return o.ToEventResponseMessageInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o EventResponseMessageResponseOutput) ToEventResponseMessageResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageResponsePtrOutput {
-	return o.ApplyT(func(v EventResponseMessageResponse) *EventResponseMessageResponse {
+func (o EventResponseMessageInvokeResponseOutput) ToEventResponseMessageInvokeResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EventResponseMessageInvokeResponse) *EventResponseMessageInvokeResponse {
 		return &v
-	}).(EventResponseMessageResponsePtrOutput)
+	}).(EventResponseMessageInvokeResponsePtrOutput)
 }
 
 // The content of the event response message.
-func (o EventResponseMessageResponseOutput) Content() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventResponseMessageResponse) *string { return v.Content }).(pulumi.StringPtrOutput)
+func (o EventResponseMessageInvokeResponseOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventResponseMessageInvokeResponse) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 // The headers of the event response message.
-func (o EventResponseMessageResponseOutput) Headers() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EventResponseMessageResponse) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+func (o EventResponseMessageInvokeResponseOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventResponseMessageInvokeResponse) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
 }
 
 // The reason phrase of the event response message.
-func (o EventResponseMessageResponseOutput) ReasonPhrase() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventResponseMessageResponse) *string { return v.ReasonPhrase }).(pulumi.StringPtrOutput)
+func (o EventResponseMessageInvokeResponseOutput) ReasonPhrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventResponseMessageInvokeResponse) *string { return v.ReasonPhrase }).(pulumi.StringPtrOutput)
 }
 
 // The status code of the event response message.
-func (o EventResponseMessageResponseOutput) StatusCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventResponseMessageResponse) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
+func (o EventResponseMessageInvokeResponseOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventResponseMessageInvokeResponse) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
 
 // The HTTP message version.
-func (o EventResponseMessageResponseOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventResponseMessageResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+func (o EventResponseMessageInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventResponseMessageInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type EventResponseMessageResponsePtrOutput struct{ *pulumi.OutputState }
+type EventResponseMessageInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (EventResponseMessageResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventResponseMessageResponse)(nil)).Elem()
+func (EventResponseMessageInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventResponseMessageInvokeResponse)(nil)).Elem()
 }
 
-func (o EventResponseMessageResponsePtrOutput) ToEventResponseMessageResponsePtrOutput() EventResponseMessageResponsePtrOutput {
+func (o EventResponseMessageInvokeResponsePtrOutput) ToEventResponseMessageInvokeResponsePtrOutput() EventResponseMessageInvokeResponsePtrOutput {
 	return o
 }
 
-func (o EventResponseMessageResponsePtrOutput) ToEventResponseMessageResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageResponsePtrOutput {
+func (o EventResponseMessageInvokeResponsePtrOutput) ToEventResponseMessageInvokeResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageInvokeResponsePtrOutput {
 	return o
 }
 
-func (o EventResponseMessageResponsePtrOutput) Elem() EventResponseMessageResponseOutput {
-	return o.ApplyT(func(v *EventResponseMessageResponse) EventResponseMessageResponse { return *v }).(EventResponseMessageResponseOutput)
+func (o EventResponseMessageInvokeResponsePtrOutput) Elem() EventResponseMessageInvokeResponseOutput {
+	return o.ApplyT(func(v *EventResponseMessageInvokeResponse) EventResponseMessageInvokeResponse { return *v }).(EventResponseMessageInvokeResponseOutput)
 }
 
 // The content of the event response message.
-func (o EventResponseMessageResponsePtrOutput) Content() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventResponseMessageResponse) *string {
+func (o EventResponseMessageInvokeResponsePtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventResponseMessageInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -891,8 +891,8 @@ func (o EventResponseMessageResponsePtrOutput) Content() pulumi.StringPtrOutput 
 }
 
 // The headers of the event response message.
-func (o EventResponseMessageResponsePtrOutput) Headers() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *EventResponseMessageResponse) map[string]string {
+func (o EventResponseMessageInvokeResponsePtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventResponseMessageInvokeResponse) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -901,8 +901,8 @@ func (o EventResponseMessageResponsePtrOutput) Headers() pulumi.StringMapOutput 
 }
 
 // The reason phrase of the event response message.
-func (o EventResponseMessageResponsePtrOutput) ReasonPhrase() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventResponseMessageResponse) *string {
+func (o EventResponseMessageInvokeResponsePtrOutput) ReasonPhrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventResponseMessageInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -911,8 +911,8 @@ func (o EventResponseMessageResponsePtrOutput) ReasonPhrase() pulumi.StringPtrOu
 }
 
 // The status code of the event response message.
-func (o EventResponseMessageResponsePtrOutput) StatusCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventResponseMessageResponse) *string {
+func (o EventResponseMessageInvokeResponsePtrOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventResponseMessageInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -921,8 +921,8 @@ func (o EventResponseMessageResponsePtrOutput) StatusCode() pulumi.StringPtrOutp
 }
 
 // The HTTP message version.
-func (o EventResponseMessageResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventResponseMessageResponse) *string {
+func (o EventResponseMessageInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventResponseMessageInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1037,6 +1037,115 @@ func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPRule {
 		return vs[0].([]IPRule)[vs[1].(int)]
 	}).(IPRuleOutput)
+}
+
+// IP rule with specific IP or IP range in CIDR format.
+type IPRuleInvokeResponse struct {
+	// The action of IP ACL rule.
+	Action *string `pulumi:"action"`
+	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+	IPAddressOrRange string `pulumi:"iPAddressOrRange"`
+}
+
+// IPRuleInvokeResponseInput is an input type that accepts IPRuleInvokeResponseArgs and IPRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `IPRuleInvokeResponseInput` via:
+//
+//          IPRuleInvokeResponseArgs{...}
+type IPRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIPRuleInvokeResponseOutput() IPRuleInvokeResponseOutput
+	ToIPRuleInvokeResponseOutputWithContext(context.Context) IPRuleInvokeResponseOutput
+}
+
+// IP rule with specific IP or IP range in CIDR format.
+type IPRuleInvokeResponseArgs struct {
+	// The action of IP ACL rule.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
+}
+
+func (IPRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IPRuleInvokeResponseArgs) ToIPRuleInvokeResponseOutput() IPRuleInvokeResponseOutput {
+	return i.ToIPRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IPRuleInvokeResponseArgs) ToIPRuleInvokeResponseOutputWithContext(ctx context.Context) IPRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPRuleInvokeResponseOutput)
+}
+
+// IPRuleInvokeResponseArrayInput is an input type that accepts IPRuleInvokeResponseArray and IPRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IPRuleInvokeResponseArrayInput` via:
+//
+//          IPRuleInvokeResponseArray{ IPRuleInvokeResponseArgs{...} }
+type IPRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIPRuleInvokeResponseArrayOutput() IPRuleInvokeResponseArrayOutput
+	ToIPRuleInvokeResponseArrayOutputWithContext(context.Context) IPRuleInvokeResponseArrayOutput
+}
+
+type IPRuleInvokeResponseArray []IPRuleInvokeResponseInput
+
+func (IPRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IPRuleInvokeResponseArray) ToIPRuleInvokeResponseArrayOutput() IPRuleInvokeResponseArrayOutput {
+	return i.ToIPRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IPRuleInvokeResponseArray) ToIPRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IPRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPRuleInvokeResponseArrayOutput)
+}
+
+// IP rule with specific IP or IP range in CIDR format.
+type IPRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IPRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IPRuleInvokeResponseOutput) ToIPRuleInvokeResponseOutput() IPRuleInvokeResponseOutput {
+	return o
+}
+
+func (o IPRuleInvokeResponseOutput) ToIPRuleInvokeResponseOutputWithContext(ctx context.Context) IPRuleInvokeResponseOutput {
+	return o
+}
+
+// The action of IP ACL rule.
+func (o IPRuleInvokeResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPRuleInvokeResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+func (o IPRuleInvokeResponseOutput) IPAddressOrRange() pulumi.StringOutput {
+	return o.ApplyT(func(v IPRuleInvokeResponse) string { return v.IPAddressOrRange }).(pulumi.StringOutput)
+}
+
+type IPRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IPRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IPRuleInvokeResponseArrayOutput) ToIPRuleInvokeResponseArrayOutput() IPRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IPRuleInvokeResponseArrayOutput) ToIPRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IPRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IPRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) IPRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPRuleInvokeResponse {
+		return vs[0].([]IPRuleInvokeResponse)[vs[1].(int)]
+	}).(IPRuleInvokeResponseOutput)
 }
 
 // IP rule with specific IP or IP range in CIDR format.
@@ -1318,6 +1427,79 @@ func (o NetworkRuleSetPtrOutput) VirtualNetworkRules() VirtualNetworkRuleArrayOu
 		}
 		return v.VirtualNetworkRules
 	}).(VirtualNetworkRuleArrayOutput)
+}
+
+// The network rule set for a container registry.
+type NetworkRuleSetInvokeResponse struct {
+	// The default action of allow or deny when no other rules match.
+	DefaultAction string `pulumi:"defaultAction"`
+	// The IP ACL rules.
+	IpRules []IPRuleInvokeResponse `pulumi:"ipRules"`
+	// The virtual network rules.
+	VirtualNetworkRules []VirtualNetworkRuleInvokeResponse `pulumi:"virtualNetworkRules"`
+}
+
+// NetworkRuleSetInvokeResponseInput is an input type that accepts NetworkRuleSetInvokeResponseArgs and NetworkRuleSetInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkRuleSetInvokeResponseInput` via:
+//
+//          NetworkRuleSetInvokeResponseArgs{...}
+type NetworkRuleSetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkRuleSetInvokeResponseOutput() NetworkRuleSetInvokeResponseOutput
+	ToNetworkRuleSetInvokeResponseOutputWithContext(context.Context) NetworkRuleSetInvokeResponseOutput
+}
+
+// The network rule set for a container registry.
+type NetworkRuleSetInvokeResponseArgs struct {
+	// The default action of allow or deny when no other rules match.
+	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+	// The IP ACL rules.
+	IpRules IPRuleInvokeResponseArrayInput `pulumi:"ipRules"`
+	// The virtual network rules.
+	VirtualNetworkRules VirtualNetworkRuleInvokeResponseArrayInput `pulumi:"virtualNetworkRules"`
+}
+
+func (NetworkRuleSetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkRuleSetInvokeResponseArgs) ToNetworkRuleSetInvokeResponseOutput() NetworkRuleSetInvokeResponseOutput {
+	return i.ToNetworkRuleSetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkRuleSetInvokeResponseArgs) ToNetworkRuleSetInvokeResponseOutputWithContext(ctx context.Context) NetworkRuleSetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkRuleSetInvokeResponseOutput)
+}
+
+// The network rule set for a container registry.
+type NetworkRuleSetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkRuleSetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkRuleSetInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkRuleSetInvokeResponseOutput) ToNetworkRuleSetInvokeResponseOutput() NetworkRuleSetInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkRuleSetInvokeResponseOutput) ToNetworkRuleSetInvokeResponseOutputWithContext(ctx context.Context) NetworkRuleSetInvokeResponseOutput {
+	return o
+}
+
+// The default action of allow or deny when no other rules match.
+func (o NetworkRuleSetInvokeResponseOutput) DefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkRuleSetInvokeResponse) string { return v.DefaultAction }).(pulumi.StringOutput)
+}
+
+// The IP ACL rules.
+func (o NetworkRuleSetInvokeResponseOutput) IpRules() IPRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NetworkRuleSetInvokeResponse) []IPRuleInvokeResponse { return v.IpRules }).(IPRuleInvokeResponseArrayOutput)
+}
+
+// The virtual network rules.
+func (o NetworkRuleSetInvokeResponseOutput) VirtualNetworkRules() VirtualNetworkRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NetworkRuleSetInvokeResponse) []VirtualNetworkRuleInvokeResponse { return v.VirtualNetworkRules }).(VirtualNetworkRuleInvokeResponseArrayOutput)
 }
 
 // The network rule set for a container registry.
@@ -1665,6 +1847,79 @@ func (o PoliciesPtrOutput) TrustPolicy() TrustPolicyPtrOutput {
 }
 
 // The policies for a container registry.
+type PoliciesInvokeResponse struct {
+	// The quarantine policy for a container registry.
+	QuarantinePolicy *QuarantinePolicyInvokeResponse `pulumi:"quarantinePolicy"`
+	// The retention policy for a container registry.
+	RetentionPolicy *RetentionPolicyInvokeResponse `pulumi:"retentionPolicy"`
+	// The content trust policy for a container registry.
+	TrustPolicy *TrustPolicyInvokeResponse `pulumi:"trustPolicy"`
+}
+
+// PoliciesInvokeResponseInput is an input type that accepts PoliciesInvokeResponseArgs and PoliciesInvokeResponseOutput values.
+// You can construct a concrete instance of `PoliciesInvokeResponseInput` via:
+//
+//          PoliciesInvokeResponseArgs{...}
+type PoliciesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPoliciesInvokeResponseOutput() PoliciesInvokeResponseOutput
+	ToPoliciesInvokeResponseOutputWithContext(context.Context) PoliciesInvokeResponseOutput
+}
+
+// The policies for a container registry.
+type PoliciesInvokeResponseArgs struct {
+	// The quarantine policy for a container registry.
+	QuarantinePolicy QuarantinePolicyInvokeResponsePtrInput `pulumi:"quarantinePolicy"`
+	// The retention policy for a container registry.
+	RetentionPolicy RetentionPolicyInvokeResponsePtrInput `pulumi:"retentionPolicy"`
+	// The content trust policy for a container registry.
+	TrustPolicy TrustPolicyInvokeResponsePtrInput `pulumi:"trustPolicy"`
+}
+
+func (PoliciesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (i PoliciesInvokeResponseArgs) ToPoliciesInvokeResponseOutput() PoliciesInvokeResponseOutput {
+	return i.ToPoliciesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PoliciesInvokeResponseArgs) ToPoliciesInvokeResponseOutputWithContext(ctx context.Context) PoliciesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoliciesInvokeResponseOutput)
+}
+
+// The policies for a container registry.
+type PoliciesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PoliciesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (o PoliciesInvokeResponseOutput) ToPoliciesInvokeResponseOutput() PoliciesInvokeResponseOutput {
+	return o
+}
+
+func (o PoliciesInvokeResponseOutput) ToPoliciesInvokeResponseOutputWithContext(ctx context.Context) PoliciesInvokeResponseOutput {
+	return o
+}
+
+// The quarantine policy for a container registry.
+func (o PoliciesInvokeResponseOutput) QuarantinePolicy() QuarantinePolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PoliciesInvokeResponse) *QuarantinePolicyInvokeResponse { return v.QuarantinePolicy }).(QuarantinePolicyInvokeResponsePtrOutput)
+}
+
+// The retention policy for a container registry.
+func (o PoliciesInvokeResponseOutput) RetentionPolicy() RetentionPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PoliciesInvokeResponse) *RetentionPolicyInvokeResponse { return v.RetentionPolicy }).(RetentionPolicyInvokeResponsePtrOutput)
+}
+
+// The content trust policy for a container registry.
+func (o PoliciesInvokeResponseOutput) TrustPolicy() TrustPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PoliciesInvokeResponse) *TrustPolicyInvokeResponse { return v.TrustPolicy }).(TrustPolicyInvokeResponsePtrOutput)
+}
+
+// The policies for a container registry.
 type PoliciesResponse struct {
 	// The quarantine policy for a container registry.
 	QuarantinePolicy *QuarantinePolicyResponse `pulumi:"quarantinePolicy"`
@@ -1971,6 +2226,140 @@ func (o QuarantinePolicyPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 // The quarantine policy for a container registry.
+type QuarantinePolicyInvokeResponse struct {
+	// The value that indicates whether the policy is enabled or not.
+	Status *string `pulumi:"status"`
+}
+
+// QuarantinePolicyInvokeResponseInput is an input type that accepts QuarantinePolicyInvokeResponseArgs and QuarantinePolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `QuarantinePolicyInvokeResponseInput` via:
+//
+//          QuarantinePolicyInvokeResponseArgs{...}
+type QuarantinePolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToQuarantinePolicyInvokeResponseOutput() QuarantinePolicyInvokeResponseOutput
+	ToQuarantinePolicyInvokeResponseOutputWithContext(context.Context) QuarantinePolicyInvokeResponseOutput
+}
+
+// The quarantine policy for a container registry.
+type QuarantinePolicyInvokeResponseArgs struct {
+	// The value that indicates whether the policy is enabled or not.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (QuarantinePolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuarantinePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i QuarantinePolicyInvokeResponseArgs) ToQuarantinePolicyInvokeResponseOutput() QuarantinePolicyInvokeResponseOutput {
+	return i.ToQuarantinePolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i QuarantinePolicyInvokeResponseArgs) ToQuarantinePolicyInvokeResponseOutputWithContext(ctx context.Context) QuarantinePolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuarantinePolicyInvokeResponseOutput)
+}
+
+func (i QuarantinePolicyInvokeResponseArgs) ToQuarantinePolicyInvokeResponsePtrOutput() QuarantinePolicyInvokeResponsePtrOutput {
+	return i.ToQuarantinePolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i QuarantinePolicyInvokeResponseArgs) ToQuarantinePolicyInvokeResponsePtrOutputWithContext(ctx context.Context) QuarantinePolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuarantinePolicyInvokeResponseOutput).ToQuarantinePolicyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// QuarantinePolicyInvokeResponsePtrInput is an input type that accepts QuarantinePolicyInvokeResponseArgs, QuarantinePolicyInvokeResponsePtr and QuarantinePolicyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `QuarantinePolicyInvokeResponsePtrInput` via:
+//
+//          QuarantinePolicyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type QuarantinePolicyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToQuarantinePolicyInvokeResponsePtrOutput() QuarantinePolicyInvokeResponsePtrOutput
+	ToQuarantinePolicyInvokeResponsePtrOutputWithContext(context.Context) QuarantinePolicyInvokeResponsePtrOutput
+}
+
+type quarantinePolicyInvokeResponsePtrType QuarantinePolicyInvokeResponseArgs
+
+func QuarantinePolicyInvokeResponsePtr(v *QuarantinePolicyInvokeResponseArgs) QuarantinePolicyInvokeResponsePtrInput {
+	return (*quarantinePolicyInvokeResponsePtrType)(v)
+}
+
+func (*quarantinePolicyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuarantinePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i *quarantinePolicyInvokeResponsePtrType) ToQuarantinePolicyInvokeResponsePtrOutput() QuarantinePolicyInvokeResponsePtrOutput {
+	return i.ToQuarantinePolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *quarantinePolicyInvokeResponsePtrType) ToQuarantinePolicyInvokeResponsePtrOutputWithContext(ctx context.Context) QuarantinePolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuarantinePolicyInvokeResponsePtrOutput)
+}
+
+// The quarantine policy for a container registry.
+type QuarantinePolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (QuarantinePolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuarantinePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o QuarantinePolicyInvokeResponseOutput) ToQuarantinePolicyInvokeResponseOutput() QuarantinePolicyInvokeResponseOutput {
+	return o
+}
+
+func (o QuarantinePolicyInvokeResponseOutput) ToQuarantinePolicyInvokeResponseOutputWithContext(ctx context.Context) QuarantinePolicyInvokeResponseOutput {
+	return o
+}
+
+func (o QuarantinePolicyInvokeResponseOutput) ToQuarantinePolicyInvokeResponsePtrOutput() QuarantinePolicyInvokeResponsePtrOutput {
+	return o.ToQuarantinePolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o QuarantinePolicyInvokeResponseOutput) ToQuarantinePolicyInvokeResponsePtrOutputWithContext(ctx context.Context) QuarantinePolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v QuarantinePolicyInvokeResponse) *QuarantinePolicyInvokeResponse {
+		return &v
+	}).(QuarantinePolicyInvokeResponsePtrOutput)
+}
+
+// The value that indicates whether the policy is enabled or not.
+func (o QuarantinePolicyInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QuarantinePolicyInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type QuarantinePolicyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (QuarantinePolicyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuarantinePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o QuarantinePolicyInvokeResponsePtrOutput) ToQuarantinePolicyInvokeResponsePtrOutput() QuarantinePolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o QuarantinePolicyInvokeResponsePtrOutput) ToQuarantinePolicyInvokeResponsePtrOutputWithContext(ctx context.Context) QuarantinePolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o QuarantinePolicyInvokeResponsePtrOutput) Elem() QuarantinePolicyInvokeResponseOutput {
+	return o.ApplyT(func(v *QuarantinePolicyInvokeResponse) QuarantinePolicyInvokeResponse { return *v }).(QuarantinePolicyInvokeResponseOutput)
+}
+
+// The value that indicates whether the policy is enabled or not.
+func (o QuarantinePolicyInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuarantinePolicyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The quarantine policy for a container registry.
 type QuarantinePolicyResponse struct {
 	// The value that indicates whether the policy is enabled or not.
 	Status *string `pulumi:"status"`
@@ -2105,116 +2494,116 @@ func (o QuarantinePolicyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 // The login password for the container registry.
-type RegistryPasswordResponse struct {
+type RegistryPasswordInvokeResponse struct {
 	// The password name.
 	Name *string `pulumi:"name"`
 	// The password value.
 	Value *string `pulumi:"value"`
 }
 
-// RegistryPasswordResponseInput is an input type that accepts RegistryPasswordResponseArgs and RegistryPasswordResponseOutput values.
-// You can construct a concrete instance of `RegistryPasswordResponseInput` via:
+// RegistryPasswordInvokeResponseInput is an input type that accepts RegistryPasswordInvokeResponseArgs and RegistryPasswordInvokeResponseOutput values.
+// You can construct a concrete instance of `RegistryPasswordInvokeResponseInput` via:
 //
-//          RegistryPasswordResponseArgs{...}
-type RegistryPasswordResponseInput interface {
+//          RegistryPasswordInvokeResponseArgs{...}
+type RegistryPasswordInvokeResponseInput interface {
 	pulumi.Input
 
-	ToRegistryPasswordResponseOutput() RegistryPasswordResponseOutput
-	ToRegistryPasswordResponseOutputWithContext(context.Context) RegistryPasswordResponseOutput
+	ToRegistryPasswordInvokeResponseOutput() RegistryPasswordInvokeResponseOutput
+	ToRegistryPasswordInvokeResponseOutputWithContext(context.Context) RegistryPasswordInvokeResponseOutput
 }
 
 // The login password for the container registry.
-type RegistryPasswordResponseArgs struct {
+type RegistryPasswordInvokeResponseArgs struct {
 	// The password name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The password value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (RegistryPasswordResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryPasswordResponse)(nil)).Elem()
+func (RegistryPasswordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryPasswordInvokeResponse)(nil)).Elem()
 }
 
-func (i RegistryPasswordResponseArgs) ToRegistryPasswordResponseOutput() RegistryPasswordResponseOutput {
-	return i.ToRegistryPasswordResponseOutputWithContext(context.Background())
+func (i RegistryPasswordInvokeResponseArgs) ToRegistryPasswordInvokeResponseOutput() RegistryPasswordInvokeResponseOutput {
+	return i.ToRegistryPasswordInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i RegistryPasswordResponseArgs) ToRegistryPasswordResponseOutputWithContext(ctx context.Context) RegistryPasswordResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryPasswordResponseOutput)
+func (i RegistryPasswordInvokeResponseArgs) ToRegistryPasswordInvokeResponseOutputWithContext(ctx context.Context) RegistryPasswordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryPasswordInvokeResponseOutput)
 }
 
-// RegistryPasswordResponseArrayInput is an input type that accepts RegistryPasswordResponseArray and RegistryPasswordResponseArrayOutput values.
-// You can construct a concrete instance of `RegistryPasswordResponseArrayInput` via:
+// RegistryPasswordInvokeResponseArrayInput is an input type that accepts RegistryPasswordInvokeResponseArray and RegistryPasswordInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RegistryPasswordInvokeResponseArrayInput` via:
 //
-//          RegistryPasswordResponseArray{ RegistryPasswordResponseArgs{...} }
-type RegistryPasswordResponseArrayInput interface {
+//          RegistryPasswordInvokeResponseArray{ RegistryPasswordInvokeResponseArgs{...} }
+type RegistryPasswordInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToRegistryPasswordResponseArrayOutput() RegistryPasswordResponseArrayOutput
-	ToRegistryPasswordResponseArrayOutputWithContext(context.Context) RegistryPasswordResponseArrayOutput
+	ToRegistryPasswordInvokeResponseArrayOutput() RegistryPasswordInvokeResponseArrayOutput
+	ToRegistryPasswordInvokeResponseArrayOutputWithContext(context.Context) RegistryPasswordInvokeResponseArrayOutput
 }
 
-type RegistryPasswordResponseArray []RegistryPasswordResponseInput
+type RegistryPasswordInvokeResponseArray []RegistryPasswordInvokeResponseInput
 
-func (RegistryPasswordResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryPasswordResponse)(nil)).Elem()
+func (RegistryPasswordInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryPasswordInvokeResponse)(nil)).Elem()
 }
 
-func (i RegistryPasswordResponseArray) ToRegistryPasswordResponseArrayOutput() RegistryPasswordResponseArrayOutput {
-	return i.ToRegistryPasswordResponseArrayOutputWithContext(context.Background())
+func (i RegistryPasswordInvokeResponseArray) ToRegistryPasswordInvokeResponseArrayOutput() RegistryPasswordInvokeResponseArrayOutput {
+	return i.ToRegistryPasswordInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i RegistryPasswordResponseArray) ToRegistryPasswordResponseArrayOutputWithContext(ctx context.Context) RegistryPasswordResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryPasswordResponseArrayOutput)
+func (i RegistryPasswordInvokeResponseArray) ToRegistryPasswordInvokeResponseArrayOutputWithContext(ctx context.Context) RegistryPasswordInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryPasswordInvokeResponseArrayOutput)
 }
 
 // The login password for the container registry.
-type RegistryPasswordResponseOutput struct{ *pulumi.OutputState }
+type RegistryPasswordInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (RegistryPasswordResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryPasswordResponse)(nil)).Elem()
+func (RegistryPasswordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryPasswordInvokeResponse)(nil)).Elem()
 }
 
-func (o RegistryPasswordResponseOutput) ToRegistryPasswordResponseOutput() RegistryPasswordResponseOutput {
+func (o RegistryPasswordInvokeResponseOutput) ToRegistryPasswordInvokeResponseOutput() RegistryPasswordInvokeResponseOutput {
 	return o
 }
 
-func (o RegistryPasswordResponseOutput) ToRegistryPasswordResponseOutputWithContext(ctx context.Context) RegistryPasswordResponseOutput {
+func (o RegistryPasswordInvokeResponseOutput) ToRegistryPasswordInvokeResponseOutputWithContext(ctx context.Context) RegistryPasswordInvokeResponseOutput {
 	return o
 }
 
 // The password name.
-func (o RegistryPasswordResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RegistryPasswordResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o RegistryPasswordInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryPasswordInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The password value.
-func (o RegistryPasswordResponseOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RegistryPasswordResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o RegistryPasswordInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryPasswordInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type RegistryPasswordResponseArrayOutput struct{ *pulumi.OutputState }
+type RegistryPasswordInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (RegistryPasswordResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryPasswordResponse)(nil)).Elem()
+func (RegistryPasswordInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryPasswordInvokeResponse)(nil)).Elem()
 }
 
-func (o RegistryPasswordResponseArrayOutput) ToRegistryPasswordResponseArrayOutput() RegistryPasswordResponseArrayOutput {
+func (o RegistryPasswordInvokeResponseArrayOutput) ToRegistryPasswordInvokeResponseArrayOutput() RegistryPasswordInvokeResponseArrayOutput {
 	return o
 }
 
-func (o RegistryPasswordResponseArrayOutput) ToRegistryPasswordResponseArrayOutputWithContext(ctx context.Context) RegistryPasswordResponseArrayOutput {
+func (o RegistryPasswordInvokeResponseArrayOutput) ToRegistryPasswordInvokeResponseArrayOutputWithContext(ctx context.Context) RegistryPasswordInvokeResponseArrayOutput {
 	return o
 }
 
-func (o RegistryPasswordResponseArrayOutput) Index(i pulumi.IntInput) RegistryPasswordResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryPasswordResponse {
-		return vs[0].([]RegistryPasswordResponse)[vs[1].(int)]
-	}).(RegistryPasswordResponseOutput)
+func (o RegistryPasswordInvokeResponseArrayOutput) Index(i pulumi.IntInput) RegistryPasswordInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryPasswordInvokeResponse {
+		return vs[0].([]RegistryPasswordInvokeResponse)[vs[1].(int)]
+	}).(RegistryPasswordInvokeResponseOutput)
 }
 
 // The request that generated the event.
-type RequestResponse struct {
+type RequestInvokeResponse struct {
 	// The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
 	Addr *string `pulumi:"addr"`
 	// The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests.
@@ -2227,19 +2616,19 @@ type RequestResponse struct {
 	Useragent *string `pulumi:"useragent"`
 }
 
-// RequestResponseInput is an input type that accepts RequestResponseArgs and RequestResponseOutput values.
-// You can construct a concrete instance of `RequestResponseInput` via:
+// RequestInvokeResponseInput is an input type that accepts RequestInvokeResponseArgs and RequestInvokeResponseOutput values.
+// You can construct a concrete instance of `RequestInvokeResponseInput` via:
 //
-//          RequestResponseArgs{...}
-type RequestResponseInput interface {
+//          RequestInvokeResponseArgs{...}
+type RequestInvokeResponseInput interface {
 	pulumi.Input
 
-	ToRequestResponseOutput() RequestResponseOutput
-	ToRequestResponseOutputWithContext(context.Context) RequestResponseOutput
+	ToRequestInvokeResponseOutput() RequestInvokeResponseOutput
+	ToRequestInvokeResponseOutputWithContext(context.Context) RequestInvokeResponseOutput
 }
 
 // The request that generated the event.
-type RequestResponseArgs struct {
+type RequestInvokeResponseArgs struct {
 	// The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
 	Addr pulumi.StringPtrInput `pulumi:"addr"`
 	// The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests.
@@ -2252,130 +2641,130 @@ type RequestResponseArgs struct {
 	Useragent pulumi.StringPtrInput `pulumi:"useragent"`
 }
 
-func (RequestResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RequestResponse)(nil)).Elem()
+func (RequestInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestInvokeResponse)(nil)).Elem()
 }
 
-func (i RequestResponseArgs) ToRequestResponseOutput() RequestResponseOutput {
-	return i.ToRequestResponseOutputWithContext(context.Background())
+func (i RequestInvokeResponseArgs) ToRequestInvokeResponseOutput() RequestInvokeResponseOutput {
+	return i.ToRequestInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i RequestResponseArgs) ToRequestResponseOutputWithContext(ctx context.Context) RequestResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RequestResponseOutput)
+func (i RequestInvokeResponseArgs) ToRequestInvokeResponseOutputWithContext(ctx context.Context) RequestInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestInvokeResponseOutput)
 }
 
-func (i RequestResponseArgs) ToRequestResponsePtrOutput() RequestResponsePtrOutput {
-	return i.ToRequestResponsePtrOutputWithContext(context.Background())
+func (i RequestInvokeResponseArgs) ToRequestInvokeResponsePtrOutput() RequestInvokeResponsePtrOutput {
+	return i.ToRequestInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i RequestResponseArgs) ToRequestResponsePtrOutputWithContext(ctx context.Context) RequestResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RequestResponseOutput).ToRequestResponsePtrOutputWithContext(ctx)
+func (i RequestInvokeResponseArgs) ToRequestInvokeResponsePtrOutputWithContext(ctx context.Context) RequestInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestInvokeResponseOutput).ToRequestInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// RequestResponsePtrInput is an input type that accepts RequestResponseArgs, RequestResponsePtr and RequestResponsePtrOutput values.
-// You can construct a concrete instance of `RequestResponsePtrInput` via:
+// RequestInvokeResponsePtrInput is an input type that accepts RequestInvokeResponseArgs, RequestInvokeResponsePtr and RequestInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `RequestInvokeResponsePtrInput` via:
 //
-//          RequestResponseArgs{...}
+//          RequestInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type RequestResponsePtrInput interface {
+type RequestInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToRequestResponsePtrOutput() RequestResponsePtrOutput
-	ToRequestResponsePtrOutputWithContext(context.Context) RequestResponsePtrOutput
+	ToRequestInvokeResponsePtrOutput() RequestInvokeResponsePtrOutput
+	ToRequestInvokeResponsePtrOutputWithContext(context.Context) RequestInvokeResponsePtrOutput
 }
 
-type requestResponsePtrType RequestResponseArgs
+type requestInvokeResponsePtrType RequestInvokeResponseArgs
 
-func RequestResponsePtr(v *RequestResponseArgs) RequestResponsePtrInput {
-	return (*requestResponsePtrType)(v)
+func RequestInvokeResponsePtr(v *RequestInvokeResponseArgs) RequestInvokeResponsePtrInput {
+	return (*requestInvokeResponsePtrType)(v)
 }
 
-func (*requestResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RequestResponse)(nil)).Elem()
+func (*requestInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestInvokeResponse)(nil)).Elem()
 }
 
-func (i *requestResponsePtrType) ToRequestResponsePtrOutput() RequestResponsePtrOutput {
-	return i.ToRequestResponsePtrOutputWithContext(context.Background())
+func (i *requestInvokeResponsePtrType) ToRequestInvokeResponsePtrOutput() RequestInvokeResponsePtrOutput {
+	return i.ToRequestInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *requestResponsePtrType) ToRequestResponsePtrOutputWithContext(ctx context.Context) RequestResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RequestResponsePtrOutput)
+func (i *requestInvokeResponsePtrType) ToRequestInvokeResponsePtrOutputWithContext(ctx context.Context) RequestInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RequestInvokeResponsePtrOutput)
 }
 
 // The request that generated the event.
-type RequestResponseOutput struct{ *pulumi.OutputState }
+type RequestInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (RequestResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RequestResponse)(nil)).Elem()
+func (RequestInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestInvokeResponse)(nil)).Elem()
 }
 
-func (o RequestResponseOutput) ToRequestResponseOutput() RequestResponseOutput {
+func (o RequestInvokeResponseOutput) ToRequestInvokeResponseOutput() RequestInvokeResponseOutput {
 	return o
 }
 
-func (o RequestResponseOutput) ToRequestResponseOutputWithContext(ctx context.Context) RequestResponseOutput {
+func (o RequestInvokeResponseOutput) ToRequestInvokeResponseOutputWithContext(ctx context.Context) RequestInvokeResponseOutput {
 	return o
 }
 
-func (o RequestResponseOutput) ToRequestResponsePtrOutput() RequestResponsePtrOutput {
-	return o.ToRequestResponsePtrOutputWithContext(context.Background())
+func (o RequestInvokeResponseOutput) ToRequestInvokeResponsePtrOutput() RequestInvokeResponsePtrOutput {
+	return o.ToRequestInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o RequestResponseOutput) ToRequestResponsePtrOutputWithContext(ctx context.Context) RequestResponsePtrOutput {
-	return o.ApplyT(func(v RequestResponse) *RequestResponse {
+func (o RequestInvokeResponseOutput) ToRequestInvokeResponsePtrOutputWithContext(ctx context.Context) RequestInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RequestInvokeResponse) *RequestInvokeResponse {
 		return &v
-	}).(RequestResponsePtrOutput)
+	}).(RequestInvokeResponsePtrOutput)
 }
 
 // The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
-func (o RequestResponseOutput) Addr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RequestResponse) *string { return v.Addr }).(pulumi.StringPtrOutput)
+func (o RequestInvokeResponseOutput) Addr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestInvokeResponse) *string { return v.Addr }).(pulumi.StringPtrOutput)
 }
 
 // The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests.
-func (o RequestResponseOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RequestResponse) *string { return v.Host }).(pulumi.StringPtrOutput)
+func (o RequestInvokeResponseOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestInvokeResponse) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the request that initiated the event.
-func (o RequestResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RequestResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o RequestInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The request method that generated the event.
-func (o RequestResponseOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RequestResponse) *string { return v.Method }).(pulumi.StringPtrOutput)
+func (o RequestInvokeResponseOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestInvokeResponse) *string { return v.Method }).(pulumi.StringPtrOutput)
 }
 
 // The user agent header of the request.
-func (o RequestResponseOutput) Useragent() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RequestResponse) *string { return v.Useragent }).(pulumi.StringPtrOutput)
+func (o RequestInvokeResponseOutput) Useragent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RequestInvokeResponse) *string { return v.Useragent }).(pulumi.StringPtrOutput)
 }
 
-type RequestResponsePtrOutput struct{ *pulumi.OutputState }
+type RequestInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (RequestResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RequestResponse)(nil)).Elem()
+func (RequestInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RequestInvokeResponse)(nil)).Elem()
 }
 
-func (o RequestResponsePtrOutput) ToRequestResponsePtrOutput() RequestResponsePtrOutput {
+func (o RequestInvokeResponsePtrOutput) ToRequestInvokeResponsePtrOutput() RequestInvokeResponsePtrOutput {
 	return o
 }
 
-func (o RequestResponsePtrOutput) ToRequestResponsePtrOutputWithContext(ctx context.Context) RequestResponsePtrOutput {
+func (o RequestInvokeResponsePtrOutput) ToRequestInvokeResponsePtrOutputWithContext(ctx context.Context) RequestInvokeResponsePtrOutput {
 	return o
 }
 
-func (o RequestResponsePtrOutput) Elem() RequestResponseOutput {
-	return o.ApplyT(func(v *RequestResponse) RequestResponse { return *v }).(RequestResponseOutput)
+func (o RequestInvokeResponsePtrOutput) Elem() RequestInvokeResponseOutput {
+	return o.ApplyT(func(v *RequestInvokeResponse) RequestInvokeResponse { return *v }).(RequestInvokeResponseOutput)
 }
 
 // The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
-func (o RequestResponsePtrOutput) Addr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RequestResponse) *string {
+func (o RequestInvokeResponsePtrOutput) Addr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2384,8 +2773,8 @@ func (o RequestResponsePtrOutput) Addr() pulumi.StringPtrOutput {
 }
 
 // The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests.
-func (o RequestResponsePtrOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RequestResponse) *string {
+func (o RequestInvokeResponsePtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2394,8 +2783,8 @@ func (o RequestResponsePtrOutput) Host() pulumi.StringPtrOutput {
 }
 
 // The ID of the request that initiated the event.
-func (o RequestResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RequestResponse) *string {
+func (o RequestInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2404,8 +2793,8 @@ func (o RequestResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The request method that generated the event.
-func (o RequestResponsePtrOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RequestResponse) *string {
+func (o RequestInvokeResponsePtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2414,8 +2803,8 @@ func (o RequestResponsePtrOutput) Method() pulumi.StringPtrOutput {
 }
 
 // The user agent header of the request.
-func (o RequestResponsePtrOutput) Useragent() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RequestResponse) *string {
+func (o RequestInvokeResponsePtrOutput) Useragent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RequestInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2569,6 +2958,178 @@ func (o RetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
 // The value that indicates whether the policy is enabled or not.
 func (o RetentionPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RetentionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The retention policy for a container registry.
+type RetentionPolicyInvokeResponse struct {
+	// The number of days to retain an untagged manifest after which it gets purged.
+	Days *int `pulumi:"days"`
+	// The timestamp when the policy was last updated.
+	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
+	// The value that indicates whether the policy is enabled or not.
+	Status *string `pulumi:"status"`
+}
+
+// RetentionPolicyInvokeResponseInput is an input type that accepts RetentionPolicyInvokeResponseArgs and RetentionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `RetentionPolicyInvokeResponseInput` via:
+//
+//          RetentionPolicyInvokeResponseArgs{...}
+type RetentionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRetentionPolicyInvokeResponseOutput() RetentionPolicyInvokeResponseOutput
+	ToRetentionPolicyInvokeResponseOutputWithContext(context.Context) RetentionPolicyInvokeResponseOutput
+}
+
+// The retention policy for a container registry.
+type RetentionPolicyInvokeResponseArgs struct {
+	// The number of days to retain an untagged manifest after which it gets purged.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// The timestamp when the policy was last updated.
+	LastUpdatedTime pulumi.StringInput `pulumi:"lastUpdatedTime"`
+	// The value that indicates whether the policy is enabled or not.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (RetentionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i RetentionPolicyInvokeResponseArgs) ToRetentionPolicyInvokeResponseOutput() RetentionPolicyInvokeResponseOutput {
+	return i.ToRetentionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RetentionPolicyInvokeResponseArgs) ToRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyInvokeResponseOutput)
+}
+
+func (i RetentionPolicyInvokeResponseArgs) ToRetentionPolicyInvokeResponsePtrOutput() RetentionPolicyInvokeResponsePtrOutput {
+	return i.ToRetentionPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RetentionPolicyInvokeResponseArgs) ToRetentionPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyInvokeResponseOutput).ToRetentionPolicyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// RetentionPolicyInvokeResponsePtrInput is an input type that accepts RetentionPolicyInvokeResponseArgs, RetentionPolicyInvokeResponsePtr and RetentionPolicyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `RetentionPolicyInvokeResponsePtrInput` via:
+//
+//          RetentionPolicyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RetentionPolicyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToRetentionPolicyInvokeResponsePtrOutput() RetentionPolicyInvokeResponsePtrOutput
+	ToRetentionPolicyInvokeResponsePtrOutputWithContext(context.Context) RetentionPolicyInvokeResponsePtrOutput
+}
+
+type retentionPolicyInvokeResponsePtrType RetentionPolicyInvokeResponseArgs
+
+func RetentionPolicyInvokeResponsePtr(v *RetentionPolicyInvokeResponseArgs) RetentionPolicyInvokeResponsePtrInput {
+	return (*retentionPolicyInvokeResponsePtrType)(v)
+}
+
+func (*retentionPolicyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i *retentionPolicyInvokeResponsePtrType) ToRetentionPolicyInvokeResponsePtrOutput() RetentionPolicyInvokeResponsePtrOutput {
+	return i.ToRetentionPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *retentionPolicyInvokeResponsePtrType) ToRetentionPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyInvokeResponsePtrOutput)
+}
+
+// The retention policy for a container registry.
+type RetentionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RetentionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o RetentionPolicyInvokeResponseOutput) ToRetentionPolicyInvokeResponseOutput() RetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o RetentionPolicyInvokeResponseOutput) ToRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o RetentionPolicyInvokeResponseOutput) ToRetentionPolicyInvokeResponsePtrOutput() RetentionPolicyInvokeResponsePtrOutput {
+	return o.ToRetentionPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RetentionPolicyInvokeResponseOutput) ToRetentionPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RetentionPolicyInvokeResponse) *RetentionPolicyInvokeResponse {
+		return &v
+	}).(RetentionPolicyInvokeResponsePtrOutput)
+}
+
+// The number of days to retain an untagged manifest after which it gets purged.
+func (o RetentionPolicyInvokeResponseOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RetentionPolicyInvokeResponse) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// The timestamp when the policy was last updated.
+func (o RetentionPolicyInvokeResponseOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v RetentionPolicyInvokeResponse) string { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// The value that indicates whether the policy is enabled or not.
+func (o RetentionPolicyInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetentionPolicyInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type RetentionPolicyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RetentionPolicyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o RetentionPolicyInvokeResponsePtrOutput) ToRetentionPolicyInvokeResponsePtrOutput() RetentionPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RetentionPolicyInvokeResponsePtrOutput) ToRetentionPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RetentionPolicyInvokeResponsePtrOutput) Elem() RetentionPolicyInvokeResponseOutput {
+	return o.ApplyT(func(v *RetentionPolicyInvokeResponse) RetentionPolicyInvokeResponse { return *v }).(RetentionPolicyInvokeResponseOutput)
+}
+
+// The number of days to retain an untagged manifest after which it gets purged.
+func (o RetentionPolicyInvokeResponsePtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RetentionPolicyInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// The timestamp when the policy was last updated.
+func (o RetentionPolicyInvokeResponsePtrOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetentionPolicyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastUpdatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value that indicates whether the policy is enabled or not.
+func (o RetentionPolicyInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetentionPolicyInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2883,6 +3444,70 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The SKU of a container registry.
+type SkuInvokeResponse struct {
+	// The SKU name of the container registry. Required for registry creation.
+	Name string `pulumi:"name"`
+	// The SKU tier based on the SKU name.
+	Tier string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The SKU of a container registry.
+type SkuInvokeResponseArgs struct {
+	// The SKU name of the container registry. Required for registry creation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The SKU tier based on the SKU name.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The SKU of a container registry.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The SKU name of the container registry. Required for registry creation.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU tier based on the SKU name.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// The SKU of a container registry.
 type SkuResponse struct {
 	// The SKU name of the container registry. Required for registry creation.
 	Name string `pulumi:"name"`
@@ -3036,141 +3661,141 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-type SourceResponse struct {
+type SourceInvokeResponse struct {
 	// The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
 	Addr *string `pulumi:"addr"`
 	// The running instance of an application. Changes after each restart.
 	InstanceID *string `pulumi:"instanceID"`
 }
 
-// SourceResponseInput is an input type that accepts SourceResponseArgs and SourceResponseOutput values.
-// You can construct a concrete instance of `SourceResponseInput` via:
+// SourceInvokeResponseInput is an input type that accepts SourceInvokeResponseArgs and SourceInvokeResponseOutput values.
+// You can construct a concrete instance of `SourceInvokeResponseInput` via:
 //
-//          SourceResponseArgs{...}
-type SourceResponseInput interface {
+//          SourceInvokeResponseArgs{...}
+type SourceInvokeResponseInput interface {
 	pulumi.Input
 
-	ToSourceResponseOutput() SourceResponseOutput
-	ToSourceResponseOutputWithContext(context.Context) SourceResponseOutput
+	ToSourceInvokeResponseOutput() SourceInvokeResponseOutput
+	ToSourceInvokeResponseOutputWithContext(context.Context) SourceInvokeResponseOutput
 }
 
 // The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-type SourceResponseArgs struct {
+type SourceInvokeResponseArgs struct {
 	// The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
 	Addr pulumi.StringPtrInput `pulumi:"addr"`
 	// The running instance of an application. Changes after each restart.
 	InstanceID pulumi.StringPtrInput `pulumi:"instanceID"`
 }
 
-func (SourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceResponse)(nil)).Elem()
+func (SourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceInvokeResponse)(nil)).Elem()
 }
 
-func (i SourceResponseArgs) ToSourceResponseOutput() SourceResponseOutput {
-	return i.ToSourceResponseOutputWithContext(context.Background())
+func (i SourceInvokeResponseArgs) ToSourceInvokeResponseOutput() SourceInvokeResponseOutput {
+	return i.ToSourceInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i SourceResponseArgs) ToSourceResponseOutputWithContext(ctx context.Context) SourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceResponseOutput)
+func (i SourceInvokeResponseArgs) ToSourceInvokeResponseOutputWithContext(ctx context.Context) SourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceInvokeResponseOutput)
 }
 
-func (i SourceResponseArgs) ToSourceResponsePtrOutput() SourceResponsePtrOutput {
-	return i.ToSourceResponsePtrOutputWithContext(context.Background())
+func (i SourceInvokeResponseArgs) ToSourceInvokeResponsePtrOutput() SourceInvokeResponsePtrOutput {
+	return i.ToSourceInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i SourceResponseArgs) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceResponseOutput).ToSourceResponsePtrOutputWithContext(ctx)
+func (i SourceInvokeResponseArgs) ToSourceInvokeResponsePtrOutputWithContext(ctx context.Context) SourceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceInvokeResponseOutput).ToSourceInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// SourceResponsePtrInput is an input type that accepts SourceResponseArgs, SourceResponsePtr and SourceResponsePtrOutput values.
-// You can construct a concrete instance of `SourceResponsePtrInput` via:
+// SourceInvokeResponsePtrInput is an input type that accepts SourceInvokeResponseArgs, SourceInvokeResponsePtr and SourceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SourceInvokeResponsePtrInput` via:
 //
-//          SourceResponseArgs{...}
+//          SourceInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type SourceResponsePtrInput interface {
+type SourceInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToSourceResponsePtrOutput() SourceResponsePtrOutput
-	ToSourceResponsePtrOutputWithContext(context.Context) SourceResponsePtrOutput
+	ToSourceInvokeResponsePtrOutput() SourceInvokeResponsePtrOutput
+	ToSourceInvokeResponsePtrOutputWithContext(context.Context) SourceInvokeResponsePtrOutput
 }
 
-type sourceResponsePtrType SourceResponseArgs
+type sourceInvokeResponsePtrType SourceInvokeResponseArgs
 
-func SourceResponsePtr(v *SourceResponseArgs) SourceResponsePtrInput {
-	return (*sourceResponsePtrType)(v)
+func SourceInvokeResponsePtr(v *SourceInvokeResponseArgs) SourceInvokeResponsePtrInput {
+	return (*sourceInvokeResponsePtrType)(v)
 }
 
-func (*sourceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SourceResponse)(nil)).Elem()
+func (*sourceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceInvokeResponse)(nil)).Elem()
 }
 
-func (i *sourceResponsePtrType) ToSourceResponsePtrOutput() SourceResponsePtrOutput {
-	return i.ToSourceResponsePtrOutputWithContext(context.Background())
+func (i *sourceInvokeResponsePtrType) ToSourceInvokeResponsePtrOutput() SourceInvokeResponsePtrOutput {
+	return i.ToSourceInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *sourceResponsePtrType) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceResponsePtrOutput)
+func (i *sourceInvokeResponsePtrType) ToSourceInvokeResponsePtrOutputWithContext(ctx context.Context) SourceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceInvokeResponsePtrOutput)
 }
 
 // The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
-type SourceResponseOutput struct{ *pulumi.OutputState }
+type SourceInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (SourceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceResponse)(nil)).Elem()
+func (SourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceInvokeResponse)(nil)).Elem()
 }
 
-func (o SourceResponseOutput) ToSourceResponseOutput() SourceResponseOutput {
+func (o SourceInvokeResponseOutput) ToSourceInvokeResponseOutput() SourceInvokeResponseOutput {
 	return o
 }
 
-func (o SourceResponseOutput) ToSourceResponseOutputWithContext(ctx context.Context) SourceResponseOutput {
+func (o SourceInvokeResponseOutput) ToSourceInvokeResponseOutputWithContext(ctx context.Context) SourceInvokeResponseOutput {
 	return o
 }
 
-func (o SourceResponseOutput) ToSourceResponsePtrOutput() SourceResponsePtrOutput {
-	return o.ToSourceResponsePtrOutputWithContext(context.Background())
+func (o SourceInvokeResponseOutput) ToSourceInvokeResponsePtrOutput() SourceInvokeResponsePtrOutput {
+	return o.ToSourceInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o SourceResponseOutput) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
-	return o.ApplyT(func(v SourceResponse) *SourceResponse {
+func (o SourceInvokeResponseOutput) ToSourceInvokeResponsePtrOutputWithContext(ctx context.Context) SourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SourceInvokeResponse) *SourceInvokeResponse {
 		return &v
-	}).(SourceResponsePtrOutput)
+	}).(SourceInvokeResponsePtrOutput)
 }
 
 // The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
-func (o SourceResponseOutput) Addr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SourceResponse) *string { return v.Addr }).(pulumi.StringPtrOutput)
+func (o SourceInvokeResponseOutput) Addr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceInvokeResponse) *string { return v.Addr }).(pulumi.StringPtrOutput)
 }
 
 // The running instance of an application. Changes after each restart.
-func (o SourceResponseOutput) InstanceID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SourceResponse) *string { return v.InstanceID }).(pulumi.StringPtrOutput)
+func (o SourceInvokeResponseOutput) InstanceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceInvokeResponse) *string { return v.InstanceID }).(pulumi.StringPtrOutput)
 }
 
-type SourceResponsePtrOutput struct{ *pulumi.OutputState }
+type SourceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (SourceResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SourceResponse)(nil)).Elem()
+func (SourceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceInvokeResponse)(nil)).Elem()
 }
 
-func (o SourceResponsePtrOutput) ToSourceResponsePtrOutput() SourceResponsePtrOutput {
+func (o SourceInvokeResponsePtrOutput) ToSourceInvokeResponsePtrOutput() SourceInvokeResponsePtrOutput {
 	return o
 }
 
-func (o SourceResponsePtrOutput) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
+func (o SourceInvokeResponsePtrOutput) ToSourceInvokeResponsePtrOutputWithContext(ctx context.Context) SourceInvokeResponsePtrOutput {
 	return o
 }
 
-func (o SourceResponsePtrOutput) Elem() SourceResponseOutput {
-	return o.ApplyT(func(v *SourceResponse) SourceResponse { return *v }).(SourceResponseOutput)
+func (o SourceInvokeResponsePtrOutput) Elem() SourceInvokeResponseOutput {
+	return o.ApplyT(func(v *SourceInvokeResponse) SourceInvokeResponse { return *v }).(SourceInvokeResponseOutput)
 }
 
 // The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
-func (o SourceResponsePtrOutput) Addr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SourceResponse) *string {
+func (o SourceInvokeResponsePtrOutput) Addr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3179,13 +3804,86 @@ func (o SourceResponsePtrOutput) Addr() pulumi.StringPtrOutput {
 }
 
 // The running instance of an application. Changes after each restart.
-func (o SourceResponsePtrOutput) InstanceID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SourceResponse) *string {
+func (o SourceInvokeResponsePtrOutput) InstanceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return v.InstanceID
 	}).(pulumi.StringPtrOutput)
+}
+
+// The status of an Azure resource at the time the operation was called.
+type StatusInvokeResponse struct {
+	// The short label for the status.
+	DisplayStatus string `pulumi:"displayStatus"`
+	// The detailed message for the status, including alerts and error messages.
+	Message string `pulumi:"message"`
+	// The timestamp when the status was changed to the current value.
+	Timestamp string `pulumi:"timestamp"`
+}
+
+// StatusInvokeResponseInput is an input type that accepts StatusInvokeResponseArgs and StatusInvokeResponseOutput values.
+// You can construct a concrete instance of `StatusInvokeResponseInput` via:
+//
+//          StatusInvokeResponseArgs{...}
+type StatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStatusInvokeResponseOutput() StatusInvokeResponseOutput
+	ToStatusInvokeResponseOutputWithContext(context.Context) StatusInvokeResponseOutput
+}
+
+// The status of an Azure resource at the time the operation was called.
+type StatusInvokeResponseArgs struct {
+	// The short label for the status.
+	DisplayStatus pulumi.StringInput `pulumi:"displayStatus"`
+	// The detailed message for the status, including alerts and error messages.
+	Message pulumi.StringInput `pulumi:"message"`
+	// The timestamp when the status was changed to the current value.
+	Timestamp pulumi.StringInput `pulumi:"timestamp"`
+}
+
+func (StatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StatusInvokeResponse)(nil)).Elem()
+}
+
+func (i StatusInvokeResponseArgs) ToStatusInvokeResponseOutput() StatusInvokeResponseOutput {
+	return i.ToStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StatusInvokeResponseArgs) ToStatusInvokeResponseOutputWithContext(ctx context.Context) StatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StatusInvokeResponseOutput)
+}
+
+// The status of an Azure resource at the time the operation was called.
+type StatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StatusInvokeResponse)(nil)).Elem()
+}
+
+func (o StatusInvokeResponseOutput) ToStatusInvokeResponseOutput() StatusInvokeResponseOutput {
+	return o
+}
+
+func (o StatusInvokeResponseOutput) ToStatusInvokeResponseOutputWithContext(ctx context.Context) StatusInvokeResponseOutput {
+	return o
+}
+
+// The short label for the status.
+func (o StatusInvokeResponseOutput) DisplayStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v StatusInvokeResponse) string { return v.DisplayStatus }).(pulumi.StringOutput)
+}
+
+// The detailed message for the status, including alerts and error messages.
+func (o StatusInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v StatusInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The timestamp when the status was changed to the current value.
+func (o StatusInvokeResponseOutput) Timestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v StatusInvokeResponse) string { return v.Timestamp }).(pulumi.StringOutput)
 }
 
 // The status of an Azure resource at the time the operation was called.
@@ -3495,6 +4193,61 @@ func (o StorageAccountPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The properties of a storage account for a container registry. Only applicable to Classic SKU.
+type StorageAccountPropertiesInvokeResponse struct {
+	// The resource ID of the storage account.
+	Id string `pulumi:"id"`
+}
+
+// StorageAccountPropertiesInvokeResponseInput is an input type that accepts StorageAccountPropertiesInvokeResponseArgs and StorageAccountPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountPropertiesInvokeResponseInput` via:
+//
+//          StorageAccountPropertiesInvokeResponseArgs{...}
+type StorageAccountPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput
+	ToStorageAccountPropertiesInvokeResponseOutputWithContext(context.Context) StorageAccountPropertiesInvokeResponseOutput
+}
+
+// The properties of a storage account for a container registry. Only applicable to Classic SKU.
+type StorageAccountPropertiesInvokeResponseArgs struct {
+	// The resource ID of the storage account.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (StorageAccountPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountPropertiesInvokeResponseArgs) ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput {
+	return i.ToStorageAccountPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountPropertiesInvokeResponseArgs) ToStorageAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesInvokeResponseOutput)
+}
+
+// The properties of a storage account for a container registry. Only applicable to Classic SKU.
+type StorageAccountPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountPropertiesInvokeResponseOutput) ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountPropertiesInvokeResponseOutput) ToStorageAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The resource ID of the storage account.
+func (o StorageAccountPropertiesInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The properties of a storage account for a container registry. Only applicable to Classic SKU.
 type StorageAccountPropertiesResponse struct {
 	// The resource ID of the storage account.
 	Id string `pulumi:"id"`
@@ -3629,7 +4382,7 @@ func (o StorageAccountPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The target of the event.
-type TargetResponse struct {
+type TargetInvokeResponse struct {
 	// The digest of the content, as defined by the Registry V2 HTTP API Specification.
 	Digest *string `pulumi:"digest"`
 	// The number of bytes of the content. Same as Size field.
@@ -3650,19 +4403,19 @@ type TargetResponse struct {
 	Version *string `pulumi:"version"`
 }
 
-// TargetResponseInput is an input type that accepts TargetResponseArgs and TargetResponseOutput values.
-// You can construct a concrete instance of `TargetResponseInput` via:
+// TargetInvokeResponseInput is an input type that accepts TargetInvokeResponseArgs and TargetInvokeResponseOutput values.
+// You can construct a concrete instance of `TargetInvokeResponseInput` via:
 //
-//          TargetResponseArgs{...}
-type TargetResponseInput interface {
+//          TargetInvokeResponseArgs{...}
+type TargetInvokeResponseInput interface {
 	pulumi.Input
 
-	ToTargetResponseOutput() TargetResponseOutput
-	ToTargetResponseOutputWithContext(context.Context) TargetResponseOutput
+	ToTargetInvokeResponseOutput() TargetInvokeResponseOutput
+	ToTargetInvokeResponseOutputWithContext(context.Context) TargetInvokeResponseOutput
 }
 
 // The target of the event.
-type TargetResponseArgs struct {
+type TargetInvokeResponseArgs struct {
 	// The digest of the content, as defined by the Registry V2 HTTP API Specification.
 	Digest pulumi.StringPtrInput `pulumi:"digest"`
 	// The number of bytes of the content. Same as Size field.
@@ -3683,150 +4436,150 @@ type TargetResponseArgs struct {
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
-func (TargetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetResponse)(nil)).Elem()
+func (TargetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetInvokeResponse)(nil)).Elem()
 }
 
-func (i TargetResponseArgs) ToTargetResponseOutput() TargetResponseOutput {
-	return i.ToTargetResponseOutputWithContext(context.Background())
+func (i TargetInvokeResponseArgs) ToTargetInvokeResponseOutput() TargetInvokeResponseOutput {
+	return i.ToTargetInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i TargetResponseArgs) ToTargetResponseOutputWithContext(ctx context.Context) TargetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetResponseOutput)
+func (i TargetInvokeResponseArgs) ToTargetInvokeResponseOutputWithContext(ctx context.Context) TargetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetInvokeResponseOutput)
 }
 
-func (i TargetResponseArgs) ToTargetResponsePtrOutput() TargetResponsePtrOutput {
-	return i.ToTargetResponsePtrOutputWithContext(context.Background())
+func (i TargetInvokeResponseArgs) ToTargetInvokeResponsePtrOutput() TargetInvokeResponsePtrOutput {
+	return i.ToTargetInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i TargetResponseArgs) ToTargetResponsePtrOutputWithContext(ctx context.Context) TargetResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetResponseOutput).ToTargetResponsePtrOutputWithContext(ctx)
+func (i TargetInvokeResponseArgs) ToTargetInvokeResponsePtrOutputWithContext(ctx context.Context) TargetInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetInvokeResponseOutput).ToTargetInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// TargetResponsePtrInput is an input type that accepts TargetResponseArgs, TargetResponsePtr and TargetResponsePtrOutput values.
-// You can construct a concrete instance of `TargetResponsePtrInput` via:
+// TargetInvokeResponsePtrInput is an input type that accepts TargetInvokeResponseArgs, TargetInvokeResponsePtr and TargetInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TargetInvokeResponsePtrInput` via:
 //
-//          TargetResponseArgs{...}
+//          TargetInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type TargetResponsePtrInput interface {
+type TargetInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToTargetResponsePtrOutput() TargetResponsePtrOutput
-	ToTargetResponsePtrOutputWithContext(context.Context) TargetResponsePtrOutput
+	ToTargetInvokeResponsePtrOutput() TargetInvokeResponsePtrOutput
+	ToTargetInvokeResponsePtrOutputWithContext(context.Context) TargetInvokeResponsePtrOutput
 }
 
-type targetResponsePtrType TargetResponseArgs
+type targetInvokeResponsePtrType TargetInvokeResponseArgs
 
-func TargetResponsePtr(v *TargetResponseArgs) TargetResponsePtrInput {
-	return (*targetResponsePtrType)(v)
+func TargetInvokeResponsePtr(v *TargetInvokeResponseArgs) TargetInvokeResponsePtrInput {
+	return (*targetInvokeResponsePtrType)(v)
 }
 
-func (*targetResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TargetResponse)(nil)).Elem()
+func (*targetInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetInvokeResponse)(nil)).Elem()
 }
 
-func (i *targetResponsePtrType) ToTargetResponsePtrOutput() TargetResponsePtrOutput {
-	return i.ToTargetResponsePtrOutputWithContext(context.Background())
+func (i *targetInvokeResponsePtrType) ToTargetInvokeResponsePtrOutput() TargetInvokeResponsePtrOutput {
+	return i.ToTargetInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *targetResponsePtrType) ToTargetResponsePtrOutputWithContext(ctx context.Context) TargetResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetResponsePtrOutput)
+func (i *targetInvokeResponsePtrType) ToTargetInvokeResponsePtrOutputWithContext(ctx context.Context) TargetInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetInvokeResponsePtrOutput)
 }
 
 // The target of the event.
-type TargetResponseOutput struct{ *pulumi.OutputState }
+type TargetInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (TargetResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetResponse)(nil)).Elem()
+func (TargetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetInvokeResponse)(nil)).Elem()
 }
 
-func (o TargetResponseOutput) ToTargetResponseOutput() TargetResponseOutput {
+func (o TargetInvokeResponseOutput) ToTargetInvokeResponseOutput() TargetInvokeResponseOutput {
 	return o
 }
 
-func (o TargetResponseOutput) ToTargetResponseOutputWithContext(ctx context.Context) TargetResponseOutput {
+func (o TargetInvokeResponseOutput) ToTargetInvokeResponseOutputWithContext(ctx context.Context) TargetInvokeResponseOutput {
 	return o
 }
 
-func (o TargetResponseOutput) ToTargetResponsePtrOutput() TargetResponsePtrOutput {
-	return o.ToTargetResponsePtrOutputWithContext(context.Background())
+func (o TargetInvokeResponseOutput) ToTargetInvokeResponsePtrOutput() TargetInvokeResponsePtrOutput {
+	return o.ToTargetInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o TargetResponseOutput) ToTargetResponsePtrOutputWithContext(ctx context.Context) TargetResponsePtrOutput {
-	return o.ApplyT(func(v TargetResponse) *TargetResponse {
+func (o TargetInvokeResponseOutput) ToTargetInvokeResponsePtrOutputWithContext(ctx context.Context) TargetInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TargetInvokeResponse) *TargetInvokeResponse {
 		return &v
-	}).(TargetResponsePtrOutput)
+	}).(TargetInvokeResponsePtrOutput)
 }
 
 // The digest of the content, as defined by the Registry V2 HTTP API Specification.
-func (o TargetResponseOutput) Digest() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
+func (o TargetInvokeResponseOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetInvokeResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
 }
 
 // The number of bytes of the content. Same as Size field.
-func (o TargetResponseOutput) Length() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v TargetResponse) *float64 { return v.Length }).(pulumi.Float64PtrOutput)
+func (o TargetInvokeResponseOutput) Length() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TargetInvokeResponse) *float64 { return v.Length }).(pulumi.Float64PtrOutput)
 }
 
 // The MIME type of the referenced object.
-func (o TargetResponseOutput) MediaType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetResponse) *string { return v.MediaType }).(pulumi.StringPtrOutput)
+func (o TargetInvokeResponseOutput) MediaType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetInvokeResponse) *string { return v.MediaType }).(pulumi.StringPtrOutput)
 }
 
 // The name of the artifact.
-func (o TargetResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o TargetInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The repository name.
-func (o TargetResponseOutput) Repository() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetResponse) *string { return v.Repository }).(pulumi.StringPtrOutput)
+func (o TargetInvokeResponseOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetInvokeResponse) *string { return v.Repository }).(pulumi.StringPtrOutput)
 }
 
 // The number of bytes of the content. Same as Length field.
-func (o TargetResponseOutput) Size() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v TargetResponse) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
+func (o TargetInvokeResponseOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TargetInvokeResponse) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
 }
 
 // The tag name.
-func (o TargetResponseOutput) Tag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
+func (o TargetInvokeResponseOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetInvokeResponse) *string { return v.Tag }).(pulumi.StringPtrOutput)
 }
 
 // The direct URL to the content.
-func (o TargetResponseOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+func (o TargetInvokeResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetInvokeResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 // The version of the artifact.
-func (o TargetResponseOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+func (o TargetInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type TargetResponsePtrOutput struct{ *pulumi.OutputState }
+type TargetInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (TargetResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TargetResponse)(nil)).Elem()
+func (TargetInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetInvokeResponse)(nil)).Elem()
 }
 
-func (o TargetResponsePtrOutput) ToTargetResponsePtrOutput() TargetResponsePtrOutput {
+func (o TargetInvokeResponsePtrOutput) ToTargetInvokeResponsePtrOutput() TargetInvokeResponsePtrOutput {
 	return o
 }
 
-func (o TargetResponsePtrOutput) ToTargetResponsePtrOutputWithContext(ctx context.Context) TargetResponsePtrOutput {
+func (o TargetInvokeResponsePtrOutput) ToTargetInvokeResponsePtrOutputWithContext(ctx context.Context) TargetInvokeResponsePtrOutput {
 	return o
 }
 
-func (o TargetResponsePtrOutput) Elem() TargetResponseOutput {
-	return o.ApplyT(func(v *TargetResponse) TargetResponse { return *v }).(TargetResponseOutput)
+func (o TargetInvokeResponsePtrOutput) Elem() TargetInvokeResponseOutput {
+	return o.ApplyT(func(v *TargetInvokeResponse) TargetInvokeResponse { return *v }).(TargetInvokeResponseOutput)
 }
 
 // The digest of the content, as defined by the Registry V2 HTTP API Specification.
-func (o TargetResponsePtrOutput) Digest() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *string {
+func (o TargetInvokeResponsePtrOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3835,8 +4588,8 @@ func (o TargetResponsePtrOutput) Digest() pulumi.StringPtrOutput {
 }
 
 // The number of bytes of the content. Same as Size field.
-func (o TargetResponsePtrOutput) Length() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *float64 {
+func (o TargetInvokeResponsePtrOutput) Length() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TargetInvokeResponse) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -3845,8 +4598,8 @@ func (o TargetResponsePtrOutput) Length() pulumi.Float64PtrOutput {
 }
 
 // The MIME type of the referenced object.
-func (o TargetResponsePtrOutput) MediaType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *string {
+func (o TargetInvokeResponsePtrOutput) MediaType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3855,8 +4608,8 @@ func (o TargetResponsePtrOutput) MediaType() pulumi.StringPtrOutput {
 }
 
 // The name of the artifact.
-func (o TargetResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *string {
+func (o TargetInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3865,8 +4618,8 @@ func (o TargetResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The repository name.
-func (o TargetResponsePtrOutput) Repository() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *string {
+func (o TargetInvokeResponsePtrOutput) Repository() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3875,8 +4628,8 @@ func (o TargetResponsePtrOutput) Repository() pulumi.StringPtrOutput {
 }
 
 // The number of bytes of the content. Same as Length field.
-func (o TargetResponsePtrOutput) Size() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *float64 {
+func (o TargetInvokeResponsePtrOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TargetInvokeResponse) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -3885,8 +4638,8 @@ func (o TargetResponsePtrOutput) Size() pulumi.Float64PtrOutput {
 }
 
 // The tag name.
-func (o TargetResponsePtrOutput) Tag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *string {
+func (o TargetInvokeResponsePtrOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3895,8 +4648,8 @@ func (o TargetResponsePtrOutput) Tag() pulumi.StringPtrOutput {
 }
 
 // The direct URL to the content.
-func (o TargetResponsePtrOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *string {
+func (o TargetInvokeResponsePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3905,8 +4658,8 @@ func (o TargetResponsePtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 // The version of the artifact.
-func (o TargetResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TargetResponse) *string {
+func (o TargetInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4060,6 +4813,159 @@ func (o TrustPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 // The type of trust policy.
 func (o TrustPolicyPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TrustPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content trust policy for a container registry.
+type TrustPolicyInvokeResponse struct {
+	// The value that indicates whether the policy is enabled or not.
+	Status *string `pulumi:"status"`
+	// The type of trust policy.
+	Type *string `pulumi:"type"`
+}
+
+// TrustPolicyInvokeResponseInput is an input type that accepts TrustPolicyInvokeResponseArgs and TrustPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `TrustPolicyInvokeResponseInput` via:
+//
+//          TrustPolicyInvokeResponseArgs{...}
+type TrustPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTrustPolicyInvokeResponseOutput() TrustPolicyInvokeResponseOutput
+	ToTrustPolicyInvokeResponseOutputWithContext(context.Context) TrustPolicyInvokeResponseOutput
+}
+
+// The content trust policy for a container registry.
+type TrustPolicyInvokeResponseArgs struct {
+	// The value that indicates whether the policy is enabled or not.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The type of trust policy.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (TrustPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i TrustPolicyInvokeResponseArgs) ToTrustPolicyInvokeResponseOutput() TrustPolicyInvokeResponseOutput {
+	return i.ToTrustPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TrustPolicyInvokeResponseArgs) ToTrustPolicyInvokeResponseOutputWithContext(ctx context.Context) TrustPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustPolicyInvokeResponseOutput)
+}
+
+func (i TrustPolicyInvokeResponseArgs) ToTrustPolicyInvokeResponsePtrOutput() TrustPolicyInvokeResponsePtrOutput {
+	return i.ToTrustPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TrustPolicyInvokeResponseArgs) ToTrustPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) TrustPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustPolicyInvokeResponseOutput).ToTrustPolicyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// TrustPolicyInvokeResponsePtrInput is an input type that accepts TrustPolicyInvokeResponseArgs, TrustPolicyInvokeResponsePtr and TrustPolicyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TrustPolicyInvokeResponsePtrInput` via:
+//
+//          TrustPolicyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TrustPolicyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToTrustPolicyInvokeResponsePtrOutput() TrustPolicyInvokeResponsePtrOutput
+	ToTrustPolicyInvokeResponsePtrOutputWithContext(context.Context) TrustPolicyInvokeResponsePtrOutput
+}
+
+type trustPolicyInvokeResponsePtrType TrustPolicyInvokeResponseArgs
+
+func TrustPolicyInvokeResponsePtr(v *TrustPolicyInvokeResponseArgs) TrustPolicyInvokeResponsePtrInput {
+	return (*trustPolicyInvokeResponsePtrType)(v)
+}
+
+func (*trustPolicyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i *trustPolicyInvokeResponsePtrType) ToTrustPolicyInvokeResponsePtrOutput() TrustPolicyInvokeResponsePtrOutput {
+	return i.ToTrustPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *trustPolicyInvokeResponsePtrType) ToTrustPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) TrustPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustPolicyInvokeResponsePtrOutput)
+}
+
+// The content trust policy for a container registry.
+type TrustPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TrustPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o TrustPolicyInvokeResponseOutput) ToTrustPolicyInvokeResponseOutput() TrustPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o TrustPolicyInvokeResponseOutput) ToTrustPolicyInvokeResponseOutputWithContext(ctx context.Context) TrustPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o TrustPolicyInvokeResponseOutput) ToTrustPolicyInvokeResponsePtrOutput() TrustPolicyInvokeResponsePtrOutput {
+	return o.ToTrustPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TrustPolicyInvokeResponseOutput) ToTrustPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) TrustPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TrustPolicyInvokeResponse) *TrustPolicyInvokeResponse {
+		return &v
+	}).(TrustPolicyInvokeResponsePtrOutput)
+}
+
+// The value that indicates whether the policy is enabled or not.
+func (o TrustPolicyInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustPolicyInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The type of trust policy.
+func (o TrustPolicyInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustPolicyInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type TrustPolicyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TrustPolicyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o TrustPolicyInvokeResponsePtrOutput) ToTrustPolicyInvokeResponsePtrOutput() TrustPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TrustPolicyInvokeResponsePtrOutput) ToTrustPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) TrustPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TrustPolicyInvokeResponsePtrOutput) Elem() TrustPolicyInvokeResponseOutput {
+	return o.ApplyT(func(v *TrustPolicyInvokeResponse) TrustPolicyInvokeResponse { return *v }).(TrustPolicyInvokeResponseOutput)
+}
+
+// The value that indicates whether the policy is enabled or not.
+func (o TrustPolicyInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustPolicyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of trust policy.
+func (o TrustPolicyInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustPolicyInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4330,6 +5236,115 @@ func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRu
 }
 
 // Virtual network rule.
+type VirtualNetworkRuleInvokeResponse struct {
+	// The action of virtual network rule.
+	Action *string `pulumi:"action"`
+	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+	VirtualNetworkResourceId string `pulumi:"virtualNetworkResourceId"`
+}
+
+// VirtualNetworkRuleInvokeResponseInput is an input type that accepts VirtualNetworkRuleInvokeResponseArgs and VirtualNetworkRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualNetworkRuleInvokeResponseInput` via:
+//
+//          VirtualNetworkRuleInvokeResponseArgs{...}
+type VirtualNetworkRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput
+	ToVirtualNetworkRuleInvokeResponseOutputWithContext(context.Context) VirtualNetworkRuleInvokeResponseOutput
+}
+
+// Virtual network rule.
+type VirtualNetworkRuleInvokeResponseArgs struct {
+	// The action of virtual network rule.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
+}
+
+func (VirtualNetworkRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkRuleInvokeResponseArgs) ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput {
+	return i.ToVirtualNetworkRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRuleInvokeResponseArgs) ToVirtualNetworkRuleInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleInvokeResponseOutput)
+}
+
+// VirtualNetworkRuleInvokeResponseArrayInput is an input type that accepts VirtualNetworkRuleInvokeResponseArray and VirtualNetworkRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkRuleInvokeResponseArrayInput` via:
+//
+//          VirtualNetworkRuleInvokeResponseArray{ VirtualNetworkRuleInvokeResponseArgs{...} }
+type VirtualNetworkRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput
+	ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(context.Context) VirtualNetworkRuleInvokeResponseArrayOutput
+}
+
+type VirtualNetworkRuleInvokeResponseArray []VirtualNetworkRuleInvokeResponseInput
+
+func (VirtualNetworkRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkRuleInvokeResponseArray) ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput {
+	return i.ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRuleInvokeResponseArray) ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleInvokeResponseArrayOutput)
+}
+
+// Virtual network rule.
+type VirtualNetworkRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleInvokeResponseOutput) ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseOutput) ToVirtualNetworkRuleInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseOutput {
+	return o
+}
+
+// The action of virtual network rule.
+func (o VirtualNetworkRuleInvokeResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+func (o VirtualNetworkRuleInvokeResponseOutput) VirtualNetworkResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) string { return v.VirtualNetworkResourceId }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkRuleInvokeResponse {
+		return vs[0].([]VirtualNetworkRuleInvokeResponse)[vs[1].(int)]
+	}).(VirtualNetworkRuleInvokeResponseOutput)
+}
+
+// Virtual network rule.
 type VirtualNetworkRuleResponse struct {
 	// The action of virtual network rule.
 	Action *string `pulumi:"action"`
@@ -4439,60 +5454,75 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 }
 
 func init() {
-	pulumi.RegisterOutputType(ActorResponseOutput{})
-	pulumi.RegisterOutputType(ActorResponsePtrOutput{})
-	pulumi.RegisterOutputType(EventContentResponseOutput{})
-	pulumi.RegisterOutputType(EventContentResponsePtrOutput{})
-	pulumi.RegisterOutputType(EventRequestMessageResponseOutput{})
-	pulumi.RegisterOutputType(EventRequestMessageResponsePtrOutput{})
-	pulumi.RegisterOutputType(EventResponseOutput{})
-	pulumi.RegisterOutputType(EventResponseArrayOutput{})
-	pulumi.RegisterOutputType(EventResponseMessageResponseOutput{})
-	pulumi.RegisterOutputType(EventResponseMessageResponsePtrOutput{})
+	pulumi.RegisterOutputType(ActorInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ActorInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventContentInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EventContentInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EventInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(EventRequestMessageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EventRequestMessageInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventResponseMessageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EventResponseMessageInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPRuleOutput{})
 	pulumi.RegisterOutputType(IPRuleArrayOutput{})
+	pulumi.RegisterOutputType(IPRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IPRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IPRuleResponseOutput{})
 	pulumi.RegisterOutputType(IPRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
+	pulumi.RegisterOutputType(NetworkRuleSetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponsePtrOutput{})
 	pulumi.RegisterOutputType(PoliciesOutput{})
 	pulumi.RegisterOutputType(PoliciesPtrOutput{})
+	pulumi.RegisterOutputType(PoliciesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PoliciesResponseOutput{})
 	pulumi.RegisterOutputType(PoliciesResponsePtrOutput{})
 	pulumi.RegisterOutputType(QuarantinePolicyOutput{})
 	pulumi.RegisterOutputType(QuarantinePolicyPtrOutput{})
+	pulumi.RegisterOutputType(QuarantinePolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(QuarantinePolicyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(QuarantinePolicyResponseOutput{})
 	pulumi.RegisterOutputType(QuarantinePolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(RegistryPasswordResponseOutput{})
-	pulumi.RegisterOutputType(RegistryPasswordResponseArrayOutput{})
-	pulumi.RegisterOutputType(RequestResponseOutput{})
-	pulumi.RegisterOutputType(RequestResponsePtrOutput{})
+	pulumi.RegisterOutputType(RegistryPasswordInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RegistryPasswordInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(RequestInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RequestInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(RetentionPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RetentionPolicyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(SourceResponseOutput{})
-	pulumi.RegisterOutputType(SourceResponsePtrOutput{})
+	pulumi.RegisterOutputType(SourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SourceInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(StatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StatusResponseOutput{})
 	pulumi.RegisterOutputType(StatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(TargetResponseOutput{})
-	pulumi.RegisterOutputType(TargetResponsePtrOutput{})
+	pulumi.RegisterOutputType(TargetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TargetInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TrustPolicyOutput{})
 	pulumi.RegisterOutputType(TrustPolicyPtrOutput{})
+	pulumi.RegisterOutputType(TrustPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TrustPolicyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TrustPolicyResponseOutput{})
 	pulumi.RegisterOutputType(TrustPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseArrayOutput{})
 }

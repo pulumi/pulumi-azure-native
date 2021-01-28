@@ -10,6 +10,314 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+type ConnectionPropertiesInvokeResponsePrivateEndpoint struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+}
+
+// ConnectionPropertiesInvokeResponsePrivateEndpointInput is an input type that accepts ConnectionPropertiesInvokeResponsePrivateEndpointArgs and ConnectionPropertiesInvokeResponsePrivateEndpointOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInvokeResponsePrivateEndpointInput` via:
+//
+//          ConnectionPropertiesInvokeResponsePrivateEndpointArgs{...}
+type ConnectionPropertiesInvokeResponsePrivateEndpointInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInvokeResponsePrivateEndpointOutput() ConnectionPropertiesInvokeResponsePrivateEndpointOutput
+	ToConnectionPropertiesInvokeResponsePrivateEndpointOutputWithContext(context.Context) ConnectionPropertiesInvokeResponsePrivateEndpointOutput
+}
+
+type ConnectionPropertiesInvokeResponsePrivateEndpointArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (ConnectionPropertiesInvokeResponsePrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInvokeResponsePrivateEndpoint)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInvokeResponsePrivateEndpointArgs) ToConnectionPropertiesInvokeResponsePrivateEndpointOutput() ConnectionPropertiesInvokeResponsePrivateEndpointOutput {
+	return i.ToConnectionPropertiesInvokeResponsePrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInvokeResponsePrivateEndpointArgs) ToConnectionPropertiesInvokeResponsePrivateEndpointOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInvokeResponsePrivateEndpointOutput)
+}
+
+func (i ConnectionPropertiesInvokeResponsePrivateEndpointArgs) ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput() ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return i.ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInvokeResponsePrivateEndpointArgs) ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInvokeResponsePrivateEndpointOutput).ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInvokeResponsePrivateEndpointPtrInput is an input type that accepts ConnectionPropertiesInvokeResponsePrivateEndpointArgs, ConnectionPropertiesInvokeResponsePrivateEndpointPtr and ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInvokeResponsePrivateEndpointPtrInput` via:
+//
+//          ConnectionPropertiesInvokeResponsePrivateEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionPropertiesInvokeResponsePrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput() ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput
+	ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(context.Context) ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput
+}
+
+type connectionPropertiesInvokeResponsePrivateEndpointPtrType ConnectionPropertiesInvokeResponsePrivateEndpointArgs
+
+func ConnectionPropertiesInvokeResponsePrivateEndpointPtr(v *ConnectionPropertiesInvokeResponsePrivateEndpointArgs) ConnectionPropertiesInvokeResponsePrivateEndpointPtrInput {
+	return (*connectionPropertiesInvokeResponsePrivateEndpointPtrType)(v)
+}
+
+func (*connectionPropertiesInvokeResponsePrivateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInvokeResponsePrivateEndpoint)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInvokeResponsePrivateEndpointPtrType) ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput() ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return i.ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInvokeResponsePrivateEndpointPtrType) ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput)
+}
+
+type ConnectionPropertiesInvokeResponsePrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInvokeResponsePrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInvokeResponsePrivateEndpoint)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateEndpointOutput) ToConnectionPropertiesInvokeResponsePrivateEndpointOutput() ConnectionPropertiesInvokeResponsePrivateEndpointOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateEndpointOutput) ToConnectionPropertiesInvokeResponsePrivateEndpointOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateEndpointOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateEndpointOutput) ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput() ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o.ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateEndpointOutput) ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInvokeResponsePrivateEndpoint) *ConnectionPropertiesInvokeResponsePrivateEndpoint {
+		return &v
+	}).(ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput)
+}
+
+// The resource identifier.
+func (o ConnectionPropertiesInvokeResponsePrivateEndpointOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInvokeResponsePrivateEndpoint) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInvokeResponsePrivateEndpoint)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput) ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput() ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput) ToConnectionPropertiesInvokeResponsePrivateEndpointPtrOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput) Elem() ConnectionPropertiesInvokeResponsePrivateEndpointOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInvokeResponsePrivateEndpoint) ConnectionPropertiesInvokeResponsePrivateEndpoint {
+		return *v
+	}).(ConnectionPropertiesInvokeResponsePrivateEndpointOutput)
+}
+
+// The resource identifier.
+func (o ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInvokeResponsePrivateEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState struct {
+	// Actions required for a private endpoint connection.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The description for the current state of a private endpoint connection.
+	Description string `pulumi:"description"`
+	// The status of a private endpoint connection.
+	Status string `pulumi:"status"`
+}
+
+// ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateInput is an input type that accepts ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs and ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateInput` via:
+//
+//          ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs{...}
+type ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput() ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput
+	ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutputWithContext(context.Context) ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput
+}
+
+type ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs struct {
+	// Actions required for a private endpoint connection.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The description for the current state of a private endpoint connection.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The status of a private endpoint connection.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput() ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput {
+	return i.ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput)
+}
+
+func (i ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput() ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput).ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx)
+}
+
+// ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrInput is an input type that accepts ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs, ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtr and ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput values.
+// You can construct a concrete instance of `ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrInput` via:
+//
+//          ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrInput interface {
+	pulumi.Input
+
+	ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput() ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput
+	ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(context.Context) ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput
+}
+
+type connectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrType ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs
+
+func ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtr(v *ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateArgs) ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrInput {
+	return (*connectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrType)(v)
+}
+
+func (*connectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i *connectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrType) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput() ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return i.ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrType) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput)
+}
+
+type ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput() ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput() ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o.ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState {
+		return &v
+	}).(ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// Actions required for a private endpoint connection.
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *string {
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description for the current state of a private endpoint connection.
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) string {
+		return v.Description
+	}).(pulumi.StringOutput)
+}
+
+// The status of a private endpoint connection.
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput() ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) ToConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o
+}
+
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) Elem() ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState {
+		return *v
+	}).(ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput)
+}
+
+// Actions required for a private endpoint connection.
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description for the current state of a private endpoint connection.
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of a private endpoint connection.
+func (o ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConnectionPropertiesPrivateLinkServiceConnectionState struct {
 	// Actions required for a private endpoint connection.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -622,6 +930,79 @@ func (o DigitalTwinsIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The managed identity for the DigitalTwinsInstance.
+type DigitalTwinsIdentityInvokeResponse struct {
+	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+	Type *string `pulumi:"type"`
+}
+
+// DigitalTwinsIdentityInvokeResponseInput is an input type that accepts DigitalTwinsIdentityInvokeResponseArgs and DigitalTwinsIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `DigitalTwinsIdentityInvokeResponseInput` via:
+//
+//          DigitalTwinsIdentityInvokeResponseArgs{...}
+type DigitalTwinsIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDigitalTwinsIdentityInvokeResponseOutput() DigitalTwinsIdentityInvokeResponseOutput
+	ToDigitalTwinsIdentityInvokeResponseOutputWithContext(context.Context) DigitalTwinsIdentityInvokeResponseOutput
+}
+
+// The managed identity for the DigitalTwinsInstance.
+type DigitalTwinsIdentityInvokeResponseArgs struct {
+	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DigitalTwinsIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DigitalTwinsIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i DigitalTwinsIdentityInvokeResponseArgs) ToDigitalTwinsIdentityInvokeResponseOutput() DigitalTwinsIdentityInvokeResponseOutput {
+	return i.ToDigitalTwinsIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DigitalTwinsIdentityInvokeResponseArgs) ToDigitalTwinsIdentityInvokeResponseOutputWithContext(ctx context.Context) DigitalTwinsIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DigitalTwinsIdentityInvokeResponseOutput)
+}
+
+// The managed identity for the DigitalTwinsInstance.
+type DigitalTwinsIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DigitalTwinsIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DigitalTwinsIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o DigitalTwinsIdentityInvokeResponseOutput) ToDigitalTwinsIdentityInvokeResponseOutput() DigitalTwinsIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o DigitalTwinsIdentityInvokeResponseOutput) ToDigitalTwinsIdentityInvokeResponseOutputWithContext(ctx context.Context) DigitalTwinsIdentityInvokeResponseOutput {
+	return o
+}
+
+// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+func (o DigitalTwinsIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v DigitalTwinsIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-client-tenant-id header in the PUT request if the resource has a systemAssigned(implicit) identity
+func (o DigitalTwinsIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v DigitalTwinsIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
+func (o DigitalTwinsIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DigitalTwinsIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The managed identity for the DigitalTwinsInstance.
 type DigitalTwinsIdentityResponse struct {
 	// The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
 	PrincipalId string `pulumi:"principalId"`
@@ -906,6 +1287,136 @@ func (o EventGridOutput) TopicEndpoint() pulumi.StringOutput {
 }
 
 // Properties related to EventGrid.
+type EventGridInvokeResponse struct {
+	// EventGrid secondary accesskey. Will be obfuscated during read.
+	AccessKey1 string `pulumi:"accessKey1"`
+	// EventGrid secondary accesskey. Will be obfuscated during read.
+	AccessKey2 *string `pulumi:"accessKey2"`
+	// Specifies the authentication type being used for connecting to the endpoint.
+	AuthenticationType *string `pulumi:"authenticationType"`
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime string `pulumi:"createdTime"`
+	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
+	// Dead letter storage URL for identity-based authentication.
+	DeadLetterUri *string `pulumi:"deadLetterUri"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
+	EndpointType string `pulumi:"endpointType"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// EventGrid Topic Endpoint
+	TopicEndpoint string `pulumi:"topicEndpoint"`
+}
+
+// EventGridInvokeResponseInput is an input type that accepts EventGridInvokeResponseArgs and EventGridInvokeResponseOutput values.
+// You can construct a concrete instance of `EventGridInvokeResponseInput` via:
+//
+//          EventGridInvokeResponseArgs{...}
+type EventGridInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventGridInvokeResponseOutput() EventGridInvokeResponseOutput
+	ToEventGridInvokeResponseOutputWithContext(context.Context) EventGridInvokeResponseOutput
+}
+
+// Properties related to EventGrid.
+type EventGridInvokeResponseArgs struct {
+	// EventGrid secondary accesskey. Will be obfuscated during read.
+	AccessKey1 pulumi.StringInput `pulumi:"accessKey1"`
+	// EventGrid secondary accesskey. Will be obfuscated during read.
+	AccessKey2 pulumi.StringPtrInput `pulumi:"accessKey2"`
+	// Specifies the authentication type being used for connecting to the endpoint.
+	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	// Dead letter storage URL for identity-based authentication.
+	DeadLetterUri pulumi.StringPtrInput `pulumi:"deadLetterUri"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// EventGrid Topic Endpoint
+	TopicEndpoint pulumi.StringInput `pulumi:"topicEndpoint"`
+}
+
+func (EventGridInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridInvokeResponse)(nil)).Elem()
+}
+
+func (i EventGridInvokeResponseArgs) ToEventGridInvokeResponseOutput() EventGridInvokeResponseOutput {
+	return i.ToEventGridInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventGridInvokeResponseArgs) ToEventGridInvokeResponseOutputWithContext(ctx context.Context) EventGridInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridInvokeResponseOutput)
+}
+
+// Properties related to EventGrid.
+type EventGridInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventGridInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridInvokeResponse)(nil)).Elem()
+}
+
+func (o EventGridInvokeResponseOutput) ToEventGridInvokeResponseOutput() EventGridInvokeResponseOutput {
+	return o
+}
+
+func (o EventGridInvokeResponseOutput) ToEventGridInvokeResponseOutputWithContext(ctx context.Context) EventGridInvokeResponseOutput {
+	return o
+}
+
+// EventGrid secondary accesskey. Will be obfuscated during read.
+func (o EventGridInvokeResponseOutput) AccessKey1() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) string { return v.AccessKey1 }).(pulumi.StringOutput)
+}
+
+// EventGrid secondary accesskey. Will be obfuscated during read.
+func (o EventGridInvokeResponseOutput) AccessKey2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) *string { return v.AccessKey2 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the authentication type being used for connecting to the endpoint.
+func (o EventGridInvokeResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
+}
+
+// Time when the Endpoint was added to DigitalTwinsInstance.
+func (o EventGridInvokeResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+func (o EventGridInvokeResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
+}
+
+// Dead letter storage URL for identity-based authentication.
+func (o EventGridInvokeResponseOutput) DeadLetterUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) *string { return v.DeadLetterUri }).(pulumi.StringPtrOutput)
+}
+
+// The type of Digital Twins endpoint
+// Expected value is 'EventGrid'.
+func (o EventGridInvokeResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o EventGridInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// EventGrid Topic Endpoint
+func (o EventGridInvokeResponseOutput) TopicEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) string { return v.TopicEndpoint }).(pulumi.StringOutput)
+}
+
+// Properties related to EventGrid.
 type EventGridResponse struct {
 	// EventGrid secondary accesskey. Will be obfuscated during read.
 	AccessKey1 string `pulumi:"accessKey1"`
@@ -1157,6 +1668,145 @@ func (o EventHubOutput) EntityPath() pulumi.StringPtrOutput {
 }
 
 // Properties related to EventHub.
+type EventHubInvokeResponse struct {
+	// Specifies the authentication type being used for connecting to the endpoint.
+	AuthenticationType *string `pulumi:"authenticationType"`
+	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	ConnectionStringPrimaryKey *string `pulumi:"connectionStringPrimaryKey"`
+	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	ConnectionStringSecondaryKey *string `pulumi:"connectionStringSecondaryKey"`
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime string `pulumi:"createdTime"`
+	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
+	// Dead letter storage URL for identity-based authentication.
+	DeadLetterUri *string `pulumi:"deadLetterUri"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
+	EndpointType string `pulumi:"endpointType"`
+	// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+	EndpointUri *string `pulumi:"endpointUri"`
+	// The EventHub name in the EventHub namespace for identity-based authentication.
+	EntityPath *string `pulumi:"entityPath"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// EventHubInvokeResponseInput is an input type that accepts EventHubInvokeResponseArgs and EventHubInvokeResponseOutput values.
+// You can construct a concrete instance of `EventHubInvokeResponseInput` via:
+//
+//          EventHubInvokeResponseArgs{...}
+type EventHubInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventHubInvokeResponseOutput() EventHubInvokeResponseOutput
+	ToEventHubInvokeResponseOutputWithContext(context.Context) EventHubInvokeResponseOutput
+}
+
+// Properties related to EventHub.
+type EventHubInvokeResponseArgs struct {
+	// Specifies the authentication type being used for connecting to the endpoint.
+	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
+	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	ConnectionStringPrimaryKey pulumi.StringPtrInput `pulumi:"connectionStringPrimaryKey"`
+	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	ConnectionStringSecondaryKey pulumi.StringPtrInput `pulumi:"connectionStringSecondaryKey"`
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	// Dead letter storage URL for identity-based authentication.
+	DeadLetterUri pulumi.StringPtrInput `pulumi:"deadLetterUri"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
+	// The EventHub name in the EventHub namespace for identity-based authentication.
+	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (EventHubInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubInvokeResponse)(nil)).Elem()
+}
+
+func (i EventHubInvokeResponseArgs) ToEventHubInvokeResponseOutput() EventHubInvokeResponseOutput {
+	return i.ToEventHubInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventHubInvokeResponseArgs) ToEventHubInvokeResponseOutputWithContext(ctx context.Context) EventHubInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubInvokeResponseOutput)
+}
+
+// Properties related to EventHub.
+type EventHubInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubInvokeResponse)(nil)).Elem()
+}
+
+func (o EventHubInvokeResponseOutput) ToEventHubInvokeResponseOutput() EventHubInvokeResponseOutput {
+	return o
+}
+
+func (o EventHubInvokeResponseOutput) ToEventHubInvokeResponseOutputWithContext(ctx context.Context) EventHubInvokeResponseOutput {
+	return o
+}
+
+// Specifies the authentication type being used for connecting to the endpoint.
+func (o EventHubInvokeResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
+}
+
+// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+func (o EventHubInvokeResponseOutput) ConnectionStringPrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) *string { return v.ConnectionStringPrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+func (o EventHubInvokeResponseOutput) ConnectionStringSecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) *string { return v.ConnectionStringSecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+// Time when the Endpoint was added to DigitalTwinsInstance.
+func (o EventHubInvokeResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+func (o EventHubInvokeResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
+}
+
+// Dead letter storage URL for identity-based authentication.
+func (o EventHubInvokeResponseOutput) DeadLetterUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) *string { return v.DeadLetterUri }).(pulumi.StringPtrOutput)
+}
+
+// The type of Digital Twins endpoint
+// Expected value is 'EventHub'.
+func (o EventHubInvokeResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+func (o EventHubInvokeResponseOutput) EndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
+}
+
+// The EventHub name in the EventHub namespace for identity-based authentication.
+func (o EventHubInvokeResponseOutput) EntityPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state.
+func (o EventHubInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Properties related to EventHub.
 type EventHubResponse struct {
 	// Specifies the authentication type being used for connecting to the endpoint.
 	AuthenticationType *string `pulumi:"authenticationType"`
@@ -1390,6 +2040,209 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionType {
 		return vs[0].([]PrivateEndpointConnectionType)[vs[1].(int)]
 	}).(PrivateEndpointConnectionTypeOutput)
+}
+
+// The private endpoint connection of a Digital Twin.
+type PrivateEndpointConnectionInvokeResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name       string                                            `pulumi:"name"`
+	Properties PrivateEndpointConnectionInvokeResponseProperties `pulumi:"properties"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionInvokeResponseInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArgs and PrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArgs{...}
+type PrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput
+	ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseOutput
+}
+
+// The private endpoint connection of a Digital Twin.
+type PrivateEndpointConnectionInvokeResponseArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name       pulumi.StringInput                                     `pulumi:"name"`
+	Properties PrivateEndpointConnectionInvokeResponsePropertiesInput `pulumi:"properties"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// PrivateEndpointConnectionInvokeResponseArrayInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArray and PrivateEndpointConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArray{ PrivateEndpointConnectionInvokeResponseArgs{...} }
+type PrivateEndpointConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput
+	ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput
+}
+
+type PrivateEndpointConnectionInvokeResponseArray []PrivateEndpointConnectionInvokeResponseInput
+
+func (PrivateEndpointConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArray) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseArrayOutput)
+}
+
+// The private endpoint connection of a Digital Twin.
+type PrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// The resource identifier.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) Properties() PrivateEndpointConnectionInvokeResponsePropertiesOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) PrivateEndpointConnectionInvokeResponseProperties {
+		return v.Properties
+	}).(PrivateEndpointConnectionInvokeResponsePropertiesOutput)
+}
+
+// The resource type.
+func (o PrivateEndpointConnectionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutput() PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) ToPrivateEndpointConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionInvokeResponse {
+		return vs[0].([]PrivateEndpointConnectionInvokeResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+type PrivateEndpointConnectionInvokeResponseProperties struct {
+	// The list of group ids for the private endpoint connection.
+	GroupIds                          []string                                                             `pulumi:"groupIds"`
+	PrivateEndpoint                   *ConnectionPropertiesInvokeResponsePrivateEndpoint                   `pulumi:"privateEndpoint"`
+	PrivateLinkServiceConnectionState *ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// PrivateEndpointConnectionInvokeResponsePropertiesInput is an input type that accepts PrivateEndpointConnectionInvokeResponsePropertiesArgs and PrivateEndpointConnectionInvokeResponsePropertiesOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponsePropertiesInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponsePropertiesArgs{...}
+type PrivateEndpointConnectionInvokeResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponsePropertiesOutput() PrivateEndpointConnectionInvokeResponsePropertiesOutput
+	ToPrivateEndpointConnectionInvokeResponsePropertiesOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponsePropertiesOutput
+}
+
+type PrivateEndpointConnectionInvokeResponsePropertiesArgs struct {
+	// The list of group ids for the private endpoint connection.
+	GroupIds                          pulumi.StringArrayInput                                                     `pulumi:"groupIds"`
+	PrivateEndpoint                   ConnectionPropertiesInvokeResponsePrivateEndpointPtrInput                   `pulumi:"privateEndpoint"`
+	PrivateLinkServiceConnectionState ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (PrivateEndpointConnectionInvokeResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponseProperties)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponsePropertiesArgs) ToPrivateEndpointConnectionInvokeResponsePropertiesOutput() PrivateEndpointConnectionInvokeResponsePropertiesOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponsePropertiesArgs) ToPrivateEndpointConnectionInvokeResponsePropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponsePropertiesOutput)
+}
+
+type PrivateEndpointConnectionInvokeResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponseProperties)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponsePropertiesOutput) ToPrivateEndpointConnectionInvokeResponsePropertiesOutput() PrivateEndpointConnectionInvokeResponsePropertiesOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponsePropertiesOutput) ToPrivateEndpointConnectionInvokeResponsePropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponsePropertiesOutput {
+	return o
+}
+
+// The list of group ids for the private endpoint connection.
+func (o PrivateEndpointConnectionInvokeResponsePropertiesOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponseProperties) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o PrivateEndpointConnectionInvokeResponsePropertiesOutput) PrivateEndpoint() ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponseProperties) *ConnectionPropertiesInvokeResponsePrivateEndpoint {
+		return v.PrivateEndpoint
+	}).(ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput)
+}
+
+func (o PrivateEndpointConnectionInvokeResponsePropertiesOutput) PrivateLinkServiceConnectionState() ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponseProperties) *ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionState {
+		return v.PrivateLinkServiceConnectionState
+	}).(ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput)
+}
+
+// The provisioning state.
+func (o PrivateEndpointConnectionInvokeResponsePropertiesOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponseProperties) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type PrivateEndpointConnectionProperties struct {
@@ -1974,6 +2827,145 @@ func (o ServiceBusOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
 }
 
 // Properties related to ServiceBus.
+type ServiceBusInvokeResponse struct {
+	// Specifies the authentication type being used for connecting to the endpoint.
+	AuthenticationType *string `pulumi:"authenticationType"`
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime string `pulumi:"createdTime"`
+	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+	DeadLetterSecret *string `pulumi:"deadLetterSecret"`
+	// Dead letter storage URL for identity-based authentication.
+	DeadLetterUri *string `pulumi:"deadLetterUri"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
+	EndpointType string `pulumi:"endpointType"`
+	// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
+	EndpointUri *string `pulumi:"endpointUri"`
+	// The ServiceBus Topic name for identity-based authentication
+	EntityPath *string `pulumi:"entityPath"`
+	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
+}
+
+// ServiceBusInvokeResponseInput is an input type that accepts ServiceBusInvokeResponseArgs and ServiceBusInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceBusInvokeResponseInput` via:
+//
+//          ServiceBusInvokeResponseArgs{...}
+type ServiceBusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceBusInvokeResponseOutput() ServiceBusInvokeResponseOutput
+	ToServiceBusInvokeResponseOutputWithContext(context.Context) ServiceBusInvokeResponseOutput
+}
+
+// Properties related to ServiceBus.
+type ServiceBusInvokeResponseArgs struct {
+	// Specifies the authentication type being used for connecting to the endpoint.
+	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+	DeadLetterSecret pulumi.StringPtrInput `pulumi:"deadLetterSecret"`
+	// Dead letter storage URL for identity-based authentication.
+	DeadLetterUri pulumi.StringPtrInput `pulumi:"deadLetterUri"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
+	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
+	// The ServiceBus Topic name for identity-based authentication
+	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
+	// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	PrimaryConnectionString pulumi.StringPtrInput `pulumi:"primaryConnectionString"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+	SecondaryConnectionString pulumi.StringPtrInput `pulumi:"secondaryConnectionString"`
+}
+
+func (ServiceBusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceBusInvokeResponseArgs) ToServiceBusInvokeResponseOutput() ServiceBusInvokeResponseOutput {
+	return i.ToServiceBusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceBusInvokeResponseArgs) ToServiceBusInvokeResponseOutputWithContext(ctx context.Context) ServiceBusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusInvokeResponseOutput)
+}
+
+// Properties related to ServiceBus.
+type ServiceBusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusInvokeResponseOutput) ToServiceBusInvokeResponseOutput() ServiceBusInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusInvokeResponseOutput) ToServiceBusInvokeResponseOutputWithContext(ctx context.Context) ServiceBusInvokeResponseOutput {
+	return o
+}
+
+// Specifies the authentication type being used for connecting to the endpoint.
+func (o ServiceBusInvokeResponseOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
+}
+
+// Time when the Endpoint was added to DigitalTwinsInstance.
+func (o ServiceBusInvokeResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Dead letter storage secret for key-based authentication. Will be obfuscated during read.
+func (o ServiceBusInvokeResponseOutput) DeadLetterSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) *string { return v.DeadLetterSecret }).(pulumi.StringPtrOutput)
+}
+
+// Dead letter storage URL for identity-based authentication.
+func (o ServiceBusInvokeResponseOutput) DeadLetterUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) *string { return v.DeadLetterUri }).(pulumi.StringPtrOutput)
+}
+
+// The type of Digital Twins endpoint
+// Expected value is 'ServiceBus'.
+func (o ServiceBusInvokeResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
+func (o ServiceBusInvokeResponseOutput) EndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
+}
+
+// The ServiceBus Topic name for identity-based authentication
+func (o ServiceBusInvokeResponseOutput) EntityPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
+}
+
+// PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+func (o ServiceBusInvokeResponseOutput) PrimaryConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) *string { return v.PrimaryConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state.
+func (o ServiceBusInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
+func (o ServiceBusInvokeResponseOutput) SecondaryConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) *string { return v.SecondaryConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// Properties related to ServiceBus.
 type ServiceBusResponse struct {
 	// Specifies the authentication type being used for connecting to the endpoint.
 	AuthenticationType *string `pulumi:"authenticationType"`
@@ -2113,6 +3105,10 @@ func (o ServiceBusResponseOutput) SecondaryConnectionString() pulumi.StringPtrOu
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConnectionPropertiesInvokeResponsePrivateEndpointOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInvokeResponsePrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStateOutput{})
+	pulumi.RegisterOutputType(ConnectionPropertiesInvokeResponsePrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesPrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesResponsePrivateEndpointOutput{})
@@ -2121,14 +3117,20 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionPropertiesResponsePrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsIdentityOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsIdentityPtrOutput{})
+	pulumi.RegisterOutputType(DigitalTwinsIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsIdentityResponseOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(EventGridOutput{})
+	pulumi.RegisterOutputType(EventGridInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EventGridResponseOutput{})
 	pulumi.RegisterOutputType(EventHubOutput{})
+	pulumi.RegisterOutputType(EventHubInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EventHubResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
@@ -2136,5 +3138,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceBusOutput{})
+	pulumi.RegisterOutputType(ServiceBusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusResponseOutput{})
 }

@@ -34,7 +34,7 @@ type LookupMachineExtensionResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The machine extension instance view.
-	InstanceView *MachineExtensionPropertiesResponseInstanceView `pulumi:"instanceView"`
+	InstanceView *MachineExtensionPropertiesInvokeResponseInstanceView `pulumi:"instanceView"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

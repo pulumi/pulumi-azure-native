@@ -11,7 +11,7 @@ import (
 )
 
 // A streaming job.
-type ClusterJobResponse struct {
+type ClusterJobInvokeResponse struct {
 	// Resource ID of the streaming job.
 	Id string `pulumi:"id"`
 	// The current execution state of the streaming job.
@@ -20,19 +20,19 @@ type ClusterJobResponse struct {
 	StreamingUnits int `pulumi:"streamingUnits"`
 }
 
-// ClusterJobResponseInput is an input type that accepts ClusterJobResponseArgs and ClusterJobResponseOutput values.
-// You can construct a concrete instance of `ClusterJobResponseInput` via:
+// ClusterJobInvokeResponseInput is an input type that accepts ClusterJobInvokeResponseArgs and ClusterJobInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterJobInvokeResponseInput` via:
 //
-//          ClusterJobResponseArgs{...}
-type ClusterJobResponseInput interface {
+//          ClusterJobInvokeResponseArgs{...}
+type ClusterJobInvokeResponseInput interface {
 	pulumi.Input
 
-	ToClusterJobResponseOutput() ClusterJobResponseOutput
-	ToClusterJobResponseOutputWithContext(context.Context) ClusterJobResponseOutput
+	ToClusterJobInvokeResponseOutput() ClusterJobInvokeResponseOutput
+	ToClusterJobInvokeResponseOutputWithContext(context.Context) ClusterJobInvokeResponseOutput
 }
 
 // A streaming job.
-type ClusterJobResponseArgs struct {
+type ClusterJobInvokeResponseArgs struct {
 	// Resource ID of the streaming job.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The current execution state of the streaming job.
@@ -41,91 +41,182 @@ type ClusterJobResponseArgs struct {
 	StreamingUnits pulumi.IntInput `pulumi:"streamingUnits"`
 }
 
-func (ClusterJobResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterJobResponse)(nil)).Elem()
+func (ClusterJobInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterJobInvokeResponse)(nil)).Elem()
 }
 
-func (i ClusterJobResponseArgs) ToClusterJobResponseOutput() ClusterJobResponseOutput {
-	return i.ToClusterJobResponseOutputWithContext(context.Background())
+func (i ClusterJobInvokeResponseArgs) ToClusterJobInvokeResponseOutput() ClusterJobInvokeResponseOutput {
+	return i.ToClusterJobInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ClusterJobResponseArgs) ToClusterJobResponseOutputWithContext(ctx context.Context) ClusterJobResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterJobResponseOutput)
+func (i ClusterJobInvokeResponseArgs) ToClusterJobInvokeResponseOutputWithContext(ctx context.Context) ClusterJobInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterJobInvokeResponseOutput)
 }
 
-// ClusterJobResponseArrayInput is an input type that accepts ClusterJobResponseArray and ClusterJobResponseArrayOutput values.
-// You can construct a concrete instance of `ClusterJobResponseArrayInput` via:
+// ClusterJobInvokeResponseArrayInput is an input type that accepts ClusterJobInvokeResponseArray and ClusterJobInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ClusterJobInvokeResponseArrayInput` via:
 //
-//          ClusterJobResponseArray{ ClusterJobResponseArgs{...} }
-type ClusterJobResponseArrayInput interface {
+//          ClusterJobInvokeResponseArray{ ClusterJobInvokeResponseArgs{...} }
+type ClusterJobInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToClusterJobResponseArrayOutput() ClusterJobResponseArrayOutput
-	ToClusterJobResponseArrayOutputWithContext(context.Context) ClusterJobResponseArrayOutput
+	ToClusterJobInvokeResponseArrayOutput() ClusterJobInvokeResponseArrayOutput
+	ToClusterJobInvokeResponseArrayOutputWithContext(context.Context) ClusterJobInvokeResponseArrayOutput
 }
 
-type ClusterJobResponseArray []ClusterJobResponseInput
+type ClusterJobInvokeResponseArray []ClusterJobInvokeResponseInput
 
-func (ClusterJobResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterJobResponse)(nil)).Elem()
+func (ClusterJobInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterJobInvokeResponse)(nil)).Elem()
 }
 
-func (i ClusterJobResponseArray) ToClusterJobResponseArrayOutput() ClusterJobResponseArrayOutput {
-	return i.ToClusterJobResponseArrayOutputWithContext(context.Background())
+func (i ClusterJobInvokeResponseArray) ToClusterJobInvokeResponseArrayOutput() ClusterJobInvokeResponseArrayOutput {
+	return i.ToClusterJobInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ClusterJobResponseArray) ToClusterJobResponseArrayOutputWithContext(ctx context.Context) ClusterJobResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterJobResponseArrayOutput)
+func (i ClusterJobInvokeResponseArray) ToClusterJobInvokeResponseArrayOutputWithContext(ctx context.Context) ClusterJobInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterJobInvokeResponseArrayOutput)
 }
 
 // A streaming job.
-type ClusterJobResponseOutput struct{ *pulumi.OutputState }
+type ClusterJobInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ClusterJobResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterJobResponse)(nil)).Elem()
+func (ClusterJobInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterJobInvokeResponse)(nil)).Elem()
 }
 
-func (o ClusterJobResponseOutput) ToClusterJobResponseOutput() ClusterJobResponseOutput {
+func (o ClusterJobInvokeResponseOutput) ToClusterJobInvokeResponseOutput() ClusterJobInvokeResponseOutput {
 	return o
 }
 
-func (o ClusterJobResponseOutput) ToClusterJobResponseOutputWithContext(ctx context.Context) ClusterJobResponseOutput {
+func (o ClusterJobInvokeResponseOutput) ToClusterJobInvokeResponseOutputWithContext(ctx context.Context) ClusterJobInvokeResponseOutput {
 	return o
 }
 
 // Resource ID of the streaming job.
-func (o ClusterJobResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterJobResponse) string { return v.Id }).(pulumi.StringOutput)
+func (o ClusterJobInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterJobInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The current execution state of the streaming job.
-func (o ClusterJobResponseOutput) JobState() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterJobResponse) string { return v.JobState }).(pulumi.StringOutput)
+func (o ClusterJobInvokeResponseOutput) JobState() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterJobInvokeResponse) string { return v.JobState }).(pulumi.StringOutput)
 }
 
 // The number of streaming units that are used by the streaming job.
-func (o ClusterJobResponseOutput) StreamingUnits() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterJobResponse) int { return v.StreamingUnits }).(pulumi.IntOutput)
+func (o ClusterJobInvokeResponseOutput) StreamingUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterJobInvokeResponse) int { return v.StreamingUnits }).(pulumi.IntOutput)
 }
 
-type ClusterJobResponseArrayOutput struct{ *pulumi.OutputState }
+type ClusterJobInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ClusterJobResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterJobResponse)(nil)).Elem()
+func (ClusterJobInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterJobInvokeResponse)(nil)).Elem()
 }
 
-func (o ClusterJobResponseArrayOutput) ToClusterJobResponseArrayOutput() ClusterJobResponseArrayOutput {
+func (o ClusterJobInvokeResponseArrayOutput) ToClusterJobInvokeResponseArrayOutput() ClusterJobInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ClusterJobResponseArrayOutput) ToClusterJobResponseArrayOutputWithContext(ctx context.Context) ClusterJobResponseArrayOutput {
+func (o ClusterJobInvokeResponseArrayOutput) ToClusterJobInvokeResponseArrayOutputWithContext(ctx context.Context) ClusterJobInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ClusterJobResponseArrayOutput) Index(i pulumi.IntInput) ClusterJobResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterJobResponse {
-		return vs[0].([]ClusterJobResponse)[vs[1].(int)]
-	}).(ClusterJobResponseOutput)
+func (o ClusterJobInvokeResponseArrayOutput) Index(i pulumi.IntInput) ClusterJobInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterJobInvokeResponse {
+		return vs[0].([]ClusterJobInvokeResponse)[vs[1].(int)]
+	}).(ClusterJobInvokeResponseOutput)
+}
+
+// The properties associated with a Stream Analytics cluster.
+type ClusterPropertiesInvokeResponse struct {
+	// Represents the number of streaming units currently being used on the cluster.
+	CapacityAllocated int `pulumi:"capacityAllocated"`
+	// Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+	CapacityAssigned int `pulumi:"capacityAssigned"`
+	// Unique identifier for the cluster.
+	ClusterId string `pulumi:"clusterId"`
+	// The date this cluster was created.
+	CreatedDate string `pulumi:"createdDate"`
+	// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// ClusterPropertiesInvokeResponseInput is an input type that accepts ClusterPropertiesInvokeResponseArgs and ClusterPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterPropertiesInvokeResponseInput` via:
+//
+//          ClusterPropertiesInvokeResponseArgs{...}
+type ClusterPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterPropertiesInvokeResponseOutput() ClusterPropertiesInvokeResponseOutput
+	ToClusterPropertiesInvokeResponseOutputWithContext(context.Context) ClusterPropertiesInvokeResponseOutput
+}
+
+// The properties associated with a Stream Analytics cluster.
+type ClusterPropertiesInvokeResponseArgs struct {
+	// Represents the number of streaming units currently being used on the cluster.
+	CapacityAllocated pulumi.IntInput `pulumi:"capacityAllocated"`
+	// Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+	CapacityAssigned pulumi.IntInput `pulumi:"capacityAssigned"`
+	// Unique identifier for the cluster.
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
+	// The date this cluster was created.
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
+	// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (ClusterPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterPropertiesInvokeResponseArgs) ToClusterPropertiesInvokeResponseOutput() ClusterPropertiesInvokeResponseOutput {
+	return i.ToClusterPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterPropertiesInvokeResponseArgs) ToClusterPropertiesInvokeResponseOutputWithContext(ctx context.Context) ClusterPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPropertiesInvokeResponseOutput)
+}
+
+// The properties associated with a Stream Analytics cluster.
+type ClusterPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterPropertiesInvokeResponseOutput) ToClusterPropertiesInvokeResponseOutput() ClusterPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterPropertiesInvokeResponseOutput) ToClusterPropertiesInvokeResponseOutputWithContext(ctx context.Context) ClusterPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Represents the number of streaming units currently being used on the cluster.
+func (o ClusterPropertiesInvokeResponseOutput) CapacityAllocated() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterPropertiesInvokeResponse) int { return v.CapacityAllocated }).(pulumi.IntOutput)
+}
+
+// Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+func (o ClusterPropertiesInvokeResponseOutput) CapacityAssigned() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterPropertiesInvokeResponse) int { return v.CapacityAssigned }).(pulumi.IntOutput)
+}
+
+// Unique identifier for the cluster.
+func (o ClusterPropertiesInvokeResponseOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterPropertiesInvokeResponse) string { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// The date this cluster was created.
+func (o ClusterPropertiesInvokeResponseOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterPropertiesInvokeResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
+func (o ClusterPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The properties associated with a Stream Analytics cluster.
@@ -492,6 +583,70 @@ func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
+type ClusterSkuInvokeResponse struct {
+	// Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
+	Capacity *int `pulumi:"capacity"`
+	// Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+	Name *string `pulumi:"name"`
+}
+
+// ClusterSkuInvokeResponseInput is an input type that accepts ClusterSkuInvokeResponseArgs and ClusterSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterSkuInvokeResponseInput` via:
+//
+//          ClusterSkuInvokeResponseArgs{...}
+type ClusterSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterSkuInvokeResponseOutput() ClusterSkuInvokeResponseOutput
+	ToClusterSkuInvokeResponseOutputWithContext(context.Context) ClusterSkuInvokeResponseOutput
+}
+
+// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
+type ClusterSkuInvokeResponseArgs struct {
+	// Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ClusterSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterSkuInvokeResponseArgs) ToClusterSkuInvokeResponseOutput() ClusterSkuInvokeResponseOutput {
+	return i.ToClusterSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterSkuInvokeResponseArgs) ToClusterSkuInvokeResponseOutputWithContext(ctx context.Context) ClusterSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuInvokeResponseOutput)
+}
+
+// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
+type ClusterSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterSkuInvokeResponseOutput) ToClusterSkuInvokeResponseOutput() ClusterSkuInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterSkuInvokeResponseOutput) ToClusterSkuInvokeResponseOutputWithContext(ctx context.Context) ClusterSkuInvokeResponseOutput {
+	return o
+}
+
+// Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
+func (o ClusterSkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterSkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+func (o ClusterSkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
 type ClusterSkuResponse struct {
 	// Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
 	Capacity *int `pulumi:"capacity"`
@@ -781,6 +936,72 @@ func (o PrivateEndpointPropertiesPtrOutput) ManualPrivateLinkServiceConnections(
 }
 
 // The properties associated with a private endpoint.
+type PrivateEndpointPropertiesInvokeResponse struct {
+	// The date when this private endpoint was created.
+	CreatedDate string `pulumi:"createdDate"`
+	// A list of connections to the remote resource. Immutable after it is set.
+	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnectionInvokeResponse `pulumi:"manualPrivateLinkServiceConnections"`
+}
+
+// PrivateEndpointPropertiesInvokeResponseInput is an input type that accepts PrivateEndpointPropertiesInvokeResponseArgs and PrivateEndpointPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointPropertiesInvokeResponseInput` via:
+//
+//          PrivateEndpointPropertiesInvokeResponseArgs{...}
+type PrivateEndpointPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertiesInvokeResponseOutput() PrivateEndpointPropertiesInvokeResponseOutput
+	ToPrivateEndpointPropertiesInvokeResponseOutputWithContext(context.Context) PrivateEndpointPropertiesInvokeResponseOutput
+}
+
+// The properties associated with a private endpoint.
+type PrivateEndpointPropertiesInvokeResponseArgs struct {
+	// The date when this private endpoint was created.
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
+	// A list of connections to the remote resource. Immutable after it is set.
+	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionInvokeResponseArrayInput `pulumi:"manualPrivateLinkServiceConnections"`
+}
+
+func (PrivateEndpointPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointPropertiesInvokeResponseArgs) ToPrivateEndpointPropertiesInvokeResponseOutput() PrivateEndpointPropertiesInvokeResponseOutput {
+	return i.ToPrivateEndpointPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertiesInvokeResponseArgs) ToPrivateEndpointPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertiesInvokeResponseOutput)
+}
+
+// The properties associated with a private endpoint.
+type PrivateEndpointPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertiesInvokeResponseOutput) ToPrivateEndpointPropertiesInvokeResponseOutput() PrivateEndpointPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertiesInvokeResponseOutput) ToPrivateEndpointPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The date when this private endpoint was created.
+func (o PrivateEndpointPropertiesInvokeResponseOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointPropertiesInvokeResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// A list of connections to the remote resource. Immutable after it is set.
+func (o PrivateEndpointPropertiesInvokeResponseOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v PrivateEndpointPropertiesInvokeResponse) []PrivateLinkServiceConnectionInvokeResponse {
+		return v.ManualPrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionInvokeResponseArrayOutput)
+}
+
+// The properties associated with a private endpoint.
 type PrivateEndpointPropertiesResponse struct {
 	// The date when this private endpoint was created.
 	CreatedDate string `pulumi:"createdDate"`
@@ -933,6 +1154,178 @@ func (o PrivateEndpointPropertiesResponsePtrOutput) ManualPrivateLinkServiceConn
 		}
 		return v.ManualPrivateLinkServiceConnections
 	}).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
+// A collection of read-only information about the state of the connection to the private remote resource.
+type PrivateLinkConnectionStateInvokeResponse struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the remote resource/service.
+	Status string `pulumi:"status"`
+}
+
+// PrivateLinkConnectionStateInvokeResponseInput is an input type that accepts PrivateLinkConnectionStateInvokeResponseArgs and PrivateLinkConnectionStateInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkConnectionStateInvokeResponseInput` via:
+//
+//          PrivateLinkConnectionStateInvokeResponseArgs{...}
+type PrivateLinkConnectionStateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkConnectionStateInvokeResponseOutput() PrivateLinkConnectionStateInvokeResponseOutput
+	ToPrivateLinkConnectionStateInvokeResponseOutputWithContext(context.Context) PrivateLinkConnectionStateInvokeResponseOutput
+}
+
+// A collection of read-only information about the state of the connection to the private remote resource.
+type PrivateLinkConnectionStateInvokeResponseArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the remote resource/service.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (PrivateLinkConnectionStateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkConnectionStateInvokeResponseArgs) ToPrivateLinkConnectionStateInvokeResponseOutput() PrivateLinkConnectionStateInvokeResponseOutput {
+	return i.ToPrivateLinkConnectionStateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkConnectionStateInvokeResponseArgs) ToPrivateLinkConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkConnectionStateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkConnectionStateInvokeResponseOutput)
+}
+
+func (i PrivateLinkConnectionStateInvokeResponseArgs) ToPrivateLinkConnectionStateInvokeResponsePtrOutput() PrivateLinkConnectionStateInvokeResponsePtrOutput {
+	return i.ToPrivateLinkConnectionStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkConnectionStateInvokeResponseArgs) ToPrivateLinkConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkConnectionStateInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkConnectionStateInvokeResponseOutput).ToPrivateLinkConnectionStateInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkConnectionStateInvokeResponsePtrInput is an input type that accepts PrivateLinkConnectionStateInvokeResponseArgs, PrivateLinkConnectionStateInvokeResponsePtr and PrivateLinkConnectionStateInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkConnectionStateInvokeResponsePtrInput` via:
+//
+//          PrivateLinkConnectionStateInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkConnectionStateInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkConnectionStateInvokeResponsePtrOutput() PrivateLinkConnectionStateInvokeResponsePtrOutput
+	ToPrivateLinkConnectionStateInvokeResponsePtrOutputWithContext(context.Context) PrivateLinkConnectionStateInvokeResponsePtrOutput
+}
+
+type privateLinkConnectionStateInvokeResponsePtrType PrivateLinkConnectionStateInvokeResponseArgs
+
+func PrivateLinkConnectionStateInvokeResponsePtr(v *PrivateLinkConnectionStateInvokeResponseArgs) PrivateLinkConnectionStateInvokeResponsePtrInput {
+	return (*privateLinkConnectionStateInvokeResponsePtrType)(v)
+}
+
+func (*privateLinkConnectionStateInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateLinkConnectionStateInvokeResponsePtrType) ToPrivateLinkConnectionStateInvokeResponsePtrOutput() PrivateLinkConnectionStateInvokeResponsePtrOutput {
+	return i.ToPrivateLinkConnectionStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkConnectionStateInvokeResponsePtrType) ToPrivateLinkConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkConnectionStateInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkConnectionStateInvokeResponsePtrOutput)
+}
+
+// A collection of read-only information about the state of the connection to the private remote resource.
+type PrivateLinkConnectionStateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkConnectionStateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkConnectionStateInvokeResponseOutput) ToPrivateLinkConnectionStateInvokeResponseOutput() PrivateLinkConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkConnectionStateInvokeResponseOutput) ToPrivateLinkConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkConnectionStateInvokeResponseOutput) ToPrivateLinkConnectionStateInvokeResponsePtrOutput() PrivateLinkConnectionStateInvokeResponsePtrOutput {
+	return o.ToPrivateLinkConnectionStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkConnectionStateInvokeResponseOutput) ToPrivateLinkConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkConnectionStateInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateLinkConnectionStateInvokeResponse) *PrivateLinkConnectionStateInvokeResponse {
+		return &v
+	}).(PrivateLinkConnectionStateInvokeResponsePtrOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkConnectionStateInvokeResponseOutput) ActionsRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkConnectionStateInvokeResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkConnectionStateInvokeResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkConnectionStateInvokeResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the remote resource/service.
+func (o PrivateLinkConnectionStateInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkConnectionStateInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type PrivateLinkConnectionStateInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkConnectionStateInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkConnectionStateInvokeResponsePtrOutput) ToPrivateLinkConnectionStateInvokeResponsePtrOutput() PrivateLinkConnectionStateInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkConnectionStateInvokeResponsePtrOutput) ToPrivateLinkConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkConnectionStateInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkConnectionStateInvokeResponsePtrOutput) Elem() PrivateLinkConnectionStateInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkConnectionStateInvokeResponse) PrivateLinkConnectionStateInvokeResponse { return *v }).(PrivateLinkConnectionStateInvokeResponseOutput)
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkConnectionStateInvokeResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkConnectionStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkConnectionStateInvokeResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkConnectionStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the remote resource/service.
+func (o PrivateLinkConnectionStateInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkConnectionStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // A collection of read-only information about the state of the connection to the private remote resource.
@@ -1226,6 +1619,135 @@ func (o PrivateLinkServiceConnectionArrayOutput) Index(i pulumi.IntInput) Privat
 }
 
 // A grouping of information about the connection to the remote resource.
+type PrivateLinkServiceConnectionInvokeResponse struct {
+	// The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
+	GroupIds []string `pulumi:"groupIds"`
+	// A collection of read-only information about the state of the connection to the private remote resource.
+	PrivateLinkServiceConnectionState *PrivateLinkConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
+	PrivateLinkServiceId *string `pulumi:"privateLinkServiceId"`
+	// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
+	RequestMessage *string `pulumi:"requestMessage"`
+}
+
+// PrivateLinkServiceConnectionInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionInvokeResponseArgs and PrivateLinkServiceConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionInvokeResponseOutput() PrivateLinkServiceConnectionInvokeResponseOutput
+	ToPrivateLinkServiceConnectionInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionInvokeResponseOutput
+}
+
+// A grouping of information about the connection to the remote resource.
+type PrivateLinkServiceConnectionInvokeResponseArgs struct {
+	// The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
+	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
+	// A collection of read-only information about the state of the connection to the private remote resource.
+	PrivateLinkServiceConnectionState PrivateLinkConnectionStateInvokeResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
+	PrivateLinkServiceId pulumi.StringPtrInput `pulumi:"privateLinkServiceId"`
+	// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
+	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
+}
+
+func (PrivateLinkServiceConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionInvokeResponseArgs) ToPrivateLinkServiceConnectionInvokeResponseOutput() PrivateLinkServiceConnectionInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionInvokeResponseArgs) ToPrivateLinkServiceConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionInvokeResponseOutput)
+}
+
+// PrivateLinkServiceConnectionInvokeResponseArrayInput is an input type that accepts PrivateLinkServiceConnectionInvokeResponseArray and PrivateLinkServiceConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionInvokeResponseArrayInput` via:
+//
+//          PrivateLinkServiceConnectionInvokeResponseArray{ PrivateLinkServiceConnectionInvokeResponseArgs{...} }
+type PrivateLinkServiceConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionInvokeResponseArrayOutput() PrivateLinkServiceConnectionInvokeResponseArrayOutput
+	ToPrivateLinkServiceConnectionInvokeResponseArrayOutputWithContext(context.Context) PrivateLinkServiceConnectionInvokeResponseArrayOutput
+}
+
+type PrivateLinkServiceConnectionInvokeResponseArray []PrivateLinkServiceConnectionInvokeResponseInput
+
+func (PrivateLinkServiceConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkServiceConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionInvokeResponseArray) ToPrivateLinkServiceConnectionInvokeResponseArrayOutput() PrivateLinkServiceConnectionInvokeResponseArrayOutput {
+	return i.ToPrivateLinkServiceConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionInvokeResponseArray) ToPrivateLinkServiceConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionInvokeResponseArrayOutput)
+}
+
+// A grouping of information about the connection to the remote resource.
+type PrivateLinkServiceConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionInvokeResponseOutput) ToPrivateLinkServiceConnectionInvokeResponseOutput() PrivateLinkServiceConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionInvokeResponseOutput) ToPrivateLinkServiceConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionInvokeResponseOutput {
+	return o
+}
+
+// The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
+func (o PrivateLinkServiceConnectionInvokeResponseOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionInvokeResponse) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A collection of read-only information about the state of the connection to the private remote resource.
+func (o PrivateLinkServiceConnectionInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkConnectionStateInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionInvokeResponse) *PrivateLinkConnectionStateInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkConnectionStateInvokeResponsePtrOutput)
+}
+
+// The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
+func (o PrivateLinkServiceConnectionInvokeResponseOutput) PrivateLinkServiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionInvokeResponse) *string { return v.PrivateLinkServiceId }).(pulumi.StringPtrOutput)
+}
+
+// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
+func (o PrivateLinkServiceConnectionInvokeResponseOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionInvokeResponse) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkServiceConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionInvokeResponseArrayOutput) ToPrivateLinkServiceConnectionInvokeResponseArrayOutput() PrivateLinkServiceConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionInvokeResponseArrayOutput) ToPrivateLinkServiceConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateLinkServiceConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkServiceConnectionInvokeResponse {
+		return vs[0].([]PrivateLinkServiceConnectionInvokeResponse)[vs[1].(int)]
+	}).(PrivateLinkServiceConnectionInvokeResponseOutput)
+}
+
+// A grouping of information about the connection to the remote resource.
 type PrivateLinkServiceConnectionResponse struct {
 	// The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
 	GroupIds []string `pulumi:"groupIds"`
@@ -1355,22 +1877,29 @@ func (o PrivateLinkServiceConnectionResponseArrayOutput) Index(i pulumi.IntInput
 }
 
 func init() {
-	pulumi.RegisterOutputType(ClusterJobResponseOutput{})
-	pulumi.RegisterOutputType(ClusterJobResponseArrayOutput{})
+	pulumi.RegisterOutputType(ClusterJobInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ClusterJobInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ClusterPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuOutput{})
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterSkuResponseOutput{})
 	pulumi.RegisterOutputType(ClusterSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkConnectionStateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkConnectionStateInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionArrayOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionResponseArrayOutput{})
 }

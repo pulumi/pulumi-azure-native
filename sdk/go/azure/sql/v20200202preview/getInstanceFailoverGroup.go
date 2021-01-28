@@ -30,15 +30,15 @@ type LookupInstanceFailoverGroupResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// List of managed instance pairs in the failover group.
-	ManagedInstancePairs []ManagedInstancePairInfoResponse `pulumi:"managedInstancePairs"`
+	ManagedInstancePairs []ManagedInstancePairInfoInvokeResponse `pulumi:"managedInstancePairs"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Partner region information for the failover group.
-	PartnerRegions []PartnerRegionInfoResponse `pulumi:"partnerRegions"`
+	PartnerRegions []PartnerRegionInfoInvokeResponse `pulumi:"partnerRegions"`
 	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint *InstanceFailoverGroupReadOnlyEndpointResponse `pulumi:"readOnlyEndpoint"`
+	ReadOnlyEndpoint *InstanceFailoverGroupReadOnlyEndpointInvokeResponse `pulumi:"readOnlyEndpoint"`
 	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint InstanceFailoverGroupReadWriteEndpointResponse `pulumi:"readWriteEndpoint"`
+	ReadWriteEndpoint InstanceFailoverGroupReadWriteEndpointInvokeResponse `pulumi:"readWriteEndpoint"`
 	// Local replication role of the failover group instance.
 	ReplicationRole string `pulumi:"replicationRole"`
 	// Replication state of the failover group instance.

@@ -32,7 +32,7 @@ type LookupPrivateLinkScopeResult struct {
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// List of private endpoint connections.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.

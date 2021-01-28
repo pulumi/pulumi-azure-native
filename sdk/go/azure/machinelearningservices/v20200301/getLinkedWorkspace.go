@@ -32,7 +32,7 @@ type LookupLinkedWorkspaceResult struct {
 	// Friendly name of the linked workspace.
 	Name string `pulumi:"name"`
 	// LinkedWorkspace specific properties.
-	Properties LinkedWorkspacePropsResponse `pulumi:"properties"`
+	Properties LinkedWorkspacePropsInvokeResponse `pulumi:"properties"`
 	// Resource type of linked workspace.
 	Type string `pulumi:"type"`
 }

@@ -26,7 +26,7 @@ type LookupAddressByNameArgs struct {
 // Address Resource.
 type LookupAddressByNameResult struct {
 	// Contact details for the address
-	ContactDetails ContactDetailsResponse `pulumi:"contactDetails"`
+	ContactDetails ContactDetailsInvokeResponse `pulumi:"contactDetails"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
@@ -34,9 +34,9 @@ type LookupAddressByNameResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Shipping details for the address
-	ShippingAddress *ShippingAddressResponse `pulumi:"shippingAddress"`
+	ShippingAddress *ShippingAddressInvokeResponse `pulumi:"shippingAddress"`
 	// Represents resource creation and update time
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

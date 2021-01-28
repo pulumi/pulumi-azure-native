@@ -32,9 +32,9 @@ type LookupIntegrationServiceEnvironmentResult struct {
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The integration service environment properties.
-	Properties IntegrationServiceEnvironmentPropertiesResponse `pulumi:"properties"`
+	Properties IntegrationServiceEnvironmentPropertiesInvokeResponse `pulumi:"properties"`
 	// The sku.
-	Sku *IntegrationServiceEnvironmentSkuResponse `pulumi:"sku"`
+	Sku *IntegrationServiceEnvironmentSkuInvokeResponse `pulumi:"sku"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

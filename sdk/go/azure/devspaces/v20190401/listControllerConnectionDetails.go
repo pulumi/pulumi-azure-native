@@ -27,5 +27,5 @@ type ListControllerConnectionDetailsArgs struct {
 
 type ListControllerConnectionDetailsResult struct {
 	// List of Azure Dev Spaces Controller connection details.
-	ConnectionDetailsList []ControllerConnectionDetailsResponse `pulumi:"connectionDetailsList"`
+	ConnectionDetailsList []ControllerConnectionDetailsInvokeResponse `pulumi:"connectionDetailsList"`
 }

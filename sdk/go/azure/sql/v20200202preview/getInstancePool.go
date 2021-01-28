@@ -34,7 +34,7 @@ type LookupInstancePoolResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The name and tier of the SKU.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource ID of the subnet to place this instance pool in.
 	SubnetId string `pulumi:"subnetId"`
 	// Resource tags.

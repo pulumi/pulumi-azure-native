@@ -30,7 +30,7 @@ type LookupCostAllocationRuleResult struct {
 	// Name of the rule. This is a read only value.
 	Name string `pulumi:"name"`
 	// Cost allocation rule properties
-	Properties CostAllocationRulePropertiesResponse `pulumi:"properties"`
+	Properties CostAllocationRulePropertiesInvokeResponse `pulumi:"properties"`
 	// Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.
 	Type string `pulumi:"type"`
 }

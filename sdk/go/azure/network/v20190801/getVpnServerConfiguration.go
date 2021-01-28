@@ -26,7 +26,7 @@ type LookupVpnServerConfigurationArgs struct {
 // VpnServerConfiguration Resource.
 type LookupVpnServerConfigurationResult struct {
 	// The set of aad vpn authentication parameters.
-	AadAuthenticationParameters *AadAuthenticationParametersResponse `pulumi:"aadAuthenticationParameters"`
+	AadAuthenticationParameters *AadAuthenticationParametersInvokeResponse `pulumi:"aadAuthenticationParameters"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource ID.
@@ -36,15 +36,15 @@ type LookupVpnServerConfigurationResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// List of references to P2SVpnGateways.
-	P2SVpnGateways []P2SVpnGatewayResponse `pulumi:"p2SVpnGateways"`
+	P2SVpnGateways []P2SVpnGatewayInvokeResponse `pulumi:"p2SVpnGateways"`
 	// The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Radius client root certificate of VpnServerConfiguration.
-	RadiusClientRootCertificates []VpnServerConfigRadiusClientRootCertificateResponse `pulumi:"radiusClientRootCertificates"`
+	RadiusClientRootCertificates []VpnServerConfigRadiusClientRootCertificateInvokeResponse `pulumi:"radiusClientRootCertificates"`
 	// The radius server address property of the VpnServerConfiguration resource for point to site client connection.
 	RadiusServerAddress *string `pulumi:"radiusServerAddress"`
 	// Radius Server root certificate of VpnServerConfiguration.
-	RadiusServerRootCertificates []VpnServerConfigRadiusServerRootCertificateResponse `pulumi:"radiusServerRootCertificates"`
+	RadiusServerRootCertificates []VpnServerConfigRadiusServerRootCertificateInvokeResponse `pulumi:"radiusServerRootCertificates"`
 	// The radius secret property of the VpnServerConfiguration resource for point to site client connection.
 	RadiusServerSecret *string `pulumi:"radiusServerSecret"`
 	// Resource tags.
@@ -54,11 +54,11 @@ type LookupVpnServerConfigurationResult struct {
 	// VPN authentication types for the VpnServerConfiguration.
 	VpnAuthenticationTypes []string `pulumi:"vpnAuthenticationTypes"`
 	// VpnClientIpsecPolicies for VpnServerConfiguration.
-	VpnClientIpsecPolicies []IpsecPolicyResponse `pulumi:"vpnClientIpsecPolicies"`
+	VpnClientIpsecPolicies []IpsecPolicyInvokeResponse `pulumi:"vpnClientIpsecPolicies"`
 	// VPN client revoked certificate of VpnServerConfiguration.
-	VpnClientRevokedCertificates []VpnServerConfigVpnClientRevokedCertificateResponse `pulumi:"vpnClientRevokedCertificates"`
+	VpnClientRevokedCertificates []VpnServerConfigVpnClientRevokedCertificateInvokeResponse `pulumi:"vpnClientRevokedCertificates"`
 	// VPN client root certificate of VpnServerConfiguration.
-	VpnClientRootCertificates []VpnServerConfigVpnClientRootCertificateResponse `pulumi:"vpnClientRootCertificates"`
+	VpnClientRootCertificates []VpnServerConfigVpnClientRootCertificateInvokeResponse `pulumi:"vpnClientRootCertificates"`
 	// VPN protocols for the VpnServerConfiguration.
 	VpnProtocols []string `pulumi:"vpnProtocols"`
 }

@@ -30,7 +30,7 @@ type LookupProjectResult struct {
 	// UTC Date and time when project was created
 	CreationTime string `pulumi:"creationTime"`
 	// List of DatabaseInfo
-	DatabasesInfo []DatabaseInfoResponse `pulumi:"databasesInfo"`
+	DatabasesInfo []DatabaseInfoInvokeResponse `pulumi:"databasesInfo"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource location.
@@ -40,13 +40,13 @@ type LookupProjectResult struct {
 	// The project's provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Information for connecting to source
-	SourceConnectionInfo *SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+	SourceConnectionInfo *SqlConnectionInfoInvokeResponse `pulumi:"sourceConnectionInfo"`
 	// Source platform for the project
 	SourcePlatform string `pulumi:"sourcePlatform"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Information for connecting to target
-	TargetConnectionInfo *SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+	TargetConnectionInfo *SqlConnectionInfoInvokeResponse `pulumi:"targetConnectionInfo"`
 	// Target platform for the project
 	TargetPlatform string `pulumi:"targetPlatform"`
 	// Resource type.

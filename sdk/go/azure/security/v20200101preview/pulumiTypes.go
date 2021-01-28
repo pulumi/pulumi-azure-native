@@ -87,6 +87,113 @@ func (o AwAssumeRoleAuthenticationDetailsPropertiesOutput) AwsExternalId() pulum
 }
 
 // AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponse struct {
+	// The ID of the cloud account
+	AccountId string `pulumi:"accountId"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	// Expected value is 'awsAssumeRole'.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Assumed role ID is an identifier that you can use to create temporary security credentials.
+	AwsAssumeRoleArn string `pulumi:"awsAssumeRoleArn"`
+	// A unique identifier that is required when you assume a role in another account.
+	AwsExternalId string `pulumi:"awsExternalId"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions []string `pulumi:"grantedPermissions"`
+}
+
+// AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseInput is an input type that accepts AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseArgs and AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseInput` via:
+//
+//          AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseArgs{...}
+type AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput() AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput
+	ToAwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutputWithContext(context.Context) AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput
+}
+
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseArgs struct {
+	// The ID of the cloud account
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	// Expected value is 'awsAssumeRole'.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Assumed role ID is an identifier that you can use to create temporary security credentials.
+	AwsAssumeRoleArn pulumi.StringInput `pulumi:"awsAssumeRoleArn"`
+	// A unique identifier that is required when you assume a role in another account.
+	AwsExternalId pulumi.StringInput `pulumi:"awsExternalId"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+}
+
+func (AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseArgs) ToAwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput() AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput {
+	return i.ToAwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseArgs) ToAwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutputWithContext(ctx context.Context) AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput)
+}
+
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
+type AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput) ToAwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput() AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput) ToAwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutputWithContext(ctx context.Context) AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The ID of the cloud account
+func (o AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponse) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// State of the multi-cloud connector
+func (o AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponse) string {
+		return v.AuthenticationProvisioningState
+	}).(pulumi.StringOutput)
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+// Expected value is 'awsAssumeRole'.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Assumed role ID is an identifier that you can use to create temporary security credentials.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput) AwsAssumeRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponse) string { return v.AwsAssumeRoleArn }).(pulumi.StringOutput)
+}
+
+// A unique identifier that is required when you assume a role in another account.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput) AwsExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponse) string { return v.AwsExternalId }).(pulumi.StringOutput)
+}
+
+// The permissions detected in the cloud account.
+func (o AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponse) []string {
+		return v.GrantedPermissions
+	}).(pulumi.StringArrayOutput)
+}
+
+// AWS cloud account connector based assume role, the role enables delegating access to your AWS resources. The role is composed of role Amazon Resource Name (ARN) and external ID. For more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html">Creating a Role to Delegate Permissions to an IAM User (write only)</a>
 type AwAssumeRoleAuthenticationDetailsPropertiesResponse struct {
 	// The ID of the cloud account
 	AccountId string `pulumi:"accountId"`
@@ -265,6 +372,111 @@ func (o AwsCredsAuthenticationDetailsPropertiesOutput) AwsAccessKeyId() pulumi.S
 // Secret key element of the AWS credential object (write only)
 func (o AwsCredsAuthenticationDetailsPropertiesOutput) AwsSecretAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v AwsCredsAuthenticationDetailsProperties) string { return v.AwsSecretAccessKey }).(pulumi.StringOutput)
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesInvokeResponse struct {
+	// The ID of the cloud account
+	AccountId string `pulumi:"accountId"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	// Expected value is 'awsCreds'.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Public key element of the AWS credential object (write only)
+	AwsAccessKeyId string `pulumi:"awsAccessKeyId"`
+	// Secret key element of the AWS credential object (write only)
+	AwsSecretAccessKey string `pulumi:"awsSecretAccessKey"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions []string `pulumi:"grantedPermissions"`
+}
+
+// AwsCredsAuthenticationDetailsPropertiesInvokeResponseInput is an input type that accepts AwsCredsAuthenticationDetailsPropertiesInvokeResponseArgs and AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AwsCredsAuthenticationDetailsPropertiesInvokeResponseInput` via:
+//
+//          AwsCredsAuthenticationDetailsPropertiesInvokeResponseArgs{...}
+type AwsCredsAuthenticationDetailsPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput() AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput
+	ToAwsCredsAuthenticationDetailsPropertiesInvokeResponseOutputWithContext(context.Context) AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesInvokeResponseArgs struct {
+	// The ID of the cloud account
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	// Expected value is 'awsCreds'.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Public key element of the AWS credential object (write only)
+	AwsAccessKeyId pulumi.StringInput `pulumi:"awsAccessKeyId"`
+	// Secret key element of the AWS credential object (write only)
+	AwsSecretAccessKey pulumi.StringInput `pulumi:"awsSecretAccessKey"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+}
+
+func (AwsCredsAuthenticationDetailsPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCredsAuthenticationDetailsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AwsCredsAuthenticationDetailsPropertiesInvokeResponseArgs) ToAwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput() AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput {
+	return i.ToAwsCredsAuthenticationDetailsPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AwsCredsAuthenticationDetailsPropertiesInvokeResponseArgs) ToAwsCredsAuthenticationDetailsPropertiesInvokeResponseOutputWithContext(ctx context.Context) AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput)
+}
+
+// AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
+type AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AwsCredsAuthenticationDetailsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput) ToAwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput() AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput) ToAwsCredsAuthenticationDetailsPropertiesInvokeResponseOutputWithContext(ctx context.Context) AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The ID of the cloud account
+func (o AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesInvokeResponse) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// State of the multi-cloud connector
+func (o AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesInvokeResponse) string {
+		return v.AuthenticationProvisioningState
+	}).(pulumi.StringOutput)
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+// Expected value is 'awsCreds'.
+func (o AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesInvokeResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Public key element of the AWS credential object (write only)
+func (o AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput) AwsAccessKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesInvokeResponse) string { return v.AwsAccessKeyId }).(pulumi.StringOutput)
+}
+
+// Secret key element of the AWS credential object (write only)
+func (o AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput) AwsSecretAccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesInvokeResponse) string { return v.AwsSecretAccessKey }).(pulumi.StringOutput)
+}
+
+// The permissions detected in the cloud account.
+func (o AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AwsCredsAuthenticationDetailsPropertiesInvokeResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
 }
 
 // AWS cloud account connector based credentials, the credentials is composed of access key ID and secret key, for more details, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Creating an IAM User in Your AWS Account (write only)</a>
@@ -527,6 +739,181 @@ func (o GcpCredentialsDetailsPropertiesOutput) TokenUri() pulumi.StringOutput {
 // Type field of the API key (write only)
 func (o GcpCredentialsDetailsPropertiesOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GcpCredentialsDetailsProperties) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
+type GcpCredentialsDetailsPropertiesInvokeResponse struct {
+	// Auth provider x509 certificate URL field of the API key (write only)
+	AuthProviderX509CertUrl string `pulumi:"authProviderX509CertUrl"`
+	// Auth URI field of the API key (write only)
+	AuthUri string `pulumi:"authUri"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState string `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	// Expected value is 'gcpCredentials'.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Client email field of the API key (write only)
+	ClientEmail string `pulumi:"clientEmail"`
+	// Client ID field of the API key (write only)
+	ClientId string `pulumi:"clientId"`
+	// Client x509 certificate URL field of the API key (write only)
+	ClientX509CertUrl string `pulumi:"clientX509CertUrl"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions []string `pulumi:"grantedPermissions"`
+	// The organization ID of the GCP cloud account
+	OrganizationId string `pulumi:"organizationId"`
+	// Private key field of the API key (write only)
+	PrivateKey string `pulumi:"privateKey"`
+	// Private key ID field of the API key (write only)
+	PrivateKeyId string `pulumi:"privateKeyId"`
+	// Project ID field of the API key (write only)
+	ProjectId string `pulumi:"projectId"`
+	// Token URI field of the API key (write only)
+	TokenUri string `pulumi:"tokenUri"`
+	// Type field of the API key (write only)
+	Type string `pulumi:"type"`
+}
+
+// GcpCredentialsDetailsPropertiesInvokeResponseInput is an input type that accepts GcpCredentialsDetailsPropertiesInvokeResponseArgs and GcpCredentialsDetailsPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `GcpCredentialsDetailsPropertiesInvokeResponseInput` via:
+//
+//          GcpCredentialsDetailsPropertiesInvokeResponseArgs{...}
+type GcpCredentialsDetailsPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGcpCredentialsDetailsPropertiesInvokeResponseOutput() GcpCredentialsDetailsPropertiesInvokeResponseOutput
+	ToGcpCredentialsDetailsPropertiesInvokeResponseOutputWithContext(context.Context) GcpCredentialsDetailsPropertiesInvokeResponseOutput
+}
+
+// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
+type GcpCredentialsDetailsPropertiesInvokeResponseArgs struct {
+	// Auth provider x509 certificate URL field of the API key (write only)
+	AuthProviderX509CertUrl pulumi.StringInput `pulumi:"authProviderX509CertUrl"`
+	// Auth URI field of the API key (write only)
+	AuthUri pulumi.StringInput `pulumi:"authUri"`
+	// State of the multi-cloud connector
+	AuthenticationProvisioningState pulumi.StringInput `pulumi:"authenticationProvisioningState"`
+	// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+	// Expected value is 'gcpCredentials'.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Client email field of the API key (write only)
+	ClientEmail pulumi.StringInput `pulumi:"clientEmail"`
+	// Client ID field of the API key (write only)
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Client x509 certificate URL field of the API key (write only)
+	ClientX509CertUrl pulumi.StringInput `pulumi:"clientX509CertUrl"`
+	// The permissions detected in the cloud account.
+	GrantedPermissions pulumi.StringArrayInput `pulumi:"grantedPermissions"`
+	// The organization ID of the GCP cloud account
+	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
+	// Private key field of the API key (write only)
+	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
+	// Private key ID field of the API key (write only)
+	PrivateKeyId pulumi.StringInput `pulumi:"privateKeyId"`
+	// Project ID field of the API key (write only)
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+	// Token URI field of the API key (write only)
+	TokenUri pulumi.StringInput `pulumi:"tokenUri"`
+	// Type field of the API key (write only)
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GcpCredentialsDetailsPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpCredentialsDetailsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i GcpCredentialsDetailsPropertiesInvokeResponseArgs) ToGcpCredentialsDetailsPropertiesInvokeResponseOutput() GcpCredentialsDetailsPropertiesInvokeResponseOutput {
+	return i.ToGcpCredentialsDetailsPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GcpCredentialsDetailsPropertiesInvokeResponseArgs) ToGcpCredentialsDetailsPropertiesInvokeResponseOutputWithContext(ctx context.Context) GcpCredentialsDetailsPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcpCredentialsDetailsPropertiesInvokeResponseOutput)
+}
+
+// GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
+type GcpCredentialsDetailsPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GcpCredentialsDetailsPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcpCredentialsDetailsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) ToGcpCredentialsDetailsPropertiesInvokeResponseOutput() GcpCredentialsDetailsPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) ToGcpCredentialsDetailsPropertiesInvokeResponseOutputWithContext(ctx context.Context) GcpCredentialsDetailsPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Auth provider x509 certificate URL field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) AuthProviderX509CertUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.AuthProviderX509CertUrl }).(pulumi.StringOutput)
+}
+
+// Auth URI field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) AuthUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.AuthUri }).(pulumi.StringOutput)
+}
+
+// State of the multi-cloud connector
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) AuthenticationProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.AuthenticationProvisioningState }).(pulumi.StringOutput)
+}
+
+// Connect to your cloud account, for AWS use either account credentials or role-based authentication. For GCP use account organization credentials.
+// Expected value is 'gcpCredentials'.
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Client email field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) ClientEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.ClientEmail }).(pulumi.StringOutput)
+}
+
+// Client ID field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Client x509 certificate URL field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) ClientX509CertUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.ClientX509CertUrl }).(pulumi.StringOutput)
+}
+
+// The permissions detected in the cloud account.
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) GrantedPermissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) []string { return v.GrantedPermissions }).(pulumi.StringArrayOutput)
+}
+
+// The organization ID of the GCP cloud account
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) OrganizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+// Private key field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) PrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.PrivateKey }).(pulumi.StringOutput)
+}
+
+// Private key ID field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) PrivateKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.PrivateKeyId }).(pulumi.StringOutput)
+}
+
+// Project ID field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// Token URI field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) TokenUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.TokenUri }).(pulumi.StringOutput)
+}
+
+// Type field of the API key (write only)
+func (o GcpCredentialsDetailsPropertiesInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GcpCredentialsDetailsPropertiesInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
@@ -915,6 +1302,110 @@ func (o HybridComputeSettingsPropertiesPtrOutput) ServicePrincipal() ServicePrin
 }
 
 // Settings for hybrid compute management
+type HybridComputeSettingsPropertiesInvokeResponse struct {
+	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+	AutoProvision string `pulumi:"autoProvision"`
+	// State of the service principal and its secret
+	HybridComputeProvisioningState string `pulumi:"hybridComputeProvisioningState"`
+	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+	ProxyServer *ProxyServerPropertiesInvokeResponse `pulumi:"proxyServer"`
+	// The location where the metadata of machines will be stored
+	Region *string `pulumi:"region"`
+	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// An object to access resources that are secured by an Azure AD tenant.
+	ServicePrincipal *ServicePrincipalPropertiesInvokeResponse `pulumi:"servicePrincipal"`
+}
+
+// HybridComputeSettingsPropertiesInvokeResponseInput is an input type that accepts HybridComputeSettingsPropertiesInvokeResponseArgs and HybridComputeSettingsPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `HybridComputeSettingsPropertiesInvokeResponseInput` via:
+//
+//          HybridComputeSettingsPropertiesInvokeResponseArgs{...}
+type HybridComputeSettingsPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHybridComputeSettingsPropertiesInvokeResponseOutput() HybridComputeSettingsPropertiesInvokeResponseOutput
+	ToHybridComputeSettingsPropertiesInvokeResponseOutputWithContext(context.Context) HybridComputeSettingsPropertiesInvokeResponseOutput
+}
+
+// Settings for hybrid compute management
+type HybridComputeSettingsPropertiesInvokeResponseArgs struct {
+	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+	AutoProvision pulumi.StringInput `pulumi:"autoProvision"`
+	// State of the service principal and its secret
+	HybridComputeProvisioningState pulumi.StringInput `pulumi:"hybridComputeProvisioningState"`
+	// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+	ProxyServer ProxyServerPropertiesInvokeResponsePtrInput `pulumi:"proxyServer"`
+	// The location where the metadata of machines will be stored
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// An object to access resources that are secured by an Azure AD tenant.
+	ServicePrincipal ServicePrincipalPropertiesInvokeResponsePtrInput `pulumi:"servicePrincipal"`
+}
+
+func (HybridComputeSettingsPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridComputeSettingsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i HybridComputeSettingsPropertiesInvokeResponseArgs) ToHybridComputeSettingsPropertiesInvokeResponseOutput() HybridComputeSettingsPropertiesInvokeResponseOutput {
+	return i.ToHybridComputeSettingsPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HybridComputeSettingsPropertiesInvokeResponseArgs) ToHybridComputeSettingsPropertiesInvokeResponseOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridComputeSettingsPropertiesInvokeResponseOutput)
+}
+
+// Settings for hybrid compute management
+type HybridComputeSettingsPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HybridComputeSettingsPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridComputeSettingsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o HybridComputeSettingsPropertiesInvokeResponseOutput) ToHybridComputeSettingsPropertiesInvokeResponseOutput() HybridComputeSettingsPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o HybridComputeSettingsPropertiesInvokeResponseOutput) ToHybridComputeSettingsPropertiesInvokeResponseOutputWithContext(ctx context.Context) HybridComputeSettingsPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
+func (o HybridComputeSettingsPropertiesInvokeResponseOutput) AutoProvision() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesInvokeResponse) string { return v.AutoProvision }).(pulumi.StringOutput)
+}
+
+// State of the service principal and its secret
+func (o HybridComputeSettingsPropertiesInvokeResponseOutput) HybridComputeProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesInvokeResponse) string { return v.HybridComputeProvisioningState }).(pulumi.StringOutput)
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+func (o HybridComputeSettingsPropertiesInvokeResponseOutput) ProxyServer() ProxyServerPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesInvokeResponse) *ProxyServerPropertiesInvokeResponse {
+		return v.ProxyServer
+	}).(ProxyServerPropertiesInvokeResponsePtrOutput)
+}
+
+// The location where the metadata of machines will be stored
+func (o HybridComputeSettingsPropertiesInvokeResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesInvokeResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group where Arc (Hybrid Compute) connectors are connected.
+func (o HybridComputeSettingsPropertiesInvokeResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesInvokeResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// An object to access resources that are secured by an Azure AD tenant.
+func (o HybridComputeSettingsPropertiesInvokeResponseOutput) ServicePrincipal() ServicePrincipalPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v HybridComputeSettingsPropertiesInvokeResponse) *ServicePrincipalPropertiesInvokeResponse {
+		return v.ServicePrincipal
+	}).(ServicePrincipalPropertiesInvokeResponsePtrOutput)
+}
+
+// Settings for hybrid compute management
 type HybridComputeSettingsPropertiesResponse struct {
 	// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
 	AutoProvision string `pulumi:"autoProvision"`
@@ -1299,6 +1790,159 @@ func (o ProxyServerPropertiesPtrOutput) Port() pulumi.StringPtrOutput {
 }
 
 // For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+type ProxyServerPropertiesInvokeResponse struct {
+	// Proxy server IP
+	Ip *string `pulumi:"ip"`
+	// Proxy server port
+	Port *string `pulumi:"port"`
+}
+
+// ProxyServerPropertiesInvokeResponseInput is an input type that accepts ProxyServerPropertiesInvokeResponseArgs and ProxyServerPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ProxyServerPropertiesInvokeResponseInput` via:
+//
+//          ProxyServerPropertiesInvokeResponseArgs{...}
+type ProxyServerPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToProxyServerPropertiesInvokeResponseOutput() ProxyServerPropertiesInvokeResponseOutput
+	ToProxyServerPropertiesInvokeResponseOutputWithContext(context.Context) ProxyServerPropertiesInvokeResponseOutput
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+type ProxyServerPropertiesInvokeResponseArgs struct {
+	// Proxy server IP
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// Proxy server port
+	Port pulumi.StringPtrInput `pulumi:"port"`
+}
+
+func (ProxyServerPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyServerPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ProxyServerPropertiesInvokeResponseArgs) ToProxyServerPropertiesInvokeResponseOutput() ProxyServerPropertiesInvokeResponseOutput {
+	return i.ToProxyServerPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ProxyServerPropertiesInvokeResponseArgs) ToProxyServerPropertiesInvokeResponseOutputWithContext(ctx context.Context) ProxyServerPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesInvokeResponseOutput)
+}
+
+func (i ProxyServerPropertiesInvokeResponseArgs) ToProxyServerPropertiesInvokeResponsePtrOutput() ProxyServerPropertiesInvokeResponsePtrOutput {
+	return i.ToProxyServerPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProxyServerPropertiesInvokeResponseArgs) ToProxyServerPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ProxyServerPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesInvokeResponseOutput).ToProxyServerPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ProxyServerPropertiesInvokeResponsePtrInput is an input type that accepts ProxyServerPropertiesInvokeResponseArgs, ProxyServerPropertiesInvokeResponsePtr and ProxyServerPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ProxyServerPropertiesInvokeResponsePtrInput` via:
+//
+//          ProxyServerPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ProxyServerPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToProxyServerPropertiesInvokeResponsePtrOutput() ProxyServerPropertiesInvokeResponsePtrOutput
+	ToProxyServerPropertiesInvokeResponsePtrOutputWithContext(context.Context) ProxyServerPropertiesInvokeResponsePtrOutput
+}
+
+type proxyServerPropertiesInvokeResponsePtrType ProxyServerPropertiesInvokeResponseArgs
+
+func ProxyServerPropertiesInvokeResponsePtr(v *ProxyServerPropertiesInvokeResponseArgs) ProxyServerPropertiesInvokeResponsePtrInput {
+	return (*proxyServerPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*proxyServerPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyServerPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *proxyServerPropertiesInvokeResponsePtrType) ToProxyServerPropertiesInvokeResponsePtrOutput() ProxyServerPropertiesInvokeResponsePtrOutput {
+	return i.ToProxyServerPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *proxyServerPropertiesInvokeResponsePtrType) ToProxyServerPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ProxyServerPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProxyServerPropertiesInvokeResponsePtrOutput)
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
+type ProxyServerPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ProxyServerPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProxyServerPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ProxyServerPropertiesInvokeResponseOutput) ToProxyServerPropertiesInvokeResponseOutput() ProxyServerPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesInvokeResponseOutput) ToProxyServerPropertiesInvokeResponseOutputWithContext(ctx context.Context) ProxyServerPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesInvokeResponseOutput) ToProxyServerPropertiesInvokeResponsePtrOutput() ProxyServerPropertiesInvokeResponsePtrOutput {
+	return o.ToProxyServerPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProxyServerPropertiesInvokeResponseOutput) ToProxyServerPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ProxyServerPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ProxyServerPropertiesInvokeResponse) *ProxyServerPropertiesInvokeResponse {
+		return &v
+	}).(ProxyServerPropertiesInvokeResponsePtrOutput)
+}
+
+// Proxy server IP
+func (o ProxyServerPropertiesInvokeResponseOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyServerPropertiesInvokeResponse) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// Proxy server port
+func (o ProxyServerPropertiesInvokeResponseOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyServerPropertiesInvokeResponse) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+type ProxyServerPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProxyServerPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProxyServerPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ProxyServerPropertiesInvokeResponsePtrOutput) ToProxyServerPropertiesInvokeResponsePtrOutput() ProxyServerPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesInvokeResponsePtrOutput) ToProxyServerPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ProxyServerPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ProxyServerPropertiesInvokeResponsePtrOutput) Elem() ProxyServerPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *ProxyServerPropertiesInvokeResponse) ProxyServerPropertiesInvokeResponse { return *v }).(ProxyServerPropertiesInvokeResponseOutput)
+}
+
+// Proxy server IP
+func (o ProxyServerPropertiesInvokeResponsePtrOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyServerPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ip
+	}).(pulumi.StringPtrOutput)
+}
+
+// Proxy server port
+func (o ProxyServerPropertiesInvokeResponsePtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProxyServerPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
+// For a non-Azure machine that is not connected directly to the internet, specify a proxy server that the non-Azure machine can use.
 type ProxyServerPropertiesResponse struct {
 	// Proxy server IP
 	Ip *string `pulumi:"ip"`
@@ -1449,6 +2093,134 @@ func (o ProxyServerPropertiesResponsePtrOutput) Port() pulumi.StringPtrOutput {
 		}
 		return v.Port
 	}).(pulumi.StringPtrOutput)
+}
+
+// Defines whether to send email notifications about new security alerts
+type SecurityContactPropertiesInvokeResponseAlertNotifications struct {
+	// Defines the minimal alert severity which will be sent as email notifications
+	MinimalSeverity *string `pulumi:"minimalSeverity"`
+	// Defines if email notifications will be sent about new security alerts
+	State *string `pulumi:"state"`
+}
+
+// SecurityContactPropertiesInvokeResponseAlertNotificationsInput is an input type that accepts SecurityContactPropertiesInvokeResponseAlertNotificationsArgs and SecurityContactPropertiesInvokeResponseAlertNotificationsOutput values.
+// You can construct a concrete instance of `SecurityContactPropertiesInvokeResponseAlertNotificationsInput` via:
+//
+//          SecurityContactPropertiesInvokeResponseAlertNotificationsArgs{...}
+type SecurityContactPropertiesInvokeResponseAlertNotificationsInput interface {
+	pulumi.Input
+
+	ToSecurityContactPropertiesInvokeResponseAlertNotificationsOutput() SecurityContactPropertiesInvokeResponseAlertNotificationsOutput
+	ToSecurityContactPropertiesInvokeResponseAlertNotificationsOutputWithContext(context.Context) SecurityContactPropertiesInvokeResponseAlertNotificationsOutput
+}
+
+// Defines whether to send email notifications about new security alerts
+type SecurityContactPropertiesInvokeResponseAlertNotificationsArgs struct {
+	// Defines the minimal alert severity which will be sent as email notifications
+	MinimalSeverity pulumi.StringPtrInput `pulumi:"minimalSeverity"`
+	// Defines if email notifications will be sent about new security alerts
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (SecurityContactPropertiesInvokeResponseAlertNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesInvokeResponseAlertNotifications)(nil)).Elem()
+}
+
+func (i SecurityContactPropertiesInvokeResponseAlertNotificationsArgs) ToSecurityContactPropertiesInvokeResponseAlertNotificationsOutput() SecurityContactPropertiesInvokeResponseAlertNotificationsOutput {
+	return i.ToSecurityContactPropertiesInvokeResponseAlertNotificationsOutputWithContext(context.Background())
+}
+
+func (i SecurityContactPropertiesInvokeResponseAlertNotificationsArgs) ToSecurityContactPropertiesInvokeResponseAlertNotificationsOutputWithContext(ctx context.Context) SecurityContactPropertiesInvokeResponseAlertNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesInvokeResponseAlertNotificationsOutput)
+}
+
+// Defines whether to send email notifications about new security alerts
+type SecurityContactPropertiesInvokeResponseAlertNotificationsOutput struct{ *pulumi.OutputState }
+
+func (SecurityContactPropertiesInvokeResponseAlertNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesInvokeResponseAlertNotifications)(nil)).Elem()
+}
+
+func (o SecurityContactPropertiesInvokeResponseAlertNotificationsOutput) ToSecurityContactPropertiesInvokeResponseAlertNotificationsOutput() SecurityContactPropertiesInvokeResponseAlertNotificationsOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesInvokeResponseAlertNotificationsOutput) ToSecurityContactPropertiesInvokeResponseAlertNotificationsOutputWithContext(ctx context.Context) SecurityContactPropertiesInvokeResponseAlertNotificationsOutput {
+	return o
+}
+
+// Defines the minimal alert severity which will be sent as email notifications
+func (o SecurityContactPropertiesInvokeResponseAlertNotificationsOutput) MinimalSeverity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesInvokeResponseAlertNotifications) *string { return v.MinimalSeverity }).(pulumi.StringPtrOutput)
+}
+
+// Defines if email notifications will be sent about new security alerts
+func (o SecurityContactPropertiesInvokeResponseAlertNotificationsOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesInvokeResponseAlertNotifications) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+type SecurityContactPropertiesInvokeResponseNotificationsByRole struct {
+	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+	Roles []string `pulumi:"roles"`
+	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	State *string `pulumi:"state"`
+}
+
+// SecurityContactPropertiesInvokeResponseNotificationsByRoleInput is an input type that accepts SecurityContactPropertiesInvokeResponseNotificationsByRoleArgs and SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput values.
+// You can construct a concrete instance of `SecurityContactPropertiesInvokeResponseNotificationsByRoleInput` via:
+//
+//          SecurityContactPropertiesInvokeResponseNotificationsByRoleArgs{...}
+type SecurityContactPropertiesInvokeResponseNotificationsByRoleInput interface {
+	pulumi.Input
+
+	ToSecurityContactPropertiesInvokeResponseNotificationsByRoleOutput() SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput
+	ToSecurityContactPropertiesInvokeResponseNotificationsByRoleOutputWithContext(context.Context) SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+type SecurityContactPropertiesInvokeResponseNotificationsByRoleArgs struct {
+	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (SecurityContactPropertiesInvokeResponseNotificationsByRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesInvokeResponseNotificationsByRole)(nil)).Elem()
+}
+
+func (i SecurityContactPropertiesInvokeResponseNotificationsByRoleArgs) ToSecurityContactPropertiesInvokeResponseNotificationsByRoleOutput() SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput {
+	return i.ToSecurityContactPropertiesInvokeResponseNotificationsByRoleOutputWithContext(context.Background())
+}
+
+func (i SecurityContactPropertiesInvokeResponseNotificationsByRoleArgs) ToSecurityContactPropertiesInvokeResponseNotificationsByRoleOutputWithContext(ctx context.Context) SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+type SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput struct{ *pulumi.OutputState }
+
+func (SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityContactPropertiesInvokeResponseNotificationsByRole)(nil)).Elem()
+}
+
+func (o SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput) ToSecurityContactPropertiesInvokeResponseNotificationsByRoleOutput() SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput {
+	return o
+}
+
+func (o SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput) ToSecurityContactPropertiesInvokeResponseNotificationsByRoleOutputWithContext(ctx context.Context) SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput {
+	return o
+}
+
+// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+func (o SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesInvokeResponseNotificationsByRole) []string { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+func (o SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityContactPropertiesInvokeResponseNotificationsByRole) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
 // Defines whether to send email notifications about new security alerts
@@ -1915,6 +2687,159 @@ func (o ServicePrincipalPropertiesPtrOutput) Secret() pulumi.StringPtrOutput {
 }
 
 // Details of the service principal.
+type ServicePrincipalPropertiesInvokeResponse struct {
+	// Application ID of service principal.
+	ApplicationId *string `pulumi:"applicationId"`
+	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+	Secret *string `pulumi:"secret"`
+}
+
+// ServicePrincipalPropertiesInvokeResponseInput is an input type that accepts ServicePrincipalPropertiesInvokeResponseArgs and ServicePrincipalPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ServicePrincipalPropertiesInvokeResponseInput` via:
+//
+//          ServicePrincipalPropertiesInvokeResponseArgs{...}
+type ServicePrincipalPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPropertiesInvokeResponseOutput() ServicePrincipalPropertiesInvokeResponseOutput
+	ToServicePrincipalPropertiesInvokeResponseOutputWithContext(context.Context) ServicePrincipalPropertiesInvokeResponseOutput
+}
+
+// Details of the service principal.
+type ServicePrincipalPropertiesInvokeResponseArgs struct {
+	// Application ID of service principal.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+}
+
+func (ServicePrincipalPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ServicePrincipalPropertiesInvokeResponseArgs) ToServicePrincipalPropertiesInvokeResponseOutput() ServicePrincipalPropertiesInvokeResponseOutput {
+	return i.ToServicePrincipalPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalPropertiesInvokeResponseArgs) ToServicePrincipalPropertiesInvokeResponseOutputWithContext(ctx context.Context) ServicePrincipalPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesInvokeResponseOutput)
+}
+
+func (i ServicePrincipalPropertiesInvokeResponseArgs) ToServicePrincipalPropertiesInvokeResponsePtrOutput() ServicePrincipalPropertiesInvokeResponsePtrOutput {
+	return i.ToServicePrincipalPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalPropertiesInvokeResponseArgs) ToServicePrincipalPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesInvokeResponseOutput).ToServicePrincipalPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServicePrincipalPropertiesInvokeResponsePtrInput is an input type that accepts ServicePrincipalPropertiesInvokeResponseArgs, ServicePrincipalPropertiesInvokeResponsePtr and ServicePrincipalPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServicePrincipalPropertiesInvokeResponsePtrInput` via:
+//
+//          ServicePrincipalPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServicePrincipalPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPropertiesInvokeResponsePtrOutput() ServicePrincipalPropertiesInvokeResponsePtrOutput
+	ToServicePrincipalPropertiesInvokeResponsePtrOutputWithContext(context.Context) ServicePrincipalPropertiesInvokeResponsePtrOutput
+}
+
+type servicePrincipalPropertiesInvokeResponsePtrType ServicePrincipalPropertiesInvokeResponseArgs
+
+func ServicePrincipalPropertiesInvokeResponsePtr(v *ServicePrincipalPropertiesInvokeResponseArgs) ServicePrincipalPropertiesInvokeResponsePtrInput {
+	return (*servicePrincipalPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*servicePrincipalPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *servicePrincipalPropertiesInvokeResponsePtrType) ToServicePrincipalPropertiesInvokeResponsePtrOutput() ServicePrincipalPropertiesInvokeResponsePtrOutput {
+	return i.ToServicePrincipalPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *servicePrincipalPropertiesInvokeResponsePtrType) ToServicePrincipalPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesInvokeResponsePtrOutput)
+}
+
+// Details of the service principal.
+type ServicePrincipalPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ServicePrincipalPropertiesInvokeResponseOutput) ToServicePrincipalPropertiesInvokeResponseOutput() ServicePrincipalPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesInvokeResponseOutput) ToServicePrincipalPropertiesInvokeResponseOutputWithContext(ctx context.Context) ServicePrincipalPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesInvokeResponseOutput) ToServicePrincipalPropertiesInvokeResponsePtrOutput() ServicePrincipalPropertiesInvokeResponsePtrOutput {
+	return o.ToServicePrincipalPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServicePrincipalPropertiesInvokeResponseOutput) ToServicePrincipalPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServicePrincipalPropertiesInvokeResponse) *ServicePrincipalPropertiesInvokeResponse {
+		return &v
+	}).(ServicePrincipalPropertiesInvokeResponsePtrOutput)
+}
+
+// Application ID of service principal.
+func (o ServicePrincipalPropertiesInvokeResponseOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalPropertiesInvokeResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+func (o ServicePrincipalPropertiesInvokeResponseOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalPropertiesInvokeResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+type ServicePrincipalPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServicePrincipalPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ServicePrincipalPropertiesInvokeResponsePtrOutput) ToServicePrincipalPropertiesInvokeResponsePtrOutput() ServicePrincipalPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesInvokeResponsePtrOutput) ToServicePrincipalPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesInvokeResponsePtrOutput) Elem() ServicePrincipalPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *ServicePrincipalPropertiesInvokeResponse) ServicePrincipalPropertiesInvokeResponse { return *v }).(ServicePrincipalPropertiesInvokeResponseOutput)
+}
+
+// Application ID of service principal.
+func (o ServicePrincipalPropertiesInvokeResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A secret string that the application uses to prove its identity, also can be referred to as application password (write only).
+func (o ServicePrincipalPropertiesInvokeResponsePtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServicePrincipalPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the service principal.
 type ServicePrincipalPropertiesResponse struct {
 	// Application ID of service principal.
 	ApplicationId *string `pulumi:"applicationId"`
@@ -2069,25 +2994,35 @@ func (o ServicePrincipalPropertiesResponsePtrOutput) Secret() pulumi.StringPtrOu
 
 func init() {
 	pulumi.RegisterOutputType(AwAssumeRoleAuthenticationDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(AwAssumeRoleAuthenticationDetailsPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AwAssumeRoleAuthenticationDetailsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AwsCredsAuthenticationDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(AwsCredsAuthenticationDetailsPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AwsCredsAuthenticationDetailsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GcpCredentialsDetailsPropertiesOutput{})
+	pulumi.RegisterOutputType(GcpCredentialsDetailsPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GcpCredentialsDetailsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HybridComputeSettingsPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProxyServerPropertiesOutput{})
 	pulumi.RegisterOutputType(ProxyServerPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ProxyServerPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ProxyServerPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProxyServerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProxyServerPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SecurityContactPropertiesInvokeResponseAlertNotificationsOutput{})
+	pulumi.RegisterOutputType(SecurityContactPropertiesInvokeResponseNotificationsByRoleOutput{})
 	pulumi.RegisterOutputType(SecurityContactPropertiesResponseAlertNotificationsOutput{})
 	pulumi.RegisterOutputType(SecurityContactPropertiesResponseAlertNotificationsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityContactPropertiesResponseNotificationsByRoleOutput{})
 	pulumi.RegisterOutputType(SecurityContactPropertiesResponseNotificationsByRolePtrOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalPropertiesOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalPropertiesResponsePtrOutput{})
 }

@@ -30,5 +30,5 @@ type LookupDeploymentResult struct {
 	// Gets or sets the name of the deployment.
 	Name string `pulumi:"name"`
 	// Gets or sets deployment properties.
-	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
+	Properties DeploymentPropertiesExtendedInvokeResponse `pulumi:"properties"`
 }

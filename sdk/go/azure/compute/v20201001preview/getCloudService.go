@@ -32,7 +32,7 @@ type LookupCloudServiceResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Cloud service properties
-	Properties CloudServicePropertiesResponse `pulumi:"properties"`
+	Properties CloudServicePropertiesInvokeResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -40,9 +40,9 @@ type LookupServiceEndpointPolicyResult struct {
 	// The resource GUID property of the service endpoint policy resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// A collection of service endpoint policy definitions of the service endpoint policy.
-	ServiceEndpointPolicyDefinitions []ServiceEndpointPolicyDefinitionResponse `pulumi:"serviceEndpointPolicyDefinitions"`
+	ServiceEndpointPolicyDefinitions []ServiceEndpointPolicyDefinitionInvokeResponse `pulumi:"serviceEndpointPolicyDefinitions"`
 	// A collection of references to subnets.
-	Subnets []SubnetResponse `pulumi:"subnets"`
+	Subnets []SubnetInvokeResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

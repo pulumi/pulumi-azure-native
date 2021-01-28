@@ -28,11 +28,11 @@ type LookupWorkbookTemplateResult struct {
 	// Information about the author of the workbook template.
 	Author *string `pulumi:"author"`
 	// Workbook galleries supported by the template.
-	Galleries []WorkbookTemplateGalleryResponse `pulumi:"galleries"`
+	Galleries []WorkbookTemplateGalleryInvokeResponse `pulumi:"galleries"`
 	// Azure resource Id
 	Id string `pulumi:"id"`
 	// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
-	Localized map[string][]WorkbookTemplateLocalizedGalleryResponse `pulumi:"localized"`
+	Localized map[string][]WorkbookTemplateLocalizedGalleryInvokeResponse `pulumi:"localized"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name.

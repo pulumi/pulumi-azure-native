@@ -26,7 +26,7 @@ type LookupDiskArgs struct {
 // Disk resource.
 type LookupDiskResult struct {
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponse `pulumi:"creationData"`
+	CreationData CreationDataInvokeResponse `pulumi:"creationData"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
 	DiskIOPSReadWrite *float64 `pulumi:"diskIOPSReadWrite"`
 	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
@@ -38,7 +38,7 @@ type LookupDiskResult struct {
 	// The state of the disk.
 	DiskState string `pulumi:"diskState"`
 	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
+	EncryptionSettingsCollection *EncryptionSettingsCollectionInvokeResponse `pulumi:"encryptionSettingsCollection"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource Id
@@ -54,7 +54,7 @@ type LookupDiskResult struct {
 	// The disk provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-	Sku *DiskSkuResponse `pulumi:"sku"`
+	Sku *DiskSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The time when the disk was created.

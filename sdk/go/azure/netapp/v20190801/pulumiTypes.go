@@ -174,6 +174,169 @@ func (o ActiveDirectoryArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryOutp
 }
 
 // Active Directory
+type ActiveDirectoryInvokeResponse struct {
+	// Id of the Active Directory
+	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
+	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
+	Dns *string `pulumi:"dns"`
+	// Name of the Active Directory domain
+	Domain *string `pulumi:"domain"`
+	// The Organizational Unit (OU) within the Windows Active Directory
+	OrganizationalUnit *string `pulumi:"organizationalUnit"`
+	// Plain text password of Active Directory domain administrator
+	Password *string `pulumi:"password"`
+	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+	SmbServerName *string `pulumi:"smbServerName"`
+	// Status of the Active Directory
+	Status *string `pulumi:"status"`
+	// Username of Active Directory domain administrator
+	Username *string `pulumi:"username"`
+}
+
+// ActiveDirectoryInvokeResponseInput is an input type that accepts ActiveDirectoryInvokeResponseArgs and ActiveDirectoryInvokeResponseOutput values.
+// You can construct a concrete instance of `ActiveDirectoryInvokeResponseInput` via:
+//
+//          ActiveDirectoryInvokeResponseArgs{...}
+type ActiveDirectoryInvokeResponseInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryInvokeResponseOutput() ActiveDirectoryInvokeResponseOutput
+	ToActiveDirectoryInvokeResponseOutputWithContext(context.Context) ActiveDirectoryInvokeResponseOutput
+}
+
+// Active Directory
+type ActiveDirectoryInvokeResponseArgs struct {
+	// Id of the Active Directory
+	ActiveDirectoryId pulumi.StringPtrInput `pulumi:"activeDirectoryId"`
+	// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
+	Dns pulumi.StringPtrInput `pulumi:"dns"`
+	// Name of the Active Directory domain
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// The Organizational Unit (OU) within the Windows Active Directory
+	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
+	// Plain text password of Active Directory domain administrator
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+	SmbServerName pulumi.StringPtrInput `pulumi:"smbServerName"`
+	// Status of the Active Directory
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Username of Active Directory domain administrator
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (ActiveDirectoryInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryInvokeResponse)(nil)).Elem()
+}
+
+func (i ActiveDirectoryInvokeResponseArgs) ToActiveDirectoryInvokeResponseOutput() ActiveDirectoryInvokeResponseOutput {
+	return i.ToActiveDirectoryInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryInvokeResponseArgs) ToActiveDirectoryInvokeResponseOutputWithContext(ctx context.Context) ActiveDirectoryInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryInvokeResponseOutput)
+}
+
+// ActiveDirectoryInvokeResponseArrayInput is an input type that accepts ActiveDirectoryInvokeResponseArray and ActiveDirectoryInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ActiveDirectoryInvokeResponseArrayInput` via:
+//
+//          ActiveDirectoryInvokeResponseArray{ ActiveDirectoryInvokeResponseArgs{...} }
+type ActiveDirectoryInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryInvokeResponseArrayOutput() ActiveDirectoryInvokeResponseArrayOutput
+	ToActiveDirectoryInvokeResponseArrayOutputWithContext(context.Context) ActiveDirectoryInvokeResponseArrayOutput
+}
+
+type ActiveDirectoryInvokeResponseArray []ActiveDirectoryInvokeResponseInput
+
+func (ActiveDirectoryInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActiveDirectoryInvokeResponse)(nil)).Elem()
+}
+
+func (i ActiveDirectoryInvokeResponseArray) ToActiveDirectoryInvokeResponseArrayOutput() ActiveDirectoryInvokeResponseArrayOutput {
+	return i.ToActiveDirectoryInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryInvokeResponseArray) ToActiveDirectoryInvokeResponseArrayOutputWithContext(ctx context.Context) ActiveDirectoryInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryInvokeResponseArrayOutput)
+}
+
+// Active Directory
+type ActiveDirectoryInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryInvokeResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryInvokeResponseOutput) ToActiveDirectoryInvokeResponseOutput() ActiveDirectoryInvokeResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryInvokeResponseOutput) ToActiveDirectoryInvokeResponseOutputWithContext(ctx context.Context) ActiveDirectoryInvokeResponseOutput {
+	return o
+}
+
+// Id of the Active Directory
+func (o ActiveDirectoryInvokeResponseOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryInvokeResponse) *string { return v.ActiveDirectoryId }).(pulumi.StringPtrOutput)
+}
+
+// Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
+func (o ActiveDirectoryInvokeResponseOutput) Dns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryInvokeResponse) *string { return v.Dns }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Active Directory domain
+func (o ActiveDirectoryInvokeResponseOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryInvokeResponse) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The Organizational Unit (OU) within the Windows Active Directory
+func (o ActiveDirectoryInvokeResponseOutput) OrganizationalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryInvokeResponse) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
+}
+
+// Plain text password of Active Directory domain administrator
+func (o ActiveDirectoryInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+func (o ActiveDirectoryInvokeResponseOutput) SmbServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryInvokeResponse) *string { return v.SmbServerName }).(pulumi.StringPtrOutput)
+}
+
+// Status of the Active Directory
+func (o ActiveDirectoryInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Username of Active Directory domain administrator
+func (o ActiveDirectoryInvokeResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryInvokeResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type ActiveDirectoryInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActiveDirectoryInvokeResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryInvokeResponseArrayOutput) ToActiveDirectoryInvokeResponseArrayOutput() ActiveDirectoryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ActiveDirectoryInvokeResponseArrayOutput) ToActiveDirectoryInvokeResponseArrayOutputWithContext(ctx context.Context) ActiveDirectoryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ActiveDirectoryInvokeResponseArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveDirectoryInvokeResponse {
+		return vs[0].([]ActiveDirectoryInvokeResponse)[vs[1].(int)]
+	}).(ActiveDirectoryInvokeResponseOutput)
+}
+
+// Active Directory
 type ActiveDirectoryResponse struct {
 	// Id of the Active Directory
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
@@ -491,6 +654,160 @@ func (o ExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) ExportPolicyRuleOu
 }
 
 // Volume Export Policy Rule
+type ExportPolicyRuleInvokeResponse struct {
+	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+	AllowedClients *string `pulumi:"allowedClients"`
+	// Allows CIFS protocol
+	Cifs *bool `pulumi:"cifs"`
+	// Allows NFSv3 protocol
+	Nfsv3 *bool `pulumi:"nfsv3"`
+	// Allows NFSv4.1 protocol
+	Nfsv41 *bool `pulumi:"nfsv41"`
+	// Order index
+	RuleIndex *int `pulumi:"ruleIndex"`
+	// Read only access
+	UnixReadOnly *bool `pulumi:"unixReadOnly"`
+	// Read and write access
+	UnixReadWrite *bool `pulumi:"unixReadWrite"`
+}
+
+// ExportPolicyRuleInvokeResponseInput is an input type that accepts ExportPolicyRuleInvokeResponseArgs and ExportPolicyRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `ExportPolicyRuleInvokeResponseInput` via:
+//
+//          ExportPolicyRuleInvokeResponseArgs{...}
+type ExportPolicyRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToExportPolicyRuleInvokeResponseOutput() ExportPolicyRuleInvokeResponseOutput
+	ToExportPolicyRuleInvokeResponseOutputWithContext(context.Context) ExportPolicyRuleInvokeResponseOutput
+}
+
+// Volume Export Policy Rule
+type ExportPolicyRuleInvokeResponseArgs struct {
+	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
+	// Allows CIFS protocol
+	Cifs pulumi.BoolPtrInput `pulumi:"cifs"`
+	// Allows NFSv3 protocol
+	Nfsv3 pulumi.BoolPtrInput `pulumi:"nfsv3"`
+	// Allows NFSv4.1 protocol
+	Nfsv41 pulumi.BoolPtrInput `pulumi:"nfsv41"`
+	// Order index
+	RuleIndex pulumi.IntPtrInput `pulumi:"ruleIndex"`
+	// Read only access
+	UnixReadOnly pulumi.BoolPtrInput `pulumi:"unixReadOnly"`
+	// Read and write access
+	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
+}
+
+func (ExportPolicyRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportPolicyRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i ExportPolicyRuleInvokeResponseArgs) ToExportPolicyRuleInvokeResponseOutput() ExportPolicyRuleInvokeResponseOutput {
+	return i.ToExportPolicyRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ExportPolicyRuleInvokeResponseArgs) ToExportPolicyRuleInvokeResponseOutputWithContext(ctx context.Context) ExportPolicyRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleInvokeResponseOutput)
+}
+
+// ExportPolicyRuleInvokeResponseArrayInput is an input type that accepts ExportPolicyRuleInvokeResponseArray and ExportPolicyRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ExportPolicyRuleInvokeResponseArrayInput` via:
+//
+//          ExportPolicyRuleInvokeResponseArray{ ExportPolicyRuleInvokeResponseArgs{...} }
+type ExportPolicyRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToExportPolicyRuleInvokeResponseArrayOutput() ExportPolicyRuleInvokeResponseArrayOutput
+	ToExportPolicyRuleInvokeResponseArrayOutputWithContext(context.Context) ExportPolicyRuleInvokeResponseArrayOutput
+}
+
+type ExportPolicyRuleInvokeResponseArray []ExportPolicyRuleInvokeResponseInput
+
+func (ExportPolicyRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExportPolicyRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i ExportPolicyRuleInvokeResponseArray) ToExportPolicyRuleInvokeResponseArrayOutput() ExportPolicyRuleInvokeResponseArrayOutput {
+	return i.ToExportPolicyRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ExportPolicyRuleInvokeResponseArray) ToExportPolicyRuleInvokeResponseArrayOutputWithContext(ctx context.Context) ExportPolicyRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportPolicyRuleInvokeResponseArrayOutput)
+}
+
+// Volume Export Policy Rule
+type ExportPolicyRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ExportPolicyRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportPolicyRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o ExportPolicyRuleInvokeResponseOutput) ToExportPolicyRuleInvokeResponseOutput() ExportPolicyRuleInvokeResponseOutput {
+	return o
+}
+
+func (o ExportPolicyRuleInvokeResponseOutput) ToExportPolicyRuleInvokeResponseOutputWithContext(ctx context.Context) ExportPolicyRuleInvokeResponseOutput {
+	return o
+}
+
+// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+func (o ExportPolicyRuleInvokeResponseOutput) AllowedClients() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportPolicyRuleInvokeResponse) *string { return v.AllowedClients }).(pulumi.StringPtrOutput)
+}
+
+// Allows CIFS protocol
+func (o ExportPolicyRuleInvokeResponseOutput) Cifs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExportPolicyRuleInvokeResponse) *bool { return v.Cifs }).(pulumi.BoolPtrOutput)
+}
+
+// Allows NFSv3 protocol
+func (o ExportPolicyRuleInvokeResponseOutput) Nfsv3() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExportPolicyRuleInvokeResponse) *bool { return v.Nfsv3 }).(pulumi.BoolPtrOutput)
+}
+
+// Allows NFSv4.1 protocol
+func (o ExportPolicyRuleInvokeResponseOutput) Nfsv41() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExportPolicyRuleInvokeResponse) *bool { return v.Nfsv41 }).(pulumi.BoolPtrOutput)
+}
+
+// Order index
+func (o ExportPolicyRuleInvokeResponseOutput) RuleIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExportPolicyRuleInvokeResponse) *int { return v.RuleIndex }).(pulumi.IntPtrOutput)
+}
+
+// Read only access
+func (o ExportPolicyRuleInvokeResponseOutput) UnixReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExportPolicyRuleInvokeResponse) *bool { return v.UnixReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Read and write access
+func (o ExportPolicyRuleInvokeResponseOutput) UnixReadWrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExportPolicyRuleInvokeResponse) *bool { return v.UnixReadWrite }).(pulumi.BoolPtrOutput)
+}
+
+type ExportPolicyRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ExportPolicyRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExportPolicyRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o ExportPolicyRuleInvokeResponseArrayOutput) ToExportPolicyRuleInvokeResponseArrayOutput() ExportPolicyRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ExportPolicyRuleInvokeResponseArrayOutput) ToExportPolicyRuleInvokeResponseArrayOutputWithContext(ctx context.Context) ExportPolicyRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ExportPolicyRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) ExportPolicyRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExportPolicyRuleInvokeResponse {
+		return vs[0].([]ExportPolicyRuleInvokeResponse)[vs[1].(int)]
+	}).(ExportPolicyRuleInvokeResponseOutput)
+}
+
+// Volume Export Policy Rule
 type ExportPolicyRuleResponse struct {
 	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients *string `pulumi:"allowedClients"`
@@ -796,6 +1113,187 @@ func (o MountTargetPropertiesArrayOutput) Index(i pulumi.IntInput) MountTargetPr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MountTargetProperties {
 		return vs[0].([]MountTargetProperties)[vs[1].(int)]
 	}).(MountTargetPropertiesOutput)
+}
+
+// Mount target properties
+type MountTargetPropertiesInvokeResponse struct {
+	// The end of IPv4 address range to use when creating a new mount target
+	EndIp *string `pulumi:"endIp"`
+	// UUID v4 used to identify the MountTarget
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The gateway of the IPv4 address range to use when creating a new mount target
+	Gateway *string `pulumi:"gateway"`
+	// The mount target's IPv4 address
+	IpAddress string `pulumi:"ipAddress"`
+	// UUID v4 used to identify the MountTarget
+	MountTargetId string `pulumi:"mountTargetId"`
+	// The netmask of the IPv4 address range to use when creating a new mount target
+	Netmask *string `pulumi:"netmask"`
+	// Azure lifecycle management
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The SMB server's Fully Qualified Domain Name, FQDN
+	SmbServerFqdn *string `pulumi:"smbServerFqdn"`
+	// The start of IPv4 address range to use when creating a new mount target
+	StartIp *string `pulumi:"startIp"`
+	// The subnet
+	Subnet *string `pulumi:"subnet"`
+}
+
+// MountTargetPropertiesInvokeResponseInput is an input type that accepts MountTargetPropertiesInvokeResponseArgs and MountTargetPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `MountTargetPropertiesInvokeResponseInput` via:
+//
+//          MountTargetPropertiesInvokeResponseArgs{...}
+type MountTargetPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMountTargetPropertiesInvokeResponseOutput() MountTargetPropertiesInvokeResponseOutput
+	ToMountTargetPropertiesInvokeResponseOutputWithContext(context.Context) MountTargetPropertiesInvokeResponseOutput
+}
+
+// Mount target properties
+type MountTargetPropertiesInvokeResponseArgs struct {
+	// The end of IPv4 address range to use when creating a new mount target
+	EndIp pulumi.StringPtrInput `pulumi:"endIp"`
+	// UUID v4 used to identify the MountTarget
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The gateway of the IPv4 address range to use when creating a new mount target
+	Gateway pulumi.StringPtrInput `pulumi:"gateway"`
+	// The mount target's IPv4 address
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// UUID v4 used to identify the MountTarget
+	MountTargetId pulumi.StringInput `pulumi:"mountTargetId"`
+	// The netmask of the IPv4 address range to use when creating a new mount target
+	Netmask pulumi.StringPtrInput `pulumi:"netmask"`
+	// Azure lifecycle management
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The SMB server's Fully Qualified Domain Name, FQDN
+	SmbServerFqdn pulumi.StringPtrInput `pulumi:"smbServerFqdn"`
+	// The start of IPv4 address range to use when creating a new mount target
+	StartIp pulumi.StringPtrInput `pulumi:"startIp"`
+	// The subnet
+	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+}
+
+func (MountTargetPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountTargetPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MountTargetPropertiesInvokeResponseArgs) ToMountTargetPropertiesInvokeResponseOutput() MountTargetPropertiesInvokeResponseOutput {
+	return i.ToMountTargetPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MountTargetPropertiesInvokeResponseArgs) ToMountTargetPropertiesInvokeResponseOutputWithContext(ctx context.Context) MountTargetPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesInvokeResponseOutput)
+}
+
+// MountTargetPropertiesInvokeResponseArrayInput is an input type that accepts MountTargetPropertiesInvokeResponseArray and MountTargetPropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MountTargetPropertiesInvokeResponseArrayInput` via:
+//
+//          MountTargetPropertiesInvokeResponseArray{ MountTargetPropertiesInvokeResponseArgs{...} }
+type MountTargetPropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMountTargetPropertiesInvokeResponseArrayOutput() MountTargetPropertiesInvokeResponseArrayOutput
+	ToMountTargetPropertiesInvokeResponseArrayOutputWithContext(context.Context) MountTargetPropertiesInvokeResponseArrayOutput
+}
+
+type MountTargetPropertiesInvokeResponseArray []MountTargetPropertiesInvokeResponseInput
+
+func (MountTargetPropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MountTargetPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MountTargetPropertiesInvokeResponseArray) ToMountTargetPropertiesInvokeResponseArrayOutput() MountTargetPropertiesInvokeResponseArrayOutput {
+	return i.ToMountTargetPropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MountTargetPropertiesInvokeResponseArray) ToMountTargetPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) MountTargetPropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesInvokeResponseArrayOutput)
+}
+
+// Mount target properties
+type MountTargetPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MountTargetPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MountTargetPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MountTargetPropertiesInvokeResponseOutput) ToMountTargetPropertiesInvokeResponseOutput() MountTargetPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MountTargetPropertiesInvokeResponseOutput) ToMountTargetPropertiesInvokeResponseOutputWithContext(ctx context.Context) MountTargetPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The end of IPv4 address range to use when creating a new mount target
+func (o MountTargetPropertiesInvokeResponseOutput) EndIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MountTargetPropertiesInvokeResponse) *string { return v.EndIp }).(pulumi.StringPtrOutput)
+}
+
+// UUID v4 used to identify the MountTarget
+func (o MountTargetPropertiesInvokeResponseOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v MountTargetPropertiesInvokeResponse) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// The gateway of the IPv4 address range to use when creating a new mount target
+func (o MountTargetPropertiesInvokeResponseOutput) Gateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MountTargetPropertiesInvokeResponse) *string { return v.Gateway }).(pulumi.StringPtrOutput)
+}
+
+// The mount target's IPv4 address
+func (o MountTargetPropertiesInvokeResponseOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v MountTargetPropertiesInvokeResponse) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// UUID v4 used to identify the MountTarget
+func (o MountTargetPropertiesInvokeResponseOutput) MountTargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v MountTargetPropertiesInvokeResponse) string { return v.MountTargetId }).(pulumi.StringOutput)
+}
+
+// The netmask of the IPv4 address range to use when creating a new mount target
+func (o MountTargetPropertiesInvokeResponseOutput) Netmask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MountTargetPropertiesInvokeResponse) *string { return v.Netmask }).(pulumi.StringPtrOutput)
+}
+
+// Azure lifecycle management
+func (o MountTargetPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v MountTargetPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SMB server's Fully Qualified Domain Name, FQDN
+func (o MountTargetPropertiesInvokeResponseOutput) SmbServerFqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MountTargetPropertiesInvokeResponse) *string { return v.SmbServerFqdn }).(pulumi.StringPtrOutput)
+}
+
+// The start of IPv4 address range to use when creating a new mount target
+func (o MountTargetPropertiesInvokeResponseOutput) StartIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MountTargetPropertiesInvokeResponse) *string { return v.StartIp }).(pulumi.StringPtrOutput)
+}
+
+// The subnet
+func (o MountTargetPropertiesInvokeResponseOutput) Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MountTargetPropertiesInvokeResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
+}
+
+type MountTargetPropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MountTargetPropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MountTargetPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MountTargetPropertiesInvokeResponseArrayOutput) ToMountTargetPropertiesInvokeResponseArrayOutput() MountTargetPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MountTargetPropertiesInvokeResponseArrayOutput) ToMountTargetPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) MountTargetPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MountTargetPropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) MountTargetPropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MountTargetPropertiesInvokeResponse {
+		return vs[0].([]MountTargetPropertiesInvokeResponse)[vs[1].(int)]
+	}).(MountTargetPropertiesInvokeResponseOutput)
 }
 
 // Mount target properties
@@ -1163,6 +1661,197 @@ func (o ReplicationObjectPtrOutput) ReplicationId() pulumi.StringPtrOutput {
 // Schedule
 func (o ReplicationObjectPtrOutput) ReplicationSchedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationObject) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReplicationSchedule
+	}).(pulumi.StringPtrOutput)
+}
+
+// Replication properties
+type ReplicationObjectInvokeResponse struct {
+	// Indicates whether the local volume is the source or destination for the Volume Replication
+	EndpointType string `pulumi:"endpointType"`
+	// The resource ID of the remote volume.
+	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
+	// Id
+	ReplicationId *string `pulumi:"replicationId"`
+	// Schedule
+	ReplicationSchedule string `pulumi:"replicationSchedule"`
+}
+
+// ReplicationObjectInvokeResponseInput is an input type that accepts ReplicationObjectInvokeResponseArgs and ReplicationObjectInvokeResponseOutput values.
+// You can construct a concrete instance of `ReplicationObjectInvokeResponseInput` via:
+//
+//          ReplicationObjectInvokeResponseArgs{...}
+type ReplicationObjectInvokeResponseInput interface {
+	pulumi.Input
+
+	ToReplicationObjectInvokeResponseOutput() ReplicationObjectInvokeResponseOutput
+	ToReplicationObjectInvokeResponseOutputWithContext(context.Context) ReplicationObjectInvokeResponseOutput
+}
+
+// Replication properties
+type ReplicationObjectInvokeResponseArgs struct {
+	// Indicates whether the local volume is the source or destination for the Volume Replication
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The resource ID of the remote volume.
+	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
+	// Id
+	ReplicationId pulumi.StringPtrInput `pulumi:"replicationId"`
+	// Schedule
+	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
+}
+
+func (ReplicationObjectInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationObjectInvokeResponse)(nil)).Elem()
+}
+
+func (i ReplicationObjectInvokeResponseArgs) ToReplicationObjectInvokeResponseOutput() ReplicationObjectInvokeResponseOutput {
+	return i.ToReplicationObjectInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ReplicationObjectInvokeResponseArgs) ToReplicationObjectInvokeResponseOutputWithContext(ctx context.Context) ReplicationObjectInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectInvokeResponseOutput)
+}
+
+func (i ReplicationObjectInvokeResponseArgs) ToReplicationObjectInvokeResponsePtrOutput() ReplicationObjectInvokeResponsePtrOutput {
+	return i.ToReplicationObjectInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationObjectInvokeResponseArgs) ToReplicationObjectInvokeResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectInvokeResponseOutput).ToReplicationObjectInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ReplicationObjectInvokeResponsePtrInput is an input type that accepts ReplicationObjectInvokeResponseArgs, ReplicationObjectInvokeResponsePtr and ReplicationObjectInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ReplicationObjectInvokeResponsePtrInput` via:
+//
+//          ReplicationObjectInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ReplicationObjectInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToReplicationObjectInvokeResponsePtrOutput() ReplicationObjectInvokeResponsePtrOutput
+	ToReplicationObjectInvokeResponsePtrOutputWithContext(context.Context) ReplicationObjectInvokeResponsePtrOutput
+}
+
+type replicationObjectInvokeResponsePtrType ReplicationObjectInvokeResponseArgs
+
+func ReplicationObjectInvokeResponsePtr(v *ReplicationObjectInvokeResponseArgs) ReplicationObjectInvokeResponsePtrInput {
+	return (*replicationObjectInvokeResponsePtrType)(v)
+}
+
+func (*replicationObjectInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationObjectInvokeResponse)(nil)).Elem()
+}
+
+func (i *replicationObjectInvokeResponsePtrType) ToReplicationObjectInvokeResponsePtrOutput() ReplicationObjectInvokeResponsePtrOutput {
+	return i.ToReplicationObjectInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *replicationObjectInvokeResponsePtrType) ToReplicationObjectInvokeResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationObjectInvokeResponsePtrOutput)
+}
+
+// Replication properties
+type ReplicationObjectInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ReplicationObjectInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationObjectInvokeResponse)(nil)).Elem()
+}
+
+func (o ReplicationObjectInvokeResponseOutput) ToReplicationObjectInvokeResponseOutput() ReplicationObjectInvokeResponseOutput {
+	return o
+}
+
+func (o ReplicationObjectInvokeResponseOutput) ToReplicationObjectInvokeResponseOutputWithContext(ctx context.Context) ReplicationObjectInvokeResponseOutput {
+	return o
+}
+
+func (o ReplicationObjectInvokeResponseOutput) ToReplicationObjectInvokeResponsePtrOutput() ReplicationObjectInvokeResponsePtrOutput {
+	return o.ToReplicationObjectInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationObjectInvokeResponseOutput) ToReplicationObjectInvokeResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ReplicationObjectInvokeResponse) *ReplicationObjectInvokeResponse {
+		return &v
+	}).(ReplicationObjectInvokeResponsePtrOutput)
+}
+
+// Indicates whether the local volume is the source or destination for the Volume Replication
+func (o ReplicationObjectInvokeResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationObjectInvokeResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The resource ID of the remote volume.
+func (o ReplicationObjectInvokeResponseOutput) RemoteVolumeResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationObjectInvokeResponse) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
+}
+
+// Id
+func (o ReplicationObjectInvokeResponseOutput) ReplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationObjectInvokeResponse) *string { return v.ReplicationId }).(pulumi.StringPtrOutput)
+}
+
+// Schedule
+func (o ReplicationObjectInvokeResponseOutput) ReplicationSchedule() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationObjectInvokeResponse) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
+}
+
+type ReplicationObjectInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationObjectInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationObjectInvokeResponse)(nil)).Elem()
+}
+
+func (o ReplicationObjectInvokeResponsePtrOutput) ToReplicationObjectInvokeResponsePtrOutput() ReplicationObjectInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ReplicationObjectInvokeResponsePtrOutput) ToReplicationObjectInvokeResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ReplicationObjectInvokeResponsePtrOutput) Elem() ReplicationObjectInvokeResponseOutput {
+	return o.ApplyT(func(v *ReplicationObjectInvokeResponse) ReplicationObjectInvokeResponse { return *v }).(ReplicationObjectInvokeResponseOutput)
+}
+
+// Indicates whether the local volume is the source or destination for the Volume Replication
+func (o ReplicationObjectInvokeResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationObjectInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the remote volume.
+func (o ReplicationObjectInvokeResponsePtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationObjectInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RemoteVolumeResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Id
+func (o ReplicationObjectInvokeResponsePtrOutput) ReplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationObjectInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Schedule
+func (o ReplicationObjectInvokeResponsePtrOutput) ReplicationSchedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationObjectInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1630,6 +2319,118 @@ func (o VolumePropertiesExportPolicyPtrOutput) Rules() ExportPolicyRuleArrayOutp
 }
 
 // DataProtection volume, can have a replication object
+type VolumePropertiesInvokeResponseDataProtection struct {
+	// Replication properties
+	Replication *ReplicationObjectInvokeResponse `pulumi:"replication"`
+}
+
+// VolumePropertiesInvokeResponseDataProtectionInput is an input type that accepts VolumePropertiesInvokeResponseDataProtectionArgs and VolumePropertiesInvokeResponseDataProtectionOutput values.
+// You can construct a concrete instance of `VolumePropertiesInvokeResponseDataProtectionInput` via:
+//
+//          VolumePropertiesInvokeResponseDataProtectionArgs{...}
+type VolumePropertiesInvokeResponseDataProtectionInput interface {
+	pulumi.Input
+
+	ToVolumePropertiesInvokeResponseDataProtectionOutput() VolumePropertiesInvokeResponseDataProtectionOutput
+	ToVolumePropertiesInvokeResponseDataProtectionOutputWithContext(context.Context) VolumePropertiesInvokeResponseDataProtectionOutput
+}
+
+// DataProtection volume, can have a replication object
+type VolumePropertiesInvokeResponseDataProtectionArgs struct {
+	// Replication properties
+	Replication ReplicationObjectInvokeResponsePtrInput `pulumi:"replication"`
+}
+
+func (VolumePropertiesInvokeResponseDataProtectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumePropertiesInvokeResponseDataProtection)(nil)).Elem()
+}
+
+func (i VolumePropertiesInvokeResponseDataProtectionArgs) ToVolumePropertiesInvokeResponseDataProtectionOutput() VolumePropertiesInvokeResponseDataProtectionOutput {
+	return i.ToVolumePropertiesInvokeResponseDataProtectionOutputWithContext(context.Background())
+}
+
+func (i VolumePropertiesInvokeResponseDataProtectionArgs) ToVolumePropertiesInvokeResponseDataProtectionOutputWithContext(ctx context.Context) VolumePropertiesInvokeResponseDataProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesInvokeResponseDataProtectionOutput)
+}
+
+// DataProtection volume, can have a replication object
+type VolumePropertiesInvokeResponseDataProtectionOutput struct{ *pulumi.OutputState }
+
+func (VolumePropertiesInvokeResponseDataProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumePropertiesInvokeResponseDataProtection)(nil)).Elem()
+}
+
+func (o VolumePropertiesInvokeResponseDataProtectionOutput) ToVolumePropertiesInvokeResponseDataProtectionOutput() VolumePropertiesInvokeResponseDataProtectionOutput {
+	return o
+}
+
+func (o VolumePropertiesInvokeResponseDataProtectionOutput) ToVolumePropertiesInvokeResponseDataProtectionOutputWithContext(ctx context.Context) VolumePropertiesInvokeResponseDataProtectionOutput {
+	return o
+}
+
+// Replication properties
+func (o VolumePropertiesInvokeResponseDataProtectionOutput) Replication() ReplicationObjectInvokeResponsePtrOutput {
+	return o.ApplyT(func(v VolumePropertiesInvokeResponseDataProtection) *ReplicationObjectInvokeResponse {
+		return v.Replication
+	}).(ReplicationObjectInvokeResponsePtrOutput)
+}
+
+// Set of export policy rules
+type VolumePropertiesInvokeResponseExportPolicy struct {
+	// Export policy rule
+	Rules []ExportPolicyRuleInvokeResponse `pulumi:"rules"`
+}
+
+// VolumePropertiesInvokeResponseExportPolicyInput is an input type that accepts VolumePropertiesInvokeResponseExportPolicyArgs and VolumePropertiesInvokeResponseExportPolicyOutput values.
+// You can construct a concrete instance of `VolumePropertiesInvokeResponseExportPolicyInput` via:
+//
+//          VolumePropertiesInvokeResponseExportPolicyArgs{...}
+type VolumePropertiesInvokeResponseExportPolicyInput interface {
+	pulumi.Input
+
+	ToVolumePropertiesInvokeResponseExportPolicyOutput() VolumePropertiesInvokeResponseExportPolicyOutput
+	ToVolumePropertiesInvokeResponseExportPolicyOutputWithContext(context.Context) VolumePropertiesInvokeResponseExportPolicyOutput
+}
+
+// Set of export policy rules
+type VolumePropertiesInvokeResponseExportPolicyArgs struct {
+	// Export policy rule
+	Rules ExportPolicyRuleInvokeResponseArrayInput `pulumi:"rules"`
+}
+
+func (VolumePropertiesInvokeResponseExportPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumePropertiesInvokeResponseExportPolicy)(nil)).Elem()
+}
+
+func (i VolumePropertiesInvokeResponseExportPolicyArgs) ToVolumePropertiesInvokeResponseExportPolicyOutput() VolumePropertiesInvokeResponseExportPolicyOutput {
+	return i.ToVolumePropertiesInvokeResponseExportPolicyOutputWithContext(context.Background())
+}
+
+func (i VolumePropertiesInvokeResponseExportPolicyArgs) ToVolumePropertiesInvokeResponseExportPolicyOutputWithContext(ctx context.Context) VolumePropertiesInvokeResponseExportPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesInvokeResponseExportPolicyOutput)
+}
+
+// Set of export policy rules
+type VolumePropertiesInvokeResponseExportPolicyOutput struct{ *pulumi.OutputState }
+
+func (VolumePropertiesInvokeResponseExportPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumePropertiesInvokeResponseExportPolicy)(nil)).Elem()
+}
+
+func (o VolumePropertiesInvokeResponseExportPolicyOutput) ToVolumePropertiesInvokeResponseExportPolicyOutput() VolumePropertiesInvokeResponseExportPolicyOutput {
+	return o
+}
+
+func (o VolumePropertiesInvokeResponseExportPolicyOutput) ToVolumePropertiesInvokeResponseExportPolicyOutputWithContext(ctx context.Context) VolumePropertiesInvokeResponseExportPolicyOutput {
+	return o
+}
+
+// Export policy rule
+func (o VolumePropertiesInvokeResponseExportPolicyOutput) Rules() ExportPolicyRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v VolumePropertiesInvokeResponseExportPolicy) []ExportPolicyRuleInvokeResponse { return v.Rules }).(ExportPolicyRuleInvokeResponseArrayOutput)
+}
+
+// DataProtection volume, can have a replication object
 type VolumePropertiesResponseDataProtection struct {
 	// Replication properties
 	Replication *ReplicationObjectResponse `pulumi:"replication"`
@@ -1900,24 +2701,34 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) Rules() ExportPolicyRuleR
 func init() {
 	pulumi.RegisterOutputType(ActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryArrayOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryResponseOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(ExportPolicyRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ExportPolicyRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleResponseOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(MountTargetPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MountTargetPropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationObjectInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ReplicationObjectInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectResponseOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectResponsePtrOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesDataProtectionOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesDataProtectionPtrOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesExportPolicyOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesExportPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VolumePropertiesInvokeResponseDataProtectionOutput{})
+	pulumi.RegisterOutputType(VolumePropertiesInvokeResponseExportPolicyOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesResponseDataProtectionOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesResponseDataProtectionPtrOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesResponseExportPolicyOutput{})

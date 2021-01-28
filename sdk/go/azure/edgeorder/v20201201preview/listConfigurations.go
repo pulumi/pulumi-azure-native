@@ -18,9 +18,9 @@ func ListConfigurations(ctx *pulumi.Context, args *ListConfigurationsArgs, opts 
 
 type ListConfigurationsArgs struct {
 	// Holds details about product hierarchy information and filterable property.
-	ConfigurationFilters []ConfigurationFilters `pulumi:"configurationFilters"`
+	ConfigurationFilters []ConfigurationFiltersInvoke `pulumi:"configurationFilters"`
 	// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
-	CustomerSubscriptionDetails *CustomerSubscriptionDetails `pulumi:"customerSubscriptionDetails"`
+	CustomerSubscriptionDetails *CustomerSubscriptionDetailsInvoke `pulumi:"customerSubscriptionDetails"`
 	// $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
 	SkipToken *string `pulumi:"skipToken"`
 }
@@ -30,5 +30,5 @@ type ListConfigurationsResult struct {
 	// Link for the next set of configurations.
 	NextLink *string `pulumi:"nextLink"`
 	// List of configurations.
-	Value []ConfigurationResponse `pulumi:"value"`
+	Value []ConfigurationInvokeResponse `pulumi:"value"`
 }

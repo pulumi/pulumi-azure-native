@@ -11,6 +11,124 @@ import (
 )
 
 // Managed application artifact.
+type ApplicationArtifactInvokeResponse struct {
+	// The managed application artifact name.
+	Name string `pulumi:"name"`
+	// The managed application artifact type.
+	Type string `pulumi:"type"`
+	// The managed application artifact blob uri.
+	Uri string `pulumi:"uri"`
+}
+
+// ApplicationArtifactInvokeResponseInput is an input type that accepts ApplicationArtifactInvokeResponseArgs and ApplicationArtifactInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationArtifactInvokeResponseInput` via:
+//
+//          ApplicationArtifactInvokeResponseArgs{...}
+type ApplicationArtifactInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationArtifactInvokeResponseOutput() ApplicationArtifactInvokeResponseOutput
+	ToApplicationArtifactInvokeResponseOutputWithContext(context.Context) ApplicationArtifactInvokeResponseOutput
+}
+
+// Managed application artifact.
+type ApplicationArtifactInvokeResponseArgs struct {
+	// The managed application artifact name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The managed application artifact type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The managed application artifact blob uri.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (ApplicationArtifactInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationArtifactInvokeResponseArgs) ToApplicationArtifactInvokeResponseOutput() ApplicationArtifactInvokeResponseOutput {
+	return i.ToApplicationArtifactInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationArtifactInvokeResponseArgs) ToApplicationArtifactInvokeResponseOutputWithContext(ctx context.Context) ApplicationArtifactInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArtifactInvokeResponseOutput)
+}
+
+// ApplicationArtifactInvokeResponseArrayInput is an input type that accepts ApplicationArtifactInvokeResponseArray and ApplicationArtifactInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ApplicationArtifactInvokeResponseArrayInput` via:
+//
+//          ApplicationArtifactInvokeResponseArray{ ApplicationArtifactInvokeResponseArgs{...} }
+type ApplicationArtifactInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplicationArtifactInvokeResponseArrayOutput() ApplicationArtifactInvokeResponseArrayOutput
+	ToApplicationArtifactInvokeResponseArrayOutputWithContext(context.Context) ApplicationArtifactInvokeResponseArrayOutput
+}
+
+type ApplicationArtifactInvokeResponseArray []ApplicationArtifactInvokeResponseInput
+
+func (ApplicationArtifactInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationArtifactInvokeResponseArray) ToApplicationArtifactInvokeResponseArrayOutput() ApplicationArtifactInvokeResponseArrayOutput {
+	return i.ToApplicationArtifactInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationArtifactInvokeResponseArray) ToApplicationArtifactInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationArtifactInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArtifactInvokeResponseArrayOutput)
+}
+
+// Managed application artifact.
+type ApplicationArtifactInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationArtifactInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationArtifactInvokeResponseOutput) ToApplicationArtifactInvokeResponseOutput() ApplicationArtifactInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationArtifactInvokeResponseOutput) ToApplicationArtifactInvokeResponseOutputWithContext(ctx context.Context) ApplicationArtifactInvokeResponseOutput {
+	return o
+}
+
+// The managed application artifact name.
+func (o ApplicationArtifactInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationArtifactInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The managed application artifact type.
+func (o ApplicationArtifactInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationArtifactInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The managed application artifact blob uri.
+func (o ApplicationArtifactInvokeResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationArtifactInvokeResponse) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type ApplicationArtifactInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationArtifactInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationArtifactInvokeResponseArrayOutput) ToApplicationArtifactInvokeResponseArrayOutput() ApplicationArtifactInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationArtifactInvokeResponseArrayOutput) ToApplicationArtifactInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationArtifactInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationArtifactInvokeResponseArrayOutput) Index(i pulumi.IntInput) ApplicationArtifactInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationArtifactInvokeResponse {
+		return vs[0].([]ApplicationArtifactInvokeResponse)[vs[1].(int)]
+	}).(ApplicationArtifactInvokeResponseOutput)
+}
+
+// Managed application artifact.
 type ApplicationArtifactResponse struct {
 	// The managed application artifact name.
 	Name string `pulumi:"name"`
@@ -238,6 +356,115 @@ func (o ApplicationAuthorizationArrayOutput) Index(i pulumi.IntInput) Applicatio
 }
 
 // The managed application provider authorization.
+type ApplicationAuthorizationInvokeResponse struct {
+	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
+	PrincipalId string `pulumi:"principalId"`
+	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// ApplicationAuthorizationInvokeResponseInput is an input type that accepts ApplicationAuthorizationInvokeResponseArgs and ApplicationAuthorizationInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationAuthorizationInvokeResponseInput` via:
+//
+//          ApplicationAuthorizationInvokeResponseArgs{...}
+type ApplicationAuthorizationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationAuthorizationInvokeResponseOutput() ApplicationAuthorizationInvokeResponseOutput
+	ToApplicationAuthorizationInvokeResponseOutputWithContext(context.Context) ApplicationAuthorizationInvokeResponseOutput
+}
+
+// The managed application provider authorization.
+type ApplicationAuthorizationInvokeResponseArgs struct {
+	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (ApplicationAuthorizationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationAuthorizationInvokeResponseArgs) ToApplicationAuthorizationInvokeResponseOutput() ApplicationAuthorizationInvokeResponseOutput {
+	return i.ToApplicationAuthorizationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationAuthorizationInvokeResponseArgs) ToApplicationAuthorizationInvokeResponseOutputWithContext(ctx context.Context) ApplicationAuthorizationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthorizationInvokeResponseOutput)
+}
+
+// ApplicationAuthorizationInvokeResponseArrayInput is an input type that accepts ApplicationAuthorizationInvokeResponseArray and ApplicationAuthorizationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ApplicationAuthorizationInvokeResponseArrayInput` via:
+//
+//          ApplicationAuthorizationInvokeResponseArray{ ApplicationAuthorizationInvokeResponseArgs{...} }
+type ApplicationAuthorizationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplicationAuthorizationInvokeResponseArrayOutput() ApplicationAuthorizationInvokeResponseArrayOutput
+	ToApplicationAuthorizationInvokeResponseArrayOutputWithContext(context.Context) ApplicationAuthorizationInvokeResponseArrayOutput
+}
+
+type ApplicationAuthorizationInvokeResponseArray []ApplicationAuthorizationInvokeResponseInput
+
+func (ApplicationAuthorizationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationAuthorizationInvokeResponseArray) ToApplicationAuthorizationInvokeResponseArrayOutput() ApplicationAuthorizationInvokeResponseArrayOutput {
+	return i.ToApplicationAuthorizationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationAuthorizationInvokeResponseArray) ToApplicationAuthorizationInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationAuthorizationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthorizationInvokeResponseArrayOutput)
+}
+
+// The managed application provider authorization.
+type ApplicationAuthorizationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAuthorizationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationAuthorizationInvokeResponseOutput) ToApplicationAuthorizationInvokeResponseOutput() ApplicationAuthorizationInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationAuthorizationInvokeResponseOutput) ToApplicationAuthorizationInvokeResponseOutputWithContext(ctx context.Context) ApplicationAuthorizationInvokeResponseOutput {
+	return o
+}
+
+// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
+func (o ApplicationAuthorizationInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationAuthorizationInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+func (o ApplicationAuthorizationInvokeResponseOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationAuthorizationInvokeResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type ApplicationAuthorizationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAuthorizationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationAuthorizationInvokeResponseArrayOutput) ToApplicationAuthorizationInvokeResponseArrayOutput() ApplicationAuthorizationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationAuthorizationInvokeResponseArrayOutput) ToApplicationAuthorizationInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationAuthorizationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationAuthorizationInvokeResponseArrayOutput) Index(i pulumi.IntInput) ApplicationAuthorizationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationAuthorizationInvokeResponse {
+		return vs[0].([]ApplicationAuthorizationInvokeResponse)[vs[1].(int)]
+	}).(ApplicationAuthorizationInvokeResponseOutput)
+}
+
+// The managed application provider authorization.
 type ApplicationAuthorizationResponse struct {
 	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
 	PrincipalId string `pulumi:"principalId"`
@@ -344,6 +571,61 @@ func (o ApplicationAuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Ap
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationAuthorizationResponse {
 		return vs[0].([]ApplicationAuthorizationResponse)[vs[1].(int)]
 	}).(ApplicationAuthorizationResponseOutput)
+}
+
+// Managed application billing details definition.
+type ApplicationBillingDetailsDefinitionInvokeResponse struct {
+	// The managed application resource usage Id.
+	ResourceUsageId *string `pulumi:"resourceUsageId"`
+}
+
+// ApplicationBillingDetailsDefinitionInvokeResponseInput is an input type that accepts ApplicationBillingDetailsDefinitionInvokeResponseArgs and ApplicationBillingDetailsDefinitionInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationBillingDetailsDefinitionInvokeResponseInput` via:
+//
+//          ApplicationBillingDetailsDefinitionInvokeResponseArgs{...}
+type ApplicationBillingDetailsDefinitionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationBillingDetailsDefinitionInvokeResponseOutput() ApplicationBillingDetailsDefinitionInvokeResponseOutput
+	ToApplicationBillingDetailsDefinitionInvokeResponseOutputWithContext(context.Context) ApplicationBillingDetailsDefinitionInvokeResponseOutput
+}
+
+// Managed application billing details definition.
+type ApplicationBillingDetailsDefinitionInvokeResponseArgs struct {
+	// The managed application resource usage Id.
+	ResourceUsageId pulumi.StringPtrInput `pulumi:"resourceUsageId"`
+}
+
+func (ApplicationBillingDetailsDefinitionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationBillingDetailsDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationBillingDetailsDefinitionInvokeResponseArgs) ToApplicationBillingDetailsDefinitionInvokeResponseOutput() ApplicationBillingDetailsDefinitionInvokeResponseOutput {
+	return i.ToApplicationBillingDetailsDefinitionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationBillingDetailsDefinitionInvokeResponseArgs) ToApplicationBillingDetailsDefinitionInvokeResponseOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationBillingDetailsDefinitionInvokeResponseOutput)
+}
+
+// Managed application billing details definition.
+type ApplicationBillingDetailsDefinitionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationBillingDetailsDefinitionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationBillingDetailsDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationBillingDetailsDefinitionInvokeResponseOutput) ToApplicationBillingDetailsDefinitionInvokeResponseOutput() ApplicationBillingDetailsDefinitionInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationBillingDetailsDefinitionInvokeResponseOutput) ToApplicationBillingDetailsDefinitionInvokeResponseOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionInvokeResponseOutput {
+	return o
+}
+
+// The managed application resource usage Id.
+func (o ApplicationBillingDetailsDefinitionInvokeResponseOutput) ResourceUsageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationBillingDetailsDefinitionInvokeResponse) *string { return v.ResourceUsageId }).(pulumi.StringPtrOutput)
 }
 
 // Managed application billing details definition.
@@ -480,6 +762,79 @@ func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) ResourceUsageId() 
 		}
 		return v.ResourceUsageId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The application client details to track the entity creating/updating the managed app resource.
+type ApplicationClientDetailsInvokeResponse struct {
+	// The client application Id.
+	ApplicationId *string `pulumi:"applicationId"`
+	// The client Oid.
+	Oid *string `pulumi:"oid"`
+	// The client Puid
+	Puid *string `pulumi:"puid"`
+}
+
+// ApplicationClientDetailsInvokeResponseInput is an input type that accepts ApplicationClientDetailsInvokeResponseArgs and ApplicationClientDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationClientDetailsInvokeResponseInput` via:
+//
+//          ApplicationClientDetailsInvokeResponseArgs{...}
+type ApplicationClientDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationClientDetailsInvokeResponseOutput() ApplicationClientDetailsInvokeResponseOutput
+	ToApplicationClientDetailsInvokeResponseOutputWithContext(context.Context) ApplicationClientDetailsInvokeResponseOutput
+}
+
+// The application client details to track the entity creating/updating the managed app resource.
+type ApplicationClientDetailsInvokeResponseArgs struct {
+	// The client application Id.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// The client Oid.
+	Oid pulumi.StringPtrInput `pulumi:"oid"`
+	// The client Puid
+	Puid pulumi.StringPtrInput `pulumi:"puid"`
+}
+
+func (ApplicationClientDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationClientDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationClientDetailsInvokeResponseArgs) ToApplicationClientDetailsInvokeResponseOutput() ApplicationClientDetailsInvokeResponseOutput {
+	return i.ToApplicationClientDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationClientDetailsInvokeResponseArgs) ToApplicationClientDetailsInvokeResponseOutputWithContext(ctx context.Context) ApplicationClientDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationClientDetailsInvokeResponseOutput)
+}
+
+// The application client details to track the entity creating/updating the managed app resource.
+type ApplicationClientDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationClientDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationClientDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationClientDetailsInvokeResponseOutput) ToApplicationClientDetailsInvokeResponseOutput() ApplicationClientDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationClientDetailsInvokeResponseOutput) ToApplicationClientDetailsInvokeResponseOutputWithContext(ctx context.Context) ApplicationClientDetailsInvokeResponseOutput {
+	return o
+}
+
+// The client application Id.
+func (o ApplicationClientDetailsInvokeResponseOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationClientDetailsInvokeResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// The client Oid.
+func (o ApplicationClientDetailsInvokeResponseOutput) Oid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationClientDetailsInvokeResponse) *string { return v.Oid }).(pulumi.StringPtrOutput)
+}
+
+// The client Puid
+func (o ApplicationClientDetailsInvokeResponseOutput) Puid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationClientDetailsInvokeResponse) *string { return v.Puid }).(pulumi.StringPtrOutput)
 }
 
 // The application client details to track the entity creating/updating the managed app resource.
@@ -773,6 +1128,124 @@ func (o ApplicationDefinitionArtifactArrayOutput) Index(i pulumi.IntInput) Appli
 }
 
 // Application definition artifact.
+type ApplicationDefinitionArtifactInvokeResponse struct {
+	// The managed application definition artifact name.
+	Name string `pulumi:"name"`
+	// The managed application definition artifact type.
+	Type string `pulumi:"type"`
+	// The managed application definition artifact blob uri.
+	Uri string `pulumi:"uri"`
+}
+
+// ApplicationDefinitionArtifactInvokeResponseInput is an input type that accepts ApplicationDefinitionArtifactInvokeResponseArgs and ApplicationDefinitionArtifactInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationDefinitionArtifactInvokeResponseInput` via:
+//
+//          ApplicationDefinitionArtifactInvokeResponseArgs{...}
+type ApplicationDefinitionArtifactInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationDefinitionArtifactInvokeResponseOutput() ApplicationDefinitionArtifactInvokeResponseOutput
+	ToApplicationDefinitionArtifactInvokeResponseOutputWithContext(context.Context) ApplicationDefinitionArtifactInvokeResponseOutput
+}
+
+// Application definition artifact.
+type ApplicationDefinitionArtifactInvokeResponseArgs struct {
+	// The managed application definition artifact name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The managed application definition artifact type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The managed application definition artifact blob uri.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (ApplicationDefinitionArtifactInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDefinitionArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationDefinitionArtifactInvokeResponseArgs) ToApplicationDefinitionArtifactInvokeResponseOutput() ApplicationDefinitionArtifactInvokeResponseOutput {
+	return i.ToApplicationDefinitionArtifactInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationDefinitionArtifactInvokeResponseArgs) ToApplicationDefinitionArtifactInvokeResponseOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionArtifactInvokeResponseOutput)
+}
+
+// ApplicationDefinitionArtifactInvokeResponseArrayInput is an input type that accepts ApplicationDefinitionArtifactInvokeResponseArray and ApplicationDefinitionArtifactInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ApplicationDefinitionArtifactInvokeResponseArrayInput` via:
+//
+//          ApplicationDefinitionArtifactInvokeResponseArray{ ApplicationDefinitionArtifactInvokeResponseArgs{...} }
+type ApplicationDefinitionArtifactInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplicationDefinitionArtifactInvokeResponseArrayOutput() ApplicationDefinitionArtifactInvokeResponseArrayOutput
+	ToApplicationDefinitionArtifactInvokeResponseArrayOutputWithContext(context.Context) ApplicationDefinitionArtifactInvokeResponseArrayOutput
+}
+
+type ApplicationDefinitionArtifactInvokeResponseArray []ApplicationDefinitionArtifactInvokeResponseInput
+
+func (ApplicationDefinitionArtifactInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDefinitionArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationDefinitionArtifactInvokeResponseArray) ToApplicationDefinitionArtifactInvokeResponseArrayOutput() ApplicationDefinitionArtifactInvokeResponseArrayOutput {
+	return i.ToApplicationDefinitionArtifactInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationDefinitionArtifactInvokeResponseArray) ToApplicationDefinitionArtifactInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionArtifactInvokeResponseArrayOutput)
+}
+
+// Application definition artifact.
+type ApplicationDefinitionArtifactInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefinitionArtifactInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDefinitionArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationDefinitionArtifactInvokeResponseOutput) ToApplicationDefinitionArtifactInvokeResponseOutput() ApplicationDefinitionArtifactInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationDefinitionArtifactInvokeResponseOutput) ToApplicationDefinitionArtifactInvokeResponseOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactInvokeResponseOutput {
+	return o
+}
+
+// The managed application definition artifact name.
+func (o ApplicationDefinitionArtifactInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifactInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The managed application definition artifact type.
+func (o ApplicationDefinitionArtifactInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifactInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The managed application definition artifact blob uri.
+func (o ApplicationDefinitionArtifactInvokeResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifactInvokeResponse) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type ApplicationDefinitionArtifactInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefinitionArtifactInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDefinitionArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationDefinitionArtifactInvokeResponseArrayOutput) ToApplicationDefinitionArtifactInvokeResponseArrayOutput() ApplicationDefinitionArtifactInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationDefinitionArtifactInvokeResponseArrayOutput) ToApplicationDefinitionArtifactInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationDefinitionArtifactInvokeResponseArrayOutput) Index(i pulumi.IntInput) ApplicationDefinitionArtifactInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationDefinitionArtifactInvokeResponse {
+		return vs[0].([]ApplicationDefinitionArtifactInvokeResponse)[vs[1].(int)]
+	}).(ApplicationDefinitionArtifactInvokeResponseOutput)
+}
+
+// Application definition artifact.
 type ApplicationDefinitionArtifactResponse struct {
 	// The managed application definition artifact name.
 	Name string `pulumi:"name"`
@@ -1022,6 +1495,61 @@ func (o ApplicationDeploymentPolicyPtrOutput) DeploymentMode() pulumi.StringPtrO
 		}
 		return &v.DeploymentMode
 	}).(pulumi.StringPtrOutput)
+}
+
+// Managed application deployment policy.
+type ApplicationDeploymentPolicyInvokeResponse struct {
+	// The managed application deployment mode.
+	DeploymentMode string `pulumi:"deploymentMode"`
+}
+
+// ApplicationDeploymentPolicyInvokeResponseInput is an input type that accepts ApplicationDeploymentPolicyInvokeResponseArgs and ApplicationDeploymentPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationDeploymentPolicyInvokeResponseInput` via:
+//
+//          ApplicationDeploymentPolicyInvokeResponseArgs{...}
+type ApplicationDeploymentPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationDeploymentPolicyInvokeResponseOutput() ApplicationDeploymentPolicyInvokeResponseOutput
+	ToApplicationDeploymentPolicyInvokeResponseOutputWithContext(context.Context) ApplicationDeploymentPolicyInvokeResponseOutput
+}
+
+// Managed application deployment policy.
+type ApplicationDeploymentPolicyInvokeResponseArgs struct {
+	// The managed application deployment mode.
+	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
+}
+
+func (ApplicationDeploymentPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeploymentPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationDeploymentPolicyInvokeResponseArgs) ToApplicationDeploymentPolicyInvokeResponseOutput() ApplicationDeploymentPolicyInvokeResponseOutput {
+	return i.ToApplicationDeploymentPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationDeploymentPolicyInvokeResponseArgs) ToApplicationDeploymentPolicyInvokeResponseOutputWithContext(ctx context.Context) ApplicationDeploymentPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeploymentPolicyInvokeResponseOutput)
+}
+
+// Managed application deployment policy.
+type ApplicationDeploymentPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDeploymentPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeploymentPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationDeploymentPolicyInvokeResponseOutput) ToApplicationDeploymentPolicyInvokeResponseOutput() ApplicationDeploymentPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationDeploymentPolicyInvokeResponseOutput) ToApplicationDeploymentPolicyInvokeResponseOutputWithContext(ctx context.Context) ApplicationDeploymentPolicyInvokeResponseOutput {
+	return o
+}
+
+// The managed application deployment mode.
+func (o ApplicationDeploymentPolicyInvokeResponseOutput) DeploymentMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationDeploymentPolicyInvokeResponse) string { return v.DeploymentMode }).(pulumi.StringOutput)
 }
 
 // Managed application deployment policy.
@@ -1350,6 +1878,90 @@ func (o ApplicationJitAccessPolicyPtrOutput) MaximumJitAccessDuration() pulumi.S
 }
 
 // Managed application Jit access policy.
+type ApplicationJitAccessPolicyInvokeResponse struct {
+	// Whether the JIT access is enabled.
+	JitAccessEnabled bool `pulumi:"jitAccessEnabled"`
+	// JIT approval mode.
+	JitApprovalMode *string `pulumi:"jitApprovalMode"`
+	// The JIT approvers
+	JitApprovers []JitApproverDefinitionInvokeResponse `pulumi:"jitApprovers"`
+	// The maximum duration JIT access is granted. This is an ISO8601 time period value.
+	MaximumJitAccessDuration *string `pulumi:"maximumJitAccessDuration"`
+}
+
+// ApplicationJitAccessPolicyInvokeResponseInput is an input type that accepts ApplicationJitAccessPolicyInvokeResponseArgs and ApplicationJitAccessPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationJitAccessPolicyInvokeResponseInput` via:
+//
+//          ApplicationJitAccessPolicyInvokeResponseArgs{...}
+type ApplicationJitAccessPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationJitAccessPolicyInvokeResponseOutput() ApplicationJitAccessPolicyInvokeResponseOutput
+	ToApplicationJitAccessPolicyInvokeResponseOutputWithContext(context.Context) ApplicationJitAccessPolicyInvokeResponseOutput
+}
+
+// Managed application Jit access policy.
+type ApplicationJitAccessPolicyInvokeResponseArgs struct {
+	// Whether the JIT access is enabled.
+	JitAccessEnabled pulumi.BoolInput `pulumi:"jitAccessEnabled"`
+	// JIT approval mode.
+	JitApprovalMode pulumi.StringPtrInput `pulumi:"jitApprovalMode"`
+	// The JIT approvers
+	JitApprovers JitApproverDefinitionInvokeResponseArrayInput `pulumi:"jitApprovers"`
+	// The maximum duration JIT access is granted. This is an ISO8601 time period value.
+	MaximumJitAccessDuration pulumi.StringPtrInput `pulumi:"maximumJitAccessDuration"`
+}
+
+func (ApplicationJitAccessPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJitAccessPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationJitAccessPolicyInvokeResponseArgs) ToApplicationJitAccessPolicyInvokeResponseOutput() ApplicationJitAccessPolicyInvokeResponseOutput {
+	return i.ToApplicationJitAccessPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationJitAccessPolicyInvokeResponseArgs) ToApplicationJitAccessPolicyInvokeResponseOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJitAccessPolicyInvokeResponseOutput)
+}
+
+// Managed application Jit access policy.
+type ApplicationJitAccessPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationJitAccessPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationJitAccessPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationJitAccessPolicyInvokeResponseOutput) ToApplicationJitAccessPolicyInvokeResponseOutput() ApplicationJitAccessPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationJitAccessPolicyInvokeResponseOutput) ToApplicationJitAccessPolicyInvokeResponseOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyInvokeResponseOutput {
+	return o
+}
+
+// Whether the JIT access is enabled.
+func (o ApplicationJitAccessPolicyInvokeResponseOutput) JitAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicyInvokeResponse) bool { return v.JitAccessEnabled }).(pulumi.BoolOutput)
+}
+
+// JIT approval mode.
+func (o ApplicationJitAccessPolicyInvokeResponseOutput) JitApprovalMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicyInvokeResponse) *string { return v.JitApprovalMode }).(pulumi.StringPtrOutput)
+}
+
+// The JIT approvers
+func (o ApplicationJitAccessPolicyInvokeResponseOutput) JitApprovers() JitApproverDefinitionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicyInvokeResponse) []JitApproverDefinitionInvokeResponse {
+		return v.JitApprovers
+	}).(JitApproverDefinitionInvokeResponseArrayOutput)
+}
+
+// The maximum duration JIT access is granted. This is an ISO8601 time period value.
+func (o ApplicationJitAccessPolicyInvokeResponseOutput) MaximumJitAccessDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationJitAccessPolicyInvokeResponse) *string { return v.MaximumJitAccessDuration }).(pulumi.StringPtrOutput)
+}
+
+// Managed application Jit access policy.
 type ApplicationJitAccessPolicyResponse struct {
 	// Whether the JIT access is enabled.
 	JitAccessEnabled bool `pulumi:"jitAccessEnabled"`
@@ -1675,6 +2287,61 @@ func (o ApplicationManagementPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // Managed application management policy.
+type ApplicationManagementPolicyInvokeResponse struct {
+	// The managed application management mode.
+	Mode *string `pulumi:"mode"`
+}
+
+// ApplicationManagementPolicyInvokeResponseInput is an input type that accepts ApplicationManagementPolicyInvokeResponseArgs and ApplicationManagementPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationManagementPolicyInvokeResponseInput` via:
+//
+//          ApplicationManagementPolicyInvokeResponseArgs{...}
+type ApplicationManagementPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationManagementPolicyInvokeResponseOutput() ApplicationManagementPolicyInvokeResponseOutput
+	ToApplicationManagementPolicyInvokeResponseOutputWithContext(context.Context) ApplicationManagementPolicyInvokeResponseOutput
+}
+
+// Managed application management policy.
+type ApplicationManagementPolicyInvokeResponseArgs struct {
+	// The managed application management mode.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (ApplicationManagementPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationManagementPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationManagementPolicyInvokeResponseArgs) ToApplicationManagementPolicyInvokeResponseOutput() ApplicationManagementPolicyInvokeResponseOutput {
+	return i.ToApplicationManagementPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationManagementPolicyInvokeResponseArgs) ToApplicationManagementPolicyInvokeResponseOutputWithContext(ctx context.Context) ApplicationManagementPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationManagementPolicyInvokeResponseOutput)
+}
+
+// Managed application management policy.
+type ApplicationManagementPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationManagementPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationManagementPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationManagementPolicyInvokeResponseOutput) ToApplicationManagementPolicyInvokeResponseOutput() ApplicationManagementPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationManagementPolicyInvokeResponseOutput) ToApplicationManagementPolicyInvokeResponseOutputWithContext(ctx context.Context) ApplicationManagementPolicyInvokeResponseOutput {
+	return o
+}
+
+// The managed application management mode.
+func (o ApplicationManagementPolicyInvokeResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationManagementPolicyInvokeResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Managed application management policy.
 type ApplicationManagementPolicyResponse struct {
 	// The managed application management mode.
 	Mode *string `pulumi:"mode"`
@@ -1906,6 +2573,106 @@ func (o ApplicationNotificationEndpointArrayOutput) Index(i pulumi.IntInput) App
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationNotificationEndpoint {
 		return vs[0].([]ApplicationNotificationEndpoint)[vs[1].(int)]
 	}).(ApplicationNotificationEndpointOutput)
+}
+
+// Managed application notification endpoint.
+type ApplicationNotificationEndpointInvokeResponse struct {
+	// The managed application notification endpoint uri.
+	Uri string `pulumi:"uri"`
+}
+
+// ApplicationNotificationEndpointInvokeResponseInput is an input type that accepts ApplicationNotificationEndpointInvokeResponseArgs and ApplicationNotificationEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationNotificationEndpointInvokeResponseInput` via:
+//
+//          ApplicationNotificationEndpointInvokeResponseArgs{...}
+type ApplicationNotificationEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationNotificationEndpointInvokeResponseOutput() ApplicationNotificationEndpointInvokeResponseOutput
+	ToApplicationNotificationEndpointInvokeResponseOutputWithContext(context.Context) ApplicationNotificationEndpointInvokeResponseOutput
+}
+
+// Managed application notification endpoint.
+type ApplicationNotificationEndpointInvokeResponseArgs struct {
+	// The managed application notification endpoint uri.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (ApplicationNotificationEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationNotificationEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationNotificationEndpointInvokeResponseArgs) ToApplicationNotificationEndpointInvokeResponseOutput() ApplicationNotificationEndpointInvokeResponseOutput {
+	return i.ToApplicationNotificationEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationNotificationEndpointInvokeResponseArgs) ToApplicationNotificationEndpointInvokeResponseOutputWithContext(ctx context.Context) ApplicationNotificationEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationEndpointInvokeResponseOutput)
+}
+
+// ApplicationNotificationEndpointInvokeResponseArrayInput is an input type that accepts ApplicationNotificationEndpointInvokeResponseArray and ApplicationNotificationEndpointInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ApplicationNotificationEndpointInvokeResponseArrayInput` via:
+//
+//          ApplicationNotificationEndpointInvokeResponseArray{ ApplicationNotificationEndpointInvokeResponseArgs{...} }
+type ApplicationNotificationEndpointInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplicationNotificationEndpointInvokeResponseArrayOutput() ApplicationNotificationEndpointInvokeResponseArrayOutput
+	ToApplicationNotificationEndpointInvokeResponseArrayOutputWithContext(context.Context) ApplicationNotificationEndpointInvokeResponseArrayOutput
+}
+
+type ApplicationNotificationEndpointInvokeResponseArray []ApplicationNotificationEndpointInvokeResponseInput
+
+func (ApplicationNotificationEndpointInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationNotificationEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationNotificationEndpointInvokeResponseArray) ToApplicationNotificationEndpointInvokeResponseArrayOutput() ApplicationNotificationEndpointInvokeResponseArrayOutput {
+	return i.ToApplicationNotificationEndpointInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationNotificationEndpointInvokeResponseArray) ToApplicationNotificationEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationNotificationEndpointInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationEndpointInvokeResponseArrayOutput)
+}
+
+// Managed application notification endpoint.
+type ApplicationNotificationEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationNotificationEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationNotificationEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationNotificationEndpointInvokeResponseOutput) ToApplicationNotificationEndpointInvokeResponseOutput() ApplicationNotificationEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationNotificationEndpointInvokeResponseOutput) ToApplicationNotificationEndpointInvokeResponseOutputWithContext(ctx context.Context) ApplicationNotificationEndpointInvokeResponseOutput {
+	return o
+}
+
+// The managed application notification endpoint uri.
+func (o ApplicationNotificationEndpointInvokeResponseOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationNotificationEndpointInvokeResponse) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type ApplicationNotificationEndpointInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationNotificationEndpointInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationNotificationEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationNotificationEndpointInvokeResponseArrayOutput) ToApplicationNotificationEndpointInvokeResponseArrayOutput() ApplicationNotificationEndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationNotificationEndpointInvokeResponseArrayOutput) ToApplicationNotificationEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationNotificationEndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationNotificationEndpointInvokeResponseArrayOutput) Index(i pulumi.IntInput) ApplicationNotificationEndpointInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationNotificationEndpointInvokeResponse {
+		return vs[0].([]ApplicationNotificationEndpointInvokeResponse)[vs[1].(int)]
+	}).(ApplicationNotificationEndpointInvokeResponseOutput)
 }
 
 // Managed application notification endpoint.
@@ -2145,6 +2912,63 @@ func (o ApplicationNotificationPolicyPtrOutput) NotificationEndpoints() Applicat
 }
 
 // Managed application notification policy.
+type ApplicationNotificationPolicyInvokeResponse struct {
+	// The managed application notification endpoint.
+	NotificationEndpoints []ApplicationNotificationEndpointInvokeResponse `pulumi:"notificationEndpoints"`
+}
+
+// ApplicationNotificationPolicyInvokeResponseInput is an input type that accepts ApplicationNotificationPolicyInvokeResponseArgs and ApplicationNotificationPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationNotificationPolicyInvokeResponseInput` via:
+//
+//          ApplicationNotificationPolicyInvokeResponseArgs{...}
+type ApplicationNotificationPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationNotificationPolicyInvokeResponseOutput() ApplicationNotificationPolicyInvokeResponseOutput
+	ToApplicationNotificationPolicyInvokeResponseOutputWithContext(context.Context) ApplicationNotificationPolicyInvokeResponseOutput
+}
+
+// Managed application notification policy.
+type ApplicationNotificationPolicyInvokeResponseArgs struct {
+	// The managed application notification endpoint.
+	NotificationEndpoints ApplicationNotificationEndpointInvokeResponseArrayInput `pulumi:"notificationEndpoints"`
+}
+
+func (ApplicationNotificationPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationNotificationPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationNotificationPolicyInvokeResponseArgs) ToApplicationNotificationPolicyInvokeResponseOutput() ApplicationNotificationPolicyInvokeResponseOutput {
+	return i.ToApplicationNotificationPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationNotificationPolicyInvokeResponseArgs) ToApplicationNotificationPolicyInvokeResponseOutputWithContext(ctx context.Context) ApplicationNotificationPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationPolicyInvokeResponseOutput)
+}
+
+// Managed application notification policy.
+type ApplicationNotificationPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationNotificationPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationNotificationPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationNotificationPolicyInvokeResponseOutput) ToApplicationNotificationPolicyInvokeResponseOutput() ApplicationNotificationPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationNotificationPolicyInvokeResponseOutput) ToApplicationNotificationPolicyInvokeResponseOutputWithContext(ctx context.Context) ApplicationNotificationPolicyInvokeResponseOutput {
+	return o
+}
+
+// The managed application notification endpoint.
+func (o ApplicationNotificationPolicyInvokeResponseOutput) NotificationEndpoints() ApplicationNotificationEndpointInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationNotificationPolicyInvokeResponse) []ApplicationNotificationEndpointInvokeResponse {
+		return v.NotificationEndpoints
+	}).(ApplicationNotificationEndpointInvokeResponseArrayOutput)
+}
+
+// Managed application notification policy.
 type ApplicationNotificationPolicyResponse struct {
 	// The managed application notification endpoint.
 	NotificationEndpoints []ApplicationNotificationEndpointResponse `pulumi:"notificationEndpoints"`
@@ -2278,6 +3102,79 @@ func (o ApplicationNotificationPolicyResponsePtrOutput) NotificationEndpoints() 
 		}
 		return v.NotificationEndpoints
 	}).(ApplicationNotificationEndpointResponseArrayOutput)
+}
+
+// The application package contact information.
+type ApplicationPackageContactInvokeResponse struct {
+	// The contact name.
+	ContactName *string `pulumi:"contactName"`
+	// The contact email.
+	Email string `pulumi:"email"`
+	// The contact phone number.
+	Phone string `pulumi:"phone"`
+}
+
+// ApplicationPackageContactInvokeResponseInput is an input type that accepts ApplicationPackageContactInvokeResponseArgs and ApplicationPackageContactInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationPackageContactInvokeResponseInput` via:
+//
+//          ApplicationPackageContactInvokeResponseArgs{...}
+type ApplicationPackageContactInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationPackageContactInvokeResponseOutput() ApplicationPackageContactInvokeResponseOutput
+	ToApplicationPackageContactInvokeResponseOutputWithContext(context.Context) ApplicationPackageContactInvokeResponseOutput
+}
+
+// The application package contact information.
+type ApplicationPackageContactInvokeResponseArgs struct {
+	// The contact name.
+	ContactName pulumi.StringPtrInput `pulumi:"contactName"`
+	// The contact email.
+	Email pulumi.StringInput `pulumi:"email"`
+	// The contact phone number.
+	Phone pulumi.StringInput `pulumi:"phone"`
+}
+
+func (ApplicationPackageContactInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageContactInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationPackageContactInvokeResponseArgs) ToApplicationPackageContactInvokeResponseOutput() ApplicationPackageContactInvokeResponseOutput {
+	return i.ToApplicationPackageContactInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationPackageContactInvokeResponseArgs) ToApplicationPackageContactInvokeResponseOutputWithContext(ctx context.Context) ApplicationPackageContactInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageContactInvokeResponseOutput)
+}
+
+// The application package contact information.
+type ApplicationPackageContactInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPackageContactInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageContactInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationPackageContactInvokeResponseOutput) ToApplicationPackageContactInvokeResponseOutput() ApplicationPackageContactInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationPackageContactInvokeResponseOutput) ToApplicationPackageContactInvokeResponseOutputWithContext(ctx context.Context) ApplicationPackageContactInvokeResponseOutput {
+	return o
+}
+
+// The contact name.
+func (o ApplicationPackageContactInvokeResponseOutput) ContactName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPackageContactInvokeResponse) *string { return v.ContactName }).(pulumi.StringPtrOutput)
+}
+
+// The contact email.
+func (o ApplicationPackageContactInvokeResponseOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageContactInvokeResponse) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// The contact phone number.
+func (o ApplicationPackageContactInvokeResponseOutput) Phone() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationPackageContactInvokeResponse) string { return v.Phone }).(pulumi.StringOutput)
 }
 
 // The application package contact information.
@@ -2589,6 +3486,61 @@ func (o ApplicationPackageLockingPolicyDefinitionPtrOutput) AllowedActions() pul
 }
 
 // Managed application locking policy.
+type ApplicationPackageLockingPolicyDefinitionInvokeResponse struct {
+	// The deny assignment excluded actions.
+	AllowedActions []string `pulumi:"allowedActions"`
+}
+
+// ApplicationPackageLockingPolicyDefinitionInvokeResponseInput is an input type that accepts ApplicationPackageLockingPolicyDefinitionInvokeResponseArgs and ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationPackageLockingPolicyDefinitionInvokeResponseInput` via:
+//
+//          ApplicationPackageLockingPolicyDefinitionInvokeResponseArgs{...}
+type ApplicationPackageLockingPolicyDefinitionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationPackageLockingPolicyDefinitionInvokeResponseOutput() ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput
+	ToApplicationPackageLockingPolicyDefinitionInvokeResponseOutputWithContext(context.Context) ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput
+}
+
+// Managed application locking policy.
+type ApplicationPackageLockingPolicyDefinitionInvokeResponseArgs struct {
+	// The deny assignment excluded actions.
+	AllowedActions pulumi.StringArrayInput `pulumi:"allowedActions"`
+}
+
+func (ApplicationPackageLockingPolicyDefinitionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageLockingPolicyDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationPackageLockingPolicyDefinitionInvokeResponseArgs) ToApplicationPackageLockingPolicyDefinitionInvokeResponseOutput() ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput {
+	return i.ToApplicationPackageLockingPolicyDefinitionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationPackageLockingPolicyDefinitionInvokeResponseArgs) ToApplicationPackageLockingPolicyDefinitionInvokeResponseOutputWithContext(ctx context.Context) ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput)
+}
+
+// Managed application locking policy.
+type ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageLockingPolicyDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput) ToApplicationPackageLockingPolicyDefinitionInvokeResponseOutput() ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput) ToApplicationPackageLockingPolicyDefinitionInvokeResponseOutputWithContext(ctx context.Context) ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput {
+	return o
+}
+
+// The deny assignment excluded actions.
+func (o ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput) AllowedActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationPackageLockingPolicyDefinitionInvokeResponse) []string { return v.AllowedActions }).(pulumi.StringArrayOutput)
+}
+
+// Managed application locking policy.
 type ApplicationPackageLockingPolicyDefinitionResponse struct {
 	// The deny assignment excluded actions.
 	AllowedActions []string `pulumi:"allowedActions"`
@@ -2722,6 +3674,70 @@ func (o ApplicationPackageLockingPolicyDefinitionResponsePtrOutput) AllowedActio
 		}
 		return v.AllowedActions
 	}).(pulumi.StringArrayOutput)
+}
+
+// The appliance package support URLs.
+type ApplicationPackageSupportUrlsInvokeResponse struct {
+	// The government cloud support URL.
+	GovernmentCloud *string `pulumi:"governmentCloud"`
+	// The public azure support URL.
+	PublicAzure *string `pulumi:"publicAzure"`
+}
+
+// ApplicationPackageSupportUrlsInvokeResponseInput is an input type that accepts ApplicationPackageSupportUrlsInvokeResponseArgs and ApplicationPackageSupportUrlsInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationPackageSupportUrlsInvokeResponseInput` via:
+//
+//          ApplicationPackageSupportUrlsInvokeResponseArgs{...}
+type ApplicationPackageSupportUrlsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationPackageSupportUrlsInvokeResponseOutput() ApplicationPackageSupportUrlsInvokeResponseOutput
+	ToApplicationPackageSupportUrlsInvokeResponseOutputWithContext(context.Context) ApplicationPackageSupportUrlsInvokeResponseOutput
+}
+
+// The appliance package support URLs.
+type ApplicationPackageSupportUrlsInvokeResponseArgs struct {
+	// The government cloud support URL.
+	GovernmentCloud pulumi.StringPtrInput `pulumi:"governmentCloud"`
+	// The public azure support URL.
+	PublicAzure pulumi.StringPtrInput `pulumi:"publicAzure"`
+}
+
+func (ApplicationPackageSupportUrlsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageSupportUrlsInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationPackageSupportUrlsInvokeResponseArgs) ToApplicationPackageSupportUrlsInvokeResponseOutput() ApplicationPackageSupportUrlsInvokeResponseOutput {
+	return i.ToApplicationPackageSupportUrlsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationPackageSupportUrlsInvokeResponseArgs) ToApplicationPackageSupportUrlsInvokeResponseOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageSupportUrlsInvokeResponseOutput)
+}
+
+// The appliance package support URLs.
+type ApplicationPackageSupportUrlsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPackageSupportUrlsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPackageSupportUrlsInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationPackageSupportUrlsInvokeResponseOutput) ToApplicationPackageSupportUrlsInvokeResponseOutput() ApplicationPackageSupportUrlsInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationPackageSupportUrlsInvokeResponseOutput) ToApplicationPackageSupportUrlsInvokeResponseOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsInvokeResponseOutput {
+	return o
+}
+
+// The government cloud support URL.
+func (o ApplicationPackageSupportUrlsInvokeResponseOutput) GovernmentCloud() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPackageSupportUrlsInvokeResponse) *string { return v.GovernmentCloud }).(pulumi.StringPtrOutput)
+}
+
+// The public azure support URL.
+func (o ApplicationPackageSupportUrlsInvokeResponseOutput) PublicAzure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPackageSupportUrlsInvokeResponse) *string { return v.PublicAzure }).(pulumi.StringPtrOutput)
 }
 
 // The appliance package support URLs.
@@ -2996,6 +4012,124 @@ func (o ApplicationPolicyArrayOutput) Index(i pulumi.IntInput) ApplicationPolicy
 }
 
 // Managed application policy.
+type ApplicationPolicyInvokeResponse struct {
+	// The policy name
+	Name *string `pulumi:"name"`
+	// The policy parameters.
+	Parameters *string `pulumi:"parameters"`
+	// The policy definition Id.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+}
+
+// ApplicationPolicyInvokeResponseInput is an input type that accepts ApplicationPolicyInvokeResponseArgs and ApplicationPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationPolicyInvokeResponseInput` via:
+//
+//          ApplicationPolicyInvokeResponseArgs{...}
+type ApplicationPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationPolicyInvokeResponseOutput() ApplicationPolicyInvokeResponseOutput
+	ToApplicationPolicyInvokeResponseOutputWithContext(context.Context) ApplicationPolicyInvokeResponseOutput
+}
+
+// Managed application policy.
+type ApplicationPolicyInvokeResponseArgs struct {
+	// The policy name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The policy parameters.
+	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
+	// The policy definition Id.
+	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
+}
+
+func (ApplicationPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationPolicyInvokeResponseArgs) ToApplicationPolicyInvokeResponseOutput() ApplicationPolicyInvokeResponseOutput {
+	return i.ToApplicationPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationPolicyInvokeResponseArgs) ToApplicationPolicyInvokeResponseOutputWithContext(ctx context.Context) ApplicationPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPolicyInvokeResponseOutput)
+}
+
+// ApplicationPolicyInvokeResponseArrayInput is an input type that accepts ApplicationPolicyInvokeResponseArray and ApplicationPolicyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ApplicationPolicyInvokeResponseArrayInput` via:
+//
+//          ApplicationPolicyInvokeResponseArray{ ApplicationPolicyInvokeResponseArgs{...} }
+type ApplicationPolicyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplicationPolicyInvokeResponseArrayOutput() ApplicationPolicyInvokeResponseArrayOutput
+	ToApplicationPolicyInvokeResponseArrayOutputWithContext(context.Context) ApplicationPolicyInvokeResponseArrayOutput
+}
+
+type ApplicationPolicyInvokeResponseArray []ApplicationPolicyInvokeResponseInput
+
+func (ApplicationPolicyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationPolicyInvokeResponseArray) ToApplicationPolicyInvokeResponseArrayOutput() ApplicationPolicyInvokeResponseArrayOutput {
+	return i.ToApplicationPolicyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationPolicyInvokeResponseArray) ToApplicationPolicyInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationPolicyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPolicyInvokeResponseArrayOutput)
+}
+
+// Managed application policy.
+type ApplicationPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationPolicyInvokeResponseOutput) ToApplicationPolicyInvokeResponseOutput() ApplicationPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationPolicyInvokeResponseOutput) ToApplicationPolicyInvokeResponseOutputWithContext(ctx context.Context) ApplicationPolicyInvokeResponseOutput {
+	return o
+}
+
+// The policy name
+func (o ApplicationPolicyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPolicyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The policy parameters.
+func (o ApplicationPolicyInvokeResponseOutput) Parameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPolicyInvokeResponse) *string { return v.Parameters }).(pulumi.StringPtrOutput)
+}
+
+// The policy definition Id.
+func (o ApplicationPolicyInvokeResponseOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPolicyInvokeResponse) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationPolicyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPolicyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationPolicyInvokeResponseArrayOutput) ToApplicationPolicyInvokeResponseArrayOutput() ApplicationPolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationPolicyInvokeResponseArrayOutput) ToApplicationPolicyInvokeResponseArrayOutputWithContext(ctx context.Context) ApplicationPolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplicationPolicyInvokeResponseArrayOutput) Index(i pulumi.IntInput) ApplicationPolicyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationPolicyInvokeResponse {
+		return vs[0].([]ApplicationPolicyInvokeResponse)[vs[1].(int)]
+	}).(ApplicationPolicyInvokeResponseOutput)
+}
+
+// Managed application policy.
 type ApplicationPolicyResponse struct {
 	// The policy name
 	Name *string `pulumi:"name"`
@@ -3264,6 +4398,90 @@ func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 		}
 		return v.UserAssignedIdentities
 	}).(pulumi.MapOutput)
+}
+
+// Identity for the resource.
+type IdentityInvokeResponse struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities map[string]UserAssignedResourceIdentityInvokeResponse `pulumi:"userAssignedIdentities"`
+}
+
+// IdentityInvokeResponseInput is an input type that accepts IdentityInvokeResponseArgs and IdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentityInvokeResponseInput` via:
+//
+//          IdentityInvokeResponseArgs{...}
+type IdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput
+	ToIdentityInvokeResponseOutputWithContext(context.Context) IdentityInvokeResponseOutput
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+	UserAssignedIdentities UserAssignedResourceIdentityInvokeResponseMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (IdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return i.ToIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityInvokeResponseOutput)
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o IdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o IdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+func (o IdentityInvokeResponseOutput) UserAssignedIdentities() UserAssignedResourceIdentityInvokeResponseMapOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) map[string]UserAssignedResourceIdentityInvokeResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedResourceIdentityInvokeResponseMapOutput)
 }
 
 // Identity for the resource.
@@ -3578,6 +4796,124 @@ func (o JitApproverDefinitionArrayOutput) Index(i pulumi.IntInput) JitApproverDe
 }
 
 // JIT approver definition.
+type JitApproverDefinitionInvokeResponse struct {
+	// The approver display name.
+	DisplayName *string `pulumi:"displayName"`
+	// The approver service principal Id.
+	Id string `pulumi:"id"`
+	// The approver type.
+	Type *string `pulumi:"type"`
+}
+
+// JitApproverDefinitionInvokeResponseInput is an input type that accepts JitApproverDefinitionInvokeResponseArgs and JitApproverDefinitionInvokeResponseOutput values.
+// You can construct a concrete instance of `JitApproverDefinitionInvokeResponseInput` via:
+//
+//          JitApproverDefinitionInvokeResponseArgs{...}
+type JitApproverDefinitionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJitApproverDefinitionInvokeResponseOutput() JitApproverDefinitionInvokeResponseOutput
+	ToJitApproverDefinitionInvokeResponseOutputWithContext(context.Context) JitApproverDefinitionInvokeResponseOutput
+}
+
+// JIT approver definition.
+type JitApproverDefinitionInvokeResponseArgs struct {
+	// The approver display name.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The approver service principal Id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The approver type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (JitApproverDefinitionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitApproverDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i JitApproverDefinitionInvokeResponseArgs) ToJitApproverDefinitionInvokeResponseOutput() JitApproverDefinitionInvokeResponseOutput {
+	return i.ToJitApproverDefinitionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JitApproverDefinitionInvokeResponseArgs) ToJitApproverDefinitionInvokeResponseOutputWithContext(ctx context.Context) JitApproverDefinitionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitApproverDefinitionInvokeResponseOutput)
+}
+
+// JitApproverDefinitionInvokeResponseArrayInput is an input type that accepts JitApproverDefinitionInvokeResponseArray and JitApproverDefinitionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JitApproverDefinitionInvokeResponseArrayInput` via:
+//
+//          JitApproverDefinitionInvokeResponseArray{ JitApproverDefinitionInvokeResponseArgs{...} }
+type JitApproverDefinitionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJitApproverDefinitionInvokeResponseArrayOutput() JitApproverDefinitionInvokeResponseArrayOutput
+	ToJitApproverDefinitionInvokeResponseArrayOutputWithContext(context.Context) JitApproverDefinitionInvokeResponseArrayOutput
+}
+
+type JitApproverDefinitionInvokeResponseArray []JitApproverDefinitionInvokeResponseInput
+
+func (JitApproverDefinitionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitApproverDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i JitApproverDefinitionInvokeResponseArray) ToJitApproverDefinitionInvokeResponseArrayOutput() JitApproverDefinitionInvokeResponseArrayOutput {
+	return i.ToJitApproverDefinitionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JitApproverDefinitionInvokeResponseArray) ToJitApproverDefinitionInvokeResponseArrayOutputWithContext(ctx context.Context) JitApproverDefinitionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitApproverDefinitionInvokeResponseArrayOutput)
+}
+
+// JIT approver definition.
+type JitApproverDefinitionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JitApproverDefinitionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitApproverDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o JitApproverDefinitionInvokeResponseOutput) ToJitApproverDefinitionInvokeResponseOutput() JitApproverDefinitionInvokeResponseOutput {
+	return o
+}
+
+func (o JitApproverDefinitionInvokeResponseOutput) ToJitApproverDefinitionInvokeResponseOutputWithContext(ctx context.Context) JitApproverDefinitionInvokeResponseOutput {
+	return o
+}
+
+// The approver display name.
+func (o JitApproverDefinitionInvokeResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitApproverDefinitionInvokeResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The approver service principal Id.
+func (o JitApproverDefinitionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v JitApproverDefinitionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The approver type.
+func (o JitApproverDefinitionInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitApproverDefinitionInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type JitApproverDefinitionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JitApproverDefinitionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitApproverDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o JitApproverDefinitionInvokeResponseArrayOutput) ToJitApproverDefinitionInvokeResponseArrayOutput() JitApproverDefinitionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitApproverDefinitionInvokeResponseArrayOutput) ToJitApproverDefinitionInvokeResponseArrayOutputWithContext(ctx context.Context) JitApproverDefinitionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitApproverDefinitionInvokeResponseArrayOutput) Index(i pulumi.IntInput) JitApproverDefinitionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitApproverDefinitionInvokeResponse {
+		return vs[0].([]JitApproverDefinitionInvokeResponse)[vs[1].(int)]
+	}).(JitApproverDefinitionInvokeResponseOutput)
+}
+
+// JIT approver definition.
 type JitApproverDefinitionResponse struct {
 	// The approver display name.
 	DisplayName *string `pulumi:"displayName"`
@@ -3802,6 +5138,115 @@ func (o JitAuthorizationPoliciesArrayOutput) Index(i pulumi.IntInput) JitAuthori
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitAuthorizationPolicies {
 		return vs[0].([]JitAuthorizationPolicies)[vs[1].(int)]
 	}).(JitAuthorizationPoliciesOutput)
+}
+
+// The JIT authorization policies.
+type JitAuthorizationPoliciesInvokeResponse struct {
+	// The the principal id that will be granted JIT access.
+	PrincipalId string `pulumi:"principalId"`
+	// The role definition id that will be granted to the Principal.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// JitAuthorizationPoliciesInvokeResponseInput is an input type that accepts JitAuthorizationPoliciesInvokeResponseArgs and JitAuthorizationPoliciesInvokeResponseOutput values.
+// You can construct a concrete instance of `JitAuthorizationPoliciesInvokeResponseInput` via:
+//
+//          JitAuthorizationPoliciesInvokeResponseArgs{...}
+type JitAuthorizationPoliciesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJitAuthorizationPoliciesInvokeResponseOutput() JitAuthorizationPoliciesInvokeResponseOutput
+	ToJitAuthorizationPoliciesInvokeResponseOutputWithContext(context.Context) JitAuthorizationPoliciesInvokeResponseOutput
+}
+
+// The JIT authorization policies.
+type JitAuthorizationPoliciesInvokeResponseArgs struct {
+	// The the principal id that will be granted JIT access.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The role definition id that will be granted to the Principal.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (JitAuthorizationPoliciesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitAuthorizationPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (i JitAuthorizationPoliciesInvokeResponseArgs) ToJitAuthorizationPoliciesInvokeResponseOutput() JitAuthorizationPoliciesInvokeResponseOutput {
+	return i.ToJitAuthorizationPoliciesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JitAuthorizationPoliciesInvokeResponseArgs) ToJitAuthorizationPoliciesInvokeResponseOutputWithContext(ctx context.Context) JitAuthorizationPoliciesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitAuthorizationPoliciesInvokeResponseOutput)
+}
+
+// JitAuthorizationPoliciesInvokeResponseArrayInput is an input type that accepts JitAuthorizationPoliciesInvokeResponseArray and JitAuthorizationPoliciesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JitAuthorizationPoliciesInvokeResponseArrayInput` via:
+//
+//          JitAuthorizationPoliciesInvokeResponseArray{ JitAuthorizationPoliciesInvokeResponseArgs{...} }
+type JitAuthorizationPoliciesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJitAuthorizationPoliciesInvokeResponseArrayOutput() JitAuthorizationPoliciesInvokeResponseArrayOutput
+	ToJitAuthorizationPoliciesInvokeResponseArrayOutputWithContext(context.Context) JitAuthorizationPoliciesInvokeResponseArrayOutput
+}
+
+type JitAuthorizationPoliciesInvokeResponseArray []JitAuthorizationPoliciesInvokeResponseInput
+
+func (JitAuthorizationPoliciesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitAuthorizationPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (i JitAuthorizationPoliciesInvokeResponseArray) ToJitAuthorizationPoliciesInvokeResponseArrayOutput() JitAuthorizationPoliciesInvokeResponseArrayOutput {
+	return i.ToJitAuthorizationPoliciesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JitAuthorizationPoliciesInvokeResponseArray) ToJitAuthorizationPoliciesInvokeResponseArrayOutputWithContext(ctx context.Context) JitAuthorizationPoliciesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitAuthorizationPoliciesInvokeResponseArrayOutput)
+}
+
+// The JIT authorization policies.
+type JitAuthorizationPoliciesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JitAuthorizationPoliciesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitAuthorizationPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (o JitAuthorizationPoliciesInvokeResponseOutput) ToJitAuthorizationPoliciesInvokeResponseOutput() JitAuthorizationPoliciesInvokeResponseOutput {
+	return o
+}
+
+func (o JitAuthorizationPoliciesInvokeResponseOutput) ToJitAuthorizationPoliciesInvokeResponseOutputWithContext(ctx context.Context) JitAuthorizationPoliciesInvokeResponseOutput {
+	return o
+}
+
+// The the principal id that will be granted JIT access.
+func (o JitAuthorizationPoliciesInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v JitAuthorizationPoliciesInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The role definition id that will be granted to the Principal.
+func (o JitAuthorizationPoliciesInvokeResponseOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v JitAuthorizationPoliciesInvokeResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type JitAuthorizationPoliciesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JitAuthorizationPoliciesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitAuthorizationPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (o JitAuthorizationPoliciesInvokeResponseArrayOutput) ToJitAuthorizationPoliciesInvokeResponseArrayOutput() JitAuthorizationPoliciesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitAuthorizationPoliciesInvokeResponseArrayOutput) ToJitAuthorizationPoliciesInvokeResponseArrayOutputWithContext(ctx context.Context) JitAuthorizationPoliciesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitAuthorizationPoliciesInvokeResponseArrayOutput) Index(i pulumi.IntInput) JitAuthorizationPoliciesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitAuthorizationPoliciesInvokeResponse {
+		return vs[0].([]JitAuthorizationPoliciesInvokeResponse)[vs[1].(int)]
+	}).(JitAuthorizationPoliciesInvokeResponseOutput)
 }
 
 // The JIT authorization policies.
@@ -4059,6 +5504,76 @@ func (o JitSchedulingPolicyPtrOutput) StartTime() pulumi.StringPtrOutput {
 		}
 		return &v.StartTime
 	}).(pulumi.StringPtrOutput)
+}
+
+// The JIT scheduling policies.
+type JitSchedulingPolicyInvokeResponse struct {
+	Duration string `pulumi:"duration"`
+	// The start time of the request.
+	StartTime string `pulumi:"startTime"`
+	// The type of JIT schedule.
+	Type string `pulumi:"type"`
+}
+
+// JitSchedulingPolicyInvokeResponseInput is an input type that accepts JitSchedulingPolicyInvokeResponseArgs and JitSchedulingPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `JitSchedulingPolicyInvokeResponseInput` via:
+//
+//          JitSchedulingPolicyInvokeResponseArgs{...}
+type JitSchedulingPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJitSchedulingPolicyInvokeResponseOutput() JitSchedulingPolicyInvokeResponseOutput
+	ToJitSchedulingPolicyInvokeResponseOutputWithContext(context.Context) JitSchedulingPolicyInvokeResponseOutput
+}
+
+// The JIT scheduling policies.
+type JitSchedulingPolicyInvokeResponseArgs struct {
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// The start time of the request.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// The type of JIT schedule.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JitSchedulingPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitSchedulingPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i JitSchedulingPolicyInvokeResponseArgs) ToJitSchedulingPolicyInvokeResponseOutput() JitSchedulingPolicyInvokeResponseOutput {
+	return i.ToJitSchedulingPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JitSchedulingPolicyInvokeResponseArgs) ToJitSchedulingPolicyInvokeResponseOutputWithContext(ctx context.Context) JitSchedulingPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitSchedulingPolicyInvokeResponseOutput)
+}
+
+// The JIT scheduling policies.
+type JitSchedulingPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JitSchedulingPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitSchedulingPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o JitSchedulingPolicyInvokeResponseOutput) ToJitSchedulingPolicyInvokeResponseOutput() JitSchedulingPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o JitSchedulingPolicyInvokeResponseOutput) ToJitSchedulingPolicyInvokeResponseOutputWithContext(ctx context.Context) JitSchedulingPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o JitSchedulingPolicyInvokeResponseOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v JitSchedulingPolicyInvokeResponse) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The start time of the request.
+func (o JitSchedulingPolicyInvokeResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JitSchedulingPolicyInvokeResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The type of JIT schedule.
+func (o JitSchedulingPolicyInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JitSchedulingPolicyInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The JIT scheduling policies.
@@ -4436,6 +5951,97 @@ func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 		}
 		return &v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+// Plan for the managed application.
+type PlanInvokeResponse struct {
+	// The plan name.
+	Name string `pulumi:"name"`
+	// The product code.
+	Product string `pulumi:"product"`
+	// The promotion code.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher string `pulumi:"publisher"`
+	// The plan's version.
+	Version string `pulumi:"version"`
+}
+
+// PlanInvokeResponseInput is an input type that accepts PlanInvokeResponseArgs and PlanInvokeResponseOutput values.
+// You can construct a concrete instance of `PlanInvokeResponseInput` via:
+//
+//          PlanInvokeResponseArgs{...}
+type PlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPlanInvokeResponseOutput() PlanInvokeResponseOutput
+	ToPlanInvokeResponseOutputWithContext(context.Context) PlanInvokeResponseOutput
+}
+
+// Plan for the managed application.
+type PlanInvokeResponseArgs struct {
+	// The plan name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The product code.
+	Product pulumi.StringInput `pulumi:"product"`
+	// The promotion code.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The plan's version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (PlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanInvokeResponse)(nil)).Elem()
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponseOutput() PlanInvokeResponseOutput {
+	return i.ToPlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponseOutputWithContext(ctx context.Context) PlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanInvokeResponseOutput)
+}
+
+// Plan for the managed application.
+type PlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanInvokeResponse)(nil)).Elem()
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponseOutput() PlanInvokeResponseOutput {
+	return o
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponseOutputWithContext(ctx context.Context) PlanInvokeResponseOutput {
+	return o
+}
+
+// The plan name.
+func (o PlanInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The product code.
+func (o PlanInvokeResponseOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// The promotion code.
+func (o PlanInvokeResponseOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID.
+func (o PlanInvokeResponseOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The plan's version.
+func (o PlanInvokeResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Version }).(pulumi.StringOutput)
 }
 
 // Plan for the managed application.
@@ -4878,6 +6484,106 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // SKU for the resource.
+type SkuInvokeResponse struct {
+	// The SKU capacity.
+	Capacity *int `pulumi:"capacity"`
+	// The SKU family.
+	Family *string `pulumi:"family"`
+	// The SKU model.
+	Model *string `pulumi:"model"`
+	// The SKU name.
+	Name string `pulumi:"name"`
+	// The SKU size.
+	Size *string `pulumi:"size"`
+	// The SKU tier.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// SKU for the resource.
+type SkuInvokeResponseArgs struct {
+	// The SKU capacity.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The SKU family.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The SKU model.
+	Model pulumi.StringPtrInput `pulumi:"model"`
+	// The SKU name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The SKU size.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The SKU tier.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// SKU for the resource.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The SKU capacity.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The SKU family.
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The SKU model.
+func (o SkuInvokeResponseOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Model }).(pulumi.StringPtrOutput)
+}
+
+// The SKU name.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU size.
+func (o SkuInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The SKU tier.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// SKU for the resource.
 type SkuResponse struct {
 	// The SKU capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -5107,6 +6813,115 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentityInvokeResponse struct {
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of user assigned identity.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// UserAssignedResourceIdentityInvokeResponseInput is an input type that accepts UserAssignedResourceIdentityInvokeResponseArgs and UserAssignedResourceIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `UserAssignedResourceIdentityInvokeResponseInput` via:
+//
+//          UserAssignedResourceIdentityInvokeResponseArgs{...}
+type UserAssignedResourceIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedResourceIdentityInvokeResponseOutput() UserAssignedResourceIdentityInvokeResponseOutput
+	ToUserAssignedResourceIdentityInvokeResponseOutputWithContext(context.Context) UserAssignedResourceIdentityInvokeResponseOutput
+}
+
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentityInvokeResponseArgs struct {
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of user assigned identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (UserAssignedResourceIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i UserAssignedResourceIdentityInvokeResponseArgs) ToUserAssignedResourceIdentityInvokeResponseOutput() UserAssignedResourceIdentityInvokeResponseOutput {
+	return i.ToUserAssignedResourceIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedResourceIdentityInvokeResponseArgs) ToUserAssignedResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) UserAssignedResourceIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedResourceIdentityInvokeResponseOutput)
+}
+
+// UserAssignedResourceIdentityInvokeResponseMapInput is an input type that accepts UserAssignedResourceIdentityInvokeResponseMap and UserAssignedResourceIdentityInvokeResponseMapOutput values.
+// You can construct a concrete instance of `UserAssignedResourceIdentityInvokeResponseMapInput` via:
+//
+//          UserAssignedResourceIdentityInvokeResponseMap{ "key": UserAssignedResourceIdentityInvokeResponseArgs{...} }
+type UserAssignedResourceIdentityInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedResourceIdentityInvokeResponseMapOutput() UserAssignedResourceIdentityInvokeResponseMapOutput
+	ToUserAssignedResourceIdentityInvokeResponseMapOutputWithContext(context.Context) UserAssignedResourceIdentityInvokeResponseMapOutput
+}
+
+type UserAssignedResourceIdentityInvokeResponseMap map[string]UserAssignedResourceIdentityInvokeResponseInput
+
+func (UserAssignedResourceIdentityInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i UserAssignedResourceIdentityInvokeResponseMap) ToUserAssignedResourceIdentityInvokeResponseMapOutput() UserAssignedResourceIdentityInvokeResponseMapOutput {
+	return i.ToUserAssignedResourceIdentityInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedResourceIdentityInvokeResponseMap) ToUserAssignedResourceIdentityInvokeResponseMapOutputWithContext(ctx context.Context) UserAssignedResourceIdentityInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedResourceIdentityInvokeResponseMapOutput)
+}
+
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
+type UserAssignedResourceIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedResourceIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o UserAssignedResourceIdentityInvokeResponseOutput) ToUserAssignedResourceIdentityInvokeResponseOutput() UserAssignedResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityInvokeResponseOutput) ToUserAssignedResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) UserAssignedResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal id of user assigned identity.
+func (o UserAssignedResourceIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedResourceIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of user assigned identity.
+func (o UserAssignedResourceIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedResourceIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type UserAssignedResourceIdentityInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedResourceIdentityInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o UserAssignedResourceIdentityInvokeResponseMapOutput) ToUserAssignedResourceIdentityInvokeResponseMapOutput() UserAssignedResourceIdentityInvokeResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityInvokeResponseMapOutput) ToUserAssignedResourceIdentityInvokeResponseMapOutputWithContext(ctx context.Context) UserAssignedResourceIdentityInvokeResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedResourceIdentityInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedResourceIdentityInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedResourceIdentityInvokeResponse {
+		return vs[0].(map[string]UserAssignedResourceIdentityInvokeResponse)[vs[1].(string)]
+	}).(UserAssignedResourceIdentityInvokeResponseOutput)
+}
+
+// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
 type UserAssignedResourceIdentityResponse struct {
 	// The principal id of user assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -5216,76 +7031,105 @@ func (o UserAssignedResourceIdentityResponseMapOutput) MapIndex(k pulumi.StringI
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApplicationArtifactInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationArtifactInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationAuthorizationOutput{})
 	pulumi.RegisterOutputType(ApplicationAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationAuthorizationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationAuthorizationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationAuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationAuthorizationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationBillingDetailsDefinitionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationBillingDetailsDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationBillingDetailsDefinitionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationClientDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationClientDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationClientDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationDefinitionArtifactInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationDefinitionArtifactInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationDeploymentPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationDeploymentPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationDeploymentPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationDeploymentPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationDeploymentPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationJitAccessPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationJitAccessPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationJitAccessPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationJitAccessPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationJitAccessPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationManagementPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationManagementPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationManagementPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationManagementPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationManagementPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationEndpointOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationNotificationEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationNotificationEndpointInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationEndpointResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationEndpointResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationNotificationPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationPackageContactInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageContactResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageContactResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationPackageSupportUrlsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageSupportUrlsResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageSupportUrlsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationPolicyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(JitApproverDefinitionOutput{})
 	pulumi.RegisterOutputType(JitApproverDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(JitApproverDefinitionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JitApproverDefinitionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitApproverDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(JitApproverDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitAuthorizationPoliciesOutput{})
 	pulumi.RegisterOutputType(JitAuthorizationPoliciesArrayOutput{})
+	pulumi.RegisterOutputType(JitAuthorizationPoliciesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JitAuthorizationPoliciesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitAuthorizationPoliciesResponseOutput{})
 	pulumi.RegisterOutputType(JitAuthorizationPoliciesResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitSchedulingPolicyOutput{})
 	pulumi.RegisterOutputType(JitSchedulingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(JitSchedulingPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JitSchedulingPolicyResponseOutput{})
 	pulumi.RegisterOutputType(JitSchedulingPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(PlanOutput{})
 	pulumi.RegisterOutputType(PlanPtrOutput{})
+	pulumi.RegisterOutputType(PlanInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedResourceIdentityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedResourceIdentityInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(UserAssignedResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedResourceIdentityResponseMapOutput{})
 }

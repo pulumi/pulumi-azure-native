@@ -36,7 +36,7 @@ type LookupServerResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityInvokeResponse `pulumi:"identity"`
 	// Status showing whether the server enabled infrastructure encryption.
 	InfrastructureEncryption *string `pulumi:"infrastructureEncryption"`
 	// The geo-location where the resource lives
@@ -48,7 +48,7 @@ type LookupServerResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of private endpoint connections on a server
-	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []ServerPrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a master server can have.
@@ -56,11 +56,11 @@ type LookupServerResult struct {
 	// The replication role of the server.
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The SKU (pricing tier) of the server.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
-	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
+	StorageProfile *StorageProfileInvokeResponse `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

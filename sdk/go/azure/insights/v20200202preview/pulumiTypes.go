@@ -11,6 +11,115 @@ import (
 )
 
 // The private link scope resource reference.
+type PrivateLinkScopedResourceInvokeResponse struct {
+	// The full resource Id of the private link scope resource.
+	ResourceId *string `pulumi:"resourceId"`
+	// The private link scope unique Identifier.
+	ScopeId *string `pulumi:"scopeId"`
+}
+
+// PrivateLinkScopedResourceInvokeResponseInput is an input type that accepts PrivateLinkScopedResourceInvokeResponseArgs and PrivateLinkScopedResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkScopedResourceInvokeResponseInput` via:
+//
+//          PrivateLinkScopedResourceInvokeResponseArgs{...}
+type PrivateLinkScopedResourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkScopedResourceInvokeResponseOutput() PrivateLinkScopedResourceInvokeResponseOutput
+	ToPrivateLinkScopedResourceInvokeResponseOutputWithContext(context.Context) PrivateLinkScopedResourceInvokeResponseOutput
+}
+
+// The private link scope resource reference.
+type PrivateLinkScopedResourceInvokeResponseArgs struct {
+	// The full resource Id of the private link scope resource.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The private link scope unique Identifier.
+	ScopeId pulumi.StringPtrInput `pulumi:"scopeId"`
+}
+
+func (PrivateLinkScopedResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkScopedResourceInvokeResponseArgs) ToPrivateLinkScopedResourceInvokeResponseOutput() PrivateLinkScopedResourceInvokeResponseOutput {
+	return i.ToPrivateLinkScopedResourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkScopedResourceInvokeResponseArgs) ToPrivateLinkScopedResourceInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkScopedResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceInvokeResponseOutput)
+}
+
+// PrivateLinkScopedResourceInvokeResponseArrayInput is an input type that accepts PrivateLinkScopedResourceInvokeResponseArray and PrivateLinkScopedResourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateLinkScopedResourceInvokeResponseArrayInput` via:
+//
+//          PrivateLinkScopedResourceInvokeResponseArray{ PrivateLinkScopedResourceInvokeResponseArgs{...} }
+type PrivateLinkScopedResourceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkScopedResourceInvokeResponseArrayOutput() PrivateLinkScopedResourceInvokeResponseArrayOutput
+	ToPrivateLinkScopedResourceInvokeResponseArrayOutputWithContext(context.Context) PrivateLinkScopedResourceInvokeResponseArrayOutput
+}
+
+type PrivateLinkScopedResourceInvokeResponseArray []PrivateLinkScopedResourceInvokeResponseInput
+
+func (PrivateLinkScopedResourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkScopedResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkScopedResourceInvokeResponseArray) ToPrivateLinkScopedResourceInvokeResponseArrayOutput() PrivateLinkScopedResourceInvokeResponseArrayOutput {
+	return i.ToPrivateLinkScopedResourceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkScopedResourceInvokeResponseArray) ToPrivateLinkScopedResourceInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateLinkScopedResourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceInvokeResponseArrayOutput)
+}
+
+// The private link scope resource reference.
+type PrivateLinkScopedResourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkScopedResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkScopedResourceInvokeResponseOutput) ToPrivateLinkScopedResourceInvokeResponseOutput() PrivateLinkScopedResourceInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceInvokeResponseOutput) ToPrivateLinkScopedResourceInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkScopedResourceInvokeResponseOutput {
+	return o
+}
+
+// The full resource Id of the private link scope resource.
+func (o PrivateLinkScopedResourceInvokeResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkScopedResourceInvokeResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The private link scope unique Identifier.
+func (o PrivateLinkScopedResourceInvokeResponseOutput) ScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkScopedResourceInvokeResponse) *string { return v.ScopeId }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkScopedResourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkScopedResourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkScopedResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkScopedResourceInvokeResponseArrayOutput) ToPrivateLinkScopedResourceInvokeResponseArrayOutput() PrivateLinkScopedResourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceInvokeResponseArrayOutput) ToPrivateLinkScopedResourceInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateLinkScopedResourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateLinkScopedResourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkScopedResourceInvokeResponse {
+		return vs[0].([]PrivateLinkScopedResourceInvokeResponse)[vs[1].(int)]
+	}).(PrivateLinkScopedResourceInvokeResponseOutput)
+}
+
+// The private link scope resource reference.
 type PrivateLinkScopedResourceResponse struct {
 	// The full resource Id of the private link scope resource.
 	ResourceId *string `pulumi:"resourceId"`
@@ -120,6 +229,8 @@ func (o PrivateLinkScopedResourceResponseArrayOutput) Index(i pulumi.IntInput) P
 }
 
 func init() {
+	pulumi.RegisterOutputType(PrivateLinkScopedResourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkScopedResourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseArrayOutput{})
 }

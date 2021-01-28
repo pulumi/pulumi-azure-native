@@ -44,7 +44,7 @@ type LookupWebAppPremierAddOnResult struct {
 	// Premier add on SKU.
 	Sku *string `pulumi:"sku"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

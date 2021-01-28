@@ -42,7 +42,7 @@ type LookupAutomationAccountResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Gets or sets the SKU of account.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Gets status of account.
 	State string `pulumi:"state"`
 	// Resource tags.

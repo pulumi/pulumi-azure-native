@@ -32,27 +32,27 @@ type LookupStorageAccountResult struct {
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
 	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
 	// Provides the identity based authentication settings for Azure Files.
-	AzureFilesIdentityBasedAuthentication *AzureFilesIdentityBasedAuthenticationResponse `pulumi:"azureFilesIdentityBasedAuthentication"`
+	AzureFilesIdentityBasedAuthentication *AzureFilesIdentityBasedAuthenticationInvokeResponse `pulumi:"azureFilesIdentityBasedAuthentication"`
 	// Blob restore status
-	BlobRestoreStatus BlobRestoreStatusResponse `pulumi:"blobRestoreStatus"`
+	BlobRestoreStatus BlobRestoreStatusInvokeResponse `pulumi:"blobRestoreStatus"`
 	// Gets the creation date and time of the storage account in UTC.
 	CreationTime string `pulumi:"creationTime"`
 	// Gets the custom domain the user assigned to this storage account.
-	CustomDomain CustomDomainResponse `pulumi:"customDomain"`
+	CustomDomain CustomDomainInvokeResponse `pulumi:"customDomain"`
 	// Allows https traffic only to storage service if sets to true.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
 	// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
-	Encryption EncryptionResponse `pulumi:"encryption"`
+	Encryption EncryptionInvokeResponse `pulumi:"encryption"`
 	// The extendedLocation of the resource.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	ExtendedLocation *ExtendedLocationInvokeResponse `pulumi:"extendedLocation"`
 	// If the failover is in progress, the value will be true, otherwise, it will be null.
 	FailoverInProgress bool `pulumi:"failoverInProgress"`
 	// Geo Replication Stats
-	GeoReplicationStats GeoReplicationStatsResponse `pulumi:"geoReplicationStats"`
+	GeoReplicationStats GeoReplicationStatsInvokeResponse `pulumi:"geoReplicationStats"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// Account HierarchicalNamespace enabled if sets to true.
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Gets the Kind.
@@ -68,23 +68,23 @@ type LookupStorageAccountResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Network rule set
-	NetworkRuleSet NetworkRuleSetResponse `pulumi:"networkRuleSet"`
+	NetworkRuleSet NetworkRuleSetInvokeResponse `pulumi:"networkRuleSet"`
 	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-	PrimaryEndpoints EndpointsResponse `pulumi:"primaryEndpoints"`
+	PrimaryEndpoints EndpointsInvokeResponse `pulumi:"primaryEndpoints"`
 	// Gets the location of the primary data center for the storage account.
 	PrimaryLocation string `pulumi:"primaryLocation"`
 	// List of private endpoint connection associated with the specified storage account
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Gets the status of the storage account at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Maintains information about the network routing choice opted by the user for data transfer
-	RoutingPreference *RoutingPreferenceResponse `pulumi:"routingPreference"`
+	RoutingPreference *RoutingPreferenceInvokeResponse `pulumi:"routingPreference"`
 	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-	SecondaryEndpoints EndpointsResponse `pulumi:"secondaryEndpoints"`
+	SecondaryEndpoints EndpointsInvokeResponse `pulumi:"secondaryEndpoints"`
 	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
 	SecondaryLocation string `pulumi:"secondaryLocation"`
 	// Gets the SKU.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
 	StatusOfPrimary string `pulumi:"statusOfPrimary"`
 	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.

@@ -30,9 +30,9 @@ type LookupRegistrationDefinitionResult struct {
 	// Name of the registration definition.
 	Name string `pulumi:"name"`
 	// Plan details for the managed services.
-	Plan *PlanResponse `pulumi:"plan"`
+	Plan *PlanInvokeResponse `pulumi:"plan"`
 	// Properties of a registration definition.
-	Properties RegistrationDefinitionPropertiesResponse `pulumi:"properties"`
+	Properties RegistrationDefinitionPropertiesInvokeResponse `pulumi:"properties"`
 	// Type of the resource.
 	Type string `pulumi:"type"`
 }

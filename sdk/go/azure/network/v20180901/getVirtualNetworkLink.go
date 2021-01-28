@@ -44,7 +44,7 @@ type LookupVirtualNetworkLinkResult struct {
 	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
 	Type string `pulumi:"type"`
 	// The reference of the virtual network.
-	VirtualNetwork *SubResourceResponse `pulumi:"virtualNetwork"`
+	VirtualNetwork *SubResourceInvokeResponse `pulumi:"virtualNetwork"`
 	// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
 	VirtualNetworkLinkState string `pulumi:"virtualNetworkLinkState"`
 }

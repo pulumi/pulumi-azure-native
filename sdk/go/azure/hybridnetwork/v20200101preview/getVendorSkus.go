@@ -36,7 +36,7 @@ type LookupVendorSkusResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The template definition of the network function.
-	NetworkFunctionTemplate *NetworkFunctionTemplateResponse `pulumi:"networkFunctionTemplate"`
+	NetworkFunctionTemplate *NetworkFunctionTemplateInvokeResponse `pulumi:"networkFunctionTemplate"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview *bool `pulumi:"preview"`
 	// The provisioning state of the vendor sku sub resource.

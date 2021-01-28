@@ -27,13 +27,13 @@ type LookupEventSubscriptionArgs struct {
 type LookupEventSubscriptionResult struct {
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	DeadLetterDestination *StorageBlobDeadLetterDestinationInvokeResponse `pulumi:"deadLetterDestination"`
 	// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentityResponse `pulumi:"deadLetterWithResourceIdentity"`
+	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentityInvokeResponse `pulumi:"deadLetterWithResourceIdentity"`
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
-	DeliveryWithResourceIdentity *DeliveryWithResourceIdentityResponse `pulumi:"deliveryWithResourceIdentity"`
+	DeliveryWithResourceIdentity *DeliveryWithResourceIdentityInvokeResponse `pulumi:"deliveryWithResourceIdentity"`
 	// Information about the destination where events have to be delivered for the event subscription.
 	// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
 	Destination interface{} `pulumi:"destination"`
@@ -42,7 +42,7 @@ type LookupEventSubscriptionResult struct {
 	// Expiration time of the event subscription.
 	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
 	// Information about the filter for the event subscription.
-	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
+	Filter *EventSubscriptionFilterInvokeResponse `pulumi:"filter"`
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
 	// List of user defined labels.
@@ -52,7 +52,7 @@ type LookupEventSubscriptionResult struct {
 	// Provisioning state of the event subscription.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-	RetryPolicy *RetryPolicyResponse `pulumi:"retryPolicy"`
+	RetryPolicy *RetryPolicyInvokeResponse `pulumi:"retryPolicy"`
 	// Name of the topic of the event subscription.
 	Topic string `pulumi:"topic"`
 	// Type of the resource

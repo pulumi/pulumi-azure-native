@@ -48,5 +48,5 @@ type GetEntityResult struct {
 	// The URL to use for getting the next set of results.
 	NextLink string `pulumi:"nextLink"`
 	// The list of entities.
-	Value []EntityInfoResponse `pulumi:"value"`
+	Value []EntityInfoInvokeResponse `pulumi:"value"`
 }

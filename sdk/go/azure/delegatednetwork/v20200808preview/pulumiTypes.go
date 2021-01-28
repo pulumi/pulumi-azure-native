@@ -145,6 +145,61 @@ func (o ControllerDetailsTypePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // controller details
+type ControllerDetailsInvokeResponse struct {
+	// controller arm resource id
+	Id *string `pulumi:"id"`
+}
+
+// ControllerDetailsInvokeResponseInput is an input type that accepts ControllerDetailsInvokeResponseArgs and ControllerDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `ControllerDetailsInvokeResponseInput` via:
+//
+//          ControllerDetailsInvokeResponseArgs{...}
+type ControllerDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToControllerDetailsInvokeResponseOutput() ControllerDetailsInvokeResponseOutput
+	ToControllerDetailsInvokeResponseOutputWithContext(context.Context) ControllerDetailsInvokeResponseOutput
+}
+
+// controller details
+type ControllerDetailsInvokeResponseArgs struct {
+	// controller arm resource id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ControllerDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControllerDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i ControllerDetailsInvokeResponseArgs) ToControllerDetailsInvokeResponseOutput() ControllerDetailsInvokeResponseOutput {
+	return i.ToControllerDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ControllerDetailsInvokeResponseArgs) ToControllerDetailsInvokeResponseOutputWithContext(ctx context.Context) ControllerDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerDetailsInvokeResponseOutput)
+}
+
+// controller details
+type ControllerDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ControllerDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControllerDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o ControllerDetailsInvokeResponseOutput) ToControllerDetailsInvokeResponseOutput() ControllerDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o ControllerDetailsInvokeResponseOutput) ToControllerDetailsInvokeResponseOutputWithContext(ctx context.Context) ControllerDetailsInvokeResponseOutput {
+	return o
+}
+
+// controller arm resource id
+func (o ControllerDetailsInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ControllerDetailsInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// controller details
 type ControllerDetailsResponse struct {
 	// controller arm resource id
 	Id *string `pulumi:"id"`
@@ -407,6 +462,76 @@ func (o OrchestratorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type OrchestratorIdentityInvokeResponse struct {
+	// The principal id of the system assigned identity which is used by orchestrator.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant id of the system assigned identity which is used by orchestrator.
+	TenantId string `pulumi:"tenantId"`
+	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
+	Type *string `pulumi:"type"`
+}
+
+// OrchestratorIdentityInvokeResponseInput is an input type that accepts OrchestratorIdentityInvokeResponseArgs and OrchestratorIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `OrchestratorIdentityInvokeResponseInput` via:
+//
+//          OrchestratorIdentityInvokeResponseArgs{...}
+type OrchestratorIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOrchestratorIdentityInvokeResponseOutput() OrchestratorIdentityInvokeResponseOutput
+	ToOrchestratorIdentityInvokeResponseOutputWithContext(context.Context) OrchestratorIdentityInvokeResponseOutput
+}
+
+type OrchestratorIdentityInvokeResponseArgs struct {
+	// The principal id of the system assigned identity which is used by orchestrator.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant id of the system assigned identity which is used by orchestrator.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (OrchestratorIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratorIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i OrchestratorIdentityInvokeResponseArgs) ToOrchestratorIdentityInvokeResponseOutput() OrchestratorIdentityInvokeResponseOutput {
+	return i.ToOrchestratorIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OrchestratorIdentityInvokeResponseArgs) ToOrchestratorIdentityInvokeResponseOutputWithContext(ctx context.Context) OrchestratorIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratorIdentityInvokeResponseOutput)
+}
+
+type OrchestratorIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OrchestratorIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratorIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o OrchestratorIdentityInvokeResponseOutput) ToOrchestratorIdentityInvokeResponseOutput() OrchestratorIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o OrchestratorIdentityInvokeResponseOutput) ToOrchestratorIdentityInvokeResponseOutputWithContext(ctx context.Context) OrchestratorIdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal id of the system assigned identity which is used by orchestrator.
+func (o OrchestratorIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratorIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the system assigned identity which is used by orchestrator.
+func (o OrchestratorIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratorIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
+func (o OrchestratorIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratorIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type OrchestratorIdentityResponse struct {
@@ -713,6 +838,61 @@ func (o SubnetDetailsPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Properties of orchestrator
+type SubnetDetailsInvokeResponse struct {
+	// subnet arm resource id
+	Id *string `pulumi:"id"`
+}
+
+// SubnetDetailsInvokeResponseInput is an input type that accepts SubnetDetailsInvokeResponseArgs and SubnetDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `SubnetDetailsInvokeResponseInput` via:
+//
+//          SubnetDetailsInvokeResponseArgs{...}
+type SubnetDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubnetDetailsInvokeResponseOutput() SubnetDetailsInvokeResponseOutput
+	ToSubnetDetailsInvokeResponseOutputWithContext(context.Context) SubnetDetailsInvokeResponseOutput
+}
+
+// Properties of orchestrator
+type SubnetDetailsInvokeResponseArgs struct {
+	// subnet arm resource id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SubnetDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i SubnetDetailsInvokeResponseArgs) ToSubnetDetailsInvokeResponseOutput() SubnetDetailsInvokeResponseOutput {
+	return i.ToSubnetDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubnetDetailsInvokeResponseArgs) ToSubnetDetailsInvokeResponseOutputWithContext(ctx context.Context) SubnetDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetDetailsInvokeResponseOutput)
+}
+
+// Properties of orchestrator
+type SubnetDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubnetDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o SubnetDetailsInvokeResponseOutput) ToSubnetDetailsInvokeResponseOutput() SubnetDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o SubnetDetailsInvokeResponseOutput) ToSubnetDetailsInvokeResponseOutputWithContext(ctx context.Context) SubnetDetailsInvokeResponseOutput {
+	return o
+}
+
+// subnet arm resource id
+func (o SubnetDetailsInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetDetailsInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Properties of orchestrator
 type SubnetDetailsResponse struct {
 	// subnet arm resource id
 	Id *string `pulumi:"id"`
@@ -849,14 +1029,17 @@ func (o SubnetDetailsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ControllerDetailsTypeOutput{})
 	pulumi.RegisterOutputType(ControllerDetailsTypePtrOutput{})
+	pulumi.RegisterOutputType(ControllerDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ControllerDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ControllerDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(OrchestratorIdentityOutput{})
 	pulumi.RegisterOutputType(OrchestratorIdentityPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratorIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(OrchestratorIdentityResponseOutput{})
 	pulumi.RegisterOutputType(OrchestratorIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubnetDetailsOutput{})
 	pulumi.RegisterOutputType(SubnetDetailsPtrOutput{})
+	pulumi.RegisterOutputType(SubnetDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SubnetDetailsResponseOutput{})
 	pulumi.RegisterOutputType(SubnetDetailsResponsePtrOutput{})
 }

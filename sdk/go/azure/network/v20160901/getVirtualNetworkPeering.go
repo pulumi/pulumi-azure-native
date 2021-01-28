@@ -44,7 +44,7 @@ type LookupVirtualNetworkPeeringResult struct {
 	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The reference of the remote virtual network.
-	RemoteVirtualNetwork *SubResourceResponse `pulumi:"remoteVirtualNetwork"`
+	RemoteVirtualNetwork *SubResourceInvokeResponse `pulumi:"remoteVirtualNetwork"`
 	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
 	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
 }

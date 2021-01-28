@@ -129,6 +129,124 @@ func (o CustomerSecretArrayOutput) Index(i pulumi.IntInput) CustomerSecretOutput
 }
 
 // The pair of customer secret.
+type CustomerSecretInvokeResponse struct {
+	// The encryption algorithm used to encrypt data.
+	Algorithm string `pulumi:"algorithm"`
+	// The identifier to the data service input object which this secret corresponds to.
+	KeyIdentifier string `pulumi:"keyIdentifier"`
+	// It contains the encrypted customer secret.
+	KeyValue string `pulumi:"keyValue"`
+}
+
+// CustomerSecretInvokeResponseInput is an input type that accepts CustomerSecretInvokeResponseArgs and CustomerSecretInvokeResponseOutput values.
+// You can construct a concrete instance of `CustomerSecretInvokeResponseInput` via:
+//
+//          CustomerSecretInvokeResponseArgs{...}
+type CustomerSecretInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCustomerSecretInvokeResponseOutput() CustomerSecretInvokeResponseOutput
+	ToCustomerSecretInvokeResponseOutputWithContext(context.Context) CustomerSecretInvokeResponseOutput
+}
+
+// The pair of customer secret.
+type CustomerSecretInvokeResponseArgs struct {
+	// The encryption algorithm used to encrypt data.
+	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	// The identifier to the data service input object which this secret corresponds to.
+	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
+	// It contains the encrypted customer secret.
+	KeyValue pulumi.StringInput `pulumi:"keyValue"`
+}
+
+func (CustomerSecretInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerSecretInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomerSecretInvokeResponseArgs) ToCustomerSecretInvokeResponseOutput() CustomerSecretInvokeResponseOutput {
+	return i.ToCustomerSecretInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CustomerSecretInvokeResponseArgs) ToCustomerSecretInvokeResponseOutputWithContext(ctx context.Context) CustomerSecretInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerSecretInvokeResponseOutput)
+}
+
+// CustomerSecretInvokeResponseArrayInput is an input type that accepts CustomerSecretInvokeResponseArray and CustomerSecretInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CustomerSecretInvokeResponseArrayInput` via:
+//
+//          CustomerSecretInvokeResponseArray{ CustomerSecretInvokeResponseArgs{...} }
+type CustomerSecretInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCustomerSecretInvokeResponseArrayOutput() CustomerSecretInvokeResponseArrayOutput
+	ToCustomerSecretInvokeResponseArrayOutputWithContext(context.Context) CustomerSecretInvokeResponseArrayOutput
+}
+
+type CustomerSecretInvokeResponseArray []CustomerSecretInvokeResponseInput
+
+func (CustomerSecretInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomerSecretInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomerSecretInvokeResponseArray) ToCustomerSecretInvokeResponseArrayOutput() CustomerSecretInvokeResponseArrayOutput {
+	return i.ToCustomerSecretInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CustomerSecretInvokeResponseArray) ToCustomerSecretInvokeResponseArrayOutputWithContext(ctx context.Context) CustomerSecretInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerSecretInvokeResponseArrayOutput)
+}
+
+// The pair of customer secret.
+type CustomerSecretInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomerSecretInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerSecretInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomerSecretInvokeResponseOutput) ToCustomerSecretInvokeResponseOutput() CustomerSecretInvokeResponseOutput {
+	return o
+}
+
+func (o CustomerSecretInvokeResponseOutput) ToCustomerSecretInvokeResponseOutputWithContext(ctx context.Context) CustomerSecretInvokeResponseOutput {
+	return o
+}
+
+// The encryption algorithm used to encrypt data.
+func (o CustomerSecretInvokeResponseOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerSecretInvokeResponse) string { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// The identifier to the data service input object which this secret corresponds to.
+func (o CustomerSecretInvokeResponseOutput) KeyIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerSecretInvokeResponse) string { return v.KeyIdentifier }).(pulumi.StringOutput)
+}
+
+// It contains the encrypted customer secret.
+func (o CustomerSecretInvokeResponseOutput) KeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerSecretInvokeResponse) string { return v.KeyValue }).(pulumi.StringOutput)
+}
+
+type CustomerSecretInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomerSecretInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomerSecretInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomerSecretInvokeResponseArrayOutput) ToCustomerSecretInvokeResponseArrayOutput() CustomerSecretInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CustomerSecretInvokeResponseArrayOutput) ToCustomerSecretInvokeResponseArrayOutputWithContext(ctx context.Context) CustomerSecretInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CustomerSecretInvokeResponseArrayOutput) Index(i pulumi.IntInput) CustomerSecretInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomerSecretInvokeResponse {
+		return vs[0].([]CustomerSecretInvokeResponse)[vs[1].(int)]
+	}).(CustomerSecretInvokeResponseOutput)
+}
+
+// The pair of customer secret.
 type CustomerSecretResponse struct {
 	// The encryption algorithm used to encrypt data.
 	Algorithm string `pulumi:"algorithm"`
@@ -353,6 +471,115 @@ func (o ScheduleArrayOutput) Index(i pulumi.IntInput) ScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Schedule {
 		return vs[0].([]Schedule)[vs[1].(int)]
 	}).(ScheduleOutput)
+}
+
+// Schedule for the job run.
+type ScheduleInvokeResponse struct {
+	// Name of the schedule.
+	Name *string `pulumi:"name"`
+	// A list of repetition intervals in ISO 8601 format.
+	PolicyList []string `pulumi:"policyList"`
+}
+
+// ScheduleInvokeResponseInput is an input type that accepts ScheduleInvokeResponseArgs and ScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `ScheduleInvokeResponseInput` via:
+//
+//          ScheduleInvokeResponseArgs{...}
+type ScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToScheduleInvokeResponseOutput() ScheduleInvokeResponseOutput
+	ToScheduleInvokeResponseOutputWithContext(context.Context) ScheduleInvokeResponseOutput
+}
+
+// Schedule for the job run.
+type ScheduleInvokeResponseArgs struct {
+	// Name of the schedule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A list of repetition intervals in ISO 8601 format.
+	PolicyList pulumi.StringArrayInput `pulumi:"policyList"`
+}
+
+func (ScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i ScheduleInvokeResponseArgs) ToScheduleInvokeResponseOutput() ScheduleInvokeResponseOutput {
+	return i.ToScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ScheduleInvokeResponseArgs) ToScheduleInvokeResponseOutputWithContext(ctx context.Context) ScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleInvokeResponseOutput)
+}
+
+// ScheduleInvokeResponseArrayInput is an input type that accepts ScheduleInvokeResponseArray and ScheduleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ScheduleInvokeResponseArrayInput` via:
+//
+//          ScheduleInvokeResponseArray{ ScheduleInvokeResponseArgs{...} }
+type ScheduleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToScheduleInvokeResponseArrayOutput() ScheduleInvokeResponseArrayOutput
+	ToScheduleInvokeResponseArrayOutputWithContext(context.Context) ScheduleInvokeResponseArrayOutput
+}
+
+type ScheduleInvokeResponseArray []ScheduleInvokeResponseInput
+
+func (ScheduleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i ScheduleInvokeResponseArray) ToScheduleInvokeResponseArrayOutput() ScheduleInvokeResponseArrayOutput {
+	return i.ToScheduleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduleInvokeResponseArray) ToScheduleInvokeResponseArrayOutputWithContext(ctx context.Context) ScheduleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleInvokeResponseArrayOutput)
+}
+
+// Schedule for the job run.
+type ScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o ScheduleInvokeResponseOutput) ToScheduleInvokeResponseOutput() ScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o ScheduleInvokeResponseOutput) ToScheduleInvokeResponseOutputWithContext(ctx context.Context) ScheduleInvokeResponseOutput {
+	return o
+}
+
+// Name of the schedule.
+func (o ScheduleInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A list of repetition intervals in ISO 8601 format.
+func (o ScheduleInvokeResponseOutput) PolicyList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleInvokeResponse) []string { return v.PolicyList }).(pulumi.StringArrayOutput)
+}
+
+type ScheduleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o ScheduleInvokeResponseArrayOutput) ToScheduleInvokeResponseArrayOutput() ScheduleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ScheduleInvokeResponseArrayOutput) ToScheduleInvokeResponseArrayOutputWithContext(ctx context.Context) ScheduleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ScheduleInvokeResponseArrayOutput) Index(i pulumi.IntInput) ScheduleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleInvokeResponse {
+		return vs[0].([]ScheduleInvokeResponse)[vs[1].(int)]
+	}).(ScheduleInvokeResponseOutput)
 }
 
 // Schedule for the job run.
@@ -618,6 +845,70 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // The sku type.
+type SkuInvokeResponse struct {
+	// The sku name. Required for data manager creation, optional for update.
+	Name *string `pulumi:"name"`
+	// The sku tier. This is based on the SKU name.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The sku type.
+type SkuInvokeResponseArgs struct {
+	// The sku name. Required for data manager creation, optional for update.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The sku tier. This is based on the SKU name.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The sku type.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The sku name. Required for data manager creation, optional for update.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The sku tier. This is based on the SKU name.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The sku type.
 type SkuResponse struct {
 	// The sku name. Required for data manager creation, optional for update.
 	Name *string `pulumi:"name"`
@@ -773,14 +1064,19 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(CustomerSecretOutput{})
 	pulumi.RegisterOutputType(CustomerSecretArrayOutput{})
+	pulumi.RegisterOutputType(CustomerSecretInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CustomerSecretInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CustomerSecretResponseOutput{})
 	pulumi.RegisterOutputType(CustomerSecretResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleOutput{})
 	pulumi.RegisterOutputType(ScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ScheduleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

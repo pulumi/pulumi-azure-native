@@ -34,8 +34,8 @@ type LookupHyperVSiteResult struct {
 	// Name of the Hyper-V site.
 	Name *string `pulumi:"name"`
 	// Nested properties of Hyper-V site.
-	Properties SitePropertiesResponse `pulumi:"properties"`
-	Tags       map[string]string      `pulumi:"tags"`
+	Properties SitePropertiesInvokeResponse `pulumi:"properties"`
+	Tags       map[string]string            `pulumi:"tags"`
 	// Type of resource. Type = Microsoft.OffAzure/HyperVSites.
 	Type string `pulumi:"type"`
 }

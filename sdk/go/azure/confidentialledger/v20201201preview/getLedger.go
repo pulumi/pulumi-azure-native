@@ -32,9 +32,9 @@ type LookupLedgerResult struct {
 	// Name of the Resource.
 	Name string `pulumi:"name"`
 	// Properties of Confidential Ledger Resource.
-	Properties LedgerPropertiesResponse `pulumi:"properties"`
+	Properties LedgerPropertiesInvokeResponse `pulumi:"properties"`
 	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Additional tags for Confidential Ledger
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

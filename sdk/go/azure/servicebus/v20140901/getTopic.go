@@ -32,7 +32,7 @@ type LookupTopicResult struct {
 	// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
 	// Message Count Details.
-	CountDetails MessageCountDetailsResponse `pulumi:"countDetails"`
+	CountDetails MessageCountDetailsInvokeResponse `pulumi:"countDetails"`
 	// Exact time the message was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.

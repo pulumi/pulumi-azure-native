@@ -28,25 +28,25 @@ type LookupConfigurationStoreResult struct {
 	// The creation date of configuration store.
 	CreationDate string `pulumi:"creationDate"`
 	// The encryption settings of the configuration store.
-	Encryption *EncryptionPropertiesResponse `pulumi:"encryption"`
+	Encryption *EncryptionPropertiesInvokeResponse `pulumi:"encryption"`
 	// The DNS endpoint where the configuration store API will be available.
 	Endpoint string `pulumi:"endpoint"`
 	// The resource ID.
 	Id string `pulumi:"id"`
 	// The managed identity information, if configured.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityInvokeResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The list of private endpoint connections that are set up for this resource.
-	PrivateEndpointConnections []PrivateEndpointConnectionReferenceResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionReferenceInvokeResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state of the configuration store.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The sku of the configuration store.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

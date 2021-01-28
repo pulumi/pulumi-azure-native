@@ -26,7 +26,7 @@ type LookupPolicyArgs struct {
 // Defines web application firewall policy.
 type LookupPolicyResult struct {
 	// Describes custom rules inside the policy
-	CustomRules *CustomRulesResponse `pulumi:"customRules"`
+	CustomRules *CustomRulesInvokeResponse `pulumi:"customRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
@@ -34,11 +34,11 @@ type LookupPolicyResult struct {
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Describes managed rules inside the policy
-	ManagedRules *ManagedRuleSetsResponse `pulumi:"managedRules"`
+	ManagedRules *ManagedRuleSetsInvokeResponse `pulumi:"managedRules"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Describes  policySettings for policy
-	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
+	PolicySettings *PolicySettingsInvokeResponse `pulumi:"policySettings"`
 	// Provisioning state of the WebApplicationFirewallPolicy.
 	ProvisioningState string `pulumi:"provisioningState"`
 	ResourceState     string `pulumi:"resourceState"`

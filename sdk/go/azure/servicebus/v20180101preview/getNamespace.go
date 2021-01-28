@@ -28,11 +28,11 @@ type LookupNamespaceResult struct {
 	// The time the namespace was created
 	CreatedAt string `pulumi:"createdAt"`
 	// Properties of BYOK Encryption description
-	Encryption *EncryptionResponse `pulumi:"encryption"`
+	Encryption *EncryptionInvokeResponse `pulumi:"encryption"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Properties of BYOK Identity description
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// The Geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Identifier for Azure Insights metrics
@@ -44,7 +44,7 @@ type LookupNamespaceResult struct {
 	// Endpoint you can use to perform Service Bus operations.
 	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
 	// Properties of SKU
-	Sku *SBSkuResponse `pulumi:"sku"`
+	Sku *SBSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

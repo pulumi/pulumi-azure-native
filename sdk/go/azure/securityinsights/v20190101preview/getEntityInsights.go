@@ -38,7 +38,7 @@ type GetEntityInsightsArgs struct {
 // The Get Insights result operation response.
 type GetEntityInsightsResult struct {
 	// The metadata from the get insights operation results.
-	MetaData *GetInsightsResultsMetadataResponse `pulumi:"metaData"`
+	MetaData *GetInsightsResultsMetadataInvokeResponse `pulumi:"metaData"`
 	// The insights result values.
-	Value []EntityInsightItemResponse `pulumi:"value"`
+	Value []EntityInsightItemInvokeResponse `pulumi:"value"`
 }

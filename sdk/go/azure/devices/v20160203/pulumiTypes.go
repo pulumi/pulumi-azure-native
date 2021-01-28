@@ -183,6 +183,178 @@ func (o CloudToDevicePropertiesPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput
 }
 
 // The IoT hub cloud-to-device messaging properties.
+type CloudToDevicePropertiesInvokeResponse struct {
+	// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+	DefaultTtlAsIso8601 *string `pulumi:"defaultTtlAsIso8601"`
+	// The properties of the feedback queue for cloud-to-device messages.
+	Feedback *FeedbackPropertiesInvokeResponse `pulumi:"feedback"`
+	// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+}
+
+// CloudToDevicePropertiesInvokeResponseInput is an input type that accepts CloudToDevicePropertiesInvokeResponseArgs and CloudToDevicePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudToDevicePropertiesInvokeResponseInput` via:
+//
+//          CloudToDevicePropertiesInvokeResponseArgs{...}
+type CloudToDevicePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudToDevicePropertiesInvokeResponseOutput() CloudToDevicePropertiesInvokeResponseOutput
+	ToCloudToDevicePropertiesInvokeResponseOutputWithContext(context.Context) CloudToDevicePropertiesInvokeResponseOutput
+}
+
+// The IoT hub cloud-to-device messaging properties.
+type CloudToDevicePropertiesInvokeResponseArgs struct {
+	// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+	DefaultTtlAsIso8601 pulumi.StringPtrInput `pulumi:"defaultTtlAsIso8601"`
+	// The properties of the feedback queue for cloud-to-device messages.
+	Feedback FeedbackPropertiesInvokeResponsePtrInput `pulumi:"feedback"`
+	// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
+}
+
+func (CloudToDevicePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudToDevicePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudToDevicePropertiesInvokeResponseArgs) ToCloudToDevicePropertiesInvokeResponseOutput() CloudToDevicePropertiesInvokeResponseOutput {
+	return i.ToCloudToDevicePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudToDevicePropertiesInvokeResponseArgs) ToCloudToDevicePropertiesInvokeResponseOutputWithContext(ctx context.Context) CloudToDevicePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudToDevicePropertiesInvokeResponseOutput)
+}
+
+func (i CloudToDevicePropertiesInvokeResponseArgs) ToCloudToDevicePropertiesInvokeResponsePtrOutput() CloudToDevicePropertiesInvokeResponsePtrOutput {
+	return i.ToCloudToDevicePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudToDevicePropertiesInvokeResponseArgs) ToCloudToDevicePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CloudToDevicePropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudToDevicePropertiesInvokeResponseOutput).ToCloudToDevicePropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CloudToDevicePropertiesInvokeResponsePtrInput is an input type that accepts CloudToDevicePropertiesInvokeResponseArgs, CloudToDevicePropertiesInvokeResponsePtr and CloudToDevicePropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CloudToDevicePropertiesInvokeResponsePtrInput` via:
+//
+//          CloudToDevicePropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudToDevicePropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudToDevicePropertiesInvokeResponsePtrOutput() CloudToDevicePropertiesInvokeResponsePtrOutput
+	ToCloudToDevicePropertiesInvokeResponsePtrOutputWithContext(context.Context) CloudToDevicePropertiesInvokeResponsePtrOutput
+}
+
+type cloudToDevicePropertiesInvokeResponsePtrType CloudToDevicePropertiesInvokeResponseArgs
+
+func CloudToDevicePropertiesInvokeResponsePtr(v *CloudToDevicePropertiesInvokeResponseArgs) CloudToDevicePropertiesInvokeResponsePtrInput {
+	return (*cloudToDevicePropertiesInvokeResponsePtrType)(v)
+}
+
+func (*cloudToDevicePropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudToDevicePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *cloudToDevicePropertiesInvokeResponsePtrType) ToCloudToDevicePropertiesInvokeResponsePtrOutput() CloudToDevicePropertiesInvokeResponsePtrOutput {
+	return i.ToCloudToDevicePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudToDevicePropertiesInvokeResponsePtrType) ToCloudToDevicePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CloudToDevicePropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudToDevicePropertiesInvokeResponsePtrOutput)
+}
+
+// The IoT hub cloud-to-device messaging properties.
+type CloudToDevicePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudToDevicePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudToDevicePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudToDevicePropertiesInvokeResponseOutput) ToCloudToDevicePropertiesInvokeResponseOutput() CloudToDevicePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CloudToDevicePropertiesInvokeResponseOutput) ToCloudToDevicePropertiesInvokeResponseOutputWithContext(ctx context.Context) CloudToDevicePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CloudToDevicePropertiesInvokeResponseOutput) ToCloudToDevicePropertiesInvokeResponsePtrOutput() CloudToDevicePropertiesInvokeResponsePtrOutput {
+	return o.ToCloudToDevicePropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudToDevicePropertiesInvokeResponseOutput) ToCloudToDevicePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CloudToDevicePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudToDevicePropertiesInvokeResponse) *CloudToDevicePropertiesInvokeResponse {
+		return &v
+	}).(CloudToDevicePropertiesInvokeResponsePtrOutput)
+}
+
+// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+func (o CloudToDevicePropertiesInvokeResponseOutput) DefaultTtlAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudToDevicePropertiesInvokeResponse) *string { return v.DefaultTtlAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+// The properties of the feedback queue for cloud-to-device messages.
+func (o CloudToDevicePropertiesInvokeResponseOutput) Feedback() FeedbackPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudToDevicePropertiesInvokeResponse) *FeedbackPropertiesInvokeResponse { return v.Feedback }).(FeedbackPropertiesInvokeResponsePtrOutput)
+}
+
+// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+func (o CloudToDevicePropertiesInvokeResponseOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CloudToDevicePropertiesInvokeResponse) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+type CloudToDevicePropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudToDevicePropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudToDevicePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudToDevicePropertiesInvokeResponsePtrOutput) ToCloudToDevicePropertiesInvokeResponsePtrOutput() CloudToDevicePropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudToDevicePropertiesInvokeResponsePtrOutput) ToCloudToDevicePropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CloudToDevicePropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudToDevicePropertiesInvokeResponsePtrOutput) Elem() CloudToDevicePropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *CloudToDevicePropertiesInvokeResponse) CloudToDevicePropertiesInvokeResponse { return *v }).(CloudToDevicePropertiesInvokeResponseOutput)
+}
+
+// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+func (o CloudToDevicePropertiesInvokeResponsePtrOutput) DefaultTtlAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudToDevicePropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTtlAsIso8601
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the feedback queue for cloud-to-device messages.
+func (o CloudToDevicePropertiesInvokeResponsePtrOutput) Feedback() FeedbackPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CloudToDevicePropertiesInvokeResponse) *FeedbackPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Feedback
+	}).(FeedbackPropertiesInvokeResponsePtrOutput)
+}
+
+// The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+func (o CloudToDevicePropertiesInvokeResponsePtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CloudToDevicePropertiesInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDeliveryCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The IoT hub cloud-to-device messaging properties.
 type CloudToDevicePropertiesResponse struct {
 	// The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 	DefaultTtlAsIso8601 *string `pulumi:"defaultTtlAsIso8601"`
@@ -461,6 +633,142 @@ func (o EventHubPropertiesMapOutput) MapIndex(k pulumi.StringInput) EventHubProp
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventHubProperties {
 		return vs[0].(map[string]EventHubProperties)[vs[1].(string)]
 	}).(EventHubPropertiesOutput)
+}
+
+// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+type EventHubPropertiesInvokeResponse struct {
+	// The Event Hub-compatible endpoint.
+	Endpoint string `pulumi:"endpoint"`
+	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+	PartitionCount *int `pulumi:"partitionCount"`
+	// The partition ids in the Event Hub-compatible endpoint.
+	PartitionIds []string `pulumi:"partitionIds"`
+	// The Event Hub-compatible name.
+	Path string `pulumi:"path"`
+	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+	RetentionTimeInDays *float64 `pulumi:"retentionTimeInDays"`
+}
+
+// EventHubPropertiesInvokeResponseInput is an input type that accepts EventHubPropertiesInvokeResponseArgs and EventHubPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `EventHubPropertiesInvokeResponseInput` via:
+//
+//          EventHubPropertiesInvokeResponseArgs{...}
+type EventHubPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventHubPropertiesInvokeResponseOutput() EventHubPropertiesInvokeResponseOutput
+	ToEventHubPropertiesInvokeResponseOutputWithContext(context.Context) EventHubPropertiesInvokeResponseOutput
+}
+
+// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+type EventHubPropertiesInvokeResponseArgs struct {
+	// The Event Hub-compatible endpoint.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+	PartitionCount pulumi.IntPtrInput `pulumi:"partitionCount"`
+	// The partition ids in the Event Hub-compatible endpoint.
+	PartitionIds pulumi.StringArrayInput `pulumi:"partitionIds"`
+	// The Event Hub-compatible name.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+	RetentionTimeInDays pulumi.Float64PtrInput `pulumi:"retentionTimeInDays"`
+}
+
+func (EventHubPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i EventHubPropertiesInvokeResponseArgs) ToEventHubPropertiesInvokeResponseOutput() EventHubPropertiesInvokeResponseOutput {
+	return i.ToEventHubPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventHubPropertiesInvokeResponseArgs) ToEventHubPropertiesInvokeResponseOutputWithContext(ctx context.Context) EventHubPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubPropertiesInvokeResponseOutput)
+}
+
+// EventHubPropertiesInvokeResponseMapInput is an input type that accepts EventHubPropertiesInvokeResponseMap and EventHubPropertiesInvokeResponseMapOutput values.
+// You can construct a concrete instance of `EventHubPropertiesInvokeResponseMapInput` via:
+//
+//          EventHubPropertiesInvokeResponseMap{ "key": EventHubPropertiesInvokeResponseArgs{...} }
+type EventHubPropertiesInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToEventHubPropertiesInvokeResponseMapOutput() EventHubPropertiesInvokeResponseMapOutput
+	ToEventHubPropertiesInvokeResponseMapOutputWithContext(context.Context) EventHubPropertiesInvokeResponseMapOutput
+}
+
+type EventHubPropertiesInvokeResponseMap map[string]EventHubPropertiesInvokeResponseInput
+
+func (EventHubPropertiesInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventHubPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i EventHubPropertiesInvokeResponseMap) ToEventHubPropertiesInvokeResponseMapOutput() EventHubPropertiesInvokeResponseMapOutput {
+	return i.ToEventHubPropertiesInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i EventHubPropertiesInvokeResponseMap) ToEventHubPropertiesInvokeResponseMapOutputWithContext(ctx context.Context) EventHubPropertiesInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubPropertiesInvokeResponseMapOutput)
+}
+
+// The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
+type EventHubPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o EventHubPropertiesInvokeResponseOutput) ToEventHubPropertiesInvokeResponseOutput() EventHubPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o EventHubPropertiesInvokeResponseOutput) ToEventHubPropertiesInvokeResponseOutputWithContext(ctx context.Context) EventHubPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The Event Hub-compatible endpoint.
+func (o EventHubPropertiesInvokeResponseOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubPropertiesInvokeResponse) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The number of partitions for receiving device-to-cloud messages in the Event Hub-compatible endpoint. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages.
+func (o EventHubPropertiesInvokeResponseOutput) PartitionCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventHubPropertiesInvokeResponse) *int { return v.PartitionCount }).(pulumi.IntPtrOutput)
+}
+
+// The partition ids in the Event Hub-compatible endpoint.
+func (o EventHubPropertiesInvokeResponseOutput) PartitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventHubPropertiesInvokeResponse) []string { return v.PartitionIds }).(pulumi.StringArrayOutput)
+}
+
+// The Event Hub-compatible name.
+func (o EventHubPropertiesInvokeResponseOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubPropertiesInvokeResponse) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The retention time for device-to-cloud messages in days. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages
+func (o EventHubPropertiesInvokeResponseOutput) RetentionTimeInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EventHubPropertiesInvokeResponse) *float64 { return v.RetentionTimeInDays }).(pulumi.Float64PtrOutput)
+}
+
+type EventHubPropertiesInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (EventHubPropertiesInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventHubPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o EventHubPropertiesInvokeResponseMapOutput) ToEventHubPropertiesInvokeResponseMapOutput() EventHubPropertiesInvokeResponseMapOutput {
+	return o
+}
+
+func (o EventHubPropertiesInvokeResponseMapOutput) ToEventHubPropertiesInvokeResponseMapOutputWithContext(ctx context.Context) EventHubPropertiesInvokeResponseMapOutput {
+	return o
+}
+
+func (o EventHubPropertiesInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) EventHubPropertiesInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventHubPropertiesInvokeResponse {
+		return vs[0].(map[string]EventHubPropertiesInvokeResponse)[vs[1].(string)]
+	}).(EventHubPropertiesInvokeResponseOutput)
 }
 
 // The properties of the provisioned Event Hub-compatible endpoint used by the IoT hub.
@@ -764,6 +1072,178 @@ func (o FeedbackPropertiesPtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
 // The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
 func (o FeedbackPropertiesPtrOutput) TtlAsIso8601() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeedbackProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TtlAsIso8601
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the feedback queue for cloud-to-device messages.
+type FeedbackPropertiesInvokeResponse struct {
+	// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+	LockDurationAsIso8601 *string `pulumi:"lockDurationAsIso8601"`
+	// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+	TtlAsIso8601 *string `pulumi:"ttlAsIso8601"`
+}
+
+// FeedbackPropertiesInvokeResponseInput is an input type that accepts FeedbackPropertiesInvokeResponseArgs and FeedbackPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `FeedbackPropertiesInvokeResponseInput` via:
+//
+//          FeedbackPropertiesInvokeResponseArgs{...}
+type FeedbackPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFeedbackPropertiesInvokeResponseOutput() FeedbackPropertiesInvokeResponseOutput
+	ToFeedbackPropertiesInvokeResponseOutputWithContext(context.Context) FeedbackPropertiesInvokeResponseOutput
+}
+
+// The properties of the feedback queue for cloud-to-device messages.
+type FeedbackPropertiesInvokeResponseArgs struct {
+	// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+	LockDurationAsIso8601 pulumi.StringPtrInput `pulumi:"lockDurationAsIso8601"`
+	// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
+	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+	TtlAsIso8601 pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
+}
+
+func (FeedbackPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedbackPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i FeedbackPropertiesInvokeResponseArgs) ToFeedbackPropertiesInvokeResponseOutput() FeedbackPropertiesInvokeResponseOutput {
+	return i.ToFeedbackPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FeedbackPropertiesInvokeResponseArgs) ToFeedbackPropertiesInvokeResponseOutputWithContext(ctx context.Context) FeedbackPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedbackPropertiesInvokeResponseOutput)
+}
+
+func (i FeedbackPropertiesInvokeResponseArgs) ToFeedbackPropertiesInvokeResponsePtrOutput() FeedbackPropertiesInvokeResponsePtrOutput {
+	return i.ToFeedbackPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FeedbackPropertiesInvokeResponseArgs) ToFeedbackPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) FeedbackPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedbackPropertiesInvokeResponseOutput).ToFeedbackPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// FeedbackPropertiesInvokeResponsePtrInput is an input type that accepts FeedbackPropertiesInvokeResponseArgs, FeedbackPropertiesInvokeResponsePtr and FeedbackPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `FeedbackPropertiesInvokeResponsePtrInput` via:
+//
+//          FeedbackPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FeedbackPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToFeedbackPropertiesInvokeResponsePtrOutput() FeedbackPropertiesInvokeResponsePtrOutput
+	ToFeedbackPropertiesInvokeResponsePtrOutputWithContext(context.Context) FeedbackPropertiesInvokeResponsePtrOutput
+}
+
+type feedbackPropertiesInvokeResponsePtrType FeedbackPropertiesInvokeResponseArgs
+
+func FeedbackPropertiesInvokeResponsePtr(v *FeedbackPropertiesInvokeResponseArgs) FeedbackPropertiesInvokeResponsePtrInput {
+	return (*feedbackPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*feedbackPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeedbackPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *feedbackPropertiesInvokeResponsePtrType) ToFeedbackPropertiesInvokeResponsePtrOutput() FeedbackPropertiesInvokeResponsePtrOutput {
+	return i.ToFeedbackPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *feedbackPropertiesInvokeResponsePtrType) ToFeedbackPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) FeedbackPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedbackPropertiesInvokeResponsePtrOutput)
+}
+
+// The properties of the feedback queue for cloud-to-device messages.
+type FeedbackPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FeedbackPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedbackPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o FeedbackPropertiesInvokeResponseOutput) ToFeedbackPropertiesInvokeResponseOutput() FeedbackPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o FeedbackPropertiesInvokeResponseOutput) ToFeedbackPropertiesInvokeResponseOutputWithContext(ctx context.Context) FeedbackPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o FeedbackPropertiesInvokeResponseOutput) ToFeedbackPropertiesInvokeResponsePtrOutput() FeedbackPropertiesInvokeResponsePtrOutput {
+	return o.ToFeedbackPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FeedbackPropertiesInvokeResponseOutput) ToFeedbackPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) FeedbackPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FeedbackPropertiesInvokeResponse) *FeedbackPropertiesInvokeResponse {
+		return &v
+	}).(FeedbackPropertiesInvokeResponsePtrOutput)
+}
+
+// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+func (o FeedbackPropertiesInvokeResponseOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeedbackPropertiesInvokeResponse) *string { return v.LockDurationAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+func (o FeedbackPropertiesInvokeResponseOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FeedbackPropertiesInvokeResponse) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+func (o FeedbackPropertiesInvokeResponseOutput) TtlAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeedbackPropertiesInvokeResponse) *string { return v.TtlAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+type FeedbackPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FeedbackPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeedbackPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o FeedbackPropertiesInvokeResponsePtrOutput) ToFeedbackPropertiesInvokeResponsePtrOutput() FeedbackPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FeedbackPropertiesInvokeResponsePtrOutput) ToFeedbackPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) FeedbackPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FeedbackPropertiesInvokeResponsePtrOutput) Elem() FeedbackPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *FeedbackPropertiesInvokeResponse) FeedbackPropertiesInvokeResponse { return *v }).(FeedbackPropertiesInvokeResponseOutput)
+}
+
+// The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+func (o FeedbackPropertiesInvokeResponsePtrOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeedbackPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LockDurationAsIso8601
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of times the IoT hub attempts to deliver a message on the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+func (o FeedbackPropertiesInvokeResponsePtrOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FeedbackPropertiesInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDeliveryCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
+func (o FeedbackPropertiesInvokeResponsePtrOutput) TtlAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeedbackPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1246,6 +1726,170 @@ func (o IotHubPropertiesPtrOutput) StorageEndpoints() StorageEndpointPropertiesM
 		}
 		return v.StorageEndpoints
 	}).(StorageEndpointPropertiesMapOutput)
+}
+
+// The properties of an IoT hub.
+type IotHubPropertiesInvokeResponse struct {
+	// The shared access policies you can use to secure a connection to the IoT hub.
+	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleInvokeResponse `pulumi:"authorizationPolicies"`
+	// The IoT hub cloud-to-device messaging properties.
+	CloudToDevice *CloudToDevicePropertiesInvokeResponse `pulumi:"cloudToDevice"`
+	// Comments.
+	Comments *string `pulumi:"comments"`
+	// If True, file upload notifications are enabled.
+	EnableFileUploadNotifications *bool `pulumi:"enableFileUploadNotifications"`
+	// The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
+	EventHubEndpoints map[string]EventHubPropertiesInvokeResponse `pulumi:"eventHubEndpoints"`
+	// The capabilities and features enabled for the IoT hub.
+	Features *string `pulumi:"features"`
+	// The name of the host.
+	HostName string `pulumi:"hostName"`
+	// The IP filter rules.
+	IpFilterRules []IpFilterRuleInvokeResponse `pulumi:"ipFilterRules"`
+	// The messaging endpoint properties for the file upload notification queue.
+	MessagingEndpoints map[string]MessagingEndpointPropertiesInvokeResponse `pulumi:"messagingEndpoints"`
+	// The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
+	OperationsMonitoringProperties *OperationsMonitoringPropertiesInvokeResponse `pulumi:"operationsMonitoringProperties"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
+	StorageEndpoints map[string]StorageEndpointPropertiesInvokeResponse `pulumi:"storageEndpoints"`
+}
+
+// IotHubPropertiesInvokeResponseInput is an input type that accepts IotHubPropertiesInvokeResponseArgs and IotHubPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `IotHubPropertiesInvokeResponseInput` via:
+//
+//          IotHubPropertiesInvokeResponseArgs{...}
+type IotHubPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIotHubPropertiesInvokeResponseOutput() IotHubPropertiesInvokeResponseOutput
+	ToIotHubPropertiesInvokeResponseOutputWithContext(context.Context) IotHubPropertiesInvokeResponseOutput
+}
+
+// The properties of an IoT hub.
+type IotHubPropertiesInvokeResponseArgs struct {
+	// The shared access policies you can use to secure a connection to the IoT hub.
+	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleInvokeResponseArrayInput `pulumi:"authorizationPolicies"`
+	// The IoT hub cloud-to-device messaging properties.
+	CloudToDevice CloudToDevicePropertiesInvokeResponsePtrInput `pulumi:"cloudToDevice"`
+	// Comments.
+	Comments pulumi.StringPtrInput `pulumi:"comments"`
+	// If True, file upload notifications are enabled.
+	EnableFileUploadNotifications pulumi.BoolPtrInput `pulumi:"enableFileUploadNotifications"`
+	// The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
+	EventHubEndpoints EventHubPropertiesInvokeResponseMapInput `pulumi:"eventHubEndpoints"`
+	// The capabilities and features enabled for the IoT hub.
+	Features pulumi.StringPtrInput `pulumi:"features"`
+	// The name of the host.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The IP filter rules.
+	IpFilterRules IpFilterRuleInvokeResponseArrayInput `pulumi:"ipFilterRules"`
+	// The messaging endpoint properties for the file upload notification queue.
+	MessagingEndpoints MessagingEndpointPropertiesInvokeResponseMapInput `pulumi:"messagingEndpoints"`
+	// The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
+	OperationsMonitoringProperties OperationsMonitoringPropertiesInvokeResponsePtrInput `pulumi:"operationsMonitoringProperties"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
+	StorageEndpoints StorageEndpointPropertiesInvokeResponseMapInput `pulumi:"storageEndpoints"`
+}
+
+func (IotHubPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i IotHubPropertiesInvokeResponseArgs) ToIotHubPropertiesInvokeResponseOutput() IotHubPropertiesInvokeResponseOutput {
+	return i.ToIotHubPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IotHubPropertiesInvokeResponseArgs) ToIotHubPropertiesInvokeResponseOutputWithContext(ctx context.Context) IotHubPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubPropertiesInvokeResponseOutput)
+}
+
+// The properties of an IoT hub.
+type IotHubPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IotHubPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o IotHubPropertiesInvokeResponseOutput) ToIotHubPropertiesInvokeResponseOutput() IotHubPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o IotHubPropertiesInvokeResponseOutput) ToIotHubPropertiesInvokeResponseOutputWithContext(ctx context.Context) IotHubPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The shared access policies you can use to secure a connection to the IoT hub.
+func (o IotHubPropertiesInvokeResponseOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) []SharedAccessSignatureAuthorizationRuleInvokeResponse {
+		return v.AuthorizationPolicies
+	}).(SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput)
+}
+
+// The IoT hub cloud-to-device messaging properties.
+func (o IotHubPropertiesInvokeResponseOutput) CloudToDevice() CloudToDevicePropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) *CloudToDevicePropertiesInvokeResponse { return v.CloudToDevice }).(CloudToDevicePropertiesInvokeResponsePtrOutput)
+}
+
+// Comments.
+func (o IotHubPropertiesInvokeResponseOutput) Comments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) *string { return v.Comments }).(pulumi.StringPtrOutput)
+}
+
+// If True, file upload notifications are enabled.
+func (o IotHubPropertiesInvokeResponseOutput) EnableFileUploadNotifications() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) *bool { return v.EnableFileUploadNotifications }).(pulumi.BoolPtrOutput)
+}
+
+// The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
+func (o IotHubPropertiesInvokeResponseOutput) EventHubEndpoints() EventHubPropertiesInvokeResponseMapOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) map[string]EventHubPropertiesInvokeResponse {
+		return v.EventHubEndpoints
+	}).(EventHubPropertiesInvokeResponseMapOutput)
+}
+
+// The capabilities and features enabled for the IoT hub.
+func (o IotHubPropertiesInvokeResponseOutput) Features() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) *string { return v.Features }).(pulumi.StringPtrOutput)
+}
+
+// The name of the host.
+func (o IotHubPropertiesInvokeResponseOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The IP filter rules.
+func (o IotHubPropertiesInvokeResponseOutput) IpFilterRules() IpFilterRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) []IpFilterRuleInvokeResponse { return v.IpFilterRules }).(IpFilterRuleInvokeResponseArrayOutput)
+}
+
+// The messaging endpoint properties for the file upload notification queue.
+func (o IotHubPropertiesInvokeResponseOutput) MessagingEndpoints() MessagingEndpointPropertiesInvokeResponseMapOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) map[string]MessagingEndpointPropertiesInvokeResponse {
+		return v.MessagingEndpoints
+	}).(MessagingEndpointPropertiesInvokeResponseMapOutput)
+}
+
+// The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
+func (o IotHubPropertiesInvokeResponseOutput) OperationsMonitoringProperties() OperationsMonitoringPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) *OperationsMonitoringPropertiesInvokeResponse {
+		return v.OperationsMonitoringProperties
+	}).(OperationsMonitoringPropertiesInvokeResponsePtrOutput)
+}
+
+// The provisioning state.
+func (o IotHubPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
+func (o IotHubPropertiesInvokeResponseOutput) StorageEndpoints() StorageEndpointPropertiesInvokeResponseMapOutput {
+	return o.ApplyT(func(v IotHubPropertiesInvokeResponse) map[string]StorageEndpointPropertiesInvokeResponse {
+		return v.StorageEndpoints
+	}).(StorageEndpointPropertiesInvokeResponseMapOutput)
 }
 
 // The properties of an IoT hub.
@@ -1753,6 +2397,79 @@ func (o IotHubSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Information about the SKU of the IoT hub.
+type IotHubSkuInfoInvokeResponse struct {
+	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
+	Capacity float64 `pulumi:"capacity"`
+	// The name of the SKU.
+	Name string `pulumi:"name"`
+	// The billing tier for the IoT hub.
+	Tier string `pulumi:"tier"`
+}
+
+// IotHubSkuInfoInvokeResponseInput is an input type that accepts IotHubSkuInfoInvokeResponseArgs and IotHubSkuInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `IotHubSkuInfoInvokeResponseInput` via:
+//
+//          IotHubSkuInfoInvokeResponseArgs{...}
+type IotHubSkuInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIotHubSkuInfoInvokeResponseOutput() IotHubSkuInfoInvokeResponseOutput
+	ToIotHubSkuInfoInvokeResponseOutputWithContext(context.Context) IotHubSkuInfoInvokeResponseOutput
+}
+
+// Information about the SKU of the IoT hub.
+type IotHubSkuInfoInvokeResponseArgs struct {
+	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
+	Capacity pulumi.Float64Input `pulumi:"capacity"`
+	// The name of the SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The billing tier for the IoT hub.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (IotHubSkuInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i IotHubSkuInfoInvokeResponseArgs) ToIotHubSkuInfoInvokeResponseOutput() IotHubSkuInfoInvokeResponseOutput {
+	return i.ToIotHubSkuInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IotHubSkuInfoInvokeResponseArgs) ToIotHubSkuInfoInvokeResponseOutputWithContext(ctx context.Context) IotHubSkuInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubSkuInfoInvokeResponseOutput)
+}
+
+// Information about the SKU of the IoT hub.
+type IotHubSkuInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IotHubSkuInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o IotHubSkuInfoInvokeResponseOutput) ToIotHubSkuInfoInvokeResponseOutput() IotHubSkuInfoInvokeResponseOutput {
+	return o
+}
+
+func (o IotHubSkuInfoInvokeResponseOutput) ToIotHubSkuInfoInvokeResponseOutputWithContext(ctx context.Context) IotHubSkuInfoInvokeResponseOutput {
+	return o
+}
+
+// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
+func (o IotHubSkuInfoInvokeResponseOutput) Capacity() pulumi.Float64Output {
+	return o.ApplyT(func(v IotHubSkuInfoInvokeResponse) float64 { return v.Capacity }).(pulumi.Float64Output)
+}
+
+// The name of the SKU.
+func (o IotHubSkuInfoInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubSkuInfoInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The billing tier for the IoT hub.
+func (o IotHubSkuInfoInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubSkuInfoInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// Information about the SKU of the IoT hub.
 type IotHubSkuInfoResponse struct {
 	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
 	Capacity float64 `pulumi:"capacity"`
@@ -2043,6 +2760,124 @@ func (o IpFilterRuleArrayOutput) Index(i pulumi.IntInput) IpFilterRuleOutput {
 }
 
 // The IP filter rules for the IoT hub.
+type IpFilterRuleInvokeResponse struct {
+	// The desired action for requests captured by this rule.
+	Action string `pulumi:"action"`
+	// The name of the IP filter rule.
+	FilterName string `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask string `pulumi:"ipMask"`
+}
+
+// IpFilterRuleInvokeResponseInput is an input type that accepts IpFilterRuleInvokeResponseArgs and IpFilterRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `IpFilterRuleInvokeResponseInput` via:
+//
+//          IpFilterRuleInvokeResponseArgs{...}
+type IpFilterRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIpFilterRuleInvokeResponseOutput() IpFilterRuleInvokeResponseOutput
+	ToIpFilterRuleInvokeResponseOutputWithContext(context.Context) IpFilterRuleInvokeResponseOutput
+}
+
+// The IP filter rules for the IoT hub.
+type IpFilterRuleInvokeResponseArgs struct {
+	// The desired action for requests captured by this rule.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The name of the IP filter rule.
+	FilterName pulumi.StringInput `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+}
+
+func (IpFilterRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IpFilterRuleInvokeResponseArgs) ToIpFilterRuleInvokeResponseOutput() IpFilterRuleInvokeResponseOutput {
+	return i.ToIpFilterRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IpFilterRuleInvokeResponseArgs) ToIpFilterRuleInvokeResponseOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleInvokeResponseOutput)
+}
+
+// IpFilterRuleInvokeResponseArrayInput is an input type that accepts IpFilterRuleInvokeResponseArray and IpFilterRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IpFilterRuleInvokeResponseArrayInput` via:
+//
+//          IpFilterRuleInvokeResponseArray{ IpFilterRuleInvokeResponseArgs{...} }
+type IpFilterRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIpFilterRuleInvokeResponseArrayOutput() IpFilterRuleInvokeResponseArrayOutput
+	ToIpFilterRuleInvokeResponseArrayOutputWithContext(context.Context) IpFilterRuleInvokeResponseArrayOutput
+}
+
+type IpFilterRuleInvokeResponseArray []IpFilterRuleInvokeResponseInput
+
+func (IpFilterRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IpFilterRuleInvokeResponseArray) ToIpFilterRuleInvokeResponseArrayOutput() IpFilterRuleInvokeResponseArrayOutput {
+	return i.ToIpFilterRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IpFilterRuleInvokeResponseArray) ToIpFilterRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleInvokeResponseArrayOutput)
+}
+
+// The IP filter rules for the IoT hub.
+type IpFilterRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IpFilterRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IpFilterRuleInvokeResponseOutput) ToIpFilterRuleInvokeResponseOutput() IpFilterRuleInvokeResponseOutput {
+	return o
+}
+
+func (o IpFilterRuleInvokeResponseOutput) ToIpFilterRuleInvokeResponseOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseOutput {
+	return o
+}
+
+// The desired action for requests captured by this rule.
+func (o IpFilterRuleInvokeResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The name of the IP filter rule.
+func (o IpFilterRuleInvokeResponseOutput) FilterName() pulumi.StringOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) string { return v.FilterName }).(pulumi.StringOutput)
+}
+
+// A string that contains the IP address range in CIDR notation for the rule.
+func (o IpFilterRuleInvokeResponseOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+type IpFilterRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IpFilterRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IpFilterRuleInvokeResponseArrayOutput) ToIpFilterRuleInvokeResponseArrayOutput() IpFilterRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpFilterRuleInvokeResponseArrayOutput) ToIpFilterRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpFilterRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) IpFilterRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpFilterRuleInvokeResponse {
+		return vs[0].([]IpFilterRuleInvokeResponse)[vs[1].(int)]
+	}).(IpFilterRuleInvokeResponseOutput)
+}
+
+// The IP filter rules for the IoT hub.
 type IpFilterRuleResponse struct {
 	// The desired action for requests captured by this rule.
 	Action string `pulumi:"action"`
@@ -2276,6 +3111,124 @@ func (o MessagingEndpointPropertiesMapOutput) MapIndex(k pulumi.StringInput) Mes
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MessagingEndpointProperties {
 		return vs[0].(map[string]MessagingEndpointProperties)[vs[1].(string)]
 	}).(MessagingEndpointPropertiesOutput)
+}
+
+// The properties of the messaging endpoints used by this IoT hub.
+type MessagingEndpointPropertiesInvokeResponse struct {
+	// The lock duration. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
+	LockDurationAsIso8601 *string `pulumi:"lockDurationAsIso8601"`
+	// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
+	TtlAsIso8601 *string `pulumi:"ttlAsIso8601"`
+}
+
+// MessagingEndpointPropertiesInvokeResponseInput is an input type that accepts MessagingEndpointPropertiesInvokeResponseArgs and MessagingEndpointPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `MessagingEndpointPropertiesInvokeResponseInput` via:
+//
+//          MessagingEndpointPropertiesInvokeResponseArgs{...}
+type MessagingEndpointPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMessagingEndpointPropertiesInvokeResponseOutput() MessagingEndpointPropertiesInvokeResponseOutput
+	ToMessagingEndpointPropertiesInvokeResponseOutputWithContext(context.Context) MessagingEndpointPropertiesInvokeResponseOutput
+}
+
+// The properties of the messaging endpoints used by this IoT hub.
+type MessagingEndpointPropertiesInvokeResponseArgs struct {
+	// The lock duration. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
+	LockDurationAsIso8601 pulumi.StringPtrInput `pulumi:"lockDurationAsIso8601"`
+	// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
+	MaxDeliveryCount pulumi.IntPtrInput `pulumi:"maxDeliveryCount"`
+	// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
+	TtlAsIso8601 pulumi.StringPtrInput `pulumi:"ttlAsIso8601"`
+}
+
+func (MessagingEndpointPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessagingEndpointPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MessagingEndpointPropertiesInvokeResponseArgs) ToMessagingEndpointPropertiesInvokeResponseOutput() MessagingEndpointPropertiesInvokeResponseOutput {
+	return i.ToMessagingEndpointPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MessagingEndpointPropertiesInvokeResponseArgs) ToMessagingEndpointPropertiesInvokeResponseOutputWithContext(ctx context.Context) MessagingEndpointPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessagingEndpointPropertiesInvokeResponseOutput)
+}
+
+// MessagingEndpointPropertiesInvokeResponseMapInput is an input type that accepts MessagingEndpointPropertiesInvokeResponseMap and MessagingEndpointPropertiesInvokeResponseMapOutput values.
+// You can construct a concrete instance of `MessagingEndpointPropertiesInvokeResponseMapInput` via:
+//
+//          MessagingEndpointPropertiesInvokeResponseMap{ "key": MessagingEndpointPropertiesInvokeResponseArgs{...} }
+type MessagingEndpointPropertiesInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToMessagingEndpointPropertiesInvokeResponseMapOutput() MessagingEndpointPropertiesInvokeResponseMapOutput
+	ToMessagingEndpointPropertiesInvokeResponseMapOutputWithContext(context.Context) MessagingEndpointPropertiesInvokeResponseMapOutput
+}
+
+type MessagingEndpointPropertiesInvokeResponseMap map[string]MessagingEndpointPropertiesInvokeResponseInput
+
+func (MessagingEndpointPropertiesInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MessagingEndpointPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MessagingEndpointPropertiesInvokeResponseMap) ToMessagingEndpointPropertiesInvokeResponseMapOutput() MessagingEndpointPropertiesInvokeResponseMapOutput {
+	return i.ToMessagingEndpointPropertiesInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i MessagingEndpointPropertiesInvokeResponseMap) ToMessagingEndpointPropertiesInvokeResponseMapOutputWithContext(ctx context.Context) MessagingEndpointPropertiesInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessagingEndpointPropertiesInvokeResponseMapOutput)
+}
+
+// The properties of the messaging endpoints used by this IoT hub.
+type MessagingEndpointPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MessagingEndpointPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessagingEndpointPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MessagingEndpointPropertiesInvokeResponseOutput) ToMessagingEndpointPropertiesInvokeResponseOutput() MessagingEndpointPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MessagingEndpointPropertiesInvokeResponseOutput) ToMessagingEndpointPropertiesInvokeResponseOutputWithContext(ctx context.Context) MessagingEndpointPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The lock duration. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
+func (o MessagingEndpointPropertiesInvokeResponseOutput) LockDurationAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessagingEndpointPropertiesInvokeResponse) *string { return v.LockDurationAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+// The number of times the IoT hub attempts to deliver a message. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
+func (o MessagingEndpointPropertiesInvokeResponseOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MessagingEndpointPropertiesInvokeResponse) *int { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+// The period of time for which a message is available to consume before it is expired by the IoT hub. See: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload.
+func (o MessagingEndpointPropertiesInvokeResponseOutput) TtlAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessagingEndpointPropertiesInvokeResponse) *string { return v.TtlAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+type MessagingEndpointPropertiesInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (MessagingEndpointPropertiesInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]MessagingEndpointPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MessagingEndpointPropertiesInvokeResponseMapOutput) ToMessagingEndpointPropertiesInvokeResponseMapOutput() MessagingEndpointPropertiesInvokeResponseMapOutput {
+	return o
+}
+
+func (o MessagingEndpointPropertiesInvokeResponseMapOutput) ToMessagingEndpointPropertiesInvokeResponseMapOutputWithContext(ctx context.Context) MessagingEndpointPropertiesInvokeResponseMapOutput {
+	return o
+}
+
+func (o MessagingEndpointPropertiesInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) MessagingEndpointPropertiesInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MessagingEndpointPropertiesInvokeResponse {
+		return vs[0].(map[string]MessagingEndpointPropertiesInvokeResponse)[vs[1].(string)]
+	}).(MessagingEndpointPropertiesInvokeResponseOutput)
 }
 
 // The properties of the messaging endpoints used by this IoT hub.
@@ -2518,6 +3471,137 @@ func (o OperationsMonitoringPropertiesPtrOutput) Elem() OperationsMonitoringProp
 
 func (o OperationsMonitoringPropertiesPtrOutput) Events() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OperationsMonitoringProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Events
+	}).(pulumi.StringMapOutput)
+}
+
+// The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
+type OperationsMonitoringPropertiesInvokeResponse struct {
+	Events map[string]string `pulumi:"events"`
+}
+
+// OperationsMonitoringPropertiesInvokeResponseInput is an input type that accepts OperationsMonitoringPropertiesInvokeResponseArgs and OperationsMonitoringPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `OperationsMonitoringPropertiesInvokeResponseInput` via:
+//
+//          OperationsMonitoringPropertiesInvokeResponseArgs{...}
+type OperationsMonitoringPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOperationsMonitoringPropertiesInvokeResponseOutput() OperationsMonitoringPropertiesInvokeResponseOutput
+	ToOperationsMonitoringPropertiesInvokeResponseOutputWithContext(context.Context) OperationsMonitoringPropertiesInvokeResponseOutput
+}
+
+// The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
+type OperationsMonitoringPropertiesInvokeResponseArgs struct {
+	Events pulumi.StringMapInput `pulumi:"events"`
+}
+
+func (OperationsMonitoringPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationsMonitoringPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i OperationsMonitoringPropertiesInvokeResponseArgs) ToOperationsMonitoringPropertiesInvokeResponseOutput() OperationsMonitoringPropertiesInvokeResponseOutput {
+	return i.ToOperationsMonitoringPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OperationsMonitoringPropertiesInvokeResponseArgs) ToOperationsMonitoringPropertiesInvokeResponseOutputWithContext(ctx context.Context) OperationsMonitoringPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OperationsMonitoringPropertiesInvokeResponseOutput)
+}
+
+func (i OperationsMonitoringPropertiesInvokeResponseArgs) ToOperationsMonitoringPropertiesInvokeResponsePtrOutput() OperationsMonitoringPropertiesInvokeResponsePtrOutput {
+	return i.ToOperationsMonitoringPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OperationsMonitoringPropertiesInvokeResponseArgs) ToOperationsMonitoringPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) OperationsMonitoringPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OperationsMonitoringPropertiesInvokeResponseOutput).ToOperationsMonitoringPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// OperationsMonitoringPropertiesInvokeResponsePtrInput is an input type that accepts OperationsMonitoringPropertiesInvokeResponseArgs, OperationsMonitoringPropertiesInvokeResponsePtr and OperationsMonitoringPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `OperationsMonitoringPropertiesInvokeResponsePtrInput` via:
+//
+//          OperationsMonitoringPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OperationsMonitoringPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToOperationsMonitoringPropertiesInvokeResponsePtrOutput() OperationsMonitoringPropertiesInvokeResponsePtrOutput
+	ToOperationsMonitoringPropertiesInvokeResponsePtrOutputWithContext(context.Context) OperationsMonitoringPropertiesInvokeResponsePtrOutput
+}
+
+type operationsMonitoringPropertiesInvokeResponsePtrType OperationsMonitoringPropertiesInvokeResponseArgs
+
+func OperationsMonitoringPropertiesInvokeResponsePtr(v *OperationsMonitoringPropertiesInvokeResponseArgs) OperationsMonitoringPropertiesInvokeResponsePtrInput {
+	return (*operationsMonitoringPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*operationsMonitoringPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OperationsMonitoringPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *operationsMonitoringPropertiesInvokeResponsePtrType) ToOperationsMonitoringPropertiesInvokeResponsePtrOutput() OperationsMonitoringPropertiesInvokeResponsePtrOutput {
+	return i.ToOperationsMonitoringPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *operationsMonitoringPropertiesInvokeResponsePtrType) ToOperationsMonitoringPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) OperationsMonitoringPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OperationsMonitoringPropertiesInvokeResponsePtrOutput)
+}
+
+// The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
+type OperationsMonitoringPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OperationsMonitoringPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationsMonitoringPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o OperationsMonitoringPropertiesInvokeResponseOutput) ToOperationsMonitoringPropertiesInvokeResponseOutput() OperationsMonitoringPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o OperationsMonitoringPropertiesInvokeResponseOutput) ToOperationsMonitoringPropertiesInvokeResponseOutputWithContext(ctx context.Context) OperationsMonitoringPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o OperationsMonitoringPropertiesInvokeResponseOutput) ToOperationsMonitoringPropertiesInvokeResponsePtrOutput() OperationsMonitoringPropertiesInvokeResponsePtrOutput {
+	return o.ToOperationsMonitoringPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OperationsMonitoringPropertiesInvokeResponseOutput) ToOperationsMonitoringPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) OperationsMonitoringPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v OperationsMonitoringPropertiesInvokeResponse) *OperationsMonitoringPropertiesInvokeResponse {
+		return &v
+	}).(OperationsMonitoringPropertiesInvokeResponsePtrOutput)
+}
+func (o OperationsMonitoringPropertiesInvokeResponseOutput) Events() pulumi.StringMapOutput {
+	return o.ApplyT(func(v OperationsMonitoringPropertiesInvokeResponse) map[string]string { return v.Events }).(pulumi.StringMapOutput)
+}
+
+type OperationsMonitoringPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OperationsMonitoringPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OperationsMonitoringPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o OperationsMonitoringPropertiesInvokeResponsePtrOutput) ToOperationsMonitoringPropertiesInvokeResponsePtrOutput() OperationsMonitoringPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OperationsMonitoringPropertiesInvokeResponsePtrOutput) ToOperationsMonitoringPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) OperationsMonitoringPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OperationsMonitoringPropertiesInvokeResponsePtrOutput) Elem() OperationsMonitoringPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *OperationsMonitoringPropertiesInvokeResponse) OperationsMonitoringPropertiesInvokeResponse {
+		return *v
+	}).(OperationsMonitoringPropertiesInvokeResponseOutput)
+}
+
+func (o OperationsMonitoringPropertiesInvokeResponsePtrOutput) Events() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OperationsMonitoringPropertiesInvokeResponse) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -2782,6 +3866,133 @@ func (o SharedAccessSignatureAuthorizationRuleArrayOutput) Index(i pulumi.IntInp
 }
 
 // The properties of an IoT hub shared access policy.
+type SharedAccessSignatureAuthorizationRuleInvokeResponse struct {
+	// The name of the shared access policy.
+	KeyName string `pulumi:"keyName"`
+	// The primary key.
+	PrimaryKey *string `pulumi:"primaryKey"`
+	// The permissions assigned to the shared access policy.
+	Rights string `pulumi:"rights"`
+	// The secondary key.
+	SecondaryKey *string `pulumi:"secondaryKey"`
+}
+
+// SharedAccessSignatureAuthorizationRuleInvokeResponseInput is an input type that accepts SharedAccessSignatureAuthorizationRuleInvokeResponseArgs and SharedAccessSignatureAuthorizationRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `SharedAccessSignatureAuthorizationRuleInvokeResponseInput` via:
+//
+//          SharedAccessSignatureAuthorizationRuleInvokeResponseArgs{...}
+type SharedAccessSignatureAuthorizationRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSharedAccessSignatureAuthorizationRuleInvokeResponseOutput() SharedAccessSignatureAuthorizationRuleInvokeResponseOutput
+	ToSharedAccessSignatureAuthorizationRuleInvokeResponseOutputWithContext(context.Context) SharedAccessSignatureAuthorizationRuleInvokeResponseOutput
+}
+
+// The properties of an IoT hub shared access policy.
+type SharedAccessSignatureAuthorizationRuleInvokeResponseArgs struct {
+	// The name of the shared access policy.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The primary key.
+	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
+	// The permissions assigned to the shared access policy.
+	Rights pulumi.StringInput `pulumi:"rights"`
+	// The secondary key.
+	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
+}
+
+func (SharedAccessSignatureAuthorizationRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessSignatureAuthorizationRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i SharedAccessSignatureAuthorizationRuleInvokeResponseArgs) ToSharedAccessSignatureAuthorizationRuleInvokeResponseOutput() SharedAccessSignatureAuthorizationRuleInvokeResponseOutput {
+	return i.ToSharedAccessSignatureAuthorizationRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SharedAccessSignatureAuthorizationRuleInvokeResponseArgs) ToSharedAccessSignatureAuthorizationRuleInvokeResponseOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessSignatureAuthorizationRuleInvokeResponseOutput)
+}
+
+// SharedAccessSignatureAuthorizationRuleInvokeResponseArrayInput is an input type that accepts SharedAccessSignatureAuthorizationRuleInvokeResponseArray and SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SharedAccessSignatureAuthorizationRuleInvokeResponseArrayInput` via:
+//
+//          SharedAccessSignatureAuthorizationRuleInvokeResponseArray{ SharedAccessSignatureAuthorizationRuleInvokeResponseArgs{...} }
+type SharedAccessSignatureAuthorizationRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput() SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput
+	ToSharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutputWithContext(context.Context) SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput
+}
+
+type SharedAccessSignatureAuthorizationRuleInvokeResponseArray []SharedAccessSignatureAuthorizationRuleInvokeResponseInput
+
+func (SharedAccessSignatureAuthorizationRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessSignatureAuthorizationRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i SharedAccessSignatureAuthorizationRuleInvokeResponseArray) ToSharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput() SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput {
+	return i.ToSharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SharedAccessSignatureAuthorizationRuleInvokeResponseArray) ToSharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput)
+}
+
+// The properties of an IoT hub shared access policy.
+type SharedAccessSignatureAuthorizationRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessSignatureAuthorizationRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessSignatureAuthorizationRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o SharedAccessSignatureAuthorizationRuleInvokeResponseOutput) ToSharedAccessSignatureAuthorizationRuleInvokeResponseOutput() SharedAccessSignatureAuthorizationRuleInvokeResponseOutput {
+	return o
+}
+
+func (o SharedAccessSignatureAuthorizationRuleInvokeResponseOutput) ToSharedAccessSignatureAuthorizationRuleInvokeResponseOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleInvokeResponseOutput {
+	return o
+}
+
+// The name of the shared access policy.
+func (o SharedAccessSignatureAuthorizationRuleInvokeResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleInvokeResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The primary key.
+func (o SharedAccessSignatureAuthorizationRuleInvokeResponseOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleInvokeResponse) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// The permissions assigned to the shared access policy.
+func (o SharedAccessSignatureAuthorizationRuleInvokeResponseOutput) Rights() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleInvokeResponse) string { return v.Rights }).(pulumi.StringOutput)
+}
+
+// The secondary key.
+func (o SharedAccessSignatureAuthorizationRuleInvokeResponseOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleInvokeResponse) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+type SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessSignatureAuthorizationRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput) ToSharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput() SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput) ToSharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) SharedAccessSignatureAuthorizationRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedAccessSignatureAuthorizationRuleInvokeResponse {
+		return vs[0].([]SharedAccessSignatureAuthorizationRuleInvokeResponse)[vs[1].(int)]
+	}).(SharedAccessSignatureAuthorizationRuleInvokeResponseOutput)
+}
+
+// The properties of an IoT hub shared access policy.
 type SharedAccessSignatureAuthorizationRuleResponse struct {
 	// The name of the shared access policy.
 	KeyName string `pulumi:"keyName"`
@@ -3027,6 +4238,124 @@ func (o StorageEndpointPropertiesMapOutput) MapIndex(k pulumi.StringInput) Stora
 }
 
 // The properties of the Azure Storage endpoint for file upload.
+type StorageEndpointPropertiesInvokeResponse struct {
+	// The connection string for the Azure Storage account to which files are uploaded.
+	ConnectionString string `pulumi:"connectionString"`
+	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+	ContainerName string `pulumi:"containerName"`
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
+	SasTtlAsIso8601 *string `pulumi:"sasTtlAsIso8601"`
+}
+
+// StorageEndpointPropertiesInvokeResponseInput is an input type that accepts StorageEndpointPropertiesInvokeResponseArgs and StorageEndpointPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageEndpointPropertiesInvokeResponseInput` via:
+//
+//          StorageEndpointPropertiesInvokeResponseArgs{...}
+type StorageEndpointPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageEndpointPropertiesInvokeResponseOutput() StorageEndpointPropertiesInvokeResponseOutput
+	ToStorageEndpointPropertiesInvokeResponseOutputWithContext(context.Context) StorageEndpointPropertiesInvokeResponseOutput
+}
+
+// The properties of the Azure Storage endpoint for file upload.
+type StorageEndpointPropertiesInvokeResponseArgs struct {
+	// The connection string for the Azure Storage account to which files are uploaded.
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
+	SasTtlAsIso8601 pulumi.StringPtrInput `pulumi:"sasTtlAsIso8601"`
+}
+
+func (StorageEndpointPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageEndpointPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageEndpointPropertiesInvokeResponseArgs) ToStorageEndpointPropertiesInvokeResponseOutput() StorageEndpointPropertiesInvokeResponseOutput {
+	return i.ToStorageEndpointPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageEndpointPropertiesInvokeResponseArgs) ToStorageEndpointPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageEndpointPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageEndpointPropertiesInvokeResponseOutput)
+}
+
+// StorageEndpointPropertiesInvokeResponseMapInput is an input type that accepts StorageEndpointPropertiesInvokeResponseMap and StorageEndpointPropertiesInvokeResponseMapOutput values.
+// You can construct a concrete instance of `StorageEndpointPropertiesInvokeResponseMapInput` via:
+//
+//          StorageEndpointPropertiesInvokeResponseMap{ "key": StorageEndpointPropertiesInvokeResponseArgs{...} }
+type StorageEndpointPropertiesInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToStorageEndpointPropertiesInvokeResponseMapOutput() StorageEndpointPropertiesInvokeResponseMapOutput
+	ToStorageEndpointPropertiesInvokeResponseMapOutputWithContext(context.Context) StorageEndpointPropertiesInvokeResponseMapOutput
+}
+
+type StorageEndpointPropertiesInvokeResponseMap map[string]StorageEndpointPropertiesInvokeResponseInput
+
+func (StorageEndpointPropertiesInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StorageEndpointPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageEndpointPropertiesInvokeResponseMap) ToStorageEndpointPropertiesInvokeResponseMapOutput() StorageEndpointPropertiesInvokeResponseMapOutput {
+	return i.ToStorageEndpointPropertiesInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i StorageEndpointPropertiesInvokeResponseMap) ToStorageEndpointPropertiesInvokeResponseMapOutputWithContext(ctx context.Context) StorageEndpointPropertiesInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageEndpointPropertiesInvokeResponseMapOutput)
+}
+
+// The properties of the Azure Storage endpoint for file upload.
+type StorageEndpointPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageEndpointPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageEndpointPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageEndpointPropertiesInvokeResponseOutput) ToStorageEndpointPropertiesInvokeResponseOutput() StorageEndpointPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o StorageEndpointPropertiesInvokeResponseOutput) ToStorageEndpointPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageEndpointPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The connection string for the Azure Storage account to which files are uploaded.
+func (o StorageEndpointPropertiesInvokeResponseOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageEndpointPropertiesInvokeResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
+func (o StorageEndpointPropertiesInvokeResponseOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageEndpointPropertiesInvokeResponse) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
+func (o StorageEndpointPropertiesInvokeResponseOutput) SasTtlAsIso8601() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageEndpointPropertiesInvokeResponse) *string { return v.SasTtlAsIso8601 }).(pulumi.StringPtrOutput)
+}
+
+type StorageEndpointPropertiesInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (StorageEndpointPropertiesInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]StorageEndpointPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageEndpointPropertiesInvokeResponseMapOutput) ToStorageEndpointPropertiesInvokeResponseMapOutput() StorageEndpointPropertiesInvokeResponseMapOutput {
+	return o
+}
+
+func (o StorageEndpointPropertiesInvokeResponseMapOutput) ToStorageEndpointPropertiesInvokeResponseMapOutputWithContext(ctx context.Context) StorageEndpointPropertiesInvokeResponseMapOutput {
+	return o
+}
+
+func (o StorageEndpointPropertiesInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) StorageEndpointPropertiesInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StorageEndpointPropertiesInvokeResponse {
+		return vs[0].(map[string]StorageEndpointPropertiesInvokeResponse)[vs[1].(string)]
+	}).(StorageEndpointPropertiesInvokeResponseOutput)
+}
+
+// The properties of the Azure Storage endpoint for file upload.
 type StorageEndpointPropertiesResponse struct {
 	// The connection string for the Azure Storage account to which files are uploaded.
 	ConnectionString string `pulumi:"connectionString"`
@@ -3147,42 +4476,60 @@ func (o StorageEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringInpu
 func init() {
 	pulumi.RegisterOutputType(CloudToDevicePropertiesOutput{})
 	pulumi.RegisterOutputType(CloudToDevicePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CloudToDevicePropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudToDevicePropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudToDevicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CloudToDevicePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EventHubPropertiesOutput{})
 	pulumi.RegisterOutputType(EventHubPropertiesMapOutput{})
+	pulumi.RegisterOutputType(EventHubPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EventHubPropertiesInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(EventHubPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EventHubPropertiesResponseMapOutput{})
 	pulumi.RegisterOutputType(FeedbackPropertiesOutput{})
 	pulumi.RegisterOutputType(FeedbackPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FeedbackPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FeedbackPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(FeedbackPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FeedbackPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IotHubPropertiesOutput{})
 	pulumi.RegisterOutputType(IotHubPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IotHubPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IotHubPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IotHubPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IotHubSkuInfoOutput{})
 	pulumi.RegisterOutputType(IotHubSkuInfoPtrOutput{})
+	pulumi.RegisterOutputType(IotHubSkuInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IotHubSkuInfoResponseOutput{})
 	pulumi.RegisterOutputType(IotHubSkuInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(IpFilterRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IpFilterRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesMapOutput{})
+	pulumi.RegisterOutputType(MessagingEndpointPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MessagingEndpointPropertiesInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseMapOutput{})
 	pulumi.RegisterOutputType(OperationsMonitoringPropertiesOutput{})
 	pulumi.RegisterOutputType(OperationsMonitoringPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OperationsMonitoringPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OperationsMonitoringPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(OperationsMonitoringPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(OperationsMonitoringPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleArrayOutput{})
+	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageEndpointPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageEndpointPropertiesMapOutput{})
+	pulumi.RegisterOutputType(StorageEndpointPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StorageEndpointPropertiesInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(StorageEndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageEndpointPropertiesResponseMapOutput{})
 }

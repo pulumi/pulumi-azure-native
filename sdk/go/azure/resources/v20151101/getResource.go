@@ -38,7 +38,7 @@ type LookupResourceResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Gets or sets the plan of the resource.
-	Plan *PlanResponse `pulumi:"plan"`
+	Plan *PlanInvokeResponse `pulumi:"plan"`
 	// Gets or sets the resource properties.
 	Properties interface{} `pulumi:"properties"`
 	// Resource tags

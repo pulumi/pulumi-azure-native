@@ -34,7 +34,7 @@ type LookupGuestConfigurationHCRPAssignmentResult struct {
 	// Name of the guest configuration assignment.
 	Name *string `pulumi:"name"`
 	// Properties of the Guest configuration assignment.
-	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
+	Properties GuestConfigurationAssignmentPropertiesInvokeResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

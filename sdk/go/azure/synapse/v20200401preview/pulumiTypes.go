@@ -164,6 +164,70 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // An ARM Resource SKU.
+type SkuInvokeResponse struct {
+	// The name of the SKU, typically, a letter + Number code, e.g. P3.
+	Name string `pulumi:"name"`
+	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// An ARM Resource SKU.
+type SkuInvokeResponseArgs struct {
+	// The name of the SKU, typically, a letter + Number code, e.g. P3.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// An ARM Resource SKU.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU, typically, a letter + Number code, e.g. P3.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tier or edition of the particular SKU, e.g. Basic, Premium.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// An ARM Resource SKU.
 type SkuResponse struct {
 	// The name of the SKU, typically, a letter + Number code, e.g. P3.
 	Name string `pulumi:"name"`
@@ -314,6 +378,106 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// ARM System Data.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt string `pulumi:"createdAt"`
+	// A string identifier for the identity that created the resource.
+	CreatedBy string `pulumi:"createdBy"`
+	// The type of identity that created the resource: <User|Application|ManagedIdentity|Key>
+	CreatedByType string `pulumi:"createdByType"`
+	// The timestamp of last modification (UTC).
+	LastModifiedAt string `pulumi:"lastModifiedAt"`
+	// A string identifier for the identity that last modified the resource.
+	LastModifiedBy string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource: <User|Application|ManagedIdentity|Key>
+	LastModifiedByType string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// ARM System Data.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// A string identifier for the identity that created the resource.
+	CreatedBy pulumi.StringInput `pulumi:"createdBy"`
+	// The type of identity that created the resource: <User|Application|ManagedIdentity|Key>
+	CreatedByType pulumi.StringInput `pulumi:"createdByType"`
+	// The timestamp of last modification (UTC).
+	LastModifiedAt pulumi.StringInput `pulumi:"lastModifiedAt"`
+	// A string identifier for the identity that last modified the resource.
+	LastModifiedBy pulumi.StringInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource: <User|Application|ManagedIdentity|Key>
+	LastModifiedByType pulumi.StringInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// ARM System Data.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// A string identifier for the identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// The type of identity that created the resource: <User|Application|ManagedIdentity|Key>
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.CreatedByType }).(pulumi.StringOutput)
+}
+
+// The timestamp of last modification (UTC).
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.LastModifiedAt }).(pulumi.StringOutput)
+}
+
+// A string identifier for the identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.LastModifiedBy }).(pulumi.StringOutput)
+}
+
+// The type of identity that last modified the resource: <User|Application|ManagedIdentity|Key>
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) string { return v.LastModifiedByType }).(pulumi.StringOutput)
 }
 
 // ARM System Data.
@@ -548,8 +712,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

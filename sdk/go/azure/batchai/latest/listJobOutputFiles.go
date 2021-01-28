@@ -40,5 +40,5 @@ type ListJobOutputFilesResult struct {
 	// The continuation token.
 	NextLink string `pulumi:"nextLink"`
 	// The collection of returned job directories and files.
-	Value []FileResponse `pulumi:"value"`
+	Value []FileInvokeResponse `pulumi:"value"`
 }

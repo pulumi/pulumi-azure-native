@@ -30,13 +30,13 @@ type ListProductDetailsResult struct {
 	// Specifies kind of compute role included in the package.
 	ComputeRole string `pulumi:"computeRole"`
 	// List of attached data disks.
-	DataDiskImages []DataDiskImageResponse `pulumi:"dataDiskImages"`
+	DataDiskImages []DataDiskImageInvokeResponse `pulumi:"dataDiskImages"`
 	// The URI to the .azpkg file that provides information required for showing product in the gallery.
 	GalleryPackageBlobSasUri string `pulumi:"galleryPackageBlobSasUri"`
 	// Specifies if product is a Virtual Machine Extension.
 	IsSystemExtension bool `pulumi:"isSystemExtension"`
 	// OS disk image used by product.
-	OsDiskImage OsDiskImageResponse `pulumi:"osDiskImage"`
+	OsDiskImage OsDiskImageInvokeResponse `pulumi:"osDiskImage"`
 	// Specifies the kind of the product (virtualMachine or virtualMachineExtension).
 	ProductKind string `pulumi:"productKind"`
 	// Indicates if specified product supports multiple extensions.

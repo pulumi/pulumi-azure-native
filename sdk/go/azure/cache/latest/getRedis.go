@@ -26,7 +26,7 @@ type LookupRedisArgs struct {
 // A single Redis item in List or Get Operation.
 type LookupRedisResult struct {
 	// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
-	AccessKeys RedisAccessKeysResponse `pulumi:"accessKeys"`
+	AccessKeys RedisAccessKeysInvokeResponse `pulumi:"accessKeys"`
 	// Specifies whether the non-ssl Redis server port (6379) is enabled.
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// Redis host name.
@@ -34,9 +34,9 @@ type LookupRedisResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// List of the Redis instances associated with the cache
-	Instances []RedisInstanceDetailsResponse `pulumi:"instances"`
+	Instances []RedisInstanceDetailsInvokeResponse `pulumi:"instances"`
 	// List of the linked servers associated with the cache
-	LinkedServers []RedisLinkedServerResponse `pulumi:"linkedServers"`
+	LinkedServers []RedisLinkedServerInvokeResponse `pulumi:"linkedServers"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
@@ -46,7 +46,7 @@ type LookupRedisResult struct {
 	// Redis non-SSL port.
 	Port int `pulumi:"port"`
 	// List of private endpoint connection associated with the specified redis cache
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Redis instance provisioning status.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
@@ -60,7 +60,7 @@ type LookupRedisResult struct {
 	// The number of shards to be created on a Premium Cluster Cache.
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of the Redis cache to deploy.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Redis SSL port.
 	SslPort int `pulumi:"sslPort"`
 	// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.

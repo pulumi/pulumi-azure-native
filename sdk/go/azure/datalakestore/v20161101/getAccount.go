@@ -34,7 +34,7 @@ type LookupAccountResult struct {
 	// The default owner group for all new folders and files created in the Data Lake Store account.
 	DefaultGroup string `pulumi:"defaultGroup"`
 	// The Key Vault encryption configuration.
-	EncryptionConfig EncryptionConfigResponse `pulumi:"encryptionConfig"`
+	EncryptionConfig EncryptionConfigInvokeResponse `pulumi:"encryptionConfig"`
 	// The current state of encryption provisioning for this Data Lake Store account.
 	EncryptionProvisioningState string `pulumi:"encryptionProvisioningState"`
 	// The current state of encryption for this Data Lake Store account.
@@ -44,13 +44,13 @@ type LookupAccountResult struct {
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
 	FirewallAllowAzureIps string `pulumi:"firewallAllowAzureIps"`
 	// The list of firewall rules associated with this Data Lake Store account.
-	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
+	FirewallRules []FirewallRuleInvokeResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this Data Lake Store account.
 	FirewallState string `pulumi:"firewallState"`
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// The Key Vault encryption identity, if any.
-	Identity EncryptionIdentityResponse `pulumi:"identity"`
+	Identity EncryptionIdentityInvokeResponse `pulumi:"identity"`
 	// The account last modified time.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The resource location.
@@ -68,9 +68,9 @@ type LookupAccountResult struct {
 	// The current state of the trusted identity provider feature for this Data Lake Store account.
 	TrustedIdProviderState string `pulumi:"trustedIdProviderState"`
 	// The list of trusted identity providers associated with this Data Lake Store account.
-	TrustedIdProviders []TrustedIdProviderResponse `pulumi:"trustedIdProviders"`
+	TrustedIdProviders []TrustedIdProviderInvokeResponse `pulumi:"trustedIdProviders"`
 	// The resource type.
 	Type string `pulumi:"type"`
 	// The list of virtual network rules associated with this Data Lake Store account.
-	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
+	VirtualNetworkRules []VirtualNetworkRuleInvokeResponse `pulumi:"virtualNetworkRules"`
 }

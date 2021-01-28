@@ -32,7 +32,7 @@ type LookupDomainServiceResult struct {
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
 	DomainName *string `pulumi:"domainName"`
 	// DomainSecurity Settings
-	DomainSecuritySettings *DomainSecuritySettingsResponse `pulumi:"domainSecuritySettings"`
+	DomainSecuritySettings *DomainSecuritySettingsInvokeResponse `pulumi:"domainSecuritySettings"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
 	// Enabled or Disabled flag to turn on Group-based filtered sync
@@ -40,21 +40,21 @@ type LookupDomainServiceResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Secure LDAP Settings
-	LdapsSettings *LdapsSettingsResponse `pulumi:"ldapsSettings"`
+	LdapsSettings *LdapsSettingsInvokeResponse `pulumi:"ldapsSettings"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Migration Properties
-	MigrationProperties MigrationPropertiesResponse `pulumi:"migrationProperties"`
+	MigrationProperties MigrationPropertiesInvokeResponse `pulumi:"migrationProperties"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Notification Settings
-	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
+	NotificationSettings *NotificationSettingsInvokeResponse `pulumi:"notificationSettings"`
 	// the current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// List of ReplicaSets
-	ReplicaSets []ReplicaSetResponse `pulumi:"replicaSets"`
+	ReplicaSets []ReplicaSetInvokeResponse `pulumi:"replicaSets"`
 	// Resource Forest Settings
-	ResourceForestSettings *ResourceForestSettingsResponse `pulumi:"resourceForestSettings"`
+	ResourceForestSettings *ResourceForestSettingsInvokeResponse `pulumi:"resourceForestSettings"`
 	// Sku Type
 	Sku *string `pulumi:"sku"`
 	// SyncOwner ReplicaSet Id

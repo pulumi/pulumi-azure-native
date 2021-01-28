@@ -183,6 +183,79 @@ func (o AsymmetricEncryptedSecretPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 // Represent the secrets intended for encryption with asymmetric key pair.
+type AsymmetricEncryptedSecretInvokeResponse struct {
+	// The algorithm used to encrypt "Value".
+	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
+	EncryptionCertThumbprint *string `pulumi:"encryptionCertThumbprint"`
+	// The value of the secret.
+	Value string `pulumi:"value"`
+}
+
+// AsymmetricEncryptedSecretInvokeResponseInput is an input type that accepts AsymmetricEncryptedSecretInvokeResponseArgs and AsymmetricEncryptedSecretInvokeResponseOutput values.
+// You can construct a concrete instance of `AsymmetricEncryptedSecretInvokeResponseInput` via:
+//
+//          AsymmetricEncryptedSecretInvokeResponseArgs{...}
+type AsymmetricEncryptedSecretInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAsymmetricEncryptedSecretInvokeResponseOutput() AsymmetricEncryptedSecretInvokeResponseOutput
+	ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(context.Context) AsymmetricEncryptedSecretInvokeResponseOutput
+}
+
+// Represent the secrets intended for encryption with asymmetric key pair.
+type AsymmetricEncryptedSecretInvokeResponseArgs struct {
+	// The algorithm used to encrypt "Value".
+	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
+	EncryptionCertThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertThumbprint"`
+	// The value of the secret.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AsymmetricEncryptedSecretInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AsymmetricEncryptedSecretInvokeResponse)(nil)).Elem()
+}
+
+func (i AsymmetricEncryptedSecretInvokeResponseArgs) ToAsymmetricEncryptedSecretInvokeResponseOutput() AsymmetricEncryptedSecretInvokeResponseOutput {
+	return i.ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AsymmetricEncryptedSecretInvokeResponseArgs) ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AsymmetricEncryptedSecretInvokeResponseOutput)
+}
+
+// Represent the secrets intended for encryption with asymmetric key pair.
+type AsymmetricEncryptedSecretInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AsymmetricEncryptedSecretInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AsymmetricEncryptedSecretInvokeResponse)(nil)).Elem()
+}
+
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) ToAsymmetricEncryptedSecretInvokeResponseOutput() AsymmetricEncryptedSecretInvokeResponseOutput {
+	return o
+}
+
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) ToAsymmetricEncryptedSecretInvokeResponseOutputWithContext(ctx context.Context) AsymmetricEncryptedSecretInvokeResponseOutput {
+	return o
+}
+
+// The algorithm used to encrypt "Value".
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) EncryptionAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecretInvokeResponse) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+}
+
+// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) EncryptionCertThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecretInvokeResponse) *string { return v.EncryptionCertThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The value of the secret.
+func (o AsymmetricEncryptedSecretInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecretInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretResponse struct {
 	// The algorithm used to encrypt "Value".
 	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
@@ -482,6 +555,133 @@ func (o BandwidthScheduleArrayOutput) Index(i pulumi.IntInput) BandwidthSchedule
 }
 
 // The schedule for bandwidth setting.
+type BandwidthScheduleInvokeResponse struct {
+	// The days of the week when this schedule is applicable.
+	Days []string `pulumi:"days"`
+	// The rate in Mbps.
+	RateInMbps int `pulumi:"rateInMbps"`
+	// The start time of the schedule.
+	Start TimeInvokeResponse `pulumi:"start"`
+	// The stop time of the schedule.
+	Stop TimeInvokeResponse `pulumi:"stop"`
+}
+
+// BandwidthScheduleInvokeResponseInput is an input type that accepts BandwidthScheduleInvokeResponseArgs and BandwidthScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `BandwidthScheduleInvokeResponseInput` via:
+//
+//          BandwidthScheduleInvokeResponseArgs{...}
+type BandwidthScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBandwidthScheduleInvokeResponseOutput() BandwidthScheduleInvokeResponseOutput
+	ToBandwidthScheduleInvokeResponseOutputWithContext(context.Context) BandwidthScheduleInvokeResponseOutput
+}
+
+// The schedule for bandwidth setting.
+type BandwidthScheduleInvokeResponseArgs struct {
+	// The days of the week when this schedule is applicable.
+	Days pulumi.StringArrayInput `pulumi:"days"`
+	// The rate in Mbps.
+	RateInMbps pulumi.IntInput `pulumi:"rateInMbps"`
+	// The start time of the schedule.
+	Start TimeInvokeResponseInput `pulumi:"start"`
+	// The stop time of the schedule.
+	Stop TimeInvokeResponseInput `pulumi:"stop"`
+}
+
+func (BandwidthScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i BandwidthScheduleInvokeResponseArgs) ToBandwidthScheduleInvokeResponseOutput() BandwidthScheduleInvokeResponseOutput {
+	return i.ToBandwidthScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BandwidthScheduleInvokeResponseArgs) ToBandwidthScheduleInvokeResponseOutputWithContext(ctx context.Context) BandwidthScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BandwidthScheduleInvokeResponseOutput)
+}
+
+// BandwidthScheduleInvokeResponseArrayInput is an input type that accepts BandwidthScheduleInvokeResponseArray and BandwidthScheduleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `BandwidthScheduleInvokeResponseArrayInput` via:
+//
+//          BandwidthScheduleInvokeResponseArray{ BandwidthScheduleInvokeResponseArgs{...} }
+type BandwidthScheduleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToBandwidthScheduleInvokeResponseArrayOutput() BandwidthScheduleInvokeResponseArrayOutput
+	ToBandwidthScheduleInvokeResponseArrayOutputWithContext(context.Context) BandwidthScheduleInvokeResponseArrayOutput
+}
+
+type BandwidthScheduleInvokeResponseArray []BandwidthScheduleInvokeResponseInput
+
+func (BandwidthScheduleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BandwidthScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i BandwidthScheduleInvokeResponseArray) ToBandwidthScheduleInvokeResponseArrayOutput() BandwidthScheduleInvokeResponseArrayOutput {
+	return i.ToBandwidthScheduleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i BandwidthScheduleInvokeResponseArray) ToBandwidthScheduleInvokeResponseArrayOutputWithContext(ctx context.Context) BandwidthScheduleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BandwidthScheduleInvokeResponseArrayOutput)
+}
+
+// The schedule for bandwidth setting.
+type BandwidthScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BandwidthScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BandwidthScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o BandwidthScheduleInvokeResponseOutput) ToBandwidthScheduleInvokeResponseOutput() BandwidthScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o BandwidthScheduleInvokeResponseOutput) ToBandwidthScheduleInvokeResponseOutputWithContext(ctx context.Context) BandwidthScheduleInvokeResponseOutput {
+	return o
+}
+
+// The days of the week when this schedule is applicable.
+func (o BandwidthScheduleInvokeResponseOutput) Days() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BandwidthScheduleInvokeResponse) []string { return v.Days }).(pulumi.StringArrayOutput)
+}
+
+// The rate in Mbps.
+func (o BandwidthScheduleInvokeResponseOutput) RateInMbps() pulumi.IntOutput {
+	return o.ApplyT(func(v BandwidthScheduleInvokeResponse) int { return v.RateInMbps }).(pulumi.IntOutput)
+}
+
+// The start time of the schedule.
+func (o BandwidthScheduleInvokeResponseOutput) Start() TimeInvokeResponseOutput {
+	return o.ApplyT(func(v BandwidthScheduleInvokeResponse) TimeInvokeResponse { return v.Start }).(TimeInvokeResponseOutput)
+}
+
+// The stop time of the schedule.
+func (o BandwidthScheduleInvokeResponseOutput) Stop() TimeInvokeResponseOutput {
+	return o.ApplyT(func(v BandwidthScheduleInvokeResponse) TimeInvokeResponse { return v.Stop }).(TimeInvokeResponseOutput)
+}
+
+type BandwidthScheduleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BandwidthScheduleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BandwidthScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o BandwidthScheduleInvokeResponseArrayOutput) ToBandwidthScheduleInvokeResponseArrayOutput() BandwidthScheduleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BandwidthScheduleInvokeResponseArrayOutput) ToBandwidthScheduleInvokeResponseArrayOutputWithContext(ctx context.Context) BandwidthScheduleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o BandwidthScheduleInvokeResponseArrayOutput) Index(i pulumi.IntInput) BandwidthScheduleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BandwidthScheduleInvokeResponse {
+		return vs[0].([]BandwidthScheduleInvokeResponse)[vs[1].(int)]
+	}).(BandwidthScheduleInvokeResponseOutput)
+}
+
+// The schedule for bandwidth setting.
 type BandwidthScheduleResponse struct {
 	// The days of the week when this schedule is applicable.
 	Days []string `pulumi:"days"`
@@ -609,141 +809,143 @@ func (o BandwidthScheduleResponseArrayOutput) Index(i pulumi.IntInput) Bandwidth
 }
 
 // The eligibility result of failover set, for failover.
-type FailoverSetEligibilityResultResponse struct {
+type FailoverSetEligibilityResultInvokeResponse struct {
 	// The error message, if the failover set is not eligible for failover.
 	ErrorMessage *string `pulumi:"errorMessage"`
 	// Represents if this failover set is eligible for failover or not.
 	IsEligibleForFailover *bool `pulumi:"isEligibleForFailover"`
 }
 
-// FailoverSetEligibilityResultResponseInput is an input type that accepts FailoverSetEligibilityResultResponseArgs and FailoverSetEligibilityResultResponseOutput values.
-// You can construct a concrete instance of `FailoverSetEligibilityResultResponseInput` via:
+// FailoverSetEligibilityResultInvokeResponseInput is an input type that accepts FailoverSetEligibilityResultInvokeResponseArgs and FailoverSetEligibilityResultInvokeResponseOutput values.
+// You can construct a concrete instance of `FailoverSetEligibilityResultInvokeResponseInput` via:
 //
-//          FailoverSetEligibilityResultResponseArgs{...}
-type FailoverSetEligibilityResultResponseInput interface {
+//          FailoverSetEligibilityResultInvokeResponseArgs{...}
+type FailoverSetEligibilityResultInvokeResponseInput interface {
 	pulumi.Input
 
-	ToFailoverSetEligibilityResultResponseOutput() FailoverSetEligibilityResultResponseOutput
-	ToFailoverSetEligibilityResultResponseOutputWithContext(context.Context) FailoverSetEligibilityResultResponseOutput
+	ToFailoverSetEligibilityResultInvokeResponseOutput() FailoverSetEligibilityResultInvokeResponseOutput
+	ToFailoverSetEligibilityResultInvokeResponseOutputWithContext(context.Context) FailoverSetEligibilityResultInvokeResponseOutput
 }
 
 // The eligibility result of failover set, for failover.
-type FailoverSetEligibilityResultResponseArgs struct {
+type FailoverSetEligibilityResultInvokeResponseArgs struct {
 	// The error message, if the failover set is not eligible for failover.
 	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
 	// Represents if this failover set is eligible for failover or not.
 	IsEligibleForFailover pulumi.BoolPtrInput `pulumi:"isEligibleForFailover"`
 }
 
-func (FailoverSetEligibilityResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverSetEligibilityResultResponse)(nil)).Elem()
+func (FailoverSetEligibilityResultInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverSetEligibilityResultInvokeResponse)(nil)).Elem()
 }
 
-func (i FailoverSetEligibilityResultResponseArgs) ToFailoverSetEligibilityResultResponseOutput() FailoverSetEligibilityResultResponseOutput {
-	return i.ToFailoverSetEligibilityResultResponseOutputWithContext(context.Background())
+func (i FailoverSetEligibilityResultInvokeResponseArgs) ToFailoverSetEligibilityResultInvokeResponseOutput() FailoverSetEligibilityResultInvokeResponseOutput {
+	return i.ToFailoverSetEligibilityResultInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i FailoverSetEligibilityResultResponseArgs) ToFailoverSetEligibilityResultResponseOutputWithContext(ctx context.Context) FailoverSetEligibilityResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetEligibilityResultResponseOutput)
+func (i FailoverSetEligibilityResultInvokeResponseArgs) ToFailoverSetEligibilityResultInvokeResponseOutputWithContext(ctx context.Context) FailoverSetEligibilityResultInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetEligibilityResultInvokeResponseOutput)
 }
 
-func (i FailoverSetEligibilityResultResponseArgs) ToFailoverSetEligibilityResultResponsePtrOutput() FailoverSetEligibilityResultResponsePtrOutput {
-	return i.ToFailoverSetEligibilityResultResponsePtrOutputWithContext(context.Background())
+func (i FailoverSetEligibilityResultInvokeResponseArgs) ToFailoverSetEligibilityResultInvokeResponsePtrOutput() FailoverSetEligibilityResultInvokeResponsePtrOutput {
+	return i.ToFailoverSetEligibilityResultInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i FailoverSetEligibilityResultResponseArgs) ToFailoverSetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) FailoverSetEligibilityResultResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetEligibilityResultResponseOutput).ToFailoverSetEligibilityResultResponsePtrOutputWithContext(ctx)
+func (i FailoverSetEligibilityResultInvokeResponseArgs) ToFailoverSetEligibilityResultInvokeResponsePtrOutputWithContext(ctx context.Context) FailoverSetEligibilityResultInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetEligibilityResultInvokeResponseOutput).ToFailoverSetEligibilityResultInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// FailoverSetEligibilityResultResponsePtrInput is an input type that accepts FailoverSetEligibilityResultResponseArgs, FailoverSetEligibilityResultResponsePtr and FailoverSetEligibilityResultResponsePtrOutput values.
-// You can construct a concrete instance of `FailoverSetEligibilityResultResponsePtrInput` via:
+// FailoverSetEligibilityResultInvokeResponsePtrInput is an input type that accepts FailoverSetEligibilityResultInvokeResponseArgs, FailoverSetEligibilityResultInvokeResponsePtr and FailoverSetEligibilityResultInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `FailoverSetEligibilityResultInvokeResponsePtrInput` via:
 //
-//          FailoverSetEligibilityResultResponseArgs{...}
+//          FailoverSetEligibilityResultInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type FailoverSetEligibilityResultResponsePtrInput interface {
+type FailoverSetEligibilityResultInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToFailoverSetEligibilityResultResponsePtrOutput() FailoverSetEligibilityResultResponsePtrOutput
-	ToFailoverSetEligibilityResultResponsePtrOutputWithContext(context.Context) FailoverSetEligibilityResultResponsePtrOutput
+	ToFailoverSetEligibilityResultInvokeResponsePtrOutput() FailoverSetEligibilityResultInvokeResponsePtrOutput
+	ToFailoverSetEligibilityResultInvokeResponsePtrOutputWithContext(context.Context) FailoverSetEligibilityResultInvokeResponsePtrOutput
 }
 
-type failoverSetEligibilityResultResponsePtrType FailoverSetEligibilityResultResponseArgs
+type failoverSetEligibilityResultInvokeResponsePtrType FailoverSetEligibilityResultInvokeResponseArgs
 
-func FailoverSetEligibilityResultResponsePtr(v *FailoverSetEligibilityResultResponseArgs) FailoverSetEligibilityResultResponsePtrInput {
-	return (*failoverSetEligibilityResultResponsePtrType)(v)
+func FailoverSetEligibilityResultInvokeResponsePtr(v *FailoverSetEligibilityResultInvokeResponseArgs) FailoverSetEligibilityResultInvokeResponsePtrInput {
+	return (*failoverSetEligibilityResultInvokeResponsePtrType)(v)
 }
 
-func (*failoverSetEligibilityResultResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FailoverSetEligibilityResultResponse)(nil)).Elem()
+func (*failoverSetEligibilityResultInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FailoverSetEligibilityResultInvokeResponse)(nil)).Elem()
 }
 
-func (i *failoverSetEligibilityResultResponsePtrType) ToFailoverSetEligibilityResultResponsePtrOutput() FailoverSetEligibilityResultResponsePtrOutput {
-	return i.ToFailoverSetEligibilityResultResponsePtrOutputWithContext(context.Background())
+func (i *failoverSetEligibilityResultInvokeResponsePtrType) ToFailoverSetEligibilityResultInvokeResponsePtrOutput() FailoverSetEligibilityResultInvokeResponsePtrOutput {
+	return i.ToFailoverSetEligibilityResultInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *failoverSetEligibilityResultResponsePtrType) ToFailoverSetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) FailoverSetEligibilityResultResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetEligibilityResultResponsePtrOutput)
+func (i *failoverSetEligibilityResultInvokeResponsePtrType) ToFailoverSetEligibilityResultInvokeResponsePtrOutputWithContext(ctx context.Context) FailoverSetEligibilityResultInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetEligibilityResultInvokeResponsePtrOutput)
 }
 
 // The eligibility result of failover set, for failover.
-type FailoverSetEligibilityResultResponseOutput struct{ *pulumi.OutputState }
+type FailoverSetEligibilityResultInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (FailoverSetEligibilityResultResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverSetEligibilityResultResponse)(nil)).Elem()
+func (FailoverSetEligibilityResultInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverSetEligibilityResultInvokeResponse)(nil)).Elem()
 }
 
-func (o FailoverSetEligibilityResultResponseOutput) ToFailoverSetEligibilityResultResponseOutput() FailoverSetEligibilityResultResponseOutput {
+func (o FailoverSetEligibilityResultInvokeResponseOutput) ToFailoverSetEligibilityResultInvokeResponseOutput() FailoverSetEligibilityResultInvokeResponseOutput {
 	return o
 }
 
-func (o FailoverSetEligibilityResultResponseOutput) ToFailoverSetEligibilityResultResponseOutputWithContext(ctx context.Context) FailoverSetEligibilityResultResponseOutput {
+func (o FailoverSetEligibilityResultInvokeResponseOutput) ToFailoverSetEligibilityResultInvokeResponseOutputWithContext(ctx context.Context) FailoverSetEligibilityResultInvokeResponseOutput {
 	return o
 }
 
-func (o FailoverSetEligibilityResultResponseOutput) ToFailoverSetEligibilityResultResponsePtrOutput() FailoverSetEligibilityResultResponsePtrOutput {
-	return o.ToFailoverSetEligibilityResultResponsePtrOutputWithContext(context.Background())
+func (o FailoverSetEligibilityResultInvokeResponseOutput) ToFailoverSetEligibilityResultInvokeResponsePtrOutput() FailoverSetEligibilityResultInvokeResponsePtrOutput {
+	return o.ToFailoverSetEligibilityResultInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o FailoverSetEligibilityResultResponseOutput) ToFailoverSetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) FailoverSetEligibilityResultResponsePtrOutput {
-	return o.ApplyT(func(v FailoverSetEligibilityResultResponse) *FailoverSetEligibilityResultResponse {
+func (o FailoverSetEligibilityResultInvokeResponseOutput) ToFailoverSetEligibilityResultInvokeResponsePtrOutputWithContext(ctx context.Context) FailoverSetEligibilityResultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FailoverSetEligibilityResultInvokeResponse) *FailoverSetEligibilityResultInvokeResponse {
 		return &v
-	}).(FailoverSetEligibilityResultResponsePtrOutput)
+	}).(FailoverSetEligibilityResultInvokeResponsePtrOutput)
 }
 
 // The error message, if the failover set is not eligible for failover.
-func (o FailoverSetEligibilityResultResponseOutput) ErrorMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FailoverSetEligibilityResultResponse) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+func (o FailoverSetEligibilityResultInvokeResponseOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverSetEligibilityResultInvokeResponse) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
 }
 
 // Represents if this failover set is eligible for failover or not.
-func (o FailoverSetEligibilityResultResponseOutput) IsEligibleForFailover() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FailoverSetEligibilityResultResponse) *bool { return v.IsEligibleForFailover }).(pulumi.BoolPtrOutput)
+func (o FailoverSetEligibilityResultInvokeResponseOutput) IsEligibleForFailover() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FailoverSetEligibilityResultInvokeResponse) *bool { return v.IsEligibleForFailover }).(pulumi.BoolPtrOutput)
 }
 
-type FailoverSetEligibilityResultResponsePtrOutput struct{ *pulumi.OutputState }
+type FailoverSetEligibilityResultInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (FailoverSetEligibilityResultResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FailoverSetEligibilityResultResponse)(nil)).Elem()
+func (FailoverSetEligibilityResultInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FailoverSetEligibilityResultInvokeResponse)(nil)).Elem()
 }
 
-func (o FailoverSetEligibilityResultResponsePtrOutput) ToFailoverSetEligibilityResultResponsePtrOutput() FailoverSetEligibilityResultResponsePtrOutput {
+func (o FailoverSetEligibilityResultInvokeResponsePtrOutput) ToFailoverSetEligibilityResultInvokeResponsePtrOutput() FailoverSetEligibilityResultInvokeResponsePtrOutput {
 	return o
 }
 
-func (o FailoverSetEligibilityResultResponsePtrOutput) ToFailoverSetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) FailoverSetEligibilityResultResponsePtrOutput {
+func (o FailoverSetEligibilityResultInvokeResponsePtrOutput) ToFailoverSetEligibilityResultInvokeResponsePtrOutputWithContext(ctx context.Context) FailoverSetEligibilityResultInvokeResponsePtrOutput {
 	return o
 }
 
-func (o FailoverSetEligibilityResultResponsePtrOutput) Elem() FailoverSetEligibilityResultResponseOutput {
-	return o.ApplyT(func(v *FailoverSetEligibilityResultResponse) FailoverSetEligibilityResultResponse { return *v }).(FailoverSetEligibilityResultResponseOutput)
+func (o FailoverSetEligibilityResultInvokeResponsePtrOutput) Elem() FailoverSetEligibilityResultInvokeResponseOutput {
+	return o.ApplyT(func(v *FailoverSetEligibilityResultInvokeResponse) FailoverSetEligibilityResultInvokeResponse {
+		return *v
+	}).(FailoverSetEligibilityResultInvokeResponseOutput)
 }
 
 // The error message, if the failover set is not eligible for failover.
-func (o FailoverSetEligibilityResultResponsePtrOutput) ErrorMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FailoverSetEligibilityResultResponse) *string {
+func (o FailoverSetEligibilityResultInvokeResponsePtrOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FailoverSetEligibilityResultInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -752,8 +954,8 @@ func (o FailoverSetEligibilityResultResponsePtrOutput) ErrorMessage() pulumi.Str
 }
 
 // Represents if this failover set is eligible for failover or not.
-func (o FailoverSetEligibilityResultResponsePtrOutput) IsEligibleForFailover() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FailoverSetEligibilityResultResponse) *bool {
+func (o FailoverSetEligibilityResultInvokeResponsePtrOutput) IsEligibleForFailover() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FailoverSetEligibilityResultInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -762,116 +964,120 @@ func (o FailoverSetEligibilityResultResponsePtrOutput) IsEligibleForFailover() p
 }
 
 // The failover set on a device.
-type FailoverSetResponse struct {
+type FailoverSetInvokeResponse struct {
 	// The eligibility result of the failover set, for failover.
-	EligibilityResult *FailoverSetEligibilityResultResponse `pulumi:"eligibilityResult"`
+	EligibilityResult *FailoverSetEligibilityResultInvokeResponse `pulumi:"eligibilityResult"`
 	// The list of meta data of volume containers, which are part of the failover set.
-	VolumeContainers []VolumeContainerFailoverMetadataResponse `pulumi:"volumeContainers"`
+	VolumeContainers []VolumeContainerFailoverMetadataInvokeResponse `pulumi:"volumeContainers"`
 }
 
-// FailoverSetResponseInput is an input type that accepts FailoverSetResponseArgs and FailoverSetResponseOutput values.
-// You can construct a concrete instance of `FailoverSetResponseInput` via:
+// FailoverSetInvokeResponseInput is an input type that accepts FailoverSetInvokeResponseArgs and FailoverSetInvokeResponseOutput values.
+// You can construct a concrete instance of `FailoverSetInvokeResponseInput` via:
 //
-//          FailoverSetResponseArgs{...}
-type FailoverSetResponseInput interface {
+//          FailoverSetInvokeResponseArgs{...}
+type FailoverSetInvokeResponseInput interface {
 	pulumi.Input
 
-	ToFailoverSetResponseOutput() FailoverSetResponseOutput
-	ToFailoverSetResponseOutputWithContext(context.Context) FailoverSetResponseOutput
+	ToFailoverSetInvokeResponseOutput() FailoverSetInvokeResponseOutput
+	ToFailoverSetInvokeResponseOutputWithContext(context.Context) FailoverSetInvokeResponseOutput
 }
 
 // The failover set on a device.
-type FailoverSetResponseArgs struct {
+type FailoverSetInvokeResponseArgs struct {
 	// The eligibility result of the failover set, for failover.
-	EligibilityResult FailoverSetEligibilityResultResponsePtrInput `pulumi:"eligibilityResult"`
+	EligibilityResult FailoverSetEligibilityResultInvokeResponsePtrInput `pulumi:"eligibilityResult"`
 	// The list of meta data of volume containers, which are part of the failover set.
-	VolumeContainers VolumeContainerFailoverMetadataResponseArrayInput `pulumi:"volumeContainers"`
+	VolumeContainers VolumeContainerFailoverMetadataInvokeResponseArrayInput `pulumi:"volumeContainers"`
 }
 
-func (FailoverSetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverSetResponse)(nil)).Elem()
+func (FailoverSetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverSetInvokeResponse)(nil)).Elem()
 }
 
-func (i FailoverSetResponseArgs) ToFailoverSetResponseOutput() FailoverSetResponseOutput {
-	return i.ToFailoverSetResponseOutputWithContext(context.Background())
+func (i FailoverSetInvokeResponseArgs) ToFailoverSetInvokeResponseOutput() FailoverSetInvokeResponseOutput {
+	return i.ToFailoverSetInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i FailoverSetResponseArgs) ToFailoverSetResponseOutputWithContext(ctx context.Context) FailoverSetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetResponseOutput)
+func (i FailoverSetInvokeResponseArgs) ToFailoverSetInvokeResponseOutputWithContext(ctx context.Context) FailoverSetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetInvokeResponseOutput)
 }
 
-// FailoverSetResponseArrayInput is an input type that accepts FailoverSetResponseArray and FailoverSetResponseArrayOutput values.
-// You can construct a concrete instance of `FailoverSetResponseArrayInput` via:
+// FailoverSetInvokeResponseArrayInput is an input type that accepts FailoverSetInvokeResponseArray and FailoverSetInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FailoverSetInvokeResponseArrayInput` via:
 //
-//          FailoverSetResponseArray{ FailoverSetResponseArgs{...} }
-type FailoverSetResponseArrayInput interface {
+//          FailoverSetInvokeResponseArray{ FailoverSetInvokeResponseArgs{...} }
+type FailoverSetInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToFailoverSetResponseArrayOutput() FailoverSetResponseArrayOutput
-	ToFailoverSetResponseArrayOutputWithContext(context.Context) FailoverSetResponseArrayOutput
+	ToFailoverSetInvokeResponseArrayOutput() FailoverSetInvokeResponseArrayOutput
+	ToFailoverSetInvokeResponseArrayOutputWithContext(context.Context) FailoverSetInvokeResponseArrayOutput
 }
 
-type FailoverSetResponseArray []FailoverSetResponseInput
+type FailoverSetInvokeResponseArray []FailoverSetInvokeResponseInput
 
-func (FailoverSetResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FailoverSetResponse)(nil)).Elem()
+func (FailoverSetInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FailoverSetInvokeResponse)(nil)).Elem()
 }
 
-func (i FailoverSetResponseArray) ToFailoverSetResponseArrayOutput() FailoverSetResponseArrayOutput {
-	return i.ToFailoverSetResponseArrayOutputWithContext(context.Background())
+func (i FailoverSetInvokeResponseArray) ToFailoverSetInvokeResponseArrayOutput() FailoverSetInvokeResponseArrayOutput {
+	return i.ToFailoverSetInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i FailoverSetResponseArray) ToFailoverSetResponseArrayOutputWithContext(ctx context.Context) FailoverSetResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetResponseArrayOutput)
+func (i FailoverSetInvokeResponseArray) ToFailoverSetInvokeResponseArrayOutputWithContext(ctx context.Context) FailoverSetInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverSetInvokeResponseArrayOutput)
 }
 
 // The failover set on a device.
-type FailoverSetResponseOutput struct{ *pulumi.OutputState }
+type FailoverSetInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (FailoverSetResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverSetResponse)(nil)).Elem()
+func (FailoverSetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverSetInvokeResponse)(nil)).Elem()
 }
 
-func (o FailoverSetResponseOutput) ToFailoverSetResponseOutput() FailoverSetResponseOutput {
+func (o FailoverSetInvokeResponseOutput) ToFailoverSetInvokeResponseOutput() FailoverSetInvokeResponseOutput {
 	return o
 }
 
-func (o FailoverSetResponseOutput) ToFailoverSetResponseOutputWithContext(ctx context.Context) FailoverSetResponseOutput {
+func (o FailoverSetInvokeResponseOutput) ToFailoverSetInvokeResponseOutputWithContext(ctx context.Context) FailoverSetInvokeResponseOutput {
 	return o
 }
 
 // The eligibility result of the failover set, for failover.
-func (o FailoverSetResponseOutput) EligibilityResult() FailoverSetEligibilityResultResponsePtrOutput {
-	return o.ApplyT(func(v FailoverSetResponse) *FailoverSetEligibilityResultResponse { return v.EligibilityResult }).(FailoverSetEligibilityResultResponsePtrOutput)
+func (o FailoverSetInvokeResponseOutput) EligibilityResult() FailoverSetEligibilityResultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FailoverSetInvokeResponse) *FailoverSetEligibilityResultInvokeResponse {
+		return v.EligibilityResult
+	}).(FailoverSetEligibilityResultInvokeResponsePtrOutput)
 }
 
 // The list of meta data of volume containers, which are part of the failover set.
-func (o FailoverSetResponseOutput) VolumeContainers() VolumeContainerFailoverMetadataResponseArrayOutput {
-	return o.ApplyT(func(v FailoverSetResponse) []VolumeContainerFailoverMetadataResponse { return v.VolumeContainers }).(VolumeContainerFailoverMetadataResponseArrayOutput)
+func (o FailoverSetInvokeResponseOutput) VolumeContainers() VolumeContainerFailoverMetadataInvokeResponseArrayOutput {
+	return o.ApplyT(func(v FailoverSetInvokeResponse) []VolumeContainerFailoverMetadataInvokeResponse {
+		return v.VolumeContainers
+	}).(VolumeContainerFailoverMetadataInvokeResponseArrayOutput)
 }
 
-type FailoverSetResponseArrayOutput struct{ *pulumi.OutputState }
+type FailoverSetInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (FailoverSetResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FailoverSetResponse)(nil)).Elem()
+func (FailoverSetInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FailoverSetInvokeResponse)(nil)).Elem()
 }
 
-func (o FailoverSetResponseArrayOutput) ToFailoverSetResponseArrayOutput() FailoverSetResponseArrayOutput {
+func (o FailoverSetInvokeResponseArrayOutput) ToFailoverSetInvokeResponseArrayOutput() FailoverSetInvokeResponseArrayOutput {
 	return o
 }
 
-func (o FailoverSetResponseArrayOutput) ToFailoverSetResponseArrayOutputWithContext(ctx context.Context) FailoverSetResponseArrayOutput {
+func (o FailoverSetInvokeResponseArrayOutput) ToFailoverSetInvokeResponseArrayOutputWithContext(ctx context.Context) FailoverSetInvokeResponseArrayOutput {
 	return o
 }
 
-func (o FailoverSetResponseArrayOutput) Index(i pulumi.IntInput) FailoverSetResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FailoverSetResponse {
-		return vs[0].([]FailoverSetResponse)[vs[1].(int)]
-	}).(FailoverSetResponseOutput)
+func (o FailoverSetInvokeResponseArrayOutput) Index(i pulumi.IntInput) FailoverSetInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FailoverSetInvokeResponse {
+		return vs[0].([]FailoverSetInvokeResponse)[vs[1].(int)]
+	}).(FailoverSetInvokeResponseOutput)
 }
 
 // Represents the eligibility of a device as a failover target device.
-type FailoverTargetResponse struct {
+type FailoverTargetInvokeResponse struct {
 	// The amount of free local storage available on the device in bytes.
 	AvailableLocalStorageInBytes *float64 `pulumi:"availableLocalStorageInBytes"`
 	// The amount of free tiered storage available for the device in bytes.
@@ -887,7 +1093,7 @@ type FailoverTargetResponse struct {
 	// The status of the device.
 	DeviceStatus *string `pulumi:"deviceStatus"`
 	// The eligibility result of the device, as a failover target device.
-	EligibilityResult *TargetEligibilityResultResponse `pulumi:"eligibilityResult"`
+	EligibilityResult *TargetEligibilityResultInvokeResponse `pulumi:"eligibilityResult"`
 	// The friendly name for the current version of software on the device.
 	FriendlyDeviceSoftwareVersion *string `pulumi:"friendlyDeviceSoftwareVersion"`
 	// The model number of the device.
@@ -896,19 +1102,19 @@ type FailoverTargetResponse struct {
 	VolumesCount *int `pulumi:"volumesCount"`
 }
 
-// FailoverTargetResponseInput is an input type that accepts FailoverTargetResponseArgs and FailoverTargetResponseOutput values.
-// You can construct a concrete instance of `FailoverTargetResponseInput` via:
+// FailoverTargetInvokeResponseInput is an input type that accepts FailoverTargetInvokeResponseArgs and FailoverTargetInvokeResponseOutput values.
+// You can construct a concrete instance of `FailoverTargetInvokeResponseInput` via:
 //
-//          FailoverTargetResponseArgs{...}
-type FailoverTargetResponseInput interface {
+//          FailoverTargetInvokeResponseArgs{...}
+type FailoverTargetInvokeResponseInput interface {
 	pulumi.Input
 
-	ToFailoverTargetResponseOutput() FailoverTargetResponseOutput
-	ToFailoverTargetResponseOutputWithContext(context.Context) FailoverTargetResponseOutput
+	ToFailoverTargetInvokeResponseOutput() FailoverTargetInvokeResponseOutput
+	ToFailoverTargetInvokeResponseOutputWithContext(context.Context) FailoverTargetInvokeResponseOutput
 }
 
 // Represents the eligibility of a device as a failover target device.
-type FailoverTargetResponseArgs struct {
+type FailoverTargetInvokeResponseArgs struct {
 	// The amount of free local storage available on the device in bytes.
 	AvailableLocalStorageInBytes pulumi.Float64PtrInput `pulumi:"availableLocalStorageInBytes"`
 	// The amount of free tiered storage available for the device in bytes.
@@ -924,7 +1130,7 @@ type FailoverTargetResponseArgs struct {
 	// The status of the device.
 	DeviceStatus pulumi.StringPtrInput `pulumi:"deviceStatus"`
 	// The eligibility result of the device, as a failover target device.
-	EligibilityResult TargetEligibilityResultResponsePtrInput `pulumi:"eligibilityResult"`
+	EligibilityResult TargetEligibilityResultInvokeResponsePtrInput `pulumi:"eligibilityResult"`
 	// The friendly name for the current version of software on the device.
 	FriendlyDeviceSoftwareVersion pulumi.StringPtrInput `pulumi:"friendlyDeviceSoftwareVersion"`
 	// The model number of the device.
@@ -933,131 +1139,133 @@ type FailoverTargetResponseArgs struct {
 	VolumesCount pulumi.IntPtrInput `pulumi:"volumesCount"`
 }
 
-func (FailoverTargetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverTargetResponse)(nil)).Elem()
+func (FailoverTargetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverTargetInvokeResponse)(nil)).Elem()
 }
 
-func (i FailoverTargetResponseArgs) ToFailoverTargetResponseOutput() FailoverTargetResponseOutput {
-	return i.ToFailoverTargetResponseOutputWithContext(context.Background())
+func (i FailoverTargetInvokeResponseArgs) ToFailoverTargetInvokeResponseOutput() FailoverTargetInvokeResponseOutput {
+	return i.ToFailoverTargetInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i FailoverTargetResponseArgs) ToFailoverTargetResponseOutputWithContext(ctx context.Context) FailoverTargetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverTargetResponseOutput)
+func (i FailoverTargetInvokeResponseArgs) ToFailoverTargetInvokeResponseOutputWithContext(ctx context.Context) FailoverTargetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverTargetInvokeResponseOutput)
 }
 
-// FailoverTargetResponseArrayInput is an input type that accepts FailoverTargetResponseArray and FailoverTargetResponseArrayOutput values.
-// You can construct a concrete instance of `FailoverTargetResponseArrayInput` via:
+// FailoverTargetInvokeResponseArrayInput is an input type that accepts FailoverTargetInvokeResponseArray and FailoverTargetInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FailoverTargetInvokeResponseArrayInput` via:
 //
-//          FailoverTargetResponseArray{ FailoverTargetResponseArgs{...} }
-type FailoverTargetResponseArrayInput interface {
+//          FailoverTargetInvokeResponseArray{ FailoverTargetInvokeResponseArgs{...} }
+type FailoverTargetInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToFailoverTargetResponseArrayOutput() FailoverTargetResponseArrayOutput
-	ToFailoverTargetResponseArrayOutputWithContext(context.Context) FailoverTargetResponseArrayOutput
+	ToFailoverTargetInvokeResponseArrayOutput() FailoverTargetInvokeResponseArrayOutput
+	ToFailoverTargetInvokeResponseArrayOutputWithContext(context.Context) FailoverTargetInvokeResponseArrayOutput
 }
 
-type FailoverTargetResponseArray []FailoverTargetResponseInput
+type FailoverTargetInvokeResponseArray []FailoverTargetInvokeResponseInput
 
-func (FailoverTargetResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FailoverTargetResponse)(nil)).Elem()
+func (FailoverTargetInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FailoverTargetInvokeResponse)(nil)).Elem()
 }
 
-func (i FailoverTargetResponseArray) ToFailoverTargetResponseArrayOutput() FailoverTargetResponseArrayOutput {
-	return i.ToFailoverTargetResponseArrayOutputWithContext(context.Background())
+func (i FailoverTargetInvokeResponseArray) ToFailoverTargetInvokeResponseArrayOutput() FailoverTargetInvokeResponseArrayOutput {
+	return i.ToFailoverTargetInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i FailoverTargetResponseArray) ToFailoverTargetResponseArrayOutputWithContext(ctx context.Context) FailoverTargetResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FailoverTargetResponseArrayOutput)
+func (i FailoverTargetInvokeResponseArray) ToFailoverTargetInvokeResponseArrayOutputWithContext(ctx context.Context) FailoverTargetInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FailoverTargetInvokeResponseArrayOutput)
 }
 
 // Represents the eligibility of a device as a failover target device.
-type FailoverTargetResponseOutput struct{ *pulumi.OutputState }
+type FailoverTargetInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (FailoverTargetResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FailoverTargetResponse)(nil)).Elem()
+func (FailoverTargetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FailoverTargetInvokeResponse)(nil)).Elem()
 }
 
-func (o FailoverTargetResponseOutput) ToFailoverTargetResponseOutput() FailoverTargetResponseOutput {
+func (o FailoverTargetInvokeResponseOutput) ToFailoverTargetInvokeResponseOutput() FailoverTargetInvokeResponseOutput {
 	return o
 }
 
-func (o FailoverTargetResponseOutput) ToFailoverTargetResponseOutputWithContext(ctx context.Context) FailoverTargetResponseOutput {
+func (o FailoverTargetInvokeResponseOutput) ToFailoverTargetInvokeResponseOutputWithContext(ctx context.Context) FailoverTargetInvokeResponseOutput {
 	return o
 }
 
 // The amount of free local storage available on the device in bytes.
-func (o FailoverTargetResponseOutput) AvailableLocalStorageInBytes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *float64 { return v.AvailableLocalStorageInBytes }).(pulumi.Float64PtrOutput)
+func (o FailoverTargetInvokeResponseOutput) AvailableLocalStorageInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *float64 { return v.AvailableLocalStorageInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The amount of free tiered storage available for the device in bytes.
-func (o FailoverTargetResponseOutput) AvailableTieredStorageInBytes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *float64 { return v.AvailableTieredStorageInBytes }).(pulumi.Float64PtrOutput)
+func (o FailoverTargetInvokeResponseOutput) AvailableTieredStorageInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *float64 { return v.AvailableTieredStorageInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The count of data containers on the device.
-func (o FailoverTargetResponseOutput) DataContainersCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *int { return v.DataContainersCount }).(pulumi.IntPtrOutput)
+func (o FailoverTargetInvokeResponseOutput) DataContainersCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *int { return v.DataContainersCount }).(pulumi.IntPtrOutput)
 }
 
 // The path ID of the device.
-func (o FailoverTargetResponseOutput) DeviceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceId }).(pulumi.StringPtrOutput)
+func (o FailoverTargetInvokeResponseOutput) DeviceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *string { return v.DeviceId }).(pulumi.StringPtrOutput)
 }
 
 // The geo location (applicable only for cloud appliances) of the device.
-func (o FailoverTargetResponseOutput) DeviceLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceLocation }).(pulumi.StringPtrOutput)
+func (o FailoverTargetInvokeResponseOutput) DeviceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *string { return v.DeviceLocation }).(pulumi.StringPtrOutput)
 }
 
 // The software version of the device.
-func (o FailoverTargetResponseOutput) DeviceSoftwareVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceSoftwareVersion }).(pulumi.StringPtrOutput)
+func (o FailoverTargetInvokeResponseOutput) DeviceSoftwareVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *string { return v.DeviceSoftwareVersion }).(pulumi.StringPtrOutput)
 }
 
 // The status of the device.
-func (o FailoverTargetResponseOutput) DeviceStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.DeviceStatus }).(pulumi.StringPtrOutput)
+func (o FailoverTargetInvokeResponseOutput) DeviceStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *string { return v.DeviceStatus }).(pulumi.StringPtrOutput)
 }
 
 // The eligibility result of the device, as a failover target device.
-func (o FailoverTargetResponseOutput) EligibilityResult() TargetEligibilityResultResponsePtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *TargetEligibilityResultResponse { return v.EligibilityResult }).(TargetEligibilityResultResponsePtrOutput)
+func (o FailoverTargetInvokeResponseOutput) EligibilityResult() TargetEligibilityResultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *TargetEligibilityResultInvokeResponse {
+		return v.EligibilityResult
+	}).(TargetEligibilityResultInvokeResponsePtrOutput)
 }
 
 // The friendly name for the current version of software on the device.
-func (o FailoverTargetResponseOutput) FriendlyDeviceSoftwareVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.FriendlyDeviceSoftwareVersion }).(pulumi.StringPtrOutput)
+func (o FailoverTargetInvokeResponseOutput) FriendlyDeviceSoftwareVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *string { return v.FriendlyDeviceSoftwareVersion }).(pulumi.StringPtrOutput)
 }
 
 // The model number of the device.
-func (o FailoverTargetResponseOutput) ModelDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *string { return v.ModelDescription }).(pulumi.StringPtrOutput)
+func (o FailoverTargetInvokeResponseOutput) ModelDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *string { return v.ModelDescription }).(pulumi.StringPtrOutput)
 }
 
 // The count of volumes on the device.
-func (o FailoverTargetResponseOutput) VolumesCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FailoverTargetResponse) *int { return v.VolumesCount }).(pulumi.IntPtrOutput)
+func (o FailoverTargetInvokeResponseOutput) VolumesCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FailoverTargetInvokeResponse) *int { return v.VolumesCount }).(pulumi.IntPtrOutput)
 }
 
-type FailoverTargetResponseArrayOutput struct{ *pulumi.OutputState }
+type FailoverTargetInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (FailoverTargetResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FailoverTargetResponse)(nil)).Elem()
+func (FailoverTargetInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FailoverTargetInvokeResponse)(nil)).Elem()
 }
 
-func (o FailoverTargetResponseArrayOutput) ToFailoverTargetResponseArrayOutput() FailoverTargetResponseArrayOutput {
+func (o FailoverTargetInvokeResponseArrayOutput) ToFailoverTargetInvokeResponseArrayOutput() FailoverTargetInvokeResponseArrayOutput {
 	return o
 }
 
-func (o FailoverTargetResponseArrayOutput) ToFailoverTargetResponseArrayOutputWithContext(ctx context.Context) FailoverTargetResponseArrayOutput {
+func (o FailoverTargetInvokeResponseArrayOutput) ToFailoverTargetInvokeResponseArrayOutputWithContext(ctx context.Context) FailoverTargetInvokeResponseArrayOutput {
 	return o
 }
 
-func (o FailoverTargetResponseArrayOutput) Index(i pulumi.IntInput) FailoverTargetResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FailoverTargetResponse {
-		return vs[0].([]FailoverTargetResponse)[vs[1].(int)]
-	}).(FailoverTargetResponseOutput)
+func (o FailoverTargetInvokeResponseArrayOutput) Index(i pulumi.IntInput) FailoverTargetInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FailoverTargetInvokeResponse {
+		return vs[0].([]FailoverTargetInvokeResponse)[vs[1].(int)]
+	}).(FailoverTargetInvokeResponseOutput)
 }
 
 // Intrinsic settings which refers to the type of the StorSimple Manager.
@@ -1192,6 +1400,61 @@ func (o ManagerIntrinsicSettingsPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Intrinsic settings which refers to the type of the StorSimple Manager.
+type ManagerIntrinsicSettingsInvokeResponse struct {
+	// The type of StorSimple Manager.
+	Type string `pulumi:"type"`
+}
+
+// ManagerIntrinsicSettingsInvokeResponseInput is an input type that accepts ManagerIntrinsicSettingsInvokeResponseArgs and ManagerIntrinsicSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagerIntrinsicSettingsInvokeResponseInput` via:
+//
+//          ManagerIntrinsicSettingsInvokeResponseArgs{...}
+type ManagerIntrinsicSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagerIntrinsicSettingsInvokeResponseOutput() ManagerIntrinsicSettingsInvokeResponseOutput
+	ToManagerIntrinsicSettingsInvokeResponseOutputWithContext(context.Context) ManagerIntrinsicSettingsInvokeResponseOutput
+}
+
+// Intrinsic settings which refers to the type of the StorSimple Manager.
+type ManagerIntrinsicSettingsInvokeResponseArgs struct {
+	// The type of StorSimple Manager.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagerIntrinsicSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerIntrinsicSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagerIntrinsicSettingsInvokeResponseArgs) ToManagerIntrinsicSettingsInvokeResponseOutput() ManagerIntrinsicSettingsInvokeResponseOutput {
+	return i.ToManagerIntrinsicSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagerIntrinsicSettingsInvokeResponseArgs) ToManagerIntrinsicSettingsInvokeResponseOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagerIntrinsicSettingsInvokeResponseOutput)
+}
+
+// Intrinsic settings which refers to the type of the StorSimple Manager.
+type ManagerIntrinsicSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagerIntrinsicSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerIntrinsicSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagerIntrinsicSettingsInvokeResponseOutput) ToManagerIntrinsicSettingsInvokeResponseOutput() ManagerIntrinsicSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o ManagerIntrinsicSettingsInvokeResponseOutput) ToManagerIntrinsicSettingsInvokeResponseOutputWithContext(ctx context.Context) ManagerIntrinsicSettingsInvokeResponseOutput {
+	return o
+}
+
+// The type of StorSimple Manager.
+func (o ManagerIntrinsicSettingsInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagerIntrinsicSettingsInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Intrinsic settings which refers to the type of the StorSimple Manager.
@@ -1460,6 +1723,61 @@ func (o ManagerSkuPtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// The Sku.
+type ManagerSkuInvokeResponse struct {
+	// Refers to the sku name which should be "Standard"
+	Name string `pulumi:"name"`
+}
+
+// ManagerSkuInvokeResponseInput is an input type that accepts ManagerSkuInvokeResponseArgs and ManagerSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagerSkuInvokeResponseInput` via:
+//
+//          ManagerSkuInvokeResponseArgs{...}
+type ManagerSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagerSkuInvokeResponseOutput() ManagerSkuInvokeResponseOutput
+	ToManagerSkuInvokeResponseOutputWithContext(context.Context) ManagerSkuInvokeResponseOutput
+}
+
+// The Sku.
+type ManagerSkuInvokeResponseArgs struct {
+	// Refers to the sku name which should be "Standard"
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ManagerSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagerSkuInvokeResponseArgs) ToManagerSkuInvokeResponseOutput() ManagerSkuInvokeResponseOutput {
+	return i.ToManagerSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagerSkuInvokeResponseArgs) ToManagerSkuInvokeResponseOutputWithContext(ctx context.Context) ManagerSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagerSkuInvokeResponseOutput)
+}
+
+// The Sku.
+type ManagerSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagerSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagerSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagerSkuInvokeResponseOutput) ToManagerSkuInvokeResponseOutput() ManagerSkuInvokeResponseOutput {
+	return o
+}
+
+func (o ManagerSkuInvokeResponseOutput) ToManagerSkuInvokeResponseOutputWithContext(ctx context.Context) ManagerSkuInvokeResponseOutput {
+	return o
+}
+
+// Refers to the sku name which should be "Standard"
+func (o ManagerSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagerSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The Sku.
@@ -1769,6 +2087,79 @@ func (o ScheduleRecurrencePtrOutput) WeeklyDaysList() pulumi.StringArrayOutput {
 }
 
 // The schedule recurrence.
+type ScheduleRecurrenceInvokeResponse struct {
+	// The recurrence type.
+	RecurrenceType string `pulumi:"recurrenceType"`
+	// The recurrence value.
+	RecurrenceValue int `pulumi:"recurrenceValue"`
+	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
+	WeeklyDaysList []string `pulumi:"weeklyDaysList"`
+}
+
+// ScheduleRecurrenceInvokeResponseInput is an input type that accepts ScheduleRecurrenceInvokeResponseArgs and ScheduleRecurrenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ScheduleRecurrenceInvokeResponseInput` via:
+//
+//          ScheduleRecurrenceInvokeResponseArgs{...}
+type ScheduleRecurrenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToScheduleRecurrenceInvokeResponseOutput() ScheduleRecurrenceInvokeResponseOutput
+	ToScheduleRecurrenceInvokeResponseOutputWithContext(context.Context) ScheduleRecurrenceInvokeResponseOutput
+}
+
+// The schedule recurrence.
+type ScheduleRecurrenceInvokeResponseArgs struct {
+	// The recurrence type.
+	RecurrenceType pulumi.StringInput `pulumi:"recurrenceType"`
+	// The recurrence value.
+	RecurrenceValue pulumi.IntInput `pulumi:"recurrenceValue"`
+	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
+	WeeklyDaysList pulumi.StringArrayInput `pulumi:"weeklyDaysList"`
+}
+
+func (ScheduleRecurrenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ScheduleRecurrenceInvokeResponseArgs) ToScheduleRecurrenceInvokeResponseOutput() ScheduleRecurrenceInvokeResponseOutput {
+	return i.ToScheduleRecurrenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ScheduleRecurrenceInvokeResponseArgs) ToScheduleRecurrenceInvokeResponseOutputWithContext(ctx context.Context) ScheduleRecurrenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleRecurrenceInvokeResponseOutput)
+}
+
+// The schedule recurrence.
+type ScheduleRecurrenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScheduleRecurrenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleRecurrenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ScheduleRecurrenceInvokeResponseOutput) ToScheduleRecurrenceInvokeResponseOutput() ScheduleRecurrenceInvokeResponseOutput {
+	return o
+}
+
+func (o ScheduleRecurrenceInvokeResponseOutput) ToScheduleRecurrenceInvokeResponseOutputWithContext(ctx context.Context) ScheduleRecurrenceInvokeResponseOutput {
+	return o
+}
+
+// The recurrence type.
+func (o ScheduleRecurrenceInvokeResponseOutput) RecurrenceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleRecurrenceInvokeResponse) string { return v.RecurrenceType }).(pulumi.StringOutput)
+}
+
+// The recurrence value.
+func (o ScheduleRecurrenceInvokeResponseOutput) RecurrenceValue() pulumi.IntOutput {
+	return o.ApplyT(func(v ScheduleRecurrenceInvokeResponse) int { return v.RecurrenceValue }).(pulumi.IntOutput)
+}
+
+// The week days list. Applicable only for schedules of recurrence type 'weekly'.
+func (o ScheduleRecurrenceInvokeResponseOutput) WeeklyDaysList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleRecurrenceInvokeResponse) []string { return v.WeeklyDaysList }).(pulumi.StringArrayOutput)
+}
+
+// The schedule recurrence.
 type ScheduleRecurrenceResponse struct {
 	// The recurrence type.
 	RecurrenceType string `pulumi:"recurrenceType"`
@@ -1941,7 +2332,7 @@ func (o ScheduleRecurrenceResponsePtrOutput) WeeklyDaysList() pulumi.StringArray
 }
 
 // The error/warning message due to which the device is ineligible as a failover target device.
-type TargetEligibilityErrorMessageResponse struct {
+type TargetEligibilityErrorMessageInvokeResponse struct {
 	// The localized error message stating the reason why the device is not eligible as a target device.
 	Message *string `pulumi:"message"`
 	// The localized resolution message for the error.
@@ -1950,19 +2341,19 @@ type TargetEligibilityErrorMessageResponse struct {
 	ResultCode *string `pulumi:"resultCode"`
 }
 
-// TargetEligibilityErrorMessageResponseInput is an input type that accepts TargetEligibilityErrorMessageResponseArgs and TargetEligibilityErrorMessageResponseOutput values.
-// You can construct a concrete instance of `TargetEligibilityErrorMessageResponseInput` via:
+// TargetEligibilityErrorMessageInvokeResponseInput is an input type that accepts TargetEligibilityErrorMessageInvokeResponseArgs and TargetEligibilityErrorMessageInvokeResponseOutput values.
+// You can construct a concrete instance of `TargetEligibilityErrorMessageInvokeResponseInput` via:
 //
-//          TargetEligibilityErrorMessageResponseArgs{...}
-type TargetEligibilityErrorMessageResponseInput interface {
+//          TargetEligibilityErrorMessageInvokeResponseArgs{...}
+type TargetEligibilityErrorMessageInvokeResponseInput interface {
 	pulumi.Input
 
-	ToTargetEligibilityErrorMessageResponseOutput() TargetEligibilityErrorMessageResponseOutput
-	ToTargetEligibilityErrorMessageResponseOutputWithContext(context.Context) TargetEligibilityErrorMessageResponseOutput
+	ToTargetEligibilityErrorMessageInvokeResponseOutput() TargetEligibilityErrorMessageInvokeResponseOutput
+	ToTargetEligibilityErrorMessageInvokeResponseOutputWithContext(context.Context) TargetEligibilityErrorMessageInvokeResponseOutput
 }
 
 // The error/warning message due to which the device is ineligible as a failover target device.
-type TargetEligibilityErrorMessageResponseArgs struct {
+type TargetEligibilityErrorMessageInvokeResponseArgs struct {
 	// The localized error message stating the reason why the device is not eligible as a target device.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// The localized resolution message for the error.
@@ -1971,229 +2362,231 @@ type TargetEligibilityErrorMessageResponseArgs struct {
 	ResultCode pulumi.StringPtrInput `pulumi:"resultCode"`
 }
 
-func (TargetEligibilityErrorMessageResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetEligibilityErrorMessageResponse)(nil)).Elem()
+func (TargetEligibilityErrorMessageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetEligibilityErrorMessageInvokeResponse)(nil)).Elem()
 }
 
-func (i TargetEligibilityErrorMessageResponseArgs) ToTargetEligibilityErrorMessageResponseOutput() TargetEligibilityErrorMessageResponseOutput {
-	return i.ToTargetEligibilityErrorMessageResponseOutputWithContext(context.Background())
+func (i TargetEligibilityErrorMessageInvokeResponseArgs) ToTargetEligibilityErrorMessageInvokeResponseOutput() TargetEligibilityErrorMessageInvokeResponseOutput {
+	return i.ToTargetEligibilityErrorMessageInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i TargetEligibilityErrorMessageResponseArgs) ToTargetEligibilityErrorMessageResponseOutputWithContext(ctx context.Context) TargetEligibilityErrorMessageResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityErrorMessageResponseOutput)
+func (i TargetEligibilityErrorMessageInvokeResponseArgs) ToTargetEligibilityErrorMessageInvokeResponseOutputWithContext(ctx context.Context) TargetEligibilityErrorMessageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityErrorMessageInvokeResponseOutput)
 }
 
-// TargetEligibilityErrorMessageResponseArrayInput is an input type that accepts TargetEligibilityErrorMessageResponseArray and TargetEligibilityErrorMessageResponseArrayOutput values.
-// You can construct a concrete instance of `TargetEligibilityErrorMessageResponseArrayInput` via:
+// TargetEligibilityErrorMessageInvokeResponseArrayInput is an input type that accepts TargetEligibilityErrorMessageInvokeResponseArray and TargetEligibilityErrorMessageInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TargetEligibilityErrorMessageInvokeResponseArrayInput` via:
 //
-//          TargetEligibilityErrorMessageResponseArray{ TargetEligibilityErrorMessageResponseArgs{...} }
-type TargetEligibilityErrorMessageResponseArrayInput interface {
+//          TargetEligibilityErrorMessageInvokeResponseArray{ TargetEligibilityErrorMessageInvokeResponseArgs{...} }
+type TargetEligibilityErrorMessageInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToTargetEligibilityErrorMessageResponseArrayOutput() TargetEligibilityErrorMessageResponseArrayOutput
-	ToTargetEligibilityErrorMessageResponseArrayOutputWithContext(context.Context) TargetEligibilityErrorMessageResponseArrayOutput
+	ToTargetEligibilityErrorMessageInvokeResponseArrayOutput() TargetEligibilityErrorMessageInvokeResponseArrayOutput
+	ToTargetEligibilityErrorMessageInvokeResponseArrayOutputWithContext(context.Context) TargetEligibilityErrorMessageInvokeResponseArrayOutput
 }
 
-type TargetEligibilityErrorMessageResponseArray []TargetEligibilityErrorMessageResponseInput
+type TargetEligibilityErrorMessageInvokeResponseArray []TargetEligibilityErrorMessageInvokeResponseInput
 
-func (TargetEligibilityErrorMessageResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetEligibilityErrorMessageResponse)(nil)).Elem()
+func (TargetEligibilityErrorMessageInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetEligibilityErrorMessageInvokeResponse)(nil)).Elem()
 }
 
-func (i TargetEligibilityErrorMessageResponseArray) ToTargetEligibilityErrorMessageResponseArrayOutput() TargetEligibilityErrorMessageResponseArrayOutput {
-	return i.ToTargetEligibilityErrorMessageResponseArrayOutputWithContext(context.Background())
+func (i TargetEligibilityErrorMessageInvokeResponseArray) ToTargetEligibilityErrorMessageInvokeResponseArrayOutput() TargetEligibilityErrorMessageInvokeResponseArrayOutput {
+	return i.ToTargetEligibilityErrorMessageInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i TargetEligibilityErrorMessageResponseArray) ToTargetEligibilityErrorMessageResponseArrayOutputWithContext(ctx context.Context) TargetEligibilityErrorMessageResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityErrorMessageResponseArrayOutput)
+func (i TargetEligibilityErrorMessageInvokeResponseArray) ToTargetEligibilityErrorMessageInvokeResponseArrayOutputWithContext(ctx context.Context) TargetEligibilityErrorMessageInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityErrorMessageInvokeResponseArrayOutput)
 }
 
 // The error/warning message due to which the device is ineligible as a failover target device.
-type TargetEligibilityErrorMessageResponseOutput struct{ *pulumi.OutputState }
+type TargetEligibilityErrorMessageInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (TargetEligibilityErrorMessageResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetEligibilityErrorMessageResponse)(nil)).Elem()
+func (TargetEligibilityErrorMessageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetEligibilityErrorMessageInvokeResponse)(nil)).Elem()
 }
 
-func (o TargetEligibilityErrorMessageResponseOutput) ToTargetEligibilityErrorMessageResponseOutput() TargetEligibilityErrorMessageResponseOutput {
+func (o TargetEligibilityErrorMessageInvokeResponseOutput) ToTargetEligibilityErrorMessageInvokeResponseOutput() TargetEligibilityErrorMessageInvokeResponseOutput {
 	return o
 }
 
-func (o TargetEligibilityErrorMessageResponseOutput) ToTargetEligibilityErrorMessageResponseOutputWithContext(ctx context.Context) TargetEligibilityErrorMessageResponseOutput {
+func (o TargetEligibilityErrorMessageInvokeResponseOutput) ToTargetEligibilityErrorMessageInvokeResponseOutputWithContext(ctx context.Context) TargetEligibilityErrorMessageInvokeResponseOutput {
 	return o
 }
 
 // The localized error message stating the reason why the device is not eligible as a target device.
-func (o TargetEligibilityErrorMessageResponseOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetEligibilityErrorMessageResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+func (o TargetEligibilityErrorMessageInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetEligibilityErrorMessageInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
 // The localized resolution message for the error.
-func (o TargetEligibilityErrorMessageResponseOutput) Resolution() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetEligibilityErrorMessageResponse) *string { return v.Resolution }).(pulumi.StringPtrOutput)
+func (o TargetEligibilityErrorMessageInvokeResponseOutput) Resolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetEligibilityErrorMessageInvokeResponse) *string { return v.Resolution }).(pulumi.StringPtrOutput)
 }
 
 // The result code for the error, due to which the device does not qualify as a failover target device.
-func (o TargetEligibilityErrorMessageResponseOutput) ResultCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetEligibilityErrorMessageResponse) *string { return v.ResultCode }).(pulumi.StringPtrOutput)
+func (o TargetEligibilityErrorMessageInvokeResponseOutput) ResultCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetEligibilityErrorMessageInvokeResponse) *string { return v.ResultCode }).(pulumi.StringPtrOutput)
 }
 
-type TargetEligibilityErrorMessageResponseArrayOutput struct{ *pulumi.OutputState }
+type TargetEligibilityErrorMessageInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (TargetEligibilityErrorMessageResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetEligibilityErrorMessageResponse)(nil)).Elem()
+func (TargetEligibilityErrorMessageInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetEligibilityErrorMessageInvokeResponse)(nil)).Elem()
 }
 
-func (o TargetEligibilityErrorMessageResponseArrayOutput) ToTargetEligibilityErrorMessageResponseArrayOutput() TargetEligibilityErrorMessageResponseArrayOutput {
+func (o TargetEligibilityErrorMessageInvokeResponseArrayOutput) ToTargetEligibilityErrorMessageInvokeResponseArrayOutput() TargetEligibilityErrorMessageInvokeResponseArrayOutput {
 	return o
 }
 
-func (o TargetEligibilityErrorMessageResponseArrayOutput) ToTargetEligibilityErrorMessageResponseArrayOutputWithContext(ctx context.Context) TargetEligibilityErrorMessageResponseArrayOutput {
+func (o TargetEligibilityErrorMessageInvokeResponseArrayOutput) ToTargetEligibilityErrorMessageInvokeResponseArrayOutputWithContext(ctx context.Context) TargetEligibilityErrorMessageInvokeResponseArrayOutput {
 	return o
 }
 
-func (o TargetEligibilityErrorMessageResponseArrayOutput) Index(i pulumi.IntInput) TargetEligibilityErrorMessageResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetEligibilityErrorMessageResponse {
-		return vs[0].([]TargetEligibilityErrorMessageResponse)[vs[1].(int)]
-	}).(TargetEligibilityErrorMessageResponseOutput)
+func (o TargetEligibilityErrorMessageInvokeResponseArrayOutput) Index(i pulumi.IntInput) TargetEligibilityErrorMessageInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetEligibilityErrorMessageInvokeResponse {
+		return vs[0].([]TargetEligibilityErrorMessageInvokeResponse)[vs[1].(int)]
+	}).(TargetEligibilityErrorMessageInvokeResponseOutput)
 }
 
 // The eligibility result of device, as a failover target device.
-type TargetEligibilityResultResponse struct {
+type TargetEligibilityResultInvokeResponse struct {
 	// The eligibility status of device, as a failover target device.
 	EligibilityStatus *string `pulumi:"eligibilityStatus"`
 	// The list of error messages, if a device does not qualify as a failover target device.
-	Messages []TargetEligibilityErrorMessageResponse `pulumi:"messages"`
+	Messages []TargetEligibilityErrorMessageInvokeResponse `pulumi:"messages"`
 }
 
-// TargetEligibilityResultResponseInput is an input type that accepts TargetEligibilityResultResponseArgs and TargetEligibilityResultResponseOutput values.
-// You can construct a concrete instance of `TargetEligibilityResultResponseInput` via:
+// TargetEligibilityResultInvokeResponseInput is an input type that accepts TargetEligibilityResultInvokeResponseArgs and TargetEligibilityResultInvokeResponseOutput values.
+// You can construct a concrete instance of `TargetEligibilityResultInvokeResponseInput` via:
 //
-//          TargetEligibilityResultResponseArgs{...}
-type TargetEligibilityResultResponseInput interface {
+//          TargetEligibilityResultInvokeResponseArgs{...}
+type TargetEligibilityResultInvokeResponseInput interface {
 	pulumi.Input
 
-	ToTargetEligibilityResultResponseOutput() TargetEligibilityResultResponseOutput
-	ToTargetEligibilityResultResponseOutputWithContext(context.Context) TargetEligibilityResultResponseOutput
+	ToTargetEligibilityResultInvokeResponseOutput() TargetEligibilityResultInvokeResponseOutput
+	ToTargetEligibilityResultInvokeResponseOutputWithContext(context.Context) TargetEligibilityResultInvokeResponseOutput
 }
 
 // The eligibility result of device, as a failover target device.
-type TargetEligibilityResultResponseArgs struct {
+type TargetEligibilityResultInvokeResponseArgs struct {
 	// The eligibility status of device, as a failover target device.
 	EligibilityStatus pulumi.StringPtrInput `pulumi:"eligibilityStatus"`
 	// The list of error messages, if a device does not qualify as a failover target device.
-	Messages TargetEligibilityErrorMessageResponseArrayInput `pulumi:"messages"`
+	Messages TargetEligibilityErrorMessageInvokeResponseArrayInput `pulumi:"messages"`
 }
 
-func (TargetEligibilityResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetEligibilityResultResponse)(nil)).Elem()
+func (TargetEligibilityResultInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetEligibilityResultInvokeResponse)(nil)).Elem()
 }
 
-func (i TargetEligibilityResultResponseArgs) ToTargetEligibilityResultResponseOutput() TargetEligibilityResultResponseOutput {
-	return i.ToTargetEligibilityResultResponseOutputWithContext(context.Background())
+func (i TargetEligibilityResultInvokeResponseArgs) ToTargetEligibilityResultInvokeResponseOutput() TargetEligibilityResultInvokeResponseOutput {
+	return i.ToTargetEligibilityResultInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i TargetEligibilityResultResponseArgs) ToTargetEligibilityResultResponseOutputWithContext(ctx context.Context) TargetEligibilityResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityResultResponseOutput)
+func (i TargetEligibilityResultInvokeResponseArgs) ToTargetEligibilityResultInvokeResponseOutputWithContext(ctx context.Context) TargetEligibilityResultInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityResultInvokeResponseOutput)
 }
 
-func (i TargetEligibilityResultResponseArgs) ToTargetEligibilityResultResponsePtrOutput() TargetEligibilityResultResponsePtrOutput {
-	return i.ToTargetEligibilityResultResponsePtrOutputWithContext(context.Background())
+func (i TargetEligibilityResultInvokeResponseArgs) ToTargetEligibilityResultInvokeResponsePtrOutput() TargetEligibilityResultInvokeResponsePtrOutput {
+	return i.ToTargetEligibilityResultInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i TargetEligibilityResultResponseArgs) ToTargetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) TargetEligibilityResultResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityResultResponseOutput).ToTargetEligibilityResultResponsePtrOutputWithContext(ctx)
+func (i TargetEligibilityResultInvokeResponseArgs) ToTargetEligibilityResultInvokeResponsePtrOutputWithContext(ctx context.Context) TargetEligibilityResultInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityResultInvokeResponseOutput).ToTargetEligibilityResultInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// TargetEligibilityResultResponsePtrInput is an input type that accepts TargetEligibilityResultResponseArgs, TargetEligibilityResultResponsePtr and TargetEligibilityResultResponsePtrOutput values.
-// You can construct a concrete instance of `TargetEligibilityResultResponsePtrInput` via:
+// TargetEligibilityResultInvokeResponsePtrInput is an input type that accepts TargetEligibilityResultInvokeResponseArgs, TargetEligibilityResultInvokeResponsePtr and TargetEligibilityResultInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TargetEligibilityResultInvokeResponsePtrInput` via:
 //
-//          TargetEligibilityResultResponseArgs{...}
+//          TargetEligibilityResultInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type TargetEligibilityResultResponsePtrInput interface {
+type TargetEligibilityResultInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToTargetEligibilityResultResponsePtrOutput() TargetEligibilityResultResponsePtrOutput
-	ToTargetEligibilityResultResponsePtrOutputWithContext(context.Context) TargetEligibilityResultResponsePtrOutput
+	ToTargetEligibilityResultInvokeResponsePtrOutput() TargetEligibilityResultInvokeResponsePtrOutput
+	ToTargetEligibilityResultInvokeResponsePtrOutputWithContext(context.Context) TargetEligibilityResultInvokeResponsePtrOutput
 }
 
-type targetEligibilityResultResponsePtrType TargetEligibilityResultResponseArgs
+type targetEligibilityResultInvokeResponsePtrType TargetEligibilityResultInvokeResponseArgs
 
-func TargetEligibilityResultResponsePtr(v *TargetEligibilityResultResponseArgs) TargetEligibilityResultResponsePtrInput {
-	return (*targetEligibilityResultResponsePtrType)(v)
+func TargetEligibilityResultInvokeResponsePtr(v *TargetEligibilityResultInvokeResponseArgs) TargetEligibilityResultInvokeResponsePtrInput {
+	return (*targetEligibilityResultInvokeResponsePtrType)(v)
 }
 
-func (*targetEligibilityResultResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TargetEligibilityResultResponse)(nil)).Elem()
+func (*targetEligibilityResultInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetEligibilityResultInvokeResponse)(nil)).Elem()
 }
 
-func (i *targetEligibilityResultResponsePtrType) ToTargetEligibilityResultResponsePtrOutput() TargetEligibilityResultResponsePtrOutput {
-	return i.ToTargetEligibilityResultResponsePtrOutputWithContext(context.Background())
+func (i *targetEligibilityResultInvokeResponsePtrType) ToTargetEligibilityResultInvokeResponsePtrOutput() TargetEligibilityResultInvokeResponsePtrOutput {
+	return i.ToTargetEligibilityResultInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *targetEligibilityResultResponsePtrType) ToTargetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) TargetEligibilityResultResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityResultResponsePtrOutput)
+func (i *targetEligibilityResultInvokeResponsePtrType) ToTargetEligibilityResultInvokeResponsePtrOutputWithContext(ctx context.Context) TargetEligibilityResultInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetEligibilityResultInvokeResponsePtrOutput)
 }
 
 // The eligibility result of device, as a failover target device.
-type TargetEligibilityResultResponseOutput struct{ *pulumi.OutputState }
+type TargetEligibilityResultInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (TargetEligibilityResultResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetEligibilityResultResponse)(nil)).Elem()
+func (TargetEligibilityResultInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetEligibilityResultInvokeResponse)(nil)).Elem()
 }
 
-func (o TargetEligibilityResultResponseOutput) ToTargetEligibilityResultResponseOutput() TargetEligibilityResultResponseOutput {
+func (o TargetEligibilityResultInvokeResponseOutput) ToTargetEligibilityResultInvokeResponseOutput() TargetEligibilityResultInvokeResponseOutput {
 	return o
 }
 
-func (o TargetEligibilityResultResponseOutput) ToTargetEligibilityResultResponseOutputWithContext(ctx context.Context) TargetEligibilityResultResponseOutput {
+func (o TargetEligibilityResultInvokeResponseOutput) ToTargetEligibilityResultInvokeResponseOutputWithContext(ctx context.Context) TargetEligibilityResultInvokeResponseOutput {
 	return o
 }
 
-func (o TargetEligibilityResultResponseOutput) ToTargetEligibilityResultResponsePtrOutput() TargetEligibilityResultResponsePtrOutput {
-	return o.ToTargetEligibilityResultResponsePtrOutputWithContext(context.Background())
+func (o TargetEligibilityResultInvokeResponseOutput) ToTargetEligibilityResultInvokeResponsePtrOutput() TargetEligibilityResultInvokeResponsePtrOutput {
+	return o.ToTargetEligibilityResultInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o TargetEligibilityResultResponseOutput) ToTargetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) TargetEligibilityResultResponsePtrOutput {
-	return o.ApplyT(func(v TargetEligibilityResultResponse) *TargetEligibilityResultResponse {
+func (o TargetEligibilityResultInvokeResponseOutput) ToTargetEligibilityResultInvokeResponsePtrOutputWithContext(ctx context.Context) TargetEligibilityResultInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TargetEligibilityResultInvokeResponse) *TargetEligibilityResultInvokeResponse {
 		return &v
-	}).(TargetEligibilityResultResponsePtrOutput)
+	}).(TargetEligibilityResultInvokeResponsePtrOutput)
 }
 
 // The eligibility status of device, as a failover target device.
-func (o TargetEligibilityResultResponseOutput) EligibilityStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetEligibilityResultResponse) *string { return v.EligibilityStatus }).(pulumi.StringPtrOutput)
+func (o TargetEligibilityResultInvokeResponseOutput) EligibilityStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetEligibilityResultInvokeResponse) *string { return v.EligibilityStatus }).(pulumi.StringPtrOutput)
 }
 
 // The list of error messages, if a device does not qualify as a failover target device.
-func (o TargetEligibilityResultResponseOutput) Messages() TargetEligibilityErrorMessageResponseArrayOutput {
-	return o.ApplyT(func(v TargetEligibilityResultResponse) []TargetEligibilityErrorMessageResponse { return v.Messages }).(TargetEligibilityErrorMessageResponseArrayOutput)
+func (o TargetEligibilityResultInvokeResponseOutput) Messages() TargetEligibilityErrorMessageInvokeResponseArrayOutput {
+	return o.ApplyT(func(v TargetEligibilityResultInvokeResponse) []TargetEligibilityErrorMessageInvokeResponse {
+		return v.Messages
+	}).(TargetEligibilityErrorMessageInvokeResponseArrayOutput)
 }
 
-type TargetEligibilityResultResponsePtrOutput struct{ *pulumi.OutputState }
+type TargetEligibilityResultInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (TargetEligibilityResultResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TargetEligibilityResultResponse)(nil)).Elem()
+func (TargetEligibilityResultInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetEligibilityResultInvokeResponse)(nil)).Elem()
 }
 
-func (o TargetEligibilityResultResponsePtrOutput) ToTargetEligibilityResultResponsePtrOutput() TargetEligibilityResultResponsePtrOutput {
+func (o TargetEligibilityResultInvokeResponsePtrOutput) ToTargetEligibilityResultInvokeResponsePtrOutput() TargetEligibilityResultInvokeResponsePtrOutput {
 	return o
 }
 
-func (o TargetEligibilityResultResponsePtrOutput) ToTargetEligibilityResultResponsePtrOutputWithContext(ctx context.Context) TargetEligibilityResultResponsePtrOutput {
+func (o TargetEligibilityResultInvokeResponsePtrOutput) ToTargetEligibilityResultInvokeResponsePtrOutputWithContext(ctx context.Context) TargetEligibilityResultInvokeResponsePtrOutput {
 	return o
 }
 
-func (o TargetEligibilityResultResponsePtrOutput) Elem() TargetEligibilityResultResponseOutput {
-	return o.ApplyT(func(v *TargetEligibilityResultResponse) TargetEligibilityResultResponse { return *v }).(TargetEligibilityResultResponseOutput)
+func (o TargetEligibilityResultInvokeResponsePtrOutput) Elem() TargetEligibilityResultInvokeResponseOutput {
+	return o.ApplyT(func(v *TargetEligibilityResultInvokeResponse) TargetEligibilityResultInvokeResponse { return *v }).(TargetEligibilityResultInvokeResponseOutput)
 }
 
 // The eligibility status of device, as a failover target device.
-func (o TargetEligibilityResultResponsePtrOutput) EligibilityStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TargetEligibilityResultResponse) *string {
+func (o TargetEligibilityResultInvokeResponsePtrOutput) EligibilityStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetEligibilityResultInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2202,13 +2595,13 @@ func (o TargetEligibilityResultResponsePtrOutput) EligibilityStatus() pulumi.Str
 }
 
 // The list of error messages, if a device does not qualify as a failover target device.
-func (o TargetEligibilityResultResponsePtrOutput) Messages() TargetEligibilityErrorMessageResponseArrayOutput {
-	return o.ApplyT(func(v *TargetEligibilityResultResponse) []TargetEligibilityErrorMessageResponse {
+func (o TargetEligibilityResultInvokeResponsePtrOutput) Messages() TargetEligibilityErrorMessageInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *TargetEligibilityResultInvokeResponse) []TargetEligibilityErrorMessageInvokeResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Messages
-	}).(TargetEligibilityErrorMessageResponseArrayOutput)
+	}).(TargetEligibilityErrorMessageInvokeResponseArrayOutput)
 }
 
 // The time.
@@ -2285,6 +2678,79 @@ func (o TimeOutput) Seconds() pulumi.IntOutput {
 }
 
 // The time.
+type TimeInvokeResponse struct {
+	// The hour.
+	Hours int `pulumi:"hours"`
+	// The minute.
+	Minutes int `pulumi:"minutes"`
+	// The second.
+	Seconds int `pulumi:"seconds"`
+}
+
+// TimeInvokeResponseInput is an input type that accepts TimeInvokeResponseArgs and TimeInvokeResponseOutput values.
+// You can construct a concrete instance of `TimeInvokeResponseInput` via:
+//
+//          TimeInvokeResponseArgs{...}
+type TimeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTimeInvokeResponseOutput() TimeInvokeResponseOutput
+	ToTimeInvokeResponseOutputWithContext(context.Context) TimeInvokeResponseOutput
+}
+
+// The time.
+type TimeInvokeResponseArgs struct {
+	// The hour.
+	Hours pulumi.IntInput `pulumi:"hours"`
+	// The minute.
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+	// The second.
+	Seconds pulumi.IntInput `pulumi:"seconds"`
+}
+
+func (TimeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeInvokeResponse)(nil)).Elem()
+}
+
+func (i TimeInvokeResponseArgs) ToTimeInvokeResponseOutput() TimeInvokeResponseOutput {
+	return i.ToTimeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TimeInvokeResponseArgs) ToTimeInvokeResponseOutputWithContext(ctx context.Context) TimeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeInvokeResponseOutput)
+}
+
+// The time.
+type TimeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TimeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeInvokeResponse)(nil)).Elem()
+}
+
+func (o TimeInvokeResponseOutput) ToTimeInvokeResponseOutput() TimeInvokeResponseOutput {
+	return o
+}
+
+func (o TimeInvokeResponseOutput) ToTimeInvokeResponseOutputWithContext(ctx context.Context) TimeInvokeResponseOutput {
+	return o
+}
+
+// The hour.
+func (o TimeInvokeResponseOutput) Hours() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeInvokeResponse) int { return v.Hours }).(pulumi.IntOutput)
+}
+
+// The minute.
+func (o TimeInvokeResponseOutput) Minutes() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeInvokeResponse) int { return v.Minutes }).(pulumi.IntOutput)
+}
+
+// The second.
+func (o TimeInvokeResponseOutput) Seconds() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeInvokeResponse) int { return v.Seconds }).(pulumi.IntOutput)
+}
+
+// The time.
 type TimeResponse struct {
 	// The hour.
 	Hours int `pulumi:"hours"`
@@ -2358,116 +2824,118 @@ func (o TimeResponseOutput) Seconds() pulumi.IntOutput {
 }
 
 // The metadata of the volume container, that is being considered as part of a failover set.
-type VolumeContainerFailoverMetadataResponse struct {
+type VolumeContainerFailoverMetadataInvokeResponse struct {
 	// The path ID of the volume container.
 	VolumeContainerId *string `pulumi:"volumeContainerId"`
 	// The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
-	Volumes []VolumeFailoverMetadataResponse `pulumi:"volumes"`
+	Volumes []VolumeFailoverMetadataInvokeResponse `pulumi:"volumes"`
 }
 
-// VolumeContainerFailoverMetadataResponseInput is an input type that accepts VolumeContainerFailoverMetadataResponseArgs and VolumeContainerFailoverMetadataResponseOutput values.
-// You can construct a concrete instance of `VolumeContainerFailoverMetadataResponseInput` via:
+// VolumeContainerFailoverMetadataInvokeResponseInput is an input type that accepts VolumeContainerFailoverMetadataInvokeResponseArgs and VolumeContainerFailoverMetadataInvokeResponseOutput values.
+// You can construct a concrete instance of `VolumeContainerFailoverMetadataInvokeResponseInput` via:
 //
-//          VolumeContainerFailoverMetadataResponseArgs{...}
-type VolumeContainerFailoverMetadataResponseInput interface {
+//          VolumeContainerFailoverMetadataInvokeResponseArgs{...}
+type VolumeContainerFailoverMetadataInvokeResponseInput interface {
 	pulumi.Input
 
-	ToVolumeContainerFailoverMetadataResponseOutput() VolumeContainerFailoverMetadataResponseOutput
-	ToVolumeContainerFailoverMetadataResponseOutputWithContext(context.Context) VolumeContainerFailoverMetadataResponseOutput
+	ToVolumeContainerFailoverMetadataInvokeResponseOutput() VolumeContainerFailoverMetadataInvokeResponseOutput
+	ToVolumeContainerFailoverMetadataInvokeResponseOutputWithContext(context.Context) VolumeContainerFailoverMetadataInvokeResponseOutput
 }
 
 // The metadata of the volume container, that is being considered as part of a failover set.
-type VolumeContainerFailoverMetadataResponseArgs struct {
+type VolumeContainerFailoverMetadataInvokeResponseArgs struct {
 	// The path ID of the volume container.
 	VolumeContainerId pulumi.StringPtrInput `pulumi:"volumeContainerId"`
 	// The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
-	Volumes VolumeFailoverMetadataResponseArrayInput `pulumi:"volumes"`
+	Volumes VolumeFailoverMetadataInvokeResponseArrayInput `pulumi:"volumes"`
 }
 
-func (VolumeContainerFailoverMetadataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeContainerFailoverMetadataResponse)(nil)).Elem()
+func (VolumeContainerFailoverMetadataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeContainerFailoverMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (i VolumeContainerFailoverMetadataResponseArgs) ToVolumeContainerFailoverMetadataResponseOutput() VolumeContainerFailoverMetadataResponseOutput {
-	return i.ToVolumeContainerFailoverMetadataResponseOutputWithContext(context.Background())
+func (i VolumeContainerFailoverMetadataInvokeResponseArgs) ToVolumeContainerFailoverMetadataInvokeResponseOutput() VolumeContainerFailoverMetadataInvokeResponseOutput {
+	return i.ToVolumeContainerFailoverMetadataInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i VolumeContainerFailoverMetadataResponseArgs) ToVolumeContainerFailoverMetadataResponseOutputWithContext(ctx context.Context) VolumeContainerFailoverMetadataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeContainerFailoverMetadataResponseOutput)
+func (i VolumeContainerFailoverMetadataInvokeResponseArgs) ToVolumeContainerFailoverMetadataInvokeResponseOutputWithContext(ctx context.Context) VolumeContainerFailoverMetadataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeContainerFailoverMetadataInvokeResponseOutput)
 }
 
-// VolumeContainerFailoverMetadataResponseArrayInput is an input type that accepts VolumeContainerFailoverMetadataResponseArray and VolumeContainerFailoverMetadataResponseArrayOutput values.
-// You can construct a concrete instance of `VolumeContainerFailoverMetadataResponseArrayInput` via:
+// VolumeContainerFailoverMetadataInvokeResponseArrayInput is an input type that accepts VolumeContainerFailoverMetadataInvokeResponseArray and VolumeContainerFailoverMetadataInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VolumeContainerFailoverMetadataInvokeResponseArrayInput` via:
 //
-//          VolumeContainerFailoverMetadataResponseArray{ VolumeContainerFailoverMetadataResponseArgs{...} }
-type VolumeContainerFailoverMetadataResponseArrayInput interface {
+//          VolumeContainerFailoverMetadataInvokeResponseArray{ VolumeContainerFailoverMetadataInvokeResponseArgs{...} }
+type VolumeContainerFailoverMetadataInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToVolumeContainerFailoverMetadataResponseArrayOutput() VolumeContainerFailoverMetadataResponseArrayOutput
-	ToVolumeContainerFailoverMetadataResponseArrayOutputWithContext(context.Context) VolumeContainerFailoverMetadataResponseArrayOutput
+	ToVolumeContainerFailoverMetadataInvokeResponseArrayOutput() VolumeContainerFailoverMetadataInvokeResponseArrayOutput
+	ToVolumeContainerFailoverMetadataInvokeResponseArrayOutputWithContext(context.Context) VolumeContainerFailoverMetadataInvokeResponseArrayOutput
 }
 
-type VolumeContainerFailoverMetadataResponseArray []VolumeContainerFailoverMetadataResponseInput
+type VolumeContainerFailoverMetadataInvokeResponseArray []VolumeContainerFailoverMetadataInvokeResponseInput
 
-func (VolumeContainerFailoverMetadataResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VolumeContainerFailoverMetadataResponse)(nil)).Elem()
+func (VolumeContainerFailoverMetadataInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeContainerFailoverMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (i VolumeContainerFailoverMetadataResponseArray) ToVolumeContainerFailoverMetadataResponseArrayOutput() VolumeContainerFailoverMetadataResponseArrayOutput {
-	return i.ToVolumeContainerFailoverMetadataResponseArrayOutputWithContext(context.Background())
+func (i VolumeContainerFailoverMetadataInvokeResponseArray) ToVolumeContainerFailoverMetadataInvokeResponseArrayOutput() VolumeContainerFailoverMetadataInvokeResponseArrayOutput {
+	return i.ToVolumeContainerFailoverMetadataInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i VolumeContainerFailoverMetadataResponseArray) ToVolumeContainerFailoverMetadataResponseArrayOutputWithContext(ctx context.Context) VolumeContainerFailoverMetadataResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeContainerFailoverMetadataResponseArrayOutput)
+func (i VolumeContainerFailoverMetadataInvokeResponseArray) ToVolumeContainerFailoverMetadataInvokeResponseArrayOutputWithContext(ctx context.Context) VolumeContainerFailoverMetadataInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeContainerFailoverMetadataInvokeResponseArrayOutput)
 }
 
 // The metadata of the volume container, that is being considered as part of a failover set.
-type VolumeContainerFailoverMetadataResponseOutput struct{ *pulumi.OutputState }
+type VolumeContainerFailoverMetadataInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (VolumeContainerFailoverMetadataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeContainerFailoverMetadataResponse)(nil)).Elem()
+func (VolumeContainerFailoverMetadataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeContainerFailoverMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (o VolumeContainerFailoverMetadataResponseOutput) ToVolumeContainerFailoverMetadataResponseOutput() VolumeContainerFailoverMetadataResponseOutput {
+func (o VolumeContainerFailoverMetadataInvokeResponseOutput) ToVolumeContainerFailoverMetadataInvokeResponseOutput() VolumeContainerFailoverMetadataInvokeResponseOutput {
 	return o
 }
 
-func (o VolumeContainerFailoverMetadataResponseOutput) ToVolumeContainerFailoverMetadataResponseOutputWithContext(ctx context.Context) VolumeContainerFailoverMetadataResponseOutput {
+func (o VolumeContainerFailoverMetadataInvokeResponseOutput) ToVolumeContainerFailoverMetadataInvokeResponseOutputWithContext(ctx context.Context) VolumeContainerFailoverMetadataInvokeResponseOutput {
 	return o
 }
 
 // The path ID of the volume container.
-func (o VolumeContainerFailoverMetadataResponseOutput) VolumeContainerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeContainerFailoverMetadataResponse) *string { return v.VolumeContainerId }).(pulumi.StringPtrOutput)
+func (o VolumeContainerFailoverMetadataInvokeResponseOutput) VolumeContainerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeContainerFailoverMetadataInvokeResponse) *string { return v.VolumeContainerId }).(pulumi.StringPtrOutput)
 }
 
 // The list of metadata of volumes inside the volume container, which contains valid cloud snapshots.
-func (o VolumeContainerFailoverMetadataResponseOutput) Volumes() VolumeFailoverMetadataResponseArrayOutput {
-	return o.ApplyT(func(v VolumeContainerFailoverMetadataResponse) []VolumeFailoverMetadataResponse { return v.Volumes }).(VolumeFailoverMetadataResponseArrayOutput)
+func (o VolumeContainerFailoverMetadataInvokeResponseOutput) Volumes() VolumeFailoverMetadataInvokeResponseArrayOutput {
+	return o.ApplyT(func(v VolumeContainerFailoverMetadataInvokeResponse) []VolumeFailoverMetadataInvokeResponse {
+		return v.Volumes
+	}).(VolumeFailoverMetadataInvokeResponseArrayOutput)
 }
 
-type VolumeContainerFailoverMetadataResponseArrayOutput struct{ *pulumi.OutputState }
+type VolumeContainerFailoverMetadataInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (VolumeContainerFailoverMetadataResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VolumeContainerFailoverMetadataResponse)(nil)).Elem()
+func (VolumeContainerFailoverMetadataInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeContainerFailoverMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (o VolumeContainerFailoverMetadataResponseArrayOutput) ToVolumeContainerFailoverMetadataResponseArrayOutput() VolumeContainerFailoverMetadataResponseArrayOutput {
+func (o VolumeContainerFailoverMetadataInvokeResponseArrayOutput) ToVolumeContainerFailoverMetadataInvokeResponseArrayOutput() VolumeContainerFailoverMetadataInvokeResponseArrayOutput {
 	return o
 }
 
-func (o VolumeContainerFailoverMetadataResponseArrayOutput) ToVolumeContainerFailoverMetadataResponseArrayOutputWithContext(ctx context.Context) VolumeContainerFailoverMetadataResponseArrayOutput {
+func (o VolumeContainerFailoverMetadataInvokeResponseArrayOutput) ToVolumeContainerFailoverMetadataInvokeResponseArrayOutputWithContext(ctx context.Context) VolumeContainerFailoverMetadataInvokeResponseArrayOutput {
 	return o
 }
 
-func (o VolumeContainerFailoverMetadataResponseArrayOutput) Index(i pulumi.IntInput) VolumeContainerFailoverMetadataResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeContainerFailoverMetadataResponse {
-		return vs[0].([]VolumeContainerFailoverMetadataResponse)[vs[1].(int)]
-	}).(VolumeContainerFailoverMetadataResponseOutput)
+func (o VolumeContainerFailoverMetadataInvokeResponseArrayOutput) Index(i pulumi.IntInput) VolumeContainerFailoverMetadataInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeContainerFailoverMetadataInvokeResponse {
+		return vs[0].([]VolumeContainerFailoverMetadataInvokeResponse)[vs[1].(int)]
+	}).(VolumeContainerFailoverMetadataInvokeResponseOutput)
 }
 
 // The metadata of a volume that has valid cloud snapshot.
-type VolumeFailoverMetadataResponse struct {
+type VolumeFailoverMetadataInvokeResponse struct {
 	// The date at which the snapshot was taken.
 	BackupCreatedDate *string `pulumi:"backupCreatedDate"`
 	// The path ID of the backup-element for this volume, inside the backup set.
@@ -2484,19 +2952,19 @@ type VolumeFailoverMetadataResponse struct {
 	VolumeType *string `pulumi:"volumeType"`
 }
 
-// VolumeFailoverMetadataResponseInput is an input type that accepts VolumeFailoverMetadataResponseArgs and VolumeFailoverMetadataResponseOutput values.
-// You can construct a concrete instance of `VolumeFailoverMetadataResponseInput` via:
+// VolumeFailoverMetadataInvokeResponseInput is an input type that accepts VolumeFailoverMetadataInvokeResponseArgs and VolumeFailoverMetadataInvokeResponseOutput values.
+// You can construct a concrete instance of `VolumeFailoverMetadataInvokeResponseInput` via:
 //
-//          VolumeFailoverMetadataResponseArgs{...}
-type VolumeFailoverMetadataResponseInput interface {
+//          VolumeFailoverMetadataInvokeResponseArgs{...}
+type VolumeFailoverMetadataInvokeResponseInput interface {
 	pulumi.Input
 
-	ToVolumeFailoverMetadataResponseOutput() VolumeFailoverMetadataResponseOutput
-	ToVolumeFailoverMetadataResponseOutputWithContext(context.Context) VolumeFailoverMetadataResponseOutput
+	ToVolumeFailoverMetadataInvokeResponseOutput() VolumeFailoverMetadataInvokeResponseOutput
+	ToVolumeFailoverMetadataInvokeResponseOutputWithContext(context.Context) VolumeFailoverMetadataInvokeResponseOutput
 }
 
 // The metadata of a volume that has valid cloud snapshot.
-type VolumeFailoverMetadataResponseArgs struct {
+type VolumeFailoverMetadataInvokeResponseArgs struct {
 	// The date at which the snapshot was taken.
 	BackupCreatedDate pulumi.StringPtrInput `pulumi:"backupCreatedDate"`
 	// The path ID of the backup-element for this volume, inside the backup set.
@@ -2513,148 +2981,155 @@ type VolumeFailoverMetadataResponseArgs struct {
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
-func (VolumeFailoverMetadataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeFailoverMetadataResponse)(nil)).Elem()
+func (VolumeFailoverMetadataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeFailoverMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (i VolumeFailoverMetadataResponseArgs) ToVolumeFailoverMetadataResponseOutput() VolumeFailoverMetadataResponseOutput {
-	return i.ToVolumeFailoverMetadataResponseOutputWithContext(context.Background())
+func (i VolumeFailoverMetadataInvokeResponseArgs) ToVolumeFailoverMetadataInvokeResponseOutput() VolumeFailoverMetadataInvokeResponseOutput {
+	return i.ToVolumeFailoverMetadataInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i VolumeFailoverMetadataResponseArgs) ToVolumeFailoverMetadataResponseOutputWithContext(ctx context.Context) VolumeFailoverMetadataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeFailoverMetadataResponseOutput)
+func (i VolumeFailoverMetadataInvokeResponseArgs) ToVolumeFailoverMetadataInvokeResponseOutputWithContext(ctx context.Context) VolumeFailoverMetadataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeFailoverMetadataInvokeResponseOutput)
 }
 
-// VolumeFailoverMetadataResponseArrayInput is an input type that accepts VolumeFailoverMetadataResponseArray and VolumeFailoverMetadataResponseArrayOutput values.
-// You can construct a concrete instance of `VolumeFailoverMetadataResponseArrayInput` via:
+// VolumeFailoverMetadataInvokeResponseArrayInput is an input type that accepts VolumeFailoverMetadataInvokeResponseArray and VolumeFailoverMetadataInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VolumeFailoverMetadataInvokeResponseArrayInput` via:
 //
-//          VolumeFailoverMetadataResponseArray{ VolumeFailoverMetadataResponseArgs{...} }
-type VolumeFailoverMetadataResponseArrayInput interface {
+//          VolumeFailoverMetadataInvokeResponseArray{ VolumeFailoverMetadataInvokeResponseArgs{...} }
+type VolumeFailoverMetadataInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToVolumeFailoverMetadataResponseArrayOutput() VolumeFailoverMetadataResponseArrayOutput
-	ToVolumeFailoverMetadataResponseArrayOutputWithContext(context.Context) VolumeFailoverMetadataResponseArrayOutput
+	ToVolumeFailoverMetadataInvokeResponseArrayOutput() VolumeFailoverMetadataInvokeResponseArrayOutput
+	ToVolumeFailoverMetadataInvokeResponseArrayOutputWithContext(context.Context) VolumeFailoverMetadataInvokeResponseArrayOutput
 }
 
-type VolumeFailoverMetadataResponseArray []VolumeFailoverMetadataResponseInput
+type VolumeFailoverMetadataInvokeResponseArray []VolumeFailoverMetadataInvokeResponseInput
 
-func (VolumeFailoverMetadataResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VolumeFailoverMetadataResponse)(nil)).Elem()
+func (VolumeFailoverMetadataInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeFailoverMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (i VolumeFailoverMetadataResponseArray) ToVolumeFailoverMetadataResponseArrayOutput() VolumeFailoverMetadataResponseArrayOutput {
-	return i.ToVolumeFailoverMetadataResponseArrayOutputWithContext(context.Background())
+func (i VolumeFailoverMetadataInvokeResponseArray) ToVolumeFailoverMetadataInvokeResponseArrayOutput() VolumeFailoverMetadataInvokeResponseArrayOutput {
+	return i.ToVolumeFailoverMetadataInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i VolumeFailoverMetadataResponseArray) ToVolumeFailoverMetadataResponseArrayOutputWithContext(ctx context.Context) VolumeFailoverMetadataResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeFailoverMetadataResponseArrayOutput)
+func (i VolumeFailoverMetadataInvokeResponseArray) ToVolumeFailoverMetadataInvokeResponseArrayOutputWithContext(ctx context.Context) VolumeFailoverMetadataInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeFailoverMetadataInvokeResponseArrayOutput)
 }
 
 // The metadata of a volume that has valid cloud snapshot.
-type VolumeFailoverMetadataResponseOutput struct{ *pulumi.OutputState }
+type VolumeFailoverMetadataInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (VolumeFailoverMetadataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeFailoverMetadataResponse)(nil)).Elem()
+func (VolumeFailoverMetadataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeFailoverMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (o VolumeFailoverMetadataResponseOutput) ToVolumeFailoverMetadataResponseOutput() VolumeFailoverMetadataResponseOutput {
+func (o VolumeFailoverMetadataInvokeResponseOutput) ToVolumeFailoverMetadataInvokeResponseOutput() VolumeFailoverMetadataInvokeResponseOutput {
 	return o
 }
 
-func (o VolumeFailoverMetadataResponseOutput) ToVolumeFailoverMetadataResponseOutputWithContext(ctx context.Context) VolumeFailoverMetadataResponseOutput {
+func (o VolumeFailoverMetadataInvokeResponseOutput) ToVolumeFailoverMetadataInvokeResponseOutputWithContext(ctx context.Context) VolumeFailoverMetadataInvokeResponseOutput {
 	return o
 }
 
 // The date at which the snapshot was taken.
-func (o VolumeFailoverMetadataResponseOutput) BackupCreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupCreatedDate }).(pulumi.StringPtrOutput)
+func (o VolumeFailoverMetadataInvokeResponseOutput) BackupCreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataInvokeResponse) *string { return v.BackupCreatedDate }).(pulumi.StringPtrOutput)
 }
 
 // The path ID of the backup-element for this volume, inside the backup set.
-func (o VolumeFailoverMetadataResponseOutput) BackupElementId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupElementId }).(pulumi.StringPtrOutput)
+func (o VolumeFailoverMetadataInvokeResponseOutput) BackupElementId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataInvokeResponse) *string { return v.BackupElementId }).(pulumi.StringPtrOutput)
 }
 
 // The path ID of the backup set.
-func (o VolumeFailoverMetadataResponseOutput) BackupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupId }).(pulumi.StringPtrOutput)
+func (o VolumeFailoverMetadataInvokeResponseOutput) BackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataInvokeResponse) *string { return v.BackupId }).(pulumi.StringPtrOutput)
 }
 
 // The path ID of the backup policy using which the snapshot was taken.
-func (o VolumeFailoverMetadataResponseOutput) BackupPolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.BackupPolicyId }).(pulumi.StringPtrOutput)
+func (o VolumeFailoverMetadataInvokeResponseOutput) BackupPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataInvokeResponse) *string { return v.BackupPolicyId }).(pulumi.StringPtrOutput)
 }
 
 // The size of the volume in bytes at the time the snapshot was taken.
-func (o VolumeFailoverMetadataResponseOutput) SizeInBytes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *float64 { return v.SizeInBytes }).(pulumi.Float64PtrOutput)
+func (o VolumeFailoverMetadataInvokeResponseOutput) SizeInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataInvokeResponse) *float64 { return v.SizeInBytes }).(pulumi.Float64PtrOutput)
 }
 
 // The path ID of the volume.
-func (o VolumeFailoverMetadataResponseOutput) VolumeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
+func (o VolumeFailoverMetadataInvokeResponseOutput) VolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataInvokeResponse) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
 // The type of the volume.
-func (o VolumeFailoverMetadataResponseOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeFailoverMetadataResponse) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+func (o VolumeFailoverMetadataInvokeResponseOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeFailoverMetadataInvokeResponse) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
 
-type VolumeFailoverMetadataResponseArrayOutput struct{ *pulumi.OutputState }
+type VolumeFailoverMetadataInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (VolumeFailoverMetadataResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VolumeFailoverMetadataResponse)(nil)).Elem()
+func (VolumeFailoverMetadataInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeFailoverMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (o VolumeFailoverMetadataResponseArrayOutput) ToVolumeFailoverMetadataResponseArrayOutput() VolumeFailoverMetadataResponseArrayOutput {
+func (o VolumeFailoverMetadataInvokeResponseArrayOutput) ToVolumeFailoverMetadataInvokeResponseArrayOutput() VolumeFailoverMetadataInvokeResponseArrayOutput {
 	return o
 }
 
-func (o VolumeFailoverMetadataResponseArrayOutput) ToVolumeFailoverMetadataResponseArrayOutputWithContext(ctx context.Context) VolumeFailoverMetadataResponseArrayOutput {
+func (o VolumeFailoverMetadataInvokeResponseArrayOutput) ToVolumeFailoverMetadataInvokeResponseArrayOutputWithContext(ctx context.Context) VolumeFailoverMetadataInvokeResponseArrayOutput {
 	return o
 }
 
-func (o VolumeFailoverMetadataResponseArrayOutput) Index(i pulumi.IntInput) VolumeFailoverMetadataResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeFailoverMetadataResponse {
-		return vs[0].([]VolumeFailoverMetadataResponse)[vs[1].(int)]
-	}).(VolumeFailoverMetadataResponseOutput)
+func (o VolumeFailoverMetadataInvokeResponseArrayOutput) Index(i pulumi.IntInput) VolumeFailoverMetadataInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeFailoverMetadataInvokeResponse {
+		return vs[0].([]VolumeFailoverMetadataInvokeResponse)[vs[1].(int)]
+	}).(VolumeFailoverMetadataInvokeResponseOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretPtrOutput{})
+	pulumi.RegisterOutputType(AsymmetricEncryptedSecretInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretResponseOutput{})
 	pulumi.RegisterOutputType(AsymmetricEncryptedSecretResponsePtrOutput{})
 	pulumi.RegisterOutputType(BandwidthScheduleOutput{})
 	pulumi.RegisterOutputType(BandwidthScheduleArrayOutput{})
+	pulumi.RegisterOutputType(BandwidthScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BandwidthScheduleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(BandwidthScheduleResponseOutput{})
 	pulumi.RegisterOutputType(BandwidthScheduleResponseArrayOutput{})
-	pulumi.RegisterOutputType(FailoverSetEligibilityResultResponseOutput{})
-	pulumi.RegisterOutputType(FailoverSetEligibilityResultResponsePtrOutput{})
-	pulumi.RegisterOutputType(FailoverSetResponseOutput{})
-	pulumi.RegisterOutputType(FailoverSetResponseArrayOutput{})
-	pulumi.RegisterOutputType(FailoverTargetResponseOutput{})
-	pulumi.RegisterOutputType(FailoverTargetResponseArrayOutput{})
+	pulumi.RegisterOutputType(FailoverSetEligibilityResultInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FailoverSetEligibilityResultInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(FailoverSetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FailoverSetInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(FailoverTargetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FailoverTargetInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ManagerIntrinsicSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ManagerIntrinsicSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagerSkuOutput{})
 	pulumi.RegisterOutputType(ManagerSkuPtrOutput{})
+	pulumi.RegisterOutputType(ManagerSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagerSkuResponseOutput{})
 	pulumi.RegisterOutputType(ManagerSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleRecurrenceOutput{})
 	pulumi.RegisterOutputType(ScheduleRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(ScheduleRecurrenceInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleRecurrenceResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleRecurrenceResponsePtrOutput{})
-	pulumi.RegisterOutputType(TargetEligibilityErrorMessageResponseOutput{})
-	pulumi.RegisterOutputType(TargetEligibilityErrorMessageResponseArrayOutput{})
-	pulumi.RegisterOutputType(TargetEligibilityResultResponseOutput{})
-	pulumi.RegisterOutputType(TargetEligibilityResultResponsePtrOutput{})
+	pulumi.RegisterOutputType(TargetEligibilityErrorMessageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TargetEligibilityErrorMessageInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(TargetEligibilityResultInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TargetEligibilityResultInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TimeOutput{})
+	pulumi.RegisterOutputType(TimeInvokeResponseOutput{})
 	pulumi.RegisterOutputType(TimeResponseOutput{})
-	pulumi.RegisterOutputType(VolumeContainerFailoverMetadataResponseOutput{})
-	pulumi.RegisterOutputType(VolumeContainerFailoverMetadataResponseArrayOutput{})
-	pulumi.RegisterOutputType(VolumeFailoverMetadataResponseOutput{})
-	pulumi.RegisterOutputType(VolumeFailoverMetadataResponseArrayOutput{})
+	pulumi.RegisterOutputType(VolumeContainerFailoverMetadataInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VolumeContainerFailoverMetadataInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(VolumeFailoverMetadataInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VolumeFailoverMetadataInvokeResponseArrayOutput{})
 }

@@ -30,11 +30,11 @@ type LookupNamespaceResult struct {
 	// The time the Namespace was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// Properties of BYOK Encryption description
-	Encryption *EncryptionResponse `pulumi:"encryption"`
+	Encryption *EncryptionInvokeResponse `pulumi:"encryption"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Properties of BYOK Identity description
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
@@ -52,7 +52,7 @@ type LookupNamespaceResult struct {
 	// Endpoint you can use to perform Service Bus operations.
 	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
 	// Properties of sku resource
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -24,5 +24,5 @@ type ListGlobalUserLabsArgs struct {
 // Lists the labs owned by a user
 type ListGlobalUserLabsResult struct {
 	// List of all the labs
-	Labs []LabDetailsResponse `pulumi:"labs"`
+	Labs []LabDetailsInvokeResponse `pulumi:"labs"`
 }

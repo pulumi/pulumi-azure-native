@@ -38,11 +38,11 @@ type LookupApiResult struct {
 	// Description of the Api Version.
 	ApiVersionDescription *string `pulumi:"apiVersionDescription"`
 	// Version set details
-	ApiVersionSet *ApiVersionSetContractDetailsResponse `pulumi:"apiVersionSet"`
+	ApiVersionSet *ApiVersionSetContractDetailsInvokeResponse `pulumi:"apiVersionSet"`
 	// A resource identifier for the related ApiVersionSet.
 	ApiVersionSetId *string `pulumi:"apiVersionSetId"`
 	// Collection of authentication settings included into this API.
-	AuthenticationSettings *AuthenticationSettingsContractResponse `pulumi:"authenticationSettings"`
+	AuthenticationSettings *AuthenticationSettingsContractInvokeResponse `pulumi:"authenticationSettings"`
 	// Description of the API. May include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// API name. Must be 1 to 300 characters long.
@@ -64,7 +64,7 @@ type LookupApiResult struct {
 	// API identifier of the source API.
 	SourceApiId *string `pulumi:"sourceApiId"`
 	// Protocols over which API is made available.
-	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContractResponse `pulumi:"subscriptionKeyParameterNames"`
+	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContractInvokeResponse `pulumi:"subscriptionKeyParameterNames"`
 	// Specifies whether an API or Product subscription is required for accessing the API.
 	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
 	// Resource type for API Management resource.

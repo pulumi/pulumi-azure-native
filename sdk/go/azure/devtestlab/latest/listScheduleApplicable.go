@@ -30,5 +30,5 @@ type ListScheduleApplicableResult struct {
 	// Link for next set of results.
 	NextLink *string `pulumi:"nextLink"`
 	// Results of the list operation.
-	Value []ScheduleResponse `pulumi:"value"`
+	Value []ScheduleInvokeResponse `pulumi:"value"`
 }

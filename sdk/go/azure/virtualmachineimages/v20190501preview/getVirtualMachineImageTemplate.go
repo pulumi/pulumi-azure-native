@@ -34,15 +34,15 @@ type LookupVirtualMachineImageTemplateResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The identity of the image template, if configured.
-	Identity *ImageTemplateIdentityResponse `pulumi:"identity"`
+	Identity *ImageTemplateIdentityInvokeResponse `pulumi:"identity"`
 	// State of 'run' that is currently executing or was last executed.
-	LastRunStatus ImageTemplateLastRunStatusResponse `pulumi:"lastRunStatus"`
+	LastRunStatus ImageTemplateLastRunStatusInvokeResponse `pulumi:"lastRunStatus"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Provisioning error, if any
-	ProvisioningError ProvisioningErrorResponse `pulumi:"provisioningError"`
+	ProvisioningError ProvisioningErrorInvokeResponse `pulumi:"provisioningError"`
 	// Provisioning state of the resource
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Specifies the properties used to describe the source image.
@@ -52,5 +52,5 @@ type LookupVirtualMachineImageTemplateResult struct {
 	// Resource type
 	Type string `pulumi:"type"`
 	// Describes how virtual machine is set up to build images
-	VmProfile *ImageTemplateVmProfileResponse `pulumi:"vmProfile"`
+	VmProfile *ImageTemplateVmProfileInvokeResponse `pulumi:"vmProfile"`
 }

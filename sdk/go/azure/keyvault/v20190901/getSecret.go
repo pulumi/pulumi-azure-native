@@ -34,7 +34,7 @@ type LookupSecretResult struct {
 	// Name of the key vault resource.
 	Name string `pulumi:"name"`
 	// Properties of the secret
-	Properties SecretPropertiesResponse `pulumi:"properties"`
+	Properties SecretPropertiesInvokeResponse `pulumi:"properties"`
 	// Tags assigned to the key vault resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type of the key vault resource.

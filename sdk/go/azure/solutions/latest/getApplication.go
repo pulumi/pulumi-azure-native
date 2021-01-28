@@ -28,21 +28,21 @@ type LookupApplicationResult struct {
 	// The fully qualified path of managed application definition Id.
 	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
 	// The collection of managed application artifacts.
-	Artifacts []ApplicationArtifactResponse `pulumi:"artifacts"`
+	Artifacts []ApplicationArtifactInvokeResponse `pulumi:"artifacts"`
 	// The  read-only authorizations property that is retrieved from the application package.
-	Authorizations []ApplicationAuthorizationResponse `pulumi:"authorizations"`
+	Authorizations []ApplicationAuthorizationInvokeResponse `pulumi:"authorizations"`
 	// The managed application billing details.
-	BillingDetails ApplicationBillingDetailsDefinitionResponse `pulumi:"billingDetails"`
+	BillingDetails ApplicationBillingDetailsDefinitionInvokeResponse `pulumi:"billingDetails"`
 	// The client entity that created the JIT request.
-	CreatedBy ApplicationClientDetailsResponse `pulumi:"createdBy"`
+	CreatedBy ApplicationClientDetailsInvokeResponse `pulumi:"createdBy"`
 	// The read-only customer support property that is retrieved from the application package.
-	CustomerSupport ApplicationPackageContactResponse `pulumi:"customerSupport"`
+	CustomerSupport ApplicationPackageContactInvokeResponse `pulumi:"customerSupport"`
 	// Resource ID
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// The managed application Jit access policy.
-	JitAccessPolicy *ApplicationJitAccessPolicyResponse `pulumi:"jitAccessPolicy"`
+	JitAccessPolicy *ApplicationJitAccessPolicyInvokeResponse `pulumi:"jitAccessPolicy"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
 	Kind string `pulumi:"kind"`
 	// Resource location
@@ -60,19 +60,19 @@ type LookupApplicationResult struct {
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
 	Parameters interface{} `pulumi:"parameters"`
 	// The plan information.
-	Plan *PlanResponse `pulumi:"plan"`
+	Plan *PlanInvokeResponse `pulumi:"plan"`
 	// The managed application provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The publisher tenant Id.
 	PublisherTenantId string `pulumi:"publisherTenantId"`
 	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The read-only support URLs property that is retrieved from the application package.
-	SupportUrls ApplicationPackageSupportUrlsResponse `pulumi:"supportUrls"`
+	SupportUrls ApplicationPackageSupportUrlsInvokeResponse `pulumi:"supportUrls"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// The client entity that last updated the JIT request.
-	UpdatedBy ApplicationClientDetailsResponse `pulumi:"updatedBy"`
+	UpdatedBy ApplicationClientDetailsInvokeResponse `pulumi:"updatedBy"`
 }

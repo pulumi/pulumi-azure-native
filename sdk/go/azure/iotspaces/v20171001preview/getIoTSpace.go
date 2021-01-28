@@ -32,9 +32,9 @@ type LookupIoTSpaceResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The common properties of a IoTSpaces service.
-	Properties IoTSpacesPropertiesResponse `pulumi:"properties"`
+	Properties IoTSpacesPropertiesInvokeResponse `pulumi:"properties"`
 	// A valid instance SKU.
-	Sku IoTSpacesSkuInfoResponse `pulumi:"sku"`
+	Sku IoTSpacesSkuInfoInvokeResponse `pulumi:"sku"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

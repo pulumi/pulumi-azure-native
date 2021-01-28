@@ -32,7 +32,7 @@ type LookupConfigurationStoreResult struct {
 	// The resource ID.
 	Id string `pulumi:"id"`
 	// The managed identity information, if configured.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityInvokeResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the resource.
@@ -40,7 +40,7 @@ type LookupConfigurationStoreResult struct {
 	// The provisioning state of the configuration store.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku of the configuration store.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

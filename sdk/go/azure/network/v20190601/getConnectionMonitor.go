@@ -30,7 +30,7 @@ type LookupConnectionMonitorResult struct {
 	// Determines if the connection monitor will start automatically once created.
 	AutoStart *bool `pulumi:"autoStart"`
 	// Describes the destination of connection monitor.
-	Destination ConnectionMonitorDestinationResponse `pulumi:"destination"`
+	Destination ConnectionMonitorDestinationInvokeResponse `pulumi:"destination"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// ID of the connection monitor.
@@ -46,7 +46,7 @@ type LookupConnectionMonitorResult struct {
 	// The provisioning state of the connection monitor.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Describes the source of connection monitor.
-	Source ConnectionMonitorSourceResponse `pulumi:"source"`
+	Source ConnectionMonitorSourceInvokeResponse `pulumi:"source"`
 	// The date and time when the connection monitor was started.
 	StartTime *string `pulumi:"startTime"`
 	// Connection monitor tags.

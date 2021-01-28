@@ -26,5 +26,5 @@ type ListClusterLanguageExtensionsArgs struct {
 // The list of language extension objects.
 type ListClusterLanguageExtensionsResult struct {
 	// The list of language extensions.
-	Value []LanguageExtensionResponse `pulumi:"value"`
+	Value []LanguageExtensionInvokeResponse `pulumi:"value"`
 }

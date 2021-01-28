@@ -36,7 +36,7 @@ type LookupWorkloadNetworkSegmentResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Port Vif which segment is associated with.
-	PortVif []WorkloadNetworkSegmentPortVifResponse `pulumi:"portVif"`
+	PortVif []WorkloadNetworkSegmentPortVifInvokeResponse `pulumi:"portVif"`
 	// The provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// NSX revision number.
@@ -44,7 +44,7 @@ type LookupWorkloadNetworkSegmentResult struct {
 	// Segment status.
 	Status string `pulumi:"status"`
 	// Subnet which to connect segment to.
-	Subnet *WorkloadNetworkSegmentSubnetResponse `pulumi:"subnet"`
+	Subnet *WorkloadNetworkSegmentSubnetInvokeResponse `pulumi:"subnet"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

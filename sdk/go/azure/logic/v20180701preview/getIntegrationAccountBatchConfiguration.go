@@ -34,7 +34,7 @@ type LookupIntegrationAccountBatchConfigurationResult struct {
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The batch configuration properties.
-	Properties BatchConfigurationPropertiesResponse `pulumi:"properties"`
+	Properties BatchConfigurationPropertiesInvokeResponse `pulumi:"properties"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

@@ -40,11 +40,11 @@ type LookupGalleryImageVersionResult struct {
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The publishing profile of a gallery Image Version.
-	PublishingProfile *GalleryImageVersionPublishingProfileResponse `pulumi:"publishingProfile"`
+	PublishingProfile *GalleryImageVersionPublishingProfileInvokeResponse `pulumi:"publishingProfile"`
 	// This is the replication status of the gallery Image Version.
-	ReplicationStatus ReplicationStatusResponse `pulumi:"replicationStatus"`
+	ReplicationStatus ReplicationStatusInvokeResponse `pulumi:"replicationStatus"`
 	// This is the storage profile of a Gallery Image Version.
-	StorageProfile GalleryImageVersionStorageProfileResponse `pulumi:"storageProfile"`
+	StorageProfile GalleryImageVersionStorageProfileInvokeResponse `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

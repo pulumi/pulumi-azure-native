@@ -38,5 +38,5 @@ type LookupNetworkInterfaceTapConfigurationResult struct {
 	// Sub Resource type.
 	Type string `pulumi:"type"`
 	// The reference to the Virtual Network Tap resource.
-	VirtualNetworkTap *VirtualNetworkTapResponse `pulumi:"virtualNetworkTap"`
+	VirtualNetworkTap *VirtualNetworkTapInvokeResponse `pulumi:"virtualNetworkTap"`
 }

@@ -183,6 +183,180 @@ func (o ArtifactDeploymentStatusPropertiesPtrOutput) TotalArtifacts() pulumi.Int
 }
 
 // Properties of an artifact deployment.
+type ArtifactDeploymentStatusPropertiesInvokeResponse struct {
+	// The total count of the artifacts that were successfully applied.
+	ArtifactsApplied *int `pulumi:"artifactsApplied"`
+	// The deployment status of the artifact.
+	DeploymentStatus *string `pulumi:"deploymentStatus"`
+	// The total count of the artifacts that were tentatively applied.
+	TotalArtifacts *int `pulumi:"totalArtifacts"`
+}
+
+// ArtifactDeploymentStatusPropertiesInvokeResponseInput is an input type that accepts ArtifactDeploymentStatusPropertiesInvokeResponseArgs and ArtifactDeploymentStatusPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ArtifactDeploymentStatusPropertiesInvokeResponseInput` via:
+//
+//          ArtifactDeploymentStatusPropertiesInvokeResponseArgs{...}
+type ArtifactDeploymentStatusPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToArtifactDeploymentStatusPropertiesInvokeResponseOutput() ArtifactDeploymentStatusPropertiesInvokeResponseOutput
+	ToArtifactDeploymentStatusPropertiesInvokeResponseOutputWithContext(context.Context) ArtifactDeploymentStatusPropertiesInvokeResponseOutput
+}
+
+// Properties of an artifact deployment.
+type ArtifactDeploymentStatusPropertiesInvokeResponseArgs struct {
+	// The total count of the artifacts that were successfully applied.
+	ArtifactsApplied pulumi.IntPtrInput `pulumi:"artifactsApplied"`
+	// The deployment status of the artifact.
+	DeploymentStatus pulumi.StringPtrInput `pulumi:"deploymentStatus"`
+	// The total count of the artifacts that were tentatively applied.
+	TotalArtifacts pulumi.IntPtrInput `pulumi:"totalArtifacts"`
+}
+
+func (ArtifactDeploymentStatusPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactDeploymentStatusPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ArtifactDeploymentStatusPropertiesInvokeResponseArgs) ToArtifactDeploymentStatusPropertiesInvokeResponseOutput() ArtifactDeploymentStatusPropertiesInvokeResponseOutput {
+	return i.ToArtifactDeploymentStatusPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ArtifactDeploymentStatusPropertiesInvokeResponseArgs) ToArtifactDeploymentStatusPropertiesInvokeResponseOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactDeploymentStatusPropertiesInvokeResponseOutput)
+}
+
+func (i ArtifactDeploymentStatusPropertiesInvokeResponseArgs) ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput() ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput {
+	return i.ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ArtifactDeploymentStatusPropertiesInvokeResponseArgs) ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactDeploymentStatusPropertiesInvokeResponseOutput).ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ArtifactDeploymentStatusPropertiesInvokeResponsePtrInput is an input type that accepts ArtifactDeploymentStatusPropertiesInvokeResponseArgs, ArtifactDeploymentStatusPropertiesInvokeResponsePtr and ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ArtifactDeploymentStatusPropertiesInvokeResponsePtrInput` via:
+//
+//          ArtifactDeploymentStatusPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ArtifactDeploymentStatusPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput() ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput
+	ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutputWithContext(context.Context) ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput
+}
+
+type artifactDeploymentStatusPropertiesInvokeResponsePtrType ArtifactDeploymentStatusPropertiesInvokeResponseArgs
+
+func ArtifactDeploymentStatusPropertiesInvokeResponsePtr(v *ArtifactDeploymentStatusPropertiesInvokeResponseArgs) ArtifactDeploymentStatusPropertiesInvokeResponsePtrInput {
+	return (*artifactDeploymentStatusPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*artifactDeploymentStatusPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArtifactDeploymentStatusPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *artifactDeploymentStatusPropertiesInvokeResponsePtrType) ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput() ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput {
+	return i.ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *artifactDeploymentStatusPropertiesInvokeResponsePtrType) ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput)
+}
+
+// Properties of an artifact deployment.
+type ArtifactDeploymentStatusPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ArtifactDeploymentStatusPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactDeploymentStatusPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ArtifactDeploymentStatusPropertiesInvokeResponseOutput) ToArtifactDeploymentStatusPropertiesInvokeResponseOutput() ArtifactDeploymentStatusPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ArtifactDeploymentStatusPropertiesInvokeResponseOutput) ToArtifactDeploymentStatusPropertiesInvokeResponseOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ArtifactDeploymentStatusPropertiesInvokeResponseOutput) ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput() ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput {
+	return o.ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ArtifactDeploymentStatusPropertiesInvokeResponseOutput) ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ArtifactDeploymentStatusPropertiesInvokeResponse) *ArtifactDeploymentStatusPropertiesInvokeResponse {
+		return &v
+	}).(ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput)
+}
+
+// The total count of the artifacts that were successfully applied.
+func (o ArtifactDeploymentStatusPropertiesInvokeResponseOutput) ArtifactsApplied() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ArtifactDeploymentStatusPropertiesInvokeResponse) *int { return v.ArtifactsApplied }).(pulumi.IntPtrOutput)
+}
+
+// The deployment status of the artifact.
+func (o ArtifactDeploymentStatusPropertiesInvokeResponseOutput) DeploymentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactDeploymentStatusPropertiesInvokeResponse) *string { return v.DeploymentStatus }).(pulumi.StringPtrOutput)
+}
+
+// The total count of the artifacts that were tentatively applied.
+func (o ArtifactDeploymentStatusPropertiesInvokeResponseOutput) TotalArtifacts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ArtifactDeploymentStatusPropertiesInvokeResponse) *int { return v.TotalArtifacts }).(pulumi.IntPtrOutput)
+}
+
+type ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArtifactDeploymentStatusPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput) ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput() ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput) ToArtifactDeploymentStatusPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput) Elem() ArtifactDeploymentStatusPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *ArtifactDeploymentStatusPropertiesInvokeResponse) ArtifactDeploymentStatusPropertiesInvokeResponse {
+		return *v
+	}).(ArtifactDeploymentStatusPropertiesInvokeResponseOutput)
+}
+
+// The total count of the artifacts that were successfully applied.
+func (o ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput) ArtifactsApplied() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ArtifactDeploymentStatusPropertiesInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactsApplied
+	}).(pulumi.IntPtrOutput)
+}
+
+// The deployment status of the artifact.
+func (o ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput) DeploymentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactDeploymentStatusPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The total count of the artifacts that were tentatively applied.
+func (o ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput) TotalArtifacts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ArtifactDeploymentStatusPropertiesInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TotalArtifacts
+	}).(pulumi.IntPtrOutput)
+}
+
+// Properties of an artifact deployment.
 type ArtifactDeploymentStatusPropertiesResponse struct {
 	// The total count of the artifacts that were successfully applied.
 	ArtifactsApplied *int `pulumi:"artifactsApplied"`
@@ -466,6 +640,117 @@ func (o ArtifactInstallPropertiesArrayOutput) Index(i pulumi.IntInput) ArtifactI
 }
 
 // Properties of an artifact.
+type ArtifactInstallPropertiesInvokeResponse struct {
+	// The artifact's identifier.
+	ArtifactId *string `pulumi:"artifactId"`
+	// The parameters of the artifact.
+	Parameters []ArtifactParameterPropertiesInvokeResponse `pulumi:"parameters"`
+}
+
+// ArtifactInstallPropertiesInvokeResponseInput is an input type that accepts ArtifactInstallPropertiesInvokeResponseArgs and ArtifactInstallPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ArtifactInstallPropertiesInvokeResponseInput` via:
+//
+//          ArtifactInstallPropertiesInvokeResponseArgs{...}
+type ArtifactInstallPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToArtifactInstallPropertiesInvokeResponseOutput() ArtifactInstallPropertiesInvokeResponseOutput
+	ToArtifactInstallPropertiesInvokeResponseOutputWithContext(context.Context) ArtifactInstallPropertiesInvokeResponseOutput
+}
+
+// Properties of an artifact.
+type ArtifactInstallPropertiesInvokeResponseArgs struct {
+	// The artifact's identifier.
+	ArtifactId pulumi.StringPtrInput `pulumi:"artifactId"`
+	// The parameters of the artifact.
+	Parameters ArtifactParameterPropertiesInvokeResponseArrayInput `pulumi:"parameters"`
+}
+
+func (ArtifactInstallPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactInstallPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ArtifactInstallPropertiesInvokeResponseArgs) ToArtifactInstallPropertiesInvokeResponseOutput() ArtifactInstallPropertiesInvokeResponseOutput {
+	return i.ToArtifactInstallPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ArtifactInstallPropertiesInvokeResponseArgs) ToArtifactInstallPropertiesInvokeResponseOutputWithContext(ctx context.Context) ArtifactInstallPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactInstallPropertiesInvokeResponseOutput)
+}
+
+// ArtifactInstallPropertiesInvokeResponseArrayInput is an input type that accepts ArtifactInstallPropertiesInvokeResponseArray and ArtifactInstallPropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ArtifactInstallPropertiesInvokeResponseArrayInput` via:
+//
+//          ArtifactInstallPropertiesInvokeResponseArray{ ArtifactInstallPropertiesInvokeResponseArgs{...} }
+type ArtifactInstallPropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToArtifactInstallPropertiesInvokeResponseArrayOutput() ArtifactInstallPropertiesInvokeResponseArrayOutput
+	ToArtifactInstallPropertiesInvokeResponseArrayOutputWithContext(context.Context) ArtifactInstallPropertiesInvokeResponseArrayOutput
+}
+
+type ArtifactInstallPropertiesInvokeResponseArray []ArtifactInstallPropertiesInvokeResponseInput
+
+func (ArtifactInstallPropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArtifactInstallPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ArtifactInstallPropertiesInvokeResponseArray) ToArtifactInstallPropertiesInvokeResponseArrayOutput() ArtifactInstallPropertiesInvokeResponseArrayOutput {
+	return i.ToArtifactInstallPropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ArtifactInstallPropertiesInvokeResponseArray) ToArtifactInstallPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) ArtifactInstallPropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactInstallPropertiesInvokeResponseArrayOutput)
+}
+
+// Properties of an artifact.
+type ArtifactInstallPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ArtifactInstallPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactInstallPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ArtifactInstallPropertiesInvokeResponseOutput) ToArtifactInstallPropertiesInvokeResponseOutput() ArtifactInstallPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ArtifactInstallPropertiesInvokeResponseOutput) ToArtifactInstallPropertiesInvokeResponseOutputWithContext(ctx context.Context) ArtifactInstallPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The artifact's identifier.
+func (o ArtifactInstallPropertiesInvokeResponseOutput) ArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactInstallPropertiesInvokeResponse) *string { return v.ArtifactId }).(pulumi.StringPtrOutput)
+}
+
+// The parameters of the artifact.
+func (o ArtifactInstallPropertiesInvokeResponseOutput) Parameters() ArtifactParameterPropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ArtifactInstallPropertiesInvokeResponse) []ArtifactParameterPropertiesInvokeResponse {
+		return v.Parameters
+	}).(ArtifactParameterPropertiesInvokeResponseArrayOutput)
+}
+
+type ArtifactInstallPropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ArtifactInstallPropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArtifactInstallPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ArtifactInstallPropertiesInvokeResponseArrayOutput) ToArtifactInstallPropertiesInvokeResponseArrayOutput() ArtifactInstallPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ArtifactInstallPropertiesInvokeResponseArrayOutput) ToArtifactInstallPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) ArtifactInstallPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ArtifactInstallPropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) ArtifactInstallPropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ArtifactInstallPropertiesInvokeResponse {
+		return vs[0].([]ArtifactInstallPropertiesInvokeResponse)[vs[1].(int)]
+	}).(ArtifactInstallPropertiesInvokeResponseOutput)
+}
+
+// Properties of an artifact.
 type ArtifactInstallPropertiesResponse struct {
 	// The artifact's identifier.
 	ArtifactId *string `pulumi:"artifactId"`
@@ -681,6 +966,115 @@ func (o ArtifactParameterPropertiesArrayOutput) Index(i pulumi.IntInput) Artifac
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ArtifactParameterProperties {
 		return vs[0].([]ArtifactParameterProperties)[vs[1].(int)]
 	}).(ArtifactParameterPropertiesOutput)
+}
+
+// Properties of an artifact parameter.
+type ArtifactParameterPropertiesInvokeResponse struct {
+	// The name of the artifact parameter.
+	Name *string `pulumi:"name"`
+	// The value of the artifact parameter.
+	Value *string `pulumi:"value"`
+}
+
+// ArtifactParameterPropertiesInvokeResponseInput is an input type that accepts ArtifactParameterPropertiesInvokeResponseArgs and ArtifactParameterPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ArtifactParameterPropertiesInvokeResponseInput` via:
+//
+//          ArtifactParameterPropertiesInvokeResponseArgs{...}
+type ArtifactParameterPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToArtifactParameterPropertiesInvokeResponseOutput() ArtifactParameterPropertiesInvokeResponseOutput
+	ToArtifactParameterPropertiesInvokeResponseOutputWithContext(context.Context) ArtifactParameterPropertiesInvokeResponseOutput
+}
+
+// Properties of an artifact parameter.
+type ArtifactParameterPropertiesInvokeResponseArgs struct {
+	// The name of the artifact parameter.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the artifact parameter.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ArtifactParameterPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactParameterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ArtifactParameterPropertiesInvokeResponseArgs) ToArtifactParameterPropertiesInvokeResponseOutput() ArtifactParameterPropertiesInvokeResponseOutput {
+	return i.ToArtifactParameterPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ArtifactParameterPropertiesInvokeResponseArgs) ToArtifactParameterPropertiesInvokeResponseOutputWithContext(ctx context.Context) ArtifactParameterPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactParameterPropertiesInvokeResponseOutput)
+}
+
+// ArtifactParameterPropertiesInvokeResponseArrayInput is an input type that accepts ArtifactParameterPropertiesInvokeResponseArray and ArtifactParameterPropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ArtifactParameterPropertiesInvokeResponseArrayInput` via:
+//
+//          ArtifactParameterPropertiesInvokeResponseArray{ ArtifactParameterPropertiesInvokeResponseArgs{...} }
+type ArtifactParameterPropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToArtifactParameterPropertiesInvokeResponseArrayOutput() ArtifactParameterPropertiesInvokeResponseArrayOutput
+	ToArtifactParameterPropertiesInvokeResponseArrayOutputWithContext(context.Context) ArtifactParameterPropertiesInvokeResponseArrayOutput
+}
+
+type ArtifactParameterPropertiesInvokeResponseArray []ArtifactParameterPropertiesInvokeResponseInput
+
+func (ArtifactParameterPropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArtifactParameterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ArtifactParameterPropertiesInvokeResponseArray) ToArtifactParameterPropertiesInvokeResponseArrayOutput() ArtifactParameterPropertiesInvokeResponseArrayOutput {
+	return i.ToArtifactParameterPropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ArtifactParameterPropertiesInvokeResponseArray) ToArtifactParameterPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) ArtifactParameterPropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactParameterPropertiesInvokeResponseArrayOutput)
+}
+
+// Properties of an artifact parameter.
+type ArtifactParameterPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ArtifactParameterPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactParameterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ArtifactParameterPropertiesInvokeResponseOutput) ToArtifactParameterPropertiesInvokeResponseOutput() ArtifactParameterPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ArtifactParameterPropertiesInvokeResponseOutput) ToArtifactParameterPropertiesInvokeResponseOutputWithContext(ctx context.Context) ArtifactParameterPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The name of the artifact parameter.
+func (o ArtifactParameterPropertiesInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactParameterPropertiesInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of the artifact parameter.
+func (o ArtifactParameterPropertiesInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArtifactParameterPropertiesInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ArtifactParameterPropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ArtifactParameterPropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ArtifactParameterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ArtifactParameterPropertiesInvokeResponseArrayOutput) ToArtifactParameterPropertiesInvokeResponseArrayOutput() ArtifactParameterPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ArtifactParameterPropertiesInvokeResponseArrayOutput) ToArtifactParameterPropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) ArtifactParameterPropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ArtifactParameterPropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) ArtifactParameterPropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ArtifactParameterPropertiesInvokeResponse {
+		return vs[0].([]ArtifactParameterPropertiesInvokeResponse)[vs[1].(int)]
+	}).(ArtifactParameterPropertiesInvokeResponseOutput)
 }
 
 // Properties of an artifact parameter.
@@ -943,6 +1337,70 @@ func (o CustomImagePropertiesCustomPtrOutput) SysPrep() pulumi.BoolPtrOutput {
 		}
 		return v.SysPrep
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Properties for creating a custom image from a VHD.
+type CustomImagePropertiesCustomInvokeResponse struct {
+	// The image name.
+	ImageName *string `pulumi:"imageName"`
+	// Indicates whether sysprep has been run on the VHD.
+	SysPrep *bool `pulumi:"sysPrep"`
+}
+
+// CustomImagePropertiesCustomInvokeResponseInput is an input type that accepts CustomImagePropertiesCustomInvokeResponseArgs and CustomImagePropertiesCustomInvokeResponseOutput values.
+// You can construct a concrete instance of `CustomImagePropertiesCustomInvokeResponseInput` via:
+//
+//          CustomImagePropertiesCustomInvokeResponseArgs{...}
+type CustomImagePropertiesCustomInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCustomImagePropertiesCustomInvokeResponseOutput() CustomImagePropertiesCustomInvokeResponseOutput
+	ToCustomImagePropertiesCustomInvokeResponseOutputWithContext(context.Context) CustomImagePropertiesCustomInvokeResponseOutput
+}
+
+// Properties for creating a custom image from a VHD.
+type CustomImagePropertiesCustomInvokeResponseArgs struct {
+	// The image name.
+	ImageName pulumi.StringPtrInput `pulumi:"imageName"`
+	// Indicates whether sysprep has been run on the VHD.
+	SysPrep pulumi.BoolPtrInput `pulumi:"sysPrep"`
+}
+
+func (CustomImagePropertiesCustomInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImagePropertiesCustomInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomImagePropertiesCustomInvokeResponseArgs) ToCustomImagePropertiesCustomInvokeResponseOutput() CustomImagePropertiesCustomInvokeResponseOutput {
+	return i.ToCustomImagePropertiesCustomInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CustomImagePropertiesCustomInvokeResponseArgs) ToCustomImagePropertiesCustomInvokeResponseOutputWithContext(ctx context.Context) CustomImagePropertiesCustomInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomImagePropertiesCustomInvokeResponseOutput)
+}
+
+// Properties for creating a custom image from a VHD.
+type CustomImagePropertiesCustomInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomImagePropertiesCustomInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImagePropertiesCustomInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomImagePropertiesCustomInvokeResponseOutput) ToCustomImagePropertiesCustomInvokeResponseOutput() CustomImagePropertiesCustomInvokeResponseOutput {
+	return o
+}
+
+func (o CustomImagePropertiesCustomInvokeResponseOutput) ToCustomImagePropertiesCustomInvokeResponseOutputWithContext(ctx context.Context) CustomImagePropertiesCustomInvokeResponseOutput {
+	return o
+}
+
+// The image name.
+func (o CustomImagePropertiesCustomInvokeResponseOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomImagePropertiesCustomInvokeResponse) *string { return v.ImageName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether sysprep has been run on the VHD.
+func (o CustomImagePropertiesCustomInvokeResponseOutput) SysPrep() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomImagePropertiesCustomInvokeResponse) *bool { return v.SysPrep }).(pulumi.BoolPtrOutput)
 }
 
 // Properties for creating a custom image from a VHD.
@@ -1290,6 +1748,88 @@ func (o CustomImagePropertiesFromVmPtrOutput) WindowsOsInfo() WindowsOsInfoPtrOu
 }
 
 // Properties for creating a custom image from a virtual machine.
+type CustomImagePropertiesFromVmInvokeResponse struct {
+	// The Linux OS information of the VM.
+	LinuxOsInfo *LinuxOsInfoInvokeResponse `pulumi:"linuxOsInfo"`
+	// The source vm identifier.
+	SourceVmId *string `pulumi:"sourceVmId"`
+	// Indicates whether sysprep has been run on the VHD.
+	SysPrep *bool `pulumi:"sysPrep"`
+	// The Windows OS information of the VM.
+	WindowsOsInfo *WindowsOsInfoInvokeResponse `pulumi:"windowsOsInfo"`
+}
+
+// CustomImagePropertiesFromVmInvokeResponseInput is an input type that accepts CustomImagePropertiesFromVmInvokeResponseArgs and CustomImagePropertiesFromVmInvokeResponseOutput values.
+// You can construct a concrete instance of `CustomImagePropertiesFromVmInvokeResponseInput` via:
+//
+//          CustomImagePropertiesFromVmInvokeResponseArgs{...}
+type CustomImagePropertiesFromVmInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCustomImagePropertiesFromVmInvokeResponseOutput() CustomImagePropertiesFromVmInvokeResponseOutput
+	ToCustomImagePropertiesFromVmInvokeResponseOutputWithContext(context.Context) CustomImagePropertiesFromVmInvokeResponseOutput
+}
+
+// Properties for creating a custom image from a virtual machine.
+type CustomImagePropertiesFromVmInvokeResponseArgs struct {
+	// The Linux OS information of the VM.
+	LinuxOsInfo LinuxOsInfoInvokeResponsePtrInput `pulumi:"linuxOsInfo"`
+	// The source vm identifier.
+	SourceVmId pulumi.StringPtrInput `pulumi:"sourceVmId"`
+	// Indicates whether sysprep has been run on the VHD.
+	SysPrep pulumi.BoolPtrInput `pulumi:"sysPrep"`
+	// The Windows OS information of the VM.
+	WindowsOsInfo WindowsOsInfoInvokeResponsePtrInput `pulumi:"windowsOsInfo"`
+}
+
+func (CustomImagePropertiesFromVmInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImagePropertiesFromVmInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomImagePropertiesFromVmInvokeResponseArgs) ToCustomImagePropertiesFromVmInvokeResponseOutput() CustomImagePropertiesFromVmInvokeResponseOutput {
+	return i.ToCustomImagePropertiesFromVmInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CustomImagePropertiesFromVmInvokeResponseArgs) ToCustomImagePropertiesFromVmInvokeResponseOutputWithContext(ctx context.Context) CustomImagePropertiesFromVmInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomImagePropertiesFromVmInvokeResponseOutput)
+}
+
+// Properties for creating a custom image from a virtual machine.
+type CustomImagePropertiesFromVmInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomImagePropertiesFromVmInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImagePropertiesFromVmInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomImagePropertiesFromVmInvokeResponseOutput) ToCustomImagePropertiesFromVmInvokeResponseOutput() CustomImagePropertiesFromVmInvokeResponseOutput {
+	return o
+}
+
+func (o CustomImagePropertiesFromVmInvokeResponseOutput) ToCustomImagePropertiesFromVmInvokeResponseOutputWithContext(ctx context.Context) CustomImagePropertiesFromVmInvokeResponseOutput {
+	return o
+}
+
+// The Linux OS information of the VM.
+func (o CustomImagePropertiesFromVmInvokeResponseOutput) LinuxOsInfo() LinuxOsInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CustomImagePropertiesFromVmInvokeResponse) *LinuxOsInfoInvokeResponse { return v.LinuxOsInfo }).(LinuxOsInfoInvokeResponsePtrOutput)
+}
+
+// The source vm identifier.
+func (o CustomImagePropertiesFromVmInvokeResponseOutput) SourceVmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomImagePropertiesFromVmInvokeResponse) *string { return v.SourceVmId }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether sysprep has been run on the VHD.
+func (o CustomImagePropertiesFromVmInvokeResponseOutput) SysPrep() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomImagePropertiesFromVmInvokeResponse) *bool { return v.SysPrep }).(pulumi.BoolPtrOutput)
+}
+
+// The Windows OS information of the VM.
+func (o CustomImagePropertiesFromVmInvokeResponseOutput) WindowsOsInfo() WindowsOsInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CustomImagePropertiesFromVmInvokeResponse) *WindowsOsInfoInvokeResponse { return v.WindowsOsInfo }).(WindowsOsInfoInvokeResponsePtrOutput)
+}
+
+// Properties for creating a custom image from a virtual machine.
 type CustomImagePropertiesFromVmResponse struct {
 	// The Linux OS information of the VM.
 	LinuxOsInfo *LinuxOsInfoResponse `pulumi:"linuxOsInfo"`
@@ -1610,6 +2150,58 @@ func (o DayDetailsPtrOutput) Time() pulumi.StringPtrOutput {
 }
 
 // Properties of a daily schedule.
+type DayDetailsInvokeResponse struct {
+	Time *string `pulumi:"time"`
+}
+
+// DayDetailsInvokeResponseInput is an input type that accepts DayDetailsInvokeResponseArgs and DayDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `DayDetailsInvokeResponseInput` via:
+//
+//          DayDetailsInvokeResponseArgs{...}
+type DayDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDayDetailsInvokeResponseOutput() DayDetailsInvokeResponseOutput
+	ToDayDetailsInvokeResponseOutputWithContext(context.Context) DayDetailsInvokeResponseOutput
+}
+
+// Properties of a daily schedule.
+type DayDetailsInvokeResponseArgs struct {
+	Time pulumi.StringPtrInput `pulumi:"time"`
+}
+
+func (DayDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DayDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DayDetailsInvokeResponseArgs) ToDayDetailsInvokeResponseOutput() DayDetailsInvokeResponseOutput {
+	return i.ToDayDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DayDetailsInvokeResponseArgs) ToDayDetailsInvokeResponseOutputWithContext(ctx context.Context) DayDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayDetailsInvokeResponseOutput)
+}
+
+// Properties of a daily schedule.
+type DayDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DayDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DayDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DayDetailsInvokeResponseOutput) ToDayDetailsInvokeResponseOutput() DayDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o DayDetailsInvokeResponseOutput) ToDayDetailsInvokeResponseOutputWithContext(ctx context.Context) DayDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o DayDetailsInvokeResponseOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DayDetailsInvokeResponse) *string { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+// Properties of a daily schedule.
 type DayDetailsResponse struct {
 	Time *string `pulumi:"time"`
 }
@@ -1870,6 +2462,61 @@ func (o FormulaPropertiesFromVmPtrOutput) LabVmId() pulumi.StringPtrOutput {
 		}
 		return v.LabVmId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Information about a VM from which a formula is to be created.
+type FormulaPropertiesFromVmInvokeResponse struct {
+	// The identifier of the VM from which a formula is to be created.
+	LabVmId *string `pulumi:"labVmId"`
+}
+
+// FormulaPropertiesFromVmInvokeResponseInput is an input type that accepts FormulaPropertiesFromVmInvokeResponseArgs and FormulaPropertiesFromVmInvokeResponseOutput values.
+// You can construct a concrete instance of `FormulaPropertiesFromVmInvokeResponseInput` via:
+//
+//          FormulaPropertiesFromVmInvokeResponseArgs{...}
+type FormulaPropertiesFromVmInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFormulaPropertiesFromVmInvokeResponseOutput() FormulaPropertiesFromVmInvokeResponseOutput
+	ToFormulaPropertiesFromVmInvokeResponseOutputWithContext(context.Context) FormulaPropertiesFromVmInvokeResponseOutput
+}
+
+// Information about a VM from which a formula is to be created.
+type FormulaPropertiesFromVmInvokeResponseArgs struct {
+	// The identifier of the VM from which a formula is to be created.
+	LabVmId pulumi.StringPtrInput `pulumi:"labVmId"`
+}
+
+func (FormulaPropertiesFromVmInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormulaPropertiesFromVmInvokeResponse)(nil)).Elem()
+}
+
+func (i FormulaPropertiesFromVmInvokeResponseArgs) ToFormulaPropertiesFromVmInvokeResponseOutput() FormulaPropertiesFromVmInvokeResponseOutput {
+	return i.ToFormulaPropertiesFromVmInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FormulaPropertiesFromVmInvokeResponseArgs) ToFormulaPropertiesFromVmInvokeResponseOutputWithContext(ctx context.Context) FormulaPropertiesFromVmInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FormulaPropertiesFromVmInvokeResponseOutput)
+}
+
+// Information about a VM from which a formula is to be created.
+type FormulaPropertiesFromVmInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FormulaPropertiesFromVmInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormulaPropertiesFromVmInvokeResponse)(nil)).Elem()
+}
+
+func (o FormulaPropertiesFromVmInvokeResponseOutput) ToFormulaPropertiesFromVmInvokeResponseOutput() FormulaPropertiesFromVmInvokeResponseOutput {
+	return o
+}
+
+func (o FormulaPropertiesFromVmInvokeResponseOutput) ToFormulaPropertiesFromVmInvokeResponseOutputWithContext(ctx context.Context) FormulaPropertiesFromVmInvokeResponseOutput {
+	return o
+}
+
+// The identifier of the VM from which a formula is to be created.
+func (o FormulaPropertiesFromVmInvokeResponseOutput) LabVmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FormulaPropertiesFromVmInvokeResponse) *string { return v.LabVmId }).(pulumi.StringPtrOutput)
 }
 
 // Information about a VM from which a formula is to be created.
@@ -2209,6 +2856,216 @@ func (o GalleryImageReferencePtrOutput) Sku() pulumi.StringPtrOutput {
 // The version of the gallery image.
 func (o GalleryImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GalleryImageReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// The reference information for an Azure Marketplace image.
+type GalleryImageReferenceInvokeResponse struct {
+	// The offer of the gallery image.
+	Offer *string `pulumi:"offer"`
+	// The OS type of the gallery image.
+	OsType *string `pulumi:"osType"`
+	// The publisher of the gallery image.
+	Publisher *string `pulumi:"publisher"`
+	// The SKU of the gallery image.
+	Sku *string `pulumi:"sku"`
+	// The version of the gallery image.
+	Version *string `pulumi:"version"`
+}
+
+// GalleryImageReferenceInvokeResponseInput is an input type that accepts GalleryImageReferenceInvokeResponseArgs and GalleryImageReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `GalleryImageReferenceInvokeResponseInput` via:
+//
+//          GalleryImageReferenceInvokeResponseArgs{...}
+type GalleryImageReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGalleryImageReferenceInvokeResponseOutput() GalleryImageReferenceInvokeResponseOutput
+	ToGalleryImageReferenceInvokeResponseOutputWithContext(context.Context) GalleryImageReferenceInvokeResponseOutput
+}
+
+// The reference information for an Azure Marketplace image.
+type GalleryImageReferenceInvokeResponseArgs struct {
+	// The offer of the gallery image.
+	Offer pulumi.StringPtrInput `pulumi:"offer"`
+	// The OS type of the gallery image.
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// The publisher of the gallery image.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// The SKU of the gallery image.
+	Sku pulumi.StringPtrInput `pulumi:"sku"`
+	// The version of the gallery image.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (GalleryImageReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i GalleryImageReferenceInvokeResponseArgs) ToGalleryImageReferenceInvokeResponseOutput() GalleryImageReferenceInvokeResponseOutput {
+	return i.ToGalleryImageReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GalleryImageReferenceInvokeResponseArgs) ToGalleryImageReferenceInvokeResponseOutputWithContext(ctx context.Context) GalleryImageReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageReferenceInvokeResponseOutput)
+}
+
+func (i GalleryImageReferenceInvokeResponseArgs) ToGalleryImageReferenceInvokeResponsePtrOutput() GalleryImageReferenceInvokeResponsePtrOutput {
+	return i.ToGalleryImageReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GalleryImageReferenceInvokeResponseArgs) ToGalleryImageReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryImageReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageReferenceInvokeResponseOutput).ToGalleryImageReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// GalleryImageReferenceInvokeResponsePtrInput is an input type that accepts GalleryImageReferenceInvokeResponseArgs, GalleryImageReferenceInvokeResponsePtr and GalleryImageReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `GalleryImageReferenceInvokeResponsePtrInput` via:
+//
+//          GalleryImageReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GalleryImageReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToGalleryImageReferenceInvokeResponsePtrOutput() GalleryImageReferenceInvokeResponsePtrOutput
+	ToGalleryImageReferenceInvokeResponsePtrOutputWithContext(context.Context) GalleryImageReferenceInvokeResponsePtrOutput
+}
+
+type galleryImageReferenceInvokeResponsePtrType GalleryImageReferenceInvokeResponseArgs
+
+func GalleryImageReferenceInvokeResponsePtr(v *GalleryImageReferenceInvokeResponseArgs) GalleryImageReferenceInvokeResponsePtrInput {
+	return (*galleryImageReferenceInvokeResponsePtrType)(v)
+}
+
+func (*galleryImageReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GalleryImageReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *galleryImageReferenceInvokeResponsePtrType) ToGalleryImageReferenceInvokeResponsePtrOutput() GalleryImageReferenceInvokeResponsePtrOutput {
+	return i.ToGalleryImageReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *galleryImageReferenceInvokeResponsePtrType) ToGalleryImageReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryImageReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageReferenceInvokeResponsePtrOutput)
+}
+
+// The reference information for an Azure Marketplace image.
+type GalleryImageReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GalleryImageReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryImageReferenceInvokeResponseOutput) ToGalleryImageReferenceInvokeResponseOutput() GalleryImageReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryImageReferenceInvokeResponseOutput) ToGalleryImageReferenceInvokeResponseOutputWithContext(ctx context.Context) GalleryImageReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o GalleryImageReferenceInvokeResponseOutput) ToGalleryImageReferenceInvokeResponsePtrOutput() GalleryImageReferenceInvokeResponsePtrOutput {
+	return o.ToGalleryImageReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GalleryImageReferenceInvokeResponseOutput) ToGalleryImageReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryImageReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GalleryImageReferenceInvokeResponse) *GalleryImageReferenceInvokeResponse {
+		return &v
+	}).(GalleryImageReferenceInvokeResponsePtrOutput)
+}
+
+// The offer of the gallery image.
+func (o GalleryImageReferenceInvokeResponseOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageReferenceInvokeResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
+}
+
+// The OS type of the gallery image.
+func (o GalleryImageReferenceInvokeResponseOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageReferenceInvokeResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the gallery image.
+func (o GalleryImageReferenceInvokeResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageReferenceInvokeResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// The SKU of the gallery image.
+func (o GalleryImageReferenceInvokeResponseOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageReferenceInvokeResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// The version of the gallery image.
+func (o GalleryImageReferenceInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GalleryImageReferenceInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type GalleryImageReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GalleryImageReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GalleryImageReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o GalleryImageReferenceInvokeResponsePtrOutput) ToGalleryImageReferenceInvokeResponsePtrOutput() GalleryImageReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GalleryImageReferenceInvokeResponsePtrOutput) ToGalleryImageReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) GalleryImageReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GalleryImageReferenceInvokeResponsePtrOutput) Elem() GalleryImageReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *GalleryImageReferenceInvokeResponse) GalleryImageReferenceInvokeResponse { return *v }).(GalleryImageReferenceInvokeResponseOutput)
+}
+
+// The offer of the gallery image.
+func (o GalleryImageReferenceInvokeResponsePtrOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImageReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Offer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OS type of the gallery image.
+func (o GalleryImageReferenceInvokeResponsePtrOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImageReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OsType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the gallery image.
+func (o GalleryImageReferenceInvokeResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImageReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SKU of the gallery image.
+func (o GalleryImageReferenceInvokeResponsePtrOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImageReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sku
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the gallery image.
+func (o GalleryImageReferenceInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImageReferenceInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2561,6 +3418,61 @@ func (o HourDetailsPtrOutput) Minute() pulumi.IntPtrOutput {
 }
 
 // Properties of an hourly schedule.
+type HourDetailsInvokeResponse struct {
+	// Minutes of the hour the schedule will run.
+	Minute *int `pulumi:"minute"`
+}
+
+// HourDetailsInvokeResponseInput is an input type that accepts HourDetailsInvokeResponseArgs and HourDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `HourDetailsInvokeResponseInput` via:
+//
+//          HourDetailsInvokeResponseArgs{...}
+type HourDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHourDetailsInvokeResponseOutput() HourDetailsInvokeResponseOutput
+	ToHourDetailsInvokeResponseOutputWithContext(context.Context) HourDetailsInvokeResponseOutput
+}
+
+// Properties of an hourly schedule.
+type HourDetailsInvokeResponseArgs struct {
+	// Minutes of the hour the schedule will run.
+	Minute pulumi.IntPtrInput `pulumi:"minute"`
+}
+
+func (HourDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HourDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i HourDetailsInvokeResponseArgs) ToHourDetailsInvokeResponseOutput() HourDetailsInvokeResponseOutput {
+	return i.ToHourDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HourDetailsInvokeResponseArgs) ToHourDetailsInvokeResponseOutputWithContext(ctx context.Context) HourDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HourDetailsInvokeResponseOutput)
+}
+
+// Properties of an hourly schedule.
+type HourDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HourDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HourDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o HourDetailsInvokeResponseOutput) ToHourDetailsInvokeResponseOutput() HourDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o HourDetailsInvokeResponseOutput) ToHourDetailsInvokeResponseOutputWithContext(ctx context.Context) HourDetailsInvokeResponseOutput {
+	return o
+}
+
+// Minutes of the hour the schedule will run.
+func (o HourDetailsInvokeResponseOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HourDetailsInvokeResponse) *int { return v.Minute }).(pulumi.IntPtrOutput)
+}
+
+// Properties of an hourly schedule.
 type HourDetailsResponse struct {
 	// Minutes of the hour the schedule will run.
 	Minute *int `pulumi:"minute"`
@@ -2695,103 +3607,103 @@ func (o HourDetailsResponsePtrOutput) Minute() pulumi.IntPtrOutput {
 }
 
 // Properties of a VHD in the lab.
-type LabVhdResponse struct {
+type LabVhdInvokeResponse struct {
 	// The absolute URI of the VHD.
 	Id *string `pulumi:"id"`
 }
 
-// LabVhdResponseInput is an input type that accepts LabVhdResponseArgs and LabVhdResponseOutput values.
-// You can construct a concrete instance of `LabVhdResponseInput` via:
+// LabVhdInvokeResponseInput is an input type that accepts LabVhdInvokeResponseArgs and LabVhdInvokeResponseOutput values.
+// You can construct a concrete instance of `LabVhdInvokeResponseInput` via:
 //
-//          LabVhdResponseArgs{...}
-type LabVhdResponseInput interface {
+//          LabVhdInvokeResponseArgs{...}
+type LabVhdInvokeResponseInput interface {
 	pulumi.Input
 
-	ToLabVhdResponseOutput() LabVhdResponseOutput
-	ToLabVhdResponseOutputWithContext(context.Context) LabVhdResponseOutput
+	ToLabVhdInvokeResponseOutput() LabVhdInvokeResponseOutput
+	ToLabVhdInvokeResponseOutputWithContext(context.Context) LabVhdInvokeResponseOutput
 }
 
 // Properties of a VHD in the lab.
-type LabVhdResponseArgs struct {
+type LabVhdInvokeResponseArgs struct {
 	// The absolute URI of the VHD.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (LabVhdResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVhdResponse)(nil)).Elem()
+func (LabVhdInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVhdInvokeResponse)(nil)).Elem()
 }
 
-func (i LabVhdResponseArgs) ToLabVhdResponseOutput() LabVhdResponseOutput {
-	return i.ToLabVhdResponseOutputWithContext(context.Background())
+func (i LabVhdInvokeResponseArgs) ToLabVhdInvokeResponseOutput() LabVhdInvokeResponseOutput {
+	return i.ToLabVhdInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i LabVhdResponseArgs) ToLabVhdResponseOutputWithContext(ctx context.Context) LabVhdResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVhdResponseOutput)
+func (i LabVhdInvokeResponseArgs) ToLabVhdInvokeResponseOutputWithContext(ctx context.Context) LabVhdInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVhdInvokeResponseOutput)
 }
 
-// LabVhdResponseArrayInput is an input type that accepts LabVhdResponseArray and LabVhdResponseArrayOutput values.
-// You can construct a concrete instance of `LabVhdResponseArrayInput` via:
+// LabVhdInvokeResponseArrayInput is an input type that accepts LabVhdInvokeResponseArray and LabVhdInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LabVhdInvokeResponseArrayInput` via:
 //
-//          LabVhdResponseArray{ LabVhdResponseArgs{...} }
-type LabVhdResponseArrayInput interface {
+//          LabVhdInvokeResponseArray{ LabVhdInvokeResponseArgs{...} }
+type LabVhdInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToLabVhdResponseArrayOutput() LabVhdResponseArrayOutput
-	ToLabVhdResponseArrayOutputWithContext(context.Context) LabVhdResponseArrayOutput
+	ToLabVhdInvokeResponseArrayOutput() LabVhdInvokeResponseArrayOutput
+	ToLabVhdInvokeResponseArrayOutputWithContext(context.Context) LabVhdInvokeResponseArrayOutput
 }
 
-type LabVhdResponseArray []LabVhdResponseInput
+type LabVhdInvokeResponseArray []LabVhdInvokeResponseInput
 
-func (LabVhdResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LabVhdResponse)(nil)).Elem()
+func (LabVhdInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabVhdInvokeResponse)(nil)).Elem()
 }
 
-func (i LabVhdResponseArray) ToLabVhdResponseArrayOutput() LabVhdResponseArrayOutput {
-	return i.ToLabVhdResponseArrayOutputWithContext(context.Background())
+func (i LabVhdInvokeResponseArray) ToLabVhdInvokeResponseArrayOutput() LabVhdInvokeResponseArrayOutput {
+	return i.ToLabVhdInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i LabVhdResponseArray) ToLabVhdResponseArrayOutputWithContext(ctx context.Context) LabVhdResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVhdResponseArrayOutput)
+func (i LabVhdInvokeResponseArray) ToLabVhdInvokeResponseArrayOutputWithContext(ctx context.Context) LabVhdInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVhdInvokeResponseArrayOutput)
 }
 
 // Properties of a VHD in the lab.
-type LabVhdResponseOutput struct{ *pulumi.OutputState }
+type LabVhdInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (LabVhdResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVhdResponse)(nil)).Elem()
+func (LabVhdInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVhdInvokeResponse)(nil)).Elem()
 }
 
-func (o LabVhdResponseOutput) ToLabVhdResponseOutput() LabVhdResponseOutput {
+func (o LabVhdInvokeResponseOutput) ToLabVhdInvokeResponseOutput() LabVhdInvokeResponseOutput {
 	return o
 }
 
-func (o LabVhdResponseOutput) ToLabVhdResponseOutputWithContext(ctx context.Context) LabVhdResponseOutput {
+func (o LabVhdInvokeResponseOutput) ToLabVhdInvokeResponseOutputWithContext(ctx context.Context) LabVhdInvokeResponseOutput {
 	return o
 }
 
 // The absolute URI of the VHD.
-func (o LabVhdResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVhdResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LabVhdInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVhdInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-type LabVhdResponseArrayOutput struct{ *pulumi.OutputState }
+type LabVhdInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (LabVhdResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LabVhdResponse)(nil)).Elem()
+func (LabVhdInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabVhdInvokeResponse)(nil)).Elem()
 }
 
-func (o LabVhdResponseArrayOutput) ToLabVhdResponseArrayOutput() LabVhdResponseArrayOutput {
+func (o LabVhdInvokeResponseArrayOutput) ToLabVhdInvokeResponseArrayOutput() LabVhdInvokeResponseArrayOutput {
 	return o
 }
 
-func (o LabVhdResponseArrayOutput) ToLabVhdResponseArrayOutputWithContext(ctx context.Context) LabVhdResponseArrayOutput {
+func (o LabVhdInvokeResponseArrayOutput) ToLabVhdInvokeResponseArrayOutputWithContext(ctx context.Context) LabVhdInvokeResponseArrayOutput {
 	return o
 }
 
-func (o LabVhdResponseArrayOutput) Index(i pulumi.IntInput) LabVhdResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabVhdResponse {
-		return vs[0].([]LabVhdResponse)[vs[1].(int)]
-	}).(LabVhdResponseOutput)
+func (o LabVhdInvokeResponseArrayOutput) Index(i pulumi.IntInput) LabVhdInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabVhdInvokeResponse {
+		return vs[0].([]LabVhdInvokeResponse)[vs[1].(int)]
+	}).(LabVhdInvokeResponseOutput)
 }
 
 // A virtual machine.
@@ -3382,6 +4294,281 @@ func (o LabVirtualMachinePtrOutput) UserName() pulumi.StringPtrOutput {
 		}
 		return v.UserName
 	}).(pulumi.StringPtrOutput)
+}
+
+// A virtual machine.
+type LabVirtualMachineInvokeResponse struct {
+	// The artifact deployment status for the virtual machine.
+	ArtifactDeploymentStatus *ArtifactDeploymentStatusPropertiesInvokeResponse `pulumi:"artifactDeploymentStatus"`
+	// The artifacts to be installed on the virtual machine.
+	Artifacts []ArtifactInstallPropertiesInvokeResponse `pulumi:"artifacts"`
+	// The resource identifier (Microsoft.Compute) of the virtual machine.
+	ComputeId *string `pulumi:"computeId"`
+	// The email address of creator of the virtual machine.
+	CreatedByUser *string `pulumi:"createdByUser"`
+	// The object identifier of the creator of the virtual machine.
+	CreatedByUserId *string `pulumi:"createdByUserId"`
+	// The custom image identifier of the virtual machine.
+	CustomImageId *string `pulumi:"customImageId"`
+	// Indicates whether the virtual machine is to be created without a public IP address.
+	DisallowPublicIpAddress *bool `pulumi:"disallowPublicIpAddress"`
+	// The fully-qualified domain name of the virtual machine.
+	Fqdn *string `pulumi:"fqdn"`
+	// The Microsoft Azure Marketplace image reference of the virtual machine.
+	GalleryImageReference *GalleryImageReferenceInvokeResponse `pulumi:"galleryImageReference"`
+	// The identifier of the resource.
+	Id *string `pulumi:"id"`
+	// A value indicating whether this virtual machine uses an SSH key for authentication.
+	IsAuthenticationWithSshKey *bool `pulumi:"isAuthenticationWithSshKey"`
+	// The lab subnet name of the virtual machine.
+	LabSubnetName *string `pulumi:"labSubnetName"`
+	// The lab virtual network identifier of the virtual machine.
+	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The notes of the virtual machine.
+	Notes *string `pulumi:"notes"`
+	// The OS type of the virtual machine.
+	OsType *string `pulumi:"osType"`
+	// The object identifier of the owner of the virtual machine.
+	OwnerObjectId *string `pulumi:"ownerObjectId"`
+	// The password of the virtual machine administrator.
+	Password *string `pulumi:"password"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The size of the virtual machine.
+	Size *string `pulumi:"size"`
+	// The SSH key of the virtual machine administrator.
+	SshKey *string `pulumi:"sshKey"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
+	// The user name of the virtual machine.
+	UserName *string `pulumi:"userName"`
+}
+
+// LabVirtualMachineInvokeResponseInput is an input type that accepts LabVirtualMachineInvokeResponseArgs and LabVirtualMachineInvokeResponseOutput values.
+// You can construct a concrete instance of `LabVirtualMachineInvokeResponseInput` via:
+//
+//          LabVirtualMachineInvokeResponseArgs{...}
+type LabVirtualMachineInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLabVirtualMachineInvokeResponseOutput() LabVirtualMachineInvokeResponseOutput
+	ToLabVirtualMachineInvokeResponseOutputWithContext(context.Context) LabVirtualMachineInvokeResponseOutput
+}
+
+// A virtual machine.
+type LabVirtualMachineInvokeResponseArgs struct {
+	// The artifact deployment status for the virtual machine.
+	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesInvokeResponsePtrInput `pulumi:"artifactDeploymentStatus"`
+	// The artifacts to be installed on the virtual machine.
+	Artifacts ArtifactInstallPropertiesInvokeResponseArrayInput `pulumi:"artifacts"`
+	// The resource identifier (Microsoft.Compute) of the virtual machine.
+	ComputeId pulumi.StringPtrInput `pulumi:"computeId"`
+	// The email address of creator of the virtual machine.
+	CreatedByUser pulumi.StringPtrInput `pulumi:"createdByUser"`
+	// The object identifier of the creator of the virtual machine.
+	CreatedByUserId pulumi.StringPtrInput `pulumi:"createdByUserId"`
+	// The custom image identifier of the virtual machine.
+	CustomImageId pulumi.StringPtrInput `pulumi:"customImageId"`
+	// Indicates whether the virtual machine is to be created without a public IP address.
+	DisallowPublicIpAddress pulumi.BoolPtrInput `pulumi:"disallowPublicIpAddress"`
+	// The fully-qualified domain name of the virtual machine.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// The Microsoft Azure Marketplace image reference of the virtual machine.
+	GalleryImageReference GalleryImageReferenceInvokeResponsePtrInput `pulumi:"galleryImageReference"`
+	// The identifier of the resource.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A value indicating whether this virtual machine uses an SSH key for authentication.
+	IsAuthenticationWithSshKey pulumi.BoolPtrInput `pulumi:"isAuthenticationWithSshKey"`
+	// The lab subnet name of the virtual machine.
+	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
+	// The lab virtual network identifier of the virtual machine.
+	LabVirtualNetworkId pulumi.StringPtrInput `pulumi:"labVirtualNetworkId"`
+	// The location of the resource.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the resource.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The notes of the virtual machine.
+	Notes pulumi.StringPtrInput `pulumi:"notes"`
+	// The OS type of the virtual machine.
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// The object identifier of the owner of the virtual machine.
+	OwnerObjectId pulumi.StringPtrInput `pulumi:"ownerObjectId"`
+	// The password of the virtual machine administrator.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// The size of the virtual machine.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The SSH key of the virtual machine administrator.
+	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The type of the resource.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The user name of the virtual machine.
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (LabVirtualMachineInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachineInvokeResponse)(nil)).Elem()
+}
+
+func (i LabVirtualMachineInvokeResponseArgs) ToLabVirtualMachineInvokeResponseOutput() LabVirtualMachineInvokeResponseOutput {
+	return i.ToLabVirtualMachineInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LabVirtualMachineInvokeResponseArgs) ToLabVirtualMachineInvokeResponseOutputWithContext(ctx context.Context) LabVirtualMachineInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineInvokeResponseOutput)
+}
+
+// A virtual machine.
+type LabVirtualMachineInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LabVirtualMachineInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabVirtualMachineInvokeResponse)(nil)).Elem()
+}
+
+func (o LabVirtualMachineInvokeResponseOutput) ToLabVirtualMachineInvokeResponseOutput() LabVirtualMachineInvokeResponseOutput {
+	return o
+}
+
+func (o LabVirtualMachineInvokeResponseOutput) ToLabVirtualMachineInvokeResponseOutputWithContext(ctx context.Context) LabVirtualMachineInvokeResponseOutput {
+	return o
+}
+
+// The artifact deployment status for the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *ArtifactDeploymentStatusPropertiesInvokeResponse {
+		return v.ArtifactDeploymentStatus
+	}).(ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput)
+}
+
+// The artifacts to be installed on the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) Artifacts() ArtifactInstallPropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) []ArtifactInstallPropertiesInvokeResponse { return v.Artifacts }).(ArtifactInstallPropertiesInvokeResponseArrayOutput)
+}
+
+// The resource identifier (Microsoft.Compute) of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) ComputeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.ComputeId }).(pulumi.StringPtrOutput)
+}
+
+// The email address of creator of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) CreatedByUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.CreatedByUser }).(pulumi.StringPtrOutput)
+}
+
+// The object identifier of the creator of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) CreatedByUserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.CreatedByUserId }).(pulumi.StringPtrOutput)
+}
+
+// The custom image identifier of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) CustomImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.CustomImageId }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the virtual machine is to be created without a public IP address.
+func (o LabVirtualMachineInvokeResponseOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *bool { return v.DisallowPublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+// The fully-qualified domain name of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft Azure Marketplace image reference of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) GalleryImageReference() GalleryImageReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *GalleryImageReferenceInvokeResponse {
+		return v.GalleryImageReference
+	}).(GalleryImageReferenceInvokeResponsePtrOutput)
+}
+
+// The identifier of the resource.
+func (o LabVirtualMachineInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A value indicating whether this virtual machine uses an SSH key for authentication.
+func (o LabVirtualMachineInvokeResponseOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *bool { return v.IsAuthenticationWithSshKey }).(pulumi.BoolPtrOutput)
+}
+
+// The lab subnet name of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) LabSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// The lab virtual network identifier of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.LabVirtualNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o LabVirtualMachineInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LabVirtualMachineInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The notes of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The OS type of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The object identifier of the owner of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) OwnerObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.OwnerObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The password of the virtual machine administrator.
+func (o LabVirtualMachineInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LabVirtualMachineInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The size of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The SSH key of the virtual machine administrator.
+func (o LabVirtualMachineInvokeResponseOutput) SshKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.SshKey }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LabVirtualMachineInvokeResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LabVirtualMachineInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The user name of the virtual machine.
+func (o LabVirtualMachineInvokeResponseOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineInvokeResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 // A virtual machine.
@@ -4111,6 +5298,140 @@ func (o LinuxOsInfoPtrOutput) LinuxOsState() pulumi.StringPtrOutput {
 }
 
 // Information about a Linux OS.
+type LinuxOsInfoInvokeResponse struct {
+	// The state of the Linux OS.
+	LinuxOsState *string `pulumi:"linuxOsState"`
+}
+
+// LinuxOsInfoInvokeResponseInput is an input type that accepts LinuxOsInfoInvokeResponseArgs and LinuxOsInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `LinuxOsInfoInvokeResponseInput` via:
+//
+//          LinuxOsInfoInvokeResponseArgs{...}
+type LinuxOsInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLinuxOsInfoInvokeResponseOutput() LinuxOsInfoInvokeResponseOutput
+	ToLinuxOsInfoInvokeResponseOutputWithContext(context.Context) LinuxOsInfoInvokeResponseOutput
+}
+
+// Information about a Linux OS.
+type LinuxOsInfoInvokeResponseArgs struct {
+	// The state of the Linux OS.
+	LinuxOsState pulumi.StringPtrInput `pulumi:"linuxOsState"`
+}
+
+func (LinuxOsInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxOsInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i LinuxOsInfoInvokeResponseArgs) ToLinuxOsInfoInvokeResponseOutput() LinuxOsInfoInvokeResponseOutput {
+	return i.ToLinuxOsInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LinuxOsInfoInvokeResponseArgs) ToLinuxOsInfoInvokeResponseOutputWithContext(ctx context.Context) LinuxOsInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxOsInfoInvokeResponseOutput)
+}
+
+func (i LinuxOsInfoInvokeResponseArgs) ToLinuxOsInfoInvokeResponsePtrOutput() LinuxOsInfoInvokeResponsePtrOutput {
+	return i.ToLinuxOsInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LinuxOsInfoInvokeResponseArgs) ToLinuxOsInfoInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxOsInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxOsInfoInvokeResponseOutput).ToLinuxOsInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// LinuxOsInfoInvokeResponsePtrInput is an input type that accepts LinuxOsInfoInvokeResponseArgs, LinuxOsInfoInvokeResponsePtr and LinuxOsInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `LinuxOsInfoInvokeResponsePtrInput` via:
+//
+//          LinuxOsInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LinuxOsInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToLinuxOsInfoInvokeResponsePtrOutput() LinuxOsInfoInvokeResponsePtrOutput
+	ToLinuxOsInfoInvokeResponsePtrOutputWithContext(context.Context) LinuxOsInfoInvokeResponsePtrOutput
+}
+
+type linuxOsInfoInvokeResponsePtrType LinuxOsInfoInvokeResponseArgs
+
+func LinuxOsInfoInvokeResponsePtr(v *LinuxOsInfoInvokeResponseArgs) LinuxOsInfoInvokeResponsePtrInput {
+	return (*linuxOsInfoInvokeResponsePtrType)(v)
+}
+
+func (*linuxOsInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxOsInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *linuxOsInfoInvokeResponsePtrType) ToLinuxOsInfoInvokeResponsePtrOutput() LinuxOsInfoInvokeResponsePtrOutput {
+	return i.ToLinuxOsInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *linuxOsInfoInvokeResponsePtrType) ToLinuxOsInfoInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxOsInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxOsInfoInvokeResponsePtrOutput)
+}
+
+// Information about a Linux OS.
+type LinuxOsInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LinuxOsInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxOsInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o LinuxOsInfoInvokeResponseOutput) ToLinuxOsInfoInvokeResponseOutput() LinuxOsInfoInvokeResponseOutput {
+	return o
+}
+
+func (o LinuxOsInfoInvokeResponseOutput) ToLinuxOsInfoInvokeResponseOutputWithContext(ctx context.Context) LinuxOsInfoInvokeResponseOutput {
+	return o
+}
+
+func (o LinuxOsInfoInvokeResponseOutput) ToLinuxOsInfoInvokeResponsePtrOutput() LinuxOsInfoInvokeResponsePtrOutput {
+	return o.ToLinuxOsInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LinuxOsInfoInvokeResponseOutput) ToLinuxOsInfoInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxOsInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LinuxOsInfoInvokeResponse) *LinuxOsInfoInvokeResponse {
+		return &v
+	}).(LinuxOsInfoInvokeResponsePtrOutput)
+}
+
+// The state of the Linux OS.
+func (o LinuxOsInfoInvokeResponseOutput) LinuxOsState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxOsInfoInvokeResponse) *string { return v.LinuxOsState }).(pulumi.StringPtrOutput)
+}
+
+type LinuxOsInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxOsInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxOsInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o LinuxOsInfoInvokeResponsePtrOutput) ToLinuxOsInfoInvokeResponsePtrOutput() LinuxOsInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LinuxOsInfoInvokeResponsePtrOutput) ToLinuxOsInfoInvokeResponsePtrOutputWithContext(ctx context.Context) LinuxOsInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LinuxOsInfoInvokeResponsePtrOutput) Elem() LinuxOsInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *LinuxOsInfoInvokeResponse) LinuxOsInfoInvokeResponse { return *v }).(LinuxOsInfoInvokeResponseOutput)
+}
+
+// The state of the Linux OS.
+func (o LinuxOsInfoInvokeResponsePtrOutput) LinuxOsState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxOsInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxOsState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about a Linux OS.
 type LinuxOsInfoResponse struct {
 	// The state of the Linux OS.
 	LinuxOsState *string `pulumi:"linuxOsState"`
@@ -4350,6 +5671,112 @@ func (o SubnetArrayOutput) Index(i pulumi.IntInput) SubnetOutput {
 	}).(SubnetOutput)
 }
 
+type SubnetInvokeResponse struct {
+	AllowPublicIp *string `pulumi:"allowPublicIp"`
+	LabSubnetName *string `pulumi:"labSubnetName"`
+	ResourceId    *string `pulumi:"resourceId"`
+}
+
+// SubnetInvokeResponseInput is an input type that accepts SubnetInvokeResponseArgs and SubnetInvokeResponseOutput values.
+// You can construct a concrete instance of `SubnetInvokeResponseInput` via:
+//
+//          SubnetInvokeResponseArgs{...}
+type SubnetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubnetInvokeResponseOutput() SubnetInvokeResponseOutput
+	ToSubnetInvokeResponseOutputWithContext(context.Context) SubnetInvokeResponseOutput
+}
+
+type SubnetInvokeResponseArgs struct {
+	AllowPublicIp pulumi.StringPtrInput `pulumi:"allowPublicIp"`
+	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
+	ResourceId    pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (SubnetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (i SubnetInvokeResponseArgs) ToSubnetInvokeResponseOutput() SubnetInvokeResponseOutput {
+	return i.ToSubnetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubnetInvokeResponseArgs) ToSubnetInvokeResponseOutputWithContext(ctx context.Context) SubnetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetInvokeResponseOutput)
+}
+
+// SubnetInvokeResponseArrayInput is an input type that accepts SubnetInvokeResponseArray and SubnetInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SubnetInvokeResponseArrayInput` via:
+//
+//          SubnetInvokeResponseArray{ SubnetInvokeResponseArgs{...} }
+type SubnetInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSubnetInvokeResponseArrayOutput() SubnetInvokeResponseArrayOutput
+	ToSubnetInvokeResponseArrayOutputWithContext(context.Context) SubnetInvokeResponseArrayOutput
+}
+
+type SubnetInvokeResponseArray []SubnetInvokeResponseInput
+
+func (SubnetInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (i SubnetInvokeResponseArray) ToSubnetInvokeResponseArrayOutput() SubnetInvokeResponseArrayOutput {
+	return i.ToSubnetInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SubnetInvokeResponseArray) ToSubnetInvokeResponseArrayOutputWithContext(ctx context.Context) SubnetInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetInvokeResponseArrayOutput)
+}
+
+type SubnetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubnetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (o SubnetInvokeResponseOutput) ToSubnetInvokeResponseOutput() SubnetInvokeResponseOutput {
+	return o
+}
+
+func (o SubnetInvokeResponseOutput) ToSubnetInvokeResponseOutputWithContext(ctx context.Context) SubnetInvokeResponseOutput {
+	return o
+}
+
+func (o SubnetInvokeResponseOutput) AllowPublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetInvokeResponse) *string { return v.AllowPublicIp }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetInvokeResponseOutput) LabSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetInvokeResponse) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
+}
+
+func (o SubnetInvokeResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetInvokeResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type SubnetInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SubnetInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (o SubnetInvokeResponseArrayOutput) ToSubnetInvokeResponseArrayOutput() SubnetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SubnetInvokeResponseArrayOutput) ToSubnetInvokeResponseArrayOutputWithContext(ctx context.Context) SubnetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SubnetInvokeResponseArrayOutput) Index(i pulumi.IntInput) SubnetInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetInvokeResponse {
+		return vs[0].([]SubnetInvokeResponse)[vs[1].(int)]
+	}).(SubnetInvokeResponseOutput)
+}
+
 // Property overrides on a subnet of a virtual network.
 type SubnetOverride struct {
 	// The name given to the subnet within the lab.
@@ -4475,6 +5902,133 @@ func (o SubnetOverrideArrayOutput) Index(i pulumi.IntInput) SubnetOverrideOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetOverride {
 		return vs[0].([]SubnetOverride)[vs[1].(int)]
 	}).(SubnetOverrideOutput)
+}
+
+// Property overrides on a subnet of a virtual network.
+type SubnetOverrideInvokeResponse struct {
+	// The name given to the subnet within the lab.
+	LabSubnetName *string `pulumi:"labSubnetName"`
+	// The resource identifier of the subnet.
+	ResourceId *string `pulumi:"resourceId"`
+	// Indicates whether this subnet can be used during virtual machine creation.
+	UseInVmCreationPermission *string `pulumi:"useInVmCreationPermission"`
+	// Indicates whether public IP addresses can be assigned to virtual machines on this subnet.
+	UsePublicIpAddressPermission *string `pulumi:"usePublicIpAddressPermission"`
+}
+
+// SubnetOverrideInvokeResponseInput is an input type that accepts SubnetOverrideInvokeResponseArgs and SubnetOverrideInvokeResponseOutput values.
+// You can construct a concrete instance of `SubnetOverrideInvokeResponseInput` via:
+//
+//          SubnetOverrideInvokeResponseArgs{...}
+type SubnetOverrideInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubnetOverrideInvokeResponseOutput() SubnetOverrideInvokeResponseOutput
+	ToSubnetOverrideInvokeResponseOutputWithContext(context.Context) SubnetOverrideInvokeResponseOutput
+}
+
+// Property overrides on a subnet of a virtual network.
+type SubnetOverrideInvokeResponseArgs struct {
+	// The name given to the subnet within the lab.
+	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
+	// The resource identifier of the subnet.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// Indicates whether this subnet can be used during virtual machine creation.
+	UseInVmCreationPermission pulumi.StringPtrInput `pulumi:"useInVmCreationPermission"`
+	// Indicates whether public IP addresses can be assigned to virtual machines on this subnet.
+	UsePublicIpAddressPermission pulumi.StringPtrInput `pulumi:"usePublicIpAddressPermission"`
+}
+
+func (SubnetOverrideInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i SubnetOverrideInvokeResponseArgs) ToSubnetOverrideInvokeResponseOutput() SubnetOverrideInvokeResponseOutput {
+	return i.ToSubnetOverrideInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubnetOverrideInvokeResponseArgs) ToSubnetOverrideInvokeResponseOutputWithContext(ctx context.Context) SubnetOverrideInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetOverrideInvokeResponseOutput)
+}
+
+// SubnetOverrideInvokeResponseArrayInput is an input type that accepts SubnetOverrideInvokeResponseArray and SubnetOverrideInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SubnetOverrideInvokeResponseArrayInput` via:
+//
+//          SubnetOverrideInvokeResponseArray{ SubnetOverrideInvokeResponseArgs{...} }
+type SubnetOverrideInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSubnetOverrideInvokeResponseArrayOutput() SubnetOverrideInvokeResponseArrayOutput
+	ToSubnetOverrideInvokeResponseArrayOutputWithContext(context.Context) SubnetOverrideInvokeResponseArrayOutput
+}
+
+type SubnetOverrideInvokeResponseArray []SubnetOverrideInvokeResponseInput
+
+func (SubnetOverrideInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (i SubnetOverrideInvokeResponseArray) ToSubnetOverrideInvokeResponseArrayOutput() SubnetOverrideInvokeResponseArrayOutput {
+	return i.ToSubnetOverrideInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SubnetOverrideInvokeResponseArray) ToSubnetOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) SubnetOverrideInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetOverrideInvokeResponseArrayOutput)
+}
+
+// Property overrides on a subnet of a virtual network.
+type SubnetOverrideInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubnetOverrideInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o SubnetOverrideInvokeResponseOutput) ToSubnetOverrideInvokeResponseOutput() SubnetOverrideInvokeResponseOutput {
+	return o
+}
+
+func (o SubnetOverrideInvokeResponseOutput) ToSubnetOverrideInvokeResponseOutputWithContext(ctx context.Context) SubnetOverrideInvokeResponseOutput {
+	return o
+}
+
+// The name given to the subnet within the lab.
+func (o SubnetOverrideInvokeResponseOutput) LabSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetOverrideInvokeResponse) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// The resource identifier of the subnet.
+func (o SubnetOverrideInvokeResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetOverrideInvokeResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this subnet can be used during virtual machine creation.
+func (o SubnetOverrideInvokeResponseOutput) UseInVmCreationPermission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetOverrideInvokeResponse) *string { return v.UseInVmCreationPermission }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether public IP addresses can be assigned to virtual machines on this subnet.
+func (o SubnetOverrideInvokeResponseOutput) UsePublicIpAddressPermission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetOverrideInvokeResponse) *string { return v.UsePublicIpAddressPermission }).(pulumi.StringPtrOutput)
+}
+
+type SubnetOverrideInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SubnetOverrideInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetOverrideInvokeResponse)(nil)).Elem()
+}
+
+func (o SubnetOverrideInvokeResponseArrayOutput) ToSubnetOverrideInvokeResponseArrayOutput() SubnetOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SubnetOverrideInvokeResponseArrayOutput) ToSubnetOverrideInvokeResponseArrayOutputWithContext(ctx context.Context) SubnetOverrideInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SubnetOverrideInvokeResponseArrayOutput) Index(i pulumi.IntInput) SubnetOverrideInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetOverrideInvokeResponse {
+		return vs[0].([]SubnetOverrideInvokeResponse)[vs[1].(int)]
+	}).(SubnetOverrideInvokeResponseOutput)
 }
 
 // Property overrides on a subnet of a virtual network.
@@ -4864,6 +6418,70 @@ func (o WeekDetailsPtrOutput) Weekdays() pulumi.StringArrayOutput {
 }
 
 // Properties of a weekly schedule.
+type WeekDetailsInvokeResponse struct {
+	// The time of the day.
+	Time *string `pulumi:"time"`
+	// The days of the week.
+	Weekdays []string `pulumi:"weekdays"`
+}
+
+// WeekDetailsInvokeResponseInput is an input type that accepts WeekDetailsInvokeResponseArgs and WeekDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `WeekDetailsInvokeResponseInput` via:
+//
+//          WeekDetailsInvokeResponseArgs{...}
+type WeekDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWeekDetailsInvokeResponseOutput() WeekDetailsInvokeResponseOutput
+	ToWeekDetailsInvokeResponseOutputWithContext(context.Context) WeekDetailsInvokeResponseOutput
+}
+
+// Properties of a weekly schedule.
+type WeekDetailsInvokeResponseArgs struct {
+	// The time of the day.
+	Time pulumi.StringPtrInput `pulumi:"time"`
+	// The days of the week.
+	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
+}
+
+func (WeekDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WeekDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i WeekDetailsInvokeResponseArgs) ToWeekDetailsInvokeResponseOutput() WeekDetailsInvokeResponseOutput {
+	return i.ToWeekDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WeekDetailsInvokeResponseArgs) ToWeekDetailsInvokeResponseOutputWithContext(ctx context.Context) WeekDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeekDetailsInvokeResponseOutput)
+}
+
+// Properties of a weekly schedule.
+type WeekDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WeekDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WeekDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o WeekDetailsInvokeResponseOutput) ToWeekDetailsInvokeResponseOutput() WeekDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o WeekDetailsInvokeResponseOutput) ToWeekDetailsInvokeResponseOutputWithContext(ctx context.Context) WeekDetailsInvokeResponseOutput {
+	return o
+}
+
+// The time of the day.
+func (o WeekDetailsInvokeResponseOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WeekDetailsInvokeResponse) *string { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+// The days of the week.
+func (o WeekDetailsInvokeResponseOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeekDetailsInvokeResponse) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+}
+
+// Properties of a weekly schedule.
 type WeekDetailsResponse struct {
 	// The time of the day.
 	Time *string `pulumi:"time"`
@@ -5151,6 +6769,140 @@ func (o WindowsOsInfoPtrOutput) WindowsOsState() pulumi.StringPtrOutput {
 }
 
 // Information about a Windows OS.
+type WindowsOsInfoInvokeResponse struct {
+	// The state of the Windows OS.
+	WindowsOsState *string `pulumi:"windowsOsState"`
+}
+
+// WindowsOsInfoInvokeResponseInput is an input type that accepts WindowsOsInfoInvokeResponseArgs and WindowsOsInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `WindowsOsInfoInvokeResponseInput` via:
+//
+//          WindowsOsInfoInvokeResponseArgs{...}
+type WindowsOsInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWindowsOsInfoInvokeResponseOutput() WindowsOsInfoInvokeResponseOutput
+	ToWindowsOsInfoInvokeResponseOutputWithContext(context.Context) WindowsOsInfoInvokeResponseOutput
+}
+
+// Information about a Windows OS.
+type WindowsOsInfoInvokeResponseArgs struct {
+	// The state of the Windows OS.
+	WindowsOsState pulumi.StringPtrInput `pulumi:"windowsOsState"`
+}
+
+func (WindowsOsInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsOsInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i WindowsOsInfoInvokeResponseArgs) ToWindowsOsInfoInvokeResponseOutput() WindowsOsInfoInvokeResponseOutput {
+	return i.ToWindowsOsInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WindowsOsInfoInvokeResponseArgs) ToWindowsOsInfoInvokeResponseOutputWithContext(ctx context.Context) WindowsOsInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsOsInfoInvokeResponseOutput)
+}
+
+func (i WindowsOsInfoInvokeResponseArgs) ToWindowsOsInfoInvokeResponsePtrOutput() WindowsOsInfoInvokeResponsePtrOutput {
+	return i.ToWindowsOsInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WindowsOsInfoInvokeResponseArgs) ToWindowsOsInfoInvokeResponsePtrOutputWithContext(ctx context.Context) WindowsOsInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsOsInfoInvokeResponseOutput).ToWindowsOsInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WindowsOsInfoInvokeResponsePtrInput is an input type that accepts WindowsOsInfoInvokeResponseArgs, WindowsOsInfoInvokeResponsePtr and WindowsOsInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WindowsOsInfoInvokeResponsePtrInput` via:
+//
+//          WindowsOsInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WindowsOsInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWindowsOsInfoInvokeResponsePtrOutput() WindowsOsInfoInvokeResponsePtrOutput
+	ToWindowsOsInfoInvokeResponsePtrOutputWithContext(context.Context) WindowsOsInfoInvokeResponsePtrOutput
+}
+
+type windowsOsInfoInvokeResponsePtrType WindowsOsInfoInvokeResponseArgs
+
+func WindowsOsInfoInvokeResponsePtr(v *WindowsOsInfoInvokeResponseArgs) WindowsOsInfoInvokeResponsePtrInput {
+	return (*windowsOsInfoInvokeResponsePtrType)(v)
+}
+
+func (*windowsOsInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsOsInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *windowsOsInfoInvokeResponsePtrType) ToWindowsOsInfoInvokeResponsePtrOutput() WindowsOsInfoInvokeResponsePtrOutput {
+	return i.ToWindowsOsInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *windowsOsInfoInvokeResponsePtrType) ToWindowsOsInfoInvokeResponsePtrOutputWithContext(ctx context.Context) WindowsOsInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsOsInfoInvokeResponsePtrOutput)
+}
+
+// Information about a Windows OS.
+type WindowsOsInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WindowsOsInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsOsInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o WindowsOsInfoInvokeResponseOutput) ToWindowsOsInfoInvokeResponseOutput() WindowsOsInfoInvokeResponseOutput {
+	return o
+}
+
+func (o WindowsOsInfoInvokeResponseOutput) ToWindowsOsInfoInvokeResponseOutputWithContext(ctx context.Context) WindowsOsInfoInvokeResponseOutput {
+	return o
+}
+
+func (o WindowsOsInfoInvokeResponseOutput) ToWindowsOsInfoInvokeResponsePtrOutput() WindowsOsInfoInvokeResponsePtrOutput {
+	return o.ToWindowsOsInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WindowsOsInfoInvokeResponseOutput) ToWindowsOsInfoInvokeResponsePtrOutputWithContext(ctx context.Context) WindowsOsInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WindowsOsInfoInvokeResponse) *WindowsOsInfoInvokeResponse {
+		return &v
+	}).(WindowsOsInfoInvokeResponsePtrOutput)
+}
+
+// The state of the Windows OS.
+func (o WindowsOsInfoInvokeResponseOutput) WindowsOsState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsOsInfoInvokeResponse) *string { return v.WindowsOsState }).(pulumi.StringPtrOutput)
+}
+
+type WindowsOsInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsOsInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsOsInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o WindowsOsInfoInvokeResponsePtrOutput) ToWindowsOsInfoInvokeResponsePtrOutput() WindowsOsInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WindowsOsInfoInvokeResponsePtrOutput) ToWindowsOsInfoInvokeResponsePtrOutputWithContext(ctx context.Context) WindowsOsInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WindowsOsInfoInvokeResponsePtrOutput) Elem() WindowsOsInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *WindowsOsInfoInvokeResponse) WindowsOsInfoInvokeResponse { return *v }).(WindowsOsInfoInvokeResponseOutput)
+}
+
+// The state of the Windows OS.
+func (o WindowsOsInfoInvokeResponsePtrOutput) WindowsOsState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsOsInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WindowsOsState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about a Windows OS.
 type WindowsOsInfoResponse struct {
 	// The state of the Windows OS.
 	WindowsOsState *string `pulumi:"windowsOsState"`
@@ -5287,64 +7039,87 @@ func (o WindowsOsInfoResponsePtrOutput) WindowsOsState() pulumi.StringPtrOutput 
 func init() {
 	pulumi.RegisterOutputType(ArtifactDeploymentStatusPropertiesOutput{})
 	pulumi.RegisterOutputType(ArtifactDeploymentStatusPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ArtifactDeploymentStatusPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ArtifactDeploymentStatusPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ArtifactDeploymentStatusPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ArtifactDeploymentStatusPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ArtifactInstallPropertiesOutput{})
 	pulumi.RegisterOutputType(ArtifactInstallPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(ArtifactInstallPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ArtifactInstallPropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ArtifactInstallPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ArtifactInstallPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(ArtifactParameterPropertiesOutput{})
 	pulumi.RegisterOutputType(ArtifactParameterPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(ArtifactParameterPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ArtifactParameterPropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ArtifactParameterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ArtifactParameterPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesCustomOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesCustomPtrOutput{})
+	pulumi.RegisterOutputType(CustomImagePropertiesCustomInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesCustomResponseOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesCustomResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesFromVmOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesFromVmPtrOutput{})
+	pulumi.RegisterOutputType(CustomImagePropertiesFromVmInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesFromVmResponseOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesFromVmResponsePtrOutput{})
 	pulumi.RegisterOutputType(DayDetailsOutput{})
 	pulumi.RegisterOutputType(DayDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DayDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DayDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DayDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(FormulaPropertiesFromVmOutput{})
 	pulumi.RegisterOutputType(FormulaPropertiesFromVmPtrOutput{})
+	pulumi.RegisterOutputType(FormulaPropertiesFromVmInvokeResponseOutput{})
 	pulumi.RegisterOutputType(FormulaPropertiesFromVmResponseOutput{})
 	pulumi.RegisterOutputType(FormulaPropertiesFromVmResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(GalleryImageReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GalleryImageReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(HourDetailsOutput{})
 	pulumi.RegisterOutputType(HourDetailsPtrOutput{})
+	pulumi.RegisterOutputType(HourDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HourDetailsResponseOutput{})
 	pulumi.RegisterOutputType(HourDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(LabVhdResponseOutput{})
-	pulumi.RegisterOutputType(LabVhdResponseArrayOutput{})
+	pulumi.RegisterOutputType(LabVhdInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LabVhdInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachinePtrOutput{})
+	pulumi.RegisterOutputType(LabVirtualMachineInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineResponseOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinuxOsInfoOutput{})
 	pulumi.RegisterOutputType(LinuxOsInfoPtrOutput{})
+	pulumi.RegisterOutputType(LinuxOsInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LinuxOsInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinuxOsInfoResponseOutput{})
 	pulumi.RegisterOutputType(LinuxOsInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubnetOutput{})
 	pulumi.RegisterOutputType(SubnetArrayOutput{})
+	pulumi.RegisterOutputType(SubnetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SubnetInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SubnetOverrideOutput{})
 	pulumi.RegisterOutputType(SubnetOverrideArrayOutput{})
+	pulumi.RegisterOutputType(SubnetOverrideInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SubnetOverrideInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SubnetOverrideResponseOutput{})
 	pulumi.RegisterOutputType(SubnetOverrideResponseArrayOutput{})
 	pulumi.RegisterOutputType(SubnetResponseOutput{})
 	pulumi.RegisterOutputType(SubnetResponseArrayOutput{})
 	pulumi.RegisterOutputType(WeekDetailsOutput{})
 	pulumi.RegisterOutputType(WeekDetailsPtrOutput{})
+	pulumi.RegisterOutputType(WeekDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(WeekDetailsResponseOutput{})
 	pulumi.RegisterOutputType(WeekDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(WindowsOsInfoOutput{})
 	pulumi.RegisterOutputType(WindowsOsInfoPtrOutput{})
+	pulumi.RegisterOutputType(WindowsOsInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WindowsOsInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WindowsOsInfoResponseOutput{})
 	pulumi.RegisterOutputType(WindowsOsInfoResponsePtrOutput{})
 }

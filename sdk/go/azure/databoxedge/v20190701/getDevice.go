@@ -60,7 +60,7 @@ type LookupDeviceResult struct {
 	// The Serial Number of Data Box Edge/Gateway device.
 	SerialNumber string `pulumi:"serialNumber"`
 	// The SKU type.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
 	Tags map[string]string `pulumi:"tags"`
 	// The Data Box Edge/Gateway device timezone.

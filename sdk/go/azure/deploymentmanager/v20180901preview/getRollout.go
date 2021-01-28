@@ -34,19 +34,19 @@ type LookupRolloutResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Identity for the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Operational information of the rollout.
-	OperationInfo RolloutOperationInfoResponse `pulumi:"operationInfo"`
+	OperationInfo RolloutOperationInfoInvokeResponse `pulumi:"operationInfo"`
 	// The detailed information on the services being deployed.
-	Services []ServiceResponse `pulumi:"services"`
+	Services []ServiceInvokeResponse `pulumi:"services"`
 	// The current status of the rollout.
 	Status string `pulumi:"status"`
 	// The list of step groups that define the orchestration.
-	StepGroups []StepResponse `pulumi:"stepGroups"`
+	StepGroups []StepInvokeResponse `pulumi:"stepGroups"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.

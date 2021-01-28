@@ -138,6 +138,133 @@ func (o DeepCreatedOriginArrayOutput) Index(i pulumi.IntInput) DeepCreatedOrigin
 }
 
 // Origin to be added when creating a CDN endpoint.
+type DeepCreatedOriginInvokeResponse struct {
+	// The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
+	HostName string `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535
+	HttpPort *int `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535
+	HttpsPort *int `pulumi:"httpsPort"`
+	// Origin name
+	Name string `pulumi:"name"`
+}
+
+// DeepCreatedOriginInvokeResponseInput is an input type that accepts DeepCreatedOriginInvokeResponseArgs and DeepCreatedOriginInvokeResponseOutput values.
+// You can construct a concrete instance of `DeepCreatedOriginInvokeResponseInput` via:
+//
+//          DeepCreatedOriginInvokeResponseArgs{...}
+type DeepCreatedOriginInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeepCreatedOriginInvokeResponseOutput() DeepCreatedOriginInvokeResponseOutput
+	ToDeepCreatedOriginInvokeResponseOutputWithContext(context.Context) DeepCreatedOriginInvokeResponseOutput
+}
+
+// Origin to be added when creating a CDN endpoint.
+type DeepCreatedOriginInvokeResponseArgs struct {
+	// The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535
+	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535
+	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
+	// Origin name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DeepCreatedOriginInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeepCreatedOriginInvokeResponse)(nil)).Elem()
+}
+
+func (i DeepCreatedOriginInvokeResponseArgs) ToDeepCreatedOriginInvokeResponseOutput() DeepCreatedOriginInvokeResponseOutput {
+	return i.ToDeepCreatedOriginInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeepCreatedOriginInvokeResponseArgs) ToDeepCreatedOriginInvokeResponseOutputWithContext(ctx context.Context) DeepCreatedOriginInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginInvokeResponseOutput)
+}
+
+// DeepCreatedOriginInvokeResponseArrayInput is an input type that accepts DeepCreatedOriginInvokeResponseArray and DeepCreatedOriginInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DeepCreatedOriginInvokeResponseArrayInput` via:
+//
+//          DeepCreatedOriginInvokeResponseArray{ DeepCreatedOriginInvokeResponseArgs{...} }
+type DeepCreatedOriginInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDeepCreatedOriginInvokeResponseArrayOutput() DeepCreatedOriginInvokeResponseArrayOutput
+	ToDeepCreatedOriginInvokeResponseArrayOutputWithContext(context.Context) DeepCreatedOriginInvokeResponseArrayOutput
+}
+
+type DeepCreatedOriginInvokeResponseArray []DeepCreatedOriginInvokeResponseInput
+
+func (DeepCreatedOriginInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeepCreatedOriginInvokeResponse)(nil)).Elem()
+}
+
+func (i DeepCreatedOriginInvokeResponseArray) ToDeepCreatedOriginInvokeResponseArrayOutput() DeepCreatedOriginInvokeResponseArrayOutput {
+	return i.ToDeepCreatedOriginInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DeepCreatedOriginInvokeResponseArray) ToDeepCreatedOriginInvokeResponseArrayOutputWithContext(ctx context.Context) DeepCreatedOriginInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginInvokeResponseArrayOutput)
+}
+
+// Origin to be added when creating a CDN endpoint.
+type DeepCreatedOriginInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeepCreatedOriginInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeepCreatedOriginInvokeResponse)(nil)).Elem()
+}
+
+func (o DeepCreatedOriginInvokeResponseOutput) ToDeepCreatedOriginInvokeResponseOutput() DeepCreatedOriginInvokeResponseOutput {
+	return o
+}
+
+func (o DeepCreatedOriginInvokeResponseOutput) ToDeepCreatedOriginInvokeResponseOutputWithContext(ctx context.Context) DeepCreatedOriginInvokeResponseOutput {
+	return o
+}
+
+// The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
+func (o DeepCreatedOriginInvokeResponseOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP port. Must be between 1 and 65535
+func (o DeepCreatedOriginInvokeResponseOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
+}
+
+// The value of the HTTPS port. Must be between 1 and 65535
+func (o DeepCreatedOriginInvokeResponseOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
+}
+
+// Origin name
+func (o DeepCreatedOriginInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeepCreatedOriginInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DeepCreatedOriginInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DeepCreatedOriginInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeepCreatedOriginInvokeResponse)(nil)).Elem()
+}
+
+func (o DeepCreatedOriginInvokeResponseArrayOutput) ToDeepCreatedOriginInvokeResponseArrayOutput() DeepCreatedOriginInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DeepCreatedOriginInvokeResponseArrayOutput) ToDeepCreatedOriginInvokeResponseArrayOutputWithContext(ctx context.Context) DeepCreatedOriginInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DeepCreatedOriginInvokeResponseArrayOutput) Index(i pulumi.IntInput) DeepCreatedOriginInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeepCreatedOriginInvokeResponse {
+		return vs[0].([]DeepCreatedOriginInvokeResponse)[vs[1].(int)]
+	}).(DeepCreatedOriginInvokeResponseOutput)
+}
+
+// Origin to be added when creating a CDN endpoint.
 type DeepCreatedOriginResponse struct {
 	// The address of the origin. It can be a domain names, IPv4 address, or IPv6 address.
 	HostName string `pulumi:"hostName"`
@@ -380,6 +507,124 @@ func (o GeoFilterArrayOutput) Index(i pulumi.IntInput) GeoFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GeoFilter {
 		return vs[0].([]GeoFilter)[vs[1].(int)]
 	}).(GeoFilterOutput)
+}
+
+// Rules defining user geo access within a CDN endpoint.
+type GeoFilterInvokeResponse struct {
+	// Action of the geo filter, i.e. allow or block access.
+	Action string `pulumi:"action"`
+	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+	CountryCodes []string `pulumi:"countryCodes"`
+	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+	RelativePath string `pulumi:"relativePath"`
+}
+
+// GeoFilterInvokeResponseInput is an input type that accepts GeoFilterInvokeResponseArgs and GeoFilterInvokeResponseOutput values.
+// You can construct a concrete instance of `GeoFilterInvokeResponseInput` via:
+//
+//          GeoFilterInvokeResponseArgs{...}
+type GeoFilterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGeoFilterInvokeResponseOutput() GeoFilterInvokeResponseOutput
+	ToGeoFilterInvokeResponseOutputWithContext(context.Context) GeoFilterInvokeResponseOutput
+}
+
+// Rules defining user geo access within a CDN endpoint.
+type GeoFilterInvokeResponseArgs struct {
+	// Action of the geo filter, i.e. allow or block access.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
+	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+	RelativePath pulumi.StringInput `pulumi:"relativePath"`
+}
+
+func (GeoFilterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeoFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i GeoFilterInvokeResponseArgs) ToGeoFilterInvokeResponseOutput() GeoFilterInvokeResponseOutput {
+	return i.ToGeoFilterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GeoFilterInvokeResponseArgs) ToGeoFilterInvokeResponseOutputWithContext(ctx context.Context) GeoFilterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GeoFilterInvokeResponseOutput)
+}
+
+// GeoFilterInvokeResponseArrayInput is an input type that accepts GeoFilterInvokeResponseArray and GeoFilterInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `GeoFilterInvokeResponseArrayInput` via:
+//
+//          GeoFilterInvokeResponseArray{ GeoFilterInvokeResponseArgs{...} }
+type GeoFilterInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToGeoFilterInvokeResponseArrayOutput() GeoFilterInvokeResponseArrayOutput
+	ToGeoFilterInvokeResponseArrayOutputWithContext(context.Context) GeoFilterInvokeResponseArrayOutput
+}
+
+type GeoFilterInvokeResponseArray []GeoFilterInvokeResponseInput
+
+func (GeoFilterInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GeoFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i GeoFilterInvokeResponseArray) ToGeoFilterInvokeResponseArrayOutput() GeoFilterInvokeResponseArrayOutput {
+	return i.ToGeoFilterInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i GeoFilterInvokeResponseArray) ToGeoFilterInvokeResponseArrayOutputWithContext(ctx context.Context) GeoFilterInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GeoFilterInvokeResponseArrayOutput)
+}
+
+// Rules defining user geo access within a CDN endpoint.
+type GeoFilterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GeoFilterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GeoFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o GeoFilterInvokeResponseOutput) ToGeoFilterInvokeResponseOutput() GeoFilterInvokeResponseOutput {
+	return o
+}
+
+func (o GeoFilterInvokeResponseOutput) ToGeoFilterInvokeResponseOutputWithContext(ctx context.Context) GeoFilterInvokeResponseOutput {
+	return o
+}
+
+// Action of the geo filter, i.e. allow or block access.
+func (o GeoFilterInvokeResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GeoFilterInvokeResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
+func (o GeoFilterInvokeResponseOutput) CountryCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GeoFilterInvokeResponse) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
+}
+
+// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
+func (o GeoFilterInvokeResponseOutput) RelativePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GeoFilterInvokeResponse) string { return v.RelativePath }).(pulumi.StringOutput)
+}
+
+type GeoFilterInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (GeoFilterInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GeoFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o GeoFilterInvokeResponseArrayOutput) ToGeoFilterInvokeResponseArrayOutput() GeoFilterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GeoFilterInvokeResponseArrayOutput) ToGeoFilterInvokeResponseArrayOutputWithContext(ctx context.Context) GeoFilterInvokeResponseArrayOutput {
+	return o
+}
+
+func (o GeoFilterInvokeResponseArrayOutput) Index(i pulumi.IntInput) GeoFilterInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GeoFilterInvokeResponse {
+		return vs[0].([]GeoFilterInvokeResponse)[vs[1].(int)]
+	}).(GeoFilterInvokeResponseOutput)
 }
 
 // Rules defining user geo access within a CDN endpoint.
@@ -635,6 +880,61 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+type SkuInvokeResponse struct {
+	// Name of the pricing tier.
+	Name *string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+type SkuInvokeResponseArgs struct {
+	// Name of the pricing tier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Name of the pricing tier.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
 type SkuResponse struct {
 	// Name of the pricing tier.
 	Name *string `pulumi:"name"`
@@ -771,14 +1071,19 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(DeepCreatedOriginOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginArrayOutput{})
+	pulumi.RegisterOutputType(DeepCreatedOriginInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DeepCreatedOriginInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseArrayOutput{})
 	pulumi.RegisterOutputType(GeoFilterOutput{})
 	pulumi.RegisterOutputType(GeoFilterArrayOutput{})
+	pulumi.RegisterOutputType(GeoFilterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GeoFilterInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(GeoFilterResponseOutput{})
 	pulumi.RegisterOutputType(GeoFilterResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

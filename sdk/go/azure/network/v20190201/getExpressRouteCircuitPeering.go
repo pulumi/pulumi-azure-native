@@ -30,27 +30,27 @@ type LookupExpressRouteCircuitPeeringResult struct {
 	// The Azure ASN.
 	AzureASN *int `pulumi:"azureASN"`
 	// The list of circuit connections associated with Azure Private Peering for this circuit.
-	Connections []ExpressRouteCircuitConnectionResponse `pulumi:"connections"`
+	Connections []ExpressRouteCircuitConnectionInvokeResponse `pulumi:"connections"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The ExpressRoute connection.
-	ExpressRouteConnection *ExpressRouteConnectionIdResponse `pulumi:"expressRouteConnection"`
+	ExpressRouteConnection *ExpressRouteConnectionIdInvokeResponse `pulumi:"expressRouteConnection"`
 	// The GatewayManager Etag.
 	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The IPv6 peering configuration.
-	Ipv6PeeringConfig *Ipv6ExpressRouteCircuitPeeringConfigResponse `pulumi:"ipv6PeeringConfig"`
+	Ipv6PeeringConfig *Ipv6ExpressRouteCircuitPeeringConfigInvokeResponse `pulumi:"ipv6PeeringConfig"`
 	// Gets whether the provider or the customer last modified the peering.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
 	// The Microsoft peering configuration.
-	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
+	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigInvokeResponse `pulumi:"microsoftPeeringConfig"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.
 	PeerASN *float64 `pulumi:"peerASN"`
 	// The list of peered circuit connections associated with Azure Private Peering for this circuit.
-	PeeredConnections []PeerExpressRouteCircuitConnectionResponse `pulumi:"peeredConnections"`
+	PeeredConnections []PeerExpressRouteCircuitConnectionInvokeResponse `pulumi:"peeredConnections"`
 	// The peering type.
 	PeeringType *string `pulumi:"peeringType"`
 	// The primary port.
@@ -60,7 +60,7 @@ type LookupExpressRouteCircuitPeeringResult struct {
 	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The reference of the RouteFilter resource.
-	RouteFilter *RouteFilterResponse `pulumi:"routeFilter"`
+	RouteFilter *RouteFilterInvokeResponse `pulumi:"routeFilter"`
 	// The secondary port.
 	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
 	// The secondary address prefix.
@@ -70,7 +70,7 @@ type LookupExpressRouteCircuitPeeringResult struct {
 	// The peering state.
 	State *string `pulumi:"state"`
 	// Gets peering stats.
-	Stats *ExpressRouteCircuitStatsResponse `pulumi:"stats"`
+	Stats *ExpressRouteCircuitStatsInvokeResponse `pulumi:"stats"`
 	// The VLAN ID.
 	VlanId *int `pulumi:"vlanId"`
 }

@@ -32,9 +32,9 @@ type LookupManagedHsmResult struct {
 	// The name of the managed HSM Pool.
 	Name string `pulumi:"name"`
 	// Properties of the managed HSM
-	Properties ManagedHsmPropertiesResponse `pulumi:"properties"`
+	Properties ManagedHsmPropertiesInvokeResponse `pulumi:"properties"`
 	// SKU details
-	Sku *ManagedHsmSkuResponse `pulumi:"sku"`
+	Sku *ManagedHsmSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type of the managed HSM Pool.

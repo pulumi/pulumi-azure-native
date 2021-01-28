@@ -26,23 +26,23 @@ type LookupContainerGroupArgs struct {
 // A container group.
 type LookupContainerGroupResult struct {
 	// The containers within the container group.
-	Containers []ContainerResponse `pulumi:"containers"`
+	Containers []ContainerInvokeResponse `pulumi:"containers"`
 	// The diagnostic information for a container group.
-	Diagnostics *ContainerGroupDiagnosticsResponse `pulumi:"diagnostics"`
+	Diagnostics *ContainerGroupDiagnosticsInvokeResponse `pulumi:"diagnostics"`
 	// The resource id.
 	Id string `pulumi:"id"`
 	// The image registry credentials by which the container group is created from.
-	ImageRegistryCredentials []ImageRegistryCredentialResponse `pulumi:"imageRegistryCredentials"`
+	ImageRegistryCredentials []ImageRegistryCredentialInvokeResponse `pulumi:"imageRegistryCredentials"`
 	// The instance view of the container group. Only valid in response.
-	InstanceView ContainerGroupResponseInstanceView `pulumi:"instanceView"`
+	InstanceView ContainerGroupInvokeResponseInstanceView `pulumi:"instanceView"`
 	// The IP address type of the container group.
-	IpAddress *IpAddressResponse `pulumi:"ipAddress"`
+	IpAddress *IpAddressInvokeResponse `pulumi:"ipAddress"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The network profile information for a container group.
-	NetworkProfile *ContainerGroupNetworkProfileResponse `pulumi:"networkProfile"`
+	NetworkProfile *ContainerGroupNetworkProfileInvokeResponse `pulumi:"networkProfile"`
 	// The operating system type required by the containers in the container group.
 	OsType string `pulumi:"osType"`
 	// The provisioning state of the container group. This only appears in the response.
@@ -57,5 +57,5 @@ type LookupContainerGroupResult struct {
 	// The resource type.
 	Type string `pulumi:"type"`
 	// The list of volumes that can be mounted by containers in this container group.
-	Volumes []VolumeResponse `pulumi:"volumes"`
+	Volumes []VolumeInvokeResponse `pulumi:"volumes"`
 }

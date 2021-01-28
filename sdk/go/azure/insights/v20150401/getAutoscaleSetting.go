@@ -34,9 +34,9 @@ type LookupAutoscaleSettingResult struct {
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// the collection of notifications.
-	Notifications []AutoscaleNotificationResponse `pulumi:"notifications"`
+	Notifications []AutoscaleNotificationInvokeResponse `pulumi:"notifications"`
 	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
-	Profiles []AutoscaleProfileResponse `pulumi:"profiles"`
+	Profiles []AutoscaleProfileInvokeResponse `pulumi:"profiles"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// the resource identifier of the resource that the autoscale setting should be added to.

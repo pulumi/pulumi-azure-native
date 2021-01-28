@@ -26,13 +26,13 @@ type ListConnectedClusterUserCredentialsArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Authentication token value.
-	Value AuthenticationDetailsValue `pulumi:"value"`
+	Value AuthenticationDetailsInvokeValue `pulumi:"value"`
 }
 
 // The list of credential result response.
 type ListConnectedClusterUserCredentialsResult struct {
 	// Contains the REP (rendezvous endpoint) and “Sender” access token.
-	HybridConnectionConfig HybridConnectionConfigResponse `pulumi:"hybridConnectionConfig"`
+	HybridConnectionConfig HybridConnectionConfigInvokeResponse `pulumi:"hybridConnectionConfig"`
 	// Base64-encoded Kubernetes configuration file.
-	Kubeconfigs []CredentialResultResponse `pulumi:"kubeconfigs"`
+	Kubeconfigs []CredentialResultInvokeResponse `pulumi:"kubeconfigs"`
 }

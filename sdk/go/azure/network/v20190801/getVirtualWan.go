@@ -48,7 +48,7 @@ type LookupVirtualWanResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// List of VirtualHubs in the VirtualWAN.
-	VirtualHubs []SubResourceResponse `pulumi:"virtualHubs"`
+	VirtualHubs []SubResourceInvokeResponse `pulumi:"virtualHubs"`
 	// List of VpnSites in the VirtualWAN.
-	VpnSites []SubResourceResponse `pulumi:"vpnSites"`
+	VpnSites []SubResourceInvokeResponse `pulumi:"vpnSites"`
 }

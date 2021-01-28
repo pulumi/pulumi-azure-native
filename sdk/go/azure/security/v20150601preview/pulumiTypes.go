@@ -11,6 +11,115 @@ import (
 )
 
 // Represents a summary of the alerts of the VM/server group
+type AppWhitelistingIssueSummaryInvokeResponse struct {
+	// An alert that VMs/servers within a group can have
+	Issue *string `pulumi:"issue"`
+	// The number of machines in the VM/server group that have this alert
+	NumberOfVms *float64 `pulumi:"numberOfVms"`
+}
+
+// AppWhitelistingIssueSummaryInvokeResponseInput is an input type that accepts AppWhitelistingIssueSummaryInvokeResponseArgs and AppWhitelistingIssueSummaryInvokeResponseOutput values.
+// You can construct a concrete instance of `AppWhitelistingIssueSummaryInvokeResponseInput` via:
+//
+//          AppWhitelistingIssueSummaryInvokeResponseArgs{...}
+type AppWhitelistingIssueSummaryInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAppWhitelistingIssueSummaryInvokeResponseOutput() AppWhitelistingIssueSummaryInvokeResponseOutput
+	ToAppWhitelistingIssueSummaryInvokeResponseOutputWithContext(context.Context) AppWhitelistingIssueSummaryInvokeResponseOutput
+}
+
+// Represents a summary of the alerts of the VM/server group
+type AppWhitelistingIssueSummaryInvokeResponseArgs struct {
+	// An alert that VMs/servers within a group can have
+	Issue pulumi.StringPtrInput `pulumi:"issue"`
+	// The number of machines in the VM/server group that have this alert
+	NumberOfVms pulumi.Float64PtrInput `pulumi:"numberOfVms"`
+}
+
+func (AppWhitelistingIssueSummaryInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingIssueSummaryInvokeResponse)(nil)).Elem()
+}
+
+func (i AppWhitelistingIssueSummaryInvokeResponseArgs) ToAppWhitelistingIssueSummaryInvokeResponseOutput() AppWhitelistingIssueSummaryInvokeResponseOutput {
+	return i.ToAppWhitelistingIssueSummaryInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AppWhitelistingIssueSummaryInvokeResponseArgs) ToAppWhitelistingIssueSummaryInvokeResponseOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssueSummaryInvokeResponseOutput)
+}
+
+// AppWhitelistingIssueSummaryInvokeResponseArrayInput is an input type that accepts AppWhitelistingIssueSummaryInvokeResponseArray and AppWhitelistingIssueSummaryInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AppWhitelistingIssueSummaryInvokeResponseArrayInput` via:
+//
+//          AppWhitelistingIssueSummaryInvokeResponseArray{ AppWhitelistingIssueSummaryInvokeResponseArgs{...} }
+type AppWhitelistingIssueSummaryInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAppWhitelistingIssueSummaryInvokeResponseArrayOutput() AppWhitelistingIssueSummaryInvokeResponseArrayOutput
+	ToAppWhitelistingIssueSummaryInvokeResponseArrayOutputWithContext(context.Context) AppWhitelistingIssueSummaryInvokeResponseArrayOutput
+}
+
+type AppWhitelistingIssueSummaryInvokeResponseArray []AppWhitelistingIssueSummaryInvokeResponseInput
+
+func (AppWhitelistingIssueSummaryInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppWhitelistingIssueSummaryInvokeResponse)(nil)).Elem()
+}
+
+func (i AppWhitelistingIssueSummaryInvokeResponseArray) ToAppWhitelistingIssueSummaryInvokeResponseArrayOutput() AppWhitelistingIssueSummaryInvokeResponseArrayOutput {
+	return i.ToAppWhitelistingIssueSummaryInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AppWhitelistingIssueSummaryInvokeResponseArray) ToAppWhitelistingIssueSummaryInvokeResponseArrayOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssueSummaryInvokeResponseArrayOutput)
+}
+
+// Represents a summary of the alerts of the VM/server group
+type AppWhitelistingIssueSummaryInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AppWhitelistingIssueSummaryInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingIssueSummaryInvokeResponse)(nil)).Elem()
+}
+
+func (o AppWhitelistingIssueSummaryInvokeResponseOutput) ToAppWhitelistingIssueSummaryInvokeResponseOutput() AppWhitelistingIssueSummaryInvokeResponseOutput {
+	return o
+}
+
+func (o AppWhitelistingIssueSummaryInvokeResponseOutput) ToAppWhitelistingIssueSummaryInvokeResponseOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryInvokeResponseOutput {
+	return o
+}
+
+// An alert that VMs/servers within a group can have
+func (o AppWhitelistingIssueSummaryInvokeResponseOutput) Issue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppWhitelistingIssueSummaryInvokeResponse) *string { return v.Issue }).(pulumi.StringPtrOutput)
+}
+
+// The number of machines in the VM/server group that have this alert
+func (o AppWhitelistingIssueSummaryInvokeResponseOutput) NumberOfVms() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AppWhitelistingIssueSummaryInvokeResponse) *float64 { return v.NumberOfVms }).(pulumi.Float64PtrOutput)
+}
+
+type AppWhitelistingIssueSummaryInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AppWhitelistingIssueSummaryInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppWhitelistingIssueSummaryInvokeResponse)(nil)).Elem()
+}
+
+func (o AppWhitelistingIssueSummaryInvokeResponseArrayOutput) ToAppWhitelistingIssueSummaryInvokeResponseArrayOutput() AppWhitelistingIssueSummaryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AppWhitelistingIssueSummaryInvokeResponseArrayOutput) ToAppWhitelistingIssueSummaryInvokeResponseArrayOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AppWhitelistingIssueSummaryInvokeResponseArrayOutput) Index(i pulumi.IntInput) AppWhitelistingIssueSummaryInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppWhitelistingIssueSummaryInvokeResponse {
+		return vs[0].([]AppWhitelistingIssueSummaryInvokeResponse)[vs[1].(int)]
+	}).(AppWhitelistingIssueSummaryInvokeResponseOutput)
+}
+
+// Represents a summary of the alerts of the VM/server group
 type AppWhitelistingIssueSummaryResponse struct {
 	// An alert that VMs/servers within a group can have
 	Issue *string `pulumi:"issue"`
@@ -232,6 +341,123 @@ func (o JitNetworkAccessPolicyVirtualMachineArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitNetworkAccessPolicyVirtualMachine {
 		return vs[0].([]JitNetworkAccessPolicyVirtualMachine)[vs[1].(int)]
 	}).(JitNetworkAccessPolicyVirtualMachineOutput)
+}
+
+type JitNetworkAccessPolicyVirtualMachineInvokeResponse struct {
+	// Resource ID of the virtual machine that is linked to this policy
+	Id string `pulumi:"id"`
+	// Port configurations for the virtual machine
+	Ports []JitNetworkAccessPortRuleInvokeResponse `pulumi:"ports"`
+	// Public IP address of the Azure Firewall that is linked to this policy, if applicable
+	PublicIpAddress *string `pulumi:"publicIpAddress"`
+}
+
+// JitNetworkAccessPolicyVirtualMachineInvokeResponseInput is an input type that accepts JitNetworkAccessPolicyVirtualMachineInvokeResponseArgs and JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput values.
+// You can construct a concrete instance of `JitNetworkAccessPolicyVirtualMachineInvokeResponseInput` via:
+//
+//          JitNetworkAccessPolicyVirtualMachineInvokeResponseArgs{...}
+type JitNetworkAccessPolicyVirtualMachineInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessPolicyVirtualMachineInvokeResponseOutput() JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput
+	ToJitNetworkAccessPolicyVirtualMachineInvokeResponseOutputWithContext(context.Context) JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput
+}
+
+type JitNetworkAccessPolicyVirtualMachineInvokeResponseArgs struct {
+	// Resource ID of the virtual machine that is linked to this policy
+	Id pulumi.StringInput `pulumi:"id"`
+	// Port configurations for the virtual machine
+	Ports JitNetworkAccessPortRuleInvokeResponseArrayInput `pulumi:"ports"`
+	// Public IP address of the Azure Firewall that is linked to this policy, if applicable
+	PublicIpAddress pulumi.StringPtrInput `pulumi:"publicIpAddress"`
+}
+
+func (JitNetworkAccessPolicyVirtualMachineInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessPolicyVirtualMachineInvokeResponse)(nil)).Elem()
+}
+
+func (i JitNetworkAccessPolicyVirtualMachineInvokeResponseArgs) ToJitNetworkAccessPolicyVirtualMachineInvokeResponseOutput() JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput {
+	return i.ToJitNetworkAccessPolicyVirtualMachineInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessPolicyVirtualMachineInvokeResponseArgs) ToJitNetworkAccessPolicyVirtualMachineInvokeResponseOutputWithContext(ctx context.Context) JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput)
+}
+
+// JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayInput is an input type that accepts JitNetworkAccessPolicyVirtualMachineInvokeResponseArray and JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayInput` via:
+//
+//          JitNetworkAccessPolicyVirtualMachineInvokeResponseArray{ JitNetworkAccessPolicyVirtualMachineInvokeResponseArgs{...} }
+type JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput() JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput
+	ToJitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutputWithContext(context.Context) JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput
+}
+
+type JitNetworkAccessPolicyVirtualMachineInvokeResponseArray []JitNetworkAccessPolicyVirtualMachineInvokeResponseInput
+
+func (JitNetworkAccessPolicyVirtualMachineInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitNetworkAccessPolicyVirtualMachineInvokeResponse)(nil)).Elem()
+}
+
+func (i JitNetworkAccessPolicyVirtualMachineInvokeResponseArray) ToJitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput() JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput {
+	return i.ToJitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessPolicyVirtualMachineInvokeResponseArray) ToJitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput)
+}
+
+type JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessPolicyVirtualMachineInvokeResponse)(nil)).Elem()
+}
+
+func (o JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput) ToJitNetworkAccessPolicyVirtualMachineInvokeResponseOutput() JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput {
+	return o
+}
+
+func (o JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput) ToJitNetworkAccessPolicyVirtualMachineInvokeResponseOutputWithContext(ctx context.Context) JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput {
+	return o
+}
+
+// Resource ID of the virtual machine that is linked to this policy
+func (o JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessPolicyVirtualMachineInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Port configurations for the virtual machine
+func (o JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput) Ports() JitNetworkAccessPortRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v JitNetworkAccessPolicyVirtualMachineInvokeResponse) []JitNetworkAccessPortRuleInvokeResponse {
+		return v.Ports
+	}).(JitNetworkAccessPortRuleInvokeResponseArrayOutput)
+}
+
+// Public IP address of the Azure Firewall that is linked to this policy, if applicable
+func (o JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput) PublicIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitNetworkAccessPolicyVirtualMachineInvokeResponse) *string { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitNetworkAccessPolicyVirtualMachineInvokeResponse)(nil)).Elem()
+}
+
+func (o JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput) ToJitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput() JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput) ToJitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput) Index(i pulumi.IntInput) JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitNetworkAccessPolicyVirtualMachineInvokeResponse {
+		return vs[0].([]JitNetworkAccessPolicyVirtualMachineInvokeResponse)[vs[1].(int)]
+	}).(JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput)
 }
 
 type JitNetworkAccessPolicyVirtualMachineResponse struct {
@@ -476,6 +702,133 @@ func (o JitNetworkAccessPortRuleArrayOutput) Index(i pulumi.IntInput) JitNetwork
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitNetworkAccessPortRule {
 		return vs[0].([]JitNetworkAccessPortRule)[vs[1].(int)]
 	}).(JitNetworkAccessPortRuleOutput)
+}
+
+type JitNetworkAccessPortRuleInvokeResponse struct {
+	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+	AllowedSourceAddressPrefix *string `pulumi:"allowedSourceAddressPrefix"`
+	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefixes []string `pulumi:"allowedSourceAddressPrefixes"`
+	// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
+	MaxRequestAccessDuration string `pulumi:"maxRequestAccessDuration"`
+	Number                   int    `pulumi:"number"`
+	Protocol                 string `pulumi:"protocol"`
+}
+
+// JitNetworkAccessPortRuleInvokeResponseInput is an input type that accepts JitNetworkAccessPortRuleInvokeResponseArgs and JitNetworkAccessPortRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `JitNetworkAccessPortRuleInvokeResponseInput` via:
+//
+//          JitNetworkAccessPortRuleInvokeResponseArgs{...}
+type JitNetworkAccessPortRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessPortRuleInvokeResponseOutput() JitNetworkAccessPortRuleInvokeResponseOutput
+	ToJitNetworkAccessPortRuleInvokeResponseOutputWithContext(context.Context) JitNetworkAccessPortRuleInvokeResponseOutput
+}
+
+type JitNetworkAccessPortRuleInvokeResponseArgs struct {
+	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+	AllowedSourceAddressPrefix pulumi.StringPtrInput `pulumi:"allowedSourceAddressPrefix"`
+	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSourceAddressPrefixes"`
+	// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
+	MaxRequestAccessDuration pulumi.StringInput `pulumi:"maxRequestAccessDuration"`
+	Number                   pulumi.IntInput    `pulumi:"number"`
+	Protocol                 pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (JitNetworkAccessPortRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessPortRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i JitNetworkAccessPortRuleInvokeResponseArgs) ToJitNetworkAccessPortRuleInvokeResponseOutput() JitNetworkAccessPortRuleInvokeResponseOutput {
+	return i.ToJitNetworkAccessPortRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessPortRuleInvokeResponseArgs) ToJitNetworkAccessPortRuleInvokeResponseOutputWithContext(ctx context.Context) JitNetworkAccessPortRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPortRuleInvokeResponseOutput)
+}
+
+// JitNetworkAccessPortRuleInvokeResponseArrayInput is an input type that accepts JitNetworkAccessPortRuleInvokeResponseArray and JitNetworkAccessPortRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JitNetworkAccessPortRuleInvokeResponseArrayInput` via:
+//
+//          JitNetworkAccessPortRuleInvokeResponseArray{ JitNetworkAccessPortRuleInvokeResponseArgs{...} }
+type JitNetworkAccessPortRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessPortRuleInvokeResponseArrayOutput() JitNetworkAccessPortRuleInvokeResponseArrayOutput
+	ToJitNetworkAccessPortRuleInvokeResponseArrayOutputWithContext(context.Context) JitNetworkAccessPortRuleInvokeResponseArrayOutput
+}
+
+type JitNetworkAccessPortRuleInvokeResponseArray []JitNetworkAccessPortRuleInvokeResponseInput
+
+func (JitNetworkAccessPortRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitNetworkAccessPortRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i JitNetworkAccessPortRuleInvokeResponseArray) ToJitNetworkAccessPortRuleInvokeResponseArrayOutput() JitNetworkAccessPortRuleInvokeResponseArrayOutput {
+	return i.ToJitNetworkAccessPortRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessPortRuleInvokeResponseArray) ToJitNetworkAccessPortRuleInvokeResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessPortRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPortRuleInvokeResponseArrayOutput)
+}
+
+type JitNetworkAccessPortRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessPortRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessPortRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o JitNetworkAccessPortRuleInvokeResponseOutput) ToJitNetworkAccessPortRuleInvokeResponseOutput() JitNetworkAccessPortRuleInvokeResponseOutput {
+	return o
+}
+
+func (o JitNetworkAccessPortRuleInvokeResponseOutput) ToJitNetworkAccessPortRuleInvokeResponseOutputWithContext(ctx context.Context) JitNetworkAccessPortRuleInvokeResponseOutput {
+	return o
+}
+
+// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+func (o JitNetworkAccessPortRuleInvokeResponseOutput) AllowedSourceAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitNetworkAccessPortRuleInvokeResponse) *string { return v.AllowedSourceAddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+func (o JitNetworkAccessPortRuleInvokeResponseOutput) AllowedSourceAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JitNetworkAccessPortRuleInvokeResponse) []string { return v.AllowedSourceAddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
+func (o JitNetworkAccessPortRuleInvokeResponseOutput) MaxRequestAccessDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessPortRuleInvokeResponse) string { return v.MaxRequestAccessDuration }).(pulumi.StringOutput)
+}
+
+func (o JitNetworkAccessPortRuleInvokeResponseOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v JitNetworkAccessPortRuleInvokeResponse) int { return v.Number }).(pulumi.IntOutput)
+}
+
+func (o JitNetworkAccessPortRuleInvokeResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessPortRuleInvokeResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type JitNetworkAccessPortRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessPortRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitNetworkAccessPortRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o JitNetworkAccessPortRuleInvokeResponseArrayOutput) ToJitNetworkAccessPortRuleInvokeResponseArrayOutput() JitNetworkAccessPortRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitNetworkAccessPortRuleInvokeResponseArrayOutput) ToJitNetworkAccessPortRuleInvokeResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessPortRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitNetworkAccessPortRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) JitNetworkAccessPortRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitNetworkAccessPortRuleInvokeResponse {
+		return vs[0].([]JitNetworkAccessPortRuleInvokeResponse)[vs[1].(int)]
+	}).(JitNetworkAccessPortRuleInvokeResponseOutput)
 }
 
 type JitNetworkAccessPortRuleResponse struct {
@@ -726,6 +1079,129 @@ func (o JitNetworkAccessRequestArrayOutput) Index(i pulumi.IntInput) JitNetworkA
 	}).(JitNetworkAccessRequestOutput)
 }
 
+type JitNetworkAccessRequestInvokeResponse struct {
+	// The justification for making the initiate request
+	Justification *string `pulumi:"justification"`
+	// The identity of the person who made the request
+	Requestor string `pulumi:"requestor"`
+	// The start time of the request in UTC
+	StartTimeUtc    string                                                `pulumi:"startTimeUtc"`
+	VirtualMachines []JitNetworkAccessRequestVirtualMachineInvokeResponse `pulumi:"virtualMachines"`
+}
+
+// JitNetworkAccessRequestInvokeResponseInput is an input type that accepts JitNetworkAccessRequestInvokeResponseArgs and JitNetworkAccessRequestInvokeResponseOutput values.
+// You can construct a concrete instance of `JitNetworkAccessRequestInvokeResponseInput` via:
+//
+//          JitNetworkAccessRequestInvokeResponseArgs{...}
+type JitNetworkAccessRequestInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessRequestInvokeResponseOutput() JitNetworkAccessRequestInvokeResponseOutput
+	ToJitNetworkAccessRequestInvokeResponseOutputWithContext(context.Context) JitNetworkAccessRequestInvokeResponseOutput
+}
+
+type JitNetworkAccessRequestInvokeResponseArgs struct {
+	// The justification for making the initiate request
+	Justification pulumi.StringPtrInput `pulumi:"justification"`
+	// The identity of the person who made the request
+	Requestor pulumi.StringInput `pulumi:"requestor"`
+	// The start time of the request in UTC
+	StartTimeUtc    pulumi.StringInput                                            `pulumi:"startTimeUtc"`
+	VirtualMachines JitNetworkAccessRequestVirtualMachineInvokeResponseArrayInput `pulumi:"virtualMachines"`
+}
+
+func (JitNetworkAccessRequestInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessRequestInvokeResponse)(nil)).Elem()
+}
+
+func (i JitNetworkAccessRequestInvokeResponseArgs) ToJitNetworkAccessRequestInvokeResponseOutput() JitNetworkAccessRequestInvokeResponseOutput {
+	return i.ToJitNetworkAccessRequestInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessRequestInvokeResponseArgs) ToJitNetworkAccessRequestInvokeResponseOutputWithContext(ctx context.Context) JitNetworkAccessRequestInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestInvokeResponseOutput)
+}
+
+// JitNetworkAccessRequestInvokeResponseArrayInput is an input type that accepts JitNetworkAccessRequestInvokeResponseArray and JitNetworkAccessRequestInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JitNetworkAccessRequestInvokeResponseArrayInput` via:
+//
+//          JitNetworkAccessRequestInvokeResponseArray{ JitNetworkAccessRequestInvokeResponseArgs{...} }
+type JitNetworkAccessRequestInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessRequestInvokeResponseArrayOutput() JitNetworkAccessRequestInvokeResponseArrayOutput
+	ToJitNetworkAccessRequestInvokeResponseArrayOutputWithContext(context.Context) JitNetworkAccessRequestInvokeResponseArrayOutput
+}
+
+type JitNetworkAccessRequestInvokeResponseArray []JitNetworkAccessRequestInvokeResponseInput
+
+func (JitNetworkAccessRequestInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitNetworkAccessRequestInvokeResponse)(nil)).Elem()
+}
+
+func (i JitNetworkAccessRequestInvokeResponseArray) ToJitNetworkAccessRequestInvokeResponseArrayOutput() JitNetworkAccessRequestInvokeResponseArrayOutput {
+	return i.ToJitNetworkAccessRequestInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessRequestInvokeResponseArray) ToJitNetworkAccessRequestInvokeResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessRequestInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestInvokeResponseArrayOutput)
+}
+
+type JitNetworkAccessRequestInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessRequestInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessRequestInvokeResponse)(nil)).Elem()
+}
+
+func (o JitNetworkAccessRequestInvokeResponseOutput) ToJitNetworkAccessRequestInvokeResponseOutput() JitNetworkAccessRequestInvokeResponseOutput {
+	return o
+}
+
+func (o JitNetworkAccessRequestInvokeResponseOutput) ToJitNetworkAccessRequestInvokeResponseOutputWithContext(ctx context.Context) JitNetworkAccessRequestInvokeResponseOutput {
+	return o
+}
+
+// The justification for making the initiate request
+func (o JitNetworkAccessRequestInvokeResponseOutput) Justification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestInvokeResponse) *string { return v.Justification }).(pulumi.StringPtrOutput)
+}
+
+// The identity of the person who made the request
+func (o JitNetworkAccessRequestInvokeResponseOutput) Requestor() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestInvokeResponse) string { return v.Requestor }).(pulumi.StringOutput)
+}
+
+// The start time of the request in UTC
+func (o JitNetworkAccessRequestInvokeResponseOutput) StartTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestInvokeResponse) string { return v.StartTimeUtc }).(pulumi.StringOutput)
+}
+
+func (o JitNetworkAccessRequestInvokeResponseOutput) VirtualMachines() JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestInvokeResponse) []JitNetworkAccessRequestVirtualMachineInvokeResponse {
+		return v.VirtualMachines
+	}).(JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput)
+}
+
+type JitNetworkAccessRequestInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessRequestInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitNetworkAccessRequestInvokeResponse)(nil)).Elem()
+}
+
+func (o JitNetworkAccessRequestInvokeResponseArrayOutput) ToJitNetworkAccessRequestInvokeResponseArrayOutput() JitNetworkAccessRequestInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitNetworkAccessRequestInvokeResponseArrayOutput) ToJitNetworkAccessRequestInvokeResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessRequestInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitNetworkAccessRequestInvokeResponseArrayOutput) Index(i pulumi.IntInput) JitNetworkAccessRequestInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitNetworkAccessRequestInvokeResponse {
+		return vs[0].([]JitNetworkAccessRequestInvokeResponse)[vs[1].(int)]
+	}).(JitNetworkAccessRequestInvokeResponseOutput)
+}
+
 type JitNetworkAccessRequestPort struct {
 	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
 	AllowedSourceAddressPrefix *string `pulumi:"allowedSourceAddressPrefix"`
@@ -872,6 +1348,154 @@ func (o JitNetworkAccessRequestPortArrayOutput) Index(i pulumi.IntInput) JitNetw
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitNetworkAccessRequestPort {
 		return vs[0].([]JitNetworkAccessRequestPort)[vs[1].(int)]
 	}).(JitNetworkAccessRequestPortOutput)
+}
+
+type JitNetworkAccessRequestPortInvokeResponse struct {
+	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+	AllowedSourceAddressPrefix *string `pulumi:"allowedSourceAddressPrefix"`
+	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefixes []string `pulumi:"allowedSourceAddressPrefixes"`
+	// The date & time at which the request ends in UTC
+	EndTimeUtc string `pulumi:"endTimeUtc"`
+	// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
+	MappedPort *int `pulumi:"mappedPort"`
+	Number     int  `pulumi:"number"`
+	// The status of the port
+	Status string `pulumi:"status"`
+	// A description of why the `status` has its value
+	StatusReason string `pulumi:"statusReason"`
+}
+
+// JitNetworkAccessRequestPortInvokeResponseInput is an input type that accepts JitNetworkAccessRequestPortInvokeResponseArgs and JitNetworkAccessRequestPortInvokeResponseOutput values.
+// You can construct a concrete instance of `JitNetworkAccessRequestPortInvokeResponseInput` via:
+//
+//          JitNetworkAccessRequestPortInvokeResponseArgs{...}
+type JitNetworkAccessRequestPortInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessRequestPortInvokeResponseOutput() JitNetworkAccessRequestPortInvokeResponseOutput
+	ToJitNetworkAccessRequestPortInvokeResponseOutputWithContext(context.Context) JitNetworkAccessRequestPortInvokeResponseOutput
+}
+
+type JitNetworkAccessRequestPortInvokeResponseArgs struct {
+	// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+	AllowedSourceAddressPrefix pulumi.StringPtrInput `pulumi:"allowedSourceAddressPrefix"`
+	// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+	AllowedSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSourceAddressPrefixes"`
+	// The date & time at which the request ends in UTC
+	EndTimeUtc pulumi.StringInput `pulumi:"endTimeUtc"`
+	// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
+	MappedPort pulumi.IntPtrInput `pulumi:"mappedPort"`
+	Number     pulumi.IntInput    `pulumi:"number"`
+	// The status of the port
+	Status pulumi.StringInput `pulumi:"status"`
+	// A description of why the `status` has its value
+	StatusReason pulumi.StringInput `pulumi:"statusReason"`
+}
+
+func (JitNetworkAccessRequestPortInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessRequestPortInvokeResponse)(nil)).Elem()
+}
+
+func (i JitNetworkAccessRequestPortInvokeResponseArgs) ToJitNetworkAccessRequestPortInvokeResponseOutput() JitNetworkAccessRequestPortInvokeResponseOutput {
+	return i.ToJitNetworkAccessRequestPortInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessRequestPortInvokeResponseArgs) ToJitNetworkAccessRequestPortInvokeResponseOutputWithContext(ctx context.Context) JitNetworkAccessRequestPortInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestPortInvokeResponseOutput)
+}
+
+// JitNetworkAccessRequestPortInvokeResponseArrayInput is an input type that accepts JitNetworkAccessRequestPortInvokeResponseArray and JitNetworkAccessRequestPortInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JitNetworkAccessRequestPortInvokeResponseArrayInput` via:
+//
+//          JitNetworkAccessRequestPortInvokeResponseArray{ JitNetworkAccessRequestPortInvokeResponseArgs{...} }
+type JitNetworkAccessRequestPortInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessRequestPortInvokeResponseArrayOutput() JitNetworkAccessRequestPortInvokeResponseArrayOutput
+	ToJitNetworkAccessRequestPortInvokeResponseArrayOutputWithContext(context.Context) JitNetworkAccessRequestPortInvokeResponseArrayOutput
+}
+
+type JitNetworkAccessRequestPortInvokeResponseArray []JitNetworkAccessRequestPortInvokeResponseInput
+
+func (JitNetworkAccessRequestPortInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitNetworkAccessRequestPortInvokeResponse)(nil)).Elem()
+}
+
+func (i JitNetworkAccessRequestPortInvokeResponseArray) ToJitNetworkAccessRequestPortInvokeResponseArrayOutput() JitNetworkAccessRequestPortInvokeResponseArrayOutput {
+	return i.ToJitNetworkAccessRequestPortInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessRequestPortInvokeResponseArray) ToJitNetworkAccessRequestPortInvokeResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessRequestPortInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestPortInvokeResponseArrayOutput)
+}
+
+type JitNetworkAccessRequestPortInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessRequestPortInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessRequestPortInvokeResponse)(nil)).Elem()
+}
+
+func (o JitNetworkAccessRequestPortInvokeResponseOutput) ToJitNetworkAccessRequestPortInvokeResponseOutput() JitNetworkAccessRequestPortInvokeResponseOutput {
+	return o
+}
+
+func (o JitNetworkAccessRequestPortInvokeResponseOutput) ToJitNetworkAccessRequestPortInvokeResponseOutputWithContext(ctx context.Context) JitNetworkAccessRequestPortInvokeResponseOutput {
+	return o
+}
+
+// Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+func (o JitNetworkAccessRequestPortInvokeResponseOutput) AllowedSourceAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestPortInvokeResponse) *string { return v.AllowedSourceAddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+func (o JitNetworkAccessRequestPortInvokeResponseOutput) AllowedSourceAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestPortInvokeResponse) []string { return v.AllowedSourceAddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The date & time at which the request ends in UTC
+func (o JitNetworkAccessRequestPortInvokeResponseOutput) EndTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestPortInvokeResponse) string { return v.EndTimeUtc }).(pulumi.StringOutput)
+}
+
+// The port which is mapped to this port's `number` in the Azure Firewall, if applicable
+func (o JitNetworkAccessRequestPortInvokeResponseOutput) MappedPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestPortInvokeResponse) *int { return v.MappedPort }).(pulumi.IntPtrOutput)
+}
+
+func (o JitNetworkAccessRequestPortInvokeResponseOutput) Number() pulumi.IntOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestPortInvokeResponse) int { return v.Number }).(pulumi.IntOutput)
+}
+
+// The status of the port
+func (o JitNetworkAccessRequestPortInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestPortInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// A description of why the `status` has its value
+func (o JitNetworkAccessRequestPortInvokeResponseOutput) StatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestPortInvokeResponse) string { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+type JitNetworkAccessRequestPortInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessRequestPortInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitNetworkAccessRequestPortInvokeResponse)(nil)).Elem()
+}
+
+func (o JitNetworkAccessRequestPortInvokeResponseArrayOutput) ToJitNetworkAccessRequestPortInvokeResponseArrayOutput() JitNetworkAccessRequestPortInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitNetworkAccessRequestPortInvokeResponseArrayOutput) ToJitNetworkAccessRequestPortInvokeResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessRequestPortInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitNetworkAccessRequestPortInvokeResponseArrayOutput) Index(i pulumi.IntInput) JitNetworkAccessRequestPortInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitNetworkAccessRequestPortInvokeResponse {
+		return vs[0].([]JitNetworkAccessRequestPortInvokeResponse)[vs[1].(int)]
+	}).(JitNetworkAccessRequestPortInvokeResponseOutput)
 }
 
 type JitNetworkAccessRequestPortResponse struct {
@@ -1251,6 +1875,114 @@ func (o JitNetworkAccessRequestVirtualMachineArrayOutput) Index(i pulumi.IntInpu
 	}).(JitNetworkAccessRequestVirtualMachineOutput)
 }
 
+type JitNetworkAccessRequestVirtualMachineInvokeResponse struct {
+	// Resource ID of the virtual machine that is linked to this policy
+	Id string `pulumi:"id"`
+	// The ports that were opened for the virtual machine
+	Ports []JitNetworkAccessRequestPortInvokeResponse `pulumi:"ports"`
+}
+
+// JitNetworkAccessRequestVirtualMachineInvokeResponseInput is an input type that accepts JitNetworkAccessRequestVirtualMachineInvokeResponseArgs and JitNetworkAccessRequestVirtualMachineInvokeResponseOutput values.
+// You can construct a concrete instance of `JitNetworkAccessRequestVirtualMachineInvokeResponseInput` via:
+//
+//          JitNetworkAccessRequestVirtualMachineInvokeResponseArgs{...}
+type JitNetworkAccessRequestVirtualMachineInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessRequestVirtualMachineInvokeResponseOutput() JitNetworkAccessRequestVirtualMachineInvokeResponseOutput
+	ToJitNetworkAccessRequestVirtualMachineInvokeResponseOutputWithContext(context.Context) JitNetworkAccessRequestVirtualMachineInvokeResponseOutput
+}
+
+type JitNetworkAccessRequestVirtualMachineInvokeResponseArgs struct {
+	// Resource ID of the virtual machine that is linked to this policy
+	Id pulumi.StringInput `pulumi:"id"`
+	// The ports that were opened for the virtual machine
+	Ports JitNetworkAccessRequestPortInvokeResponseArrayInput `pulumi:"ports"`
+}
+
+func (JitNetworkAccessRequestVirtualMachineInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessRequestVirtualMachineInvokeResponse)(nil)).Elem()
+}
+
+func (i JitNetworkAccessRequestVirtualMachineInvokeResponseArgs) ToJitNetworkAccessRequestVirtualMachineInvokeResponseOutput() JitNetworkAccessRequestVirtualMachineInvokeResponseOutput {
+	return i.ToJitNetworkAccessRequestVirtualMachineInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessRequestVirtualMachineInvokeResponseArgs) ToJitNetworkAccessRequestVirtualMachineInvokeResponseOutputWithContext(ctx context.Context) JitNetworkAccessRequestVirtualMachineInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestVirtualMachineInvokeResponseOutput)
+}
+
+// JitNetworkAccessRequestVirtualMachineInvokeResponseArrayInput is an input type that accepts JitNetworkAccessRequestVirtualMachineInvokeResponseArray and JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JitNetworkAccessRequestVirtualMachineInvokeResponseArrayInput` via:
+//
+//          JitNetworkAccessRequestVirtualMachineInvokeResponseArray{ JitNetworkAccessRequestVirtualMachineInvokeResponseArgs{...} }
+type JitNetworkAccessRequestVirtualMachineInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput() JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput
+	ToJitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutputWithContext(context.Context) JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput
+}
+
+type JitNetworkAccessRequestVirtualMachineInvokeResponseArray []JitNetworkAccessRequestVirtualMachineInvokeResponseInput
+
+func (JitNetworkAccessRequestVirtualMachineInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitNetworkAccessRequestVirtualMachineInvokeResponse)(nil)).Elem()
+}
+
+func (i JitNetworkAccessRequestVirtualMachineInvokeResponseArray) ToJitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput() JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput {
+	return i.ToJitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JitNetworkAccessRequestVirtualMachineInvokeResponseArray) ToJitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput)
+}
+
+type JitNetworkAccessRequestVirtualMachineInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessRequestVirtualMachineInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JitNetworkAccessRequestVirtualMachineInvokeResponse)(nil)).Elem()
+}
+
+func (o JitNetworkAccessRequestVirtualMachineInvokeResponseOutput) ToJitNetworkAccessRequestVirtualMachineInvokeResponseOutput() JitNetworkAccessRequestVirtualMachineInvokeResponseOutput {
+	return o
+}
+
+func (o JitNetworkAccessRequestVirtualMachineInvokeResponseOutput) ToJitNetworkAccessRequestVirtualMachineInvokeResponseOutputWithContext(ctx context.Context) JitNetworkAccessRequestVirtualMachineInvokeResponseOutput {
+	return o
+}
+
+// Resource ID of the virtual machine that is linked to this policy
+func (o JitNetworkAccessRequestVirtualMachineInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestVirtualMachineInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ports that were opened for the virtual machine
+func (o JitNetworkAccessRequestVirtualMachineInvokeResponseOutput) Ports() JitNetworkAccessRequestPortInvokeResponseArrayOutput {
+	return o.ApplyT(func(v JitNetworkAccessRequestVirtualMachineInvokeResponse) []JitNetworkAccessRequestPortInvokeResponse {
+		return v.Ports
+	}).(JitNetworkAccessRequestPortInvokeResponseArrayOutput)
+}
+
+type JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JitNetworkAccessRequestVirtualMachineInvokeResponse)(nil)).Elem()
+}
+
+func (o JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput) ToJitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput() JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput) ToJitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput) Index(i pulumi.IntInput) JitNetworkAccessRequestVirtualMachineInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitNetworkAccessRequestVirtualMachineInvokeResponse {
+		return vs[0].([]JitNetworkAccessRequestVirtualMachineInvokeResponse)[vs[1].(int)]
+	}).(JitNetworkAccessRequestVirtualMachineInvokeResponseOutput)
+}
+
 type JitNetworkAccessRequestVirtualMachineResponse struct {
 	// Resource ID of the virtual machine that is linked to this policy
 	Id string `pulumi:"id"`
@@ -1523,6 +2255,172 @@ func (o PathRecommendationArrayOutput) Index(i pulumi.IntInput) PathRecommendati
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PathRecommendation {
 		return vs[0].([]PathRecommendation)[vs[1].(int)]
 	}).(PathRecommendationOutput)
+}
+
+// Represents a path that is recommended to be allowed and its properties
+type PathRecommendationInvokeResponse struct {
+	// The recommendation action of the VM/server or rule
+	Action *string `pulumi:"action"`
+	// Whether the path is commonly run on the machine
+	Common *bool `pulumi:"common"`
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus *string `pulumi:"configurationStatus"`
+	// The type of the file (for Linux files - Executable is used)
+	FileType *string `pulumi:"fileType"`
+	// The full path to whitelist
+	Path *string `pulumi:"path"`
+	// Represents the publisher information of a process/rule
+	PublisherInfo *PublisherInfoInvokeResponse `pulumi:"publisherInfo"`
+	// The type of the rule to be allowed
+	Type      *string                            `pulumi:"type"`
+	UserSids  []string                           `pulumi:"userSids"`
+	Usernames []UserRecommendationInvokeResponse `pulumi:"usernames"`
+}
+
+// PathRecommendationInvokeResponseInput is an input type that accepts PathRecommendationInvokeResponseArgs and PathRecommendationInvokeResponseOutput values.
+// You can construct a concrete instance of `PathRecommendationInvokeResponseInput` via:
+//
+//          PathRecommendationInvokeResponseArgs{...}
+type PathRecommendationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPathRecommendationInvokeResponseOutput() PathRecommendationInvokeResponseOutput
+	ToPathRecommendationInvokeResponseOutputWithContext(context.Context) PathRecommendationInvokeResponseOutput
+}
+
+// Represents a path that is recommended to be allowed and its properties
+type PathRecommendationInvokeResponseArgs struct {
+	// The recommendation action of the VM/server or rule
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Whether the path is commonly run on the machine
+	Common pulumi.BoolPtrInput `pulumi:"common"`
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
+	// The type of the file (for Linux files - Executable is used)
+	FileType pulumi.StringPtrInput `pulumi:"fileType"`
+	// The full path to whitelist
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Represents the publisher information of a process/rule
+	PublisherInfo PublisherInfoInvokeResponsePtrInput `pulumi:"publisherInfo"`
+	// The type of the rule to be allowed
+	Type      pulumi.StringPtrInput                      `pulumi:"type"`
+	UserSids  pulumi.StringArrayInput                    `pulumi:"userSids"`
+	Usernames UserRecommendationInvokeResponseArrayInput `pulumi:"usernames"`
+}
+
+func (PathRecommendationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (i PathRecommendationInvokeResponseArgs) ToPathRecommendationInvokeResponseOutput() PathRecommendationInvokeResponseOutput {
+	return i.ToPathRecommendationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PathRecommendationInvokeResponseArgs) ToPathRecommendationInvokeResponseOutputWithContext(ctx context.Context) PathRecommendationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationInvokeResponseOutput)
+}
+
+// PathRecommendationInvokeResponseArrayInput is an input type that accepts PathRecommendationInvokeResponseArray and PathRecommendationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PathRecommendationInvokeResponseArrayInput` via:
+//
+//          PathRecommendationInvokeResponseArray{ PathRecommendationInvokeResponseArgs{...} }
+type PathRecommendationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPathRecommendationInvokeResponseArrayOutput() PathRecommendationInvokeResponseArrayOutput
+	ToPathRecommendationInvokeResponseArrayOutputWithContext(context.Context) PathRecommendationInvokeResponseArrayOutput
+}
+
+type PathRecommendationInvokeResponseArray []PathRecommendationInvokeResponseInput
+
+func (PathRecommendationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (i PathRecommendationInvokeResponseArray) ToPathRecommendationInvokeResponseArrayOutput() PathRecommendationInvokeResponseArrayOutput {
+	return i.ToPathRecommendationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PathRecommendationInvokeResponseArray) ToPathRecommendationInvokeResponseArrayOutputWithContext(ctx context.Context) PathRecommendationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationInvokeResponseArrayOutput)
+}
+
+// Represents a path that is recommended to be allowed and its properties
+type PathRecommendationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PathRecommendationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (o PathRecommendationInvokeResponseOutput) ToPathRecommendationInvokeResponseOutput() PathRecommendationInvokeResponseOutput {
+	return o
+}
+
+func (o PathRecommendationInvokeResponseOutput) ToPathRecommendationInvokeResponseOutputWithContext(ctx context.Context) PathRecommendationInvokeResponseOutput {
+	return o
+}
+
+// The recommendation action of the VM/server or rule
+func (o PathRecommendationInvokeResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendationInvokeResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// Whether the path is commonly run on the machine
+func (o PathRecommendationInvokeResponseOutput) Common() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PathRecommendationInvokeResponse) *bool { return v.Common }).(pulumi.BoolPtrOutput)
+}
+
+// The configuration status of the VM/server group or machine or rule on the machine
+func (o PathRecommendationInvokeResponseOutput) ConfigurationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendationInvokeResponse) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
+}
+
+// The type of the file (for Linux files - Executable is used)
+func (o PathRecommendationInvokeResponseOutput) FileType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendationInvokeResponse) *string { return v.FileType }).(pulumi.StringPtrOutput)
+}
+
+// The full path to whitelist
+func (o PathRecommendationInvokeResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendationInvokeResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Represents the publisher information of a process/rule
+func (o PathRecommendationInvokeResponseOutput) PublisherInfo() PublisherInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PathRecommendationInvokeResponse) *PublisherInfoInvokeResponse { return v.PublisherInfo }).(PublisherInfoInvokeResponsePtrOutput)
+}
+
+// The type of the rule to be allowed
+func (o PathRecommendationInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendationInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o PathRecommendationInvokeResponseOutput) UserSids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PathRecommendationInvokeResponse) []string { return v.UserSids }).(pulumi.StringArrayOutput)
+}
+
+func (o PathRecommendationInvokeResponseOutput) Usernames() UserRecommendationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v PathRecommendationInvokeResponse) []UserRecommendationInvokeResponse { return v.Usernames }).(UserRecommendationInvokeResponseArrayOutput)
+}
+
+type PathRecommendationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PathRecommendationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (o PathRecommendationInvokeResponseArrayOutput) ToPathRecommendationInvokeResponseArrayOutput() PathRecommendationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PathRecommendationInvokeResponseArrayOutput) ToPathRecommendationInvokeResponseArrayOutputWithContext(ctx context.Context) PathRecommendationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PathRecommendationInvokeResponseArrayOutput) Index(i pulumi.IntInput) PathRecommendationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PathRecommendationInvokeResponse {
+		return vs[0].([]PathRecommendationInvokeResponse)[vs[1].(int)]
+	}).(PathRecommendationInvokeResponseOutput)
 }
 
 // Represents a path that is recommended to be allowed and its properties
@@ -1880,6 +2778,88 @@ func (o ProtectionModePtrOutput) Script() pulumi.StringPtrOutput {
 		}
 		return v.Script
 	}).(pulumi.StringPtrOutput)
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+type ProtectionModeInvokeResponse struct {
+	// The application control policy enforcement/protection mode of the VM/server group
+	Exe *string `pulumi:"exe"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Executable *string `pulumi:"executable"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Msi *string `pulumi:"msi"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Script *string `pulumi:"script"`
+}
+
+// ProtectionModeInvokeResponseInput is an input type that accepts ProtectionModeInvokeResponseArgs and ProtectionModeInvokeResponseOutput values.
+// You can construct a concrete instance of `ProtectionModeInvokeResponseInput` via:
+//
+//          ProtectionModeInvokeResponseArgs{...}
+type ProtectionModeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToProtectionModeInvokeResponseOutput() ProtectionModeInvokeResponseOutput
+	ToProtectionModeInvokeResponseOutputWithContext(context.Context) ProtectionModeInvokeResponseOutput
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+type ProtectionModeInvokeResponseArgs struct {
+	// The application control policy enforcement/protection mode of the VM/server group
+	Exe pulumi.StringPtrInput `pulumi:"exe"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Executable pulumi.StringPtrInput `pulumi:"executable"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Msi pulumi.StringPtrInput `pulumi:"msi"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	Script pulumi.StringPtrInput `pulumi:"script"`
+}
+
+func (ProtectionModeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionModeInvokeResponse)(nil)).Elem()
+}
+
+func (i ProtectionModeInvokeResponseArgs) ToProtectionModeInvokeResponseOutput() ProtectionModeInvokeResponseOutput {
+	return i.ToProtectionModeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ProtectionModeInvokeResponseArgs) ToProtectionModeInvokeResponseOutputWithContext(ctx context.Context) ProtectionModeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeInvokeResponseOutput)
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+type ProtectionModeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ProtectionModeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionModeInvokeResponse)(nil)).Elem()
+}
+
+func (o ProtectionModeInvokeResponseOutput) ToProtectionModeInvokeResponseOutput() ProtectionModeInvokeResponseOutput {
+	return o
+}
+
+func (o ProtectionModeInvokeResponseOutput) ToProtectionModeInvokeResponseOutputWithContext(ctx context.Context) ProtectionModeInvokeResponseOutput {
+	return o
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeInvokeResponseOutput) Exe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionModeInvokeResponse) *string { return v.Exe }).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeInvokeResponseOutput) Executable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionModeInvokeResponse) *string { return v.Executable }).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeInvokeResponseOutput) Msi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionModeInvokeResponse) *string { return v.Msi }).(pulumi.StringPtrOutput)
+}
+
+// The application control policy enforcement/protection mode of the VM/server group
+func (o ProtectionModeInvokeResponseOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionModeInvokeResponse) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
 
 // The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
@@ -2265,6 +3245,197 @@ func (o PublisherInfoPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 // Represents the publisher information of a process/rule
+type PublisherInfoInvokeResponse struct {
+	// The "OriginalName" field taken from the file's version resource
+	BinaryName *string `pulumi:"binaryName"`
+	// The product name taken from the file's version resource
+	ProductName *string `pulumi:"productName"`
+	// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+	PublisherName *string `pulumi:"publisherName"`
+	// The binary file version taken from the file's version resource
+	Version *string `pulumi:"version"`
+}
+
+// PublisherInfoInvokeResponseInput is an input type that accepts PublisherInfoInvokeResponseArgs and PublisherInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `PublisherInfoInvokeResponseInput` via:
+//
+//          PublisherInfoInvokeResponseArgs{...}
+type PublisherInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPublisherInfoInvokeResponseOutput() PublisherInfoInvokeResponseOutput
+	ToPublisherInfoInvokeResponseOutputWithContext(context.Context) PublisherInfoInvokeResponseOutput
+}
+
+// Represents the publisher information of a process/rule
+type PublisherInfoInvokeResponseArgs struct {
+	// The "OriginalName" field taken from the file's version resource
+	BinaryName pulumi.StringPtrInput `pulumi:"binaryName"`
+	// The product name taken from the file's version resource
+	ProductName pulumi.StringPtrInput `pulumi:"productName"`
+	// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+	PublisherName pulumi.StringPtrInput `pulumi:"publisherName"`
+	// The binary file version taken from the file's version resource
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (PublisherInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i PublisherInfoInvokeResponseArgs) ToPublisherInfoInvokeResponseOutput() PublisherInfoInvokeResponseOutput {
+	return i.ToPublisherInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PublisherInfoInvokeResponseArgs) ToPublisherInfoInvokeResponseOutputWithContext(ctx context.Context) PublisherInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoInvokeResponseOutput)
+}
+
+func (i PublisherInfoInvokeResponseArgs) ToPublisherInfoInvokeResponsePtrOutput() PublisherInfoInvokeResponsePtrOutput {
+	return i.ToPublisherInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PublisherInfoInvokeResponseArgs) ToPublisherInfoInvokeResponsePtrOutputWithContext(ctx context.Context) PublisherInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoInvokeResponseOutput).ToPublisherInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PublisherInfoInvokeResponsePtrInput is an input type that accepts PublisherInfoInvokeResponseArgs, PublisherInfoInvokeResponsePtr and PublisherInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PublisherInfoInvokeResponsePtrInput` via:
+//
+//          PublisherInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PublisherInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPublisherInfoInvokeResponsePtrOutput() PublisherInfoInvokeResponsePtrOutput
+	ToPublisherInfoInvokeResponsePtrOutputWithContext(context.Context) PublisherInfoInvokeResponsePtrOutput
+}
+
+type publisherInfoInvokeResponsePtrType PublisherInfoInvokeResponseArgs
+
+func PublisherInfoInvokeResponsePtr(v *PublisherInfoInvokeResponseArgs) PublisherInfoInvokeResponsePtrInput {
+	return (*publisherInfoInvokeResponsePtrType)(v)
+}
+
+func (*publisherInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublisherInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *publisherInfoInvokeResponsePtrType) ToPublisherInfoInvokeResponsePtrOutput() PublisherInfoInvokeResponsePtrOutput {
+	return i.ToPublisherInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *publisherInfoInvokeResponsePtrType) ToPublisherInfoInvokeResponsePtrOutputWithContext(ctx context.Context) PublisherInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoInvokeResponsePtrOutput)
+}
+
+// Represents the publisher information of a process/rule
+type PublisherInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PublisherInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o PublisherInfoInvokeResponseOutput) ToPublisherInfoInvokeResponseOutput() PublisherInfoInvokeResponseOutput {
+	return o
+}
+
+func (o PublisherInfoInvokeResponseOutput) ToPublisherInfoInvokeResponseOutputWithContext(ctx context.Context) PublisherInfoInvokeResponseOutput {
+	return o
+}
+
+func (o PublisherInfoInvokeResponseOutput) ToPublisherInfoInvokeResponsePtrOutput() PublisherInfoInvokeResponsePtrOutput {
+	return o.ToPublisherInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PublisherInfoInvokeResponseOutput) ToPublisherInfoInvokeResponsePtrOutputWithContext(ctx context.Context) PublisherInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PublisherInfoInvokeResponse) *PublisherInfoInvokeResponse {
+		return &v
+	}).(PublisherInfoInvokeResponsePtrOutput)
+}
+
+// The "OriginalName" field taken from the file's version resource
+func (o PublisherInfoInvokeResponseOutput) BinaryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfoInvokeResponse) *string { return v.BinaryName }).(pulumi.StringPtrOutput)
+}
+
+// The product name taken from the file's version resource
+func (o PublisherInfoInvokeResponseOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfoInvokeResponse) *string { return v.ProductName }).(pulumi.StringPtrOutput)
+}
+
+// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+func (o PublisherInfoInvokeResponseOutput) PublisherName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfoInvokeResponse) *string { return v.PublisherName }).(pulumi.StringPtrOutput)
+}
+
+// The binary file version taken from the file's version resource
+func (o PublisherInfoInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfoInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type PublisherInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PublisherInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublisherInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o PublisherInfoInvokeResponsePtrOutput) ToPublisherInfoInvokeResponsePtrOutput() PublisherInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PublisherInfoInvokeResponsePtrOutput) ToPublisherInfoInvokeResponsePtrOutputWithContext(ctx context.Context) PublisherInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PublisherInfoInvokeResponsePtrOutput) Elem() PublisherInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *PublisherInfoInvokeResponse) PublisherInfoInvokeResponse { return *v }).(PublisherInfoInvokeResponseOutput)
+}
+
+// The "OriginalName" field taken from the file's version resource
+func (o PublisherInfoInvokeResponsePtrOutput) BinaryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BinaryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The product name taken from the file's version resource
+func (o PublisherInfoInvokeResponsePtrOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProductName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+func (o PublisherInfoInvokeResponsePtrOutput) PublisherName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublisherName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The binary file version taken from the file's version resource
+func (o PublisherInfoInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents the publisher information of a process/rule
 type PublisherInfoResponse struct {
 	// The "OriginalName" field taken from the file's version resource
 	BinaryName *string `pulumi:"binaryName"`
@@ -2565,6 +3736,115 @@ func (o UserRecommendationArrayOutput) Index(i pulumi.IntInput) UserRecommendati
 }
 
 // Represents a user that is recommended to be allowed for a certain rule
+type UserRecommendationInvokeResponse struct {
+	// The recommendation action of the VM/server or rule
+	RecommendationAction *string `pulumi:"recommendationAction"`
+	// Represents a user that is recommended to be allowed for a certain rule
+	Username *string `pulumi:"username"`
+}
+
+// UserRecommendationInvokeResponseInput is an input type that accepts UserRecommendationInvokeResponseArgs and UserRecommendationInvokeResponseOutput values.
+// You can construct a concrete instance of `UserRecommendationInvokeResponseInput` via:
+//
+//          UserRecommendationInvokeResponseArgs{...}
+type UserRecommendationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserRecommendationInvokeResponseOutput() UserRecommendationInvokeResponseOutput
+	ToUserRecommendationInvokeResponseOutputWithContext(context.Context) UserRecommendationInvokeResponseOutput
+}
+
+// Represents a user that is recommended to be allowed for a certain rule
+type UserRecommendationInvokeResponseArgs struct {
+	// The recommendation action of the VM/server or rule
+	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
+	// Represents a user that is recommended to be allowed for a certain rule
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (UserRecommendationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (i UserRecommendationInvokeResponseArgs) ToUserRecommendationInvokeResponseOutput() UserRecommendationInvokeResponseOutput {
+	return i.ToUserRecommendationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserRecommendationInvokeResponseArgs) ToUserRecommendationInvokeResponseOutputWithContext(ctx context.Context) UserRecommendationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationInvokeResponseOutput)
+}
+
+// UserRecommendationInvokeResponseArrayInput is an input type that accepts UserRecommendationInvokeResponseArray and UserRecommendationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `UserRecommendationInvokeResponseArrayInput` via:
+//
+//          UserRecommendationInvokeResponseArray{ UserRecommendationInvokeResponseArgs{...} }
+type UserRecommendationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToUserRecommendationInvokeResponseArrayOutput() UserRecommendationInvokeResponseArrayOutput
+	ToUserRecommendationInvokeResponseArrayOutputWithContext(context.Context) UserRecommendationInvokeResponseArrayOutput
+}
+
+type UserRecommendationInvokeResponseArray []UserRecommendationInvokeResponseInput
+
+func (UserRecommendationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (i UserRecommendationInvokeResponseArray) ToUserRecommendationInvokeResponseArrayOutput() UserRecommendationInvokeResponseArrayOutput {
+	return i.ToUserRecommendationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i UserRecommendationInvokeResponseArray) ToUserRecommendationInvokeResponseArrayOutputWithContext(ctx context.Context) UserRecommendationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationInvokeResponseArrayOutput)
+}
+
+// Represents a user that is recommended to be allowed for a certain rule
+type UserRecommendationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserRecommendationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (o UserRecommendationInvokeResponseOutput) ToUserRecommendationInvokeResponseOutput() UserRecommendationInvokeResponseOutput {
+	return o
+}
+
+func (o UserRecommendationInvokeResponseOutput) ToUserRecommendationInvokeResponseOutputWithContext(ctx context.Context) UserRecommendationInvokeResponseOutput {
+	return o
+}
+
+// The recommendation action of the VM/server or rule
+func (o UserRecommendationInvokeResponseOutput) RecommendationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserRecommendationInvokeResponse) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
+}
+
+// Represents a user that is recommended to be allowed for a certain rule
+func (o UserRecommendationInvokeResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserRecommendationInvokeResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type UserRecommendationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UserRecommendationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (o UserRecommendationInvokeResponseArrayOutput) ToUserRecommendationInvokeResponseArrayOutput() UserRecommendationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UserRecommendationInvokeResponseArrayOutput) ToUserRecommendationInvokeResponseArrayOutputWithContext(ctx context.Context) UserRecommendationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o UserRecommendationInvokeResponseArrayOutput) Index(i pulumi.IntInput) UserRecommendationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserRecommendationInvokeResponse {
+		return vs[0].([]UserRecommendationInvokeResponse)[vs[1].(int)]
+	}).(UserRecommendationInvokeResponseOutput)
+}
+
+// Represents a user that is recommended to be allowed for a certain rule
 type UserRecommendationResponse struct {
 	// The recommendation action of the VM/server or rule
 	RecommendationAction *string `pulumi:"recommendationAction"`
@@ -2801,6 +4081,133 @@ func (o VmRecommendationArrayOutput) Index(i pulumi.IntInput) VmRecommendationOu
 }
 
 // Represents a machine that is part of a VM/server group
+type VmRecommendationInvokeResponse struct {
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus *string `pulumi:"configurationStatus"`
+	// The VM/server supportability of Enforce feature
+	EnforcementSupport *string `pulumi:"enforcementSupport"`
+	// The recommendation action of the VM/server or rule
+	RecommendationAction *string `pulumi:"recommendationAction"`
+	// The full azure resource id of the machine
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// VmRecommendationInvokeResponseInput is an input type that accepts VmRecommendationInvokeResponseArgs and VmRecommendationInvokeResponseOutput values.
+// You can construct a concrete instance of `VmRecommendationInvokeResponseInput` via:
+//
+//          VmRecommendationInvokeResponseArgs{...}
+type VmRecommendationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVmRecommendationInvokeResponseOutput() VmRecommendationInvokeResponseOutput
+	ToVmRecommendationInvokeResponseOutputWithContext(context.Context) VmRecommendationInvokeResponseOutput
+}
+
+// Represents a machine that is part of a VM/server group
+type VmRecommendationInvokeResponseArgs struct {
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
+	// The VM/server supportability of Enforce feature
+	EnforcementSupport pulumi.StringPtrInput `pulumi:"enforcementSupport"`
+	// The recommendation action of the VM/server or rule
+	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
+	// The full azure resource id of the machine
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (VmRecommendationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (i VmRecommendationInvokeResponseArgs) ToVmRecommendationInvokeResponseOutput() VmRecommendationInvokeResponseOutput {
+	return i.ToVmRecommendationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VmRecommendationInvokeResponseArgs) ToVmRecommendationInvokeResponseOutputWithContext(ctx context.Context) VmRecommendationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationInvokeResponseOutput)
+}
+
+// VmRecommendationInvokeResponseArrayInput is an input type that accepts VmRecommendationInvokeResponseArray and VmRecommendationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VmRecommendationInvokeResponseArrayInput` via:
+//
+//          VmRecommendationInvokeResponseArray{ VmRecommendationInvokeResponseArgs{...} }
+type VmRecommendationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVmRecommendationInvokeResponseArrayOutput() VmRecommendationInvokeResponseArrayOutput
+	ToVmRecommendationInvokeResponseArrayOutputWithContext(context.Context) VmRecommendationInvokeResponseArrayOutput
+}
+
+type VmRecommendationInvokeResponseArray []VmRecommendationInvokeResponseInput
+
+func (VmRecommendationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (i VmRecommendationInvokeResponseArray) ToVmRecommendationInvokeResponseArrayOutput() VmRecommendationInvokeResponseArrayOutput {
+	return i.ToVmRecommendationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VmRecommendationInvokeResponseArray) ToVmRecommendationInvokeResponseArrayOutputWithContext(ctx context.Context) VmRecommendationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationInvokeResponseArrayOutput)
+}
+
+// Represents a machine that is part of a VM/server group
+type VmRecommendationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VmRecommendationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (o VmRecommendationInvokeResponseOutput) ToVmRecommendationInvokeResponseOutput() VmRecommendationInvokeResponseOutput {
+	return o
+}
+
+func (o VmRecommendationInvokeResponseOutput) ToVmRecommendationInvokeResponseOutputWithContext(ctx context.Context) VmRecommendationInvokeResponseOutput {
+	return o
+}
+
+// The configuration status of the VM/server group or machine or rule on the machine
+func (o VmRecommendationInvokeResponseOutput) ConfigurationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendationInvokeResponse) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
+}
+
+// The VM/server supportability of Enforce feature
+func (o VmRecommendationInvokeResponseOutput) EnforcementSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendationInvokeResponse) *string { return v.EnforcementSupport }).(pulumi.StringPtrOutput)
+}
+
+// The recommendation action of the VM/server or rule
+func (o VmRecommendationInvokeResponseOutput) RecommendationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendationInvokeResponse) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
+}
+
+// The full azure resource id of the machine
+func (o VmRecommendationInvokeResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendationInvokeResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type VmRecommendationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VmRecommendationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmRecommendationInvokeResponse)(nil)).Elem()
+}
+
+func (o VmRecommendationInvokeResponseArrayOutput) ToVmRecommendationInvokeResponseArrayOutput() VmRecommendationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VmRecommendationInvokeResponseArrayOutput) ToVmRecommendationInvokeResponseArrayOutputWithContext(ctx context.Context) VmRecommendationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VmRecommendationInvokeResponseArrayOutput) Index(i pulumi.IntInput) VmRecommendationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VmRecommendationInvokeResponse {
+		return vs[0].([]VmRecommendationInvokeResponse)[vs[1].(int)]
+	}).(VmRecommendationInvokeResponseOutput)
+}
+
+// Represents a machine that is part of a VM/server group
 type VmRecommendationResponse struct {
 	// The configuration status of the VM/server group or machine or rule on the machine
 	ConfigurationStatus *string `pulumi:"configurationStatus"`
@@ -2928,46 +4335,67 @@ func (o VmRecommendationResponseArrayOutput) Index(i pulumi.IntInput) VmRecommen
 }
 
 func init() {
+	pulumi.RegisterOutputType(AppWhitelistingIssueSummaryInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AppWhitelistingIssueSummaryInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AppWhitelistingIssueSummaryResponseOutput{})
 	pulumi.RegisterOutputType(AppWhitelistingIssueSummaryResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineArrayOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPortRuleOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPortRuleArrayOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessPortRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessPortRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPortRuleResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPortRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestArrayOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessRequestInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessRequestInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestPortOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestPortArrayOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessRequestPortInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessRequestPortInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestPortResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestPortResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineArrayOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseArrayOutput{})
 	pulumi.RegisterOutputType(PathRecommendationOutput{})
 	pulumi.RegisterOutputType(PathRecommendationArrayOutput{})
+	pulumi.RegisterOutputType(PathRecommendationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PathRecommendationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PathRecommendationResponseOutput{})
 	pulumi.RegisterOutputType(PathRecommendationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProtectionModeOutput{})
 	pulumi.RegisterOutputType(ProtectionModePtrOutput{})
+	pulumi.RegisterOutputType(ProtectionModeInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionModeResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionModeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PublisherInfoOutput{})
 	pulumi.RegisterOutputType(PublisherInfoPtrOutput{})
+	pulumi.RegisterOutputType(PublisherInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PublisherInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PublisherInfoResponseOutput{})
 	pulumi.RegisterOutputType(PublisherInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserRecommendationOutput{})
 	pulumi.RegisterOutputType(UserRecommendationArrayOutput{})
+	pulumi.RegisterOutputType(UserRecommendationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UserRecommendationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(UserRecommendationResponseOutput{})
 	pulumi.RegisterOutputType(UserRecommendationResponseArrayOutput{})
 	pulumi.RegisterOutputType(VmRecommendationOutput{})
 	pulumi.RegisterOutputType(VmRecommendationArrayOutput{})
+	pulumi.RegisterOutputType(VmRecommendationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VmRecommendationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VmRecommendationResponseOutput{})
 	pulumi.RegisterOutputType(VmRecommendationResponseArrayOutput{})
 }

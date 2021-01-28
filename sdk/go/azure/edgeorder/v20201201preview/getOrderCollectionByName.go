@@ -34,7 +34,7 @@ type LookupOrderCollectionByNameResult struct {
 	// List of order ARM Ids which are part of an order collection.
 	OrderIds []string `pulumi:"orderIds"`
 	// Represents resource creation and update time
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

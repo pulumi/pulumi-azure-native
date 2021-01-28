@@ -33,7 +33,7 @@ type ListTaskRunDetailsResult struct {
 	// The resource ID.
 	Id string `pulumi:"id"`
 	// Identity for the resource.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	Identity *IdentityPropertiesInvokeResponse `pulumi:"identity"`
 	// The location of the resource
 	Location *string `pulumi:"location"`
 	// The name of the resource.
@@ -43,9 +43,9 @@ type ListTaskRunDetailsResult struct {
 	// The request (parameters) for the run
 	RunRequest interface{} `pulumi:"runRequest"`
 	// The result of this task run
-	RunResult RunResponse `pulumi:"runResult"`
+	RunResult RunInvokeResponse `pulumi:"runResult"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

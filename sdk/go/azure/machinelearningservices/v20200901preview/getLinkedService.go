@@ -30,13 +30,13 @@ type LookupLinkedServiceResult struct {
 	// ResourceId of the link of the linked service.
 	Id string `pulumi:"id"`
 	// Identity for the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// location of the linked service.
 	Location *string `pulumi:"location"`
 	// Friendly name of the linked service.
 	Name string `pulumi:"name"`
 	// LinkedService specific properties.
-	Properties LinkedServicePropsResponse `pulumi:"properties"`
+	Properties LinkedServicePropsInvokeResponse `pulumi:"properties"`
 	// Resource type of linked service.
 	Type string `pulumi:"type"`
 }

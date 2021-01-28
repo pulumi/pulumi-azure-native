@@ -11,6 +11,135 @@ import (
 )
 
 // The child information of a management group.
+type ManagementGroupChildInfoInvokeResponse struct {
+	// The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+	ChildId *string `pulumi:"childId"`
+	// The type of child resource.
+	ChildType *string `pulumi:"childType"`
+	// The list of children.
+	Children []ManagementGroupChildInfoInvokeResponse `pulumi:"children"`
+	// The friendly name of the child resource.
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// ManagementGroupChildInfoInvokeResponseInput is an input type that accepts ManagementGroupChildInfoInvokeResponseArgs and ManagementGroupChildInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagementGroupChildInfoInvokeResponseInput` via:
+//
+//          ManagementGroupChildInfoInvokeResponseArgs{...}
+type ManagementGroupChildInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagementGroupChildInfoInvokeResponseOutput() ManagementGroupChildInfoInvokeResponseOutput
+	ToManagementGroupChildInfoInvokeResponseOutputWithContext(context.Context) ManagementGroupChildInfoInvokeResponseOutput
+}
+
+// The child information of a management group.
+type ManagementGroupChildInfoInvokeResponseArgs struct {
+	// The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+	ChildId pulumi.StringPtrInput `pulumi:"childId"`
+	// The type of child resource.
+	ChildType pulumi.StringPtrInput `pulumi:"childType"`
+	// The list of children.
+	Children ManagementGroupChildInfoInvokeResponseArrayInput `pulumi:"children"`
+	// The friendly name of the child resource.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (ManagementGroupChildInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupChildInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagementGroupChildInfoInvokeResponseArgs) ToManagementGroupChildInfoInvokeResponseOutput() ManagementGroupChildInfoInvokeResponseOutput {
+	return i.ToManagementGroupChildInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementGroupChildInfoInvokeResponseArgs) ToManagementGroupChildInfoInvokeResponseOutputWithContext(ctx context.Context) ManagementGroupChildInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupChildInfoInvokeResponseOutput)
+}
+
+// ManagementGroupChildInfoInvokeResponseArrayInput is an input type that accepts ManagementGroupChildInfoInvokeResponseArray and ManagementGroupChildInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ManagementGroupChildInfoInvokeResponseArrayInput` via:
+//
+//          ManagementGroupChildInfoInvokeResponseArray{ ManagementGroupChildInfoInvokeResponseArgs{...} }
+type ManagementGroupChildInfoInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToManagementGroupChildInfoInvokeResponseArrayOutput() ManagementGroupChildInfoInvokeResponseArrayOutput
+	ToManagementGroupChildInfoInvokeResponseArrayOutputWithContext(context.Context) ManagementGroupChildInfoInvokeResponseArrayOutput
+}
+
+type ManagementGroupChildInfoInvokeResponseArray []ManagementGroupChildInfoInvokeResponseInput
+
+func (ManagementGroupChildInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagementGroupChildInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagementGroupChildInfoInvokeResponseArray) ToManagementGroupChildInfoInvokeResponseArrayOutput() ManagementGroupChildInfoInvokeResponseArrayOutput {
+	return i.ToManagementGroupChildInfoInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ManagementGroupChildInfoInvokeResponseArray) ToManagementGroupChildInfoInvokeResponseArrayOutputWithContext(ctx context.Context) ManagementGroupChildInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupChildInfoInvokeResponseArrayOutput)
+}
+
+// The child information of a management group.
+type ManagementGroupChildInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementGroupChildInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupChildInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagementGroupChildInfoInvokeResponseOutput) ToManagementGroupChildInfoInvokeResponseOutput() ManagementGroupChildInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ManagementGroupChildInfoInvokeResponseOutput) ToManagementGroupChildInfoInvokeResponseOutputWithContext(ctx context.Context) ManagementGroupChildInfoInvokeResponseOutput {
+	return o
+}
+
+// The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+func (o ManagementGroupChildInfoInvokeResponseOutput) ChildId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementGroupChildInfoInvokeResponse) *string { return v.ChildId }).(pulumi.StringPtrOutput)
+}
+
+// The type of child resource.
+func (o ManagementGroupChildInfoInvokeResponseOutput) ChildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementGroupChildInfoInvokeResponse) *string { return v.ChildType }).(pulumi.StringPtrOutput)
+}
+
+// The list of children.
+func (o ManagementGroupChildInfoInvokeResponseOutput) Children() ManagementGroupChildInfoInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ManagementGroupChildInfoInvokeResponse) []ManagementGroupChildInfoInvokeResponse {
+		return v.Children
+	}).(ManagementGroupChildInfoInvokeResponseArrayOutput)
+}
+
+// The friendly name of the child resource.
+func (o ManagementGroupChildInfoInvokeResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementGroupChildInfoInvokeResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type ManagementGroupChildInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagementGroupChildInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagementGroupChildInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagementGroupChildInfoInvokeResponseArrayOutput) ToManagementGroupChildInfoInvokeResponseArrayOutput() ManagementGroupChildInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagementGroupChildInfoInvokeResponseArrayOutput) ToManagementGroupChildInfoInvokeResponseArrayOutputWithContext(ctx context.Context) ManagementGroupChildInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ManagementGroupChildInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) ManagementGroupChildInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagementGroupChildInfoInvokeResponse {
+		return vs[0].([]ManagementGroupChildInfoInvokeResponse)[vs[1].(int)]
+	}).(ManagementGroupChildInfoInvokeResponseOutput)
+}
+
+// The child information of a management group.
 type ManagementGroupChildInfoResponse struct {
 	// The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
 	ChildId *string `pulumi:"childId"`
@@ -135,6 +264,88 @@ func (o ManagementGroupChildInfoResponseArrayOutput) Index(i pulumi.IntInput) Ma
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagementGroupChildInfoResponse {
 		return vs[0].([]ManagementGroupChildInfoResponse)[vs[1].(int)]
 	}).(ManagementGroupChildInfoResponseOutput)
+}
+
+// The details of a management group.
+type ManagementGroupDetailsInvokeResponse struct {
+	// (Optional) The ID of the parent management group.
+	Parent *ParentGroupInfoInvokeResponse `pulumi:"parent"`
+	// The identity of the principal or process that updated the object.
+	UpdatedBy *string `pulumi:"updatedBy"`
+	// The date and time when this object was last updated.
+	UpdatedTime *string `pulumi:"updatedTime"`
+	// The version number of the object.
+	Version *float64 `pulumi:"version"`
+}
+
+// ManagementGroupDetailsInvokeResponseInput is an input type that accepts ManagementGroupDetailsInvokeResponseArgs and ManagementGroupDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagementGroupDetailsInvokeResponseInput` via:
+//
+//          ManagementGroupDetailsInvokeResponseArgs{...}
+type ManagementGroupDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagementGroupDetailsInvokeResponseOutput() ManagementGroupDetailsInvokeResponseOutput
+	ToManagementGroupDetailsInvokeResponseOutputWithContext(context.Context) ManagementGroupDetailsInvokeResponseOutput
+}
+
+// The details of a management group.
+type ManagementGroupDetailsInvokeResponseArgs struct {
+	// (Optional) The ID of the parent management group.
+	Parent ParentGroupInfoInvokeResponsePtrInput `pulumi:"parent"`
+	// The identity of the principal or process that updated the object.
+	UpdatedBy pulumi.StringPtrInput `pulumi:"updatedBy"`
+	// The date and time when this object was last updated.
+	UpdatedTime pulumi.StringPtrInput `pulumi:"updatedTime"`
+	// The version number of the object.
+	Version pulumi.Float64PtrInput `pulumi:"version"`
+}
+
+func (ManagementGroupDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagementGroupDetailsInvokeResponseArgs) ToManagementGroupDetailsInvokeResponseOutput() ManagementGroupDetailsInvokeResponseOutput {
+	return i.ToManagementGroupDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagementGroupDetailsInvokeResponseArgs) ToManagementGroupDetailsInvokeResponseOutputWithContext(ctx context.Context) ManagementGroupDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupDetailsInvokeResponseOutput)
+}
+
+// The details of a management group.
+type ManagementGroupDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagementGroupDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementGroupDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagementGroupDetailsInvokeResponseOutput) ToManagementGroupDetailsInvokeResponseOutput() ManagementGroupDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o ManagementGroupDetailsInvokeResponseOutput) ToManagementGroupDetailsInvokeResponseOutputWithContext(ctx context.Context) ManagementGroupDetailsInvokeResponseOutput {
+	return o
+}
+
+// (Optional) The ID of the parent management group.
+func (o ManagementGroupDetailsInvokeResponseOutput) Parent() ParentGroupInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ManagementGroupDetailsInvokeResponse) *ParentGroupInfoInvokeResponse { return v.Parent }).(ParentGroupInfoInvokeResponsePtrOutput)
+}
+
+// The identity of the principal or process that updated the object.
+func (o ManagementGroupDetailsInvokeResponseOutput) UpdatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementGroupDetailsInvokeResponse) *string { return v.UpdatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The date and time when this object was last updated.
+func (o ManagementGroupDetailsInvokeResponseOutput) UpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementGroupDetailsInvokeResponse) *string { return v.UpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// The version number of the object.
+func (o ManagementGroupDetailsInvokeResponseOutput) Version() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ManagementGroupDetailsInvokeResponse) *float64 { return v.Version }).(pulumi.Float64PtrOutput)
 }
 
 // The details of a management group.
@@ -329,6 +540,159 @@ func (o ManagementGroupDetailsResponsePtrOutput) Version() pulumi.Float64PtrOutp
 }
 
 // (Optional) The ID of the parent management group.
+type ParentGroupInfoInvokeResponse struct {
+	// The friendly name of the parent management group.
+	DisplayName *string `pulumi:"displayName"`
+	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+	ParentId *string `pulumi:"parentId"`
+}
+
+// ParentGroupInfoInvokeResponseInput is an input type that accepts ParentGroupInfoInvokeResponseArgs and ParentGroupInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ParentGroupInfoInvokeResponseInput` via:
+//
+//          ParentGroupInfoInvokeResponseArgs{...}
+type ParentGroupInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToParentGroupInfoInvokeResponseOutput() ParentGroupInfoInvokeResponseOutput
+	ToParentGroupInfoInvokeResponseOutputWithContext(context.Context) ParentGroupInfoInvokeResponseOutput
+}
+
+// (Optional) The ID of the parent management group.
+type ParentGroupInfoInvokeResponseArgs struct {
+	// The friendly name of the parent management group.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+	ParentId pulumi.StringPtrInput `pulumi:"parentId"`
+}
+
+func (ParentGroupInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParentGroupInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ParentGroupInfoInvokeResponseArgs) ToParentGroupInfoInvokeResponseOutput() ParentGroupInfoInvokeResponseOutput {
+	return i.ToParentGroupInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ParentGroupInfoInvokeResponseArgs) ToParentGroupInfoInvokeResponseOutputWithContext(ctx context.Context) ParentGroupInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParentGroupInfoInvokeResponseOutput)
+}
+
+func (i ParentGroupInfoInvokeResponseArgs) ToParentGroupInfoInvokeResponsePtrOutput() ParentGroupInfoInvokeResponsePtrOutput {
+	return i.ToParentGroupInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ParentGroupInfoInvokeResponseArgs) ToParentGroupInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ParentGroupInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParentGroupInfoInvokeResponseOutput).ToParentGroupInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ParentGroupInfoInvokeResponsePtrInput is an input type that accepts ParentGroupInfoInvokeResponseArgs, ParentGroupInfoInvokeResponsePtr and ParentGroupInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ParentGroupInfoInvokeResponsePtrInput` via:
+//
+//          ParentGroupInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ParentGroupInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToParentGroupInfoInvokeResponsePtrOutput() ParentGroupInfoInvokeResponsePtrOutput
+	ToParentGroupInfoInvokeResponsePtrOutputWithContext(context.Context) ParentGroupInfoInvokeResponsePtrOutput
+}
+
+type parentGroupInfoInvokeResponsePtrType ParentGroupInfoInvokeResponseArgs
+
+func ParentGroupInfoInvokeResponsePtr(v *ParentGroupInfoInvokeResponseArgs) ParentGroupInfoInvokeResponsePtrInput {
+	return (*parentGroupInfoInvokeResponsePtrType)(v)
+}
+
+func (*parentGroupInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParentGroupInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *parentGroupInfoInvokeResponsePtrType) ToParentGroupInfoInvokeResponsePtrOutput() ParentGroupInfoInvokeResponsePtrOutput {
+	return i.ToParentGroupInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *parentGroupInfoInvokeResponsePtrType) ToParentGroupInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ParentGroupInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParentGroupInfoInvokeResponsePtrOutput)
+}
+
+// (Optional) The ID of the parent management group.
+type ParentGroupInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ParentGroupInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParentGroupInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ParentGroupInfoInvokeResponseOutput) ToParentGroupInfoInvokeResponseOutput() ParentGroupInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ParentGroupInfoInvokeResponseOutput) ToParentGroupInfoInvokeResponseOutputWithContext(ctx context.Context) ParentGroupInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ParentGroupInfoInvokeResponseOutput) ToParentGroupInfoInvokeResponsePtrOutput() ParentGroupInfoInvokeResponsePtrOutput {
+	return o.ToParentGroupInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ParentGroupInfoInvokeResponseOutput) ToParentGroupInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ParentGroupInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ParentGroupInfoInvokeResponse) *ParentGroupInfoInvokeResponse {
+		return &v
+	}).(ParentGroupInfoInvokeResponsePtrOutput)
+}
+
+// The friendly name of the parent management group.
+func (o ParentGroupInfoInvokeResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParentGroupInfoInvokeResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+func (o ParentGroupInfoInvokeResponseOutput) ParentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParentGroupInfoInvokeResponse) *string { return v.ParentId }).(pulumi.StringPtrOutput)
+}
+
+type ParentGroupInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ParentGroupInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParentGroupInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ParentGroupInfoInvokeResponsePtrOutput) ToParentGroupInfoInvokeResponsePtrOutput() ParentGroupInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ParentGroupInfoInvokeResponsePtrOutput) ToParentGroupInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ParentGroupInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ParentGroupInfoInvokeResponsePtrOutput) Elem() ParentGroupInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *ParentGroupInfoInvokeResponse) ParentGroupInfoInvokeResponse { return *v }).(ParentGroupInfoInvokeResponseOutput)
+}
+
+// The friendly name of the parent management group.
+func (o ParentGroupInfoInvokeResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParentGroupInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+func (o ParentGroupInfoInvokeResponsePtrOutput) ParentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParentGroupInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ParentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The ID of the parent management group.
 type ParentGroupInfoResponse struct {
 	// The friendly name of the parent management group.
 	DisplayName *string `pulumi:"displayName"`
@@ -482,10 +846,15 @@ func (o ParentGroupInfoResponsePtrOutput) ParentId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ManagementGroupChildInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ManagementGroupChildInfoInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagementGroupChildInfoResponseOutput{})
 	pulumi.RegisterOutputType(ManagementGroupChildInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ManagementGroupDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagementGroupDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ManagementGroupDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ParentGroupInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ParentGroupInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ParentGroupInfoResponseOutput{})
 	pulumi.RegisterOutputType(ParentGroupInfoResponsePtrOutput{})
 }

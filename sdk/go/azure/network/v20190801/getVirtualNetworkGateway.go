@@ -28,9 +28,9 @@ type LookupVirtualNetworkGatewayResult struct {
 	// ActiveActive flag.
 	ActiveActive *bool `pulumi:"activeActive"`
 	// Virtual network gateway's BGP speaker settings.
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
+	BgpSettings *BgpSettingsInvokeResponse `pulumi:"bgpSettings"`
 	// The reference of the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
-	CustomRoutes *AddressSpaceResponse `pulumi:"customRoutes"`
+	CustomRoutes *AddressSpaceInvokeResponse `pulumi:"customRoutes"`
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Whether dns forwarding is enabled or not.
@@ -38,7 +38,7 @@ type LookupVirtualNetworkGatewayResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
-	GatewayDefaultSite *SubResourceResponse `pulumi:"gatewayDefaultSite"`
+	GatewayDefaultSite *SubResourceInvokeResponse `pulumi:"gatewayDefaultSite"`
 	// The type of this virtual network gateway.
 	GatewayType *string `pulumi:"gatewayType"`
 	// Resource ID.
@@ -46,7 +46,7 @@ type LookupVirtualNetworkGatewayResult struct {
 	// The IP address allocated by the gateway to which dns requests can be sent.
 	InboundDnsForwardingEndpoint string `pulumi:"inboundDnsForwardingEndpoint"`
 	// IP configurations for virtual network gateway.
-	IpConfigurations []VirtualNetworkGatewayIPConfigurationResponse `pulumi:"ipConfigurations"`
+	IpConfigurations []VirtualNetworkGatewayIPConfigurationInvokeResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -56,13 +56,13 @@ type LookupVirtualNetworkGatewayResult struct {
 	// The resource GUID property of the virtual network gateway resource.
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
-	Sku *VirtualNetworkGatewaySkuResponse `pulumi:"sku"`
+	Sku *VirtualNetworkGatewaySkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-	VpnClientConfiguration *VpnClientConfigurationResponse `pulumi:"vpnClientConfiguration"`
+	VpnClientConfiguration *VpnClientConfigurationInvokeResponse `pulumi:"vpnClientConfiguration"`
 	// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
 	VpnGatewayGeneration *string `pulumi:"vpnGatewayGeneration"`
 	// The type of this virtual network gateway.

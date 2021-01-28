@@ -38,7 +38,7 @@ type LookupEmailTemplateResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Email Template Parameter values.
-	Parameters []EmailTemplateParametersContractPropertiesResponse `pulumi:"parameters"`
+	Parameters []EmailTemplateParametersContractPropertiesInvokeResponse `pulumi:"parameters"`
 	// Subject of the Template.
 	Subject string `pulumi:"subject"`
 	// Title of the Template.

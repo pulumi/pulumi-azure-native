@@ -164,6 +164,79 @@ func (o DnsConfigPtrOutput) Ttl() pulumi.Float64PtrOutput {
 }
 
 // Class containing DNS settings in a Traffic Manager profile.
+type DnsConfigInvokeResponse struct {
+	// The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
+	Fqdn string `pulumi:"fqdn"`
+	// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+	RelativeName *string `pulumi:"relativeName"`
+	// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+	Ttl *float64 `pulumi:"ttl"`
+}
+
+// DnsConfigInvokeResponseInput is an input type that accepts DnsConfigInvokeResponseArgs and DnsConfigInvokeResponseOutput values.
+// You can construct a concrete instance of `DnsConfigInvokeResponseInput` via:
+//
+//          DnsConfigInvokeResponseArgs{...}
+type DnsConfigInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDnsConfigInvokeResponseOutput() DnsConfigInvokeResponseOutput
+	ToDnsConfigInvokeResponseOutputWithContext(context.Context) DnsConfigInvokeResponseOutput
+}
+
+// Class containing DNS settings in a Traffic Manager profile.
+type DnsConfigInvokeResponseArgs struct {
+	// The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+	RelativeName pulumi.StringPtrInput `pulumi:"relativeName"`
+	// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+	Ttl pulumi.Float64PtrInput `pulumi:"ttl"`
+}
+
+func (DnsConfigInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsConfigInvokeResponse)(nil)).Elem()
+}
+
+func (i DnsConfigInvokeResponseArgs) ToDnsConfigInvokeResponseOutput() DnsConfigInvokeResponseOutput {
+	return i.ToDnsConfigInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DnsConfigInvokeResponseArgs) ToDnsConfigInvokeResponseOutputWithContext(ctx context.Context) DnsConfigInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsConfigInvokeResponseOutput)
+}
+
+// Class containing DNS settings in a Traffic Manager profile.
+type DnsConfigInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DnsConfigInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsConfigInvokeResponse)(nil)).Elem()
+}
+
+func (o DnsConfigInvokeResponseOutput) ToDnsConfigInvokeResponseOutput() DnsConfigInvokeResponseOutput {
+	return o
+}
+
+func (o DnsConfigInvokeResponseOutput) ToDnsConfigInvokeResponseOutputWithContext(ctx context.Context) DnsConfigInvokeResponseOutput {
+	return o
+}
+
+// The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
+func (o DnsConfigInvokeResponseOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v DnsConfigInvokeResponse) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
+func (o DnsConfigInvokeResponseOutput) RelativeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DnsConfigInvokeResponse) *string { return v.RelativeName }).(pulumi.StringPtrOutput)
+}
+
+// The DNS Time-To-Live (TTL), in seconds. This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
+func (o DnsConfigInvokeResponseOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DnsConfigInvokeResponse) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
+}
+
+// Class containing DNS settings in a Traffic Manager profile.
 type DnsConfigResponse struct {
 	// The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
 	Fqdn string `pulumi:"fqdn"`
@@ -543,6 +616,214 @@ func (o EndpointTypeArrayOutput) Index(i pulumi.IntInput) EndpointTypeOutput {
 	}).(EndpointTypeOutput)
 }
 
+// Class representing a Traffic Manager endpoint.
+type EndpointInvokeResponse struct {
+	// List of custom headers.
+	CustomHeaders []EndpointPropertiesInvokeResponseCustomHeaders `pulumi:"customHeaders"`
+	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+	EndpointLocation *string `pulumi:"endpointLocation"`
+	// The monitoring status of the endpoint.
+	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
+	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+	EndpointStatus *string `pulumi:"endpointStatus"`
+	// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+	GeoMapping []string `pulumi:"geoMapping"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+	Id *string `pulumi:"id"`
+	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpoints *float64 `pulumi:"minChildEndpoints"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+	Priority *float64 `pulumi:"priority"`
+	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+	Target *string `pulumi:"target"`
+	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+	TargetResourceId *string `pulumi:"targetResourceId"`
+	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+	Type *string `pulumi:"type"`
+	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+	Weight *float64 `pulumi:"weight"`
+}
+
+// EndpointInvokeResponseInput is an input type that accepts EndpointInvokeResponseArgs and EndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `EndpointInvokeResponseInput` via:
+//
+//          EndpointInvokeResponseArgs{...}
+type EndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEndpointInvokeResponseOutput() EndpointInvokeResponseOutput
+	ToEndpointInvokeResponseOutputWithContext(context.Context) EndpointInvokeResponseOutput
+}
+
+// Class representing a Traffic Manager endpoint.
+type EndpointInvokeResponseArgs struct {
+	// List of custom headers.
+	CustomHeaders EndpointPropertiesInvokeResponseCustomHeadersArrayInput `pulumi:"customHeaders"`
+	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+	EndpointLocation pulumi.StringPtrInput `pulumi:"endpointLocation"`
+	// The monitoring status of the endpoint.
+	EndpointMonitorStatus pulumi.StringPtrInput `pulumi:"endpointMonitorStatus"`
+	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+	EndpointStatus pulumi.StringPtrInput `pulumi:"endpointStatus"`
+	// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+	GeoMapping pulumi.StringArrayInput `pulumi:"geoMapping"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpoints pulumi.Float64PtrInput `pulumi:"minChildEndpoints"`
+	// The name of the resource
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+	Priority pulumi.Float64PtrInput `pulumi:"priority"`
+	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
+	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+	Weight pulumi.Float64PtrInput `pulumi:"weight"`
+}
+
+func (EndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i EndpointInvokeResponseArgs) ToEndpointInvokeResponseOutput() EndpointInvokeResponseOutput {
+	return i.ToEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EndpointInvokeResponseArgs) ToEndpointInvokeResponseOutputWithContext(ctx context.Context) EndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointInvokeResponseOutput)
+}
+
+// EndpointInvokeResponseArrayInput is an input type that accepts EndpointInvokeResponseArray and EndpointInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `EndpointInvokeResponseArrayInput` via:
+//
+//          EndpointInvokeResponseArray{ EndpointInvokeResponseArgs{...} }
+type EndpointInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToEndpointInvokeResponseArrayOutput() EndpointInvokeResponseArrayOutput
+	ToEndpointInvokeResponseArrayOutputWithContext(context.Context) EndpointInvokeResponseArrayOutput
+}
+
+type EndpointInvokeResponseArray []EndpointInvokeResponseInput
+
+func (EndpointInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i EndpointInvokeResponseArray) ToEndpointInvokeResponseArrayOutput() EndpointInvokeResponseArrayOutput {
+	return i.ToEndpointInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointInvokeResponseArray) ToEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) EndpointInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointInvokeResponseArrayOutput)
+}
+
+// Class representing a Traffic Manager endpoint.
+type EndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o EndpointInvokeResponseOutput) ToEndpointInvokeResponseOutput() EndpointInvokeResponseOutput {
+	return o
+}
+
+func (o EndpointInvokeResponseOutput) ToEndpointInvokeResponseOutputWithContext(ctx context.Context) EndpointInvokeResponseOutput {
+	return o
+}
+
+// List of custom headers.
+func (o EndpointInvokeResponseOutput) CustomHeaders() EndpointPropertiesInvokeResponseCustomHeadersArrayOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) []EndpointPropertiesInvokeResponseCustomHeaders { return v.CustomHeaders }).(EndpointPropertiesInvokeResponseCustomHeadersArrayOutput)
+}
+
+// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+func (o EndpointInvokeResponseOutput) EndpointLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.EndpointLocation }).(pulumi.StringPtrOutput)
+}
+
+// The monitoring status of the endpoint.
+func (o EndpointInvokeResponseOutput) EndpointMonitorStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.EndpointMonitorStatus }).(pulumi.StringPtrOutput)
+}
+
+// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+func (o EndpointInvokeResponseOutput) EndpointStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.EndpointStatus }).(pulumi.StringPtrOutput)
+}
+
+// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+func (o EndpointInvokeResponseOutput) GeoMapping() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) []string { return v.GeoMapping }).(pulumi.StringArrayOutput)
+}
+
+// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+func (o EndpointInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+func (o EndpointInvokeResponseOutput) MinChildEndpoints() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *float64 { return v.MinChildEndpoints }).(pulumi.Float64PtrOutput)
+}
+
+// The name of the resource
+func (o EndpointInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+func (o EndpointInvokeResponseOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *float64 { return v.Priority }).(pulumi.Float64PtrOutput)
+}
+
+// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+func (o EndpointInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+func (o EndpointInvokeResponseOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+func (o EndpointInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+func (o EndpointInvokeResponseOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointInvokeResponse) *float64 { return v.Weight }).(pulumi.Float64PtrOutput)
+}
+
+type EndpointInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o EndpointInvokeResponseArrayOutput) ToEndpointInvokeResponseArrayOutput() EndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EndpointInvokeResponseArrayOutput) ToEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) EndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o EndpointInvokeResponseArrayOutput) Index(i pulumi.IntInput) EndpointInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointInvokeResponse {
+		return vs[0].([]EndpointInvokeResponse)[vs[1].(int)]
+	}).(EndpointInvokeResponseOutput)
+}
+
 // Custom header name and value.
 type EndpointPropertiesCustomHeaders struct {
 	// Header name.
@@ -650,6 +931,115 @@ func (o EndpointPropertiesCustomHeadersArrayOutput) Index(i pulumi.IntInput) End
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointPropertiesCustomHeaders {
 		return vs[0].([]EndpointPropertiesCustomHeaders)[vs[1].(int)]
 	}).(EndpointPropertiesCustomHeadersOutput)
+}
+
+// Custom header name and value.
+type EndpointPropertiesInvokeResponseCustomHeaders struct {
+	// Header name.
+	Name *string `pulumi:"name"`
+	// Header value.
+	Value *string `pulumi:"value"`
+}
+
+// EndpointPropertiesInvokeResponseCustomHeadersInput is an input type that accepts EndpointPropertiesInvokeResponseCustomHeadersArgs and EndpointPropertiesInvokeResponseCustomHeadersOutput values.
+// You can construct a concrete instance of `EndpointPropertiesInvokeResponseCustomHeadersInput` via:
+//
+//          EndpointPropertiesInvokeResponseCustomHeadersArgs{...}
+type EndpointPropertiesInvokeResponseCustomHeadersInput interface {
+	pulumi.Input
+
+	ToEndpointPropertiesInvokeResponseCustomHeadersOutput() EndpointPropertiesInvokeResponseCustomHeadersOutput
+	ToEndpointPropertiesInvokeResponseCustomHeadersOutputWithContext(context.Context) EndpointPropertiesInvokeResponseCustomHeadersOutput
+}
+
+// Custom header name and value.
+type EndpointPropertiesInvokeResponseCustomHeadersArgs struct {
+	// Header name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Header value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EndpointPropertiesInvokeResponseCustomHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPropertiesInvokeResponseCustomHeaders)(nil)).Elem()
+}
+
+func (i EndpointPropertiesInvokeResponseCustomHeadersArgs) ToEndpointPropertiesInvokeResponseCustomHeadersOutput() EndpointPropertiesInvokeResponseCustomHeadersOutput {
+	return i.ToEndpointPropertiesInvokeResponseCustomHeadersOutputWithContext(context.Background())
+}
+
+func (i EndpointPropertiesInvokeResponseCustomHeadersArgs) ToEndpointPropertiesInvokeResponseCustomHeadersOutputWithContext(ctx context.Context) EndpointPropertiesInvokeResponseCustomHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesInvokeResponseCustomHeadersOutput)
+}
+
+// EndpointPropertiesInvokeResponseCustomHeadersArrayInput is an input type that accepts EndpointPropertiesInvokeResponseCustomHeadersArray and EndpointPropertiesInvokeResponseCustomHeadersArrayOutput values.
+// You can construct a concrete instance of `EndpointPropertiesInvokeResponseCustomHeadersArrayInput` via:
+//
+//          EndpointPropertiesInvokeResponseCustomHeadersArray{ EndpointPropertiesInvokeResponseCustomHeadersArgs{...} }
+type EndpointPropertiesInvokeResponseCustomHeadersArrayInput interface {
+	pulumi.Input
+
+	ToEndpointPropertiesInvokeResponseCustomHeadersArrayOutput() EndpointPropertiesInvokeResponseCustomHeadersArrayOutput
+	ToEndpointPropertiesInvokeResponseCustomHeadersArrayOutputWithContext(context.Context) EndpointPropertiesInvokeResponseCustomHeadersArrayOutput
+}
+
+type EndpointPropertiesInvokeResponseCustomHeadersArray []EndpointPropertiesInvokeResponseCustomHeadersInput
+
+func (EndpointPropertiesInvokeResponseCustomHeadersArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointPropertiesInvokeResponseCustomHeaders)(nil)).Elem()
+}
+
+func (i EndpointPropertiesInvokeResponseCustomHeadersArray) ToEndpointPropertiesInvokeResponseCustomHeadersArrayOutput() EndpointPropertiesInvokeResponseCustomHeadersArrayOutput {
+	return i.ToEndpointPropertiesInvokeResponseCustomHeadersArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointPropertiesInvokeResponseCustomHeadersArray) ToEndpointPropertiesInvokeResponseCustomHeadersArrayOutputWithContext(ctx context.Context) EndpointPropertiesInvokeResponseCustomHeadersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesInvokeResponseCustomHeadersArrayOutput)
+}
+
+// Custom header name and value.
+type EndpointPropertiesInvokeResponseCustomHeadersOutput struct{ *pulumi.OutputState }
+
+func (EndpointPropertiesInvokeResponseCustomHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPropertiesInvokeResponseCustomHeaders)(nil)).Elem()
+}
+
+func (o EndpointPropertiesInvokeResponseCustomHeadersOutput) ToEndpointPropertiesInvokeResponseCustomHeadersOutput() EndpointPropertiesInvokeResponseCustomHeadersOutput {
+	return o
+}
+
+func (o EndpointPropertiesInvokeResponseCustomHeadersOutput) ToEndpointPropertiesInvokeResponseCustomHeadersOutputWithContext(ctx context.Context) EndpointPropertiesInvokeResponseCustomHeadersOutput {
+	return o
+}
+
+// Header name.
+func (o EndpointPropertiesInvokeResponseCustomHeadersOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPropertiesInvokeResponseCustomHeaders) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Header value.
+func (o EndpointPropertiesInvokeResponseCustomHeadersOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPropertiesInvokeResponseCustomHeaders) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EndpointPropertiesInvokeResponseCustomHeadersArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointPropertiesInvokeResponseCustomHeadersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointPropertiesInvokeResponseCustomHeaders)(nil)).Elem()
+}
+
+func (o EndpointPropertiesInvokeResponseCustomHeadersArrayOutput) ToEndpointPropertiesInvokeResponseCustomHeadersArrayOutput() EndpointPropertiesInvokeResponseCustomHeadersArrayOutput {
+	return o
+}
+
+func (o EndpointPropertiesInvokeResponseCustomHeadersArrayOutput) ToEndpointPropertiesInvokeResponseCustomHeadersArrayOutputWithContext(ctx context.Context) EndpointPropertiesInvokeResponseCustomHeadersArrayOutput {
+	return o
+}
+
+func (o EndpointPropertiesInvokeResponseCustomHeadersArrayOutput) Index(i pulumi.IntInput) EndpointPropertiesInvokeResponseCustomHeadersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointPropertiesInvokeResponseCustomHeaders {
+		return vs[0].([]EndpointPropertiesInvokeResponseCustomHeaders)[vs[1].(int)]
+	}).(EndpointPropertiesInvokeResponseCustomHeadersOutput)
 }
 
 // Custom header name and value.
@@ -1474,6 +1864,353 @@ func (o MonitorConfigExpectedStatusCodeRangesArrayOutput) Index(i pulumi.IntInpu
 }
 
 // Class containing endpoint monitoring settings in a Traffic Manager profile.
+type MonitorConfigInvokeResponse struct {
+	// List of custom headers.
+	CustomHeaders []MonitorConfigInvokeResponseCustomHeaders `pulumi:"customHeaders"`
+	// List of expected status code ranges.
+	ExpectedStatusCodeRanges []MonitorConfigInvokeResponseExpectedStatusCodeRanges `pulumi:"expectedStatusCodeRanges"`
+	// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+	IntervalInSeconds *float64 `pulumi:"intervalInSeconds"`
+	// The path relative to the endpoint domain name used to probe for endpoint health.
+	Path *string `pulumi:"path"`
+	// The TCP port used to probe for endpoint health.
+	Port *float64 `pulumi:"port"`
+	// The profile-level monitoring status of the Traffic Manager profile.
+	ProfileMonitorStatus *string `pulumi:"profileMonitorStatus"`
+	// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+	Protocol *string `pulumi:"protocol"`
+	// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+	TimeoutInSeconds *float64 `pulumi:"timeoutInSeconds"`
+	// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+	ToleratedNumberOfFailures *float64 `pulumi:"toleratedNumberOfFailures"`
+}
+
+// MonitorConfigInvokeResponseInput is an input type that accepts MonitorConfigInvokeResponseArgs and MonitorConfigInvokeResponseOutput values.
+// You can construct a concrete instance of `MonitorConfigInvokeResponseInput` via:
+//
+//          MonitorConfigInvokeResponseArgs{...}
+type MonitorConfigInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMonitorConfigInvokeResponseOutput() MonitorConfigInvokeResponseOutput
+	ToMonitorConfigInvokeResponseOutputWithContext(context.Context) MonitorConfigInvokeResponseOutput
+}
+
+// Class containing endpoint monitoring settings in a Traffic Manager profile.
+type MonitorConfigInvokeResponseArgs struct {
+	// List of custom headers.
+	CustomHeaders MonitorConfigInvokeResponseCustomHeadersArrayInput `pulumi:"customHeaders"`
+	// List of expected status code ranges.
+	ExpectedStatusCodeRanges MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayInput `pulumi:"expectedStatusCodeRanges"`
+	// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+	IntervalInSeconds pulumi.Float64PtrInput `pulumi:"intervalInSeconds"`
+	// The path relative to the endpoint domain name used to probe for endpoint health.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The TCP port used to probe for endpoint health.
+	Port pulumi.Float64PtrInput `pulumi:"port"`
+	// The profile-level monitoring status of the Traffic Manager profile.
+	ProfileMonitorStatus pulumi.StringPtrInput `pulumi:"profileMonitorStatus"`
+	// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+	TimeoutInSeconds pulumi.Float64PtrInput `pulumi:"timeoutInSeconds"`
+	// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+	ToleratedNumberOfFailures pulumi.Float64PtrInput `pulumi:"toleratedNumberOfFailures"`
+}
+
+func (MonitorConfigInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigInvokeResponse)(nil)).Elem()
+}
+
+func (i MonitorConfigInvokeResponseArgs) ToMonitorConfigInvokeResponseOutput() MonitorConfigInvokeResponseOutput {
+	return i.ToMonitorConfigInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MonitorConfigInvokeResponseArgs) ToMonitorConfigInvokeResponseOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigInvokeResponseOutput)
+}
+
+// Class containing endpoint monitoring settings in a Traffic Manager profile.
+type MonitorConfigInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MonitorConfigInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigInvokeResponse)(nil)).Elem()
+}
+
+func (o MonitorConfigInvokeResponseOutput) ToMonitorConfigInvokeResponseOutput() MonitorConfigInvokeResponseOutput {
+	return o
+}
+
+func (o MonitorConfigInvokeResponseOutput) ToMonitorConfigInvokeResponseOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseOutput {
+	return o
+}
+
+// List of custom headers.
+func (o MonitorConfigInvokeResponseOutput) CustomHeaders() MonitorConfigInvokeResponseCustomHeadersArrayOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) []MonitorConfigInvokeResponseCustomHeaders { return v.CustomHeaders }).(MonitorConfigInvokeResponseCustomHeadersArrayOutput)
+}
+
+// List of expected status code ranges.
+func (o MonitorConfigInvokeResponseOutput) ExpectedStatusCodeRanges() MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) []MonitorConfigInvokeResponseExpectedStatusCodeRanges {
+		return v.ExpectedStatusCodeRanges
+	}).(MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput)
+}
+
+// The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
+func (o MonitorConfigInvokeResponseOutput) IntervalInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *float64 { return v.IntervalInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The path relative to the endpoint domain name used to probe for endpoint health.
+func (o MonitorConfigInvokeResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The TCP port used to probe for endpoint health.
+func (o MonitorConfigInvokeResponseOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *float64 { return v.Port }).(pulumi.Float64PtrOutput)
+}
+
+// The profile-level monitoring status of the Traffic Manager profile.
+func (o MonitorConfigInvokeResponseOutput) ProfileMonitorStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *string { return v.ProfileMonitorStatus }).(pulumi.StringPtrOutput)
+}
+
+// The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+func (o MonitorConfigInvokeResponseOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
+func (o MonitorConfigInvokeResponseOutput) TimeoutInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *float64 { return v.TimeoutInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
+func (o MonitorConfigInvokeResponseOutput) ToleratedNumberOfFailures() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponse) *float64 { return v.ToleratedNumberOfFailures }).(pulumi.Float64PtrOutput)
+}
+
+// Custom header name and value.
+type MonitorConfigInvokeResponseCustomHeaders struct {
+	// Header name.
+	Name *string `pulumi:"name"`
+	// Header value.
+	Value *string `pulumi:"value"`
+}
+
+// MonitorConfigInvokeResponseCustomHeadersInput is an input type that accepts MonitorConfigInvokeResponseCustomHeadersArgs and MonitorConfigInvokeResponseCustomHeadersOutput values.
+// You can construct a concrete instance of `MonitorConfigInvokeResponseCustomHeadersInput` via:
+//
+//          MonitorConfigInvokeResponseCustomHeadersArgs{...}
+type MonitorConfigInvokeResponseCustomHeadersInput interface {
+	pulumi.Input
+
+	ToMonitorConfigInvokeResponseCustomHeadersOutput() MonitorConfigInvokeResponseCustomHeadersOutput
+	ToMonitorConfigInvokeResponseCustomHeadersOutputWithContext(context.Context) MonitorConfigInvokeResponseCustomHeadersOutput
+}
+
+// Custom header name and value.
+type MonitorConfigInvokeResponseCustomHeadersArgs struct {
+	// Header name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Header value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (MonitorConfigInvokeResponseCustomHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigInvokeResponseCustomHeaders)(nil)).Elem()
+}
+
+func (i MonitorConfigInvokeResponseCustomHeadersArgs) ToMonitorConfigInvokeResponseCustomHeadersOutput() MonitorConfigInvokeResponseCustomHeadersOutput {
+	return i.ToMonitorConfigInvokeResponseCustomHeadersOutputWithContext(context.Background())
+}
+
+func (i MonitorConfigInvokeResponseCustomHeadersArgs) ToMonitorConfigInvokeResponseCustomHeadersOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseCustomHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigInvokeResponseCustomHeadersOutput)
+}
+
+// MonitorConfigInvokeResponseCustomHeadersArrayInput is an input type that accepts MonitorConfigInvokeResponseCustomHeadersArray and MonitorConfigInvokeResponseCustomHeadersArrayOutput values.
+// You can construct a concrete instance of `MonitorConfigInvokeResponseCustomHeadersArrayInput` via:
+//
+//          MonitorConfigInvokeResponseCustomHeadersArray{ MonitorConfigInvokeResponseCustomHeadersArgs{...} }
+type MonitorConfigInvokeResponseCustomHeadersArrayInput interface {
+	pulumi.Input
+
+	ToMonitorConfigInvokeResponseCustomHeadersArrayOutput() MonitorConfigInvokeResponseCustomHeadersArrayOutput
+	ToMonitorConfigInvokeResponseCustomHeadersArrayOutputWithContext(context.Context) MonitorConfigInvokeResponseCustomHeadersArrayOutput
+}
+
+type MonitorConfigInvokeResponseCustomHeadersArray []MonitorConfigInvokeResponseCustomHeadersInput
+
+func (MonitorConfigInvokeResponseCustomHeadersArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorConfigInvokeResponseCustomHeaders)(nil)).Elem()
+}
+
+func (i MonitorConfigInvokeResponseCustomHeadersArray) ToMonitorConfigInvokeResponseCustomHeadersArrayOutput() MonitorConfigInvokeResponseCustomHeadersArrayOutput {
+	return i.ToMonitorConfigInvokeResponseCustomHeadersArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorConfigInvokeResponseCustomHeadersArray) ToMonitorConfigInvokeResponseCustomHeadersArrayOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseCustomHeadersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigInvokeResponseCustomHeadersArrayOutput)
+}
+
+// Custom header name and value.
+type MonitorConfigInvokeResponseCustomHeadersOutput struct{ *pulumi.OutputState }
+
+func (MonitorConfigInvokeResponseCustomHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigInvokeResponseCustomHeaders)(nil)).Elem()
+}
+
+func (o MonitorConfigInvokeResponseCustomHeadersOutput) ToMonitorConfigInvokeResponseCustomHeadersOutput() MonitorConfigInvokeResponseCustomHeadersOutput {
+	return o
+}
+
+func (o MonitorConfigInvokeResponseCustomHeadersOutput) ToMonitorConfigInvokeResponseCustomHeadersOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseCustomHeadersOutput {
+	return o
+}
+
+// Header name.
+func (o MonitorConfigInvokeResponseCustomHeadersOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponseCustomHeaders) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Header value.
+func (o MonitorConfigInvokeResponseCustomHeadersOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponseCustomHeaders) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type MonitorConfigInvokeResponseCustomHeadersArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorConfigInvokeResponseCustomHeadersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorConfigInvokeResponseCustomHeaders)(nil)).Elem()
+}
+
+func (o MonitorConfigInvokeResponseCustomHeadersArrayOutput) ToMonitorConfigInvokeResponseCustomHeadersArrayOutput() MonitorConfigInvokeResponseCustomHeadersArrayOutput {
+	return o
+}
+
+func (o MonitorConfigInvokeResponseCustomHeadersArrayOutput) ToMonitorConfigInvokeResponseCustomHeadersArrayOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseCustomHeadersArrayOutput {
+	return o
+}
+
+func (o MonitorConfigInvokeResponseCustomHeadersArrayOutput) Index(i pulumi.IntInput) MonitorConfigInvokeResponseCustomHeadersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorConfigInvokeResponseCustomHeaders {
+		return vs[0].([]MonitorConfigInvokeResponseCustomHeaders)[vs[1].(int)]
+	}).(MonitorConfigInvokeResponseCustomHeadersOutput)
+}
+
+// Min and max value of a status code range.
+type MonitorConfigInvokeResponseExpectedStatusCodeRanges struct {
+	// Max status code.
+	Max *int `pulumi:"max"`
+	// Min status code.
+	Min *int `pulumi:"min"`
+}
+
+// MonitorConfigInvokeResponseExpectedStatusCodeRangesInput is an input type that accepts MonitorConfigInvokeResponseExpectedStatusCodeRangesArgs and MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput values.
+// You can construct a concrete instance of `MonitorConfigInvokeResponseExpectedStatusCodeRangesInput` via:
+//
+//          MonitorConfigInvokeResponseExpectedStatusCodeRangesArgs{...}
+type MonitorConfigInvokeResponseExpectedStatusCodeRangesInput interface {
+	pulumi.Input
+
+	ToMonitorConfigInvokeResponseExpectedStatusCodeRangesOutput() MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput
+	ToMonitorConfigInvokeResponseExpectedStatusCodeRangesOutputWithContext(context.Context) MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput
+}
+
+// Min and max value of a status code range.
+type MonitorConfigInvokeResponseExpectedStatusCodeRangesArgs struct {
+	// Max status code.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Min status code.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (MonitorConfigInvokeResponseExpectedStatusCodeRangesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigInvokeResponseExpectedStatusCodeRanges)(nil)).Elem()
+}
+
+func (i MonitorConfigInvokeResponseExpectedStatusCodeRangesArgs) ToMonitorConfigInvokeResponseExpectedStatusCodeRangesOutput() MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput {
+	return i.ToMonitorConfigInvokeResponseExpectedStatusCodeRangesOutputWithContext(context.Background())
+}
+
+func (i MonitorConfigInvokeResponseExpectedStatusCodeRangesArgs) ToMonitorConfigInvokeResponseExpectedStatusCodeRangesOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput)
+}
+
+// MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayInput is an input type that accepts MonitorConfigInvokeResponseExpectedStatusCodeRangesArray and MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput values.
+// You can construct a concrete instance of `MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayInput` via:
+//
+//          MonitorConfigInvokeResponseExpectedStatusCodeRangesArray{ MonitorConfigInvokeResponseExpectedStatusCodeRangesArgs{...} }
+type MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayInput interface {
+	pulumi.Input
+
+	ToMonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput() MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput
+	ToMonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutputWithContext(context.Context) MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput
+}
+
+type MonitorConfigInvokeResponseExpectedStatusCodeRangesArray []MonitorConfigInvokeResponseExpectedStatusCodeRangesInput
+
+func (MonitorConfigInvokeResponseExpectedStatusCodeRangesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorConfigInvokeResponseExpectedStatusCodeRanges)(nil)).Elem()
+}
+
+func (i MonitorConfigInvokeResponseExpectedStatusCodeRangesArray) ToMonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput() MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput {
+	return i.ToMonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorConfigInvokeResponseExpectedStatusCodeRangesArray) ToMonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput)
+}
+
+// Min and max value of a status code range.
+type MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput struct{ *pulumi.OutputState }
+
+func (MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorConfigInvokeResponseExpectedStatusCodeRanges)(nil)).Elem()
+}
+
+func (o MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput) ToMonitorConfigInvokeResponseExpectedStatusCodeRangesOutput() MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput {
+	return o
+}
+
+func (o MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput) ToMonitorConfigInvokeResponseExpectedStatusCodeRangesOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput {
+	return o
+}
+
+// Max status code.
+func (o MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponseExpectedStatusCodeRanges) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Min status code.
+func (o MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MonitorConfigInvokeResponseExpectedStatusCodeRanges) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorConfigInvokeResponseExpectedStatusCodeRanges)(nil)).Elem()
+}
+
+func (o MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput) ToMonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput() MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput {
+	return o
+}
+
+func (o MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput) ToMonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutputWithContext(ctx context.Context) MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput {
+	return o
+}
+
+func (o MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput) Index(i pulumi.IntInput) MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorConfigInvokeResponseExpectedStatusCodeRanges {
+		return vs[0].([]MonitorConfigInvokeResponseExpectedStatusCodeRanges)[vs[1].(int)]
+	}).(MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput)
+}
+
+// Class containing endpoint monitoring settings in a Traffic Manager profile.
 type MonitorConfigResponse struct {
 	// List of custom headers.
 	CustomHeaders []MonitorConfigResponseCustomHeaders `pulumi:"customHeaders"`
@@ -1982,12 +2719,17 @@ func (o MonitorConfigResponseExpectedStatusCodeRangesArrayOutput) Index(i pulumi
 func init() {
 	pulumi.RegisterOutputType(DnsConfigOutput{})
 	pulumi.RegisterOutputType(DnsConfigPtrOutput{})
+	pulumi.RegisterOutputType(DnsConfigInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DnsConfigResponseOutput{})
 	pulumi.RegisterOutputType(DnsConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointTypeOutput{})
 	pulumi.RegisterOutputType(EndpointTypeArrayOutput{})
+	pulumi.RegisterOutputType(EndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EndpointInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesCustomHeadersOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesCustomHeadersArrayOutput{})
+	pulumi.RegisterOutputType(EndpointPropertiesInvokeResponseCustomHeadersOutput{})
+	pulumi.RegisterOutputType(EndpointPropertiesInvokeResponseCustomHeadersArrayOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesResponseCustomHeadersOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesResponseCustomHeadersArrayOutput{})
 	pulumi.RegisterOutputType(EndpointResponseOutput{})
@@ -1998,6 +2740,11 @@ func init() {
 	pulumi.RegisterOutputType(MonitorConfigCustomHeadersArrayOutput{})
 	pulumi.RegisterOutputType(MonitorConfigExpectedStatusCodeRangesOutput{})
 	pulumi.RegisterOutputType(MonitorConfigExpectedStatusCodeRangesArrayOutput{})
+	pulumi.RegisterOutputType(MonitorConfigInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MonitorConfigInvokeResponseCustomHeadersOutput{})
+	pulumi.RegisterOutputType(MonitorConfigInvokeResponseCustomHeadersArrayOutput{})
+	pulumi.RegisterOutputType(MonitorConfigInvokeResponseExpectedStatusCodeRangesOutput{})
+	pulumi.RegisterOutputType(MonitorConfigInvokeResponseExpectedStatusCodeRangesArrayOutput{})
 	pulumi.RegisterOutputType(MonitorConfigResponseOutput{})
 	pulumi.RegisterOutputType(MonitorConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(MonitorConfigResponseCustomHeadersOutput{})

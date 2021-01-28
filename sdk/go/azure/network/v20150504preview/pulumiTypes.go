@@ -111,6 +111,106 @@ func (o ARecordArrayOutput) Index(i pulumi.IntInput) ARecordOutput {
 }
 
 // An A record.
+type ARecordInvokeResponse struct {
+	// Gets or sets the IPv4 address of this A record in string notation.
+	Ipv4Address *string `pulumi:"ipv4Address"`
+}
+
+// ARecordInvokeResponseInput is an input type that accepts ARecordInvokeResponseArgs and ARecordInvokeResponseOutput values.
+// You can construct a concrete instance of `ARecordInvokeResponseInput` via:
+//
+//          ARecordInvokeResponseArgs{...}
+type ARecordInvokeResponseInput interface {
+	pulumi.Input
+
+	ToARecordInvokeResponseOutput() ARecordInvokeResponseOutput
+	ToARecordInvokeResponseOutputWithContext(context.Context) ARecordInvokeResponseOutput
+}
+
+// An A record.
+type ARecordInvokeResponseArgs struct {
+	// Gets or sets the IPv4 address of this A record in string notation.
+	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
+}
+
+func (ARecordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ARecordInvokeResponse)(nil)).Elem()
+}
+
+func (i ARecordInvokeResponseArgs) ToARecordInvokeResponseOutput() ARecordInvokeResponseOutput {
+	return i.ToARecordInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ARecordInvokeResponseArgs) ToARecordInvokeResponseOutputWithContext(ctx context.Context) ARecordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ARecordInvokeResponseOutput)
+}
+
+// ARecordInvokeResponseArrayInput is an input type that accepts ARecordInvokeResponseArray and ARecordInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ARecordInvokeResponseArrayInput` via:
+//
+//          ARecordInvokeResponseArray{ ARecordInvokeResponseArgs{...} }
+type ARecordInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToARecordInvokeResponseArrayOutput() ARecordInvokeResponseArrayOutput
+	ToARecordInvokeResponseArrayOutputWithContext(context.Context) ARecordInvokeResponseArrayOutput
+}
+
+type ARecordInvokeResponseArray []ARecordInvokeResponseInput
+
+func (ARecordInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ARecordInvokeResponse)(nil)).Elem()
+}
+
+func (i ARecordInvokeResponseArray) ToARecordInvokeResponseArrayOutput() ARecordInvokeResponseArrayOutput {
+	return i.ToARecordInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ARecordInvokeResponseArray) ToARecordInvokeResponseArrayOutputWithContext(ctx context.Context) ARecordInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ARecordInvokeResponseArrayOutput)
+}
+
+// An A record.
+type ARecordInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ARecordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ARecordInvokeResponse)(nil)).Elem()
+}
+
+func (o ARecordInvokeResponseOutput) ToARecordInvokeResponseOutput() ARecordInvokeResponseOutput {
+	return o
+}
+
+func (o ARecordInvokeResponseOutput) ToARecordInvokeResponseOutputWithContext(ctx context.Context) ARecordInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the IPv4 address of this A record in string notation.
+func (o ARecordInvokeResponseOutput) Ipv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ARecordInvokeResponse) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
+}
+
+type ARecordInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ARecordInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ARecordInvokeResponse)(nil)).Elem()
+}
+
+func (o ARecordInvokeResponseArrayOutput) ToARecordInvokeResponseArrayOutput() ARecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ARecordInvokeResponseArrayOutput) ToARecordInvokeResponseArrayOutputWithContext(ctx context.Context) ARecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ARecordInvokeResponseArrayOutput) Index(i pulumi.IntInput) ARecordInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ARecordInvokeResponse {
+		return vs[0].([]ARecordInvokeResponse)[vs[1].(int)]
+	}).(ARecordInvokeResponseOutput)
+}
+
+// An A record.
 type ARecordResponse struct {
 	// Gets or sets the IPv4 address of this A record in string notation.
 	Ipv4Address *string `pulumi:"ipv4Address"`
@@ -308,6 +408,106 @@ func (o AaaaRecordArrayOutput) Index(i pulumi.IntInput) AaaaRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AaaaRecord {
 		return vs[0].([]AaaaRecord)[vs[1].(int)]
 	}).(AaaaRecordOutput)
+}
+
+// An AAAA record.
+type AaaaRecordInvokeResponse struct {
+	// Gets or sets the IPv6 address of this AAAA record in string notation.
+	Ipv6Address *string `pulumi:"ipv6Address"`
+}
+
+// AaaaRecordInvokeResponseInput is an input type that accepts AaaaRecordInvokeResponseArgs and AaaaRecordInvokeResponseOutput values.
+// You can construct a concrete instance of `AaaaRecordInvokeResponseInput` via:
+//
+//          AaaaRecordInvokeResponseArgs{...}
+type AaaaRecordInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAaaaRecordInvokeResponseOutput() AaaaRecordInvokeResponseOutput
+	ToAaaaRecordInvokeResponseOutputWithContext(context.Context) AaaaRecordInvokeResponseOutput
+}
+
+// An AAAA record.
+type AaaaRecordInvokeResponseArgs struct {
+	// Gets or sets the IPv6 address of this AAAA record in string notation.
+	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
+}
+
+func (AaaaRecordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AaaaRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i AaaaRecordInvokeResponseArgs) ToAaaaRecordInvokeResponseOutput() AaaaRecordInvokeResponseOutput {
+	return i.ToAaaaRecordInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AaaaRecordInvokeResponseArgs) ToAaaaRecordInvokeResponseOutputWithContext(ctx context.Context) AaaaRecordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordInvokeResponseOutput)
+}
+
+// AaaaRecordInvokeResponseArrayInput is an input type that accepts AaaaRecordInvokeResponseArray and AaaaRecordInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AaaaRecordInvokeResponseArrayInput` via:
+//
+//          AaaaRecordInvokeResponseArray{ AaaaRecordInvokeResponseArgs{...} }
+type AaaaRecordInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAaaaRecordInvokeResponseArrayOutput() AaaaRecordInvokeResponseArrayOutput
+	ToAaaaRecordInvokeResponseArrayOutputWithContext(context.Context) AaaaRecordInvokeResponseArrayOutput
+}
+
+type AaaaRecordInvokeResponseArray []AaaaRecordInvokeResponseInput
+
+func (AaaaRecordInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AaaaRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i AaaaRecordInvokeResponseArray) ToAaaaRecordInvokeResponseArrayOutput() AaaaRecordInvokeResponseArrayOutput {
+	return i.ToAaaaRecordInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AaaaRecordInvokeResponseArray) ToAaaaRecordInvokeResponseArrayOutputWithContext(ctx context.Context) AaaaRecordInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordInvokeResponseArrayOutput)
+}
+
+// An AAAA record.
+type AaaaRecordInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AaaaRecordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AaaaRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o AaaaRecordInvokeResponseOutput) ToAaaaRecordInvokeResponseOutput() AaaaRecordInvokeResponseOutput {
+	return o
+}
+
+func (o AaaaRecordInvokeResponseOutput) ToAaaaRecordInvokeResponseOutputWithContext(ctx context.Context) AaaaRecordInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the IPv6 address of this AAAA record in string notation.
+func (o AaaaRecordInvokeResponseOutput) Ipv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AaaaRecordInvokeResponse) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
+}
+
+type AaaaRecordInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AaaaRecordInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AaaaRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o AaaaRecordInvokeResponseArrayOutput) ToAaaaRecordInvokeResponseArrayOutput() AaaaRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AaaaRecordInvokeResponseArrayOutput) ToAaaaRecordInvokeResponseArrayOutputWithContext(ctx context.Context) AaaaRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AaaaRecordInvokeResponseArrayOutput) Index(i pulumi.IntInput) AaaaRecordInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AaaaRecordInvokeResponse {
+		return vs[0].([]AaaaRecordInvokeResponse)[vs[1].(int)]
+	}).(AaaaRecordInvokeResponseOutput)
 }
 
 // An AAAA record.
@@ -542,6 +742,61 @@ func (o CnameRecordPtrOutput) Cname() pulumi.StringPtrOutput {
 		}
 		return v.Cname
 	}).(pulumi.StringPtrOutput)
+}
+
+// A CNAME record.
+type CnameRecordInvokeResponse struct {
+	// Gets or sets the canonical name for this record without a terminating dot.
+	Cname *string `pulumi:"cname"`
+}
+
+// CnameRecordInvokeResponseInput is an input type that accepts CnameRecordInvokeResponseArgs and CnameRecordInvokeResponseOutput values.
+// You can construct a concrete instance of `CnameRecordInvokeResponseInput` via:
+//
+//          CnameRecordInvokeResponseArgs{...}
+type CnameRecordInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCnameRecordInvokeResponseOutput() CnameRecordInvokeResponseOutput
+	ToCnameRecordInvokeResponseOutputWithContext(context.Context) CnameRecordInvokeResponseOutput
+}
+
+// A CNAME record.
+type CnameRecordInvokeResponseArgs struct {
+	// Gets or sets the canonical name for this record without a terminating dot.
+	Cname pulumi.StringPtrInput `pulumi:"cname"`
+}
+
+func (CnameRecordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CnameRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i CnameRecordInvokeResponseArgs) ToCnameRecordInvokeResponseOutput() CnameRecordInvokeResponseOutput {
+	return i.ToCnameRecordInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CnameRecordInvokeResponseArgs) ToCnameRecordInvokeResponseOutputWithContext(ctx context.Context) CnameRecordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CnameRecordInvokeResponseOutput)
+}
+
+// A CNAME record.
+type CnameRecordInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CnameRecordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CnameRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o CnameRecordInvokeResponseOutput) ToCnameRecordInvokeResponseOutput() CnameRecordInvokeResponseOutput {
+	return o
+}
+
+func (o CnameRecordInvokeResponseOutput) ToCnameRecordInvokeResponseOutputWithContext(ctx context.Context) CnameRecordInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the canonical name for this record without a terminating dot.
+func (o CnameRecordInvokeResponseOutput) Cname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CnameRecordInvokeResponse) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
 
 // A CNAME record.
@@ -788,6 +1043,115 @@ func (o MxRecordArrayOutput) Index(i pulumi.IntInput) MxRecordOutput {
 }
 
 // An MX record.
+type MxRecordInvokeResponse struct {
+	// Gets or sets the domain name of the mail host, without a terminating dot.
+	Exchange *string `pulumi:"exchange"`
+	// Gets or sets the preference metric for this record.
+	Preference *int `pulumi:"preference"`
+}
+
+// MxRecordInvokeResponseInput is an input type that accepts MxRecordInvokeResponseArgs and MxRecordInvokeResponseOutput values.
+// You can construct a concrete instance of `MxRecordInvokeResponseInput` via:
+//
+//          MxRecordInvokeResponseArgs{...}
+type MxRecordInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMxRecordInvokeResponseOutput() MxRecordInvokeResponseOutput
+	ToMxRecordInvokeResponseOutputWithContext(context.Context) MxRecordInvokeResponseOutput
+}
+
+// An MX record.
+type MxRecordInvokeResponseArgs struct {
+	// Gets or sets the domain name of the mail host, without a terminating dot.
+	Exchange pulumi.StringPtrInput `pulumi:"exchange"`
+	// Gets or sets the preference metric for this record.
+	Preference pulumi.IntPtrInput `pulumi:"preference"`
+}
+
+func (MxRecordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MxRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i MxRecordInvokeResponseArgs) ToMxRecordInvokeResponseOutput() MxRecordInvokeResponseOutput {
+	return i.ToMxRecordInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MxRecordInvokeResponseArgs) ToMxRecordInvokeResponseOutputWithContext(ctx context.Context) MxRecordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MxRecordInvokeResponseOutput)
+}
+
+// MxRecordInvokeResponseArrayInput is an input type that accepts MxRecordInvokeResponseArray and MxRecordInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MxRecordInvokeResponseArrayInput` via:
+//
+//          MxRecordInvokeResponseArray{ MxRecordInvokeResponseArgs{...} }
+type MxRecordInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMxRecordInvokeResponseArrayOutput() MxRecordInvokeResponseArrayOutput
+	ToMxRecordInvokeResponseArrayOutputWithContext(context.Context) MxRecordInvokeResponseArrayOutput
+}
+
+type MxRecordInvokeResponseArray []MxRecordInvokeResponseInput
+
+func (MxRecordInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MxRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i MxRecordInvokeResponseArray) ToMxRecordInvokeResponseArrayOutput() MxRecordInvokeResponseArrayOutput {
+	return i.ToMxRecordInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MxRecordInvokeResponseArray) ToMxRecordInvokeResponseArrayOutputWithContext(ctx context.Context) MxRecordInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MxRecordInvokeResponseArrayOutput)
+}
+
+// An MX record.
+type MxRecordInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MxRecordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MxRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o MxRecordInvokeResponseOutput) ToMxRecordInvokeResponseOutput() MxRecordInvokeResponseOutput {
+	return o
+}
+
+func (o MxRecordInvokeResponseOutput) ToMxRecordInvokeResponseOutputWithContext(ctx context.Context) MxRecordInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the domain name of the mail host, without a terminating dot.
+func (o MxRecordInvokeResponseOutput) Exchange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MxRecordInvokeResponse) *string { return v.Exchange }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the preference metric for this record.
+func (o MxRecordInvokeResponseOutput) Preference() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MxRecordInvokeResponse) *int { return v.Preference }).(pulumi.IntPtrOutput)
+}
+
+type MxRecordInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MxRecordInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MxRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o MxRecordInvokeResponseArrayOutput) ToMxRecordInvokeResponseArrayOutput() MxRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MxRecordInvokeResponseArrayOutput) ToMxRecordInvokeResponseArrayOutputWithContext(ctx context.Context) MxRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MxRecordInvokeResponseArrayOutput) Index(i pulumi.IntInput) MxRecordInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MxRecordInvokeResponse {
+		return vs[0].([]MxRecordInvokeResponse)[vs[1].(int)]
+	}).(MxRecordInvokeResponseOutput)
+}
+
+// An MX record.
 type MxRecordResponse struct {
 	// Gets or sets the domain name of the mail host, without a terminating dot.
 	Exchange *string `pulumi:"exchange"`
@@ -997,6 +1361,106 @@ func (o NsRecordArrayOutput) Index(i pulumi.IntInput) NsRecordOutput {
 }
 
 // An NS record.
+type NsRecordInvokeResponse struct {
+	// Gets or sets the name server name for this record, without a terminating dot.
+	Nsdname *string `pulumi:"nsdname"`
+}
+
+// NsRecordInvokeResponseInput is an input type that accepts NsRecordInvokeResponseArgs and NsRecordInvokeResponseOutput values.
+// You can construct a concrete instance of `NsRecordInvokeResponseInput` via:
+//
+//          NsRecordInvokeResponseArgs{...}
+type NsRecordInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNsRecordInvokeResponseOutput() NsRecordInvokeResponseOutput
+	ToNsRecordInvokeResponseOutputWithContext(context.Context) NsRecordInvokeResponseOutput
+}
+
+// An NS record.
+type NsRecordInvokeResponseArgs struct {
+	// Gets or sets the name server name for this record, without a terminating dot.
+	Nsdname pulumi.StringPtrInput `pulumi:"nsdname"`
+}
+
+func (NsRecordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i NsRecordInvokeResponseArgs) ToNsRecordInvokeResponseOutput() NsRecordInvokeResponseOutput {
+	return i.ToNsRecordInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NsRecordInvokeResponseArgs) ToNsRecordInvokeResponseOutputWithContext(ctx context.Context) NsRecordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsRecordInvokeResponseOutput)
+}
+
+// NsRecordInvokeResponseArrayInput is an input type that accepts NsRecordInvokeResponseArray and NsRecordInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NsRecordInvokeResponseArrayInput` via:
+//
+//          NsRecordInvokeResponseArray{ NsRecordInvokeResponseArgs{...} }
+type NsRecordInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNsRecordInvokeResponseArrayOutput() NsRecordInvokeResponseArrayOutput
+	ToNsRecordInvokeResponseArrayOutputWithContext(context.Context) NsRecordInvokeResponseArrayOutput
+}
+
+type NsRecordInvokeResponseArray []NsRecordInvokeResponseInput
+
+func (NsRecordInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NsRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i NsRecordInvokeResponseArray) ToNsRecordInvokeResponseArrayOutput() NsRecordInvokeResponseArrayOutput {
+	return i.ToNsRecordInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NsRecordInvokeResponseArray) ToNsRecordInvokeResponseArrayOutputWithContext(ctx context.Context) NsRecordInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NsRecordInvokeResponseArrayOutput)
+}
+
+// An NS record.
+type NsRecordInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NsRecordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NsRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o NsRecordInvokeResponseOutput) ToNsRecordInvokeResponseOutput() NsRecordInvokeResponseOutput {
+	return o
+}
+
+func (o NsRecordInvokeResponseOutput) ToNsRecordInvokeResponseOutputWithContext(ctx context.Context) NsRecordInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the name server name for this record, without a terminating dot.
+func (o NsRecordInvokeResponseOutput) Nsdname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NsRecordInvokeResponse) *string { return v.Nsdname }).(pulumi.StringPtrOutput)
+}
+
+type NsRecordInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NsRecordInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NsRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o NsRecordInvokeResponseArrayOutput) ToNsRecordInvokeResponseArrayOutput() NsRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NsRecordInvokeResponseArrayOutput) ToNsRecordInvokeResponseArrayOutputWithContext(ctx context.Context) NsRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NsRecordInvokeResponseArrayOutput) Index(i pulumi.IntInput) NsRecordInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NsRecordInvokeResponse {
+		return vs[0].([]NsRecordInvokeResponse)[vs[1].(int)]
+	}).(NsRecordInvokeResponseOutput)
+}
+
+// An NS record.
 type NsRecordResponse struct {
 	// Gets or sets the name server name for this record, without a terminating dot.
 	Nsdname *string `pulumi:"nsdname"`
@@ -1194,6 +1658,106 @@ func (o PtrRecordArrayOutput) Index(i pulumi.IntInput) PtrRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PtrRecord {
 		return vs[0].([]PtrRecord)[vs[1].(int)]
 	}).(PtrRecordOutput)
+}
+
+// A PTR record.
+type PtrRecordInvokeResponse struct {
+	// Gets or sets the PTR target domain name for this record without a terminating dot.
+	Ptrdname *string `pulumi:"ptrdname"`
+}
+
+// PtrRecordInvokeResponseInput is an input type that accepts PtrRecordInvokeResponseArgs and PtrRecordInvokeResponseOutput values.
+// You can construct a concrete instance of `PtrRecordInvokeResponseInput` via:
+//
+//          PtrRecordInvokeResponseArgs{...}
+type PtrRecordInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPtrRecordInvokeResponseOutput() PtrRecordInvokeResponseOutput
+	ToPtrRecordInvokeResponseOutputWithContext(context.Context) PtrRecordInvokeResponseOutput
+}
+
+// A PTR record.
+type PtrRecordInvokeResponseArgs struct {
+	// Gets or sets the PTR target domain name for this record without a terminating dot.
+	Ptrdname pulumi.StringPtrInput `pulumi:"ptrdname"`
+}
+
+func (PtrRecordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PtrRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i PtrRecordInvokeResponseArgs) ToPtrRecordInvokeResponseOutput() PtrRecordInvokeResponseOutput {
+	return i.ToPtrRecordInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PtrRecordInvokeResponseArgs) ToPtrRecordInvokeResponseOutputWithContext(ctx context.Context) PtrRecordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordInvokeResponseOutput)
+}
+
+// PtrRecordInvokeResponseArrayInput is an input type that accepts PtrRecordInvokeResponseArray and PtrRecordInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PtrRecordInvokeResponseArrayInput` via:
+//
+//          PtrRecordInvokeResponseArray{ PtrRecordInvokeResponseArgs{...} }
+type PtrRecordInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPtrRecordInvokeResponseArrayOutput() PtrRecordInvokeResponseArrayOutput
+	ToPtrRecordInvokeResponseArrayOutputWithContext(context.Context) PtrRecordInvokeResponseArrayOutput
+}
+
+type PtrRecordInvokeResponseArray []PtrRecordInvokeResponseInput
+
+func (PtrRecordInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PtrRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i PtrRecordInvokeResponseArray) ToPtrRecordInvokeResponseArrayOutput() PtrRecordInvokeResponseArrayOutput {
+	return i.ToPtrRecordInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PtrRecordInvokeResponseArray) ToPtrRecordInvokeResponseArrayOutputWithContext(ctx context.Context) PtrRecordInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PtrRecordInvokeResponseArrayOutput)
+}
+
+// A PTR record.
+type PtrRecordInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PtrRecordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PtrRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o PtrRecordInvokeResponseOutput) ToPtrRecordInvokeResponseOutput() PtrRecordInvokeResponseOutput {
+	return o
+}
+
+func (o PtrRecordInvokeResponseOutput) ToPtrRecordInvokeResponseOutputWithContext(ctx context.Context) PtrRecordInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the PTR target domain name for this record without a terminating dot.
+func (o PtrRecordInvokeResponseOutput) Ptrdname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PtrRecordInvokeResponse) *string { return v.Ptrdname }).(pulumi.StringPtrOutput)
+}
+
+type PtrRecordInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PtrRecordInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PtrRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o PtrRecordInvokeResponseArrayOutput) ToPtrRecordInvokeResponseArrayOutput() PtrRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PtrRecordInvokeResponseArrayOutput) ToPtrRecordInvokeResponseArrayOutputWithContext(ctx context.Context) PtrRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PtrRecordInvokeResponseArrayOutput) Index(i pulumi.IntInput) PtrRecordInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PtrRecordInvokeResponse {
+		return vs[0].([]PtrRecordInvokeResponse)[vs[1].(int)]
+	}).(PtrRecordInvokeResponseOutput)
 }
 
 // A PTR record.
@@ -1542,6 +2106,115 @@ func (o SoaRecordPtrOutput) SerialNumber() pulumi.Float64PtrOutput {
 		}
 		return v.SerialNumber
 	}).(pulumi.Float64PtrOutput)
+}
+
+// An SOA record.
+type SoaRecordInvokeResponse struct {
+	// Gets or sets the email for this record.
+	Email *string `pulumi:"email"`
+	// Gets or sets the expire time for this record.
+	ExpireTime *float64 `pulumi:"expireTime"`
+	// Gets or sets the domain name of the authoritative name server, without a terminating dot.
+	Host *string `pulumi:"host"`
+	// Gets or sets the minimum TTL value for this record.
+	MinimumTTL *float64 `pulumi:"minimumTTL"`
+	// Gets or sets the refresh value for this record.
+	RefreshTime *float64 `pulumi:"refreshTime"`
+	// Gets or sets the retry time for this record.
+	RetryTime *float64 `pulumi:"retryTime"`
+	// Gets or sets the serial number for this record.
+	SerialNumber *float64 `pulumi:"serialNumber"`
+}
+
+// SoaRecordInvokeResponseInput is an input type that accepts SoaRecordInvokeResponseArgs and SoaRecordInvokeResponseOutput values.
+// You can construct a concrete instance of `SoaRecordInvokeResponseInput` via:
+//
+//          SoaRecordInvokeResponseArgs{...}
+type SoaRecordInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSoaRecordInvokeResponseOutput() SoaRecordInvokeResponseOutput
+	ToSoaRecordInvokeResponseOutputWithContext(context.Context) SoaRecordInvokeResponseOutput
+}
+
+// An SOA record.
+type SoaRecordInvokeResponseArgs struct {
+	// Gets or sets the email for this record.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// Gets or sets the expire time for this record.
+	ExpireTime pulumi.Float64PtrInput `pulumi:"expireTime"`
+	// Gets or sets the domain name of the authoritative name server, without a terminating dot.
+	Host pulumi.StringPtrInput `pulumi:"host"`
+	// Gets or sets the minimum TTL value for this record.
+	MinimumTTL pulumi.Float64PtrInput `pulumi:"minimumTTL"`
+	// Gets or sets the refresh value for this record.
+	RefreshTime pulumi.Float64PtrInput `pulumi:"refreshTime"`
+	// Gets or sets the retry time for this record.
+	RetryTime pulumi.Float64PtrInput `pulumi:"retryTime"`
+	// Gets or sets the serial number for this record.
+	SerialNumber pulumi.Float64PtrInput `pulumi:"serialNumber"`
+}
+
+func (SoaRecordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoaRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i SoaRecordInvokeResponseArgs) ToSoaRecordInvokeResponseOutput() SoaRecordInvokeResponseOutput {
+	return i.ToSoaRecordInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SoaRecordInvokeResponseArgs) ToSoaRecordInvokeResponseOutputWithContext(ctx context.Context) SoaRecordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoaRecordInvokeResponseOutput)
+}
+
+// An SOA record.
+type SoaRecordInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SoaRecordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoaRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o SoaRecordInvokeResponseOutput) ToSoaRecordInvokeResponseOutput() SoaRecordInvokeResponseOutput {
+	return o
+}
+
+func (o SoaRecordInvokeResponseOutput) ToSoaRecordInvokeResponseOutputWithContext(ctx context.Context) SoaRecordInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the email for this record.
+func (o SoaRecordInvokeResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SoaRecordInvokeResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the expire time for this record.
+func (o SoaRecordInvokeResponseOutput) ExpireTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordInvokeResponse) *float64 { return v.ExpireTime }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the domain name of the authoritative name server, without a terminating dot.
+func (o SoaRecordInvokeResponseOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SoaRecordInvokeResponse) *string { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the minimum TTL value for this record.
+func (o SoaRecordInvokeResponseOutput) MinimumTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordInvokeResponse) *float64 { return v.MinimumTTL }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the refresh value for this record.
+func (o SoaRecordInvokeResponseOutput) RefreshTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordInvokeResponse) *float64 { return v.RefreshTime }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the retry time for this record.
+func (o SoaRecordInvokeResponseOutput) RetryTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordInvokeResponse) *float64 { return v.RetryTime }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the serial number for this record.
+func (o SoaRecordInvokeResponseOutput) SerialNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SoaRecordInvokeResponse) *float64 { return v.SerialNumber }).(pulumi.Float64PtrOutput)
 }
 
 // An SOA record.
@@ -1920,6 +2593,133 @@ func (o SrvRecordArrayOutput) Index(i pulumi.IntInput) SrvRecordOutput {
 }
 
 // An SRV record.
+type SrvRecordInvokeResponse struct {
+	// Gets or sets the port of the service for this record.
+	Port *int `pulumi:"port"`
+	// Gets or sets the priority metric for this record.
+	Priority *int `pulumi:"priority"`
+	// Gets or sets the domain name of the target for this record, without a terminating dot.
+	Target *string `pulumi:"target"`
+	// Gets or sets the weight metric for this record.
+	Weight *int `pulumi:"weight"`
+}
+
+// SrvRecordInvokeResponseInput is an input type that accepts SrvRecordInvokeResponseArgs and SrvRecordInvokeResponseOutput values.
+// You can construct a concrete instance of `SrvRecordInvokeResponseInput` via:
+//
+//          SrvRecordInvokeResponseArgs{...}
+type SrvRecordInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSrvRecordInvokeResponseOutput() SrvRecordInvokeResponseOutput
+	ToSrvRecordInvokeResponseOutputWithContext(context.Context) SrvRecordInvokeResponseOutput
+}
+
+// An SRV record.
+type SrvRecordInvokeResponseArgs struct {
+	// Gets or sets the port of the service for this record.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Gets or sets the priority metric for this record.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Gets or sets the domain name of the target for this record, without a terminating dot.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// Gets or sets the weight metric for this record.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (SrvRecordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SrvRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i SrvRecordInvokeResponseArgs) ToSrvRecordInvokeResponseOutput() SrvRecordInvokeResponseOutput {
+	return i.ToSrvRecordInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SrvRecordInvokeResponseArgs) ToSrvRecordInvokeResponseOutputWithContext(ctx context.Context) SrvRecordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordInvokeResponseOutput)
+}
+
+// SrvRecordInvokeResponseArrayInput is an input type that accepts SrvRecordInvokeResponseArray and SrvRecordInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SrvRecordInvokeResponseArrayInput` via:
+//
+//          SrvRecordInvokeResponseArray{ SrvRecordInvokeResponseArgs{...} }
+type SrvRecordInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSrvRecordInvokeResponseArrayOutput() SrvRecordInvokeResponseArrayOutput
+	ToSrvRecordInvokeResponseArrayOutputWithContext(context.Context) SrvRecordInvokeResponseArrayOutput
+}
+
+type SrvRecordInvokeResponseArray []SrvRecordInvokeResponseInput
+
+func (SrvRecordInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SrvRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i SrvRecordInvokeResponseArray) ToSrvRecordInvokeResponseArrayOutput() SrvRecordInvokeResponseArrayOutput {
+	return i.ToSrvRecordInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SrvRecordInvokeResponseArray) ToSrvRecordInvokeResponseArrayOutputWithContext(ctx context.Context) SrvRecordInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordInvokeResponseArrayOutput)
+}
+
+// An SRV record.
+type SrvRecordInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SrvRecordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SrvRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o SrvRecordInvokeResponseOutput) ToSrvRecordInvokeResponseOutput() SrvRecordInvokeResponseOutput {
+	return o
+}
+
+func (o SrvRecordInvokeResponseOutput) ToSrvRecordInvokeResponseOutputWithContext(ctx context.Context) SrvRecordInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the port of the service for this record.
+func (o SrvRecordInvokeResponseOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SrvRecordInvokeResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the priority metric for this record.
+func (o SrvRecordInvokeResponseOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SrvRecordInvokeResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the domain name of the target for this record, without a terminating dot.
+func (o SrvRecordInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SrvRecordInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the weight metric for this record.
+func (o SrvRecordInvokeResponseOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SrvRecordInvokeResponse) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type SrvRecordInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SrvRecordInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SrvRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o SrvRecordInvokeResponseArrayOutput) ToSrvRecordInvokeResponseArrayOutput() SrvRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SrvRecordInvokeResponseArrayOutput) ToSrvRecordInvokeResponseArrayOutputWithContext(ctx context.Context) SrvRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SrvRecordInvokeResponseArrayOutput) Index(i pulumi.IntInput) SrvRecordInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SrvRecordInvokeResponse {
+		return vs[0].([]SrvRecordInvokeResponse)[vs[1].(int)]
+	}).(SrvRecordInvokeResponseOutput)
+}
+
+// An SRV record.
 type SrvRecordResponse struct {
 	// Gets or sets the port of the service for this record.
 	Port *int `pulumi:"port"`
@@ -2144,6 +2944,106 @@ func (o TxtRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TxtRecord {
 		return vs[0].([]TxtRecord)[vs[1].(int)]
 	}).(TxtRecordOutput)
+}
+
+// A TXT record.
+type TxtRecordInvokeResponse struct {
+	// Gets or sets the text value of this record.
+	Value []string `pulumi:"value"`
+}
+
+// TxtRecordInvokeResponseInput is an input type that accepts TxtRecordInvokeResponseArgs and TxtRecordInvokeResponseOutput values.
+// You can construct a concrete instance of `TxtRecordInvokeResponseInput` via:
+//
+//          TxtRecordInvokeResponseArgs{...}
+type TxtRecordInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTxtRecordInvokeResponseOutput() TxtRecordInvokeResponseOutput
+	ToTxtRecordInvokeResponseOutputWithContext(context.Context) TxtRecordInvokeResponseOutput
+}
+
+// A TXT record.
+type TxtRecordInvokeResponseArgs struct {
+	// Gets or sets the text value of this record.
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (TxtRecordInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TxtRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i TxtRecordInvokeResponseArgs) ToTxtRecordInvokeResponseOutput() TxtRecordInvokeResponseOutput {
+	return i.ToTxtRecordInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TxtRecordInvokeResponseArgs) ToTxtRecordInvokeResponseOutputWithContext(ctx context.Context) TxtRecordInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordInvokeResponseOutput)
+}
+
+// TxtRecordInvokeResponseArrayInput is an input type that accepts TxtRecordInvokeResponseArray and TxtRecordInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TxtRecordInvokeResponseArrayInput` via:
+//
+//          TxtRecordInvokeResponseArray{ TxtRecordInvokeResponseArgs{...} }
+type TxtRecordInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTxtRecordInvokeResponseArrayOutput() TxtRecordInvokeResponseArrayOutput
+	ToTxtRecordInvokeResponseArrayOutputWithContext(context.Context) TxtRecordInvokeResponseArrayOutput
+}
+
+type TxtRecordInvokeResponseArray []TxtRecordInvokeResponseInput
+
+func (TxtRecordInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TxtRecordInvokeResponse)(nil)).Elem()
+}
+
+func (i TxtRecordInvokeResponseArray) ToTxtRecordInvokeResponseArrayOutput() TxtRecordInvokeResponseArrayOutput {
+	return i.ToTxtRecordInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TxtRecordInvokeResponseArray) ToTxtRecordInvokeResponseArrayOutputWithContext(ctx context.Context) TxtRecordInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordInvokeResponseArrayOutput)
+}
+
+// A TXT record.
+type TxtRecordInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TxtRecordInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TxtRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o TxtRecordInvokeResponseOutput) ToTxtRecordInvokeResponseOutput() TxtRecordInvokeResponseOutput {
+	return o
+}
+
+func (o TxtRecordInvokeResponseOutput) ToTxtRecordInvokeResponseOutputWithContext(ctx context.Context) TxtRecordInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the text value of this record.
+func (o TxtRecordInvokeResponseOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TxtRecordInvokeResponse) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type TxtRecordInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TxtRecordInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TxtRecordInvokeResponse)(nil)).Elem()
+}
+
+func (o TxtRecordInvokeResponseArrayOutput) ToTxtRecordInvokeResponseArrayOutput() TxtRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TxtRecordInvokeResponseArrayOutput) ToTxtRecordInvokeResponseArrayOutputWithContext(ctx context.Context) TxtRecordInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TxtRecordInvokeResponseArrayOutput) Index(i pulumi.IntInput) TxtRecordInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TxtRecordInvokeResponse {
+		return vs[0].([]TxtRecordInvokeResponse)[vs[1].(int)]
+	}).(TxtRecordInvokeResponseOutput)
 }
 
 // A TXT record.
@@ -2400,6 +3300,79 @@ func (o ZonePropertiesPtrOutput) NumberOfRecordSets() pulumi.Float64PtrOutput {
 }
 
 // Represents the properties of the zone.
+type ZonePropertiesInvokeResponse struct {
+	// Gets or sets the maximum number of record sets that can be created in this zone.
+	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
+	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordsPerRecordSet float64 `pulumi:"maxNumberOfRecordsPerRecordSet"`
+	// Gets or sets the current number of record sets in this zone.
+	NumberOfRecordSets *float64 `pulumi:"numberOfRecordSets"`
+}
+
+// ZonePropertiesInvokeResponseInput is an input type that accepts ZonePropertiesInvokeResponseArgs and ZonePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ZonePropertiesInvokeResponseInput` via:
+//
+//          ZonePropertiesInvokeResponseArgs{...}
+type ZonePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToZonePropertiesInvokeResponseOutput() ZonePropertiesInvokeResponseOutput
+	ToZonePropertiesInvokeResponseOutputWithContext(context.Context) ZonePropertiesInvokeResponseOutput
+}
+
+// Represents the properties of the zone.
+type ZonePropertiesInvokeResponseArgs struct {
+	// Gets or sets the maximum number of record sets that can be created in this zone.
+	MaxNumberOfRecordSets pulumi.Float64PtrInput `pulumi:"maxNumberOfRecordSets"`
+	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordsPerRecordSet pulumi.Float64Input `pulumi:"maxNumberOfRecordsPerRecordSet"`
+	// Gets or sets the current number of record sets in this zone.
+	NumberOfRecordSets pulumi.Float64PtrInput `pulumi:"numberOfRecordSets"`
+}
+
+func (ZonePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZonePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ZonePropertiesInvokeResponseArgs) ToZonePropertiesInvokeResponseOutput() ZonePropertiesInvokeResponseOutput {
+	return i.ToZonePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ZonePropertiesInvokeResponseArgs) ToZonePropertiesInvokeResponseOutputWithContext(ctx context.Context) ZonePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZonePropertiesInvokeResponseOutput)
+}
+
+// Represents the properties of the zone.
+type ZonePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ZonePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZonePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ZonePropertiesInvokeResponseOutput) ToZonePropertiesInvokeResponseOutput() ZonePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ZonePropertiesInvokeResponseOutput) ToZonePropertiesInvokeResponseOutputWithContext(ctx context.Context) ZonePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the maximum number of record sets that can be created in this zone.
+func (o ZonePropertiesInvokeResponseOutput) MaxNumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ZonePropertiesInvokeResponse) *float64 { return v.MaxNumberOfRecordSets }).(pulumi.Float64PtrOutput)
+}
+
+// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+func (o ZonePropertiesInvokeResponseOutput) MaxNumberOfRecordsPerRecordSet() pulumi.Float64Output {
+	return o.ApplyT(func(v ZonePropertiesInvokeResponse) float64 { return v.MaxNumberOfRecordsPerRecordSet }).(pulumi.Float64Output)
+}
+
+// Gets or sets the current number of record sets in this zone.
+func (o ZonePropertiesInvokeResponseOutput) NumberOfRecordSets() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ZonePropertiesInvokeResponse) *float64 { return v.NumberOfRecordSets }).(pulumi.Float64PtrOutput)
+}
+
+// Represents the properties of the zone.
 type ZonePropertiesResponse struct {
 	// Gets or sets the maximum number of record sets that can be created in this zone.
 	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
@@ -2574,42 +3547,59 @@ func (o ZonePropertiesResponsePtrOutput) NumberOfRecordSets() pulumi.Float64PtrO
 func init() {
 	pulumi.RegisterOutputType(ARecordOutput{})
 	pulumi.RegisterOutputType(ARecordArrayOutput{})
+	pulumi.RegisterOutputType(ARecordInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ARecordInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ARecordResponseOutput{})
 	pulumi.RegisterOutputType(ARecordResponseArrayOutput{})
 	pulumi.RegisterOutputType(AaaaRecordOutput{})
 	pulumi.RegisterOutputType(AaaaRecordArrayOutput{})
+	pulumi.RegisterOutputType(AaaaRecordInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AaaaRecordInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AaaaRecordResponseOutput{})
 	pulumi.RegisterOutputType(AaaaRecordResponseArrayOutput{})
 	pulumi.RegisterOutputType(CnameRecordOutput{})
 	pulumi.RegisterOutputType(CnameRecordPtrOutput{})
+	pulumi.RegisterOutputType(CnameRecordInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CnameRecordResponseOutput{})
 	pulumi.RegisterOutputType(CnameRecordResponsePtrOutput{})
 	pulumi.RegisterOutputType(MxRecordOutput{})
 	pulumi.RegisterOutputType(MxRecordArrayOutput{})
+	pulumi.RegisterOutputType(MxRecordInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MxRecordInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordResponseOutput{})
 	pulumi.RegisterOutputType(MxRecordResponseArrayOutput{})
 	pulumi.RegisterOutputType(NsRecordOutput{})
 	pulumi.RegisterOutputType(NsRecordArrayOutput{})
+	pulumi.RegisterOutputType(NsRecordInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NsRecordInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NsRecordResponseOutput{})
 	pulumi.RegisterOutputType(NsRecordResponseArrayOutput{})
 	pulumi.RegisterOutputType(PtrRecordOutput{})
 	pulumi.RegisterOutputType(PtrRecordArrayOutput{})
+	pulumi.RegisterOutputType(PtrRecordInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PtrRecordInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PtrRecordResponseOutput{})
 	pulumi.RegisterOutputType(PtrRecordResponseArrayOutput{})
 	pulumi.RegisterOutputType(SoaRecordOutput{})
 	pulumi.RegisterOutputType(SoaRecordPtrOutput{})
+	pulumi.RegisterOutputType(SoaRecordInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SoaRecordResponseOutput{})
 	pulumi.RegisterOutputType(SoaRecordResponsePtrOutput{})
 	pulumi.RegisterOutputType(SrvRecordOutput{})
 	pulumi.RegisterOutputType(SrvRecordArrayOutput{})
+	pulumi.RegisterOutputType(SrvRecordInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SrvRecordInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SrvRecordResponseOutput{})
 	pulumi.RegisterOutputType(SrvRecordResponseArrayOutput{})
 	pulumi.RegisterOutputType(TxtRecordOutput{})
 	pulumi.RegisterOutputType(TxtRecordArrayOutput{})
+	pulumi.RegisterOutputType(TxtRecordInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TxtRecordInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TxtRecordResponseOutput{})
 	pulumi.RegisterOutputType(TxtRecordResponseArrayOutput{})
 	pulumi.RegisterOutputType(ZonePropertiesOutput{})
 	pulumi.RegisterOutputType(ZonePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ZonePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ZonePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ZonePropertiesResponsePtrOutput{})
 }

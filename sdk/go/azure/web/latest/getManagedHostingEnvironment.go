@@ -57,5 +57,5 @@ type LookupManagedHostingEnvironmentResult struct {
 	// Resource type
 	Type *string `pulumi:"type"`
 	// Description of the managed hosting environment's virtual network
-	VirtualNetwork *VirtualNetworkProfileResponse `pulumi:"virtualNetwork"`
+	VirtualNetwork *VirtualNetworkProfileInvokeResponse `pulumi:"virtualNetwork"`
 }

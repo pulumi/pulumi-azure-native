@@ -38,11 +38,11 @@ type LookupTemplateSpecResult struct {
 	// Name of this resource.
 	Name string `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of this resource.
 	Type string `pulumi:"type"`
 	// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
-	Versions map[string]TemplateSpecVersionInfoResponse `pulumi:"versions"`
+	Versions map[string]TemplateSpecVersionInfoInvokeResponse `pulumi:"versions"`
 }

@@ -36,11 +36,11 @@ type LookupExpressRouteCrossConnectionPeeringResult struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The IPv6 peering configuration.
-	Ipv6PeeringConfig *Ipv6ExpressRouteCircuitPeeringConfigResponse `pulumi:"ipv6PeeringConfig"`
+	Ipv6PeeringConfig *Ipv6ExpressRouteCircuitPeeringConfigInvokeResponse `pulumi:"ipv6PeeringConfig"`
 	// Gets whether the provider or the customer last modified the peering.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
 	// The Microsoft peering configuration.
-	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
+	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigInvokeResponse `pulumi:"microsoftPeeringConfig"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The peer ASN.

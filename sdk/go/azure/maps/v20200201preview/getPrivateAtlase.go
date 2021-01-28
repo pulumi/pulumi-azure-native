@@ -34,7 +34,7 @@ type LookupPrivateAtlaseResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The Private Atlas resource properties.
-	Properties PrivateAtlasPropertiesResponse `pulumi:"properties"`
+	Properties PrivateAtlasPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

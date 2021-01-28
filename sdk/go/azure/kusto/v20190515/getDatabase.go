@@ -40,7 +40,7 @@ type LookupDatabaseResult struct {
 	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
 	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
 	// The statistics of the database.
-	Statistics DatabaseStatisticsResponse `pulumi:"statistics"`
+	Statistics DatabaseStatisticsInvokeResponse `pulumi:"statistics"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

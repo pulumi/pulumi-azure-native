@@ -34,9 +34,9 @@ type LookupMigrateProjectResult struct {
 	// Gets the name of the migrate project.
 	Name string `pulumi:"name"`
 	// Gets or sets the nested properties.
-	Properties MigrateProjectPropertiesResponse `pulumi:"properties"`
+	Properties MigrateProjectPropertiesInvokeResponse `pulumi:"properties"`
 	// Gets or sets the tags.
-	Tags *MigrateProjectResponseTags `pulumi:"tags"`
+	Tags *MigrateProjectInvokeResponseTags `pulumi:"tags"`
 	// Handled by resource provider. Type = Microsoft.Migrate/MigrateProject.
 	Type string `pulumi:"type"`
 }

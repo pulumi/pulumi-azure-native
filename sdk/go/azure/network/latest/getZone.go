@@ -42,9 +42,9 @@ type LookupZoneResult struct {
 	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
 	NumberOfRecordSets float64 `pulumi:"numberOfRecordSets"`
 	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
-	RegistrationVirtualNetworks []SubResourceResponse `pulumi:"registrationVirtualNetworks"`
+	RegistrationVirtualNetworks []SubResourceInvokeResponse `pulumi:"registrationVirtualNetworks"`
 	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
-	ResolutionVirtualNetworks []SubResourceResponse `pulumi:"resolutionVirtualNetworks"`
+	ResolutionVirtualNetworks []SubResourceInvokeResponse `pulumi:"resolutionVirtualNetworks"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

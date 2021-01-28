@@ -26,7 +26,7 @@ type LookupEventSubscriptionArgs struct {
 // Event Subscription
 type LookupEventSubscriptionResult struct {
 	// The DeadLetter destination of the event subscription.
-	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	DeadLetterDestination *StorageBlobDeadLetterDestinationInvokeResponse `pulumi:"deadLetterDestination"`
 	// Information about the destination where events have to be delivered for the event subscription.
 	Destination interface{} `pulumi:"destination"`
 	// The event delivery schema for the event subscription.
@@ -34,7 +34,7 @@ type LookupEventSubscriptionResult struct {
 	// Expiration time of the event subscription.
 	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
 	// Information about the filter for the event subscription.
-	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
+	Filter *EventSubscriptionFilterInvokeResponse `pulumi:"filter"`
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
 	// List of user defined labels.
@@ -44,7 +44,7 @@ type LookupEventSubscriptionResult struct {
 	// Provisioning state of the event subscription.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-	RetryPolicy *RetryPolicyResponse `pulumi:"retryPolicy"`
+	RetryPolicy *RetryPolicyInvokeResponse `pulumi:"retryPolicy"`
 	// Name of the topic of the event subscription.
 	Topic string `pulumi:"topic"`
 	// Type of the resource.

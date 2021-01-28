@@ -30,7 +30,7 @@ type LookupServiceUnitArgs struct {
 // Represents the response of a service unit resource.
 type LookupServiceUnitResult struct {
 	// The artifacts for the service unit.
-	Artifacts *ServiceUnitArtifactsResponse `pulumi:"artifacts"`
+	Artifacts *ServiceUnitArtifactsInvokeResponse `pulumi:"artifacts"`
 	// Describes the type of ARM deployment to be performed on the resource.
 	DeploymentMode string `pulumi:"deploymentMode"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

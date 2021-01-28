@@ -32,7 +32,7 @@ type LookupSoftwareUpdateConfigurationByNameResult struct {
 	// Creation time of the resource, which only appears in the response.
 	CreationTime string `pulumi:"creationTime"`
 	// Details of provisioning error
-	Error *ErrorResponseResponse `pulumi:"error"`
+	Error *ErrorResponseInvokeResponse `pulumi:"error"`
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// LastModifiedBy property, which only appears in the response.
@@ -44,11 +44,11 @@ type LookupSoftwareUpdateConfigurationByNameResult struct {
 	// Provisioning state for the software update configuration, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Schedule information for the Software update configuration
-	ScheduleInfo SUCSchedulePropertiesResponse `pulumi:"scheduleInfo"`
+	ScheduleInfo SUCSchedulePropertiesInvokeResponse `pulumi:"scheduleInfo"`
 	// Tasks information for the Software update configuration.
-	Tasks *SoftwareUpdateConfigurationTasksResponse `pulumi:"tasks"`
+	Tasks *SoftwareUpdateConfigurationTasksInvokeResponse `pulumi:"tasks"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// update specific properties for the Software update configuration
-	UpdateConfiguration UpdateConfigurationResponse `pulumi:"updateConfiguration"`
+	UpdateConfiguration UpdateConfigurationInvokeResponse `pulumi:"updateConfiguration"`
 }

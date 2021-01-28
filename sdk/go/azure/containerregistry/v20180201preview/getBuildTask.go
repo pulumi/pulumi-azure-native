@@ -38,11 +38,11 @@ type LookupBuildTaskResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The platform properties against which the build has to happen.
-	Platform PlatformPropertiesResponse `pulumi:"platform"`
+	Platform PlatformPropertiesInvokeResponse `pulumi:"platform"`
 	// The provisioning state of the build task.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The properties that describes the source(code) for the build task.
-	SourceRepository SourceRepositoryPropertiesResponse `pulumi:"sourceRepository"`
+	SourceRepository SourceRepositoryPropertiesInvokeResponse `pulumi:"sourceRepository"`
 	// The current status of build task.
 	Status *string `pulumi:"status"`
 	// The tags of the resource.

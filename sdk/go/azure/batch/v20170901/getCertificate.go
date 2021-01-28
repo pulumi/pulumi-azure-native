@@ -28,7 +28,7 @@ type LookupCertificateArgs struct {
 // Contains information about a certificate.
 type LookupCertificateResult struct {
 	// This is only returned when the certificate provisioningState is 'Failed'.
-	DeleteCertificateError DeleteCertificateErrorResponse `pulumi:"deleteCertificateError"`
+	DeleteCertificateError DeleteCertificateErrorInvokeResponse `pulumi:"deleteCertificateError"`
 	// The ETag of the resource, used for concurrency statements.
 	Etag string `pulumi:"etag"`
 	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.

@@ -30,7 +30,7 @@ type LookupAccountResult struct {
 	// The id of the created account
 	Id string `pulumi:"id"`
 	// The identity of Cognitive Services account.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// The Kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// The location of the resource
@@ -38,9 +38,9 @@ type LookupAccountResult struct {
 	// The name of the created account
 	Name string `pulumi:"name"`
 	// Properties of Cognitive Services account.
-	Properties CognitiveServicesAccountPropertiesResponse `pulumi:"properties"`
+	Properties CognitiveServicesAccountPropertiesInvokeResponse `pulumi:"properties"`
 	// The SKU of Cognitive Services account.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

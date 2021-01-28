@@ -10,107 +10,107 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type ControllerConnectionDetailsResponse struct {
+type ControllerConnectionDetailsInvokeResponse struct {
 	// Base class for types that supply values used to connect to container orchestrators
-	OrchestratorSpecificConnectionDetails *KubernetesConnectionDetailsResponse `pulumi:"orchestratorSpecificConnectionDetails"`
+	OrchestratorSpecificConnectionDetails *KubernetesConnectionDetailsInvokeResponse `pulumi:"orchestratorSpecificConnectionDetails"`
 }
 
-// ControllerConnectionDetailsResponseInput is an input type that accepts ControllerConnectionDetailsResponseArgs and ControllerConnectionDetailsResponseOutput values.
-// You can construct a concrete instance of `ControllerConnectionDetailsResponseInput` via:
+// ControllerConnectionDetailsInvokeResponseInput is an input type that accepts ControllerConnectionDetailsInvokeResponseArgs and ControllerConnectionDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `ControllerConnectionDetailsInvokeResponseInput` via:
 //
-//          ControllerConnectionDetailsResponseArgs{...}
-type ControllerConnectionDetailsResponseInput interface {
+//          ControllerConnectionDetailsInvokeResponseArgs{...}
+type ControllerConnectionDetailsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToControllerConnectionDetailsResponseOutput() ControllerConnectionDetailsResponseOutput
-	ToControllerConnectionDetailsResponseOutputWithContext(context.Context) ControllerConnectionDetailsResponseOutput
+	ToControllerConnectionDetailsInvokeResponseOutput() ControllerConnectionDetailsInvokeResponseOutput
+	ToControllerConnectionDetailsInvokeResponseOutputWithContext(context.Context) ControllerConnectionDetailsInvokeResponseOutput
 }
 
-type ControllerConnectionDetailsResponseArgs struct {
+type ControllerConnectionDetailsInvokeResponseArgs struct {
 	// Base class for types that supply values used to connect to container orchestrators
-	OrchestratorSpecificConnectionDetails KubernetesConnectionDetailsResponsePtrInput `pulumi:"orchestratorSpecificConnectionDetails"`
+	OrchestratorSpecificConnectionDetails KubernetesConnectionDetailsInvokeResponsePtrInput `pulumi:"orchestratorSpecificConnectionDetails"`
 }
 
-func (ControllerConnectionDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerConnectionDetailsResponse)(nil)).Elem()
+func (ControllerConnectionDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControllerConnectionDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (i ControllerConnectionDetailsResponseArgs) ToControllerConnectionDetailsResponseOutput() ControllerConnectionDetailsResponseOutput {
-	return i.ToControllerConnectionDetailsResponseOutputWithContext(context.Background())
+func (i ControllerConnectionDetailsInvokeResponseArgs) ToControllerConnectionDetailsInvokeResponseOutput() ControllerConnectionDetailsInvokeResponseOutput {
+	return i.ToControllerConnectionDetailsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ControllerConnectionDetailsResponseArgs) ToControllerConnectionDetailsResponseOutputWithContext(ctx context.Context) ControllerConnectionDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControllerConnectionDetailsResponseOutput)
+func (i ControllerConnectionDetailsInvokeResponseArgs) ToControllerConnectionDetailsInvokeResponseOutputWithContext(ctx context.Context) ControllerConnectionDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerConnectionDetailsInvokeResponseOutput)
 }
 
-// ControllerConnectionDetailsResponseArrayInput is an input type that accepts ControllerConnectionDetailsResponseArray and ControllerConnectionDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `ControllerConnectionDetailsResponseArrayInput` via:
+// ControllerConnectionDetailsInvokeResponseArrayInput is an input type that accepts ControllerConnectionDetailsInvokeResponseArray and ControllerConnectionDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ControllerConnectionDetailsInvokeResponseArrayInput` via:
 //
-//          ControllerConnectionDetailsResponseArray{ ControllerConnectionDetailsResponseArgs{...} }
-type ControllerConnectionDetailsResponseArrayInput interface {
+//          ControllerConnectionDetailsInvokeResponseArray{ ControllerConnectionDetailsInvokeResponseArgs{...} }
+type ControllerConnectionDetailsInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToControllerConnectionDetailsResponseArrayOutput() ControllerConnectionDetailsResponseArrayOutput
-	ToControllerConnectionDetailsResponseArrayOutputWithContext(context.Context) ControllerConnectionDetailsResponseArrayOutput
+	ToControllerConnectionDetailsInvokeResponseArrayOutput() ControllerConnectionDetailsInvokeResponseArrayOutput
+	ToControllerConnectionDetailsInvokeResponseArrayOutputWithContext(context.Context) ControllerConnectionDetailsInvokeResponseArrayOutput
 }
 
-type ControllerConnectionDetailsResponseArray []ControllerConnectionDetailsResponseInput
+type ControllerConnectionDetailsInvokeResponseArray []ControllerConnectionDetailsInvokeResponseInput
 
-func (ControllerConnectionDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ControllerConnectionDetailsResponse)(nil)).Elem()
+func (ControllerConnectionDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ControllerConnectionDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (i ControllerConnectionDetailsResponseArray) ToControllerConnectionDetailsResponseArrayOutput() ControllerConnectionDetailsResponseArrayOutput {
-	return i.ToControllerConnectionDetailsResponseArrayOutputWithContext(context.Background())
+func (i ControllerConnectionDetailsInvokeResponseArray) ToControllerConnectionDetailsInvokeResponseArrayOutput() ControllerConnectionDetailsInvokeResponseArrayOutput {
+	return i.ToControllerConnectionDetailsInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ControllerConnectionDetailsResponseArray) ToControllerConnectionDetailsResponseArrayOutputWithContext(ctx context.Context) ControllerConnectionDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControllerConnectionDetailsResponseArrayOutput)
+func (i ControllerConnectionDetailsInvokeResponseArray) ToControllerConnectionDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) ControllerConnectionDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControllerConnectionDetailsInvokeResponseArrayOutput)
 }
 
-type ControllerConnectionDetailsResponseOutput struct{ *pulumi.OutputState }
+type ControllerConnectionDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ControllerConnectionDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerConnectionDetailsResponse)(nil)).Elem()
+func (ControllerConnectionDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControllerConnectionDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (o ControllerConnectionDetailsResponseOutput) ToControllerConnectionDetailsResponseOutput() ControllerConnectionDetailsResponseOutput {
+func (o ControllerConnectionDetailsInvokeResponseOutput) ToControllerConnectionDetailsInvokeResponseOutput() ControllerConnectionDetailsInvokeResponseOutput {
 	return o
 }
 
-func (o ControllerConnectionDetailsResponseOutput) ToControllerConnectionDetailsResponseOutputWithContext(ctx context.Context) ControllerConnectionDetailsResponseOutput {
+func (o ControllerConnectionDetailsInvokeResponseOutput) ToControllerConnectionDetailsInvokeResponseOutputWithContext(ctx context.Context) ControllerConnectionDetailsInvokeResponseOutput {
 	return o
 }
 
 // Base class for types that supply values used to connect to container orchestrators
-func (o ControllerConnectionDetailsResponseOutput) OrchestratorSpecificConnectionDetails() KubernetesConnectionDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ControllerConnectionDetailsResponse) *KubernetesConnectionDetailsResponse {
+func (o ControllerConnectionDetailsInvokeResponseOutput) OrchestratorSpecificConnectionDetails() KubernetesConnectionDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ControllerConnectionDetailsInvokeResponse) *KubernetesConnectionDetailsInvokeResponse {
 		return v.OrchestratorSpecificConnectionDetails
-	}).(KubernetesConnectionDetailsResponsePtrOutput)
+	}).(KubernetesConnectionDetailsInvokeResponsePtrOutput)
 }
 
-type ControllerConnectionDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+type ControllerConnectionDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ControllerConnectionDetailsResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ControllerConnectionDetailsResponse)(nil)).Elem()
+func (ControllerConnectionDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ControllerConnectionDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (o ControllerConnectionDetailsResponseArrayOutput) ToControllerConnectionDetailsResponseArrayOutput() ControllerConnectionDetailsResponseArrayOutput {
+func (o ControllerConnectionDetailsInvokeResponseArrayOutput) ToControllerConnectionDetailsInvokeResponseArrayOutput() ControllerConnectionDetailsInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ControllerConnectionDetailsResponseArrayOutput) ToControllerConnectionDetailsResponseArrayOutputWithContext(ctx context.Context) ControllerConnectionDetailsResponseArrayOutput {
+func (o ControllerConnectionDetailsInvokeResponseArrayOutput) ToControllerConnectionDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) ControllerConnectionDetailsInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ControllerConnectionDetailsResponseArrayOutput) Index(i pulumi.IntInput) ControllerConnectionDetailsResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ControllerConnectionDetailsResponse {
-		return vs[0].([]ControllerConnectionDetailsResponse)[vs[1].(int)]
-	}).(ControllerConnectionDetailsResponseOutput)
+func (o ControllerConnectionDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) ControllerConnectionDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ControllerConnectionDetailsInvokeResponse {
+		return vs[0].([]ControllerConnectionDetailsInvokeResponse)[vs[1].(int)]
+	}).(ControllerConnectionDetailsInvokeResponseOutput)
 }
 
 // Contains information used to connect to a Kubernetes cluster
-type KubernetesConnectionDetailsResponse struct {
+type KubernetesConnectionDetailsInvokeResponse struct {
 	// Gets the Instance type.
 	// Expected value is 'Kubernetes'.
 	InstanceType string `pulumi:"instanceType"`
@@ -118,19 +118,19 @@ type KubernetesConnectionDetailsResponse struct {
 	KubeConfig *string `pulumi:"kubeConfig"`
 }
 
-// KubernetesConnectionDetailsResponseInput is an input type that accepts KubernetesConnectionDetailsResponseArgs and KubernetesConnectionDetailsResponseOutput values.
-// You can construct a concrete instance of `KubernetesConnectionDetailsResponseInput` via:
+// KubernetesConnectionDetailsInvokeResponseInput is an input type that accepts KubernetesConnectionDetailsInvokeResponseArgs and KubernetesConnectionDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `KubernetesConnectionDetailsInvokeResponseInput` via:
 //
-//          KubernetesConnectionDetailsResponseArgs{...}
-type KubernetesConnectionDetailsResponseInput interface {
+//          KubernetesConnectionDetailsInvokeResponseArgs{...}
+type KubernetesConnectionDetailsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToKubernetesConnectionDetailsResponseOutput() KubernetesConnectionDetailsResponseOutput
-	ToKubernetesConnectionDetailsResponseOutputWithContext(context.Context) KubernetesConnectionDetailsResponseOutput
+	ToKubernetesConnectionDetailsInvokeResponseOutput() KubernetesConnectionDetailsInvokeResponseOutput
+	ToKubernetesConnectionDetailsInvokeResponseOutputWithContext(context.Context) KubernetesConnectionDetailsInvokeResponseOutput
 }
 
 // Contains information used to connect to a Kubernetes cluster
-type KubernetesConnectionDetailsResponseArgs struct {
+type KubernetesConnectionDetailsInvokeResponseArgs struct {
 	// Gets the Instance type.
 	// Expected value is 'Kubernetes'.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
@@ -138,117 +138,119 @@ type KubernetesConnectionDetailsResponseArgs struct {
 	KubeConfig pulumi.StringPtrInput `pulumi:"kubeConfig"`
 }
 
-func (KubernetesConnectionDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesConnectionDetailsResponse)(nil)).Elem()
+func (KubernetesConnectionDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesConnectionDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (i KubernetesConnectionDetailsResponseArgs) ToKubernetesConnectionDetailsResponseOutput() KubernetesConnectionDetailsResponseOutput {
-	return i.ToKubernetesConnectionDetailsResponseOutputWithContext(context.Background())
+func (i KubernetesConnectionDetailsInvokeResponseArgs) ToKubernetesConnectionDetailsInvokeResponseOutput() KubernetesConnectionDetailsInvokeResponseOutput {
+	return i.ToKubernetesConnectionDetailsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i KubernetesConnectionDetailsResponseArgs) ToKubernetesConnectionDetailsResponseOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConnectionDetailsResponseOutput)
+func (i KubernetesConnectionDetailsInvokeResponseArgs) ToKubernetesConnectionDetailsInvokeResponseOutputWithContext(ctx context.Context) KubernetesConnectionDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConnectionDetailsInvokeResponseOutput)
 }
 
-func (i KubernetesConnectionDetailsResponseArgs) ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput {
-	return i.ToKubernetesConnectionDetailsResponsePtrOutputWithContext(context.Background())
+func (i KubernetesConnectionDetailsInvokeResponseArgs) ToKubernetesConnectionDetailsInvokeResponsePtrOutput() KubernetesConnectionDetailsInvokeResponsePtrOutput {
+	return i.ToKubernetesConnectionDetailsInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i KubernetesConnectionDetailsResponseArgs) ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConnectionDetailsResponseOutput).ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx)
+func (i KubernetesConnectionDetailsInvokeResponseArgs) ToKubernetesConnectionDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConnectionDetailsInvokeResponseOutput).ToKubernetesConnectionDetailsInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// KubernetesConnectionDetailsResponsePtrInput is an input type that accepts KubernetesConnectionDetailsResponseArgs, KubernetesConnectionDetailsResponsePtr and KubernetesConnectionDetailsResponsePtrOutput values.
-// You can construct a concrete instance of `KubernetesConnectionDetailsResponsePtrInput` via:
+// KubernetesConnectionDetailsInvokeResponsePtrInput is an input type that accepts KubernetesConnectionDetailsInvokeResponseArgs, KubernetesConnectionDetailsInvokeResponsePtr and KubernetesConnectionDetailsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `KubernetesConnectionDetailsInvokeResponsePtrInput` via:
 //
-//          KubernetesConnectionDetailsResponseArgs{...}
+//          KubernetesConnectionDetailsInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type KubernetesConnectionDetailsResponsePtrInput interface {
+type KubernetesConnectionDetailsInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput
-	ToKubernetesConnectionDetailsResponsePtrOutputWithContext(context.Context) KubernetesConnectionDetailsResponsePtrOutput
+	ToKubernetesConnectionDetailsInvokeResponsePtrOutput() KubernetesConnectionDetailsInvokeResponsePtrOutput
+	ToKubernetesConnectionDetailsInvokeResponsePtrOutputWithContext(context.Context) KubernetesConnectionDetailsInvokeResponsePtrOutput
 }
 
-type kubernetesConnectionDetailsResponsePtrType KubernetesConnectionDetailsResponseArgs
+type kubernetesConnectionDetailsInvokeResponsePtrType KubernetesConnectionDetailsInvokeResponseArgs
 
-func KubernetesConnectionDetailsResponsePtr(v *KubernetesConnectionDetailsResponseArgs) KubernetesConnectionDetailsResponsePtrInput {
-	return (*kubernetesConnectionDetailsResponsePtrType)(v)
+func KubernetesConnectionDetailsInvokeResponsePtr(v *KubernetesConnectionDetailsInvokeResponseArgs) KubernetesConnectionDetailsInvokeResponsePtrInput {
+	return (*kubernetesConnectionDetailsInvokeResponsePtrType)(v)
 }
 
-func (*kubernetesConnectionDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesConnectionDetailsResponse)(nil)).Elem()
+func (*kubernetesConnectionDetailsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesConnectionDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (i *kubernetesConnectionDetailsResponsePtrType) ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput {
-	return i.ToKubernetesConnectionDetailsResponsePtrOutputWithContext(context.Background())
+func (i *kubernetesConnectionDetailsInvokeResponsePtrType) ToKubernetesConnectionDetailsInvokeResponsePtrOutput() KubernetesConnectionDetailsInvokeResponsePtrOutput {
+	return i.ToKubernetesConnectionDetailsInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *kubernetesConnectionDetailsResponsePtrType) ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConnectionDetailsResponsePtrOutput)
+func (i *kubernetesConnectionDetailsInvokeResponsePtrType) ToKubernetesConnectionDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConnectionDetailsInvokeResponsePtrOutput)
 }
 
 // Contains information used to connect to a Kubernetes cluster
-type KubernetesConnectionDetailsResponseOutput struct{ *pulumi.OutputState }
+type KubernetesConnectionDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (KubernetesConnectionDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesConnectionDetailsResponse)(nil)).Elem()
+func (KubernetesConnectionDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesConnectionDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetailsResponseOutput() KubernetesConnectionDetailsResponseOutput {
+func (o KubernetesConnectionDetailsInvokeResponseOutput) ToKubernetesConnectionDetailsInvokeResponseOutput() KubernetesConnectionDetailsInvokeResponseOutput {
 	return o
 }
 
-func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetailsResponseOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponseOutput {
+func (o KubernetesConnectionDetailsInvokeResponseOutput) ToKubernetesConnectionDetailsInvokeResponseOutputWithContext(ctx context.Context) KubernetesConnectionDetailsInvokeResponseOutput {
 	return o
 }
 
-func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput {
-	return o.ToKubernetesConnectionDetailsResponsePtrOutputWithContext(context.Background())
+func (o KubernetesConnectionDetailsInvokeResponseOutput) ToKubernetesConnectionDetailsInvokeResponsePtrOutput() KubernetesConnectionDetailsInvokeResponsePtrOutput {
+	return o.ToKubernetesConnectionDetailsInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o KubernetesConnectionDetailsResponseOutput) ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponsePtrOutput {
-	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) *KubernetesConnectionDetailsResponse {
+func (o KubernetesConnectionDetailsInvokeResponseOutput) ToKubernetesConnectionDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v KubernetesConnectionDetailsInvokeResponse) *KubernetesConnectionDetailsInvokeResponse {
 		return &v
-	}).(KubernetesConnectionDetailsResponsePtrOutput)
+	}).(KubernetesConnectionDetailsInvokeResponsePtrOutput)
 }
 
 // Gets the Instance type.
 // Expected value is 'Kubernetes'.
-func (o KubernetesConnectionDetailsResponseOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o KubernetesConnectionDetailsInvokeResponseOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesConnectionDetailsInvokeResponse) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
 // Gets the kubeconfig for the cluster.
-func (o KubernetesConnectionDetailsResponseOutput) KubeConfig() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesConnectionDetailsResponse) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
+func (o KubernetesConnectionDetailsInvokeResponseOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesConnectionDetailsInvokeResponse) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesConnectionDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+type KubernetesConnectionDetailsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (KubernetesConnectionDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesConnectionDetailsResponse)(nil)).Elem()
+func (KubernetesConnectionDetailsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesConnectionDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (o KubernetesConnectionDetailsResponsePtrOutput) ToKubernetesConnectionDetailsResponsePtrOutput() KubernetesConnectionDetailsResponsePtrOutput {
+func (o KubernetesConnectionDetailsInvokeResponsePtrOutput) ToKubernetesConnectionDetailsInvokeResponsePtrOutput() KubernetesConnectionDetailsInvokeResponsePtrOutput {
 	return o
 }
 
-func (o KubernetesConnectionDetailsResponsePtrOutput) ToKubernetesConnectionDetailsResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsResponsePtrOutput {
+func (o KubernetesConnectionDetailsInvokeResponsePtrOutput) ToKubernetesConnectionDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) KubernetesConnectionDetailsInvokeResponsePtrOutput {
 	return o
 }
 
-func (o KubernetesConnectionDetailsResponsePtrOutput) Elem() KubernetesConnectionDetailsResponseOutput {
-	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) KubernetesConnectionDetailsResponse { return *v }).(KubernetesConnectionDetailsResponseOutput)
+func (o KubernetesConnectionDetailsInvokeResponsePtrOutput) Elem() KubernetesConnectionDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v *KubernetesConnectionDetailsInvokeResponse) KubernetesConnectionDetailsInvokeResponse {
+		return *v
+	}).(KubernetesConnectionDetailsInvokeResponseOutput)
 }
 
 // Gets the Instance type.
 // Expected value is 'Kubernetes'.
-func (o KubernetesConnectionDetailsResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) *string {
+func (o KubernetesConnectionDetailsInvokeResponsePtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesConnectionDetailsInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -257,8 +259,8 @@ func (o KubernetesConnectionDetailsResponsePtrOutput) InstanceType() pulumi.Stri
 }
 
 // Gets the kubeconfig for the cluster.
-func (o KubernetesConnectionDetailsResponsePtrOutput) KubeConfig() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesConnectionDetailsResponse) *string {
+func (o KubernetesConnectionDetailsInvokeResponsePtrOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesConnectionDetailsInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -420,6 +422,70 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Model representing SKU for Azure Dev Spaces Controller.
+type SkuInvokeResponse struct {
+	// The name of the SKU for Azure Dev Spaces Controller.
+	Name string `pulumi:"name"`
+	// The tier of the SKU for Azure Dev Spaces Controller.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Model representing SKU for Azure Dev Spaces Controller.
+type SkuInvokeResponseArgs struct {
+	// The name of the SKU for Azure Dev Spaces Controller.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tier of the SKU for Azure Dev Spaces Controller.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Model representing SKU for Azure Dev Spaces Controller.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU for Azure Dev Spaces Controller.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tier of the SKU for Azure Dev Spaces Controller.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// Model representing SKU for Azure Dev Spaces Controller.
 type SkuResponse struct {
 	// The name of the SKU for Azure Dev Spaces Controller.
 	Name string `pulumi:"name"`
@@ -573,12 +639,13 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseOutput{})
-	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseArrayOutput{})
-	pulumi.RegisterOutputType(KubernetesConnectionDetailsResponseOutput{})
-	pulumi.RegisterOutputType(KubernetesConnectionDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ControllerConnectionDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ControllerConnectionDetailsInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesConnectionDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KubernetesConnectionDetailsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

@@ -186,6 +186,183 @@ func (o AzureBackupServerContainerOutput) UpgradeAvailable() pulumi.BoolPtrOutpu
 }
 
 // AzureBackupServer (DPMVenus) workload-specific protection container.
+type AzureBackupServerContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Specifies whether the container is re-registrable.
+	CanReRegister *bool `pulumi:"canReRegister"`
+	// ID of container.
+	ContainerId *string `pulumi:"containerId"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Backup engine Agent version
+	DpmAgentVersion *string `pulumi:"dpmAgentVersion"`
+	// List of BackupEngines protecting the container
+	DpmServers []string `pulumi:"dpmServers"`
+	// Extended Info of the container.
+	ExtendedInfo *DPMContainerExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Number of protected items in the BackupEngine
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
+	// Protection status of the container.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// To check if upgrade available
+	UpgradeAvailable *bool `pulumi:"upgradeAvailable"`
+}
+
+// AzureBackupServerContainerInvokeResponseInput is an input type that accepts AzureBackupServerContainerInvokeResponseArgs and AzureBackupServerContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureBackupServerContainerInvokeResponseInput` via:
+//
+//          AzureBackupServerContainerInvokeResponseArgs{...}
+type AzureBackupServerContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureBackupServerContainerInvokeResponseOutput() AzureBackupServerContainerInvokeResponseOutput
+	ToAzureBackupServerContainerInvokeResponseOutputWithContext(context.Context) AzureBackupServerContainerInvokeResponseOutput
+}
+
+// AzureBackupServer (DPMVenus) workload-specific protection container.
+type AzureBackupServerContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Specifies whether the container is re-registrable.
+	CanReRegister pulumi.BoolPtrInput `pulumi:"canReRegister"`
+	// ID of container.
+	ContainerId pulumi.StringPtrInput `pulumi:"containerId"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Backup engine Agent version
+	DpmAgentVersion pulumi.StringPtrInput `pulumi:"dpmAgentVersion"`
+	// List of BackupEngines protecting the container
+	DpmServers pulumi.StringArrayInput `pulumi:"dpmServers"`
+	// Extended Info of the container.
+	ExtendedInfo DPMContainerExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Number of protected items in the BackupEngine
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
+	// Protection status of the container.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// To check if upgrade available
+	UpgradeAvailable pulumi.BoolPtrInput `pulumi:"upgradeAvailable"`
+}
+
+func (AzureBackupServerContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupServerContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureBackupServerContainerInvokeResponseArgs) ToAzureBackupServerContainerInvokeResponseOutput() AzureBackupServerContainerInvokeResponseOutput {
+	return i.ToAzureBackupServerContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureBackupServerContainerInvokeResponseArgs) ToAzureBackupServerContainerInvokeResponseOutputWithContext(ctx context.Context) AzureBackupServerContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupServerContainerInvokeResponseOutput)
+}
+
+// AzureBackupServer (DPMVenus) workload-specific protection container.
+type AzureBackupServerContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureBackupServerContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupServerContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureBackupServerContainerInvokeResponseOutput) ToAzureBackupServerContainerInvokeResponseOutput() AzureBackupServerContainerInvokeResponseOutput {
+	return o
+}
+
+func (o AzureBackupServerContainerInvokeResponseOutput) ToAzureBackupServerContainerInvokeResponseOutputWithContext(ctx context.Context) AzureBackupServerContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureBackupServerContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container is re-registrable.
+func (o AzureBackupServerContainerInvokeResponseOutput) CanReRegister() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *bool { return v.CanReRegister }).(pulumi.BoolPtrOutput)
+}
+
+// ID of container.
+func (o AzureBackupServerContainerInvokeResponseOutput) ContainerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *string { return v.ContainerId }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'DPMContainer'.
+func (o AzureBackupServerContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Backup engine Agent version
+func (o AzureBackupServerContainerInvokeResponseOutput) DpmAgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *string { return v.DpmAgentVersion }).(pulumi.StringPtrOutput)
+}
+
+// List of BackupEngines protecting the container
+func (o AzureBackupServerContainerInvokeResponseOutput) DpmServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) []string { return v.DpmServers }).(pulumi.StringArrayOutput)
+}
+
+// Extended Info of the container.
+func (o AzureBackupServerContainerInvokeResponseOutput) ExtendedInfo() DPMContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *DPMContainerExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(DPMContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureBackupServerContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureBackupServerContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Number of protected items in the BackupEngine
+func (o AzureBackupServerContainerInvokeResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
+}
+
+// Protection status of the container.
+func (o AzureBackupServerContainerInvokeResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureBackupServerContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// To check if upgrade available
+func (o AzureBackupServerContainerInvokeResponseOutput) UpgradeAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerInvokeResponse) *bool { return v.UpgradeAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// AzureBackupServer (DPMVenus) workload-specific protection container.
 type AzureBackupServerContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -461,6 +638,109 @@ func (o AzureFileShareProtectionPolicyOutput) TimeZone() pulumi.StringPtrOutput 
 // Type of workload for the backup management
 func (o AzureFileShareProtectionPolicyOutput) WorkLoadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileShareProtectionPolicy) *string { return v.WorkLoadType }).(pulumi.StringPtrOutput)
+}
+
+// AzureStorage backup policy.
+type AzureFileShareProtectionPolicyInvokeResponse struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureStorage'.
+	BackupManagementType string `pulumi:"backupManagementType"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// Retention policy with the details on backup copy retention ranges.
+	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
+	// Backup schedule specified as part of backup policy.
+	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+	TimeZone *string `pulumi:"timeZone"`
+	// Type of workload for the backup management
+	WorkLoadType *string `pulumi:"workLoadType"`
+}
+
+// AzureFileShareProtectionPolicyInvokeResponseInput is an input type that accepts AzureFileShareProtectionPolicyInvokeResponseArgs and AzureFileShareProtectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureFileShareProtectionPolicyInvokeResponseInput` via:
+//
+//          AzureFileShareProtectionPolicyInvokeResponseArgs{...}
+type AzureFileShareProtectionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureFileShareProtectionPolicyInvokeResponseOutput() AzureFileShareProtectionPolicyInvokeResponseOutput
+	ToAzureFileShareProtectionPolicyInvokeResponseOutputWithContext(context.Context) AzureFileShareProtectionPolicyInvokeResponseOutput
+}
+
+// AzureStorage backup policy.
+type AzureFileShareProtectionPolicyInvokeResponseArgs struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureStorage'.
+	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
+	// Retention policy with the details on backup copy retention ranges.
+	RetentionPolicy pulumi.Input `pulumi:"retentionPolicy"`
+	// Backup schedule specified as part of backup policy.
+	SchedulePolicy pulumi.Input `pulumi:"schedulePolicy"`
+	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+	// Type of workload for the backup management
+	WorkLoadType pulumi.StringPtrInput `pulumi:"workLoadType"`
+}
+
+func (AzureFileShareProtectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFileShareProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureFileShareProtectionPolicyInvokeResponseArgs) ToAzureFileShareProtectionPolicyInvokeResponseOutput() AzureFileShareProtectionPolicyInvokeResponseOutput {
+	return i.ToAzureFileShareProtectionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureFileShareProtectionPolicyInvokeResponseArgs) ToAzureFileShareProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureFileShareProtectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFileShareProtectionPolicyInvokeResponseOutput)
+}
+
+// AzureStorage backup policy.
+type AzureFileShareProtectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureFileShareProtectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFileShareProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureFileShareProtectionPolicyInvokeResponseOutput) ToAzureFileShareProtectionPolicyInvokeResponseOutput() AzureFileShareProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o AzureFileShareProtectionPolicyInvokeResponseOutput) ToAzureFileShareProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureFileShareProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureStorage'.
+func (o AzureFileShareProtectionPolicyInvokeResponseOutput) BackupManagementType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFileShareProtectionPolicyInvokeResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
+}
+
+// Number of items associated with this policy.
+func (o AzureFileShareProtectionPolicyInvokeResponseOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureFileShareProtectionPolicyInvokeResponse) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
+}
+
+// Retention policy with the details on backup copy retention ranges.
+func (o AzureFileShareProtectionPolicyInvokeResponseOutput) RetentionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureFileShareProtectionPolicyInvokeResponse) interface{} { return v.RetentionPolicy }).(pulumi.AnyOutput)
+}
+
+// Backup schedule specified as part of backup policy.
+func (o AzureFileShareProtectionPolicyInvokeResponseOutput) SchedulePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureFileShareProtectionPolicyInvokeResponse) interface{} { return v.SchedulePolicy }).(pulumi.AnyOutput)
+}
+
+// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+func (o AzureFileShareProtectionPolicyInvokeResponseOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileShareProtectionPolicyInvokeResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload for the backup management
+func (o AzureFileShareProtectionPolicyInvokeResponseOutput) WorkLoadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileShareProtectionPolicyInvokeResponse) *string { return v.WorkLoadType }).(pulumi.StringPtrOutput)
 }
 
 // AzureStorage backup policy.
@@ -977,6 +1257,218 @@ func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() p
 }
 
 // Additional information about Azure File Share backup item.
+type AzureFileshareProtectedItemExtendedInfoInvokeResponse struct {
+	// The oldest backup copy available for this item in the service.
+	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
+	// Indicates consistency of policy object and policy applied to this backup item.
+	PolicyState *string `pulumi:"policyState"`
+	// Number of available backup copies associated with this backup item.
+	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	// Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
+	ResourceState string `pulumi:"resourceState"`
+	// The resource state sync time for this backup item.
+	ResourceStateSyncTime string `pulumi:"resourceStateSyncTime"`
+}
+
+// AzureFileshareProtectedItemExtendedInfoInvokeResponseInput is an input type that accepts AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs and AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureFileshareProtectedItemExtendedInfoInvokeResponseInput` via:
+//
+//          AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs{...}
+type AzureFileshareProtectedItemExtendedInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureFileshareProtectedItemExtendedInfoInvokeResponseOutput() AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput
+	ToAzureFileshareProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Context) AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput
+}
+
+// Additional information about Azure File Share backup item.
+type AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs struct {
+	// The oldest backup copy available for this item in the service.
+	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
+	// Indicates consistency of policy object and policy applied to this backup item.
+	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
+	// Number of available backup copies associated with this backup item.
+	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	// Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
+	ResourceState pulumi.StringInput `pulumi:"resourceState"`
+	// The resource state sync time for this backup item.
+	ResourceStateSyncTime pulumi.StringInput `pulumi:"resourceStateSyncTime"`
+}
+
+func (AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFileshareProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs) ToAzureFileshareProtectedItemExtendedInfoInvokeResponseOutput() AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput {
+	return i.ToAzureFileshareProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs) ToAzureFileshareProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+func (i AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs) ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs) ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput).ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrInput is an input type that accepts AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs, AzureFileshareProtectedItemExtendedInfoInvokeResponsePtr and AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrInput` via:
+//
+//          AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput
+	ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Context) AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput
+}
+
+type azureFileshareProtectedItemExtendedInfoInvokeResponsePtrType AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs
+
+func AzureFileshareProtectedItemExtendedInfoInvokeResponsePtr(v *AzureFileshareProtectedItemExtendedInfoInvokeResponseArgs) AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrInput {
+	return (*azureFileshareProtectedItemExtendedInfoInvokeResponsePtrType)(v)
+}
+
+func (*azureFileshareProtectedItemExtendedInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureFileshareProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *azureFileshareProtectedItemExtendedInfoInvokeResponsePtrType) ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureFileshareProtectedItemExtendedInfoInvokeResponsePtrType) ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Additional information about Azure File Share backup item.
+type AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFileshareProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput) ToAzureFileshareProtectedItemExtendedInfoInvokeResponseOutput() AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput) ToAzureFileshareProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput) ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput) ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoInvokeResponse) *AzureFileshareProtectedItemExtendedInfoInvokeResponse {
+		return &v
+	}).(AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// The oldest backup copy available for this item in the service.
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoInvokeResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// Indicates consistency of policy object and policy applied to this backup item.
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput) PolicyState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoInvokeResponse) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
+}
+
+// Number of available backup copies associated with this backup item.
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoInvokeResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
+}
+
+// Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoInvokeResponse) string { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The resource state sync time for this backup item.
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput) ResourceStateSyncTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoInvokeResponse) string { return v.ResourceStateSyncTime }).(pulumi.StringOutput)
+}
+
+type AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureFileshareProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput) ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput) ToAzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput) Elem() AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoInvokeResponse) AzureFileshareProtectedItemExtendedInfoInvokeResponse {
+		return *v
+	}).(AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+// The oldest backup copy available for this item in the service.
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OldestRecoveryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates consistency of policy object and policy applied to this backup item.
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput) PolicyState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of available backup copies associated with this backup item.
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPointCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates the state of this resource. Possible values are from enum ResourceState {Invalid, Active, SoftDeleted, Deleted}
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource state sync time for this backup item.
+func (o AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput) ResourceStateSyncTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceStateSyncTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional information about Azure File Share backup item.
 type AzureFileshareProtectedItemExtendedInfoResponse struct {
 	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -1186,6 +1678,248 @@ func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) ResourceStateS
 		}
 		return &v.ResourceStateSyncTime
 	}).(pulumi.StringPtrOutput)
+}
+
+// Azure File Share workload-specific backup item.
+type AzureFileshareProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information with this backup item.
+	ExtendedInfo *AzureFileshareProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the fileshare represented by this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths map[string]KPIResourceHealthDetailsInvokeResponse `pulumi:"kpisHealths"`
+	// Last backup operation status. Possible values: Healthy, Unhealthy.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// backup item type.
+	// Expected value is 'AzureFileShareProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureFileshareProtectedItemInvokeResponseInput is an input type that accepts AzureFileshareProtectedItemInvokeResponseArgs and AzureFileshareProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureFileshareProtectedItemInvokeResponseInput` via:
+//
+//          AzureFileshareProtectedItemInvokeResponseArgs{...}
+type AzureFileshareProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureFileshareProtectedItemInvokeResponseOutput() AzureFileshareProtectedItemInvokeResponseOutput
+	ToAzureFileshareProtectedItemInvokeResponseOutputWithContext(context.Context) AzureFileshareProtectedItemInvokeResponseOutput
+}
+
+// Azure File Share workload-specific backup item.
+type AzureFileshareProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information with this backup item.
+	ExtendedInfo AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the fileshare represented by this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths KPIResourceHealthDetailsInvokeResponseMapInput `pulumi:"kpisHealths"`
+	// Last backup operation status. Possible values: Healthy, Unhealthy.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// backup item type.
+	// Expected value is 'AzureFileShareProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureFileshareProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFileshareProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureFileshareProtectedItemInvokeResponseArgs) ToAzureFileshareProtectedItemInvokeResponseOutput() AzureFileshareProtectedItemInvokeResponseOutput {
+	return i.ToAzureFileshareProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureFileshareProtectedItemInvokeResponseArgs) ToAzureFileshareProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureFileshareProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFileshareProtectedItemInvokeResponseOutput)
+}
+
+// Azure File Share workload-specific backup item.
+type AzureFileshareProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureFileshareProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFileshareProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureFileshareProtectedItemInvokeResponseOutput) ToAzureFileshareProtectedItemInvokeResponseOutput() AzureFileshareProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o AzureFileshareProtectedItemInvokeResponseOutput) ToAzureFileshareProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureFileshareProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o AzureFileshareProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o AzureFileshareProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o AzureFileshareProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o AzureFileshareProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
+}
+
+// Additional information with this backup item.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) ExtendedInfo() AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *AzureFileshareProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the fileshare represented by this backup item.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o AzureFileshareProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o AzureFileshareProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o AzureFileshareProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Health details of different KPIs
+func (o AzureFileshareProtectedItemInvokeResponseOutput) KpisHealths() KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) map[string]KPIResourceHealthDetailsInvokeResponse {
+		return v.KpisHealths
+	}).(KPIResourceHealthDetailsInvokeResponseMapOutput)
+}
+
+// Last backup operation status. Possible values: Healthy, Unhealthy.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the last backup operation on this backup item.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'AzureFileShareProtectedItem'.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// Backup status of this backup item.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o AzureFileshareProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Azure File Share workload-specific backup item.
@@ -1558,6 +2292,136 @@ func (o AzureIaaSClassicComputeVMContainerOutput) VirtualMachineId() pulumi.Stri
 // Specifies whether the container represents a Classic or an Azure Resource Manager VM.
 func (o AzureIaaSClassicComputeVMContainerOutput) VirtualMachineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
+}
+
+// IaaS VM workload-specific backup item representing a classic virtual machine.
+type AzureIaaSClassicComputeVMContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion *string `pulumi:"virtualMachineVersion"`
+}
+
+// AzureIaaSClassicComputeVMContainerInvokeResponseInput is an input type that accepts AzureIaaSClassicComputeVMContainerInvokeResponseArgs and AzureIaaSClassicComputeVMContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSClassicComputeVMContainerInvokeResponseInput` via:
+//
+//          AzureIaaSClassicComputeVMContainerInvokeResponseArgs{...}
+type AzureIaaSClassicComputeVMContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSClassicComputeVMContainerInvokeResponseOutput() AzureIaaSClassicComputeVMContainerInvokeResponseOutput
+	ToAzureIaaSClassicComputeVMContainerInvokeResponseOutputWithContext(context.Context) AzureIaaSClassicComputeVMContainerInvokeResponseOutput
+}
+
+// IaaS VM workload-specific backup item representing a classic virtual machine.
+type AzureIaaSClassicComputeVMContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion pulumi.StringPtrInput `pulumi:"virtualMachineVersion"`
+}
+
+func (AzureIaaSClassicComputeVMContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSClassicComputeVMContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSClassicComputeVMContainerInvokeResponseArgs) ToAzureIaaSClassicComputeVMContainerInvokeResponseOutput() AzureIaaSClassicComputeVMContainerInvokeResponseOutput {
+	return i.ToAzureIaaSClassicComputeVMContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSClassicComputeVMContainerInvokeResponseArgs) ToAzureIaaSClassicComputeVMContainerInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSClassicComputeVMContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMContainerInvokeResponseOutput)
+}
+
+// IaaS VM workload-specific backup item representing a classic virtual machine.
+type AzureIaaSClassicComputeVMContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSClassicComputeVMContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSClassicComputeVMContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSClassicComputeVMContainerInvokeResponseOutput) ToAzureIaaSClassicComputeVMContainerInvokeResponseOutput() AzureIaaSClassicComputeVMContainerInvokeResponseOutput {
+	return o
+}
+
+func (o AzureIaaSClassicComputeVMContainerInvokeResponseOutput) ToAzureIaaSClassicComputeVMContainerInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSClassicComputeVMContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureIaaSClassicComputeVMContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'IaaSVMContainer'.
+func (o AzureIaaSClassicComputeVMContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Friendly name of the container.
+func (o AzureIaaSClassicComputeVMContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureIaaSClassicComputeVMContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureIaaSClassicComputeVMContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource group name of Recovery Services Vault.
+func (o AzureIaaSClassicComputeVMContainerInvokeResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerInvokeResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+func (o AzureIaaSClassicComputeVMContainerInvokeResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerInvokeResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+func (o AzureIaaSClassicComputeVMContainerInvokeResponseOutput) VirtualMachineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerInvokeResponse) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
 }
 
 // IaaS VM workload-specific backup item representing a classic virtual machine.
@@ -1966,6 +2830,303 @@ func (o AzureIaaSClassicComputeVMProtectedItemOutput) VirtualMachineId() pulumi.
 // Type of workload this item represents.
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// IaaS VM workload-specific backup item representing the Classic Compute VM.
+type AzureIaaSClassicComputeVMProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Extended Properties for Azure IaasVM Backup.
+	ExtendedProperties *ExtendedPropertiesInvokeResponse `pulumi:"extendedProperties"`
+	// Friendly name of the VM represented by this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Health details on this backup item.
+	HealthDetails []AzureIaaSVMHealthDetailsInvokeResponse `pulumi:"healthDetails"`
+	// Health status of protected item.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths map[string]KPIResourceHealthDetailsInvokeResponse `pulumi:"kpisHealths"`
+	// Last backup operation status.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
+	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Fully qualified ARM ID of the virtual machine represented by this item.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureIaaSClassicComputeVMProtectedItemInvokeResponseInput is an input type that accepts AzureIaaSClassicComputeVMProtectedItemInvokeResponseArgs and AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSClassicComputeVMProtectedItemInvokeResponseInput` via:
+//
+//          AzureIaaSClassicComputeVMProtectedItemInvokeResponseArgs{...}
+type AzureIaaSClassicComputeVMProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput() AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput
+	ToAzureIaaSClassicComputeVMProtectedItemInvokeResponseOutputWithContext(context.Context) AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput
+}
+
+// IaaS VM workload-specific backup item representing the Classic Compute VM.
+type AzureIaaSClassicComputeVMProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Extended Properties for Azure IaasVM Backup.
+	ExtendedProperties ExtendedPropertiesInvokeResponsePtrInput `pulumi:"extendedProperties"`
+	// Friendly name of the VM represented by this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Health details on this backup item.
+	HealthDetails AzureIaaSVMHealthDetailsInvokeResponseArrayInput `pulumi:"healthDetails"`
+	// Health status of protected item.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths KPIResourceHealthDetailsInvokeResponseMapInput `pulumi:"kpisHealths"`
+	// Last backup operation status.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
+	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Fully qualified ARM ID of the virtual machine represented by this item.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureIaaSClassicComputeVMProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSClassicComputeVMProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSClassicComputeVMProtectedItemInvokeResponseArgs) ToAzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput() AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput {
+	return i.ToAzureIaaSClassicComputeVMProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSClassicComputeVMProtectedItemInvokeResponseArgs) ToAzureIaaSClassicComputeVMProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput)
+}
+
+// IaaS VM workload-specific backup item representing the Classic Compute VM.
+type AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSClassicComputeVMProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) ToAzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput() AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) ToAzureIaaSClassicComputeVMProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string {
+		return v.DeferredDeleteTimeRemaining
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional information for this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Extended Properties for Azure IaasVM Backup.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) ExtendedProperties() ExtendedPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *ExtendedPropertiesInvokeResponse {
+		return v.ExtendedProperties
+	}).(ExtendedPropertiesInvokeResponsePtrOutput)
+}
+
+// Friendly name of the VM represented by this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Health details on this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) HealthDetails() AzureIaaSVMHealthDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) []AzureIaaSVMHealthDetailsInvokeResponse {
+		return v.HealthDetails
+	}).(AzureIaaSVMHealthDetailsInvokeResponseArrayOutput)
+}
+
+// Health status of protected item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *bool {
+		return v.IsDeferredDeleteScheduleUpcoming
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *bool {
+		return v.IsScheduledForDeferredDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Health details of different KPIs
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) KpisHealths() KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) map[string]KPIResourceHealthDetailsInvokeResponse {
+		return v.KpisHealths
+	}).(KPIResourceHealthDetailsInvokeResponseMapOutput)
+}
+
+// Last backup operation status.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the last backup operation on this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Data ID of the protected item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'AzureIaaSVMProtectedItem'.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// Backup status of this backup item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM ID of the virtual machine represented by this item.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // IaaS VM workload-specific backup item representing the Classic Compute VM.
@@ -2392,6 +3553,136 @@ func (o AzureIaaSComputeVMContainerOutput) VirtualMachineVersion() pulumi.String
 }
 
 // IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+type AzureIaaSComputeVMContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion *string `pulumi:"virtualMachineVersion"`
+}
+
+// AzureIaaSComputeVMContainerInvokeResponseInput is an input type that accepts AzureIaaSComputeVMContainerInvokeResponseArgs and AzureIaaSComputeVMContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSComputeVMContainerInvokeResponseInput` via:
+//
+//          AzureIaaSComputeVMContainerInvokeResponseArgs{...}
+type AzureIaaSComputeVMContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSComputeVMContainerInvokeResponseOutput() AzureIaaSComputeVMContainerInvokeResponseOutput
+	ToAzureIaaSComputeVMContainerInvokeResponseOutputWithContext(context.Context) AzureIaaSComputeVMContainerInvokeResponseOutput
+}
+
+// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+type AzureIaaSComputeVMContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion pulumi.StringPtrInput `pulumi:"virtualMachineVersion"`
+}
+
+func (AzureIaaSComputeVMContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSComputeVMContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSComputeVMContainerInvokeResponseArgs) ToAzureIaaSComputeVMContainerInvokeResponseOutput() AzureIaaSComputeVMContainerInvokeResponseOutput {
+	return i.ToAzureIaaSComputeVMContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSComputeVMContainerInvokeResponseArgs) ToAzureIaaSComputeVMContainerInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSComputeVMContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMContainerInvokeResponseOutput)
+}
+
+// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+type AzureIaaSComputeVMContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSComputeVMContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSComputeVMContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSComputeVMContainerInvokeResponseOutput) ToAzureIaaSComputeVMContainerInvokeResponseOutput() AzureIaaSComputeVMContainerInvokeResponseOutput {
+	return o
+}
+
+func (o AzureIaaSComputeVMContainerInvokeResponseOutput) ToAzureIaaSComputeVMContainerInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSComputeVMContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureIaaSComputeVMContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'IaaSVMContainer'.
+func (o AzureIaaSComputeVMContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Friendly name of the container.
+func (o AzureIaaSComputeVMContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureIaaSComputeVMContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureIaaSComputeVMContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource group name of Recovery Services Vault.
+func (o AzureIaaSComputeVMContainerInvokeResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerInvokeResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+func (o AzureIaaSComputeVMContainerInvokeResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerInvokeResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+func (o AzureIaaSComputeVMContainerInvokeResponseOutput) VirtualMachineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerInvokeResponse) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
+}
+
+// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
 type AzureIaaSComputeVMContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -2796,6 +4087,297 @@ func (o AzureIaaSComputeVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOu
 }
 
 // IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
+type AzureIaaSComputeVMProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Extended Properties for Azure IaasVM Backup.
+	ExtendedProperties *ExtendedPropertiesInvokeResponse `pulumi:"extendedProperties"`
+	// Friendly name of the VM represented by this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Health details on this backup item.
+	HealthDetails []AzureIaaSVMHealthDetailsInvokeResponse `pulumi:"healthDetails"`
+	// Health status of protected item.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths map[string]KPIResourceHealthDetailsInvokeResponse `pulumi:"kpisHealths"`
+	// Last backup operation status.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
+	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Fully qualified ARM ID of the virtual machine represented by this item.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureIaaSComputeVMProtectedItemInvokeResponseInput is an input type that accepts AzureIaaSComputeVMProtectedItemInvokeResponseArgs and AzureIaaSComputeVMProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSComputeVMProtectedItemInvokeResponseInput` via:
+//
+//          AzureIaaSComputeVMProtectedItemInvokeResponseArgs{...}
+type AzureIaaSComputeVMProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSComputeVMProtectedItemInvokeResponseOutput() AzureIaaSComputeVMProtectedItemInvokeResponseOutput
+	ToAzureIaaSComputeVMProtectedItemInvokeResponseOutputWithContext(context.Context) AzureIaaSComputeVMProtectedItemInvokeResponseOutput
+}
+
+// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
+type AzureIaaSComputeVMProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Extended Properties for Azure IaasVM Backup.
+	ExtendedProperties ExtendedPropertiesInvokeResponsePtrInput `pulumi:"extendedProperties"`
+	// Friendly name of the VM represented by this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Health details on this backup item.
+	HealthDetails AzureIaaSVMHealthDetailsInvokeResponseArrayInput `pulumi:"healthDetails"`
+	// Health status of protected item.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths KPIResourceHealthDetailsInvokeResponseMapInput `pulumi:"kpisHealths"`
+	// Last backup operation status.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
+	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Fully qualified ARM ID of the virtual machine represented by this item.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureIaaSComputeVMProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSComputeVMProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSComputeVMProtectedItemInvokeResponseArgs) ToAzureIaaSComputeVMProtectedItemInvokeResponseOutput() AzureIaaSComputeVMProtectedItemInvokeResponseOutput {
+	return i.ToAzureIaaSComputeVMProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSComputeVMProtectedItemInvokeResponseArgs) ToAzureIaaSComputeVMProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSComputeVMProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSComputeVMProtectedItemInvokeResponseOutput)
+}
+
+// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
+type AzureIaaSComputeVMProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSComputeVMProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSComputeVMProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) ToAzureIaaSComputeVMProtectedItemInvokeResponseOutput() AzureIaaSComputeVMProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) ToAzureIaaSComputeVMProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSComputeVMProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
+}
+
+// Additional information for this backup item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Extended Properties for Azure IaasVM Backup.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) ExtendedProperties() ExtendedPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *ExtendedPropertiesInvokeResponse {
+		return v.ExtendedProperties
+	}).(ExtendedPropertiesInvokeResponsePtrOutput)
+}
+
+// Friendly name of the VM represented by this backup item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Health details on this backup item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) HealthDetails() AzureIaaSVMHealthDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) []AzureIaaSVMHealthDetailsInvokeResponse {
+		return v.HealthDetails
+	}).(AzureIaaSVMHealthDetailsInvokeResponseArrayOutput)
+}
+
+// Health status of protected item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Health details of different KPIs
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) KpisHealths() KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) map[string]KPIResourceHealthDetailsInvokeResponse {
+		return v.KpisHealths
+	}).(KPIResourceHealthDetailsInvokeResponseMapOutput)
+}
+
+// Last backup operation status.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the last backup operation on this backup item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Data ID of the protected item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'AzureIaaSVMProtectedItem'.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// Backup status of this backup item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM ID of the virtual machine represented by this item.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o AzureIaaSComputeVMProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -3084,6 +4666,133 @@ func (o AzureIaaSComputeVMProtectedItemResponseOutput) VirtualMachineId() pulumi
 // Type of workload this item represents.
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// Azure IaaS VM workload-specific Health Details.
+type AzureIaaSVMHealthDetailsInvokeResponse struct {
+	// Health Code
+	Code int `pulumi:"code"`
+	// Health Message
+	Message string `pulumi:"message"`
+	// Health Recommended Actions
+	Recommendations []string `pulumi:"recommendations"`
+	// Health Title
+	Title string `pulumi:"title"`
+}
+
+// AzureIaaSVMHealthDetailsInvokeResponseInput is an input type that accepts AzureIaaSVMHealthDetailsInvokeResponseArgs and AzureIaaSVMHealthDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSVMHealthDetailsInvokeResponseInput` via:
+//
+//          AzureIaaSVMHealthDetailsInvokeResponseArgs{...}
+type AzureIaaSVMHealthDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSVMHealthDetailsInvokeResponseOutput() AzureIaaSVMHealthDetailsInvokeResponseOutput
+	ToAzureIaaSVMHealthDetailsInvokeResponseOutputWithContext(context.Context) AzureIaaSVMHealthDetailsInvokeResponseOutput
+}
+
+// Azure IaaS VM workload-specific Health Details.
+type AzureIaaSVMHealthDetailsInvokeResponseArgs struct {
+	// Health Code
+	Code pulumi.IntInput `pulumi:"code"`
+	// Health Message
+	Message pulumi.StringInput `pulumi:"message"`
+	// Health Recommended Actions
+	Recommendations pulumi.StringArrayInput `pulumi:"recommendations"`
+	// Health Title
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (AzureIaaSVMHealthDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSVMHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSVMHealthDetailsInvokeResponseArgs) ToAzureIaaSVMHealthDetailsInvokeResponseOutput() AzureIaaSVMHealthDetailsInvokeResponseOutput {
+	return i.ToAzureIaaSVMHealthDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSVMHealthDetailsInvokeResponseArgs) ToAzureIaaSVMHealthDetailsInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSVMHealthDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMHealthDetailsInvokeResponseOutput)
+}
+
+// AzureIaaSVMHealthDetailsInvokeResponseArrayInput is an input type that accepts AzureIaaSVMHealthDetailsInvokeResponseArray and AzureIaaSVMHealthDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AzureIaaSVMHealthDetailsInvokeResponseArrayInput` via:
+//
+//          AzureIaaSVMHealthDetailsInvokeResponseArray{ AzureIaaSVMHealthDetailsInvokeResponseArgs{...} }
+type AzureIaaSVMHealthDetailsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureIaaSVMHealthDetailsInvokeResponseArrayOutput() AzureIaaSVMHealthDetailsInvokeResponseArrayOutput
+	ToAzureIaaSVMHealthDetailsInvokeResponseArrayOutputWithContext(context.Context) AzureIaaSVMHealthDetailsInvokeResponseArrayOutput
+}
+
+type AzureIaaSVMHealthDetailsInvokeResponseArray []AzureIaaSVMHealthDetailsInvokeResponseInput
+
+func (AzureIaaSVMHealthDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureIaaSVMHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSVMHealthDetailsInvokeResponseArray) ToAzureIaaSVMHealthDetailsInvokeResponseArrayOutput() AzureIaaSVMHealthDetailsInvokeResponseArrayOutput {
+	return i.ToAzureIaaSVMHealthDetailsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSVMHealthDetailsInvokeResponseArray) ToAzureIaaSVMHealthDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) AzureIaaSVMHealthDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMHealthDetailsInvokeResponseArrayOutput)
+}
+
+// Azure IaaS VM workload-specific Health Details.
+type AzureIaaSVMHealthDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSVMHealthDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSVMHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSVMHealthDetailsInvokeResponseOutput) ToAzureIaaSVMHealthDetailsInvokeResponseOutput() AzureIaaSVMHealthDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o AzureIaaSVMHealthDetailsInvokeResponseOutput) ToAzureIaaSVMHealthDetailsInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSVMHealthDetailsInvokeResponseOutput {
+	return o
+}
+
+// Health Code
+func (o AzureIaaSVMHealthDetailsInvokeResponseOutput) Code() pulumi.IntOutput {
+	return o.ApplyT(func(v AzureIaaSVMHealthDetailsInvokeResponse) int { return v.Code }).(pulumi.IntOutput)
+}
+
+// Health Message
+func (o AzureIaaSVMHealthDetailsInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureIaaSVMHealthDetailsInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Health Recommended Actions
+func (o AzureIaaSVMHealthDetailsInvokeResponseOutput) Recommendations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureIaaSVMHealthDetailsInvokeResponse) []string { return v.Recommendations }).(pulumi.StringArrayOutput)
+}
+
+// Health Title
+func (o AzureIaaSVMHealthDetailsInvokeResponseOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureIaaSVMHealthDetailsInvokeResponse) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type AzureIaaSVMHealthDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSVMHealthDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureIaaSVMHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSVMHealthDetailsInvokeResponseArrayOutput) ToAzureIaaSVMHealthDetailsInvokeResponseArrayOutput() AzureIaaSVMHealthDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureIaaSVMHealthDetailsInvokeResponseArrayOutput) ToAzureIaaSVMHealthDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) AzureIaaSVMHealthDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AzureIaaSVMHealthDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) AzureIaaSVMHealthDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureIaaSVMHealthDetailsInvokeResponse {
+		return vs[0].([]AzureIaaSVMHealthDetailsInvokeResponse)[vs[1].(int)]
+	}).(AzureIaaSVMHealthDetailsInvokeResponseOutput)
 }
 
 // Azure IaaS VM workload-specific Health Details.
@@ -3660,6 +5369,180 @@ func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulu
 }
 
 // Additional information on Azure IaaS VM specific backup item.
+type AzureIaaSVMProtectedItemExtendedInfoInvokeResponse struct {
+	// The oldest backup copy available for this backup item.
+	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
+	// Specifies if backup policy associated with the backup item is inconsistent.
+	PolicyInconsistent *bool `pulumi:"policyInconsistent"`
+	// Number of backup copies available for this backup item.
+	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+}
+
+// AzureIaaSVMProtectedItemExtendedInfoInvokeResponseInput is an input type that accepts AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs and AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSVMProtectedItemExtendedInfoInvokeResponseInput` via:
+//
+//          AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs{...}
+type AzureIaaSVMProtectedItemExtendedInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput() AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput
+	ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Context) AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput
+}
+
+// Additional information on Azure IaaS VM specific backup item.
+type AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs struct {
+	// The oldest backup copy available for this backup item.
+	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
+	// Specifies if backup policy associated with the backup item is inconsistent.
+	PolicyInconsistent pulumi.BoolPtrInput `pulumi:"policyInconsistent"`
+	// Number of backup copies available for this backup item.
+	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+}
+
+func (AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSVMProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput() AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput {
+	return i.ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+func (i AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput).ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrInput is an input type that accepts AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs, AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtr and AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrInput` via:
+//
+//          AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput
+	ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Context) AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput
+}
+
+type azureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrType AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs
+
+func AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtr(v *AzureIaaSVMProtectedItemExtendedInfoInvokeResponseArgs) AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrInput {
+	return (*azureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrType)(v)
+}
+
+func (*azureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureIaaSVMProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *azureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrType) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrType) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Additional information on Azure IaaS VM specific backup item.
+type AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSVMProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput() AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfoInvokeResponse) *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse {
+		return &v
+	}).(AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// The oldest backup copy available for this backup item.
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfoInvokeResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if backup policy associated with the backup item is inconsistent.
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput) PolicyInconsistent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfoInvokeResponse) *bool { return v.PolicyInconsistent }).(pulumi.BoolPtrOutput)
+}
+
+// Number of backup copies available for this backup item.
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfoInvokeResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
+}
+
+type AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureIaaSVMProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput) ToAzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput) Elem() AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse) AzureIaaSVMProtectedItemExtendedInfoInvokeResponse {
+		return *v
+	}).(AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+// The oldest backup copy available for this backup item.
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OldestRecoveryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies if backup policy associated with the backup item is inconsistent.
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput) PolicyInconsistent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyInconsistent
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Number of backup copies available for this backup item.
+func (o AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPointCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoResponse struct {
 	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -3831,6 +5714,297 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCoun
 		}
 		return v.RecoveryPointCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// IaaS VM workload-specific backup item.
+type AzureIaaSVMProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Extended Properties for Azure IaasVM Backup.
+	ExtendedProperties *ExtendedPropertiesInvokeResponse `pulumi:"extendedProperties"`
+	// Friendly name of the VM represented by this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Health details on this backup item.
+	HealthDetails []AzureIaaSVMHealthDetailsInvokeResponse `pulumi:"healthDetails"`
+	// Health status of protected item.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths map[string]KPIResourceHealthDetailsInvokeResponse `pulumi:"kpisHealths"`
+	// Last backup operation status.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
+	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Fully qualified ARM ID of the virtual machine represented by this item.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureIaaSVMProtectedItemInvokeResponseInput is an input type that accepts AzureIaaSVMProtectedItemInvokeResponseArgs and AzureIaaSVMProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSVMProtectedItemInvokeResponseInput` via:
+//
+//          AzureIaaSVMProtectedItemInvokeResponseArgs{...}
+type AzureIaaSVMProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSVMProtectedItemInvokeResponseOutput() AzureIaaSVMProtectedItemInvokeResponseOutput
+	ToAzureIaaSVMProtectedItemInvokeResponseOutputWithContext(context.Context) AzureIaaSVMProtectedItemInvokeResponseOutput
+}
+
+// IaaS VM workload-specific backup item.
+type AzureIaaSVMProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Extended Properties for Azure IaasVM Backup.
+	ExtendedProperties ExtendedPropertiesInvokeResponsePtrInput `pulumi:"extendedProperties"`
+	// Friendly name of the VM represented by this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Health details on this backup item.
+	HealthDetails AzureIaaSVMHealthDetailsInvokeResponseArrayInput `pulumi:"healthDetails"`
+	// Health status of protected item.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths KPIResourceHealthDetailsInvokeResponseMapInput `pulumi:"kpisHealths"`
+	// Last backup operation status.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
+	// backup item type.
+	// Expected value is 'AzureIaaSVMProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Fully qualified ARM ID of the virtual machine represented by this item.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureIaaSVMProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSVMProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSVMProtectedItemInvokeResponseArgs) ToAzureIaaSVMProtectedItemInvokeResponseOutput() AzureIaaSVMProtectedItemInvokeResponseOutput {
+	return i.ToAzureIaaSVMProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSVMProtectedItemInvokeResponseArgs) ToAzureIaaSVMProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectedItemInvokeResponseOutput)
+}
+
+// IaaS VM workload-specific backup item.
+type AzureIaaSVMProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSVMProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSVMProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) ToAzureIaaSVMProtectedItemInvokeResponseOutput() AzureIaaSVMProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) ToAzureIaaSVMProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
+}
+
+// Additional information for this backup item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) ExtendedInfo() AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *AzureIaaSVMProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Extended Properties for Azure IaasVM Backup.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) ExtendedProperties() ExtendedPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *ExtendedPropertiesInvokeResponse {
+		return v.ExtendedProperties
+	}).(ExtendedPropertiesInvokeResponsePtrOutput)
+}
+
+// Friendly name of the VM represented by this backup item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Health details on this backup item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) HealthDetails() AzureIaaSVMHealthDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) []AzureIaaSVMHealthDetailsInvokeResponse {
+		return v.HealthDetails
+	}).(AzureIaaSVMHealthDetailsInvokeResponseArrayOutput)
+}
+
+// Health status of protected item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Health details of different KPIs
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) KpisHealths() KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) map[string]KPIResourceHealthDetailsInvokeResponse {
+		return v.KpisHealths
+	}).(KPIResourceHealthDetailsInvokeResponseMapOutput)
+}
+
+// Last backup operation status.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the last backup operation on this backup item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Data ID of the protected item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'AzureIaaSVMProtectedItem'.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// Backup status of this backup item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM ID of the virtual machine represented by this item.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o AzureIaaSVMProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // IaaS VM workload-specific backup item.
@@ -4230,6 +6404,117 @@ func (o AzureIaaSVMProtectionPolicyOutput) TimeZone() pulumi.StringPtrOutput {
 }
 
 // IaaS VM workload-specific backup policy.
+type AzureIaaSVMProtectionPolicyInvokeResponse struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
+	BackupManagementType string                                    `pulumi:"backupManagementType"`
+	InstantRPDetails     *InstantRPAdditionalDetailsInvokeResponse `pulumi:"instantRPDetails"`
+	// Instant RP retention policy range in days
+	InstantRpRetentionRangeInDays *int `pulumi:"instantRpRetentionRangeInDays"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// Retention policy with the details on backup copy retention ranges.
+	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
+	// Backup schedule specified as part of backup policy.
+	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// AzureIaaSVMProtectionPolicyInvokeResponseInput is an input type that accepts AzureIaaSVMProtectionPolicyInvokeResponseArgs and AzureIaaSVMProtectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureIaaSVMProtectionPolicyInvokeResponseInput` via:
+//
+//          AzureIaaSVMProtectionPolicyInvokeResponseArgs{...}
+type AzureIaaSVMProtectionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureIaaSVMProtectionPolicyInvokeResponseOutput() AzureIaaSVMProtectionPolicyInvokeResponseOutput
+	ToAzureIaaSVMProtectionPolicyInvokeResponseOutputWithContext(context.Context) AzureIaaSVMProtectionPolicyInvokeResponseOutput
+}
+
+// IaaS VM workload-specific backup policy.
+type AzureIaaSVMProtectionPolicyInvokeResponseArgs struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureIaasVM'.
+	BackupManagementType pulumi.StringInput                               `pulumi:"backupManagementType"`
+	InstantRPDetails     InstantRPAdditionalDetailsInvokeResponsePtrInput `pulumi:"instantRPDetails"`
+	// Instant RP retention policy range in days
+	InstantRpRetentionRangeInDays pulumi.IntPtrInput `pulumi:"instantRpRetentionRangeInDays"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
+	// Retention policy with the details on backup copy retention ranges.
+	RetentionPolicy pulumi.Input `pulumi:"retentionPolicy"`
+	// Backup schedule specified as part of backup policy.
+	SchedulePolicy pulumi.Input `pulumi:"schedulePolicy"`
+	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (AzureIaaSVMProtectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSVMProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureIaaSVMProtectionPolicyInvokeResponseArgs) ToAzureIaaSVMProtectionPolicyInvokeResponseOutput() AzureIaaSVMProtectionPolicyInvokeResponseOutput {
+	return i.ToAzureIaaSVMProtectionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureIaaSVMProtectionPolicyInvokeResponseArgs) ToAzureIaaSVMProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSVMProtectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureIaaSVMProtectionPolicyInvokeResponseOutput)
+}
+
+// IaaS VM workload-specific backup policy.
+type AzureIaaSVMProtectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureIaaSVMProtectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureIaaSVMProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) ToAzureIaaSVMProtectionPolicyInvokeResponseOutput() AzureIaaSVMProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) ToAzureIaaSVMProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureIaaSVMProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureIaasVM'.
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) BackupManagementType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
+}
+
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) InstantRPDetails() InstantRPAdditionalDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) *InstantRPAdditionalDetailsInvokeResponse {
+		return v.InstantRPDetails
+	}).(InstantRPAdditionalDetailsInvokeResponsePtrOutput)
+}
+
+// Instant RP retention policy range in days
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) InstantRpRetentionRangeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) *int { return v.InstantRpRetentionRangeInDays }).(pulumi.IntPtrOutput)
+}
+
+// Number of items associated with this policy.
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
+}
+
+// Retention policy with the details on backup copy retention ranges.
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) RetentionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) interface{} { return v.RetentionPolicy }).(pulumi.AnyOutput)
+}
+
+// Backup schedule specified as part of backup policy.
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) SchedulePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) interface{} { return v.SchedulePolicy }).(pulumi.AnyOutput)
+}
+
+// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+func (o AzureIaaSVMProtectionPolicyInvokeResponseOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectionPolicyInvokeResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+// IaaS VM workload-specific backup policy.
 type AzureIaaSVMProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureIaasVM'.
@@ -4491,6 +6776,162 @@ func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) WorkloadType() pul
 }
 
 // Container for SQL workloads under SQL Availability Group.
+type AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo *AzureWorkloadContainerExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType *string `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseInput is an input type that accepts AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseArgs and AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseInput` via:
+//
+//          AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseArgs{...}
+type AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput() AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput
+	ToAzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutputWithContext(context.Context) AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput
+}
+
+// Container for SQL workloads under SQL Availability Group.
+type AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo AzureWorkloadContainerExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType pulumi.StringPtrInput `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseArgs) ToAzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput() AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput {
+	return i.ToAzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseArgs) ToAzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutputWithContext(ctx context.Context) AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput)
+}
+
+// Container for SQL workloads under SQL Availability Group.
+type AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) ToAzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput() AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) ToAzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutputWithContext(ctx context.Context) AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse) *string {
+		return v.BackupManagementType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'AzureWorkloadContainer'.
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Additional details of a workload container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) ExtendedInfo() AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse) *AzureWorkloadContainerExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Time stamp when this container was updated.
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Re-Do Operation
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) OperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse) *string { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse) *string {
+		return v.RegistrationStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the virtual machine represented by this Azure Workload Container
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse) *string {
+		return v.SourceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Workload type for which registration was sent.
+func (o AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// Container for SQL workloads under SQL Availability Group.
 type AzureSQLAGWorkloadContainerProtectionContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -4741,6 +7182,109 @@ func (o AzureSqlContainerOutput) HealthStatus() pulumi.StringPtrOutput {
 // Status of registration of the container with the Recovery Services Vault.
 func (o AzureSqlContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Azure Sql workload-specific container.
+type AzureSqlContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureSqlContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+}
+
+// AzureSqlContainerInvokeResponseInput is an input type that accepts AzureSqlContainerInvokeResponseArgs and AzureSqlContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSqlContainerInvokeResponseInput` via:
+//
+//          AzureSqlContainerInvokeResponseArgs{...}
+type AzureSqlContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSqlContainerInvokeResponseOutput() AzureSqlContainerInvokeResponseOutput
+	ToAzureSqlContainerInvokeResponseOutputWithContext(context.Context) AzureSqlContainerInvokeResponseOutput
+}
+
+// Azure Sql workload-specific container.
+type AzureSqlContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureSqlContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+}
+
+func (AzureSqlContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSqlContainerInvokeResponseArgs) ToAzureSqlContainerInvokeResponseOutput() AzureSqlContainerInvokeResponseOutput {
+	return i.ToAzureSqlContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSqlContainerInvokeResponseArgs) ToAzureSqlContainerInvokeResponseOutputWithContext(ctx context.Context) AzureSqlContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlContainerInvokeResponseOutput)
+}
+
+// Azure Sql workload-specific container.
+type AzureSqlContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSqlContainerInvokeResponseOutput) ToAzureSqlContainerInvokeResponseOutput() AzureSqlContainerInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlContainerInvokeResponseOutput) ToAzureSqlContainerInvokeResponseOutputWithContext(ctx context.Context) AzureSqlContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureSqlContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'AzureSqlContainer'.
+func (o AzureSqlContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSqlContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Friendly name of the container.
+func (o AzureSqlContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureSqlContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureSqlContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
 // Azure Sql workload-specific container.
@@ -5221,6 +7765,180 @@ func (o AzureSqlProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.
 }
 
 // Additional information on Azure Sql specific protected item.
+type AzureSqlProtectedItemExtendedInfoInvokeResponse struct {
+	// The oldest backup copy available for this item in the service.
+	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
+	// State of the backup policy associated with this backup item.
+	PolicyState *string `pulumi:"policyState"`
+	// Number of available backup copies associated with this backup item.
+	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+}
+
+// AzureSqlProtectedItemExtendedInfoInvokeResponseInput is an input type that accepts AzureSqlProtectedItemExtendedInfoInvokeResponseArgs and AzureSqlProtectedItemExtendedInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSqlProtectedItemExtendedInfoInvokeResponseInput` via:
+//
+//          AzureSqlProtectedItemExtendedInfoInvokeResponseArgs{...}
+type AzureSqlProtectedItemExtendedInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSqlProtectedItemExtendedInfoInvokeResponseOutput() AzureSqlProtectedItemExtendedInfoInvokeResponseOutput
+	ToAzureSqlProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Context) AzureSqlProtectedItemExtendedInfoInvokeResponseOutput
+}
+
+// Additional information on Azure Sql specific protected item.
+type AzureSqlProtectedItemExtendedInfoInvokeResponseArgs struct {
+	// The oldest backup copy available for this item in the service.
+	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
+	// State of the backup policy associated with this backup item.
+	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
+	// Number of available backup copies associated with this backup item.
+	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+}
+
+func (AzureSqlProtectedItemExtendedInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSqlProtectedItemExtendedInfoInvokeResponseArgs) ToAzureSqlProtectedItemExtendedInfoInvokeResponseOutput() AzureSqlProtectedItemExtendedInfoInvokeResponseOutput {
+	return i.ToAzureSqlProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSqlProtectedItemExtendedInfoInvokeResponseArgs) ToAzureSqlProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+func (i AzureSqlProtectedItemExtendedInfoInvokeResponseArgs) ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureSqlProtectedItemExtendedInfoInvokeResponseArgs) ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemExtendedInfoInvokeResponseOutput).ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AzureSqlProtectedItemExtendedInfoInvokeResponsePtrInput is an input type that accepts AzureSqlProtectedItemExtendedInfoInvokeResponseArgs, AzureSqlProtectedItemExtendedInfoInvokeResponsePtr and AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AzureSqlProtectedItemExtendedInfoInvokeResponsePtrInput` via:
+//
+//          AzureSqlProtectedItemExtendedInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureSqlProtectedItemExtendedInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput
+	ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Context) AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput
+}
+
+type azureSqlProtectedItemExtendedInfoInvokeResponsePtrType AzureSqlProtectedItemExtendedInfoInvokeResponseArgs
+
+func AzureSqlProtectedItemExtendedInfoInvokeResponsePtr(v *AzureSqlProtectedItemExtendedInfoInvokeResponseArgs) AzureSqlProtectedItemExtendedInfoInvokeResponsePtrInput {
+	return (*azureSqlProtectedItemExtendedInfoInvokeResponsePtrType)(v)
+}
+
+func (*azureSqlProtectedItemExtendedInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSqlProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *azureSqlProtectedItemExtendedInfoInvokeResponsePtrType) ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureSqlProtectedItemExtendedInfoInvokeResponsePtrType) ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Additional information on Azure Sql specific protected item.
+type AzureSqlProtectedItemExtendedInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlProtectedItemExtendedInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponseOutput) ToAzureSqlProtectedItemExtendedInfoInvokeResponseOutput() AzureSqlProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponseOutput) ToAzureSqlProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponseOutput) ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponseOutput) ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfoInvokeResponse) *AzureSqlProtectedItemExtendedInfoInvokeResponse {
+		return &v
+	}).(AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// The oldest backup copy available for this item in the service.
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfoInvokeResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// State of the backup policy associated with this backup item.
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponseOutput) PolicyState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfoInvokeResponse) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
+}
+
+// Number of available backup copies associated with this backup item.
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfoInvokeResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
+}
+
+type AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSqlProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput) ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput) ToAzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput) Elem() AzureSqlProtectedItemExtendedInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfoInvokeResponse) AzureSqlProtectedItemExtendedInfoInvokeResponse {
+		return *v
+	}).(AzureSqlProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+// The oldest backup copy available for this item in the service.
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OldestRecoveryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// State of the backup policy associated with this backup item.
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput) PolicyState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of available backup copies associated with this backup item.
+func (o AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfoInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPointCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Additional information on Azure Sql specific protected item.
 type AzureSqlProtectedItemExtendedInfoResponse struct {
 	// The oldest backup copy available for this item in the service.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -5392,6 +8110,210 @@ func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount()
 		}
 		return v.RecoveryPointCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Azure SQL workload-specific backup item.
+type AzureSqlProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo *AzureSqlProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
+	ProtectedItemDataId *string `pulumi:"protectedItemDataId"`
+	// backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Backup state of the backed up item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureSqlProtectedItemInvokeResponseInput is an input type that accepts AzureSqlProtectedItemInvokeResponseArgs and AzureSqlProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSqlProtectedItemInvokeResponseInput` via:
+//
+//          AzureSqlProtectedItemInvokeResponseArgs{...}
+type AzureSqlProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSqlProtectedItemInvokeResponseOutput() AzureSqlProtectedItemInvokeResponseOutput
+	ToAzureSqlProtectedItemInvokeResponseOutputWithContext(context.Context) AzureSqlProtectedItemInvokeResponseOutput
+}
+
+// Azure SQL workload-specific backup item.
+type AzureSqlProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo AzureSqlProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
+	ProtectedItemDataId pulumi.StringPtrInput `pulumi:"protectedItemDataId"`
+	// backup item type.
+	// Expected value is 'Microsoft.Sql/servers/databases'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Backup state of the backed up item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureSqlProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSqlProtectedItemInvokeResponseArgs) ToAzureSqlProtectedItemInvokeResponseOutput() AzureSqlProtectedItemInvokeResponseOutput {
+	return i.ToAzureSqlProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSqlProtectedItemInvokeResponseArgs) ToAzureSqlProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureSqlProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectedItemInvokeResponseOutput)
+}
+
+// Azure SQL workload-specific backup item.
+type AzureSqlProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSqlProtectedItemInvokeResponseOutput) ToAzureSqlProtectedItemInvokeResponseOutput() AzureSqlProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlProtectedItemInvokeResponseOutput) ToAzureSqlProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureSqlProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureSqlProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o AzureSqlProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o AzureSqlProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o AzureSqlProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o AzureSqlProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o AzureSqlProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
+}
+
+// Additional information for this backup item.
+func (o AzureSqlProtectedItemInvokeResponseOutput) ExtendedInfo() AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *AzureSqlProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o AzureSqlProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o AzureSqlProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o AzureSqlProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o AzureSqlProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureSqlProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
+func (o AzureSqlProtectedItemInvokeResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.ProtectedItemDataId }).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'Microsoft.Sql/servers/databases'.
+func (o AzureSqlProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Backup state of the backed up item.
+func (o AzureSqlProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureSqlProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o AzureSqlProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Azure SQL workload-specific backup item.
@@ -5675,6 +8597,82 @@ func (o AzureSqlProtectionPolicyOutput) RetentionPolicy() pulumi.AnyOutput {
 }
 
 // Azure SQL workload-specific backup policy.
+type AzureSqlProtectionPolicyInvokeResponse struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
+	BackupManagementType string `pulumi:"backupManagementType"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// Retention policy details.
+	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
+}
+
+// AzureSqlProtectionPolicyInvokeResponseInput is an input type that accepts AzureSqlProtectionPolicyInvokeResponseArgs and AzureSqlProtectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSqlProtectionPolicyInvokeResponseInput` via:
+//
+//          AzureSqlProtectionPolicyInvokeResponseArgs{...}
+type AzureSqlProtectionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSqlProtectionPolicyInvokeResponseOutput() AzureSqlProtectionPolicyInvokeResponseOutput
+	ToAzureSqlProtectionPolicyInvokeResponseOutputWithContext(context.Context) AzureSqlProtectionPolicyInvokeResponseOutput
+}
+
+// Azure SQL workload-specific backup policy.
+type AzureSqlProtectionPolicyInvokeResponseArgs struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureSql'.
+	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
+	// Retention policy details.
+	RetentionPolicy pulumi.Input `pulumi:"retentionPolicy"`
+}
+
+func (AzureSqlProtectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSqlProtectionPolicyInvokeResponseArgs) ToAzureSqlProtectionPolicyInvokeResponseOutput() AzureSqlProtectionPolicyInvokeResponseOutput {
+	return i.ToAzureSqlProtectionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSqlProtectionPolicyInvokeResponseArgs) ToAzureSqlProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureSqlProtectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSqlProtectionPolicyInvokeResponseOutput)
+}
+
+// Azure SQL workload-specific backup policy.
+type AzureSqlProtectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSqlProtectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSqlProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSqlProtectionPolicyInvokeResponseOutput) ToAzureSqlProtectionPolicyInvokeResponseOutput() AzureSqlProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSqlProtectionPolicyInvokeResponseOutput) ToAzureSqlProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureSqlProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureSql'.
+func (o AzureSqlProtectionPolicyInvokeResponseOutput) BackupManagementType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSqlProtectionPolicyInvokeResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
+}
+
+// Number of items associated with this policy.
+func (o AzureSqlProtectionPolicyInvokeResponseOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectionPolicyInvokeResponse) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
+}
+
+// Retention policy details.
+func (o AzureSqlProtectionPolicyInvokeResponseOutput) RetentionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureSqlProtectionPolicyInvokeResponse) interface{} { return v.RetentionPolicy }).(pulumi.AnyOutput)
+}
+
+// Azure SQL workload-specific backup policy.
 type AzureSqlProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureSql'.
@@ -5887,6 +8885,145 @@ func (o AzureStorageContainerOutput) SourceResourceId() pulumi.StringPtrOutput {
 // Storage account version.
 func (o AzureStorageContainerOutput) StorageAccountVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageContainer) *string { return v.StorageAccountVersion }).(pulumi.StringPtrOutput)
+}
+
+// Azure Storage Account workload-specific container.
+type AzureStorageContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'StorageContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Number of items backed up in this container.
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Fully qualified ARM url.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Storage account version.
+	StorageAccountVersion *string `pulumi:"storageAccountVersion"`
+}
+
+// AzureStorageContainerInvokeResponseInput is an input type that accepts AzureStorageContainerInvokeResponseArgs and AzureStorageContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureStorageContainerInvokeResponseInput` via:
+//
+//          AzureStorageContainerInvokeResponseArgs{...}
+type AzureStorageContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureStorageContainerInvokeResponseOutput() AzureStorageContainerInvokeResponseOutput
+	ToAzureStorageContainerInvokeResponseOutputWithContext(context.Context) AzureStorageContainerInvokeResponseOutput
+}
+
+// Azure Storage Account workload-specific container.
+type AzureStorageContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'StorageContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Number of items backed up in this container.
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// Fully qualified ARM url.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Storage account version.
+	StorageAccountVersion pulumi.StringPtrInput `pulumi:"storageAccountVersion"`
+}
+
+func (AzureStorageContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStorageContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureStorageContainerInvokeResponseArgs) ToAzureStorageContainerInvokeResponseOutput() AzureStorageContainerInvokeResponseOutput {
+	return i.ToAzureStorageContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureStorageContainerInvokeResponseArgs) ToAzureStorageContainerInvokeResponseOutputWithContext(ctx context.Context) AzureStorageContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureStorageContainerInvokeResponseOutput)
+}
+
+// Azure Storage Account workload-specific container.
+type AzureStorageContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureStorageContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureStorageContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureStorageContainerInvokeResponseOutput) ToAzureStorageContainerInvokeResponseOutput() AzureStorageContainerInvokeResponseOutput {
+	return o
+}
+
+func (o AzureStorageContainerInvokeResponseOutput) ToAzureStorageContainerInvokeResponseOutputWithContext(ctx context.Context) AzureStorageContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureStorageContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'StorageContainer'.
+func (o AzureStorageContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureStorageContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Friendly name of the container.
+func (o AzureStorageContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureStorageContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Number of items backed up in this container.
+func (o AzureStorageContainerInvokeResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AzureStorageContainerInvokeResponse) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureStorageContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource group name of Recovery Services Vault.
+func (o AzureStorageContainerInvokeResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageContainerInvokeResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM url.
+func (o AzureStorageContainerInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageContainerInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Storage account version.
+func (o AzureStorageContainerInvokeResponseOutput) StorageAccountVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageContainerInvokeResponse) *string { return v.StorageAccountVersion }).(pulumi.StringPtrOutput)
 }
 
 // Azure Storage Account workload-specific container.
@@ -6176,6 +9313,156 @@ func (o AzureVMAppContainerProtectionContainerOutput) SourceResourceId() pulumi.
 // Workload type for which registration was sent.
 func (o AzureVMAppContainerProtectionContainerOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// Container for SQL workloads under Azure Virtual Machines.
+type AzureVMAppContainerProtectionContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo *AzureWorkloadContainerExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType *string `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureVMAppContainerProtectionContainerInvokeResponseInput is an input type that accepts AzureVMAppContainerProtectionContainerInvokeResponseArgs and AzureVMAppContainerProtectionContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureVMAppContainerProtectionContainerInvokeResponseInput` via:
+//
+//          AzureVMAppContainerProtectionContainerInvokeResponseArgs{...}
+type AzureVMAppContainerProtectionContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureVMAppContainerProtectionContainerInvokeResponseOutput() AzureVMAppContainerProtectionContainerInvokeResponseOutput
+	ToAzureVMAppContainerProtectionContainerInvokeResponseOutputWithContext(context.Context) AzureVMAppContainerProtectionContainerInvokeResponseOutput
+}
+
+// Container for SQL workloads under Azure Virtual Machines.
+type AzureVMAppContainerProtectionContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo AzureWorkloadContainerExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType pulumi.StringPtrInput `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureVMAppContainerProtectionContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVMAppContainerProtectionContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureVMAppContainerProtectionContainerInvokeResponseArgs) ToAzureVMAppContainerProtectionContainerInvokeResponseOutput() AzureVMAppContainerProtectionContainerInvokeResponseOutput {
+	return i.ToAzureVMAppContainerProtectionContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureVMAppContainerProtectionContainerInvokeResponseArgs) ToAzureVMAppContainerProtectionContainerInvokeResponseOutputWithContext(ctx context.Context) AzureVMAppContainerProtectionContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVMAppContainerProtectionContainerInvokeResponseOutput)
+}
+
+// Container for SQL workloads under Azure Virtual Machines.
+type AzureVMAppContainerProtectionContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureVMAppContainerProtectionContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVMAppContainerProtectionContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) ToAzureVMAppContainerProtectionContainerInvokeResponseOutput() AzureVMAppContainerProtectionContainerInvokeResponseOutput {
+	return o
+}
+
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) ToAzureVMAppContainerProtectionContainerInvokeResponseOutputWithContext(ctx context.Context) AzureVMAppContainerProtectionContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'AzureWorkloadContainer'.
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Additional details of a workload container.
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) ExtendedInfo() AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerInvokeResponse) *AzureWorkloadContainerExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Time stamp when this container was updated.
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerInvokeResponse) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Re-Do Operation
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) OperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerInvokeResponse) *string { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the virtual machine represented by this Azure Workload Container
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Workload type for which registration was sent.
+func (o AzureVMAppContainerProtectionContainerInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Container for SQL workloads under Azure Virtual Machines.
@@ -6784,6 +10071,180 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() 
 }
 
 // Additional information on Azure Workload for SQL specific backup item.
+type AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse struct {
+	// The oldest backup copy available for this backup item.
+	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
+	// Indicates consistency of policy object and policy applied to this backup item.
+	PolicyState *string `pulumi:"policyState"`
+	// Number of backup copies available for this backup item.
+	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+}
+
+// AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseInput is an input type that accepts AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs and AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseInput` via:
+//
+//          AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs{...}
+type AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput
+	ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Context) AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput
+}
+
+// Additional information on Azure Workload for SQL specific backup item.
+type AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs struct {
+	// The oldest backup copy available for this backup item.
+	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
+	// Indicates consistency of policy object and policy applied to this backup item.
+	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
+	// Number of backup copies available for this backup item.
+	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+}
+
+func (AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput {
+	return i.ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+func (i AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput).ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrInput is an input type that accepts AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs, AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtr and AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrInput` via:
+//
+//          AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput
+	ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Context) AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput
+}
+
+type azureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrType AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs
+
+func AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtr(v *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseArgs) AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrInput {
+	return (*azureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrType)(v)
+}
+
+func (*azureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *azureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrType) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrType) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Additional information on Azure Workload for SQL specific backup item.
+type AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse) *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse {
+		return &v
+	}).(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// The oldest backup copy available for this backup item.
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// Indicates consistency of policy object and policy applied to this backup item.
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput) PolicyState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
+}
+
+// Number of backup copies available for this backup item.
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
+}
+
+type AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput) ToAzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput) Elem() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse) AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse {
+		return *v
+	}).(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+// The oldest backup copy available for this backup item.
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OldestRecoveryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates consistency of policy object and policy applied to this backup item.
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput) PolicyState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of backup copies available for this backup item.
+func (o AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPointCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoResponse struct {
 	// The oldest backup copy available for this backup item.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
@@ -6955,6 +10416,304 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) RecoveryPoint
 		}
 		return v.RecoveryPointCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Azure VM workload-specific protected item.
+type AzureVmWorkloadProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the DB represented by this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths map[string]KPIResourceHealthDetailsInvokeResponse `pulumi:"kpisHealths"`
+	// Error details in last backup
+	LastBackupErrorDetail *ErrorDetailInvokeResponse `pulumi:"lastBackupErrorDetail"`
+	// Last backup operation status. Possible values: Healthy, Unhealthy.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// Parent name of the DB such as Instance or Availability Group.
+	ParentName *string `pulumi:"parentName"`
+	// Parent type of protected item, example: for a DB, standalone server or distributed
+	ParentType *string `pulumi:"parentType"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
+	// Health status of the backup item, evaluated based on last heartbeat received
+	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
+	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// Host/Cluster Name for instance or AG
+	ServerName *string `pulumi:"serverName"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureVmWorkloadProtectedItemInvokeResponseInput is an input type that accepts AzureVmWorkloadProtectedItemInvokeResponseArgs and AzureVmWorkloadProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureVmWorkloadProtectedItemInvokeResponseInput` via:
+//
+//          AzureVmWorkloadProtectedItemInvokeResponseArgs{...}
+type AzureVmWorkloadProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureVmWorkloadProtectedItemInvokeResponseOutput() AzureVmWorkloadProtectedItemInvokeResponseOutput
+	ToAzureVmWorkloadProtectedItemInvokeResponseOutputWithContext(context.Context) AzureVmWorkloadProtectedItemInvokeResponseOutput
+}
+
+// Azure VM workload-specific protected item.
+type AzureVmWorkloadProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the DB represented by this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths KPIResourceHealthDetailsInvokeResponseMapInput `pulumi:"kpisHealths"`
+	// Error details in last backup
+	LastBackupErrorDetail ErrorDetailInvokeResponsePtrInput `pulumi:"lastBackupErrorDetail"`
+	// Last backup operation status. Possible values: Healthy, Unhealthy.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// Parent name of the DB such as Instance or Availability Group.
+	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
+	// Parent type of protected item, example: for a DB, standalone server or distributed
+	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
+	// Health status of the backup item, evaluated based on last heartbeat received
+	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
+	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// Host/Cluster Name for instance or AG
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureVmWorkloadProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureVmWorkloadProtectedItemInvokeResponseArgs) ToAzureVmWorkloadProtectedItemInvokeResponseOutput() AzureVmWorkloadProtectedItemInvokeResponseOutput {
+	return i.ToAzureVmWorkloadProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureVmWorkloadProtectedItemInvokeResponseArgs) ToAzureVmWorkloadProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectedItemInvokeResponseOutput)
+}
+
+// Azure VM workload-specific protected item.
+type AzureVmWorkloadProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureVmWorkloadProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ToAzureVmWorkloadProtectedItemInvokeResponseOutput() AzureVmWorkloadProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ToAzureVmWorkloadProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
+}
+
+// Additional information for this backup item.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the DB represented by this backup item.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Health details of different KPIs
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) KpisHealths() KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) map[string]KPIResourceHealthDetailsInvokeResponse {
+		return v.KpisHealths
+	}).(KPIResourceHealthDetailsInvokeResponseMapOutput)
+}
+
+// Error details in last backup
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) LastBackupErrorDetail() ErrorDetailInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *ErrorDetailInvokeResponse {
+		return v.LastBackupErrorDetail
+	}).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Last backup operation status. Possible values: Healthy, Unhealthy.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the last backup operation on this backup item.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// Parent name of the DB such as Instance or Availability Group.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ParentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.ParentName }).(pulumi.StringPtrOutput)
+}
+
+// Parent type of protected item, example: for a DB, standalone server or distributed
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ParentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.ParentType }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Data ID of the protected item.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.ProtectedItemDataSourceId }).(pulumi.StringPtrOutput)
+}
+
+// Health status of the backup item, evaluated based on last heartbeat received
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.ProtectedItemHealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'AzureVmWorkloadProtectedItem'.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// Backup status of this backup item.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// Host/Cluster Name for instance or AG
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o AzureVmWorkloadProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Azure VM workload-specific protected item.
@@ -7357,6 +11116,111 @@ func (o AzureVmWorkloadProtectionPolicyOutput) WorkLoadType() pulumi.StringPtrOu
 }
 
 // Azure VM (Mercury) workload-specific backup policy.
+type AzureVmWorkloadProtectionPolicyInvokeResponse struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureWorkload'.
+	BackupManagementType string `pulumi:"backupManagementType"`
+	// Fix the policy inconsistency
+	MakePolicyConsistent *bool `pulumi:"makePolicyConsistent"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// Common settings for the backup management
+	Settings *SettingsInvokeResponse `pulumi:"settings"`
+	// List of sub-protection policies which includes schedule and retention
+	SubProtectionPolicy []SubProtectionPolicyInvokeResponse `pulumi:"subProtectionPolicy"`
+	// Type of workload for the backup management
+	WorkLoadType *string `pulumi:"workLoadType"`
+}
+
+// AzureVmWorkloadProtectionPolicyInvokeResponseInput is an input type that accepts AzureVmWorkloadProtectionPolicyInvokeResponseArgs and AzureVmWorkloadProtectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureVmWorkloadProtectionPolicyInvokeResponseInput` via:
+//
+//          AzureVmWorkloadProtectionPolicyInvokeResponseArgs{...}
+type AzureVmWorkloadProtectionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureVmWorkloadProtectionPolicyInvokeResponseOutput() AzureVmWorkloadProtectionPolicyInvokeResponseOutput
+	ToAzureVmWorkloadProtectionPolicyInvokeResponseOutputWithContext(context.Context) AzureVmWorkloadProtectionPolicyInvokeResponseOutput
+}
+
+// Azure VM (Mercury) workload-specific backup policy.
+type AzureVmWorkloadProtectionPolicyInvokeResponseArgs struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'AzureWorkload'.
+	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
+	// Fix the policy inconsistency
+	MakePolicyConsistent pulumi.BoolPtrInput `pulumi:"makePolicyConsistent"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
+	// Common settings for the backup management
+	Settings SettingsInvokeResponsePtrInput `pulumi:"settings"`
+	// List of sub-protection policies which includes schedule and retention
+	SubProtectionPolicy SubProtectionPolicyInvokeResponseArrayInput `pulumi:"subProtectionPolicy"`
+	// Type of workload for the backup management
+	WorkLoadType pulumi.StringPtrInput `pulumi:"workLoadType"`
+}
+
+func (AzureVmWorkloadProtectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureVmWorkloadProtectionPolicyInvokeResponseArgs) ToAzureVmWorkloadProtectionPolicyInvokeResponseOutput() AzureVmWorkloadProtectionPolicyInvokeResponseOutput {
+	return i.ToAzureVmWorkloadProtectionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureVmWorkloadProtectionPolicyInvokeResponseArgs) ToAzureVmWorkloadProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadProtectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadProtectionPolicyInvokeResponseOutput)
+}
+
+// Azure VM (Mercury) workload-specific backup policy.
+type AzureVmWorkloadProtectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureVmWorkloadProtectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureVmWorkloadProtectionPolicyInvokeResponseOutput) ToAzureVmWorkloadProtectionPolicyInvokeResponseOutput() AzureVmWorkloadProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o AzureVmWorkloadProtectionPolicyInvokeResponseOutput) ToAzureVmWorkloadProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'AzureWorkload'.
+func (o AzureVmWorkloadProtectionPolicyInvokeResponseOutput) BackupManagementType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectionPolicyInvokeResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
+}
+
+// Fix the policy inconsistency
+func (o AzureVmWorkloadProtectionPolicyInvokeResponseOutput) MakePolicyConsistent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectionPolicyInvokeResponse) *bool { return v.MakePolicyConsistent }).(pulumi.BoolPtrOutput)
+}
+
+// Number of items associated with this policy.
+func (o AzureVmWorkloadProtectionPolicyInvokeResponseOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectionPolicyInvokeResponse) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
+}
+
+// Common settings for the backup management
+func (o AzureVmWorkloadProtectionPolicyInvokeResponseOutput) Settings() SettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectionPolicyInvokeResponse) *SettingsInvokeResponse { return v.Settings }).(SettingsInvokeResponsePtrOutput)
+}
+
+// List of sub-protection policies which includes schedule and retention
+func (o AzureVmWorkloadProtectionPolicyInvokeResponseOutput) SubProtectionPolicy() SubProtectionPolicyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectionPolicyInvokeResponse) []SubProtectionPolicyInvokeResponse {
+		return v.SubProtectionPolicy
+	}).(SubProtectionPolicyInvokeResponseArrayOutput)
+}
+
+// Type of workload for the backup management
+func (o AzureVmWorkloadProtectionPolicyInvokeResponseOutput) WorkLoadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectionPolicyInvokeResponse) *string { return v.WorkLoadType }).(pulumi.StringPtrOutput)
+}
+
+// Azure VM (Mercury) workload-specific backup policy.
 type AzureVmWorkloadProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'AzureWorkload'.
@@ -7746,6 +11610,318 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) SourceResourceId() pul
 // Type of workload this item represents.
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// Azure VM workload-specific protected item representing SAP ASE Database.
+type AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the DB represented by this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths map[string]KPIResourceHealthDetailsInvokeResponse `pulumi:"kpisHealths"`
+	// Error details in last backup
+	LastBackupErrorDetail *ErrorDetailInvokeResponse `pulumi:"lastBackupErrorDetail"`
+	// Last backup operation status. Possible values: Healthy, Unhealthy.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// Parent name of the DB such as Instance or Availability Group.
+	ParentName *string `pulumi:"parentName"`
+	// Parent type of protected item, example: for a DB, standalone server or distributed
+	ParentType *string `pulumi:"parentType"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
+	// Health status of the backup item, evaluated based on last heartbeat received
+	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
+	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// Host/Cluster Name for instance or AG
+	ServerName *string `pulumi:"serverName"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseInput is an input type that accepts AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseArgs and AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseInput` via:
+//
+//          AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseArgs{...}
+type AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput() AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput
+	ToAzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutputWithContext(context.Context) AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput
+}
+
+// Azure VM workload-specific protected item representing SAP ASE Database.
+type AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the DB represented by this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths KPIResourceHealthDetailsInvokeResponseMapInput `pulumi:"kpisHealths"`
+	// Error details in last backup
+	LastBackupErrorDetail ErrorDetailInvokeResponsePtrInput `pulumi:"lastBackupErrorDetail"`
+	// Last backup operation status. Possible values: Healthy, Unhealthy.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// Parent name of the DB such as Instance or Availability Group.
+	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
+	// Parent type of protected item, example: for a DB, standalone server or distributed
+	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
+	// Health status of the backup item, evaluated based on last heartbeat received
+	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
+	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// Host/Cluster Name for instance or AG
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseArgs) ToAzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput() AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput {
+	return i.ToAzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseArgs) ToAzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput)
+}
+
+// Azure VM workload-specific protected item representing SAP ASE Database.
+type AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ToAzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput() AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ToAzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string {
+		return v.BackupManagementType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string {
+		return v.DeferredDeleteTimeInUTC
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string {
+		return v.DeferredDeleteTimeRemaining
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional information for this backup item.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the DB represented by this backup item.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *bool {
+		return v.IsDeferredDeleteScheduleUpcoming
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *bool {
+		return v.IsScheduledForDeferredDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Health details of different KPIs
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) KpisHealths() KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) map[string]KPIResourceHealthDetailsInvokeResponse {
+		return v.KpisHealths
+	}).(KPIResourceHealthDetailsInvokeResponseMapOutput)
+}
+
+// Error details in last backup
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) LastBackupErrorDetail() ErrorDetailInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *ErrorDetailInvokeResponse {
+		return v.LastBackupErrorDetail
+	}).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Last backup operation status. Possible values: Healthy, Unhealthy.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the last backup operation on this backup item.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// Parent name of the DB such as Instance or Availability Group.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ParentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.ParentName }).(pulumi.StringPtrOutput)
+}
+
+// Parent type of protected item, example: for a DB, standalone server or distributed
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ParentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.ParentType }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Data ID of the protected item.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string {
+		return v.ProtectedItemDataSourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Health status of the backup item, evaluated based on last heartbeat received
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string {
+		return v.ProtectedItemHealthStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'AzureVmWorkloadProtectedItem'.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// Backup status of this backup item.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// Host/Cluster Name for instance or AG
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Azure VM workload-specific protected item representing SAP ASE Database.
@@ -8337,6 +12513,318 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) SourceResourceId() pu
 // Type of workload this item represents.
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// Azure VM workload-specific protected item representing SAP HANA Database.
+type AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the DB represented by this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths map[string]KPIResourceHealthDetailsInvokeResponse `pulumi:"kpisHealths"`
+	// Error details in last backup
+	LastBackupErrorDetail *ErrorDetailInvokeResponse `pulumi:"lastBackupErrorDetail"`
+	// Last backup operation status. Possible values: Healthy, Unhealthy.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// Parent name of the DB such as Instance or Availability Group.
+	ParentName *string `pulumi:"parentName"`
+	// Parent type of protected item, example: for a DB, standalone server or distributed
+	ParentType *string `pulumi:"parentType"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
+	// Health status of the backup item, evaluated based on last heartbeat received
+	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
+	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// Host/Cluster Name for instance or AG
+	ServerName *string `pulumi:"serverName"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseInput is an input type that accepts AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseArgs and AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseInput` via:
+//
+//          AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseArgs{...}
+type AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput() AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput
+	ToAzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutputWithContext(context.Context) AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput
+}
+
+// Azure VM workload-specific protected item representing SAP HANA Database.
+type AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the DB represented by this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths KPIResourceHealthDetailsInvokeResponseMapInput `pulumi:"kpisHealths"`
+	// Error details in last backup
+	LastBackupErrorDetail ErrorDetailInvokeResponsePtrInput `pulumi:"lastBackupErrorDetail"`
+	// Last backup operation status. Possible values: Healthy, Unhealthy.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// Parent name of the DB such as Instance or Availability Group.
+	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
+	// Parent type of protected item, example: for a DB, standalone server or distributed
+	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
+	// Health status of the backup item, evaluated based on last heartbeat received
+	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
+	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// Host/Cluster Name for instance or AG
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseArgs) ToAzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput() AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput {
+	return i.ToAzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseArgs) ToAzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput)
+}
+
+// Azure VM workload-specific protected item representing SAP HANA Database.
+type AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ToAzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput() AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ToAzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string {
+		return v.BackupManagementType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string {
+		return v.DeferredDeleteTimeInUTC
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string {
+		return v.DeferredDeleteTimeRemaining
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional information for this backup item.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the DB represented by this backup item.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *bool {
+		return v.IsDeferredDeleteScheduleUpcoming
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *bool {
+		return v.IsScheduledForDeferredDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Health details of different KPIs
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) KpisHealths() KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) map[string]KPIResourceHealthDetailsInvokeResponse {
+		return v.KpisHealths
+	}).(KPIResourceHealthDetailsInvokeResponseMapOutput)
+}
+
+// Error details in last backup
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) LastBackupErrorDetail() ErrorDetailInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *ErrorDetailInvokeResponse {
+		return v.LastBackupErrorDetail
+	}).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Last backup operation status. Possible values: Healthy, Unhealthy.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the last backup operation on this backup item.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// Parent name of the DB such as Instance or Availability Group.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ParentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.ParentName }).(pulumi.StringPtrOutput)
+}
+
+// Parent type of protected item, example: for a DB, standalone server or distributed
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ParentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.ParentType }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Data ID of the protected item.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string {
+		return v.ProtectedItemDataSourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Health status of the backup item, evaluated based on last heartbeat received
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string {
+		return v.ProtectedItemHealthStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'AzureVmWorkloadProtectedItem'.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// Backup status of this backup item.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// Host/Cluster Name for instance or AG
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Azure VM workload-specific protected item representing SAP HANA Database.
@@ -8932,6 +13420,316 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) SourceResourceId() pulumi
 // Type of workload this item represents.
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// Azure VM workload-specific protected item representing SQL Database.
+type AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the DB represented by this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths map[string]KPIResourceHealthDetailsInvokeResponse `pulumi:"kpisHealths"`
+	// Error details in last backup
+	LastBackupErrorDetail *ErrorDetailInvokeResponse `pulumi:"lastBackupErrorDetail"`
+	// Last backup operation status. Possible values: Healthy, Unhealthy.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// Parent name of the DB such as Instance or Availability Group.
+	ParentName *string `pulumi:"parentName"`
+	// Parent type of protected item, example: for a DB, standalone server or distributed
+	ParentType *string `pulumi:"parentType"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataSourceId *string `pulumi:"protectedItemDataSourceId"`
+	// Health status of the backup item, evaluated based on last heartbeat received
+	ProtectedItemHealthStatus *string `pulumi:"protectedItemHealthStatus"`
+	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// Host/Cluster Name for instance or AG
+	ServerName *string `pulumi:"serverName"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseInput is an input type that accepts AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseArgs and AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseInput` via:
+//
+//          AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseArgs{...}
+type AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput() AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput
+	ToAzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutputWithContext(context.Context) AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput
+}
+
+// Azure VM workload-specific protected item representing SQL Database.
+type AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information for this backup item.
+	ExtendedInfo AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the DB represented by this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Health details of different KPIs
+	KpisHealths KPIResourceHealthDetailsInvokeResponseMapInput `pulumi:"kpisHealths"`
+	// Error details in last backup
+	LastBackupErrorDetail ErrorDetailInvokeResponsePtrInput `pulumi:"lastBackupErrorDetail"`
+	// Last backup operation status. Possible values: Healthy, Unhealthy.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// Parent name of the DB such as Instance or Availability Group.
+	ParentName pulumi.StringPtrInput `pulumi:"parentName"`
+	// Parent type of protected item, example: for a DB, standalone server or distributed
+	ParentType pulumi.StringPtrInput `pulumi:"parentType"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Data ID of the protected item.
+	ProtectedItemDataSourceId pulumi.StringPtrInput `pulumi:"protectedItemDataSourceId"`
+	// Health status of the backup item, evaluated based on last heartbeat received
+	ProtectedItemHealthStatus pulumi.StringPtrInput `pulumi:"protectedItemHealthStatus"`
+	// backup item type.
+	// Expected value is 'AzureVmWorkloadProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// Backup status of this backup item.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// Host/Cluster Name for instance or AG
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseArgs) ToAzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput() AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput {
+	return i.ToAzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseArgs) ToAzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput)
+}
+
+// Azure VM workload-specific protected item representing SQL Database.
+type AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ToAzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput() AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ToAzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutputWithContext(ctx context.Context) AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string {
+		return v.DeferredDeleteTimeInUTC
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string {
+		return v.DeferredDeleteTimeRemaining
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional information for this backup item.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ExtendedInfo() AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *AzureVmWorkloadProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the DB represented by this backup item.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *bool {
+		return v.IsDeferredDeleteScheduleUpcoming
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *bool {
+		return v.IsScheduledForDeferredDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Health details of different KPIs
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) KpisHealths() KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) map[string]KPIResourceHealthDetailsInvokeResponse {
+		return v.KpisHealths
+	}).(KPIResourceHealthDetailsInvokeResponseMapOutput)
+}
+
+// Error details in last backup
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) LastBackupErrorDetail() ErrorDetailInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *ErrorDetailInvokeResponse {
+		return v.LastBackupErrorDetail
+	}).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Last backup operation status. Possible values: Healthy, Unhealthy.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the last backup operation on this backup item.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// Parent name of the DB such as Instance or Availability Group.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ParentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.ParentName }).(pulumi.StringPtrOutput)
+}
+
+// Parent type of protected item, example: for a DB, standalone server or distributed
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ParentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.ParentType }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Data ID of the protected item.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string {
+		return v.ProtectedItemDataSourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Health status of the backup item, evaluated based on last heartbeat received
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ProtectedItemHealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string {
+		return v.ProtectedItemHealthStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'AzureVmWorkloadProtectedItem'.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Backup state of this backup item.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// Backup status of this backup item.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// Host/Cluster Name for instance or AG
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Azure VM workload-specific protected item representing SQL Database.
@@ -9555,6 +14353,184 @@ func (o AzureWorkloadContainerExtendedInfoPtrOutput) NodesList() DistributedNode
 }
 
 // Extended information of the container.
+type AzureWorkloadContainerExtendedInfoInvokeResponse struct {
+	// Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
+	HostServerName *string `pulumi:"hostServerName"`
+	// Inquiry Status for the container.
+	InquiryInfo *InquiryInfoInvokeResponse `pulumi:"inquiryInfo"`
+	// List of the nodes in case of distributed container.
+	NodesList []DistributedNodesInfoInvokeResponse `pulumi:"nodesList"`
+}
+
+// AzureWorkloadContainerExtendedInfoInvokeResponseInput is an input type that accepts AzureWorkloadContainerExtendedInfoInvokeResponseArgs and AzureWorkloadContainerExtendedInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureWorkloadContainerExtendedInfoInvokeResponseInput` via:
+//
+//          AzureWorkloadContainerExtendedInfoInvokeResponseArgs{...}
+type AzureWorkloadContainerExtendedInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureWorkloadContainerExtendedInfoInvokeResponseOutput() AzureWorkloadContainerExtendedInfoInvokeResponseOutput
+	ToAzureWorkloadContainerExtendedInfoInvokeResponseOutputWithContext(context.Context) AzureWorkloadContainerExtendedInfoInvokeResponseOutput
+}
+
+// Extended information of the container.
+type AzureWorkloadContainerExtendedInfoInvokeResponseArgs struct {
+	// Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
+	HostServerName pulumi.StringPtrInput `pulumi:"hostServerName"`
+	// Inquiry Status for the container.
+	InquiryInfo InquiryInfoInvokeResponsePtrInput `pulumi:"inquiryInfo"`
+	// List of the nodes in case of distributed container.
+	NodesList DistributedNodesInfoInvokeResponseArrayInput `pulumi:"nodesList"`
+}
+
+func (AzureWorkloadContainerExtendedInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureWorkloadContainerExtendedInfoInvokeResponseArgs) ToAzureWorkloadContainerExtendedInfoInvokeResponseOutput() AzureWorkloadContainerExtendedInfoInvokeResponseOutput {
+	return i.ToAzureWorkloadContainerExtendedInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureWorkloadContainerExtendedInfoInvokeResponseArgs) ToAzureWorkloadContainerExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) AzureWorkloadContainerExtendedInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadContainerExtendedInfoInvokeResponseOutput)
+}
+
+func (i AzureWorkloadContainerExtendedInfoInvokeResponseArgs) ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput() AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return i.ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureWorkloadContainerExtendedInfoInvokeResponseArgs) ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadContainerExtendedInfoInvokeResponseOutput).ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AzureWorkloadContainerExtendedInfoInvokeResponsePtrInput is an input type that accepts AzureWorkloadContainerExtendedInfoInvokeResponseArgs, AzureWorkloadContainerExtendedInfoInvokeResponsePtr and AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AzureWorkloadContainerExtendedInfoInvokeResponsePtrInput` via:
+//
+//          AzureWorkloadContainerExtendedInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureWorkloadContainerExtendedInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput() AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput
+	ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Context) AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput
+}
+
+type azureWorkloadContainerExtendedInfoInvokeResponsePtrType AzureWorkloadContainerExtendedInfoInvokeResponseArgs
+
+func AzureWorkloadContainerExtendedInfoInvokeResponsePtr(v *AzureWorkloadContainerExtendedInfoInvokeResponseArgs) AzureWorkloadContainerExtendedInfoInvokeResponsePtrInput {
+	return (*azureWorkloadContainerExtendedInfoInvokeResponsePtrType)(v)
+}
+
+func (*azureWorkloadContainerExtendedInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureWorkloadContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *azureWorkloadContainerExtendedInfoInvokeResponsePtrType) ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput() AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return i.ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureWorkloadContainerExtendedInfoInvokeResponsePtrType) ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Extended information of the container.
+type AzureWorkloadContainerExtendedInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureWorkloadContainerExtendedInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureWorkloadContainerExtendedInfoInvokeResponseOutput) ToAzureWorkloadContainerExtendedInfoInvokeResponseOutput() AzureWorkloadContainerExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureWorkloadContainerExtendedInfoInvokeResponseOutput) ToAzureWorkloadContainerExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) AzureWorkloadContainerExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AzureWorkloadContainerExtendedInfoInvokeResponseOutput) ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput() AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureWorkloadContainerExtendedInfoInvokeResponseOutput) ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerExtendedInfoInvokeResponse) *AzureWorkloadContainerExtendedInfoInvokeResponse {
+		return &v
+	}).(AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
+func (o AzureWorkloadContainerExtendedInfoInvokeResponseOutput) HostServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerExtendedInfoInvokeResponse) *string { return v.HostServerName }).(pulumi.StringPtrOutput)
+}
+
+// Inquiry Status for the container.
+func (o AzureWorkloadContainerExtendedInfoInvokeResponseOutput) InquiryInfo() InquiryInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerExtendedInfoInvokeResponse) *InquiryInfoInvokeResponse {
+		return v.InquiryInfo
+	}).(InquiryInfoInvokeResponsePtrOutput)
+}
+
+// List of the nodes in case of distributed container.
+func (o AzureWorkloadContainerExtendedInfoInvokeResponseOutput) NodesList() DistributedNodesInfoInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerExtendedInfoInvokeResponse) []DistributedNodesInfoInvokeResponse {
+		return v.NodesList
+	}).(DistributedNodesInfoInvokeResponseArrayOutput)
+}
+
+type AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureWorkloadContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput) ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput() AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput) ToAzureWorkloadContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput) Elem() AzureWorkloadContainerExtendedInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *AzureWorkloadContainerExtendedInfoInvokeResponse) AzureWorkloadContainerExtendedInfoInvokeResponse {
+		return *v
+	}).(AzureWorkloadContainerExtendedInfoInvokeResponseOutput)
+}
+
+// Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
+func (o AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput) HostServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureWorkloadContainerExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Inquiry Status for the container.
+func (o AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput) InquiryInfo() InquiryInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AzureWorkloadContainerExtendedInfoInvokeResponse) *InquiryInfoInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.InquiryInfo
+	}).(InquiryInfoInvokeResponsePtrOutput)
+}
+
+// List of the nodes in case of distributed container.
+func (o AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput) NodesList() DistributedNodesInfoInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *AzureWorkloadContainerExtendedInfoInvokeResponse) []DistributedNodesInfoInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.NodesList
+	}).(DistributedNodesInfoInvokeResponseArrayOutput)
+}
+
+// Extended information of the container.
 type AzureWorkloadContainerExtendedInfoResponse struct {
 	// Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
 	HostServerName *string `pulumi:"hostServerName"`
@@ -9726,6 +14702,156 @@ func (o AzureWorkloadContainerExtendedInfoResponsePtrOutput) NodesList() Distrib
 		}
 		return v.NodesList
 	}).(DistributedNodesInfoResponseArrayOutput)
+}
+
+// Container for the workloads running inside Azure Compute or Classic Compute.
+type AzureWorkloadContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo *AzureWorkloadContainerExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType *string `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// AzureWorkloadContainerInvokeResponseInput is an input type that accepts AzureWorkloadContainerInvokeResponseArgs and AzureWorkloadContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureWorkloadContainerInvokeResponseInput` via:
+//
+//          AzureWorkloadContainerInvokeResponseArgs{...}
+type AzureWorkloadContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureWorkloadContainerInvokeResponseOutput() AzureWorkloadContainerInvokeResponseOutput
+	ToAzureWorkloadContainerInvokeResponseOutputWithContext(context.Context) AzureWorkloadContainerInvokeResponseOutput
+}
+
+// Container for the workloads running inside Azure Compute or Classic Compute.
+type AzureWorkloadContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'AzureWorkloadContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Additional details of a workload container.
+	ExtendedInfo AzureWorkloadContainerExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Time stamp when this container was updated.
+	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
+	// Re-Do Operation
+	OperationType pulumi.StringPtrInput `pulumi:"operationType"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// ARM ID of the virtual machine represented by this Azure Workload Container
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Workload type for which registration was sent.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (AzureWorkloadContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureWorkloadContainerInvokeResponseArgs) ToAzureWorkloadContainerInvokeResponseOutput() AzureWorkloadContainerInvokeResponseOutput {
+	return i.ToAzureWorkloadContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureWorkloadContainerInvokeResponseArgs) ToAzureWorkloadContainerInvokeResponseOutputWithContext(ctx context.Context) AzureWorkloadContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureWorkloadContainerInvokeResponseOutput)
+}
+
+// Container for the workloads running inside Azure Compute or Classic Compute.
+type AzureWorkloadContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureWorkloadContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureWorkloadContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureWorkloadContainerInvokeResponseOutput) ToAzureWorkloadContainerInvokeResponseOutput() AzureWorkloadContainerInvokeResponseOutput {
+	return o
+}
+
+func (o AzureWorkloadContainerInvokeResponseOutput) ToAzureWorkloadContainerInvokeResponseOutputWithContext(ctx context.Context) AzureWorkloadContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o AzureWorkloadContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'AzureWorkloadContainer'.
+func (o AzureWorkloadContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Additional details of a workload container.
+func (o AzureWorkloadContainerInvokeResponseOutput) ExtendedInfo() AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerInvokeResponse) *AzureWorkloadContainerExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the container.
+func (o AzureWorkloadContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o AzureWorkloadContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Time stamp when this container was updated.
+func (o AzureWorkloadContainerInvokeResponseOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerInvokeResponse) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Re-Do Operation
+func (o AzureWorkloadContainerInvokeResponseOutput) OperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerInvokeResponse) *string { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o AzureWorkloadContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the virtual machine represented by this Azure Workload Container
+func (o AzureWorkloadContainerInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Workload type for which registration was sent.
+func (o AzureWorkloadContainerInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Container for the workloads running inside Azure Compute or Classic Compute.
@@ -10070,6 +15196,197 @@ func (o ContainerIdentityInfoPtrOutput) UniqueName() pulumi.StringPtrOutput {
 }
 
 // Container identity information
+type ContainerIdentityInfoInvokeResponse struct {
+	// Protection container identity - AAD Tenant
+	AadTenantId *string `pulumi:"aadTenantId"`
+	// Protection container identity - Audience
+	Audience *string `pulumi:"audience"`
+	// Protection container identity - AAD Service Principal
+	ServicePrincipalClientId *string `pulumi:"servicePrincipalClientId"`
+	// Unique name of the container
+	UniqueName *string `pulumi:"uniqueName"`
+}
+
+// ContainerIdentityInfoInvokeResponseInput is an input type that accepts ContainerIdentityInfoInvokeResponseArgs and ContainerIdentityInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerIdentityInfoInvokeResponseInput` via:
+//
+//          ContainerIdentityInfoInvokeResponseArgs{...}
+type ContainerIdentityInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerIdentityInfoInvokeResponseOutput() ContainerIdentityInfoInvokeResponseOutput
+	ToContainerIdentityInfoInvokeResponseOutputWithContext(context.Context) ContainerIdentityInfoInvokeResponseOutput
+}
+
+// Container identity information
+type ContainerIdentityInfoInvokeResponseArgs struct {
+	// Protection container identity - AAD Tenant
+	AadTenantId pulumi.StringPtrInput `pulumi:"aadTenantId"`
+	// Protection container identity - Audience
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// Protection container identity - AAD Service Principal
+	ServicePrincipalClientId pulumi.StringPtrInput `pulumi:"servicePrincipalClientId"`
+	// Unique name of the container
+	UniqueName pulumi.StringPtrInput `pulumi:"uniqueName"`
+}
+
+func (ContainerIdentityInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerIdentityInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerIdentityInfoInvokeResponseArgs) ToContainerIdentityInfoInvokeResponseOutput() ContainerIdentityInfoInvokeResponseOutput {
+	return i.ToContainerIdentityInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerIdentityInfoInvokeResponseArgs) ToContainerIdentityInfoInvokeResponseOutputWithContext(ctx context.Context) ContainerIdentityInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerIdentityInfoInvokeResponseOutput)
+}
+
+func (i ContainerIdentityInfoInvokeResponseArgs) ToContainerIdentityInfoInvokeResponsePtrOutput() ContainerIdentityInfoInvokeResponsePtrOutput {
+	return i.ToContainerIdentityInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContainerIdentityInfoInvokeResponseArgs) ToContainerIdentityInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ContainerIdentityInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerIdentityInfoInvokeResponseOutput).ToContainerIdentityInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContainerIdentityInfoInvokeResponsePtrInput is an input type that accepts ContainerIdentityInfoInvokeResponseArgs, ContainerIdentityInfoInvokeResponsePtr and ContainerIdentityInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContainerIdentityInfoInvokeResponsePtrInput` via:
+//
+//          ContainerIdentityInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerIdentityInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContainerIdentityInfoInvokeResponsePtrOutput() ContainerIdentityInfoInvokeResponsePtrOutput
+	ToContainerIdentityInfoInvokeResponsePtrOutputWithContext(context.Context) ContainerIdentityInfoInvokeResponsePtrOutput
+}
+
+type containerIdentityInfoInvokeResponsePtrType ContainerIdentityInfoInvokeResponseArgs
+
+func ContainerIdentityInfoInvokeResponsePtr(v *ContainerIdentityInfoInvokeResponseArgs) ContainerIdentityInfoInvokeResponsePtrInput {
+	return (*containerIdentityInfoInvokeResponsePtrType)(v)
+}
+
+func (*containerIdentityInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerIdentityInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *containerIdentityInfoInvokeResponsePtrType) ToContainerIdentityInfoInvokeResponsePtrOutput() ContainerIdentityInfoInvokeResponsePtrOutput {
+	return i.ToContainerIdentityInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *containerIdentityInfoInvokeResponsePtrType) ToContainerIdentityInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ContainerIdentityInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerIdentityInfoInvokeResponsePtrOutput)
+}
+
+// Container identity information
+type ContainerIdentityInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerIdentityInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerIdentityInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerIdentityInfoInvokeResponseOutput) ToContainerIdentityInfoInvokeResponseOutput() ContainerIdentityInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerIdentityInfoInvokeResponseOutput) ToContainerIdentityInfoInvokeResponseOutputWithContext(ctx context.Context) ContainerIdentityInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerIdentityInfoInvokeResponseOutput) ToContainerIdentityInfoInvokeResponsePtrOutput() ContainerIdentityInfoInvokeResponsePtrOutput {
+	return o.ToContainerIdentityInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerIdentityInfoInvokeResponseOutput) ToContainerIdentityInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ContainerIdentityInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContainerIdentityInfoInvokeResponse) *ContainerIdentityInfoInvokeResponse {
+		return &v
+	}).(ContainerIdentityInfoInvokeResponsePtrOutput)
+}
+
+// Protection container identity - AAD Tenant
+func (o ContainerIdentityInfoInvokeResponseOutput) AadTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerIdentityInfoInvokeResponse) *string { return v.AadTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Protection container identity - Audience
+func (o ContainerIdentityInfoInvokeResponseOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerIdentityInfoInvokeResponse) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// Protection container identity - AAD Service Principal
+func (o ContainerIdentityInfoInvokeResponseOutput) ServicePrincipalClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerIdentityInfoInvokeResponse) *string { return v.ServicePrincipalClientId }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of the container
+func (o ContainerIdentityInfoInvokeResponseOutput) UniqueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerIdentityInfoInvokeResponse) *string { return v.UniqueName }).(pulumi.StringPtrOutput)
+}
+
+type ContainerIdentityInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerIdentityInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerIdentityInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerIdentityInfoInvokeResponsePtrOutput) ToContainerIdentityInfoInvokeResponsePtrOutput() ContainerIdentityInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContainerIdentityInfoInvokeResponsePtrOutput) ToContainerIdentityInfoInvokeResponsePtrOutputWithContext(ctx context.Context) ContainerIdentityInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContainerIdentityInfoInvokeResponsePtrOutput) Elem() ContainerIdentityInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *ContainerIdentityInfoInvokeResponse) ContainerIdentityInfoInvokeResponse { return *v }).(ContainerIdentityInfoInvokeResponseOutput)
+}
+
+// Protection container identity - AAD Tenant
+func (o ContainerIdentityInfoInvokeResponsePtrOutput) AadTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerIdentityInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AadTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Protection container identity - Audience
+func (o ContainerIdentityInfoInvokeResponsePtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerIdentityInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// Protection container identity - AAD Service Principal
+func (o ContainerIdentityInfoInvokeResponsePtrOutput) ServicePrincipalClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerIdentityInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServicePrincipalClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique name of the container
+func (o ContainerIdentityInfoInvokeResponsePtrOutput) UniqueName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerIdentityInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Container identity information
 type ContainerIdentityInfoResponse struct {
 	// Protection container identity - AAD Tenant
 	AadTenantId *string `pulumi:"aadTenantId"`
@@ -10387,6 +15704,140 @@ func (o DPMContainerExtendedInfoPtrOutput) Elem() DPMContainerExtendedInfoOutput
 // Last refresh time of the DPMContainer.
 func (o DPMContainerExtendedInfoPtrOutput) LastRefreshedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DPMContainerExtendedInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastRefreshedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional information of the DPMContainer.
+type DPMContainerExtendedInfoInvokeResponse struct {
+	// Last refresh time of the DPMContainer.
+	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
+}
+
+// DPMContainerExtendedInfoInvokeResponseInput is an input type that accepts DPMContainerExtendedInfoInvokeResponseArgs and DPMContainerExtendedInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `DPMContainerExtendedInfoInvokeResponseInput` via:
+//
+//          DPMContainerExtendedInfoInvokeResponseArgs{...}
+type DPMContainerExtendedInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDPMContainerExtendedInfoInvokeResponseOutput() DPMContainerExtendedInfoInvokeResponseOutput
+	ToDPMContainerExtendedInfoInvokeResponseOutputWithContext(context.Context) DPMContainerExtendedInfoInvokeResponseOutput
+}
+
+// Additional information of the DPMContainer.
+type DPMContainerExtendedInfoInvokeResponseArgs struct {
+	// Last refresh time of the DPMContainer.
+	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
+}
+
+func (DPMContainerExtendedInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DPMContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i DPMContainerExtendedInfoInvokeResponseArgs) ToDPMContainerExtendedInfoInvokeResponseOutput() DPMContainerExtendedInfoInvokeResponseOutput {
+	return i.ToDPMContainerExtendedInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DPMContainerExtendedInfoInvokeResponseArgs) ToDPMContainerExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) DPMContainerExtendedInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DPMContainerExtendedInfoInvokeResponseOutput)
+}
+
+func (i DPMContainerExtendedInfoInvokeResponseArgs) ToDPMContainerExtendedInfoInvokeResponsePtrOutput() DPMContainerExtendedInfoInvokeResponsePtrOutput {
+	return i.ToDPMContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DPMContainerExtendedInfoInvokeResponseArgs) ToDPMContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) DPMContainerExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DPMContainerExtendedInfoInvokeResponseOutput).ToDPMContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DPMContainerExtendedInfoInvokeResponsePtrInput is an input type that accepts DPMContainerExtendedInfoInvokeResponseArgs, DPMContainerExtendedInfoInvokeResponsePtr and DPMContainerExtendedInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DPMContainerExtendedInfoInvokeResponsePtrInput` via:
+//
+//          DPMContainerExtendedInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DPMContainerExtendedInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDPMContainerExtendedInfoInvokeResponsePtrOutput() DPMContainerExtendedInfoInvokeResponsePtrOutput
+	ToDPMContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Context) DPMContainerExtendedInfoInvokeResponsePtrOutput
+}
+
+type dpmcontainerExtendedInfoInvokeResponsePtrType DPMContainerExtendedInfoInvokeResponseArgs
+
+func DPMContainerExtendedInfoInvokeResponsePtr(v *DPMContainerExtendedInfoInvokeResponseArgs) DPMContainerExtendedInfoInvokeResponsePtrInput {
+	return (*dpmcontainerExtendedInfoInvokeResponsePtrType)(v)
+}
+
+func (*dpmcontainerExtendedInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DPMContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *dpmcontainerExtendedInfoInvokeResponsePtrType) ToDPMContainerExtendedInfoInvokeResponsePtrOutput() DPMContainerExtendedInfoInvokeResponsePtrOutput {
+	return i.ToDPMContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dpmcontainerExtendedInfoInvokeResponsePtrType) ToDPMContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) DPMContainerExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DPMContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Additional information of the DPMContainer.
+type DPMContainerExtendedInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DPMContainerExtendedInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DPMContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o DPMContainerExtendedInfoInvokeResponseOutput) ToDPMContainerExtendedInfoInvokeResponseOutput() DPMContainerExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o DPMContainerExtendedInfoInvokeResponseOutput) ToDPMContainerExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) DPMContainerExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o DPMContainerExtendedInfoInvokeResponseOutput) ToDPMContainerExtendedInfoInvokeResponsePtrOutput() DPMContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ToDPMContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DPMContainerExtendedInfoInvokeResponseOutput) ToDPMContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) DPMContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DPMContainerExtendedInfoInvokeResponse) *DPMContainerExtendedInfoInvokeResponse {
+		return &v
+	}).(DPMContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Last refresh time of the DPMContainer.
+func (o DPMContainerExtendedInfoInvokeResponseOutput) LastRefreshedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMContainerExtendedInfoInvokeResponse) *string { return v.LastRefreshedAt }).(pulumi.StringPtrOutput)
+}
+
+type DPMContainerExtendedInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DPMContainerExtendedInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DPMContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o DPMContainerExtendedInfoInvokeResponsePtrOutput) ToDPMContainerExtendedInfoInvokeResponsePtrOutput() DPMContainerExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DPMContainerExtendedInfoInvokeResponsePtrOutput) ToDPMContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) DPMContainerExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DPMContainerExtendedInfoInvokeResponsePtrOutput) Elem() DPMContainerExtendedInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *DPMContainerExtendedInfoInvokeResponse) DPMContainerExtendedInfoInvokeResponse { return *v }).(DPMContainerExtendedInfoInvokeResponseOutput)
+}
+
+// Last refresh time of the DPMContainer.
+func (o DPMContainerExtendedInfoInvokeResponsePtrOutput) LastRefreshedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DPMContainerExtendedInfoInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -11121,6 +16572,391 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) TotalDiskStorageSizeInBytes() pul
 }
 
 // Additional information of DPM Protected item.
+type DPMProtectedItemExtendedInfoInvokeResponse struct {
+	// Used Disk storage in bytes.
+	DiskStorageUsedInBytes *string `pulumi:"diskStorageUsedInBytes"`
+	// To check if backup item is collocated.
+	IsCollocated *bool `pulumi:"isCollocated"`
+	// To check if backup item is cloud protected.
+	IsPresentOnCloud *bool `pulumi:"isPresentOnCloud"`
+	// Last backup status information on backup item.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Last refresh time on backup item.
+	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
+	// Oldest cloud recovery point time.
+	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
+	// latest disk recovery point time.
+	OnPremiseLatestRecoveryPoint *string `pulumi:"onPremiseLatestRecoveryPoint"`
+	// Oldest disk recovery point time.
+	OnPremiseOldestRecoveryPoint *string `pulumi:"onPremiseOldestRecoveryPoint"`
+	// disk recovery point count.
+	OnPremiseRecoveryPointCount *int `pulumi:"onPremiseRecoveryPointCount"`
+	// Attribute to provide information on various DBs.
+	ProtectableObjectLoadPath map[string]string `pulumi:"protectableObjectLoadPath"`
+	// To check if backup item is disk protected.
+	Protected *bool `pulumi:"protected"`
+	// Protection group name of the backup item.
+	ProtectionGroupName *string `pulumi:"protectionGroupName"`
+	// cloud recovery point count.
+	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+	// total Disk storage in bytes.
+	TotalDiskStorageSizeInBytes *string `pulumi:"totalDiskStorageSizeInBytes"`
+}
+
+// DPMProtectedItemExtendedInfoInvokeResponseInput is an input type that accepts DPMProtectedItemExtendedInfoInvokeResponseArgs and DPMProtectedItemExtendedInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `DPMProtectedItemExtendedInfoInvokeResponseInput` via:
+//
+//          DPMProtectedItemExtendedInfoInvokeResponseArgs{...}
+type DPMProtectedItemExtendedInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDPMProtectedItemExtendedInfoInvokeResponseOutput() DPMProtectedItemExtendedInfoInvokeResponseOutput
+	ToDPMProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Context) DPMProtectedItemExtendedInfoInvokeResponseOutput
+}
+
+// Additional information of DPM Protected item.
+type DPMProtectedItemExtendedInfoInvokeResponseArgs struct {
+	// Used Disk storage in bytes.
+	DiskStorageUsedInBytes pulumi.StringPtrInput `pulumi:"diskStorageUsedInBytes"`
+	// To check if backup item is collocated.
+	IsCollocated pulumi.BoolPtrInput `pulumi:"isCollocated"`
+	// To check if backup item is cloud protected.
+	IsPresentOnCloud pulumi.BoolPtrInput `pulumi:"isPresentOnCloud"`
+	// Last backup status information on backup item.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Last refresh time on backup item.
+	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
+	// Oldest cloud recovery point time.
+	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
+	// latest disk recovery point time.
+	OnPremiseLatestRecoveryPoint pulumi.StringPtrInput `pulumi:"onPremiseLatestRecoveryPoint"`
+	// Oldest disk recovery point time.
+	OnPremiseOldestRecoveryPoint pulumi.StringPtrInput `pulumi:"onPremiseOldestRecoveryPoint"`
+	// disk recovery point count.
+	OnPremiseRecoveryPointCount pulumi.IntPtrInput `pulumi:"onPremiseRecoveryPointCount"`
+	// Attribute to provide information on various DBs.
+	ProtectableObjectLoadPath pulumi.StringMapInput `pulumi:"protectableObjectLoadPath"`
+	// To check if backup item is disk protected.
+	Protected pulumi.BoolPtrInput `pulumi:"protected"`
+	// Protection group name of the backup item.
+	ProtectionGroupName pulumi.StringPtrInput `pulumi:"protectionGroupName"`
+	// cloud recovery point count.
+	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+	// total Disk storage in bytes.
+	TotalDiskStorageSizeInBytes pulumi.StringPtrInput `pulumi:"totalDiskStorageSizeInBytes"`
+}
+
+func (DPMProtectedItemExtendedInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DPMProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i DPMProtectedItemExtendedInfoInvokeResponseArgs) ToDPMProtectedItemExtendedInfoInvokeResponseOutput() DPMProtectedItemExtendedInfoInvokeResponseOutput {
+	return i.ToDPMProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DPMProtectedItemExtendedInfoInvokeResponseArgs) ToDPMProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+func (i DPMProtectedItemExtendedInfoInvokeResponseArgs) ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutput() DPMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DPMProtectedItemExtendedInfoInvokeResponseArgs) ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemExtendedInfoInvokeResponseOutput).ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DPMProtectedItemExtendedInfoInvokeResponsePtrInput is an input type that accepts DPMProtectedItemExtendedInfoInvokeResponseArgs, DPMProtectedItemExtendedInfoInvokeResponsePtr and DPMProtectedItemExtendedInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DPMProtectedItemExtendedInfoInvokeResponsePtrInput` via:
+//
+//          DPMProtectedItemExtendedInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DPMProtectedItemExtendedInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutput() DPMProtectedItemExtendedInfoInvokeResponsePtrOutput
+	ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Context) DPMProtectedItemExtendedInfoInvokeResponsePtrOutput
+}
+
+type dpmprotectedItemExtendedInfoInvokeResponsePtrType DPMProtectedItemExtendedInfoInvokeResponseArgs
+
+func DPMProtectedItemExtendedInfoInvokeResponsePtr(v *DPMProtectedItemExtendedInfoInvokeResponseArgs) DPMProtectedItemExtendedInfoInvokeResponsePtrInput {
+	return (*dpmprotectedItemExtendedInfoInvokeResponsePtrType)(v)
+}
+
+func (*dpmprotectedItemExtendedInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DPMProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *dpmprotectedItemExtendedInfoInvokeResponsePtrType) ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutput() DPMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dpmprotectedItemExtendedInfoInvokeResponsePtrType) ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Additional information of DPM Protected item.
+type DPMProtectedItemExtendedInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DPMProtectedItemExtendedInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DPMProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) ToDPMProtectedItemExtendedInfoInvokeResponseOutput() DPMProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) ToDPMProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutput() DPMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *DPMProtectedItemExtendedInfoInvokeResponse {
+		return &v
+	}).(DPMProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Used Disk storage in bytes.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) DiskStorageUsedInBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *string { return v.DiskStorageUsedInBytes }).(pulumi.StringPtrOutput)
+}
+
+// To check if backup item is collocated.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) IsCollocated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *bool { return v.IsCollocated }).(pulumi.BoolPtrOutput)
+}
+
+// To check if backup item is cloud protected.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) IsPresentOnCloud() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *bool { return v.IsPresentOnCloud }).(pulumi.BoolPtrOutput)
+}
+
+// Last backup status information on backup item.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Last refresh time on backup item.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) LastRefreshedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *string { return v.LastRefreshedAt }).(pulumi.StringPtrOutput)
+}
+
+// Oldest cloud recovery point time.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// latest disk recovery point time.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) OnPremiseLatestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *string { return v.OnPremiseLatestRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// Oldest disk recovery point time.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) OnPremiseOldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *string { return v.OnPremiseOldestRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// disk recovery point count.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) OnPremiseRecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *int { return v.OnPremiseRecoveryPointCount }).(pulumi.IntPtrOutput)
+}
+
+// Attribute to provide information on various DBs.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) ProtectableObjectLoadPath() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) map[string]string {
+		return v.ProtectableObjectLoadPath
+	}).(pulumi.StringMapOutput)
+}
+
+// To check if backup item is disk protected.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) Protected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *bool { return v.Protected }).(pulumi.BoolPtrOutput)
+}
+
+// Protection group name of the backup item.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) ProtectionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *string { return v.ProtectionGroupName }).(pulumi.StringPtrOutput)
+}
+
+// cloud recovery point count.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
+}
+
+// total Disk storage in bytes.
+func (o DPMProtectedItemExtendedInfoInvokeResponseOutput) TotalDiskStorageSizeInBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemExtendedInfoInvokeResponse) *string { return v.TotalDiskStorageSizeInBytes }).(pulumi.StringPtrOutput)
+}
+
+type DPMProtectedItemExtendedInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DPMProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutput() DPMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) ToDPMProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) Elem() DPMProtectedItemExtendedInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) DPMProtectedItemExtendedInfoInvokeResponse {
+		return *v
+	}).(DPMProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+// Used Disk storage in bytes.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) DiskStorageUsedInBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskStorageUsedInBytes
+	}).(pulumi.StringPtrOutput)
+}
+
+// To check if backup item is collocated.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) IsCollocated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCollocated
+	}).(pulumi.BoolPtrOutput)
+}
+
+// To check if backup item is cloud protected.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) IsPresentOnCloud() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsPresentOnCloud
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Last backup status information on backup item.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastBackupStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last refresh time on backup item.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) LastRefreshedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastRefreshedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// Oldest cloud recovery point time.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OldestRecoveryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// latest disk recovery point time.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) OnPremiseLatestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnPremiseLatestRecoveryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Oldest disk recovery point time.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) OnPremiseOldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnPremiseOldestRecoveryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// disk recovery point count.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) OnPremiseRecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnPremiseRecoveryPointCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Attribute to provide information on various DBs.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) ProtectableObjectLoadPath() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ProtectableObjectLoadPath
+	}).(pulumi.StringMapOutput)
+}
+
+// To check if backup item is disk protected.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) Protected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Protected
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Protection group name of the backup item.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) ProtectionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProtectionGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// cloud recovery point count.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPointCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// total Disk storage in bytes.
+func (o DPMProtectedItemExtendedInfoInvokeResponsePtrOutput) TotalDiskStorageSizeInBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TotalDiskStorageSizeInBytes
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional information of DPM Protected item.
 type DPMProtectedItemExtendedInfoResponse struct {
 	// Used Disk storage in bytes.
 	DiskStorageUsedInBytes *string `pulumi:"diskStorageUsedInBytes"`
@@ -11502,6 +17338,219 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) TotalDiskStorageSizeInByt
 }
 
 // Additional information on Backup engine specific backup item.
+type DPMProtectedItemInvokeResponse struct {
+	// Backup Management server protecting this backup item
+	BackupEngineName *string `pulumi:"backupEngineName"`
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Extended info of the backup item.
+	ExtendedInfo *DPMProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the managed item
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// backup item type.
+	// Expected value is 'DPMProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Protection state of the backup engine
+	ProtectionState *string `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// DPMProtectedItemInvokeResponseInput is an input type that accepts DPMProtectedItemInvokeResponseArgs and DPMProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `DPMProtectedItemInvokeResponseInput` via:
+//
+//          DPMProtectedItemInvokeResponseArgs{...}
+type DPMProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDPMProtectedItemInvokeResponseOutput() DPMProtectedItemInvokeResponseOutput
+	ToDPMProtectedItemInvokeResponseOutputWithContext(context.Context) DPMProtectedItemInvokeResponseOutput
+}
+
+// Additional information on Backup engine specific backup item.
+type DPMProtectedItemInvokeResponseArgs struct {
+	// Backup Management server protecting this backup item
+	BackupEngineName pulumi.StringPtrInput `pulumi:"backupEngineName"`
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Extended info of the backup item.
+	ExtendedInfo DPMProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the managed item
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// backup item type.
+	// Expected value is 'DPMProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Protection state of the backup engine
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (DPMProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DPMProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i DPMProtectedItemInvokeResponseArgs) ToDPMProtectedItemInvokeResponseOutput() DPMProtectedItemInvokeResponseOutput {
+	return i.ToDPMProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DPMProtectedItemInvokeResponseArgs) ToDPMProtectedItemInvokeResponseOutputWithContext(ctx context.Context) DPMProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DPMProtectedItemInvokeResponseOutput)
+}
+
+// Additional information on Backup engine specific backup item.
+type DPMProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DPMProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DPMProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o DPMProtectedItemInvokeResponseOutput) ToDPMProtectedItemInvokeResponseOutput() DPMProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o DPMProtectedItemInvokeResponseOutput) ToDPMProtectedItemInvokeResponseOutputWithContext(ctx context.Context) DPMProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Backup Management server protecting this backup item
+func (o DPMProtectedItemInvokeResponseOutput) BackupEngineName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.BackupEngineName }).(pulumi.StringPtrOutput)
+}
+
+// Type of backup management for the backed up item.
+func (o DPMProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o DPMProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o DPMProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o DPMProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o DPMProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o DPMProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
+}
+
+// Extended info of the backup item.
+func (o DPMProtectedItemInvokeResponseOutput) ExtendedInfo() DPMProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *DPMProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(DPMProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the managed item
+func (o DPMProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o DPMProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o DPMProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o DPMProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o DPMProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o DPMProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'DPMProtectedItem'.
+func (o DPMProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Protection state of the backup engine
+func (o DPMProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o DPMProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o DPMProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// Additional information on Backup engine specific backup item.
 type DPMProtectedItemResponse struct {
 	// Backup Management server protecting this backup item
 	BackupEngineName *string `pulumi:"backupEngineName"`
@@ -11847,6 +17896,140 @@ func (o DailyRetentionFormatPtrOutput) DaysOfTheMonth() DayArrayOutput {
 }
 
 // Daily retention format.
+type DailyRetentionFormatInvokeResponse struct {
+	// List of days of the month.
+	DaysOfTheMonth []DayInvokeResponse `pulumi:"daysOfTheMonth"`
+}
+
+// DailyRetentionFormatInvokeResponseInput is an input type that accepts DailyRetentionFormatInvokeResponseArgs and DailyRetentionFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `DailyRetentionFormatInvokeResponseInput` via:
+//
+//          DailyRetentionFormatInvokeResponseArgs{...}
+type DailyRetentionFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDailyRetentionFormatInvokeResponseOutput() DailyRetentionFormatInvokeResponseOutput
+	ToDailyRetentionFormatInvokeResponseOutputWithContext(context.Context) DailyRetentionFormatInvokeResponseOutput
+}
+
+// Daily retention format.
+type DailyRetentionFormatInvokeResponseArgs struct {
+	// List of days of the month.
+	DaysOfTheMonth DayInvokeResponseArrayInput `pulumi:"daysOfTheMonth"`
+}
+
+func (DailyRetentionFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DailyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i DailyRetentionFormatInvokeResponseArgs) ToDailyRetentionFormatInvokeResponseOutput() DailyRetentionFormatInvokeResponseOutput {
+	return i.ToDailyRetentionFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DailyRetentionFormatInvokeResponseArgs) ToDailyRetentionFormatInvokeResponseOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionFormatInvokeResponseOutput)
+}
+
+func (i DailyRetentionFormatInvokeResponseArgs) ToDailyRetentionFormatInvokeResponsePtrOutput() DailyRetentionFormatInvokeResponsePtrOutput {
+	return i.ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DailyRetentionFormatInvokeResponseArgs) ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionFormatInvokeResponseOutput).ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DailyRetentionFormatInvokeResponsePtrInput is an input type that accepts DailyRetentionFormatInvokeResponseArgs, DailyRetentionFormatInvokeResponsePtr and DailyRetentionFormatInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DailyRetentionFormatInvokeResponsePtrInput` via:
+//
+//          DailyRetentionFormatInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DailyRetentionFormatInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDailyRetentionFormatInvokeResponsePtrOutput() DailyRetentionFormatInvokeResponsePtrOutput
+	ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(context.Context) DailyRetentionFormatInvokeResponsePtrOutput
+}
+
+type dailyRetentionFormatInvokeResponsePtrType DailyRetentionFormatInvokeResponseArgs
+
+func DailyRetentionFormatInvokeResponsePtr(v *DailyRetentionFormatInvokeResponseArgs) DailyRetentionFormatInvokeResponsePtrInput {
+	return (*dailyRetentionFormatInvokeResponsePtrType)(v)
+}
+
+func (*dailyRetentionFormatInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i *dailyRetentionFormatInvokeResponsePtrType) ToDailyRetentionFormatInvokeResponsePtrOutput() DailyRetentionFormatInvokeResponsePtrOutput {
+	return i.ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dailyRetentionFormatInvokeResponsePtrType) ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Daily retention format.
+type DailyRetentionFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DailyRetentionFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DailyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o DailyRetentionFormatInvokeResponseOutput) ToDailyRetentionFormatInvokeResponseOutput() DailyRetentionFormatInvokeResponseOutput {
+	return o
+}
+
+func (o DailyRetentionFormatInvokeResponseOutput) ToDailyRetentionFormatInvokeResponseOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponseOutput {
+	return o
+}
+
+func (o DailyRetentionFormatInvokeResponseOutput) ToDailyRetentionFormatInvokeResponsePtrOutput() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DailyRetentionFormatInvokeResponseOutput) ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DailyRetentionFormatInvokeResponse) *DailyRetentionFormatInvokeResponse {
+		return &v
+	}).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// List of days of the month.
+func (o DailyRetentionFormatInvokeResponseOutput) DaysOfTheMonth() DayInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DailyRetentionFormatInvokeResponse) []DayInvokeResponse { return v.DaysOfTheMonth }).(DayInvokeResponseArrayOutput)
+}
+
+type DailyRetentionFormatInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DailyRetentionFormatInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o DailyRetentionFormatInvokeResponsePtrOutput) ToDailyRetentionFormatInvokeResponsePtrOutput() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DailyRetentionFormatInvokeResponsePtrOutput) ToDailyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionFormatInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DailyRetentionFormatInvokeResponsePtrOutput) Elem() DailyRetentionFormatInvokeResponseOutput {
+	return o.ApplyT(func(v *DailyRetentionFormatInvokeResponse) DailyRetentionFormatInvokeResponse { return *v }).(DailyRetentionFormatInvokeResponseOutput)
+}
+
+// List of days of the month.
+func (o DailyRetentionFormatInvokeResponsePtrOutput) DaysOfTheMonth() DayInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *DailyRetentionFormatInvokeResponse) []DayInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfTheMonth
+	}).(DayInvokeResponseArrayOutput)
+}
+
+// Daily retention format.
 type DailyRetentionFormatResponse struct {
 	// List of days of the month.
 	DaysOfTheMonth []DayResponse `pulumi:"daysOfTheMonth"`
@@ -12134,6 +18317,161 @@ func (o DailyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOutp
 }
 
 // Daily retention schedule.
+type DailyRetentionScheduleInvokeResponse struct {
+	// Retention duration of retention Policy.
+	RetentionDuration *RetentionDurationInvokeResponse `pulumi:"retentionDuration"`
+	// Retention times of retention policy.
+	RetentionTimes []string `pulumi:"retentionTimes"`
+}
+
+// DailyRetentionScheduleInvokeResponseInput is an input type that accepts DailyRetentionScheduleInvokeResponseArgs and DailyRetentionScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `DailyRetentionScheduleInvokeResponseInput` via:
+//
+//          DailyRetentionScheduleInvokeResponseArgs{...}
+type DailyRetentionScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDailyRetentionScheduleInvokeResponseOutput() DailyRetentionScheduleInvokeResponseOutput
+	ToDailyRetentionScheduleInvokeResponseOutputWithContext(context.Context) DailyRetentionScheduleInvokeResponseOutput
+}
+
+// Daily retention schedule.
+type DailyRetentionScheduleInvokeResponseArgs struct {
+	// Retention duration of retention Policy.
+	RetentionDuration RetentionDurationInvokeResponsePtrInput `pulumi:"retentionDuration"`
+	// Retention times of retention policy.
+	RetentionTimes pulumi.StringArrayInput `pulumi:"retentionTimes"`
+}
+
+func (DailyRetentionScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DailyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i DailyRetentionScheduleInvokeResponseArgs) ToDailyRetentionScheduleInvokeResponseOutput() DailyRetentionScheduleInvokeResponseOutput {
+	return i.ToDailyRetentionScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DailyRetentionScheduleInvokeResponseArgs) ToDailyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionScheduleInvokeResponseOutput)
+}
+
+func (i DailyRetentionScheduleInvokeResponseArgs) ToDailyRetentionScheduleInvokeResponsePtrOutput() DailyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DailyRetentionScheduleInvokeResponseArgs) ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionScheduleInvokeResponseOutput).ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DailyRetentionScheduleInvokeResponsePtrInput is an input type that accepts DailyRetentionScheduleInvokeResponseArgs, DailyRetentionScheduleInvokeResponsePtr and DailyRetentionScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DailyRetentionScheduleInvokeResponsePtrInput` via:
+//
+//          DailyRetentionScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DailyRetentionScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDailyRetentionScheduleInvokeResponsePtrOutput() DailyRetentionScheduleInvokeResponsePtrOutput
+	ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Context) DailyRetentionScheduleInvokeResponsePtrOutput
+}
+
+type dailyRetentionScheduleInvokeResponsePtrType DailyRetentionScheduleInvokeResponseArgs
+
+func DailyRetentionScheduleInvokeResponsePtr(v *DailyRetentionScheduleInvokeResponseArgs) DailyRetentionScheduleInvokeResponsePtrInput {
+	return (*dailyRetentionScheduleInvokeResponsePtrType)(v)
+}
+
+func (*dailyRetentionScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *dailyRetentionScheduleInvokeResponsePtrType) ToDailyRetentionScheduleInvokeResponsePtrOutput() DailyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dailyRetentionScheduleInvokeResponsePtrType) ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DailyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Daily retention schedule.
+type DailyRetentionScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DailyRetentionScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DailyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o DailyRetentionScheduleInvokeResponseOutput) ToDailyRetentionScheduleInvokeResponseOutput() DailyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o DailyRetentionScheduleInvokeResponseOutput) ToDailyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o DailyRetentionScheduleInvokeResponseOutput) ToDailyRetentionScheduleInvokeResponsePtrOutput() DailyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DailyRetentionScheduleInvokeResponseOutput) ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DailyRetentionScheduleInvokeResponse) *DailyRetentionScheduleInvokeResponse {
+		return &v
+	}).(DailyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Retention duration of retention Policy.
+func (o DailyRetentionScheduleInvokeResponseOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DailyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Retention times of retention policy.
+func (o DailyRetentionScheduleInvokeResponseOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DailyRetentionScheduleInvokeResponse) []string { return v.RetentionTimes }).(pulumi.StringArrayOutput)
+}
+
+type DailyRetentionScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DailyRetentionScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DailyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o DailyRetentionScheduleInvokeResponsePtrOutput) ToDailyRetentionScheduleInvokeResponsePtrOutput() DailyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DailyRetentionScheduleInvokeResponsePtrOutput) ToDailyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) DailyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DailyRetentionScheduleInvokeResponsePtrOutput) Elem() DailyRetentionScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *DailyRetentionScheduleInvokeResponse) DailyRetentionScheduleInvokeResponse { return *v }).(DailyRetentionScheduleInvokeResponseOutput)
+}
+
+// Retention duration of retention Policy.
+func (o DailyRetentionScheduleInvokeResponsePtrOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *DailyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Retention times of retention policy.
+func (o DailyRetentionScheduleInvokeResponsePtrOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DailyRetentionScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTimes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Daily retention schedule.
 type DailyRetentionScheduleResponse struct {
 	// Retention duration of retention Policy.
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
@@ -12396,6 +18734,115 @@ func (o DayArrayOutput) Index(i pulumi.IntInput) DayOutput {
 }
 
 // Day of the week.
+type DayInvokeResponse struct {
+	// Date of the month
+	Date *int `pulumi:"date"`
+	// Whether Date is last date of month
+	IsLast *bool `pulumi:"isLast"`
+}
+
+// DayInvokeResponseInput is an input type that accepts DayInvokeResponseArgs and DayInvokeResponseOutput values.
+// You can construct a concrete instance of `DayInvokeResponseInput` via:
+//
+//          DayInvokeResponseArgs{...}
+type DayInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDayInvokeResponseOutput() DayInvokeResponseOutput
+	ToDayInvokeResponseOutputWithContext(context.Context) DayInvokeResponseOutput
+}
+
+// Day of the week.
+type DayInvokeResponseArgs struct {
+	// Date of the month
+	Date pulumi.IntPtrInput `pulumi:"date"`
+	// Whether Date is last date of month
+	IsLast pulumi.BoolPtrInput `pulumi:"isLast"`
+}
+
+func (DayInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DayInvokeResponse)(nil)).Elem()
+}
+
+func (i DayInvokeResponseArgs) ToDayInvokeResponseOutput() DayInvokeResponseOutput {
+	return i.ToDayInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DayInvokeResponseArgs) ToDayInvokeResponseOutputWithContext(ctx context.Context) DayInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayInvokeResponseOutput)
+}
+
+// DayInvokeResponseArrayInput is an input type that accepts DayInvokeResponseArray and DayInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DayInvokeResponseArrayInput` via:
+//
+//          DayInvokeResponseArray{ DayInvokeResponseArgs{...} }
+type DayInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDayInvokeResponseArrayOutput() DayInvokeResponseArrayOutput
+	ToDayInvokeResponseArrayOutputWithContext(context.Context) DayInvokeResponseArrayOutput
+}
+
+type DayInvokeResponseArray []DayInvokeResponseInput
+
+func (DayInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DayInvokeResponse)(nil)).Elem()
+}
+
+func (i DayInvokeResponseArray) ToDayInvokeResponseArrayOutput() DayInvokeResponseArrayOutput {
+	return i.ToDayInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DayInvokeResponseArray) ToDayInvokeResponseArrayOutputWithContext(ctx context.Context) DayInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayInvokeResponseArrayOutput)
+}
+
+// Day of the week.
+type DayInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DayInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DayInvokeResponse)(nil)).Elem()
+}
+
+func (o DayInvokeResponseOutput) ToDayInvokeResponseOutput() DayInvokeResponseOutput {
+	return o
+}
+
+func (o DayInvokeResponseOutput) ToDayInvokeResponseOutputWithContext(ctx context.Context) DayInvokeResponseOutput {
+	return o
+}
+
+// Date of the month
+func (o DayInvokeResponseOutput) Date() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DayInvokeResponse) *int { return v.Date }).(pulumi.IntPtrOutput)
+}
+
+// Whether Date is last date of month
+func (o DayInvokeResponseOutput) IsLast() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DayInvokeResponse) *bool { return v.IsLast }).(pulumi.BoolPtrOutput)
+}
+
+type DayInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DayInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DayInvokeResponse)(nil)).Elem()
+}
+
+func (o DayInvokeResponseArrayOutput) ToDayInvokeResponseArrayOutput() DayInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DayInvokeResponseArrayOutput) ToDayInvokeResponseArrayOutputWithContext(ctx context.Context) DayInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DayInvokeResponseArrayOutput) Index(i pulumi.IntInput) DayInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DayInvokeResponse {
+		return vs[0].([]DayInvokeResponse)[vs[1].(int)]
+	}).(DayInvokeResponseOutput)
+}
+
+// Day of the week.
 type DayResponse struct {
 	// Date of the month
 	Date *int `pulumi:"date"`
@@ -12647,6 +19094,156 @@ func (o DiskExclusionPropertiesPtrOutput) DiskLunList() pulumi.IntArrayOutput {
 // Flag to indicate whether DiskLunList is to be included/ excluded from backup.
 func (o DiskExclusionPropertiesPtrOutput) IsInclusionList() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DiskExclusionProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsInclusionList
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DiskExclusionPropertiesInvokeResponse struct {
+	// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+	DiskLunList []int `pulumi:"diskLunList"`
+	// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
+	IsInclusionList *bool `pulumi:"isInclusionList"`
+}
+
+// DiskExclusionPropertiesInvokeResponseInput is an input type that accepts DiskExclusionPropertiesInvokeResponseArgs and DiskExclusionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `DiskExclusionPropertiesInvokeResponseInput` via:
+//
+//          DiskExclusionPropertiesInvokeResponseArgs{...}
+type DiskExclusionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDiskExclusionPropertiesInvokeResponseOutput() DiskExclusionPropertiesInvokeResponseOutput
+	ToDiskExclusionPropertiesInvokeResponseOutputWithContext(context.Context) DiskExclusionPropertiesInvokeResponseOutput
+}
+
+type DiskExclusionPropertiesInvokeResponseArgs struct {
+	// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+	DiskLunList pulumi.IntArrayInput `pulumi:"diskLunList"`
+	// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
+	IsInclusionList pulumi.BoolPtrInput `pulumi:"isInclusionList"`
+}
+
+func (DiskExclusionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskExclusionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i DiskExclusionPropertiesInvokeResponseArgs) ToDiskExclusionPropertiesInvokeResponseOutput() DiskExclusionPropertiesInvokeResponseOutput {
+	return i.ToDiskExclusionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DiskExclusionPropertiesInvokeResponseArgs) ToDiskExclusionPropertiesInvokeResponseOutputWithContext(ctx context.Context) DiskExclusionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskExclusionPropertiesInvokeResponseOutput)
+}
+
+func (i DiskExclusionPropertiesInvokeResponseArgs) ToDiskExclusionPropertiesInvokeResponsePtrOutput() DiskExclusionPropertiesInvokeResponsePtrOutput {
+	return i.ToDiskExclusionPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DiskExclusionPropertiesInvokeResponseArgs) ToDiskExclusionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DiskExclusionPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskExclusionPropertiesInvokeResponseOutput).ToDiskExclusionPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DiskExclusionPropertiesInvokeResponsePtrInput is an input type that accepts DiskExclusionPropertiesInvokeResponseArgs, DiskExclusionPropertiesInvokeResponsePtr and DiskExclusionPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DiskExclusionPropertiesInvokeResponsePtrInput` via:
+//
+//          DiskExclusionPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DiskExclusionPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDiskExclusionPropertiesInvokeResponsePtrOutput() DiskExclusionPropertiesInvokeResponsePtrOutput
+	ToDiskExclusionPropertiesInvokeResponsePtrOutputWithContext(context.Context) DiskExclusionPropertiesInvokeResponsePtrOutput
+}
+
+type diskExclusionPropertiesInvokeResponsePtrType DiskExclusionPropertiesInvokeResponseArgs
+
+func DiskExclusionPropertiesInvokeResponsePtr(v *DiskExclusionPropertiesInvokeResponseArgs) DiskExclusionPropertiesInvokeResponsePtrInput {
+	return (*diskExclusionPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*diskExclusionPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskExclusionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *diskExclusionPropertiesInvokeResponsePtrType) ToDiskExclusionPropertiesInvokeResponsePtrOutput() DiskExclusionPropertiesInvokeResponsePtrOutput {
+	return i.ToDiskExclusionPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *diskExclusionPropertiesInvokeResponsePtrType) ToDiskExclusionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DiskExclusionPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskExclusionPropertiesInvokeResponsePtrOutput)
+}
+
+type DiskExclusionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DiskExclusionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskExclusionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o DiskExclusionPropertiesInvokeResponseOutput) ToDiskExclusionPropertiesInvokeResponseOutput() DiskExclusionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o DiskExclusionPropertiesInvokeResponseOutput) ToDiskExclusionPropertiesInvokeResponseOutputWithContext(ctx context.Context) DiskExclusionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o DiskExclusionPropertiesInvokeResponseOutput) ToDiskExclusionPropertiesInvokeResponsePtrOutput() DiskExclusionPropertiesInvokeResponsePtrOutput {
+	return o.ToDiskExclusionPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DiskExclusionPropertiesInvokeResponseOutput) ToDiskExclusionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DiskExclusionPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DiskExclusionPropertiesInvokeResponse) *DiskExclusionPropertiesInvokeResponse {
+		return &v
+	}).(DiskExclusionPropertiesInvokeResponsePtrOutput)
+}
+
+// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+func (o DiskExclusionPropertiesInvokeResponseOutput) DiskLunList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DiskExclusionPropertiesInvokeResponse) []int { return v.DiskLunList }).(pulumi.IntArrayOutput)
+}
+
+// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
+func (o DiskExclusionPropertiesInvokeResponseOutput) IsInclusionList() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DiskExclusionPropertiesInvokeResponse) *bool { return v.IsInclusionList }).(pulumi.BoolPtrOutput)
+}
+
+type DiskExclusionPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DiskExclusionPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DiskExclusionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o DiskExclusionPropertiesInvokeResponsePtrOutput) ToDiskExclusionPropertiesInvokeResponsePtrOutput() DiskExclusionPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DiskExclusionPropertiesInvokeResponsePtrOutput) ToDiskExclusionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) DiskExclusionPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DiskExclusionPropertiesInvokeResponsePtrOutput) Elem() DiskExclusionPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *DiskExclusionPropertiesInvokeResponse) DiskExclusionPropertiesInvokeResponse { return *v }).(DiskExclusionPropertiesInvokeResponseOutput)
+}
+
+// List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
+func (o DiskExclusionPropertiesInvokeResponsePtrOutput) DiskLunList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DiskExclusionPropertiesInvokeResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.DiskLunList
+	}).(pulumi.IntArrayOutput)
+}
+
+// Flag to indicate whether DiskLunList is to be included/ excluded from backup.
+func (o DiskExclusionPropertiesInvokeResponsePtrOutput) IsInclusionList() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DiskExclusionPropertiesInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -12914,6 +19511,127 @@ func (o DistributedNodesInfoArrayOutput) Index(i pulumi.IntInput) DistributedNod
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributedNodesInfo {
 		return vs[0].([]DistributedNodesInfo)[vs[1].(int)]
 	}).(DistributedNodesInfoOutput)
+}
+
+// This is used to represent the various nodes of the distributed container.
+type DistributedNodesInfoInvokeResponse struct {
+	// Error Details if the Status is non-success.
+	ErrorDetail *ErrorDetailInvokeResponse `pulumi:"errorDetail"`
+	// Name of the node under a distributed container.
+	NodeName *string `pulumi:"nodeName"`
+	// Status of this Node.
+	// Failed | Succeeded
+	Status *string `pulumi:"status"`
+}
+
+// DistributedNodesInfoInvokeResponseInput is an input type that accepts DistributedNodesInfoInvokeResponseArgs and DistributedNodesInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `DistributedNodesInfoInvokeResponseInput` via:
+//
+//          DistributedNodesInfoInvokeResponseArgs{...}
+type DistributedNodesInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDistributedNodesInfoInvokeResponseOutput() DistributedNodesInfoInvokeResponseOutput
+	ToDistributedNodesInfoInvokeResponseOutputWithContext(context.Context) DistributedNodesInfoInvokeResponseOutput
+}
+
+// This is used to represent the various nodes of the distributed container.
+type DistributedNodesInfoInvokeResponseArgs struct {
+	// Error Details if the Status is non-success.
+	ErrorDetail ErrorDetailInvokeResponsePtrInput `pulumi:"errorDetail"`
+	// Name of the node under a distributed container.
+	NodeName pulumi.StringPtrInput `pulumi:"nodeName"`
+	// Status of this Node.
+	// Failed | Succeeded
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DistributedNodesInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributedNodesInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i DistributedNodesInfoInvokeResponseArgs) ToDistributedNodesInfoInvokeResponseOutput() DistributedNodesInfoInvokeResponseOutput {
+	return i.ToDistributedNodesInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DistributedNodesInfoInvokeResponseArgs) ToDistributedNodesInfoInvokeResponseOutputWithContext(ctx context.Context) DistributedNodesInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributedNodesInfoInvokeResponseOutput)
+}
+
+// DistributedNodesInfoInvokeResponseArrayInput is an input type that accepts DistributedNodesInfoInvokeResponseArray and DistributedNodesInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DistributedNodesInfoInvokeResponseArrayInput` via:
+//
+//          DistributedNodesInfoInvokeResponseArray{ DistributedNodesInfoInvokeResponseArgs{...} }
+type DistributedNodesInfoInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDistributedNodesInfoInvokeResponseArrayOutput() DistributedNodesInfoInvokeResponseArrayOutput
+	ToDistributedNodesInfoInvokeResponseArrayOutputWithContext(context.Context) DistributedNodesInfoInvokeResponseArrayOutput
+}
+
+type DistributedNodesInfoInvokeResponseArray []DistributedNodesInfoInvokeResponseInput
+
+func (DistributedNodesInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributedNodesInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i DistributedNodesInfoInvokeResponseArray) ToDistributedNodesInfoInvokeResponseArrayOutput() DistributedNodesInfoInvokeResponseArrayOutput {
+	return i.ToDistributedNodesInfoInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DistributedNodesInfoInvokeResponseArray) ToDistributedNodesInfoInvokeResponseArrayOutputWithContext(ctx context.Context) DistributedNodesInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributedNodesInfoInvokeResponseArrayOutput)
+}
+
+// This is used to represent the various nodes of the distributed container.
+type DistributedNodesInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DistributedNodesInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributedNodesInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o DistributedNodesInfoInvokeResponseOutput) ToDistributedNodesInfoInvokeResponseOutput() DistributedNodesInfoInvokeResponseOutput {
+	return o
+}
+
+func (o DistributedNodesInfoInvokeResponseOutput) ToDistributedNodesInfoInvokeResponseOutputWithContext(ctx context.Context) DistributedNodesInfoInvokeResponseOutput {
+	return o
+}
+
+// Error Details if the Status is non-success.
+func (o DistributedNodesInfoInvokeResponseOutput) ErrorDetail() ErrorDetailInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DistributedNodesInfoInvokeResponse) *ErrorDetailInvokeResponse { return v.ErrorDetail }).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Name of the node under a distributed container.
+func (o DistributedNodesInfoInvokeResponseOutput) NodeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributedNodesInfoInvokeResponse) *string { return v.NodeName }).(pulumi.StringPtrOutput)
+}
+
+// Status of this Node.
+// Failed | Succeeded
+func (o DistributedNodesInfoInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributedNodesInfoInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DistributedNodesInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributedNodesInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributedNodesInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o DistributedNodesInfoInvokeResponseArrayOutput) ToDistributedNodesInfoInvokeResponseArrayOutput() DistributedNodesInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DistributedNodesInfoInvokeResponseArrayOutput) ToDistributedNodesInfoInvokeResponseArrayOutputWithContext(ctx context.Context) DistributedNodesInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DistributedNodesInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) DistributedNodesInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributedNodesInfoInvokeResponse {
+		return vs[0].([]DistributedNodesInfoInvokeResponse)[vs[1].(int)]
+	}).(DistributedNodesInfoInvokeResponseOutput)
 }
 
 // This is used to represent the various nodes of the distributed container.
@@ -13213,6 +19931,181 @@ func (o DpmContainerOutput) UpgradeAvailable() pulumi.BoolPtrOutput {
 }
 
 // DPM workload-specific protection container.
+type DpmContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Specifies whether the container is re-registrable.
+	CanReRegister *bool `pulumi:"canReRegister"`
+	// ID of container.
+	ContainerId *string `pulumi:"containerId"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Backup engine Agent version
+	DpmAgentVersion *string `pulumi:"dpmAgentVersion"`
+	// List of BackupEngines protecting the container
+	DpmServers []string `pulumi:"dpmServers"`
+	// Extended Info of the container.
+	ExtendedInfo *DPMContainerExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Number of protected items in the BackupEngine
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
+	// Protection status of the container.
+	ProtectionStatus *string `pulumi:"protectionStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// To check if upgrade available
+	UpgradeAvailable *bool `pulumi:"upgradeAvailable"`
+}
+
+// DpmContainerInvokeResponseInput is an input type that accepts DpmContainerInvokeResponseArgs and DpmContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `DpmContainerInvokeResponseInput` via:
+//
+//          DpmContainerInvokeResponseArgs{...}
+type DpmContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDpmContainerInvokeResponseOutput() DpmContainerInvokeResponseOutput
+	ToDpmContainerInvokeResponseOutputWithContext(context.Context) DpmContainerInvokeResponseOutput
+}
+
+// DPM workload-specific protection container.
+type DpmContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Specifies whether the container is re-registrable.
+	CanReRegister pulumi.BoolPtrInput `pulumi:"canReRegister"`
+	// ID of container.
+	ContainerId pulumi.StringPtrInput `pulumi:"containerId"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'DPMContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Backup engine Agent version
+	DpmAgentVersion pulumi.StringPtrInput `pulumi:"dpmAgentVersion"`
+	// List of BackupEngines protecting the container
+	DpmServers pulumi.StringArrayInput `pulumi:"dpmServers"`
+	// Extended Info of the container.
+	ExtendedInfo DPMContainerExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Number of protected items in the BackupEngine
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
+	// Protection status of the container.
+	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// To check if upgrade available
+	UpgradeAvailable pulumi.BoolPtrInput `pulumi:"upgradeAvailable"`
+}
+
+func (DpmContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DpmContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i DpmContainerInvokeResponseArgs) ToDpmContainerInvokeResponseOutput() DpmContainerInvokeResponseOutput {
+	return i.ToDpmContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DpmContainerInvokeResponseArgs) ToDpmContainerInvokeResponseOutputWithContext(ctx context.Context) DpmContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DpmContainerInvokeResponseOutput)
+}
+
+// DPM workload-specific protection container.
+type DpmContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DpmContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DpmContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o DpmContainerInvokeResponseOutput) ToDpmContainerInvokeResponseOutput() DpmContainerInvokeResponseOutput {
+	return o
+}
+
+func (o DpmContainerInvokeResponseOutput) ToDpmContainerInvokeResponseOutputWithContext(ctx context.Context) DpmContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o DpmContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container is re-registrable.
+func (o DpmContainerInvokeResponseOutput) CanReRegister() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *bool { return v.CanReRegister }).(pulumi.BoolPtrOutput)
+}
+
+// ID of container.
+func (o DpmContainerInvokeResponseOutput) ContainerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *string { return v.ContainerId }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'DPMContainer'.
+func (o DpmContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Backup engine Agent version
+func (o DpmContainerInvokeResponseOutput) DpmAgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *string { return v.DpmAgentVersion }).(pulumi.StringPtrOutput)
+}
+
+// List of BackupEngines protecting the container
+func (o DpmContainerInvokeResponseOutput) DpmServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) []string { return v.DpmServers }).(pulumi.StringArrayOutput)
+}
+
+// Extended Info of the container.
+func (o DpmContainerInvokeResponseOutput) ExtendedInfo() DPMContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *DPMContainerExtendedInfoInvokeResponse { return v.ExtendedInfo }).(DPMContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the container.
+func (o DpmContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o DpmContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Number of protected items in the BackupEngine
+func (o DpmContainerInvokeResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
+}
+
+// Protection status of the container.
+func (o DpmContainerInvokeResponseOutput) ProtectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *string { return v.ProtectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o DpmContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// To check if upgrade available
+func (o DpmContainerInvokeResponseOutput) UpgradeAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DpmContainerInvokeResponse) *bool { return v.UpgradeAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// DPM workload-specific protection container.
 type DpmContainerResponse struct {
 	// Type of backup management for the container.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -13385,6 +20278,178 @@ func (o DpmContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput 
 // To check if upgrade available
 func (o DpmContainerResponseOutput) UpgradeAvailable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DpmContainerResponse) *bool { return v.UpgradeAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// Error Detail class which encapsulates Code, Message and Recommendations.
+type ErrorDetailInvokeResponse struct {
+	// Error code.
+	Code string `pulumi:"code"`
+	// Error Message related to the Code.
+	Message string `pulumi:"message"`
+	// List of recommendation strings.
+	Recommendations []string `pulumi:"recommendations"`
+}
+
+// ErrorDetailInvokeResponseInput is an input type that accepts ErrorDetailInvokeResponseArgs and ErrorDetailInvokeResponseOutput values.
+// You can construct a concrete instance of `ErrorDetailInvokeResponseInput` via:
+//
+//          ErrorDetailInvokeResponseArgs{...}
+type ErrorDetailInvokeResponseInput interface {
+	pulumi.Input
+
+	ToErrorDetailInvokeResponseOutput() ErrorDetailInvokeResponseOutput
+	ToErrorDetailInvokeResponseOutputWithContext(context.Context) ErrorDetailInvokeResponseOutput
+}
+
+// Error Detail class which encapsulates Code, Message and Recommendations.
+type ErrorDetailInvokeResponseArgs struct {
+	// Error code.
+	Code pulumi.StringInput `pulumi:"code"`
+	// Error Message related to the Code.
+	Message pulumi.StringInput `pulumi:"message"`
+	// List of recommendation strings.
+	Recommendations pulumi.StringArrayInput `pulumi:"recommendations"`
+}
+
+func (ErrorDetailInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (i ErrorDetailInvokeResponseArgs) ToErrorDetailInvokeResponseOutput() ErrorDetailInvokeResponseOutput {
+	return i.ToErrorDetailInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailInvokeResponseArgs) ToErrorDetailInvokeResponseOutputWithContext(ctx context.Context) ErrorDetailInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailInvokeResponseOutput)
+}
+
+func (i ErrorDetailInvokeResponseArgs) ToErrorDetailInvokeResponsePtrOutput() ErrorDetailInvokeResponsePtrOutput {
+	return i.ToErrorDetailInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailInvokeResponseArgs) ToErrorDetailInvokeResponsePtrOutputWithContext(ctx context.Context) ErrorDetailInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailInvokeResponseOutput).ToErrorDetailInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ErrorDetailInvokeResponsePtrInput is an input type that accepts ErrorDetailInvokeResponseArgs, ErrorDetailInvokeResponsePtr and ErrorDetailInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ErrorDetailInvokeResponsePtrInput` via:
+//
+//          ErrorDetailInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ErrorDetailInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToErrorDetailInvokeResponsePtrOutput() ErrorDetailInvokeResponsePtrOutput
+	ToErrorDetailInvokeResponsePtrOutputWithContext(context.Context) ErrorDetailInvokeResponsePtrOutput
+}
+
+type errorDetailInvokeResponsePtrType ErrorDetailInvokeResponseArgs
+
+func ErrorDetailInvokeResponsePtr(v *ErrorDetailInvokeResponseArgs) ErrorDetailInvokeResponsePtrInput {
+	return (*errorDetailInvokeResponsePtrType)(v)
+}
+
+func (*errorDetailInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (i *errorDetailInvokeResponsePtrType) ToErrorDetailInvokeResponsePtrOutput() ErrorDetailInvokeResponsePtrOutput {
+	return i.ToErrorDetailInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *errorDetailInvokeResponsePtrType) ToErrorDetailInvokeResponsePtrOutputWithContext(ctx context.Context) ErrorDetailInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Error Detail class which encapsulates Code, Message and Recommendations.
+type ErrorDetailInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailInvokeResponseOutput) ToErrorDetailInvokeResponseOutput() ErrorDetailInvokeResponseOutput {
+	return o
+}
+
+func (o ErrorDetailInvokeResponseOutput) ToErrorDetailInvokeResponseOutputWithContext(ctx context.Context) ErrorDetailInvokeResponseOutput {
+	return o
+}
+
+func (o ErrorDetailInvokeResponseOutput) ToErrorDetailInvokeResponsePtrOutput() ErrorDetailInvokeResponsePtrOutput {
+	return o.ToErrorDetailInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ErrorDetailInvokeResponseOutput) ToErrorDetailInvokeResponsePtrOutputWithContext(ctx context.Context) ErrorDetailInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) *ErrorDetailInvokeResponse {
+		return &v
+	}).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Error code.
+func (o ErrorDetailInvokeResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Error Message related to the Code.
+func (o ErrorDetailInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// List of recommendation strings.
+func (o ErrorDetailInvokeResponseOutput) Recommendations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ErrorDetailInvokeResponse) []string { return v.Recommendations }).(pulumi.StringArrayOutput)
+}
+
+type ErrorDetailInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailInvokeResponsePtrOutput) ToErrorDetailInvokeResponsePtrOutput() ErrorDetailInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ErrorDetailInvokeResponsePtrOutput) ToErrorDetailInvokeResponsePtrOutputWithContext(ctx context.Context) ErrorDetailInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ErrorDetailInvokeResponsePtrOutput) Elem() ErrorDetailInvokeResponseOutput {
+	return o.ApplyT(func(v *ErrorDetailInvokeResponse) ErrorDetailInvokeResponse { return *v }).(ErrorDetailInvokeResponseOutput)
+}
+
+// Error code.
+func (o ErrorDetailInvokeResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorDetailInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// Error Message related to the Code.
+func (o ErrorDetailInvokeResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ErrorDetailInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of recommendation strings.
+func (o ErrorDetailInvokeResponsePtrOutput) Recommendations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ErrorDetailInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Recommendations
+	}).(pulumi.StringArrayOutput)
 }
 
 // Error Detail class which encapsulates Code, Message and Recommendations.
@@ -13691,6 +20756,142 @@ func (o ExtendedPropertiesPtrOutput) DiskExclusionProperties() DiskExclusionProp
 		}
 		return v.DiskExclusionProperties
 	}).(DiskExclusionPropertiesPtrOutput)
+}
+
+// Extended Properties for Azure IaasVM Backup.
+type ExtendedPropertiesInvokeResponse struct {
+	// Extended Properties for Disk Exclusion.
+	DiskExclusionProperties *DiskExclusionPropertiesInvokeResponse `pulumi:"diskExclusionProperties"`
+}
+
+// ExtendedPropertiesInvokeResponseInput is an input type that accepts ExtendedPropertiesInvokeResponseArgs and ExtendedPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ExtendedPropertiesInvokeResponseInput` via:
+//
+//          ExtendedPropertiesInvokeResponseArgs{...}
+type ExtendedPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToExtendedPropertiesInvokeResponseOutput() ExtendedPropertiesInvokeResponseOutput
+	ToExtendedPropertiesInvokeResponseOutputWithContext(context.Context) ExtendedPropertiesInvokeResponseOutput
+}
+
+// Extended Properties for Azure IaasVM Backup.
+type ExtendedPropertiesInvokeResponseArgs struct {
+	// Extended Properties for Disk Exclusion.
+	DiskExclusionProperties DiskExclusionPropertiesInvokeResponsePtrInput `pulumi:"diskExclusionProperties"`
+}
+
+func (ExtendedPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ExtendedPropertiesInvokeResponseArgs) ToExtendedPropertiesInvokeResponseOutput() ExtendedPropertiesInvokeResponseOutput {
+	return i.ToExtendedPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ExtendedPropertiesInvokeResponseArgs) ToExtendedPropertiesInvokeResponseOutputWithContext(ctx context.Context) ExtendedPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedPropertiesInvokeResponseOutput)
+}
+
+func (i ExtendedPropertiesInvokeResponseArgs) ToExtendedPropertiesInvokeResponsePtrOutput() ExtendedPropertiesInvokeResponsePtrOutput {
+	return i.ToExtendedPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ExtendedPropertiesInvokeResponseArgs) ToExtendedPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ExtendedPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedPropertiesInvokeResponseOutput).ToExtendedPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ExtendedPropertiesInvokeResponsePtrInput is an input type that accepts ExtendedPropertiesInvokeResponseArgs, ExtendedPropertiesInvokeResponsePtr and ExtendedPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ExtendedPropertiesInvokeResponsePtrInput` via:
+//
+//          ExtendedPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ExtendedPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToExtendedPropertiesInvokeResponsePtrOutput() ExtendedPropertiesInvokeResponsePtrOutput
+	ToExtendedPropertiesInvokeResponsePtrOutputWithContext(context.Context) ExtendedPropertiesInvokeResponsePtrOutput
+}
+
+type extendedPropertiesInvokeResponsePtrType ExtendedPropertiesInvokeResponseArgs
+
+func ExtendedPropertiesInvokeResponsePtr(v *ExtendedPropertiesInvokeResponseArgs) ExtendedPropertiesInvokeResponsePtrInput {
+	return (*extendedPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*extendedPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *extendedPropertiesInvokeResponsePtrType) ToExtendedPropertiesInvokeResponsePtrOutput() ExtendedPropertiesInvokeResponsePtrOutput {
+	return i.ToExtendedPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *extendedPropertiesInvokeResponsePtrType) ToExtendedPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ExtendedPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtendedPropertiesInvokeResponsePtrOutput)
+}
+
+// Extended Properties for Azure IaasVM Backup.
+type ExtendedPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtendedPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtendedPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ExtendedPropertiesInvokeResponseOutput) ToExtendedPropertiesInvokeResponseOutput() ExtendedPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ExtendedPropertiesInvokeResponseOutput) ToExtendedPropertiesInvokeResponseOutputWithContext(ctx context.Context) ExtendedPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ExtendedPropertiesInvokeResponseOutput) ToExtendedPropertiesInvokeResponsePtrOutput() ExtendedPropertiesInvokeResponsePtrOutput {
+	return o.ToExtendedPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ExtendedPropertiesInvokeResponseOutput) ToExtendedPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ExtendedPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ExtendedPropertiesInvokeResponse) *ExtendedPropertiesInvokeResponse {
+		return &v
+	}).(ExtendedPropertiesInvokeResponsePtrOutput)
+}
+
+// Extended Properties for Disk Exclusion.
+func (o ExtendedPropertiesInvokeResponseOutput) DiskExclusionProperties() DiskExclusionPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ExtendedPropertiesInvokeResponse) *DiskExclusionPropertiesInvokeResponse {
+		return v.DiskExclusionProperties
+	}).(DiskExclusionPropertiesInvokeResponsePtrOutput)
+}
+
+type ExtendedPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ExtendedPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExtendedPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ExtendedPropertiesInvokeResponsePtrOutput) ToExtendedPropertiesInvokeResponsePtrOutput() ExtendedPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedPropertiesInvokeResponsePtrOutput) ToExtendedPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ExtendedPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ExtendedPropertiesInvokeResponsePtrOutput) Elem() ExtendedPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *ExtendedPropertiesInvokeResponse) ExtendedPropertiesInvokeResponse { return *v }).(ExtendedPropertiesInvokeResponseOutput)
+}
+
+// Extended Properties for Disk Exclusion.
+func (o ExtendedPropertiesInvokeResponsePtrOutput) DiskExclusionProperties() DiskExclusionPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ExtendedPropertiesInvokeResponse) *DiskExclusionPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DiskExclusionProperties
+	}).(DiskExclusionPropertiesInvokeResponsePtrOutput)
 }
 
 // Extended Properties for Azure IaasVM Backup.
@@ -14121,6 +21322,182 @@ func (o GenericContainerExtendedInfoPtrOutput) ServiceEndpoints() pulumi.StringM
 }
 
 // Container extended information
+type GenericContainerExtendedInfoInvokeResponse struct {
+	// Container identity information
+	ContainerIdentityInfo *ContainerIdentityInfoInvokeResponse `pulumi:"containerIdentityInfo"`
+	// Public key of container cert
+	RawCertData *string `pulumi:"rawCertData"`
+	// Azure Backup Service Endpoints for the container
+	ServiceEndpoints map[string]string `pulumi:"serviceEndpoints"`
+}
+
+// GenericContainerExtendedInfoInvokeResponseInput is an input type that accepts GenericContainerExtendedInfoInvokeResponseArgs and GenericContainerExtendedInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `GenericContainerExtendedInfoInvokeResponseInput` via:
+//
+//          GenericContainerExtendedInfoInvokeResponseArgs{...}
+type GenericContainerExtendedInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGenericContainerExtendedInfoInvokeResponseOutput() GenericContainerExtendedInfoInvokeResponseOutput
+	ToGenericContainerExtendedInfoInvokeResponseOutputWithContext(context.Context) GenericContainerExtendedInfoInvokeResponseOutput
+}
+
+// Container extended information
+type GenericContainerExtendedInfoInvokeResponseArgs struct {
+	// Container identity information
+	ContainerIdentityInfo ContainerIdentityInfoInvokeResponsePtrInput `pulumi:"containerIdentityInfo"`
+	// Public key of container cert
+	RawCertData pulumi.StringPtrInput `pulumi:"rawCertData"`
+	// Azure Backup Service Endpoints for the container
+	ServiceEndpoints pulumi.StringMapInput `pulumi:"serviceEndpoints"`
+}
+
+func (GenericContainerExtendedInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GenericContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i GenericContainerExtendedInfoInvokeResponseArgs) ToGenericContainerExtendedInfoInvokeResponseOutput() GenericContainerExtendedInfoInvokeResponseOutput {
+	return i.ToGenericContainerExtendedInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GenericContainerExtendedInfoInvokeResponseArgs) ToGenericContainerExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) GenericContainerExtendedInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GenericContainerExtendedInfoInvokeResponseOutput)
+}
+
+func (i GenericContainerExtendedInfoInvokeResponseArgs) ToGenericContainerExtendedInfoInvokeResponsePtrOutput() GenericContainerExtendedInfoInvokeResponsePtrOutput {
+	return i.ToGenericContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GenericContainerExtendedInfoInvokeResponseArgs) ToGenericContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) GenericContainerExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GenericContainerExtendedInfoInvokeResponseOutput).ToGenericContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// GenericContainerExtendedInfoInvokeResponsePtrInput is an input type that accepts GenericContainerExtendedInfoInvokeResponseArgs, GenericContainerExtendedInfoInvokeResponsePtr and GenericContainerExtendedInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `GenericContainerExtendedInfoInvokeResponsePtrInput` via:
+//
+//          GenericContainerExtendedInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GenericContainerExtendedInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToGenericContainerExtendedInfoInvokeResponsePtrOutput() GenericContainerExtendedInfoInvokeResponsePtrOutput
+	ToGenericContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Context) GenericContainerExtendedInfoInvokeResponsePtrOutput
+}
+
+type genericContainerExtendedInfoInvokeResponsePtrType GenericContainerExtendedInfoInvokeResponseArgs
+
+func GenericContainerExtendedInfoInvokeResponsePtr(v *GenericContainerExtendedInfoInvokeResponseArgs) GenericContainerExtendedInfoInvokeResponsePtrInput {
+	return (*genericContainerExtendedInfoInvokeResponsePtrType)(v)
+}
+
+func (*genericContainerExtendedInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GenericContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *genericContainerExtendedInfoInvokeResponsePtrType) ToGenericContainerExtendedInfoInvokeResponsePtrOutput() GenericContainerExtendedInfoInvokeResponsePtrOutput {
+	return i.ToGenericContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *genericContainerExtendedInfoInvokeResponsePtrType) ToGenericContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) GenericContainerExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GenericContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Container extended information
+type GenericContainerExtendedInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GenericContainerExtendedInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GenericContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o GenericContainerExtendedInfoInvokeResponseOutput) ToGenericContainerExtendedInfoInvokeResponseOutput() GenericContainerExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o GenericContainerExtendedInfoInvokeResponseOutput) ToGenericContainerExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) GenericContainerExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o GenericContainerExtendedInfoInvokeResponseOutput) ToGenericContainerExtendedInfoInvokeResponsePtrOutput() GenericContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ToGenericContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GenericContainerExtendedInfoInvokeResponseOutput) ToGenericContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) GenericContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GenericContainerExtendedInfoInvokeResponse) *GenericContainerExtendedInfoInvokeResponse {
+		return &v
+	}).(GenericContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Container identity information
+func (o GenericContainerExtendedInfoInvokeResponseOutput) ContainerIdentityInfo() ContainerIdentityInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GenericContainerExtendedInfoInvokeResponse) *ContainerIdentityInfoInvokeResponse {
+		return v.ContainerIdentityInfo
+	}).(ContainerIdentityInfoInvokeResponsePtrOutput)
+}
+
+// Public key of container cert
+func (o GenericContainerExtendedInfoInvokeResponseOutput) RawCertData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericContainerExtendedInfoInvokeResponse) *string { return v.RawCertData }).(pulumi.StringPtrOutput)
+}
+
+// Azure Backup Service Endpoints for the container
+func (o GenericContainerExtendedInfoInvokeResponseOutput) ServiceEndpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GenericContainerExtendedInfoInvokeResponse) map[string]string { return v.ServiceEndpoints }).(pulumi.StringMapOutput)
+}
+
+type GenericContainerExtendedInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GenericContainerExtendedInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GenericContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o GenericContainerExtendedInfoInvokeResponsePtrOutput) ToGenericContainerExtendedInfoInvokeResponsePtrOutput() GenericContainerExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GenericContainerExtendedInfoInvokeResponsePtrOutput) ToGenericContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) GenericContainerExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GenericContainerExtendedInfoInvokeResponsePtrOutput) Elem() GenericContainerExtendedInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *GenericContainerExtendedInfoInvokeResponse) GenericContainerExtendedInfoInvokeResponse {
+		return *v
+	}).(GenericContainerExtendedInfoInvokeResponseOutput)
+}
+
+// Container identity information
+func (o GenericContainerExtendedInfoInvokeResponsePtrOutput) ContainerIdentityInfo() ContainerIdentityInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *GenericContainerExtendedInfoInvokeResponse) *ContainerIdentityInfoInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerIdentityInfo
+	}).(ContainerIdentityInfoInvokeResponsePtrOutput)
+}
+
+// Public key of container cert
+func (o GenericContainerExtendedInfoInvokeResponsePtrOutput) RawCertData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GenericContainerExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RawCertData
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Backup Service Endpoints for the container
+func (o GenericContainerExtendedInfoInvokeResponsePtrOutput) ServiceEndpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GenericContainerExtendedInfoInvokeResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceEndpoints
+	}).(pulumi.StringMapOutput)
+}
+
+// Container extended information
 type GenericContainerExtendedInfoResponse struct {
 	// Container identity information
 	ContainerIdentityInfo *ContainerIdentityInfoResponse `pulumi:"containerIdentityInfo"`
@@ -14292,6 +21669,129 @@ func (o GenericContainerExtendedInfoResponsePtrOutput) ServiceEndpoints() pulumi
 		}
 		return v.ServiceEndpoints
 	}).(pulumi.StringMapOutput)
+}
+
+// Base class for generic container of backup items
+type GenericContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'GenericContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Extended information (not returned in List container API calls)
+	ExtendedInformation *GenericContainerExtendedInfoInvokeResponse `pulumi:"extendedInformation"`
+	// Name of the container's fabric
+	FabricName *string `pulumi:"fabricName"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+}
+
+// GenericContainerInvokeResponseInput is an input type that accepts GenericContainerInvokeResponseArgs and GenericContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `GenericContainerInvokeResponseInput` via:
+//
+//          GenericContainerInvokeResponseArgs{...}
+type GenericContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGenericContainerInvokeResponseOutput() GenericContainerInvokeResponseOutput
+	ToGenericContainerInvokeResponseOutputWithContext(context.Context) GenericContainerInvokeResponseOutput
+}
+
+// Base class for generic container of backup items
+type GenericContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'GenericContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Extended information (not returned in List container API calls)
+	ExtendedInformation GenericContainerExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInformation"`
+	// Name of the container's fabric
+	FabricName pulumi.StringPtrInput `pulumi:"fabricName"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+}
+
+func (GenericContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GenericContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i GenericContainerInvokeResponseArgs) ToGenericContainerInvokeResponseOutput() GenericContainerInvokeResponseOutput {
+	return i.ToGenericContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GenericContainerInvokeResponseArgs) ToGenericContainerInvokeResponseOutputWithContext(ctx context.Context) GenericContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GenericContainerInvokeResponseOutput)
+}
+
+// Base class for generic container of backup items
+type GenericContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GenericContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GenericContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o GenericContainerInvokeResponseOutput) ToGenericContainerInvokeResponseOutput() GenericContainerInvokeResponseOutput {
+	return o
+}
+
+func (o GenericContainerInvokeResponseOutput) ToGenericContainerInvokeResponseOutputWithContext(ctx context.Context) GenericContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o GenericContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'GenericContainer'.
+func (o GenericContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v GenericContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Extended information (not returned in List container API calls)
+func (o GenericContainerInvokeResponseOutput) ExtendedInformation() GenericContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GenericContainerInvokeResponse) *GenericContainerExtendedInfoInvokeResponse {
+		return v.ExtendedInformation
+	}).(GenericContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Name of the container's fabric
+func (o GenericContainerInvokeResponseOutput) FabricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericContainerInvokeResponse) *string { return v.FabricName }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of the container.
+func (o GenericContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o GenericContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o GenericContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
 // Base class for generic container of backup items
@@ -14645,6 +22145,235 @@ func (o GenericProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
 }
 
 // Base class for backup items.
+type GenericProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Name of this backup item's fabric.
+	FabricName *string `pulumi:"fabricName"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// Indicates consistency of policy object and policy applied to this backup item.
+	PolicyState *string `pulumi:"policyState"`
+	// Data Plane Service ID of the protected item.
+	ProtectedItemId *float64 `pulumi:"protectedItemId"`
+	// backup item type.
+	// Expected value is 'GenericProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// Loosely coupled (type, value) associations (example - parent of a protected item)
+	SourceAssociations map[string]string `pulumi:"sourceAssociations"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// GenericProtectedItemInvokeResponseInput is an input type that accepts GenericProtectedItemInvokeResponseArgs and GenericProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `GenericProtectedItemInvokeResponseInput` via:
+//
+//          GenericProtectedItemInvokeResponseArgs{...}
+type GenericProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGenericProtectedItemInvokeResponseOutput() GenericProtectedItemInvokeResponseOutput
+	ToGenericProtectedItemInvokeResponseOutputWithContext(context.Context) GenericProtectedItemInvokeResponseOutput
+}
+
+// Base class for backup items.
+type GenericProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Name of this backup item's fabric.
+	FabricName pulumi.StringPtrInput `pulumi:"fabricName"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Indicates consistency of policy object and policy applied to this backup item.
+	PolicyState pulumi.StringPtrInput `pulumi:"policyState"`
+	// Data Plane Service ID of the protected item.
+	ProtectedItemId pulumi.Float64PtrInput `pulumi:"protectedItemId"`
+	// backup item type.
+	// Expected value is 'GenericProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// Loosely coupled (type, value) associations (example - parent of a protected item)
+	SourceAssociations pulumi.StringMapInput `pulumi:"sourceAssociations"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (GenericProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GenericProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i GenericProtectedItemInvokeResponseArgs) ToGenericProtectedItemInvokeResponseOutput() GenericProtectedItemInvokeResponseOutput {
+	return i.ToGenericProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GenericProtectedItemInvokeResponseArgs) ToGenericProtectedItemInvokeResponseOutputWithContext(ctx context.Context) GenericProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GenericProtectedItemInvokeResponseOutput)
+}
+
+// Base class for backup items.
+type GenericProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GenericProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GenericProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o GenericProtectedItemInvokeResponseOutput) ToGenericProtectedItemInvokeResponseOutput() GenericProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o GenericProtectedItemInvokeResponseOutput) ToGenericProtectedItemInvokeResponseOutputWithContext(ctx context.Context) GenericProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o GenericProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o GenericProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o GenericProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o GenericProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o GenericProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o GenericProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
+}
+
+// Name of this backup item's fabric.
+func (o GenericProtectedItemInvokeResponseOutput) FabricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.FabricName }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of the container.
+func (o GenericProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o GenericProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o GenericProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o GenericProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o GenericProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o GenericProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Indicates consistency of policy object and policy applied to this backup item.
+func (o GenericProtectedItemInvokeResponseOutput) PolicyState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
+}
+
+// Data Plane Service ID of the protected item.
+func (o GenericProtectedItemInvokeResponseOutput) ProtectedItemId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *float64 { return v.ProtectedItemId }).(pulumi.Float64PtrOutput)
+}
+
+// backup item type.
+// Expected value is 'GenericProtectedItem'.
+func (o GenericProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Backup state of this backup item.
+func (o GenericProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// Loosely coupled (type, value) associations (example - parent of a protected item)
+func (o GenericProtectedItemInvokeResponseOutput) SourceAssociations() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) map[string]string { return v.SourceAssociations }).(pulumi.StringMapOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o GenericProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o GenericProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+}
+
+// Base class for backup items.
 type GenericProtectedItemResponse struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
@@ -14968,6 +22697,102 @@ func (o GenericProtectionPolicyOutput) TimeZone() pulumi.StringPtrOutput {
 }
 
 // Azure VM (Mercury) workload-specific backup policy.
+type GenericProtectionPolicyInvokeResponse struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'GenericProtectionPolicy'.
+	BackupManagementType string `pulumi:"backupManagementType"`
+	// Name of this policy's fabric.
+	FabricName *string `pulumi:"fabricName"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// List of sub-protection policies which includes schedule and retention
+	SubProtectionPolicy []SubProtectionPolicyInvokeResponse `pulumi:"subProtectionPolicy"`
+	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// GenericProtectionPolicyInvokeResponseInput is an input type that accepts GenericProtectionPolicyInvokeResponseArgs and GenericProtectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `GenericProtectionPolicyInvokeResponseInput` via:
+//
+//          GenericProtectionPolicyInvokeResponseArgs{...}
+type GenericProtectionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGenericProtectionPolicyInvokeResponseOutput() GenericProtectionPolicyInvokeResponseOutput
+	ToGenericProtectionPolicyInvokeResponseOutputWithContext(context.Context) GenericProtectionPolicyInvokeResponseOutput
+}
+
+// Azure VM (Mercury) workload-specific backup policy.
+type GenericProtectionPolicyInvokeResponseArgs struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'GenericProtectionPolicy'.
+	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
+	// Name of this policy's fabric.
+	FabricName pulumi.StringPtrInput `pulumi:"fabricName"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
+	// List of sub-protection policies which includes schedule and retention
+	SubProtectionPolicy SubProtectionPolicyInvokeResponseArrayInput `pulumi:"subProtectionPolicy"`
+	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (GenericProtectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GenericProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i GenericProtectionPolicyInvokeResponseArgs) ToGenericProtectionPolicyInvokeResponseOutput() GenericProtectionPolicyInvokeResponseOutput {
+	return i.ToGenericProtectionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GenericProtectionPolicyInvokeResponseArgs) ToGenericProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) GenericProtectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GenericProtectionPolicyInvokeResponseOutput)
+}
+
+// Azure VM (Mercury) workload-specific backup policy.
+type GenericProtectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GenericProtectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GenericProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o GenericProtectionPolicyInvokeResponseOutput) ToGenericProtectionPolicyInvokeResponseOutput() GenericProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o GenericProtectionPolicyInvokeResponseOutput) ToGenericProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) GenericProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'GenericProtectionPolicy'.
+func (o GenericProtectionPolicyInvokeResponseOutput) BackupManagementType() pulumi.StringOutput {
+	return o.ApplyT(func(v GenericProtectionPolicyInvokeResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
+}
+
+// Name of this policy's fabric.
+func (o GenericProtectionPolicyInvokeResponseOutput) FabricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectionPolicyInvokeResponse) *string { return v.FabricName }).(pulumi.StringPtrOutput)
+}
+
+// Number of items associated with this policy.
+func (o GenericProtectionPolicyInvokeResponseOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GenericProtectionPolicyInvokeResponse) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
+}
+
+// List of sub-protection policies which includes schedule and retention
+func (o GenericProtectionPolicyInvokeResponseOutput) SubProtectionPolicy() SubProtectionPolicyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v GenericProtectionPolicyInvokeResponse) []SubProtectionPolicyInvokeResponse {
+		return v.SubProtectionPolicy
+	}).(SubProtectionPolicyInvokeResponseArrayOutput)
+}
+
+// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+func (o GenericProtectionPolicyInvokeResponseOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectionPolicyInvokeResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+// Azure VM (Mercury) workload-specific backup policy.
 type GenericProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'GenericProtectionPolicy'.
@@ -15189,6 +23014,136 @@ func (o IaaSVMContainerOutput) VirtualMachineId() pulumi.StringPtrOutput {
 // Specifies whether the container represents a Classic or an Azure Resource Manager VM.
 func (o IaaSVMContainerOutput) VirtualMachineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IaaSVMContainer) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
+}
+
+// IaaS VM workload-specific container.
+type IaaSVMContainerInvokeResponse struct {
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType string `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId *string `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion *string `pulumi:"virtualMachineVersion"`
+}
+
+// IaaSVMContainerInvokeResponseInput is an input type that accepts IaaSVMContainerInvokeResponseArgs and IaaSVMContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `IaaSVMContainerInvokeResponseInput` via:
+//
+//          IaaSVMContainerInvokeResponseArgs{...}
+type IaaSVMContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIaaSVMContainerInvokeResponseOutput() IaaSVMContainerInvokeResponseOutput
+	ToIaaSVMContainerInvokeResponseOutputWithContext(context.Context) IaaSVMContainerInvokeResponseOutput
+}
+
+// IaaS VM workload-specific container.
+type IaaSVMContainerInvokeResponseArgs struct {
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'IaaSVMContainer'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	// Resource group name of Recovery Services Vault.
+	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
+	// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
+	// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+	VirtualMachineVersion pulumi.StringPtrInput `pulumi:"virtualMachineVersion"`
+}
+
+func (IaaSVMContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IaaSVMContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i IaaSVMContainerInvokeResponseArgs) ToIaaSVMContainerInvokeResponseOutput() IaaSVMContainerInvokeResponseOutput {
+	return i.ToIaaSVMContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IaaSVMContainerInvokeResponseArgs) ToIaaSVMContainerInvokeResponseOutputWithContext(ctx context.Context) IaaSVMContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IaaSVMContainerInvokeResponseOutput)
+}
+
+// IaaS VM workload-specific container.
+type IaaSVMContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IaaSVMContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IaaSVMContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o IaaSVMContainerInvokeResponseOutput) ToIaaSVMContainerInvokeResponseOutput() IaaSVMContainerInvokeResponseOutput {
+	return o
+}
+
+func (o IaaSVMContainerInvokeResponseOutput) ToIaaSVMContainerInvokeResponseOutputWithContext(ctx context.Context) IaaSVMContainerInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the container.
+func (o IaaSVMContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IaaSVMContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'IaaSVMContainer'.
+func (o IaaSVMContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v IaaSVMContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Friendly name of the container.
+func (o IaaSVMContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IaaSVMContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o IaaSVMContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IaaSVMContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o IaaSVMContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IaaSVMContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource group name of Recovery Services Vault.
+func (o IaaSVMContainerInvokeResponseOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IaaSVMContainerInvokeResponse) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
+func (o IaaSVMContainerInvokeResponseOutput) VirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IaaSVMContainerInvokeResponse) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the container represents a Classic or an Azure Resource Manager VM.
+func (o IaaSVMContainerInvokeResponseOutput) VirtualMachineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IaaSVMContainerInvokeResponse) *string { return v.VirtualMachineVersion }).(pulumi.StringPtrOutput)
 }
 
 // IaaS VM workload-specific container.
@@ -15475,6 +23430,186 @@ func (o InquiryInfoPtrOutput) InquiryDetails() WorkloadInquiryDetailsArrayOutput
 // InProgress | Failed | Succeeded
 func (o InquiryInfoPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InquiryInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details about inquired protectable items under a given container.
+type InquiryInfoInvokeResponse struct {
+	// Error Details if the Status is non-success.
+	ErrorDetail *ErrorDetailInvokeResponse `pulumi:"errorDetail"`
+	// Inquiry Details which will have workload specific details.
+	// For e.g. - For SQL and oracle this will contain different details.
+	InquiryDetails []WorkloadInquiryDetailsInvokeResponse `pulumi:"inquiryDetails"`
+	// Inquiry Status for this container such as
+	// InProgress | Failed | Succeeded
+	Status *string `pulumi:"status"`
+}
+
+// InquiryInfoInvokeResponseInput is an input type that accepts InquiryInfoInvokeResponseArgs and InquiryInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `InquiryInfoInvokeResponseInput` via:
+//
+//          InquiryInfoInvokeResponseArgs{...}
+type InquiryInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToInquiryInfoInvokeResponseOutput() InquiryInfoInvokeResponseOutput
+	ToInquiryInfoInvokeResponseOutputWithContext(context.Context) InquiryInfoInvokeResponseOutput
+}
+
+// Details about inquired protectable items under a given container.
+type InquiryInfoInvokeResponseArgs struct {
+	// Error Details if the Status is non-success.
+	ErrorDetail ErrorDetailInvokeResponsePtrInput `pulumi:"errorDetail"`
+	// Inquiry Details which will have workload specific details.
+	// For e.g. - For SQL and oracle this will contain different details.
+	InquiryDetails WorkloadInquiryDetailsInvokeResponseArrayInput `pulumi:"inquiryDetails"`
+	// Inquiry Status for this container such as
+	// InProgress | Failed | Succeeded
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (InquiryInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InquiryInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i InquiryInfoInvokeResponseArgs) ToInquiryInfoInvokeResponseOutput() InquiryInfoInvokeResponseOutput {
+	return i.ToInquiryInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i InquiryInfoInvokeResponseArgs) ToInquiryInfoInvokeResponseOutputWithContext(ctx context.Context) InquiryInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InquiryInfoInvokeResponseOutput)
+}
+
+func (i InquiryInfoInvokeResponseArgs) ToInquiryInfoInvokeResponsePtrOutput() InquiryInfoInvokeResponsePtrOutput {
+	return i.ToInquiryInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i InquiryInfoInvokeResponseArgs) ToInquiryInfoInvokeResponsePtrOutputWithContext(ctx context.Context) InquiryInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InquiryInfoInvokeResponseOutput).ToInquiryInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// InquiryInfoInvokeResponsePtrInput is an input type that accepts InquiryInfoInvokeResponseArgs, InquiryInfoInvokeResponsePtr and InquiryInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `InquiryInfoInvokeResponsePtrInput` via:
+//
+//          InquiryInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type InquiryInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToInquiryInfoInvokeResponsePtrOutput() InquiryInfoInvokeResponsePtrOutput
+	ToInquiryInfoInvokeResponsePtrOutputWithContext(context.Context) InquiryInfoInvokeResponsePtrOutput
+}
+
+type inquiryInfoInvokeResponsePtrType InquiryInfoInvokeResponseArgs
+
+func InquiryInfoInvokeResponsePtr(v *InquiryInfoInvokeResponseArgs) InquiryInfoInvokeResponsePtrInput {
+	return (*inquiryInfoInvokeResponsePtrType)(v)
+}
+
+func (*inquiryInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InquiryInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *inquiryInfoInvokeResponsePtrType) ToInquiryInfoInvokeResponsePtrOutput() InquiryInfoInvokeResponsePtrOutput {
+	return i.ToInquiryInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *inquiryInfoInvokeResponsePtrType) ToInquiryInfoInvokeResponsePtrOutputWithContext(ctx context.Context) InquiryInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InquiryInfoInvokeResponsePtrOutput)
+}
+
+// Details about inquired protectable items under a given container.
+type InquiryInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (InquiryInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InquiryInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o InquiryInfoInvokeResponseOutput) ToInquiryInfoInvokeResponseOutput() InquiryInfoInvokeResponseOutput {
+	return o
+}
+
+func (o InquiryInfoInvokeResponseOutput) ToInquiryInfoInvokeResponseOutputWithContext(ctx context.Context) InquiryInfoInvokeResponseOutput {
+	return o
+}
+
+func (o InquiryInfoInvokeResponseOutput) ToInquiryInfoInvokeResponsePtrOutput() InquiryInfoInvokeResponsePtrOutput {
+	return o.ToInquiryInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o InquiryInfoInvokeResponseOutput) ToInquiryInfoInvokeResponsePtrOutputWithContext(ctx context.Context) InquiryInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v InquiryInfoInvokeResponse) *InquiryInfoInvokeResponse {
+		return &v
+	}).(InquiryInfoInvokeResponsePtrOutput)
+}
+
+// Error Details if the Status is non-success.
+func (o InquiryInfoInvokeResponseOutput) ErrorDetail() ErrorDetailInvokeResponsePtrOutput {
+	return o.ApplyT(func(v InquiryInfoInvokeResponse) *ErrorDetailInvokeResponse { return v.ErrorDetail }).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Inquiry Details which will have workload specific details.
+// For e.g. - For SQL and oracle this will contain different details.
+func (o InquiryInfoInvokeResponseOutput) InquiryDetails() WorkloadInquiryDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v InquiryInfoInvokeResponse) []WorkloadInquiryDetailsInvokeResponse { return v.InquiryDetails }).(WorkloadInquiryDetailsInvokeResponseArrayOutput)
+}
+
+// Inquiry Status for this container such as
+// InProgress | Failed | Succeeded
+func (o InquiryInfoInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InquiryInfoInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type InquiryInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (InquiryInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InquiryInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o InquiryInfoInvokeResponsePtrOutput) ToInquiryInfoInvokeResponsePtrOutput() InquiryInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o InquiryInfoInvokeResponsePtrOutput) ToInquiryInfoInvokeResponsePtrOutputWithContext(ctx context.Context) InquiryInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o InquiryInfoInvokeResponsePtrOutput) Elem() InquiryInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *InquiryInfoInvokeResponse) InquiryInfoInvokeResponse { return *v }).(InquiryInfoInvokeResponseOutput)
+}
+
+// Error Details if the Status is non-success.
+func (o InquiryInfoInvokeResponsePtrOutput) ErrorDetail() ErrorDetailInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *InquiryInfoInvokeResponse) *ErrorDetailInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorDetail
+	}).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Inquiry Details which will have workload specific details.
+// For e.g. - For SQL and oracle this will contain different details.
+func (o InquiryInfoInvokeResponsePtrOutput) InquiryDetails() WorkloadInquiryDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *InquiryInfoInvokeResponse) []WorkloadInquiryDetailsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.InquiryDetails
+	}).(WorkloadInquiryDetailsInvokeResponseArrayOutput)
+}
+
+// Inquiry Status for this container such as
+// InProgress | Failed | Succeeded
+func (o InquiryInfoInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InquiryInfoInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -15797,6 +23932,178 @@ func (o InquiryValidationPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Validation for inquired protectable items under a given container.
+type InquiryValidationInvokeResponse struct {
+	// Error Additional Detail in case the status is non-success.
+	AdditionalDetail string `pulumi:"additionalDetail"`
+	// Error Detail in case the status is non-success.
+	ErrorDetail *ErrorDetailInvokeResponse `pulumi:"errorDetail"`
+	// Status for the Inquiry Validation.
+	Status *string `pulumi:"status"`
+}
+
+// InquiryValidationInvokeResponseInput is an input type that accepts InquiryValidationInvokeResponseArgs and InquiryValidationInvokeResponseOutput values.
+// You can construct a concrete instance of `InquiryValidationInvokeResponseInput` via:
+//
+//          InquiryValidationInvokeResponseArgs{...}
+type InquiryValidationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToInquiryValidationInvokeResponseOutput() InquiryValidationInvokeResponseOutput
+	ToInquiryValidationInvokeResponseOutputWithContext(context.Context) InquiryValidationInvokeResponseOutput
+}
+
+// Validation for inquired protectable items under a given container.
+type InquiryValidationInvokeResponseArgs struct {
+	// Error Additional Detail in case the status is non-success.
+	AdditionalDetail pulumi.StringInput `pulumi:"additionalDetail"`
+	// Error Detail in case the status is non-success.
+	ErrorDetail ErrorDetailInvokeResponsePtrInput `pulumi:"errorDetail"`
+	// Status for the Inquiry Validation.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (InquiryValidationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InquiryValidationInvokeResponse)(nil)).Elem()
+}
+
+func (i InquiryValidationInvokeResponseArgs) ToInquiryValidationInvokeResponseOutput() InquiryValidationInvokeResponseOutput {
+	return i.ToInquiryValidationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i InquiryValidationInvokeResponseArgs) ToInquiryValidationInvokeResponseOutputWithContext(ctx context.Context) InquiryValidationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InquiryValidationInvokeResponseOutput)
+}
+
+func (i InquiryValidationInvokeResponseArgs) ToInquiryValidationInvokeResponsePtrOutput() InquiryValidationInvokeResponsePtrOutput {
+	return i.ToInquiryValidationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i InquiryValidationInvokeResponseArgs) ToInquiryValidationInvokeResponsePtrOutputWithContext(ctx context.Context) InquiryValidationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InquiryValidationInvokeResponseOutput).ToInquiryValidationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// InquiryValidationInvokeResponsePtrInput is an input type that accepts InquiryValidationInvokeResponseArgs, InquiryValidationInvokeResponsePtr and InquiryValidationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `InquiryValidationInvokeResponsePtrInput` via:
+//
+//          InquiryValidationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type InquiryValidationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToInquiryValidationInvokeResponsePtrOutput() InquiryValidationInvokeResponsePtrOutput
+	ToInquiryValidationInvokeResponsePtrOutputWithContext(context.Context) InquiryValidationInvokeResponsePtrOutput
+}
+
+type inquiryValidationInvokeResponsePtrType InquiryValidationInvokeResponseArgs
+
+func InquiryValidationInvokeResponsePtr(v *InquiryValidationInvokeResponseArgs) InquiryValidationInvokeResponsePtrInput {
+	return (*inquiryValidationInvokeResponsePtrType)(v)
+}
+
+func (*inquiryValidationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InquiryValidationInvokeResponse)(nil)).Elem()
+}
+
+func (i *inquiryValidationInvokeResponsePtrType) ToInquiryValidationInvokeResponsePtrOutput() InquiryValidationInvokeResponsePtrOutput {
+	return i.ToInquiryValidationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *inquiryValidationInvokeResponsePtrType) ToInquiryValidationInvokeResponsePtrOutputWithContext(ctx context.Context) InquiryValidationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InquiryValidationInvokeResponsePtrOutput)
+}
+
+// Validation for inquired protectable items under a given container.
+type InquiryValidationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (InquiryValidationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InquiryValidationInvokeResponse)(nil)).Elem()
+}
+
+func (o InquiryValidationInvokeResponseOutput) ToInquiryValidationInvokeResponseOutput() InquiryValidationInvokeResponseOutput {
+	return o
+}
+
+func (o InquiryValidationInvokeResponseOutput) ToInquiryValidationInvokeResponseOutputWithContext(ctx context.Context) InquiryValidationInvokeResponseOutput {
+	return o
+}
+
+func (o InquiryValidationInvokeResponseOutput) ToInquiryValidationInvokeResponsePtrOutput() InquiryValidationInvokeResponsePtrOutput {
+	return o.ToInquiryValidationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o InquiryValidationInvokeResponseOutput) ToInquiryValidationInvokeResponsePtrOutputWithContext(ctx context.Context) InquiryValidationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v InquiryValidationInvokeResponse) *InquiryValidationInvokeResponse {
+		return &v
+	}).(InquiryValidationInvokeResponsePtrOutput)
+}
+
+// Error Additional Detail in case the status is non-success.
+func (o InquiryValidationInvokeResponseOutput) AdditionalDetail() pulumi.StringOutput {
+	return o.ApplyT(func(v InquiryValidationInvokeResponse) string { return v.AdditionalDetail }).(pulumi.StringOutput)
+}
+
+// Error Detail in case the status is non-success.
+func (o InquiryValidationInvokeResponseOutput) ErrorDetail() ErrorDetailInvokeResponsePtrOutput {
+	return o.ApplyT(func(v InquiryValidationInvokeResponse) *ErrorDetailInvokeResponse { return v.ErrorDetail }).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Status for the Inquiry Validation.
+func (o InquiryValidationInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InquiryValidationInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type InquiryValidationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (InquiryValidationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InquiryValidationInvokeResponse)(nil)).Elem()
+}
+
+func (o InquiryValidationInvokeResponsePtrOutput) ToInquiryValidationInvokeResponsePtrOutput() InquiryValidationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o InquiryValidationInvokeResponsePtrOutput) ToInquiryValidationInvokeResponsePtrOutputWithContext(ctx context.Context) InquiryValidationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o InquiryValidationInvokeResponsePtrOutput) Elem() InquiryValidationInvokeResponseOutput {
+	return o.ApplyT(func(v *InquiryValidationInvokeResponse) InquiryValidationInvokeResponse { return *v }).(InquiryValidationInvokeResponseOutput)
+}
+
+// Error Additional Detail in case the status is non-success.
+func (o InquiryValidationInvokeResponsePtrOutput) AdditionalDetail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InquiryValidationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdditionalDetail
+	}).(pulumi.StringPtrOutput)
+}
+
+// Error Detail in case the status is non-success.
+func (o InquiryValidationInvokeResponsePtrOutput) ErrorDetail() ErrorDetailInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *InquiryValidationInvokeResponse) *ErrorDetailInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorDetail
+	}).(ErrorDetailInvokeResponsePtrOutput)
+}
+
+// Status for the Inquiry Validation.
+func (o InquiryValidationInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InquiryValidationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Validation for inquired protectable items under a given container.
 type InquiryValidationResponse struct {
 	// Error Additional Detail in case the status is non-success.
 	AdditionalDetail string `pulumi:"additionalDetail"`
@@ -16109,6 +24416,147 @@ func (o InstantRPAdditionalDetailsPtrOutput) AzureBackupRGNameSuffix() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type InstantRPAdditionalDetailsInvokeResponse struct {
+	AzureBackupRGNamePrefix *string `pulumi:"azureBackupRGNamePrefix"`
+	AzureBackupRGNameSuffix *string `pulumi:"azureBackupRGNameSuffix"`
+}
+
+// InstantRPAdditionalDetailsInvokeResponseInput is an input type that accepts InstantRPAdditionalDetailsInvokeResponseArgs and InstantRPAdditionalDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `InstantRPAdditionalDetailsInvokeResponseInput` via:
+//
+//          InstantRPAdditionalDetailsInvokeResponseArgs{...}
+type InstantRPAdditionalDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToInstantRPAdditionalDetailsInvokeResponseOutput() InstantRPAdditionalDetailsInvokeResponseOutput
+	ToInstantRPAdditionalDetailsInvokeResponseOutputWithContext(context.Context) InstantRPAdditionalDetailsInvokeResponseOutput
+}
+
+type InstantRPAdditionalDetailsInvokeResponseArgs struct {
+	AzureBackupRGNamePrefix pulumi.StringPtrInput `pulumi:"azureBackupRGNamePrefix"`
+	AzureBackupRGNameSuffix pulumi.StringPtrInput `pulumi:"azureBackupRGNameSuffix"`
+}
+
+func (InstantRPAdditionalDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstantRPAdditionalDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i InstantRPAdditionalDetailsInvokeResponseArgs) ToInstantRPAdditionalDetailsInvokeResponseOutput() InstantRPAdditionalDetailsInvokeResponseOutput {
+	return i.ToInstantRPAdditionalDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i InstantRPAdditionalDetailsInvokeResponseArgs) ToInstantRPAdditionalDetailsInvokeResponseOutputWithContext(ctx context.Context) InstantRPAdditionalDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstantRPAdditionalDetailsInvokeResponseOutput)
+}
+
+func (i InstantRPAdditionalDetailsInvokeResponseArgs) ToInstantRPAdditionalDetailsInvokeResponsePtrOutput() InstantRPAdditionalDetailsInvokeResponsePtrOutput {
+	return i.ToInstantRPAdditionalDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i InstantRPAdditionalDetailsInvokeResponseArgs) ToInstantRPAdditionalDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) InstantRPAdditionalDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstantRPAdditionalDetailsInvokeResponseOutput).ToInstantRPAdditionalDetailsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// InstantRPAdditionalDetailsInvokeResponsePtrInput is an input type that accepts InstantRPAdditionalDetailsInvokeResponseArgs, InstantRPAdditionalDetailsInvokeResponsePtr and InstantRPAdditionalDetailsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `InstantRPAdditionalDetailsInvokeResponsePtrInput` via:
+//
+//          InstantRPAdditionalDetailsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type InstantRPAdditionalDetailsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToInstantRPAdditionalDetailsInvokeResponsePtrOutput() InstantRPAdditionalDetailsInvokeResponsePtrOutput
+	ToInstantRPAdditionalDetailsInvokeResponsePtrOutputWithContext(context.Context) InstantRPAdditionalDetailsInvokeResponsePtrOutput
+}
+
+type instantRPAdditionalDetailsInvokeResponsePtrType InstantRPAdditionalDetailsInvokeResponseArgs
+
+func InstantRPAdditionalDetailsInvokeResponsePtr(v *InstantRPAdditionalDetailsInvokeResponseArgs) InstantRPAdditionalDetailsInvokeResponsePtrInput {
+	return (*instantRPAdditionalDetailsInvokeResponsePtrType)(v)
+}
+
+func (*instantRPAdditionalDetailsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstantRPAdditionalDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i *instantRPAdditionalDetailsInvokeResponsePtrType) ToInstantRPAdditionalDetailsInvokeResponsePtrOutput() InstantRPAdditionalDetailsInvokeResponsePtrOutput {
+	return i.ToInstantRPAdditionalDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *instantRPAdditionalDetailsInvokeResponsePtrType) ToInstantRPAdditionalDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) InstantRPAdditionalDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstantRPAdditionalDetailsInvokeResponsePtrOutput)
+}
+
+type InstantRPAdditionalDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (InstantRPAdditionalDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstantRPAdditionalDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o InstantRPAdditionalDetailsInvokeResponseOutput) ToInstantRPAdditionalDetailsInvokeResponseOutput() InstantRPAdditionalDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o InstantRPAdditionalDetailsInvokeResponseOutput) ToInstantRPAdditionalDetailsInvokeResponseOutputWithContext(ctx context.Context) InstantRPAdditionalDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o InstantRPAdditionalDetailsInvokeResponseOutput) ToInstantRPAdditionalDetailsInvokeResponsePtrOutput() InstantRPAdditionalDetailsInvokeResponsePtrOutput {
+	return o.ToInstantRPAdditionalDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o InstantRPAdditionalDetailsInvokeResponseOutput) ToInstantRPAdditionalDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) InstantRPAdditionalDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v InstantRPAdditionalDetailsInvokeResponse) *InstantRPAdditionalDetailsInvokeResponse {
+		return &v
+	}).(InstantRPAdditionalDetailsInvokeResponsePtrOutput)
+}
+func (o InstantRPAdditionalDetailsInvokeResponseOutput) AzureBackupRGNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstantRPAdditionalDetailsInvokeResponse) *string { return v.AzureBackupRGNamePrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o InstantRPAdditionalDetailsInvokeResponseOutput) AzureBackupRGNameSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstantRPAdditionalDetailsInvokeResponse) *string { return v.AzureBackupRGNameSuffix }).(pulumi.StringPtrOutput)
+}
+
+type InstantRPAdditionalDetailsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (InstantRPAdditionalDetailsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstantRPAdditionalDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o InstantRPAdditionalDetailsInvokeResponsePtrOutput) ToInstantRPAdditionalDetailsInvokeResponsePtrOutput() InstantRPAdditionalDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o InstantRPAdditionalDetailsInvokeResponsePtrOutput) ToInstantRPAdditionalDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) InstantRPAdditionalDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o InstantRPAdditionalDetailsInvokeResponsePtrOutput) Elem() InstantRPAdditionalDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v *InstantRPAdditionalDetailsInvokeResponse) InstantRPAdditionalDetailsInvokeResponse { return *v }).(InstantRPAdditionalDetailsInvokeResponseOutput)
+}
+
+func (o InstantRPAdditionalDetailsInvokeResponsePtrOutput) AzureBackupRGNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstantRPAdditionalDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureBackupRGNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstantRPAdditionalDetailsInvokeResponsePtrOutput) AzureBackupRGNameSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstantRPAdditionalDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureBackupRGNameSuffix
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstantRPAdditionalDetailsResponse struct {
 	AzureBackupRGNamePrefix *string `pulumi:"azureBackupRGNamePrefix"`
 	AzureBackupRGNameSuffix *string `pulumi:"azureBackupRGNameSuffix"`
@@ -16351,6 +24799,117 @@ func (o KPIResourceHealthDetailsMapOutput) MapIndex(k pulumi.StringInput) KPIRes
 }
 
 // KPI Resource Health Details
+type KPIResourceHealthDetailsInvokeResponse struct {
+	// Resource Health Status
+	ResourceHealthDetails []ResourceHealthDetailsInvokeResponse `pulumi:"resourceHealthDetails"`
+	// Resource Health Status
+	ResourceHealthStatus *string `pulumi:"resourceHealthStatus"`
+}
+
+// KPIResourceHealthDetailsInvokeResponseInput is an input type that accepts KPIResourceHealthDetailsInvokeResponseArgs and KPIResourceHealthDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `KPIResourceHealthDetailsInvokeResponseInput` via:
+//
+//          KPIResourceHealthDetailsInvokeResponseArgs{...}
+type KPIResourceHealthDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKPIResourceHealthDetailsInvokeResponseOutput() KPIResourceHealthDetailsInvokeResponseOutput
+	ToKPIResourceHealthDetailsInvokeResponseOutputWithContext(context.Context) KPIResourceHealthDetailsInvokeResponseOutput
+}
+
+// KPI Resource Health Details
+type KPIResourceHealthDetailsInvokeResponseArgs struct {
+	// Resource Health Status
+	ResourceHealthDetails ResourceHealthDetailsInvokeResponseArrayInput `pulumi:"resourceHealthDetails"`
+	// Resource Health Status
+	ResourceHealthStatus pulumi.StringPtrInput `pulumi:"resourceHealthStatus"`
+}
+
+func (KPIResourceHealthDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KPIResourceHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i KPIResourceHealthDetailsInvokeResponseArgs) ToKPIResourceHealthDetailsInvokeResponseOutput() KPIResourceHealthDetailsInvokeResponseOutput {
+	return i.ToKPIResourceHealthDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KPIResourceHealthDetailsInvokeResponseArgs) ToKPIResourceHealthDetailsInvokeResponseOutputWithContext(ctx context.Context) KPIResourceHealthDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KPIResourceHealthDetailsInvokeResponseOutput)
+}
+
+// KPIResourceHealthDetailsInvokeResponseMapInput is an input type that accepts KPIResourceHealthDetailsInvokeResponseMap and KPIResourceHealthDetailsInvokeResponseMapOutput values.
+// You can construct a concrete instance of `KPIResourceHealthDetailsInvokeResponseMapInput` via:
+//
+//          KPIResourceHealthDetailsInvokeResponseMap{ "key": KPIResourceHealthDetailsInvokeResponseArgs{...} }
+type KPIResourceHealthDetailsInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToKPIResourceHealthDetailsInvokeResponseMapOutput() KPIResourceHealthDetailsInvokeResponseMapOutput
+	ToKPIResourceHealthDetailsInvokeResponseMapOutputWithContext(context.Context) KPIResourceHealthDetailsInvokeResponseMapOutput
+}
+
+type KPIResourceHealthDetailsInvokeResponseMap map[string]KPIResourceHealthDetailsInvokeResponseInput
+
+func (KPIResourceHealthDetailsInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]KPIResourceHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i KPIResourceHealthDetailsInvokeResponseMap) ToKPIResourceHealthDetailsInvokeResponseMapOutput() KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return i.ToKPIResourceHealthDetailsInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i KPIResourceHealthDetailsInvokeResponseMap) ToKPIResourceHealthDetailsInvokeResponseMapOutputWithContext(ctx context.Context) KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KPIResourceHealthDetailsInvokeResponseMapOutput)
+}
+
+// KPI Resource Health Details
+type KPIResourceHealthDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KPIResourceHealthDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KPIResourceHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o KPIResourceHealthDetailsInvokeResponseOutput) ToKPIResourceHealthDetailsInvokeResponseOutput() KPIResourceHealthDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o KPIResourceHealthDetailsInvokeResponseOutput) ToKPIResourceHealthDetailsInvokeResponseOutputWithContext(ctx context.Context) KPIResourceHealthDetailsInvokeResponseOutput {
+	return o
+}
+
+// Resource Health Status
+func (o KPIResourceHealthDetailsInvokeResponseOutput) ResourceHealthDetails() ResourceHealthDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v KPIResourceHealthDetailsInvokeResponse) []ResourceHealthDetailsInvokeResponse {
+		return v.ResourceHealthDetails
+	}).(ResourceHealthDetailsInvokeResponseArrayOutput)
+}
+
+// Resource Health Status
+func (o KPIResourceHealthDetailsInvokeResponseOutput) ResourceHealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KPIResourceHealthDetailsInvokeResponse) *string { return v.ResourceHealthStatus }).(pulumi.StringPtrOutput)
+}
+
+type KPIResourceHealthDetailsInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (KPIResourceHealthDetailsInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]KPIResourceHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o KPIResourceHealthDetailsInvokeResponseMapOutput) ToKPIResourceHealthDetailsInvokeResponseMapOutput() KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return o
+}
+
+func (o KPIResourceHealthDetailsInvokeResponseMapOutput) ToKPIResourceHealthDetailsInvokeResponseMapOutputWithContext(ctx context.Context) KPIResourceHealthDetailsInvokeResponseMapOutput {
+	return o
+}
+
+func (o KPIResourceHealthDetailsInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) KPIResourceHealthDetailsInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) KPIResourceHealthDetailsInvokeResponse {
+		return vs[0].(map[string]KPIResourceHealthDetailsInvokeResponse)[vs[1].(string)]
+	}).(KPIResourceHealthDetailsInvokeResponseOutput)
+}
+
+// KPI Resource Health Details
 type KPIResourceHealthDetailsResponse struct {
 	// Resource Health Status
 	ResourceHealthDetails []ResourceHealthDetailsResponse `pulumi:"resourceHealthDetails"`
@@ -16529,6 +25088,73 @@ func (o LogSchedulePolicyOutput) SchedulePolicyType() pulumi.StringOutput {
 }
 
 // Log policy schedule.
+type LogSchedulePolicyInvokeResponse struct {
+	// Frequency of the log schedule operation of this policy in minutes.
+	ScheduleFrequencyInMins *int `pulumi:"scheduleFrequencyInMins"`
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LogSchedulePolicy'.
+	SchedulePolicyType string `pulumi:"schedulePolicyType"`
+}
+
+// LogSchedulePolicyInvokeResponseInput is an input type that accepts LogSchedulePolicyInvokeResponseArgs and LogSchedulePolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `LogSchedulePolicyInvokeResponseInput` via:
+//
+//          LogSchedulePolicyInvokeResponseArgs{...}
+type LogSchedulePolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLogSchedulePolicyInvokeResponseOutput() LogSchedulePolicyInvokeResponseOutput
+	ToLogSchedulePolicyInvokeResponseOutputWithContext(context.Context) LogSchedulePolicyInvokeResponseOutput
+}
+
+// Log policy schedule.
+type LogSchedulePolicyInvokeResponseArgs struct {
+	// Frequency of the log schedule operation of this policy in minutes.
+	ScheduleFrequencyInMins pulumi.IntPtrInput `pulumi:"scheduleFrequencyInMins"`
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LogSchedulePolicy'.
+	SchedulePolicyType pulumi.StringInput `pulumi:"schedulePolicyType"`
+}
+
+func (LogSchedulePolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogSchedulePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i LogSchedulePolicyInvokeResponseArgs) ToLogSchedulePolicyInvokeResponseOutput() LogSchedulePolicyInvokeResponseOutput {
+	return i.ToLogSchedulePolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LogSchedulePolicyInvokeResponseArgs) ToLogSchedulePolicyInvokeResponseOutputWithContext(ctx context.Context) LogSchedulePolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogSchedulePolicyInvokeResponseOutput)
+}
+
+// Log policy schedule.
+type LogSchedulePolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LogSchedulePolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogSchedulePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o LogSchedulePolicyInvokeResponseOutput) ToLogSchedulePolicyInvokeResponseOutput() LogSchedulePolicyInvokeResponseOutput {
+	return o
+}
+
+func (o LogSchedulePolicyInvokeResponseOutput) ToLogSchedulePolicyInvokeResponseOutputWithContext(ctx context.Context) LogSchedulePolicyInvokeResponseOutput {
+	return o
+}
+
+// Frequency of the log schedule operation of this policy in minutes.
+func (o LogSchedulePolicyInvokeResponseOutput) ScheduleFrequencyInMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LogSchedulePolicyInvokeResponse) *int { return v.ScheduleFrequencyInMins }).(pulumi.IntPtrOutput)
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LogSchedulePolicy'.
+func (o LogSchedulePolicyInvokeResponseOutput) SchedulePolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v LogSchedulePolicyInvokeResponse) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
+}
+
+// Log policy schedule.
 type LogSchedulePolicyResponse struct {
 	// Frequency of the log schedule operation of this policy in minutes.
 	ScheduleFrequencyInMins *int `pulumi:"scheduleFrequencyInMins"`
@@ -16690,6 +25316,108 @@ func (o LongTermRetentionPolicyOutput) YearlySchedule() YearlyRetentionScheduleP
 }
 
 // Long term retention policy.
+type LongTermRetentionPolicyInvokeResponse struct {
+	// Daily retention schedule of the protection policy.
+	DailySchedule *DailyRetentionScheduleInvokeResponse `pulumi:"dailySchedule"`
+	// Monthly retention schedule of the protection policy.
+	MonthlySchedule *MonthlyRetentionScheduleInvokeResponse `pulumi:"monthlySchedule"`
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
+	RetentionPolicyType string `pulumi:"retentionPolicyType"`
+	// Weekly retention schedule of the protection policy.
+	WeeklySchedule *WeeklyRetentionScheduleInvokeResponse `pulumi:"weeklySchedule"`
+	// Yearly retention schedule of the protection policy.
+	YearlySchedule *YearlyRetentionScheduleInvokeResponse `pulumi:"yearlySchedule"`
+}
+
+// LongTermRetentionPolicyInvokeResponseInput is an input type that accepts LongTermRetentionPolicyInvokeResponseArgs and LongTermRetentionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `LongTermRetentionPolicyInvokeResponseInput` via:
+//
+//          LongTermRetentionPolicyInvokeResponseArgs{...}
+type LongTermRetentionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLongTermRetentionPolicyInvokeResponseOutput() LongTermRetentionPolicyInvokeResponseOutput
+	ToLongTermRetentionPolicyInvokeResponseOutputWithContext(context.Context) LongTermRetentionPolicyInvokeResponseOutput
+}
+
+// Long term retention policy.
+type LongTermRetentionPolicyInvokeResponseArgs struct {
+	// Daily retention schedule of the protection policy.
+	DailySchedule DailyRetentionScheduleInvokeResponsePtrInput `pulumi:"dailySchedule"`
+	// Monthly retention schedule of the protection policy.
+	MonthlySchedule MonthlyRetentionScheduleInvokeResponsePtrInput `pulumi:"monthlySchedule"`
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermRetentionPolicy'.
+	RetentionPolicyType pulumi.StringInput `pulumi:"retentionPolicyType"`
+	// Weekly retention schedule of the protection policy.
+	WeeklySchedule WeeklyRetentionScheduleInvokeResponsePtrInput `pulumi:"weeklySchedule"`
+	// Yearly retention schedule of the protection policy.
+	YearlySchedule YearlyRetentionScheduleInvokeResponsePtrInput `pulumi:"yearlySchedule"`
+}
+
+func (LongTermRetentionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermRetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i LongTermRetentionPolicyInvokeResponseArgs) ToLongTermRetentionPolicyInvokeResponseOutput() LongTermRetentionPolicyInvokeResponseOutput {
+	return i.ToLongTermRetentionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LongTermRetentionPolicyInvokeResponseArgs) ToLongTermRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) LongTermRetentionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LongTermRetentionPolicyInvokeResponseOutput)
+}
+
+// Long term retention policy.
+type LongTermRetentionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LongTermRetentionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermRetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o LongTermRetentionPolicyInvokeResponseOutput) ToLongTermRetentionPolicyInvokeResponseOutput() LongTermRetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o LongTermRetentionPolicyInvokeResponseOutput) ToLongTermRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) LongTermRetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+// Daily retention schedule of the protection policy.
+func (o LongTermRetentionPolicyInvokeResponseOutput) DailySchedule() DailyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LongTermRetentionPolicyInvokeResponse) *DailyRetentionScheduleInvokeResponse {
+		return v.DailySchedule
+	}).(DailyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Monthly retention schedule of the protection policy.
+func (o LongTermRetentionPolicyInvokeResponseOutput) MonthlySchedule() MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LongTermRetentionPolicyInvokeResponse) *MonthlyRetentionScheduleInvokeResponse {
+		return v.MonthlySchedule
+	}).(MonthlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermRetentionPolicy'.
+func (o LongTermRetentionPolicyInvokeResponseOutput) RetentionPolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v LongTermRetentionPolicyInvokeResponse) string { return v.RetentionPolicyType }).(pulumi.StringOutput)
+}
+
+// Weekly retention schedule of the protection policy.
+func (o LongTermRetentionPolicyInvokeResponseOutput) WeeklySchedule() WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LongTermRetentionPolicyInvokeResponse) *WeeklyRetentionScheduleInvokeResponse {
+		return v.WeeklySchedule
+	}).(WeeklyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Yearly retention schedule of the protection policy.
+func (o LongTermRetentionPolicyInvokeResponseOutput) YearlySchedule() YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LongTermRetentionPolicyInvokeResponse) *YearlyRetentionScheduleInvokeResponse {
+		return v.YearlySchedule
+	}).(YearlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Long term retention policy.
 type LongTermRetentionPolicyResponse struct {
 	// Daily retention schedule of the protection policy.
 	DailySchedule *DailyRetentionScheduleResponse `pulumi:"dailySchedule"`
@@ -16839,6 +25567,64 @@ func (o LongTermSchedulePolicyOutput) ToLongTermSchedulePolicyOutputWithContext(
 // Expected value is 'LongTermSchedulePolicy'.
 func (o LongTermSchedulePolicyOutput) SchedulePolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LongTermSchedulePolicy) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
+}
+
+// Long term policy schedule.
+type LongTermSchedulePolicyInvokeResponse struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
+	SchedulePolicyType string `pulumi:"schedulePolicyType"`
+}
+
+// LongTermSchedulePolicyInvokeResponseInput is an input type that accepts LongTermSchedulePolicyInvokeResponseArgs and LongTermSchedulePolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `LongTermSchedulePolicyInvokeResponseInput` via:
+//
+//          LongTermSchedulePolicyInvokeResponseArgs{...}
+type LongTermSchedulePolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLongTermSchedulePolicyInvokeResponseOutput() LongTermSchedulePolicyInvokeResponseOutput
+	ToLongTermSchedulePolicyInvokeResponseOutputWithContext(context.Context) LongTermSchedulePolicyInvokeResponseOutput
+}
+
+// Long term policy schedule.
+type LongTermSchedulePolicyInvokeResponseArgs struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'LongTermSchedulePolicy'.
+	SchedulePolicyType pulumi.StringInput `pulumi:"schedulePolicyType"`
+}
+
+func (LongTermSchedulePolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermSchedulePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i LongTermSchedulePolicyInvokeResponseArgs) ToLongTermSchedulePolicyInvokeResponseOutput() LongTermSchedulePolicyInvokeResponseOutput {
+	return i.ToLongTermSchedulePolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LongTermSchedulePolicyInvokeResponseArgs) ToLongTermSchedulePolicyInvokeResponseOutputWithContext(ctx context.Context) LongTermSchedulePolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LongTermSchedulePolicyInvokeResponseOutput)
+}
+
+// Long term policy schedule.
+type LongTermSchedulePolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LongTermSchedulePolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LongTermSchedulePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o LongTermSchedulePolicyInvokeResponseOutput) ToLongTermSchedulePolicyInvokeResponseOutput() LongTermSchedulePolicyInvokeResponseOutput {
+	return o
+}
+
+func (o LongTermSchedulePolicyInvokeResponseOutput) ToLongTermSchedulePolicyInvokeResponseOutputWithContext(ctx context.Context) LongTermSchedulePolicyInvokeResponseOutput {
+	return o
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'LongTermSchedulePolicy'.
+func (o LongTermSchedulePolicyInvokeResponseOutput) SchedulePolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v LongTermSchedulePolicyInvokeResponse) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
 }
 
 // Long term policy schedule.
@@ -17024,6 +25810,133 @@ func (o MABContainerHealthDetailsArrayOutput) Index(i pulumi.IntInput) MABContai
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MABContainerHealthDetails {
 		return vs[0].([]MABContainerHealthDetails)[vs[1].(int)]
 	}).(MABContainerHealthDetailsOutput)
+}
+
+// MAB workload-specific Health Details.
+type MABContainerHealthDetailsInvokeResponse struct {
+	// Health Code
+	Code *int `pulumi:"code"`
+	// Health Message
+	Message *string `pulumi:"message"`
+	// Health Recommended Actions
+	Recommendations []string `pulumi:"recommendations"`
+	// Health Title
+	Title *string `pulumi:"title"`
+}
+
+// MABContainerHealthDetailsInvokeResponseInput is an input type that accepts MABContainerHealthDetailsInvokeResponseArgs and MABContainerHealthDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `MABContainerHealthDetailsInvokeResponseInput` via:
+//
+//          MABContainerHealthDetailsInvokeResponseArgs{...}
+type MABContainerHealthDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMABContainerHealthDetailsInvokeResponseOutput() MABContainerHealthDetailsInvokeResponseOutput
+	ToMABContainerHealthDetailsInvokeResponseOutputWithContext(context.Context) MABContainerHealthDetailsInvokeResponseOutput
+}
+
+// MAB workload-specific Health Details.
+type MABContainerHealthDetailsInvokeResponseArgs struct {
+	// Health Code
+	Code pulumi.IntPtrInput `pulumi:"code"`
+	// Health Message
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Health Recommended Actions
+	Recommendations pulumi.StringArrayInput `pulumi:"recommendations"`
+	// Health Title
+	Title pulumi.StringPtrInput `pulumi:"title"`
+}
+
+func (MABContainerHealthDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MABContainerHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i MABContainerHealthDetailsInvokeResponseArgs) ToMABContainerHealthDetailsInvokeResponseOutput() MABContainerHealthDetailsInvokeResponseOutput {
+	return i.ToMABContainerHealthDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MABContainerHealthDetailsInvokeResponseArgs) ToMABContainerHealthDetailsInvokeResponseOutputWithContext(ctx context.Context) MABContainerHealthDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MABContainerHealthDetailsInvokeResponseOutput)
+}
+
+// MABContainerHealthDetailsInvokeResponseArrayInput is an input type that accepts MABContainerHealthDetailsInvokeResponseArray and MABContainerHealthDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MABContainerHealthDetailsInvokeResponseArrayInput` via:
+//
+//          MABContainerHealthDetailsInvokeResponseArray{ MABContainerHealthDetailsInvokeResponseArgs{...} }
+type MABContainerHealthDetailsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMABContainerHealthDetailsInvokeResponseArrayOutput() MABContainerHealthDetailsInvokeResponseArrayOutput
+	ToMABContainerHealthDetailsInvokeResponseArrayOutputWithContext(context.Context) MABContainerHealthDetailsInvokeResponseArrayOutput
+}
+
+type MABContainerHealthDetailsInvokeResponseArray []MABContainerHealthDetailsInvokeResponseInput
+
+func (MABContainerHealthDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MABContainerHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i MABContainerHealthDetailsInvokeResponseArray) ToMABContainerHealthDetailsInvokeResponseArrayOutput() MABContainerHealthDetailsInvokeResponseArrayOutput {
+	return i.ToMABContainerHealthDetailsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MABContainerHealthDetailsInvokeResponseArray) ToMABContainerHealthDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) MABContainerHealthDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MABContainerHealthDetailsInvokeResponseArrayOutput)
+}
+
+// MAB workload-specific Health Details.
+type MABContainerHealthDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MABContainerHealthDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MABContainerHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o MABContainerHealthDetailsInvokeResponseOutput) ToMABContainerHealthDetailsInvokeResponseOutput() MABContainerHealthDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o MABContainerHealthDetailsInvokeResponseOutput) ToMABContainerHealthDetailsInvokeResponseOutputWithContext(ctx context.Context) MABContainerHealthDetailsInvokeResponseOutput {
+	return o
+}
+
+// Health Code
+func (o MABContainerHealthDetailsInvokeResponseOutput) Code() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MABContainerHealthDetailsInvokeResponse) *int { return v.Code }).(pulumi.IntPtrOutput)
+}
+
+// Health Message
+func (o MABContainerHealthDetailsInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MABContainerHealthDetailsInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Health Recommended Actions
+func (o MABContainerHealthDetailsInvokeResponseOutput) Recommendations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MABContainerHealthDetailsInvokeResponse) []string { return v.Recommendations }).(pulumi.StringArrayOutput)
+}
+
+// Health Title
+func (o MABContainerHealthDetailsInvokeResponseOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MABContainerHealthDetailsInvokeResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+type MABContainerHealthDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MABContainerHealthDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MABContainerHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o MABContainerHealthDetailsInvokeResponseArrayOutput) ToMABContainerHealthDetailsInvokeResponseArrayOutput() MABContainerHealthDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MABContainerHealthDetailsInvokeResponseArrayOutput) ToMABContainerHealthDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) MABContainerHealthDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MABContainerHealthDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) MABContainerHealthDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MABContainerHealthDetailsInvokeResponse {
+		return vs[0].([]MABContainerHealthDetailsInvokeResponse)[vs[1].(int)]
+	}).(MABContainerHealthDetailsInvokeResponseOutput)
 }
 
 // MAB workload-specific Health Details.
@@ -17530,6 +26443,216 @@ func (o MabContainerExtendedInfoPtrOutput) PolicyName() pulumi.StringPtrOutput {
 }
 
 // Additional information of the container.
+type MabContainerExtendedInfoInvokeResponse struct {
+	// Type of backup items associated with this container.
+	BackupItemType *string `pulumi:"backupItemType"`
+	// List of backup items associated with this container.
+	BackupItems []string `pulumi:"backupItems"`
+	// Latest backup status of this container.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Time stamp when this container was refreshed.
+	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
+	// Backup policy associated with this container.
+	PolicyName *string `pulumi:"policyName"`
+}
+
+// MabContainerExtendedInfoInvokeResponseInput is an input type that accepts MabContainerExtendedInfoInvokeResponseArgs and MabContainerExtendedInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `MabContainerExtendedInfoInvokeResponseInput` via:
+//
+//          MabContainerExtendedInfoInvokeResponseArgs{...}
+type MabContainerExtendedInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMabContainerExtendedInfoInvokeResponseOutput() MabContainerExtendedInfoInvokeResponseOutput
+	ToMabContainerExtendedInfoInvokeResponseOutputWithContext(context.Context) MabContainerExtendedInfoInvokeResponseOutput
+}
+
+// Additional information of the container.
+type MabContainerExtendedInfoInvokeResponseArgs struct {
+	// Type of backup items associated with this container.
+	BackupItemType pulumi.StringPtrInput `pulumi:"backupItemType"`
+	// List of backup items associated with this container.
+	BackupItems pulumi.StringArrayInput `pulumi:"backupItems"`
+	// Latest backup status of this container.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Time stamp when this container was refreshed.
+	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
+	// Backup policy associated with this container.
+	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
+}
+
+func (MabContainerExtendedInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i MabContainerExtendedInfoInvokeResponseArgs) ToMabContainerExtendedInfoInvokeResponseOutput() MabContainerExtendedInfoInvokeResponseOutput {
+	return i.ToMabContainerExtendedInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MabContainerExtendedInfoInvokeResponseArgs) ToMabContainerExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) MabContainerExtendedInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MabContainerExtendedInfoInvokeResponseOutput)
+}
+
+func (i MabContainerExtendedInfoInvokeResponseArgs) ToMabContainerExtendedInfoInvokeResponsePtrOutput() MabContainerExtendedInfoInvokeResponsePtrOutput {
+	return i.ToMabContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MabContainerExtendedInfoInvokeResponseArgs) ToMabContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) MabContainerExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MabContainerExtendedInfoInvokeResponseOutput).ToMabContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MabContainerExtendedInfoInvokeResponsePtrInput is an input type that accepts MabContainerExtendedInfoInvokeResponseArgs, MabContainerExtendedInfoInvokeResponsePtr and MabContainerExtendedInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MabContainerExtendedInfoInvokeResponsePtrInput` via:
+//
+//          MabContainerExtendedInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MabContainerExtendedInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMabContainerExtendedInfoInvokeResponsePtrOutput() MabContainerExtendedInfoInvokeResponsePtrOutput
+	ToMabContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Context) MabContainerExtendedInfoInvokeResponsePtrOutput
+}
+
+type mabContainerExtendedInfoInvokeResponsePtrType MabContainerExtendedInfoInvokeResponseArgs
+
+func MabContainerExtendedInfoInvokeResponsePtr(v *MabContainerExtendedInfoInvokeResponseArgs) MabContainerExtendedInfoInvokeResponsePtrInput {
+	return (*mabContainerExtendedInfoInvokeResponsePtrType)(v)
+}
+
+func (*mabContainerExtendedInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MabContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *mabContainerExtendedInfoInvokeResponsePtrType) ToMabContainerExtendedInfoInvokeResponsePtrOutput() MabContainerExtendedInfoInvokeResponsePtrOutput {
+	return i.ToMabContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mabContainerExtendedInfoInvokeResponsePtrType) ToMabContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) MabContainerExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MabContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Additional information of the container.
+type MabContainerExtendedInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MabContainerExtendedInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o MabContainerExtendedInfoInvokeResponseOutput) ToMabContainerExtendedInfoInvokeResponseOutput() MabContainerExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o MabContainerExtendedInfoInvokeResponseOutput) ToMabContainerExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) MabContainerExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o MabContainerExtendedInfoInvokeResponseOutput) ToMabContainerExtendedInfoInvokeResponsePtrOutput() MabContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ToMabContainerExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MabContainerExtendedInfoInvokeResponseOutput) ToMabContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) MabContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MabContainerExtendedInfoInvokeResponse) *MabContainerExtendedInfoInvokeResponse {
+		return &v
+	}).(MabContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Type of backup items associated with this container.
+func (o MabContainerExtendedInfoInvokeResponseOutput) BackupItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerExtendedInfoInvokeResponse) *string { return v.BackupItemType }).(pulumi.StringPtrOutput)
+}
+
+// List of backup items associated with this container.
+func (o MabContainerExtendedInfoInvokeResponseOutput) BackupItems() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MabContainerExtendedInfoInvokeResponse) []string { return v.BackupItems }).(pulumi.StringArrayOutput)
+}
+
+// Latest backup status of this container.
+func (o MabContainerExtendedInfoInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerExtendedInfoInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Time stamp when this container was refreshed.
+func (o MabContainerExtendedInfoInvokeResponseOutput) LastRefreshedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerExtendedInfoInvokeResponse) *string { return v.LastRefreshedAt }).(pulumi.StringPtrOutput)
+}
+
+// Backup policy associated with this container.
+func (o MabContainerExtendedInfoInvokeResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerExtendedInfoInvokeResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+type MabContainerExtendedInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MabContainerExtendedInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MabContainerExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o MabContainerExtendedInfoInvokeResponsePtrOutput) ToMabContainerExtendedInfoInvokeResponsePtrOutput() MabContainerExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MabContainerExtendedInfoInvokeResponsePtrOutput) ToMabContainerExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) MabContainerExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MabContainerExtendedInfoInvokeResponsePtrOutput) Elem() MabContainerExtendedInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *MabContainerExtendedInfoInvokeResponse) MabContainerExtendedInfoInvokeResponse { return *v }).(MabContainerExtendedInfoInvokeResponseOutput)
+}
+
+// Type of backup items associated with this container.
+func (o MabContainerExtendedInfoInvokeResponsePtrOutput) BackupItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MabContainerExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackupItemType
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of backup items associated with this container.
+func (o MabContainerExtendedInfoInvokeResponsePtrOutput) BackupItems() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MabContainerExtendedInfoInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BackupItems
+	}).(pulumi.StringArrayOutput)
+}
+
+// Latest backup status of this container.
+func (o MabContainerExtendedInfoInvokeResponsePtrOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MabContainerExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastBackupStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time stamp when this container was refreshed.
+func (o MabContainerExtendedInfoInvokeResponsePtrOutput) LastRefreshedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MabContainerExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastRefreshedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// Backup policy associated with this container.
+func (o MabContainerExtendedInfoInvokeResponsePtrOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MabContainerExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional information of the container.
 type MabContainerExtendedInfoResponse struct {
 	// Type of backup items associated with this container.
 	BackupItemType *string `pulumi:"backupItemType"`
@@ -17737,6 +26860,174 @@ func (o MabContainerExtendedInfoResponsePtrOutput) PolicyName() pulumi.StringPtr
 		}
 		return v.PolicyName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Container with items backed up using MAB backup engine.
+type MabContainerInvokeResponse struct {
+	// Agent version of this container.
+	AgentVersion *string `pulumi:"agentVersion"`
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Can the container be registered one more time.
+	CanReRegister *bool `pulumi:"canReRegister"`
+	// Health state of mab container.
+	ContainerHealthState *string `pulumi:"containerHealthState"`
+	// ContainerID represents the container.
+	ContainerId *float64 `pulumi:"containerId"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'Windows'.
+	ContainerType string `pulumi:"containerType"`
+	// Additional information for this container
+	ExtendedInfo *MabContainerExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Health details on this mab container.
+	MabContainerHealthDetails []MABContainerHealthDetailsInvokeResponse `pulumi:"mabContainerHealthDetails"`
+	// Number of items backed up in this container.
+	ProtectedItemCount *float64 `pulumi:"protectedItemCount"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
+}
+
+// MabContainerInvokeResponseInput is an input type that accepts MabContainerInvokeResponseArgs and MabContainerInvokeResponseOutput values.
+// You can construct a concrete instance of `MabContainerInvokeResponseInput` via:
+//
+//          MabContainerInvokeResponseArgs{...}
+type MabContainerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMabContainerInvokeResponseOutput() MabContainerInvokeResponseOutput
+	ToMabContainerInvokeResponseOutputWithContext(context.Context) MabContainerInvokeResponseOutput
+}
+
+// Container with items backed up using MAB backup engine.
+type MabContainerInvokeResponseArgs struct {
+	// Agent version of this container.
+	AgentVersion pulumi.StringPtrInput `pulumi:"agentVersion"`
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Can the container be registered one more time.
+	CanReRegister pulumi.BoolPtrInput `pulumi:"canReRegister"`
+	// Health state of mab container.
+	ContainerHealthState pulumi.StringPtrInput `pulumi:"containerHealthState"`
+	// ContainerID represents the container.
+	ContainerId pulumi.Float64PtrInput `pulumi:"containerId"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	// Expected value is 'Windows'.
+	ContainerType pulumi.StringInput `pulumi:"containerType"`
+	// Additional information for this container
+	ExtendedInfo MabContainerExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Health details on this mab container.
+	MabContainerHealthDetails MABContainerHealthDetailsInvokeResponseArrayInput `pulumi:"mabContainerHealthDetails"`
+	// Number of items backed up in this container.
+	ProtectedItemCount pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
+}
+
+func (MabContainerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabContainerInvokeResponse)(nil)).Elem()
+}
+
+func (i MabContainerInvokeResponseArgs) ToMabContainerInvokeResponseOutput() MabContainerInvokeResponseOutput {
+	return i.ToMabContainerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MabContainerInvokeResponseArgs) ToMabContainerInvokeResponseOutputWithContext(ctx context.Context) MabContainerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MabContainerInvokeResponseOutput)
+}
+
+// Container with items backed up using MAB backup engine.
+type MabContainerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MabContainerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabContainerInvokeResponse)(nil)).Elem()
+}
+
+func (o MabContainerInvokeResponseOutput) ToMabContainerInvokeResponseOutput() MabContainerInvokeResponseOutput {
+	return o
+}
+
+func (o MabContainerInvokeResponseOutput) ToMabContainerInvokeResponseOutputWithContext(ctx context.Context) MabContainerInvokeResponseOutput {
+	return o
+}
+
+// Agent version of this container.
+func (o MabContainerInvokeResponseOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) *string { return v.AgentVersion }).(pulumi.StringPtrOutput)
+}
+
+// Type of backup management for the container.
+func (o MabContainerInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Can the container be registered one more time.
+func (o MabContainerInvokeResponseOutput) CanReRegister() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) *bool { return v.CanReRegister }).(pulumi.BoolPtrOutput)
+}
+
+// Health state of mab container.
+func (o MabContainerInvokeResponseOutput) ContainerHealthState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) *string { return v.ContainerHealthState }).(pulumi.StringPtrOutput)
+}
+
+// ContainerID represents the container.
+func (o MabContainerInvokeResponseOutput) ContainerId() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) *float64 { return v.ContainerId }).(pulumi.Float64PtrOutput)
+}
+
+// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+// Backup is VMAppContainer
+// Expected value is 'Windows'.
+func (o MabContainerInvokeResponseOutput) ContainerType() pulumi.StringOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) string { return v.ContainerType }).(pulumi.StringOutput)
+}
+
+// Additional information for this container
+func (o MabContainerInvokeResponseOutput) ExtendedInfo() MabContainerExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) *MabContainerExtendedInfoInvokeResponse { return v.ExtendedInfo }).(MabContainerExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of the container.
+func (o MabContainerInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Status of health of the container.
+func (o MabContainerInvokeResponseOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+// Health details on this mab container.
+func (o MabContainerInvokeResponseOutput) MabContainerHealthDetails() MABContainerHealthDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) []MABContainerHealthDetailsInvokeResponse {
+		return v.MabContainerHealthDetails
+	}).(MABContainerHealthDetailsInvokeResponseArrayOutput)
+}
+
+// Number of items backed up in this container.
+func (o MabContainerInvokeResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
+}
+
+// Status of registration of the container with the Recovery Services Vault.
+func (o MabContainerInvokeResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerInvokeResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
 // Container with items backed up using MAB backup engine.
@@ -18316,6 +27607,180 @@ func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pu
 }
 
 // Additional information on the backed up item.
+type MabFileFolderProtectedItemExtendedInfoInvokeResponse struct {
+	// Last time when the agent data synced to service.
+	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
+	// The oldest backup copy available.
+	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
+	// Number of backup copies associated with the backup item.
+	RecoveryPointCount *int `pulumi:"recoveryPointCount"`
+}
+
+// MabFileFolderProtectedItemExtendedInfoInvokeResponseInput is an input type that accepts MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs and MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `MabFileFolderProtectedItemExtendedInfoInvokeResponseInput` via:
+//
+//          MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs{...}
+type MabFileFolderProtectedItemExtendedInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMabFileFolderProtectedItemExtendedInfoInvokeResponseOutput() MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput
+	ToMabFileFolderProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Context) MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput
+}
+
+// Additional information on the backed up item.
+type MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs struct {
+	// Last time when the agent data synced to service.
+	LastRefreshedAt pulumi.StringPtrInput `pulumi:"lastRefreshedAt"`
+	// The oldest backup copy available.
+	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
+	// Number of backup copies associated with the backup item.
+	RecoveryPointCount pulumi.IntPtrInput `pulumi:"recoveryPointCount"`
+}
+
+func (MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabFileFolderProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs) ToMabFileFolderProtectedItemExtendedInfoInvokeResponseOutput() MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput {
+	return i.ToMabFileFolderProtectedItemExtendedInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs) ToMabFileFolderProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+func (i MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs) ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput() MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs) ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput).ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrInput is an input type that accepts MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs, MabFileFolderProtectedItemExtendedInfoInvokeResponsePtr and MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrInput` via:
+//
+//          MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput() MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput
+	ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Context) MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput
+}
+
+type mabFileFolderProtectedItemExtendedInfoInvokeResponsePtrType MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs
+
+func MabFileFolderProtectedItemExtendedInfoInvokeResponsePtr(v *MabFileFolderProtectedItemExtendedInfoInvokeResponseArgs) MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrInput {
+	return (*mabFileFolderProtectedItemExtendedInfoInvokeResponsePtrType)(v)
+}
+
+func (*mabFileFolderProtectedItemExtendedInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MabFileFolderProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *mabFileFolderProtectedItemExtendedInfoInvokeResponsePtrType) ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput() MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return i.ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mabFileFolderProtectedItemExtendedInfoInvokeResponsePtrType) ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Additional information on the backed up item.
+type MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabFileFolderProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput) ToMabFileFolderProtectedItemExtendedInfoInvokeResponseOutput() MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput) ToMabFileFolderProtectedItemExtendedInfoInvokeResponseOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput {
+	return o
+}
+
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput) ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput() MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput) ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfoInvokeResponse) *MabFileFolderProtectedItemExtendedInfoInvokeResponse {
+		return &v
+	}).(MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Last time when the agent data synced to service.
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput) LastRefreshedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfoInvokeResponse) *string { return v.LastRefreshedAt }).(pulumi.StringPtrOutput)
+}
+
+// The oldest backup copy available.
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfoInvokeResponse) *string { return v.OldestRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// Number of backup copies associated with the backup item.
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfoInvokeResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
+}
+
+type MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MabFileFolderProtectedItemExtendedInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput) ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput() MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput) ToMabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput) Elem() MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfoInvokeResponse) MabFileFolderProtectedItemExtendedInfoInvokeResponse {
+		return *v
+	}).(MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput)
+}
+
+// Last time when the agent data synced to service.
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput) LastRefreshedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastRefreshedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The oldest backup copy available.
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput) OldestRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OldestRecoveryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of backup copies associated with the backup item.
+func (o MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfoInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPointCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Additional information on the backed up item.
 type MabFileFolderProtectedItemExtendedInfoResponse struct {
 	// Last time when the agent data synced to service.
 	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
@@ -18487,6 +27952,246 @@ func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCo
 		}
 		return v.RecoveryPointCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// MAB workload-specific backup item.
+type MabFileFolderProtectedItemInvokeResponse struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName *string `pulumi:"backupSetName"`
+	// Name of the computer associated with this backup item.
+	ComputerName *string `pulumi:"computerName"`
+	// Unique name of container
+	ContainerName *string `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode *string `pulumi:"createMode"`
+	// Sync time for deferred deletion in UTC
+	DeferredDeleteSyncTimeInUTC *float64 `pulumi:"deferredDeleteSyncTimeInUTC"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC *string `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining *string `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information with this backup item.
+	ExtendedInfo *MabFileFolderProtectedItemExtendedInfoInvokeResponse `pulumi:"extendedInfo"`
+	// Friendly name of this backup item.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming *bool `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate *bool `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete *bool `pulumi:"isScheduledForDeferredDelete"`
+	// Status of last backup operation.
+	LastBackupStatus *string `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime *string `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint *string `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
+	ProtectedItemType string `pulumi:"protectedItemType"`
+	// Protected, ProtectionStopped, IRPending or ProtectionError
+	ProtectionState *string `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType *string `pulumi:"workloadType"`
+}
+
+// MabFileFolderProtectedItemInvokeResponseInput is an input type that accepts MabFileFolderProtectedItemInvokeResponseArgs and MabFileFolderProtectedItemInvokeResponseOutput values.
+// You can construct a concrete instance of `MabFileFolderProtectedItemInvokeResponseInput` via:
+//
+//          MabFileFolderProtectedItemInvokeResponseArgs{...}
+type MabFileFolderProtectedItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMabFileFolderProtectedItemInvokeResponseOutput() MabFileFolderProtectedItemInvokeResponseOutput
+	ToMabFileFolderProtectedItemInvokeResponseOutputWithContext(context.Context) MabFileFolderProtectedItemInvokeResponseOutput
+}
+
+// MAB workload-specific backup item.
+type MabFileFolderProtectedItemInvokeResponseArgs struct {
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Name of the backup set the backup item belongs to
+	BackupSetName pulumi.StringPtrInput `pulumi:"backupSetName"`
+	// Name of the computer associated with this backup item.
+	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
+	// Unique name of container
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	// Sync time for deferred deletion in UTC
+	DeferredDeleteSyncTimeInUTC pulumi.Float64PtrInput `pulumi:"deferredDeleteSyncTimeInUTC"`
+	// Time for deferred deletion in UTC
+	DeferredDeleteTimeInUTC pulumi.StringPtrInput `pulumi:"deferredDeleteTimeInUTC"`
+	// Time remaining before the DS marked for deferred delete is permanently deleted
+	DeferredDeleteTimeRemaining pulumi.StringPtrInput `pulumi:"deferredDeleteTimeRemaining"`
+	// Additional information with this backup item.
+	ExtendedInfo MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrInput `pulumi:"extendedInfo"`
+	// Friendly name of this backup item.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Flag to identify whether the deferred deleted DS is to be purged soon
+	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput `pulumi:"isDeferredDeleteScheduleUpcoming"`
+	// Flag to identify that deferred deleted DS is to be moved into Pause state
+	IsRehydrate pulumi.BoolPtrInput `pulumi:"isRehydrate"`
+	// Flag to identify whether the DS is scheduled for deferred delete
+	IsScheduledForDeferredDelete pulumi.BoolPtrInput `pulumi:"isScheduledForDeferredDelete"`
+	// Status of last backup operation.
+	LastBackupStatus pulumi.StringPtrInput `pulumi:"lastBackupStatus"`
+	// Timestamp of the last backup operation on this backup item.
+	LastBackupTime pulumi.StringPtrInput `pulumi:"lastBackupTime"`
+	// Timestamp when the last (latest) backup copy was created for this backup item.
+	LastRecoveryPoint pulumi.StringPtrInput `pulumi:"lastRecoveryPoint"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// backup item type.
+	// Expected value is 'MabFileFolderProtectedItem'.
+	ProtectedItemType pulumi.StringInput `pulumi:"protectedItemType"`
+	// Protected, ProtectionStopped, IRPending or ProtectionError
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
+	// Type of workload this item represents.
+	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+}
+
+func (MabFileFolderProtectedItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabFileFolderProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (i MabFileFolderProtectedItemInvokeResponseArgs) ToMabFileFolderProtectedItemInvokeResponseOutput() MabFileFolderProtectedItemInvokeResponseOutput {
+	return i.ToMabFileFolderProtectedItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MabFileFolderProtectedItemInvokeResponseArgs) ToMabFileFolderProtectedItemInvokeResponseOutputWithContext(ctx context.Context) MabFileFolderProtectedItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MabFileFolderProtectedItemInvokeResponseOutput)
+}
+
+// MAB workload-specific backup item.
+type MabFileFolderProtectedItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MabFileFolderProtectedItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabFileFolderProtectedItemInvokeResponse)(nil)).Elem()
+}
+
+func (o MabFileFolderProtectedItemInvokeResponseOutput) ToMabFileFolderProtectedItemInvokeResponseOutput() MabFileFolderProtectedItemInvokeResponseOutput {
+	return o
+}
+
+func (o MabFileFolderProtectedItemInvokeResponseOutput) ToMabFileFolderProtectedItemInvokeResponseOutputWithContext(ctx context.Context) MabFileFolderProtectedItemInvokeResponseOutput {
+	return o
+}
+
+// Type of backup management for the backed up item.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the backup set the backup item belongs to
+func (o MabFileFolderProtectedItemInvokeResponseOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the computer associated with this backup item.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) ComputerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.ComputerName }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of container
+func (o MabFileFolderProtectedItemInvokeResponseOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// Sync time for deferred deletion in UTC
+func (o MabFileFolderProtectedItemInvokeResponseOutput) DeferredDeleteSyncTimeInUTC() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *float64 { return v.DeferredDeleteSyncTimeInUTC }).(pulumi.Float64PtrOutput)
+}
+
+// Time for deferred deletion in UTC
+func (o MabFileFolderProtectedItemInvokeResponseOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
+}
+
+// Time remaining before the DS marked for deferred delete is permanently deleted
+func (o MabFileFolderProtectedItemInvokeResponseOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
+}
+
+// Additional information with this backup item.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) ExtendedInfo() MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *MabFileFolderProtectedItemExtendedInfoInvokeResponse {
+		return v.ExtendedInfo
+	}).(MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput)
+}
+
+// Friendly name of this backup item.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Flag to identify whether the deferred deleted DS is to be purged soon
+func (o MabFileFolderProtectedItemInvokeResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify that deferred deleted DS is to be moved into Pause state
+func (o MabFileFolderProtectedItemInvokeResponseOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to identify whether the DS is scheduled for deferred delete
+func (o MabFileFolderProtectedItemInvokeResponseOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Status of last backup operation.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) LastBackupStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.LastBackupStatus }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp of the last backup operation on this backup item.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) LastBackupTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.LastBackupTime }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the last (latest) backup copy was created for this backup item.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+}
+
+// ID of the backup policy with which this item is backed up.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// backup item type.
+// Expected value is 'MabFileFolderProtectedItem'.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+}
+
+// Protected, ProtectionStopped, IRPending or ProtectionError
+func (o MabFileFolderProtectedItemInvokeResponseOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of the resource to be backed up.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Type of workload this item represents.
+func (o MabFileFolderProtectedItemInvokeResponseOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemInvokeResponse) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // MAB workload-specific backup item.
@@ -18815,6 +28520,91 @@ func (o MabProtectionPolicyOutput) SchedulePolicy() pulumi.AnyOutput {
 }
 
 // Mab container-specific backup policy.
+type MabProtectionPolicyInvokeResponse struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
+	BackupManagementType string `pulumi:"backupManagementType"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount *int `pulumi:"protectedItemsCount"`
+	// Retention policy details.
+	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
+	// Backup schedule of backup policy.
+	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+}
+
+// MabProtectionPolicyInvokeResponseInput is an input type that accepts MabProtectionPolicyInvokeResponseArgs and MabProtectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `MabProtectionPolicyInvokeResponseInput` via:
+//
+//          MabProtectionPolicyInvokeResponseArgs{...}
+type MabProtectionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMabProtectionPolicyInvokeResponseOutput() MabProtectionPolicyInvokeResponseOutput
+	ToMabProtectionPolicyInvokeResponseOutputWithContext(context.Context) MabProtectionPolicyInvokeResponseOutput
+}
+
+// Mab container-specific backup policy.
+type MabProtectionPolicyInvokeResponseArgs struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'MAB'.
+	BackupManagementType pulumi.StringInput `pulumi:"backupManagementType"`
+	// Number of items associated with this policy.
+	ProtectedItemsCount pulumi.IntPtrInput `pulumi:"protectedItemsCount"`
+	// Retention policy details.
+	RetentionPolicy pulumi.Input `pulumi:"retentionPolicy"`
+	// Backup schedule of backup policy.
+	SchedulePolicy pulumi.Input `pulumi:"schedulePolicy"`
+}
+
+func (MabProtectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i MabProtectionPolicyInvokeResponseArgs) ToMabProtectionPolicyInvokeResponseOutput() MabProtectionPolicyInvokeResponseOutput {
+	return i.ToMabProtectionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MabProtectionPolicyInvokeResponseArgs) ToMabProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) MabProtectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MabProtectionPolicyInvokeResponseOutput)
+}
+
+// Mab container-specific backup policy.
+type MabProtectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MabProtectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MabProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o MabProtectionPolicyInvokeResponseOutput) ToMabProtectionPolicyInvokeResponseOutput() MabProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o MabProtectionPolicyInvokeResponseOutput) ToMabProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) MabProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'MAB'.
+func (o MabProtectionPolicyInvokeResponseOutput) BackupManagementType() pulumi.StringOutput {
+	return o.ApplyT(func(v MabProtectionPolicyInvokeResponse) string { return v.BackupManagementType }).(pulumi.StringOutput)
+}
+
+// Number of items associated with this policy.
+func (o MabProtectionPolicyInvokeResponseOutput) ProtectedItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MabProtectionPolicyInvokeResponse) *int { return v.ProtectedItemsCount }).(pulumi.IntPtrOutput)
+}
+
+// Retention policy details.
+func (o MabProtectionPolicyInvokeResponseOutput) RetentionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v MabProtectionPolicyInvokeResponse) interface{} { return v.RetentionPolicy }).(pulumi.AnyOutput)
+}
+
+// Backup schedule of backup policy.
+func (o MabProtectionPolicyInvokeResponseOutput) SchedulePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v MabProtectionPolicyInvokeResponse) interface{} { return v.SchedulePolicy }).(pulumi.AnyOutput)
+}
+
+// Mab container-specific backup policy.
 type MabProtectionPolicyResponse struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	// Expected value is 'MAB'.
@@ -19102,6 +28892,222 @@ func (o MonthlyRetentionSchedulePtrOutput) RetentionScheduleWeekly() WeeklyReten
 // Retention times of retention policy.
 func (o MonthlyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MonthlyRetentionSchedule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTimes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Monthly retention schedule.
+type MonthlyRetentionScheduleInvokeResponse struct {
+	// Retention duration of retention Policy.
+	RetentionDuration *RetentionDurationInvokeResponse `pulumi:"retentionDuration"`
+	// Daily retention format for monthly retention policy.
+	RetentionScheduleDaily *DailyRetentionFormatInvokeResponse `pulumi:"retentionScheduleDaily"`
+	// Retention schedule format type for monthly retention policy.
+	RetentionScheduleFormatType *string `pulumi:"retentionScheduleFormatType"`
+	// Weekly retention format for monthly retention policy.
+	RetentionScheduleWeekly *WeeklyRetentionFormatInvokeResponse `pulumi:"retentionScheduleWeekly"`
+	// Retention times of retention policy.
+	RetentionTimes []string `pulumi:"retentionTimes"`
+}
+
+// MonthlyRetentionScheduleInvokeResponseInput is an input type that accepts MonthlyRetentionScheduleInvokeResponseArgs and MonthlyRetentionScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `MonthlyRetentionScheduleInvokeResponseInput` via:
+//
+//          MonthlyRetentionScheduleInvokeResponseArgs{...}
+type MonthlyRetentionScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMonthlyRetentionScheduleInvokeResponseOutput() MonthlyRetentionScheduleInvokeResponseOutput
+	ToMonthlyRetentionScheduleInvokeResponseOutputWithContext(context.Context) MonthlyRetentionScheduleInvokeResponseOutput
+}
+
+// Monthly retention schedule.
+type MonthlyRetentionScheduleInvokeResponseArgs struct {
+	// Retention duration of retention Policy.
+	RetentionDuration RetentionDurationInvokeResponsePtrInput `pulumi:"retentionDuration"`
+	// Daily retention format for monthly retention policy.
+	RetentionScheduleDaily DailyRetentionFormatInvokeResponsePtrInput `pulumi:"retentionScheduleDaily"`
+	// Retention schedule format type for monthly retention policy.
+	RetentionScheduleFormatType pulumi.StringPtrInput `pulumi:"retentionScheduleFormatType"`
+	// Weekly retention format for monthly retention policy.
+	RetentionScheduleWeekly WeeklyRetentionFormatInvokeResponsePtrInput `pulumi:"retentionScheduleWeekly"`
+	// Retention times of retention policy.
+	RetentionTimes pulumi.StringArrayInput `pulumi:"retentionTimes"`
+}
+
+func (MonthlyRetentionScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonthlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i MonthlyRetentionScheduleInvokeResponseArgs) ToMonthlyRetentionScheduleInvokeResponseOutput() MonthlyRetentionScheduleInvokeResponseOutput {
+	return i.ToMonthlyRetentionScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MonthlyRetentionScheduleInvokeResponseArgs) ToMonthlyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthlyRetentionScheduleInvokeResponseOutput)
+}
+
+func (i MonthlyRetentionScheduleInvokeResponseArgs) ToMonthlyRetentionScheduleInvokeResponsePtrOutput() MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MonthlyRetentionScheduleInvokeResponseArgs) ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthlyRetentionScheduleInvokeResponseOutput).ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MonthlyRetentionScheduleInvokeResponsePtrInput is an input type that accepts MonthlyRetentionScheduleInvokeResponseArgs, MonthlyRetentionScheduleInvokeResponsePtr and MonthlyRetentionScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MonthlyRetentionScheduleInvokeResponsePtrInput` via:
+//
+//          MonthlyRetentionScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MonthlyRetentionScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMonthlyRetentionScheduleInvokeResponsePtrOutput() MonthlyRetentionScheduleInvokeResponsePtrOutput
+	ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Context) MonthlyRetentionScheduleInvokeResponsePtrOutput
+}
+
+type monthlyRetentionScheduleInvokeResponsePtrType MonthlyRetentionScheduleInvokeResponseArgs
+
+func MonthlyRetentionScheduleInvokeResponsePtr(v *MonthlyRetentionScheduleInvokeResponseArgs) MonthlyRetentionScheduleInvokeResponsePtrInput {
+	return (*monthlyRetentionScheduleInvokeResponsePtrType)(v)
+}
+
+func (*monthlyRetentionScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonthlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *monthlyRetentionScheduleInvokeResponsePtrType) ToMonthlyRetentionScheduleInvokeResponsePtrOutput() MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *monthlyRetentionScheduleInvokeResponsePtrType) ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonthlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Monthly retention schedule.
+type MonthlyRetentionScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MonthlyRetentionScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonthlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o MonthlyRetentionScheduleInvokeResponseOutput) ToMonthlyRetentionScheduleInvokeResponseOutput() MonthlyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o MonthlyRetentionScheduleInvokeResponseOutput) ToMonthlyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o MonthlyRetentionScheduleInvokeResponseOutput) ToMonthlyRetentionScheduleInvokeResponsePtrOutput() MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MonthlyRetentionScheduleInvokeResponseOutput) ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) *MonthlyRetentionScheduleInvokeResponse {
+		return &v
+	}).(MonthlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Retention duration of retention Policy.
+func (o MonthlyRetentionScheduleInvokeResponseOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Daily retention format for monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponseOutput) RetentionScheduleDaily() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) *DailyRetentionFormatInvokeResponse {
+		return v.RetentionScheduleDaily
+	}).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention schedule format type for monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponseOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) *string { return v.RetentionScheduleFormatType }).(pulumi.StringPtrOutput)
+}
+
+// Weekly retention format for monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponseOutput) RetentionScheduleWeekly() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) *WeeklyRetentionFormatInvokeResponse {
+		return v.RetentionScheduleWeekly
+	}).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention times of retention policy.
+func (o MonthlyRetentionScheduleInvokeResponseOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MonthlyRetentionScheduleInvokeResponse) []string { return v.RetentionTimes }).(pulumi.StringArrayOutput)
+}
+
+type MonthlyRetentionScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MonthlyRetentionScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonthlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) ToMonthlyRetentionScheduleInvokeResponsePtrOutput() MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) ToMonthlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) MonthlyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) Elem() MonthlyRetentionScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) MonthlyRetentionScheduleInvokeResponse { return *v }).(MonthlyRetentionScheduleInvokeResponseOutput)
+}
+
+// Retention duration of retention Policy.
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Daily retention format for monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleDaily() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) *DailyRetentionFormatInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleDaily
+	}).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention schedule format type for monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleFormatType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Weekly retention format for monthly retention policy.
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleWeekly() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) *WeeklyRetentionFormatInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleWeekly
+	}).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention times of retention policy.
+func (o MonthlyRetentionScheduleInvokeResponsePtrOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MonthlyRetentionScheduleInvokeResponse) []string {
 		if v == nil {
 			return nil
 		}
@@ -19632,6 +29638,83 @@ func (o PrivateEndpointConnectionTypePtrOutput) ProvisioningState() pulumi.Strin
 }
 
 // Private Endpoint Connection Response Properties
+type PrivateEndpointConnectionInvokeResponse struct {
+	// Gets or sets private endpoint associated with the private endpoint connection
+	PrivateEndpoint *PrivateEndpointInvokeResponse `pulumi:"privateEndpoint"`
+	// Gets or sets private link service connection state
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Gets or sets provisioning state of the private endpoint connection
+	ProvisioningState *string `pulumi:"provisioningState"`
+}
+
+// PrivateEndpointConnectionInvokeResponseInput is an input type that accepts PrivateEndpointConnectionInvokeResponseArgs and PrivateEndpointConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionInvokeResponseInput` via:
+//
+//          PrivateEndpointConnectionInvokeResponseArgs{...}
+type PrivateEndpointConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput
+	ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Context) PrivateEndpointConnectionInvokeResponseOutput
+}
+
+// Private Endpoint Connection Response Properties
+type PrivateEndpointConnectionInvokeResponseArgs struct {
+	// Gets or sets private endpoint associated with the private endpoint connection
+	PrivateEndpoint PrivateEndpointInvokeResponsePtrInput `pulumi:"privateEndpoint"`
+	// Gets or sets private link service connection state
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInvokeResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// Gets or sets provisioning state of the private endpoint connection
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+}
+
+func (PrivateEndpointConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return i.ToPrivateEndpointConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionInvokeResponseArgs) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionInvokeResponseOutput)
+}
+
+// Private Endpoint Connection Response Properties
+type PrivateEndpointConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutput() PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionInvokeResponseOutput) ToPrivateEndpointConnectionInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets private endpoint associated with the private endpoint connection
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateEndpoint() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *PrivateEndpointInvokeResponse {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// Gets or sets private link service connection state
+func (o PrivateEndpointConnectionInvokeResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *PrivateLinkServiceConnectionStateInvokeResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateInvokeResponsePtrOutput)
+}
+
+// Gets or sets provisioning state of the private endpoint connection
+func (o PrivateEndpointConnectionInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Private Endpoint Connection Response Properties
 type PrivateEndpointConnectionResponse struct {
 	// Gets or sets private endpoint associated with the private endpoint connection
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -19802,6 +29885,140 @@ func (o PrivateEndpointConnectionResponsePtrOutput) ProvisioningState() pulumi.S
 			return nil
 		}
 		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Private Endpoint network resource that is linked to the Private Endpoint connection
+type PrivateEndpointInvokeResponse struct {
+	// Gets or sets id
+	Id *string `pulumi:"id"`
+}
+
+// PrivateEndpointInvokeResponseInput is an input type that accepts PrivateEndpointInvokeResponseArgs and PrivateEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponseInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+type PrivateEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput
+	ToPrivateEndpointInvokeResponseOutputWithContext(context.Context) PrivateEndpointInvokeResponseOutput
+}
+
+// The Private Endpoint network resource that is linked to the Private Endpoint connection
+type PrivateEndpointInvokeResponseArgs struct {
+	// Gets or sets id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return i.ToPrivateEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput)
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointInvokeResponseArgs) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponseOutput).ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointInvokeResponsePtrInput is an input type that accepts PrivateEndpointInvokeResponseArgs, PrivateEndpointInvokeResponsePtr and PrivateEndpointInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointInvokeResponsePtrInput` via:
+//
+//          PrivateEndpointInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput
+	ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Context) PrivateEndpointInvokeResponsePtrOutput
+}
+
+type privateEndpointInvokeResponsePtrType PrivateEndpointInvokeResponseArgs
+
+func PrivateEndpointInvokeResponsePtr(v *PrivateEndpointInvokeResponseArgs) PrivateEndpointInvokeResponsePtrInput {
+	return (*privateEndpointInvokeResponsePtrType)(v)
+}
+
+func (*privateEndpointInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return i.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointInvokeResponsePtrType) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// The Private Endpoint network resource that is linked to the Private Endpoint connection
+type PrivateEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutput() PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponseOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o.ToPrivateEndpointInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointInvokeResponseOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) *PrivateEndpointInvokeResponse {
+		return &v
+	}).(PrivateEndpointInvokeResponsePtrOutput)
+}
+
+// Gets or sets id
+func (o PrivateEndpointInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutput() PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) ToPrivateEndpointInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointInvokeResponsePtrOutput) Elem() PrivateEndpointInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) PrivateEndpointInvokeResponse { return *v }).(PrivateEndpointInvokeResponseOutput)
+}
+
+// Gets or sets id
+func (o PrivateEndpointInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -20112,6 +30329,180 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 }
 
 // Private Link Service Connection State
+type PrivateLinkServiceConnectionStateInvokeResponse struct {
+	// Gets or sets actions required
+	ActionRequired *string `pulumi:"actionRequired"`
+	// Gets or sets description
+	Description *string `pulumi:"description"`
+	// Gets or sets the status
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInvokeResponseInput is an input type that accepts PrivateLinkServiceConnectionStateInvokeResponseArgs and PrivateLinkServiceConnectionStateInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInvokeResponseInput` via:
+//
+//          PrivateLinkServiceConnectionStateInvokeResponseArgs{...}
+type PrivateLinkServiceConnectionStateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput
+	ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput
+}
+
+// Private Link Service Connection State
+type PrivateLinkServiceConnectionStateInvokeResponseArgs struct {
+	// Gets or sets actions required
+	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
+	// Gets or sets description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Gets or sets the status
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutput() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateInvokeResponseArgs) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponseOutput).ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateLinkServiceConnectionStateInvokeResponsePtrInput is an input type that accepts PrivateLinkServiceConnectionStateInvokeResponseArgs, PrivateLinkServiceConnectionStateInvokeResponsePtr and PrivateLinkServiceConnectionStateInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInvokeResponsePtrInput` via:
+//
+//          PrivateLinkServiceConnectionStateInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkServiceConnectionStateInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutput() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput
+	ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStateInvokeResponsePtrOutput
+}
+
+type privateLinkServiceConnectionStateInvokeResponsePtrType PrivateLinkServiceConnectionStateInvokeResponseArgs
+
+func PrivateLinkServiceConnectionStateInvokeResponsePtr(v *PrivateLinkServiceConnectionStateInvokeResponseArgs) PrivateLinkServiceConnectionStateInvokeResponsePtrInput {
+	return (*privateLinkServiceConnectionStateInvokeResponsePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStateInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStateInvokeResponsePtrType) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutput() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStateInvokeResponsePtrType) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateInvokeResponsePtrOutput)
+}
+
+// Private Link Service Connection State
+type PrivateLinkServiceConnectionStateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutput() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutput() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *PrivateLinkServiceConnectionStateInvokeResponse {
+		return &v
+	}).(PrivateLinkServiceConnectionStateInvokeResponsePtrOutput)
+}
+
+// Gets or sets actions required
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) ActionRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets description
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the status
+func (o PrivateLinkServiceConnectionStateInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStateInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutput() PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) ToPrivateLinkServiceConnectionStateInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateInvokeResponse) PrivateLinkServiceConnectionStateInvokeResponse {
+		return *v
+	}).(PrivateLinkServiceConnectionStateInvokeResponseOutput)
+}
+
+// Gets or sets actions required
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) ActionRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets description
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the status
+func (o PrivateLinkServiceConnectionStateInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private Link Service Connection State
 type PrivateLinkServiceConnectionStateResponse struct {
 	// Gets or sets actions required
 	ActionRequired *string `pulumi:"actionRequired"`
@@ -20283,6 +30674,133 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 		}
 		return v.Status
 	}).(pulumi.StringPtrOutput)
+}
+
+// Health Details for backup items.
+type ResourceHealthDetailsInvokeResponse struct {
+	// Health Code
+	Code int `pulumi:"code"`
+	// Health Message
+	Message string `pulumi:"message"`
+	// Health Recommended Actions
+	Recommendations []string `pulumi:"recommendations"`
+	// Health Title
+	Title string `pulumi:"title"`
+}
+
+// ResourceHealthDetailsInvokeResponseInput is an input type that accepts ResourceHealthDetailsInvokeResponseArgs and ResourceHealthDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceHealthDetailsInvokeResponseInput` via:
+//
+//          ResourceHealthDetailsInvokeResponseArgs{...}
+type ResourceHealthDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceHealthDetailsInvokeResponseOutput() ResourceHealthDetailsInvokeResponseOutput
+	ToResourceHealthDetailsInvokeResponseOutputWithContext(context.Context) ResourceHealthDetailsInvokeResponseOutput
+}
+
+// Health Details for backup items.
+type ResourceHealthDetailsInvokeResponseArgs struct {
+	// Health Code
+	Code pulumi.IntInput `pulumi:"code"`
+	// Health Message
+	Message pulumi.StringInput `pulumi:"message"`
+	// Health Recommended Actions
+	Recommendations pulumi.StringArrayInput `pulumi:"recommendations"`
+	// Health Title
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (ResourceHealthDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceHealthDetailsInvokeResponseArgs) ToResourceHealthDetailsInvokeResponseOutput() ResourceHealthDetailsInvokeResponseOutput {
+	return i.ToResourceHealthDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceHealthDetailsInvokeResponseArgs) ToResourceHealthDetailsInvokeResponseOutputWithContext(ctx context.Context) ResourceHealthDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceHealthDetailsInvokeResponseOutput)
+}
+
+// ResourceHealthDetailsInvokeResponseArrayInput is an input type that accepts ResourceHealthDetailsInvokeResponseArray and ResourceHealthDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ResourceHealthDetailsInvokeResponseArrayInput` via:
+//
+//          ResourceHealthDetailsInvokeResponseArray{ ResourceHealthDetailsInvokeResponseArgs{...} }
+type ResourceHealthDetailsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToResourceHealthDetailsInvokeResponseArrayOutput() ResourceHealthDetailsInvokeResponseArrayOutput
+	ToResourceHealthDetailsInvokeResponseArrayOutputWithContext(context.Context) ResourceHealthDetailsInvokeResponseArrayOutput
+}
+
+type ResourceHealthDetailsInvokeResponseArray []ResourceHealthDetailsInvokeResponseInput
+
+func (ResourceHealthDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceHealthDetailsInvokeResponseArray) ToResourceHealthDetailsInvokeResponseArrayOutput() ResourceHealthDetailsInvokeResponseArrayOutput {
+	return i.ToResourceHealthDetailsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceHealthDetailsInvokeResponseArray) ToResourceHealthDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) ResourceHealthDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceHealthDetailsInvokeResponseArrayOutput)
+}
+
+// Health Details for backup items.
+type ResourceHealthDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceHealthDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceHealthDetailsInvokeResponseOutput) ToResourceHealthDetailsInvokeResponseOutput() ResourceHealthDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceHealthDetailsInvokeResponseOutput) ToResourceHealthDetailsInvokeResponseOutputWithContext(ctx context.Context) ResourceHealthDetailsInvokeResponseOutput {
+	return o
+}
+
+// Health Code
+func (o ResourceHealthDetailsInvokeResponseOutput) Code() pulumi.IntOutput {
+	return o.ApplyT(func(v ResourceHealthDetailsInvokeResponse) int { return v.Code }).(pulumi.IntOutput)
+}
+
+// Health Message
+func (o ResourceHealthDetailsInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceHealthDetailsInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Health Recommended Actions
+func (o ResourceHealthDetailsInvokeResponseOutput) Recommendations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceHealthDetailsInvokeResponse) []string { return v.Recommendations }).(pulumi.StringArrayOutput)
+}
+
+// Health Title
+func (o ResourceHealthDetailsInvokeResponseOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceHealthDetailsInvokeResponse) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type ResourceHealthDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceHealthDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceHealthDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceHealthDetailsInvokeResponseArrayOutput) ToResourceHealthDetailsInvokeResponseArrayOutput() ResourceHealthDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ResourceHealthDetailsInvokeResponseArrayOutput) ToResourceHealthDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) ResourceHealthDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ResourceHealthDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) ResourceHealthDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceHealthDetailsInvokeResponse {
+		return vs[0].([]ResourceHealthDetailsInvokeResponse)[vs[1].(int)]
+	}).(ResourceHealthDetailsInvokeResponseOutput)
 }
 
 // Health Details for backup items.
@@ -20562,6 +31080,163 @@ func (o RetentionDurationPtrOutput) Count() pulumi.IntPtrOutput {
 // Retention duration type of retention policy.
 func (o RetentionDurationPtrOutput) DurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RetentionDuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Retention duration.
+type RetentionDurationInvokeResponse struct {
+	// Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+	// For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
+	Count *int `pulumi:"count"`
+	// Retention duration type of retention policy.
+	DurationType *string `pulumi:"durationType"`
+}
+
+// RetentionDurationInvokeResponseInput is an input type that accepts RetentionDurationInvokeResponseArgs and RetentionDurationInvokeResponseOutput values.
+// You can construct a concrete instance of `RetentionDurationInvokeResponseInput` via:
+//
+//          RetentionDurationInvokeResponseArgs{...}
+type RetentionDurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRetentionDurationInvokeResponseOutput() RetentionDurationInvokeResponseOutput
+	ToRetentionDurationInvokeResponseOutputWithContext(context.Context) RetentionDurationInvokeResponseOutput
+}
+
+// Retention duration.
+type RetentionDurationInvokeResponseArgs struct {
+	// Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+	// For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// Retention duration type of retention policy.
+	DurationType pulumi.StringPtrInput `pulumi:"durationType"`
+}
+
+func (RetentionDurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionDurationInvokeResponse)(nil)).Elem()
+}
+
+func (i RetentionDurationInvokeResponseArgs) ToRetentionDurationInvokeResponseOutput() RetentionDurationInvokeResponseOutput {
+	return i.ToRetentionDurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RetentionDurationInvokeResponseArgs) ToRetentionDurationInvokeResponseOutputWithContext(ctx context.Context) RetentionDurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionDurationInvokeResponseOutput)
+}
+
+func (i RetentionDurationInvokeResponseArgs) ToRetentionDurationInvokeResponsePtrOutput() RetentionDurationInvokeResponsePtrOutput {
+	return i.ToRetentionDurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RetentionDurationInvokeResponseArgs) ToRetentionDurationInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionDurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionDurationInvokeResponseOutput).ToRetentionDurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// RetentionDurationInvokeResponsePtrInput is an input type that accepts RetentionDurationInvokeResponseArgs, RetentionDurationInvokeResponsePtr and RetentionDurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `RetentionDurationInvokeResponsePtrInput` via:
+//
+//          RetentionDurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RetentionDurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToRetentionDurationInvokeResponsePtrOutput() RetentionDurationInvokeResponsePtrOutput
+	ToRetentionDurationInvokeResponsePtrOutputWithContext(context.Context) RetentionDurationInvokeResponsePtrOutput
+}
+
+type retentionDurationInvokeResponsePtrType RetentionDurationInvokeResponseArgs
+
+func RetentionDurationInvokeResponsePtr(v *RetentionDurationInvokeResponseArgs) RetentionDurationInvokeResponsePtrInput {
+	return (*retentionDurationInvokeResponsePtrType)(v)
+}
+
+func (*retentionDurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionDurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *retentionDurationInvokeResponsePtrType) ToRetentionDurationInvokeResponsePtrOutput() RetentionDurationInvokeResponsePtrOutput {
+	return i.ToRetentionDurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *retentionDurationInvokeResponsePtrType) ToRetentionDurationInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionDurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Retention duration.
+type RetentionDurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RetentionDurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionDurationInvokeResponse)(nil)).Elem()
+}
+
+func (o RetentionDurationInvokeResponseOutput) ToRetentionDurationInvokeResponseOutput() RetentionDurationInvokeResponseOutput {
+	return o
+}
+
+func (o RetentionDurationInvokeResponseOutput) ToRetentionDurationInvokeResponseOutputWithContext(ctx context.Context) RetentionDurationInvokeResponseOutput {
+	return o
+}
+
+func (o RetentionDurationInvokeResponseOutput) ToRetentionDurationInvokeResponsePtrOutput() RetentionDurationInvokeResponsePtrOutput {
+	return o.ToRetentionDurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RetentionDurationInvokeResponseOutput) ToRetentionDurationInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RetentionDurationInvokeResponse) *RetentionDurationInvokeResponse {
+		return &v
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+// For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
+func (o RetentionDurationInvokeResponseOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RetentionDurationInvokeResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Retention duration type of retention policy.
+func (o RetentionDurationInvokeResponseOutput) DurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RetentionDurationInvokeResponse) *string { return v.DurationType }).(pulumi.StringPtrOutput)
+}
+
+type RetentionDurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RetentionDurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionDurationInvokeResponse)(nil)).Elem()
+}
+
+func (o RetentionDurationInvokeResponsePtrOutput) ToRetentionDurationInvokeResponsePtrOutput() RetentionDurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RetentionDurationInvokeResponsePtrOutput) ToRetentionDurationInvokeResponsePtrOutputWithContext(ctx context.Context) RetentionDurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RetentionDurationInvokeResponsePtrOutput) Elem() RetentionDurationInvokeResponseOutput {
+	return o.ApplyT(func(v *RetentionDurationInvokeResponse) RetentionDurationInvokeResponse { return *v }).(RetentionDurationInvokeResponseOutput)
+}
+
+// Count of duration types. Retention duration is obtained by the counting the duration type Count times.
+// For example, when Count = 3 and DurationType = Weeks, retention duration will be three weeks.
+func (o RetentionDurationInvokeResponsePtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RetentionDurationInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// Retention duration type of retention policy.
+func (o RetentionDurationInvokeResponsePtrOutput) DurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetentionDurationInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -20903,6 +31578,182 @@ func (o SettingsPtrOutput) TimeZone() pulumi.StringPtrOutput {
 }
 
 // Common settings field for backup management
+type SettingsInvokeResponse struct {
+	// Workload compression flag. This has been added so that 'isSqlCompression'
+	// will be deprecated once clients upgrade to consider this flag.
+	IsCompression *bool `pulumi:"isCompression"`
+	// SQL compression flag
+	Issqlcompression *bool `pulumi:"issqlcompression"`
+	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// SettingsInvokeResponseInput is an input type that accepts SettingsInvokeResponseArgs and SettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `SettingsInvokeResponseInput` via:
+//
+//          SettingsInvokeResponseArgs{...}
+type SettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSettingsInvokeResponseOutput() SettingsInvokeResponseOutput
+	ToSettingsInvokeResponseOutputWithContext(context.Context) SettingsInvokeResponseOutput
+}
+
+// Common settings field for backup management
+type SettingsInvokeResponseArgs struct {
+	// Workload compression flag. This has been added so that 'isSqlCompression'
+	// will be deprecated once clients upgrade to consider this flag.
+	IsCompression pulumi.BoolPtrInput `pulumi:"isCompression"`
+	// SQL compression flag
+	Issqlcompression pulumi.BoolPtrInput `pulumi:"issqlcompression"`
+	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (SettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i SettingsInvokeResponseArgs) ToSettingsInvokeResponseOutput() SettingsInvokeResponseOutput {
+	return i.ToSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SettingsInvokeResponseArgs) ToSettingsInvokeResponseOutputWithContext(ctx context.Context) SettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsInvokeResponseOutput)
+}
+
+func (i SettingsInvokeResponseArgs) ToSettingsInvokeResponsePtrOutput() SettingsInvokeResponsePtrOutput {
+	return i.ToSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SettingsInvokeResponseArgs) ToSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsInvokeResponseOutput).ToSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SettingsInvokeResponsePtrInput is an input type that accepts SettingsInvokeResponseArgs, SettingsInvokeResponsePtr and SettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SettingsInvokeResponsePtrInput` via:
+//
+//          SettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSettingsInvokeResponsePtrOutput() SettingsInvokeResponsePtrOutput
+	ToSettingsInvokeResponsePtrOutputWithContext(context.Context) SettingsInvokeResponsePtrOutput
+}
+
+type settingsInvokeResponsePtrType SettingsInvokeResponseArgs
+
+func SettingsInvokeResponsePtr(v *SettingsInvokeResponseArgs) SettingsInvokeResponsePtrInput {
+	return (*settingsInvokeResponsePtrType)(v)
+}
+
+func (*settingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *settingsInvokeResponsePtrType) ToSettingsInvokeResponsePtrOutput() SettingsInvokeResponsePtrOutput {
+	return i.ToSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *settingsInvokeResponsePtrType) ToSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsInvokeResponsePtrOutput)
+}
+
+// Common settings field for backup management
+type SettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SettingsInvokeResponseOutput) ToSettingsInvokeResponseOutput() SettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SettingsInvokeResponseOutput) ToSettingsInvokeResponseOutputWithContext(ctx context.Context) SettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SettingsInvokeResponseOutput) ToSettingsInvokeResponsePtrOutput() SettingsInvokeResponsePtrOutput {
+	return o.ToSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SettingsInvokeResponseOutput) ToSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SettingsInvokeResponse) *SettingsInvokeResponse {
+		return &v
+	}).(SettingsInvokeResponsePtrOutput)
+}
+
+// Workload compression flag. This has been added so that 'isSqlCompression'
+// will be deprecated once clients upgrade to consider this flag.
+func (o SettingsInvokeResponseOutput) IsCompression() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SettingsInvokeResponse) *bool { return v.IsCompression }).(pulumi.BoolPtrOutput)
+}
+
+// SQL compression flag
+func (o SettingsInvokeResponseOutput) Issqlcompression() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SettingsInvokeResponse) *bool { return v.Issqlcompression }).(pulumi.BoolPtrOutput)
+}
+
+// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+func (o SettingsInvokeResponseOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsInvokeResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type SettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SettingsInvokeResponsePtrOutput) ToSettingsInvokeResponsePtrOutput() SettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SettingsInvokeResponsePtrOutput) ToSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SettingsInvokeResponsePtrOutput) Elem() SettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *SettingsInvokeResponse) SettingsInvokeResponse { return *v }).(SettingsInvokeResponseOutput)
+}
+
+// Workload compression flag. This has been added so that 'isSqlCompression'
+// will be deprecated once clients upgrade to consider this flag.
+func (o SettingsInvokeResponsePtrOutput) IsCompression() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCompression
+	}).(pulumi.BoolPtrOutput)
+}
+
+// SQL compression flag
+func (o SettingsInvokeResponsePtrOutput) Issqlcompression() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SettingsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Issqlcompression
+	}).(pulumi.BoolPtrOutput)
+}
+
+// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+func (o SettingsInvokeResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Common settings field for backup management
 type SettingsResponse struct {
 	// Workload compression flag. This has been added so that 'isSqlCompression'
 	// will be deprecated once clients upgrade to consider this flag.
@@ -21146,6 +31997,75 @@ func (o SimpleRetentionPolicyOutput) RetentionPolicyType() pulumi.StringOutput {
 }
 
 // Simple policy retention.
+type SimpleRetentionPolicyInvokeResponse struct {
+	// Retention duration of the protection policy.
+	RetentionDuration *RetentionDurationInvokeResponse `pulumi:"retentionDuration"`
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
+	RetentionPolicyType string `pulumi:"retentionPolicyType"`
+}
+
+// SimpleRetentionPolicyInvokeResponseInput is an input type that accepts SimpleRetentionPolicyInvokeResponseArgs and SimpleRetentionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `SimpleRetentionPolicyInvokeResponseInput` via:
+//
+//          SimpleRetentionPolicyInvokeResponseArgs{...}
+type SimpleRetentionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSimpleRetentionPolicyInvokeResponseOutput() SimpleRetentionPolicyInvokeResponseOutput
+	ToSimpleRetentionPolicyInvokeResponseOutputWithContext(context.Context) SimpleRetentionPolicyInvokeResponseOutput
+}
+
+// Simple policy retention.
+type SimpleRetentionPolicyInvokeResponseArgs struct {
+	// Retention duration of the protection policy.
+	RetentionDuration RetentionDurationInvokeResponsePtrInput `pulumi:"retentionDuration"`
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleRetentionPolicy'.
+	RetentionPolicyType pulumi.StringInput `pulumi:"retentionPolicyType"`
+}
+
+func (SimpleRetentionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleRetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i SimpleRetentionPolicyInvokeResponseArgs) ToSimpleRetentionPolicyInvokeResponseOutput() SimpleRetentionPolicyInvokeResponseOutput {
+	return i.ToSimpleRetentionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SimpleRetentionPolicyInvokeResponseArgs) ToSimpleRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) SimpleRetentionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SimpleRetentionPolicyInvokeResponseOutput)
+}
+
+// Simple policy retention.
+type SimpleRetentionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SimpleRetentionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleRetentionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o SimpleRetentionPolicyInvokeResponseOutput) ToSimpleRetentionPolicyInvokeResponseOutput() SimpleRetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o SimpleRetentionPolicyInvokeResponseOutput) ToSimpleRetentionPolicyInvokeResponseOutputWithContext(ctx context.Context) SimpleRetentionPolicyInvokeResponseOutput {
+	return o
+}
+
+// Retention duration of the protection policy.
+func (o SimpleRetentionPolicyInvokeResponseOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SimpleRetentionPolicyInvokeResponse) *RetentionDurationInvokeResponse {
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleRetentionPolicy'.
+func (o SimpleRetentionPolicyInvokeResponseOutput) RetentionPolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v SimpleRetentionPolicyInvokeResponse) string { return v.RetentionPolicyType }).(pulumi.StringOutput)
+}
+
+// Simple policy retention.
 type SimpleRetentionPolicyResponse struct {
 	// Retention duration of the protection policy.
 	RetentionDuration *RetentionDurationResponse `pulumi:"retentionDuration"`
@@ -21304,6 +32224,100 @@ func (o SimpleSchedulePolicyOutput) ScheduleRunTimes() pulumi.StringArrayOutput 
 // At every number weeks this schedule has to be run.
 func (o SimpleSchedulePolicyOutput) ScheduleWeeklyFrequency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SimpleSchedulePolicy) *int { return v.ScheduleWeeklyFrequency }).(pulumi.IntPtrOutput)
+}
+
+// Simple policy schedule.
+type SimpleSchedulePolicyInvokeResponse struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
+	SchedulePolicyType string `pulumi:"schedulePolicyType"`
+	// List of days of week this schedule has to be run.
+	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
+	// Frequency of the schedule operation of this policy.
+	ScheduleRunFrequency *string `pulumi:"scheduleRunFrequency"`
+	// List of times of day this schedule has to be run.
+	ScheduleRunTimes []string `pulumi:"scheduleRunTimes"`
+	// At every number weeks this schedule has to be run.
+	ScheduleWeeklyFrequency *int `pulumi:"scheduleWeeklyFrequency"`
+}
+
+// SimpleSchedulePolicyInvokeResponseInput is an input type that accepts SimpleSchedulePolicyInvokeResponseArgs and SimpleSchedulePolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `SimpleSchedulePolicyInvokeResponseInput` via:
+//
+//          SimpleSchedulePolicyInvokeResponseArgs{...}
+type SimpleSchedulePolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSimpleSchedulePolicyInvokeResponseOutput() SimpleSchedulePolicyInvokeResponseOutput
+	ToSimpleSchedulePolicyInvokeResponseOutputWithContext(context.Context) SimpleSchedulePolicyInvokeResponseOutput
+}
+
+// Simple policy schedule.
+type SimpleSchedulePolicyInvokeResponseArgs struct {
+	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+	// Expected value is 'SimpleSchedulePolicy'.
+	SchedulePolicyType pulumi.StringInput `pulumi:"schedulePolicyType"`
+	// List of days of week this schedule has to be run.
+	ScheduleRunDays pulumi.StringArrayInput `pulumi:"scheduleRunDays"`
+	// Frequency of the schedule operation of this policy.
+	ScheduleRunFrequency pulumi.StringPtrInput `pulumi:"scheduleRunFrequency"`
+	// List of times of day this schedule has to be run.
+	ScheduleRunTimes pulumi.StringArrayInput `pulumi:"scheduleRunTimes"`
+	// At every number weeks this schedule has to be run.
+	ScheduleWeeklyFrequency pulumi.IntPtrInput `pulumi:"scheduleWeeklyFrequency"`
+}
+
+func (SimpleSchedulePolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleSchedulePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i SimpleSchedulePolicyInvokeResponseArgs) ToSimpleSchedulePolicyInvokeResponseOutput() SimpleSchedulePolicyInvokeResponseOutput {
+	return i.ToSimpleSchedulePolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SimpleSchedulePolicyInvokeResponseArgs) ToSimpleSchedulePolicyInvokeResponseOutputWithContext(ctx context.Context) SimpleSchedulePolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SimpleSchedulePolicyInvokeResponseOutput)
+}
+
+// Simple policy schedule.
+type SimpleSchedulePolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SimpleSchedulePolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimpleSchedulePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o SimpleSchedulePolicyInvokeResponseOutput) ToSimpleSchedulePolicyInvokeResponseOutput() SimpleSchedulePolicyInvokeResponseOutput {
+	return o
+}
+
+func (o SimpleSchedulePolicyInvokeResponseOutput) ToSimpleSchedulePolicyInvokeResponseOutputWithContext(ctx context.Context) SimpleSchedulePolicyInvokeResponseOutput {
+	return o
+}
+
+// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+// Expected value is 'SimpleSchedulePolicy'.
+func (o SimpleSchedulePolicyInvokeResponseOutput) SchedulePolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicyInvokeResponse) string { return v.SchedulePolicyType }).(pulumi.StringOutput)
+}
+
+// List of days of week this schedule has to be run.
+func (o SimpleSchedulePolicyInvokeResponseOutput) ScheduleRunDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicyInvokeResponse) []string { return v.ScheduleRunDays }).(pulumi.StringArrayOutput)
+}
+
+// Frequency of the schedule operation of this policy.
+func (o SimpleSchedulePolicyInvokeResponseOutput) ScheduleRunFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicyInvokeResponse) *string { return v.ScheduleRunFrequency }).(pulumi.StringPtrOutput)
+}
+
+// List of times of day this schedule has to be run.
+func (o SimpleSchedulePolicyInvokeResponseOutput) ScheduleRunTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicyInvokeResponse) []string { return v.ScheduleRunTimes }).(pulumi.StringArrayOutput)
+}
+
+// At every number weeks this schedule has to be run.
+func (o SimpleSchedulePolicyInvokeResponseOutput) ScheduleWeeklyFrequency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicyInvokeResponse) *int { return v.ScheduleWeeklyFrequency }).(pulumi.IntPtrOutput)
 }
 
 // Simple policy schedule.
@@ -21516,6 +32530,124 @@ func (o SubProtectionPolicyArrayOutput) Index(i pulumi.IntInput) SubProtectionPo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubProtectionPolicy {
 		return vs[0].([]SubProtectionPolicy)[vs[1].(int)]
 	}).(SubProtectionPolicyOutput)
+}
+
+// Sub-protection policy which includes schedule and retention
+type SubProtectionPolicyInvokeResponse struct {
+	// Type of backup policy type
+	PolicyType *string `pulumi:"policyType"`
+	// Retention policy with the details on backup copy retention ranges.
+	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
+	// Backup schedule specified as part of backup policy.
+	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+}
+
+// SubProtectionPolicyInvokeResponseInput is an input type that accepts SubProtectionPolicyInvokeResponseArgs and SubProtectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `SubProtectionPolicyInvokeResponseInput` via:
+//
+//          SubProtectionPolicyInvokeResponseArgs{...}
+type SubProtectionPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubProtectionPolicyInvokeResponseOutput() SubProtectionPolicyInvokeResponseOutput
+	ToSubProtectionPolicyInvokeResponseOutputWithContext(context.Context) SubProtectionPolicyInvokeResponseOutput
+}
+
+// Sub-protection policy which includes schedule and retention
+type SubProtectionPolicyInvokeResponseArgs struct {
+	// Type of backup policy type
+	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
+	// Retention policy with the details on backup copy retention ranges.
+	RetentionPolicy pulumi.Input `pulumi:"retentionPolicy"`
+	// Backup schedule specified as part of backup policy.
+	SchedulePolicy pulumi.Input `pulumi:"schedulePolicy"`
+}
+
+func (SubProtectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i SubProtectionPolicyInvokeResponseArgs) ToSubProtectionPolicyInvokeResponseOutput() SubProtectionPolicyInvokeResponseOutput {
+	return i.ToSubProtectionPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubProtectionPolicyInvokeResponseArgs) ToSubProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) SubProtectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubProtectionPolicyInvokeResponseOutput)
+}
+
+// SubProtectionPolicyInvokeResponseArrayInput is an input type that accepts SubProtectionPolicyInvokeResponseArray and SubProtectionPolicyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SubProtectionPolicyInvokeResponseArrayInput` via:
+//
+//          SubProtectionPolicyInvokeResponseArray{ SubProtectionPolicyInvokeResponseArgs{...} }
+type SubProtectionPolicyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSubProtectionPolicyInvokeResponseArrayOutput() SubProtectionPolicyInvokeResponseArrayOutput
+	ToSubProtectionPolicyInvokeResponseArrayOutputWithContext(context.Context) SubProtectionPolicyInvokeResponseArrayOutput
+}
+
+type SubProtectionPolicyInvokeResponseArray []SubProtectionPolicyInvokeResponseInput
+
+func (SubProtectionPolicyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i SubProtectionPolicyInvokeResponseArray) ToSubProtectionPolicyInvokeResponseArrayOutput() SubProtectionPolicyInvokeResponseArrayOutput {
+	return i.ToSubProtectionPolicyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SubProtectionPolicyInvokeResponseArray) ToSubProtectionPolicyInvokeResponseArrayOutputWithContext(ctx context.Context) SubProtectionPolicyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubProtectionPolicyInvokeResponseArrayOutput)
+}
+
+// Sub-protection policy which includes schedule and retention
+type SubProtectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubProtectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o SubProtectionPolicyInvokeResponseOutput) ToSubProtectionPolicyInvokeResponseOutput() SubProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o SubProtectionPolicyInvokeResponseOutput) ToSubProtectionPolicyInvokeResponseOutputWithContext(ctx context.Context) SubProtectionPolicyInvokeResponseOutput {
+	return o
+}
+
+// Type of backup policy type
+func (o SubProtectionPolicyInvokeResponseOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubProtectionPolicyInvokeResponse) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// Retention policy with the details on backup copy retention ranges.
+func (o SubProtectionPolicyInvokeResponseOutput) RetentionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v SubProtectionPolicyInvokeResponse) interface{} { return v.RetentionPolicy }).(pulumi.AnyOutput)
+}
+
+// Backup schedule specified as part of backup policy.
+func (o SubProtectionPolicyInvokeResponseOutput) SchedulePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v SubProtectionPolicyInvokeResponse) interface{} { return v.SchedulePolicy }).(pulumi.AnyOutput)
+}
+
+type SubProtectionPolicyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SubProtectionPolicyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubProtectionPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o SubProtectionPolicyInvokeResponseArrayOutput) ToSubProtectionPolicyInvokeResponseArrayOutput() SubProtectionPolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SubProtectionPolicyInvokeResponseArrayOutput) ToSubProtectionPolicyInvokeResponseArrayOutputWithContext(ctx context.Context) SubProtectionPolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SubProtectionPolicyInvokeResponseArrayOutput) Index(i pulumi.IntInput) SubProtectionPolicyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubProtectionPolicyInvokeResponse {
+		return vs[0].([]SubProtectionPolicyInvokeResponse)[vs[1].(int)]
+	}).(SubProtectionPolicyInvokeResponseOutput)
 }
 
 // Sub-protection policy which includes schedule and retention
@@ -21782,6 +32914,159 @@ func (o WeeklyRetentionFormatPtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput
 // List of weeks of month.
 func (o WeeklyRetentionFormatPtrOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WeeklyRetentionFormat) []string {
+		if v == nil {
+			return nil
+		}
+		return v.WeeksOfTheMonth
+	}).(pulumi.StringArrayOutput)
+}
+
+// Weekly retention format.
+type WeeklyRetentionFormatInvokeResponse struct {
+	// List of days of the week.
+	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
+	// List of weeks of month.
+	WeeksOfTheMonth []string `pulumi:"weeksOfTheMonth"`
+}
+
+// WeeklyRetentionFormatInvokeResponseInput is an input type that accepts WeeklyRetentionFormatInvokeResponseArgs and WeeklyRetentionFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `WeeklyRetentionFormatInvokeResponseInput` via:
+//
+//          WeeklyRetentionFormatInvokeResponseArgs{...}
+type WeeklyRetentionFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWeeklyRetentionFormatInvokeResponseOutput() WeeklyRetentionFormatInvokeResponseOutput
+	ToWeeklyRetentionFormatInvokeResponseOutputWithContext(context.Context) WeeklyRetentionFormatInvokeResponseOutput
+}
+
+// Weekly retention format.
+type WeeklyRetentionFormatInvokeResponseArgs struct {
+	// List of days of the week.
+	DaysOfTheWeek pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
+	// List of weeks of month.
+	WeeksOfTheMonth pulumi.StringArrayInput `pulumi:"weeksOfTheMonth"`
+}
+
+func (WeeklyRetentionFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WeeklyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i WeeklyRetentionFormatInvokeResponseArgs) ToWeeklyRetentionFormatInvokeResponseOutput() WeeklyRetentionFormatInvokeResponseOutput {
+	return i.ToWeeklyRetentionFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WeeklyRetentionFormatInvokeResponseArgs) ToWeeklyRetentionFormatInvokeResponseOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionFormatInvokeResponseOutput)
+}
+
+func (i WeeklyRetentionFormatInvokeResponseArgs) ToWeeklyRetentionFormatInvokeResponsePtrOutput() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return i.ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WeeklyRetentionFormatInvokeResponseArgs) ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionFormatInvokeResponseOutput).ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WeeklyRetentionFormatInvokeResponsePtrInput is an input type that accepts WeeklyRetentionFormatInvokeResponseArgs, WeeklyRetentionFormatInvokeResponsePtr and WeeklyRetentionFormatInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WeeklyRetentionFormatInvokeResponsePtrInput` via:
+//
+//          WeeklyRetentionFormatInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WeeklyRetentionFormatInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWeeklyRetentionFormatInvokeResponsePtrOutput() WeeklyRetentionFormatInvokeResponsePtrOutput
+	ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(context.Context) WeeklyRetentionFormatInvokeResponsePtrOutput
+}
+
+type weeklyRetentionFormatInvokeResponsePtrType WeeklyRetentionFormatInvokeResponseArgs
+
+func WeeklyRetentionFormatInvokeResponsePtr(v *WeeklyRetentionFormatInvokeResponseArgs) WeeklyRetentionFormatInvokeResponsePtrInput {
+	return (*weeklyRetentionFormatInvokeResponsePtrType)(v)
+}
+
+func (*weeklyRetentionFormatInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i *weeklyRetentionFormatInvokeResponsePtrType) ToWeeklyRetentionFormatInvokeResponsePtrOutput() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return i.ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *weeklyRetentionFormatInvokeResponsePtrType) ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Weekly retention format.
+type WeeklyRetentionFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WeeklyRetentionFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WeeklyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o WeeklyRetentionFormatInvokeResponseOutput) ToWeeklyRetentionFormatInvokeResponseOutput() WeeklyRetentionFormatInvokeResponseOutput {
+	return o
+}
+
+func (o WeeklyRetentionFormatInvokeResponseOutput) ToWeeklyRetentionFormatInvokeResponseOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponseOutput {
+	return o
+}
+
+func (o WeeklyRetentionFormatInvokeResponseOutput) ToWeeklyRetentionFormatInvokeResponsePtrOutput() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WeeklyRetentionFormatInvokeResponseOutput) ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormatInvokeResponse) *WeeklyRetentionFormatInvokeResponse {
+		return &v
+	}).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// List of days of the week.
+func (o WeeklyRetentionFormatInvokeResponseOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormatInvokeResponse) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
+}
+
+// List of weeks of month.
+func (o WeeklyRetentionFormatInvokeResponseOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormatInvokeResponse) []string { return v.WeeksOfTheMonth }).(pulumi.StringArrayOutput)
+}
+
+type WeeklyRetentionFormatInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WeeklyRetentionFormatInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklyRetentionFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o WeeklyRetentionFormatInvokeResponsePtrOutput) ToWeeklyRetentionFormatInvokeResponsePtrOutput() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WeeklyRetentionFormatInvokeResponsePtrOutput) ToWeeklyRetentionFormatInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WeeklyRetentionFormatInvokeResponsePtrOutput) Elem() WeeklyRetentionFormatInvokeResponseOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormatInvokeResponse) WeeklyRetentionFormatInvokeResponse { return *v }).(WeeklyRetentionFormatInvokeResponseOutput)
+}
+
+// List of days of the week.
+func (o WeeklyRetentionFormatInvokeResponsePtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormatInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfTheWeek
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of weeks of month.
+func (o WeeklyRetentionFormatInvokeResponsePtrOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormatInvokeResponse) []string {
 		if v == nil {
 			return nil
 		}
@@ -22115,6 +33400,180 @@ func (o WeeklyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOut
 }
 
 // Weekly retention schedule.
+type WeeklyRetentionScheduleInvokeResponse struct {
+	// List of days of week for weekly retention policy.
+	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
+	// Retention duration of retention Policy.
+	RetentionDuration *RetentionDurationInvokeResponse `pulumi:"retentionDuration"`
+	// Retention times of retention policy.
+	RetentionTimes []string `pulumi:"retentionTimes"`
+}
+
+// WeeklyRetentionScheduleInvokeResponseInput is an input type that accepts WeeklyRetentionScheduleInvokeResponseArgs and WeeklyRetentionScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `WeeklyRetentionScheduleInvokeResponseInput` via:
+//
+//          WeeklyRetentionScheduleInvokeResponseArgs{...}
+type WeeklyRetentionScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWeeklyRetentionScheduleInvokeResponseOutput() WeeklyRetentionScheduleInvokeResponseOutput
+	ToWeeklyRetentionScheduleInvokeResponseOutputWithContext(context.Context) WeeklyRetentionScheduleInvokeResponseOutput
+}
+
+// Weekly retention schedule.
+type WeeklyRetentionScheduleInvokeResponseArgs struct {
+	// List of days of week for weekly retention policy.
+	DaysOfTheWeek pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
+	// Retention duration of retention Policy.
+	RetentionDuration RetentionDurationInvokeResponsePtrInput `pulumi:"retentionDuration"`
+	// Retention times of retention policy.
+	RetentionTimes pulumi.StringArrayInput `pulumi:"retentionTimes"`
+}
+
+func (WeeklyRetentionScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WeeklyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i WeeklyRetentionScheduleInvokeResponseArgs) ToWeeklyRetentionScheduleInvokeResponseOutput() WeeklyRetentionScheduleInvokeResponseOutput {
+	return i.ToWeeklyRetentionScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WeeklyRetentionScheduleInvokeResponseArgs) ToWeeklyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionScheduleInvokeResponseOutput)
+}
+
+func (i WeeklyRetentionScheduleInvokeResponseArgs) ToWeeklyRetentionScheduleInvokeResponsePtrOutput() WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WeeklyRetentionScheduleInvokeResponseArgs) ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionScheduleInvokeResponseOutput).ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WeeklyRetentionScheduleInvokeResponsePtrInput is an input type that accepts WeeklyRetentionScheduleInvokeResponseArgs, WeeklyRetentionScheduleInvokeResponsePtr and WeeklyRetentionScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WeeklyRetentionScheduleInvokeResponsePtrInput` via:
+//
+//          WeeklyRetentionScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WeeklyRetentionScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWeeklyRetentionScheduleInvokeResponsePtrOutput() WeeklyRetentionScheduleInvokeResponsePtrOutput
+	ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Context) WeeklyRetentionScheduleInvokeResponsePtrOutput
+}
+
+type weeklyRetentionScheduleInvokeResponsePtrType WeeklyRetentionScheduleInvokeResponseArgs
+
+func WeeklyRetentionScheduleInvokeResponsePtr(v *WeeklyRetentionScheduleInvokeResponseArgs) WeeklyRetentionScheduleInvokeResponsePtrInput {
+	return (*weeklyRetentionScheduleInvokeResponsePtrType)(v)
+}
+
+func (*weeklyRetentionScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *weeklyRetentionScheduleInvokeResponsePtrType) ToWeeklyRetentionScheduleInvokeResponsePtrOutput() WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *weeklyRetentionScheduleInvokeResponsePtrType) ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Weekly retention schedule.
+type WeeklyRetentionScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WeeklyRetentionScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WeeklyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o WeeklyRetentionScheduleInvokeResponseOutput) ToWeeklyRetentionScheduleInvokeResponseOutput() WeeklyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o WeeklyRetentionScheduleInvokeResponseOutput) ToWeeklyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o WeeklyRetentionScheduleInvokeResponseOutput) ToWeeklyRetentionScheduleInvokeResponsePtrOutput() WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WeeklyRetentionScheduleInvokeResponseOutput) ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WeeklyRetentionScheduleInvokeResponse) *WeeklyRetentionScheduleInvokeResponse {
+		return &v
+	}).(WeeklyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// List of days of week for weekly retention policy.
+func (o WeeklyRetentionScheduleInvokeResponseOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionScheduleInvokeResponse) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
+}
+
+// Retention duration of retention Policy.
+func (o WeeklyRetentionScheduleInvokeResponseOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WeeklyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Retention times of retention policy.
+func (o WeeklyRetentionScheduleInvokeResponseOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionScheduleInvokeResponse) []string { return v.RetentionTimes }).(pulumi.StringArrayOutput)
+}
+
+type WeeklyRetentionScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WeeklyRetentionScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WeeklyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) ToWeeklyRetentionScheduleInvokeResponsePtrOutput() WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) ToWeeklyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) Elem() WeeklyRetentionScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *WeeklyRetentionScheduleInvokeResponse) WeeklyRetentionScheduleInvokeResponse { return *v }).(WeeklyRetentionScheduleInvokeResponseOutput)
+}
+
+// List of days of week for weekly retention policy.
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DaysOfTheWeek
+	}).(pulumi.StringArrayOutput)
+}
+
+// Retention duration of retention Policy.
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *WeeklyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Retention times of retention policy.
+func (o WeeklyRetentionScheduleInvokeResponsePtrOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTimes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Weekly retention schedule.
 type WeeklyRetentionScheduleResponse struct {
 	// List of days of week for weekly retention policy.
 	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
@@ -22402,6 +33861,126 @@ func (o WorkloadInquiryDetailsArrayOutput) Index(i pulumi.IntInput) WorkloadInqu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInquiryDetails {
 		return vs[0].([]WorkloadInquiryDetails)[vs[1].(int)]
 	}).(WorkloadInquiryDetailsOutput)
+}
+
+// Details of an inquired protectable item.
+type WorkloadInquiryDetailsInvokeResponse struct {
+	// Inquiry validation such as permissions and other backup validations.
+	InquiryValidation *InquiryValidationInvokeResponse `pulumi:"inquiryValidation"`
+	// Contains the protectable item Count inside this Container.
+	ItemCount *float64 `pulumi:"itemCount"`
+	// Type of the Workload such as SQL, Oracle etc.
+	Type *string `pulumi:"type"`
+}
+
+// WorkloadInquiryDetailsInvokeResponseInput is an input type that accepts WorkloadInquiryDetailsInvokeResponseArgs and WorkloadInquiryDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkloadInquiryDetailsInvokeResponseInput` via:
+//
+//          WorkloadInquiryDetailsInvokeResponseArgs{...}
+type WorkloadInquiryDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkloadInquiryDetailsInvokeResponseOutput() WorkloadInquiryDetailsInvokeResponseOutput
+	ToWorkloadInquiryDetailsInvokeResponseOutputWithContext(context.Context) WorkloadInquiryDetailsInvokeResponseOutput
+}
+
+// Details of an inquired protectable item.
+type WorkloadInquiryDetailsInvokeResponseArgs struct {
+	// Inquiry validation such as permissions and other backup validations.
+	InquiryValidation InquiryValidationInvokeResponsePtrInput `pulumi:"inquiryValidation"`
+	// Contains the protectable item Count inside this Container.
+	ItemCount pulumi.Float64PtrInput `pulumi:"itemCount"`
+	// Type of the Workload such as SQL, Oracle etc.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (WorkloadInquiryDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInquiryDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkloadInquiryDetailsInvokeResponseArgs) ToWorkloadInquiryDetailsInvokeResponseOutput() WorkloadInquiryDetailsInvokeResponseOutput {
+	return i.ToWorkloadInquiryDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkloadInquiryDetailsInvokeResponseArgs) ToWorkloadInquiryDetailsInvokeResponseOutputWithContext(ctx context.Context) WorkloadInquiryDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInquiryDetailsInvokeResponseOutput)
+}
+
+// WorkloadInquiryDetailsInvokeResponseArrayInput is an input type that accepts WorkloadInquiryDetailsInvokeResponseArray and WorkloadInquiryDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `WorkloadInquiryDetailsInvokeResponseArrayInput` via:
+//
+//          WorkloadInquiryDetailsInvokeResponseArray{ WorkloadInquiryDetailsInvokeResponseArgs{...} }
+type WorkloadInquiryDetailsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadInquiryDetailsInvokeResponseArrayOutput() WorkloadInquiryDetailsInvokeResponseArrayOutput
+	ToWorkloadInquiryDetailsInvokeResponseArrayOutputWithContext(context.Context) WorkloadInquiryDetailsInvokeResponseArrayOutput
+}
+
+type WorkloadInquiryDetailsInvokeResponseArray []WorkloadInquiryDetailsInvokeResponseInput
+
+func (WorkloadInquiryDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInquiryDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkloadInquiryDetailsInvokeResponseArray) ToWorkloadInquiryDetailsInvokeResponseArrayOutput() WorkloadInquiryDetailsInvokeResponseArrayOutput {
+	return i.ToWorkloadInquiryDetailsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadInquiryDetailsInvokeResponseArray) ToWorkloadInquiryDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) WorkloadInquiryDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInquiryDetailsInvokeResponseArrayOutput)
+}
+
+// Details of an inquired protectable item.
+type WorkloadInquiryDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInquiryDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInquiryDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkloadInquiryDetailsInvokeResponseOutput) ToWorkloadInquiryDetailsInvokeResponseOutput() WorkloadInquiryDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o WorkloadInquiryDetailsInvokeResponseOutput) ToWorkloadInquiryDetailsInvokeResponseOutputWithContext(ctx context.Context) WorkloadInquiryDetailsInvokeResponseOutput {
+	return o
+}
+
+// Inquiry validation such as permissions and other backup validations.
+func (o WorkloadInquiryDetailsInvokeResponseOutput) InquiryValidation() InquiryValidationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WorkloadInquiryDetailsInvokeResponse) *InquiryValidationInvokeResponse {
+		return v.InquiryValidation
+	}).(InquiryValidationInvokeResponsePtrOutput)
+}
+
+// Contains the protectable item Count inside this Container.
+func (o WorkloadInquiryDetailsInvokeResponseOutput) ItemCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v WorkloadInquiryDetailsInvokeResponse) *float64 { return v.ItemCount }).(pulumi.Float64PtrOutput)
+}
+
+// Type of the Workload such as SQL, Oracle etc.
+func (o WorkloadInquiryDetailsInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInquiryDetailsInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInquiryDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInquiryDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInquiryDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkloadInquiryDetailsInvokeResponseArrayOutput) ToWorkloadInquiryDetailsInvokeResponseArrayOutput() WorkloadInquiryDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkloadInquiryDetailsInvokeResponseArrayOutput) ToWorkloadInquiryDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) WorkloadInquiryDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkloadInquiryDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) WorkloadInquiryDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInquiryDetailsInvokeResponse {
+		return vs[0].([]WorkloadInquiryDetailsInvokeResponse)[vs[1].(int)]
+	}).(WorkloadInquiryDetailsInvokeResponseOutput)
 }
 
 // Details of an inquired protectable item.
@@ -22752,6 +34331,241 @@ func (o YearlyRetentionSchedulePtrOutput) RetentionTimes() pulumi.StringArrayOut
 }
 
 // Yearly retention schedule.
+type YearlyRetentionScheduleInvokeResponse struct {
+	// List of months of year of yearly retention policy.
+	MonthsOfYear []string `pulumi:"monthsOfYear"`
+	// Retention duration of retention Policy.
+	RetentionDuration *RetentionDurationInvokeResponse `pulumi:"retentionDuration"`
+	// Daily retention format for yearly retention policy.
+	RetentionScheduleDaily *DailyRetentionFormatInvokeResponse `pulumi:"retentionScheduleDaily"`
+	// Retention schedule format for yearly retention policy.
+	RetentionScheduleFormatType *string `pulumi:"retentionScheduleFormatType"`
+	// Weekly retention format for yearly retention policy.
+	RetentionScheduleWeekly *WeeklyRetentionFormatInvokeResponse `pulumi:"retentionScheduleWeekly"`
+	// Retention times of retention policy.
+	RetentionTimes []string `pulumi:"retentionTimes"`
+}
+
+// YearlyRetentionScheduleInvokeResponseInput is an input type that accepts YearlyRetentionScheduleInvokeResponseArgs and YearlyRetentionScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `YearlyRetentionScheduleInvokeResponseInput` via:
+//
+//          YearlyRetentionScheduleInvokeResponseArgs{...}
+type YearlyRetentionScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToYearlyRetentionScheduleInvokeResponseOutput() YearlyRetentionScheduleInvokeResponseOutput
+	ToYearlyRetentionScheduleInvokeResponseOutputWithContext(context.Context) YearlyRetentionScheduleInvokeResponseOutput
+}
+
+// Yearly retention schedule.
+type YearlyRetentionScheduleInvokeResponseArgs struct {
+	// List of months of year of yearly retention policy.
+	MonthsOfYear pulumi.StringArrayInput `pulumi:"monthsOfYear"`
+	// Retention duration of retention Policy.
+	RetentionDuration RetentionDurationInvokeResponsePtrInput `pulumi:"retentionDuration"`
+	// Daily retention format for yearly retention policy.
+	RetentionScheduleDaily DailyRetentionFormatInvokeResponsePtrInput `pulumi:"retentionScheduleDaily"`
+	// Retention schedule format for yearly retention policy.
+	RetentionScheduleFormatType pulumi.StringPtrInput `pulumi:"retentionScheduleFormatType"`
+	// Weekly retention format for yearly retention policy.
+	RetentionScheduleWeekly WeeklyRetentionFormatInvokeResponsePtrInput `pulumi:"retentionScheduleWeekly"`
+	// Retention times of retention policy.
+	RetentionTimes pulumi.StringArrayInput `pulumi:"retentionTimes"`
+}
+
+func (YearlyRetentionScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*YearlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i YearlyRetentionScheduleInvokeResponseArgs) ToYearlyRetentionScheduleInvokeResponseOutput() YearlyRetentionScheduleInvokeResponseOutput {
+	return i.ToYearlyRetentionScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i YearlyRetentionScheduleInvokeResponseArgs) ToYearlyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(YearlyRetentionScheduleInvokeResponseOutput)
+}
+
+func (i YearlyRetentionScheduleInvokeResponseArgs) ToYearlyRetentionScheduleInvokeResponsePtrOutput() YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i YearlyRetentionScheduleInvokeResponseArgs) ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(YearlyRetentionScheduleInvokeResponseOutput).ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// YearlyRetentionScheduleInvokeResponsePtrInput is an input type that accepts YearlyRetentionScheduleInvokeResponseArgs, YearlyRetentionScheduleInvokeResponsePtr and YearlyRetentionScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `YearlyRetentionScheduleInvokeResponsePtrInput` via:
+//
+//          YearlyRetentionScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type YearlyRetentionScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToYearlyRetentionScheduleInvokeResponsePtrOutput() YearlyRetentionScheduleInvokeResponsePtrOutput
+	ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Context) YearlyRetentionScheduleInvokeResponsePtrOutput
+}
+
+type yearlyRetentionScheduleInvokeResponsePtrType YearlyRetentionScheduleInvokeResponseArgs
+
+func YearlyRetentionScheduleInvokeResponsePtr(v *YearlyRetentionScheduleInvokeResponseArgs) YearlyRetentionScheduleInvokeResponsePtrInput {
+	return (*yearlyRetentionScheduleInvokeResponsePtrType)(v)
+}
+
+func (*yearlyRetentionScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**YearlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *yearlyRetentionScheduleInvokeResponsePtrType) ToYearlyRetentionScheduleInvokeResponsePtrOutput() YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return i.ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *yearlyRetentionScheduleInvokeResponsePtrType) ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(YearlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// Yearly retention schedule.
+type YearlyRetentionScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (YearlyRetentionScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*YearlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o YearlyRetentionScheduleInvokeResponseOutput) ToYearlyRetentionScheduleInvokeResponseOutput() YearlyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o YearlyRetentionScheduleInvokeResponseOutput) ToYearlyRetentionScheduleInvokeResponseOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o YearlyRetentionScheduleInvokeResponseOutput) ToYearlyRetentionScheduleInvokeResponsePtrOutput() YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o YearlyRetentionScheduleInvokeResponseOutput) ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) *YearlyRetentionScheduleInvokeResponse {
+		return &v
+	}).(YearlyRetentionScheduleInvokeResponsePtrOutput)
+}
+
+// List of months of year of yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) MonthsOfYear() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) []string { return v.MonthsOfYear }).(pulumi.StringArrayOutput)
+}
+
+// Retention duration of retention Policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Daily retention format for yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) RetentionScheduleDaily() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) *DailyRetentionFormatInvokeResponse {
+		return v.RetentionScheduleDaily
+	}).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention schedule format for yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) *string { return v.RetentionScheduleFormatType }).(pulumi.StringPtrOutput)
+}
+
+// Weekly retention format for yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) RetentionScheduleWeekly() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) *WeeklyRetentionFormatInvokeResponse {
+		return v.RetentionScheduleWeekly
+	}).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention times of retention policy.
+func (o YearlyRetentionScheduleInvokeResponseOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v YearlyRetentionScheduleInvokeResponse) []string { return v.RetentionTimes }).(pulumi.StringArrayOutput)
+}
+
+type YearlyRetentionScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (YearlyRetentionScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**YearlyRetentionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) ToYearlyRetentionScheduleInvokeResponsePtrOutput() YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) ToYearlyRetentionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) YearlyRetentionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) Elem() YearlyRetentionScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) YearlyRetentionScheduleInvokeResponse { return *v }).(YearlyRetentionScheduleInvokeResponseOutput)
+}
+
+// List of months of year of yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) MonthsOfYear() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MonthsOfYear
+	}).(pulumi.StringArrayOutput)
+}
+
+// Retention duration of retention Policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) RetentionDuration() RetentionDurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) *RetentionDurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDuration
+	}).(RetentionDurationInvokeResponsePtrOutput)
+}
+
+// Daily retention format for yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleDaily() DailyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) *DailyRetentionFormatInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleDaily
+	}).(DailyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention schedule format for yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleFormatType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Weekly retention format for yearly retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) RetentionScheduleWeekly() WeeklyRetentionFormatInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) *WeeklyRetentionFormatInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionScheduleWeekly
+	}).(WeeklyRetentionFormatInvokeResponsePtrOutput)
+}
+
+// Retention times of retention policy.
+func (o YearlyRetentionScheduleInvokeResponsePtrOutput) RetentionTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *YearlyRetentionScheduleInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTimes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Yearly retention schedule.
 type YearlyRetentionScheduleResponse struct {
 	// List of months of year of yearly retention policy.
 	MonthsOfYear []string `pulumi:"monthsOfYear"`
@@ -22984,211 +34798,317 @@ func (o YearlyRetentionScheduleResponsePtrOutput) RetentionTimes() pulumi.String
 
 func init() {
 	pulumi.RegisterOutputType(AzureBackupServerContainerOutput{})
+	pulumi.RegisterOutputType(AzureBackupServerContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureBackupServerContainerResponseOutput{})
 	pulumi.RegisterOutputType(AzureFileShareProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(AzureFileShareProtectionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureFileShareProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(AzureFileshareProtectedItemOutput{})
 	pulumi.RegisterOutputType(AzureFileshareProtectedItemExtendedInfoOutput{})
 	pulumi.RegisterOutputType(AzureFileshareProtectedItemExtendedInfoPtrOutput{})
+	pulumi.RegisterOutputType(AzureFileshareProtectedItemExtendedInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureFileshareProtectedItemExtendedInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureFileshareProtectedItemExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(AzureFileshareProtectedItemExtendedInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureFileshareProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureFileshareProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSClassicComputeVMContainerOutput{})
+	pulumi.RegisterOutputType(AzureIaaSClassicComputeVMContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSClassicComputeVMContainerResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSClassicComputeVMProtectedItemOutput{})
+	pulumi.RegisterOutputType(AzureIaaSClassicComputeVMProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSClassicComputeVMProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSComputeVMContainerOutput{})
+	pulumi.RegisterOutputType(AzureIaaSComputeVMContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSComputeVMContainerResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSComputeVMProtectedItemOutput{})
+	pulumi.RegisterOutputType(AzureIaaSComputeVMProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSComputeVMProtectedItemResponseOutput{})
+	pulumi.RegisterOutputType(AzureIaaSVMHealthDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureIaaSVMHealthDetailsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMHealthDetailsResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMHealthDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemExtendedInfoOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemExtendedInfoPtrOutput{})
+	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemExtendedInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemExtendedInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(AzureIaaSVMProtectionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureIaaSVMProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(AzureSQLAGWorkloadContainerProtectionContainerOutput{})
+	pulumi.RegisterOutputType(AzureSQLAGWorkloadContainerProtectionContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureSQLAGWorkloadContainerProtectionContainerResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlContainerOutput{})
+	pulumi.RegisterOutputType(AzureSqlContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlContainerResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectedItemOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectedItemExtendedInfoOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectedItemExtendedInfoPtrOutput{})
+	pulumi.RegisterOutputType(AzureSqlProtectedItemExtendedInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureSqlProtectedItemExtendedInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectedItemExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectedItemExtendedInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureSqlProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(AzureSqlProtectionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureSqlProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(AzureStorageContainerOutput{})
+	pulumi.RegisterOutputType(AzureStorageContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureStorageContainerResponseOutput{})
 	pulumi.RegisterOutputType(AzureVMAppContainerProtectionContainerOutput{})
+	pulumi.RegisterOutputType(AzureVMAppContainerProtectionContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureVMAppContainerProtectionContainerResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadProtectedItemOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadProtectedItemExtendedInfoOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadProtectedItemExtendedInfoPtrOutput{})
+	pulumi.RegisterOutputType(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureVmWorkloadProtectedItemExtendedInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadProtectedItemExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureVmWorkloadProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(AzureVmWorkloadProtectionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadSAPAseDatabaseProtectedItemOutput{})
+	pulumi.RegisterOutputType(AzureVmWorkloadSAPAseDatabaseProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput{})
+	pulumi.RegisterOutputType(AzureVmWorkloadSAPHanaDatabaseProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadSQLDatabaseProtectedItemOutput{})
+	pulumi.RegisterOutputType(AzureVmWorkloadSQLDatabaseProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerExtendedInfoOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerExtendedInfoPtrOutput{})
+	pulumi.RegisterOutputType(AzureWorkloadContainerExtendedInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureWorkloadContainerExtendedInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerExtendedInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureWorkloadContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureWorkloadContainerResponseOutput{})
 	pulumi.RegisterOutputType(ContainerIdentityInfoOutput{})
 	pulumi.RegisterOutputType(ContainerIdentityInfoPtrOutput{})
+	pulumi.RegisterOutputType(ContainerIdentityInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContainerIdentityInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerIdentityInfoResponseOutput{})
 	pulumi.RegisterOutputType(ContainerIdentityInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(DPMContainerExtendedInfoOutput{})
 	pulumi.RegisterOutputType(DPMContainerExtendedInfoPtrOutput{})
+	pulumi.RegisterOutputType(DPMContainerExtendedInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DPMContainerExtendedInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DPMContainerExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(DPMContainerExtendedInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(DPMProtectedItemOutput{})
 	pulumi.RegisterOutputType(DPMProtectedItemExtendedInfoOutput{})
 	pulumi.RegisterOutputType(DPMProtectedItemExtendedInfoPtrOutput{})
+	pulumi.RegisterOutputType(DPMProtectedItemExtendedInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DPMProtectedItemExtendedInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DPMProtectedItemExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(DPMProtectedItemExtendedInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(DPMProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DPMProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(DailyRetentionFormatOutput{})
 	pulumi.RegisterOutputType(DailyRetentionFormatPtrOutput{})
+	pulumi.RegisterOutputType(DailyRetentionFormatInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DailyRetentionFormatInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DailyRetentionFormatResponseOutput{})
 	pulumi.RegisterOutputType(DailyRetentionFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(DailyRetentionScheduleOutput{})
 	pulumi.RegisterOutputType(DailyRetentionSchedulePtrOutput{})
+	pulumi.RegisterOutputType(DailyRetentionScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DailyRetentionScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DailyRetentionScheduleResponseOutput{})
 	pulumi.RegisterOutputType(DailyRetentionScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(DayOutput{})
 	pulumi.RegisterOutputType(DayArrayOutput{})
+	pulumi.RegisterOutputType(DayInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DayInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DayResponseOutput{})
 	pulumi.RegisterOutputType(DayResponseArrayOutput{})
 	pulumi.RegisterOutputType(DiskExclusionPropertiesOutput{})
 	pulumi.RegisterOutputType(DiskExclusionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DiskExclusionPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DiskExclusionPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskExclusionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DiskExclusionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DistributedNodesInfoOutput{})
 	pulumi.RegisterOutputType(DistributedNodesInfoArrayOutput{})
+	pulumi.RegisterOutputType(DistributedNodesInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DistributedNodesInfoInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DistributedNodesInfoResponseOutput{})
 	pulumi.RegisterOutputType(DistributedNodesInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(DpmContainerOutput{})
+	pulumi.RegisterOutputType(DpmContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DpmContainerResponseOutput{})
+	pulumi.RegisterOutputType(ErrorDetailInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ErrorDetailInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExtendedPropertiesOutput{})
 	pulumi.RegisterOutputType(ExtendedPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ExtendedPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ExtendedPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExtendedPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ExtendedPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(GenericContainerOutput{})
 	pulumi.RegisterOutputType(GenericContainerExtendedInfoOutput{})
 	pulumi.RegisterOutputType(GenericContainerExtendedInfoPtrOutput{})
+	pulumi.RegisterOutputType(GenericContainerExtendedInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GenericContainerExtendedInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(GenericContainerExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(GenericContainerExtendedInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(GenericContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GenericContainerResponseOutput{})
 	pulumi.RegisterOutputType(GenericProtectedItemOutput{})
+	pulumi.RegisterOutputType(GenericProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GenericProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(GenericProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(GenericProtectionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GenericProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(IaaSVMContainerOutput{})
+	pulumi.RegisterOutputType(IaaSVMContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IaaSVMContainerResponseOutput{})
 	pulumi.RegisterOutputType(InquiryInfoOutput{})
 	pulumi.RegisterOutputType(InquiryInfoPtrOutput{})
+	pulumi.RegisterOutputType(InquiryInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(InquiryInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(InquiryInfoResponseOutput{})
 	pulumi.RegisterOutputType(InquiryInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(InquiryValidationOutput{})
 	pulumi.RegisterOutputType(InquiryValidationPtrOutput{})
+	pulumi.RegisterOutputType(InquiryValidationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(InquiryValidationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(InquiryValidationResponseOutput{})
 	pulumi.RegisterOutputType(InquiryValidationResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstantRPAdditionalDetailsOutput{})
 	pulumi.RegisterOutputType(InstantRPAdditionalDetailsPtrOutput{})
+	pulumi.RegisterOutputType(InstantRPAdditionalDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(InstantRPAdditionalDetailsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstantRPAdditionalDetailsResponseOutput{})
 	pulumi.RegisterOutputType(InstantRPAdditionalDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(KPIResourceHealthDetailsOutput{})
 	pulumi.RegisterOutputType(KPIResourceHealthDetailsMapOutput{})
+	pulumi.RegisterOutputType(KPIResourceHealthDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KPIResourceHealthDetailsInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(KPIResourceHealthDetailsResponseOutput{})
 	pulumi.RegisterOutputType(KPIResourceHealthDetailsResponseMapOutput{})
 	pulumi.RegisterOutputType(LogSchedulePolicyOutput{})
+	pulumi.RegisterOutputType(LogSchedulePolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LogSchedulePolicyResponseOutput{})
 	pulumi.RegisterOutputType(LongTermRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(LongTermRetentionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LongTermRetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(LongTermSchedulePolicyOutput{})
+	pulumi.RegisterOutputType(LongTermSchedulePolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LongTermSchedulePolicyResponseOutput{})
 	pulumi.RegisterOutputType(MABContainerHealthDetailsOutput{})
 	pulumi.RegisterOutputType(MABContainerHealthDetailsArrayOutput{})
+	pulumi.RegisterOutputType(MABContainerHealthDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MABContainerHealthDetailsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MABContainerHealthDetailsResponseOutput{})
 	pulumi.RegisterOutputType(MABContainerHealthDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(MabContainerOutput{})
 	pulumi.RegisterOutputType(MabContainerExtendedInfoOutput{})
 	pulumi.RegisterOutputType(MabContainerExtendedInfoPtrOutput{})
+	pulumi.RegisterOutputType(MabContainerExtendedInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MabContainerExtendedInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MabContainerExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(MabContainerExtendedInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(MabContainerInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MabContainerResponseOutput{})
 	pulumi.RegisterOutputType(MabFileFolderProtectedItemOutput{})
 	pulumi.RegisterOutputType(MabFileFolderProtectedItemExtendedInfoOutput{})
 	pulumi.RegisterOutputType(MabFileFolderProtectedItemExtendedInfoPtrOutput{})
+	pulumi.RegisterOutputType(MabFileFolderProtectedItemExtendedInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MabFileFolderProtectedItemExtendedInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MabFileFolderProtectedItemExtendedInfoResponseOutput{})
 	pulumi.RegisterOutputType(MabFileFolderProtectedItemExtendedInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(MabFileFolderProtectedItemInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MabFileFolderProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(MabProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(MabProtectionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MabProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(MonthlyRetentionScheduleOutput{})
 	pulumi.RegisterOutputType(MonthlyRetentionSchedulePtrOutput{})
+	pulumi.RegisterOutputType(MonthlyRetentionScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MonthlyRetentionScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MonthlyRetentionScheduleResponseOutput{})
 	pulumi.RegisterOutputType(MonthlyRetentionScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceHealthDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResourceHealthDetailsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceHealthDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceHealthDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(RetentionDurationOutput{})
 	pulumi.RegisterOutputType(RetentionDurationPtrOutput{})
+	pulumi.RegisterOutputType(RetentionDurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RetentionDurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetentionDurationResponseOutput{})
 	pulumi.RegisterOutputType(RetentionDurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(SettingsOutput{})
 	pulumi.RegisterOutputType(SettingsPtrOutput{})
+	pulumi.RegisterOutputType(SettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SettingsResponseOutput{})
 	pulumi.RegisterOutputType(SettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SimpleRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(SimpleRetentionPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SimpleRetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(SimpleSchedulePolicyOutput{})
+	pulumi.RegisterOutputType(SimpleSchedulePolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SimpleSchedulePolicyResponseOutput{})
 	pulumi.RegisterOutputType(SubProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(SubProtectionPolicyArrayOutput{})
+	pulumi.RegisterOutputType(SubProtectionPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SubProtectionPolicyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SubProtectionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(SubProtectionPolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatPtrOutput{})
+	pulumi.RegisterOutputType(WeeklyRetentionFormatInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WeeklyRetentionFormatInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatResponseOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionScheduleOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionSchedulePtrOutput{})
+	pulumi.RegisterOutputType(WeeklyRetentionScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WeeklyRetentionScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionScheduleResponseOutput{})
 	pulumi.RegisterOutputType(WeeklyRetentionScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInquiryDetailsOutput{})
 	pulumi.RegisterOutputType(WorkloadInquiryDetailsArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInquiryDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkloadInquiryDetailsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadInquiryDetailsResponseOutput{})
 	pulumi.RegisterOutputType(WorkloadInquiryDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(YearlyRetentionScheduleOutput{})
 	pulumi.RegisterOutputType(YearlyRetentionSchedulePtrOutput{})
+	pulumi.RegisterOutputType(YearlyRetentionScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(YearlyRetentionScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(YearlyRetentionScheduleResponseOutput{})
 	pulumi.RegisterOutputType(YearlyRetentionScheduleResponsePtrOutput{})
 }

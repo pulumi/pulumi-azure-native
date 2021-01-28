@@ -32,13 +32,13 @@ type LookupSourceControlConfigurationArgs struct {
 // The SourceControl Configuration object returned in Get & Put response.
 type LookupSourceControlConfigurationResult struct {
 	// Compliance Status of the Configuration
-	ComplianceStatus ComplianceStatusResponse `pulumi:"complianceStatus"`
+	ComplianceStatus ComplianceStatusInvokeResponse `pulumi:"complianceStatus"`
 	// Name-value pairs of protected configuration settings for the configuration
 	ConfigurationProtectedSettings map[string]string `pulumi:"configurationProtectedSettings"`
 	// Option to enable Helm Operator for this git configuration.
 	EnableHelmOperator *bool `pulumi:"enableHelmOperator"`
 	// Properties for Helm operator.
-	HelmOperatorProperties *HelmOperatorPropertiesResponse `pulumi:"helmOperatorProperties"`
+	HelmOperatorProperties *HelmOperatorPropertiesInvokeResponse `pulumi:"helmOperatorProperties"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource name
@@ -62,7 +62,7 @@ type LookupSourceControlConfigurationResult struct {
 	// Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
 	SshKnownHostsContents *string `pulumi:"sshKnownHostsContents"`
 	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
-	SystemData *SystemDataResponse `pulumi:"systemData"`
+	SystemData *SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

@@ -11,6 +11,61 @@ import (
 )
 
 // Rule results properties.
+type RuleResultsPropertiesInvokeResponse struct {
+	// Expected results in the baseline.
+	Results [][]string `pulumi:"results"`
+}
+
+// RuleResultsPropertiesInvokeResponseInput is an input type that accepts RuleResultsPropertiesInvokeResponseArgs and RuleResultsPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `RuleResultsPropertiesInvokeResponseInput` via:
+//
+//          RuleResultsPropertiesInvokeResponseArgs{...}
+type RuleResultsPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRuleResultsPropertiesInvokeResponseOutput() RuleResultsPropertiesInvokeResponseOutput
+	ToRuleResultsPropertiesInvokeResponseOutputWithContext(context.Context) RuleResultsPropertiesInvokeResponseOutput
+}
+
+// Rule results properties.
+type RuleResultsPropertiesInvokeResponseArgs struct {
+	// Expected results in the baseline.
+	Results pulumi.StringArrayArrayInput `pulumi:"results"`
+}
+
+func (RuleResultsPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleResultsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i RuleResultsPropertiesInvokeResponseArgs) ToRuleResultsPropertiesInvokeResponseOutput() RuleResultsPropertiesInvokeResponseOutput {
+	return i.ToRuleResultsPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RuleResultsPropertiesInvokeResponseArgs) ToRuleResultsPropertiesInvokeResponseOutputWithContext(ctx context.Context) RuleResultsPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleResultsPropertiesInvokeResponseOutput)
+}
+
+// Rule results properties.
+type RuleResultsPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RuleResultsPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleResultsPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o RuleResultsPropertiesInvokeResponseOutput) ToRuleResultsPropertiesInvokeResponseOutput() RuleResultsPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o RuleResultsPropertiesInvokeResponseOutput) ToRuleResultsPropertiesInvokeResponseOutputWithContext(ctx context.Context) RuleResultsPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Expected results in the baseline.
+func (o RuleResultsPropertiesInvokeResponseOutput) Results() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v RuleResultsPropertiesInvokeResponse) [][]string { return v.Results }).(pulumi.StringArrayArrayOutput)
+}
+
+// Rule results properties.
 type RuleResultsPropertiesResponse struct {
 	// Expected results in the baseline.
 	Results [][]string `pulumi:"results"`
@@ -145,6 +200,7 @@ func (o RuleResultsPropertiesResponsePtrOutput) Results() pulumi.StringArrayArra
 }
 
 func init() {
+	pulumi.RegisterOutputType(RuleResultsPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RuleResultsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RuleResultsPropertiesResponsePtrOutput{})
 }

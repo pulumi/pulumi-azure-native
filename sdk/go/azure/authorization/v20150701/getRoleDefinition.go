@@ -34,7 +34,7 @@ type LookupRoleDefinitionResult struct {
 	// The role definition name.
 	Name string `pulumi:"name"`
 	// Role definition permissions.
-	Permissions []PermissionResponse `pulumi:"permissions"`
+	Permissions []PermissionInvokeResponse `pulumi:"permissions"`
 	// The role name.
 	RoleName *string `pulumi:"roleName"`
 	// The role type.

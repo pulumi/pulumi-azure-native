@@ -26,19 +26,19 @@ type LookupVirtualNetworkGatewayArgs struct {
 // A common class for general resource information
 type LookupVirtualNetworkGatewayResult struct {
 	// Virtual network gateway's BGP speaker settings.
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
+	BgpSettings *BgpSettingsInvokeResponse `pulumi:"bgpSettings"`
 	// Whether BGP is enabled for this virtual network gateway or not.
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
-	GatewayDefaultSite *SubResourceResponse `pulumi:"gatewayDefaultSite"`
+	GatewayDefaultSite *SubResourceInvokeResponse `pulumi:"gatewayDefaultSite"`
 	// The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
 	GatewayType *string `pulumi:"gatewayType"`
 	// Resource Identifier.
 	Id *string `pulumi:"id"`
 	// IP configurations for virtual network gateway.
-	IpConfigurations []VirtualNetworkGatewayIPConfigurationResponse `pulumi:"ipConfigurations"`
+	IpConfigurations []VirtualNetworkGatewayIPConfigurationInvokeResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -48,13 +48,13 @@ type LookupVirtualNetworkGatewayResult struct {
 	// The resource GUID property of the VirtualNetworkGateway resource.
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
-	Sku *VirtualNetworkGatewaySkuResponse `pulumi:"sku"`
+	Sku *VirtualNetworkGatewaySkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-	VpnClientConfiguration *VpnClientConfigurationResponse `pulumi:"vpnClientConfiguration"`
+	VpnClientConfiguration *VpnClientConfigurationInvokeResponse `pulumi:"vpnClientConfiguration"`
 	// The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
 	VpnType *string `pulumi:"vpnType"`
 }

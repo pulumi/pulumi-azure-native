@@ -26,15 +26,15 @@ type LookupContainerGroupArgs struct {
 // A container group.
 type LookupContainerGroupResult struct {
 	// The containers within the container group.
-	Containers []ContainerResponse `pulumi:"containers"`
+	Containers []ContainerInvokeResponse `pulumi:"containers"`
 	// The resource id.
 	Id string `pulumi:"id"`
 	// The image registry credentials by which the container group is created from.
-	ImageRegistryCredentials []ImageRegistryCredentialResponse `pulumi:"imageRegistryCredentials"`
+	ImageRegistryCredentials []ImageRegistryCredentialInvokeResponse `pulumi:"imageRegistryCredentials"`
 	// The instance view of the container group. Only valid in response.
-	InstanceView ContainerGroupResponseInstanceView `pulumi:"instanceView"`
+	InstanceView ContainerGroupInvokeResponseInstanceView `pulumi:"instanceView"`
 	// The IP address type of the container group.
-	IpAddress *IpAddressResponse `pulumi:"ipAddress"`
+	IpAddress *IpAddressInvokeResponse `pulumi:"ipAddress"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
@@ -53,5 +53,5 @@ type LookupContainerGroupResult struct {
 	// The resource type.
 	Type string `pulumi:"type"`
 	// The list of volumes that can be mounted by containers in this container group.
-	Volumes []VolumeResponse `pulumi:"volumes"`
+	Volumes []VolumeInvokeResponse `pulumi:"volumes"`
 }

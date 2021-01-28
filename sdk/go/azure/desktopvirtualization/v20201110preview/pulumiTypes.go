@@ -165,6 +165,160 @@ func (o MsixPackageApplicationsArrayOutput) Index(i pulumi.IntInput) MsixPackage
 }
 
 // Schema for MSIX Package Application properties.
+type MsixPackageApplicationsInvokeResponse struct {
+	// Package Application Id, found in appxmanifest.xml.
+	AppId *string `pulumi:"appId"`
+	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppUserModelID *string `pulumi:"appUserModelID"`
+	// Description of Package Application.
+	Description *string `pulumi:"description"`
+	// User friendly name.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// User friendly name.
+	IconImageName *string `pulumi:"iconImageName"`
+	// the icon a 64 bit string as a byte array.
+	RawIcon *string `pulumi:"rawIcon"`
+	// the icon a 64 bit string as a byte array.
+	RawPng *string `pulumi:"rawPng"`
+}
+
+// MsixPackageApplicationsInvokeResponseInput is an input type that accepts MsixPackageApplicationsInvokeResponseArgs and MsixPackageApplicationsInvokeResponseOutput values.
+// You can construct a concrete instance of `MsixPackageApplicationsInvokeResponseInput` via:
+//
+//          MsixPackageApplicationsInvokeResponseArgs{...}
+type MsixPackageApplicationsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMsixPackageApplicationsInvokeResponseOutput() MsixPackageApplicationsInvokeResponseOutput
+	ToMsixPackageApplicationsInvokeResponseOutputWithContext(context.Context) MsixPackageApplicationsInvokeResponseOutput
+}
+
+// Schema for MSIX Package Application properties.
+type MsixPackageApplicationsInvokeResponseArgs struct {
+	// Package Application Id, found in appxmanifest.xml.
+	AppId pulumi.StringPtrInput `pulumi:"appId"`
+	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppUserModelID pulumi.StringPtrInput `pulumi:"appUserModelID"`
+	// Description of Package Application.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// User friendly name.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// User friendly name.
+	IconImageName pulumi.StringPtrInput `pulumi:"iconImageName"`
+	// the icon a 64 bit string as a byte array.
+	RawIcon pulumi.StringPtrInput `pulumi:"rawIcon"`
+	// the icon a 64 bit string as a byte array.
+	RawPng pulumi.StringPtrInput `pulumi:"rawPng"`
+}
+
+func (MsixPackageApplicationsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsixPackageApplicationsInvokeResponse)(nil)).Elem()
+}
+
+func (i MsixPackageApplicationsInvokeResponseArgs) ToMsixPackageApplicationsInvokeResponseOutput() MsixPackageApplicationsInvokeResponseOutput {
+	return i.ToMsixPackageApplicationsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MsixPackageApplicationsInvokeResponseArgs) ToMsixPackageApplicationsInvokeResponseOutputWithContext(ctx context.Context) MsixPackageApplicationsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageApplicationsInvokeResponseOutput)
+}
+
+// MsixPackageApplicationsInvokeResponseArrayInput is an input type that accepts MsixPackageApplicationsInvokeResponseArray and MsixPackageApplicationsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MsixPackageApplicationsInvokeResponseArrayInput` via:
+//
+//          MsixPackageApplicationsInvokeResponseArray{ MsixPackageApplicationsInvokeResponseArgs{...} }
+type MsixPackageApplicationsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMsixPackageApplicationsInvokeResponseArrayOutput() MsixPackageApplicationsInvokeResponseArrayOutput
+	ToMsixPackageApplicationsInvokeResponseArrayOutputWithContext(context.Context) MsixPackageApplicationsInvokeResponseArrayOutput
+}
+
+type MsixPackageApplicationsInvokeResponseArray []MsixPackageApplicationsInvokeResponseInput
+
+func (MsixPackageApplicationsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MsixPackageApplicationsInvokeResponse)(nil)).Elem()
+}
+
+func (i MsixPackageApplicationsInvokeResponseArray) ToMsixPackageApplicationsInvokeResponseArrayOutput() MsixPackageApplicationsInvokeResponseArrayOutput {
+	return i.ToMsixPackageApplicationsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MsixPackageApplicationsInvokeResponseArray) ToMsixPackageApplicationsInvokeResponseArrayOutputWithContext(ctx context.Context) MsixPackageApplicationsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageApplicationsInvokeResponseArrayOutput)
+}
+
+// Schema for MSIX Package Application properties.
+type MsixPackageApplicationsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MsixPackageApplicationsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsixPackageApplicationsInvokeResponse)(nil)).Elem()
+}
+
+func (o MsixPackageApplicationsInvokeResponseOutput) ToMsixPackageApplicationsInvokeResponseOutput() MsixPackageApplicationsInvokeResponseOutput {
+	return o
+}
+
+func (o MsixPackageApplicationsInvokeResponseOutput) ToMsixPackageApplicationsInvokeResponseOutputWithContext(ctx context.Context) MsixPackageApplicationsInvokeResponseOutput {
+	return o
+}
+
+// Package Application Id, found in appxmanifest.xml.
+func (o MsixPackageApplicationsInvokeResponseOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+func (o MsixPackageApplicationsInvokeResponseOutput) AppUserModelID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.AppUserModelID }).(pulumi.StringPtrOutput)
+}
+
+// Description of Package Application.
+func (o MsixPackageApplicationsInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// User friendly name.
+func (o MsixPackageApplicationsInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// User friendly name.
+func (o MsixPackageApplicationsInvokeResponseOutput) IconImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.IconImageName }).(pulumi.StringPtrOutput)
+}
+
+// the icon a 64 bit string as a byte array.
+func (o MsixPackageApplicationsInvokeResponseOutput) RawIcon() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.RawIcon }).(pulumi.StringPtrOutput)
+}
+
+// the icon a 64 bit string as a byte array.
+func (o MsixPackageApplicationsInvokeResponseOutput) RawPng() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.RawPng }).(pulumi.StringPtrOutput)
+}
+
+type MsixPackageApplicationsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MsixPackageApplicationsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MsixPackageApplicationsInvokeResponse)(nil)).Elem()
+}
+
+func (o MsixPackageApplicationsInvokeResponseArrayOutput) ToMsixPackageApplicationsInvokeResponseArrayOutput() MsixPackageApplicationsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MsixPackageApplicationsInvokeResponseArrayOutput) ToMsixPackageApplicationsInvokeResponseArrayOutputWithContext(ctx context.Context) MsixPackageApplicationsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MsixPackageApplicationsInvokeResponseArrayOutput) Index(i pulumi.IntInput) MsixPackageApplicationsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MsixPackageApplicationsInvokeResponse {
+		return vs[0].([]MsixPackageApplicationsInvokeResponse)[vs[1].(int)]
+	}).(MsixPackageApplicationsInvokeResponseOutput)
+}
+
+// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponse struct {
 	// Package Application Id, found in appxmanifest.xml.
 	AppId *string `pulumi:"appId"`
@@ -434,6 +588,124 @@ func (o MsixPackageDependenciesArrayOutput) Index(i pulumi.IntInput) MsixPackage
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MsixPackageDependencies {
 		return vs[0].([]MsixPackageDependencies)[vs[1].(int)]
 	}).(MsixPackageDependenciesOutput)
+}
+
+// Schema for MSIX Package Dependencies properties.
+type MsixPackageDependenciesInvokeResponse struct {
+	// Name of package dependency.
+	DependencyName *string `pulumi:"dependencyName"`
+	// Dependency version required.
+	MinVersion *string `pulumi:"minVersion"`
+	// Name of dependency publisher.
+	Publisher *string `pulumi:"publisher"`
+}
+
+// MsixPackageDependenciesInvokeResponseInput is an input type that accepts MsixPackageDependenciesInvokeResponseArgs and MsixPackageDependenciesInvokeResponseOutput values.
+// You can construct a concrete instance of `MsixPackageDependenciesInvokeResponseInput` via:
+//
+//          MsixPackageDependenciesInvokeResponseArgs{...}
+type MsixPackageDependenciesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMsixPackageDependenciesInvokeResponseOutput() MsixPackageDependenciesInvokeResponseOutput
+	ToMsixPackageDependenciesInvokeResponseOutputWithContext(context.Context) MsixPackageDependenciesInvokeResponseOutput
+}
+
+// Schema for MSIX Package Dependencies properties.
+type MsixPackageDependenciesInvokeResponseArgs struct {
+	// Name of package dependency.
+	DependencyName pulumi.StringPtrInput `pulumi:"dependencyName"`
+	// Dependency version required.
+	MinVersion pulumi.StringPtrInput `pulumi:"minVersion"`
+	// Name of dependency publisher.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+}
+
+func (MsixPackageDependenciesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsixPackageDependenciesInvokeResponse)(nil)).Elem()
+}
+
+func (i MsixPackageDependenciesInvokeResponseArgs) ToMsixPackageDependenciesInvokeResponseOutput() MsixPackageDependenciesInvokeResponseOutput {
+	return i.ToMsixPackageDependenciesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MsixPackageDependenciesInvokeResponseArgs) ToMsixPackageDependenciesInvokeResponseOutputWithContext(ctx context.Context) MsixPackageDependenciesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageDependenciesInvokeResponseOutput)
+}
+
+// MsixPackageDependenciesInvokeResponseArrayInput is an input type that accepts MsixPackageDependenciesInvokeResponseArray and MsixPackageDependenciesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MsixPackageDependenciesInvokeResponseArrayInput` via:
+//
+//          MsixPackageDependenciesInvokeResponseArray{ MsixPackageDependenciesInvokeResponseArgs{...} }
+type MsixPackageDependenciesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMsixPackageDependenciesInvokeResponseArrayOutput() MsixPackageDependenciesInvokeResponseArrayOutput
+	ToMsixPackageDependenciesInvokeResponseArrayOutputWithContext(context.Context) MsixPackageDependenciesInvokeResponseArrayOutput
+}
+
+type MsixPackageDependenciesInvokeResponseArray []MsixPackageDependenciesInvokeResponseInput
+
+func (MsixPackageDependenciesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MsixPackageDependenciesInvokeResponse)(nil)).Elem()
+}
+
+func (i MsixPackageDependenciesInvokeResponseArray) ToMsixPackageDependenciesInvokeResponseArrayOutput() MsixPackageDependenciesInvokeResponseArrayOutput {
+	return i.ToMsixPackageDependenciesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MsixPackageDependenciesInvokeResponseArray) ToMsixPackageDependenciesInvokeResponseArrayOutputWithContext(ctx context.Context) MsixPackageDependenciesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageDependenciesInvokeResponseArrayOutput)
+}
+
+// Schema for MSIX Package Dependencies properties.
+type MsixPackageDependenciesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MsixPackageDependenciesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsixPackageDependenciesInvokeResponse)(nil)).Elem()
+}
+
+func (o MsixPackageDependenciesInvokeResponseOutput) ToMsixPackageDependenciesInvokeResponseOutput() MsixPackageDependenciesInvokeResponseOutput {
+	return o
+}
+
+func (o MsixPackageDependenciesInvokeResponseOutput) ToMsixPackageDependenciesInvokeResponseOutputWithContext(ctx context.Context) MsixPackageDependenciesInvokeResponseOutput {
+	return o
+}
+
+// Name of package dependency.
+func (o MsixPackageDependenciesInvokeResponseOutput) DependencyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageDependenciesInvokeResponse) *string { return v.DependencyName }).(pulumi.StringPtrOutput)
+}
+
+// Dependency version required.
+func (o MsixPackageDependenciesInvokeResponseOutput) MinVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageDependenciesInvokeResponse) *string { return v.MinVersion }).(pulumi.StringPtrOutput)
+}
+
+// Name of dependency publisher.
+func (o MsixPackageDependenciesInvokeResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageDependenciesInvokeResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+type MsixPackageDependenciesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MsixPackageDependenciesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MsixPackageDependenciesInvokeResponse)(nil)).Elem()
+}
+
+func (o MsixPackageDependenciesInvokeResponseArrayOutput) ToMsixPackageDependenciesInvokeResponseArrayOutput() MsixPackageDependenciesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MsixPackageDependenciesInvokeResponseArrayOutput) ToMsixPackageDependenciesInvokeResponseArrayOutputWithContext(ctx context.Context) MsixPackageDependenciesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MsixPackageDependenciesInvokeResponseArrayOutput) Index(i pulumi.IntInput) MsixPackageDependenciesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MsixPackageDependenciesInvokeResponse {
+		return vs[0].([]MsixPackageDependenciesInvokeResponse)[vs[1].(int)]
+	}).(MsixPackageDependenciesInvokeResponseOutput)
 }
 
 // Schema for MSIX Package Dependencies properties.
@@ -727,6 +999,79 @@ func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 }
 
 // Represents a RegistrationInfo definition.
+type RegistrationInfoInvokeResponse struct {
+	// Expiration time of registration token.
+	ExpirationTime *string `pulumi:"expirationTime"`
+	// The type of resetting the token.
+	RegistrationTokenOperation *string `pulumi:"registrationTokenOperation"`
+	// The registration token base64 encoded string.
+	Token *string `pulumi:"token"`
+}
+
+// RegistrationInfoInvokeResponseInput is an input type that accepts RegistrationInfoInvokeResponseArgs and RegistrationInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `RegistrationInfoInvokeResponseInput` via:
+//
+//          RegistrationInfoInvokeResponseArgs{...}
+type RegistrationInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRegistrationInfoInvokeResponseOutput() RegistrationInfoInvokeResponseOutput
+	ToRegistrationInfoInvokeResponseOutputWithContext(context.Context) RegistrationInfoInvokeResponseOutput
+}
+
+// Represents a RegistrationInfo definition.
+type RegistrationInfoInvokeResponseArgs struct {
+	// Expiration time of registration token.
+	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
+	// The type of resetting the token.
+	RegistrationTokenOperation pulumi.StringPtrInput `pulumi:"registrationTokenOperation"`
+	// The registration token base64 encoded string.
+	Token pulumi.StringPtrInput `pulumi:"token"`
+}
+
+func (RegistrationInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i RegistrationInfoInvokeResponseArgs) ToRegistrationInfoInvokeResponseOutput() RegistrationInfoInvokeResponseOutput {
+	return i.ToRegistrationInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RegistrationInfoInvokeResponseArgs) ToRegistrationInfoInvokeResponseOutputWithContext(ctx context.Context) RegistrationInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoInvokeResponseOutput)
+}
+
+// Represents a RegistrationInfo definition.
+type RegistrationInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RegistrationInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o RegistrationInfoInvokeResponseOutput) ToRegistrationInfoInvokeResponseOutput() RegistrationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o RegistrationInfoInvokeResponseOutput) ToRegistrationInfoInvokeResponseOutputWithContext(ctx context.Context) RegistrationInfoInvokeResponseOutput {
+	return o
+}
+
+// Expiration time of registration token.
+func (o RegistrationInfoInvokeResponseOutput) ExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationInfoInvokeResponse) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
+}
+
+// The type of resetting the token.
+func (o RegistrationInfoInvokeResponseOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationInfoInvokeResponse) *string { return v.RegistrationTokenOperation }).(pulumi.StringPtrOutput)
+}
+
+// The registration token base64 encoded string.
+func (o RegistrationInfoInvokeResponseOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationInfoInvokeResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+// Represents a RegistrationInfo definition.
 type RegistrationInfoResponse struct {
 	// Expiration time of registration token.
 	ExpirationTime *string `pulumi:"expirationTime"`
@@ -1005,6 +1350,115 @@ func (o ScalingHostPoolReferenceArrayOutput) Index(i pulumi.IntInput) ScalingHos
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingHostPoolReference {
 		return vs[0].([]ScalingHostPoolReference)[vs[1].(int)]
 	}).(ScalingHostPoolReferenceOutput)
+}
+
+// Scaling plan reference to hostpool.
+type ScalingHostPoolReferenceInvokeResponse struct {
+	// Arm path of referenced hostpool.
+	HostPoolArmPath *string `pulumi:"hostPoolArmPath"`
+	// Is the scaling plan enabled for this hostpool.
+	ScalingPlanEnabled *bool `pulumi:"scalingPlanEnabled"`
+}
+
+// ScalingHostPoolReferenceInvokeResponseInput is an input type that accepts ScalingHostPoolReferenceInvokeResponseArgs and ScalingHostPoolReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ScalingHostPoolReferenceInvokeResponseInput` via:
+//
+//          ScalingHostPoolReferenceInvokeResponseArgs{...}
+type ScalingHostPoolReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToScalingHostPoolReferenceInvokeResponseOutput() ScalingHostPoolReferenceInvokeResponseOutput
+	ToScalingHostPoolReferenceInvokeResponseOutputWithContext(context.Context) ScalingHostPoolReferenceInvokeResponseOutput
+}
+
+// Scaling plan reference to hostpool.
+type ScalingHostPoolReferenceInvokeResponseArgs struct {
+	// Arm path of referenced hostpool.
+	HostPoolArmPath pulumi.StringPtrInput `pulumi:"hostPoolArmPath"`
+	// Is the scaling plan enabled for this hostpool.
+	ScalingPlanEnabled pulumi.BoolPtrInput `pulumi:"scalingPlanEnabled"`
+}
+
+func (ScalingHostPoolReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingHostPoolReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ScalingHostPoolReferenceInvokeResponseArgs) ToScalingHostPoolReferenceInvokeResponseOutput() ScalingHostPoolReferenceInvokeResponseOutput {
+	return i.ToScalingHostPoolReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ScalingHostPoolReferenceInvokeResponseArgs) ToScalingHostPoolReferenceInvokeResponseOutputWithContext(ctx context.Context) ScalingHostPoolReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingHostPoolReferenceInvokeResponseOutput)
+}
+
+// ScalingHostPoolReferenceInvokeResponseArrayInput is an input type that accepts ScalingHostPoolReferenceInvokeResponseArray and ScalingHostPoolReferenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ScalingHostPoolReferenceInvokeResponseArrayInput` via:
+//
+//          ScalingHostPoolReferenceInvokeResponseArray{ ScalingHostPoolReferenceInvokeResponseArgs{...} }
+type ScalingHostPoolReferenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToScalingHostPoolReferenceInvokeResponseArrayOutput() ScalingHostPoolReferenceInvokeResponseArrayOutput
+	ToScalingHostPoolReferenceInvokeResponseArrayOutputWithContext(context.Context) ScalingHostPoolReferenceInvokeResponseArrayOutput
+}
+
+type ScalingHostPoolReferenceInvokeResponseArray []ScalingHostPoolReferenceInvokeResponseInput
+
+func (ScalingHostPoolReferenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingHostPoolReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ScalingHostPoolReferenceInvokeResponseArray) ToScalingHostPoolReferenceInvokeResponseArrayOutput() ScalingHostPoolReferenceInvokeResponseArrayOutput {
+	return i.ToScalingHostPoolReferenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ScalingHostPoolReferenceInvokeResponseArray) ToScalingHostPoolReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) ScalingHostPoolReferenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingHostPoolReferenceInvokeResponseArrayOutput)
+}
+
+// Scaling plan reference to hostpool.
+type ScalingHostPoolReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScalingHostPoolReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingHostPoolReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ScalingHostPoolReferenceInvokeResponseOutput) ToScalingHostPoolReferenceInvokeResponseOutput() ScalingHostPoolReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ScalingHostPoolReferenceInvokeResponseOutput) ToScalingHostPoolReferenceInvokeResponseOutputWithContext(ctx context.Context) ScalingHostPoolReferenceInvokeResponseOutput {
+	return o
+}
+
+// Arm path of referenced hostpool.
+func (o ScalingHostPoolReferenceInvokeResponseOutput) HostPoolArmPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingHostPoolReferenceInvokeResponse) *string { return v.HostPoolArmPath }).(pulumi.StringPtrOutput)
+}
+
+// Is the scaling plan enabled for this hostpool.
+func (o ScalingHostPoolReferenceInvokeResponseOutput) ScalingPlanEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScalingHostPoolReferenceInvokeResponse) *bool { return v.ScalingPlanEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ScalingHostPoolReferenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ScalingHostPoolReferenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingHostPoolReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ScalingHostPoolReferenceInvokeResponseArrayOutput) ToScalingHostPoolReferenceInvokeResponseArrayOutput() ScalingHostPoolReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ScalingHostPoolReferenceInvokeResponseArrayOutput) ToScalingHostPoolReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) ScalingHostPoolReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ScalingHostPoolReferenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) ScalingHostPoolReferenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingHostPoolReferenceInvokeResponse {
+		return vs[0].([]ScalingHostPoolReferenceInvokeResponse)[vs[1].(int)]
+	}).(ScalingHostPoolReferenceInvokeResponseOutput)
 }
 
 // Scaling plan reference to hostpool.
@@ -1370,6 +1824,259 @@ func (o ScalingScheduleArrayOutput) Index(i pulumi.IntInput) ScalingScheduleOutp
 }
 
 // Scaling plan schedule.
+type ScalingScheduleInvokeResponse struct {
+	// Set of days of the week on which this schedule is active.
+	DaysOfWeek []string `pulumi:"daysOfWeek"`
+	// Name of the scaling schedule.
+	Name *string `pulumi:"name"`
+	// Load balancing algorithm for off-peak period.
+	OffPeakLoadBalancingAlgorithm *string `pulumi:"offPeakLoadBalancingAlgorithm"`
+	// Starting time for off-peak period.
+	OffPeakStartTime *string `pulumi:"offPeakStartTime"`
+	// Load balancing algorithm for peak period.
+	PeakLoadBalancingAlgorithm *string `pulumi:"peakLoadBalancingAlgorithm"`
+	// Starting time for peak period.
+	PeakStartTime *string `pulumi:"peakStartTime"`
+	// Capacity threshold for ramp down period.
+	RampDownCapacityThresholdPct *int `pulumi:"rampDownCapacityThresholdPct"`
+	// Should users be logged off forcefully from hosts.
+	RampDownForceLogoffUsers *bool `pulumi:"rampDownForceLogoffUsers"`
+	// Load balancing algorithm for ramp down period.
+	RampDownLoadBalancingAlgorithm *string `pulumi:"rampDownLoadBalancingAlgorithm"`
+	// Minimum host percentage for ramp down period.
+	RampDownMinimumHostsPct *int `pulumi:"rampDownMinimumHostsPct"`
+	// Notification message for users during ramp down period.
+	RampDownNotificationMessage *string `pulumi:"rampDownNotificationMessage"`
+	// Starting time for ramp down period.
+	RampDownStartTime *string `pulumi:"rampDownStartTime"`
+	// Specifies when to stop hosts during ramp down period.
+	RampDownStopHostsWhen *string `pulumi:"rampDownStopHostsWhen"`
+	// Number of minutes to wait to stop hosts during ramp down period.
+	RampDownWaitTimeMinutes *int `pulumi:"rampDownWaitTimeMinutes"`
+	// Capacity threshold for ramp up period.
+	RampUpCapacityThresholdPct *int `pulumi:"rampUpCapacityThresholdPct"`
+	// Load balancing algorithm for ramp up period.
+	RampUpLoadBalancingAlgorithm *string `pulumi:"rampUpLoadBalancingAlgorithm"`
+	// Minimum host percentage for ramp up period.
+	RampUpMinimumHostsPct *int `pulumi:"rampUpMinimumHostsPct"`
+	// Starting time for ramp up period.
+	RampUpStartTime *string `pulumi:"rampUpStartTime"`
+}
+
+// ScalingScheduleInvokeResponseInput is an input type that accepts ScalingScheduleInvokeResponseArgs and ScalingScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `ScalingScheduleInvokeResponseInput` via:
+//
+//          ScalingScheduleInvokeResponseArgs{...}
+type ScalingScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToScalingScheduleInvokeResponseOutput() ScalingScheduleInvokeResponseOutput
+	ToScalingScheduleInvokeResponseOutputWithContext(context.Context) ScalingScheduleInvokeResponseOutput
+}
+
+// Scaling plan schedule.
+type ScalingScheduleInvokeResponseArgs struct {
+	// Set of days of the week on which this schedule is active.
+	DaysOfWeek pulumi.StringArrayInput `pulumi:"daysOfWeek"`
+	// Name of the scaling schedule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Load balancing algorithm for off-peak period.
+	OffPeakLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"offPeakLoadBalancingAlgorithm"`
+	// Starting time for off-peak period.
+	OffPeakStartTime pulumi.StringPtrInput `pulumi:"offPeakStartTime"`
+	// Load balancing algorithm for peak period.
+	PeakLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"peakLoadBalancingAlgorithm"`
+	// Starting time for peak period.
+	PeakStartTime pulumi.StringPtrInput `pulumi:"peakStartTime"`
+	// Capacity threshold for ramp down period.
+	RampDownCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampDownCapacityThresholdPct"`
+	// Should users be logged off forcefully from hosts.
+	RampDownForceLogoffUsers pulumi.BoolPtrInput `pulumi:"rampDownForceLogoffUsers"`
+	// Load balancing algorithm for ramp down period.
+	RampDownLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampDownLoadBalancingAlgorithm"`
+	// Minimum host percentage for ramp down period.
+	RampDownMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampDownMinimumHostsPct"`
+	// Notification message for users during ramp down period.
+	RampDownNotificationMessage pulumi.StringPtrInput `pulumi:"rampDownNotificationMessage"`
+	// Starting time for ramp down period.
+	RampDownStartTime pulumi.StringPtrInput `pulumi:"rampDownStartTime"`
+	// Specifies when to stop hosts during ramp down period.
+	RampDownStopHostsWhen pulumi.StringPtrInput `pulumi:"rampDownStopHostsWhen"`
+	// Number of minutes to wait to stop hosts during ramp down period.
+	RampDownWaitTimeMinutes pulumi.IntPtrInput `pulumi:"rampDownWaitTimeMinutes"`
+	// Capacity threshold for ramp up period.
+	RampUpCapacityThresholdPct pulumi.IntPtrInput `pulumi:"rampUpCapacityThresholdPct"`
+	// Load balancing algorithm for ramp up period.
+	RampUpLoadBalancingAlgorithm pulumi.StringPtrInput `pulumi:"rampUpLoadBalancingAlgorithm"`
+	// Minimum host percentage for ramp up period.
+	RampUpMinimumHostsPct pulumi.IntPtrInput `pulumi:"rampUpMinimumHostsPct"`
+	// Starting time for ramp up period.
+	RampUpStartTime pulumi.StringPtrInput `pulumi:"rampUpStartTime"`
+}
+
+func (ScalingScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i ScalingScheduleInvokeResponseArgs) ToScalingScheduleInvokeResponseOutput() ScalingScheduleInvokeResponseOutput {
+	return i.ToScalingScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ScalingScheduleInvokeResponseArgs) ToScalingScheduleInvokeResponseOutputWithContext(ctx context.Context) ScalingScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingScheduleInvokeResponseOutput)
+}
+
+// ScalingScheduleInvokeResponseArrayInput is an input type that accepts ScalingScheduleInvokeResponseArray and ScalingScheduleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ScalingScheduleInvokeResponseArrayInput` via:
+//
+//          ScalingScheduleInvokeResponseArray{ ScalingScheduleInvokeResponseArgs{...} }
+type ScalingScheduleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToScalingScheduleInvokeResponseArrayOutput() ScalingScheduleInvokeResponseArrayOutput
+	ToScalingScheduleInvokeResponseArrayOutputWithContext(context.Context) ScalingScheduleInvokeResponseArrayOutput
+}
+
+type ScalingScheduleInvokeResponseArray []ScalingScheduleInvokeResponseInput
+
+func (ScalingScheduleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i ScalingScheduleInvokeResponseArray) ToScalingScheduleInvokeResponseArrayOutput() ScalingScheduleInvokeResponseArrayOutput {
+	return i.ToScalingScheduleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ScalingScheduleInvokeResponseArray) ToScalingScheduleInvokeResponseArrayOutputWithContext(ctx context.Context) ScalingScheduleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingScheduleInvokeResponseArrayOutput)
+}
+
+// Scaling plan schedule.
+type ScalingScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScalingScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o ScalingScheduleInvokeResponseOutput) ToScalingScheduleInvokeResponseOutput() ScalingScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o ScalingScheduleInvokeResponseOutput) ToScalingScheduleInvokeResponseOutputWithContext(ctx context.Context) ScalingScheduleInvokeResponseOutput {
+	return o
+}
+
+// Set of days of the week on which this schedule is active.
+func (o ScalingScheduleInvokeResponseOutput) DaysOfWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) []string { return v.DaysOfWeek }).(pulumi.StringArrayOutput)
+}
+
+// Name of the scaling schedule.
+func (o ScalingScheduleInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Load balancing algorithm for off-peak period.
+func (o ScalingScheduleInvokeResponseOutput) OffPeakLoadBalancingAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.OffPeakLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Starting time for off-peak period.
+func (o ScalingScheduleInvokeResponseOutput) OffPeakStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.OffPeakStartTime }).(pulumi.StringPtrOutput)
+}
+
+// Load balancing algorithm for peak period.
+func (o ScalingScheduleInvokeResponseOutput) PeakLoadBalancingAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.PeakLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Starting time for peak period.
+func (o ScalingScheduleInvokeResponseOutput) PeakStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.PeakStartTime }).(pulumi.StringPtrOutput)
+}
+
+// Capacity threshold for ramp down period.
+func (o ScalingScheduleInvokeResponseOutput) RampDownCapacityThresholdPct() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *int { return v.RampDownCapacityThresholdPct }).(pulumi.IntPtrOutput)
+}
+
+// Should users be logged off forcefully from hosts.
+func (o ScalingScheduleInvokeResponseOutput) RampDownForceLogoffUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *bool { return v.RampDownForceLogoffUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Load balancing algorithm for ramp down period.
+func (o ScalingScheduleInvokeResponseOutput) RampDownLoadBalancingAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.RampDownLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Minimum host percentage for ramp down period.
+func (o ScalingScheduleInvokeResponseOutput) RampDownMinimumHostsPct() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *int { return v.RampDownMinimumHostsPct }).(pulumi.IntPtrOutput)
+}
+
+// Notification message for users during ramp down period.
+func (o ScalingScheduleInvokeResponseOutput) RampDownNotificationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.RampDownNotificationMessage }).(pulumi.StringPtrOutput)
+}
+
+// Starting time for ramp down period.
+func (o ScalingScheduleInvokeResponseOutput) RampDownStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.RampDownStartTime }).(pulumi.StringPtrOutput)
+}
+
+// Specifies when to stop hosts during ramp down period.
+func (o ScalingScheduleInvokeResponseOutput) RampDownStopHostsWhen() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.RampDownStopHostsWhen }).(pulumi.StringPtrOutput)
+}
+
+// Number of minutes to wait to stop hosts during ramp down period.
+func (o ScalingScheduleInvokeResponseOutput) RampDownWaitTimeMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *int { return v.RampDownWaitTimeMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Capacity threshold for ramp up period.
+func (o ScalingScheduleInvokeResponseOutput) RampUpCapacityThresholdPct() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *int { return v.RampUpCapacityThresholdPct }).(pulumi.IntPtrOutput)
+}
+
+// Load balancing algorithm for ramp up period.
+func (o ScalingScheduleInvokeResponseOutput) RampUpLoadBalancingAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.RampUpLoadBalancingAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Minimum host percentage for ramp up period.
+func (o ScalingScheduleInvokeResponseOutput) RampUpMinimumHostsPct() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *int { return v.RampUpMinimumHostsPct }).(pulumi.IntPtrOutput)
+}
+
+// Starting time for ramp up period.
+func (o ScalingScheduleInvokeResponseOutput) RampUpStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingScheduleInvokeResponse) *string { return v.RampUpStartTime }).(pulumi.StringPtrOutput)
+}
+
+type ScalingScheduleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ScalingScheduleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o ScalingScheduleInvokeResponseArrayOutput) ToScalingScheduleInvokeResponseArrayOutput() ScalingScheduleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ScalingScheduleInvokeResponseArrayOutput) ToScalingScheduleInvokeResponseArrayOutputWithContext(ctx context.Context) ScalingScheduleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ScalingScheduleInvokeResponseArrayOutput) Index(i pulumi.IntInput) ScalingScheduleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingScheduleInvokeResponse {
+		return vs[0].([]ScalingScheduleInvokeResponse)[vs[1].(int)]
+	}).(ScalingScheduleInvokeResponseOutput)
+}
+
+// Scaling plan schedule.
 type ScalingScheduleResponse struct {
 	// Set of days of the week on which this schedule is active.
 	DaysOfWeek []string `pulumi:"daysOfWeek"`
@@ -1625,22 +2332,31 @@ func (o ScalingScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScalingSche
 func init() {
 	pulumi.RegisterOutputType(MsixPackageApplicationsOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsArrayOutput{})
+	pulumi.RegisterOutputType(MsixPackageApplicationsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MsixPackageApplicationsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsResponseOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsResponseArrayOutput{})
 	pulumi.RegisterOutputType(MsixPackageDependenciesOutput{})
 	pulumi.RegisterOutputType(MsixPackageDependenciesArrayOutput{})
+	pulumi.RegisterOutputType(MsixPackageDependenciesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MsixPackageDependenciesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MsixPackageDependenciesResponseOutput{})
 	pulumi.RegisterOutputType(MsixPackageDependenciesResponseArrayOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoPtrOutput{})
+	pulumi.RegisterOutputType(RegistrationInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScalingHostPoolReferenceOutput{})
 	pulumi.RegisterOutputType(ScalingHostPoolReferenceArrayOutput{})
+	pulumi.RegisterOutputType(ScalingHostPoolReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ScalingHostPoolReferenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScalingHostPoolReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ScalingHostPoolReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScalingScheduleOutput{})
 	pulumi.RegisterOutputType(ScalingScheduleArrayOutput{})
+	pulumi.RegisterOutputType(ScalingScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ScalingScheduleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScalingScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ScalingScheduleResponseArrayOutput{})
 }

@@ -28,7 +28,7 @@ type LookupIncidentArgs struct {
 // Represents an incident in Azure Security Insights.
 type LookupIncidentResult struct {
 	// Additional data on the incident
-	AdditionalData IncidentAdditionalDataResponse `pulumi:"additionalData"`
+	AdditionalData IncidentAdditionalDataInvokeResponse `pulumi:"additionalData"`
 	// The reason the incident was closed
 	Classification *string `pulumi:"classification"`
 	// Describes the reason the incident was closed
@@ -50,7 +50,7 @@ type LookupIncidentResult struct {
 	// The deep-link url to the incident in Azure portal
 	IncidentUrl string `pulumi:"incidentUrl"`
 	// List of labels relevant to this incident
-	Labels []IncidentLabelResponse `pulumi:"labels"`
+	Labels []IncidentLabelInvokeResponse `pulumi:"labels"`
 	// The time of the last activity in the incident
 	LastActivityTimeUtc *string `pulumi:"lastActivityTimeUtc"`
 	// The last time the incident was updated
@@ -58,7 +58,7 @@ type LookupIncidentResult struct {
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// Describes a user that the incident is assigned to
-	Owner *IncidentOwnerInfoResponse `pulumi:"owner"`
+	Owner *IncidentOwnerInfoInvokeResponse `pulumi:"owner"`
 	// List of resource ids of Analytic rules related to the incident
 	RelatedAnalyticRuleIds []string `pulumi:"relatedAnalyticRuleIds"`
 	// The severity of the incident

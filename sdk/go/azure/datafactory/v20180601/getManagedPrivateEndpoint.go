@@ -36,7 +36,7 @@ type LookupManagedPrivateEndpointResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// Managed private endpoint properties.
-	Properties ManagedPrivateEndpointResponse `pulumi:"properties"`
+	Properties ManagedPrivateEndpointInvokeResponse `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

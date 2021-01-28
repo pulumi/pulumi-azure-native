@@ -221,6 +221,108 @@ func (o AcsClusterPropertiesPtrOutput) SystemServices() pulumi.StringArrayOutput
 }
 
 // Information about the container service backing the cluster
+type AcsClusterPropertiesInvokeResponse struct {
+	// The number of agent nodes in the Container Service. This can be changed to scale the cluster.
+	AgentCount *int `pulumi:"agentCount"`
+	// The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created.
+	AgentVmSize *string `pulumi:"agentVmSize"`
+	// The FQDN of the cluster.
+	ClusterFqdn string `pulumi:"clusterFqdn"`
+	// Orchestrator specific properties
+	OrchestratorProperties KubernetesClusterPropertiesInvokeResponse `pulumi:"orchestratorProperties"`
+	// Type of orchestrator. It cannot be changed once the cluster is created.
+	OrchestratorType string `pulumi:"orchestratorType"`
+	// The system services deployed to the cluster
+	SystemServices []string `pulumi:"systemServices"`
+}
+
+// AcsClusterPropertiesInvokeResponseInput is an input type that accepts AcsClusterPropertiesInvokeResponseArgs and AcsClusterPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AcsClusterPropertiesInvokeResponseInput` via:
+//
+//          AcsClusterPropertiesInvokeResponseArgs{...}
+type AcsClusterPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAcsClusterPropertiesInvokeResponseOutput() AcsClusterPropertiesInvokeResponseOutput
+	ToAcsClusterPropertiesInvokeResponseOutputWithContext(context.Context) AcsClusterPropertiesInvokeResponseOutput
+}
+
+// Information about the container service backing the cluster
+type AcsClusterPropertiesInvokeResponseArgs struct {
+	// The number of agent nodes in the Container Service. This can be changed to scale the cluster.
+	AgentCount pulumi.IntPtrInput `pulumi:"agentCount"`
+	// The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created.
+	AgentVmSize pulumi.StringPtrInput `pulumi:"agentVmSize"`
+	// The FQDN of the cluster.
+	ClusterFqdn pulumi.StringInput `pulumi:"clusterFqdn"`
+	// Orchestrator specific properties
+	OrchestratorProperties KubernetesClusterPropertiesInvokeResponseInput `pulumi:"orchestratorProperties"`
+	// Type of orchestrator. It cannot be changed once the cluster is created.
+	OrchestratorType pulumi.StringInput `pulumi:"orchestratorType"`
+	// The system services deployed to the cluster
+	SystemServices pulumi.StringArrayInput `pulumi:"systemServices"`
+}
+
+func (AcsClusterPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcsClusterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AcsClusterPropertiesInvokeResponseArgs) ToAcsClusterPropertiesInvokeResponseOutput() AcsClusterPropertiesInvokeResponseOutput {
+	return i.ToAcsClusterPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AcsClusterPropertiesInvokeResponseArgs) ToAcsClusterPropertiesInvokeResponseOutputWithContext(ctx context.Context) AcsClusterPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcsClusterPropertiesInvokeResponseOutput)
+}
+
+// Information about the container service backing the cluster
+type AcsClusterPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AcsClusterPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcsClusterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AcsClusterPropertiesInvokeResponseOutput) ToAcsClusterPropertiesInvokeResponseOutput() AcsClusterPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AcsClusterPropertiesInvokeResponseOutput) ToAcsClusterPropertiesInvokeResponseOutputWithContext(ctx context.Context) AcsClusterPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The number of agent nodes in the Container Service. This can be changed to scale the cluster.
+func (o AcsClusterPropertiesInvokeResponseOutput) AgentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AcsClusterPropertiesInvokeResponse) *int { return v.AgentCount }).(pulumi.IntPtrOutput)
+}
+
+// The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created.
+func (o AcsClusterPropertiesInvokeResponseOutput) AgentVmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AcsClusterPropertiesInvokeResponse) *string { return v.AgentVmSize }).(pulumi.StringPtrOutput)
+}
+
+// The FQDN of the cluster.
+func (o AcsClusterPropertiesInvokeResponseOutput) ClusterFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v AcsClusterPropertiesInvokeResponse) string { return v.ClusterFqdn }).(pulumi.StringOutput)
+}
+
+// Orchestrator specific properties
+func (o AcsClusterPropertiesInvokeResponseOutput) OrchestratorProperties() KubernetesClusterPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v AcsClusterPropertiesInvokeResponse) KubernetesClusterPropertiesInvokeResponse {
+		return v.OrchestratorProperties
+	}).(KubernetesClusterPropertiesInvokeResponseOutput)
+}
+
+// Type of orchestrator. It cannot be changed once the cluster is created.
+func (o AcsClusterPropertiesInvokeResponseOutput) OrchestratorType() pulumi.StringOutput {
+	return o.ApplyT(func(v AcsClusterPropertiesInvokeResponse) string { return v.OrchestratorType }).(pulumi.StringOutput)
+}
+
+// The system services deployed to the cluster
+func (o AcsClusterPropertiesInvokeResponseOutput) SystemServices() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AcsClusterPropertiesInvokeResponse) []string { return v.SystemServices }).(pulumi.StringArrayOutput)
+}
+
+// Information about the container service backing the cluster
 type AcsClusterPropertiesResponse struct {
 	// The number of agent nodes in the Container Service. This can be changed to scale the cluster.
 	AgentCount *int `pulumi:"agentCount"`
@@ -605,6 +707,70 @@ func (o AppInsightsCredentialsPtrOutput) AppId() pulumi.StringPtrOutput {
 }
 
 // AppInsights credentials.
+type AppInsightsCredentialsInvokeResponse struct {
+	// The AppInsights API key. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+	ApiKey *string `pulumi:"apiKey"`
+	// The AppInsights application ID.
+	AppId *string `pulumi:"appId"`
+}
+
+// AppInsightsCredentialsInvokeResponseInput is an input type that accepts AppInsightsCredentialsInvokeResponseArgs and AppInsightsCredentialsInvokeResponseOutput values.
+// You can construct a concrete instance of `AppInsightsCredentialsInvokeResponseInput` via:
+//
+//          AppInsightsCredentialsInvokeResponseArgs{...}
+type AppInsightsCredentialsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAppInsightsCredentialsInvokeResponseOutput() AppInsightsCredentialsInvokeResponseOutput
+	ToAppInsightsCredentialsInvokeResponseOutputWithContext(context.Context) AppInsightsCredentialsInvokeResponseOutput
+}
+
+// AppInsights credentials.
+type AppInsightsCredentialsInvokeResponseArgs struct {
+	// The AppInsights API key. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
+	// The AppInsights application ID.
+	AppId pulumi.StringPtrInput `pulumi:"appId"`
+}
+
+func (AppInsightsCredentialsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppInsightsCredentialsInvokeResponse)(nil)).Elem()
+}
+
+func (i AppInsightsCredentialsInvokeResponseArgs) ToAppInsightsCredentialsInvokeResponseOutput() AppInsightsCredentialsInvokeResponseOutput {
+	return i.ToAppInsightsCredentialsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AppInsightsCredentialsInvokeResponseArgs) ToAppInsightsCredentialsInvokeResponseOutputWithContext(ctx context.Context) AppInsightsCredentialsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppInsightsCredentialsInvokeResponseOutput)
+}
+
+// AppInsights credentials.
+type AppInsightsCredentialsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AppInsightsCredentialsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppInsightsCredentialsInvokeResponse)(nil)).Elem()
+}
+
+func (o AppInsightsCredentialsInvokeResponseOutput) ToAppInsightsCredentialsInvokeResponseOutput() AppInsightsCredentialsInvokeResponseOutput {
+	return o
+}
+
+func (o AppInsightsCredentialsInvokeResponseOutput) ToAppInsightsCredentialsInvokeResponseOutputWithContext(ctx context.Context) AppInsightsCredentialsInvokeResponseOutput {
+	return o
+}
+
+// The AppInsights API key. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+func (o AppInsightsCredentialsInvokeResponseOutput) ApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppInsightsCredentialsInvokeResponse) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
+}
+
+// The AppInsights application ID.
+func (o AppInsightsCredentialsInvokeResponseOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppInsightsCredentialsInvokeResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+// AppInsights credentials.
 type AppInsightsCredentialsResponse struct {
 	// The AppInsights API key. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
 	ApiKey *string `pulumi:"apiKey"`
@@ -968,6 +1134,216 @@ func (o AutoScaleConfigurationPtrOutput) TargetUtilization() pulumi.Float64PtrOu
 }
 
 // AutoScale configuration properties.
+type AutoScaleConfigurationInvokeResponse struct {
+	// The maximum number of replicas for each service.
+	MaxReplicas *int `pulumi:"maxReplicas"`
+	// The minimum number of replicas for each service.
+	MinReplicas *int `pulumi:"minReplicas"`
+	// Refresh period in seconds.
+	RefreshPeriodInSeconds *int `pulumi:"refreshPeriodInSeconds"`
+	// If auto-scale is enabled for all services. Each service can turn it off individually.
+	Status *string `pulumi:"status"`
+	// The target utilization.
+	TargetUtilization *float64 `pulumi:"targetUtilization"`
+}
+
+// AutoScaleConfigurationInvokeResponseInput is an input type that accepts AutoScaleConfigurationInvokeResponseArgs and AutoScaleConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `AutoScaleConfigurationInvokeResponseInput` via:
+//
+//          AutoScaleConfigurationInvokeResponseArgs{...}
+type AutoScaleConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutoScaleConfigurationInvokeResponseOutput() AutoScaleConfigurationInvokeResponseOutput
+	ToAutoScaleConfigurationInvokeResponseOutputWithContext(context.Context) AutoScaleConfigurationInvokeResponseOutput
+}
+
+// AutoScale configuration properties.
+type AutoScaleConfigurationInvokeResponseArgs struct {
+	// The maximum number of replicas for each service.
+	MaxReplicas pulumi.IntPtrInput `pulumi:"maxReplicas"`
+	// The minimum number of replicas for each service.
+	MinReplicas pulumi.IntPtrInput `pulumi:"minReplicas"`
+	// Refresh period in seconds.
+	RefreshPeriodInSeconds pulumi.IntPtrInput `pulumi:"refreshPeriodInSeconds"`
+	// If auto-scale is enabled for all services. Each service can turn it off individually.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The target utilization.
+	TargetUtilization pulumi.Float64PtrInput `pulumi:"targetUtilization"`
+}
+
+func (AutoScaleConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScaleConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i AutoScaleConfigurationInvokeResponseArgs) ToAutoScaleConfigurationInvokeResponseOutput() AutoScaleConfigurationInvokeResponseOutput {
+	return i.ToAutoScaleConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutoScaleConfigurationInvokeResponseArgs) ToAutoScaleConfigurationInvokeResponseOutputWithContext(ctx context.Context) AutoScaleConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleConfigurationInvokeResponseOutput)
+}
+
+func (i AutoScaleConfigurationInvokeResponseArgs) ToAutoScaleConfigurationInvokeResponsePtrOutput() AutoScaleConfigurationInvokeResponsePtrOutput {
+	return i.ToAutoScaleConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AutoScaleConfigurationInvokeResponseArgs) ToAutoScaleConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) AutoScaleConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleConfigurationInvokeResponseOutput).ToAutoScaleConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AutoScaleConfigurationInvokeResponsePtrInput is an input type that accepts AutoScaleConfigurationInvokeResponseArgs, AutoScaleConfigurationInvokeResponsePtr and AutoScaleConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AutoScaleConfigurationInvokeResponsePtrInput` via:
+//
+//          AutoScaleConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AutoScaleConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAutoScaleConfigurationInvokeResponsePtrOutput() AutoScaleConfigurationInvokeResponsePtrOutput
+	ToAutoScaleConfigurationInvokeResponsePtrOutputWithContext(context.Context) AutoScaleConfigurationInvokeResponsePtrOutput
+}
+
+type autoScaleConfigurationInvokeResponsePtrType AutoScaleConfigurationInvokeResponseArgs
+
+func AutoScaleConfigurationInvokeResponsePtr(v *AutoScaleConfigurationInvokeResponseArgs) AutoScaleConfigurationInvokeResponsePtrInput {
+	return (*autoScaleConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*autoScaleConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScaleConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *autoScaleConfigurationInvokeResponsePtrType) ToAutoScaleConfigurationInvokeResponsePtrOutput() AutoScaleConfigurationInvokeResponsePtrOutput {
+	return i.ToAutoScaleConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *autoScaleConfigurationInvokeResponsePtrType) ToAutoScaleConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) AutoScaleConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleConfigurationInvokeResponsePtrOutput)
+}
+
+// AutoScale configuration properties.
+type AutoScaleConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutoScaleConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScaleConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o AutoScaleConfigurationInvokeResponseOutput) ToAutoScaleConfigurationInvokeResponseOutput() AutoScaleConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o AutoScaleConfigurationInvokeResponseOutput) ToAutoScaleConfigurationInvokeResponseOutputWithContext(ctx context.Context) AutoScaleConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o AutoScaleConfigurationInvokeResponseOutput) ToAutoScaleConfigurationInvokeResponsePtrOutput() AutoScaleConfigurationInvokeResponsePtrOutput {
+	return o.ToAutoScaleConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AutoScaleConfigurationInvokeResponseOutput) ToAutoScaleConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) AutoScaleConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AutoScaleConfigurationInvokeResponse) *AutoScaleConfigurationInvokeResponse {
+		return &v
+	}).(AutoScaleConfigurationInvokeResponsePtrOutput)
+}
+
+// The maximum number of replicas for each service.
+func (o AutoScaleConfigurationInvokeResponseOutput) MaxReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoScaleConfigurationInvokeResponse) *int { return v.MaxReplicas }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of replicas for each service.
+func (o AutoScaleConfigurationInvokeResponseOutput) MinReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoScaleConfigurationInvokeResponse) *int { return v.MinReplicas }).(pulumi.IntPtrOutput)
+}
+
+// Refresh period in seconds.
+func (o AutoScaleConfigurationInvokeResponseOutput) RefreshPeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoScaleConfigurationInvokeResponse) *int { return v.RefreshPeriodInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// If auto-scale is enabled for all services. Each service can turn it off individually.
+func (o AutoScaleConfigurationInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoScaleConfigurationInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The target utilization.
+func (o AutoScaleConfigurationInvokeResponseOutput) TargetUtilization() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutoScaleConfigurationInvokeResponse) *float64 { return v.TargetUtilization }).(pulumi.Float64PtrOutput)
+}
+
+type AutoScaleConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AutoScaleConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScaleConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o AutoScaleConfigurationInvokeResponsePtrOutput) ToAutoScaleConfigurationInvokeResponsePtrOutput() AutoScaleConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AutoScaleConfigurationInvokeResponsePtrOutput) ToAutoScaleConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) AutoScaleConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AutoScaleConfigurationInvokeResponsePtrOutput) Elem() AutoScaleConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *AutoScaleConfigurationInvokeResponse) AutoScaleConfigurationInvokeResponse { return *v }).(AutoScaleConfigurationInvokeResponseOutput)
+}
+
+// The maximum number of replicas for each service.
+func (o AutoScaleConfigurationInvokeResponsePtrOutput) MaxReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScaleConfigurationInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxReplicas
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of replicas for each service.
+func (o AutoScaleConfigurationInvokeResponsePtrOutput) MinReplicas() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScaleConfigurationInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinReplicas
+	}).(pulumi.IntPtrOutput)
+}
+
+// Refresh period in seconds.
+func (o AutoScaleConfigurationInvokeResponsePtrOutput) RefreshPeriodInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScaleConfigurationInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshPeriodInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// If auto-scale is enabled for all services. Each service can turn it off individually.
+func (o AutoScaleConfigurationInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScaleConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The target utilization.
+func (o AutoScaleConfigurationInvokeResponsePtrOutput) TargetUtilization() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AutoScaleConfigurationInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUtilization
+	}).(pulumi.Float64PtrOutput)
+}
+
+// AutoScale configuration properties.
 type AutoScaleConfigurationResponse struct {
 	// The maximum number of replicas for each service.
 	MaxReplicas *int `pulumi:"maxReplicas"`
@@ -1178,7 +1554,7 @@ func (o AutoScaleConfigurationResponsePtrOutput) TargetUtilization() pulumi.Floa
 }
 
 // Information about the Azure Container Registry which contains the images deployed to the cluster.
-type ContainerRegistryCredentialsResponse struct {
+type ContainerRegistryCredentialsInvokeResponse struct {
 	// The ACR login server name. User name is the first part of the FQDN.
 	LoginServer string `pulumi:"loginServer"`
 	// The ACR primary password.
@@ -1187,19 +1563,19 @@ type ContainerRegistryCredentialsResponse struct {
 	Password2 string `pulumi:"password2"`
 }
 
-// ContainerRegistryCredentialsResponseInput is an input type that accepts ContainerRegistryCredentialsResponseArgs and ContainerRegistryCredentialsResponseOutput values.
-// You can construct a concrete instance of `ContainerRegistryCredentialsResponseInput` via:
+// ContainerRegistryCredentialsInvokeResponseInput is an input type that accepts ContainerRegistryCredentialsInvokeResponseArgs and ContainerRegistryCredentialsInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerRegistryCredentialsInvokeResponseInput` via:
 //
-//          ContainerRegistryCredentialsResponseArgs{...}
-type ContainerRegistryCredentialsResponseInput interface {
+//          ContainerRegistryCredentialsInvokeResponseArgs{...}
+type ContainerRegistryCredentialsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToContainerRegistryCredentialsResponseOutput() ContainerRegistryCredentialsResponseOutput
-	ToContainerRegistryCredentialsResponseOutputWithContext(context.Context) ContainerRegistryCredentialsResponseOutput
+	ToContainerRegistryCredentialsInvokeResponseOutput() ContainerRegistryCredentialsInvokeResponseOutput
+	ToContainerRegistryCredentialsInvokeResponseOutputWithContext(context.Context) ContainerRegistryCredentialsInvokeResponseOutput
 }
 
 // Information about the Azure Container Registry which contains the images deployed to the cluster.
-type ContainerRegistryCredentialsResponseArgs struct {
+type ContainerRegistryCredentialsInvokeResponseArgs struct {
 	// The ACR login server name. User name is the first part of the FQDN.
 	LoginServer pulumi.StringInput `pulumi:"loginServer"`
 	// The ACR primary password.
@@ -1208,46 +1584,46 @@ type ContainerRegistryCredentialsResponseArgs struct {
 	Password2 pulumi.StringInput `pulumi:"password2"`
 }
 
-func (ContainerRegistryCredentialsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerRegistryCredentialsResponse)(nil)).Elem()
+func (ContainerRegistryCredentialsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRegistryCredentialsInvokeResponse)(nil)).Elem()
 }
 
-func (i ContainerRegistryCredentialsResponseArgs) ToContainerRegistryCredentialsResponseOutput() ContainerRegistryCredentialsResponseOutput {
-	return i.ToContainerRegistryCredentialsResponseOutputWithContext(context.Background())
+func (i ContainerRegistryCredentialsInvokeResponseArgs) ToContainerRegistryCredentialsInvokeResponseOutput() ContainerRegistryCredentialsInvokeResponseOutput {
+	return i.ToContainerRegistryCredentialsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ContainerRegistryCredentialsResponseArgs) ToContainerRegistryCredentialsResponseOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryCredentialsResponseOutput)
+func (i ContainerRegistryCredentialsInvokeResponseArgs) ToContainerRegistryCredentialsInvokeResponseOutputWithContext(ctx context.Context) ContainerRegistryCredentialsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryCredentialsInvokeResponseOutput)
 }
 
 // Information about the Azure Container Registry which contains the images deployed to the cluster.
-type ContainerRegistryCredentialsResponseOutput struct{ *pulumi.OutputState }
+type ContainerRegistryCredentialsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ContainerRegistryCredentialsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerRegistryCredentialsResponse)(nil)).Elem()
+func (ContainerRegistryCredentialsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRegistryCredentialsInvokeResponse)(nil)).Elem()
 }
 
-func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentialsResponseOutput() ContainerRegistryCredentialsResponseOutput {
+func (o ContainerRegistryCredentialsInvokeResponseOutput) ToContainerRegistryCredentialsInvokeResponseOutput() ContainerRegistryCredentialsInvokeResponseOutput {
 	return o
 }
 
-func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentialsResponseOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponseOutput {
+func (o ContainerRegistryCredentialsInvokeResponseOutput) ToContainerRegistryCredentialsInvokeResponseOutputWithContext(ctx context.Context) ContainerRegistryCredentialsInvokeResponseOutput {
 	return o
 }
 
 // The ACR login server name. User name is the first part of the FQDN.
-func (o ContainerRegistryCredentialsResponseOutput) LoginServer() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.LoginServer }).(pulumi.StringOutput)
+func (o ContainerRegistryCredentialsInvokeResponseOutput) LoginServer() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRegistryCredentialsInvokeResponse) string { return v.LoginServer }).(pulumi.StringOutput)
 }
 
 // The ACR primary password.
-func (o ContainerRegistryCredentialsResponseOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.Password }).(pulumi.StringOutput)
+func (o ContainerRegistryCredentialsInvokeResponseOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRegistryCredentialsInvokeResponse) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // The ACR secondary password.
-func (o ContainerRegistryCredentialsResponseOutput) Password2() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.Password2 }).(pulumi.StringOutput)
+func (o ContainerRegistryCredentialsInvokeResponseOutput) Password2() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRegistryCredentialsInvokeResponse) string { return v.Password2 }).(pulumi.StringOutput)
 }
 
 // Properties of Azure Container Registry.
@@ -1385,6 +1761,61 @@ func (o ContainerRegistryPropertiesPtrOutput) ResourceId() pulumi.StringPtrOutpu
 }
 
 // Properties of Azure Container Registry.
+type ContainerRegistryPropertiesInvokeResponse struct {
+	// ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// ContainerRegistryPropertiesInvokeResponseInput is an input type that accepts ContainerRegistryPropertiesInvokeResponseArgs and ContainerRegistryPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerRegistryPropertiesInvokeResponseInput` via:
+//
+//          ContainerRegistryPropertiesInvokeResponseArgs{...}
+type ContainerRegistryPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContainerRegistryPropertiesInvokeResponseOutput() ContainerRegistryPropertiesInvokeResponseOutput
+	ToContainerRegistryPropertiesInvokeResponseOutputWithContext(context.Context) ContainerRegistryPropertiesInvokeResponseOutput
+}
+
+// Properties of Azure Container Registry.
+type ContainerRegistryPropertiesInvokeResponseArgs struct {
+	// ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (ContainerRegistryPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRegistryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ContainerRegistryPropertiesInvokeResponseArgs) ToContainerRegistryPropertiesInvokeResponseOutput() ContainerRegistryPropertiesInvokeResponseOutput {
+	return i.ToContainerRegistryPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerRegistryPropertiesInvokeResponseArgs) ToContainerRegistryPropertiesInvokeResponseOutputWithContext(ctx context.Context) ContainerRegistryPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryPropertiesInvokeResponseOutput)
+}
+
+// Properties of Azure Container Registry.
+type ContainerRegistryPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerRegistryPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRegistryPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ContainerRegistryPropertiesInvokeResponseOutput) ToContainerRegistryPropertiesInvokeResponseOutput() ContainerRegistryPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ContainerRegistryPropertiesInvokeResponseOutput) ToContainerRegistryPropertiesInvokeResponseOutputWithContext(ctx context.Context) ContainerRegistryPropertiesInvokeResponseOutput {
+	return o
+}
+
+// ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
+func (o ContainerRegistryPropertiesInvokeResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRegistryPropertiesInvokeResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Properties of Azure Container Registry.
 type ContainerRegistryPropertiesResponse struct {
 	// ARM resource ID of the Azure Container Registry used to store Docker images for web services in the cluster. If not provided one will be created. This cannot be changed once the cluster is created.
 	ResourceId *string `pulumi:"resourceId"`
@@ -1519,78 +1950,78 @@ func (o ContainerRegistryPropertiesResponsePtrOutput) ResourceId() pulumi.String
 }
 
 // Information about the Azure Container Registry which contains the images deployed to the cluster.
-type ContainerServiceCredentialsResponse struct {
+type ContainerServiceCredentialsInvokeResponse struct {
 	// The ACS kube config file.
 	AcsKubeConfig string `pulumi:"acsKubeConfig"`
 	// The ACR image pull secret name which was created in Kubernetes.
 	ImagePullSecretName string `pulumi:"imagePullSecretName"`
 	// Client secret for the Service Principal used by Kubernetes.
-	ServicePrincipalConfiguration ServicePrincipalPropertiesResponse `pulumi:"servicePrincipalConfiguration"`
+	ServicePrincipalConfiguration ServicePrincipalPropertiesInvokeResponse `pulumi:"servicePrincipalConfiguration"`
 }
 
-// ContainerServiceCredentialsResponseInput is an input type that accepts ContainerServiceCredentialsResponseArgs and ContainerServiceCredentialsResponseOutput values.
-// You can construct a concrete instance of `ContainerServiceCredentialsResponseInput` via:
+// ContainerServiceCredentialsInvokeResponseInput is an input type that accepts ContainerServiceCredentialsInvokeResponseArgs and ContainerServiceCredentialsInvokeResponseOutput values.
+// You can construct a concrete instance of `ContainerServiceCredentialsInvokeResponseInput` via:
 //
-//          ContainerServiceCredentialsResponseArgs{...}
-type ContainerServiceCredentialsResponseInput interface {
+//          ContainerServiceCredentialsInvokeResponseArgs{...}
+type ContainerServiceCredentialsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToContainerServiceCredentialsResponseOutput() ContainerServiceCredentialsResponseOutput
-	ToContainerServiceCredentialsResponseOutputWithContext(context.Context) ContainerServiceCredentialsResponseOutput
+	ToContainerServiceCredentialsInvokeResponseOutput() ContainerServiceCredentialsInvokeResponseOutput
+	ToContainerServiceCredentialsInvokeResponseOutputWithContext(context.Context) ContainerServiceCredentialsInvokeResponseOutput
 }
 
 // Information about the Azure Container Registry which contains the images deployed to the cluster.
-type ContainerServiceCredentialsResponseArgs struct {
+type ContainerServiceCredentialsInvokeResponseArgs struct {
 	// The ACS kube config file.
 	AcsKubeConfig pulumi.StringInput `pulumi:"acsKubeConfig"`
 	// The ACR image pull secret name which was created in Kubernetes.
 	ImagePullSecretName pulumi.StringInput `pulumi:"imagePullSecretName"`
 	// Client secret for the Service Principal used by Kubernetes.
-	ServicePrincipalConfiguration ServicePrincipalPropertiesResponseInput `pulumi:"servicePrincipalConfiguration"`
+	ServicePrincipalConfiguration ServicePrincipalPropertiesInvokeResponseInput `pulumi:"servicePrincipalConfiguration"`
 }
 
-func (ContainerServiceCredentialsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceCredentialsResponse)(nil)).Elem()
+func (ContainerServiceCredentialsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceCredentialsInvokeResponse)(nil)).Elem()
 }
 
-func (i ContainerServiceCredentialsResponseArgs) ToContainerServiceCredentialsResponseOutput() ContainerServiceCredentialsResponseOutput {
-	return i.ToContainerServiceCredentialsResponseOutputWithContext(context.Background())
+func (i ContainerServiceCredentialsInvokeResponseArgs) ToContainerServiceCredentialsInvokeResponseOutput() ContainerServiceCredentialsInvokeResponseOutput {
+	return i.ToContainerServiceCredentialsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ContainerServiceCredentialsResponseArgs) ToContainerServiceCredentialsResponseOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceCredentialsResponseOutput)
+func (i ContainerServiceCredentialsInvokeResponseArgs) ToContainerServiceCredentialsInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceCredentialsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceCredentialsInvokeResponseOutput)
 }
 
 // Information about the Azure Container Registry which contains the images deployed to the cluster.
-type ContainerServiceCredentialsResponseOutput struct{ *pulumi.OutputState }
+type ContainerServiceCredentialsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ContainerServiceCredentialsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceCredentialsResponse)(nil)).Elem()
+func (ContainerServiceCredentialsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceCredentialsInvokeResponse)(nil)).Elem()
 }
 
-func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentialsResponseOutput() ContainerServiceCredentialsResponseOutput {
+func (o ContainerServiceCredentialsInvokeResponseOutput) ToContainerServiceCredentialsInvokeResponseOutput() ContainerServiceCredentialsInvokeResponseOutput {
 	return o
 }
 
-func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentialsResponseOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponseOutput {
+func (o ContainerServiceCredentialsInvokeResponseOutput) ToContainerServiceCredentialsInvokeResponseOutputWithContext(ctx context.Context) ContainerServiceCredentialsInvokeResponseOutput {
 	return o
 }
 
 // The ACS kube config file.
-func (o ContainerServiceCredentialsResponseOutput) AcsKubeConfig() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceCredentialsResponse) string { return v.AcsKubeConfig }).(pulumi.StringOutput)
+func (o ContainerServiceCredentialsInvokeResponseOutput) AcsKubeConfig() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceCredentialsInvokeResponse) string { return v.AcsKubeConfig }).(pulumi.StringOutput)
 }
 
 // The ACR image pull secret name which was created in Kubernetes.
-func (o ContainerServiceCredentialsResponseOutput) ImagePullSecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceCredentialsResponse) string { return v.ImagePullSecretName }).(pulumi.StringOutput)
+func (o ContainerServiceCredentialsInvokeResponseOutput) ImagePullSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceCredentialsInvokeResponse) string { return v.ImagePullSecretName }).(pulumi.StringOutput)
 }
 
 // Client secret for the Service Principal used by Kubernetes.
-func (o ContainerServiceCredentialsResponseOutput) ServicePrincipalConfiguration() ServicePrincipalPropertiesResponseOutput {
-	return o.ApplyT(func(v ContainerServiceCredentialsResponse) ServicePrincipalPropertiesResponse {
+func (o ContainerServiceCredentialsInvokeResponseOutput) ServicePrincipalConfiguration() ServicePrincipalPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v ContainerServiceCredentialsInvokeResponse) ServicePrincipalPropertiesInvokeResponse {
 		return v.ServicePrincipalConfiguration
-	}).(ServicePrincipalPropertiesResponseOutput)
+	}).(ServicePrincipalPropertiesInvokeResponseOutput)
 }
 
 // Global configuration for services in the cluster.
@@ -1782,6 +2213,92 @@ func (o GlobalServiceConfigurationPtrOutput) Ssl() SslConfigurationPtrOutput {
 		}
 		return v.Ssl
 	}).(SslConfigurationPtrOutput)
+}
+
+// Global configuration for services in the cluster.
+type GlobalServiceConfigurationInvokeResponse struct {
+	// The auto-scale configuration
+	AutoScale *AutoScaleConfigurationInvokeResponse `pulumi:"autoScale"`
+	// The configuration ETag for updates.
+	Etag *string `pulumi:"etag"`
+	// Optional global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
+	ServiceAuth *ServiceAuthConfigurationInvokeResponse `pulumi:"serviceAuth"`
+	// The SSL configuration properties
+	Ssl *SslConfigurationInvokeResponse `pulumi:"ssl"`
+}
+
+// GlobalServiceConfigurationInvokeResponseInput is an input type that accepts GlobalServiceConfigurationInvokeResponseArgs and GlobalServiceConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `GlobalServiceConfigurationInvokeResponseInput` via:
+//
+//          GlobalServiceConfigurationInvokeResponseArgs{...}
+type GlobalServiceConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGlobalServiceConfigurationInvokeResponseOutput() GlobalServiceConfigurationInvokeResponseOutput
+	ToGlobalServiceConfigurationInvokeResponseOutputWithContext(context.Context) GlobalServiceConfigurationInvokeResponseOutput
+}
+
+// Global configuration for services in the cluster.
+type GlobalServiceConfigurationInvokeResponseArgs struct {
+	// The auto-scale configuration
+	AutoScale AutoScaleConfigurationInvokeResponsePtrInput `pulumi:"autoScale"`
+	// The configuration ETag for updates.
+	Etag pulumi.StringPtrInput `pulumi:"etag"`
+	// Optional global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
+	ServiceAuth ServiceAuthConfigurationInvokeResponsePtrInput `pulumi:"serviceAuth"`
+	// The SSL configuration properties
+	Ssl SslConfigurationInvokeResponsePtrInput `pulumi:"ssl"`
+}
+
+func (GlobalServiceConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalServiceConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i GlobalServiceConfigurationInvokeResponseArgs) ToGlobalServiceConfigurationInvokeResponseOutput() GlobalServiceConfigurationInvokeResponseOutput {
+	return i.ToGlobalServiceConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GlobalServiceConfigurationInvokeResponseArgs) ToGlobalServiceConfigurationInvokeResponseOutputWithContext(ctx context.Context) GlobalServiceConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalServiceConfigurationInvokeResponseOutput)
+}
+
+// Global configuration for services in the cluster.
+type GlobalServiceConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GlobalServiceConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalServiceConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o GlobalServiceConfigurationInvokeResponseOutput) ToGlobalServiceConfigurationInvokeResponseOutput() GlobalServiceConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o GlobalServiceConfigurationInvokeResponseOutput) ToGlobalServiceConfigurationInvokeResponseOutputWithContext(ctx context.Context) GlobalServiceConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The auto-scale configuration
+func (o GlobalServiceConfigurationInvokeResponseOutput) AutoScale() AutoScaleConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GlobalServiceConfigurationInvokeResponse) *AutoScaleConfigurationInvokeResponse {
+		return v.AutoScale
+	}).(AutoScaleConfigurationInvokeResponsePtrOutput)
+}
+
+// The configuration ETag for updates.
+func (o GlobalServiceConfigurationInvokeResponseOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalServiceConfigurationInvokeResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Optional global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
+func (o GlobalServiceConfigurationInvokeResponseOutput) ServiceAuth() ServiceAuthConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GlobalServiceConfigurationInvokeResponse) *ServiceAuthConfigurationInvokeResponse {
+		return v.ServiceAuth
+	}).(ServiceAuthConfigurationInvokeResponsePtrOutput)
+}
+
+// The SSL configuration properties
+func (o GlobalServiceConfigurationInvokeResponseOutput) Ssl() SslConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GlobalServiceConfigurationInvokeResponse) *SslConfigurationInvokeResponse { return v.Ssl }).(SslConfigurationInvokeResponsePtrOutput)
 }
 
 // Global configuration for services in the cluster.
@@ -2110,6 +2627,63 @@ func (o KubernetesClusterPropertiesPtrOutput) ServicePrincipal() ServicePrincipa
 }
 
 // Kubernetes cluster specific properties
+type KubernetesClusterPropertiesInvokeResponse struct {
+	// The Azure Service Principal used by Kubernetes
+	ServicePrincipal ServicePrincipalPropertiesInvokeResponse `pulumi:"servicePrincipal"`
+}
+
+// KubernetesClusterPropertiesInvokeResponseInput is an input type that accepts KubernetesClusterPropertiesInvokeResponseArgs and KubernetesClusterPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `KubernetesClusterPropertiesInvokeResponseInput` via:
+//
+//          KubernetesClusterPropertiesInvokeResponseArgs{...}
+type KubernetesClusterPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterPropertiesInvokeResponseOutput() KubernetesClusterPropertiesInvokeResponseOutput
+	ToKubernetesClusterPropertiesInvokeResponseOutputWithContext(context.Context) KubernetesClusterPropertiesInvokeResponseOutput
+}
+
+// Kubernetes cluster specific properties
+type KubernetesClusterPropertiesInvokeResponseArgs struct {
+	// The Azure Service Principal used by Kubernetes
+	ServicePrincipal ServicePrincipalPropertiesInvokeResponseInput `pulumi:"servicePrincipal"`
+}
+
+func (KubernetesClusterPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i KubernetesClusterPropertiesInvokeResponseArgs) ToKubernetesClusterPropertiesInvokeResponseOutput() KubernetesClusterPropertiesInvokeResponseOutput {
+	return i.ToKubernetesClusterPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterPropertiesInvokeResponseArgs) ToKubernetesClusterPropertiesInvokeResponseOutputWithContext(ctx context.Context) KubernetesClusterPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPropertiesInvokeResponseOutput)
+}
+
+// Kubernetes cluster specific properties
+type KubernetesClusterPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o KubernetesClusterPropertiesInvokeResponseOutput) ToKubernetesClusterPropertiesInvokeResponseOutput() KubernetesClusterPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o KubernetesClusterPropertiesInvokeResponseOutput) ToKubernetesClusterPropertiesInvokeResponseOutputWithContext(ctx context.Context) KubernetesClusterPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The Azure Service Principal used by Kubernetes
+func (o KubernetesClusterPropertiesInvokeResponseOutput) ServicePrincipal() ServicePrincipalPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v KubernetesClusterPropertiesInvokeResponse) ServicePrincipalPropertiesInvokeResponse {
+		return v.ServicePrincipal
+	}).(ServicePrincipalPropertiesInvokeResponseOutput)
+}
+
+// Kubernetes cluster specific properties
 type KubernetesClusterPropertiesResponse struct {
 	// The Azure Service Principal used by Kubernetes
 	ServicePrincipal ServicePrincipalPropertiesResponse `pulumi:"servicePrincipal"`
@@ -2391,6 +2965,159 @@ func (o ServiceAuthConfigurationPtrOutput) PrimaryAuthKeyHash() pulumi.StringPtr
 // The secondary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
 func (o ServiceAuthConfigurationPtrOutput) SecondaryAuthKeyHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecondaryAuthKeyHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
+type ServiceAuthConfigurationInvokeResponse struct {
+	// The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+	PrimaryAuthKeyHash string `pulumi:"primaryAuthKeyHash"`
+	// The secondary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+	SecondaryAuthKeyHash string `pulumi:"secondaryAuthKeyHash"`
+}
+
+// ServiceAuthConfigurationInvokeResponseInput is an input type that accepts ServiceAuthConfigurationInvokeResponseArgs and ServiceAuthConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceAuthConfigurationInvokeResponseInput` via:
+//
+//          ServiceAuthConfigurationInvokeResponseArgs{...}
+type ServiceAuthConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceAuthConfigurationInvokeResponseOutput() ServiceAuthConfigurationInvokeResponseOutput
+	ToServiceAuthConfigurationInvokeResponseOutputWithContext(context.Context) ServiceAuthConfigurationInvokeResponseOutput
+}
+
+// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
+type ServiceAuthConfigurationInvokeResponseArgs struct {
+	// The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+	PrimaryAuthKeyHash pulumi.StringInput `pulumi:"primaryAuthKeyHash"`
+	// The secondary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+	SecondaryAuthKeyHash pulumi.StringInput `pulumi:"secondaryAuthKeyHash"`
+}
+
+func (ServiceAuthConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAuthConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceAuthConfigurationInvokeResponseArgs) ToServiceAuthConfigurationInvokeResponseOutput() ServiceAuthConfigurationInvokeResponseOutput {
+	return i.ToServiceAuthConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceAuthConfigurationInvokeResponseArgs) ToServiceAuthConfigurationInvokeResponseOutputWithContext(ctx context.Context) ServiceAuthConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthConfigurationInvokeResponseOutput)
+}
+
+func (i ServiceAuthConfigurationInvokeResponseArgs) ToServiceAuthConfigurationInvokeResponsePtrOutput() ServiceAuthConfigurationInvokeResponsePtrOutput {
+	return i.ToServiceAuthConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAuthConfigurationInvokeResponseArgs) ToServiceAuthConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceAuthConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthConfigurationInvokeResponseOutput).ToServiceAuthConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceAuthConfigurationInvokeResponsePtrInput is an input type that accepts ServiceAuthConfigurationInvokeResponseArgs, ServiceAuthConfigurationInvokeResponsePtr and ServiceAuthConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceAuthConfigurationInvokeResponsePtrInput` via:
+//
+//          ServiceAuthConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceAuthConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceAuthConfigurationInvokeResponsePtrOutput() ServiceAuthConfigurationInvokeResponsePtrOutput
+	ToServiceAuthConfigurationInvokeResponsePtrOutputWithContext(context.Context) ServiceAuthConfigurationInvokeResponsePtrOutput
+}
+
+type serviceAuthConfigurationInvokeResponsePtrType ServiceAuthConfigurationInvokeResponseArgs
+
+func ServiceAuthConfigurationInvokeResponsePtr(v *ServiceAuthConfigurationInvokeResponseArgs) ServiceAuthConfigurationInvokeResponsePtrInput {
+	return (*serviceAuthConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*serviceAuthConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAuthConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *serviceAuthConfigurationInvokeResponsePtrType) ToServiceAuthConfigurationInvokeResponsePtrOutput() ServiceAuthConfigurationInvokeResponsePtrOutput {
+	return i.ToServiceAuthConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAuthConfigurationInvokeResponsePtrType) ToServiceAuthConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceAuthConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthConfigurationInvokeResponsePtrOutput)
+}
+
+// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
+type ServiceAuthConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceAuthConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAuthConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceAuthConfigurationInvokeResponseOutput) ToServiceAuthConfigurationInvokeResponseOutput() ServiceAuthConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceAuthConfigurationInvokeResponseOutput) ToServiceAuthConfigurationInvokeResponseOutputWithContext(ctx context.Context) ServiceAuthConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceAuthConfigurationInvokeResponseOutput) ToServiceAuthConfigurationInvokeResponsePtrOutput() ServiceAuthConfigurationInvokeResponsePtrOutput {
+	return o.ToServiceAuthConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAuthConfigurationInvokeResponseOutput) ToServiceAuthConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceAuthConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServiceAuthConfigurationInvokeResponse) *ServiceAuthConfigurationInvokeResponse {
+		return &v
+	}).(ServiceAuthConfigurationInvokeResponsePtrOutput)
+}
+
+// The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+func (o ServiceAuthConfigurationInvokeResponseOutput) PrimaryAuthKeyHash() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAuthConfigurationInvokeResponse) string { return v.PrimaryAuthKeyHash }).(pulumi.StringOutput)
+}
+
+// The secondary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+func (o ServiceAuthConfigurationInvokeResponseOutput) SecondaryAuthKeyHash() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAuthConfigurationInvokeResponse) string { return v.SecondaryAuthKeyHash }).(pulumi.StringOutput)
+}
+
+type ServiceAuthConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAuthConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAuthConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceAuthConfigurationInvokeResponsePtrOutput) ToServiceAuthConfigurationInvokeResponsePtrOutput() ServiceAuthConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceAuthConfigurationInvokeResponsePtrOutput) ToServiceAuthConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) ServiceAuthConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ServiceAuthConfigurationInvokeResponsePtrOutput) Elem() ServiceAuthConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *ServiceAuthConfigurationInvokeResponse) ServiceAuthConfigurationInvokeResponse { return *v }).(ServiceAuthConfigurationInvokeResponseOutput)
+}
+
+// The primary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+func (o ServiceAuthConfigurationInvokeResponsePtrOutput) PrimaryAuthKeyHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAuthConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryAuthKeyHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secondary auth key hash. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+func (o ServiceAuthConfigurationInvokeResponsePtrOutput) SecondaryAuthKeyHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAuthConfigurationInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2702,6 +3429,70 @@ func (o ServicePrincipalPropertiesPtrOutput) Secret() pulumi.StringPtrOutput {
 		}
 		return &v.Secret
 	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure service principal used by Kubernetes for configuring load balancers
+type ServicePrincipalPropertiesInvokeResponse struct {
+	// The service principal client ID
+	ClientId string `pulumi:"clientId"`
+	// The service principal secret. This is not returned in response of GET/PUT on the resource. To see this please call listKeys.
+	Secret string `pulumi:"secret"`
+}
+
+// ServicePrincipalPropertiesInvokeResponseInput is an input type that accepts ServicePrincipalPropertiesInvokeResponseArgs and ServicePrincipalPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ServicePrincipalPropertiesInvokeResponseInput` via:
+//
+//          ServicePrincipalPropertiesInvokeResponseArgs{...}
+type ServicePrincipalPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServicePrincipalPropertiesInvokeResponseOutput() ServicePrincipalPropertiesInvokeResponseOutput
+	ToServicePrincipalPropertiesInvokeResponseOutputWithContext(context.Context) ServicePrincipalPropertiesInvokeResponseOutput
+}
+
+// The Azure service principal used by Kubernetes for configuring load balancers
+type ServicePrincipalPropertiesInvokeResponseArgs struct {
+	// The service principal client ID
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The service principal secret. This is not returned in response of GET/PUT on the resource. To see this please call listKeys.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (ServicePrincipalPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ServicePrincipalPropertiesInvokeResponseArgs) ToServicePrincipalPropertiesInvokeResponseOutput() ServicePrincipalPropertiesInvokeResponseOutput {
+	return i.ToServicePrincipalPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalPropertiesInvokeResponseArgs) ToServicePrincipalPropertiesInvokeResponseOutputWithContext(ctx context.Context) ServicePrincipalPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesInvokeResponseOutput)
+}
+
+// The Azure service principal used by Kubernetes for configuring load balancers
+type ServicePrincipalPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ServicePrincipalPropertiesInvokeResponseOutput) ToServicePrincipalPropertiesInvokeResponseOutput() ServicePrincipalPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ServicePrincipalPropertiesInvokeResponseOutput) ToServicePrincipalPropertiesInvokeResponseOutputWithContext(ctx context.Context) ServicePrincipalPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The service principal client ID
+func (o ServicePrincipalPropertiesInvokeResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServicePrincipalPropertiesInvokeResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The service principal secret. This is not returned in response of GET/PUT on the resource. To see this please call listKeys.
+func (o ServicePrincipalPropertiesInvokeResponseOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v ServicePrincipalPropertiesInvokeResponse) string { return v.Secret }).(pulumi.StringOutput)
 }
 
 // The Azure service principal used by Kubernetes for configuring load balancers
@@ -3030,6 +3821,178 @@ func (o SslConfigurationPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 // SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
+type SslConfigurationInvokeResponse struct {
+	// The SSL cert data in PEM format encoded as base64 string
+	Cert *string `pulumi:"cert"`
+	// The SSL key data in PEM format encoded as base64 string. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+	Key *string `pulumi:"key"`
+	// SSL status. Allowed values are Enabled and Disabled.
+	Status *string `pulumi:"status"`
+}
+
+// SslConfigurationInvokeResponseInput is an input type that accepts SslConfigurationInvokeResponseArgs and SslConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `SslConfigurationInvokeResponseInput` via:
+//
+//          SslConfigurationInvokeResponseArgs{...}
+type SslConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSslConfigurationInvokeResponseOutput() SslConfigurationInvokeResponseOutput
+	ToSslConfigurationInvokeResponseOutputWithContext(context.Context) SslConfigurationInvokeResponseOutput
+}
+
+// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
+type SslConfigurationInvokeResponseArgs struct {
+	// The SSL cert data in PEM format encoded as base64 string
+	Cert pulumi.StringPtrInput `pulumi:"cert"`
+	// The SSL key data in PEM format encoded as base64 string. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// SSL status. Allowed values are Enabled and Disabled.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (SslConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SslConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i SslConfigurationInvokeResponseArgs) ToSslConfigurationInvokeResponseOutput() SslConfigurationInvokeResponseOutput {
+	return i.ToSslConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SslConfigurationInvokeResponseArgs) ToSslConfigurationInvokeResponseOutputWithContext(ctx context.Context) SslConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SslConfigurationInvokeResponseOutput)
+}
+
+func (i SslConfigurationInvokeResponseArgs) ToSslConfigurationInvokeResponsePtrOutput() SslConfigurationInvokeResponsePtrOutput {
+	return i.ToSslConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SslConfigurationInvokeResponseArgs) ToSslConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) SslConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SslConfigurationInvokeResponseOutput).ToSslConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SslConfigurationInvokeResponsePtrInput is an input type that accepts SslConfigurationInvokeResponseArgs, SslConfigurationInvokeResponsePtr and SslConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SslConfigurationInvokeResponsePtrInput` via:
+//
+//          SslConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SslConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSslConfigurationInvokeResponsePtrOutput() SslConfigurationInvokeResponsePtrOutput
+	ToSslConfigurationInvokeResponsePtrOutputWithContext(context.Context) SslConfigurationInvokeResponsePtrOutput
+}
+
+type sslConfigurationInvokeResponsePtrType SslConfigurationInvokeResponseArgs
+
+func SslConfigurationInvokeResponsePtr(v *SslConfigurationInvokeResponseArgs) SslConfigurationInvokeResponsePtrInput {
+	return (*sslConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*sslConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SslConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *sslConfigurationInvokeResponsePtrType) ToSslConfigurationInvokeResponsePtrOutput() SslConfigurationInvokeResponsePtrOutput {
+	return i.ToSslConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sslConfigurationInvokeResponsePtrType) ToSslConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) SslConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SslConfigurationInvokeResponsePtrOutput)
+}
+
+// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
+type SslConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SslConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SslConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o SslConfigurationInvokeResponseOutput) ToSslConfigurationInvokeResponseOutput() SslConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o SslConfigurationInvokeResponseOutput) ToSslConfigurationInvokeResponseOutputWithContext(ctx context.Context) SslConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o SslConfigurationInvokeResponseOutput) ToSslConfigurationInvokeResponsePtrOutput() SslConfigurationInvokeResponsePtrOutput {
+	return o.ToSslConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SslConfigurationInvokeResponseOutput) ToSslConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) SslConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SslConfigurationInvokeResponse) *SslConfigurationInvokeResponse {
+		return &v
+	}).(SslConfigurationInvokeResponsePtrOutput)
+}
+
+// The SSL cert data in PEM format encoded as base64 string
+func (o SslConfigurationInvokeResponseOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SslConfigurationInvokeResponse) *string { return v.Cert }).(pulumi.StringPtrOutput)
+}
+
+// The SSL key data in PEM format encoded as base64 string. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+func (o SslConfigurationInvokeResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SslConfigurationInvokeResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// SSL status. Allowed values are Enabled and Disabled.
+func (o SslConfigurationInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SslConfigurationInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type SslConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SslConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SslConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o SslConfigurationInvokeResponsePtrOutput) ToSslConfigurationInvokeResponsePtrOutput() SslConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SslConfigurationInvokeResponsePtrOutput) ToSslConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) SslConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SslConfigurationInvokeResponsePtrOutput) Elem() SslConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *SslConfigurationInvokeResponse) SslConfigurationInvokeResponse { return *v }).(SslConfigurationInvokeResponseOutput)
+}
+
+// The SSL cert data in PEM format encoded as base64 string
+func (o SslConfigurationInvokeResponsePtrOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SslConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cert
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SSL key data in PEM format encoded as base64 string. This is not returned in response of GET/PUT on the resource.. To see this please call listKeys API.
+func (o SslConfigurationInvokeResponsePtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SslConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL status. Allowed values are Enabled and Disabled.
+func (o SslConfigurationInvokeResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SslConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
 type SslConfigurationResponse struct {
 	// The SSL cert data in PEM format encoded as base64 string
 	Cert *string `pulumi:"cert"`
@@ -3202,7 +4165,7 @@ func (o SslConfigurationResponsePtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Access information for the storage account.
-type StorageAccountCredentialsResponse struct {
+type StorageAccountCredentialsInvokeResponse struct {
 	// The primary key of the storage account.
 	PrimaryKey string `pulumi:"primaryKey"`
 	// The ARM resource ID of the storage account.
@@ -3211,19 +4174,19 @@ type StorageAccountCredentialsResponse struct {
 	SecondaryKey string `pulumi:"secondaryKey"`
 }
 
-// StorageAccountCredentialsResponseInput is an input type that accepts StorageAccountCredentialsResponseArgs and StorageAccountCredentialsResponseOutput values.
-// You can construct a concrete instance of `StorageAccountCredentialsResponseInput` via:
+// StorageAccountCredentialsInvokeResponseInput is an input type that accepts StorageAccountCredentialsInvokeResponseArgs and StorageAccountCredentialsInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountCredentialsInvokeResponseInput` via:
 //
-//          StorageAccountCredentialsResponseArgs{...}
-type StorageAccountCredentialsResponseInput interface {
+//          StorageAccountCredentialsInvokeResponseArgs{...}
+type StorageAccountCredentialsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToStorageAccountCredentialsResponseOutput() StorageAccountCredentialsResponseOutput
-	ToStorageAccountCredentialsResponseOutputWithContext(context.Context) StorageAccountCredentialsResponseOutput
+	ToStorageAccountCredentialsInvokeResponseOutput() StorageAccountCredentialsInvokeResponseOutput
+	ToStorageAccountCredentialsInvokeResponseOutputWithContext(context.Context) StorageAccountCredentialsInvokeResponseOutput
 }
 
 // Access information for the storage account.
-type StorageAccountCredentialsResponseArgs struct {
+type StorageAccountCredentialsInvokeResponseArgs struct {
 	// The primary key of the storage account.
 	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
 	// The ARM resource ID of the storage account.
@@ -3232,46 +4195,46 @@ type StorageAccountCredentialsResponseArgs struct {
 	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 }
 
-func (StorageAccountCredentialsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountCredentialsResponse)(nil)).Elem()
+func (StorageAccountCredentialsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountCredentialsInvokeResponse)(nil)).Elem()
 }
 
-func (i StorageAccountCredentialsResponseArgs) ToStorageAccountCredentialsResponseOutput() StorageAccountCredentialsResponseOutput {
-	return i.ToStorageAccountCredentialsResponseOutputWithContext(context.Background())
+func (i StorageAccountCredentialsInvokeResponseArgs) ToStorageAccountCredentialsInvokeResponseOutput() StorageAccountCredentialsInvokeResponseOutput {
+	return i.ToStorageAccountCredentialsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i StorageAccountCredentialsResponseArgs) ToStorageAccountCredentialsResponseOutputWithContext(ctx context.Context) StorageAccountCredentialsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialsResponseOutput)
+func (i StorageAccountCredentialsInvokeResponseArgs) ToStorageAccountCredentialsInvokeResponseOutputWithContext(ctx context.Context) StorageAccountCredentialsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialsInvokeResponseOutput)
 }
 
 // Access information for the storage account.
-type StorageAccountCredentialsResponseOutput struct{ *pulumi.OutputState }
+type StorageAccountCredentialsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (StorageAccountCredentialsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountCredentialsResponse)(nil)).Elem()
+func (StorageAccountCredentialsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountCredentialsInvokeResponse)(nil)).Elem()
 }
 
-func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResponseOutput() StorageAccountCredentialsResponseOutput {
+func (o StorageAccountCredentialsInvokeResponseOutput) ToStorageAccountCredentialsInvokeResponseOutput() StorageAccountCredentialsInvokeResponseOutput {
 	return o
 }
 
-func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResponseOutputWithContext(ctx context.Context) StorageAccountCredentialsResponseOutput {
+func (o StorageAccountCredentialsInvokeResponseOutput) ToStorageAccountCredentialsInvokeResponseOutputWithContext(ctx context.Context) StorageAccountCredentialsInvokeResponseOutput {
 	return o
 }
 
 // The primary key of the storage account.
-func (o StorageAccountCredentialsResponseOutput) PrimaryKey() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
+func (o StorageAccountCredentialsInvokeResponseOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountCredentialsInvokeResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
 // The ARM resource ID of the storage account.
-func (o StorageAccountCredentialsResponseOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.ResourceId }).(pulumi.StringOutput)
+func (o StorageAccountCredentialsInvokeResponseOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountCredentialsInvokeResponse) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
 // The secondary key of the storage account.
-func (o StorageAccountCredentialsResponseOutput) SecondaryKey() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
+func (o StorageAccountCredentialsInvokeResponseOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountCredentialsInvokeResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
 // Properties of Storage Account.
@@ -3406,6 +4369,61 @@ func (o StorageAccountPropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput {
 		}
 		return v.ResourceId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of Storage Account.
+type StorageAccountPropertiesInvokeResponse struct {
+	// ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// StorageAccountPropertiesInvokeResponseInput is an input type that accepts StorageAccountPropertiesInvokeResponseArgs and StorageAccountPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountPropertiesInvokeResponseInput` via:
+//
+//          StorageAccountPropertiesInvokeResponseArgs{...}
+type StorageAccountPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput
+	ToStorageAccountPropertiesInvokeResponseOutputWithContext(context.Context) StorageAccountPropertiesInvokeResponseOutput
+}
+
+// Properties of Storage Account.
+type StorageAccountPropertiesInvokeResponseArgs struct {
+	// ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (StorageAccountPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountPropertiesInvokeResponseArgs) ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput {
+	return i.ToStorageAccountPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountPropertiesInvokeResponseArgs) ToStorageAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesInvokeResponseOutput)
+}
+
+// Properties of Storage Account.
+type StorageAccountPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountPropertiesInvokeResponseOutput) ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountPropertiesInvokeResponseOutput) ToStorageAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+// ARM resource ID of the Azure Storage Account to store CLI specific files. If not provided one will be created. This cannot be changed once the cluster is created.
+func (o StorageAccountPropertiesInvokeResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesInvokeResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Properties of Storage Account.
@@ -3545,45 +4563,58 @@ func (o StorageAccountPropertiesResponsePtrOutput) ResourceId() pulumi.StringPtr
 func init() {
 	pulumi.RegisterOutputType(AcsClusterPropertiesOutput{})
 	pulumi.RegisterOutputType(AcsClusterPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AcsClusterPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AcsClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AcsClusterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AppInsightsCredentialsOutput{})
 	pulumi.RegisterOutputType(AppInsightsCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(AppInsightsCredentialsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AppInsightsCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(AppInsightsCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutoScaleConfigurationOutput{})
 	pulumi.RegisterOutputType(AutoScaleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AutoScaleConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AutoScaleConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutoScaleConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(AutoScaleConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerRegistryCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(ContainerRegistryCredentialsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ContainerRegistryPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerServiceCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(ContainerServiceCredentialsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalServiceConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterPropertiesOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAuthConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceAuthConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceAuthConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ServiceAuthConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalPropertiesOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SslConfigurationOutput{})
 	pulumi.RegisterOutputType(SslConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SslConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SslConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SslConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(SslConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountCredentialsResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountCredentialsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
 }

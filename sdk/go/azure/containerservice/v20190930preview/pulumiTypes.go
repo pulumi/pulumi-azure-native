@@ -183,6 +183,79 @@ func (o NetworkProfilePtrOutput) VnetId() pulumi.StringPtrOutput {
 }
 
 // Represents the OpenShift networking configuration
+type NetworkProfileInvokeResponse struct {
+	// CIDR of the Vnet to peer.
+	PeerVnetId *string `pulumi:"peerVnetId"`
+	// CIDR for the OpenShift Vnet.
+	VnetCidr *string `pulumi:"vnetCidr"`
+	// ID of the Vnet created for OSA cluster.
+	VnetId *string `pulumi:"vnetId"`
+}
+
+// NetworkProfileInvokeResponseInput is an input type that accepts NetworkProfileInvokeResponseArgs and NetworkProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkProfileInvokeResponseInput` via:
+//
+//          NetworkProfileInvokeResponseArgs{...}
+type NetworkProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput
+	ToNetworkProfileInvokeResponseOutputWithContext(context.Context) NetworkProfileInvokeResponseOutput
+}
+
+// Represents the OpenShift networking configuration
+type NetworkProfileInvokeResponseArgs struct {
+	// CIDR of the Vnet to peer.
+	PeerVnetId pulumi.StringPtrInput `pulumi:"peerVnetId"`
+	// CIDR for the OpenShift Vnet.
+	VnetCidr pulumi.StringPtrInput `pulumi:"vnetCidr"`
+	// ID of the Vnet created for OSA cluster.
+	VnetId pulumi.StringPtrInput `pulumi:"vnetId"`
+}
+
+func (NetworkProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput {
+	return i.ToNetworkProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileInvokeResponseOutput)
+}
+
+// Represents the OpenShift networking configuration
+type NetworkProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutput {
+	return o
+}
+
+// CIDR of the Vnet to peer.
+func (o NetworkProfileInvokeResponseOutput) PeerVnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.PeerVnetId }).(pulumi.StringPtrOutput)
+}
+
+// CIDR for the OpenShift Vnet.
+func (o NetworkProfileInvokeResponseOutput) VnetCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.VnetCidr }).(pulumi.StringPtrOutput)
+}
+
+// ID of the Vnet created for OSA cluster.
+func (o NetworkProfileInvokeResponseOutput) VnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.VnetId }).(pulumi.StringPtrOutput)
+}
+
+// Represents the OpenShift networking configuration
 type NetworkProfileResponse struct {
 	// CIDR of the Vnet to peer.
 	PeerVnetId *string `pulumi:"peerVnetId"`
@@ -571,6 +644,224 @@ func (o OpenShiftManagedClusterAADIdentityProviderPtrOutput) TenantId() pulumi.S
 }
 
 // Defines the Identity provider for MS AAD.
+type OpenShiftManagedClusterAADIdentityProviderInvokeResponse struct {
+	// The clientId password associated with the provider.
+	ClientId *string `pulumi:"clientId"`
+	// The groupId to be granted cluster admin role.
+	CustomerAdminGroupId *string `pulumi:"customerAdminGroupId"`
+	// The kind of the provider.
+	// Expected value is 'AADIdentityProvider'.
+	Kind string `pulumi:"kind"`
+	// The secret password associated with the provider.
+	Secret *string `pulumi:"secret"`
+	// The tenantId associated with the provider.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// OpenShiftManagedClusterAADIdentityProviderInvokeResponseInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs and OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterAADIdentityProviderInvokeResponseInput` via:
+//
+//          OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs{...}
+type OpenShiftManagedClusterAADIdentityProviderInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput() OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput
+	ToOpenShiftManagedClusterAADIdentityProviderInvokeResponseOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput
+}
+
+// Defines the Identity provider for MS AAD.
+type OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs struct {
+	// The clientId password associated with the provider.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The groupId to be granted cluster admin role.
+	CustomerAdminGroupId pulumi.StringPtrInput `pulumi:"customerAdminGroupId"`
+	// The kind of the provider.
+	// Expected value is 'AADIdentityProvider'.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The secret password associated with the provider.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// The tenantId associated with the provider.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterAADIdentityProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput() OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput {
+	return i.ToOpenShiftManagedClusterAADIdentityProviderInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput)
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput {
+	return i.ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput).ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrInput is an input type that accepts OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs, OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtr and OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrInput` via:
+//
+//          OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput
+	ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput
+}
+
+type openShiftManagedClusterAADIdentityProviderInvokeResponsePtrType OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs
+
+func OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtr(v *OpenShiftManagedClusterAADIdentityProviderInvokeResponseArgs) OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrInput {
+	return (*openShiftManagedClusterAADIdentityProviderInvokeResponsePtrType)(v)
+}
+
+func (*openShiftManagedClusterAADIdentityProviderInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftManagedClusterAADIdentityProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i *openShiftManagedClusterAADIdentityProviderInvokeResponsePtrType) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput {
+	return i.ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *openShiftManagedClusterAADIdentityProviderInvokeResponsePtrType) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput)
+}
+
+// Defines the Identity provider for MS AAD.
+type OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterAADIdentityProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput() OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput {
+	return o.ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderInvokeResponse) *OpenShiftManagedClusterAADIdentityProviderInvokeResponse {
+		return &v
+	}).(OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput)
+}
+
+// The clientId password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderInvokeResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The groupId to be granted cluster admin role.
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderInvokeResponse) *string {
+		return v.CustomerAdminGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The kind of the provider.
+// Expected value is 'AADIdentityProvider'.
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderInvokeResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The secret password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderInvokeResponse) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// The tenantId associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAADIdentityProviderInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenShiftManagedClusterAADIdentityProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput) ToOpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput) Elem() OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderInvokeResponse) OpenShiftManagedClusterAADIdentityProviderInvokeResponse {
+		return *v
+	}).(OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput)
+}
+
+// The clientId password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The groupId to be granted cluster admin role.
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput) CustomerAdminGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerAdminGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The kind of the provider.
+// Expected value is 'AADIdentityProvider'.
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secret password associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenantId associated with the provider.
+func (o OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftManagedClusterAADIdentityProviderInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the Identity provider for MS AAD.
 type OpenShiftManagedClusterAADIdentityProviderResponse struct {
 	// The clientId password associated with the provider.
 	ClientId *string `pulumi:"clientId"`
@@ -932,6 +1223,151 @@ func (o OpenShiftManagedClusterAgentPoolProfileArrayOutput) Index(i pulumi.IntIn
 }
 
 // Defines the configuration of the OpenShift cluster VMs.
+type OpenShiftManagedClusterAgentPoolProfileInvokeResponse struct {
+	// Number of agents (VMs) to host docker containers.
+	Count int `pulumi:"count"`
+	// Unique name of the pool profile in the context of the subscription and resource group.
+	Name string `pulumi:"name"`
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType *string `pulumi:"osType"`
+	// Define the role of the AgentPoolProfile.
+	Role *string `pulumi:"role"`
+	// Subnet CIDR for the peering.
+	SubnetCidr *string `pulumi:"subnetCidr"`
+	// Size of agent VMs.
+	VmSize string `pulumi:"vmSize"`
+}
+
+// OpenShiftManagedClusterAgentPoolProfileInvokeResponseInput is an input type that accepts OpenShiftManagedClusterAgentPoolProfileInvokeResponseArgs and OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterAgentPoolProfileInvokeResponseInput` via:
+//
+//          OpenShiftManagedClusterAgentPoolProfileInvokeResponseArgs{...}
+type OpenShiftManagedClusterAgentPoolProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput() OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput
+	ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseOutputWithContext(context.Context) OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput
+}
+
+// Defines the configuration of the OpenShift cluster VMs.
+type OpenShiftManagedClusterAgentPoolProfileInvokeResponseArgs struct {
+	// Number of agents (VMs) to host docker containers.
+	Count pulumi.IntInput `pulumi:"count"`
+	// Unique name of the pool profile in the context of the subscription and resource group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// Define the role of the AgentPoolProfile.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// Subnet CIDR for the peering.
+	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
+	// Size of agent VMs.
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (OpenShiftManagedClusterAgentPoolProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterAgentPoolProfileInvokeResponseArgs) ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput() OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput {
+	return i.ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterAgentPoolProfileInvokeResponseArgs) ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput)
+}
+
+// OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayInput is an input type that accepts OpenShiftManagedClusterAgentPoolProfileInvokeResponseArray and OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayInput` via:
+//
+//          OpenShiftManagedClusterAgentPoolProfileInvokeResponseArray{ OpenShiftManagedClusterAgentPoolProfileInvokeResponseArgs{...} }
+type OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput() OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput
+	ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutputWithContext(context.Context) OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput
+}
+
+type OpenShiftManagedClusterAgentPoolProfileInvokeResponseArray []OpenShiftManagedClusterAgentPoolProfileInvokeResponseInput
+
+func (OpenShiftManagedClusterAgentPoolProfileInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenShiftManagedClusterAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterAgentPoolProfileInvokeResponseArray) ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput() OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput {
+	return i.ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterAgentPoolProfileInvokeResponseArray) ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutputWithContext(ctx context.Context) OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput)
+}
+
+// Defines the configuration of the OpenShift cluster VMs.
+type OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput) ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput() OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput) ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput {
+	return o
+}
+
+// Number of agents (VMs) to host docker containers.
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileInvokeResponse) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// Unique name of the pool profile in the context of the subscription and resource group.
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileInvokeResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// Define the role of the AgentPoolProfile.
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileInvokeResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// Subnet CIDR for the peering.
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput) SubnetCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileInvokeResponse) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
+}
+
+// Size of agent VMs.
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput) VmSize() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAgentPoolProfileInvokeResponse) string { return v.VmSize }).(pulumi.StringOutput)
+}
+
+type OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenShiftManagedClusterAgentPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput) ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput() OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput) ToOpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutputWithContext(ctx context.Context) OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput) Index(i pulumi.IntInput) OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenShiftManagedClusterAgentPoolProfileInvokeResponse {
+		return vs[0].([]OpenShiftManagedClusterAgentPoolProfileInvokeResponse)[vs[1].(int)]
+	}).(OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput)
+}
+
+// Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfileResponse struct {
 	// Number of agents (VMs) to host docker containers.
 	Count int `pulumi:"count"`
@@ -1213,6 +1649,63 @@ func (o OpenShiftManagedClusterAuthProfilePtrOutput) IdentityProviders() OpenShi
 }
 
 // Defines all possible authentication profiles for the OpenShift cluster.
+type OpenShiftManagedClusterAuthProfileInvokeResponse struct {
+	// Type of authentication profile to use.
+	IdentityProviders []OpenShiftManagedClusterIdentityProviderInvokeResponse `pulumi:"identityProviders"`
+}
+
+// OpenShiftManagedClusterAuthProfileInvokeResponseInput is an input type that accepts OpenShiftManagedClusterAuthProfileInvokeResponseArgs and OpenShiftManagedClusterAuthProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterAuthProfileInvokeResponseInput` via:
+//
+//          OpenShiftManagedClusterAuthProfileInvokeResponseArgs{...}
+type OpenShiftManagedClusterAuthProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterAuthProfileInvokeResponseOutput() OpenShiftManagedClusterAuthProfileInvokeResponseOutput
+	ToOpenShiftManagedClusterAuthProfileInvokeResponseOutputWithContext(context.Context) OpenShiftManagedClusterAuthProfileInvokeResponseOutput
+}
+
+// Defines all possible authentication profiles for the OpenShift cluster.
+type OpenShiftManagedClusterAuthProfileInvokeResponseArgs struct {
+	// Type of authentication profile to use.
+	IdentityProviders OpenShiftManagedClusterIdentityProviderInvokeResponseArrayInput `pulumi:"identityProviders"`
+}
+
+func (OpenShiftManagedClusterAuthProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterAuthProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterAuthProfileInvokeResponseArgs) ToOpenShiftManagedClusterAuthProfileInvokeResponseOutput() OpenShiftManagedClusterAuthProfileInvokeResponseOutput {
+	return i.ToOpenShiftManagedClusterAuthProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterAuthProfileInvokeResponseArgs) ToOpenShiftManagedClusterAuthProfileInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAuthProfileInvokeResponseOutput)
+}
+
+// Defines all possible authentication profiles for the OpenShift cluster.
+type OpenShiftManagedClusterAuthProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterAuthProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterAuthProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterAuthProfileInvokeResponseOutput) ToOpenShiftManagedClusterAuthProfileInvokeResponseOutput() OpenShiftManagedClusterAuthProfileInvokeResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterAuthProfileInvokeResponseOutput) ToOpenShiftManagedClusterAuthProfileInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfileInvokeResponseOutput {
+	return o
+}
+
+// Type of authentication profile to use.
+func (o OpenShiftManagedClusterAuthProfileInvokeResponseOutput) IdentityProviders() OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterAuthProfileInvokeResponse) []OpenShiftManagedClusterIdentityProviderInvokeResponse {
+		return v.IdentityProviders
+	}).(OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput)
+}
+
+// Defines all possible authentication profiles for the OpenShift cluster.
 type OpenShiftManagedClusterAuthProfileResponse struct {
 	// Type of authentication profile to use.
 	IdentityProviders []OpenShiftManagedClusterIdentityProviderResponse `pulumi:"identityProviders"`
@@ -1459,6 +1952,117 @@ func (o OpenShiftManagedClusterIdentityProviderArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenShiftManagedClusterIdentityProvider {
 		return vs[0].([]OpenShiftManagedClusterIdentityProvider)[vs[1].(int)]
 	}).(OpenShiftManagedClusterIdentityProviderOutput)
+}
+
+// Defines the configuration of the identity providers to be used in the OpenShift cluster.
+type OpenShiftManagedClusterIdentityProviderInvokeResponse struct {
+	// Name of the provider.
+	Name *string `pulumi:"name"`
+	// Configuration of the provider.
+	Provider *OpenShiftManagedClusterAADIdentityProviderInvokeResponse `pulumi:"provider"`
+}
+
+// OpenShiftManagedClusterIdentityProviderInvokeResponseInput is an input type that accepts OpenShiftManagedClusterIdentityProviderInvokeResponseArgs and OpenShiftManagedClusterIdentityProviderInvokeResponseOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterIdentityProviderInvokeResponseInput` via:
+//
+//          OpenShiftManagedClusterIdentityProviderInvokeResponseArgs{...}
+type OpenShiftManagedClusterIdentityProviderInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterIdentityProviderInvokeResponseOutput() OpenShiftManagedClusterIdentityProviderInvokeResponseOutput
+	ToOpenShiftManagedClusterIdentityProviderInvokeResponseOutputWithContext(context.Context) OpenShiftManagedClusterIdentityProviderInvokeResponseOutput
+}
+
+// Defines the configuration of the identity providers to be used in the OpenShift cluster.
+type OpenShiftManagedClusterIdentityProviderInvokeResponseArgs struct {
+	// Name of the provider.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Configuration of the provider.
+	Provider OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrInput `pulumi:"provider"`
+}
+
+func (OpenShiftManagedClusterIdentityProviderInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterIdentityProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterIdentityProviderInvokeResponseArgs) ToOpenShiftManagedClusterIdentityProviderInvokeResponseOutput() OpenShiftManagedClusterIdentityProviderInvokeResponseOutput {
+	return i.ToOpenShiftManagedClusterIdentityProviderInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterIdentityProviderInvokeResponseArgs) ToOpenShiftManagedClusterIdentityProviderInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterIdentityProviderInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterIdentityProviderInvokeResponseOutput)
+}
+
+// OpenShiftManagedClusterIdentityProviderInvokeResponseArrayInput is an input type that accepts OpenShiftManagedClusterIdentityProviderInvokeResponseArray and OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterIdentityProviderInvokeResponseArrayInput` via:
+//
+//          OpenShiftManagedClusterIdentityProviderInvokeResponseArray{ OpenShiftManagedClusterIdentityProviderInvokeResponseArgs{...} }
+type OpenShiftManagedClusterIdentityProviderInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput() OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput
+	ToOpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutputWithContext(context.Context) OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput
+}
+
+type OpenShiftManagedClusterIdentityProviderInvokeResponseArray []OpenShiftManagedClusterIdentityProviderInvokeResponseInput
+
+func (OpenShiftManagedClusterIdentityProviderInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenShiftManagedClusterIdentityProviderInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterIdentityProviderInvokeResponseArray) ToOpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput() OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput {
+	return i.ToOpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterIdentityProviderInvokeResponseArray) ToOpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutputWithContext(ctx context.Context) OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput)
+}
+
+// Defines the configuration of the identity providers to be used in the OpenShift cluster.
+type OpenShiftManagedClusterIdentityProviderInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterIdentityProviderInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterIdentityProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterIdentityProviderInvokeResponseOutput) ToOpenShiftManagedClusterIdentityProviderInvokeResponseOutput() OpenShiftManagedClusterIdentityProviderInvokeResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterIdentityProviderInvokeResponseOutput) ToOpenShiftManagedClusterIdentityProviderInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterIdentityProviderInvokeResponseOutput {
+	return o
+}
+
+// Name of the provider.
+func (o OpenShiftManagedClusterIdentityProviderInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProviderInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Configuration of the provider.
+func (o OpenShiftManagedClusterIdentityProviderInvokeResponseOutput) Provider() OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterIdentityProviderInvokeResponse) *OpenShiftManagedClusterAADIdentityProviderInvokeResponse {
+		return v.Provider
+	}).(OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput)
+}
+
+type OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenShiftManagedClusterIdentityProviderInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput) ToOpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput() OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput) ToOpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutputWithContext(ctx context.Context) OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput) Index(i pulumi.IntInput) OpenShiftManagedClusterIdentityProviderInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenShiftManagedClusterIdentityProviderInvokeResponse {
+		return vs[0].([]OpenShiftManagedClusterIdentityProviderInvokeResponse)[vs[1].(int)]
+	}).(OpenShiftManagedClusterIdentityProviderInvokeResponseOutput)
 }
 
 // Defines the configuration of the identity providers to be used in the OpenShift cluster.
@@ -1780,6 +2384,97 @@ func (o OpenShiftManagedClusterMasterPoolProfilePtrOutput) VmSize() pulumi.Strin
 		}
 		return &v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
+type OpenShiftManagedClusterMasterPoolProfileInvokeResponse struct {
+	// Number of masters (VMs) to host docker containers. The default value is 3.
+	Count int `pulumi:"count"`
+	// Unique name of the master pool profile in the context of the subscription and resource group.
+	Name *string `pulumi:"name"`
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType *string `pulumi:"osType"`
+	// Subnet CIDR for the peering.
+	SubnetCidr *string `pulumi:"subnetCidr"`
+	// Size of agent VMs.
+	VmSize string `pulumi:"vmSize"`
+}
+
+// OpenShiftManagedClusterMasterPoolProfileInvokeResponseInput is an input type that accepts OpenShiftManagedClusterMasterPoolProfileInvokeResponseArgs and OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterMasterPoolProfileInvokeResponseInput` via:
+//
+//          OpenShiftManagedClusterMasterPoolProfileInvokeResponseArgs{...}
+type OpenShiftManagedClusterMasterPoolProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput() OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput
+	ToOpenShiftManagedClusterMasterPoolProfileInvokeResponseOutputWithContext(context.Context) OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput
+}
+
+// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
+type OpenShiftManagedClusterMasterPoolProfileInvokeResponseArgs struct {
+	// Number of masters (VMs) to host docker containers. The default value is 3.
+	Count pulumi.IntInput `pulumi:"count"`
+	// Unique name of the master pool profile in the context of the subscription and resource group.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	// Subnet CIDR for the peering.
+	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
+	// Size of agent VMs.
+	VmSize pulumi.StringInput `pulumi:"vmSize"`
+}
+
+func (OpenShiftManagedClusterMasterPoolProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterMasterPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterMasterPoolProfileInvokeResponseArgs) ToOpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput() OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput {
+	return i.ToOpenShiftManagedClusterMasterPoolProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterMasterPoolProfileInvokeResponseArgs) ToOpenShiftManagedClusterMasterPoolProfileInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput)
+}
+
+// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
+type OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterMasterPoolProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput) ToOpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput() OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput) ToOpenShiftManagedClusterMasterPoolProfileInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput {
+	return o
+}
+
+// Number of masters (VMs) to host docker containers. The default value is 3.
+func (o OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileInvokeResponse) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// Unique name of the master pool profile in the context of the subscription and resource group.
+func (o OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+func (o OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileInvokeResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// Subnet CIDR for the peering.
+func (o OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput) SubnetCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileInvokeResponse) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
+}
+
+// Size of agent VMs.
+func (o OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput) VmSize() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMasterPoolProfileInvokeResponse) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
 // OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
@@ -2148,6 +2843,70 @@ func (o OpenShiftManagedClusterMonitorProfilePtrOutput) WorkspaceResourceID() pu
 }
 
 // Defines the configuration for Log Analytics integration.
+type OpenShiftManagedClusterMonitorProfileInvokeResponse struct {
+	// If the Log analytics integration should be turned on or off
+	Enabled *bool `pulumi:"enabled"`
+	// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+	WorkspaceResourceID *string `pulumi:"workspaceResourceID"`
+}
+
+// OpenShiftManagedClusterMonitorProfileInvokeResponseInput is an input type that accepts OpenShiftManagedClusterMonitorProfileInvokeResponseArgs and OpenShiftManagedClusterMonitorProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `OpenShiftManagedClusterMonitorProfileInvokeResponseInput` via:
+//
+//          OpenShiftManagedClusterMonitorProfileInvokeResponseArgs{...}
+type OpenShiftManagedClusterMonitorProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOpenShiftManagedClusterMonitorProfileInvokeResponseOutput() OpenShiftManagedClusterMonitorProfileInvokeResponseOutput
+	ToOpenShiftManagedClusterMonitorProfileInvokeResponseOutputWithContext(context.Context) OpenShiftManagedClusterMonitorProfileInvokeResponseOutput
+}
+
+// Defines the configuration for Log Analytics integration.
+type OpenShiftManagedClusterMonitorProfileInvokeResponseArgs struct {
+	// If the Log analytics integration should be turned on or off
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+	WorkspaceResourceID pulumi.StringPtrInput `pulumi:"workspaceResourceID"`
+}
+
+func (OpenShiftManagedClusterMonitorProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterMonitorProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenShiftManagedClusterMonitorProfileInvokeResponseArgs) ToOpenShiftManagedClusterMonitorProfileInvokeResponseOutput() OpenShiftManagedClusterMonitorProfileInvokeResponseOutput {
+	return i.ToOpenShiftManagedClusterMonitorProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OpenShiftManagedClusterMonitorProfileInvokeResponseArgs) ToOpenShiftManagedClusterMonitorProfileInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMonitorProfileInvokeResponseOutput)
+}
+
+// Defines the configuration for Log Analytics integration.
+type OpenShiftManagedClusterMonitorProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftManagedClusterMonitorProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftManagedClusterMonitorProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftManagedClusterMonitorProfileInvokeResponseOutput) ToOpenShiftManagedClusterMonitorProfileInvokeResponseOutput() OpenShiftManagedClusterMonitorProfileInvokeResponseOutput {
+	return o
+}
+
+func (o OpenShiftManagedClusterMonitorProfileInvokeResponseOutput) ToOpenShiftManagedClusterMonitorProfileInvokeResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterMonitorProfileInvokeResponseOutput {
+	return o
+}
+
+// If the Log analytics integration should be turned on or off
+func (o OpenShiftManagedClusterMonitorProfileInvokeResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMonitorProfileInvokeResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
+func (o OpenShiftManagedClusterMonitorProfileInvokeResponseOutput) WorkspaceResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftManagedClusterMonitorProfileInvokeResponse) *string { return v.WorkspaceResourceID }).(pulumi.StringPtrOutput)
+}
+
+// Defines the configuration for Log Analytics integration.
 type OpenShiftManagedClusterMonitorProfileResponse struct {
 	// If the Log analytics integration should be turned on or off
 	Enabled *bool `pulumi:"enabled"`
@@ -2400,6 +3159,124 @@ func (o OpenShiftRouterProfileArrayOutput) Index(i pulumi.IntInput) OpenShiftRou
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenShiftRouterProfile {
 		return vs[0].([]OpenShiftRouterProfile)[vs[1].(int)]
 	}).(OpenShiftRouterProfileOutput)
+}
+
+// Represents an OpenShift router
+type OpenShiftRouterProfileInvokeResponse struct {
+	// Auto-allocated FQDN for the OpenShift router.
+	Fqdn string `pulumi:"fqdn"`
+	// Name of the router profile.
+	Name *string `pulumi:"name"`
+	// DNS subdomain for OpenShift router.
+	PublicSubdomain string `pulumi:"publicSubdomain"`
+}
+
+// OpenShiftRouterProfileInvokeResponseInput is an input type that accepts OpenShiftRouterProfileInvokeResponseArgs and OpenShiftRouterProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `OpenShiftRouterProfileInvokeResponseInput` via:
+//
+//          OpenShiftRouterProfileInvokeResponseArgs{...}
+type OpenShiftRouterProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOpenShiftRouterProfileInvokeResponseOutput() OpenShiftRouterProfileInvokeResponseOutput
+	ToOpenShiftRouterProfileInvokeResponseOutputWithContext(context.Context) OpenShiftRouterProfileInvokeResponseOutput
+}
+
+// Represents an OpenShift router
+type OpenShiftRouterProfileInvokeResponseArgs struct {
+	// Auto-allocated FQDN for the OpenShift router.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// Name of the router profile.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// DNS subdomain for OpenShift router.
+	PublicSubdomain pulumi.StringInput `pulumi:"publicSubdomain"`
+}
+
+func (OpenShiftRouterProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftRouterProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenShiftRouterProfileInvokeResponseArgs) ToOpenShiftRouterProfileInvokeResponseOutput() OpenShiftRouterProfileInvokeResponseOutput {
+	return i.ToOpenShiftRouterProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OpenShiftRouterProfileInvokeResponseArgs) ToOpenShiftRouterProfileInvokeResponseOutputWithContext(ctx context.Context) OpenShiftRouterProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftRouterProfileInvokeResponseOutput)
+}
+
+// OpenShiftRouterProfileInvokeResponseArrayInput is an input type that accepts OpenShiftRouterProfileInvokeResponseArray and OpenShiftRouterProfileInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `OpenShiftRouterProfileInvokeResponseArrayInput` via:
+//
+//          OpenShiftRouterProfileInvokeResponseArray{ OpenShiftRouterProfileInvokeResponseArgs{...} }
+type OpenShiftRouterProfileInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToOpenShiftRouterProfileInvokeResponseArrayOutput() OpenShiftRouterProfileInvokeResponseArrayOutput
+	ToOpenShiftRouterProfileInvokeResponseArrayOutputWithContext(context.Context) OpenShiftRouterProfileInvokeResponseArrayOutput
+}
+
+type OpenShiftRouterProfileInvokeResponseArray []OpenShiftRouterProfileInvokeResponseInput
+
+func (OpenShiftRouterProfileInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenShiftRouterProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i OpenShiftRouterProfileInvokeResponseArray) ToOpenShiftRouterProfileInvokeResponseArrayOutput() OpenShiftRouterProfileInvokeResponseArrayOutput {
+	return i.ToOpenShiftRouterProfileInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i OpenShiftRouterProfileInvokeResponseArray) ToOpenShiftRouterProfileInvokeResponseArrayOutputWithContext(ctx context.Context) OpenShiftRouterProfileInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftRouterProfileInvokeResponseArrayOutput)
+}
+
+// Represents an OpenShift router
+type OpenShiftRouterProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftRouterProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenShiftRouterProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftRouterProfileInvokeResponseOutput) ToOpenShiftRouterProfileInvokeResponseOutput() OpenShiftRouterProfileInvokeResponseOutput {
+	return o
+}
+
+func (o OpenShiftRouterProfileInvokeResponseOutput) ToOpenShiftRouterProfileInvokeResponseOutputWithContext(ctx context.Context) OpenShiftRouterProfileInvokeResponseOutput {
+	return o
+}
+
+// Auto-allocated FQDN for the OpenShift router.
+func (o OpenShiftRouterProfileInvokeResponseOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenShiftRouterProfileInvokeResponse) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Name of the router profile.
+func (o OpenShiftRouterProfileInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenShiftRouterProfileInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// DNS subdomain for OpenShift router.
+func (o OpenShiftRouterProfileInvokeResponseOutput) PublicSubdomain() pulumi.StringOutput {
+	return o.ApplyT(func(v OpenShiftRouterProfileInvokeResponse) string { return v.PublicSubdomain }).(pulumi.StringOutput)
+}
+
+type OpenShiftRouterProfileInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenShiftRouterProfileInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenShiftRouterProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o OpenShiftRouterProfileInvokeResponseArrayOutput) ToOpenShiftRouterProfileInvokeResponseArrayOutput() OpenShiftRouterProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OpenShiftRouterProfileInvokeResponseArrayOutput) ToOpenShiftRouterProfileInvokeResponseArrayOutputWithContext(ctx context.Context) OpenShiftRouterProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OpenShiftRouterProfileInvokeResponseArrayOutput) Index(i pulumi.IntInput) OpenShiftRouterProfileInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenShiftRouterProfileInvokeResponse {
+		return vs[0].([]OpenShiftRouterProfileInvokeResponse)[vs[1].(int)]
+	}).(OpenShiftRouterProfileInvokeResponseOutput)
 }
 
 // Represents an OpenShift router
@@ -2712,6 +3589,88 @@ func (o PurchasePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 // Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanInvokeResponse struct {
+	// The plan ID.
+	Name *string `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+	Product *string `pulumi:"product"`
+	// The promotion code.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// The plan ID.
+	Publisher *string `pulumi:"publisher"`
+}
+
+// PurchasePlanInvokeResponseInput is an input type that accepts PurchasePlanInvokeResponseArgs and PurchasePlanInvokeResponseOutput values.
+// You can construct a concrete instance of `PurchasePlanInvokeResponseInput` via:
+//
+//          PurchasePlanInvokeResponseArgs{...}
+type PurchasePlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPurchasePlanInvokeResponseOutput() PurchasePlanInvokeResponseOutput
+	ToPurchasePlanInvokeResponseOutputWithContext(context.Context) PurchasePlanInvokeResponseOutput
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanInvokeResponseArgs struct {
+	// The plan ID.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+	Product pulumi.StringPtrInput `pulumi:"product"`
+	// The promotion code.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The plan ID.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+}
+
+func (PurchasePlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurchasePlanInvokeResponse)(nil)).Elem()
+}
+
+func (i PurchasePlanInvokeResponseArgs) ToPurchasePlanInvokeResponseOutput() PurchasePlanInvokeResponseOutput {
+	return i.ToPurchasePlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PurchasePlanInvokeResponseArgs) ToPurchasePlanInvokeResponseOutputWithContext(ctx context.Context) PurchasePlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanInvokeResponseOutput)
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+type PurchasePlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PurchasePlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurchasePlanInvokeResponse)(nil)).Elem()
+}
+
+func (o PurchasePlanInvokeResponseOutput) ToPurchasePlanInvokeResponseOutput() PurchasePlanInvokeResponseOutput {
+	return o
+}
+
+func (o PurchasePlanInvokeResponseOutput) ToPurchasePlanInvokeResponseOutputWithContext(ctx context.Context) PurchasePlanInvokeResponseOutput {
+	return o
+}
+
+// The plan ID.
+func (o PurchasePlanInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurchasePlanInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+func (o PurchasePlanInvokeResponseOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurchasePlanInvokeResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
+}
+
+// The promotion code.
+func (o PurchasePlanInvokeResponseOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurchasePlanInvokeResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// The plan ID.
+func (o PurchasePlanInvokeResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurchasePlanInvokeResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
 type PurchasePlanResponse struct {
 	// The plan ID.
 	Name *string `pulumi:"name"`
@@ -2905,38 +3864,51 @@ func (o PurchasePlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(NetworkProfileOutput{})
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(NetworkProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderPtrOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileArrayOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAuthProfileOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAuthProfilePtrOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterAuthProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAuthProfileResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAuthProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterIdentityProviderOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterIdentityProviderArrayOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterIdentityProviderInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterIdentityProviderInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterIdentityProviderResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterIdentityProviderResponseArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMasterPoolProfileOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMasterPoolProfilePtrOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterMasterPoolProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMasterPoolProfileResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMonitorProfileOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMonitorProfilePtrOutput{})
+	pulumi.RegisterOutputType(OpenShiftManagedClusterMonitorProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMonitorProfileResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterMonitorProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileArrayOutput{})
+	pulumi.RegisterOutputType(OpenShiftRouterProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OpenShiftRouterProfileInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftRouterProfileResponseArrayOutput{})
 	pulumi.RegisterOutputType(PurchasePlanOutput{})
 	pulumi.RegisterOutputType(PurchasePlanPtrOutput{})
+	pulumi.RegisterOutputType(PurchasePlanInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PurchasePlanResponseOutput{})
 	pulumi.RegisterOutputType(PurchasePlanResponsePtrOutput{})
 }

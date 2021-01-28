@@ -42,13 +42,13 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	// The ingress bytes transferred in this connection.
 	IngressBytesTransferred float64 `pulumi:"ingressBytesTransferred"`
 	// A common class for general resource information
-	LocalNetworkGateway2 *LocalNetworkGatewayResponse `pulumi:"localNetworkGateway2"`
+	LocalNetworkGateway2 *LocalNetworkGatewayInvokeResponse `pulumi:"localNetworkGateway2"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The reference to peerings resource.
-	Peer *SubResourceResponse `pulumi:"peer"`
+	Peer *SubResourceInvokeResponse `pulumi:"peer"`
 	// The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource GUID property of the VirtualNetworkGatewayConnection resource.
@@ -60,11 +60,11 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Collection of all tunnels' connection health status.
-	TunnelConnectionStatus []TunnelConnectionHealthResponse `pulumi:"tunnelConnectionStatus"`
+	TunnelConnectionStatus []TunnelConnectionHealthInvokeResponse `pulumi:"tunnelConnectionStatus"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// A common class for general resource information
-	VirtualNetworkGateway1 VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway1"`
+	VirtualNetworkGateway1 VirtualNetworkGatewayInvokeResponse `pulumi:"virtualNetworkGateway1"`
 	// A common class for general resource information
-	VirtualNetworkGateway2 *VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway2"`
+	VirtualNetworkGateway2 *VirtualNetworkGatewayInvokeResponse `pulumi:"virtualNetworkGateway2"`
 }

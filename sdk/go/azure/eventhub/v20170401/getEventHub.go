@@ -28,7 +28,7 @@ type LookupEventHubArgs struct {
 // Single item in List or Get Event Hub operation
 type LookupEventHubResult struct {
 	// Properties of capture description
-	CaptureDescription *CaptureDescriptionResponse `pulumi:"captureDescription"`
+	CaptureDescription *CaptureDescriptionInvokeResponse `pulumi:"captureDescription"`
 	// Exact time the Event Hub was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// Resource ID.

@@ -38,9 +38,9 @@ type LookupProfileResult struct {
 	// Resource status of the profile.
 	ResourceState string `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

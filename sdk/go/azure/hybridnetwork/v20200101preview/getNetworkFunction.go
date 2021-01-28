@@ -26,7 +26,7 @@ type LookupNetworkFunctionArgs struct {
 // Network function resource response.
 type LookupNetworkFunctionResult struct {
 	// The reference to the device resource.
-	Device *SubResourceResponse `pulumi:"device"`
+	Device *SubResourceInvokeResponse `pulumi:"device"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -34,13 +34,13 @@ type LookupNetworkFunctionResult struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The resource URI of the managed application.
-	ManagedApplication SubResourceResponse `pulumi:"managedApplication"`
+	ManagedApplication SubResourceInvokeResponse `pulumi:"managedApplication"`
 	// The parameters for the managed application.
 	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The network function configurations from the user.
-	NetworkFunctionUserConfigurations []NetworkFunctionUserConfigurationResponse `pulumi:"networkFunctionUserConfigurations"`
+	NetworkFunctionUserConfigurations []NetworkFunctionUserConfigurationInvokeResponse `pulumi:"networkFunctionUserConfigurations"`
 	// The provisioning state of the network function resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The service key for the network function resource.

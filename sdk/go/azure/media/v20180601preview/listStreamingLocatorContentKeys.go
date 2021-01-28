@@ -28,5 +28,5 @@ type ListStreamingLocatorContentKeysArgs struct {
 // Class of response for listContentKeys action
 type ListStreamingLocatorContentKeysResult struct {
 	// ContentKeys used by current Streaming Locator
-	ContentKeys []StreamingLocatorContentKeyResponse `pulumi:"contentKeys"`
+	ContentKeys []StreamingLocatorContentKeyInvokeResponse `pulumi:"contentKeys"`
 }

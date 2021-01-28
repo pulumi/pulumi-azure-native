@@ -38,7 +38,7 @@ type LookupWebAppSlotConfigurationNamesResult struct {
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

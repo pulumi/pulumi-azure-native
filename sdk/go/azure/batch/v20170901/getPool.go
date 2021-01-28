@@ -37,16 +37,16 @@ type LookupPoolResult struct {
 	// The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
 	ApplicationLicenses []string `pulumi:"applicationLicenses"`
 	// Changes to application packages affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged.
-	ApplicationPackages []ApplicationPackageReferenceResponse `pulumi:"applicationPackages"`
+	ApplicationPackages []ApplicationPackageReferenceInvokeResponse `pulumi:"applicationPackages"`
 	// This property is set only if the pool automatically scales, i.e. autoScaleSettings are used.
-	AutoScaleRun AutoScaleRunResponse `pulumi:"autoScaleRun"`
+	AutoScaleRun AutoScaleRunInvokeResponse `pulumi:"autoScaleRun"`
 	// For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
-	Certificates            []CertificateReferenceResponse `pulumi:"certificates"`
-	CreationTime            string                         `pulumi:"creationTime"`
-	CurrentDedicatedNodes   int                            `pulumi:"currentDedicatedNodes"`
-	CurrentLowPriorityNodes int                            `pulumi:"currentLowPriorityNodes"`
+	Certificates            []CertificateReferenceInvokeResponse `pulumi:"certificates"`
+	CreationTime            string                               `pulumi:"creationTime"`
+	CurrentDedicatedNodes   int                                  `pulumi:"currentDedicatedNodes"`
+	CurrentLowPriorityNodes int                                  `pulumi:"currentLowPriorityNodes"`
 	// Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
-	DeploymentConfiguration *DeploymentConfigurationResponse `pulumi:"deploymentConfiguration"`
+	DeploymentConfiguration *DeploymentConfigurationInvokeResponse `pulumi:"deploymentConfiguration"`
 	// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
 	DisplayName *string `pulumi:"displayName"`
 	// The ETag of the resource, used for concurrency statements.
@@ -59,11 +59,11 @@ type LookupPoolResult struct {
 	LastModified    string `pulumi:"lastModified"`
 	MaxTasksPerNode *int   `pulumi:"maxTasksPerNode"`
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
-	Metadata []MetadataItemResponse `pulumi:"metadata"`
+	Metadata []MetadataItemInvokeResponse `pulumi:"metadata"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The network configuration for a pool.
-	NetworkConfiguration *NetworkConfigurationResponse `pulumi:"networkConfiguration"`
+	NetworkConfiguration *NetworkConfigurationInvokeResponse `pulumi:"networkConfiguration"`
 	// Values are:
 	//
 	//  Succeeded - The pool is available to run tasks subject to the availability of compute nodes.
@@ -71,15 +71,15 @@ type LookupPoolResult struct {
 	ProvisioningState               string `pulumi:"provisioningState"`
 	ProvisioningStateTransitionTime string `pulumi:"provisioningStateTransitionTime"`
 	// Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
-	ResizeOperationStatus ResizeOperationStatusResponse `pulumi:"resizeOperationStatus"`
+	ResizeOperationStatus ResizeOperationStatusInvokeResponse `pulumi:"resizeOperationStatus"`
 	// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
-	ScaleSettings *ScaleSettingsResponse `pulumi:"scaleSettings"`
+	ScaleSettings *ScaleSettingsInvokeResponse `pulumi:"scaleSettings"`
 	// In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
-	StartTask            *StartTaskResponse            `pulumi:"startTask"`
-	TaskSchedulingPolicy *TaskSchedulingPolicyResponse `pulumi:"taskSchedulingPolicy"`
+	StartTask            *StartTaskInvokeResponse            `pulumi:"startTask"`
+	TaskSchedulingPolicy *TaskSchedulingPolicyInvokeResponse `pulumi:"taskSchedulingPolicy"`
 	// The type of the resource.
-	Type         string                `pulumi:"type"`
-	UserAccounts []UserAccountResponse `pulumi:"userAccounts"`
+	Type         string                      `pulumi:"type"`
+	UserAccounts []UserAccountInvokeResponse `pulumi:"userAccounts"`
 	// For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
 	VmSize *string `pulumi:"vmSize"`
 }

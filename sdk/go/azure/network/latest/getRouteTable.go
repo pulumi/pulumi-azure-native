@@ -42,9 +42,9 @@ type LookupRouteTableResult struct {
 	// The resource GUID property of the route table.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Collection of routes contained within a route table.
-	Routes []RouteResponse `pulumi:"routes"`
+	Routes []RouteInvokeResponse `pulumi:"routes"`
 	// A collection of references to subnets.
-	Subnets []SubnetResponse `pulumi:"subnets"`
+	Subnets []SubnetInvokeResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

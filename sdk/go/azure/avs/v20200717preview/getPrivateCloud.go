@@ -26,19 +26,19 @@ type LookupPrivateCloudArgs struct {
 // A private cloud resource
 type LookupPrivateCloudResult struct {
 	// An ExpressRoute Circuit
-	Circuit *CircuitResponse `pulumi:"circuit"`
+	Circuit *CircuitInvokeResponse `pulumi:"circuit"`
 	// The endpoints
-	Endpoints EndpointsResponse `pulumi:"endpoints"`
+	Endpoints EndpointsInvokeResponse `pulumi:"endpoints"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// vCenter Single Sign On Identity Sources
-	IdentitySources []IdentitySourceResponse `pulumi:"identitySources"`
+	IdentitySources []IdentitySourceInvokeResponse `pulumi:"identitySources"`
 	// Connectivity to internet is enabled or disabled
 	Internet *string `pulumi:"internet"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The default cluster used for management
-	ManagementCluster ManagementClusterResponse `pulumi:"managementCluster"`
+	ManagementCluster ManagementClusterInvokeResponse `pulumi:"managementCluster"`
 	// Network used to access vCenter Server and NSX-T Manager
 	ManagementNetwork string `pulumi:"managementNetwork"`
 	// Resource name.
@@ -54,7 +54,7 @@ type LookupPrivateCloudResult struct {
 	// The provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The private cloud SKU
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

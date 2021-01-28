@@ -38,7 +38,7 @@ type LookupRegistryResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
-	StorageAccount StorageAccountPropertiesResponse `pulumi:"storageAccount"`
+	StorageAccount StorageAccountPropertiesInvokeResponse `pulumi:"storageAccount"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

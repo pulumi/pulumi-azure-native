@@ -30,5 +30,5 @@ type ListStreamingLocatorPathsResult struct {
 	// Download Paths supported by current Streaming Locator
 	DownloadPaths []string `pulumi:"downloadPaths"`
 	// Streaming Paths supported by current Streaming Locator
-	StreamingPaths []StreamingPathResponse `pulumi:"streamingPaths"`
+	StreamingPaths []StreamingPathInvokeResponse `pulumi:"streamingPaths"`
 }

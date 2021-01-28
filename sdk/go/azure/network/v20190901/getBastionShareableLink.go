@@ -22,7 +22,7 @@ type GetBastionShareableLinkArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// List of VM references.
-	Vms []BastionShareableLink `pulumi:"vms"`
+	Vms []BastionShareableLinkInvoke `pulumi:"vms"`
 }
 
 // Response for all the Bastion Shareable Link endpoints.
@@ -30,5 +30,5 @@ type GetBastionShareableLinkResult struct {
 	// Gets or sets the URL to get the next set of results.
 	NextLink *string `pulumi:"nextLink"`
 	// List of Bastion Shareable Links for the request.
-	Value []BastionShareableLinkResponse `pulumi:"value"`
+	Value []BastionShareableLinkInvokeResponse `pulumi:"value"`
 }

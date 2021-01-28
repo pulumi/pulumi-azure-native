@@ -28,7 +28,7 @@ type LookupCloudConnectorResult struct {
 	// Connector billing model
 	BillingModel *string `pulumi:"billingModel"`
 	// Collection information
-	CollectionInfo ConnectorCollectionInfoResponse `pulumi:"collectionInfo"`
+	CollectionInfo ConnectorCollectionInfoInvokeResponse `pulumi:"collectionInfo"`
 	// Connector definition creation datetime
 	CreatedOn string `pulumi:"createdOn"`
 	// Credentials authentication key (eg AWS ARN)

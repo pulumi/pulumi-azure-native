@@ -38,15 +38,15 @@ type LookupRelationshipLinkResult struct {
 	// The name of the Relationship Link.
 	LinkName string `pulumi:"linkName"`
 	// The mappings between Interaction and Relationship fields.
-	Mappings []RelationshipLinkFieldMappingResponse `pulumi:"mappings"`
+	Mappings []RelationshipLinkFieldMappingInvokeResponse `pulumi:"mappings"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The property references for the Profile of the Relationship.
-	ProfilePropertyReferences []ParticipantPropertyReferenceResponse `pulumi:"profilePropertyReferences"`
+	ProfilePropertyReferences []ParticipantPropertyReferenceInvokeResponse `pulumi:"profilePropertyReferences"`
 	// Provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The property references for the Related Profile of the Relationship.
-	RelatedProfilePropertyReferences []ParticipantPropertyReferenceResponse `pulumi:"relatedProfilePropertyReferences"`
+	RelatedProfilePropertyReferences []ParticipantPropertyReferenceInvokeResponse `pulumi:"relatedProfilePropertyReferences"`
 	// The relationship guid id.
 	RelationshipGuidId string `pulumi:"relationshipGuidId"`
 	// The Relationship associated with the Link.

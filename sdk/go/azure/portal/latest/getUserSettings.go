@@ -24,5 +24,5 @@ type LookupUserSettingsArgs struct {
 // Response to get user settings
 type LookupUserSettingsResult struct {
 	// The cloud shell user settings properties.
-	Properties UserPropertiesResponse `pulumi:"properties"`
+	Properties UserPropertiesInvokeResponse `pulumi:"properties"`
 }

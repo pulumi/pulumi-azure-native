@@ -32,7 +32,7 @@ type LookupNetworkResult struct {
 	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Configuration for public connectivity for this network.
-	IngressConfig *IngressConfigResponse `pulumi:"ingressConfig"`
+	IngressConfig *IngressConfigInvokeResponse `pulumi:"ingressConfig"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

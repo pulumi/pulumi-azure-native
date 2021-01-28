@@ -32,7 +32,7 @@ type ListWebAppAzureStorageAccountsResult struct {
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// Azure storage accounts.
-	Properties map[string]AzureStorageInfoValueResponse `pulumi:"properties"`
+	Properties map[string]AzureStorageInfoValueInvokeResponse `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

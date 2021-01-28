@@ -111,6 +111,106 @@ func (o ConfidentialLedgerCertUserArrayOutput) Index(i pulumi.IntInput) Confiden
 }
 
 // User cert and permissions associated with that user
+type ConfidentialLedgerCertUserInvokeResponse struct {
+	// Base64 encoded public key of the user cert (.pem or .cer)
+	Cert *string `pulumi:"cert"`
+}
+
+// ConfidentialLedgerCertUserInvokeResponseInput is an input type that accepts ConfidentialLedgerCertUserInvokeResponseArgs and ConfidentialLedgerCertUserInvokeResponseOutput values.
+// You can construct a concrete instance of `ConfidentialLedgerCertUserInvokeResponseInput` via:
+//
+//          ConfidentialLedgerCertUserInvokeResponseArgs{...}
+type ConfidentialLedgerCertUserInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConfidentialLedgerCertUserInvokeResponseOutput() ConfidentialLedgerCertUserInvokeResponseOutput
+	ToConfidentialLedgerCertUserInvokeResponseOutputWithContext(context.Context) ConfidentialLedgerCertUserInvokeResponseOutput
+}
+
+// User cert and permissions associated with that user
+type ConfidentialLedgerCertUserInvokeResponseArgs struct {
+	// Base64 encoded public key of the user cert (.pem or .cer)
+	Cert pulumi.StringPtrInput `pulumi:"cert"`
+}
+
+func (ConfidentialLedgerCertUserInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfidentialLedgerCertUserInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfidentialLedgerCertUserInvokeResponseArgs) ToConfidentialLedgerCertUserInvokeResponseOutput() ConfidentialLedgerCertUserInvokeResponseOutput {
+	return i.ToConfidentialLedgerCertUserInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConfidentialLedgerCertUserInvokeResponseArgs) ToConfidentialLedgerCertUserInvokeResponseOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfidentialLedgerCertUserInvokeResponseOutput)
+}
+
+// ConfidentialLedgerCertUserInvokeResponseArrayInput is an input type that accepts ConfidentialLedgerCertUserInvokeResponseArray and ConfidentialLedgerCertUserInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ConfidentialLedgerCertUserInvokeResponseArrayInput` via:
+//
+//          ConfidentialLedgerCertUserInvokeResponseArray{ ConfidentialLedgerCertUserInvokeResponseArgs{...} }
+type ConfidentialLedgerCertUserInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToConfidentialLedgerCertUserInvokeResponseArrayOutput() ConfidentialLedgerCertUserInvokeResponseArrayOutput
+	ToConfidentialLedgerCertUserInvokeResponseArrayOutputWithContext(context.Context) ConfidentialLedgerCertUserInvokeResponseArrayOutput
+}
+
+type ConfidentialLedgerCertUserInvokeResponseArray []ConfidentialLedgerCertUserInvokeResponseInput
+
+func (ConfidentialLedgerCertUserInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfidentialLedgerCertUserInvokeResponse)(nil)).Elem()
+}
+
+func (i ConfidentialLedgerCertUserInvokeResponseArray) ToConfidentialLedgerCertUserInvokeResponseArrayOutput() ConfidentialLedgerCertUserInvokeResponseArrayOutput {
+	return i.ToConfidentialLedgerCertUserInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ConfidentialLedgerCertUserInvokeResponseArray) ToConfidentialLedgerCertUserInvokeResponseArrayOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfidentialLedgerCertUserInvokeResponseArrayOutput)
+}
+
+// User cert and permissions associated with that user
+type ConfidentialLedgerCertUserInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfidentialLedgerCertUserInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfidentialLedgerCertUserInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfidentialLedgerCertUserInvokeResponseOutput) ToConfidentialLedgerCertUserInvokeResponseOutput() ConfidentialLedgerCertUserInvokeResponseOutput {
+	return o
+}
+
+func (o ConfidentialLedgerCertUserInvokeResponseOutput) ToConfidentialLedgerCertUserInvokeResponseOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserInvokeResponseOutput {
+	return o
+}
+
+// Base64 encoded public key of the user cert (.pem or .cer)
+func (o ConfidentialLedgerCertUserInvokeResponseOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfidentialLedgerCertUserInvokeResponse) *string { return v.Cert }).(pulumi.StringPtrOutput)
+}
+
+type ConfidentialLedgerCertUserInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfidentialLedgerCertUserInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfidentialLedgerCertUserInvokeResponse)(nil)).Elem()
+}
+
+func (o ConfidentialLedgerCertUserInvokeResponseArrayOutput) ToConfidentialLedgerCertUserInvokeResponseArrayOutput() ConfidentialLedgerCertUserInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ConfidentialLedgerCertUserInvokeResponseArrayOutput) ToConfidentialLedgerCertUserInvokeResponseArrayOutputWithContext(ctx context.Context) ConfidentialLedgerCertUserInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ConfidentialLedgerCertUserInvokeResponseArrayOutput) Index(i pulumi.IntInput) ConfidentialLedgerCertUserInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfidentialLedgerCertUserInvokeResponse {
+		return vs[0].([]ConfidentialLedgerCertUserInvokeResponse)[vs[1].(int)]
+	}).(ConfidentialLedgerCertUserInvokeResponseOutput)
+}
+
+// User cert and permissions associated with that user
 type ConfidentialLedgerCertUserResponse struct {
 	// Base64 encoded public key of the user cert (.pem or .cer)
 	Cert *string `pulumi:"cert"`
@@ -383,6 +483,124 @@ func (o LedgerPropertiesPtrOutput) LedgerType() pulumi.StringPtrOutput {
 }
 
 // Additional Confidential Ledger properties.
+type LedgerPropertiesInvokeResponse struct {
+	// Array of all the cert based users who can access Confidential Ledger
+	CertUsers []ConfidentialLedgerCertUserInvokeResponse `pulumi:"certUsers"`
+	// Endpoint for accessing network identity.
+	IdentityServiceUri string `pulumi:"identityServiceUri"`
+	// Internal namespace for the Ledger
+	LedgerInternalNamespace string `pulumi:"ledgerInternalNamespace"`
+	// Unique name for the Confidential Ledger.
+	LedgerName string `pulumi:"ledgerName"`
+	// Name of the Blob Storage Account for saving ledger files
+	LedgerStorageAccount *string `pulumi:"ledgerStorageAccount"`
+	// Type of Confidential Ledger
+	LedgerType *string `pulumi:"ledgerType"`
+	// Endpoint for calling Ledger Service.
+	LedgerUri string `pulumi:"ledgerUri"`
+	// Provisioning state of Ledger Resource
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// LedgerPropertiesInvokeResponseInput is an input type that accepts LedgerPropertiesInvokeResponseArgs and LedgerPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `LedgerPropertiesInvokeResponseInput` via:
+//
+//          LedgerPropertiesInvokeResponseArgs{...}
+type LedgerPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLedgerPropertiesInvokeResponseOutput() LedgerPropertiesInvokeResponseOutput
+	ToLedgerPropertiesInvokeResponseOutputWithContext(context.Context) LedgerPropertiesInvokeResponseOutput
+}
+
+// Additional Confidential Ledger properties.
+type LedgerPropertiesInvokeResponseArgs struct {
+	// Array of all the cert based users who can access Confidential Ledger
+	CertUsers ConfidentialLedgerCertUserInvokeResponseArrayInput `pulumi:"certUsers"`
+	// Endpoint for accessing network identity.
+	IdentityServiceUri pulumi.StringInput `pulumi:"identityServiceUri"`
+	// Internal namespace for the Ledger
+	LedgerInternalNamespace pulumi.StringInput `pulumi:"ledgerInternalNamespace"`
+	// Unique name for the Confidential Ledger.
+	LedgerName pulumi.StringInput `pulumi:"ledgerName"`
+	// Name of the Blob Storage Account for saving ledger files
+	LedgerStorageAccount pulumi.StringPtrInput `pulumi:"ledgerStorageAccount"`
+	// Type of Confidential Ledger
+	LedgerType pulumi.StringPtrInput `pulumi:"ledgerType"`
+	// Endpoint for calling Ledger Service.
+	LedgerUri pulumi.StringInput `pulumi:"ledgerUri"`
+	// Provisioning state of Ledger Resource
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (LedgerPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LedgerPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i LedgerPropertiesInvokeResponseArgs) ToLedgerPropertiesInvokeResponseOutput() LedgerPropertiesInvokeResponseOutput {
+	return i.ToLedgerPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LedgerPropertiesInvokeResponseArgs) ToLedgerPropertiesInvokeResponseOutputWithContext(ctx context.Context) LedgerPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LedgerPropertiesInvokeResponseOutput)
+}
+
+// Additional Confidential Ledger properties.
+type LedgerPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LedgerPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LedgerPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o LedgerPropertiesInvokeResponseOutput) ToLedgerPropertiesInvokeResponseOutput() LedgerPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o LedgerPropertiesInvokeResponseOutput) ToLedgerPropertiesInvokeResponseOutputWithContext(ctx context.Context) LedgerPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Array of all the cert based users who can access Confidential Ledger
+func (o LedgerPropertiesInvokeResponseOutput) CertUsers() ConfidentialLedgerCertUserInvokeResponseArrayOutput {
+	return o.ApplyT(func(v LedgerPropertiesInvokeResponse) []ConfidentialLedgerCertUserInvokeResponse { return v.CertUsers }).(ConfidentialLedgerCertUserInvokeResponseArrayOutput)
+}
+
+// Endpoint for accessing network identity.
+func (o LedgerPropertiesInvokeResponseOutput) IdentityServiceUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LedgerPropertiesInvokeResponse) string { return v.IdentityServiceUri }).(pulumi.StringOutput)
+}
+
+// Internal namespace for the Ledger
+func (o LedgerPropertiesInvokeResponseOutput) LedgerInternalNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v LedgerPropertiesInvokeResponse) string { return v.LedgerInternalNamespace }).(pulumi.StringOutput)
+}
+
+// Unique name for the Confidential Ledger.
+func (o LedgerPropertiesInvokeResponseOutput) LedgerName() pulumi.StringOutput {
+	return o.ApplyT(func(v LedgerPropertiesInvokeResponse) string { return v.LedgerName }).(pulumi.StringOutput)
+}
+
+// Name of the Blob Storage Account for saving ledger files
+func (o LedgerPropertiesInvokeResponseOutput) LedgerStorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LedgerPropertiesInvokeResponse) *string { return v.LedgerStorageAccount }).(pulumi.StringPtrOutput)
+}
+
+// Type of Confidential Ledger
+func (o LedgerPropertiesInvokeResponseOutput) LedgerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LedgerPropertiesInvokeResponse) *string { return v.LedgerType }).(pulumi.StringPtrOutput)
+}
+
+// Endpoint for calling Ledger Service.
+func (o LedgerPropertiesInvokeResponseOutput) LedgerUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LedgerPropertiesInvokeResponse) string { return v.LedgerUri }).(pulumi.StringOutput)
+}
+
+// Provisioning state of Ledger Resource
+func (o LedgerPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LedgerPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Additional Confidential Ledger properties.
 type LedgerPropertiesResponse struct {
 	// Array of all the cert based users who can access Confidential Ledger
 	CertUsers []ConfidentialLedgerCertUserResponse `pulumi:"certUsers"`
@@ -650,6 +868,106 @@ func (o LedgerPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrO
 }
 
 // Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
@@ -881,12 +1199,16 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(ConfidentialLedgerCertUserOutput{})
 	pulumi.RegisterOutputType(ConfidentialLedgerCertUserArrayOutput{})
+	pulumi.RegisterOutputType(ConfidentialLedgerCertUserInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConfidentialLedgerCertUserInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConfidentialLedgerCertUserResponseOutput{})
 	pulumi.RegisterOutputType(ConfidentialLedgerCertUserResponseArrayOutput{})
 	pulumi.RegisterOutputType(LedgerPropertiesOutput{})
 	pulumi.RegisterOutputType(LedgerPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LedgerPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LedgerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LedgerPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

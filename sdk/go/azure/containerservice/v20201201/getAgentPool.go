@@ -40,11 +40,11 @@ type LookupAgentPoolResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
-	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
+	KubeletConfig *KubeletConfigInvokeResponse `pulumi:"kubeletConfig"`
 	// KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.
-	LinuxOSConfig *LinuxOSConfigResponse `pulumi:"linuxOSConfig"`
+	LinuxOSConfig *LinuxOSConfigInvokeResponse `pulumi:"linuxOSConfig"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount *int `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.
@@ -72,7 +72,7 @@ type LookupAgentPoolResult struct {
 	// Pod SubnetID specifies the VNet's subnet identifier for pods.
 	PodSubnetID *string `pulumi:"podSubnetID"`
 	// Describes whether the Agent Pool is Running or Stopped
-	PowerState PowerStateResponse `pulumi:"powerState"`
+	PowerState PowerStateInvokeResponse `pulumi:"powerState"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The ID for Proximity Placement Group.
@@ -88,7 +88,7 @@ type LookupAgentPoolResult struct {
 	// AgentPoolType represents types of an agent pool
 	Type string `pulumi:"type"`
 	// Settings for upgrading the agentpool
-	UpgradeSettings *AgentPoolUpgradeSettingsResponse `pulumi:"upgradeSettings"`
+	UpgradeSettings *AgentPoolUpgradeSettingsInvokeResponse `pulumi:"upgradeSettings"`
 	// Size of agent VMs.
 	VmSize *string `pulumi:"vmSize"`
 	// VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods

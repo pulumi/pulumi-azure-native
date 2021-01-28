@@ -28,11 +28,11 @@ type LookupVirtualMachineResult struct {
 	// The amount of memory
 	AmountOfRam int `pulumi:"amountOfRam"`
 	// The list of Virtual Disks' Controllers
-	Controllers []VirtualDiskControllerResponse `pulumi:"controllers"`
+	Controllers []VirtualDiskControllerInvokeResponse `pulumi:"controllers"`
 	// Virtual machine properties
-	Customization *GuestOSCustomizationResponse `pulumi:"customization"`
+	Customization *GuestOSCustomizationInvokeResponse `pulumi:"customization"`
 	// The list of Virtual Disks
-	Disks []VirtualDiskResponse `pulumi:"disks"`
+	Disks []VirtualDiskInvokeResponse `pulumi:"disks"`
 	// The DNS name of Virtual Machine in VCenter
 	Dnsname string `pulumi:"dnsname"`
 	// Expose Guest OS or not
@@ -50,7 +50,7 @@ type LookupVirtualMachineResult struct {
 	// {virtualMachineName}
 	Name string `pulumi:"name"`
 	// The list of Virtual NICs
-	Nics []VirtualNicResponse `pulumi:"nics"`
+	Nics []VirtualNicInvokeResponse `pulumi:"nics"`
 	// The number of CPU cores
 	NumberOfCores int `pulumi:"numberOfCores"`
 	// Password for login. Deprecated - use customization property
@@ -62,7 +62,7 @@ type LookupVirtualMachineResult struct {
 	// The public ip of Virtual Machine
 	PublicIP string `pulumi:"publicIP"`
 	// Virtual Machines Resource Pool
-	ResourcePool *ResourcePoolResponse `pulumi:"resourcePool"`
+	ResourcePool *ResourcePoolInvokeResponse `pulumi:"resourcePool"`
 	// The status of Virtual machine
 	Status string `pulumi:"status"`
 	// The list of tags

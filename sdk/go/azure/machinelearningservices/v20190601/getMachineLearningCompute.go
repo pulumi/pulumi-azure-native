@@ -30,7 +30,7 @@ type LookupMachineLearningComputeResult struct {
 	// Specifies the resource ID.
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the resource.

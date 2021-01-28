@@ -26,9 +26,9 @@ type LookupWebTestArgs struct {
 // An Application Insights WebTest definition.
 type LookupWebTestResult struct {
 	// An XML configuration specification for a WebTest.
-	Configuration *WebTestPropertiesResponseConfiguration `pulumi:"configuration"`
+	Configuration *WebTestPropertiesInvokeResponseConfiguration `pulumi:"configuration"`
 	// The collection of content validation properties
-	ContentValidation *WebTestPropertiesResponseContentValidation `pulumi:"contentValidation"`
+	ContentValidation *WebTestPropertiesInvokeResponseContentValidation `pulumi:"contentValidation"`
 	// User defined description for this WebTest.
 	Description *string `pulumi:"description"`
 	// Is the test actively being monitored.
@@ -46,13 +46,13 @@ type LookupWebTestResult struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
-	Locations []WebTestGeolocationResponse `pulumi:"locations"`
+	Locations []WebTestGeolocationInvokeResponse `pulumi:"locations"`
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The collection of request properties
-	Request *WebTestPropertiesResponseRequest `pulumi:"request"`
+	Request *WebTestPropertiesInvokeResponseRequest `pulumi:"request"`
 	// Allow for retries should this WebTest fail.
 	RetryEnabled *bool `pulumi:"retryEnabled"`
 	// A number of days to check still remain before the the existing SSL cert expires.

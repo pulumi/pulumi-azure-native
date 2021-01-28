@@ -31,7 +31,7 @@ type LookupClusterResult struct {
 	CreationTime                  string `pulumi:"creationTime"`
 	CurrentNodeCount              int    `pulumi:"currentNodeCount"`
 	// This element contains all the errors encountered by various compute nodes during node setup.
-	Errors []BatchAIErrorResponse `pulumi:"errors"`
+	Errors []BatchAIErrorInvokeResponse `pulumi:"errors"`
 	// The ID of the resource
 	Id string `pulumi:"id"`
 	// The location of the resource
@@ -39,24 +39,24 @@ type LookupClusterResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
-	NodeSetup *NodeSetupResponse `pulumi:"nodeSetup"`
+	NodeSetup *NodeSetupInvokeResponse `pulumi:"nodeSetup"`
 	// Counts of various compute node states on the cluster.
-	NodeStateCounts NodeStateCountsResponse `pulumi:"nodeStateCounts"`
+	NodeStateCounts NodeStateCountsInvokeResponse `pulumi:"nodeStateCounts"`
 	// Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
 	ProvisioningState               string `pulumi:"provisioningState"`
 	ProvisioningStateTransitionTime string `pulumi:"provisioningStateTransitionTime"`
 	// At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
-	ScaleSettings *ScaleSettingsResponse `pulumi:"scaleSettings"`
+	ScaleSettings *ScaleSettingsInvokeResponse `pulumi:"scaleSettings"`
 	// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-	Subnet *ResourceIdResponse `pulumi:"subnet"`
+	Subnet *ResourceIdInvokeResponse `pulumi:"subnet"`
 	// The tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource
 	Type string `pulumi:"type"`
 	// Settings for user account that gets created on each on the nodes of a cluster.
-	UserAccountSettings *UserAccountSettingsResponse `pulumi:"userAccountSettings"`
+	UserAccountSettings *UserAccountSettingsInvokeResponse `pulumi:"userAccountSettings"`
 	// Settings for OS image.
-	VirtualMachineConfiguration *VirtualMachineConfigurationResponse `pulumi:"virtualMachineConfiguration"`
+	VirtualMachineConfiguration *VirtualMachineConfigurationInvokeResponse `pulumi:"virtualMachineConfiguration"`
 	// The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
 	VmPriority *string `pulumi:"vmPriority"`
 	// All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).

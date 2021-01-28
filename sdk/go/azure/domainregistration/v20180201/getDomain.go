@@ -29,15 +29,15 @@ type LookupDomainResult struct {
 	// <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// Legal agreement consent.
-	Consent DomainPurchaseConsentResponse `pulumi:"consent"`
+	Consent DomainPurchaseConsentInvokeResponse `pulumi:"consent"`
 	// Administrative contact.
-	ContactAdmin ContactResponse `pulumi:"contactAdmin"`
+	ContactAdmin ContactInvokeResponse `pulumi:"contactAdmin"`
 	// Billing contact.
-	ContactBilling ContactResponse `pulumi:"contactBilling"`
+	ContactBilling ContactInvokeResponse `pulumi:"contactBilling"`
 	// Registrant contact.
-	ContactRegistrant ContactResponse `pulumi:"contactRegistrant"`
+	ContactRegistrant ContactInvokeResponse `pulumi:"contactRegistrant"`
 	// Technical contact.
-	ContactTech ContactResponse `pulumi:"contactTech"`
+	ContactTech ContactInvokeResponse `pulumi:"contactTech"`
 	// Domain creation timestamp.
 	CreatedTime string `pulumi:"createdTime"`
 	// Current DNS type
@@ -57,7 +57,7 @@ type LookupDomainResult struct {
 	// Resource Location.
 	Location string `pulumi:"location"`
 	// All hostnames derived from the domain and assigned to Azure resources.
-	ManagedHostNames []HostNameResponse `pulumi:"managedHostNames"`
+	ManagedHostNames []HostNameInvokeResponse `pulumi:"managedHostNames"`
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// Name servers.

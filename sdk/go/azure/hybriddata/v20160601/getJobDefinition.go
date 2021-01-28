@@ -30,7 +30,7 @@ type LookupJobDefinitionArgs struct {
 // Job Definition.
 type LookupJobDefinitionResult struct {
 	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-	CustomerSecrets []CustomerSecretResponse `pulumi:"customerSecrets"`
+	CustomerSecrets []CustomerSecretInvokeResponse `pulumi:"customerSecrets"`
 	// A generic json used differently by each data service type.
 	DataServiceInput interface{} `pulumi:"dataServiceInput"`
 	// Data Sink Id associated to the job definition.
@@ -46,7 +46,7 @@ type LookupJobDefinitionResult struct {
 	// This is the preferred geo location for the job to run.
 	RunLocation *string `pulumi:"runLocation"`
 	// Schedule for running the job definition
-	Schedules []ScheduleResponse `pulumi:"schedules"`
+	Schedules []ScheduleInvokeResponse `pulumi:"schedules"`
 	// State of the job definition.
 	State string `pulumi:"state"`
 	// Type of the object.

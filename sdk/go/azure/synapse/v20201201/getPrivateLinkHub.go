@@ -32,7 +32,7 @@ type LookupPrivateLinkHubResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of private endpoint connections
-	PrivateEndpointConnections []PrivateEndpointConnectionForPrivateLinkHubBasicResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionForPrivateLinkHubBasicInvokeResponse `pulumi:"privateEndpointConnections"`
 	// PrivateLinkHub provisioning state
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.

@@ -28,5 +28,5 @@ type ListJobCredentialsResult struct {
 	// Link for the next set of unencrypted credentials.
 	NextLink *string `pulumi:"nextLink"`
 	// List of unencrypted credentials.
-	Value []UnencryptedCredentialsResponse `pulumi:"value"`
+	Value []UnencryptedCredentialsInvokeResponse `pulumi:"value"`
 }

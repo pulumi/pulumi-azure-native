@@ -48,11 +48,11 @@ type LookupDscConfigurationResult struct {
 	// Gets the number of compiled node configurations.
 	NodeConfigurationCount *int `pulumi:"nodeConfigurationCount"`
 	// Gets or sets the configuration parameters.
-	Parameters map[string]DscConfigurationParameterResponse `pulumi:"parameters"`
+	Parameters map[string]DscConfigurationParameterInvokeResponse `pulumi:"parameters"`
 	// Gets or sets the provisioning state of the configuration.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Gets or sets the source.
-	Source *ContentSourceResponse `pulumi:"source"`
+	Source *ContentSourceInvokeResponse `pulumi:"source"`
 	// Gets or sets the state of the configuration.
 	State *string `pulumi:"state"`
 	// Resource tags.

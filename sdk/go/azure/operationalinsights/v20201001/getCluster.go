@@ -26,11 +26,11 @@ type LookupClusterArgs struct {
 // The top level Log Analytics cluster resource container.
 type LookupClusterResult struct {
 	// The list of Log Analytics workspaces associated with the cluster
-	AssociatedWorkspaces []AssociatedWorkspaceResponse `pulumi:"associatedWorkspaces"`
+	AssociatedWorkspaces []AssociatedWorkspaceInvokeResponse `pulumi:"associatedWorkspaces"`
 	// Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
 	BillingType *string `pulumi:"billingType"`
 	// Additional properties for capacity reservation
-	CapacityReservationProperties *CapacityReservationPropertiesResponse `pulumi:"capacityReservationProperties"`
+	CapacityReservationProperties *CapacityReservationPropertiesInvokeResponse `pulumi:"capacityReservationProperties"`
 	// The ID associated with the cluster.
 	ClusterId string `pulumi:"clusterId"`
 	// The cluster creation time
@@ -38,13 +38,13 @@ type LookupClusterResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
 	IsAvailabilityZonesEnabled *bool `pulumi:"isAvailabilityZonesEnabled"`
 	// Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
 	IsDoubleEncryptionEnabled *bool `pulumi:"isDoubleEncryptionEnabled"`
 	// The associated key properties.
-	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	KeyVaultProperties *KeyVaultPropertiesInvokeResponse `pulumi:"keyVaultProperties"`
 	// The last time the cluster was updated.
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
 	// The geo-location where the resource lives
@@ -54,7 +54,7 @@ type LookupClusterResult struct {
 	// The provisioning state of the cluster.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku properties.
-	Sku *ClusterSkuResponse `pulumi:"sku"`
+	Sku *ClusterSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

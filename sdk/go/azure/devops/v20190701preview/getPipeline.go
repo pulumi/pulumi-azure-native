@@ -26,7 +26,7 @@ type LookupPipelineArgs struct {
 // Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
 type LookupPipelineResult struct {
 	// Configuration used to bootstrap the Pipeline.
-	BootstrapConfiguration BootstrapConfigurationResponse `pulumi:"bootstrapConfiguration"`
+	BootstrapConfiguration BootstrapConfigurationInvokeResponse `pulumi:"bootstrapConfiguration"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource Location
@@ -34,11 +34,11 @@ type LookupPipelineResult struct {
 	// Resource Name
 	Name string `pulumi:"name"`
 	// Reference to the Azure DevOps Organization containing the Pipeline.
-	Organization OrganizationReferenceResponse `pulumi:"organization"`
+	Organization OrganizationReferenceInvokeResponse `pulumi:"organization"`
 	// Unique identifier of the Azure Pipeline within the Azure DevOps Project.
 	PipelineId int `pulumi:"pipelineId"`
 	// Reference to the Azure DevOps Project containing the Pipeline.
-	Project ProjectReferenceResponse `pulumi:"project"`
+	Project ProjectReferenceInvokeResponse `pulumi:"project"`
 	// Resource Tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource Type

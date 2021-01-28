@@ -28,5 +28,5 @@ type ListLabVhdsResult struct {
 	// Link for next set of results.
 	NextLink *string `pulumi:"nextLink"`
 	// Results of the list operation.
-	Value []LabVhdResponse `pulumi:"value"`
+	Value []LabVhdInvokeResponse `pulumi:"value"`
 }

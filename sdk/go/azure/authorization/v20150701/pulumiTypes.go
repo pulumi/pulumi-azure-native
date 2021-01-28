@@ -120,6 +120,115 @@ func (o PermissionArrayOutput) Index(i pulumi.IntInput) PermissionOutput {
 }
 
 // Role definition permissions.
+type PermissionInvokeResponse struct {
+	// Allowed actions.
+	Actions []string `pulumi:"actions"`
+	// Denied actions.
+	NotActions []string `pulumi:"notActions"`
+}
+
+// PermissionInvokeResponseInput is an input type that accepts PermissionInvokeResponseArgs and PermissionInvokeResponseOutput values.
+// You can construct a concrete instance of `PermissionInvokeResponseInput` via:
+//
+//          PermissionInvokeResponseArgs{...}
+type PermissionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPermissionInvokeResponseOutput() PermissionInvokeResponseOutput
+	ToPermissionInvokeResponseOutputWithContext(context.Context) PermissionInvokeResponseOutput
+}
+
+// Role definition permissions.
+type PermissionInvokeResponseArgs struct {
+	// Allowed actions.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// Denied actions.
+	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+}
+
+func (PermissionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionInvokeResponse)(nil)).Elem()
+}
+
+func (i PermissionInvokeResponseArgs) ToPermissionInvokeResponseOutput() PermissionInvokeResponseOutput {
+	return i.ToPermissionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PermissionInvokeResponseArgs) ToPermissionInvokeResponseOutputWithContext(ctx context.Context) PermissionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionInvokeResponseOutput)
+}
+
+// PermissionInvokeResponseArrayInput is an input type that accepts PermissionInvokeResponseArray and PermissionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PermissionInvokeResponseArrayInput` via:
+//
+//          PermissionInvokeResponseArray{ PermissionInvokeResponseArgs{...} }
+type PermissionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPermissionInvokeResponseArrayOutput() PermissionInvokeResponseArrayOutput
+	ToPermissionInvokeResponseArrayOutputWithContext(context.Context) PermissionInvokeResponseArrayOutput
+}
+
+type PermissionInvokeResponseArray []PermissionInvokeResponseInput
+
+func (PermissionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionInvokeResponse)(nil)).Elem()
+}
+
+func (i PermissionInvokeResponseArray) ToPermissionInvokeResponseArrayOutput() PermissionInvokeResponseArrayOutput {
+	return i.ToPermissionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionInvokeResponseArray) ToPermissionInvokeResponseArrayOutputWithContext(ctx context.Context) PermissionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionInvokeResponseArrayOutput)
+}
+
+// Role definition permissions.
+type PermissionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PermissionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionInvokeResponse)(nil)).Elem()
+}
+
+func (o PermissionInvokeResponseOutput) ToPermissionInvokeResponseOutput() PermissionInvokeResponseOutput {
+	return o
+}
+
+func (o PermissionInvokeResponseOutput) ToPermissionInvokeResponseOutputWithContext(ctx context.Context) PermissionInvokeResponseOutput {
+	return o
+}
+
+// Allowed actions.
+func (o PermissionInvokeResponseOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PermissionInvokeResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// Denied actions.
+func (o PermissionInvokeResponseOutput) NotActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PermissionInvokeResponse) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+}
+
+type PermissionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionInvokeResponse)(nil)).Elem()
+}
+
+func (o PermissionInvokeResponseArrayOutput) ToPermissionInvokeResponseArrayOutput() PermissionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PermissionInvokeResponseArrayOutput) ToPermissionInvokeResponseArrayOutputWithContext(ctx context.Context) PermissionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PermissionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PermissionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionInvokeResponse {
+		return vs[0].([]PermissionInvokeResponse)[vs[1].(int)]
+	}).(PermissionInvokeResponseOutput)
+}
+
+// Role definition permissions.
 type PermissionResponse struct {
 	// Allowed actions.
 	Actions []string `pulumi:"actions"`
@@ -382,6 +491,79 @@ func (o RoleAssignmentPropertiesPtrOutput) RoleDefinitionId() pulumi.StringPtrOu
 }
 
 // Role assignment properties with scope.
+type RoleAssignmentPropertiesWithScopeInvokeResponse struct {
+	// The principal ID.
+	PrincipalId *string `pulumi:"principalId"`
+	// The role definition ID.
+	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
+	// The role assignment scope.
+	Scope *string `pulumi:"scope"`
+}
+
+// RoleAssignmentPropertiesWithScopeInvokeResponseInput is an input type that accepts RoleAssignmentPropertiesWithScopeInvokeResponseArgs and RoleAssignmentPropertiesWithScopeInvokeResponseOutput values.
+// You can construct a concrete instance of `RoleAssignmentPropertiesWithScopeInvokeResponseInput` via:
+//
+//          RoleAssignmentPropertiesWithScopeInvokeResponseArgs{...}
+type RoleAssignmentPropertiesWithScopeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRoleAssignmentPropertiesWithScopeInvokeResponseOutput() RoleAssignmentPropertiesWithScopeInvokeResponseOutput
+	ToRoleAssignmentPropertiesWithScopeInvokeResponseOutputWithContext(context.Context) RoleAssignmentPropertiesWithScopeInvokeResponseOutput
+}
+
+// Role assignment properties with scope.
+type RoleAssignmentPropertiesWithScopeInvokeResponseArgs struct {
+	// The principal ID.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The role definition ID.
+	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`
+	// The role assignment scope.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+}
+
+func (RoleAssignmentPropertiesWithScopeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentPropertiesWithScopeInvokeResponse)(nil)).Elem()
+}
+
+func (i RoleAssignmentPropertiesWithScopeInvokeResponseArgs) ToRoleAssignmentPropertiesWithScopeInvokeResponseOutput() RoleAssignmentPropertiesWithScopeInvokeResponseOutput {
+	return i.ToRoleAssignmentPropertiesWithScopeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RoleAssignmentPropertiesWithScopeInvokeResponseArgs) ToRoleAssignmentPropertiesWithScopeInvokeResponseOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeInvokeResponseOutput)
+}
+
+// Role assignment properties with scope.
+type RoleAssignmentPropertiesWithScopeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RoleAssignmentPropertiesWithScopeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleAssignmentPropertiesWithScopeInvokeResponse)(nil)).Elem()
+}
+
+func (o RoleAssignmentPropertiesWithScopeInvokeResponseOutput) ToRoleAssignmentPropertiesWithScopeInvokeResponseOutput() RoleAssignmentPropertiesWithScopeInvokeResponseOutput {
+	return o
+}
+
+func (o RoleAssignmentPropertiesWithScopeInvokeResponseOutput) ToRoleAssignmentPropertiesWithScopeInvokeResponseOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeInvokeResponseOutput {
+	return o
+}
+
+// The principal ID.
+func (o RoleAssignmentPropertiesWithScopeInvokeResponseOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeInvokeResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The role definition ID.
+func (o RoleAssignmentPropertiesWithScopeInvokeResponseOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeInvokeResponse) *string { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The role assignment scope.
+func (o RoleAssignmentPropertiesWithScopeInvokeResponseOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeInvokeResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Role assignment properties with scope.
 type RoleAssignmentPropertiesWithScopeResponse struct {
 	// The principal ID.
 	PrincipalId *string `pulumi:"principalId"`
@@ -558,10 +740,13 @@ func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Scope() pulumi.Strin
 func init() {
 	pulumi.RegisterOutputType(PermissionOutput{})
 	pulumi.RegisterOutputType(PermissionArrayOutput{})
+	pulumi.RegisterOutputType(PermissionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PermissionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PermissionResponseOutput{})
 	pulumi.RegisterOutputType(PermissionResponseArrayOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponseOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponsePtrOutput{})
 }

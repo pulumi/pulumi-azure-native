@@ -336,6 +336,79 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // SKU parameters supplied to the create Redis operation.
+type SkuInvokeResponse struct {
+	// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
+	Capacity int `pulumi:"capacity"`
+	// Which family to use. Valid values: (C, P).
+	Family string `pulumi:"family"`
+	// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// SKU parameters supplied to the create Redis operation.
+type SkuInvokeResponseArgs struct {
+	// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// Which family to use. Valid values: (C, P).
+	Family pulumi.StringInput `pulumi:"family"`
+	// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// SKU parameters supplied to the create Redis operation.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// Which family to use. Valid values: (C, P).
+func (o SkuInvokeResponseOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Family }).(pulumi.StringOutput)
+}
+
+// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SKU parameters supplied to the create Redis operation.
 type SkuResponse struct {
 	// What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
 	Capacity int `pulumi:"capacity"`
@@ -512,6 +585,7 @@ func init() {
 	pulumi.RegisterOutputType(RedisAccessKeysResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

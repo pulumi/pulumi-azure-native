@@ -26,7 +26,7 @@ type LookupADCCatalogArgs struct {
 // Azure Data Catalog.
 type LookupADCCatalogResult struct {
 	// Azure data catalog admin list.
-	Admins []PrincipalsResponse `pulumi:"admins"`
+	Admins []PrincipalsInvokeResponse `pulumi:"admins"`
 	// Automatic unit adjustment enabled or not.
 	EnableAutomaticUnitAdjustment *bool `pulumi:"enableAutomaticUnitAdjustment"`
 	// Resource etag
@@ -48,5 +48,5 @@ type LookupADCCatalogResult struct {
 	// Azure data catalog units.
 	Units *int `pulumi:"units"`
 	// Azure data catalog user list.
-	Users []PrincipalsResponse `pulumi:"users"`
+	Users []PrincipalsInvokeResponse `pulumi:"users"`
 }

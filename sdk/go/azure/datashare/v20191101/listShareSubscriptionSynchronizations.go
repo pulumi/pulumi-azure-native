@@ -36,5 +36,5 @@ type ListShareSubscriptionSynchronizationsResult struct {
 	// The Url of next result page.
 	NextLink *string `pulumi:"nextLink"`
 	// Collection of items of type DataTransferObjects.
-	Value []ShareSubscriptionSynchronizationResponse `pulumi:"value"`
+	Value []ShareSubscriptionSynchronizationInvokeResponse `pulumi:"value"`
 }

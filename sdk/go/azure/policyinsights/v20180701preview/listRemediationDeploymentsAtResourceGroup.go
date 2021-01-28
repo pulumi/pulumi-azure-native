@@ -30,5 +30,5 @@ type ListRemediationDeploymentsAtResourceGroupResult struct {
 	// The URL to get the next set of results.
 	NextLink string `pulumi:"nextLink"`
 	// Array of deployments for the remediation.
-	Value []RemediationDeploymentResponse `pulumi:"value"`
+	Value []RemediationDeploymentInvokeResponse `pulumi:"value"`
 }

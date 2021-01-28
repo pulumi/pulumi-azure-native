@@ -36,7 +36,7 @@ type LookupVirtualApplianceSiteResult struct {
 	// Name of the virtual appliance site.
 	Name *string `pulumi:"name"`
 	// Office 365 Policy.
-	O365Policy *Office365PolicyPropertiesResponse `pulumi:"o365Policy"`
+	O365Policy *Office365PolicyPropertiesInvokeResponse `pulumi:"o365Policy"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Site type.

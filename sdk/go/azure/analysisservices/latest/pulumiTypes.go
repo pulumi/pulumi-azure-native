@@ -145,6 +145,79 @@ func (o GatewayDetailsPtrOutput) GatewayResourceId() pulumi.StringPtrOutput {
 }
 
 // The gateway details.
+type GatewayDetailsInvokeResponse struct {
+	// Uri of the DMTS cluster.
+	DmtsClusterUri string `pulumi:"dmtsClusterUri"`
+	// Gateway object id from in the DMTS cluster for the gateway resource.
+	GatewayObjectId string `pulumi:"gatewayObjectId"`
+	// Gateway resource to be associated with the server.
+	GatewayResourceId *string `pulumi:"gatewayResourceId"`
+}
+
+// GatewayDetailsInvokeResponseInput is an input type that accepts GatewayDetailsInvokeResponseArgs and GatewayDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `GatewayDetailsInvokeResponseInput` via:
+//
+//          GatewayDetailsInvokeResponseArgs{...}
+type GatewayDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGatewayDetailsInvokeResponseOutput() GatewayDetailsInvokeResponseOutput
+	ToGatewayDetailsInvokeResponseOutputWithContext(context.Context) GatewayDetailsInvokeResponseOutput
+}
+
+// The gateway details.
+type GatewayDetailsInvokeResponseArgs struct {
+	// Uri of the DMTS cluster.
+	DmtsClusterUri pulumi.StringInput `pulumi:"dmtsClusterUri"`
+	// Gateway object id from in the DMTS cluster for the gateway resource.
+	GatewayObjectId pulumi.StringInput `pulumi:"gatewayObjectId"`
+	// Gateway resource to be associated with the server.
+	GatewayResourceId pulumi.StringPtrInput `pulumi:"gatewayResourceId"`
+}
+
+func (GatewayDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i GatewayDetailsInvokeResponseArgs) ToGatewayDetailsInvokeResponseOutput() GatewayDetailsInvokeResponseOutput {
+	return i.ToGatewayDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GatewayDetailsInvokeResponseArgs) ToGatewayDetailsInvokeResponseOutputWithContext(ctx context.Context) GatewayDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayDetailsInvokeResponseOutput)
+}
+
+// The gateway details.
+type GatewayDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GatewayDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o GatewayDetailsInvokeResponseOutput) ToGatewayDetailsInvokeResponseOutput() GatewayDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o GatewayDetailsInvokeResponseOutput) ToGatewayDetailsInvokeResponseOutputWithContext(ctx context.Context) GatewayDetailsInvokeResponseOutput {
+	return o
+}
+
+// Uri of the DMTS cluster.
+func (o GatewayDetailsInvokeResponseOutput) DmtsClusterUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayDetailsInvokeResponse) string { return v.DmtsClusterUri }).(pulumi.StringOutput)
+}
+
+// Gateway object id from in the DMTS cluster for the gateway resource.
+func (o GatewayDetailsInvokeResponseOutput) GatewayObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayDetailsInvokeResponse) string { return v.GatewayObjectId }).(pulumi.StringOutput)
+}
+
+// Gateway resource to be associated with the server.
+func (o GatewayDetailsInvokeResponseOutput) GatewayResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayDetailsInvokeResponse) *string { return v.GatewayResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The gateway details.
 type GatewayDetailsResponse struct {
 	// Uri of the DMTS cluster.
 	DmtsClusterUri string `pulumi:"dmtsClusterUri"`
@@ -435,6 +508,124 @@ func (o IPv4FirewallRuleArrayOutput) Index(i pulumi.IntInput) IPv4FirewallRuleOu
 }
 
 // The detail of firewall rule.
+type IPv4FirewallRuleInvokeResponse struct {
+	// The rule name.
+	FirewallRuleName *string `pulumi:"firewallRuleName"`
+	// The end range of IPv4.
+	RangeEnd *string `pulumi:"rangeEnd"`
+	// The start range of IPv4.
+	RangeStart *string `pulumi:"rangeStart"`
+}
+
+// IPv4FirewallRuleInvokeResponseInput is an input type that accepts IPv4FirewallRuleInvokeResponseArgs and IPv4FirewallRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `IPv4FirewallRuleInvokeResponseInput` via:
+//
+//          IPv4FirewallRuleInvokeResponseArgs{...}
+type IPv4FirewallRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIPv4FirewallRuleInvokeResponseOutput() IPv4FirewallRuleInvokeResponseOutput
+	ToIPv4FirewallRuleInvokeResponseOutputWithContext(context.Context) IPv4FirewallRuleInvokeResponseOutput
+}
+
+// The detail of firewall rule.
+type IPv4FirewallRuleInvokeResponseArgs struct {
+	// The rule name.
+	FirewallRuleName pulumi.StringPtrInput `pulumi:"firewallRuleName"`
+	// The end range of IPv4.
+	RangeEnd pulumi.StringPtrInput `pulumi:"rangeEnd"`
+	// The start range of IPv4.
+	RangeStart pulumi.StringPtrInput `pulumi:"rangeStart"`
+}
+
+func (IPv4FirewallRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPv4FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IPv4FirewallRuleInvokeResponseArgs) ToIPv4FirewallRuleInvokeResponseOutput() IPv4FirewallRuleInvokeResponseOutput {
+	return i.ToIPv4FirewallRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IPv4FirewallRuleInvokeResponseArgs) ToIPv4FirewallRuleInvokeResponseOutputWithContext(ctx context.Context) IPv4FirewallRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPv4FirewallRuleInvokeResponseOutput)
+}
+
+// IPv4FirewallRuleInvokeResponseArrayInput is an input type that accepts IPv4FirewallRuleInvokeResponseArray and IPv4FirewallRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IPv4FirewallRuleInvokeResponseArrayInput` via:
+//
+//          IPv4FirewallRuleInvokeResponseArray{ IPv4FirewallRuleInvokeResponseArgs{...} }
+type IPv4FirewallRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIPv4FirewallRuleInvokeResponseArrayOutput() IPv4FirewallRuleInvokeResponseArrayOutput
+	ToIPv4FirewallRuleInvokeResponseArrayOutputWithContext(context.Context) IPv4FirewallRuleInvokeResponseArrayOutput
+}
+
+type IPv4FirewallRuleInvokeResponseArray []IPv4FirewallRuleInvokeResponseInput
+
+func (IPv4FirewallRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPv4FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IPv4FirewallRuleInvokeResponseArray) ToIPv4FirewallRuleInvokeResponseArrayOutput() IPv4FirewallRuleInvokeResponseArrayOutput {
+	return i.ToIPv4FirewallRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IPv4FirewallRuleInvokeResponseArray) ToIPv4FirewallRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IPv4FirewallRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPv4FirewallRuleInvokeResponseArrayOutput)
+}
+
+// The detail of firewall rule.
+type IPv4FirewallRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IPv4FirewallRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPv4FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IPv4FirewallRuleInvokeResponseOutput) ToIPv4FirewallRuleInvokeResponseOutput() IPv4FirewallRuleInvokeResponseOutput {
+	return o
+}
+
+func (o IPv4FirewallRuleInvokeResponseOutput) ToIPv4FirewallRuleInvokeResponseOutputWithContext(ctx context.Context) IPv4FirewallRuleInvokeResponseOutput {
+	return o
+}
+
+// The rule name.
+func (o IPv4FirewallRuleInvokeResponseOutput) FirewallRuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPv4FirewallRuleInvokeResponse) *string { return v.FirewallRuleName }).(pulumi.StringPtrOutput)
+}
+
+// The end range of IPv4.
+func (o IPv4FirewallRuleInvokeResponseOutput) RangeEnd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPv4FirewallRuleInvokeResponse) *string { return v.RangeEnd }).(pulumi.StringPtrOutput)
+}
+
+// The start range of IPv4.
+func (o IPv4FirewallRuleInvokeResponseOutput) RangeStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPv4FirewallRuleInvokeResponse) *string { return v.RangeStart }).(pulumi.StringPtrOutput)
+}
+
+type IPv4FirewallRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IPv4FirewallRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPv4FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IPv4FirewallRuleInvokeResponseArrayOutput) ToIPv4FirewallRuleInvokeResponseArrayOutput() IPv4FirewallRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IPv4FirewallRuleInvokeResponseArrayOutput) ToIPv4FirewallRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IPv4FirewallRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IPv4FirewallRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) IPv4FirewallRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPv4FirewallRuleInvokeResponse {
+		return vs[0].([]IPv4FirewallRuleInvokeResponse)[vs[1].(int)]
+	}).(IPv4FirewallRuleInvokeResponseOutput)
+}
+
+// The detail of firewall rule.
 type IPv4FirewallRuleResponse struct {
 	// The rule name.
 	FirewallRuleName *string `pulumi:"firewallRuleName"`
@@ -703,6 +894,70 @@ func (o IPv4FirewallSettingsPtrOutput) FirewallRules() IPv4FirewallRuleArrayOutp
 		}
 		return v.FirewallRules
 	}).(IPv4FirewallRuleArrayOutput)
+}
+
+// An array of firewall rules.
+type IPv4FirewallSettingsInvokeResponse struct {
+	// The indicator of enabling PBI service.
+	EnablePowerBIService *bool `pulumi:"enablePowerBIService"`
+	// An array of firewall rules.
+	FirewallRules []IPv4FirewallRuleInvokeResponse `pulumi:"firewallRules"`
+}
+
+// IPv4FirewallSettingsInvokeResponseInput is an input type that accepts IPv4FirewallSettingsInvokeResponseArgs and IPv4FirewallSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `IPv4FirewallSettingsInvokeResponseInput` via:
+//
+//          IPv4FirewallSettingsInvokeResponseArgs{...}
+type IPv4FirewallSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIPv4FirewallSettingsInvokeResponseOutput() IPv4FirewallSettingsInvokeResponseOutput
+	ToIPv4FirewallSettingsInvokeResponseOutputWithContext(context.Context) IPv4FirewallSettingsInvokeResponseOutput
+}
+
+// An array of firewall rules.
+type IPv4FirewallSettingsInvokeResponseArgs struct {
+	// The indicator of enabling PBI service.
+	EnablePowerBIService pulumi.BoolPtrInput `pulumi:"enablePowerBIService"`
+	// An array of firewall rules.
+	FirewallRules IPv4FirewallRuleInvokeResponseArrayInput `pulumi:"firewallRules"`
+}
+
+func (IPv4FirewallSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPv4FirewallSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i IPv4FirewallSettingsInvokeResponseArgs) ToIPv4FirewallSettingsInvokeResponseOutput() IPv4FirewallSettingsInvokeResponseOutput {
+	return i.ToIPv4FirewallSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IPv4FirewallSettingsInvokeResponseArgs) ToIPv4FirewallSettingsInvokeResponseOutputWithContext(ctx context.Context) IPv4FirewallSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPv4FirewallSettingsInvokeResponseOutput)
+}
+
+// An array of firewall rules.
+type IPv4FirewallSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IPv4FirewallSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPv4FirewallSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o IPv4FirewallSettingsInvokeResponseOutput) ToIPv4FirewallSettingsInvokeResponseOutput() IPv4FirewallSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o IPv4FirewallSettingsInvokeResponseOutput) ToIPv4FirewallSettingsInvokeResponseOutputWithContext(ctx context.Context) IPv4FirewallSettingsInvokeResponseOutput {
+	return o
+}
+
+// The indicator of enabling PBI service.
+func (o IPv4FirewallSettingsInvokeResponseOutput) EnablePowerBIService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IPv4FirewallSettingsInvokeResponse) *bool { return v.EnablePowerBIService }).(pulumi.BoolPtrOutput)
+}
+
+// An array of firewall rules.
+func (o IPv4FirewallSettingsInvokeResponseOutput) FirewallRules() IPv4FirewallRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IPv4FirewallSettingsInvokeResponse) []IPv4FirewallRuleInvokeResponse { return v.FirewallRules }).(IPv4FirewallRuleInvokeResponseArrayOutput)
 }
 
 // An array of firewall rules.
@@ -1031,6 +1286,79 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Represents the SKU name and Azure pricing tier for Analysis Services resource.
+type ResourceSkuInvokeResponse struct {
+	// The number of instances in the read only query pool.
+	Capacity *int `pulumi:"capacity"`
+	// Name of the SKU level.
+	Name string `pulumi:"name"`
+	// The name of the Azure pricing tier to which the SKU applies.
+	Tier *string `pulumi:"tier"`
+}
+
+// ResourceSkuInvokeResponseInput is an input type that accepts ResourceSkuInvokeResponseArgs and ResourceSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceSkuInvokeResponseInput` via:
+//
+//          ResourceSkuInvokeResponseArgs{...}
+type ResourceSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput
+	ToResourceSkuInvokeResponseOutputWithContext(context.Context) ResourceSkuInvokeResponseOutput
+}
+
+// Represents the SKU name and Azure pricing tier for Analysis Services resource.
+type ResourceSkuInvokeResponseArgs struct {
+	// The number of instances in the read only query pool.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Name of the SKU level.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Azure pricing tier to which the SKU applies.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (ResourceSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return i.ToResourceSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceSkuInvokeResponseArgs) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuInvokeResponseOutput)
+}
+
+// Represents the SKU name and Azure pricing tier for Analysis Services resource.
+type ResourceSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutput() ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceSkuInvokeResponseOutput) ToResourceSkuInvokeResponseOutputWithContext(ctx context.Context) ResourceSkuInvokeResponseOutput {
+	return o
+}
+
+// The number of instances in the read only query pool.
+func (o ResourceSkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Name of the SKU level.
+func (o ResourceSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the Azure pricing tier to which the SKU applies.
+func (o ResourceSkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// Represents the SKU name and Azure pricing tier for Analysis Services resource.
 type ResourceSkuResponse struct {
 	// The number of instances in the read only query pool.
 	Capacity *int `pulumi:"capacity"`
@@ -1337,6 +1665,61 @@ func (o ServerAdministratorsPtrOutput) Members() pulumi.StringArrayOutput {
 }
 
 // An array of administrator user identities.
+type ServerAdministratorsInvokeResponse struct {
+	// An array of administrator user identities.
+	Members []string `pulumi:"members"`
+}
+
+// ServerAdministratorsInvokeResponseInput is an input type that accepts ServerAdministratorsInvokeResponseArgs and ServerAdministratorsInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerAdministratorsInvokeResponseInput` via:
+//
+//          ServerAdministratorsInvokeResponseArgs{...}
+type ServerAdministratorsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerAdministratorsInvokeResponseOutput() ServerAdministratorsInvokeResponseOutput
+	ToServerAdministratorsInvokeResponseOutputWithContext(context.Context) ServerAdministratorsInvokeResponseOutput
+}
+
+// An array of administrator user identities.
+type ServerAdministratorsInvokeResponseArgs struct {
+	// An array of administrator user identities.
+	Members pulumi.StringArrayInput `pulumi:"members"`
+}
+
+func (ServerAdministratorsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAdministratorsInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerAdministratorsInvokeResponseArgs) ToServerAdministratorsInvokeResponseOutput() ServerAdministratorsInvokeResponseOutput {
+	return i.ToServerAdministratorsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerAdministratorsInvokeResponseArgs) ToServerAdministratorsInvokeResponseOutputWithContext(ctx context.Context) ServerAdministratorsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAdministratorsInvokeResponseOutput)
+}
+
+// An array of administrator user identities.
+type ServerAdministratorsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerAdministratorsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAdministratorsInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerAdministratorsInvokeResponseOutput) ToServerAdministratorsInvokeResponseOutput() ServerAdministratorsInvokeResponseOutput {
+	return o
+}
+
+func (o ServerAdministratorsInvokeResponseOutput) ToServerAdministratorsInvokeResponseOutputWithContext(ctx context.Context) ServerAdministratorsInvokeResponseOutput {
+	return o
+}
+
+// An array of administrator user identities.
+func (o ServerAdministratorsInvokeResponseOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerAdministratorsInvokeResponse) []string { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+// An array of administrator user identities.
 type ServerAdministratorsResponse struct {
 	// An array of administrator user identities.
 	Members []string `pulumi:"members"`
@@ -1473,22 +1856,28 @@ func (o ServerAdministratorsResponsePtrOutput) Members() pulumi.StringArrayOutpu
 func init() {
 	pulumi.RegisterOutputType(GatewayDetailsOutput{})
 	pulumi.RegisterOutputType(GatewayDetailsPtrOutput{})
+	pulumi.RegisterOutputType(GatewayDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GatewayDetailsResponseOutput{})
 	pulumi.RegisterOutputType(GatewayDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPv4FirewallRuleOutput{})
 	pulumi.RegisterOutputType(IPv4FirewallRuleArrayOutput{})
+	pulumi.RegisterOutputType(IPv4FirewallRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IPv4FirewallRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IPv4FirewallRuleResponseOutput{})
 	pulumi.RegisterOutputType(IPv4FirewallRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(IPv4FirewallSettingsOutput{})
 	pulumi.RegisterOutputType(IPv4FirewallSettingsPtrOutput{})
+	pulumi.RegisterOutputType(IPv4FirewallSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IPv4FirewallSettingsResponseOutput{})
 	pulumi.RegisterOutputType(IPv4FirewallSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsPtrOutput{})
+	pulumi.RegisterOutputType(ServerAdministratorsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsResponseOutput{})
 	pulumi.RegisterOutputType(ServerAdministratorsResponsePtrOutput{})
 }

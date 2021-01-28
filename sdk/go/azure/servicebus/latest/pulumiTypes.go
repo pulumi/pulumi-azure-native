@@ -183,6 +183,79 @@ func (o ActionPtrOutput) SqlExpression() pulumi.StringPtrOutput {
 }
 
 // Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+type ActionInvokeResponse struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
+	// SQL expression. e.g. MyProperty='ABC'
+	SqlExpression *string `pulumi:"sqlExpression"`
+}
+
+// ActionInvokeResponseInput is an input type that accepts ActionInvokeResponseArgs and ActionInvokeResponseOutput values.
+// You can construct a concrete instance of `ActionInvokeResponseInput` via:
+//
+//          ActionInvokeResponseArgs{...}
+type ActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToActionInvokeResponseOutput() ActionInvokeResponseOutput
+	ToActionInvokeResponseOutputWithContext(context.Context) ActionInvokeResponseOutput
+}
+
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+type ActionInvokeResponseArgs struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
+	// SQL expression. e.g. MyProperty='ABC'
+	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
+}
+
+func (ActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionInvokeResponse)(nil)).Elem()
+}
+
+func (i ActionInvokeResponseArgs) ToActionInvokeResponseOutput() ActionInvokeResponseOutput {
+	return i.ToActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ActionInvokeResponseArgs) ToActionInvokeResponseOutputWithContext(ctx context.Context) ActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionInvokeResponseOutput)
+}
+
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+type ActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionInvokeResponse)(nil)).Elem()
+}
+
+func (o ActionInvokeResponseOutput) ToActionInvokeResponseOutput() ActionInvokeResponseOutput {
+	return o
+}
+
+func (o ActionInvokeResponseOutput) ToActionInvokeResponseOutputWithContext(ctx context.Context) ActionInvokeResponseOutput {
+	return o
+}
+
+// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+func (o ActionInvokeResponseOutput) CompatibilityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ActionInvokeResponse) *int { return v.CompatibilityLevel }).(pulumi.IntPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o ActionInvokeResponseOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActionInvokeResponse) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
+}
+
+// SQL expression. e.g. MyProperty='ABC'
+func (o ActionInvokeResponseOutput) SqlExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionInvokeResponse) *string { return v.SqlExpression }).(pulumi.StringPtrOutput)
+}
+
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
 type ActionResponse struct {
 	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
@@ -660,6 +733,142 @@ func (o CorrelationFilterPtrOutput) To() pulumi.StringPtrOutput {
 }
 
 // Represents the correlation filter expression.
+type CorrelationFilterInvokeResponse struct {
+	// Content type of the message.
+	ContentType *string `pulumi:"contentType"`
+	// Identifier of the correlation.
+	CorrelationId *string `pulumi:"correlationId"`
+	// Application specific label.
+	Label *string `pulumi:"label"`
+	// Identifier of the message.
+	MessageId *string `pulumi:"messageId"`
+	// dictionary object for custom filters
+	Properties map[string]string `pulumi:"properties"`
+	// Address of the queue to reply to.
+	ReplyTo *string `pulumi:"replyTo"`
+	// Session identifier to reply to.
+	ReplyToSessionId *string `pulumi:"replyToSessionId"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
+	// Session identifier.
+	SessionId *string `pulumi:"sessionId"`
+	// Address to send to.
+	To *string `pulumi:"to"`
+}
+
+// CorrelationFilterInvokeResponseInput is an input type that accepts CorrelationFilterInvokeResponseArgs and CorrelationFilterInvokeResponseOutput values.
+// You can construct a concrete instance of `CorrelationFilterInvokeResponseInput` via:
+//
+//          CorrelationFilterInvokeResponseArgs{...}
+type CorrelationFilterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCorrelationFilterInvokeResponseOutput() CorrelationFilterInvokeResponseOutput
+	ToCorrelationFilterInvokeResponseOutputWithContext(context.Context) CorrelationFilterInvokeResponseOutput
+}
+
+// Represents the correlation filter expression.
+type CorrelationFilterInvokeResponseArgs struct {
+	// Content type of the message.
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	// Identifier of the correlation.
+	CorrelationId pulumi.StringPtrInput `pulumi:"correlationId"`
+	// Application specific label.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Identifier of the message.
+	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
+	// dictionary object for custom filters
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Address of the queue to reply to.
+	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
+	// Session identifier to reply to.
+	ReplyToSessionId pulumi.StringPtrInput `pulumi:"replyToSessionId"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
+	// Session identifier.
+	SessionId pulumi.StringPtrInput `pulumi:"sessionId"`
+	// Address to send to.
+	To pulumi.StringPtrInput `pulumi:"to"`
+}
+
+func (CorrelationFilterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorrelationFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i CorrelationFilterInvokeResponseArgs) ToCorrelationFilterInvokeResponseOutput() CorrelationFilterInvokeResponseOutput {
+	return i.ToCorrelationFilterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CorrelationFilterInvokeResponseArgs) ToCorrelationFilterInvokeResponseOutputWithContext(ctx context.Context) CorrelationFilterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorrelationFilterInvokeResponseOutput)
+}
+
+// Represents the correlation filter expression.
+type CorrelationFilterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CorrelationFilterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorrelationFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o CorrelationFilterInvokeResponseOutput) ToCorrelationFilterInvokeResponseOutput() CorrelationFilterInvokeResponseOutput {
+	return o
+}
+
+func (o CorrelationFilterInvokeResponseOutput) ToCorrelationFilterInvokeResponseOutputWithContext(ctx context.Context) CorrelationFilterInvokeResponseOutput {
+	return o
+}
+
+// Content type of the message.
+func (o CorrelationFilterInvokeResponseOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterInvokeResponse) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the correlation.
+func (o CorrelationFilterInvokeResponseOutput) CorrelationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterInvokeResponse) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
+}
+
+// Application specific label.
+func (o CorrelationFilterInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the message.
+func (o CorrelationFilterInvokeResponseOutput) MessageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterInvokeResponse) *string { return v.MessageId }).(pulumi.StringPtrOutput)
+}
+
+// dictionary object for custom filters
+func (o CorrelationFilterInvokeResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CorrelationFilterInvokeResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Address of the queue to reply to.
+func (o CorrelationFilterInvokeResponseOutput) ReplyTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterInvokeResponse) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+}
+
+// Session identifier to reply to.
+func (o CorrelationFilterInvokeResponseOutput) ReplyToSessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterInvokeResponse) *string { return v.ReplyToSessionId }).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o CorrelationFilterInvokeResponseOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterInvokeResponse) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
+}
+
+// Session identifier.
+func (o CorrelationFilterInvokeResponseOutput) SessionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterInvokeResponse) *string { return v.SessionId }).(pulumi.StringPtrOutput)
+}
+
+// Address to send to.
+func (o CorrelationFilterInvokeResponseOutput) To() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CorrelationFilterInvokeResponse) *string { return v.To }).(pulumi.StringPtrOutput)
+}
+
+// Represents the correlation filter expression.
 type CorrelationFilterResponse struct {
 	// Content type of the message.
 	ContentType *string `pulumi:"contentType"`
@@ -962,6 +1171,97 @@ func (o CorrelationFilterResponsePtrOutput) To() pulumi.StringPtrOutput {
 		}
 		return v.To
 	}).(pulumi.StringPtrOutput)
+}
+
+// Message Count Details.
+type MessageCountDetailsInvokeResponse struct {
+	// Number of active messages in the queue, topic, or subscription.
+	ActiveMessageCount float64 `pulumi:"activeMessageCount"`
+	// Number of messages that are dead lettered.
+	DeadLetterMessageCount float64 `pulumi:"deadLetterMessageCount"`
+	// Number of scheduled messages.
+	ScheduledMessageCount float64 `pulumi:"scheduledMessageCount"`
+	// Number of messages transferred into dead letters.
+	TransferDeadLetterMessageCount float64 `pulumi:"transferDeadLetterMessageCount"`
+	// Number of messages transferred to another queue, topic, or subscription.
+	TransferMessageCount float64 `pulumi:"transferMessageCount"`
+}
+
+// MessageCountDetailsInvokeResponseInput is an input type that accepts MessageCountDetailsInvokeResponseArgs and MessageCountDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `MessageCountDetailsInvokeResponseInput` via:
+//
+//          MessageCountDetailsInvokeResponseArgs{...}
+type MessageCountDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMessageCountDetailsInvokeResponseOutput() MessageCountDetailsInvokeResponseOutput
+	ToMessageCountDetailsInvokeResponseOutputWithContext(context.Context) MessageCountDetailsInvokeResponseOutput
+}
+
+// Message Count Details.
+type MessageCountDetailsInvokeResponseArgs struct {
+	// Number of active messages in the queue, topic, or subscription.
+	ActiveMessageCount pulumi.Float64Input `pulumi:"activeMessageCount"`
+	// Number of messages that are dead lettered.
+	DeadLetterMessageCount pulumi.Float64Input `pulumi:"deadLetterMessageCount"`
+	// Number of scheduled messages.
+	ScheduledMessageCount pulumi.Float64Input `pulumi:"scheduledMessageCount"`
+	// Number of messages transferred into dead letters.
+	TransferDeadLetterMessageCount pulumi.Float64Input `pulumi:"transferDeadLetterMessageCount"`
+	// Number of messages transferred to another queue, topic, or subscription.
+	TransferMessageCount pulumi.Float64Input `pulumi:"transferMessageCount"`
+}
+
+func (MessageCountDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageCountDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i MessageCountDetailsInvokeResponseArgs) ToMessageCountDetailsInvokeResponseOutput() MessageCountDetailsInvokeResponseOutput {
+	return i.ToMessageCountDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MessageCountDetailsInvokeResponseArgs) ToMessageCountDetailsInvokeResponseOutputWithContext(ctx context.Context) MessageCountDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsInvokeResponseOutput)
+}
+
+// Message Count Details.
+type MessageCountDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MessageCountDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageCountDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o MessageCountDetailsInvokeResponseOutput) ToMessageCountDetailsInvokeResponseOutput() MessageCountDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o MessageCountDetailsInvokeResponseOutput) ToMessageCountDetailsInvokeResponseOutputWithContext(ctx context.Context) MessageCountDetailsInvokeResponseOutput {
+	return o
+}
+
+// Number of active messages in the queue, topic, or subscription.
+func (o MessageCountDetailsInvokeResponseOutput) ActiveMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsInvokeResponse) float64 { return v.ActiveMessageCount }).(pulumi.Float64Output)
+}
+
+// Number of messages that are dead lettered.
+func (o MessageCountDetailsInvokeResponseOutput) DeadLetterMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsInvokeResponse) float64 { return v.DeadLetterMessageCount }).(pulumi.Float64Output)
+}
+
+// Number of scheduled messages.
+func (o MessageCountDetailsInvokeResponseOutput) ScheduledMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsInvokeResponse) float64 { return v.ScheduledMessageCount }).(pulumi.Float64Output)
+}
+
+// Number of messages transferred into dead letters.
+func (o MessageCountDetailsInvokeResponseOutput) TransferDeadLetterMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsInvokeResponse) float64 { return v.TransferDeadLetterMessageCount }).(pulumi.Float64Output)
+}
+
+// Number of messages transferred to another queue, topic, or subscription.
+func (o MessageCountDetailsInvokeResponseOutput) TransferMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsInvokeResponse) float64 { return v.TransferMessageCount }).(pulumi.Float64Output)
 }
 
 // Message Count Details.
@@ -1284,6 +1584,115 @@ func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOu
 }
 
 // Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesInvokeResponse struct {
+	// The IP Filter Action
+	Action *string `pulumi:"action"`
+	// IP Mask
+	IpMask *string `pulumi:"ipMask"`
+}
+
+// NWRuleSetIpRulesInvokeResponseInput is an input type that accepts NWRuleSetIpRulesInvokeResponseArgs and NWRuleSetIpRulesInvokeResponseOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesInvokeResponseInput` via:
+//
+//          NWRuleSetIpRulesInvokeResponseArgs{...}
+type NWRuleSetIpRulesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesInvokeResponseOutput() NWRuleSetIpRulesInvokeResponseOutput
+	ToNWRuleSetIpRulesInvokeResponseOutputWithContext(context.Context) NWRuleSetIpRulesInvokeResponseOutput
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesInvokeResponseArgs struct {
+	// The IP Filter Action
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// IP Mask
+	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
+}
+
+func (NWRuleSetIpRulesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRulesInvokeResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesInvokeResponseArgs) ToNWRuleSetIpRulesInvokeResponseOutput() NWRuleSetIpRulesInvokeResponseOutput {
+	return i.ToNWRuleSetIpRulesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesInvokeResponseArgs) ToNWRuleSetIpRulesInvokeResponseOutputWithContext(ctx context.Context) NWRuleSetIpRulesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesInvokeResponseOutput)
+}
+
+// NWRuleSetIpRulesInvokeResponseArrayInput is an input type that accepts NWRuleSetIpRulesInvokeResponseArray and NWRuleSetIpRulesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NWRuleSetIpRulesInvokeResponseArrayInput` via:
+//
+//          NWRuleSetIpRulesInvokeResponseArray{ NWRuleSetIpRulesInvokeResponseArgs{...} }
+type NWRuleSetIpRulesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNWRuleSetIpRulesInvokeResponseArrayOutput() NWRuleSetIpRulesInvokeResponseArrayOutput
+	ToNWRuleSetIpRulesInvokeResponseArrayOutputWithContext(context.Context) NWRuleSetIpRulesInvokeResponseArrayOutput
+}
+
+type NWRuleSetIpRulesInvokeResponseArray []NWRuleSetIpRulesInvokeResponseInput
+
+func (NWRuleSetIpRulesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRulesInvokeResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetIpRulesInvokeResponseArray) ToNWRuleSetIpRulesInvokeResponseArrayOutput() NWRuleSetIpRulesInvokeResponseArrayOutput {
+	return i.ToNWRuleSetIpRulesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetIpRulesInvokeResponseArray) ToNWRuleSetIpRulesInvokeResponseArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetIpRulesInvokeResponseArrayOutput)
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
+type NWRuleSetIpRulesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetIpRulesInvokeResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesInvokeResponseOutput) ToNWRuleSetIpRulesInvokeResponseOutput() NWRuleSetIpRulesInvokeResponseOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesInvokeResponseOutput) ToNWRuleSetIpRulesInvokeResponseOutputWithContext(ctx context.Context) NWRuleSetIpRulesInvokeResponseOutput {
+	return o
+}
+
+// The IP Filter Action
+func (o NWRuleSetIpRulesInvokeResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRulesInvokeResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// IP Mask
+func (o NWRuleSetIpRulesInvokeResponseOutput) IpMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NWRuleSetIpRulesInvokeResponse) *string { return v.IpMask }).(pulumi.StringPtrOutput)
+}
+
+type NWRuleSetIpRulesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetIpRulesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetIpRulesInvokeResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetIpRulesInvokeResponseArrayOutput) ToNWRuleSetIpRulesInvokeResponseArrayOutput() NWRuleSetIpRulesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesInvokeResponseArrayOutput) ToNWRuleSetIpRulesInvokeResponseArrayOutputWithContext(ctx context.Context) NWRuleSetIpRulesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetIpRulesInvokeResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetIpRulesInvokeResponse {
+		return vs[0].([]NWRuleSetIpRulesInvokeResponse)[vs[1].(int)]
+	}).(NWRuleSetIpRulesInvokeResponseOutput)
+}
+
+// Description of NetWorkRuleSet - IpRules resource.
 type NWRuleSetIpRulesResponse struct {
 	// The IP Filter Action
 	Action *string `pulumi:"action"`
@@ -1499,6 +1908,115 @@ func (o NWRuleSetVirtualNetworkRulesArrayOutput) Index(i pulumi.IntInput) NWRule
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetVirtualNetworkRules {
 		return vs[0].([]NWRuleSetVirtualNetworkRules)[vs[1].(int)]
 	}).(NWRuleSetVirtualNetworkRulesOutput)
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesInvokeResponse struct {
+	// Value that indicates whether to ignore missing VNet Service Endpoint
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// Subnet properties
+	Subnet *SubnetInvokeResponse `pulumi:"subnet"`
+}
+
+// NWRuleSetVirtualNetworkRulesInvokeResponseInput is an input type that accepts NWRuleSetVirtualNetworkRulesInvokeResponseArgs and NWRuleSetVirtualNetworkRulesInvokeResponseOutput values.
+// You can construct a concrete instance of `NWRuleSetVirtualNetworkRulesInvokeResponseInput` via:
+//
+//          NWRuleSetVirtualNetworkRulesInvokeResponseArgs{...}
+type NWRuleSetVirtualNetworkRulesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNWRuleSetVirtualNetworkRulesInvokeResponseOutput() NWRuleSetVirtualNetworkRulesInvokeResponseOutput
+	ToNWRuleSetVirtualNetworkRulesInvokeResponseOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseOutput
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesInvokeResponseArgs struct {
+	// Value that indicates whether to ignore missing VNet Service Endpoint
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
+	// Subnet properties
+	Subnet SubnetInvokeResponsePtrInput `pulumi:"subnet"`
+}
+
+func (NWRuleSetVirtualNetworkRulesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetVirtualNetworkRulesInvokeResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetVirtualNetworkRulesInvokeResponseArgs) ToNWRuleSetVirtualNetworkRulesInvokeResponseOutput() NWRuleSetVirtualNetworkRulesInvokeResponseOutput {
+	return i.ToNWRuleSetVirtualNetworkRulesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetVirtualNetworkRulesInvokeResponseArgs) ToNWRuleSetVirtualNetworkRulesInvokeResponseOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesInvokeResponseOutput)
+}
+
+// NWRuleSetVirtualNetworkRulesInvokeResponseArrayInput is an input type that accepts NWRuleSetVirtualNetworkRulesInvokeResponseArray and NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NWRuleSetVirtualNetworkRulesInvokeResponseArrayInput` via:
+//
+//          NWRuleSetVirtualNetworkRulesInvokeResponseArray{ NWRuleSetVirtualNetworkRulesInvokeResponseArgs{...} }
+type NWRuleSetVirtualNetworkRulesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput() NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput
+	ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutputWithContext(context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput
+}
+
+type NWRuleSetVirtualNetworkRulesInvokeResponseArray []NWRuleSetVirtualNetworkRulesInvokeResponseInput
+
+func (NWRuleSetVirtualNetworkRulesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetVirtualNetworkRulesInvokeResponse)(nil)).Elem()
+}
+
+func (i NWRuleSetVirtualNetworkRulesInvokeResponseArray) ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput() NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput {
+	return i.ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NWRuleSetVirtualNetworkRulesInvokeResponseArray) ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput)
+}
+
+// Description of VirtualNetworkRules - NetworkRules resource.
+type NWRuleSetVirtualNetworkRulesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetVirtualNetworkRulesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NWRuleSetVirtualNetworkRulesInvokeResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseOutput) ToNWRuleSetVirtualNetworkRulesInvokeResponseOutput() NWRuleSetVirtualNetworkRulesInvokeResponseOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseOutput) ToNWRuleSetVirtualNetworkRulesInvokeResponseOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseOutput {
+	return o
+}
+
+// Value that indicates whether to ignore missing VNet Service Endpoint
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesInvokeResponse) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+// Subnet properties
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseOutput) Subnet() SubnetInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NWRuleSetVirtualNetworkRulesInvokeResponse) *SubnetInvokeResponse { return v.Subnet }).(SubnetInvokeResponsePtrOutput)
+}
+
+type NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NWRuleSetVirtualNetworkRulesInvokeResponse)(nil)).Elem()
+}
+
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput) ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput() NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput) ToNWRuleSetVirtualNetworkRulesInvokeResponseArrayOutputWithContext(ctx context.Context) NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput) Index(i pulumi.IntInput) NWRuleSetVirtualNetworkRulesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NWRuleSetVirtualNetworkRulesInvokeResponse {
+		return vs[0].([]NWRuleSetVirtualNetworkRulesInvokeResponse)[vs[1].(int)]
+	}).(NWRuleSetVirtualNetworkRulesInvokeResponseOutput)
 }
 
 // Description of VirtualNetworkRules - NetworkRules resource.
@@ -1780,6 +2298,79 @@ func (o SBSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// SKU of the namespace.
+type SBSkuInvokeResponse struct {
+	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+	Capacity *int `pulumi:"capacity"`
+	// Name of this SKU.
+	Name string `pulumi:"name"`
+	// The billing tier of this particular SKU.
+	Tier *string `pulumi:"tier"`
+}
+
+// SBSkuInvokeResponseInput is an input type that accepts SBSkuInvokeResponseArgs and SBSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SBSkuInvokeResponseInput` via:
+//
+//          SBSkuInvokeResponseArgs{...}
+type SBSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSBSkuInvokeResponseOutput() SBSkuInvokeResponseOutput
+	ToSBSkuInvokeResponseOutputWithContext(context.Context) SBSkuInvokeResponseOutput
+}
+
+// SKU of the namespace.
+type SBSkuInvokeResponseArgs struct {
+	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Name of this SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The billing tier of this particular SKU.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SBSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SBSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SBSkuInvokeResponseArgs) ToSBSkuInvokeResponseOutput() SBSkuInvokeResponseOutput {
+	return i.ToSBSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SBSkuInvokeResponseArgs) ToSBSkuInvokeResponseOutputWithContext(ctx context.Context) SBSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SBSkuInvokeResponseOutput)
+}
+
+// SKU of the namespace.
+type SBSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SBSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SBSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SBSkuInvokeResponseOutput) ToSBSkuInvokeResponseOutput() SBSkuInvokeResponseOutput {
+	return o
+}
+
+func (o SBSkuInvokeResponseOutput) ToSBSkuInvokeResponseOutputWithContext(ctx context.Context) SBSkuInvokeResponseOutput {
+	return o
+}
+
+// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
+func (o SBSkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SBSkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Name of this SKU.
+func (o SBSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SBSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The billing tier of this particular SKU.
+func (o SBSkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SBSkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 // SKU of the namespace.
@@ -2127,6 +2718,79 @@ func (o SqlFilterPtrOutput) SqlExpression() pulumi.StringPtrOutput {
 }
 
 // Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+type SqlFilterInvokeResponse struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing *bool `pulumi:"requiresPreprocessing"`
+	// The SQL expression. e.g. MyProperty='ABC'
+	SqlExpression *string `pulumi:"sqlExpression"`
+}
+
+// SqlFilterInvokeResponseInput is an input type that accepts SqlFilterInvokeResponseArgs and SqlFilterInvokeResponseOutput values.
+// You can construct a concrete instance of `SqlFilterInvokeResponseInput` via:
+//
+//          SqlFilterInvokeResponseArgs{...}
+type SqlFilterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSqlFilterInvokeResponseOutput() SqlFilterInvokeResponseOutput
+	ToSqlFilterInvokeResponseOutputWithContext(context.Context) SqlFilterInvokeResponseOutput
+}
+
+// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+type SqlFilterInvokeResponseArgs struct {
+	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+	CompatibilityLevel pulumi.IntPtrInput `pulumi:"compatibilityLevel"`
+	// Value that indicates whether the rule action requires preprocessing.
+	RequiresPreprocessing pulumi.BoolPtrInput `pulumi:"requiresPreprocessing"`
+	// The SQL expression. e.g. MyProperty='ABC'
+	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
+}
+
+func (SqlFilterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i SqlFilterInvokeResponseArgs) ToSqlFilterInvokeResponseOutput() SqlFilterInvokeResponseOutput {
+	return i.ToSqlFilterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SqlFilterInvokeResponseArgs) ToSqlFilterInvokeResponseOutputWithContext(ctx context.Context) SqlFilterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlFilterInvokeResponseOutput)
+}
+
+// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+type SqlFilterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlFilterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o SqlFilterInvokeResponseOutput) ToSqlFilterInvokeResponseOutput() SqlFilterInvokeResponseOutput {
+	return o
+}
+
+func (o SqlFilterInvokeResponseOutput) ToSqlFilterInvokeResponseOutputWithContext(ctx context.Context) SqlFilterInvokeResponseOutput {
+	return o
+}
+
+// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+func (o SqlFilterInvokeResponseOutput) CompatibilityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlFilterInvokeResponse) *int { return v.CompatibilityLevel }).(pulumi.IntPtrOutput)
+}
+
+// Value that indicates whether the rule action requires preprocessing.
+func (o SqlFilterInvokeResponseOutput) RequiresPreprocessing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlFilterInvokeResponse) *bool { return v.RequiresPreprocessing }).(pulumi.BoolPtrOutput)
+}
+
+// The SQL expression. e.g. MyProperty='ABC'
+func (o SqlFilterInvokeResponseOutput) SqlExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlFilterInvokeResponse) *string { return v.SqlExpression }).(pulumi.StringPtrOutput)
+}
+
+// Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
 type SqlFilterResponse struct {
 	// This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
 	CompatibilityLevel *int `pulumi:"compatibilityLevel"`
@@ -2433,6 +3097,140 @@ func (o SubnetPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Properties supplied for Subnet
+type SubnetInvokeResponse struct {
+	// Resource ID of Virtual Network Subnet
+	Id string `pulumi:"id"`
+}
+
+// SubnetInvokeResponseInput is an input type that accepts SubnetInvokeResponseArgs and SubnetInvokeResponseOutput values.
+// You can construct a concrete instance of `SubnetInvokeResponseInput` via:
+//
+//          SubnetInvokeResponseArgs{...}
+type SubnetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubnetInvokeResponseOutput() SubnetInvokeResponseOutput
+	ToSubnetInvokeResponseOutputWithContext(context.Context) SubnetInvokeResponseOutput
+}
+
+// Properties supplied for Subnet
+type SubnetInvokeResponseArgs struct {
+	// Resource ID of Virtual Network Subnet
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SubnetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (i SubnetInvokeResponseArgs) ToSubnetInvokeResponseOutput() SubnetInvokeResponseOutput {
+	return i.ToSubnetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubnetInvokeResponseArgs) ToSubnetInvokeResponseOutputWithContext(ctx context.Context) SubnetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetInvokeResponseOutput)
+}
+
+func (i SubnetInvokeResponseArgs) ToSubnetInvokeResponsePtrOutput() SubnetInvokeResponsePtrOutput {
+	return i.ToSubnetInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SubnetInvokeResponseArgs) ToSubnetInvokeResponsePtrOutputWithContext(ctx context.Context) SubnetInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetInvokeResponseOutput).ToSubnetInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SubnetInvokeResponsePtrInput is an input type that accepts SubnetInvokeResponseArgs, SubnetInvokeResponsePtr and SubnetInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SubnetInvokeResponsePtrInput` via:
+//
+//          SubnetInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SubnetInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSubnetInvokeResponsePtrOutput() SubnetInvokeResponsePtrOutput
+	ToSubnetInvokeResponsePtrOutputWithContext(context.Context) SubnetInvokeResponsePtrOutput
+}
+
+type subnetInvokeResponsePtrType SubnetInvokeResponseArgs
+
+func SubnetInvokeResponsePtr(v *SubnetInvokeResponseArgs) SubnetInvokeResponsePtrInput {
+	return (*subnetInvokeResponsePtrType)(v)
+}
+
+func (*subnetInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (i *subnetInvokeResponsePtrType) ToSubnetInvokeResponsePtrOutput() SubnetInvokeResponsePtrOutput {
+	return i.ToSubnetInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *subnetInvokeResponsePtrType) ToSubnetInvokeResponsePtrOutputWithContext(ctx context.Context) SubnetInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetInvokeResponsePtrOutput)
+}
+
+// Properties supplied for Subnet
+type SubnetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubnetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (o SubnetInvokeResponseOutput) ToSubnetInvokeResponseOutput() SubnetInvokeResponseOutput {
+	return o
+}
+
+func (o SubnetInvokeResponseOutput) ToSubnetInvokeResponseOutputWithContext(ctx context.Context) SubnetInvokeResponseOutput {
+	return o
+}
+
+func (o SubnetInvokeResponseOutput) ToSubnetInvokeResponsePtrOutput() SubnetInvokeResponsePtrOutput {
+	return o.ToSubnetInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SubnetInvokeResponseOutput) ToSubnetInvokeResponsePtrOutputWithContext(ctx context.Context) SubnetInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SubnetInvokeResponse) *SubnetInvokeResponse {
+		return &v
+	}).(SubnetInvokeResponsePtrOutput)
+}
+
+// Resource ID of Virtual Network Subnet
+func (o SubnetInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SubnetInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SubnetInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetInvokeResponse)(nil)).Elem()
+}
+
+func (o SubnetInvokeResponsePtrOutput) ToSubnetInvokeResponsePtrOutput() SubnetInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SubnetInvokeResponsePtrOutput) ToSubnetInvokeResponsePtrOutputWithContext(ctx context.Context) SubnetInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SubnetInvokeResponsePtrOutput) Elem() SubnetInvokeResponseOutput {
+	return o.ApplyT(func(v *SubnetInvokeResponse) SubnetInvokeResponse { return *v }).(SubnetInvokeResponseOutput)
+}
+
+// Resource ID of Virtual Network Subnet
+func (o SubnetInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubnetInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties supplied for Subnet
 type SubnetResponse struct {
 	// Resource ID of Virtual Network Subnet
 	Id string `pulumi:"id"`
@@ -2569,32 +3367,43 @@ func (o SubnetResponsePtrOutput) Id() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ActionOutput{})
 	pulumi.RegisterOutputType(ActionPtrOutput{})
+	pulumi.RegisterOutputType(ActionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ActionResponseOutput{})
 	pulumi.RegisterOutputType(ActionResponsePtrOutput{})
 	pulumi.RegisterOutputType(CorrelationFilterOutput{})
 	pulumi.RegisterOutputType(CorrelationFilterPtrOutput{})
+	pulumi.RegisterOutputType(CorrelationFilterInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CorrelationFilterResponseOutput{})
 	pulumi.RegisterOutputType(CorrelationFilterResponsePtrOutput{})
+	pulumi.RegisterOutputType(MessageCountDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MessageCountDetailsResponseOutput{})
 	pulumi.RegisterOutputType(MessageCountDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesArrayOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NWRuleSetIpRulesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesResponseOutput{})
 	pulumi.RegisterOutputType(NWRuleSetIpRulesResponseArrayOutput{})
 	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesOutput{})
 	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesArrayOutput{})
+	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesResponseOutput{})
 	pulumi.RegisterOutputType(NWRuleSetVirtualNetworkRulesResponseArrayOutput{})
 	pulumi.RegisterOutputType(SBSkuOutput{})
 	pulumi.RegisterOutputType(SBSkuPtrOutput{})
+	pulumi.RegisterOutputType(SBSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SBSkuResponseOutput{})
 	pulumi.RegisterOutputType(SBSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlFilterOutput{})
 	pulumi.RegisterOutputType(SqlFilterPtrOutput{})
+	pulumi.RegisterOutputType(SqlFilterInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SqlFilterResponseOutput{})
 	pulumi.RegisterOutputType(SqlFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubnetOutput{})
 	pulumi.RegisterOutputType(SubnetPtrOutput{})
+	pulumi.RegisterOutputType(SubnetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SubnetInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubnetResponseOutput{})
 	pulumi.RegisterOutputType(SubnetResponsePtrOutput{})
 }

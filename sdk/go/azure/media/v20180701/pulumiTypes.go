@@ -114,6 +114,109 @@ func (o AacAudioOutput) SamplingRate() pulumi.IntPtrOutput {
 }
 
 // Describes Advanced Audio Codec (AAC) audio encoding settings.
+type AacAudioInvokeResponse struct {
+	// The bitrate, in bits per second, of the output encoded audio.
+	Bitrate *int `pulumi:"bitrate"`
+	// The number of channels in the audio.
+	Channels *int `pulumi:"channels"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
+	OdataType string `pulumi:"odataType"`
+	// The encoding profile to be used when encoding audio with AAC.
+	Profile *string `pulumi:"profile"`
+	// The sampling rate to use for encoding in hertz.
+	SamplingRate *int `pulumi:"samplingRate"`
+}
+
+// AacAudioInvokeResponseInput is an input type that accepts AacAudioInvokeResponseArgs and AacAudioInvokeResponseOutput values.
+// You can construct a concrete instance of `AacAudioInvokeResponseInput` via:
+//
+//          AacAudioInvokeResponseArgs{...}
+type AacAudioInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAacAudioInvokeResponseOutput() AacAudioInvokeResponseOutput
+	ToAacAudioInvokeResponseOutputWithContext(context.Context) AacAudioInvokeResponseOutput
+}
+
+// Describes Advanced Audio Codec (AAC) audio encoding settings.
+type AacAudioInvokeResponseArgs struct {
+	// The bitrate, in bits per second, of the output encoded audio.
+	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
+	// The number of channels in the audio.
+	Channels pulumi.IntPtrInput `pulumi:"channels"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The encoding profile to be used when encoding audio with AAC.
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// The sampling rate to use for encoding in hertz.
+	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
+}
+
+func (AacAudioInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AacAudioInvokeResponse)(nil)).Elem()
+}
+
+func (i AacAudioInvokeResponseArgs) ToAacAudioInvokeResponseOutput() AacAudioInvokeResponseOutput {
+	return i.ToAacAudioInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AacAudioInvokeResponseArgs) ToAacAudioInvokeResponseOutputWithContext(ctx context.Context) AacAudioInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AacAudioInvokeResponseOutput)
+}
+
+// Describes Advanced Audio Codec (AAC) audio encoding settings.
+type AacAudioInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AacAudioInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AacAudioInvokeResponse)(nil)).Elem()
+}
+
+func (o AacAudioInvokeResponseOutput) ToAacAudioInvokeResponseOutput() AacAudioInvokeResponseOutput {
+	return o
+}
+
+func (o AacAudioInvokeResponseOutput) ToAacAudioInvokeResponseOutputWithContext(ctx context.Context) AacAudioInvokeResponseOutput {
+	return o
+}
+
+// The bitrate, in bits per second, of the output encoded audio.
+func (o AacAudioInvokeResponseOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AacAudioInvokeResponse) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
+}
+
+// The number of channels in the audio.
+func (o AacAudioInvokeResponseOutput) Channels() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AacAudioInvokeResponse) *int { return v.Channels }).(pulumi.IntPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o AacAudioInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AacAudioInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Audio'.
+func (o AacAudioInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AacAudioInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The encoding profile to be used when encoding audio with AAC.
+func (o AacAudioInvokeResponseOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AacAudioInvokeResponse) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// The sampling rate to use for encoding in hertz.
+func (o AacAudioInvokeResponseOutput) SamplingRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AacAudioInvokeResponse) *int { return v.SamplingRate }).(pulumi.IntPtrOutput)
+}
+
+// Describes Advanced Audio Codec (AAC) audio encoding settings.
 type AacAudioResponse struct {
 	// The bitrate, in bits per second, of the output encoded audio.
 	Bitrate *int `pulumi:"bitrate"`
@@ -366,6 +469,163 @@ func (o AbsoluteClipTimePtrOutput) OdataType() pulumi.StringPtrOutput {
 // The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
 func (o AbsoluteClipTimePtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AbsoluteClipTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Time
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the clip time as an absolute time position in the media file.  The absolute time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+type AbsoluteClipTimeInvokeResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AbsoluteClipTime'.
+	OdataType string `pulumi:"odataType"`
+	// The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
+	Time string `pulumi:"time"`
+}
+
+// AbsoluteClipTimeInvokeResponseInput is an input type that accepts AbsoluteClipTimeInvokeResponseArgs and AbsoluteClipTimeInvokeResponseOutput values.
+// You can construct a concrete instance of `AbsoluteClipTimeInvokeResponseInput` via:
+//
+//          AbsoluteClipTimeInvokeResponseArgs{...}
+type AbsoluteClipTimeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAbsoluteClipTimeInvokeResponseOutput() AbsoluteClipTimeInvokeResponseOutput
+	ToAbsoluteClipTimeInvokeResponseOutputWithContext(context.Context) AbsoluteClipTimeInvokeResponseOutput
+}
+
+// Specifies the clip time as an absolute time position in the media file.  The absolute time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+type AbsoluteClipTimeInvokeResponseArgs struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AbsoluteClipTime'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (AbsoluteClipTimeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AbsoluteClipTimeInvokeResponse)(nil)).Elem()
+}
+
+func (i AbsoluteClipTimeInvokeResponseArgs) ToAbsoluteClipTimeInvokeResponseOutput() AbsoluteClipTimeInvokeResponseOutput {
+	return i.ToAbsoluteClipTimeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AbsoluteClipTimeInvokeResponseArgs) ToAbsoluteClipTimeInvokeResponseOutputWithContext(ctx context.Context) AbsoluteClipTimeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteClipTimeInvokeResponseOutput)
+}
+
+func (i AbsoluteClipTimeInvokeResponseArgs) ToAbsoluteClipTimeInvokeResponsePtrOutput() AbsoluteClipTimeInvokeResponsePtrOutput {
+	return i.ToAbsoluteClipTimeInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AbsoluteClipTimeInvokeResponseArgs) ToAbsoluteClipTimeInvokeResponsePtrOutputWithContext(ctx context.Context) AbsoluteClipTimeInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteClipTimeInvokeResponseOutput).ToAbsoluteClipTimeInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AbsoluteClipTimeInvokeResponsePtrInput is an input type that accepts AbsoluteClipTimeInvokeResponseArgs, AbsoluteClipTimeInvokeResponsePtr and AbsoluteClipTimeInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AbsoluteClipTimeInvokeResponsePtrInput` via:
+//
+//          AbsoluteClipTimeInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AbsoluteClipTimeInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAbsoluteClipTimeInvokeResponsePtrOutput() AbsoluteClipTimeInvokeResponsePtrOutput
+	ToAbsoluteClipTimeInvokeResponsePtrOutputWithContext(context.Context) AbsoluteClipTimeInvokeResponsePtrOutput
+}
+
+type absoluteClipTimeInvokeResponsePtrType AbsoluteClipTimeInvokeResponseArgs
+
+func AbsoluteClipTimeInvokeResponsePtr(v *AbsoluteClipTimeInvokeResponseArgs) AbsoluteClipTimeInvokeResponsePtrInput {
+	return (*absoluteClipTimeInvokeResponsePtrType)(v)
+}
+
+func (*absoluteClipTimeInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AbsoluteClipTimeInvokeResponse)(nil)).Elem()
+}
+
+func (i *absoluteClipTimeInvokeResponsePtrType) ToAbsoluteClipTimeInvokeResponsePtrOutput() AbsoluteClipTimeInvokeResponsePtrOutput {
+	return i.ToAbsoluteClipTimeInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *absoluteClipTimeInvokeResponsePtrType) ToAbsoluteClipTimeInvokeResponsePtrOutputWithContext(ctx context.Context) AbsoluteClipTimeInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteClipTimeInvokeResponsePtrOutput)
+}
+
+// Specifies the clip time as an absolute time position in the media file.  The absolute time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
+type AbsoluteClipTimeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AbsoluteClipTimeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AbsoluteClipTimeInvokeResponse)(nil)).Elem()
+}
+
+func (o AbsoluteClipTimeInvokeResponseOutput) ToAbsoluteClipTimeInvokeResponseOutput() AbsoluteClipTimeInvokeResponseOutput {
+	return o
+}
+
+func (o AbsoluteClipTimeInvokeResponseOutput) ToAbsoluteClipTimeInvokeResponseOutputWithContext(ctx context.Context) AbsoluteClipTimeInvokeResponseOutput {
+	return o
+}
+
+func (o AbsoluteClipTimeInvokeResponseOutput) ToAbsoluteClipTimeInvokeResponsePtrOutput() AbsoluteClipTimeInvokeResponsePtrOutput {
+	return o.ToAbsoluteClipTimeInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AbsoluteClipTimeInvokeResponseOutput) ToAbsoluteClipTimeInvokeResponsePtrOutputWithContext(ctx context.Context) AbsoluteClipTimeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AbsoluteClipTimeInvokeResponse) *AbsoluteClipTimeInvokeResponse {
+		return &v
+	}).(AbsoluteClipTimeInvokeResponsePtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AbsoluteClipTime'.
+func (o AbsoluteClipTimeInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AbsoluteClipTimeInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
+func (o AbsoluteClipTimeInvokeResponseOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v AbsoluteClipTimeInvokeResponse) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type AbsoluteClipTimeInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AbsoluteClipTimeInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AbsoluteClipTimeInvokeResponse)(nil)).Elem()
+}
+
+func (o AbsoluteClipTimeInvokeResponsePtrOutput) ToAbsoluteClipTimeInvokeResponsePtrOutput() AbsoluteClipTimeInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AbsoluteClipTimeInvokeResponsePtrOutput) ToAbsoluteClipTimeInvokeResponsePtrOutputWithContext(ctx context.Context) AbsoluteClipTimeInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AbsoluteClipTimeInvokeResponsePtrOutput) Elem() AbsoluteClipTimeInvokeResponseOutput {
+	return o.ApplyT(func(v *AbsoluteClipTimeInvokeResponse) AbsoluteClipTimeInvokeResponse { return *v }).(AbsoluteClipTimeInvokeResponseOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AbsoluteClipTime'.
+func (o AbsoluteClipTimeInvokeResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AbsoluteClipTimeInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
+func (o AbsoluteClipTimeInvokeResponsePtrOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AbsoluteClipTimeInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -667,6 +927,142 @@ func (o AkamaiAccessControlPtrOutput) AkamaiSignatureHeaderAuthenticationKeyList
 }
 
 // Akamai access control
+type AkamaiAccessControlInvokeResponse struct {
+	// authentication key list
+	AkamaiSignatureHeaderAuthenticationKeyList []AkamaiSignatureHeaderAuthenticationKeyInvokeResponse `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
+}
+
+// AkamaiAccessControlInvokeResponseInput is an input type that accepts AkamaiAccessControlInvokeResponseArgs and AkamaiAccessControlInvokeResponseOutput values.
+// You can construct a concrete instance of `AkamaiAccessControlInvokeResponseInput` via:
+//
+//          AkamaiAccessControlInvokeResponseArgs{...}
+type AkamaiAccessControlInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAkamaiAccessControlInvokeResponseOutput() AkamaiAccessControlInvokeResponseOutput
+	ToAkamaiAccessControlInvokeResponseOutputWithContext(context.Context) AkamaiAccessControlInvokeResponseOutput
+}
+
+// Akamai access control
+type AkamaiAccessControlInvokeResponseArgs struct {
+	// authentication key list
+	AkamaiSignatureHeaderAuthenticationKeyList AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayInput `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
+}
+
+func (AkamaiAccessControlInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AkamaiAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i AkamaiAccessControlInvokeResponseArgs) ToAkamaiAccessControlInvokeResponseOutput() AkamaiAccessControlInvokeResponseOutput {
+	return i.ToAkamaiAccessControlInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AkamaiAccessControlInvokeResponseArgs) ToAkamaiAccessControlInvokeResponseOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlInvokeResponseOutput)
+}
+
+func (i AkamaiAccessControlInvokeResponseArgs) ToAkamaiAccessControlInvokeResponsePtrOutput() AkamaiAccessControlInvokeResponsePtrOutput {
+	return i.ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AkamaiAccessControlInvokeResponseArgs) ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlInvokeResponseOutput).ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AkamaiAccessControlInvokeResponsePtrInput is an input type that accepts AkamaiAccessControlInvokeResponseArgs, AkamaiAccessControlInvokeResponsePtr and AkamaiAccessControlInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AkamaiAccessControlInvokeResponsePtrInput` via:
+//
+//          AkamaiAccessControlInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AkamaiAccessControlInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAkamaiAccessControlInvokeResponsePtrOutput() AkamaiAccessControlInvokeResponsePtrOutput
+	ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(context.Context) AkamaiAccessControlInvokeResponsePtrOutput
+}
+
+type akamaiAccessControlInvokeResponsePtrType AkamaiAccessControlInvokeResponseArgs
+
+func AkamaiAccessControlInvokeResponsePtr(v *AkamaiAccessControlInvokeResponseArgs) AkamaiAccessControlInvokeResponsePtrInput {
+	return (*akamaiAccessControlInvokeResponsePtrType)(v)
+}
+
+func (*akamaiAccessControlInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AkamaiAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i *akamaiAccessControlInvokeResponsePtrType) ToAkamaiAccessControlInvokeResponsePtrOutput() AkamaiAccessControlInvokeResponsePtrOutput {
+	return i.ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *akamaiAccessControlInvokeResponsePtrType) ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlInvokeResponsePtrOutput)
+}
+
+// Akamai access control
+type AkamaiAccessControlInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AkamaiAccessControlInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AkamaiAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o AkamaiAccessControlInvokeResponseOutput) ToAkamaiAccessControlInvokeResponseOutput() AkamaiAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o AkamaiAccessControlInvokeResponseOutput) ToAkamaiAccessControlInvokeResponseOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o AkamaiAccessControlInvokeResponseOutput) ToAkamaiAccessControlInvokeResponsePtrOutput() AkamaiAccessControlInvokeResponsePtrOutput {
+	return o.ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AkamaiAccessControlInvokeResponseOutput) ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AkamaiAccessControlInvokeResponse) *AkamaiAccessControlInvokeResponse {
+		return &v
+	}).(AkamaiAccessControlInvokeResponsePtrOutput)
+}
+
+// authentication key list
+func (o AkamaiAccessControlInvokeResponseOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AkamaiAccessControlInvokeResponse) []AkamaiSignatureHeaderAuthenticationKeyInvokeResponse {
+		return v.AkamaiSignatureHeaderAuthenticationKeyList
+	}).(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput)
+}
+
+type AkamaiAccessControlInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AkamaiAccessControlInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AkamaiAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o AkamaiAccessControlInvokeResponsePtrOutput) ToAkamaiAccessControlInvokeResponsePtrOutput() AkamaiAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AkamaiAccessControlInvokeResponsePtrOutput) ToAkamaiAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AkamaiAccessControlInvokeResponsePtrOutput) Elem() AkamaiAccessControlInvokeResponseOutput {
+	return o.ApplyT(func(v *AkamaiAccessControlInvokeResponse) AkamaiAccessControlInvokeResponse { return *v }).(AkamaiAccessControlInvokeResponseOutput)
+}
+
+// authentication key list
+func (o AkamaiAccessControlInvokeResponsePtrOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *AkamaiAccessControlInvokeResponse) []AkamaiSignatureHeaderAuthenticationKeyInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AkamaiSignatureHeaderAuthenticationKeyList
+	}).(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput)
+}
+
+// Akamai access control
 type AkamaiAccessControlResponse struct {
 	// authentication key list
 	AkamaiSignatureHeaderAuthenticationKeyList []AkamaiSignatureHeaderAuthenticationKeyResponse `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
@@ -921,6 +1317,124 @@ func (o AkamaiSignatureHeaderAuthenticationKeyArrayOutput) Index(i pulumi.IntInp
 }
 
 // Akamai Signature Header authentication key.
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponse struct {
+	// authentication key
+	Base64Key *string `pulumi:"base64Key"`
+	// The expiration time of the authentication key.
+	Expiration *string `pulumi:"expiration"`
+	// identifier of the key
+	Identifier *string `pulumi:"identifier"`
+}
+
+// AkamaiSignatureHeaderAuthenticationKeyInvokeResponseInput is an input type that accepts AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs and AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `AkamaiSignatureHeaderAuthenticationKeyInvokeResponseInput` via:
+//
+//          AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs{...}
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput
+	ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutputWithContext(context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput
+}
+
+// Akamai Signature Header authentication key.
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs struct {
+	// authentication key
+	Base64Key pulumi.StringPtrInput `pulumi:"base64Key"`
+	// The expiration time of the authentication key.
+	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
+	// identifier of the key
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+}
+
+func (AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AkamaiSignatureHeaderAuthenticationKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput {
+	return i.ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutputWithContext(ctx context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput)
+}
+
+// AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayInput is an input type that accepts AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray and AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayInput` via:
+//
+//          AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray{ AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArgs{...} }
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput
+	ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutputWithContext(context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput
+}
+
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray []AkamaiSignatureHeaderAuthenticationKeyInvokeResponseInput
+
+func (AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AkamaiSignatureHeaderAuthenticationKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return i.ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArray) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutputWithContext(ctx context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput)
+}
+
+// Akamai Signature Header authentication key.
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AkamaiSignatureHeaderAuthenticationKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput {
+	return o
+}
+
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutputWithContext(ctx context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput {
+	return o
+}
+
+// authentication key
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) Base64Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyInvokeResponse) *string { return v.Base64Key }).(pulumi.StringPtrOutput)
+}
+
+// The expiration time of the authentication key.
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) Expiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyInvokeResponse) *string { return v.Expiration }).(pulumi.StringPtrOutput)
+}
+
+// identifier of the key
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AkamaiSignatureHeaderAuthenticationKeyInvokeResponse) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+type AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AkamaiSignatureHeaderAuthenticationKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput() AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput) ToAkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutputWithContext(ctx context.Context) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AkamaiSignatureHeaderAuthenticationKeyInvokeResponse {
+		return vs[0].([]AkamaiSignatureHeaderAuthenticationKeyInvokeResponse)[vs[1].(int)]
+	}).(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput)
+}
+
+// Akamai Signature Header authentication key.
 type AkamaiSignatureHeaderAuthenticationKeyResponse struct {
 	// authentication key
 	Base64Key *string `pulumi:"base64Key"`
@@ -1039,7 +1553,7 @@ func (o AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput) Index(i pulum
 }
 
 // The Asset File Storage encryption metadata.
-type AssetFileEncryptionMetadataResponse struct {
+type AssetFileEncryptionMetadataInvokeResponse struct {
 	// The Asset File Id.
 	AssetFileId string `pulumi:"assetFileId"`
 	// The Asset File name.
@@ -1048,19 +1562,19 @@ type AssetFileEncryptionMetadataResponse struct {
 	InitializationVector *string `pulumi:"initializationVector"`
 }
 
-// AssetFileEncryptionMetadataResponseInput is an input type that accepts AssetFileEncryptionMetadataResponseArgs and AssetFileEncryptionMetadataResponseOutput values.
-// You can construct a concrete instance of `AssetFileEncryptionMetadataResponseInput` via:
+// AssetFileEncryptionMetadataInvokeResponseInput is an input type that accepts AssetFileEncryptionMetadataInvokeResponseArgs and AssetFileEncryptionMetadataInvokeResponseOutput values.
+// You can construct a concrete instance of `AssetFileEncryptionMetadataInvokeResponseInput` via:
 //
-//          AssetFileEncryptionMetadataResponseArgs{...}
-type AssetFileEncryptionMetadataResponseInput interface {
+//          AssetFileEncryptionMetadataInvokeResponseArgs{...}
+type AssetFileEncryptionMetadataInvokeResponseInput interface {
 	pulumi.Input
 
-	ToAssetFileEncryptionMetadataResponseOutput() AssetFileEncryptionMetadataResponseOutput
-	ToAssetFileEncryptionMetadataResponseOutputWithContext(context.Context) AssetFileEncryptionMetadataResponseOutput
+	ToAssetFileEncryptionMetadataInvokeResponseOutput() AssetFileEncryptionMetadataInvokeResponseOutput
+	ToAssetFileEncryptionMetadataInvokeResponseOutputWithContext(context.Context) AssetFileEncryptionMetadataInvokeResponseOutput
 }
 
 // The Asset File Storage encryption metadata.
-type AssetFileEncryptionMetadataResponseArgs struct {
+type AssetFileEncryptionMetadataInvokeResponseArgs struct {
 	// The Asset File Id.
 	AssetFileId pulumi.StringInput `pulumi:"assetFileId"`
 	// The Asset File name.
@@ -1069,95 +1583,95 @@ type AssetFileEncryptionMetadataResponseArgs struct {
 	InitializationVector pulumi.StringPtrInput `pulumi:"initializationVector"`
 }
 
-func (AssetFileEncryptionMetadataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetFileEncryptionMetadataResponse)(nil)).Elem()
+func (AssetFileEncryptionMetadataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFileEncryptionMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (i AssetFileEncryptionMetadataResponseArgs) ToAssetFileEncryptionMetadataResponseOutput() AssetFileEncryptionMetadataResponseOutput {
-	return i.ToAssetFileEncryptionMetadataResponseOutputWithContext(context.Background())
+func (i AssetFileEncryptionMetadataInvokeResponseArgs) ToAssetFileEncryptionMetadataInvokeResponseOutput() AssetFileEncryptionMetadataInvokeResponseOutput {
+	return i.ToAssetFileEncryptionMetadataInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i AssetFileEncryptionMetadataResponseArgs) ToAssetFileEncryptionMetadataResponseOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetFileEncryptionMetadataResponseOutput)
+func (i AssetFileEncryptionMetadataInvokeResponseArgs) ToAssetFileEncryptionMetadataInvokeResponseOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFileEncryptionMetadataInvokeResponseOutput)
 }
 
-// AssetFileEncryptionMetadataResponseArrayInput is an input type that accepts AssetFileEncryptionMetadataResponseArray and AssetFileEncryptionMetadataResponseArrayOutput values.
-// You can construct a concrete instance of `AssetFileEncryptionMetadataResponseArrayInput` via:
+// AssetFileEncryptionMetadataInvokeResponseArrayInput is an input type that accepts AssetFileEncryptionMetadataInvokeResponseArray and AssetFileEncryptionMetadataInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AssetFileEncryptionMetadataInvokeResponseArrayInput` via:
 //
-//          AssetFileEncryptionMetadataResponseArray{ AssetFileEncryptionMetadataResponseArgs{...} }
-type AssetFileEncryptionMetadataResponseArrayInput interface {
+//          AssetFileEncryptionMetadataInvokeResponseArray{ AssetFileEncryptionMetadataInvokeResponseArgs{...} }
+type AssetFileEncryptionMetadataInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToAssetFileEncryptionMetadataResponseArrayOutput() AssetFileEncryptionMetadataResponseArrayOutput
-	ToAssetFileEncryptionMetadataResponseArrayOutputWithContext(context.Context) AssetFileEncryptionMetadataResponseArrayOutput
+	ToAssetFileEncryptionMetadataInvokeResponseArrayOutput() AssetFileEncryptionMetadataInvokeResponseArrayOutput
+	ToAssetFileEncryptionMetadataInvokeResponseArrayOutputWithContext(context.Context) AssetFileEncryptionMetadataInvokeResponseArrayOutput
 }
 
-type AssetFileEncryptionMetadataResponseArray []AssetFileEncryptionMetadataResponseInput
+type AssetFileEncryptionMetadataInvokeResponseArray []AssetFileEncryptionMetadataInvokeResponseInput
 
-func (AssetFileEncryptionMetadataResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetFileEncryptionMetadataResponse)(nil)).Elem()
+func (AssetFileEncryptionMetadataInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetFileEncryptionMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (i AssetFileEncryptionMetadataResponseArray) ToAssetFileEncryptionMetadataResponseArrayOutput() AssetFileEncryptionMetadataResponseArrayOutput {
-	return i.ToAssetFileEncryptionMetadataResponseArrayOutputWithContext(context.Background())
+func (i AssetFileEncryptionMetadataInvokeResponseArray) ToAssetFileEncryptionMetadataInvokeResponseArrayOutput() AssetFileEncryptionMetadataInvokeResponseArrayOutput {
+	return i.ToAssetFileEncryptionMetadataInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i AssetFileEncryptionMetadataResponseArray) ToAssetFileEncryptionMetadataResponseArrayOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetFileEncryptionMetadataResponseArrayOutput)
+func (i AssetFileEncryptionMetadataInvokeResponseArray) ToAssetFileEncryptionMetadataInvokeResponseArrayOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFileEncryptionMetadataInvokeResponseArrayOutput)
 }
 
 // The Asset File Storage encryption metadata.
-type AssetFileEncryptionMetadataResponseOutput struct{ *pulumi.OutputState }
+type AssetFileEncryptionMetadataInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (AssetFileEncryptionMetadataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetFileEncryptionMetadataResponse)(nil)).Elem()
+func (AssetFileEncryptionMetadataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFileEncryptionMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (o AssetFileEncryptionMetadataResponseOutput) ToAssetFileEncryptionMetadataResponseOutput() AssetFileEncryptionMetadataResponseOutput {
+func (o AssetFileEncryptionMetadataInvokeResponseOutput) ToAssetFileEncryptionMetadataInvokeResponseOutput() AssetFileEncryptionMetadataInvokeResponseOutput {
 	return o
 }
 
-func (o AssetFileEncryptionMetadataResponseOutput) ToAssetFileEncryptionMetadataResponseOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataResponseOutput {
+func (o AssetFileEncryptionMetadataInvokeResponseOutput) ToAssetFileEncryptionMetadataInvokeResponseOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataInvokeResponseOutput {
 	return o
 }
 
 // The Asset File Id.
-func (o AssetFileEncryptionMetadataResponseOutput) AssetFileId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetFileEncryptionMetadataResponse) string { return v.AssetFileId }).(pulumi.StringOutput)
+func (o AssetFileEncryptionMetadataInvokeResponseOutput) AssetFileId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetFileEncryptionMetadataInvokeResponse) string { return v.AssetFileId }).(pulumi.StringOutput)
 }
 
 // The Asset File name.
-func (o AssetFileEncryptionMetadataResponseOutput) AssetFileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssetFileEncryptionMetadataResponse) *string { return v.AssetFileName }).(pulumi.StringPtrOutput)
+func (o AssetFileEncryptionMetadataInvokeResponseOutput) AssetFileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetFileEncryptionMetadataInvokeResponse) *string { return v.AssetFileName }).(pulumi.StringPtrOutput)
 }
 
 // The Asset File initialization vector.
-func (o AssetFileEncryptionMetadataResponseOutput) InitializationVector() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssetFileEncryptionMetadataResponse) *string { return v.InitializationVector }).(pulumi.StringPtrOutput)
+func (o AssetFileEncryptionMetadataInvokeResponseOutput) InitializationVector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetFileEncryptionMetadataInvokeResponse) *string { return v.InitializationVector }).(pulumi.StringPtrOutput)
 }
 
-type AssetFileEncryptionMetadataResponseArrayOutput struct{ *pulumi.OutputState }
+type AssetFileEncryptionMetadataInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (AssetFileEncryptionMetadataResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetFileEncryptionMetadataResponse)(nil)).Elem()
+func (AssetFileEncryptionMetadataInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetFileEncryptionMetadataInvokeResponse)(nil)).Elem()
 }
 
-func (o AssetFileEncryptionMetadataResponseArrayOutput) ToAssetFileEncryptionMetadataResponseArrayOutput() AssetFileEncryptionMetadataResponseArrayOutput {
+func (o AssetFileEncryptionMetadataInvokeResponseArrayOutput) ToAssetFileEncryptionMetadataInvokeResponseArrayOutput() AssetFileEncryptionMetadataInvokeResponseArrayOutput {
 	return o
 }
 
-func (o AssetFileEncryptionMetadataResponseArrayOutput) ToAssetFileEncryptionMetadataResponseArrayOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataResponseArrayOutput {
+func (o AssetFileEncryptionMetadataInvokeResponseArrayOutput) ToAssetFileEncryptionMetadataInvokeResponseArrayOutputWithContext(ctx context.Context) AssetFileEncryptionMetadataInvokeResponseArrayOutput {
 	return o
 }
 
-func (o AssetFileEncryptionMetadataResponseArrayOutput) Index(i pulumi.IntInput) AssetFileEncryptionMetadataResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetFileEncryptionMetadataResponse {
-		return vs[0].([]AssetFileEncryptionMetadataResponse)[vs[1].(int)]
-	}).(AssetFileEncryptionMetadataResponseOutput)
+func (o AssetFileEncryptionMetadataInvokeResponseArrayOutput) Index(i pulumi.IntInput) AssetFileEncryptionMetadataInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetFileEncryptionMetadataInvokeResponse {
+		return vs[0].([]AssetFileEncryptionMetadataInvokeResponse)[vs[1].(int)]
+	}).(AssetFileEncryptionMetadataInvokeResponseOutput)
 }
 
 // Properties of the Streaming Locator.
-type AssetStreamingLocatorResponse struct {
+type AssetStreamingLocatorInvokeResponse struct {
 	// Asset Name.
 	AssetName string `pulumi:"assetName"`
 	// The creation time of the Streaming Locator.
@@ -1176,19 +1690,19 @@ type AssetStreamingLocatorResponse struct {
 	StreamingPolicyName string `pulumi:"streamingPolicyName"`
 }
 
-// AssetStreamingLocatorResponseInput is an input type that accepts AssetStreamingLocatorResponseArgs and AssetStreamingLocatorResponseOutput values.
-// You can construct a concrete instance of `AssetStreamingLocatorResponseInput` via:
+// AssetStreamingLocatorInvokeResponseInput is an input type that accepts AssetStreamingLocatorInvokeResponseArgs and AssetStreamingLocatorInvokeResponseOutput values.
+// You can construct a concrete instance of `AssetStreamingLocatorInvokeResponseInput` via:
 //
-//          AssetStreamingLocatorResponseArgs{...}
-type AssetStreamingLocatorResponseInput interface {
+//          AssetStreamingLocatorInvokeResponseArgs{...}
+type AssetStreamingLocatorInvokeResponseInput interface {
 	pulumi.Input
 
-	ToAssetStreamingLocatorResponseOutput() AssetStreamingLocatorResponseOutput
-	ToAssetStreamingLocatorResponseOutputWithContext(context.Context) AssetStreamingLocatorResponseOutput
+	ToAssetStreamingLocatorInvokeResponseOutput() AssetStreamingLocatorInvokeResponseOutput
+	ToAssetStreamingLocatorInvokeResponseOutputWithContext(context.Context) AssetStreamingLocatorInvokeResponseOutput
 }
 
 // Properties of the Streaming Locator.
-type AssetStreamingLocatorResponseArgs struct {
+type AssetStreamingLocatorInvokeResponseArgs struct {
 	// Asset Name.
 	AssetName pulumi.StringInput `pulumi:"assetName"`
 	// The creation time of the Streaming Locator.
@@ -1207,116 +1721,116 @@ type AssetStreamingLocatorResponseArgs struct {
 	StreamingPolicyName pulumi.StringInput `pulumi:"streamingPolicyName"`
 }
 
-func (AssetStreamingLocatorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetStreamingLocatorResponse)(nil)).Elem()
+func (AssetStreamingLocatorInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetStreamingLocatorInvokeResponse)(nil)).Elem()
 }
 
-func (i AssetStreamingLocatorResponseArgs) ToAssetStreamingLocatorResponseOutput() AssetStreamingLocatorResponseOutput {
-	return i.ToAssetStreamingLocatorResponseOutputWithContext(context.Background())
+func (i AssetStreamingLocatorInvokeResponseArgs) ToAssetStreamingLocatorInvokeResponseOutput() AssetStreamingLocatorInvokeResponseOutput {
+	return i.ToAssetStreamingLocatorInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i AssetStreamingLocatorResponseArgs) ToAssetStreamingLocatorResponseOutputWithContext(ctx context.Context) AssetStreamingLocatorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetStreamingLocatorResponseOutput)
+func (i AssetStreamingLocatorInvokeResponseArgs) ToAssetStreamingLocatorInvokeResponseOutputWithContext(ctx context.Context) AssetStreamingLocatorInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetStreamingLocatorInvokeResponseOutput)
 }
 
-// AssetStreamingLocatorResponseArrayInput is an input type that accepts AssetStreamingLocatorResponseArray and AssetStreamingLocatorResponseArrayOutput values.
-// You can construct a concrete instance of `AssetStreamingLocatorResponseArrayInput` via:
+// AssetStreamingLocatorInvokeResponseArrayInput is an input type that accepts AssetStreamingLocatorInvokeResponseArray and AssetStreamingLocatorInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AssetStreamingLocatorInvokeResponseArrayInput` via:
 //
-//          AssetStreamingLocatorResponseArray{ AssetStreamingLocatorResponseArgs{...} }
-type AssetStreamingLocatorResponseArrayInput interface {
+//          AssetStreamingLocatorInvokeResponseArray{ AssetStreamingLocatorInvokeResponseArgs{...} }
+type AssetStreamingLocatorInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToAssetStreamingLocatorResponseArrayOutput() AssetStreamingLocatorResponseArrayOutput
-	ToAssetStreamingLocatorResponseArrayOutputWithContext(context.Context) AssetStreamingLocatorResponseArrayOutput
+	ToAssetStreamingLocatorInvokeResponseArrayOutput() AssetStreamingLocatorInvokeResponseArrayOutput
+	ToAssetStreamingLocatorInvokeResponseArrayOutputWithContext(context.Context) AssetStreamingLocatorInvokeResponseArrayOutput
 }
 
-type AssetStreamingLocatorResponseArray []AssetStreamingLocatorResponseInput
+type AssetStreamingLocatorInvokeResponseArray []AssetStreamingLocatorInvokeResponseInput
 
-func (AssetStreamingLocatorResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetStreamingLocatorResponse)(nil)).Elem()
+func (AssetStreamingLocatorInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetStreamingLocatorInvokeResponse)(nil)).Elem()
 }
 
-func (i AssetStreamingLocatorResponseArray) ToAssetStreamingLocatorResponseArrayOutput() AssetStreamingLocatorResponseArrayOutput {
-	return i.ToAssetStreamingLocatorResponseArrayOutputWithContext(context.Background())
+func (i AssetStreamingLocatorInvokeResponseArray) ToAssetStreamingLocatorInvokeResponseArrayOutput() AssetStreamingLocatorInvokeResponseArrayOutput {
+	return i.ToAssetStreamingLocatorInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i AssetStreamingLocatorResponseArray) ToAssetStreamingLocatorResponseArrayOutputWithContext(ctx context.Context) AssetStreamingLocatorResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetStreamingLocatorResponseArrayOutput)
+func (i AssetStreamingLocatorInvokeResponseArray) ToAssetStreamingLocatorInvokeResponseArrayOutputWithContext(ctx context.Context) AssetStreamingLocatorInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetStreamingLocatorInvokeResponseArrayOutput)
 }
 
 // Properties of the Streaming Locator.
-type AssetStreamingLocatorResponseOutput struct{ *pulumi.OutputState }
+type AssetStreamingLocatorInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (AssetStreamingLocatorResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetStreamingLocatorResponse)(nil)).Elem()
+func (AssetStreamingLocatorInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetStreamingLocatorInvokeResponse)(nil)).Elem()
 }
 
-func (o AssetStreamingLocatorResponseOutput) ToAssetStreamingLocatorResponseOutput() AssetStreamingLocatorResponseOutput {
+func (o AssetStreamingLocatorInvokeResponseOutput) ToAssetStreamingLocatorInvokeResponseOutput() AssetStreamingLocatorInvokeResponseOutput {
 	return o
 }
 
-func (o AssetStreamingLocatorResponseOutput) ToAssetStreamingLocatorResponseOutputWithContext(ctx context.Context) AssetStreamingLocatorResponseOutput {
+func (o AssetStreamingLocatorInvokeResponseOutput) ToAssetStreamingLocatorInvokeResponseOutputWithContext(ctx context.Context) AssetStreamingLocatorInvokeResponseOutput {
 	return o
 }
 
 // Asset Name.
-func (o AssetStreamingLocatorResponseOutput) AssetName() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.AssetName }).(pulumi.StringOutput)
+func (o AssetStreamingLocatorInvokeResponseOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorInvokeResponse) string { return v.AssetName }).(pulumi.StringOutput)
 }
 
 // The creation time of the Streaming Locator.
-func (o AssetStreamingLocatorResponseOutput) Created() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.Created }).(pulumi.StringOutput)
+func (o AssetStreamingLocatorInvokeResponseOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorInvokeResponse) string { return v.Created }).(pulumi.StringOutput)
 }
 
 // Name of the default ContentKeyPolicy used by this Streaming Locator.
-func (o AssetStreamingLocatorResponseOutput) DefaultContentKeyPolicyName() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.DefaultContentKeyPolicyName }).(pulumi.StringOutput)
+func (o AssetStreamingLocatorInvokeResponseOutput) DefaultContentKeyPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorInvokeResponse) string { return v.DefaultContentKeyPolicyName }).(pulumi.StringOutput)
 }
 
 // The end time of the Streaming Locator.
-func (o AssetStreamingLocatorResponseOutput) EndTime() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.EndTime }).(pulumi.StringOutput)
+func (o AssetStreamingLocatorInvokeResponseOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorInvokeResponse) string { return v.EndTime }).(pulumi.StringOutput)
 }
 
 // Streaming Locator name.
-func (o AssetStreamingLocatorResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o AssetStreamingLocatorInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The start time of the Streaming Locator.
-func (o AssetStreamingLocatorResponseOutput) StartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.StartTime }).(pulumi.StringOutput)
+func (o AssetStreamingLocatorInvokeResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorInvokeResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
 // StreamingLocatorId of the Streaming Locator.
-func (o AssetStreamingLocatorResponseOutput) StreamingLocatorId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.StreamingLocatorId }).(pulumi.StringOutput)
+func (o AssetStreamingLocatorInvokeResponseOutput) StreamingLocatorId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorInvokeResponse) string { return v.StreamingLocatorId }).(pulumi.StringOutput)
 }
 
 // Name of the Streaming Policy used by this Streaming Locator.
-func (o AssetStreamingLocatorResponseOutput) StreamingPolicyName() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetStreamingLocatorResponse) string { return v.StreamingPolicyName }).(pulumi.StringOutput)
+func (o AssetStreamingLocatorInvokeResponseOutput) StreamingPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetStreamingLocatorInvokeResponse) string { return v.StreamingPolicyName }).(pulumi.StringOutput)
 }
 
-type AssetStreamingLocatorResponseArrayOutput struct{ *pulumi.OutputState }
+type AssetStreamingLocatorInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (AssetStreamingLocatorResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetStreamingLocatorResponse)(nil)).Elem()
+func (AssetStreamingLocatorInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetStreamingLocatorInvokeResponse)(nil)).Elem()
 }
 
-func (o AssetStreamingLocatorResponseArrayOutput) ToAssetStreamingLocatorResponseArrayOutput() AssetStreamingLocatorResponseArrayOutput {
+func (o AssetStreamingLocatorInvokeResponseArrayOutput) ToAssetStreamingLocatorInvokeResponseArrayOutput() AssetStreamingLocatorInvokeResponseArrayOutput {
 	return o
 }
 
-func (o AssetStreamingLocatorResponseArrayOutput) ToAssetStreamingLocatorResponseArrayOutputWithContext(ctx context.Context) AssetStreamingLocatorResponseArrayOutput {
+func (o AssetStreamingLocatorInvokeResponseArrayOutput) ToAssetStreamingLocatorInvokeResponseArrayOutputWithContext(ctx context.Context) AssetStreamingLocatorInvokeResponseArrayOutput {
 	return o
 }
 
-func (o AssetStreamingLocatorResponseArrayOutput) Index(i pulumi.IntInput) AssetStreamingLocatorResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetStreamingLocatorResponse {
-		return vs[0].([]AssetStreamingLocatorResponse)[vs[1].(int)]
-	}).(AssetStreamingLocatorResponseOutput)
+func (o AssetStreamingLocatorInvokeResponseArrayOutput) Index(i pulumi.IntInput) AssetStreamingLocatorInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetStreamingLocatorInvokeResponse {
+		return vs[0].([]AssetStreamingLocatorInvokeResponse)[vs[1].(int)]
+	}).(AssetStreamingLocatorInvokeResponseOutput)
 }
 
 // Defines the common properties for all audio codecs.
@@ -1490,6 +2004,82 @@ func (o AudioAnalyzerPresetOutput) OdataType() pulumi.StringOutput {
 }
 
 // The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
+type AudioAnalyzerPresetInvokeResponse struct {
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+	AudioLanguage *string `pulumi:"audioLanguage"`
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself
+	ExperimentalOptions map[string]string `pulumi:"experimentalOptions"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// AudioAnalyzerPresetInvokeResponseInput is an input type that accepts AudioAnalyzerPresetInvokeResponseArgs and AudioAnalyzerPresetInvokeResponseOutput values.
+// You can construct a concrete instance of `AudioAnalyzerPresetInvokeResponseInput` via:
+//
+//          AudioAnalyzerPresetInvokeResponseArgs{...}
+type AudioAnalyzerPresetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAudioAnalyzerPresetInvokeResponseOutput() AudioAnalyzerPresetInvokeResponseOutput
+	ToAudioAnalyzerPresetInvokeResponseOutputWithContext(context.Context) AudioAnalyzerPresetInvokeResponseOutput
+}
+
+// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
+type AudioAnalyzerPresetInvokeResponseArgs struct {
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself
+	ExperimentalOptions pulumi.StringMapInput `pulumi:"experimentalOptions"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (AudioAnalyzerPresetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AudioAnalyzerPresetInvokeResponse)(nil)).Elem()
+}
+
+func (i AudioAnalyzerPresetInvokeResponseArgs) ToAudioAnalyzerPresetInvokeResponseOutput() AudioAnalyzerPresetInvokeResponseOutput {
+	return i.ToAudioAnalyzerPresetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AudioAnalyzerPresetInvokeResponseArgs) ToAudioAnalyzerPresetInvokeResponseOutputWithContext(ctx context.Context) AudioAnalyzerPresetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AudioAnalyzerPresetInvokeResponseOutput)
+}
+
+// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
+type AudioAnalyzerPresetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AudioAnalyzerPresetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AudioAnalyzerPresetInvokeResponse)(nil)).Elem()
+}
+
+func (o AudioAnalyzerPresetInvokeResponseOutput) ToAudioAnalyzerPresetInvokeResponseOutput() AudioAnalyzerPresetInvokeResponseOutput {
+	return o
+}
+
+func (o AudioAnalyzerPresetInvokeResponseOutput) ToAudioAnalyzerPresetInvokeResponseOutputWithContext(ctx context.Context) AudioAnalyzerPresetInvokeResponseOutput {
+	return o
+}
+
+// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+func (o AudioAnalyzerPresetInvokeResponseOutput) AudioLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AudioAnalyzerPresetInvokeResponse) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary containing key value pairs for parameters not exposed in the preset itself
+func (o AudioAnalyzerPresetInvokeResponseOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AudioAnalyzerPresetInvokeResponse) map[string]string { return v.ExperimentalOptions }).(pulumi.StringMapOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+func (o AudioAnalyzerPresetInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AudioAnalyzerPresetInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
 type AudioAnalyzerPresetResponse struct {
 	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
 	AudioLanguage *string `pulumi:"audioLanguage"`
@@ -1563,6 +2153,100 @@ func (o AudioAnalyzerPresetResponseOutput) ExperimentalOptions() pulumi.StringMa
 // Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
 func (o AudioAnalyzerPresetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AudioAnalyzerPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Defines the common properties for all audio codecs.
+type AudioInvokeResponse struct {
+	// The bitrate, in bits per second, of the output encoded audio.
+	Bitrate *int `pulumi:"bitrate"`
+	// The number of channels in the audio.
+	Channels *int `pulumi:"channels"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
+	OdataType string `pulumi:"odataType"`
+	// The sampling rate to use for encoding in hertz.
+	SamplingRate *int `pulumi:"samplingRate"`
+}
+
+// AudioInvokeResponseInput is an input type that accepts AudioInvokeResponseArgs and AudioInvokeResponseOutput values.
+// You can construct a concrete instance of `AudioInvokeResponseInput` via:
+//
+//          AudioInvokeResponseArgs{...}
+type AudioInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAudioInvokeResponseOutput() AudioInvokeResponseOutput
+	ToAudioInvokeResponseOutputWithContext(context.Context) AudioInvokeResponseOutput
+}
+
+// Defines the common properties for all audio codecs.
+type AudioInvokeResponseArgs struct {
+	// The bitrate, in bits per second, of the output encoded audio.
+	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
+	// The number of channels in the audio.
+	Channels pulumi.IntPtrInput `pulumi:"channels"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Audio'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The sampling rate to use for encoding in hertz.
+	SamplingRate pulumi.IntPtrInput `pulumi:"samplingRate"`
+}
+
+func (AudioInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AudioInvokeResponse)(nil)).Elem()
+}
+
+func (i AudioInvokeResponseArgs) ToAudioInvokeResponseOutput() AudioInvokeResponseOutput {
+	return i.ToAudioInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AudioInvokeResponseArgs) ToAudioInvokeResponseOutputWithContext(ctx context.Context) AudioInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AudioInvokeResponseOutput)
+}
+
+// Defines the common properties for all audio codecs.
+type AudioInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AudioInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AudioInvokeResponse)(nil)).Elem()
+}
+
+func (o AudioInvokeResponseOutput) ToAudioInvokeResponseOutput() AudioInvokeResponseOutput {
+	return o
+}
+
+func (o AudioInvokeResponseOutput) ToAudioInvokeResponseOutputWithContext(ctx context.Context) AudioInvokeResponseOutput {
+	return o
+}
+
+// The bitrate, in bits per second, of the output encoded audio.
+func (o AudioInvokeResponseOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AudioInvokeResponse) *int { return v.Bitrate }).(pulumi.IntPtrOutput)
+}
+
+// The number of channels in the audio.
+func (o AudioInvokeResponseOutput) Channels() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AudioInvokeResponse) *int { return v.Channels }).(pulumi.IntPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o AudioInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AudioInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Audio'.
+func (o AudioInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AudioInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The sampling rate to use for encoding in hertz.
+func (o AudioInvokeResponseOutput) SamplingRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AudioInvokeResponse) *int { return v.SamplingRate }).(pulumi.IntPtrOutput)
 }
 
 // Describes the properties of an audio overlay.
@@ -1675,6 +2359,118 @@ func (o AudioOverlayOutput) OdataType() pulumi.StringOutput {
 // The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
 func (o AudioOverlayOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AudioOverlay) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties of an audio overlay.
+type AudioOverlayInvokeResponse struct {
+	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
+	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
+	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	End *string `pulumi:"end"`
+	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
+	FadeInDuration *string `pulumi:"fadeInDuration"`
+	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
+	FadeOutDuration *string `pulumi:"fadeOutDuration"`
+	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+	InputLabel string `pulumi:"inputLabel"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioOverlay'.
+	OdataType string `pulumi:"odataType"`
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	Start *string `pulumi:"start"`
+}
+
+// AudioOverlayInvokeResponseInput is an input type that accepts AudioOverlayInvokeResponseArgs and AudioOverlayInvokeResponseOutput values.
+// You can construct a concrete instance of `AudioOverlayInvokeResponseInput` via:
+//
+//          AudioOverlayInvokeResponseArgs{...}
+type AudioOverlayInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAudioOverlayInvokeResponseOutput() AudioOverlayInvokeResponseOutput
+	ToAudioOverlayInvokeResponseOutputWithContext(context.Context) AudioOverlayInvokeResponseOutput
+}
+
+// Describes the properties of an audio overlay.
+type AudioOverlayInvokeResponseArgs struct {
+	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
+	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
+	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
+	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
+	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
+	FadeOutDuration pulumi.StringPtrInput `pulumi:"fadeOutDuration"`
+	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+	InputLabel pulumi.StringInput `pulumi:"inputLabel"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioOverlay'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (AudioOverlayInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AudioOverlayInvokeResponse)(nil)).Elem()
+}
+
+func (i AudioOverlayInvokeResponseArgs) ToAudioOverlayInvokeResponseOutput() AudioOverlayInvokeResponseOutput {
+	return i.ToAudioOverlayInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AudioOverlayInvokeResponseArgs) ToAudioOverlayInvokeResponseOutputWithContext(ctx context.Context) AudioOverlayInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AudioOverlayInvokeResponseOutput)
+}
+
+// Describes the properties of an audio overlay.
+type AudioOverlayInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AudioOverlayInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AudioOverlayInvokeResponse)(nil)).Elem()
+}
+
+func (o AudioOverlayInvokeResponseOutput) ToAudioOverlayInvokeResponseOutput() AudioOverlayInvokeResponseOutput {
+	return o
+}
+
+func (o AudioOverlayInvokeResponseOutput) ToAudioOverlayInvokeResponseOutputWithContext(ctx context.Context) AudioOverlayInvokeResponseOutput {
+	return o
+}
+
+// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
+func (o AudioOverlayInvokeResponseOutput) AudioGainLevel() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AudioOverlayInvokeResponse) *float64 { return v.AudioGainLevel }).(pulumi.Float64PtrOutput)
+}
+
+// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+func (o AudioOverlayInvokeResponseOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AudioOverlayInvokeResponse) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
+func (o AudioOverlayInvokeResponseOutput) FadeInDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AudioOverlayInvokeResponse) *string { return v.FadeInDuration }).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
+func (o AudioOverlayInvokeResponseOutput) FadeOutDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AudioOverlayInvokeResponse) *string { return v.FadeOutDuration }).(pulumi.StringPtrOutput)
+}
+
+// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+func (o AudioOverlayInvokeResponseOutput) InputLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v AudioOverlayInvokeResponse) string { return v.InputLabel }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AudioOverlay'.
+func (o AudioOverlayInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v AudioOverlayInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+func (o AudioOverlayInvokeResponseOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AudioOverlayInvokeResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
 // Describes the properties of an audio overlay.
@@ -1951,6 +2747,73 @@ func (o BuiltInStandardEncoderPresetOutput) PresetName() pulumi.StringOutput {
 }
 
 // Describes a built-in preset for encoding the input video with the Standard Encoder.
+type BuiltInStandardEncoderPresetInvokeResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
+	OdataType string `pulumi:"odataType"`
+	// The built-in preset to be used for encoding videos.
+	PresetName string `pulumi:"presetName"`
+}
+
+// BuiltInStandardEncoderPresetInvokeResponseInput is an input type that accepts BuiltInStandardEncoderPresetInvokeResponseArgs and BuiltInStandardEncoderPresetInvokeResponseOutput values.
+// You can construct a concrete instance of `BuiltInStandardEncoderPresetInvokeResponseInput` via:
+//
+//          BuiltInStandardEncoderPresetInvokeResponseArgs{...}
+type BuiltInStandardEncoderPresetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBuiltInStandardEncoderPresetInvokeResponseOutput() BuiltInStandardEncoderPresetInvokeResponseOutput
+	ToBuiltInStandardEncoderPresetInvokeResponseOutputWithContext(context.Context) BuiltInStandardEncoderPresetInvokeResponseOutput
+}
+
+// Describes a built-in preset for encoding the input video with the Standard Encoder.
+type BuiltInStandardEncoderPresetInvokeResponseArgs struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The built-in preset to be used for encoding videos.
+	PresetName pulumi.StringInput `pulumi:"presetName"`
+}
+
+func (BuiltInStandardEncoderPresetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuiltInStandardEncoderPresetInvokeResponse)(nil)).Elem()
+}
+
+func (i BuiltInStandardEncoderPresetInvokeResponseArgs) ToBuiltInStandardEncoderPresetInvokeResponseOutput() BuiltInStandardEncoderPresetInvokeResponseOutput {
+	return i.ToBuiltInStandardEncoderPresetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BuiltInStandardEncoderPresetInvokeResponseArgs) ToBuiltInStandardEncoderPresetInvokeResponseOutputWithContext(ctx context.Context) BuiltInStandardEncoderPresetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuiltInStandardEncoderPresetInvokeResponseOutput)
+}
+
+// Describes a built-in preset for encoding the input video with the Standard Encoder.
+type BuiltInStandardEncoderPresetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BuiltInStandardEncoderPresetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuiltInStandardEncoderPresetInvokeResponse)(nil)).Elem()
+}
+
+func (o BuiltInStandardEncoderPresetInvokeResponseOutput) ToBuiltInStandardEncoderPresetInvokeResponseOutput() BuiltInStandardEncoderPresetInvokeResponseOutput {
+	return o
+}
+
+func (o BuiltInStandardEncoderPresetInvokeResponseOutput) ToBuiltInStandardEncoderPresetInvokeResponseOutputWithContext(ctx context.Context) BuiltInStandardEncoderPresetInvokeResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
+func (o BuiltInStandardEncoderPresetInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v BuiltInStandardEncoderPresetInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The built-in preset to be used for encoding videos.
+func (o BuiltInStandardEncoderPresetInvokeResponseOutput) PresetName() pulumi.StringOutput {
+	return o.ApplyT(func(v BuiltInStandardEncoderPresetInvokeResponse) string { return v.PresetName }).(pulumi.StringOutput)
+}
+
+// Describes a built-in preset for encoding the input video with the Standard Encoder.
 type BuiltInStandardEncoderPresetResponse struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.BuiltInStandardEncoderPreset'.
@@ -2187,6 +3050,184 @@ func (o CbcsDrmConfigurationPtrOutput) Widevine() StreamingPolicyWidevineConfigu
 		}
 		return v.Widevine
 	}).(StreamingPolicyWidevineConfigurationPtrOutput)
+}
+
+// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
+type CbcsDrmConfigurationInvokeResponse struct {
+	// FairPlay configurations
+	FairPlay *StreamingPolicyFairPlayConfigurationInvokeResponse `pulumi:"fairPlay"`
+	// PlayReady configurations
+	PlayReady *StreamingPolicyPlayReadyConfigurationInvokeResponse `pulumi:"playReady"`
+	// Widevine configurations
+	Widevine *StreamingPolicyWidevineConfigurationInvokeResponse `pulumi:"widevine"`
+}
+
+// CbcsDrmConfigurationInvokeResponseInput is an input type that accepts CbcsDrmConfigurationInvokeResponseArgs and CbcsDrmConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `CbcsDrmConfigurationInvokeResponseInput` via:
+//
+//          CbcsDrmConfigurationInvokeResponseArgs{...}
+type CbcsDrmConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCbcsDrmConfigurationInvokeResponseOutput() CbcsDrmConfigurationInvokeResponseOutput
+	ToCbcsDrmConfigurationInvokeResponseOutputWithContext(context.Context) CbcsDrmConfigurationInvokeResponseOutput
+}
+
+// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
+type CbcsDrmConfigurationInvokeResponseArgs struct {
+	// FairPlay configurations
+	FairPlay StreamingPolicyFairPlayConfigurationInvokeResponsePtrInput `pulumi:"fairPlay"`
+	// PlayReady configurations
+	PlayReady StreamingPolicyPlayReadyConfigurationInvokeResponsePtrInput `pulumi:"playReady"`
+	// Widevine configurations
+	Widevine StreamingPolicyWidevineConfigurationInvokeResponsePtrInput `pulumi:"widevine"`
+}
+
+func (CbcsDrmConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CbcsDrmConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i CbcsDrmConfigurationInvokeResponseArgs) ToCbcsDrmConfigurationInvokeResponseOutput() CbcsDrmConfigurationInvokeResponseOutput {
+	return i.ToCbcsDrmConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CbcsDrmConfigurationInvokeResponseArgs) ToCbcsDrmConfigurationInvokeResponseOutputWithContext(ctx context.Context) CbcsDrmConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CbcsDrmConfigurationInvokeResponseOutput)
+}
+
+func (i CbcsDrmConfigurationInvokeResponseArgs) ToCbcsDrmConfigurationInvokeResponsePtrOutput() CbcsDrmConfigurationInvokeResponsePtrOutput {
+	return i.ToCbcsDrmConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CbcsDrmConfigurationInvokeResponseArgs) ToCbcsDrmConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) CbcsDrmConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CbcsDrmConfigurationInvokeResponseOutput).ToCbcsDrmConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CbcsDrmConfigurationInvokeResponsePtrInput is an input type that accepts CbcsDrmConfigurationInvokeResponseArgs, CbcsDrmConfigurationInvokeResponsePtr and CbcsDrmConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CbcsDrmConfigurationInvokeResponsePtrInput` via:
+//
+//          CbcsDrmConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CbcsDrmConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCbcsDrmConfigurationInvokeResponsePtrOutput() CbcsDrmConfigurationInvokeResponsePtrOutput
+	ToCbcsDrmConfigurationInvokeResponsePtrOutputWithContext(context.Context) CbcsDrmConfigurationInvokeResponsePtrOutput
+}
+
+type cbcsDrmConfigurationInvokeResponsePtrType CbcsDrmConfigurationInvokeResponseArgs
+
+func CbcsDrmConfigurationInvokeResponsePtr(v *CbcsDrmConfigurationInvokeResponseArgs) CbcsDrmConfigurationInvokeResponsePtrInput {
+	return (*cbcsDrmConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*cbcsDrmConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CbcsDrmConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *cbcsDrmConfigurationInvokeResponsePtrType) ToCbcsDrmConfigurationInvokeResponsePtrOutput() CbcsDrmConfigurationInvokeResponsePtrOutput {
+	return i.ToCbcsDrmConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cbcsDrmConfigurationInvokeResponsePtrType) ToCbcsDrmConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) CbcsDrmConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CbcsDrmConfigurationInvokeResponsePtrOutput)
+}
+
+// Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
+type CbcsDrmConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CbcsDrmConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CbcsDrmConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o CbcsDrmConfigurationInvokeResponseOutput) ToCbcsDrmConfigurationInvokeResponseOutput() CbcsDrmConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o CbcsDrmConfigurationInvokeResponseOutput) ToCbcsDrmConfigurationInvokeResponseOutputWithContext(ctx context.Context) CbcsDrmConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o CbcsDrmConfigurationInvokeResponseOutput) ToCbcsDrmConfigurationInvokeResponsePtrOutput() CbcsDrmConfigurationInvokeResponsePtrOutput {
+	return o.ToCbcsDrmConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CbcsDrmConfigurationInvokeResponseOutput) ToCbcsDrmConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) CbcsDrmConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CbcsDrmConfigurationInvokeResponse) *CbcsDrmConfigurationInvokeResponse {
+		return &v
+	}).(CbcsDrmConfigurationInvokeResponsePtrOutput)
+}
+
+// FairPlay configurations
+func (o CbcsDrmConfigurationInvokeResponseOutput) FairPlay() StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CbcsDrmConfigurationInvokeResponse) *StreamingPolicyFairPlayConfigurationInvokeResponse {
+		return v.FairPlay
+	}).(StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput)
+}
+
+// PlayReady configurations
+func (o CbcsDrmConfigurationInvokeResponseOutput) PlayReady() StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CbcsDrmConfigurationInvokeResponse) *StreamingPolicyPlayReadyConfigurationInvokeResponse {
+		return v.PlayReady
+	}).(StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput)
+}
+
+// Widevine configurations
+func (o CbcsDrmConfigurationInvokeResponseOutput) Widevine() StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CbcsDrmConfigurationInvokeResponse) *StreamingPolicyWidevineConfigurationInvokeResponse {
+		return v.Widevine
+	}).(StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput)
+}
+
+type CbcsDrmConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CbcsDrmConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CbcsDrmConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o CbcsDrmConfigurationInvokeResponsePtrOutput) ToCbcsDrmConfigurationInvokeResponsePtrOutput() CbcsDrmConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CbcsDrmConfigurationInvokeResponsePtrOutput) ToCbcsDrmConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) CbcsDrmConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CbcsDrmConfigurationInvokeResponsePtrOutput) Elem() CbcsDrmConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *CbcsDrmConfigurationInvokeResponse) CbcsDrmConfigurationInvokeResponse { return *v }).(CbcsDrmConfigurationInvokeResponseOutput)
+}
+
+// FairPlay configurations
+func (o CbcsDrmConfigurationInvokeResponsePtrOutput) FairPlay() StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CbcsDrmConfigurationInvokeResponse) *StreamingPolicyFairPlayConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.FairPlay
+	}).(StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput)
+}
+
+// PlayReady configurations
+func (o CbcsDrmConfigurationInvokeResponsePtrOutput) PlayReady() StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CbcsDrmConfigurationInvokeResponse) *StreamingPolicyPlayReadyConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PlayReady
+	}).(StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput)
+}
+
+// Widevine configurations
+func (o CbcsDrmConfigurationInvokeResponsePtrOutput) Widevine() StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CbcsDrmConfigurationInvokeResponse) *StreamingPolicyWidevineConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Widevine
+	}).(StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput)
 }
 
 // Class to specify DRM configurations of CommonEncryptionCbcs scheme in Streaming Policy
@@ -2514,6 +3555,163 @@ func (o CencDrmConfigurationPtrOutput) Widevine() StreamingPolicyWidevineConfigu
 		}
 		return v.Widevine
 	}).(StreamingPolicyWidevineConfigurationPtrOutput)
+}
+
+// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
+type CencDrmConfigurationInvokeResponse struct {
+	// PlayReady configurations
+	PlayReady *StreamingPolicyPlayReadyConfigurationInvokeResponse `pulumi:"playReady"`
+	// Widevine configurations
+	Widevine *StreamingPolicyWidevineConfigurationInvokeResponse `pulumi:"widevine"`
+}
+
+// CencDrmConfigurationInvokeResponseInput is an input type that accepts CencDrmConfigurationInvokeResponseArgs and CencDrmConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `CencDrmConfigurationInvokeResponseInput` via:
+//
+//          CencDrmConfigurationInvokeResponseArgs{...}
+type CencDrmConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCencDrmConfigurationInvokeResponseOutput() CencDrmConfigurationInvokeResponseOutput
+	ToCencDrmConfigurationInvokeResponseOutputWithContext(context.Context) CencDrmConfigurationInvokeResponseOutput
+}
+
+// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
+type CencDrmConfigurationInvokeResponseArgs struct {
+	// PlayReady configurations
+	PlayReady StreamingPolicyPlayReadyConfigurationInvokeResponsePtrInput `pulumi:"playReady"`
+	// Widevine configurations
+	Widevine StreamingPolicyWidevineConfigurationInvokeResponsePtrInput `pulumi:"widevine"`
+}
+
+func (CencDrmConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CencDrmConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i CencDrmConfigurationInvokeResponseArgs) ToCencDrmConfigurationInvokeResponseOutput() CencDrmConfigurationInvokeResponseOutput {
+	return i.ToCencDrmConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CencDrmConfigurationInvokeResponseArgs) ToCencDrmConfigurationInvokeResponseOutputWithContext(ctx context.Context) CencDrmConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CencDrmConfigurationInvokeResponseOutput)
+}
+
+func (i CencDrmConfigurationInvokeResponseArgs) ToCencDrmConfigurationInvokeResponsePtrOutput() CencDrmConfigurationInvokeResponsePtrOutput {
+	return i.ToCencDrmConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CencDrmConfigurationInvokeResponseArgs) ToCencDrmConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) CencDrmConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CencDrmConfigurationInvokeResponseOutput).ToCencDrmConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CencDrmConfigurationInvokeResponsePtrInput is an input type that accepts CencDrmConfigurationInvokeResponseArgs, CencDrmConfigurationInvokeResponsePtr and CencDrmConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CencDrmConfigurationInvokeResponsePtrInput` via:
+//
+//          CencDrmConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CencDrmConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCencDrmConfigurationInvokeResponsePtrOutput() CencDrmConfigurationInvokeResponsePtrOutput
+	ToCencDrmConfigurationInvokeResponsePtrOutputWithContext(context.Context) CencDrmConfigurationInvokeResponsePtrOutput
+}
+
+type cencDrmConfigurationInvokeResponsePtrType CencDrmConfigurationInvokeResponseArgs
+
+func CencDrmConfigurationInvokeResponsePtr(v *CencDrmConfigurationInvokeResponseArgs) CencDrmConfigurationInvokeResponsePtrInput {
+	return (*cencDrmConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*cencDrmConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CencDrmConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *cencDrmConfigurationInvokeResponsePtrType) ToCencDrmConfigurationInvokeResponsePtrOutput() CencDrmConfigurationInvokeResponsePtrOutput {
+	return i.ToCencDrmConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cencDrmConfigurationInvokeResponsePtrType) ToCencDrmConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) CencDrmConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CencDrmConfigurationInvokeResponsePtrOutput)
+}
+
+// Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
+type CencDrmConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CencDrmConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CencDrmConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o CencDrmConfigurationInvokeResponseOutput) ToCencDrmConfigurationInvokeResponseOutput() CencDrmConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o CencDrmConfigurationInvokeResponseOutput) ToCencDrmConfigurationInvokeResponseOutputWithContext(ctx context.Context) CencDrmConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o CencDrmConfigurationInvokeResponseOutput) ToCencDrmConfigurationInvokeResponsePtrOutput() CencDrmConfigurationInvokeResponsePtrOutput {
+	return o.ToCencDrmConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CencDrmConfigurationInvokeResponseOutput) ToCencDrmConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) CencDrmConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CencDrmConfigurationInvokeResponse) *CencDrmConfigurationInvokeResponse {
+		return &v
+	}).(CencDrmConfigurationInvokeResponsePtrOutput)
+}
+
+// PlayReady configurations
+func (o CencDrmConfigurationInvokeResponseOutput) PlayReady() StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CencDrmConfigurationInvokeResponse) *StreamingPolicyPlayReadyConfigurationInvokeResponse {
+		return v.PlayReady
+	}).(StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput)
+}
+
+// Widevine configurations
+func (o CencDrmConfigurationInvokeResponseOutput) Widevine() StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CencDrmConfigurationInvokeResponse) *StreamingPolicyWidevineConfigurationInvokeResponse {
+		return v.Widevine
+	}).(StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput)
+}
+
+type CencDrmConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CencDrmConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CencDrmConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o CencDrmConfigurationInvokeResponsePtrOutput) ToCencDrmConfigurationInvokeResponsePtrOutput() CencDrmConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CencDrmConfigurationInvokeResponsePtrOutput) ToCencDrmConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) CencDrmConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CencDrmConfigurationInvokeResponsePtrOutput) Elem() CencDrmConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *CencDrmConfigurationInvokeResponse) CencDrmConfigurationInvokeResponse { return *v }).(CencDrmConfigurationInvokeResponseOutput)
+}
+
+// PlayReady configurations
+func (o CencDrmConfigurationInvokeResponsePtrOutput) PlayReady() StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CencDrmConfigurationInvokeResponse) *StreamingPolicyPlayReadyConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PlayReady
+	}).(StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput)
+}
+
+// Widevine configurations
+func (o CencDrmConfigurationInvokeResponsePtrOutput) Widevine() StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CencDrmConfigurationInvokeResponse) *StreamingPolicyWidevineConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Widevine
+	}).(StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput)
 }
 
 // Class to specify DRM configurations of CommonEncryptionCenc scheme in Streaming Policy
@@ -2860,6 +4058,90 @@ func (o CommonEncryptionCbcsPtrOutput) EnabledProtocols() EnabledProtocolsPtrOut
 		}
 		return v.EnabledProtocols
 	}).(EnabledProtocolsPtrOutput)
+}
+
+// Class for CommonEncryptionCbcs encryption scheme
+type CommonEncryptionCbcsInvokeResponse struct {
+	// Representing which tracks should not be encrypted
+	ClearTracks []TrackSelectionInvokeResponse `pulumi:"clearTracks"`
+	// Representing default content key for each encryption scheme and separate content keys for specific tracks
+	ContentKeys *StreamingPolicyContentKeysInvokeResponse `pulumi:"contentKeys"`
+	// Configuration of DRMs for current encryption scheme
+	Drm *CbcsDrmConfigurationInvokeResponse `pulumi:"drm"`
+	// Representing supported protocols
+	EnabledProtocols *EnabledProtocolsInvokeResponse `pulumi:"enabledProtocols"`
+}
+
+// CommonEncryptionCbcsInvokeResponseInput is an input type that accepts CommonEncryptionCbcsInvokeResponseArgs and CommonEncryptionCbcsInvokeResponseOutput values.
+// You can construct a concrete instance of `CommonEncryptionCbcsInvokeResponseInput` via:
+//
+//          CommonEncryptionCbcsInvokeResponseArgs{...}
+type CommonEncryptionCbcsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCommonEncryptionCbcsInvokeResponseOutput() CommonEncryptionCbcsInvokeResponseOutput
+	ToCommonEncryptionCbcsInvokeResponseOutputWithContext(context.Context) CommonEncryptionCbcsInvokeResponseOutput
+}
+
+// Class for CommonEncryptionCbcs encryption scheme
+type CommonEncryptionCbcsInvokeResponseArgs struct {
+	// Representing which tracks should not be encrypted
+	ClearTracks TrackSelectionInvokeResponseArrayInput `pulumi:"clearTracks"`
+	// Representing default content key for each encryption scheme and separate content keys for specific tracks
+	ContentKeys StreamingPolicyContentKeysInvokeResponsePtrInput `pulumi:"contentKeys"`
+	// Configuration of DRMs for current encryption scheme
+	Drm CbcsDrmConfigurationInvokeResponsePtrInput `pulumi:"drm"`
+	// Representing supported protocols
+	EnabledProtocols EnabledProtocolsInvokeResponsePtrInput `pulumi:"enabledProtocols"`
+}
+
+func (CommonEncryptionCbcsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommonEncryptionCbcsInvokeResponse)(nil)).Elem()
+}
+
+func (i CommonEncryptionCbcsInvokeResponseArgs) ToCommonEncryptionCbcsInvokeResponseOutput() CommonEncryptionCbcsInvokeResponseOutput {
+	return i.ToCommonEncryptionCbcsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CommonEncryptionCbcsInvokeResponseArgs) ToCommonEncryptionCbcsInvokeResponseOutputWithContext(ctx context.Context) CommonEncryptionCbcsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommonEncryptionCbcsInvokeResponseOutput)
+}
+
+// Class for CommonEncryptionCbcs encryption scheme
+type CommonEncryptionCbcsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CommonEncryptionCbcsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommonEncryptionCbcsInvokeResponse)(nil)).Elem()
+}
+
+func (o CommonEncryptionCbcsInvokeResponseOutput) ToCommonEncryptionCbcsInvokeResponseOutput() CommonEncryptionCbcsInvokeResponseOutput {
+	return o
+}
+
+func (o CommonEncryptionCbcsInvokeResponseOutput) ToCommonEncryptionCbcsInvokeResponseOutputWithContext(ctx context.Context) CommonEncryptionCbcsInvokeResponseOutput {
+	return o
+}
+
+// Representing which tracks should not be encrypted
+func (o CommonEncryptionCbcsInvokeResponseOutput) ClearTracks() TrackSelectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CommonEncryptionCbcsInvokeResponse) []TrackSelectionInvokeResponse { return v.ClearTracks }).(TrackSelectionInvokeResponseArrayOutput)
+}
+
+// Representing default content key for each encryption scheme and separate content keys for specific tracks
+func (o CommonEncryptionCbcsInvokeResponseOutput) ContentKeys() StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CommonEncryptionCbcsInvokeResponse) *StreamingPolicyContentKeysInvokeResponse {
+		return v.ContentKeys
+	}).(StreamingPolicyContentKeysInvokeResponsePtrOutput)
+}
+
+// Configuration of DRMs for current encryption scheme
+func (o CommonEncryptionCbcsInvokeResponseOutput) Drm() CbcsDrmConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CommonEncryptionCbcsInvokeResponse) *CbcsDrmConfigurationInvokeResponse { return v.Drm }).(CbcsDrmConfigurationInvokeResponsePtrOutput)
+}
+
+// Representing supported protocols
+func (o CommonEncryptionCbcsInvokeResponseOutput) EnabledProtocols() EnabledProtocolsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CommonEncryptionCbcsInvokeResponse) *EnabledProtocolsInvokeResponse { return v.EnabledProtocols }).(EnabledProtocolsInvokeResponsePtrOutput)
 }
 
 // Class for CommonEncryptionCbcs encryption scheme
@@ -3245,6 +4527,90 @@ func (o CommonEncryptionCencPtrOutput) EnabledProtocols() EnabledProtocolsPtrOut
 }
 
 // Class for envelope encryption scheme
+type CommonEncryptionCencInvokeResponse struct {
+	// Representing which tracks should not be encrypted
+	ClearTracks []TrackSelectionInvokeResponse `pulumi:"clearTracks"`
+	// Representing default content key for each encryption scheme and separate content keys for specific tracks
+	ContentKeys *StreamingPolicyContentKeysInvokeResponse `pulumi:"contentKeys"`
+	// Configuration of DRMs for CommonEncryptionCenc encryption scheme
+	Drm *CencDrmConfigurationInvokeResponse `pulumi:"drm"`
+	// Representing supported protocols
+	EnabledProtocols *EnabledProtocolsInvokeResponse `pulumi:"enabledProtocols"`
+}
+
+// CommonEncryptionCencInvokeResponseInput is an input type that accepts CommonEncryptionCencInvokeResponseArgs and CommonEncryptionCencInvokeResponseOutput values.
+// You can construct a concrete instance of `CommonEncryptionCencInvokeResponseInput` via:
+//
+//          CommonEncryptionCencInvokeResponseArgs{...}
+type CommonEncryptionCencInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCommonEncryptionCencInvokeResponseOutput() CommonEncryptionCencInvokeResponseOutput
+	ToCommonEncryptionCencInvokeResponseOutputWithContext(context.Context) CommonEncryptionCencInvokeResponseOutput
+}
+
+// Class for envelope encryption scheme
+type CommonEncryptionCencInvokeResponseArgs struct {
+	// Representing which tracks should not be encrypted
+	ClearTracks TrackSelectionInvokeResponseArrayInput `pulumi:"clearTracks"`
+	// Representing default content key for each encryption scheme and separate content keys for specific tracks
+	ContentKeys StreamingPolicyContentKeysInvokeResponsePtrInput `pulumi:"contentKeys"`
+	// Configuration of DRMs for CommonEncryptionCenc encryption scheme
+	Drm CencDrmConfigurationInvokeResponsePtrInput `pulumi:"drm"`
+	// Representing supported protocols
+	EnabledProtocols EnabledProtocolsInvokeResponsePtrInput `pulumi:"enabledProtocols"`
+}
+
+func (CommonEncryptionCencInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommonEncryptionCencInvokeResponse)(nil)).Elem()
+}
+
+func (i CommonEncryptionCencInvokeResponseArgs) ToCommonEncryptionCencInvokeResponseOutput() CommonEncryptionCencInvokeResponseOutput {
+	return i.ToCommonEncryptionCencInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CommonEncryptionCencInvokeResponseArgs) ToCommonEncryptionCencInvokeResponseOutputWithContext(ctx context.Context) CommonEncryptionCencInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommonEncryptionCencInvokeResponseOutput)
+}
+
+// Class for envelope encryption scheme
+type CommonEncryptionCencInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CommonEncryptionCencInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommonEncryptionCencInvokeResponse)(nil)).Elem()
+}
+
+func (o CommonEncryptionCencInvokeResponseOutput) ToCommonEncryptionCencInvokeResponseOutput() CommonEncryptionCencInvokeResponseOutput {
+	return o
+}
+
+func (o CommonEncryptionCencInvokeResponseOutput) ToCommonEncryptionCencInvokeResponseOutputWithContext(ctx context.Context) CommonEncryptionCencInvokeResponseOutput {
+	return o
+}
+
+// Representing which tracks should not be encrypted
+func (o CommonEncryptionCencInvokeResponseOutput) ClearTracks() TrackSelectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CommonEncryptionCencInvokeResponse) []TrackSelectionInvokeResponse { return v.ClearTracks }).(TrackSelectionInvokeResponseArrayOutput)
+}
+
+// Representing default content key for each encryption scheme and separate content keys for specific tracks
+func (o CommonEncryptionCencInvokeResponseOutput) ContentKeys() StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CommonEncryptionCencInvokeResponse) *StreamingPolicyContentKeysInvokeResponse {
+		return v.ContentKeys
+	}).(StreamingPolicyContentKeysInvokeResponsePtrOutput)
+}
+
+// Configuration of DRMs for CommonEncryptionCenc encryption scheme
+func (o CommonEncryptionCencInvokeResponseOutput) Drm() CencDrmConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CommonEncryptionCencInvokeResponse) *CencDrmConfigurationInvokeResponse { return v.Drm }).(CencDrmConfigurationInvokeResponsePtrOutput)
+}
+
+// Representing supported protocols
+func (o CommonEncryptionCencInvokeResponseOutput) EnabledProtocols() EnabledProtocolsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CommonEncryptionCencInvokeResponse) *EnabledProtocolsInvokeResponse { return v.EnabledProtocols }).(EnabledProtocolsInvokeResponsePtrOutput)
+}
+
+// Class for envelope encryption scheme
 type CommonEncryptionCencResponse struct {
 	// Representing which tracks should not be encrypted
 	ClearTracks []TrackSelectionResponse `pulumi:"clearTracks"`
@@ -3494,6 +4860,64 @@ func (o ContentKeyPolicyClearKeyConfigurationOutput) OdataType() pulumi.StringOu
 }
 
 // Represents a configuration for non-DRM keys.
+type ContentKeyPolicyClearKeyConfigurationInvokeResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyClearKeyConfigurationInvokeResponseInput is an input type that accepts ContentKeyPolicyClearKeyConfigurationInvokeResponseArgs and ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyClearKeyConfigurationInvokeResponseInput` via:
+//
+//          ContentKeyPolicyClearKeyConfigurationInvokeResponseArgs{...}
+type ContentKeyPolicyClearKeyConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyClearKeyConfigurationInvokeResponseOutput() ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput
+	ToContentKeyPolicyClearKeyConfigurationInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput
+}
+
+// Represents a configuration for non-DRM keys.
+type ContentKeyPolicyClearKeyConfigurationInvokeResponseArgs struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyClearKeyConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyClearKeyConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyClearKeyConfigurationInvokeResponseArgs) ToContentKeyPolicyClearKeyConfigurationInvokeResponseOutput() ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput {
+	return i.ToContentKeyPolicyClearKeyConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyClearKeyConfigurationInvokeResponseArgs) ToContentKeyPolicyClearKeyConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput)
+}
+
+// Represents a configuration for non-DRM keys.
+type ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyClearKeyConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput) ToContentKeyPolicyClearKeyConfigurationInvokeResponseOutput() ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput) ToContentKeyPolicyClearKeyConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
+func (o ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyClearKeyConfigurationInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Represents a configuration for non-DRM keys.
 type ContentKeyPolicyClearKeyConfigurationResponse struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
@@ -3663,6 +5087,120 @@ func (o ContentKeyPolicyFairPlayConfigurationOutput) RentalAndLeaseKeyType() pul
 // The rental duration. Must be greater than or equal to 0.
 func (o ContentKeyPolicyFairPlayConfigurationOutput) RentalDuration() pulumi.Float64Output {
 	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfiguration) float64 { return v.RentalDuration }).(pulumi.Float64Output)
+}
+
+// Specifies a configuration for FairPlay licenses.
+type ContentKeyPolicyFairPlayConfigurationInvokeResponse struct {
+	// The key that must be used as FairPlay Application Secret key.
+	Ask string `pulumi:"ask"`
+	// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+	FairPlayPfx string `pulumi:"fairPlayPfx"`
+	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+	FairPlayPfxPassword string `pulumi:"fairPlayPfxPassword"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
+	OdataType string `pulumi:"odataType"`
+	// Offline rental policy
+	OfflineRentalConfiguration *ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse `pulumi:"offlineRentalConfiguration"`
+	// The rental and lease key type.
+	RentalAndLeaseKeyType string `pulumi:"rentalAndLeaseKeyType"`
+	// The rental duration. Must be greater than or equal to 0.
+	RentalDuration float64 `pulumi:"rentalDuration"`
+}
+
+// ContentKeyPolicyFairPlayConfigurationInvokeResponseInput is an input type that accepts ContentKeyPolicyFairPlayConfigurationInvokeResponseArgs and ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyFairPlayConfigurationInvokeResponseInput` via:
+//
+//          ContentKeyPolicyFairPlayConfigurationInvokeResponseArgs{...}
+type ContentKeyPolicyFairPlayConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyFairPlayConfigurationInvokeResponseOutput() ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput
+	ToContentKeyPolicyFairPlayConfigurationInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput
+}
+
+// Specifies a configuration for FairPlay licenses.
+type ContentKeyPolicyFairPlayConfigurationInvokeResponseArgs struct {
+	// The key that must be used as FairPlay Application Secret key.
+	Ask pulumi.StringInput `pulumi:"ask"`
+	// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+	FairPlayPfx pulumi.StringInput `pulumi:"fairPlayPfx"`
+	// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+	FairPlayPfxPassword pulumi.StringInput `pulumi:"fairPlayPfxPassword"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Offline rental policy
+	OfflineRentalConfiguration ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrInput `pulumi:"offlineRentalConfiguration"`
+	// The rental and lease key type.
+	RentalAndLeaseKeyType pulumi.StringInput `pulumi:"rentalAndLeaseKeyType"`
+	// The rental duration. Must be greater than or equal to 0.
+	RentalDuration pulumi.Float64Input `pulumi:"rentalDuration"`
+}
+
+func (ContentKeyPolicyFairPlayConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyFairPlayConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyFairPlayConfigurationInvokeResponseArgs) ToContentKeyPolicyFairPlayConfigurationInvokeResponseOutput() ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput {
+	return i.ToContentKeyPolicyFairPlayConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyFairPlayConfigurationInvokeResponseArgs) ToContentKeyPolicyFairPlayConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput)
+}
+
+// Specifies a configuration for FairPlay licenses.
+type ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyFairPlayConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput) ToContentKeyPolicyFairPlayConfigurationInvokeResponseOutput() ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput) ToContentKeyPolicyFairPlayConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The key that must be used as FairPlay Application Secret key.
+func (o ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput) Ask() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationInvokeResponse) string { return v.Ask }).(pulumi.StringOutput)
+}
+
+// The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+func (o ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput) FairPlayPfx() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationInvokeResponse) string { return v.FairPlayPfx }).(pulumi.StringOutput)
+}
+
+// The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+func (o ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput) FairPlayPfxPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationInvokeResponse) string { return v.FairPlayPfxPassword }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration'.
+func (o ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Offline rental policy
+func (o ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput) OfflineRentalConfiguration() ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationInvokeResponse) *ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse {
+		return v.OfflineRentalConfiguration
+	}).(ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput)
+}
+
+// The rental and lease key type.
+func (o ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput) RentalAndLeaseKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationInvokeResponse) string { return v.RentalAndLeaseKeyType }).(pulumi.StringOutput)
+}
+
+// The rental duration. Must be greater than or equal to 0.
+func (o ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput) RentalDuration() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayConfigurationInvokeResponse) float64 { return v.RentalDuration }).(pulumi.Float64Output)
 }
 
 // Specifies a configuration for FairPlay licenses.
@@ -3931,6 +5469,162 @@ func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput) StorageDura
 	}).(pulumi.Float64PtrOutput)
 }
 
+type ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse struct {
+	// Playback duration
+	PlaybackDurationSeconds float64 `pulumi:"playbackDurationSeconds"`
+	// Storage duration
+	StorageDurationSeconds float64 `pulumi:"storageDurationSeconds"`
+}
+
+// ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseInput is an input type that accepts ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs and ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseInput` via:
+//
+//          ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs{...}
+type ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput() ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput
+	ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput
+}
+
+type ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs struct {
+	// Playback duration
+	PlaybackDurationSeconds pulumi.Float64Input `pulumi:"playbackDurationSeconds"`
+	// Storage duration
+	StorageDurationSeconds pulumi.Float64Input `pulumi:"storageDurationSeconds"`
+}
+
+func (ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput() ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput {
+	return i.ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput)
+}
+
+func (i ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput() ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput {
+	return i.ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput).ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrInput is an input type that accepts ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs, ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtr and ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrInput` via:
+//
+//          ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput() ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput
+	ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutputWithContext(context.Context) ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput
+}
+
+type contentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrType ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs
+
+func ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtr(v *ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseArgs) ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrInput {
+	return (*contentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*contentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *contentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrType) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput() ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput {
+	return i.ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrType) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput)
+}
+
+type ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput() ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput() ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput {
+	return o.ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse) *ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse {
+		return &v
+	}).(ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput)
+}
+
+// Playback duration
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput) PlaybackDurationSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse) float64 {
+		return v.PlaybackDurationSeconds
+	}).(pulumi.Float64Output)
+}
+
+// Storage duration
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput) StorageDurationSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse) float64 {
+		return v.StorageDurationSeconds
+	}).(pulumi.Float64Output)
+}
+
+type ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput() ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput) ToContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput) Elem() ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse) ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse {
+		return *v
+	}).(ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput)
+}
+
+// Playback duration
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput) PlaybackDurationSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.PlaybackDurationSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Storage duration
+func (o ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput) StorageDurationSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageDurationSeconds
+	}).(pulumi.Float64PtrOutput)
+}
+
 type ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse struct {
 	// Playback duration
 	PlaybackDurationSeconds float64 `pulumi:"playbackDurationSeconds"`
@@ -4146,6 +5840,64 @@ func (o ContentKeyPolicyOpenRestrictionOutput) OdataType() pulumi.StringOutput {
 }
 
 // Represents an open restriction. License or key will be delivered on every request.
+type ContentKeyPolicyOpenRestrictionInvokeResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyOpenRestrictionInvokeResponseInput is an input type that accepts ContentKeyPolicyOpenRestrictionInvokeResponseArgs and ContentKeyPolicyOpenRestrictionInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyOpenRestrictionInvokeResponseInput` via:
+//
+//          ContentKeyPolicyOpenRestrictionInvokeResponseArgs{...}
+type ContentKeyPolicyOpenRestrictionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyOpenRestrictionInvokeResponseOutput() ContentKeyPolicyOpenRestrictionInvokeResponseOutput
+	ToContentKeyPolicyOpenRestrictionInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyOpenRestrictionInvokeResponseOutput
+}
+
+// Represents an open restriction. License or key will be delivered on every request.
+type ContentKeyPolicyOpenRestrictionInvokeResponseArgs struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyOpenRestrictionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyOpenRestrictionInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyOpenRestrictionInvokeResponseArgs) ToContentKeyPolicyOpenRestrictionInvokeResponseOutput() ContentKeyPolicyOpenRestrictionInvokeResponseOutput {
+	return i.ToContentKeyPolicyOpenRestrictionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyOpenRestrictionInvokeResponseArgs) ToContentKeyPolicyOpenRestrictionInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyOpenRestrictionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOpenRestrictionInvokeResponseOutput)
+}
+
+// Represents an open restriction. License or key will be delivered on every request.
+type ContentKeyPolicyOpenRestrictionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyOpenRestrictionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyOpenRestrictionInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyOpenRestrictionInvokeResponseOutput) ToContentKeyPolicyOpenRestrictionInvokeResponseOutput() ContentKeyPolicyOpenRestrictionInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyOpenRestrictionInvokeResponseOutput) ToContentKeyPolicyOpenRestrictionInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyOpenRestrictionInvokeResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
+func (o ContentKeyPolicyOpenRestrictionInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyOpenRestrictionInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Represents an open restriction. License or key will be delivered on every request.
 type ContentKeyPolicyOpenRestrictionResponse struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
@@ -4319,6 +6071,133 @@ func (o ContentKeyPolicyOptionArrayOutput) Index(i pulumi.IntInput) ContentKeyPo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyOption {
 		return vs[0].([]ContentKeyPolicyOption)[vs[1].(int)]
 	}).(ContentKeyPolicyOptionOutput)
+}
+
+// Represents a policy option.
+type ContentKeyPolicyOptionInvokeResponse struct {
+	// The key delivery configuration.
+	Configuration interface{} `pulumi:"configuration"`
+	// The Policy Option description.
+	Name *string `pulumi:"name"`
+	// The legacy Policy Option ID.
+	PolicyOptionId string `pulumi:"policyOptionId"`
+	// The requirements that must be met to deliver keys with this configuration
+	Restriction interface{} `pulumi:"restriction"`
+}
+
+// ContentKeyPolicyOptionInvokeResponseInput is an input type that accepts ContentKeyPolicyOptionInvokeResponseArgs and ContentKeyPolicyOptionInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyOptionInvokeResponseInput` via:
+//
+//          ContentKeyPolicyOptionInvokeResponseArgs{...}
+type ContentKeyPolicyOptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyOptionInvokeResponseOutput() ContentKeyPolicyOptionInvokeResponseOutput
+	ToContentKeyPolicyOptionInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyOptionInvokeResponseOutput
+}
+
+// Represents a policy option.
+type ContentKeyPolicyOptionInvokeResponseArgs struct {
+	// The key delivery configuration.
+	Configuration pulumi.Input `pulumi:"configuration"`
+	// The Policy Option description.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The legacy Policy Option ID.
+	PolicyOptionId pulumi.StringInput `pulumi:"policyOptionId"`
+	// The requirements that must be met to deliver keys with this configuration
+	Restriction pulumi.Input `pulumi:"restriction"`
+}
+
+func (ContentKeyPolicyOptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyOptionInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyOptionInvokeResponseArgs) ToContentKeyPolicyOptionInvokeResponseOutput() ContentKeyPolicyOptionInvokeResponseOutput {
+	return i.ToContentKeyPolicyOptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyOptionInvokeResponseArgs) ToContentKeyPolicyOptionInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyOptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOptionInvokeResponseOutput)
+}
+
+// ContentKeyPolicyOptionInvokeResponseArrayInput is an input type that accepts ContentKeyPolicyOptionInvokeResponseArray and ContentKeyPolicyOptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyOptionInvokeResponseArrayInput` via:
+//
+//          ContentKeyPolicyOptionInvokeResponseArray{ ContentKeyPolicyOptionInvokeResponseArgs{...} }
+type ContentKeyPolicyOptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyOptionInvokeResponseArrayOutput() ContentKeyPolicyOptionInvokeResponseArrayOutput
+	ToContentKeyPolicyOptionInvokeResponseArrayOutputWithContext(context.Context) ContentKeyPolicyOptionInvokeResponseArrayOutput
+}
+
+type ContentKeyPolicyOptionInvokeResponseArray []ContentKeyPolicyOptionInvokeResponseInput
+
+func (ContentKeyPolicyOptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyOptionInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyOptionInvokeResponseArray) ToContentKeyPolicyOptionInvokeResponseArrayOutput() ContentKeyPolicyOptionInvokeResponseArrayOutput {
+	return i.ToContentKeyPolicyOptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyOptionInvokeResponseArray) ToContentKeyPolicyOptionInvokeResponseArrayOutputWithContext(ctx context.Context) ContentKeyPolicyOptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyOptionInvokeResponseArrayOutput)
+}
+
+// Represents a policy option.
+type ContentKeyPolicyOptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyOptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyOptionInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyOptionInvokeResponseOutput) ToContentKeyPolicyOptionInvokeResponseOutput() ContentKeyPolicyOptionInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyOptionInvokeResponseOutput) ToContentKeyPolicyOptionInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyOptionInvokeResponseOutput {
+	return o
+}
+
+// The key delivery configuration.
+func (o ContentKeyPolicyOptionInvokeResponseOutput) Configuration() pulumi.AnyOutput {
+	return o.ApplyT(func(v ContentKeyPolicyOptionInvokeResponse) interface{} { return v.Configuration }).(pulumi.AnyOutput)
+}
+
+// The Policy Option description.
+func (o ContentKeyPolicyOptionInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyOptionInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The legacy Policy Option ID.
+func (o ContentKeyPolicyOptionInvokeResponseOutput) PolicyOptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyOptionInvokeResponse) string { return v.PolicyOptionId }).(pulumi.StringOutput)
+}
+
+// The requirements that must be met to deliver keys with this configuration
+func (o ContentKeyPolicyOptionInvokeResponseOutput) Restriction() pulumi.AnyOutput {
+	return o.ApplyT(func(v ContentKeyPolicyOptionInvokeResponse) interface{} { return v.Restriction }).(pulumi.AnyOutput)
+}
+
+type ContentKeyPolicyOptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyOptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyOptionInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyOptionInvokeResponseArrayOutput) ToContentKeyPolicyOptionInvokeResponseArrayOutput() ContentKeyPolicyOptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyOptionInvokeResponseArrayOutput) ToContentKeyPolicyOptionInvokeResponseArrayOutputWithContext(ctx context.Context) ContentKeyPolicyOptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyOptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyOptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyOptionInvokeResponse {
+		return vs[0].([]ContentKeyPolicyOptionInvokeResponse)[vs[1].(int)]
+	}).(ContentKeyPolicyOptionInvokeResponseOutput)
 }
 
 // Represents a policy option.
@@ -4525,6 +6404,84 @@ func (o ContentKeyPolicyPlayReadyConfigurationOutput) ResponseCustomData() pulum
 }
 
 // Specifies a configuration for PlayReady licenses.
+type ContentKeyPolicyPlayReadyConfigurationInvokeResponse struct {
+	// The PlayReady licenses.
+	Licenses []ContentKeyPolicyPlayReadyLicenseInvokeResponse `pulumi:"licenses"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
+	OdataType string `pulumi:"odataType"`
+	// The custom response data.
+	ResponseCustomData *string `pulumi:"responseCustomData"`
+}
+
+// ContentKeyPolicyPlayReadyConfigurationInvokeResponseInput is an input type that accepts ContentKeyPolicyPlayReadyConfigurationInvokeResponseArgs and ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPlayReadyConfigurationInvokeResponseInput` via:
+//
+//          ContentKeyPolicyPlayReadyConfigurationInvokeResponseArgs{...}
+type ContentKeyPolicyPlayReadyConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput() ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput
+	ToContentKeyPolicyPlayReadyConfigurationInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput
+}
+
+// Specifies a configuration for PlayReady licenses.
+type ContentKeyPolicyPlayReadyConfigurationInvokeResponseArgs struct {
+	// The PlayReady licenses.
+	Licenses ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayInput `pulumi:"licenses"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The custom response data.
+	ResponseCustomData pulumi.StringPtrInput `pulumi:"responseCustomData"`
+}
+
+func (ContentKeyPolicyPlayReadyConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPlayReadyConfigurationInvokeResponseArgs) ToContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput() ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput {
+	return i.ToContentKeyPolicyPlayReadyConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPlayReadyConfigurationInvokeResponseArgs) ToContentKeyPolicyPlayReadyConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput)
+}
+
+// Specifies a configuration for PlayReady licenses.
+type ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput) ToContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput() ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput) ToContentKeyPolicyPlayReadyConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The PlayReady licenses.
+func (o ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput) Licenses() ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfigurationInvokeResponse) []ContentKeyPolicyPlayReadyLicenseInvokeResponse {
+		return v.Licenses
+	}).(ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
+func (o ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfigurationInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The custom response data.
+func (o ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput) ResponseCustomData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyConfigurationInvokeResponse) *string { return v.ResponseCustomData }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a configuration for PlayReady licenses.
 type ContentKeyPolicyPlayReadyConfigurationResponse struct {
 	// The PlayReady licenses.
 	Licenses []ContentKeyPolicyPlayReadyLicenseResponse `pulumi:"licenses"`
@@ -4661,6 +6618,66 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput) OdataType
 }
 
 // Specifies that the content key ID is in the PlayReady header.
+type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseInput is an input type that accepts ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseArgs and ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseInput` via:
+//
+//          ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseArgs{...}
+type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput() ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput
+	ToContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput
+}
+
+// Specifies that the content key ID is in the PlayReady header.
+type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseArgs struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseArgs) ToContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput() ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput {
+	return i.ToContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseArgs) ToContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput)
+}
+
+// Specifies that the content key ID is in the PlayReady header.
+type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput) ToContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput() ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput) ToContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
+func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponse) string {
+		return v.OdataType
+	}).(pulumi.StringOutput)
+}
+
+// Specifies that the content key ID is in the PlayReady header.
 type ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
@@ -4783,6 +6800,77 @@ func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput) Ke
 // Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
 func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Specifies that the content key ID is specified in the PlayReady configuration.
+type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponse struct {
+	// The content key ID.
+	KeyId string `pulumi:"keyId"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseInput is an input type that accepts ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseArgs and ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseInput` via:
+//
+//          ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseArgs{...}
+type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput() ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput
+	ToContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput
+}
+
+// Specifies that the content key ID is specified in the PlayReady configuration.
+type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseArgs struct {
+	// The content key ID.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseArgs) ToContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput() ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput {
+	return i.ToContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseArgs) ToContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput)
+}
+
+// Specifies that the content key ID is specified in the PlayReady configuration.
+type ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput) ToContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput() ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput) ToContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput {
+	return o
+}
+
+// The content key ID.
+func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponse) string {
+		return v.KeyId
+	}).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
+func (o ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponse) string {
+		return v.OdataType
+	}).(pulumi.StringOutput)
 }
 
 // Specifies that the content key ID is specified in the PlayReady configuration.
@@ -5002,6 +7090,165 @@ func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput) B
 // Configures the restriction control bits. Must be between 0 and 3 inclusive.
 func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput) ConfigurationData() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestriction) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ConfigurationData
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
+type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse struct {
+	// Indicates whether this restriction is enforced on a Best Effort basis.
+	BestEffort bool `pulumi:"bestEffort"`
+	// Configures the restriction control bits. Must be between 0 and 3 inclusive.
+	ConfigurationData int `pulumi:"configurationData"`
+}
+
+// ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseInput is an input type that accepts ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs and ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseInput` via:
+//
+//          ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs{...}
+type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput
+	ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput
+}
+
+// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
+type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs struct {
+	// Indicates whether this restriction is enforced on a Best Effort basis.
+	BestEffort pulumi.BoolInput `pulumi:"bestEffort"`
+	// Configures the restriction control bits. Must be between 0 and 3 inclusive.
+	ConfigurationData pulumi.IntInput `pulumi:"configurationData"`
+}
+
+func (ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput {
+	return i.ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput)
+}
+
+func (i ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput {
+	return i.ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput).ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrInput is an input type that accepts ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs, ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtr and ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrInput` via:
+//
+//          ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput
+	ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutputWithContext(context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput
+}
+
+type contentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrType ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs
+
+func ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtr(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseArgs) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrInput {
+	return (*contentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrType)(v)
+}
+
+func (*contentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse)(nil)).Elem()
+}
+
+func (i *contentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrType) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput {
+	return i.ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrType) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput)
+}
+
+// Configures the Explicit Analog Television Output Restriction control bits. For further details see the PlayReady Compliance Rules.
+type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput {
+	return o.ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse {
+		return &v
+	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput)
+}
+
+// Indicates whether this restriction is enforced on a Best Effort basis.
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput) BestEffort() pulumi.BoolOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse) bool {
+		return v.BestEffort
+	}).(pulumi.BoolOutput)
+}
+
+// Configures the restriction control bits. Must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput) ConfigurationData() pulumi.IntOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse) int {
+		return v.ConfigurationData
+	}).(pulumi.IntOutput)
+}
+
+type ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput) ToContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput) Elem() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse) ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse {
+		return *v
+	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput)
+}
+
+// Indicates whether this restriction is enforced on a Best Effort basis.
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput) BestEffort() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.BestEffort
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configures the restriction control bits. Must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput) ConfigurationData() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse) *int {
 		if v == nil {
 			return nil
 		}
@@ -5345,6 +7592,189 @@ func (o ContentKeyPolicyPlayReadyLicenseArrayOutput) Index(i pulumi.IntInput) Co
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyPlayReadyLicense {
 		return vs[0].([]ContentKeyPolicyPlayReadyLicense)[vs[1].(int)]
 	}).(ContentKeyPolicyPlayReadyLicenseOutput)
+}
+
+// The PlayReady license
+type ContentKeyPolicyPlayReadyLicenseInvokeResponse struct {
+	// A flag indicating whether test devices can use the license.
+	AllowTestDevices bool `pulumi:"allowTestDevices"`
+	// The begin date of license
+	BeginDate *string `pulumi:"beginDate"`
+	// The content key location.
+	ContentKeyLocation interface{} `pulumi:"contentKeyLocation"`
+	// The PlayReady content type.
+	ContentType string `pulumi:"contentType"`
+	// The expiration date of license.
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// The grace period of license.
+	GracePeriod *string `pulumi:"gracePeriod"`
+	// The license type.
+	LicenseType string `pulumi:"licenseType"`
+	// The license PlayRight
+	PlayRight *ContentKeyPolicyPlayReadyPlayRightInvokeResponse `pulumi:"playRight"`
+	// The relative begin date of license.
+	RelativeBeginDate *string `pulumi:"relativeBeginDate"`
+	// The relative expiration date of license.
+	RelativeExpirationDate *string `pulumi:"relativeExpirationDate"`
+}
+
+// ContentKeyPolicyPlayReadyLicenseInvokeResponseInput is an input type that accepts ContentKeyPolicyPlayReadyLicenseInvokeResponseArgs and ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPlayReadyLicenseInvokeResponseInput` via:
+//
+//          ContentKeyPolicyPlayReadyLicenseInvokeResponseArgs{...}
+type ContentKeyPolicyPlayReadyLicenseInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPlayReadyLicenseInvokeResponseOutput() ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput
+	ToContentKeyPolicyPlayReadyLicenseInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput
+}
+
+// The PlayReady license
+type ContentKeyPolicyPlayReadyLicenseInvokeResponseArgs struct {
+	// A flag indicating whether test devices can use the license.
+	AllowTestDevices pulumi.BoolInput `pulumi:"allowTestDevices"`
+	// The begin date of license
+	BeginDate pulumi.StringPtrInput `pulumi:"beginDate"`
+	// The content key location.
+	ContentKeyLocation pulumi.Input `pulumi:"contentKeyLocation"`
+	// The PlayReady content type.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// The expiration date of license.
+	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
+	// The grace period of license.
+	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
+	// The license type.
+	LicenseType pulumi.StringInput `pulumi:"licenseType"`
+	// The license PlayRight
+	PlayRight ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrInput `pulumi:"playRight"`
+	// The relative begin date of license.
+	RelativeBeginDate pulumi.StringPtrInput `pulumi:"relativeBeginDate"`
+	// The relative expiration date of license.
+	RelativeExpirationDate pulumi.StringPtrInput `pulumi:"relativeExpirationDate"`
+}
+
+func (ContentKeyPolicyPlayReadyLicenseInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyLicenseInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPlayReadyLicenseInvokeResponseArgs) ToContentKeyPolicyPlayReadyLicenseInvokeResponseOutput() ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput {
+	return i.ToContentKeyPolicyPlayReadyLicenseInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPlayReadyLicenseInvokeResponseArgs) ToContentKeyPolicyPlayReadyLicenseInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput)
+}
+
+// ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayInput is an input type that accepts ContentKeyPolicyPlayReadyLicenseInvokeResponseArray and ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayInput` via:
+//
+//          ContentKeyPolicyPlayReadyLicenseInvokeResponseArray{ ContentKeyPolicyPlayReadyLicenseInvokeResponseArgs{...} }
+type ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput() ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput
+	ToContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutputWithContext(context.Context) ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput
+}
+
+type ContentKeyPolicyPlayReadyLicenseInvokeResponseArray []ContentKeyPolicyPlayReadyLicenseInvokeResponseInput
+
+func (ContentKeyPolicyPlayReadyLicenseInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyPlayReadyLicenseInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPlayReadyLicenseInvokeResponseArray) ToContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput() ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput {
+	return i.ToContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPlayReadyLicenseInvokeResponseArray) ToContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput)
+}
+
+// The PlayReady license
+type ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyLicenseInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) ToContentKeyPolicyPlayReadyLicenseInvokeResponseOutput() ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) ToContentKeyPolicyPlayReadyLicenseInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput {
+	return o
+}
+
+// A flag indicating whether test devices can use the license.
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) AllowTestDevices() pulumi.BoolOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseInvokeResponse) bool { return v.AllowTestDevices }).(pulumi.BoolOutput)
+}
+
+// The begin date of license
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) BeginDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseInvokeResponse) *string { return v.BeginDate }).(pulumi.StringPtrOutput)
+}
+
+// The content key location.
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) ContentKeyLocation() pulumi.AnyOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseInvokeResponse) interface{} { return v.ContentKeyLocation }).(pulumi.AnyOutput)
+}
+
+// The PlayReady content type.
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseInvokeResponse) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// The expiration date of license.
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseInvokeResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// The grace period of license.
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) GracePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseInvokeResponse) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
+}
+
+// The license type.
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) LicenseType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseInvokeResponse) string { return v.LicenseType }).(pulumi.StringOutput)
+}
+
+// The license PlayRight
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) PlayRight() ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseInvokeResponse) *ContentKeyPolicyPlayReadyPlayRightInvokeResponse {
+		return v.PlayRight
+	}).(ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput)
+}
+
+// The relative begin date of license.
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) RelativeBeginDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseInvokeResponse) *string { return v.RelativeBeginDate }).(pulumi.StringPtrOutput)
+}
+
+// The relative expiration date of license.
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput) RelativeExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyLicenseInvokeResponse) *string { return v.RelativeExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+type ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyPlayReadyLicenseInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput) ToContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput() ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput) ToContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyPlayReadyLicenseInvokeResponse {
+		return vs[0].([]ContentKeyPolicyPlayReadyLicenseInvokeResponse)[vs[1].(int)]
+	}).(ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput)
 }
 
 // The PlayReady license
@@ -5899,6 +8329,380 @@ func (o ContentKeyPolicyPlayReadyPlayRightPtrOutput) UncompressedDigitalVideoOpl
 }
 
 // Configures the Play Right in the PlayReady license.
+type ContentKeyPolicyPlayReadyPlayRightInvokeResponse struct {
+	// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+	AgcAndColorStripeRestriction *int `pulumi:"agcAndColorStripeRestriction"`
+	// Configures Unknown output handling settings of the license.
+	AllowPassingVideoContentToUnknownOutput string `pulumi:"allowPassingVideoContentToUnknownOutput"`
+	// Specifies the output protection level for compressed digital audio.
+	AnalogVideoOpl *int `pulumi:"analogVideoOpl"`
+	// Specifies the output protection level for compressed digital audio.
+	CompressedDigitalAudioOpl *int `pulumi:"compressedDigitalAudioOpl"`
+	// Specifies the output protection level for compressed digital video.
+	CompressedDigitalVideoOpl *int `pulumi:"compressedDigitalVideoOpl"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	DigitalVideoOnlyContentRestriction bool `pulumi:"digitalVideoOnlyContentRestriction"`
+	// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
+	ExplicitAnalogTelevisionOutputRestriction *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse `pulumi:"explicitAnalogTelevisionOutputRestriction"`
+	// The amount of time that the license is valid after the license is first used to play content.
+	FirstPlayExpiration *string `pulumi:"firstPlayExpiration"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	ImageConstraintForAnalogComponentVideoRestriction bool `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	ImageConstraintForAnalogComputerMonitorRestriction bool `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
+	// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+	ScmsRestriction *int `pulumi:"scmsRestriction"`
+	// Specifies the output protection level for uncompressed digital audio.
+	UncompressedDigitalAudioOpl *int `pulumi:"uncompressedDigitalAudioOpl"`
+	// Specifies the output protection level for uncompressed digital video.
+	UncompressedDigitalVideoOpl *int `pulumi:"uncompressedDigitalVideoOpl"`
+}
+
+// ContentKeyPolicyPlayReadyPlayRightInvokeResponseInput is an input type that accepts ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs and ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPlayReadyPlayRightInvokeResponseInput` via:
+//
+//          ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs{...}
+type ContentKeyPolicyPlayReadyPlayRightInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput() ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput
+	ToContentKeyPolicyPlayReadyPlayRightInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput
+}
+
+// Configures the Play Right in the PlayReady license.
+type ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs struct {
+	// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+	AgcAndColorStripeRestriction pulumi.IntPtrInput `pulumi:"agcAndColorStripeRestriction"`
+	// Configures Unknown output handling settings of the license.
+	AllowPassingVideoContentToUnknownOutput pulumi.StringInput `pulumi:"allowPassingVideoContentToUnknownOutput"`
+	// Specifies the output protection level for compressed digital audio.
+	AnalogVideoOpl pulumi.IntPtrInput `pulumi:"analogVideoOpl"`
+	// Specifies the output protection level for compressed digital audio.
+	CompressedDigitalAudioOpl pulumi.IntPtrInput `pulumi:"compressedDigitalAudioOpl"`
+	// Specifies the output protection level for compressed digital video.
+	CompressedDigitalVideoOpl pulumi.IntPtrInput `pulumi:"compressedDigitalVideoOpl"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	DigitalVideoOnlyContentRestriction pulumi.BoolInput `pulumi:"digitalVideoOnlyContentRestriction"`
+	// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
+	ExplicitAnalogTelevisionOutputRestriction ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrInput `pulumi:"explicitAnalogTelevisionOutputRestriction"`
+	// The amount of time that the license is valid after the license is first used to play content.
+	FirstPlayExpiration pulumi.StringPtrInput `pulumi:"firstPlayExpiration"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	ImageConstraintForAnalogComponentVideoRestriction pulumi.BoolInput `pulumi:"imageConstraintForAnalogComponentVideoRestriction"`
+	// Enables the Image Constraint For Analog Component Video Restriction in the license.
+	ImageConstraintForAnalogComputerMonitorRestriction pulumi.BoolInput `pulumi:"imageConstraintForAnalogComputerMonitorRestriction"`
+	// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+	ScmsRestriction pulumi.IntPtrInput `pulumi:"scmsRestriction"`
+	// Specifies the output protection level for uncompressed digital audio.
+	UncompressedDigitalAudioOpl pulumi.IntPtrInput `pulumi:"uncompressedDigitalAudioOpl"`
+	// Specifies the output protection level for uncompressed digital video.
+	UncompressedDigitalVideoOpl pulumi.IntPtrInput `pulumi:"uncompressedDigitalVideoOpl"`
+}
+
+func (ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyPlayRightInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs) ToContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput() ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput {
+	return i.ToContentKeyPolicyPlayReadyPlayRightInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs) ToContentKeyPolicyPlayReadyPlayRightInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput)
+}
+
+func (i ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs) ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput() ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput {
+	return i.ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs) ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput).ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrInput is an input type that accepts ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs, ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtr and ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrInput` via:
+//
+//          ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput() ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput
+	ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutputWithContext(context.Context) ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput
+}
+
+type contentKeyPolicyPlayReadyPlayRightInvokeResponsePtrType ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs
+
+func ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtr(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponseArgs) ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrInput {
+	return (*contentKeyPolicyPlayReadyPlayRightInvokeResponsePtrType)(v)
+}
+
+func (*contentKeyPolicyPlayReadyPlayRightInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPlayReadyPlayRightInvokeResponse)(nil)).Elem()
+}
+
+func (i *contentKeyPolicyPlayReadyPlayRightInvokeResponsePtrType) ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput() ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput {
+	return i.ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentKeyPolicyPlayReadyPlayRightInvokeResponsePtrType) ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput)
+}
+
+// Configures the Play Right in the PlayReady license.
+type ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyPlayReadyPlayRightInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) ToContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput() ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) ToContentKeyPolicyPlayReadyPlayRightInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput() ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput {
+	return o.ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *ContentKeyPolicyPlayReadyPlayRightInvokeResponse {
+		return &v
+	}).(ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput)
+}
+
+// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) AgcAndColorStripeRestriction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int { return v.AgcAndColorStripeRestriction }).(pulumi.IntPtrOutput)
+}
+
+// Configures Unknown output handling settings of the license.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) AllowPassingVideoContentToUnknownOutput() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) string {
+		return v.AllowPassingVideoContentToUnknownOutput
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the output protection level for compressed digital audio.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) AnalogVideoOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int { return v.AnalogVideoOpl }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for compressed digital audio.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) CompressedDigitalAudioOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int { return v.CompressedDigitalAudioOpl }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for compressed digital video.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) CompressedDigitalVideoOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int { return v.CompressedDigitalVideoOpl }).(pulumi.IntPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) DigitalVideoOnlyContentRestriction() pulumi.BoolOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) bool {
+		return v.DigitalVideoOnlyContentRestriction
+	}).(pulumi.BoolOutput)
+}
+
+// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) ExplicitAnalogTelevisionOutputRestriction() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse {
+		return v.ExplicitAnalogTelevisionOutputRestriction
+	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput)
+}
+
+// The amount of time that the license is valid after the license is first used to play content.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) FirstPlayExpiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *string { return v.FirstPlayExpiration }).(pulumi.StringPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) ImageConstraintForAnalogComponentVideoRestriction() pulumi.BoolOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) bool {
+		return v.ImageConstraintForAnalogComponentVideoRestriction
+	}).(pulumi.BoolOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) ImageConstraintForAnalogComputerMonitorRestriction() pulumi.BoolOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) bool {
+		return v.ImageConstraintForAnalogComputerMonitorRestriction
+	}).(pulumi.BoolOutput)
+}
+
+// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) ScmsRestriction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int { return v.ScmsRestriction }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for uncompressed digital audio.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) UncompressedDigitalAudioOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int { return v.UncompressedDigitalAudioOpl }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for uncompressed digital video.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput) UncompressedDigitalVideoOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int { return v.UncompressedDigitalVideoOpl }).(pulumi.IntPtrOutput)
+}
+
+type ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentKeyPolicyPlayReadyPlayRightInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput() ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) ToContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutputWithContext(ctx context.Context) ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) Elem() ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) ContentKeyPolicyPlayReadyPlayRightInvokeResponse {
+		return *v
+	}).(ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput)
+}
+
+// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) AgcAndColorStripeRestriction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AgcAndColorStripeRestriction
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configures Unknown output handling settings of the license.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) AllowPassingVideoContentToUnknownOutput() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowPassingVideoContentToUnknownOutput
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the output protection level for compressed digital audio.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) AnalogVideoOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AnalogVideoOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for compressed digital audio.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) CompressedDigitalAudioOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CompressedDigitalAudioOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for compressed digital video.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) CompressedDigitalVideoOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CompressedDigitalVideoOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) DigitalVideoOnlyContentRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DigitalVideoOnlyContentRestriction
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configures the Explicit Analog Television Output Restriction in the license. Configuration data must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) ExplicitAnalogTelevisionOutputRestriction() ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ExplicitAnalogTelevisionOutputRestriction
+	}).(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput)
+}
+
+// The amount of time that the license is valid after the license is first used to play content.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) FirstPlayExpiration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstPlayExpiration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) ImageConstraintForAnalogComponentVideoRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ImageConstraintForAnalogComponentVideoRestriction
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables the Image Constraint For Analog Component Video Restriction in the license.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) ImageConstraintForAnalogComputerMonitorRestriction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ImageConstraintForAnalogComputerMonitorRestriction
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) ScmsRestriction() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScmsRestriction
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for uncompressed digital audio.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) UncompressedDigitalAudioOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UncompressedDigitalAudioOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the output protection level for uncompressed digital video.
+func (o ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput) UncompressedDigitalVideoOpl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicyPlayReadyPlayRightInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UncompressedDigitalVideoOpl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configures the Play Right in the PlayReady license.
 type ContentKeyPolicyPlayReadyPlayRightResponse struct {
 	// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
 	AgcAndColorStripeRestriction *int `pulumi:"agcAndColorStripeRestriction"`
@@ -6347,6 +9151,82 @@ func (o ContentKeyPolicyRsaTokenKeyOutput) OdataType() pulumi.StringOutput {
 }
 
 // Specifies a RSA key for token validation
+type ContentKeyPolicyRsaTokenKeyInvokeResponse struct {
+	// The RSA Parameter exponent
+	Exponent string `pulumi:"exponent"`
+	// The RSA Parameter modulus
+	Modulus string `pulumi:"modulus"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyRsaTokenKeyInvokeResponseInput is an input type that accepts ContentKeyPolicyRsaTokenKeyInvokeResponseArgs and ContentKeyPolicyRsaTokenKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyRsaTokenKeyInvokeResponseInput` via:
+//
+//          ContentKeyPolicyRsaTokenKeyInvokeResponseArgs{...}
+type ContentKeyPolicyRsaTokenKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyRsaTokenKeyInvokeResponseOutput() ContentKeyPolicyRsaTokenKeyInvokeResponseOutput
+	ToContentKeyPolicyRsaTokenKeyInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyRsaTokenKeyInvokeResponseOutput
+}
+
+// Specifies a RSA key for token validation
+type ContentKeyPolicyRsaTokenKeyInvokeResponseArgs struct {
+	// The RSA Parameter exponent
+	Exponent pulumi.StringInput `pulumi:"exponent"`
+	// The RSA Parameter modulus
+	Modulus pulumi.StringInput `pulumi:"modulus"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyRsaTokenKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyRsaTokenKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyRsaTokenKeyInvokeResponseArgs) ToContentKeyPolicyRsaTokenKeyInvokeResponseOutput() ContentKeyPolicyRsaTokenKeyInvokeResponseOutput {
+	return i.ToContentKeyPolicyRsaTokenKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyRsaTokenKeyInvokeResponseArgs) ToContentKeyPolicyRsaTokenKeyInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyRsaTokenKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyRsaTokenKeyInvokeResponseOutput)
+}
+
+// Specifies a RSA key for token validation
+type ContentKeyPolicyRsaTokenKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyRsaTokenKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyRsaTokenKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyRsaTokenKeyInvokeResponseOutput) ToContentKeyPolicyRsaTokenKeyInvokeResponseOutput() ContentKeyPolicyRsaTokenKeyInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyRsaTokenKeyInvokeResponseOutput) ToContentKeyPolicyRsaTokenKeyInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyRsaTokenKeyInvokeResponseOutput {
+	return o
+}
+
+// The RSA Parameter exponent
+func (o ContentKeyPolicyRsaTokenKeyInvokeResponseOutput) Exponent() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKeyInvokeResponse) string { return v.Exponent }).(pulumi.StringOutput)
+}
+
+// The RSA Parameter modulus
+func (o ContentKeyPolicyRsaTokenKeyInvokeResponseOutput) Modulus() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKeyInvokeResponse) string { return v.Modulus }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
+func (o ContentKeyPolicyRsaTokenKeyInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyRsaTokenKeyInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Specifies a RSA key for token validation
 type ContentKeyPolicyRsaTokenKeyResponse struct {
 	// The RSA Parameter exponent
 	Exponent string `pulumi:"exponent"`
@@ -6487,6 +9367,73 @@ func (o ContentKeyPolicySymmetricTokenKeyOutput) KeyValue() pulumi.StringOutput 
 // Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
 func (o ContentKeyPolicySymmetricTokenKeyOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicySymmetricTokenKey) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Specifies a symmetric key for token validation.
+type ContentKeyPolicySymmetricTokenKeyInvokeResponse struct {
+	// The key value of the key
+	KeyValue string `pulumi:"keyValue"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicySymmetricTokenKeyInvokeResponseInput is an input type that accepts ContentKeyPolicySymmetricTokenKeyInvokeResponseArgs and ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicySymmetricTokenKeyInvokeResponseInput` via:
+//
+//          ContentKeyPolicySymmetricTokenKeyInvokeResponseArgs{...}
+type ContentKeyPolicySymmetricTokenKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicySymmetricTokenKeyInvokeResponseOutput() ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput
+	ToContentKeyPolicySymmetricTokenKeyInvokeResponseOutputWithContext(context.Context) ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput
+}
+
+// Specifies a symmetric key for token validation.
+type ContentKeyPolicySymmetricTokenKeyInvokeResponseArgs struct {
+	// The key value of the key
+	KeyValue pulumi.StringInput `pulumi:"keyValue"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicySymmetricTokenKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicySymmetricTokenKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicySymmetricTokenKeyInvokeResponseArgs) ToContentKeyPolicySymmetricTokenKeyInvokeResponseOutput() ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput {
+	return i.ToContentKeyPolicySymmetricTokenKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicySymmetricTokenKeyInvokeResponseArgs) ToContentKeyPolicySymmetricTokenKeyInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput)
+}
+
+// Specifies a symmetric key for token validation.
+type ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicySymmetricTokenKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput) ToContentKeyPolicySymmetricTokenKeyInvokeResponseOutput() ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput) ToContentKeyPolicySymmetricTokenKeyInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput {
+	return o
+}
+
+// The key value of the key
+func (o ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput) KeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicySymmetricTokenKeyInvokeResponse) string { return v.KeyValue }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
+func (o ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicySymmetricTokenKeyInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // Specifies a symmetric key for token validation.
@@ -6663,6 +9610,115 @@ func (o ContentKeyPolicyTokenClaimArrayOutput) Index(i pulumi.IntInput) ContentK
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyTokenClaim {
 		return vs[0].([]ContentKeyPolicyTokenClaim)[vs[1].(int)]
 	}).(ContentKeyPolicyTokenClaimOutput)
+}
+
+// Represents a token claim.
+type ContentKeyPolicyTokenClaimInvokeResponse struct {
+	// Token claim type.
+	ClaimType *string `pulumi:"claimType"`
+	// Token claim value.
+	ClaimValue *string `pulumi:"claimValue"`
+}
+
+// ContentKeyPolicyTokenClaimInvokeResponseInput is an input type that accepts ContentKeyPolicyTokenClaimInvokeResponseArgs and ContentKeyPolicyTokenClaimInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyTokenClaimInvokeResponseInput` via:
+//
+//          ContentKeyPolicyTokenClaimInvokeResponseArgs{...}
+type ContentKeyPolicyTokenClaimInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyTokenClaimInvokeResponseOutput() ContentKeyPolicyTokenClaimInvokeResponseOutput
+	ToContentKeyPolicyTokenClaimInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyTokenClaimInvokeResponseOutput
+}
+
+// Represents a token claim.
+type ContentKeyPolicyTokenClaimInvokeResponseArgs struct {
+	// Token claim type.
+	ClaimType pulumi.StringPtrInput `pulumi:"claimType"`
+	// Token claim value.
+	ClaimValue pulumi.StringPtrInput `pulumi:"claimValue"`
+}
+
+func (ContentKeyPolicyTokenClaimInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyTokenClaimInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyTokenClaimInvokeResponseArgs) ToContentKeyPolicyTokenClaimInvokeResponseOutput() ContentKeyPolicyTokenClaimInvokeResponseOutput {
+	return i.ToContentKeyPolicyTokenClaimInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyTokenClaimInvokeResponseArgs) ToContentKeyPolicyTokenClaimInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyTokenClaimInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyTokenClaimInvokeResponseOutput)
+}
+
+// ContentKeyPolicyTokenClaimInvokeResponseArrayInput is an input type that accepts ContentKeyPolicyTokenClaimInvokeResponseArray and ContentKeyPolicyTokenClaimInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyTokenClaimInvokeResponseArrayInput` via:
+//
+//          ContentKeyPolicyTokenClaimInvokeResponseArray{ ContentKeyPolicyTokenClaimInvokeResponseArgs{...} }
+type ContentKeyPolicyTokenClaimInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyTokenClaimInvokeResponseArrayOutput() ContentKeyPolicyTokenClaimInvokeResponseArrayOutput
+	ToContentKeyPolicyTokenClaimInvokeResponseArrayOutputWithContext(context.Context) ContentKeyPolicyTokenClaimInvokeResponseArrayOutput
+}
+
+type ContentKeyPolicyTokenClaimInvokeResponseArray []ContentKeyPolicyTokenClaimInvokeResponseInput
+
+func (ContentKeyPolicyTokenClaimInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyTokenClaimInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyTokenClaimInvokeResponseArray) ToContentKeyPolicyTokenClaimInvokeResponseArrayOutput() ContentKeyPolicyTokenClaimInvokeResponseArrayOutput {
+	return i.ToContentKeyPolicyTokenClaimInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyTokenClaimInvokeResponseArray) ToContentKeyPolicyTokenClaimInvokeResponseArrayOutputWithContext(ctx context.Context) ContentKeyPolicyTokenClaimInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyTokenClaimInvokeResponseArrayOutput)
+}
+
+// Represents a token claim.
+type ContentKeyPolicyTokenClaimInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyTokenClaimInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyTokenClaimInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyTokenClaimInvokeResponseOutput) ToContentKeyPolicyTokenClaimInvokeResponseOutput() ContentKeyPolicyTokenClaimInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyTokenClaimInvokeResponseOutput) ToContentKeyPolicyTokenClaimInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyTokenClaimInvokeResponseOutput {
+	return o
+}
+
+// Token claim type.
+func (o ContentKeyPolicyTokenClaimInvokeResponseOutput) ClaimType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyTokenClaimInvokeResponse) *string { return v.ClaimType }).(pulumi.StringPtrOutput)
+}
+
+// Token claim value.
+func (o ContentKeyPolicyTokenClaimInvokeResponseOutput) ClaimValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyTokenClaimInvokeResponse) *string { return v.ClaimValue }).(pulumi.StringPtrOutput)
+}
+
+type ContentKeyPolicyTokenClaimInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyTokenClaimInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContentKeyPolicyTokenClaimInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyTokenClaimInvokeResponseArrayOutput) ToContentKeyPolicyTokenClaimInvokeResponseArrayOutput() ContentKeyPolicyTokenClaimInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyTokenClaimInvokeResponseArrayOutput) ToContentKeyPolicyTokenClaimInvokeResponseArrayOutputWithContext(ctx context.Context) ContentKeyPolicyTokenClaimInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ContentKeyPolicyTokenClaimInvokeResponseArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyTokenClaimInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyTokenClaimInvokeResponse {
+		return vs[0].([]ContentKeyPolicyTokenClaimInvokeResponse)[vs[1].(int)]
+	}).(ContentKeyPolicyTokenClaimInvokeResponseOutput)
 }
 
 // Represents a token claim.
@@ -6896,6 +9952,133 @@ func (o ContentKeyPolicyTokenRestrictionOutput) RestrictionTokenType() pulumi.St
 }
 
 // Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
+type ContentKeyPolicyTokenRestrictionInvokeResponse struct {
+	// A list of alternative verification keys.
+	AlternateVerificationKeys []interface{} `pulumi:"alternateVerificationKeys"`
+	// The audience for the token.
+	Audience string `pulumi:"audience"`
+	// The token issuer.
+	Issuer string `pulumi:"issuer"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
+	OdataType string `pulumi:"odataType"`
+	// The OpenID connect discovery document.
+	OpenIdConnectDiscoveryDocument *string `pulumi:"openIdConnectDiscoveryDocument"`
+	// The primary verification key.
+	PrimaryVerificationKey interface{} `pulumi:"primaryVerificationKey"`
+	// A list of required token claims.
+	RequiredClaims []ContentKeyPolicyTokenClaimInvokeResponse `pulumi:"requiredClaims"`
+	// The type of token.
+	RestrictionTokenType string `pulumi:"restrictionTokenType"`
+}
+
+// ContentKeyPolicyTokenRestrictionInvokeResponseInput is an input type that accepts ContentKeyPolicyTokenRestrictionInvokeResponseArgs and ContentKeyPolicyTokenRestrictionInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyTokenRestrictionInvokeResponseInput` via:
+//
+//          ContentKeyPolicyTokenRestrictionInvokeResponseArgs{...}
+type ContentKeyPolicyTokenRestrictionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyTokenRestrictionInvokeResponseOutput() ContentKeyPolicyTokenRestrictionInvokeResponseOutput
+	ToContentKeyPolicyTokenRestrictionInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyTokenRestrictionInvokeResponseOutput
+}
+
+// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
+type ContentKeyPolicyTokenRestrictionInvokeResponseArgs struct {
+	// A list of alternative verification keys.
+	AlternateVerificationKeys pulumi.ArrayInput `pulumi:"alternateVerificationKeys"`
+	// The audience for the token.
+	Audience pulumi.StringInput `pulumi:"audience"`
+	// The token issuer.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The OpenID connect discovery document.
+	OpenIdConnectDiscoveryDocument pulumi.StringPtrInput `pulumi:"openIdConnectDiscoveryDocument"`
+	// The primary verification key.
+	PrimaryVerificationKey pulumi.Input `pulumi:"primaryVerificationKey"`
+	// A list of required token claims.
+	RequiredClaims ContentKeyPolicyTokenClaimInvokeResponseArrayInput `pulumi:"requiredClaims"`
+	// The type of token.
+	RestrictionTokenType pulumi.StringInput `pulumi:"restrictionTokenType"`
+}
+
+func (ContentKeyPolicyTokenRestrictionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyTokenRestrictionInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyTokenRestrictionInvokeResponseArgs) ToContentKeyPolicyTokenRestrictionInvokeResponseOutput() ContentKeyPolicyTokenRestrictionInvokeResponseOutput {
+	return i.ToContentKeyPolicyTokenRestrictionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyTokenRestrictionInvokeResponseArgs) ToContentKeyPolicyTokenRestrictionInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyTokenRestrictionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyTokenRestrictionInvokeResponseOutput)
+}
+
+// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
+type ContentKeyPolicyTokenRestrictionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyTokenRestrictionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyTokenRestrictionInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyTokenRestrictionInvokeResponseOutput) ToContentKeyPolicyTokenRestrictionInvokeResponseOutput() ContentKeyPolicyTokenRestrictionInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyTokenRestrictionInvokeResponseOutput) ToContentKeyPolicyTokenRestrictionInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyTokenRestrictionInvokeResponseOutput {
+	return o
+}
+
+// A list of alternative verification keys.
+func (o ContentKeyPolicyTokenRestrictionInvokeResponseOutput) AlternateVerificationKeys() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionInvokeResponse) []interface{} {
+		return v.AlternateVerificationKeys
+	}).(pulumi.ArrayOutput)
+}
+
+// The audience for the token.
+func (o ContentKeyPolicyTokenRestrictionInvokeResponseOutput) Audience() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionInvokeResponse) string { return v.Audience }).(pulumi.StringOutput)
+}
+
+// The token issuer.
+func (o ContentKeyPolicyTokenRestrictionInvokeResponseOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionInvokeResponse) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyTokenRestriction'.
+func (o ContentKeyPolicyTokenRestrictionInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The OpenID connect discovery document.
+func (o ContentKeyPolicyTokenRestrictionInvokeResponseOutput) OpenIdConnectDiscoveryDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionInvokeResponse) *string {
+		return v.OpenIdConnectDiscoveryDocument
+	}).(pulumi.StringPtrOutput)
+}
+
+// The primary verification key.
+func (o ContentKeyPolicyTokenRestrictionInvokeResponseOutput) PrimaryVerificationKey() pulumi.AnyOutput {
+	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionInvokeResponse) interface{} { return v.PrimaryVerificationKey }).(pulumi.AnyOutput)
+}
+
+// A list of required token claims.
+func (o ContentKeyPolicyTokenRestrictionInvokeResponseOutput) RequiredClaims() ContentKeyPolicyTokenClaimInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionInvokeResponse) []ContentKeyPolicyTokenClaimInvokeResponse {
+		return v.RequiredClaims
+	}).(ContentKeyPolicyTokenClaimInvokeResponseArrayOutput)
+}
+
+// The type of token.
+func (o ContentKeyPolicyTokenRestrictionInvokeResponseOutput) RestrictionTokenType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyTokenRestrictionInvokeResponse) string { return v.RestrictionTokenType }).(pulumi.StringOutput)
+}
+
+// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
 type ContentKeyPolicyTokenRestrictionResponse struct {
 	// A list of alternative verification keys.
 	AlternateVerificationKeys []interface{} `pulumi:"alternateVerificationKeys"`
@@ -7077,6 +10260,64 @@ func (o ContentKeyPolicyUnknownConfigurationOutput) OdataType() pulumi.StringOut
 }
 
 // Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
+type ContentKeyPolicyUnknownConfigurationInvokeResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyUnknownConfigurationInvokeResponseInput is an input type that accepts ContentKeyPolicyUnknownConfigurationInvokeResponseArgs and ContentKeyPolicyUnknownConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyUnknownConfigurationInvokeResponseInput` via:
+//
+//          ContentKeyPolicyUnknownConfigurationInvokeResponseArgs{...}
+type ContentKeyPolicyUnknownConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyUnknownConfigurationInvokeResponseOutput() ContentKeyPolicyUnknownConfigurationInvokeResponseOutput
+	ToContentKeyPolicyUnknownConfigurationInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyUnknownConfigurationInvokeResponseOutput
+}
+
+// Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
+type ContentKeyPolicyUnknownConfigurationInvokeResponseArgs struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyUnknownConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyUnknownConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyUnknownConfigurationInvokeResponseArgs) ToContentKeyPolicyUnknownConfigurationInvokeResponseOutput() ContentKeyPolicyUnknownConfigurationInvokeResponseOutput {
+	return i.ToContentKeyPolicyUnknownConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyUnknownConfigurationInvokeResponseArgs) ToContentKeyPolicyUnknownConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyUnknownConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyUnknownConfigurationInvokeResponseOutput)
+}
+
+// Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
+type ContentKeyPolicyUnknownConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyUnknownConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyUnknownConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyUnknownConfigurationInvokeResponseOutput) ToContentKeyPolicyUnknownConfigurationInvokeResponseOutput() ContentKeyPolicyUnknownConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyUnknownConfigurationInvokeResponseOutput) ToContentKeyPolicyUnknownConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyUnknownConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
+func (o ContentKeyPolicyUnknownConfigurationInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyUnknownConfigurationInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
 type ContentKeyPolicyUnknownConfigurationResponse struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
@@ -7190,6 +10431,64 @@ func (o ContentKeyPolicyUnknownRestrictionOutput) ToContentKeyPolicyUnknownRestr
 // Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
 func (o ContentKeyPolicyUnknownRestrictionOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyUnknownRestriction) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
+type ContentKeyPolicyUnknownRestrictionInvokeResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyUnknownRestrictionInvokeResponseInput is an input type that accepts ContentKeyPolicyUnknownRestrictionInvokeResponseArgs and ContentKeyPolicyUnknownRestrictionInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyUnknownRestrictionInvokeResponseInput` via:
+//
+//          ContentKeyPolicyUnknownRestrictionInvokeResponseArgs{...}
+type ContentKeyPolicyUnknownRestrictionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyUnknownRestrictionInvokeResponseOutput() ContentKeyPolicyUnknownRestrictionInvokeResponseOutput
+	ToContentKeyPolicyUnknownRestrictionInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyUnknownRestrictionInvokeResponseOutput
+}
+
+// Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
+type ContentKeyPolicyUnknownRestrictionInvokeResponseArgs struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyUnknownRestrictionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyUnknownRestrictionInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyUnknownRestrictionInvokeResponseArgs) ToContentKeyPolicyUnknownRestrictionInvokeResponseOutput() ContentKeyPolicyUnknownRestrictionInvokeResponseOutput {
+	return i.ToContentKeyPolicyUnknownRestrictionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyUnknownRestrictionInvokeResponseArgs) ToContentKeyPolicyUnknownRestrictionInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyUnknownRestrictionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyUnknownRestrictionInvokeResponseOutput)
+}
+
+// Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
+type ContentKeyPolicyUnknownRestrictionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyUnknownRestrictionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyUnknownRestrictionInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyUnknownRestrictionInvokeResponseOutput) ToContentKeyPolicyUnknownRestrictionInvokeResponseOutput() ContentKeyPolicyUnknownRestrictionInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyUnknownRestrictionInvokeResponseOutput) ToContentKeyPolicyUnknownRestrictionInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyUnknownRestrictionInvokeResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
+func (o ContentKeyPolicyUnknownRestrictionInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyUnknownRestrictionInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // Represents a ContentKeyPolicyRestriction that is unavailable in the current API version.
@@ -7315,6 +10614,73 @@ func (o ContentKeyPolicyWidevineConfigurationOutput) OdataType() pulumi.StringOu
 // The Widevine template.
 func (o ContentKeyPolicyWidevineConfigurationOutput) WidevineTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyWidevineConfiguration) string { return v.WidevineTemplate }).(pulumi.StringOutput)
+}
+
+// Specifies a configuration for Widevine licenses.
+type ContentKeyPolicyWidevineConfigurationInvokeResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
+	OdataType string `pulumi:"odataType"`
+	// The Widevine template.
+	WidevineTemplate string `pulumi:"widevineTemplate"`
+}
+
+// ContentKeyPolicyWidevineConfigurationInvokeResponseInput is an input type that accepts ContentKeyPolicyWidevineConfigurationInvokeResponseArgs and ContentKeyPolicyWidevineConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyWidevineConfigurationInvokeResponseInput` via:
+//
+//          ContentKeyPolicyWidevineConfigurationInvokeResponseArgs{...}
+type ContentKeyPolicyWidevineConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyWidevineConfigurationInvokeResponseOutput() ContentKeyPolicyWidevineConfigurationInvokeResponseOutput
+	ToContentKeyPolicyWidevineConfigurationInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyWidevineConfigurationInvokeResponseOutput
+}
+
+// Specifies a configuration for Widevine licenses.
+type ContentKeyPolicyWidevineConfigurationInvokeResponseArgs struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The Widevine template.
+	WidevineTemplate pulumi.StringInput `pulumi:"widevineTemplate"`
+}
+
+func (ContentKeyPolicyWidevineConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyWidevineConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyWidevineConfigurationInvokeResponseArgs) ToContentKeyPolicyWidevineConfigurationInvokeResponseOutput() ContentKeyPolicyWidevineConfigurationInvokeResponseOutput {
+	return i.ToContentKeyPolicyWidevineConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyWidevineConfigurationInvokeResponseArgs) ToContentKeyPolicyWidevineConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyWidevineConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyWidevineConfigurationInvokeResponseOutput)
+}
+
+// Specifies a configuration for Widevine licenses.
+type ContentKeyPolicyWidevineConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyWidevineConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyWidevineConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyWidevineConfigurationInvokeResponseOutput) ToContentKeyPolicyWidevineConfigurationInvokeResponseOutput() ContentKeyPolicyWidevineConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyWidevineConfigurationInvokeResponseOutput) ToContentKeyPolicyWidevineConfigurationInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyWidevineConfigurationInvokeResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
+func (o ContentKeyPolicyWidevineConfigurationInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyWidevineConfigurationInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The Widevine template.
+func (o ContentKeyPolicyWidevineConfigurationInvokeResponseOutput) WidevineTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyWidevineConfigurationInvokeResponse) string { return v.WidevineTemplate }).(pulumi.StringOutput)
 }
 
 // Specifies a configuration for Widevine licenses.
@@ -7452,6 +10818,73 @@ func (o ContentKeyPolicyX509CertificateTokenKeyOutput) RawBody() pulumi.StringOu
 }
 
 // Specifies a certificate for token validation.
+type ContentKeyPolicyX509CertificateTokenKeyInvokeResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
+	OdataType string `pulumi:"odataType"`
+	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
+	RawBody string `pulumi:"rawBody"`
+}
+
+// ContentKeyPolicyX509CertificateTokenKeyInvokeResponseInput is an input type that accepts ContentKeyPolicyX509CertificateTokenKeyInvokeResponseArgs and ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyX509CertificateTokenKeyInvokeResponseInput` via:
+//
+//          ContentKeyPolicyX509CertificateTokenKeyInvokeResponseArgs{...}
+type ContentKeyPolicyX509CertificateTokenKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput() ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput
+	ToContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutputWithContext(context.Context) ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput
+}
+
+// Specifies a certificate for token validation.
+type ContentKeyPolicyX509CertificateTokenKeyInvokeResponseArgs struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
+	RawBody pulumi.StringInput `pulumi:"rawBody"`
+}
+
+func (ContentKeyPolicyX509CertificateTokenKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyX509CertificateTokenKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyX509CertificateTokenKeyInvokeResponseArgs) ToContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput() ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput {
+	return i.ToContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyX509CertificateTokenKeyInvokeResponseArgs) ToContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput)
+}
+
+// Specifies a certificate for token validation.
+type ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyX509CertificateTokenKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput) ToContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput() ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput) ToContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutputWithContext(ctx context.Context) ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
+func (o ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyX509CertificateTokenKeyInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
+func (o ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput) RawBody() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyX509CertificateTokenKeyInvokeResponse) string { return v.RawBody }).(pulumi.StringOutput)
+}
+
+// Specifies a certificate for token validation.
 type ContentKeyPolicyX509CertificateTokenKeyResponse struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
@@ -7586,6 +11019,73 @@ func (o CopyAudioOutput) OdataType() pulumi.StringOutput {
 }
 
 // A codec flag, which tells the encoder to copy the input audio bitstream.
+type CopyAudioInvokeResponse struct {
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyAudio'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// CopyAudioInvokeResponseInput is an input type that accepts CopyAudioInvokeResponseArgs and CopyAudioInvokeResponseOutput values.
+// You can construct a concrete instance of `CopyAudioInvokeResponseInput` via:
+//
+//          CopyAudioInvokeResponseArgs{...}
+type CopyAudioInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCopyAudioInvokeResponseOutput() CopyAudioInvokeResponseOutput
+	ToCopyAudioInvokeResponseOutputWithContext(context.Context) CopyAudioInvokeResponseOutput
+}
+
+// A codec flag, which tells the encoder to copy the input audio bitstream.
+type CopyAudioInvokeResponseArgs struct {
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyAudio'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (CopyAudioInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyAudioInvokeResponse)(nil)).Elem()
+}
+
+func (i CopyAudioInvokeResponseArgs) ToCopyAudioInvokeResponseOutput() CopyAudioInvokeResponseOutput {
+	return i.ToCopyAudioInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CopyAudioInvokeResponseArgs) ToCopyAudioInvokeResponseOutputWithContext(ctx context.Context) CopyAudioInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CopyAudioInvokeResponseOutput)
+}
+
+// A codec flag, which tells the encoder to copy the input audio bitstream.
+type CopyAudioInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CopyAudioInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyAudioInvokeResponse)(nil)).Elem()
+}
+
+func (o CopyAudioInvokeResponseOutput) ToCopyAudioInvokeResponseOutput() CopyAudioInvokeResponseOutput {
+	return o
+}
+
+func (o CopyAudioInvokeResponseOutput) ToCopyAudioInvokeResponseOutputWithContext(ctx context.Context) CopyAudioInvokeResponseOutput {
+	return o
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o CopyAudioInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CopyAudioInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.CopyAudio'.
+func (o CopyAudioInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyAudioInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// A codec flag, which tells the encoder to copy the input audio bitstream.
 type CopyAudioResponse struct {
 	// An optional label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
@@ -7717,6 +11217,73 @@ func (o CopyVideoOutput) Label() pulumi.StringPtrOutput {
 // Expected value is '#Microsoft.Media.CopyVideo'.
 func (o CopyVideoOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v CopyVideo) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
+type CopyVideoInvokeResponse struct {
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyVideo'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// CopyVideoInvokeResponseInput is an input type that accepts CopyVideoInvokeResponseArgs and CopyVideoInvokeResponseOutput values.
+// You can construct a concrete instance of `CopyVideoInvokeResponseInput` via:
+//
+//          CopyVideoInvokeResponseArgs{...}
+type CopyVideoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCopyVideoInvokeResponseOutput() CopyVideoInvokeResponseOutput
+	ToCopyVideoInvokeResponseOutputWithContext(context.Context) CopyVideoInvokeResponseOutput
+}
+
+// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
+type CopyVideoInvokeResponseArgs struct {
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.CopyVideo'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (CopyVideoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyVideoInvokeResponse)(nil)).Elem()
+}
+
+func (i CopyVideoInvokeResponseArgs) ToCopyVideoInvokeResponseOutput() CopyVideoInvokeResponseOutput {
+	return i.ToCopyVideoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CopyVideoInvokeResponseArgs) ToCopyVideoInvokeResponseOutputWithContext(ctx context.Context) CopyVideoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CopyVideoInvokeResponseOutput)
+}
+
+// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
+type CopyVideoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CopyVideoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyVideoInvokeResponse)(nil)).Elem()
+}
+
+func (o CopyVideoInvokeResponseOutput) ToCopyVideoInvokeResponseOutput() CopyVideoInvokeResponseOutput {
+	return o
+}
+
+func (o CopyVideoInvokeResponseOutput) ToCopyVideoInvokeResponseOutputWithContext(ctx context.Context) CopyVideoInvokeResponseOutput {
+	return o
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o CopyVideoInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CopyVideoInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.CopyVideo'.
+func (o CopyVideoInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyVideoInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
@@ -7937,6 +11504,70 @@ func (o CrossSiteAccessPoliciesPtrOutput) CrossDomainPolicy() pulumi.StringPtrOu
 		}
 		return v.CrossDomainPolicy
 	}).(pulumi.StringPtrOutput)
+}
+
+// The client access policy.
+type CrossSiteAccessPoliciesInvokeResponse struct {
+	// The content of clientaccesspolicy.xml used by Silverlight.
+	ClientAccessPolicy *string `pulumi:"clientAccessPolicy"`
+	// The content of crossdomain.xml used by Silverlight.
+	CrossDomainPolicy *string `pulumi:"crossDomainPolicy"`
+}
+
+// CrossSiteAccessPoliciesInvokeResponseInput is an input type that accepts CrossSiteAccessPoliciesInvokeResponseArgs and CrossSiteAccessPoliciesInvokeResponseOutput values.
+// You can construct a concrete instance of `CrossSiteAccessPoliciesInvokeResponseInput` via:
+//
+//          CrossSiteAccessPoliciesInvokeResponseArgs{...}
+type CrossSiteAccessPoliciesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCrossSiteAccessPoliciesInvokeResponseOutput() CrossSiteAccessPoliciesInvokeResponseOutput
+	ToCrossSiteAccessPoliciesInvokeResponseOutputWithContext(context.Context) CrossSiteAccessPoliciesInvokeResponseOutput
+}
+
+// The client access policy.
+type CrossSiteAccessPoliciesInvokeResponseArgs struct {
+	// The content of clientaccesspolicy.xml used by Silverlight.
+	ClientAccessPolicy pulumi.StringPtrInput `pulumi:"clientAccessPolicy"`
+	// The content of crossdomain.xml used by Silverlight.
+	CrossDomainPolicy pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
+}
+
+func (CrossSiteAccessPoliciesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrossSiteAccessPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (i CrossSiteAccessPoliciesInvokeResponseArgs) ToCrossSiteAccessPoliciesInvokeResponseOutput() CrossSiteAccessPoliciesInvokeResponseOutput {
+	return i.ToCrossSiteAccessPoliciesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CrossSiteAccessPoliciesInvokeResponseArgs) ToCrossSiteAccessPoliciesInvokeResponseOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrossSiteAccessPoliciesInvokeResponseOutput)
+}
+
+// The client access policy.
+type CrossSiteAccessPoliciesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CrossSiteAccessPoliciesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrossSiteAccessPoliciesInvokeResponse)(nil)).Elem()
+}
+
+func (o CrossSiteAccessPoliciesInvokeResponseOutput) ToCrossSiteAccessPoliciesInvokeResponseOutput() CrossSiteAccessPoliciesInvokeResponseOutput {
+	return o
+}
+
+func (o CrossSiteAccessPoliciesInvokeResponseOutput) ToCrossSiteAccessPoliciesInvokeResponseOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesInvokeResponseOutput {
+	return o
+}
+
+// The content of clientaccesspolicy.xml used by Silverlight.
+func (o CrossSiteAccessPoliciesInvokeResponseOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrossSiteAccessPoliciesInvokeResponse) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The content of crossdomain.xml used by Silverlight.
+func (o CrossSiteAccessPoliciesInvokeResponseOutput) CrossDomainPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrossSiteAccessPoliciesInvokeResponse) *string { return v.CrossDomainPolicy }).(pulumi.StringPtrOutput)
 }
 
 // The client access policy.
@@ -8238,6 +11869,159 @@ func (o DefaultKeyPtrOutput) Label() pulumi.StringPtrOutput {
 // Policy used by Default Key
 func (o DefaultKeyPtrOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DefaultKey) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Class to specify properties of default content key for each encryption scheme
+type DefaultKeyInvokeResponse struct {
+	// Label can be used to specify Content Key when creating a Streaming Locator
+	Label *string `pulumi:"label"`
+	// Policy used by Default Key
+	PolicyName *string `pulumi:"policyName"`
+}
+
+// DefaultKeyInvokeResponseInput is an input type that accepts DefaultKeyInvokeResponseArgs and DefaultKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `DefaultKeyInvokeResponseInput` via:
+//
+//          DefaultKeyInvokeResponseArgs{...}
+type DefaultKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDefaultKeyInvokeResponseOutput() DefaultKeyInvokeResponseOutput
+	ToDefaultKeyInvokeResponseOutputWithContext(context.Context) DefaultKeyInvokeResponseOutput
+}
+
+// Class to specify properties of default content key for each encryption scheme
+type DefaultKeyInvokeResponseArgs struct {
+	// Label can be used to specify Content Key when creating a Streaming Locator
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Policy used by Default Key
+	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
+}
+
+func (DefaultKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i DefaultKeyInvokeResponseArgs) ToDefaultKeyInvokeResponseOutput() DefaultKeyInvokeResponseOutput {
+	return i.ToDefaultKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DefaultKeyInvokeResponseArgs) ToDefaultKeyInvokeResponseOutputWithContext(ctx context.Context) DefaultKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultKeyInvokeResponseOutput)
+}
+
+func (i DefaultKeyInvokeResponseArgs) ToDefaultKeyInvokeResponsePtrOutput() DefaultKeyInvokeResponsePtrOutput {
+	return i.ToDefaultKeyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DefaultKeyInvokeResponseArgs) ToDefaultKeyInvokeResponsePtrOutputWithContext(ctx context.Context) DefaultKeyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultKeyInvokeResponseOutput).ToDefaultKeyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DefaultKeyInvokeResponsePtrInput is an input type that accepts DefaultKeyInvokeResponseArgs, DefaultKeyInvokeResponsePtr and DefaultKeyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DefaultKeyInvokeResponsePtrInput` via:
+//
+//          DefaultKeyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DefaultKeyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDefaultKeyInvokeResponsePtrOutput() DefaultKeyInvokeResponsePtrOutput
+	ToDefaultKeyInvokeResponsePtrOutputWithContext(context.Context) DefaultKeyInvokeResponsePtrOutput
+}
+
+type defaultKeyInvokeResponsePtrType DefaultKeyInvokeResponseArgs
+
+func DefaultKeyInvokeResponsePtr(v *DefaultKeyInvokeResponseArgs) DefaultKeyInvokeResponsePtrInput {
+	return (*defaultKeyInvokeResponsePtrType)(v)
+}
+
+func (*defaultKeyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i *defaultKeyInvokeResponsePtrType) ToDefaultKeyInvokeResponsePtrOutput() DefaultKeyInvokeResponsePtrOutput {
+	return i.ToDefaultKeyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *defaultKeyInvokeResponsePtrType) ToDefaultKeyInvokeResponsePtrOutputWithContext(ctx context.Context) DefaultKeyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultKeyInvokeResponsePtrOutput)
+}
+
+// Class to specify properties of default content key for each encryption scheme
+type DefaultKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DefaultKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o DefaultKeyInvokeResponseOutput) ToDefaultKeyInvokeResponseOutput() DefaultKeyInvokeResponseOutput {
+	return o
+}
+
+func (o DefaultKeyInvokeResponseOutput) ToDefaultKeyInvokeResponseOutputWithContext(ctx context.Context) DefaultKeyInvokeResponseOutput {
+	return o
+}
+
+func (o DefaultKeyInvokeResponseOutput) ToDefaultKeyInvokeResponsePtrOutput() DefaultKeyInvokeResponsePtrOutput {
+	return o.ToDefaultKeyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DefaultKeyInvokeResponseOutput) ToDefaultKeyInvokeResponsePtrOutputWithContext(ctx context.Context) DefaultKeyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DefaultKeyInvokeResponse) *DefaultKeyInvokeResponse {
+		return &v
+	}).(DefaultKeyInvokeResponsePtrOutput)
+}
+
+// Label can be used to specify Content Key when creating a Streaming Locator
+func (o DefaultKeyInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultKeyInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Policy used by Default Key
+func (o DefaultKeyInvokeResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultKeyInvokeResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+type DefaultKeyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultKeyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o DefaultKeyInvokeResponsePtrOutput) ToDefaultKeyInvokeResponsePtrOutput() DefaultKeyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DefaultKeyInvokeResponsePtrOutput) ToDefaultKeyInvokeResponsePtrOutputWithContext(ctx context.Context) DefaultKeyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DefaultKeyInvokeResponsePtrOutput) Elem() DefaultKeyInvokeResponseOutput {
+	return o.ApplyT(func(v *DefaultKeyInvokeResponse) DefaultKeyInvokeResponse { return *v }).(DefaultKeyInvokeResponseOutput)
+}
+
+// Label can be used to specify Content Key when creating a Streaming Locator
+func (o DefaultKeyInvokeResponsePtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultKeyInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+// Policy used by Default Key
+func (o DefaultKeyInvokeResponsePtrOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultKeyInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -8552,6 +12336,159 @@ func (o DeinterlacePtrOutput) Parity() pulumi.StringPtrOutput {
 }
 
 // Describes the de-interlacing settings.
+type DeinterlaceInvokeResponse struct {
+	// The deinterlacing mode. Defaults to AutoPixelAdaptive.
+	Mode *string `pulumi:"mode"`
+	// The field parity for de-interlacing, defaults to Auto.
+	Parity *string `pulumi:"parity"`
+}
+
+// DeinterlaceInvokeResponseInput is an input type that accepts DeinterlaceInvokeResponseArgs and DeinterlaceInvokeResponseOutput values.
+// You can construct a concrete instance of `DeinterlaceInvokeResponseInput` via:
+//
+//          DeinterlaceInvokeResponseArgs{...}
+type DeinterlaceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeinterlaceInvokeResponseOutput() DeinterlaceInvokeResponseOutput
+	ToDeinterlaceInvokeResponseOutputWithContext(context.Context) DeinterlaceInvokeResponseOutput
+}
+
+// Describes the de-interlacing settings.
+type DeinterlaceInvokeResponseArgs struct {
+	// The deinterlacing mode. Defaults to AutoPixelAdaptive.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// The field parity for de-interlacing, defaults to Auto.
+	Parity pulumi.StringPtrInput `pulumi:"parity"`
+}
+
+func (DeinterlaceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeinterlaceInvokeResponse)(nil)).Elem()
+}
+
+func (i DeinterlaceInvokeResponseArgs) ToDeinterlaceInvokeResponseOutput() DeinterlaceInvokeResponseOutput {
+	return i.ToDeinterlaceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeinterlaceInvokeResponseArgs) ToDeinterlaceInvokeResponseOutputWithContext(ctx context.Context) DeinterlaceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeinterlaceInvokeResponseOutput)
+}
+
+func (i DeinterlaceInvokeResponseArgs) ToDeinterlaceInvokeResponsePtrOutput() DeinterlaceInvokeResponsePtrOutput {
+	return i.ToDeinterlaceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeinterlaceInvokeResponseArgs) ToDeinterlaceInvokeResponsePtrOutputWithContext(ctx context.Context) DeinterlaceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeinterlaceInvokeResponseOutput).ToDeinterlaceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DeinterlaceInvokeResponsePtrInput is an input type that accepts DeinterlaceInvokeResponseArgs, DeinterlaceInvokeResponsePtr and DeinterlaceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DeinterlaceInvokeResponsePtrInput` via:
+//
+//          DeinterlaceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DeinterlaceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeinterlaceInvokeResponsePtrOutput() DeinterlaceInvokeResponsePtrOutput
+	ToDeinterlaceInvokeResponsePtrOutputWithContext(context.Context) DeinterlaceInvokeResponsePtrOutput
+}
+
+type deinterlaceInvokeResponsePtrType DeinterlaceInvokeResponseArgs
+
+func DeinterlaceInvokeResponsePtr(v *DeinterlaceInvokeResponseArgs) DeinterlaceInvokeResponsePtrInput {
+	return (*deinterlaceInvokeResponsePtrType)(v)
+}
+
+func (*deinterlaceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeinterlaceInvokeResponse)(nil)).Elem()
+}
+
+func (i *deinterlaceInvokeResponsePtrType) ToDeinterlaceInvokeResponsePtrOutput() DeinterlaceInvokeResponsePtrOutput {
+	return i.ToDeinterlaceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deinterlaceInvokeResponsePtrType) ToDeinterlaceInvokeResponsePtrOutputWithContext(ctx context.Context) DeinterlaceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeinterlaceInvokeResponsePtrOutput)
+}
+
+// Describes the de-interlacing settings.
+type DeinterlaceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeinterlaceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeinterlaceInvokeResponse)(nil)).Elem()
+}
+
+func (o DeinterlaceInvokeResponseOutput) ToDeinterlaceInvokeResponseOutput() DeinterlaceInvokeResponseOutput {
+	return o
+}
+
+func (o DeinterlaceInvokeResponseOutput) ToDeinterlaceInvokeResponseOutputWithContext(ctx context.Context) DeinterlaceInvokeResponseOutput {
+	return o
+}
+
+func (o DeinterlaceInvokeResponseOutput) ToDeinterlaceInvokeResponsePtrOutput() DeinterlaceInvokeResponsePtrOutput {
+	return o.ToDeinterlaceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeinterlaceInvokeResponseOutput) ToDeinterlaceInvokeResponsePtrOutputWithContext(ctx context.Context) DeinterlaceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DeinterlaceInvokeResponse) *DeinterlaceInvokeResponse {
+		return &v
+	}).(DeinterlaceInvokeResponsePtrOutput)
+}
+
+// The deinterlacing mode. Defaults to AutoPixelAdaptive.
+func (o DeinterlaceInvokeResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeinterlaceInvokeResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The field parity for de-interlacing, defaults to Auto.
+func (o DeinterlaceInvokeResponseOutput) Parity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeinterlaceInvokeResponse) *string { return v.Parity }).(pulumi.StringPtrOutput)
+}
+
+type DeinterlaceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeinterlaceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeinterlaceInvokeResponse)(nil)).Elem()
+}
+
+func (o DeinterlaceInvokeResponsePtrOutput) ToDeinterlaceInvokeResponsePtrOutput() DeinterlaceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DeinterlaceInvokeResponsePtrOutput) ToDeinterlaceInvokeResponsePtrOutputWithContext(ctx context.Context) DeinterlaceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DeinterlaceInvokeResponsePtrOutput) Elem() DeinterlaceInvokeResponseOutput {
+	return o.ApplyT(func(v *DeinterlaceInvokeResponse) DeinterlaceInvokeResponse { return *v }).(DeinterlaceInvokeResponseOutput)
+}
+
+// The deinterlacing mode. Defaults to AutoPixelAdaptive.
+func (o DeinterlaceInvokeResponsePtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeinterlaceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The field parity for de-interlacing, defaults to Auto.
+func (o DeinterlaceInvokeResponsePtrOutput) Parity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeinterlaceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Parity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the de-interlacing settings.
 type DeinterlaceResponse struct {
 	// The deinterlacing mode. Defaults to AutoPixelAdaptive.
 	Mode *string `pulumi:"mode"`
@@ -8704,86 +12641,90 @@ func (o DeinterlaceResponsePtrOutput) Parity() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type EdgeUsageDataCollectionPolicyResponse struct {
+type EdgeUsageDataCollectionPolicyInvokeResponse struct {
 	// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
 	DataCollectionFrequency *string `pulumi:"dataCollectionFrequency"`
 	// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
 	DataReportingFrequency *string `pulumi:"dataReportingFrequency"`
 	// Details of Event Hub where the usage will be reported.
-	EventHubDetails *EdgeUsageDataEventHubResponse `pulumi:"eventHubDetails"`
+	EventHubDetails *EdgeUsageDataEventHubInvokeResponse `pulumi:"eventHubDetails"`
 	// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
 	MaxAllowedUnreportedUsageDuration *string `pulumi:"maxAllowedUnreportedUsageDuration"`
 }
 
-// EdgeUsageDataCollectionPolicyResponseInput is an input type that accepts EdgeUsageDataCollectionPolicyResponseArgs and EdgeUsageDataCollectionPolicyResponseOutput values.
-// You can construct a concrete instance of `EdgeUsageDataCollectionPolicyResponseInput` via:
+// EdgeUsageDataCollectionPolicyInvokeResponseInput is an input type that accepts EdgeUsageDataCollectionPolicyInvokeResponseArgs and EdgeUsageDataCollectionPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `EdgeUsageDataCollectionPolicyInvokeResponseInput` via:
 //
-//          EdgeUsageDataCollectionPolicyResponseArgs{...}
-type EdgeUsageDataCollectionPolicyResponseInput interface {
+//          EdgeUsageDataCollectionPolicyInvokeResponseArgs{...}
+type EdgeUsageDataCollectionPolicyInvokeResponseInput interface {
 	pulumi.Input
 
-	ToEdgeUsageDataCollectionPolicyResponseOutput() EdgeUsageDataCollectionPolicyResponseOutput
-	ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(context.Context) EdgeUsageDataCollectionPolicyResponseOutput
+	ToEdgeUsageDataCollectionPolicyInvokeResponseOutput() EdgeUsageDataCollectionPolicyInvokeResponseOutput
+	ToEdgeUsageDataCollectionPolicyInvokeResponseOutputWithContext(context.Context) EdgeUsageDataCollectionPolicyInvokeResponseOutput
 }
 
-type EdgeUsageDataCollectionPolicyResponseArgs struct {
+type EdgeUsageDataCollectionPolicyInvokeResponseArgs struct {
 	// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
 	DataCollectionFrequency pulumi.StringPtrInput `pulumi:"dataCollectionFrequency"`
 	// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
 	DataReportingFrequency pulumi.StringPtrInput `pulumi:"dataReportingFrequency"`
 	// Details of Event Hub where the usage will be reported.
-	EventHubDetails EdgeUsageDataEventHubResponsePtrInput `pulumi:"eventHubDetails"`
+	EventHubDetails EdgeUsageDataEventHubInvokeResponsePtrInput `pulumi:"eventHubDetails"`
 	// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
 	MaxAllowedUnreportedUsageDuration pulumi.StringPtrInput `pulumi:"maxAllowedUnreportedUsageDuration"`
 }
 
-func (EdgeUsageDataCollectionPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EdgeUsageDataCollectionPolicyResponse)(nil)).Elem()
+func (EdgeUsageDataCollectionPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataCollectionPolicyInvokeResponse)(nil)).Elem()
 }
 
-func (i EdgeUsageDataCollectionPolicyResponseArgs) ToEdgeUsageDataCollectionPolicyResponseOutput() EdgeUsageDataCollectionPolicyResponseOutput {
-	return i.ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(context.Background())
+func (i EdgeUsageDataCollectionPolicyInvokeResponseArgs) ToEdgeUsageDataCollectionPolicyInvokeResponseOutput() EdgeUsageDataCollectionPolicyInvokeResponseOutput {
+	return i.ToEdgeUsageDataCollectionPolicyInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i EdgeUsageDataCollectionPolicyResponseArgs) ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataCollectionPolicyResponseOutput)
+func (i EdgeUsageDataCollectionPolicyInvokeResponseArgs) ToEdgeUsageDataCollectionPolicyInvokeResponseOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataCollectionPolicyInvokeResponseOutput)
 }
 
-type EdgeUsageDataCollectionPolicyResponseOutput struct{ *pulumi.OutputState }
+type EdgeUsageDataCollectionPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (EdgeUsageDataCollectionPolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EdgeUsageDataCollectionPolicyResponse)(nil)).Elem()
+func (EdgeUsageDataCollectionPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataCollectionPolicyInvokeResponse)(nil)).Elem()
 }
 
-func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponseOutput() EdgeUsageDataCollectionPolicyResponseOutput {
+func (o EdgeUsageDataCollectionPolicyInvokeResponseOutput) ToEdgeUsageDataCollectionPolicyInvokeResponseOutput() EdgeUsageDataCollectionPolicyInvokeResponseOutput {
 	return o
 }
 
-func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponseOutput {
+func (o EdgeUsageDataCollectionPolicyInvokeResponseOutput) ToEdgeUsageDataCollectionPolicyInvokeResponseOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyInvokeResponseOutput {
 	return o
 }
 
 // Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
-func (o EdgeUsageDataCollectionPolicyResponseOutput) DataCollectionFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.DataCollectionFrequency }).(pulumi.StringPtrOutput)
+func (o EdgeUsageDataCollectionPolicyInvokeResponseOutput) DataCollectionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyInvokeResponse) *string { return v.DataCollectionFrequency }).(pulumi.StringPtrOutput)
 }
 
 // Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
-func (o EdgeUsageDataCollectionPolicyResponseOutput) DataReportingFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.DataReportingFrequency }).(pulumi.StringPtrOutput)
+func (o EdgeUsageDataCollectionPolicyInvokeResponseOutput) DataReportingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyInvokeResponse) *string { return v.DataReportingFrequency }).(pulumi.StringPtrOutput)
 }
 
 // Details of Event Hub where the usage will be reported.
-func (o EdgeUsageDataCollectionPolicyResponseOutput) EventHubDetails() EdgeUsageDataEventHubResponsePtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *EdgeUsageDataEventHubResponse { return v.EventHubDetails }).(EdgeUsageDataEventHubResponsePtrOutput)
+func (o EdgeUsageDataCollectionPolicyInvokeResponseOutput) EventHubDetails() EdgeUsageDataEventHubInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyInvokeResponse) *EdgeUsageDataEventHubInvokeResponse {
+		return v.EventHubDetails
+	}).(EdgeUsageDataEventHubInvokeResponsePtrOutput)
 }
 
 // Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
-func (o EdgeUsageDataCollectionPolicyResponseOutput) MaxAllowedUnreportedUsageDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.MaxAllowedUnreportedUsageDuration }).(pulumi.StringPtrOutput)
+func (o EdgeUsageDataCollectionPolicyInvokeResponseOutput) MaxAllowedUnreportedUsageDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyInvokeResponse) *string {
+		return v.MaxAllowedUnreportedUsageDuration
+	}).(pulumi.StringPtrOutput)
 }
 
-type EdgeUsageDataEventHubResponse struct {
+type EdgeUsageDataEventHubInvokeResponse struct {
 	// Name of the Event Hub where usage will be reported.
 	Name *string `pulumi:"name"`
 	// Namespace of the Event Hub where usage will be reported.
@@ -8792,18 +12733,18 @@ type EdgeUsageDataEventHubResponse struct {
 	Token *string `pulumi:"token"`
 }
 
-// EdgeUsageDataEventHubResponseInput is an input type that accepts EdgeUsageDataEventHubResponseArgs and EdgeUsageDataEventHubResponseOutput values.
-// You can construct a concrete instance of `EdgeUsageDataEventHubResponseInput` via:
+// EdgeUsageDataEventHubInvokeResponseInput is an input type that accepts EdgeUsageDataEventHubInvokeResponseArgs and EdgeUsageDataEventHubInvokeResponseOutput values.
+// You can construct a concrete instance of `EdgeUsageDataEventHubInvokeResponseInput` via:
 //
-//          EdgeUsageDataEventHubResponseArgs{...}
-type EdgeUsageDataEventHubResponseInput interface {
+//          EdgeUsageDataEventHubInvokeResponseArgs{...}
+type EdgeUsageDataEventHubInvokeResponseInput interface {
 	pulumi.Input
 
-	ToEdgeUsageDataEventHubResponseOutput() EdgeUsageDataEventHubResponseOutput
-	ToEdgeUsageDataEventHubResponseOutputWithContext(context.Context) EdgeUsageDataEventHubResponseOutput
+	ToEdgeUsageDataEventHubInvokeResponseOutput() EdgeUsageDataEventHubInvokeResponseOutput
+	ToEdgeUsageDataEventHubInvokeResponseOutputWithContext(context.Context) EdgeUsageDataEventHubInvokeResponseOutput
 }
 
-type EdgeUsageDataEventHubResponseArgs struct {
+type EdgeUsageDataEventHubInvokeResponseArgs struct {
 	// Name of the Event Hub where usage will be reported.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Namespace of the Event Hub where usage will be reported.
@@ -8812,119 +12753,119 @@ type EdgeUsageDataEventHubResponseArgs struct {
 	Token pulumi.StringPtrInput `pulumi:"token"`
 }
 
-func (EdgeUsageDataEventHubResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EdgeUsageDataEventHubResponse)(nil)).Elem()
+func (EdgeUsageDataEventHubInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataEventHubInvokeResponse)(nil)).Elem()
 }
 
-func (i EdgeUsageDataEventHubResponseArgs) ToEdgeUsageDataEventHubResponseOutput() EdgeUsageDataEventHubResponseOutput {
-	return i.ToEdgeUsageDataEventHubResponseOutputWithContext(context.Background())
+func (i EdgeUsageDataEventHubInvokeResponseArgs) ToEdgeUsageDataEventHubInvokeResponseOutput() EdgeUsageDataEventHubInvokeResponseOutput {
+	return i.ToEdgeUsageDataEventHubInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i EdgeUsageDataEventHubResponseArgs) ToEdgeUsageDataEventHubResponseOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataEventHubResponseOutput)
+func (i EdgeUsageDataEventHubInvokeResponseArgs) ToEdgeUsageDataEventHubInvokeResponseOutputWithContext(ctx context.Context) EdgeUsageDataEventHubInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataEventHubInvokeResponseOutput)
 }
 
-func (i EdgeUsageDataEventHubResponseArgs) ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput {
-	return i.ToEdgeUsageDataEventHubResponsePtrOutputWithContext(context.Background())
+func (i EdgeUsageDataEventHubInvokeResponseArgs) ToEdgeUsageDataEventHubInvokeResponsePtrOutput() EdgeUsageDataEventHubInvokeResponsePtrOutput {
+	return i.ToEdgeUsageDataEventHubInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i EdgeUsageDataEventHubResponseArgs) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataEventHubResponseOutput).ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx)
+func (i EdgeUsageDataEventHubInvokeResponseArgs) ToEdgeUsageDataEventHubInvokeResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataEventHubInvokeResponseOutput).ToEdgeUsageDataEventHubInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// EdgeUsageDataEventHubResponsePtrInput is an input type that accepts EdgeUsageDataEventHubResponseArgs, EdgeUsageDataEventHubResponsePtr and EdgeUsageDataEventHubResponsePtrOutput values.
-// You can construct a concrete instance of `EdgeUsageDataEventHubResponsePtrInput` via:
+// EdgeUsageDataEventHubInvokeResponsePtrInput is an input type that accepts EdgeUsageDataEventHubInvokeResponseArgs, EdgeUsageDataEventHubInvokeResponsePtr and EdgeUsageDataEventHubInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EdgeUsageDataEventHubInvokeResponsePtrInput` via:
 //
-//          EdgeUsageDataEventHubResponseArgs{...}
+//          EdgeUsageDataEventHubInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type EdgeUsageDataEventHubResponsePtrInput interface {
+type EdgeUsageDataEventHubInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput
-	ToEdgeUsageDataEventHubResponsePtrOutputWithContext(context.Context) EdgeUsageDataEventHubResponsePtrOutput
+	ToEdgeUsageDataEventHubInvokeResponsePtrOutput() EdgeUsageDataEventHubInvokeResponsePtrOutput
+	ToEdgeUsageDataEventHubInvokeResponsePtrOutputWithContext(context.Context) EdgeUsageDataEventHubInvokeResponsePtrOutput
 }
 
-type edgeUsageDataEventHubResponsePtrType EdgeUsageDataEventHubResponseArgs
+type edgeUsageDataEventHubInvokeResponsePtrType EdgeUsageDataEventHubInvokeResponseArgs
 
-func EdgeUsageDataEventHubResponsePtr(v *EdgeUsageDataEventHubResponseArgs) EdgeUsageDataEventHubResponsePtrInput {
-	return (*edgeUsageDataEventHubResponsePtrType)(v)
+func EdgeUsageDataEventHubInvokeResponsePtr(v *EdgeUsageDataEventHubInvokeResponseArgs) EdgeUsageDataEventHubInvokeResponsePtrInput {
+	return (*edgeUsageDataEventHubInvokeResponsePtrType)(v)
 }
 
-func (*edgeUsageDataEventHubResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EdgeUsageDataEventHubResponse)(nil)).Elem()
+func (*edgeUsageDataEventHubInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeUsageDataEventHubInvokeResponse)(nil)).Elem()
 }
 
-func (i *edgeUsageDataEventHubResponsePtrType) ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput {
-	return i.ToEdgeUsageDataEventHubResponsePtrOutputWithContext(context.Background())
+func (i *edgeUsageDataEventHubInvokeResponsePtrType) ToEdgeUsageDataEventHubInvokeResponsePtrOutput() EdgeUsageDataEventHubInvokeResponsePtrOutput {
+	return i.ToEdgeUsageDataEventHubInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *edgeUsageDataEventHubResponsePtrType) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataEventHubResponsePtrOutput)
+func (i *edgeUsageDataEventHubInvokeResponsePtrType) ToEdgeUsageDataEventHubInvokeResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EdgeUsageDataEventHubInvokeResponsePtrOutput)
 }
 
-type EdgeUsageDataEventHubResponseOutput struct{ *pulumi.OutputState }
+type EdgeUsageDataEventHubInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (EdgeUsageDataEventHubResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EdgeUsageDataEventHubResponse)(nil)).Elem()
+func (EdgeUsageDataEventHubInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataEventHubInvokeResponse)(nil)).Elem()
 }
 
-func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponseOutput() EdgeUsageDataEventHubResponseOutput {
+func (o EdgeUsageDataEventHubInvokeResponseOutput) ToEdgeUsageDataEventHubInvokeResponseOutput() EdgeUsageDataEventHubInvokeResponseOutput {
 	return o
 }
 
-func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponseOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponseOutput {
+func (o EdgeUsageDataEventHubInvokeResponseOutput) ToEdgeUsageDataEventHubInvokeResponseOutputWithContext(ctx context.Context) EdgeUsageDataEventHubInvokeResponseOutput {
 	return o
 }
 
-func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput {
-	return o.ToEdgeUsageDataEventHubResponsePtrOutputWithContext(context.Background())
+func (o EdgeUsageDataEventHubInvokeResponseOutput) ToEdgeUsageDataEventHubInvokeResponsePtrOutput() EdgeUsageDataEventHubInvokeResponsePtrOutput {
+	return o.ToEdgeUsageDataEventHubInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *EdgeUsageDataEventHubResponse {
+func (o EdgeUsageDataEventHubInvokeResponseOutput) ToEdgeUsageDataEventHubInvokeResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubInvokeResponse) *EdgeUsageDataEventHubInvokeResponse {
 		return &v
-	}).(EdgeUsageDataEventHubResponsePtrOutput)
+	}).(EdgeUsageDataEventHubInvokeResponsePtrOutput)
 }
 
 // Name of the Event Hub where usage will be reported.
-func (o EdgeUsageDataEventHubResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o EdgeUsageDataEventHubInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Namespace of the Event Hub where usage will be reported.
-func (o EdgeUsageDataEventHubResponseOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+func (o EdgeUsageDataEventHubInvokeResponseOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubInvokeResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
 // SAS token needed to interact with Event Hub.
-func (o EdgeUsageDataEventHubResponseOutput) Token() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
+func (o EdgeUsageDataEventHubInvokeResponseOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubInvokeResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
 
-type EdgeUsageDataEventHubResponsePtrOutput struct{ *pulumi.OutputState }
+type EdgeUsageDataEventHubInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (EdgeUsageDataEventHubResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EdgeUsageDataEventHubResponse)(nil)).Elem()
+func (EdgeUsageDataEventHubInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeUsageDataEventHubInvokeResponse)(nil)).Elem()
 }
 
-func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput {
+func (o EdgeUsageDataEventHubInvokeResponsePtrOutput) ToEdgeUsageDataEventHubInvokeResponsePtrOutput() EdgeUsageDataEventHubInvokeResponsePtrOutput {
 	return o
 }
 
-func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
+func (o EdgeUsageDataEventHubInvokeResponsePtrOutput) ToEdgeUsageDataEventHubInvokeResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubInvokeResponsePtrOutput {
 	return o
 }
 
-func (o EdgeUsageDataEventHubResponsePtrOutput) Elem() EdgeUsageDataEventHubResponseOutput {
-	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) EdgeUsageDataEventHubResponse { return *v }).(EdgeUsageDataEventHubResponseOutput)
+func (o EdgeUsageDataEventHubInvokeResponsePtrOutput) Elem() EdgeUsageDataEventHubInvokeResponseOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubInvokeResponse) EdgeUsageDataEventHubInvokeResponse { return *v }).(EdgeUsageDataEventHubInvokeResponseOutput)
 }
 
 // Name of the Event Hub where usage will be reported.
-func (o EdgeUsageDataEventHubResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+func (o EdgeUsageDataEventHubInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -8933,8 +12874,8 @@ func (o EdgeUsageDataEventHubResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Namespace of the Event Hub where usage will be reported.
-func (o EdgeUsageDataEventHubResponsePtrOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+func (o EdgeUsageDataEventHubInvokeResponsePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -8943,8 +12884,8 @@ func (o EdgeUsageDataEventHubResponsePtrOutput) Namespace() pulumi.StringPtrOutp
 }
 
 // SAS token needed to interact with Event Hub.
-func (o EdgeUsageDataEventHubResponsePtrOutput) Token() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+func (o EdgeUsageDataEventHubInvokeResponsePtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -9136,6 +13077,197 @@ func (o EnabledProtocolsPtrOutput) Hls() pulumi.BoolPtrOutput {
 // Enable SmoothStreaming protocol or not
 func (o EnabledProtocolsPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnabledProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SmoothStreaming
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Class to specify which protocols are enabled
+type EnabledProtocolsInvokeResponse struct {
+	// Enable DASH protocol or not
+	Dash bool `pulumi:"dash"`
+	// Enable Download protocol or not
+	Download bool `pulumi:"download"`
+	// Enable HLS protocol or not
+	Hls bool `pulumi:"hls"`
+	// Enable SmoothStreaming protocol or not
+	SmoothStreaming bool `pulumi:"smoothStreaming"`
+}
+
+// EnabledProtocolsInvokeResponseInput is an input type that accepts EnabledProtocolsInvokeResponseArgs and EnabledProtocolsInvokeResponseOutput values.
+// You can construct a concrete instance of `EnabledProtocolsInvokeResponseInput` via:
+//
+//          EnabledProtocolsInvokeResponseArgs{...}
+type EnabledProtocolsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEnabledProtocolsInvokeResponseOutput() EnabledProtocolsInvokeResponseOutput
+	ToEnabledProtocolsInvokeResponseOutputWithContext(context.Context) EnabledProtocolsInvokeResponseOutput
+}
+
+// Class to specify which protocols are enabled
+type EnabledProtocolsInvokeResponseArgs struct {
+	// Enable DASH protocol or not
+	Dash pulumi.BoolInput `pulumi:"dash"`
+	// Enable Download protocol or not
+	Download pulumi.BoolInput `pulumi:"download"`
+	// Enable HLS protocol or not
+	Hls pulumi.BoolInput `pulumi:"hls"`
+	// Enable SmoothStreaming protocol or not
+	SmoothStreaming pulumi.BoolInput `pulumi:"smoothStreaming"`
+}
+
+func (EnabledProtocolsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnabledProtocolsInvokeResponse)(nil)).Elem()
+}
+
+func (i EnabledProtocolsInvokeResponseArgs) ToEnabledProtocolsInvokeResponseOutput() EnabledProtocolsInvokeResponseOutput {
+	return i.ToEnabledProtocolsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EnabledProtocolsInvokeResponseArgs) ToEnabledProtocolsInvokeResponseOutputWithContext(ctx context.Context) EnabledProtocolsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnabledProtocolsInvokeResponseOutput)
+}
+
+func (i EnabledProtocolsInvokeResponseArgs) ToEnabledProtocolsInvokeResponsePtrOutput() EnabledProtocolsInvokeResponsePtrOutput {
+	return i.ToEnabledProtocolsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EnabledProtocolsInvokeResponseArgs) ToEnabledProtocolsInvokeResponsePtrOutputWithContext(ctx context.Context) EnabledProtocolsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnabledProtocolsInvokeResponseOutput).ToEnabledProtocolsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EnabledProtocolsInvokeResponsePtrInput is an input type that accepts EnabledProtocolsInvokeResponseArgs, EnabledProtocolsInvokeResponsePtr and EnabledProtocolsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EnabledProtocolsInvokeResponsePtrInput` via:
+//
+//          EnabledProtocolsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EnabledProtocolsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEnabledProtocolsInvokeResponsePtrOutput() EnabledProtocolsInvokeResponsePtrOutput
+	ToEnabledProtocolsInvokeResponsePtrOutputWithContext(context.Context) EnabledProtocolsInvokeResponsePtrOutput
+}
+
+type enabledProtocolsInvokeResponsePtrType EnabledProtocolsInvokeResponseArgs
+
+func EnabledProtocolsInvokeResponsePtr(v *EnabledProtocolsInvokeResponseArgs) EnabledProtocolsInvokeResponsePtrInput {
+	return (*enabledProtocolsInvokeResponsePtrType)(v)
+}
+
+func (*enabledProtocolsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnabledProtocolsInvokeResponse)(nil)).Elem()
+}
+
+func (i *enabledProtocolsInvokeResponsePtrType) ToEnabledProtocolsInvokeResponsePtrOutput() EnabledProtocolsInvokeResponsePtrOutput {
+	return i.ToEnabledProtocolsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *enabledProtocolsInvokeResponsePtrType) ToEnabledProtocolsInvokeResponsePtrOutputWithContext(ctx context.Context) EnabledProtocolsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnabledProtocolsInvokeResponsePtrOutput)
+}
+
+// Class to specify which protocols are enabled
+type EnabledProtocolsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EnabledProtocolsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnabledProtocolsInvokeResponse)(nil)).Elem()
+}
+
+func (o EnabledProtocolsInvokeResponseOutput) ToEnabledProtocolsInvokeResponseOutput() EnabledProtocolsInvokeResponseOutput {
+	return o
+}
+
+func (o EnabledProtocolsInvokeResponseOutput) ToEnabledProtocolsInvokeResponseOutputWithContext(ctx context.Context) EnabledProtocolsInvokeResponseOutput {
+	return o
+}
+
+func (o EnabledProtocolsInvokeResponseOutput) ToEnabledProtocolsInvokeResponsePtrOutput() EnabledProtocolsInvokeResponsePtrOutput {
+	return o.ToEnabledProtocolsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EnabledProtocolsInvokeResponseOutput) ToEnabledProtocolsInvokeResponsePtrOutputWithContext(ctx context.Context) EnabledProtocolsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EnabledProtocolsInvokeResponse) *EnabledProtocolsInvokeResponse {
+		return &v
+	}).(EnabledProtocolsInvokeResponsePtrOutput)
+}
+
+// Enable DASH protocol or not
+func (o EnabledProtocolsInvokeResponseOutput) Dash() pulumi.BoolOutput {
+	return o.ApplyT(func(v EnabledProtocolsInvokeResponse) bool { return v.Dash }).(pulumi.BoolOutput)
+}
+
+// Enable Download protocol or not
+func (o EnabledProtocolsInvokeResponseOutput) Download() pulumi.BoolOutput {
+	return o.ApplyT(func(v EnabledProtocolsInvokeResponse) bool { return v.Download }).(pulumi.BoolOutput)
+}
+
+// Enable HLS protocol or not
+func (o EnabledProtocolsInvokeResponseOutput) Hls() pulumi.BoolOutput {
+	return o.ApplyT(func(v EnabledProtocolsInvokeResponse) bool { return v.Hls }).(pulumi.BoolOutput)
+}
+
+// Enable SmoothStreaming protocol or not
+func (o EnabledProtocolsInvokeResponseOutput) SmoothStreaming() pulumi.BoolOutput {
+	return o.ApplyT(func(v EnabledProtocolsInvokeResponse) bool { return v.SmoothStreaming }).(pulumi.BoolOutput)
+}
+
+type EnabledProtocolsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EnabledProtocolsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnabledProtocolsInvokeResponse)(nil)).Elem()
+}
+
+func (o EnabledProtocolsInvokeResponsePtrOutput) ToEnabledProtocolsInvokeResponsePtrOutput() EnabledProtocolsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EnabledProtocolsInvokeResponsePtrOutput) ToEnabledProtocolsInvokeResponsePtrOutputWithContext(ctx context.Context) EnabledProtocolsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EnabledProtocolsInvokeResponsePtrOutput) Elem() EnabledProtocolsInvokeResponseOutput {
+	return o.ApplyT(func(v *EnabledProtocolsInvokeResponse) EnabledProtocolsInvokeResponse { return *v }).(EnabledProtocolsInvokeResponseOutput)
+}
+
+// Enable DASH protocol or not
+func (o EnabledProtocolsInvokeResponsePtrOutput) Dash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EnabledProtocolsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Dash
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable Download protocol or not
+func (o EnabledProtocolsInvokeResponsePtrOutput) Download() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EnabledProtocolsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Download
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable HLS protocol or not
+func (o EnabledProtocolsInvokeResponsePtrOutput) Hls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EnabledProtocolsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Hls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable SmoothStreaming protocol or not
+func (o EnabledProtocolsInvokeResponsePtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EnabledProtocolsInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9526,6 +13658,90 @@ func (o EnvelopeEncryptionPtrOutput) EnabledProtocols() EnabledProtocolsPtrOutpu
 }
 
 // Class for EnvelopeEncryption encryption scheme
+type EnvelopeEncryptionInvokeResponse struct {
+	// Representing which tracks should not be encrypted
+	ClearTracks []TrackSelectionInvokeResponse `pulumi:"clearTracks"`
+	// Representing default content key for each encryption scheme and separate content keys for specific tracks
+	ContentKeys *StreamingPolicyContentKeysInvokeResponse `pulumi:"contentKeys"`
+	// Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+	CustomKeyAcquisitionUrlTemplate *string `pulumi:"customKeyAcquisitionUrlTemplate"`
+	// Representing supported protocols
+	EnabledProtocols *EnabledProtocolsInvokeResponse `pulumi:"enabledProtocols"`
+}
+
+// EnvelopeEncryptionInvokeResponseInput is an input type that accepts EnvelopeEncryptionInvokeResponseArgs and EnvelopeEncryptionInvokeResponseOutput values.
+// You can construct a concrete instance of `EnvelopeEncryptionInvokeResponseInput` via:
+//
+//          EnvelopeEncryptionInvokeResponseArgs{...}
+type EnvelopeEncryptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEnvelopeEncryptionInvokeResponseOutput() EnvelopeEncryptionInvokeResponseOutput
+	ToEnvelopeEncryptionInvokeResponseOutputWithContext(context.Context) EnvelopeEncryptionInvokeResponseOutput
+}
+
+// Class for EnvelopeEncryption encryption scheme
+type EnvelopeEncryptionInvokeResponseArgs struct {
+	// Representing which tracks should not be encrypted
+	ClearTracks TrackSelectionInvokeResponseArrayInput `pulumi:"clearTracks"`
+	// Representing default content key for each encryption scheme and separate content keys for specific tracks
+	ContentKeys StreamingPolicyContentKeysInvokeResponsePtrInput `pulumi:"contentKeys"`
+	// Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+	CustomKeyAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customKeyAcquisitionUrlTemplate"`
+	// Representing supported protocols
+	EnabledProtocols EnabledProtocolsInvokeResponsePtrInput `pulumi:"enabledProtocols"`
+}
+
+func (EnvelopeEncryptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvelopeEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i EnvelopeEncryptionInvokeResponseArgs) ToEnvelopeEncryptionInvokeResponseOutput() EnvelopeEncryptionInvokeResponseOutput {
+	return i.ToEnvelopeEncryptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EnvelopeEncryptionInvokeResponseArgs) ToEnvelopeEncryptionInvokeResponseOutputWithContext(ctx context.Context) EnvelopeEncryptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvelopeEncryptionInvokeResponseOutput)
+}
+
+// Class for EnvelopeEncryption encryption scheme
+type EnvelopeEncryptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EnvelopeEncryptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvelopeEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o EnvelopeEncryptionInvokeResponseOutput) ToEnvelopeEncryptionInvokeResponseOutput() EnvelopeEncryptionInvokeResponseOutput {
+	return o
+}
+
+func (o EnvelopeEncryptionInvokeResponseOutput) ToEnvelopeEncryptionInvokeResponseOutputWithContext(ctx context.Context) EnvelopeEncryptionInvokeResponseOutput {
+	return o
+}
+
+// Representing which tracks should not be encrypted
+func (o EnvelopeEncryptionInvokeResponseOutput) ClearTracks() TrackSelectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v EnvelopeEncryptionInvokeResponse) []TrackSelectionInvokeResponse { return v.ClearTracks }).(TrackSelectionInvokeResponseArrayOutput)
+}
+
+// Representing default content key for each encryption scheme and separate content keys for specific tracks
+func (o EnvelopeEncryptionInvokeResponseOutput) ContentKeys() StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EnvelopeEncryptionInvokeResponse) *StreamingPolicyContentKeysInvokeResponse {
+		return v.ContentKeys
+	}).(StreamingPolicyContentKeysInvokeResponsePtrOutput)
+}
+
+// Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+func (o EnvelopeEncryptionInvokeResponseOutput) CustomKeyAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvelopeEncryptionInvokeResponse) *string { return v.CustomKeyAcquisitionUrlTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Representing supported protocols
+func (o EnvelopeEncryptionInvokeResponseOutput) EnabledProtocols() EnabledProtocolsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EnvelopeEncryptionInvokeResponse) *EnabledProtocolsInvokeResponse { return v.EnabledProtocols }).(EnabledProtocolsInvokeResponsePtrOutput)
+}
+
+// Class for EnvelopeEncryption encryption scheme
 type EnvelopeEncryptionResponse struct {
 	// Representing which tracks should not be encrypted
 	ClearTracks []TrackSelectionResponse `pulumi:"clearTracks"`
@@ -9793,6 +14009,82 @@ func (o FaceDetectorPresetOutput) Resolution() pulumi.StringPtrOutput {
 }
 
 // Describes all the settings to be used when analyzing a video in order to detect all the faces present.
+type FaceDetectorPresetInvokeResponse struct {
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself
+	ExperimentalOptions map[string]string `pulumi:"experimentalOptions"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.FaceDetectorPreset'.
+	OdataType string `pulumi:"odataType"`
+	// Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+	Resolution *string `pulumi:"resolution"`
+}
+
+// FaceDetectorPresetInvokeResponseInput is an input type that accepts FaceDetectorPresetInvokeResponseArgs and FaceDetectorPresetInvokeResponseOutput values.
+// You can construct a concrete instance of `FaceDetectorPresetInvokeResponseInput` via:
+//
+//          FaceDetectorPresetInvokeResponseArgs{...}
+type FaceDetectorPresetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFaceDetectorPresetInvokeResponseOutput() FaceDetectorPresetInvokeResponseOutput
+	ToFaceDetectorPresetInvokeResponseOutputWithContext(context.Context) FaceDetectorPresetInvokeResponseOutput
+}
+
+// Describes all the settings to be used when analyzing a video in order to detect all the faces present.
+type FaceDetectorPresetInvokeResponseArgs struct {
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself
+	ExperimentalOptions pulumi.StringMapInput `pulumi:"experimentalOptions"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.FaceDetectorPreset'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+	Resolution pulumi.StringPtrInput `pulumi:"resolution"`
+}
+
+func (FaceDetectorPresetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FaceDetectorPresetInvokeResponse)(nil)).Elem()
+}
+
+func (i FaceDetectorPresetInvokeResponseArgs) ToFaceDetectorPresetInvokeResponseOutput() FaceDetectorPresetInvokeResponseOutput {
+	return i.ToFaceDetectorPresetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FaceDetectorPresetInvokeResponseArgs) ToFaceDetectorPresetInvokeResponseOutputWithContext(ctx context.Context) FaceDetectorPresetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FaceDetectorPresetInvokeResponseOutput)
+}
+
+// Describes all the settings to be used when analyzing a video in order to detect all the faces present.
+type FaceDetectorPresetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FaceDetectorPresetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FaceDetectorPresetInvokeResponse)(nil)).Elem()
+}
+
+func (o FaceDetectorPresetInvokeResponseOutput) ToFaceDetectorPresetInvokeResponseOutput() FaceDetectorPresetInvokeResponseOutput {
+	return o
+}
+
+func (o FaceDetectorPresetInvokeResponseOutput) ToFaceDetectorPresetInvokeResponseOutputWithContext(ctx context.Context) FaceDetectorPresetInvokeResponseOutput {
+	return o
+}
+
+// Dictionary containing key value pairs for parameters not exposed in the preset itself
+func (o FaceDetectorPresetInvokeResponseOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FaceDetectorPresetInvokeResponse) map[string]string { return v.ExperimentalOptions }).(pulumi.StringMapOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.FaceDetectorPreset'.
+func (o FaceDetectorPresetInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v FaceDetectorPresetInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+func (o FaceDetectorPresetInvokeResponseOutput) Resolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FaceDetectorPresetInvokeResponse) *string { return v.Resolution }).(pulumi.StringPtrOutput)
+}
+
+// Describes all the settings to be used when analyzing a video in order to detect all the faces present.
 type FaceDetectorPresetResponse struct {
 	// Dictionary containing key value pairs for parameters not exposed in the preset itself
 	ExperimentalOptions map[string]string `pulumi:"experimentalOptions"`
@@ -9984,6 +14276,124 @@ func (o FilterTrackPropertyConditionArrayOutput) Index(i pulumi.IntInput) Filter
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterTrackPropertyCondition {
 		return vs[0].([]FilterTrackPropertyCondition)[vs[1].(int)]
 	}).(FilterTrackPropertyConditionOutput)
+}
+
+// The class to specify one track property condition.
+type FilterTrackPropertyConditionInvokeResponse struct {
+	// The track property condition operation.
+	Operation string `pulumi:"operation"`
+	// The track property type.
+	Property string `pulumi:"property"`
+	// The track property value.
+	Value string `pulumi:"value"`
+}
+
+// FilterTrackPropertyConditionInvokeResponseInput is an input type that accepts FilterTrackPropertyConditionInvokeResponseArgs and FilterTrackPropertyConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `FilterTrackPropertyConditionInvokeResponseInput` via:
+//
+//          FilterTrackPropertyConditionInvokeResponseArgs{...}
+type FilterTrackPropertyConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFilterTrackPropertyConditionInvokeResponseOutput() FilterTrackPropertyConditionInvokeResponseOutput
+	ToFilterTrackPropertyConditionInvokeResponseOutputWithContext(context.Context) FilterTrackPropertyConditionInvokeResponseOutput
+}
+
+// The class to specify one track property condition.
+type FilterTrackPropertyConditionInvokeResponseArgs struct {
+	// The track property condition operation.
+	Operation pulumi.StringInput `pulumi:"operation"`
+	// The track property type.
+	Property pulumi.StringInput `pulumi:"property"`
+	// The track property value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FilterTrackPropertyConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterTrackPropertyConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i FilterTrackPropertyConditionInvokeResponseArgs) ToFilterTrackPropertyConditionInvokeResponseOutput() FilterTrackPropertyConditionInvokeResponseOutput {
+	return i.ToFilterTrackPropertyConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FilterTrackPropertyConditionInvokeResponseArgs) ToFilterTrackPropertyConditionInvokeResponseOutputWithContext(ctx context.Context) FilterTrackPropertyConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterTrackPropertyConditionInvokeResponseOutput)
+}
+
+// FilterTrackPropertyConditionInvokeResponseArrayInput is an input type that accepts FilterTrackPropertyConditionInvokeResponseArray and FilterTrackPropertyConditionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FilterTrackPropertyConditionInvokeResponseArrayInput` via:
+//
+//          FilterTrackPropertyConditionInvokeResponseArray{ FilterTrackPropertyConditionInvokeResponseArgs{...} }
+type FilterTrackPropertyConditionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFilterTrackPropertyConditionInvokeResponseArrayOutput() FilterTrackPropertyConditionInvokeResponseArrayOutput
+	ToFilterTrackPropertyConditionInvokeResponseArrayOutputWithContext(context.Context) FilterTrackPropertyConditionInvokeResponseArrayOutput
+}
+
+type FilterTrackPropertyConditionInvokeResponseArray []FilterTrackPropertyConditionInvokeResponseInput
+
+func (FilterTrackPropertyConditionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterTrackPropertyConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i FilterTrackPropertyConditionInvokeResponseArray) ToFilterTrackPropertyConditionInvokeResponseArrayOutput() FilterTrackPropertyConditionInvokeResponseArrayOutput {
+	return i.ToFilterTrackPropertyConditionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FilterTrackPropertyConditionInvokeResponseArray) ToFilterTrackPropertyConditionInvokeResponseArrayOutputWithContext(ctx context.Context) FilterTrackPropertyConditionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterTrackPropertyConditionInvokeResponseArrayOutput)
+}
+
+// The class to specify one track property condition.
+type FilterTrackPropertyConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FilterTrackPropertyConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterTrackPropertyConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o FilterTrackPropertyConditionInvokeResponseOutput) ToFilterTrackPropertyConditionInvokeResponseOutput() FilterTrackPropertyConditionInvokeResponseOutput {
+	return o
+}
+
+func (o FilterTrackPropertyConditionInvokeResponseOutput) ToFilterTrackPropertyConditionInvokeResponseOutputWithContext(ctx context.Context) FilterTrackPropertyConditionInvokeResponseOutput {
+	return o
+}
+
+// The track property condition operation.
+func (o FilterTrackPropertyConditionInvokeResponseOutput) Operation() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterTrackPropertyConditionInvokeResponse) string { return v.Operation }).(pulumi.StringOutput)
+}
+
+// The track property type.
+func (o FilterTrackPropertyConditionInvokeResponseOutput) Property() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterTrackPropertyConditionInvokeResponse) string { return v.Property }).(pulumi.StringOutput)
+}
+
+// The track property value.
+func (o FilterTrackPropertyConditionInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterTrackPropertyConditionInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FilterTrackPropertyConditionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FilterTrackPropertyConditionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterTrackPropertyConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o FilterTrackPropertyConditionInvokeResponseArrayOutput) ToFilterTrackPropertyConditionInvokeResponseArrayOutput() FilterTrackPropertyConditionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FilterTrackPropertyConditionInvokeResponseArrayOutput) ToFilterTrackPropertyConditionInvokeResponseArrayOutputWithContext(ctx context.Context) FilterTrackPropertyConditionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FilterTrackPropertyConditionInvokeResponseArrayOutput) Index(i pulumi.IntInput) FilterTrackPropertyConditionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterTrackPropertyConditionInvokeResponse {
+		return vs[0].([]FilterTrackPropertyConditionInvokeResponse)[vs[1].(int)]
+	}).(FilterTrackPropertyConditionInvokeResponseOutput)
 }
 
 // The class to specify one track property condition.
@@ -10202,6 +14612,108 @@ func (o FilterTrackSelectionArrayOutput) Index(i pulumi.IntInput) FilterTrackSel
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterTrackSelection {
 		return vs[0].([]FilterTrackSelection)[vs[1].(int)]
 	}).(FilterTrackSelectionOutput)
+}
+
+// Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
+type FilterTrackSelectionInvokeResponse struct {
+	// The track selections.
+	TrackSelections []FilterTrackPropertyConditionInvokeResponse `pulumi:"trackSelections"`
+}
+
+// FilterTrackSelectionInvokeResponseInput is an input type that accepts FilterTrackSelectionInvokeResponseArgs and FilterTrackSelectionInvokeResponseOutput values.
+// You can construct a concrete instance of `FilterTrackSelectionInvokeResponseInput` via:
+//
+//          FilterTrackSelectionInvokeResponseArgs{...}
+type FilterTrackSelectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFilterTrackSelectionInvokeResponseOutput() FilterTrackSelectionInvokeResponseOutput
+	ToFilterTrackSelectionInvokeResponseOutputWithContext(context.Context) FilterTrackSelectionInvokeResponseOutput
+}
+
+// Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
+type FilterTrackSelectionInvokeResponseArgs struct {
+	// The track selections.
+	TrackSelections FilterTrackPropertyConditionInvokeResponseArrayInput `pulumi:"trackSelections"`
+}
+
+func (FilterTrackSelectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterTrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (i FilterTrackSelectionInvokeResponseArgs) ToFilterTrackSelectionInvokeResponseOutput() FilterTrackSelectionInvokeResponseOutput {
+	return i.ToFilterTrackSelectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FilterTrackSelectionInvokeResponseArgs) ToFilterTrackSelectionInvokeResponseOutputWithContext(ctx context.Context) FilterTrackSelectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterTrackSelectionInvokeResponseOutput)
+}
+
+// FilterTrackSelectionInvokeResponseArrayInput is an input type that accepts FilterTrackSelectionInvokeResponseArray and FilterTrackSelectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FilterTrackSelectionInvokeResponseArrayInput` via:
+//
+//          FilterTrackSelectionInvokeResponseArray{ FilterTrackSelectionInvokeResponseArgs{...} }
+type FilterTrackSelectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFilterTrackSelectionInvokeResponseArrayOutput() FilterTrackSelectionInvokeResponseArrayOutput
+	ToFilterTrackSelectionInvokeResponseArrayOutputWithContext(context.Context) FilterTrackSelectionInvokeResponseArrayOutput
+}
+
+type FilterTrackSelectionInvokeResponseArray []FilterTrackSelectionInvokeResponseInput
+
+func (FilterTrackSelectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterTrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (i FilterTrackSelectionInvokeResponseArray) ToFilterTrackSelectionInvokeResponseArrayOutput() FilterTrackSelectionInvokeResponseArrayOutput {
+	return i.ToFilterTrackSelectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FilterTrackSelectionInvokeResponseArray) ToFilterTrackSelectionInvokeResponseArrayOutputWithContext(ctx context.Context) FilterTrackSelectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterTrackSelectionInvokeResponseArrayOutput)
+}
+
+// Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
+type FilterTrackSelectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FilterTrackSelectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterTrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (o FilterTrackSelectionInvokeResponseOutput) ToFilterTrackSelectionInvokeResponseOutput() FilterTrackSelectionInvokeResponseOutput {
+	return o
+}
+
+func (o FilterTrackSelectionInvokeResponseOutput) ToFilterTrackSelectionInvokeResponseOutputWithContext(ctx context.Context) FilterTrackSelectionInvokeResponseOutput {
+	return o
+}
+
+// The track selections.
+func (o FilterTrackSelectionInvokeResponseOutput) TrackSelections() FilterTrackPropertyConditionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v FilterTrackSelectionInvokeResponse) []FilterTrackPropertyConditionInvokeResponse {
+		return v.TrackSelections
+	}).(FilterTrackPropertyConditionInvokeResponseArrayOutput)
+}
+
+type FilterTrackSelectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FilterTrackSelectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterTrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (o FilterTrackSelectionInvokeResponseArrayOutput) ToFilterTrackSelectionInvokeResponseArrayOutput() FilterTrackSelectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FilterTrackSelectionInvokeResponseArrayOutput) ToFilterTrackSelectionInvokeResponseArrayOutputWithContext(ctx context.Context) FilterTrackSelectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FilterTrackSelectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) FilterTrackSelectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterTrackSelectionInvokeResponse {
+		return vs[0].([]FilterTrackSelectionInvokeResponse)[vs[1].(int)]
+	}).(FilterTrackSelectionInvokeResponseOutput)
 }
 
 // Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
@@ -10488,6 +15000,197 @@ func (o FiltersPtrOutput) Overlays() pulumi.ArrayOutput {
 // The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
 func (o FiltersPtrOutput) Rotation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Rotation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
+type FiltersInvokeResponse struct {
+	// The parameters for the rectangular window with which to crop the input video.
+	Crop *RectangleInvokeResponse `pulumi:"crop"`
+	// The de-interlacing settings.
+	Deinterlace *DeinterlaceInvokeResponse `pulumi:"deinterlace"`
+	// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
+	Overlays []interface{} `pulumi:"overlays"`
+	// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+	Rotation *string `pulumi:"rotation"`
+}
+
+// FiltersInvokeResponseInput is an input type that accepts FiltersInvokeResponseArgs and FiltersInvokeResponseOutput values.
+// You can construct a concrete instance of `FiltersInvokeResponseInput` via:
+//
+//          FiltersInvokeResponseArgs{...}
+type FiltersInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFiltersInvokeResponseOutput() FiltersInvokeResponseOutput
+	ToFiltersInvokeResponseOutputWithContext(context.Context) FiltersInvokeResponseOutput
+}
+
+// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
+type FiltersInvokeResponseArgs struct {
+	// The parameters for the rectangular window with which to crop the input video.
+	Crop RectangleInvokeResponsePtrInput `pulumi:"crop"`
+	// The de-interlacing settings.
+	Deinterlace DeinterlaceInvokeResponsePtrInput `pulumi:"deinterlace"`
+	// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
+	Overlays pulumi.ArrayInput `pulumi:"overlays"`
+	// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+	Rotation pulumi.StringPtrInput `pulumi:"rotation"`
+}
+
+func (FiltersInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FiltersInvokeResponse)(nil)).Elem()
+}
+
+func (i FiltersInvokeResponseArgs) ToFiltersInvokeResponseOutput() FiltersInvokeResponseOutput {
+	return i.ToFiltersInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FiltersInvokeResponseArgs) ToFiltersInvokeResponseOutputWithContext(ctx context.Context) FiltersInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FiltersInvokeResponseOutput)
+}
+
+func (i FiltersInvokeResponseArgs) ToFiltersInvokeResponsePtrOutput() FiltersInvokeResponsePtrOutput {
+	return i.ToFiltersInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FiltersInvokeResponseArgs) ToFiltersInvokeResponsePtrOutputWithContext(ctx context.Context) FiltersInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FiltersInvokeResponseOutput).ToFiltersInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// FiltersInvokeResponsePtrInput is an input type that accepts FiltersInvokeResponseArgs, FiltersInvokeResponsePtr and FiltersInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `FiltersInvokeResponsePtrInput` via:
+//
+//          FiltersInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FiltersInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToFiltersInvokeResponsePtrOutput() FiltersInvokeResponsePtrOutput
+	ToFiltersInvokeResponsePtrOutputWithContext(context.Context) FiltersInvokeResponsePtrOutput
+}
+
+type filtersInvokeResponsePtrType FiltersInvokeResponseArgs
+
+func FiltersInvokeResponsePtr(v *FiltersInvokeResponseArgs) FiltersInvokeResponsePtrInput {
+	return (*filtersInvokeResponsePtrType)(v)
+}
+
+func (*filtersInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FiltersInvokeResponse)(nil)).Elem()
+}
+
+func (i *filtersInvokeResponsePtrType) ToFiltersInvokeResponsePtrOutput() FiltersInvokeResponsePtrOutput {
+	return i.ToFiltersInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *filtersInvokeResponsePtrType) ToFiltersInvokeResponsePtrOutputWithContext(ctx context.Context) FiltersInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FiltersInvokeResponsePtrOutput)
+}
+
+// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
+type FiltersInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FiltersInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FiltersInvokeResponse)(nil)).Elem()
+}
+
+func (o FiltersInvokeResponseOutput) ToFiltersInvokeResponseOutput() FiltersInvokeResponseOutput {
+	return o
+}
+
+func (o FiltersInvokeResponseOutput) ToFiltersInvokeResponseOutputWithContext(ctx context.Context) FiltersInvokeResponseOutput {
+	return o
+}
+
+func (o FiltersInvokeResponseOutput) ToFiltersInvokeResponsePtrOutput() FiltersInvokeResponsePtrOutput {
+	return o.ToFiltersInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FiltersInvokeResponseOutput) ToFiltersInvokeResponsePtrOutputWithContext(ctx context.Context) FiltersInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FiltersInvokeResponse) *FiltersInvokeResponse {
+		return &v
+	}).(FiltersInvokeResponsePtrOutput)
+}
+
+// The parameters for the rectangular window with which to crop the input video.
+func (o FiltersInvokeResponseOutput) Crop() RectangleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FiltersInvokeResponse) *RectangleInvokeResponse { return v.Crop }).(RectangleInvokeResponsePtrOutput)
+}
+
+// The de-interlacing settings.
+func (o FiltersInvokeResponseOutput) Deinterlace() DeinterlaceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v FiltersInvokeResponse) *DeinterlaceInvokeResponse { return v.Deinterlace }).(DeinterlaceInvokeResponsePtrOutput)
+}
+
+// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
+func (o FiltersInvokeResponseOutput) Overlays() pulumi.ArrayOutput {
+	return o.ApplyT(func(v FiltersInvokeResponse) []interface{} { return v.Overlays }).(pulumi.ArrayOutput)
+}
+
+// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+func (o FiltersInvokeResponseOutput) Rotation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FiltersInvokeResponse) *string { return v.Rotation }).(pulumi.StringPtrOutput)
+}
+
+type FiltersInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FiltersInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FiltersInvokeResponse)(nil)).Elem()
+}
+
+func (o FiltersInvokeResponsePtrOutput) ToFiltersInvokeResponsePtrOutput() FiltersInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FiltersInvokeResponsePtrOutput) ToFiltersInvokeResponsePtrOutputWithContext(ctx context.Context) FiltersInvokeResponsePtrOutput {
+	return o
+}
+
+func (o FiltersInvokeResponsePtrOutput) Elem() FiltersInvokeResponseOutput {
+	return o.ApplyT(func(v *FiltersInvokeResponse) FiltersInvokeResponse { return *v }).(FiltersInvokeResponseOutput)
+}
+
+// The parameters for the rectangular window with which to crop the input video.
+func (o FiltersInvokeResponsePtrOutput) Crop() RectangleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *FiltersInvokeResponse) *RectangleInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Crop
+	}).(RectangleInvokeResponsePtrOutput)
+}
+
+// The de-interlacing settings.
+func (o FiltersInvokeResponsePtrOutput) Deinterlace() DeinterlaceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *FiltersInvokeResponse) *DeinterlaceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Deinterlace
+	}).(DeinterlaceInvokeResponsePtrOutput)
+}
+
+// The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
+func (o FiltersInvokeResponsePtrOutput) Overlays() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *FiltersInvokeResponse) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Overlays
+	}).(pulumi.ArrayOutput)
+}
+
+// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+func (o FiltersInvokeResponsePtrOutput) Rotation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FiltersInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -10818,6 +15521,61 @@ func (o FirstQualityPtrOutput) Bitrate() pulumi.IntPtrOutput {
 		}
 		return &v.Bitrate
 	}).(pulumi.IntPtrOutput)
+}
+
+// Filter First Quality
+type FirstQualityInvokeResponse struct {
+	// The first quality bitrate.
+	Bitrate int `pulumi:"bitrate"`
+}
+
+// FirstQualityInvokeResponseInput is an input type that accepts FirstQualityInvokeResponseArgs and FirstQualityInvokeResponseOutput values.
+// You can construct a concrete instance of `FirstQualityInvokeResponseInput` via:
+//
+//          FirstQualityInvokeResponseArgs{...}
+type FirstQualityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFirstQualityInvokeResponseOutput() FirstQualityInvokeResponseOutput
+	ToFirstQualityInvokeResponseOutputWithContext(context.Context) FirstQualityInvokeResponseOutput
+}
+
+// Filter First Quality
+type FirstQualityInvokeResponseArgs struct {
+	// The first quality bitrate.
+	Bitrate pulumi.IntInput `pulumi:"bitrate"`
+}
+
+func (FirstQualityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirstQualityInvokeResponse)(nil)).Elem()
+}
+
+func (i FirstQualityInvokeResponseArgs) ToFirstQualityInvokeResponseOutput() FirstQualityInvokeResponseOutput {
+	return i.ToFirstQualityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FirstQualityInvokeResponseArgs) ToFirstQualityInvokeResponseOutputWithContext(ctx context.Context) FirstQualityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirstQualityInvokeResponseOutput)
+}
+
+// Filter First Quality
+type FirstQualityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FirstQualityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirstQualityInvokeResponse)(nil)).Elem()
+}
+
+func (o FirstQualityInvokeResponseOutput) ToFirstQualityInvokeResponseOutput() FirstQualityInvokeResponseOutput {
+	return o
+}
+
+func (o FirstQualityInvokeResponseOutput) ToFirstQualityInvokeResponseOutputWithContext(ctx context.Context) FirstQualityInvokeResponseOutput {
+	return o
+}
+
+// The first quality bitrate.
+func (o FirstQualityInvokeResponseOutput) Bitrate() pulumi.IntOutput {
+	return o.ApplyT(func(v FirstQualityInvokeResponse) int { return v.Bitrate }).(pulumi.IntOutput)
 }
 
 // Filter First Quality
@@ -11184,6 +15942,235 @@ func (o H264LayerArrayOutput) Index(i pulumi.IntInput) H264LayerOutput {
 }
 
 // Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+type H264LayerInvokeResponse struct {
+	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+	AdaptiveBFrame *bool `pulumi:"adaptiveBFrame"`
+	// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	BFrames *int `pulumi:"bFrames"`
+	// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+	Bitrate int `pulumi:"bitrate"`
+	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+	BufferWindow *string `pulumi:"bufferWindow"`
+	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+	EntropyMode *string `pulumi:"entropyMode"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+	FrameRate *string `pulumi:"frameRate"`
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// We currently support Level up to 6.2. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+	Level *string `pulumi:"level"`
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	MaxBitrate *int `pulumi:"maxBitrate"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoLayer'.
+	OdataType string `pulumi:"odataType"`
+	// We currently support Baseline, Main, High, High422, High444. Default is Auto.
+	Profile *string `pulumi:"profile"`
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	ReferenceFrames *int `pulumi:"referenceFrames"`
+	// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+	Slices *int `pulumi:"slices"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// H264LayerInvokeResponseInput is an input type that accepts H264LayerInvokeResponseArgs and H264LayerInvokeResponseOutput values.
+// You can construct a concrete instance of `H264LayerInvokeResponseInput` via:
+//
+//          H264LayerInvokeResponseArgs{...}
+type H264LayerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToH264LayerInvokeResponseOutput() H264LayerInvokeResponseOutput
+	ToH264LayerInvokeResponseOutputWithContext(context.Context) H264LayerInvokeResponseOutput
+}
+
+// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+type H264LayerInvokeResponseArgs struct {
+	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+	AdaptiveBFrame pulumi.BoolPtrInput `pulumi:"adaptiveBFrame"`
+	// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
+	// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+	Bitrate pulumi.IntInput `pulumi:"bitrate"`
+	// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
+	// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+	EntropyMode pulumi.StringPtrInput `pulumi:"entropyMode"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// We currently support Level up to 6.2. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoLayer'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// We currently support Baseline, Main, High, High422, High444. Default is Auto.
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
+	// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+	Slices pulumi.IntPtrInput `pulumi:"slices"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (H264LayerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264LayerInvokeResponse)(nil)).Elem()
+}
+
+func (i H264LayerInvokeResponseArgs) ToH264LayerInvokeResponseOutput() H264LayerInvokeResponseOutput {
+	return i.ToH264LayerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i H264LayerInvokeResponseArgs) ToH264LayerInvokeResponseOutputWithContext(ctx context.Context) H264LayerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(H264LayerInvokeResponseOutput)
+}
+
+// H264LayerInvokeResponseArrayInput is an input type that accepts H264LayerInvokeResponseArray and H264LayerInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `H264LayerInvokeResponseArrayInput` via:
+//
+//          H264LayerInvokeResponseArray{ H264LayerInvokeResponseArgs{...} }
+type H264LayerInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToH264LayerInvokeResponseArrayOutput() H264LayerInvokeResponseArrayOutput
+	ToH264LayerInvokeResponseArrayOutputWithContext(context.Context) H264LayerInvokeResponseArrayOutput
+}
+
+type H264LayerInvokeResponseArray []H264LayerInvokeResponseInput
+
+func (H264LayerInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]H264LayerInvokeResponse)(nil)).Elem()
+}
+
+func (i H264LayerInvokeResponseArray) ToH264LayerInvokeResponseArrayOutput() H264LayerInvokeResponseArrayOutput {
+	return i.ToH264LayerInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i H264LayerInvokeResponseArray) ToH264LayerInvokeResponseArrayOutputWithContext(ctx context.Context) H264LayerInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(H264LayerInvokeResponseArrayOutput)
+}
+
+// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
+type H264LayerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (H264LayerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264LayerInvokeResponse)(nil)).Elem()
+}
+
+func (o H264LayerInvokeResponseOutput) ToH264LayerInvokeResponseOutput() H264LayerInvokeResponseOutput {
+	return o
+}
+
+func (o H264LayerInvokeResponseOutput) ToH264LayerInvokeResponseOutputWithContext(ctx context.Context) H264LayerInvokeResponseOutput {
+	return o
+}
+
+// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
+func (o H264LayerInvokeResponseOutput) AdaptiveBFrame() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *bool { return v.AdaptiveBFrame }).(pulumi.BoolPtrOutput)
+}
+
+// The number of B-frames to be used when encoding this layer.  If not specified, the encoder chooses an appropriate number based on the video profile and level.
+func (o H264LayerInvokeResponseOutput) BFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *int { return v.BFrames }).(pulumi.IntPtrOutput)
+}
+
+// The average bitrate in bits per second at which to encode the input video when generating this layer. This is a required field.
+func (o H264LayerInvokeResponseOutput) Bitrate() pulumi.IntOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) int { return v.Bitrate }).(pulumi.IntOutput)
+}
+
+// The VBV buffer window length. The value should be in ISO 8601 format. The value should be in the range [0.1-100] seconds. The default is 5 seconds (for example, PT5S).
+func (o H264LayerInvokeResponseOutput) BufferWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
+}
+
+// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+func (o H264LayerInvokeResponseOutput) EntropyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *string { return v.EntropyMode }).(pulumi.StringPtrOutput)
+}
+
+// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+func (o H264LayerInvokeResponseOutput) FrameRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+func (o H264LayerInvokeResponseOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o H264LayerInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// We currently support Level up to 6.2. The value can be Auto, or a number that matches the H.264 profile. If not specified, the default is Auto, which lets the encoder choose the Level that is appropriate for this layer.
+func (o H264LayerInvokeResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+func (o H264LayerInvokeResponseOutput) MaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.VideoLayer'.
+func (o H264LayerInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// We currently support Baseline, Main, High, High422, High444. Default is Auto.
+func (o H264LayerInvokeResponseOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+func (o H264LayerInvokeResponseOutput) ReferenceFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *int { return v.ReferenceFrames }).(pulumi.IntPtrOutput)
+}
+
+// The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
+func (o H264LayerInvokeResponseOutput) Slices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *int { return v.Slices }).(pulumi.IntPtrOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+func (o H264LayerInvokeResponseOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264LayerInvokeResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type H264LayerInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (H264LayerInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]H264LayerInvokeResponse)(nil)).Elem()
+}
+
+func (o H264LayerInvokeResponseArrayOutput) ToH264LayerInvokeResponseArrayOutput() H264LayerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o H264LayerInvokeResponseArrayOutput) ToH264LayerInvokeResponseArrayOutputWithContext(ctx context.Context) H264LayerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o H264LayerInvokeResponseArrayOutput) Index(i pulumi.IntInput) H264LayerInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) H264LayerInvokeResponse {
+		return vs[0].([]H264LayerInvokeResponse)[vs[1].(int)]
+	}).(H264LayerInvokeResponseOutput)
+}
+
+// Describes the settings to be used when encoding the input video into a desired output bitrate layer with the H.264 video codec.
 type H264LayerResponse struct {
 	// Whether or not adaptive B-frames are to be used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use.
 	AdaptiveBFrame *bool `pulumi:"adaptiveBFrame"`
@@ -11525,6 +16512,118 @@ func (o H264VideoOutput) StretchMode() pulumi.StringPtrOutput {
 }
 
 // Describes all the properties for encoding a video with the H.264 codec.
+type H264VideoInvokeResponse struct {
+	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+	Complexity *string `pulumi:"complexity"`
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The collection of output H.264 layers to be produced by the encoder.
+	Layers []H264LayerInvokeResponse `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+	SceneChangeDetection *bool `pulumi:"sceneChangeDetection"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// H264VideoInvokeResponseInput is an input type that accepts H264VideoInvokeResponseArgs and H264VideoInvokeResponseOutput values.
+// You can construct a concrete instance of `H264VideoInvokeResponseInput` via:
+//
+//          H264VideoInvokeResponseArgs{...}
+type H264VideoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToH264VideoInvokeResponseOutput() H264VideoInvokeResponseOutput
+	ToH264VideoInvokeResponseOutputWithContext(context.Context) H264VideoInvokeResponseOutput
+}
+
+// Describes all the properties for encoding a video with the H.264 codec.
+type H264VideoInvokeResponseArgs struct {
+	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The collection of output H.264 layers to be produced by the encoder.
+	Layers H264LayerInvokeResponseArrayInput `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+	SceneChangeDetection pulumi.BoolPtrInput `pulumi:"sceneChangeDetection"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (H264VideoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264VideoInvokeResponse)(nil)).Elem()
+}
+
+func (i H264VideoInvokeResponseArgs) ToH264VideoInvokeResponseOutput() H264VideoInvokeResponseOutput {
+	return i.ToH264VideoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i H264VideoInvokeResponseArgs) ToH264VideoInvokeResponseOutputWithContext(ctx context.Context) H264VideoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(H264VideoInvokeResponseOutput)
+}
+
+// Describes all the properties for encoding a video with the H.264 codec.
+type H264VideoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (H264VideoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*H264VideoInvokeResponse)(nil)).Elem()
+}
+
+func (o H264VideoInvokeResponseOutput) ToH264VideoInvokeResponseOutput() H264VideoInvokeResponseOutput {
+	return o
+}
+
+func (o H264VideoInvokeResponseOutput) ToH264VideoInvokeResponseOutputWithContext(ctx context.Context) H264VideoInvokeResponseOutput {
+	return o
+}
+
+// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+func (o H264VideoInvokeResponseOutput) Complexity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264VideoInvokeResponse) *string { return v.Complexity }).(pulumi.StringPtrOutput)
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o H264VideoInvokeResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264VideoInvokeResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o H264VideoInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264VideoInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The collection of output H.264 layers to be produced by the encoder.
+func (o H264VideoInvokeResponseOutput) Layers() H264LayerInvokeResponseArrayOutput {
+	return o.ApplyT(func(v H264VideoInvokeResponse) []H264LayerInvokeResponse { return v.Layers }).(H264LayerInvokeResponseArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o H264VideoInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v H264VideoInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.
+func (o H264VideoInvokeResponseOutput) SceneChangeDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v H264VideoInvokeResponse) *bool { return v.SceneChangeDetection }).(pulumi.BoolPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o H264VideoInvokeResponseOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v H264VideoInvokeResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Describes all the properties for encoding a video with the H.264 codec.
 type H264VideoResponse struct {
 	// Tells the encoder how to choose its encoding settings. The default value is Balanced.
 	Complexity *string `pulumi:"complexity"`
@@ -11768,6 +16867,61 @@ func (o HlsPtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 		}
 		return v.FragmentsPerTsSegment
 	}).(pulumi.IntPtrOutput)
+}
+
+// The HLS configuration.
+type HlsInvokeResponse struct {
+	// The amount of fragments per HTTP Live Streaming (HLS) segment.
+	FragmentsPerTsSegment *int `pulumi:"fragmentsPerTsSegment"`
+}
+
+// HlsInvokeResponseInput is an input type that accepts HlsInvokeResponseArgs and HlsInvokeResponseOutput values.
+// You can construct a concrete instance of `HlsInvokeResponseInput` via:
+//
+//          HlsInvokeResponseArgs{...}
+type HlsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHlsInvokeResponseOutput() HlsInvokeResponseOutput
+	ToHlsInvokeResponseOutputWithContext(context.Context) HlsInvokeResponseOutput
+}
+
+// The HLS configuration.
+type HlsInvokeResponseArgs struct {
+	// The amount of fragments per HTTP Live Streaming (HLS) segment.
+	FragmentsPerTsSegment pulumi.IntPtrInput `pulumi:"fragmentsPerTsSegment"`
+}
+
+func (HlsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HlsInvokeResponse)(nil)).Elem()
+}
+
+func (i HlsInvokeResponseArgs) ToHlsInvokeResponseOutput() HlsInvokeResponseOutput {
+	return i.ToHlsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HlsInvokeResponseArgs) ToHlsInvokeResponseOutputWithContext(ctx context.Context) HlsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HlsInvokeResponseOutput)
+}
+
+// The HLS configuration.
+type HlsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HlsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HlsInvokeResponse)(nil)).Elem()
+}
+
+func (o HlsInvokeResponseOutput) ToHlsInvokeResponseOutput() HlsInvokeResponseOutput {
+	return o
+}
+
+func (o HlsInvokeResponseOutput) ToHlsInvokeResponseOutputWithContext(ctx context.Context) HlsInvokeResponseOutput {
+	return o
+}
+
+// The amount of fragments per HTTP Live Streaming (HLS) segment.
+func (o HlsInvokeResponseOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HlsInvokeResponse) *int { return v.FragmentsPerTsSegment }).(pulumi.IntPtrOutput)
 }
 
 // The HLS configuration.
@@ -12039,6 +17193,140 @@ func (o IPAccessControlPtrOutput) Allow() IPRangeArrayOutput {
 }
 
 // The IP access control.
+type IPAccessControlInvokeResponse struct {
+	// The IP allow list.
+	Allow []IPRangeInvokeResponse `pulumi:"allow"`
+}
+
+// IPAccessControlInvokeResponseInput is an input type that accepts IPAccessControlInvokeResponseArgs and IPAccessControlInvokeResponseOutput values.
+// You can construct a concrete instance of `IPAccessControlInvokeResponseInput` via:
+//
+//          IPAccessControlInvokeResponseArgs{...}
+type IPAccessControlInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIPAccessControlInvokeResponseOutput() IPAccessControlInvokeResponseOutput
+	ToIPAccessControlInvokeResponseOutputWithContext(context.Context) IPAccessControlInvokeResponseOutput
+}
+
+// The IP access control.
+type IPAccessControlInvokeResponseArgs struct {
+	// The IP allow list.
+	Allow IPRangeInvokeResponseArrayInput `pulumi:"allow"`
+}
+
+func (IPAccessControlInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i IPAccessControlInvokeResponseArgs) ToIPAccessControlInvokeResponseOutput() IPAccessControlInvokeResponseOutput {
+	return i.ToIPAccessControlInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IPAccessControlInvokeResponseArgs) ToIPAccessControlInvokeResponseOutputWithContext(ctx context.Context) IPAccessControlInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlInvokeResponseOutput)
+}
+
+func (i IPAccessControlInvokeResponseArgs) ToIPAccessControlInvokeResponsePtrOutput() IPAccessControlInvokeResponsePtrOutput {
+	return i.ToIPAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IPAccessControlInvokeResponseArgs) ToIPAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) IPAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlInvokeResponseOutput).ToIPAccessControlInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// IPAccessControlInvokeResponsePtrInput is an input type that accepts IPAccessControlInvokeResponseArgs, IPAccessControlInvokeResponsePtr and IPAccessControlInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `IPAccessControlInvokeResponsePtrInput` via:
+//
+//          IPAccessControlInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IPAccessControlInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToIPAccessControlInvokeResponsePtrOutput() IPAccessControlInvokeResponsePtrOutput
+	ToIPAccessControlInvokeResponsePtrOutputWithContext(context.Context) IPAccessControlInvokeResponsePtrOutput
+}
+
+type ipaccessControlInvokeResponsePtrType IPAccessControlInvokeResponseArgs
+
+func IPAccessControlInvokeResponsePtr(v *IPAccessControlInvokeResponseArgs) IPAccessControlInvokeResponsePtrInput {
+	return (*ipaccessControlInvokeResponsePtrType)(v)
+}
+
+func (*ipaccessControlInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i *ipaccessControlInvokeResponsePtrType) ToIPAccessControlInvokeResponsePtrOutput() IPAccessControlInvokeResponsePtrOutput {
+	return i.ToIPAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *ipaccessControlInvokeResponsePtrType) ToIPAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) IPAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control.
+type IPAccessControlInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IPAccessControlInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o IPAccessControlInvokeResponseOutput) ToIPAccessControlInvokeResponseOutput() IPAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o IPAccessControlInvokeResponseOutput) ToIPAccessControlInvokeResponseOutputWithContext(ctx context.Context) IPAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o IPAccessControlInvokeResponseOutput) ToIPAccessControlInvokeResponsePtrOutput() IPAccessControlInvokeResponsePtrOutput {
+	return o.ToIPAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IPAccessControlInvokeResponseOutput) ToIPAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IPAccessControlInvokeResponse) *IPAccessControlInvokeResponse {
+		return &v
+	}).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP allow list.
+func (o IPAccessControlInvokeResponseOutput) Allow() IPRangeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IPAccessControlInvokeResponse) []IPRangeInvokeResponse { return v.Allow }).(IPRangeInvokeResponseArrayOutput)
+}
+
+type IPAccessControlInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IPAccessControlInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IPAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o IPAccessControlInvokeResponsePtrOutput) ToIPAccessControlInvokeResponsePtrOutput() IPAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IPAccessControlInvokeResponsePtrOutput) ToIPAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) IPAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o IPAccessControlInvokeResponsePtrOutput) Elem() IPAccessControlInvokeResponseOutput {
+	return o.ApplyT(func(v *IPAccessControlInvokeResponse) IPAccessControlInvokeResponse { return *v }).(IPAccessControlInvokeResponseOutput)
+}
+
+// The IP allow list.
+func (o IPAccessControlInvokeResponsePtrOutput) Allow() IPRangeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *IPAccessControlInvokeResponse) []IPRangeInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Allow
+	}).(IPRangeInvokeResponseArrayOutput)
+}
+
+// The IP access control.
 type IPAccessControlResponse struct {
 	// The IP allow list.
 	Allow []IPRangeResponse `pulumi:"allow"`
@@ -12288,6 +17576,124 @@ func (o IPRangeArrayOutput) Index(i pulumi.IntInput) IPRangeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPRange {
 		return vs[0].([]IPRange)[vs[1].(int)]
 	}).(IPRangeOutput)
+}
+
+// The IP address range in the CIDR scheme.
+type IPRangeInvokeResponse struct {
+	// The IP address.
+	Address *string `pulumi:"address"`
+	// The friendly name for the IP address range.
+	Name *string `pulumi:"name"`
+	// The subnet mask prefix length (see CIDR notation).
+	SubnetPrefixLength *int `pulumi:"subnetPrefixLength"`
+}
+
+// IPRangeInvokeResponseInput is an input type that accepts IPRangeInvokeResponseArgs and IPRangeInvokeResponseOutput values.
+// You can construct a concrete instance of `IPRangeInvokeResponseInput` via:
+//
+//          IPRangeInvokeResponseArgs{...}
+type IPRangeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIPRangeInvokeResponseOutput() IPRangeInvokeResponseOutput
+	ToIPRangeInvokeResponseOutputWithContext(context.Context) IPRangeInvokeResponseOutput
+}
+
+// The IP address range in the CIDR scheme.
+type IPRangeInvokeResponseArgs struct {
+	// The IP address.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// The friendly name for the IP address range.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The subnet mask prefix length (see CIDR notation).
+	SubnetPrefixLength pulumi.IntPtrInput `pulumi:"subnetPrefixLength"`
+}
+
+func (IPRangeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPRangeInvokeResponse)(nil)).Elem()
+}
+
+func (i IPRangeInvokeResponseArgs) ToIPRangeInvokeResponseOutput() IPRangeInvokeResponseOutput {
+	return i.ToIPRangeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IPRangeInvokeResponseArgs) ToIPRangeInvokeResponseOutputWithContext(ctx context.Context) IPRangeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPRangeInvokeResponseOutput)
+}
+
+// IPRangeInvokeResponseArrayInput is an input type that accepts IPRangeInvokeResponseArray and IPRangeInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IPRangeInvokeResponseArrayInput` via:
+//
+//          IPRangeInvokeResponseArray{ IPRangeInvokeResponseArgs{...} }
+type IPRangeInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIPRangeInvokeResponseArrayOutput() IPRangeInvokeResponseArrayOutput
+	ToIPRangeInvokeResponseArrayOutputWithContext(context.Context) IPRangeInvokeResponseArrayOutput
+}
+
+type IPRangeInvokeResponseArray []IPRangeInvokeResponseInput
+
+func (IPRangeInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPRangeInvokeResponse)(nil)).Elem()
+}
+
+func (i IPRangeInvokeResponseArray) ToIPRangeInvokeResponseArrayOutput() IPRangeInvokeResponseArrayOutput {
+	return i.ToIPRangeInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IPRangeInvokeResponseArray) ToIPRangeInvokeResponseArrayOutputWithContext(ctx context.Context) IPRangeInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPRangeInvokeResponseArrayOutput)
+}
+
+// The IP address range in the CIDR scheme.
+type IPRangeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IPRangeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPRangeInvokeResponse)(nil)).Elem()
+}
+
+func (o IPRangeInvokeResponseOutput) ToIPRangeInvokeResponseOutput() IPRangeInvokeResponseOutput {
+	return o
+}
+
+func (o IPRangeInvokeResponseOutput) ToIPRangeInvokeResponseOutputWithContext(ctx context.Context) IPRangeInvokeResponseOutput {
+	return o
+}
+
+// The IP address.
+func (o IPRangeInvokeResponseOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPRangeInvokeResponse) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// The friendly name for the IP address range.
+func (o IPRangeInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPRangeInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The subnet mask prefix length (see CIDR notation).
+func (o IPRangeInvokeResponseOutput) SubnetPrefixLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IPRangeInvokeResponse) *int { return v.SubnetPrefixLength }).(pulumi.IntPtrOutput)
+}
+
+type IPRangeInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IPRangeInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPRangeInvokeResponse)(nil)).Elem()
+}
+
+func (o IPRangeInvokeResponseArrayOutput) ToIPRangeInvokeResponseArrayOutput() IPRangeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IPRangeInvokeResponseArrayOutput) ToIPRangeInvokeResponseArrayOutputWithContext(ctx context.Context) IPRangeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IPRangeInvokeResponseArrayOutput) Index(i pulumi.IntInput) IPRangeInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPRangeInvokeResponse {
+		return vs[0].([]IPRangeInvokeResponse)[vs[1].(int)]
+	}).(IPRangeInvokeResponseOutput)
 }
 
 // The IP address range in the CIDR scheme.
@@ -12588,6 +17994,73 @@ func (o ImageFormatOutput) OdataType() pulumi.StringOutput {
 }
 
 // Describes the properties for an output image file.
+type ImageFormatInvokeResponse struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ImageFormatInvokeResponseInput is an input type that accepts ImageFormatInvokeResponseArgs and ImageFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `ImageFormatInvokeResponseInput` via:
+//
+//          ImageFormatInvokeResponseArgs{...}
+type ImageFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToImageFormatInvokeResponseOutput() ImageFormatInvokeResponseOutput
+	ToImageFormatInvokeResponseOutputWithContext(context.Context) ImageFormatInvokeResponseOutput
+}
+
+// Describes the properties for an output image file.
+type ImageFormatInvokeResponseArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ImageFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i ImageFormatInvokeResponseArgs) ToImageFormatInvokeResponseOutput() ImageFormatInvokeResponseOutput {
+	return i.ToImageFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ImageFormatInvokeResponseArgs) ToImageFormatInvokeResponseOutputWithContext(ctx context.Context) ImageFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageFormatInvokeResponseOutput)
+}
+
+// Describes the properties for an output image file.
+type ImageFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o ImageFormatInvokeResponseOutput) ToImageFormatInvokeResponseOutput() ImageFormatInvokeResponseOutput {
+	return o
+}
+
+func (o ImageFormatInvokeResponseOutput) ToImageFormatInvokeResponseOutputWithContext(ctx context.Context) ImageFormatInvokeResponseOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o ImageFormatInvokeResponseOutput) FilenamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageFormatInvokeResponse) string { return v.FilenamePattern }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ImageFormat'.
+func (o ImageFormatInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageFormatInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes the properties for an output image file.
 type ImageFormatResponse struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern string `pulumi:"filenamePattern"`
@@ -12652,6 +18125,118 @@ func (o ImageFormatResponseOutput) FilenamePattern() pulumi.StringOutput {
 // Expected value is '#Microsoft.Media.ImageFormat'.
 func (o ImageFormatResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageFormatResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes the basic properties for generating thumbnails from the input video
+type ImageInvokeResponse struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range *string `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step *string `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// ImageInvokeResponseInput is an input type that accepts ImageInvokeResponseArgs and ImageInvokeResponseOutput values.
+// You can construct a concrete instance of `ImageInvokeResponseInput` via:
+//
+//          ImageInvokeResponseArgs{...}
+type ImageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToImageInvokeResponseOutput() ImageInvokeResponseOutput
+	ToImageInvokeResponseOutputWithContext(context.Context) ImageInvokeResponseOutput
+}
+
+// Describes the basic properties for generating thumbnails from the input video
+type ImageInvokeResponseArgs struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start pulumi.StringInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (ImageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageInvokeResponse)(nil)).Elem()
+}
+
+func (i ImageInvokeResponseArgs) ToImageInvokeResponseOutput() ImageInvokeResponseOutput {
+	return i.ToImageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ImageInvokeResponseArgs) ToImageInvokeResponseOutputWithContext(ctx context.Context) ImageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageInvokeResponseOutput)
+}
+
+// Describes the basic properties for generating thumbnails from the input video
+type ImageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ImageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageInvokeResponse)(nil)).Elem()
+}
+
+func (o ImageInvokeResponseOutput) ToImageInvokeResponseOutput() ImageInvokeResponseOutput {
+	return o
+}
+
+func (o ImageInvokeResponseOutput) ToImageInvokeResponseOutputWithContext(ctx context.Context) ImageInvokeResponseOutput {
+	return o
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o ImageInvokeResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInvokeResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o ImageInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o ImageInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+func (o ImageInvokeResponseOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInvokeResponse) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+func (o ImageInvokeResponseOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageInvokeResponse) string { return v.Start }).(pulumi.StringOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+func (o ImageInvokeResponseOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInvokeResponse) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o ImageInvokeResponseOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageInvokeResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
 // Describes the basic properties for generating thumbnails from the input video
@@ -12767,6 +18352,115 @@ func (o ImageResponseOutput) StretchMode() pulumi.StringPtrOutput {
 }
 
 // Details of JobOutput errors.
+type JobErrorDetailInvokeResponse struct {
+	// Code describing the error detail.
+	Code string `pulumi:"code"`
+	// A human-readable representation of the error.
+	Message string `pulumi:"message"`
+}
+
+// JobErrorDetailInvokeResponseInput is an input type that accepts JobErrorDetailInvokeResponseArgs and JobErrorDetailInvokeResponseOutput values.
+// You can construct a concrete instance of `JobErrorDetailInvokeResponseInput` via:
+//
+//          JobErrorDetailInvokeResponseArgs{...}
+type JobErrorDetailInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobErrorDetailInvokeResponseOutput() JobErrorDetailInvokeResponseOutput
+	ToJobErrorDetailInvokeResponseOutputWithContext(context.Context) JobErrorDetailInvokeResponseOutput
+}
+
+// Details of JobOutput errors.
+type JobErrorDetailInvokeResponseArgs struct {
+	// Code describing the error detail.
+	Code pulumi.StringInput `pulumi:"code"`
+	// A human-readable representation of the error.
+	Message pulumi.StringInput `pulumi:"message"`
+}
+
+func (JobErrorDetailInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (i JobErrorDetailInvokeResponseArgs) ToJobErrorDetailInvokeResponseOutput() JobErrorDetailInvokeResponseOutput {
+	return i.ToJobErrorDetailInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobErrorDetailInvokeResponseArgs) ToJobErrorDetailInvokeResponseOutputWithContext(ctx context.Context) JobErrorDetailInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobErrorDetailInvokeResponseOutput)
+}
+
+// JobErrorDetailInvokeResponseArrayInput is an input type that accepts JobErrorDetailInvokeResponseArray and JobErrorDetailInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JobErrorDetailInvokeResponseArrayInput` via:
+//
+//          JobErrorDetailInvokeResponseArray{ JobErrorDetailInvokeResponseArgs{...} }
+type JobErrorDetailInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJobErrorDetailInvokeResponseArrayOutput() JobErrorDetailInvokeResponseArrayOutput
+	ToJobErrorDetailInvokeResponseArrayOutputWithContext(context.Context) JobErrorDetailInvokeResponseArrayOutput
+}
+
+type JobErrorDetailInvokeResponseArray []JobErrorDetailInvokeResponseInput
+
+func (JobErrorDetailInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (i JobErrorDetailInvokeResponseArray) ToJobErrorDetailInvokeResponseArrayOutput() JobErrorDetailInvokeResponseArrayOutput {
+	return i.ToJobErrorDetailInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JobErrorDetailInvokeResponseArray) ToJobErrorDetailInvokeResponseArrayOutputWithContext(ctx context.Context) JobErrorDetailInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobErrorDetailInvokeResponseArrayOutput)
+}
+
+// Details of JobOutput errors.
+type JobErrorDetailInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobErrorDetailInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (o JobErrorDetailInvokeResponseOutput) ToJobErrorDetailInvokeResponseOutput() JobErrorDetailInvokeResponseOutput {
+	return o
+}
+
+func (o JobErrorDetailInvokeResponseOutput) ToJobErrorDetailInvokeResponseOutputWithContext(ctx context.Context) JobErrorDetailInvokeResponseOutput {
+	return o
+}
+
+// Code describing the error detail.
+func (o JobErrorDetailInvokeResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v JobErrorDetailInvokeResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// A human-readable representation of the error.
+func (o JobErrorDetailInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v JobErrorDetailInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type JobErrorDetailInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JobErrorDetailInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobErrorDetailInvokeResponse)(nil)).Elem()
+}
+
+func (o JobErrorDetailInvokeResponseArrayOutput) ToJobErrorDetailInvokeResponseArrayOutput() JobErrorDetailInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobErrorDetailInvokeResponseArrayOutput) ToJobErrorDetailInvokeResponseArrayOutputWithContext(ctx context.Context) JobErrorDetailInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobErrorDetailInvokeResponseArrayOutput) Index(i pulumi.IntInput) JobErrorDetailInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobErrorDetailInvokeResponse {
+		return vs[0].([]JobErrorDetailInvokeResponse)[vs[1].(int)]
+	}).(JobErrorDetailInvokeResponseOutput)
+}
+
+// Details of JobOutput errors.
 type JobErrorDetailResponse struct {
 	// Code describing the error detail.
 	Code string `pulumi:"code"`
@@ -12873,6 +18567,97 @@ func (o JobErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) JobErrorDeta
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobErrorDetailResponse {
 		return vs[0].([]JobErrorDetailResponse)[vs[1].(int)]
 	}).(JobErrorDetailResponseOutput)
+}
+
+// Details of JobOutput errors.
+type JobErrorInvokeResponse struct {
+	// Helps with categorization of errors.
+	Category string `pulumi:"category"`
+	// Error code describing the error.
+	Code string `pulumi:"code"`
+	// An array of details about specific errors that led to this reported error.
+	Details []JobErrorDetailInvokeResponse `pulumi:"details"`
+	// A human-readable language-dependent representation of the error.
+	Message string `pulumi:"message"`
+	// Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
+	Retry string `pulumi:"retry"`
+}
+
+// JobErrorInvokeResponseInput is an input type that accepts JobErrorInvokeResponseArgs and JobErrorInvokeResponseOutput values.
+// You can construct a concrete instance of `JobErrorInvokeResponseInput` via:
+//
+//          JobErrorInvokeResponseArgs{...}
+type JobErrorInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobErrorInvokeResponseOutput() JobErrorInvokeResponseOutput
+	ToJobErrorInvokeResponseOutputWithContext(context.Context) JobErrorInvokeResponseOutput
+}
+
+// Details of JobOutput errors.
+type JobErrorInvokeResponseArgs struct {
+	// Helps with categorization of errors.
+	Category pulumi.StringInput `pulumi:"category"`
+	// Error code describing the error.
+	Code pulumi.StringInput `pulumi:"code"`
+	// An array of details about specific errors that led to this reported error.
+	Details JobErrorDetailInvokeResponseArrayInput `pulumi:"details"`
+	// A human-readable language-dependent representation of the error.
+	Message pulumi.StringInput `pulumi:"message"`
+	// Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
+	Retry pulumi.StringInput `pulumi:"retry"`
+}
+
+func (JobErrorInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobErrorInvokeResponse)(nil)).Elem()
+}
+
+func (i JobErrorInvokeResponseArgs) ToJobErrorInvokeResponseOutput() JobErrorInvokeResponseOutput {
+	return i.ToJobErrorInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobErrorInvokeResponseArgs) ToJobErrorInvokeResponseOutputWithContext(ctx context.Context) JobErrorInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobErrorInvokeResponseOutput)
+}
+
+// Details of JobOutput errors.
+type JobErrorInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobErrorInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobErrorInvokeResponse)(nil)).Elem()
+}
+
+func (o JobErrorInvokeResponseOutput) ToJobErrorInvokeResponseOutput() JobErrorInvokeResponseOutput {
+	return o
+}
+
+func (o JobErrorInvokeResponseOutput) ToJobErrorInvokeResponseOutputWithContext(ctx context.Context) JobErrorInvokeResponseOutput {
+	return o
+}
+
+// Helps with categorization of errors.
+func (o JobErrorInvokeResponseOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v JobErrorInvokeResponse) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// Error code describing the error.
+func (o JobErrorInvokeResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v JobErrorInvokeResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// An array of details about specific errors that led to this reported error.
+func (o JobErrorInvokeResponseOutput) Details() JobErrorDetailInvokeResponseArrayOutput {
+	return o.ApplyT(func(v JobErrorInvokeResponse) []JobErrorDetailInvokeResponse { return v.Details }).(JobErrorDetailInvokeResponseArrayOutput)
+}
+
+// A human-readable language-dependent representation of the error.
+func (o JobErrorInvokeResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v JobErrorInvokeResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
+func (o JobErrorInvokeResponseOutput) Retry() pulumi.StringOutput {
+	return o.ApplyT(func(v JobErrorInvokeResponse) string { return v.Retry }).(pulumi.StringOutput)
 }
 
 // Details of JobOutput errors.
@@ -13067,6 +18852,109 @@ func (o JobInputAssetOutput) OdataType() pulumi.StringOutput {
 // Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
 func (o JobInputAssetOutput) Start() AbsoluteClipTimePtrOutput {
 	return o.ApplyT(func(v JobInputAsset) *AbsoluteClipTime { return v.Start }).(AbsoluteClipTimePtrOutput)
+}
+
+// Represents an Asset for input into a Job.
+type JobInputAssetInvokeResponse struct {
+	// The name of the input Asset.
+	AssetName string `pulumi:"assetName"`
+	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+	End *AbsoluteClipTimeInvokeResponse `pulumi:"end"`
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	Files []string `pulumi:"files"`
+	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType string `pulumi:"odataType"`
+	// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+	Start *AbsoluteClipTimeInvokeResponse `pulumi:"start"`
+}
+
+// JobInputAssetInvokeResponseInput is an input type that accepts JobInputAssetInvokeResponseArgs and JobInputAssetInvokeResponseOutput values.
+// You can construct a concrete instance of `JobInputAssetInvokeResponseInput` via:
+//
+//          JobInputAssetInvokeResponseArgs{...}
+type JobInputAssetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobInputAssetInvokeResponseOutput() JobInputAssetInvokeResponseOutput
+	ToJobInputAssetInvokeResponseOutputWithContext(context.Context) JobInputAssetInvokeResponseOutput
+}
+
+// Represents an Asset for input into a Job.
+type JobInputAssetInvokeResponseArgs struct {
+	// The name of the input Asset.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+	End AbsoluteClipTimeInvokeResponsePtrInput `pulumi:"end"`
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	Files pulumi.StringArrayInput `pulumi:"files"`
+	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+	Start AbsoluteClipTimeInvokeResponsePtrInput `pulumi:"start"`
+}
+
+func (JobInputAssetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputAssetInvokeResponse)(nil)).Elem()
+}
+
+func (i JobInputAssetInvokeResponseArgs) ToJobInputAssetInvokeResponseOutput() JobInputAssetInvokeResponseOutput {
+	return i.ToJobInputAssetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobInputAssetInvokeResponseArgs) ToJobInputAssetInvokeResponseOutputWithContext(ctx context.Context) JobInputAssetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetInvokeResponseOutput)
+}
+
+// Represents an Asset for input into a Job.
+type JobInputAssetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobInputAssetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputAssetInvokeResponse)(nil)).Elem()
+}
+
+func (o JobInputAssetInvokeResponseOutput) ToJobInputAssetInvokeResponseOutput() JobInputAssetInvokeResponseOutput {
+	return o
+}
+
+func (o JobInputAssetInvokeResponseOutput) ToJobInputAssetInvokeResponseOutputWithContext(ctx context.Context) JobInputAssetInvokeResponseOutput {
+	return o
+}
+
+// The name of the input Asset.
+func (o JobInputAssetInvokeResponseOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputAssetInvokeResponse) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+func (o JobInputAssetInvokeResponseOutput) End() AbsoluteClipTimeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobInputAssetInvokeResponse) *AbsoluteClipTimeInvokeResponse { return v.End }).(AbsoluteClipTimeInvokeResponsePtrOutput)
+}
+
+// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+func (o JobInputAssetInvokeResponseOutput) Files() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobInputAssetInvokeResponse) []string { return v.Files }).(pulumi.StringArrayOutput)
+}
+
+// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+func (o JobInputAssetInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputAssetInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputClip'.
+func (o JobInputAssetInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputAssetInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+func (o JobInputAssetInvokeResponseOutput) Start() AbsoluteClipTimeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobInputAssetInvokeResponse) *AbsoluteClipTimeInvokeResponse { return v.Start }).(AbsoluteClipTimeInvokeResponsePtrOutput)
 }
 
 // Represents an Asset for input into a Job.
@@ -13267,6 +19155,100 @@ func (o JobInputClipOutput) Start() AbsoluteClipTimePtrOutput {
 }
 
 // Represents input files for a Job.
+type JobInputClipInvokeResponse struct {
+	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+	End *AbsoluteClipTimeInvokeResponse `pulumi:"end"`
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	Files []string `pulumi:"files"`
+	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType string `pulumi:"odataType"`
+	// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+	Start *AbsoluteClipTimeInvokeResponse `pulumi:"start"`
+}
+
+// JobInputClipInvokeResponseInput is an input type that accepts JobInputClipInvokeResponseArgs and JobInputClipInvokeResponseOutput values.
+// You can construct a concrete instance of `JobInputClipInvokeResponseInput` via:
+//
+//          JobInputClipInvokeResponseArgs{...}
+type JobInputClipInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobInputClipInvokeResponseOutput() JobInputClipInvokeResponseOutput
+	ToJobInputClipInvokeResponseOutputWithContext(context.Context) JobInputClipInvokeResponseOutput
+}
+
+// Represents input files for a Job.
+type JobInputClipInvokeResponseArgs struct {
+	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+	End AbsoluteClipTimeInvokeResponsePtrInput `pulumi:"end"`
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	Files pulumi.StringArrayInput `pulumi:"files"`
+	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+	Start AbsoluteClipTimeInvokeResponsePtrInput `pulumi:"start"`
+}
+
+func (JobInputClipInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputClipInvokeResponse)(nil)).Elem()
+}
+
+func (i JobInputClipInvokeResponseArgs) ToJobInputClipInvokeResponseOutput() JobInputClipInvokeResponseOutput {
+	return i.ToJobInputClipInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobInputClipInvokeResponseArgs) ToJobInputClipInvokeResponseOutputWithContext(ctx context.Context) JobInputClipInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputClipInvokeResponseOutput)
+}
+
+// Represents input files for a Job.
+type JobInputClipInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobInputClipInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputClipInvokeResponse)(nil)).Elem()
+}
+
+func (o JobInputClipInvokeResponseOutput) ToJobInputClipInvokeResponseOutput() JobInputClipInvokeResponseOutput {
+	return o
+}
+
+func (o JobInputClipInvokeResponseOutput) ToJobInputClipInvokeResponseOutputWithContext(ctx context.Context) JobInputClipInvokeResponseOutput {
+	return o
+}
+
+// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+func (o JobInputClipInvokeResponseOutput) End() AbsoluteClipTimeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobInputClipInvokeResponse) *AbsoluteClipTimeInvokeResponse { return v.End }).(AbsoluteClipTimeInvokeResponsePtrOutput)
+}
+
+// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+func (o JobInputClipInvokeResponseOutput) Files() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobInputClipInvokeResponse) []string { return v.Files }).(pulumi.StringArrayOutput)
+}
+
+// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+func (o JobInputClipInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputClipInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputClip'.
+func (o JobInputClipInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputClipInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+func (o JobInputClipInvokeResponseOutput) Start() AbsoluteClipTimeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobInputClipInvokeResponse) *AbsoluteClipTimeInvokeResponse { return v.Start }).(AbsoluteClipTimeInvokeResponsePtrOutput)
+}
+
+// Represents input files for a Job.
 type JobInputClipResponse struct {
 	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
 	End *AbsoluteClipTimeResponse `pulumi:"end"`
@@ -13464,6 +19446,109 @@ func (o JobInputHttpOutput) Start() AbsoluteClipTimePtrOutput {
 }
 
 // Represents HTTPS job input.
+type JobInputHttpInvokeResponse struct {
+	// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
+	BaseUri *string `pulumi:"baseUri"`
+	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+	End *AbsoluteClipTimeInvokeResponse `pulumi:"end"`
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	Files []string `pulumi:"files"`
+	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType string `pulumi:"odataType"`
+	// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+	Start *AbsoluteClipTimeInvokeResponse `pulumi:"start"`
+}
+
+// JobInputHttpInvokeResponseInput is an input type that accepts JobInputHttpInvokeResponseArgs and JobInputHttpInvokeResponseOutput values.
+// You can construct a concrete instance of `JobInputHttpInvokeResponseInput` via:
+//
+//          JobInputHttpInvokeResponseArgs{...}
+type JobInputHttpInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobInputHttpInvokeResponseOutput() JobInputHttpInvokeResponseOutput
+	ToJobInputHttpInvokeResponseOutputWithContext(context.Context) JobInputHttpInvokeResponseOutput
+}
+
+// Represents HTTPS job input.
+type JobInputHttpInvokeResponseArgs struct {
+	// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
+	BaseUri pulumi.StringPtrInput `pulumi:"baseUri"`
+	// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+	End AbsoluteClipTimeInvokeResponsePtrInput `pulumi:"end"`
+	// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+	Files pulumi.StringArrayInput `pulumi:"files"`
+	// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputClip'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+	Start AbsoluteClipTimeInvokeResponsePtrInput `pulumi:"start"`
+}
+
+func (JobInputHttpInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputHttpInvokeResponse)(nil)).Elem()
+}
+
+func (i JobInputHttpInvokeResponseArgs) ToJobInputHttpInvokeResponseOutput() JobInputHttpInvokeResponseOutput {
+	return i.ToJobInputHttpInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobInputHttpInvokeResponseArgs) ToJobInputHttpInvokeResponseOutputWithContext(ctx context.Context) JobInputHttpInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputHttpInvokeResponseOutput)
+}
+
+// Represents HTTPS job input.
+type JobInputHttpInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobInputHttpInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputHttpInvokeResponse)(nil)).Elem()
+}
+
+func (o JobInputHttpInvokeResponseOutput) ToJobInputHttpInvokeResponseOutput() JobInputHttpInvokeResponseOutput {
+	return o
+}
+
+func (o JobInputHttpInvokeResponseOutput) ToJobInputHttpInvokeResponseOutputWithContext(ctx context.Context) JobInputHttpInvokeResponseOutput {
+	return o
+}
+
+// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
+func (o JobInputHttpInvokeResponseOutput) BaseUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputHttpInvokeResponse) *string { return v.BaseUri }).(pulumi.StringPtrOutput)
+}
+
+// Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.
+func (o JobInputHttpInvokeResponseOutput) End() AbsoluteClipTimeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobInputHttpInvokeResponse) *AbsoluteClipTimeInvokeResponse { return v.End }).(AbsoluteClipTimeInvokeResponsePtrOutput)
+}
+
+// List of files. Required for JobInputHttp. Maximum of 4000 characters each.
+func (o JobInputHttpInvokeResponseOutput) Files() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobInputHttpInvokeResponse) []string { return v.Files }).(pulumi.StringArrayOutput)
+}
+
+// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
+func (o JobInputHttpInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobInputHttpInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputClip'.
+func (o JobInputHttpInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputHttpInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
+func (o JobInputHttpInvokeResponseOutput) Start() AbsoluteClipTimeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v JobInputHttpInvokeResponse) *AbsoluteClipTimeInvokeResponse { return v.Start }).(AbsoluteClipTimeInvokeResponsePtrOutput)
+}
+
+// Represents HTTPS job input.
 type JobInputHttpResponse struct {
 	// Base URI for HTTPS job input. It will be concatenated with provided file names. If no base uri is given, then the provided file list is assumed to be fully qualified uris. Maximum length of 4000 characters.
 	BaseUri *string `pulumi:"baseUri"`
@@ -13631,6 +19716,73 @@ func (o JobInputsOutput) Inputs() pulumi.ArrayOutput {
 // Expected value is '#Microsoft.Media.JobInputs'.
 func (o JobInputsOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v JobInputs) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes a list of inputs to a Job.
+type JobInputsInvokeResponse struct {
+	// List of inputs to a Job.
+	Inputs []interface{} `pulumi:"inputs"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputs'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// JobInputsInvokeResponseInput is an input type that accepts JobInputsInvokeResponseArgs and JobInputsInvokeResponseOutput values.
+// You can construct a concrete instance of `JobInputsInvokeResponseInput` via:
+//
+//          JobInputsInvokeResponseArgs{...}
+type JobInputsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobInputsInvokeResponseOutput() JobInputsInvokeResponseOutput
+	ToJobInputsInvokeResponseOutputWithContext(context.Context) JobInputsInvokeResponseOutput
+}
+
+// Describes a list of inputs to a Job.
+type JobInputsInvokeResponseArgs struct {
+	// List of inputs to a Job.
+	Inputs pulumi.ArrayInput `pulumi:"inputs"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobInputs'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (JobInputsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputsInvokeResponse)(nil)).Elem()
+}
+
+func (i JobInputsInvokeResponseArgs) ToJobInputsInvokeResponseOutput() JobInputsInvokeResponseOutput {
+	return i.ToJobInputsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobInputsInvokeResponseArgs) ToJobInputsInvokeResponseOutputWithContext(ctx context.Context) JobInputsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputsInvokeResponseOutput)
+}
+
+// Describes a list of inputs to a Job.
+type JobInputsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobInputsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputsInvokeResponse)(nil)).Elem()
+}
+
+func (o JobInputsInvokeResponseOutput) ToJobInputsInvokeResponseOutput() JobInputsInvokeResponseOutput {
+	return o
+}
+
+func (o JobInputsInvokeResponseOutput) ToJobInputsInvokeResponseOutputWithContext(ctx context.Context) JobInputsInvokeResponseOutput {
+	return o
+}
+
+// List of inputs to a Job.
+func (o JobInputsInvokeResponseOutput) Inputs() pulumi.ArrayOutput {
+	return o.ApplyT(func(v JobInputsInvokeResponse) []interface{} { return v.Inputs }).(pulumi.ArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobInputs'.
+func (o JobInputsInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputsInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // Describes a list of inputs to a Job.
@@ -13819,6 +19971,172 @@ func (o JobOutputAssetArrayOutput) Index(i pulumi.IntInput) JobOutputAssetOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobOutputAsset {
 		return vs[0].([]JobOutputAsset)[vs[1].(int)]
 	}).(JobOutputAssetOutput)
+}
+
+// Represents an Asset used as a JobOutput.
+type JobOutputAssetInvokeResponse struct {
+	// The name of the output Asset.
+	AssetName string `pulumi:"assetName"`
+	// The UTC date and time at which this Job Output finished processing.
+	EndTime string `pulumi:"endTime"`
+	// If the JobOutput is in the Error state, it contains the details of the error.
+	Error JobErrorInvokeResponse `pulumi:"error"`
+	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobOutputAsset'.
+	OdataType string `pulumi:"odataType"`
+	// If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
+	Progress int `pulumi:"progress"`
+	// The UTC date and time at which this Job Output began processing.
+	StartTime string `pulumi:"startTime"`
+	// Describes the state of the JobOutput.
+	State string `pulumi:"state"`
+}
+
+// JobOutputAssetInvokeResponseInput is an input type that accepts JobOutputAssetInvokeResponseArgs and JobOutputAssetInvokeResponseOutput values.
+// You can construct a concrete instance of `JobOutputAssetInvokeResponseInput` via:
+//
+//          JobOutputAssetInvokeResponseArgs{...}
+type JobOutputAssetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobOutputAssetInvokeResponseOutput() JobOutputAssetInvokeResponseOutput
+	ToJobOutputAssetInvokeResponseOutputWithContext(context.Context) JobOutputAssetInvokeResponseOutput
+}
+
+// Represents an Asset used as a JobOutput.
+type JobOutputAssetInvokeResponseArgs struct {
+	// The name of the output Asset.
+	AssetName pulumi.StringInput `pulumi:"assetName"`
+	// The UTC date and time at which this Job Output finished processing.
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// If the JobOutput is in the Error state, it contains the details of the error.
+	Error JobErrorInvokeResponseInput `pulumi:"error"`
+	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JobOutputAsset'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
+	Progress pulumi.IntInput `pulumi:"progress"`
+	// The UTC date and time at which this Job Output began processing.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// Describes the state of the JobOutput.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (JobOutputAssetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobOutputAssetInvokeResponse)(nil)).Elem()
+}
+
+func (i JobOutputAssetInvokeResponseArgs) ToJobOutputAssetInvokeResponseOutput() JobOutputAssetInvokeResponseOutput {
+	return i.ToJobOutputAssetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobOutputAssetInvokeResponseArgs) ToJobOutputAssetInvokeResponseOutputWithContext(ctx context.Context) JobOutputAssetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutputAssetInvokeResponseOutput)
+}
+
+// JobOutputAssetInvokeResponseArrayInput is an input type that accepts JobOutputAssetInvokeResponseArray and JobOutputAssetInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JobOutputAssetInvokeResponseArrayInput` via:
+//
+//          JobOutputAssetInvokeResponseArray{ JobOutputAssetInvokeResponseArgs{...} }
+type JobOutputAssetInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJobOutputAssetInvokeResponseArrayOutput() JobOutputAssetInvokeResponseArrayOutput
+	ToJobOutputAssetInvokeResponseArrayOutputWithContext(context.Context) JobOutputAssetInvokeResponseArrayOutput
+}
+
+type JobOutputAssetInvokeResponseArray []JobOutputAssetInvokeResponseInput
+
+func (JobOutputAssetInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobOutputAssetInvokeResponse)(nil)).Elem()
+}
+
+func (i JobOutputAssetInvokeResponseArray) ToJobOutputAssetInvokeResponseArrayOutput() JobOutputAssetInvokeResponseArrayOutput {
+	return i.ToJobOutputAssetInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JobOutputAssetInvokeResponseArray) ToJobOutputAssetInvokeResponseArrayOutputWithContext(ctx context.Context) JobOutputAssetInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobOutputAssetInvokeResponseArrayOutput)
+}
+
+// Represents an Asset used as a JobOutput.
+type JobOutputAssetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobOutputAssetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobOutputAssetInvokeResponse)(nil)).Elem()
+}
+
+func (o JobOutputAssetInvokeResponseOutput) ToJobOutputAssetInvokeResponseOutput() JobOutputAssetInvokeResponseOutput {
+	return o
+}
+
+func (o JobOutputAssetInvokeResponseOutput) ToJobOutputAssetInvokeResponseOutputWithContext(ctx context.Context) JobOutputAssetInvokeResponseOutput {
+	return o
+}
+
+// The name of the output Asset.
+func (o JobOutputAssetInvokeResponseOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobOutputAssetInvokeResponse) string { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// The UTC date and time at which this Job Output finished processing.
+func (o JobOutputAssetInvokeResponseOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JobOutputAssetInvokeResponse) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// If the JobOutput is in the Error state, it contains the details of the error.
+func (o JobOutputAssetInvokeResponseOutput) Error() JobErrorInvokeResponseOutput {
+	return o.ApplyT(func(v JobOutputAssetInvokeResponse) JobErrorInvokeResponse { return v.Error }).(JobErrorInvokeResponseOutput)
+}
+
+// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+func (o JobOutputAssetInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobOutputAssetInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JobOutputAsset'.
+func (o JobOutputAssetInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobOutputAssetInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
+func (o JobOutputAssetInvokeResponseOutput) Progress() pulumi.IntOutput {
+	return o.ApplyT(func(v JobOutputAssetInvokeResponse) int { return v.Progress }).(pulumi.IntOutput)
+}
+
+// The UTC date and time at which this Job Output began processing.
+func (o JobOutputAssetInvokeResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JobOutputAssetInvokeResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Describes the state of the JobOutput.
+func (o JobOutputAssetInvokeResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v JobOutputAssetInvokeResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+type JobOutputAssetInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JobOutputAssetInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobOutputAssetInvokeResponse)(nil)).Elem()
+}
+
+func (o JobOutputAssetInvokeResponseArrayOutput) ToJobOutputAssetInvokeResponseArrayOutput() JobOutputAssetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobOutputAssetInvokeResponseArrayOutput) ToJobOutputAssetInvokeResponseArrayOutputWithContext(ctx context.Context) JobOutputAssetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobOutputAssetInvokeResponseArrayOutput) Index(i pulumi.IntInput) JobOutputAssetInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobOutputAssetInvokeResponse {
+		return vs[0].([]JobOutputAssetInvokeResponse)[vs[1].(int)]
+	}).(JobOutputAssetInvokeResponseOutput)
 }
 
 // Represents an Asset used as a JobOutput.
@@ -14055,6 +20373,73 @@ func (o JpgFormatOutput) OdataType() pulumi.StringOutput {
 }
 
 // Describes the settings for producing JPEG thumbnails.
+type JpgFormatInvokeResponse struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// JpgFormatInvokeResponseInput is an input type that accepts JpgFormatInvokeResponseArgs and JpgFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `JpgFormatInvokeResponseInput` via:
+//
+//          JpgFormatInvokeResponseArgs{...}
+type JpgFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJpgFormatInvokeResponseOutput() JpgFormatInvokeResponseOutput
+	ToJpgFormatInvokeResponseOutputWithContext(context.Context) JpgFormatInvokeResponseOutput
+}
+
+// Describes the settings for producing JPEG thumbnails.
+type JpgFormatInvokeResponseArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (JpgFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i JpgFormatInvokeResponseArgs) ToJpgFormatInvokeResponseOutput() JpgFormatInvokeResponseOutput {
+	return i.ToJpgFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JpgFormatInvokeResponseArgs) ToJpgFormatInvokeResponseOutputWithContext(ctx context.Context) JpgFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgFormatInvokeResponseOutput)
+}
+
+// Describes the settings for producing JPEG thumbnails.
+type JpgFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JpgFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o JpgFormatInvokeResponseOutput) ToJpgFormatInvokeResponseOutput() JpgFormatInvokeResponseOutput {
+	return o
+}
+
+func (o JpgFormatInvokeResponseOutput) ToJpgFormatInvokeResponseOutputWithContext(ctx context.Context) JpgFormatInvokeResponseOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o JpgFormatInvokeResponseOutput) FilenamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgFormatInvokeResponse) string { return v.FilenamePattern }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ImageFormat'.
+func (o JpgFormatInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgFormatInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes the settings for producing JPEG thumbnails.
 type JpgFormatResponse struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern string `pulumi:"filenamePattern"`
@@ -14240,6 +20625,127 @@ func (o JpgImageOutput) Step() pulumi.StringPtrOutput {
 // The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o JpgImageOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JpgImage) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties for producing a series of JPEG images from the input video.
+type JpgImageInvokeResponse struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// A collection of output JPEG image layers to be produced by the encoder.
+	Layers []JpgLayerInvokeResponse `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range *string `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step *string `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// JpgImageInvokeResponseInput is an input type that accepts JpgImageInvokeResponseArgs and JpgImageInvokeResponseOutput values.
+// You can construct a concrete instance of `JpgImageInvokeResponseInput` via:
+//
+//          JpgImageInvokeResponseArgs{...}
+type JpgImageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJpgImageInvokeResponseOutput() JpgImageInvokeResponseOutput
+	ToJpgImageInvokeResponseOutputWithContext(context.Context) JpgImageInvokeResponseOutput
+}
+
+// Describes the properties for producing a series of JPEG images from the input video.
+type JpgImageInvokeResponseArgs struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// A collection of output JPEG image layers to be produced by the encoder.
+	Layers JpgLayerInvokeResponseArrayInput `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start pulumi.StringInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (JpgImageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgImageInvokeResponse)(nil)).Elem()
+}
+
+func (i JpgImageInvokeResponseArgs) ToJpgImageInvokeResponseOutput() JpgImageInvokeResponseOutput {
+	return i.ToJpgImageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JpgImageInvokeResponseArgs) ToJpgImageInvokeResponseOutputWithContext(ctx context.Context) JpgImageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgImageInvokeResponseOutput)
+}
+
+// Describes the properties for producing a series of JPEG images from the input video.
+type JpgImageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JpgImageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgImageInvokeResponse)(nil)).Elem()
+}
+
+func (o JpgImageInvokeResponseOutput) ToJpgImageInvokeResponseOutput() JpgImageInvokeResponseOutput {
+	return o
+}
+
+func (o JpgImageInvokeResponseOutput) ToJpgImageInvokeResponseOutputWithContext(ctx context.Context) JpgImageInvokeResponseOutput {
+	return o
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o JpgImageInvokeResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageInvokeResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o JpgImageInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// A collection of output JPEG image layers to be produced by the encoder.
+func (o JpgImageInvokeResponseOutput) Layers() JpgLayerInvokeResponseArrayOutput {
+	return o.ApplyT(func(v JpgImageInvokeResponse) []JpgLayerInvokeResponse { return v.Layers }).(JpgLayerInvokeResponseArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o JpgImageInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgImageInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+func (o JpgImageInvokeResponseOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageInvokeResponse) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+func (o JpgImageInvokeResponseOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgImageInvokeResponse) string { return v.Start }).(pulumi.StringOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+func (o JpgImageInvokeResponseOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageInvokeResponse) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o JpgImageInvokeResponseOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgImageInvokeResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
 // Describes the properties for producing a series of JPEG images from the input video.
@@ -14500,6 +21006,145 @@ func (o JpgLayerArrayOutput) Index(i pulumi.IntInput) JpgLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JpgLayer {
 		return vs[0].([]JpgLayer)[vs[1].(int)]
 	}).(JpgLayerOutput)
+}
+
+// Describes the settings to produce a JPEG image from the input video.
+type JpgLayerInvokeResponse struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JpgLayer'.
+	OdataType string `pulumi:"odataType"`
+	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+	Quality *int `pulumi:"quality"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// JpgLayerInvokeResponseInput is an input type that accepts JpgLayerInvokeResponseArgs and JpgLayerInvokeResponseOutput values.
+// You can construct a concrete instance of `JpgLayerInvokeResponseInput` via:
+//
+//          JpgLayerInvokeResponseArgs{...}
+type JpgLayerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJpgLayerInvokeResponseOutput() JpgLayerInvokeResponseOutput
+	ToJpgLayerInvokeResponseOutputWithContext(context.Context) JpgLayerInvokeResponseOutput
+}
+
+// Describes the settings to produce a JPEG image from the input video.
+type JpgLayerInvokeResponseArgs struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.JpgLayer'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+	Quality pulumi.IntPtrInput `pulumi:"quality"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (JpgLayerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgLayerInvokeResponse)(nil)).Elem()
+}
+
+func (i JpgLayerInvokeResponseArgs) ToJpgLayerInvokeResponseOutput() JpgLayerInvokeResponseOutput {
+	return i.ToJpgLayerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JpgLayerInvokeResponseArgs) ToJpgLayerInvokeResponseOutputWithContext(ctx context.Context) JpgLayerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgLayerInvokeResponseOutput)
+}
+
+// JpgLayerInvokeResponseArrayInput is an input type that accepts JpgLayerInvokeResponseArray and JpgLayerInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JpgLayerInvokeResponseArrayInput` via:
+//
+//          JpgLayerInvokeResponseArray{ JpgLayerInvokeResponseArgs{...} }
+type JpgLayerInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJpgLayerInvokeResponseArrayOutput() JpgLayerInvokeResponseArrayOutput
+	ToJpgLayerInvokeResponseArrayOutputWithContext(context.Context) JpgLayerInvokeResponseArrayOutput
+}
+
+type JpgLayerInvokeResponseArray []JpgLayerInvokeResponseInput
+
+func (JpgLayerInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JpgLayerInvokeResponse)(nil)).Elem()
+}
+
+func (i JpgLayerInvokeResponseArray) ToJpgLayerInvokeResponseArrayOutput() JpgLayerInvokeResponseArrayOutput {
+	return i.ToJpgLayerInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JpgLayerInvokeResponseArray) ToJpgLayerInvokeResponseArrayOutputWithContext(ctx context.Context) JpgLayerInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JpgLayerInvokeResponseArrayOutput)
+}
+
+// Describes the settings to produce a JPEG image from the input video.
+type JpgLayerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JpgLayerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JpgLayerInvokeResponse)(nil)).Elem()
+}
+
+func (o JpgLayerInvokeResponseOutput) ToJpgLayerInvokeResponseOutput() JpgLayerInvokeResponseOutput {
+	return o
+}
+
+func (o JpgLayerInvokeResponseOutput) ToJpgLayerInvokeResponseOutputWithContext(ctx context.Context) JpgLayerInvokeResponseOutput {
+	return o
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+func (o JpgLayerInvokeResponseOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgLayerInvokeResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o JpgLayerInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgLayerInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.JpgLayer'.
+func (o JpgLayerInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JpgLayerInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
+func (o JpgLayerInvokeResponseOutput) Quality() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JpgLayerInvokeResponse) *int { return v.Quality }).(pulumi.IntPtrOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+func (o JpgLayerInvokeResponseOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JpgLayerInvokeResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type JpgLayerInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JpgLayerInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JpgLayerInvokeResponse)(nil)).Elem()
+}
+
+func (o JpgLayerInvokeResponseArrayOutput) ToJpgLayerInvokeResponseArrayOutput() JpgLayerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JpgLayerInvokeResponseArrayOutput) ToJpgLayerInvokeResponseArrayOutputWithContext(ctx context.Context) JpgLayerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JpgLayerInvokeResponseArrayOutput) Index(i pulumi.IntInput) JpgLayerInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JpgLayerInvokeResponse {
+		return vs[0].([]JpgLayerInvokeResponse)[vs[1].(int)]
+	}).(JpgLayerInvokeResponseOutput)
 }
 
 // Describes the settings to produce a JPEG image from the input video.
@@ -14795,6 +21440,70 @@ func (o LiveEventEncodingPtrOutput) PresetName() pulumi.StringPtrOutput {
 }
 
 // The Live Event encoding.
+type LiveEventEncodingInvokeResponse struct {
+	// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+	EncodingType *string `pulumi:"encodingType"`
+	// The encoding preset name.  This value is specified at creation time and cannot be updated.
+	PresetName *string `pulumi:"presetName"`
+}
+
+// LiveEventEncodingInvokeResponseInput is an input type that accepts LiveEventEncodingInvokeResponseArgs and LiveEventEncodingInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventEncodingInvokeResponseInput` via:
+//
+//          LiveEventEncodingInvokeResponseArgs{...}
+type LiveEventEncodingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventEncodingInvokeResponseOutput() LiveEventEncodingInvokeResponseOutput
+	ToLiveEventEncodingInvokeResponseOutputWithContext(context.Context) LiveEventEncodingInvokeResponseOutput
+}
+
+// The Live Event encoding.
+type LiveEventEncodingInvokeResponseArgs struct {
+	// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
+	// The encoding preset name.  This value is specified at creation time and cannot be updated.
+	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
+}
+
+func (LiveEventEncodingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventEncodingInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventEncodingInvokeResponseArgs) ToLiveEventEncodingInvokeResponseOutput() LiveEventEncodingInvokeResponseOutput {
+	return i.ToLiveEventEncodingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventEncodingInvokeResponseArgs) ToLiveEventEncodingInvokeResponseOutputWithContext(ctx context.Context) LiveEventEncodingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingInvokeResponseOutput)
+}
+
+// The Live Event encoding.
+type LiveEventEncodingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventEncodingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventEncodingInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventEncodingInvokeResponseOutput) ToLiveEventEncodingInvokeResponseOutput() LiveEventEncodingInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventEncodingInvokeResponseOutput) ToLiveEventEncodingInvokeResponseOutputWithContext(ctx context.Context) LiveEventEncodingInvokeResponseOutput {
+	return o
+}
+
+// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+func (o LiveEventEncodingInvokeResponseOutput) EncodingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncodingInvokeResponse) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
+}
+
+// The encoding preset name.  This value is specified at creation time and cannot be updated.
+func (o LiveEventEncodingInvokeResponseOutput) PresetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncodingInvokeResponse) *string { return v.PresetName }).(pulumi.StringPtrOutput)
+}
+
+// The Live Event encoding.
 type LiveEventEncodingResponse struct {
 	// The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
 	EncodingType *string `pulumi:"encodingType"`
@@ -15054,6 +21763,115 @@ func (o LiveEventEndpointArrayOutput) Index(i pulumi.IntInput) LiveEventEndpoint
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventEndpoint {
 		return vs[0].([]LiveEventEndpoint)[vs[1].(int)]
 	}).(LiveEventEndpointOutput)
+}
+
+// The Live Event endpoint.
+type LiveEventEndpointInvokeResponse struct {
+	// The endpoint protocol.
+	Protocol *string `pulumi:"protocol"`
+	// The endpoint URL.
+	Url *string `pulumi:"url"`
+}
+
+// LiveEventEndpointInvokeResponseInput is an input type that accepts LiveEventEndpointInvokeResponseArgs and LiveEventEndpointInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventEndpointInvokeResponseInput` via:
+//
+//          LiveEventEndpointInvokeResponseArgs{...}
+type LiveEventEndpointInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventEndpointInvokeResponseOutput() LiveEventEndpointInvokeResponseOutput
+	ToLiveEventEndpointInvokeResponseOutputWithContext(context.Context) LiveEventEndpointInvokeResponseOutput
+}
+
+// The Live Event endpoint.
+type LiveEventEndpointInvokeResponseArgs struct {
+	// The endpoint protocol.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// The endpoint URL.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (LiveEventEndpointInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventEndpointInvokeResponseArgs) ToLiveEventEndpointInvokeResponseOutput() LiveEventEndpointInvokeResponseOutput {
+	return i.ToLiveEventEndpointInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventEndpointInvokeResponseArgs) ToLiveEventEndpointInvokeResponseOutputWithContext(ctx context.Context) LiveEventEndpointInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointInvokeResponseOutput)
+}
+
+// LiveEventEndpointInvokeResponseArrayInput is an input type that accepts LiveEventEndpointInvokeResponseArray and LiveEventEndpointInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LiveEventEndpointInvokeResponseArrayInput` via:
+//
+//          LiveEventEndpointInvokeResponseArray{ LiveEventEndpointInvokeResponseArgs{...} }
+type LiveEventEndpointInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLiveEventEndpointInvokeResponseArrayOutput() LiveEventEndpointInvokeResponseArrayOutput
+	ToLiveEventEndpointInvokeResponseArrayOutputWithContext(context.Context) LiveEventEndpointInvokeResponseArrayOutput
+}
+
+type LiveEventEndpointInvokeResponseArray []LiveEventEndpointInvokeResponseInput
+
+func (LiveEventEndpointInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventEndpointInvokeResponseArray) ToLiveEventEndpointInvokeResponseArrayOutput() LiveEventEndpointInvokeResponseArrayOutput {
+	return i.ToLiveEventEndpointInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LiveEventEndpointInvokeResponseArray) ToLiveEventEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) LiveEventEndpointInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointInvokeResponseArrayOutput)
+}
+
+// The Live Event endpoint.
+type LiveEventEndpointInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventEndpointInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventEndpointInvokeResponseOutput) ToLiveEventEndpointInvokeResponseOutput() LiveEventEndpointInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventEndpointInvokeResponseOutput) ToLiveEventEndpointInvokeResponseOutputWithContext(ctx context.Context) LiveEventEndpointInvokeResponseOutput {
+	return o
+}
+
+// The endpoint protocol.
+func (o LiveEventEndpointInvokeResponseOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEndpointInvokeResponse) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The endpoint URL.
+func (o LiveEventEndpointInvokeResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEndpointInvokeResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type LiveEventEndpointInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LiveEventEndpointInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LiveEventEndpointInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventEndpointInvokeResponseArrayOutput) ToLiveEventEndpointInvokeResponseArrayOutput() LiveEventEndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventEndpointInvokeResponseArrayOutput) ToLiveEventEndpointInvokeResponseArrayOutputWithContext(ctx context.Context) LiveEventEndpointInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LiveEventEndpointInvokeResponseArrayOutput) Index(i pulumi.IntInput) LiveEventEndpointInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LiveEventEndpointInvokeResponse {
+		return vs[0].([]LiveEventEndpointInvokeResponse)[vs[1].(int)]
+	}).(LiveEventEndpointInvokeResponseOutput)
 }
 
 // The Live Event endpoint.
@@ -15510,6 +22328,142 @@ func (o LiveEventInputAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 }
 
 // The IP access control for Live Event Input.
+type LiveEventInputAccessControlInvokeResponse struct {
+	// The IP access control properties.
+	Ip *IPAccessControlInvokeResponse `pulumi:"ip"`
+}
+
+// LiveEventInputAccessControlInvokeResponseInput is an input type that accepts LiveEventInputAccessControlInvokeResponseArgs and LiveEventInputAccessControlInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventInputAccessControlInvokeResponseInput` via:
+//
+//          LiveEventInputAccessControlInvokeResponseArgs{...}
+type LiveEventInputAccessControlInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventInputAccessControlInvokeResponseOutput() LiveEventInputAccessControlInvokeResponseOutput
+	ToLiveEventInputAccessControlInvokeResponseOutputWithContext(context.Context) LiveEventInputAccessControlInvokeResponseOutput
+}
+
+// The IP access control for Live Event Input.
+type LiveEventInputAccessControlInvokeResponseArgs struct {
+	// The IP access control properties.
+	Ip IPAccessControlInvokeResponsePtrInput `pulumi:"ip"`
+}
+
+func (LiveEventInputAccessControlInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventInputAccessControlInvokeResponseArgs) ToLiveEventInputAccessControlInvokeResponseOutput() LiveEventInputAccessControlInvokeResponseOutput {
+	return i.ToLiveEventInputAccessControlInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputAccessControlInvokeResponseArgs) ToLiveEventInputAccessControlInvokeResponseOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlInvokeResponseOutput)
+}
+
+func (i LiveEventInputAccessControlInvokeResponseArgs) ToLiveEventInputAccessControlInvokeResponsePtrOutput() LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return i.ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputAccessControlInvokeResponseArgs) ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlInvokeResponseOutput).ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// LiveEventInputAccessControlInvokeResponsePtrInput is an input type that accepts LiveEventInputAccessControlInvokeResponseArgs, LiveEventInputAccessControlInvokeResponsePtr and LiveEventInputAccessControlInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `LiveEventInputAccessControlInvokeResponsePtrInput` via:
+//
+//          LiveEventInputAccessControlInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventInputAccessControlInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToLiveEventInputAccessControlInvokeResponsePtrOutput() LiveEventInputAccessControlInvokeResponsePtrOutput
+	ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(context.Context) LiveEventInputAccessControlInvokeResponsePtrOutput
+}
+
+type liveEventInputAccessControlInvokeResponsePtrType LiveEventInputAccessControlInvokeResponseArgs
+
+func LiveEventInputAccessControlInvokeResponsePtr(v *LiveEventInputAccessControlInvokeResponseArgs) LiveEventInputAccessControlInvokeResponsePtrInput {
+	return (*liveEventInputAccessControlInvokeResponsePtrType)(v)
+}
+
+func (*liveEventInputAccessControlInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventInputAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i *liveEventInputAccessControlInvokeResponsePtrType) ToLiveEventInputAccessControlInvokeResponsePtrOutput() LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return i.ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventInputAccessControlInvokeResponsePtrType) ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control for Live Event Input.
+type LiveEventInputAccessControlInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputAccessControlInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventInputAccessControlInvokeResponseOutput) ToLiveEventInputAccessControlInvokeResponseOutput() LiveEventInputAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventInputAccessControlInvokeResponseOutput) ToLiveEventInputAccessControlInvokeResponseOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventInputAccessControlInvokeResponseOutput) ToLiveEventInputAccessControlInvokeResponsePtrOutput() LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return o.ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventInputAccessControlInvokeResponseOutput) ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventInputAccessControlInvokeResponse) *LiveEventInputAccessControlInvokeResponse {
+		return &v
+	}).(LiveEventInputAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control properties.
+func (o LiveEventInputAccessControlInvokeResponseOutput) Ip() IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventInputAccessControlInvokeResponse) *IPAccessControlInvokeResponse { return v.Ip }).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+type LiveEventInputAccessControlInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputAccessControlInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventInputAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventInputAccessControlInvokeResponsePtrOutput) ToLiveEventInputAccessControlInvokeResponsePtrOutput() LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventInputAccessControlInvokeResponsePtrOutput) ToLiveEventInputAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventInputAccessControlInvokeResponsePtrOutput) Elem() LiveEventInputAccessControlInvokeResponseOutput {
+	return o.ApplyT(func(v *LiveEventInputAccessControlInvokeResponse) LiveEventInputAccessControlInvokeResponse {
+		return *v
+	}).(LiveEventInputAccessControlInvokeResponseOutput)
+}
+
+// The IP access control properties.
+func (o LiveEventInputAccessControlInvokeResponsePtrOutput) Ip() IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *LiveEventInputAccessControlInvokeResponse) *IPAccessControlInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Ip
+	}).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control for Live Event Input.
 type LiveEventInputAccessControlResponse struct {
 	// The IP access control properties.
 	Ip *IPAccessControlResponse `pulumi:"ip"`
@@ -15641,6 +22595,99 @@ func (o LiveEventInputAccessControlResponsePtrOutput) Ip() IPAccessControlRespon
 		}
 		return v.Ip
 	}).(IPAccessControlResponsePtrOutput)
+}
+
+// The Live Event input.
+type LiveEventInputInvokeResponse struct {
+	// The access control for LiveEvent Input.
+	AccessControl *LiveEventInputAccessControlInvokeResponse `pulumi:"accessControl"`
+	// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+	AccessToken *string `pulumi:"accessToken"`
+	// The input endpoints for the Live Event.
+	Endpoints []LiveEventEndpointInvokeResponse `pulumi:"endpoints"`
+	// ISO 8601 timespan duration of the key frame interval duration.
+	KeyFrameIntervalDuration *string `pulumi:"keyFrameIntervalDuration"`
+	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+	StreamingProtocol string `pulumi:"streamingProtocol"`
+}
+
+// LiveEventInputInvokeResponseInput is an input type that accepts LiveEventInputInvokeResponseArgs and LiveEventInputInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventInputInvokeResponseInput` via:
+//
+//          LiveEventInputInvokeResponseArgs{...}
+type LiveEventInputInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventInputInvokeResponseOutput() LiveEventInputInvokeResponseOutput
+	ToLiveEventInputInvokeResponseOutputWithContext(context.Context) LiveEventInputInvokeResponseOutput
+}
+
+// The Live Event input.
+type LiveEventInputInvokeResponseArgs struct {
+	// The access control for LiveEvent Input.
+	AccessControl LiveEventInputAccessControlInvokeResponsePtrInput `pulumi:"accessControl"`
+	// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// The input endpoints for the Live Event.
+	Endpoints LiveEventEndpointInvokeResponseArrayInput `pulumi:"endpoints"`
+	// ISO 8601 timespan duration of the key frame interval duration.
+	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
+	// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
+}
+
+func (LiveEventInputInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventInputInvokeResponseArgs) ToLiveEventInputInvokeResponseOutput() LiveEventInputInvokeResponseOutput {
+	return i.ToLiveEventInputInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventInputInvokeResponseArgs) ToLiveEventInputInvokeResponseOutputWithContext(ctx context.Context) LiveEventInputInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputInvokeResponseOutput)
+}
+
+// The Live Event input.
+type LiveEventInputInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventInputInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventInputInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventInputInvokeResponseOutput) ToLiveEventInputInvokeResponseOutput() LiveEventInputInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventInputInvokeResponseOutput) ToLiveEventInputInvokeResponseOutputWithContext(ctx context.Context) LiveEventInputInvokeResponseOutput {
+	return o
+}
+
+// The access control for LiveEvent Input.
+func (o LiveEventInputInvokeResponseOutput) AccessControl() LiveEventInputAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventInputInvokeResponse) *LiveEventInputAccessControlInvokeResponse {
+		return v.AccessControl
+	}).(LiveEventInputAccessControlInvokeResponsePtrOutput)
+}
+
+// A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+func (o LiveEventInputInvokeResponseOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputInvokeResponse) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The input endpoints for the Live Event.
+func (o LiveEventInputInvokeResponseOutput) Endpoints() LiveEventEndpointInvokeResponseArrayOutput {
+	return o.ApplyT(func(v LiveEventInputInvokeResponse) []LiveEventEndpointInvokeResponse { return v.Endpoints }).(LiveEventEndpointInvokeResponseArrayOutput)
+}
+
+// ISO 8601 timespan duration of the key frame interval duration.
+func (o LiveEventInputInvokeResponseOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventInputInvokeResponse) *string { return v.KeyFrameIntervalDuration }).(pulumi.StringPtrOutput)
+}
+
+// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+func (o LiveEventInputInvokeResponseOutput) StreamingProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveEventInputInvokeResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
 
 // The Live Event input.
@@ -16198,6 +23245,142 @@ func (o LiveEventPreviewAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 }
 
 // The IP access control for Live Event preview.
+type LiveEventPreviewAccessControlInvokeResponse struct {
+	// The IP access control properties.
+	Ip *IPAccessControlInvokeResponse `pulumi:"ip"`
+}
+
+// LiveEventPreviewAccessControlInvokeResponseInput is an input type that accepts LiveEventPreviewAccessControlInvokeResponseArgs and LiveEventPreviewAccessControlInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventPreviewAccessControlInvokeResponseInput` via:
+//
+//          LiveEventPreviewAccessControlInvokeResponseArgs{...}
+type LiveEventPreviewAccessControlInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewAccessControlInvokeResponseOutput() LiveEventPreviewAccessControlInvokeResponseOutput
+	ToLiveEventPreviewAccessControlInvokeResponseOutputWithContext(context.Context) LiveEventPreviewAccessControlInvokeResponseOutput
+}
+
+// The IP access control for Live Event preview.
+type LiveEventPreviewAccessControlInvokeResponseArgs struct {
+	// The IP access control properties.
+	Ip IPAccessControlInvokeResponsePtrInput `pulumi:"ip"`
+}
+
+func (LiveEventPreviewAccessControlInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventPreviewAccessControlInvokeResponseArgs) ToLiveEventPreviewAccessControlInvokeResponseOutput() LiveEventPreviewAccessControlInvokeResponseOutput {
+	return i.ToLiveEventPreviewAccessControlInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewAccessControlInvokeResponseArgs) ToLiveEventPreviewAccessControlInvokeResponseOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlInvokeResponseOutput)
+}
+
+func (i LiveEventPreviewAccessControlInvokeResponseArgs) ToLiveEventPreviewAccessControlInvokeResponsePtrOutput() LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return i.ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewAccessControlInvokeResponseArgs) ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlInvokeResponseOutput).ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// LiveEventPreviewAccessControlInvokeResponsePtrInput is an input type that accepts LiveEventPreviewAccessControlInvokeResponseArgs, LiveEventPreviewAccessControlInvokeResponsePtr and LiveEventPreviewAccessControlInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `LiveEventPreviewAccessControlInvokeResponsePtrInput` via:
+//
+//          LiveEventPreviewAccessControlInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LiveEventPreviewAccessControlInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewAccessControlInvokeResponsePtrOutput() LiveEventPreviewAccessControlInvokeResponsePtrOutput
+	ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(context.Context) LiveEventPreviewAccessControlInvokeResponsePtrOutput
+}
+
+type liveEventPreviewAccessControlInvokeResponsePtrType LiveEventPreviewAccessControlInvokeResponseArgs
+
+func LiveEventPreviewAccessControlInvokeResponsePtr(v *LiveEventPreviewAccessControlInvokeResponseArgs) LiveEventPreviewAccessControlInvokeResponsePtrInput {
+	return (*liveEventPreviewAccessControlInvokeResponsePtrType)(v)
+}
+
+func (*liveEventPreviewAccessControlInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventPreviewAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i *liveEventPreviewAccessControlInvokeResponsePtrType) ToLiveEventPreviewAccessControlInvokeResponsePtrOutput() LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return i.ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *liveEventPreviewAccessControlInvokeResponsePtrType) ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control for Live Event preview.
+type LiveEventPreviewAccessControlInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewAccessControlInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponseOutput) ToLiveEventPreviewAccessControlInvokeResponseOutput() LiveEventPreviewAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponseOutput) ToLiveEventPreviewAccessControlInvokeResponseOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponseOutput) ToLiveEventPreviewAccessControlInvokeResponsePtrOutput() LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return o.ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponseOutput) ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewAccessControlInvokeResponse) *LiveEventPreviewAccessControlInvokeResponse {
+		return &v
+	}).(LiveEventPreviewAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control properties.
+func (o LiveEventPreviewAccessControlInvokeResponseOutput) Ip() IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewAccessControlInvokeResponse) *IPAccessControlInvokeResponse { return v.Ip }).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+type LiveEventPreviewAccessControlInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewAccessControlInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LiveEventPreviewAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponsePtrOutput) ToLiveEventPreviewAccessControlInvokeResponsePtrOutput() LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponsePtrOutput) ToLiveEventPreviewAccessControlInvokeResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LiveEventPreviewAccessControlInvokeResponsePtrOutput) Elem() LiveEventPreviewAccessControlInvokeResponseOutput {
+	return o.ApplyT(func(v *LiveEventPreviewAccessControlInvokeResponse) LiveEventPreviewAccessControlInvokeResponse {
+		return *v
+	}).(LiveEventPreviewAccessControlInvokeResponseOutput)
+}
+
+// The IP access control properties.
+func (o LiveEventPreviewAccessControlInvokeResponsePtrOutput) Ip() IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *LiveEventPreviewAccessControlInvokeResponse) *IPAccessControlInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Ip
+	}).(IPAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control for Live Event preview.
 type LiveEventPreviewAccessControlResponse struct {
 	// The IP access control properties.
 	Ip *IPAccessControlResponse `pulumi:"ip"`
@@ -16329,6 +23512,99 @@ func (o LiveEventPreviewAccessControlResponsePtrOutput) Ip() IPAccessControlResp
 		}
 		return v.Ip
 	}).(IPAccessControlResponsePtrOutput)
+}
+
+// The Live Event preview.
+type LiveEventPreviewInvokeResponse struct {
+	// The access control for LiveEvent preview.
+	AccessControl *LiveEventPreviewAccessControlInvokeResponse `pulumi:"accessControl"`
+	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
+	// The endpoints for preview.
+	Endpoints []LiveEventEndpointInvokeResponse `pulumi:"endpoints"`
+	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+	PreviewLocator *string `pulumi:"previewLocator"`
+	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
+}
+
+// LiveEventPreviewInvokeResponseInput is an input type that accepts LiveEventPreviewInvokeResponseArgs and LiveEventPreviewInvokeResponseOutput values.
+// You can construct a concrete instance of `LiveEventPreviewInvokeResponseInput` via:
+//
+//          LiveEventPreviewInvokeResponseArgs{...}
+type LiveEventPreviewInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLiveEventPreviewInvokeResponseOutput() LiveEventPreviewInvokeResponseOutput
+	ToLiveEventPreviewInvokeResponseOutputWithContext(context.Context) LiveEventPreviewInvokeResponseOutput
+}
+
+// The Live Event preview.
+type LiveEventPreviewInvokeResponseArgs struct {
+	// The access control for LiveEvent preview.
+	AccessControl LiveEventPreviewAccessControlInvokeResponsePtrInput `pulumi:"accessControl"`
+	// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+	AlternativeMediaId pulumi.StringPtrInput `pulumi:"alternativeMediaId"`
+	// The endpoints for preview.
+	Endpoints LiveEventEndpointInvokeResponseArrayInput `pulumi:"endpoints"`
+	// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+	PreviewLocator pulumi.StringPtrInput `pulumi:"previewLocator"`
+	// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+	StreamingPolicyName pulumi.StringPtrInput `pulumi:"streamingPolicyName"`
+}
+
+func (LiveEventPreviewInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewInvokeResponse)(nil)).Elem()
+}
+
+func (i LiveEventPreviewInvokeResponseArgs) ToLiveEventPreviewInvokeResponseOutput() LiveEventPreviewInvokeResponseOutput {
+	return i.ToLiveEventPreviewInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LiveEventPreviewInvokeResponseArgs) ToLiveEventPreviewInvokeResponseOutputWithContext(ctx context.Context) LiveEventPreviewInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewInvokeResponseOutput)
+}
+
+// The Live Event preview.
+type LiveEventPreviewInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LiveEventPreviewInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LiveEventPreviewInvokeResponse)(nil)).Elem()
+}
+
+func (o LiveEventPreviewInvokeResponseOutput) ToLiveEventPreviewInvokeResponseOutput() LiveEventPreviewInvokeResponseOutput {
+	return o
+}
+
+func (o LiveEventPreviewInvokeResponseOutput) ToLiveEventPreviewInvokeResponseOutputWithContext(ctx context.Context) LiveEventPreviewInvokeResponseOutput {
+	return o
+}
+
+// The access control for LiveEvent preview.
+func (o LiveEventPreviewInvokeResponseOutput) AccessControl() LiveEventPreviewAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewInvokeResponse) *LiveEventPreviewAccessControlInvokeResponse {
+		return v.AccessControl
+	}).(LiveEventPreviewAccessControlInvokeResponsePtrOutput)
+}
+
+// An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+func (o LiveEventPreviewInvokeResponseOutput) AlternativeMediaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewInvokeResponse) *string { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
+}
+
+// The endpoints for preview.
+func (o LiveEventPreviewInvokeResponseOutput) Endpoints() LiveEventEndpointInvokeResponseArrayOutput {
+	return o.ApplyT(func(v LiveEventPreviewInvokeResponse) []LiveEventEndpointInvokeResponse { return v.Endpoints }).(LiveEventEndpointInvokeResponseArrayOutput)
+}
+
+// The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+func (o LiveEventPreviewInvokeResponseOutput) PreviewLocator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewInvokeResponse) *string { return v.PreviewLocator }).(pulumi.StringPtrOutput)
+}
+
+// The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+func (o LiveEventPreviewInvokeResponseOutput) StreamingPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventPreviewInvokeResponse) *string { return v.StreamingPolicyName }).(pulumi.StringPtrOutput)
 }
 
 // The Live Event preview.
@@ -16618,6 +23894,82 @@ func (o Mp4FormatOutput) OutputFiles() OutputFileArrayOutput {
 }
 
 // Describes the properties for an output ISO MP4 file.
+type Mp4FormatInvokeResponse struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType string `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles []OutputFileInvokeResponse `pulumi:"outputFiles"`
+}
+
+// Mp4FormatInvokeResponseInput is an input type that accepts Mp4FormatInvokeResponseArgs and Mp4FormatInvokeResponseOutput values.
+// You can construct a concrete instance of `Mp4FormatInvokeResponseInput` via:
+//
+//          Mp4FormatInvokeResponseArgs{...}
+type Mp4FormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMp4FormatInvokeResponseOutput() Mp4FormatInvokeResponseOutput
+	ToMp4FormatInvokeResponseOutputWithContext(context.Context) Mp4FormatInvokeResponseOutput
+}
+
+// Describes the properties for an output ISO MP4 file.
+type Mp4FormatInvokeResponseArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles OutputFileInvokeResponseArrayInput `pulumi:"outputFiles"`
+}
+
+func (Mp4FormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mp4FormatInvokeResponse)(nil)).Elem()
+}
+
+func (i Mp4FormatInvokeResponseArgs) ToMp4FormatInvokeResponseOutput() Mp4FormatInvokeResponseOutput {
+	return i.ToMp4FormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i Mp4FormatInvokeResponseArgs) ToMp4FormatInvokeResponseOutputWithContext(ctx context.Context) Mp4FormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Mp4FormatInvokeResponseOutput)
+}
+
+// Describes the properties for an output ISO MP4 file.
+type Mp4FormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (Mp4FormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Mp4FormatInvokeResponse)(nil)).Elem()
+}
+
+func (o Mp4FormatInvokeResponseOutput) ToMp4FormatInvokeResponseOutput() Mp4FormatInvokeResponseOutput {
+	return o
+}
+
+func (o Mp4FormatInvokeResponseOutput) ToMp4FormatInvokeResponseOutputWithContext(ctx context.Context) Mp4FormatInvokeResponseOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o Mp4FormatInvokeResponseOutput) FilenamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v Mp4FormatInvokeResponse) string { return v.FilenamePattern }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+func (o Mp4FormatInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v Mp4FormatInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+func (o Mp4FormatInvokeResponseOutput) OutputFiles() OutputFileInvokeResponseArrayOutput {
+	return o.ApplyT(func(v Mp4FormatInvokeResponse) []OutputFileInvokeResponse { return v.OutputFiles }).(OutputFileInvokeResponseArrayOutput)
+}
+
+// Describes the properties for an output ISO MP4 file.
 type Mp4FormatResponse struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
 	FilenamePattern string `pulumi:"filenamePattern"`
@@ -16767,6 +24119,82 @@ func (o MultiBitrateFormatOutput) OdataType() pulumi.StringOutput {
 // The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 func (o MultiBitrateFormatOutput) OutputFiles() OutputFileArrayOutput {
 	return o.ApplyT(func(v MultiBitrateFormat) []OutputFile { return v.OutputFiles }).(OutputFileArrayOutput)
+}
+
+// Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
+type MultiBitrateFormatInvokeResponse struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType string `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles []OutputFileInvokeResponse `pulumi:"outputFiles"`
+}
+
+// MultiBitrateFormatInvokeResponseInput is an input type that accepts MultiBitrateFormatInvokeResponseArgs and MultiBitrateFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `MultiBitrateFormatInvokeResponseInput` via:
+//
+//          MultiBitrateFormatInvokeResponseArgs{...}
+type MultiBitrateFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMultiBitrateFormatInvokeResponseOutput() MultiBitrateFormatInvokeResponseOutput
+	ToMultiBitrateFormatInvokeResponseOutputWithContext(context.Context) MultiBitrateFormatInvokeResponseOutput
+}
+
+// Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
+type MultiBitrateFormatInvokeResponseArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles OutputFileInvokeResponseArrayInput `pulumi:"outputFiles"`
+}
+
+func (MultiBitrateFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiBitrateFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i MultiBitrateFormatInvokeResponseArgs) ToMultiBitrateFormatInvokeResponseOutput() MultiBitrateFormatInvokeResponseOutput {
+	return i.ToMultiBitrateFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MultiBitrateFormatInvokeResponseArgs) ToMultiBitrateFormatInvokeResponseOutputWithContext(ctx context.Context) MultiBitrateFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiBitrateFormatInvokeResponseOutput)
+}
+
+// Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
+type MultiBitrateFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MultiBitrateFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiBitrateFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o MultiBitrateFormatInvokeResponseOutput) ToMultiBitrateFormatInvokeResponseOutput() MultiBitrateFormatInvokeResponseOutput {
+	return o
+}
+
+func (o MultiBitrateFormatInvokeResponseOutput) ToMultiBitrateFormatInvokeResponseOutputWithContext(ctx context.Context) MultiBitrateFormatInvokeResponseOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o MultiBitrateFormatInvokeResponseOutput) FilenamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiBitrateFormatInvokeResponse) string { return v.FilenamePattern }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+func (o MultiBitrateFormatInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiBitrateFormatInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+func (o MultiBitrateFormatInvokeResponseOutput) OutputFiles() OutputFileInvokeResponseArrayOutput {
+	return o.ApplyT(func(v MultiBitrateFormatInvokeResponse) []OutputFileInvokeResponse { return v.OutputFiles }).(OutputFileInvokeResponseArrayOutput)
 }
 
 // Describes the properties for producing a collection of GOP aligned multi-bitrate files. The default behavior is to produce one output file for each video layer which is muxed together with all the audios. The exact output files produced can be controlled by specifying the outputFiles collection.
@@ -16977,6 +24405,61 @@ func (o NoEncryptionPtrOutput) EnabledProtocols() EnabledProtocolsPtrOutput {
 		}
 		return v.EnabledProtocols
 	}).(EnabledProtocolsPtrOutput)
+}
+
+// Class for NoEncryption scheme
+type NoEncryptionInvokeResponse struct {
+	// Representing supported protocols
+	EnabledProtocols *EnabledProtocolsInvokeResponse `pulumi:"enabledProtocols"`
+}
+
+// NoEncryptionInvokeResponseInput is an input type that accepts NoEncryptionInvokeResponseArgs and NoEncryptionInvokeResponseOutput values.
+// You can construct a concrete instance of `NoEncryptionInvokeResponseInput` via:
+//
+//          NoEncryptionInvokeResponseArgs{...}
+type NoEncryptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNoEncryptionInvokeResponseOutput() NoEncryptionInvokeResponseOutput
+	ToNoEncryptionInvokeResponseOutputWithContext(context.Context) NoEncryptionInvokeResponseOutput
+}
+
+// Class for NoEncryption scheme
+type NoEncryptionInvokeResponseArgs struct {
+	// Representing supported protocols
+	EnabledProtocols EnabledProtocolsInvokeResponsePtrInput `pulumi:"enabledProtocols"`
+}
+
+func (NoEncryptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NoEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i NoEncryptionInvokeResponseArgs) ToNoEncryptionInvokeResponseOutput() NoEncryptionInvokeResponseOutput {
+	return i.ToNoEncryptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NoEncryptionInvokeResponseArgs) ToNoEncryptionInvokeResponseOutputWithContext(ctx context.Context) NoEncryptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NoEncryptionInvokeResponseOutput)
+}
+
+// Class for NoEncryption scheme
+type NoEncryptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NoEncryptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NoEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o NoEncryptionInvokeResponseOutput) ToNoEncryptionInvokeResponseOutput() NoEncryptionInvokeResponseOutput {
+	return o
+}
+
+func (o NoEncryptionInvokeResponseOutput) ToNoEncryptionInvokeResponseOutputWithContext(ctx context.Context) NoEncryptionInvokeResponseOutput {
+	return o
+}
+
+// Representing supported protocols
+func (o NoEncryptionInvokeResponseOutput) EnabledProtocols() EnabledProtocolsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NoEncryptionInvokeResponse) *EnabledProtocolsInvokeResponse { return v.EnabledProtocols }).(EnabledProtocolsInvokeResponsePtrOutput)
 }
 
 // Class for NoEncryption scheme
@@ -17214,6 +24697,106 @@ func (o OutputFileArrayOutput) Index(i pulumi.IntInput) OutputFileOutput {
 }
 
 // Represents an output file produced.
+type OutputFileInvokeResponse struct {
+	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
+	Labels []string `pulumi:"labels"`
+}
+
+// OutputFileInvokeResponseInput is an input type that accepts OutputFileInvokeResponseArgs and OutputFileInvokeResponseOutput values.
+// You can construct a concrete instance of `OutputFileInvokeResponseInput` via:
+//
+//          OutputFileInvokeResponseArgs{...}
+type OutputFileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOutputFileInvokeResponseOutput() OutputFileInvokeResponseOutput
+	ToOutputFileInvokeResponseOutputWithContext(context.Context) OutputFileInvokeResponseOutput
+}
+
+// Represents an output file produced.
+type OutputFileInvokeResponseArgs struct {
+	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
+	Labels pulumi.StringArrayInput `pulumi:"labels"`
+}
+
+func (OutputFileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputFileInvokeResponse)(nil)).Elem()
+}
+
+func (i OutputFileInvokeResponseArgs) ToOutputFileInvokeResponseOutput() OutputFileInvokeResponseOutput {
+	return i.ToOutputFileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OutputFileInvokeResponseArgs) ToOutputFileInvokeResponseOutputWithContext(ctx context.Context) OutputFileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputFileInvokeResponseOutput)
+}
+
+// OutputFileInvokeResponseArrayInput is an input type that accepts OutputFileInvokeResponseArray and OutputFileInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `OutputFileInvokeResponseArrayInput` via:
+//
+//          OutputFileInvokeResponseArray{ OutputFileInvokeResponseArgs{...} }
+type OutputFileInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToOutputFileInvokeResponseArrayOutput() OutputFileInvokeResponseArrayOutput
+	ToOutputFileInvokeResponseArrayOutputWithContext(context.Context) OutputFileInvokeResponseArrayOutput
+}
+
+type OutputFileInvokeResponseArray []OutputFileInvokeResponseInput
+
+func (OutputFileInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutputFileInvokeResponse)(nil)).Elem()
+}
+
+func (i OutputFileInvokeResponseArray) ToOutputFileInvokeResponseArrayOutput() OutputFileInvokeResponseArrayOutput {
+	return i.ToOutputFileInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i OutputFileInvokeResponseArray) ToOutputFileInvokeResponseArrayOutputWithContext(ctx context.Context) OutputFileInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputFileInvokeResponseArrayOutput)
+}
+
+// Represents an output file produced.
+type OutputFileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OutputFileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputFileInvokeResponse)(nil)).Elem()
+}
+
+func (o OutputFileInvokeResponseOutput) ToOutputFileInvokeResponseOutput() OutputFileInvokeResponseOutput {
+	return o
+}
+
+func (o OutputFileInvokeResponseOutput) ToOutputFileInvokeResponseOutputWithContext(ctx context.Context) OutputFileInvokeResponseOutput {
+	return o
+}
+
+// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
+func (o OutputFileInvokeResponseOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OutputFileInvokeResponse) []string { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+type OutputFileInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OutputFileInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutputFileInvokeResponse)(nil)).Elem()
+}
+
+func (o OutputFileInvokeResponseArrayOutput) ToOutputFileInvokeResponseArrayOutput() OutputFileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OutputFileInvokeResponseArrayOutput) ToOutputFileInvokeResponseArrayOutputWithContext(ctx context.Context) OutputFileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OutputFileInvokeResponseArrayOutput) Index(i pulumi.IntInput) OutputFileInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutputFileInvokeResponse {
+		return vs[0].([]OutputFileInvokeResponse)[vs[1].(int)]
+	}).(OutputFileInvokeResponseOutput)
+}
+
+// Represents an output file produced.
 type OutputFileResponse struct {
 	// The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
 	Labels []string `pulumi:"labels"`
@@ -17378,6 +24961,73 @@ func (o PngFormatOutput) FilenamePattern() pulumi.StringOutput {
 // Expected value is '#Microsoft.Media.ImageFormat'.
 func (o PngFormatOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v PngFormat) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes the settings for producing PNG thumbnails.
+type PngFormatInvokeResponse struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// PngFormatInvokeResponseInput is an input type that accepts PngFormatInvokeResponseArgs and PngFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `PngFormatInvokeResponseInput` via:
+//
+//          PngFormatInvokeResponseArgs{...}
+type PngFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPngFormatInvokeResponseOutput() PngFormatInvokeResponseOutput
+	ToPngFormatInvokeResponseOutputWithContext(context.Context) PngFormatInvokeResponseOutput
+}
+
+// Describes the settings for producing PNG thumbnails.
+type PngFormatInvokeResponseArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.ImageFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (PngFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i PngFormatInvokeResponseArgs) ToPngFormatInvokeResponseOutput() PngFormatInvokeResponseOutput {
+	return i.ToPngFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PngFormatInvokeResponseArgs) ToPngFormatInvokeResponseOutputWithContext(ctx context.Context) PngFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngFormatInvokeResponseOutput)
+}
+
+// Describes the settings for producing PNG thumbnails.
+type PngFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PngFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o PngFormatInvokeResponseOutput) ToPngFormatInvokeResponseOutput() PngFormatInvokeResponseOutput {
+	return o
+}
+
+func (o PngFormatInvokeResponseOutput) ToPngFormatInvokeResponseOutputWithContext(ctx context.Context) PngFormatInvokeResponseOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o PngFormatInvokeResponseOutput) FilenamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v PngFormatInvokeResponse) string { return v.FilenamePattern }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.ImageFormat'.
+func (o PngFormatInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PngFormatInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // Describes the settings for producing PNG thumbnails.
@@ -17566,6 +25216,127 @@ func (o PngImageOutput) Step() pulumi.StringPtrOutput {
 // The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 func (o PngImageOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PngImage) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties for producing a series of PNG images from the input video.
+type PngImageInvokeResponse struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// A collection of output PNG image layers to be produced by the encoder.
+	Layers []PngLayerInvokeResponse `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range *string `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start string `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step *string `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// PngImageInvokeResponseInput is an input type that accepts PngImageInvokeResponseArgs and PngImageInvokeResponseOutput values.
+// You can construct a concrete instance of `PngImageInvokeResponseInput` via:
+//
+//          PngImageInvokeResponseArgs{...}
+type PngImageInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPngImageInvokeResponseOutput() PngImageInvokeResponseOutput
+	ToPngImageInvokeResponseOutputWithContext(context.Context) PngImageInvokeResponseOutput
+}
+
+// Describes the properties for producing a series of PNG images from the input video.
+type PngImageInvokeResponseArgs struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// A collection of output PNG image layers to be produced by the encoder.
+	Layers PngLayerInvokeResponseArrayInput `pulumi:"layers"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+	Start pulumi.StringInput `pulumi:"start"`
+	// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+	Step pulumi.StringPtrInput `pulumi:"step"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (PngImageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngImageInvokeResponse)(nil)).Elem()
+}
+
+func (i PngImageInvokeResponseArgs) ToPngImageInvokeResponseOutput() PngImageInvokeResponseOutput {
+	return i.ToPngImageInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PngImageInvokeResponseArgs) ToPngImageInvokeResponseOutputWithContext(ctx context.Context) PngImageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngImageInvokeResponseOutput)
+}
+
+// Describes the properties for producing a series of PNG images from the input video.
+type PngImageInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PngImageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngImageInvokeResponse)(nil)).Elem()
+}
+
+func (o PngImageInvokeResponseOutput) ToPngImageInvokeResponseOutput() PngImageInvokeResponseOutput {
+	return o
+}
+
+func (o PngImageInvokeResponseOutput) ToPngImageInvokeResponseOutputWithContext(ctx context.Context) PngImageInvokeResponseOutput {
+	return o
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o PngImageInvokeResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageInvokeResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o PngImageInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// A collection of output PNG image layers to be produced by the encoder.
+func (o PngImageInvokeResponseOutput) Layers() PngLayerInvokeResponseArrayOutput {
+	return o.ApplyT(func(v PngImageInvokeResponse) []PngLayerInvokeResponse { return v.Layers }).(PngLayerInvokeResponseArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o PngImageInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PngImageInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The position in the input video at which to stop generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT5M30S to stop at 5 minutes and 30 seconds), or a frame count (For example, 300 to stop at the 300th frame), or a relative value (For example, 100%).
+func (o PngImageInvokeResponseOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageInvokeResponse) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// The position in the input video from where to start generating thumbnails. The value can be in absolute timestamp (ISO 8601, e.g: PT05S), or a frame count (For example, 10 for the 10th frame), or a relative value (For example, 1%). Also supports a macro {Best}, which tells the encoder to select the best thumbnail from the first few seconds of the video.
+func (o PngImageInvokeResponseOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v PngImageInvokeResponse) string { return v.Start }).(pulumi.StringOutput)
+}
+
+// The intervals at which thumbnails are generated. The value can be in absolute timestamp (ISO 8601, e.g: PT05S for one image every 5 seconds), or a frame count (For example, 30 for every 30 frames), or a relative value (For example, 1%).
+func (o PngImageInvokeResponseOutput) Step() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageInvokeResponse) *string { return v.Step }).(pulumi.StringPtrOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o PngImageInvokeResponseOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngImageInvokeResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
 // Describes the properties for producing a series of PNG images from the input video.
@@ -17817,6 +25588,136 @@ func (o PngLayerArrayOutput) Index(i pulumi.IntInput) PngLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PngLayer {
 		return vs[0].([]PngLayer)[vs[1].(int)]
 	}).(PngLayerOutput)
+}
+
+// Describes the settings to produce a PNG image from the input video.
+type PngLayerInvokeResponse struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height *string `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.PngLayer'.
+	OdataType string `pulumi:"odataType"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width *string `pulumi:"width"`
+}
+
+// PngLayerInvokeResponseInput is an input type that accepts PngLayerInvokeResponseArgs and PngLayerInvokeResponseOutput values.
+// You can construct a concrete instance of `PngLayerInvokeResponseInput` via:
+//
+//          PngLayerInvokeResponseArgs{...}
+type PngLayerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPngLayerInvokeResponseOutput() PngLayerInvokeResponseOutput
+	ToPngLayerInvokeResponseOutputWithContext(context.Context) PngLayerInvokeResponseOutput
+}
+
+// Describes the settings to produce a PNG image from the input video.
+type PngLayerInvokeResponseArgs struct {
+	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.PngLayer'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (PngLayerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngLayerInvokeResponse)(nil)).Elem()
+}
+
+func (i PngLayerInvokeResponseArgs) ToPngLayerInvokeResponseOutput() PngLayerInvokeResponseOutput {
+	return i.ToPngLayerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PngLayerInvokeResponseArgs) ToPngLayerInvokeResponseOutputWithContext(ctx context.Context) PngLayerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngLayerInvokeResponseOutput)
+}
+
+// PngLayerInvokeResponseArrayInput is an input type that accepts PngLayerInvokeResponseArray and PngLayerInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PngLayerInvokeResponseArrayInput` via:
+//
+//          PngLayerInvokeResponseArray{ PngLayerInvokeResponseArgs{...} }
+type PngLayerInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPngLayerInvokeResponseArrayOutput() PngLayerInvokeResponseArrayOutput
+	ToPngLayerInvokeResponseArrayOutputWithContext(context.Context) PngLayerInvokeResponseArrayOutput
+}
+
+type PngLayerInvokeResponseArray []PngLayerInvokeResponseInput
+
+func (PngLayerInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PngLayerInvokeResponse)(nil)).Elem()
+}
+
+func (i PngLayerInvokeResponseArray) ToPngLayerInvokeResponseArrayOutput() PngLayerInvokeResponseArrayOutput {
+	return i.ToPngLayerInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PngLayerInvokeResponseArray) ToPngLayerInvokeResponseArrayOutputWithContext(ctx context.Context) PngLayerInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PngLayerInvokeResponseArrayOutput)
+}
+
+// Describes the settings to produce a PNG image from the input video.
+type PngLayerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PngLayerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PngLayerInvokeResponse)(nil)).Elem()
+}
+
+func (o PngLayerInvokeResponseOutput) ToPngLayerInvokeResponseOutput() PngLayerInvokeResponseOutput {
+	return o
+}
+
+func (o PngLayerInvokeResponseOutput) ToPngLayerInvokeResponseOutputWithContext(ctx context.Context) PngLayerInvokeResponseOutput {
+	return o
+}
+
+// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in height as the input.
+func (o PngLayerInvokeResponseOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngLayerInvokeResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+func (o PngLayerInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngLayerInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.PngLayer'.
+func (o PngLayerInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PngLayerInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
+func (o PngLayerInvokeResponseOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PngLayerInvokeResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type PngLayerInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PngLayerInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PngLayerInvokeResponse)(nil)).Elem()
+}
+
+func (o PngLayerInvokeResponseArrayOutput) ToPngLayerInvokeResponseArrayOutput() PngLayerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PngLayerInvokeResponseArrayOutput) ToPngLayerInvokeResponseArrayOutputWithContext(ctx context.Context) PngLayerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PngLayerInvokeResponseArrayOutput) Index(i pulumi.IntInput) PngLayerInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PngLayerInvokeResponse {
+		return vs[0].([]PngLayerInvokeResponse)[vs[1].(int)]
+	}).(PngLayerInvokeResponseOutput)
 }
 
 // Describes the settings to produce a PNG image from the input video.
@@ -18176,6 +26077,106 @@ func (o PresentationTimeRangePtrOutput) Timescale() pulumi.Float64PtrOutput {
 		}
 		return v.Timescale
 	}).(pulumi.Float64PtrOutput)
+}
+
+// The presentation time range, this is asset related and not recommended for Account Filter.
+type PresentationTimeRangeInvokeResponse struct {
+	// The absolute end time boundary.
+	EndTimestamp *float64 `pulumi:"endTimestamp"`
+	// The indicator of forcing existing of end time stamp.
+	ForceEndTimestamp *bool `pulumi:"forceEndTimestamp"`
+	// The relative to end right edge.
+	LiveBackoffDuration *float64 `pulumi:"liveBackoffDuration"`
+	// The relative to end sliding window.
+	PresentationWindowDuration *float64 `pulumi:"presentationWindowDuration"`
+	// The absolute start time boundary.
+	StartTimestamp *float64 `pulumi:"startTimestamp"`
+	// The time scale of time stamps.
+	Timescale *float64 `pulumi:"timescale"`
+}
+
+// PresentationTimeRangeInvokeResponseInput is an input type that accepts PresentationTimeRangeInvokeResponseArgs and PresentationTimeRangeInvokeResponseOutput values.
+// You can construct a concrete instance of `PresentationTimeRangeInvokeResponseInput` via:
+//
+//          PresentationTimeRangeInvokeResponseArgs{...}
+type PresentationTimeRangeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPresentationTimeRangeInvokeResponseOutput() PresentationTimeRangeInvokeResponseOutput
+	ToPresentationTimeRangeInvokeResponseOutputWithContext(context.Context) PresentationTimeRangeInvokeResponseOutput
+}
+
+// The presentation time range, this is asset related and not recommended for Account Filter.
+type PresentationTimeRangeInvokeResponseArgs struct {
+	// The absolute end time boundary.
+	EndTimestamp pulumi.Float64PtrInput `pulumi:"endTimestamp"`
+	// The indicator of forcing existing of end time stamp.
+	ForceEndTimestamp pulumi.BoolPtrInput `pulumi:"forceEndTimestamp"`
+	// The relative to end right edge.
+	LiveBackoffDuration pulumi.Float64PtrInput `pulumi:"liveBackoffDuration"`
+	// The relative to end sliding window.
+	PresentationWindowDuration pulumi.Float64PtrInput `pulumi:"presentationWindowDuration"`
+	// The absolute start time boundary.
+	StartTimestamp pulumi.Float64PtrInput `pulumi:"startTimestamp"`
+	// The time scale of time stamps.
+	Timescale pulumi.Float64PtrInput `pulumi:"timescale"`
+}
+
+func (PresentationTimeRangeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PresentationTimeRangeInvokeResponse)(nil)).Elem()
+}
+
+func (i PresentationTimeRangeInvokeResponseArgs) ToPresentationTimeRangeInvokeResponseOutput() PresentationTimeRangeInvokeResponseOutput {
+	return i.ToPresentationTimeRangeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PresentationTimeRangeInvokeResponseArgs) ToPresentationTimeRangeInvokeResponseOutputWithContext(ctx context.Context) PresentationTimeRangeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PresentationTimeRangeInvokeResponseOutput)
+}
+
+// The presentation time range, this is asset related and not recommended for Account Filter.
+type PresentationTimeRangeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PresentationTimeRangeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PresentationTimeRangeInvokeResponse)(nil)).Elem()
+}
+
+func (o PresentationTimeRangeInvokeResponseOutput) ToPresentationTimeRangeInvokeResponseOutput() PresentationTimeRangeInvokeResponseOutput {
+	return o
+}
+
+func (o PresentationTimeRangeInvokeResponseOutput) ToPresentationTimeRangeInvokeResponseOutputWithContext(ctx context.Context) PresentationTimeRangeInvokeResponseOutput {
+	return o
+}
+
+// The absolute end time boundary.
+func (o PresentationTimeRangeInvokeResponseOutput) EndTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeInvokeResponse) *float64 { return v.EndTimestamp }).(pulumi.Float64PtrOutput)
+}
+
+// The indicator of forcing existing of end time stamp.
+func (o PresentationTimeRangeInvokeResponseOutput) ForceEndTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeInvokeResponse) *bool { return v.ForceEndTimestamp }).(pulumi.BoolPtrOutput)
+}
+
+// The relative to end right edge.
+func (o PresentationTimeRangeInvokeResponseOutput) LiveBackoffDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeInvokeResponse) *float64 { return v.LiveBackoffDuration }).(pulumi.Float64PtrOutput)
+}
+
+// The relative to end sliding window.
+func (o PresentationTimeRangeInvokeResponseOutput) PresentationWindowDuration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeInvokeResponse) *float64 { return v.PresentationWindowDuration }).(pulumi.Float64PtrOutput)
+}
+
+// The absolute start time boundary.
+func (o PresentationTimeRangeInvokeResponseOutput) StartTimestamp() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeInvokeResponse) *float64 { return v.StartTimestamp }).(pulumi.Float64PtrOutput)
+}
+
+// The time scale of time stamps.
+func (o PresentationTimeRangeInvokeResponseOutput) Timescale() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PresentationTimeRangeInvokeResponse) *float64 { return v.Timescale }).(pulumi.Float64PtrOutput)
 }
 
 // The presentation time range, this is asset related and not recommended for Account Filter.
@@ -18599,6 +26600,197 @@ func (o RectanglePtrOutput) Width() pulumi.StringPtrOutput {
 }
 
 // Describes the properties of a rectangular window applied to the input media before processing it.
+type RectangleInvokeResponse struct {
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+	Height *string `pulumi:"height"`
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+	Left *string `pulumi:"left"`
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+	Top *string `pulumi:"top"`
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+	Width *string `pulumi:"width"`
+}
+
+// RectangleInvokeResponseInput is an input type that accepts RectangleInvokeResponseArgs and RectangleInvokeResponseOutput values.
+// You can construct a concrete instance of `RectangleInvokeResponseInput` via:
+//
+//          RectangleInvokeResponseArgs{...}
+type RectangleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRectangleInvokeResponseOutput() RectangleInvokeResponseOutput
+	ToRectangleInvokeResponseOutputWithContext(context.Context) RectangleInvokeResponseOutput
+}
+
+// Describes the properties of a rectangular window applied to the input media before processing it.
+type RectangleInvokeResponseArgs struct {
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+	Height pulumi.StringPtrInput `pulumi:"height"`
+	// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+	Left pulumi.StringPtrInput `pulumi:"left"`
+	// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+	Top pulumi.StringPtrInput `pulumi:"top"`
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+	Width pulumi.StringPtrInput `pulumi:"width"`
+}
+
+func (RectangleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RectangleInvokeResponse)(nil)).Elem()
+}
+
+func (i RectangleInvokeResponseArgs) ToRectangleInvokeResponseOutput() RectangleInvokeResponseOutput {
+	return i.ToRectangleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RectangleInvokeResponseArgs) ToRectangleInvokeResponseOutputWithContext(ctx context.Context) RectangleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RectangleInvokeResponseOutput)
+}
+
+func (i RectangleInvokeResponseArgs) ToRectangleInvokeResponsePtrOutput() RectangleInvokeResponsePtrOutput {
+	return i.ToRectangleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RectangleInvokeResponseArgs) ToRectangleInvokeResponsePtrOutputWithContext(ctx context.Context) RectangleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RectangleInvokeResponseOutput).ToRectangleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// RectangleInvokeResponsePtrInput is an input type that accepts RectangleInvokeResponseArgs, RectangleInvokeResponsePtr and RectangleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `RectangleInvokeResponsePtrInput` via:
+//
+//          RectangleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RectangleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToRectangleInvokeResponsePtrOutput() RectangleInvokeResponsePtrOutput
+	ToRectangleInvokeResponsePtrOutputWithContext(context.Context) RectangleInvokeResponsePtrOutput
+}
+
+type rectangleInvokeResponsePtrType RectangleInvokeResponseArgs
+
+func RectangleInvokeResponsePtr(v *RectangleInvokeResponseArgs) RectangleInvokeResponsePtrInput {
+	return (*rectangleInvokeResponsePtrType)(v)
+}
+
+func (*rectangleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RectangleInvokeResponse)(nil)).Elem()
+}
+
+func (i *rectangleInvokeResponsePtrType) ToRectangleInvokeResponsePtrOutput() RectangleInvokeResponsePtrOutput {
+	return i.ToRectangleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *rectangleInvokeResponsePtrType) ToRectangleInvokeResponsePtrOutputWithContext(ctx context.Context) RectangleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RectangleInvokeResponsePtrOutput)
+}
+
+// Describes the properties of a rectangular window applied to the input media before processing it.
+type RectangleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RectangleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RectangleInvokeResponse)(nil)).Elem()
+}
+
+func (o RectangleInvokeResponseOutput) ToRectangleInvokeResponseOutput() RectangleInvokeResponseOutput {
+	return o
+}
+
+func (o RectangleInvokeResponseOutput) ToRectangleInvokeResponseOutputWithContext(ctx context.Context) RectangleInvokeResponseOutput {
+	return o
+}
+
+func (o RectangleInvokeResponseOutput) ToRectangleInvokeResponsePtrOutput() RectangleInvokeResponsePtrOutput {
+	return o.ToRectangleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RectangleInvokeResponseOutput) ToRectangleInvokeResponsePtrOutputWithContext(ctx context.Context) RectangleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RectangleInvokeResponse) *RectangleInvokeResponse {
+		return &v
+	}).(RectangleInvokeResponsePtrOutput)
+}
+
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+func (o RectangleInvokeResponseOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RectangleInvokeResponse) *string { return v.Height }).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+func (o RectangleInvokeResponseOutput) Left() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RectangleInvokeResponse) *string { return v.Left }).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+func (o RectangleInvokeResponseOutput) Top() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RectangleInvokeResponse) *string { return v.Top }).(pulumi.StringPtrOutput)
+}
+
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+func (o RectangleInvokeResponseOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RectangleInvokeResponse) *string { return v.Width }).(pulumi.StringPtrOutput)
+}
+
+type RectangleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RectangleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RectangleInvokeResponse)(nil)).Elem()
+}
+
+func (o RectangleInvokeResponsePtrOutput) ToRectangleInvokeResponsePtrOutput() RectangleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RectangleInvokeResponsePtrOutput) ToRectangleInvokeResponsePtrOutputWithContext(ctx context.Context) RectangleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o RectangleInvokeResponsePtrOutput) Elem() RectangleInvokeResponseOutput {
+	return o.ApplyT(func(v *RectangleInvokeResponse) RectangleInvokeResponse { return *v }).(RectangleInvokeResponseOutput)
+}
+
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+func (o RectangleInvokeResponsePtrOutput) Height() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RectangleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Height
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the left-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+func (o RectangleInvokeResponsePtrOutput) Left() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RectangleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Left
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+func (o RectangleInvokeResponsePtrOutput) Top() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RectangleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Top
+	}).(pulumi.StringPtrOutput)
+}
+
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
+func (o RectangleInvokeResponsePtrOutput) Width() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RectangleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Width
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties of a rectangular window applied to the input media before processing it.
 type RectangleResponse struct {
 	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 	Height *string `pulumi:"height"`
@@ -18875,6 +27067,91 @@ func (o StandardEncoderPresetOutput) OdataType() pulumi.StringOutput {
 }
 
 // Describes all the settings to be used when encoding the input video with the Standard Encoder.
+type StandardEncoderPresetInvokeResponse struct {
+	// The list of codecs to be used when encoding the input video.
+	Codecs []interface{} `pulumi:"codecs"`
+	// One or more filtering operations that are applied to the input media before encoding.
+	Filters *FiltersInvokeResponse `pulumi:"filters"`
+	// The list of outputs to be produced by the encoder.
+	Formats []interface{} `pulumi:"formats"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// StandardEncoderPresetInvokeResponseInput is an input type that accepts StandardEncoderPresetInvokeResponseArgs and StandardEncoderPresetInvokeResponseOutput values.
+// You can construct a concrete instance of `StandardEncoderPresetInvokeResponseInput` via:
+//
+//          StandardEncoderPresetInvokeResponseArgs{...}
+type StandardEncoderPresetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStandardEncoderPresetInvokeResponseOutput() StandardEncoderPresetInvokeResponseOutput
+	ToStandardEncoderPresetInvokeResponseOutputWithContext(context.Context) StandardEncoderPresetInvokeResponseOutput
+}
+
+// Describes all the settings to be used when encoding the input video with the Standard Encoder.
+type StandardEncoderPresetInvokeResponseArgs struct {
+	// The list of codecs to be used when encoding the input video.
+	Codecs pulumi.ArrayInput `pulumi:"codecs"`
+	// One or more filtering operations that are applied to the input media before encoding.
+	Filters FiltersInvokeResponsePtrInput `pulumi:"filters"`
+	// The list of outputs to be produced by the encoder.
+	Formats pulumi.ArrayInput `pulumi:"formats"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (StandardEncoderPresetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardEncoderPresetInvokeResponse)(nil)).Elem()
+}
+
+func (i StandardEncoderPresetInvokeResponseArgs) ToStandardEncoderPresetInvokeResponseOutput() StandardEncoderPresetInvokeResponseOutput {
+	return i.ToStandardEncoderPresetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StandardEncoderPresetInvokeResponseArgs) ToStandardEncoderPresetInvokeResponseOutputWithContext(ctx context.Context) StandardEncoderPresetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandardEncoderPresetInvokeResponseOutput)
+}
+
+// Describes all the settings to be used when encoding the input video with the Standard Encoder.
+type StandardEncoderPresetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StandardEncoderPresetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandardEncoderPresetInvokeResponse)(nil)).Elem()
+}
+
+func (o StandardEncoderPresetInvokeResponseOutput) ToStandardEncoderPresetInvokeResponseOutput() StandardEncoderPresetInvokeResponseOutput {
+	return o
+}
+
+func (o StandardEncoderPresetInvokeResponseOutput) ToStandardEncoderPresetInvokeResponseOutputWithContext(ctx context.Context) StandardEncoderPresetInvokeResponseOutput {
+	return o
+}
+
+// The list of codecs to be used when encoding the input video.
+func (o StandardEncoderPresetInvokeResponseOutput) Codecs() pulumi.ArrayOutput {
+	return o.ApplyT(func(v StandardEncoderPresetInvokeResponse) []interface{} { return v.Codecs }).(pulumi.ArrayOutput)
+}
+
+// One or more filtering operations that are applied to the input media before encoding.
+func (o StandardEncoderPresetInvokeResponseOutput) Filters() FiltersInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StandardEncoderPresetInvokeResponse) *FiltersInvokeResponse { return v.Filters }).(FiltersInvokeResponsePtrOutput)
+}
+
+// The list of outputs to be produced by the encoder.
+func (o StandardEncoderPresetInvokeResponseOutput) Formats() pulumi.ArrayOutput {
+	return o.ApplyT(func(v StandardEncoderPresetInvokeResponse) []interface{} { return v.Formats }).(pulumi.ArrayOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
+func (o StandardEncoderPresetInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v StandardEncoderPresetInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes all the settings to be used when encoding the input video with the Standard Encoder.
 type StandardEncoderPresetResponse struct {
 	// The list of codecs to be used when encoding the input video.
 	Codecs []interface{} `pulumi:"codecs"`
@@ -19066,6 +27343,115 @@ func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccount {
 		return vs[0].([]StorageAccount)[vs[1].(int)]
 	}).(StorageAccountOutput)
+}
+
+// The storage account details.
+type StorageAccountInvokeResponse struct {
+	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+	Id *string `pulumi:"id"`
+	// The type of the storage account.
+	Type string `pulumi:"type"`
+}
+
+// StorageAccountInvokeResponseInput is an input type that accepts StorageAccountInvokeResponseArgs and StorageAccountInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountInvokeResponseInput` via:
+//
+//          StorageAccountInvokeResponseArgs{...}
+type StorageAccountInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput
+	ToStorageAccountInvokeResponseOutputWithContext(context.Context) StorageAccountInvokeResponseOutput
+}
+
+// The storage account details.
+type StorageAccountInvokeResponseArgs struct {
+	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The type of the storage account.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StorageAccountInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput {
+	return i.ToStorageAccountInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountInvokeResponseArgs) ToStorageAccountInvokeResponseOutputWithContext(ctx context.Context) StorageAccountInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInvokeResponseOutput)
+}
+
+// StorageAccountInvokeResponseArrayInput is an input type that accepts StorageAccountInvokeResponseArray and StorageAccountInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `StorageAccountInvokeResponseArrayInput` via:
+//
+//          StorageAccountInvokeResponseArray{ StorageAccountInvokeResponseArgs{...} }
+type StorageAccountInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToStorageAccountInvokeResponseArrayOutput() StorageAccountInvokeResponseArrayOutput
+	ToStorageAccountInvokeResponseArrayOutputWithContext(context.Context) StorageAccountInvokeResponseArrayOutput
+}
+
+type StorageAccountInvokeResponseArray []StorageAccountInvokeResponseInput
+
+func (StorageAccountInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountInvokeResponseArray) ToStorageAccountInvokeResponseArrayOutput() StorageAccountInvokeResponseArrayOutput {
+	return i.ToStorageAccountInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StorageAccountInvokeResponseArray) ToStorageAccountInvokeResponseArrayOutputWithContext(ctx context.Context) StorageAccountInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInvokeResponseArrayOutput)
+}
+
+// The storage account details.
+type StorageAccountInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponseOutput() StorageAccountInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponseOutput) ToStorageAccountInvokeResponseOutputWithContext(ctx context.Context) StorageAccountInvokeResponseOutput {
+	return o
+}
+
+// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+func (o StorageAccountInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The type of the storage account.
+func (o StorageAccountInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type StorageAccountInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountInvokeResponseArrayOutput) ToStorageAccountInvokeResponseArrayOutput() StorageAccountInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponseArrayOutput) ToStorageAccountInvokeResponseArrayOutputWithContext(ctx context.Context) StorageAccountInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountInvokeResponseArrayOutput) Index(i pulumi.IntInput) StorageAccountInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountInvokeResponse {
+		return vs[0].([]StorageAccountInvokeResponse)[vs[1].(int)]
+	}).(StorageAccountInvokeResponseOutput)
 }
 
 // The storage account details.
@@ -19328,6 +27714,72 @@ func (o StreamingEndpointAccessControlPtrOutput) Ip() IPAccessControlPtrOutput {
 		}
 		return v.Ip
 	}).(IPAccessControlPtrOutput)
+}
+
+// StreamingEndpoint access control definition.
+type StreamingEndpointAccessControlInvokeResponse struct {
+	// The access control of Akamai
+	Akamai *AkamaiAccessControlInvokeResponse `pulumi:"akamai"`
+	// The IP access control of the StreamingEndpoint.
+	Ip *IPAccessControlInvokeResponse `pulumi:"ip"`
+}
+
+// StreamingEndpointAccessControlInvokeResponseInput is an input type that accepts StreamingEndpointAccessControlInvokeResponseArgs and StreamingEndpointAccessControlInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamingEndpointAccessControlInvokeResponseInput` via:
+//
+//          StreamingEndpointAccessControlInvokeResponseArgs{...}
+type StreamingEndpointAccessControlInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStreamingEndpointAccessControlInvokeResponseOutput() StreamingEndpointAccessControlInvokeResponseOutput
+	ToStreamingEndpointAccessControlInvokeResponseOutputWithContext(context.Context) StreamingEndpointAccessControlInvokeResponseOutput
+}
+
+// StreamingEndpoint access control definition.
+type StreamingEndpointAccessControlInvokeResponseArgs struct {
+	// The access control of Akamai
+	Akamai AkamaiAccessControlInvokeResponsePtrInput `pulumi:"akamai"`
+	// The IP access control of the StreamingEndpoint.
+	Ip IPAccessControlInvokeResponsePtrInput `pulumi:"ip"`
+}
+
+func (StreamingEndpointAccessControlInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingEndpointAccessControlInvokeResponseArgs) ToStreamingEndpointAccessControlInvokeResponseOutput() StreamingEndpointAccessControlInvokeResponseOutput {
+	return i.ToStreamingEndpointAccessControlInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StreamingEndpointAccessControlInvokeResponseArgs) ToStreamingEndpointAccessControlInvokeResponseOutputWithContext(ctx context.Context) StreamingEndpointAccessControlInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlInvokeResponseOutput)
+}
+
+// StreamingEndpoint access control definition.
+type StreamingEndpointAccessControlInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingEndpointAccessControlInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingEndpointAccessControlInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingEndpointAccessControlInvokeResponseOutput) ToStreamingEndpointAccessControlInvokeResponseOutput() StreamingEndpointAccessControlInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingEndpointAccessControlInvokeResponseOutput) ToStreamingEndpointAccessControlInvokeResponseOutputWithContext(ctx context.Context) StreamingEndpointAccessControlInvokeResponseOutput {
+	return o
+}
+
+// The access control of Akamai
+func (o StreamingEndpointAccessControlInvokeResponseOutput) Akamai() AkamaiAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControlInvokeResponse) *AkamaiAccessControlInvokeResponse {
+		return v.Akamai
+	}).(AkamaiAccessControlInvokeResponsePtrOutput)
+}
+
+// The IP access control of the StreamingEndpoint.
+func (o StreamingEndpointAccessControlInvokeResponseOutput) Ip() IPAccessControlInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StreamingEndpointAccessControlInvokeResponse) *IPAccessControlInvokeResponse { return v.Ip }).(IPAccessControlInvokeResponsePtrOutput)
 }
 
 // StreamingEndpoint access control definition.
@@ -19602,6 +28054,151 @@ func (o StreamingLocatorContentKeyArrayOutput) Index(i pulumi.IntInput) Streamin
 }
 
 // Class for content key in Streaming Locator
+type StreamingLocatorContentKeyInvokeResponse struct {
+	// ID of Content Key
+	Id string `pulumi:"id"`
+	// Label of Content Key as specified in the Streaming Policy
+	LabelReferenceInStreamingPolicy *string `pulumi:"labelReferenceInStreamingPolicy"`
+	// ContentKeyPolicy used by Content Key
+	PolicyName string `pulumi:"policyName"`
+	// Tracks which use this Content Key
+	Tracks []TrackSelectionInvokeResponse `pulumi:"tracks"`
+	// Encryption type of Content Key
+	Type string `pulumi:"type"`
+	// Value of Content Key
+	Value *string `pulumi:"value"`
+}
+
+// StreamingLocatorContentKeyInvokeResponseInput is an input type that accepts StreamingLocatorContentKeyInvokeResponseArgs and StreamingLocatorContentKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamingLocatorContentKeyInvokeResponseInput` via:
+//
+//          StreamingLocatorContentKeyInvokeResponseArgs{...}
+type StreamingLocatorContentKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStreamingLocatorContentKeyInvokeResponseOutput() StreamingLocatorContentKeyInvokeResponseOutput
+	ToStreamingLocatorContentKeyInvokeResponseOutputWithContext(context.Context) StreamingLocatorContentKeyInvokeResponseOutput
+}
+
+// Class for content key in Streaming Locator
+type StreamingLocatorContentKeyInvokeResponseArgs struct {
+	// ID of Content Key
+	Id pulumi.StringInput `pulumi:"id"`
+	// Label of Content Key as specified in the Streaming Policy
+	LabelReferenceInStreamingPolicy pulumi.StringPtrInput `pulumi:"labelReferenceInStreamingPolicy"`
+	// ContentKeyPolicy used by Content Key
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// Tracks which use this Content Key
+	Tracks TrackSelectionInvokeResponseArrayInput `pulumi:"tracks"`
+	// Encryption type of Content Key
+	Type pulumi.StringInput `pulumi:"type"`
+	// Value of Content Key
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (StreamingLocatorContentKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocatorContentKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingLocatorContentKeyInvokeResponseArgs) ToStreamingLocatorContentKeyInvokeResponseOutput() StreamingLocatorContentKeyInvokeResponseOutput {
+	return i.ToStreamingLocatorContentKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StreamingLocatorContentKeyInvokeResponseArgs) ToStreamingLocatorContentKeyInvokeResponseOutputWithContext(ctx context.Context) StreamingLocatorContentKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorContentKeyInvokeResponseOutput)
+}
+
+// StreamingLocatorContentKeyInvokeResponseArrayInput is an input type that accepts StreamingLocatorContentKeyInvokeResponseArray and StreamingLocatorContentKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `StreamingLocatorContentKeyInvokeResponseArrayInput` via:
+//
+//          StreamingLocatorContentKeyInvokeResponseArray{ StreamingLocatorContentKeyInvokeResponseArgs{...} }
+type StreamingLocatorContentKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToStreamingLocatorContentKeyInvokeResponseArrayOutput() StreamingLocatorContentKeyInvokeResponseArrayOutput
+	ToStreamingLocatorContentKeyInvokeResponseArrayOutputWithContext(context.Context) StreamingLocatorContentKeyInvokeResponseArrayOutput
+}
+
+type StreamingLocatorContentKeyInvokeResponseArray []StreamingLocatorContentKeyInvokeResponseInput
+
+func (StreamingLocatorContentKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingLocatorContentKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingLocatorContentKeyInvokeResponseArray) ToStreamingLocatorContentKeyInvokeResponseArrayOutput() StreamingLocatorContentKeyInvokeResponseArrayOutput {
+	return i.ToStreamingLocatorContentKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StreamingLocatorContentKeyInvokeResponseArray) ToStreamingLocatorContentKeyInvokeResponseArrayOutputWithContext(ctx context.Context) StreamingLocatorContentKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorContentKeyInvokeResponseArrayOutput)
+}
+
+// Class for content key in Streaming Locator
+type StreamingLocatorContentKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingLocatorContentKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingLocatorContentKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingLocatorContentKeyInvokeResponseOutput) ToStreamingLocatorContentKeyInvokeResponseOutput() StreamingLocatorContentKeyInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingLocatorContentKeyInvokeResponseOutput) ToStreamingLocatorContentKeyInvokeResponseOutputWithContext(ctx context.Context) StreamingLocatorContentKeyInvokeResponseOutput {
+	return o
+}
+
+// ID of Content Key
+func (o StreamingLocatorContentKeyInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Label of Content Key as specified in the Streaming Policy
+func (o StreamingLocatorContentKeyInvokeResponseOutput) LabelReferenceInStreamingPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyInvokeResponse) *string { return v.LabelReferenceInStreamingPolicy }).(pulumi.StringPtrOutput)
+}
+
+// ContentKeyPolicy used by Content Key
+func (o StreamingLocatorContentKeyInvokeResponseOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyInvokeResponse) string { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+// Tracks which use this Content Key
+func (o StreamingLocatorContentKeyInvokeResponseOutput) Tracks() TrackSelectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyInvokeResponse) []TrackSelectionInvokeResponse { return v.Tracks }).(TrackSelectionInvokeResponseArrayOutput)
+}
+
+// Encryption type of Content Key
+func (o StreamingLocatorContentKeyInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of Content Key
+func (o StreamingLocatorContentKeyInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingLocatorContentKeyInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type StreamingLocatorContentKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingLocatorContentKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingLocatorContentKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingLocatorContentKeyInvokeResponseArrayOutput) ToStreamingLocatorContentKeyInvokeResponseArrayOutput() StreamingLocatorContentKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StreamingLocatorContentKeyInvokeResponseArrayOutput) ToStreamingLocatorContentKeyInvokeResponseArrayOutputWithContext(ctx context.Context) StreamingLocatorContentKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StreamingLocatorContentKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) StreamingLocatorContentKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingLocatorContentKeyInvokeResponse {
+		return vs[0].([]StreamingLocatorContentKeyInvokeResponse)[vs[1].(int)]
+	}).(StreamingLocatorContentKeyInvokeResponseOutput)
+}
+
+// Class for content key in Streaming Locator
 type StreamingLocatorContentKeyResponse struct {
 	// ID of Content Key
 	Id string `pulumi:"id"`
@@ -19747,7 +28344,7 @@ func (o StreamingLocatorContentKeyResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 // Class of paths for streaming
-type StreamingPathResponse struct {
+type StreamingPathInvokeResponse struct {
 	// Encryption scheme
 	EncryptionScheme string `pulumi:"encryptionScheme"`
 	// Streaming paths for each protocol and encryptionScheme pair
@@ -19756,19 +28353,19 @@ type StreamingPathResponse struct {
 	StreamingProtocol string `pulumi:"streamingProtocol"`
 }
 
-// StreamingPathResponseInput is an input type that accepts StreamingPathResponseArgs and StreamingPathResponseOutput values.
-// You can construct a concrete instance of `StreamingPathResponseInput` via:
+// StreamingPathInvokeResponseInput is an input type that accepts StreamingPathInvokeResponseArgs and StreamingPathInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamingPathInvokeResponseInput` via:
 //
-//          StreamingPathResponseArgs{...}
-type StreamingPathResponseInput interface {
+//          StreamingPathInvokeResponseArgs{...}
+type StreamingPathInvokeResponseInput interface {
 	pulumi.Input
 
-	ToStreamingPathResponseOutput() StreamingPathResponseOutput
-	ToStreamingPathResponseOutputWithContext(context.Context) StreamingPathResponseOutput
+	ToStreamingPathInvokeResponseOutput() StreamingPathInvokeResponseOutput
+	ToStreamingPathInvokeResponseOutputWithContext(context.Context) StreamingPathInvokeResponseOutput
 }
 
 // Class of paths for streaming
-type StreamingPathResponseArgs struct {
+type StreamingPathInvokeResponseArgs struct {
 	// Encryption scheme
 	EncryptionScheme pulumi.StringInput `pulumi:"encryptionScheme"`
 	// Streaming paths for each protocol and encryptionScheme pair
@@ -19777,91 +28374,91 @@ type StreamingPathResponseArgs struct {
 	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
 }
 
-func (StreamingPathResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingPathResponse)(nil)).Elem()
+func (StreamingPathInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPathInvokeResponse)(nil)).Elem()
 }
 
-func (i StreamingPathResponseArgs) ToStreamingPathResponseOutput() StreamingPathResponseOutput {
-	return i.ToStreamingPathResponseOutputWithContext(context.Background())
+func (i StreamingPathInvokeResponseArgs) ToStreamingPathInvokeResponseOutput() StreamingPathInvokeResponseOutput {
+	return i.ToStreamingPathInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i StreamingPathResponseArgs) ToStreamingPathResponseOutputWithContext(ctx context.Context) StreamingPathResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingPathResponseOutput)
+func (i StreamingPathInvokeResponseArgs) ToStreamingPathInvokeResponseOutputWithContext(ctx context.Context) StreamingPathInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPathInvokeResponseOutput)
 }
 
-// StreamingPathResponseArrayInput is an input type that accepts StreamingPathResponseArray and StreamingPathResponseArrayOutput values.
-// You can construct a concrete instance of `StreamingPathResponseArrayInput` via:
+// StreamingPathInvokeResponseArrayInput is an input type that accepts StreamingPathInvokeResponseArray and StreamingPathInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `StreamingPathInvokeResponseArrayInput` via:
 //
-//          StreamingPathResponseArray{ StreamingPathResponseArgs{...} }
-type StreamingPathResponseArrayInput interface {
+//          StreamingPathInvokeResponseArray{ StreamingPathInvokeResponseArgs{...} }
+type StreamingPathInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToStreamingPathResponseArrayOutput() StreamingPathResponseArrayOutput
-	ToStreamingPathResponseArrayOutputWithContext(context.Context) StreamingPathResponseArrayOutput
+	ToStreamingPathInvokeResponseArrayOutput() StreamingPathInvokeResponseArrayOutput
+	ToStreamingPathInvokeResponseArrayOutputWithContext(context.Context) StreamingPathInvokeResponseArrayOutput
 }
 
-type StreamingPathResponseArray []StreamingPathResponseInput
+type StreamingPathInvokeResponseArray []StreamingPathInvokeResponseInput
 
-func (StreamingPathResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamingPathResponse)(nil)).Elem()
+func (StreamingPathInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingPathInvokeResponse)(nil)).Elem()
 }
 
-func (i StreamingPathResponseArray) ToStreamingPathResponseArrayOutput() StreamingPathResponseArrayOutput {
-	return i.ToStreamingPathResponseArrayOutputWithContext(context.Background())
+func (i StreamingPathInvokeResponseArray) ToStreamingPathInvokeResponseArrayOutput() StreamingPathInvokeResponseArrayOutput {
+	return i.ToStreamingPathInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i StreamingPathResponseArray) ToStreamingPathResponseArrayOutputWithContext(ctx context.Context) StreamingPathResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingPathResponseArrayOutput)
+func (i StreamingPathInvokeResponseArray) ToStreamingPathInvokeResponseArrayOutputWithContext(ctx context.Context) StreamingPathInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPathInvokeResponseArrayOutput)
 }
 
 // Class of paths for streaming
-type StreamingPathResponseOutput struct{ *pulumi.OutputState }
+type StreamingPathInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (StreamingPathResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingPathResponse)(nil)).Elem()
+func (StreamingPathInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPathInvokeResponse)(nil)).Elem()
 }
 
-func (o StreamingPathResponseOutput) ToStreamingPathResponseOutput() StreamingPathResponseOutput {
+func (o StreamingPathInvokeResponseOutput) ToStreamingPathInvokeResponseOutput() StreamingPathInvokeResponseOutput {
 	return o
 }
 
-func (o StreamingPathResponseOutput) ToStreamingPathResponseOutputWithContext(ctx context.Context) StreamingPathResponseOutput {
+func (o StreamingPathInvokeResponseOutput) ToStreamingPathInvokeResponseOutputWithContext(ctx context.Context) StreamingPathInvokeResponseOutput {
 	return o
 }
 
 // Encryption scheme
-func (o StreamingPathResponseOutput) EncryptionScheme() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingPathResponse) string { return v.EncryptionScheme }).(pulumi.StringOutput)
+func (o StreamingPathInvokeResponseOutput) EncryptionScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingPathInvokeResponse) string { return v.EncryptionScheme }).(pulumi.StringOutput)
 }
 
 // Streaming paths for each protocol and encryptionScheme pair
-func (o StreamingPathResponseOutput) Paths() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StreamingPathResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
+func (o StreamingPathInvokeResponseOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamingPathInvokeResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
 
 // Streaming protocol
-func (o StreamingPathResponseOutput) StreamingProtocol() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingPathResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
+func (o StreamingPathInvokeResponseOutput) StreamingProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingPathInvokeResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
 
-type StreamingPathResponseArrayOutput struct{ *pulumi.OutputState }
+type StreamingPathInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (StreamingPathResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StreamingPathResponse)(nil)).Elem()
+func (StreamingPathInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingPathInvokeResponse)(nil)).Elem()
 }
 
-func (o StreamingPathResponseArrayOutput) ToStreamingPathResponseArrayOutput() StreamingPathResponseArrayOutput {
+func (o StreamingPathInvokeResponseArrayOutput) ToStreamingPathInvokeResponseArrayOutput() StreamingPathInvokeResponseArrayOutput {
 	return o
 }
 
-func (o StreamingPathResponseArrayOutput) ToStreamingPathResponseArrayOutputWithContext(ctx context.Context) StreamingPathResponseArrayOutput {
+func (o StreamingPathInvokeResponseArrayOutput) ToStreamingPathInvokeResponseArrayOutputWithContext(ctx context.Context) StreamingPathInvokeResponseArrayOutput {
 	return o
 }
 
-func (o StreamingPathResponseArrayOutput) Index(i pulumi.IntInput) StreamingPathResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingPathResponse {
-		return vs[0].([]StreamingPathResponse)[vs[1].(int)]
-	}).(StreamingPathResponseOutput)
+func (o StreamingPathInvokeResponseArrayOutput) Index(i pulumi.IntInput) StreamingPathInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingPathInvokeResponse {
+		return vs[0].([]StreamingPathInvokeResponse)[vs[1].(int)]
+	}).(StreamingPathInvokeResponseOutput)
 }
 
 // Class to specify properties of content key
@@ -19980,6 +28577,124 @@ func (o StreamingPolicyContentKeyArrayOutput) Index(i pulumi.IntInput) Streaming
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingPolicyContentKey {
 		return vs[0].([]StreamingPolicyContentKey)[vs[1].(int)]
 	}).(StreamingPolicyContentKeyOutput)
+}
+
+// Class to specify properties of content key
+type StreamingPolicyContentKeyInvokeResponse struct {
+	// Label can be used to specify Content Key when creating a Streaming Locator
+	Label *string `pulumi:"label"`
+	// Policy used by Content Key
+	PolicyName *string `pulumi:"policyName"`
+	// Tracks which use this content key
+	Tracks []TrackSelectionInvokeResponse `pulumi:"tracks"`
+}
+
+// StreamingPolicyContentKeyInvokeResponseInput is an input type that accepts StreamingPolicyContentKeyInvokeResponseArgs and StreamingPolicyContentKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamingPolicyContentKeyInvokeResponseInput` via:
+//
+//          StreamingPolicyContentKeyInvokeResponseArgs{...}
+type StreamingPolicyContentKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyContentKeyInvokeResponseOutput() StreamingPolicyContentKeyInvokeResponseOutput
+	ToStreamingPolicyContentKeyInvokeResponseOutputWithContext(context.Context) StreamingPolicyContentKeyInvokeResponseOutput
+}
+
+// Class to specify properties of content key
+type StreamingPolicyContentKeyInvokeResponseArgs struct {
+	// Label can be used to specify Content Key when creating a Streaming Locator
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Policy used by Content Key
+	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
+	// Tracks which use this content key
+	Tracks TrackSelectionInvokeResponseArrayInput `pulumi:"tracks"`
+}
+
+func (StreamingPolicyContentKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyContentKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingPolicyContentKeyInvokeResponseArgs) ToStreamingPolicyContentKeyInvokeResponseOutput() StreamingPolicyContentKeyInvokeResponseOutput {
+	return i.ToStreamingPolicyContentKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyContentKeyInvokeResponseArgs) ToStreamingPolicyContentKeyInvokeResponseOutputWithContext(ctx context.Context) StreamingPolicyContentKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyContentKeyInvokeResponseOutput)
+}
+
+// StreamingPolicyContentKeyInvokeResponseArrayInput is an input type that accepts StreamingPolicyContentKeyInvokeResponseArray and StreamingPolicyContentKeyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `StreamingPolicyContentKeyInvokeResponseArrayInput` via:
+//
+//          StreamingPolicyContentKeyInvokeResponseArray{ StreamingPolicyContentKeyInvokeResponseArgs{...} }
+type StreamingPolicyContentKeyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyContentKeyInvokeResponseArrayOutput() StreamingPolicyContentKeyInvokeResponseArrayOutput
+	ToStreamingPolicyContentKeyInvokeResponseArrayOutputWithContext(context.Context) StreamingPolicyContentKeyInvokeResponseArrayOutput
+}
+
+type StreamingPolicyContentKeyInvokeResponseArray []StreamingPolicyContentKeyInvokeResponseInput
+
+func (StreamingPolicyContentKeyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingPolicyContentKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingPolicyContentKeyInvokeResponseArray) ToStreamingPolicyContentKeyInvokeResponseArrayOutput() StreamingPolicyContentKeyInvokeResponseArrayOutput {
+	return i.ToStreamingPolicyContentKeyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyContentKeyInvokeResponseArray) ToStreamingPolicyContentKeyInvokeResponseArrayOutputWithContext(ctx context.Context) StreamingPolicyContentKeyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyContentKeyInvokeResponseArrayOutput)
+}
+
+// Class to specify properties of content key
+type StreamingPolicyContentKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyContentKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyContentKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingPolicyContentKeyInvokeResponseOutput) ToStreamingPolicyContentKeyInvokeResponseOutput() StreamingPolicyContentKeyInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingPolicyContentKeyInvokeResponseOutput) ToStreamingPolicyContentKeyInvokeResponseOutputWithContext(ctx context.Context) StreamingPolicyContentKeyInvokeResponseOutput {
+	return o
+}
+
+// Label can be used to specify Content Key when creating a Streaming Locator
+func (o StreamingPolicyContentKeyInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyContentKeyInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Policy used by Content Key
+func (o StreamingPolicyContentKeyInvokeResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyContentKeyInvokeResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Tracks which use this content key
+func (o StreamingPolicyContentKeyInvokeResponseOutput) Tracks() TrackSelectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v StreamingPolicyContentKeyInvokeResponse) []TrackSelectionInvokeResponse { return v.Tracks }).(TrackSelectionInvokeResponseArrayOutput)
+}
+
+type StreamingPolicyContentKeyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyContentKeyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingPolicyContentKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingPolicyContentKeyInvokeResponseArrayOutput) ToStreamingPolicyContentKeyInvokeResponseArrayOutput() StreamingPolicyContentKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StreamingPolicyContentKeyInvokeResponseArrayOutput) ToStreamingPolicyContentKeyInvokeResponseArrayOutputWithContext(ctx context.Context) StreamingPolicyContentKeyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StreamingPolicyContentKeyInvokeResponseArrayOutput) Index(i pulumi.IntInput) StreamingPolicyContentKeyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingPolicyContentKeyInvokeResponse {
+		return vs[0].([]StreamingPolicyContentKeyInvokeResponse)[vs[1].(int)]
+	}).(StreamingPolicyContentKeyInvokeResponseOutput)
 }
 
 // Class to specify properties of content key
@@ -20251,6 +28966,161 @@ func (o StreamingPolicyContentKeysPtrOutput) KeyToTrackMappings() StreamingPolic
 		}
 		return v.KeyToTrackMappings
 	}).(StreamingPolicyContentKeyArrayOutput)
+}
+
+// Class to specify properties of all content keys in Streaming Policy
+type StreamingPolicyContentKeysInvokeResponse struct {
+	// Default content key for an encryption scheme
+	DefaultKey *DefaultKeyInvokeResponse `pulumi:"defaultKey"`
+	// Representing tracks needs separate content key
+	KeyToTrackMappings []StreamingPolicyContentKeyInvokeResponse `pulumi:"keyToTrackMappings"`
+}
+
+// StreamingPolicyContentKeysInvokeResponseInput is an input type that accepts StreamingPolicyContentKeysInvokeResponseArgs and StreamingPolicyContentKeysInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamingPolicyContentKeysInvokeResponseInput` via:
+//
+//          StreamingPolicyContentKeysInvokeResponseArgs{...}
+type StreamingPolicyContentKeysInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyContentKeysInvokeResponseOutput() StreamingPolicyContentKeysInvokeResponseOutput
+	ToStreamingPolicyContentKeysInvokeResponseOutputWithContext(context.Context) StreamingPolicyContentKeysInvokeResponseOutput
+}
+
+// Class to specify properties of all content keys in Streaming Policy
+type StreamingPolicyContentKeysInvokeResponseArgs struct {
+	// Default content key for an encryption scheme
+	DefaultKey DefaultKeyInvokeResponsePtrInput `pulumi:"defaultKey"`
+	// Representing tracks needs separate content key
+	KeyToTrackMappings StreamingPolicyContentKeyInvokeResponseArrayInput `pulumi:"keyToTrackMappings"`
+}
+
+func (StreamingPolicyContentKeysInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyContentKeysInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingPolicyContentKeysInvokeResponseArgs) ToStreamingPolicyContentKeysInvokeResponseOutput() StreamingPolicyContentKeysInvokeResponseOutput {
+	return i.ToStreamingPolicyContentKeysInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyContentKeysInvokeResponseArgs) ToStreamingPolicyContentKeysInvokeResponseOutputWithContext(ctx context.Context) StreamingPolicyContentKeysInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyContentKeysInvokeResponseOutput)
+}
+
+func (i StreamingPolicyContentKeysInvokeResponseArgs) ToStreamingPolicyContentKeysInvokeResponsePtrOutput() StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return i.ToStreamingPolicyContentKeysInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyContentKeysInvokeResponseArgs) ToStreamingPolicyContentKeysInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyContentKeysInvokeResponseOutput).ToStreamingPolicyContentKeysInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyContentKeysInvokeResponsePtrInput is an input type that accepts StreamingPolicyContentKeysInvokeResponseArgs, StreamingPolicyContentKeysInvokeResponsePtr and StreamingPolicyContentKeysInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyContentKeysInvokeResponsePtrInput` via:
+//
+//          StreamingPolicyContentKeysInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyContentKeysInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyContentKeysInvokeResponsePtrOutput() StreamingPolicyContentKeysInvokeResponsePtrOutput
+	ToStreamingPolicyContentKeysInvokeResponsePtrOutputWithContext(context.Context) StreamingPolicyContentKeysInvokeResponsePtrOutput
+}
+
+type streamingPolicyContentKeysInvokeResponsePtrType StreamingPolicyContentKeysInvokeResponseArgs
+
+func StreamingPolicyContentKeysInvokeResponsePtr(v *StreamingPolicyContentKeysInvokeResponseArgs) StreamingPolicyContentKeysInvokeResponsePtrInput {
+	return (*streamingPolicyContentKeysInvokeResponsePtrType)(v)
+}
+
+func (*streamingPolicyContentKeysInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyContentKeysInvokeResponse)(nil)).Elem()
+}
+
+func (i *streamingPolicyContentKeysInvokeResponsePtrType) ToStreamingPolicyContentKeysInvokeResponsePtrOutput() StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return i.ToStreamingPolicyContentKeysInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyContentKeysInvokeResponsePtrType) ToStreamingPolicyContentKeysInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyContentKeysInvokeResponsePtrOutput)
+}
+
+// Class to specify properties of all content keys in Streaming Policy
+type StreamingPolicyContentKeysInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyContentKeysInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyContentKeysInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingPolicyContentKeysInvokeResponseOutput) ToStreamingPolicyContentKeysInvokeResponseOutput() StreamingPolicyContentKeysInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingPolicyContentKeysInvokeResponseOutput) ToStreamingPolicyContentKeysInvokeResponseOutputWithContext(ctx context.Context) StreamingPolicyContentKeysInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingPolicyContentKeysInvokeResponseOutput) ToStreamingPolicyContentKeysInvokeResponsePtrOutput() StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return o.ToStreamingPolicyContentKeysInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyContentKeysInvokeResponseOutput) ToStreamingPolicyContentKeysInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StreamingPolicyContentKeysInvokeResponse) *StreamingPolicyContentKeysInvokeResponse {
+		return &v
+	}).(StreamingPolicyContentKeysInvokeResponsePtrOutput)
+}
+
+// Default content key for an encryption scheme
+func (o StreamingPolicyContentKeysInvokeResponseOutput) DefaultKey() DefaultKeyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StreamingPolicyContentKeysInvokeResponse) *DefaultKeyInvokeResponse { return v.DefaultKey }).(DefaultKeyInvokeResponsePtrOutput)
+}
+
+// Representing tracks needs separate content key
+func (o StreamingPolicyContentKeysInvokeResponseOutput) KeyToTrackMappings() StreamingPolicyContentKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v StreamingPolicyContentKeysInvokeResponse) []StreamingPolicyContentKeyInvokeResponse {
+		return v.KeyToTrackMappings
+	}).(StreamingPolicyContentKeyInvokeResponseArrayOutput)
+}
+
+type StreamingPolicyContentKeysInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyContentKeysInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyContentKeysInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingPolicyContentKeysInvokeResponsePtrOutput) ToStreamingPolicyContentKeysInvokeResponsePtrOutput() StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StreamingPolicyContentKeysInvokeResponsePtrOutput) ToStreamingPolicyContentKeysInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyContentKeysInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StreamingPolicyContentKeysInvokeResponsePtrOutput) Elem() StreamingPolicyContentKeysInvokeResponseOutput {
+	return o.ApplyT(func(v *StreamingPolicyContentKeysInvokeResponse) StreamingPolicyContentKeysInvokeResponse { return *v }).(StreamingPolicyContentKeysInvokeResponseOutput)
+}
+
+// Default content key for an encryption scheme
+func (o StreamingPolicyContentKeysInvokeResponsePtrOutput) DefaultKey() DefaultKeyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyContentKeysInvokeResponse) *DefaultKeyInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultKey
+	}).(DefaultKeyInvokeResponsePtrOutput)
+}
+
+// Representing tracks needs separate content key
+func (o StreamingPolicyContentKeysInvokeResponsePtrOutput) KeyToTrackMappings() StreamingPolicyContentKeyInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *StreamingPolicyContentKeysInvokeResponse) []StreamingPolicyContentKeyInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyToTrackMappings
+	}).(StreamingPolicyContentKeyInvokeResponseArrayOutput)
 }
 
 // Class to specify properties of all content keys in Streaming Policy
@@ -20554,6 +29424,163 @@ func (o StreamingPolicyFairPlayConfigurationPtrOutput) AllowPersistentLicense() 
 // Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
 func (o StreamingPolicyFairPlayConfigurationPtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingPolicyFairPlayConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Class to specify configurations of FairPlay in Streaming Policy
+type StreamingPolicyFairPlayConfigurationInvokeResponse struct {
+	// All license to be persistent or not
+	AllowPersistentLicense bool `pulumi:"allowPersistentLicense"`
+	// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
+}
+
+// StreamingPolicyFairPlayConfigurationInvokeResponseInput is an input type that accepts StreamingPolicyFairPlayConfigurationInvokeResponseArgs and StreamingPolicyFairPlayConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamingPolicyFairPlayConfigurationInvokeResponseInput` via:
+//
+//          StreamingPolicyFairPlayConfigurationInvokeResponseArgs{...}
+type StreamingPolicyFairPlayConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyFairPlayConfigurationInvokeResponseOutput() StreamingPolicyFairPlayConfigurationInvokeResponseOutput
+	ToStreamingPolicyFairPlayConfigurationInvokeResponseOutputWithContext(context.Context) StreamingPolicyFairPlayConfigurationInvokeResponseOutput
+}
+
+// Class to specify configurations of FairPlay in Streaming Policy
+type StreamingPolicyFairPlayConfigurationInvokeResponseArgs struct {
+	// All license to be persistent or not
+	AllowPersistentLicense pulumi.BoolInput `pulumi:"allowPersistentLicense"`
+	// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
+}
+
+func (StreamingPolicyFairPlayConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyFairPlayConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingPolicyFairPlayConfigurationInvokeResponseArgs) ToStreamingPolicyFairPlayConfigurationInvokeResponseOutput() StreamingPolicyFairPlayConfigurationInvokeResponseOutput {
+	return i.ToStreamingPolicyFairPlayConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyFairPlayConfigurationInvokeResponseArgs) ToStreamingPolicyFairPlayConfigurationInvokeResponseOutputWithContext(ctx context.Context) StreamingPolicyFairPlayConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyFairPlayConfigurationInvokeResponseOutput)
+}
+
+func (i StreamingPolicyFairPlayConfigurationInvokeResponseArgs) ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput() StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput {
+	return i.ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyFairPlayConfigurationInvokeResponseArgs) ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyFairPlayConfigurationInvokeResponseOutput).ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyFairPlayConfigurationInvokeResponsePtrInput is an input type that accepts StreamingPolicyFairPlayConfigurationInvokeResponseArgs, StreamingPolicyFairPlayConfigurationInvokeResponsePtr and StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyFairPlayConfigurationInvokeResponsePtrInput` via:
+//
+//          StreamingPolicyFairPlayConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyFairPlayConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput() StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput
+	ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutputWithContext(context.Context) StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput
+}
+
+type streamingPolicyFairPlayConfigurationInvokeResponsePtrType StreamingPolicyFairPlayConfigurationInvokeResponseArgs
+
+func StreamingPolicyFairPlayConfigurationInvokeResponsePtr(v *StreamingPolicyFairPlayConfigurationInvokeResponseArgs) StreamingPolicyFairPlayConfigurationInvokeResponsePtrInput {
+	return (*streamingPolicyFairPlayConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*streamingPolicyFairPlayConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyFairPlayConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *streamingPolicyFairPlayConfigurationInvokeResponsePtrType) ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput() StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput {
+	return i.ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyFairPlayConfigurationInvokeResponsePtrType) ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput)
+}
+
+// Class to specify configurations of FairPlay in Streaming Policy
+type StreamingPolicyFairPlayConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyFairPlayConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyFairPlayConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingPolicyFairPlayConfigurationInvokeResponseOutput) ToStreamingPolicyFairPlayConfigurationInvokeResponseOutput() StreamingPolicyFairPlayConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingPolicyFairPlayConfigurationInvokeResponseOutput) ToStreamingPolicyFairPlayConfigurationInvokeResponseOutputWithContext(ctx context.Context) StreamingPolicyFairPlayConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingPolicyFairPlayConfigurationInvokeResponseOutput) ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput() StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput {
+	return o.ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyFairPlayConfigurationInvokeResponseOutput) ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StreamingPolicyFairPlayConfigurationInvokeResponse) *StreamingPolicyFairPlayConfigurationInvokeResponse {
+		return &v
+	}).(StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput)
+}
+
+// All license to be persistent or not
+func (o StreamingPolicyFairPlayConfigurationInvokeResponseOutput) AllowPersistentLicense() pulumi.BoolOutput {
+	return o.ApplyT(func(v StreamingPolicyFairPlayConfigurationInvokeResponse) bool { return v.AllowPersistentLicense }).(pulumi.BoolOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+func (o StreamingPolicyFairPlayConfigurationInvokeResponseOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyFairPlayConfigurationInvokeResponse) *string {
+		return v.CustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyFairPlayConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput) ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput() StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput) ToStreamingPolicyFairPlayConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput) Elem() StreamingPolicyFairPlayConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *StreamingPolicyFairPlayConfigurationInvokeResponse) StreamingPolicyFairPlayConfigurationInvokeResponse {
+		return *v
+	}).(StreamingPolicyFairPlayConfigurationInvokeResponseOutput)
+}
+
+// All license to be persistent or not
+func (o StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput) AllowPersistentLicense() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyFairPlayConfigurationInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AllowPersistentLicense
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+func (o StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyFairPlayConfigurationInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -20872,6 +29899,165 @@ func (o StreamingPolicyPlayReadyConfigurationPtrOutput) PlayReadyCustomAttribute
 }
 
 // Class to specify configurations of PlayReady in Streaming Policy
+type StreamingPolicyPlayReadyConfigurationInvokeResponse struct {
+	// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
+	// Custom attributes for PlayReady
+	PlayReadyCustomAttributes *string `pulumi:"playReadyCustomAttributes"`
+}
+
+// StreamingPolicyPlayReadyConfigurationInvokeResponseInput is an input type that accepts StreamingPolicyPlayReadyConfigurationInvokeResponseArgs and StreamingPolicyPlayReadyConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamingPolicyPlayReadyConfigurationInvokeResponseInput` via:
+//
+//          StreamingPolicyPlayReadyConfigurationInvokeResponseArgs{...}
+type StreamingPolicyPlayReadyConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyPlayReadyConfigurationInvokeResponseOutput() StreamingPolicyPlayReadyConfigurationInvokeResponseOutput
+	ToStreamingPolicyPlayReadyConfigurationInvokeResponseOutputWithContext(context.Context) StreamingPolicyPlayReadyConfigurationInvokeResponseOutput
+}
+
+// Class to specify configurations of PlayReady in Streaming Policy
+type StreamingPolicyPlayReadyConfigurationInvokeResponseArgs struct {
+	// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
+	// Custom attributes for PlayReady
+	PlayReadyCustomAttributes pulumi.StringPtrInput `pulumi:"playReadyCustomAttributes"`
+}
+
+func (StreamingPolicyPlayReadyConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyPlayReadyConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingPolicyPlayReadyConfigurationInvokeResponseArgs) ToStreamingPolicyPlayReadyConfigurationInvokeResponseOutput() StreamingPolicyPlayReadyConfigurationInvokeResponseOutput {
+	return i.ToStreamingPolicyPlayReadyConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyPlayReadyConfigurationInvokeResponseArgs) ToStreamingPolicyPlayReadyConfigurationInvokeResponseOutputWithContext(ctx context.Context) StreamingPolicyPlayReadyConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyPlayReadyConfigurationInvokeResponseOutput)
+}
+
+func (i StreamingPolicyPlayReadyConfigurationInvokeResponseArgs) ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput() StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return i.ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyPlayReadyConfigurationInvokeResponseArgs) ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyPlayReadyConfigurationInvokeResponseOutput).ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyPlayReadyConfigurationInvokeResponsePtrInput is an input type that accepts StreamingPolicyPlayReadyConfigurationInvokeResponseArgs, StreamingPolicyPlayReadyConfigurationInvokeResponsePtr and StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyPlayReadyConfigurationInvokeResponsePtrInput` via:
+//
+//          StreamingPolicyPlayReadyConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyPlayReadyConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput() StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput
+	ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutputWithContext(context.Context) StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput
+}
+
+type streamingPolicyPlayReadyConfigurationInvokeResponsePtrType StreamingPolicyPlayReadyConfigurationInvokeResponseArgs
+
+func StreamingPolicyPlayReadyConfigurationInvokeResponsePtr(v *StreamingPolicyPlayReadyConfigurationInvokeResponseArgs) StreamingPolicyPlayReadyConfigurationInvokeResponsePtrInput {
+	return (*streamingPolicyPlayReadyConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*streamingPolicyPlayReadyConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyPlayReadyConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *streamingPolicyPlayReadyConfigurationInvokeResponsePtrType) ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput() StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return i.ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyPlayReadyConfigurationInvokeResponsePtrType) ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput)
+}
+
+// Class to specify configurations of PlayReady in Streaming Policy
+type StreamingPolicyPlayReadyConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyPlayReadyConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyPlayReadyConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponseOutput) ToStreamingPolicyPlayReadyConfigurationInvokeResponseOutput() StreamingPolicyPlayReadyConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponseOutput) ToStreamingPolicyPlayReadyConfigurationInvokeResponseOutputWithContext(ctx context.Context) StreamingPolicyPlayReadyConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponseOutput) ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput() StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return o.ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponseOutput) ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StreamingPolicyPlayReadyConfigurationInvokeResponse) *StreamingPolicyPlayReadyConfigurationInvokeResponse {
+		return &v
+	}).(StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponseOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyPlayReadyConfigurationInvokeResponse) *string {
+		return v.CustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Custom attributes for PlayReady
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponseOutput) PlayReadyCustomAttributes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyPlayReadyConfigurationInvokeResponse) *string {
+		return v.PlayReadyCustomAttributes
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyPlayReadyConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput) ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput() StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput) ToStreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput) Elem() StreamingPolicyPlayReadyConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfigurationInvokeResponse) StreamingPolicyPlayReadyConfigurationInvokeResponse {
+		return *v
+	}).(StreamingPolicyPlayReadyConfigurationInvokeResponseOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Custom attributes for PlayReady
+func (o StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput) PlayReadyCustomAttributes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyPlayReadyConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlayReadyCustomAttributes
+	}).(pulumi.StringPtrOutput)
+}
+
+// Class to specify configurations of PlayReady in Streaming Policy
 type StreamingPolicyPlayReadyConfigurationResponse struct {
 	// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
 	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
@@ -21163,6 +30349,144 @@ func (o StreamingPolicyWidevineConfigurationPtrOutput) CustomLicenseAcquisitionU
 }
 
 // Class to specify configurations of Widevine in Streaming Policy
+type StreamingPolicyWidevineConfigurationInvokeResponse struct {
+	// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
+}
+
+// StreamingPolicyWidevineConfigurationInvokeResponseInput is an input type that accepts StreamingPolicyWidevineConfigurationInvokeResponseArgs and StreamingPolicyWidevineConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `StreamingPolicyWidevineConfigurationInvokeResponseInput` via:
+//
+//          StreamingPolicyWidevineConfigurationInvokeResponseArgs{...}
+type StreamingPolicyWidevineConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyWidevineConfigurationInvokeResponseOutput() StreamingPolicyWidevineConfigurationInvokeResponseOutput
+	ToStreamingPolicyWidevineConfigurationInvokeResponseOutputWithContext(context.Context) StreamingPolicyWidevineConfigurationInvokeResponseOutput
+}
+
+// Class to specify configurations of Widevine in Streaming Policy
+type StreamingPolicyWidevineConfigurationInvokeResponseArgs struct {
+	// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+	CustomLicenseAcquisitionUrlTemplate pulumi.StringPtrInput `pulumi:"customLicenseAcquisitionUrlTemplate"`
+}
+
+func (StreamingPolicyWidevineConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyWidevineConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i StreamingPolicyWidevineConfigurationInvokeResponseArgs) ToStreamingPolicyWidevineConfigurationInvokeResponseOutput() StreamingPolicyWidevineConfigurationInvokeResponseOutput {
+	return i.ToStreamingPolicyWidevineConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyWidevineConfigurationInvokeResponseArgs) ToStreamingPolicyWidevineConfigurationInvokeResponseOutputWithContext(ctx context.Context) StreamingPolicyWidevineConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyWidevineConfigurationInvokeResponseOutput)
+}
+
+func (i StreamingPolicyWidevineConfigurationInvokeResponseArgs) ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutput() StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return i.ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i StreamingPolicyWidevineConfigurationInvokeResponseArgs) ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyWidevineConfigurationInvokeResponseOutput).ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// StreamingPolicyWidevineConfigurationInvokeResponsePtrInput is an input type that accepts StreamingPolicyWidevineConfigurationInvokeResponseArgs, StreamingPolicyWidevineConfigurationInvokeResponsePtr and StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `StreamingPolicyWidevineConfigurationInvokeResponsePtrInput` via:
+//
+//          StreamingPolicyWidevineConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingPolicyWidevineConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutput() StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput
+	ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutputWithContext(context.Context) StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput
+}
+
+type streamingPolicyWidevineConfigurationInvokeResponsePtrType StreamingPolicyWidevineConfigurationInvokeResponseArgs
+
+func StreamingPolicyWidevineConfigurationInvokeResponsePtr(v *StreamingPolicyWidevineConfigurationInvokeResponseArgs) StreamingPolicyWidevineConfigurationInvokeResponsePtrInput {
+	return (*streamingPolicyWidevineConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*streamingPolicyWidevineConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyWidevineConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *streamingPolicyWidevineConfigurationInvokeResponsePtrType) ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutput() StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return i.ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *streamingPolicyWidevineConfigurationInvokeResponsePtrType) ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput)
+}
+
+// Class to specify configurations of Widevine in Streaming Policy
+type StreamingPolicyWidevineConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyWidevineConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingPolicyWidevineConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingPolicyWidevineConfigurationInvokeResponseOutput) ToStreamingPolicyWidevineConfigurationInvokeResponseOutput() StreamingPolicyWidevineConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingPolicyWidevineConfigurationInvokeResponseOutput) ToStreamingPolicyWidevineConfigurationInvokeResponseOutputWithContext(ctx context.Context) StreamingPolicyWidevineConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o StreamingPolicyWidevineConfigurationInvokeResponseOutput) ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutput() StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return o.ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o StreamingPolicyWidevineConfigurationInvokeResponseOutput) ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StreamingPolicyWidevineConfigurationInvokeResponse) *StreamingPolicyWidevineConfigurationInvokeResponse {
+		return &v
+	}).(StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+func (o StreamingPolicyWidevineConfigurationInvokeResponseOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingPolicyWidevineConfigurationInvokeResponse) *string {
+		return v.CustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingPolicyWidevineConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput) ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutput() StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput) ToStreamingPolicyWidevineConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput) Elem() StreamingPolicyWidevineConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *StreamingPolicyWidevineConfigurationInvokeResponse) StreamingPolicyWidevineConfigurationInvokeResponse {
+		return *v
+	}).(StreamingPolicyWidevineConfigurationInvokeResponseOutput)
+}
+
+// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
+func (o StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput) CustomLicenseAcquisitionUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicyWidevineConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomLicenseAcquisitionUrlTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Class to specify configurations of Widevine in Streaming Policy
 type StreamingPolicyWidevineConfigurationResponse struct {
 	// Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
 	CustomLicenseAcquisitionUrlTemplate *string `pulumi:"customLicenseAcquisitionUrlTemplate"`
@@ -21419,6 +30743,124 @@ func (o TrackPropertyConditionArrayOutput) Index(i pulumi.IntInput) TrackPropert
 }
 
 // Class to specify one track property condition
+type TrackPropertyConditionInvokeResponse struct {
+	// Track property condition operation
+	Operation string `pulumi:"operation"`
+	// Track property type
+	Property string `pulumi:"property"`
+	// Track property value
+	Value *string `pulumi:"value"`
+}
+
+// TrackPropertyConditionInvokeResponseInput is an input type that accepts TrackPropertyConditionInvokeResponseArgs and TrackPropertyConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `TrackPropertyConditionInvokeResponseInput` via:
+//
+//          TrackPropertyConditionInvokeResponseArgs{...}
+type TrackPropertyConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTrackPropertyConditionInvokeResponseOutput() TrackPropertyConditionInvokeResponseOutput
+	ToTrackPropertyConditionInvokeResponseOutputWithContext(context.Context) TrackPropertyConditionInvokeResponseOutput
+}
+
+// Class to specify one track property condition
+type TrackPropertyConditionInvokeResponseArgs struct {
+	// Track property condition operation
+	Operation pulumi.StringInput `pulumi:"operation"`
+	// Track property type
+	Property pulumi.StringInput `pulumi:"property"`
+	// Track property value
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TrackPropertyConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrackPropertyConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i TrackPropertyConditionInvokeResponseArgs) ToTrackPropertyConditionInvokeResponseOutput() TrackPropertyConditionInvokeResponseOutput {
+	return i.ToTrackPropertyConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TrackPropertyConditionInvokeResponseArgs) ToTrackPropertyConditionInvokeResponseOutputWithContext(ctx context.Context) TrackPropertyConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrackPropertyConditionInvokeResponseOutput)
+}
+
+// TrackPropertyConditionInvokeResponseArrayInput is an input type that accepts TrackPropertyConditionInvokeResponseArray and TrackPropertyConditionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TrackPropertyConditionInvokeResponseArrayInput` via:
+//
+//          TrackPropertyConditionInvokeResponseArray{ TrackPropertyConditionInvokeResponseArgs{...} }
+type TrackPropertyConditionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTrackPropertyConditionInvokeResponseArrayOutput() TrackPropertyConditionInvokeResponseArrayOutput
+	ToTrackPropertyConditionInvokeResponseArrayOutputWithContext(context.Context) TrackPropertyConditionInvokeResponseArrayOutput
+}
+
+type TrackPropertyConditionInvokeResponseArray []TrackPropertyConditionInvokeResponseInput
+
+func (TrackPropertyConditionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrackPropertyConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i TrackPropertyConditionInvokeResponseArray) ToTrackPropertyConditionInvokeResponseArrayOutput() TrackPropertyConditionInvokeResponseArrayOutput {
+	return i.ToTrackPropertyConditionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TrackPropertyConditionInvokeResponseArray) ToTrackPropertyConditionInvokeResponseArrayOutputWithContext(ctx context.Context) TrackPropertyConditionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrackPropertyConditionInvokeResponseArrayOutput)
+}
+
+// Class to specify one track property condition
+type TrackPropertyConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TrackPropertyConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrackPropertyConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o TrackPropertyConditionInvokeResponseOutput) ToTrackPropertyConditionInvokeResponseOutput() TrackPropertyConditionInvokeResponseOutput {
+	return o
+}
+
+func (o TrackPropertyConditionInvokeResponseOutput) ToTrackPropertyConditionInvokeResponseOutputWithContext(ctx context.Context) TrackPropertyConditionInvokeResponseOutput {
+	return o
+}
+
+// Track property condition operation
+func (o TrackPropertyConditionInvokeResponseOutput) Operation() pulumi.StringOutput {
+	return o.ApplyT(func(v TrackPropertyConditionInvokeResponse) string { return v.Operation }).(pulumi.StringOutput)
+}
+
+// Track property type
+func (o TrackPropertyConditionInvokeResponseOutput) Property() pulumi.StringOutput {
+	return o.ApplyT(func(v TrackPropertyConditionInvokeResponse) string { return v.Property }).(pulumi.StringOutput)
+}
+
+// Track property value
+func (o TrackPropertyConditionInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrackPropertyConditionInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TrackPropertyConditionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TrackPropertyConditionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrackPropertyConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o TrackPropertyConditionInvokeResponseArrayOutput) ToTrackPropertyConditionInvokeResponseArrayOutput() TrackPropertyConditionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TrackPropertyConditionInvokeResponseArrayOutput) ToTrackPropertyConditionInvokeResponseArrayOutputWithContext(ctx context.Context) TrackPropertyConditionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TrackPropertyConditionInvokeResponseArrayOutput) Index(i pulumi.IntInput) TrackPropertyConditionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrackPropertyConditionInvokeResponse {
+		return vs[0].([]TrackPropertyConditionInvokeResponse)[vs[1].(int)]
+	}).(TrackPropertyConditionInvokeResponseOutput)
+}
+
+// Class to specify one track property condition
 type TrackPropertyConditionResponse struct {
 	// Track property condition operation
 	Operation string `pulumi:"operation"`
@@ -21634,6 +31076,106 @@ func (o TrackSelectionArrayOutput) Index(i pulumi.IntInput) TrackSelectionOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrackSelection {
 		return vs[0].([]TrackSelection)[vs[1].(int)]
 	}).(TrackSelectionOutput)
+}
+
+// Class to select a track
+type TrackSelectionInvokeResponse struct {
+	// TrackSelections is a track property condition list which can specify track(s)
+	TrackSelections []TrackPropertyConditionInvokeResponse `pulumi:"trackSelections"`
+}
+
+// TrackSelectionInvokeResponseInput is an input type that accepts TrackSelectionInvokeResponseArgs and TrackSelectionInvokeResponseOutput values.
+// You can construct a concrete instance of `TrackSelectionInvokeResponseInput` via:
+//
+//          TrackSelectionInvokeResponseArgs{...}
+type TrackSelectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTrackSelectionInvokeResponseOutput() TrackSelectionInvokeResponseOutput
+	ToTrackSelectionInvokeResponseOutputWithContext(context.Context) TrackSelectionInvokeResponseOutput
+}
+
+// Class to select a track
+type TrackSelectionInvokeResponseArgs struct {
+	// TrackSelections is a track property condition list which can specify track(s)
+	TrackSelections TrackPropertyConditionInvokeResponseArrayInput `pulumi:"trackSelections"`
+}
+
+func (TrackSelectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (i TrackSelectionInvokeResponseArgs) ToTrackSelectionInvokeResponseOutput() TrackSelectionInvokeResponseOutput {
+	return i.ToTrackSelectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TrackSelectionInvokeResponseArgs) ToTrackSelectionInvokeResponseOutputWithContext(ctx context.Context) TrackSelectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrackSelectionInvokeResponseOutput)
+}
+
+// TrackSelectionInvokeResponseArrayInput is an input type that accepts TrackSelectionInvokeResponseArray and TrackSelectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TrackSelectionInvokeResponseArrayInput` via:
+//
+//          TrackSelectionInvokeResponseArray{ TrackSelectionInvokeResponseArgs{...} }
+type TrackSelectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTrackSelectionInvokeResponseArrayOutput() TrackSelectionInvokeResponseArrayOutput
+	ToTrackSelectionInvokeResponseArrayOutputWithContext(context.Context) TrackSelectionInvokeResponseArrayOutput
+}
+
+type TrackSelectionInvokeResponseArray []TrackSelectionInvokeResponseInput
+
+func (TrackSelectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (i TrackSelectionInvokeResponseArray) ToTrackSelectionInvokeResponseArrayOutput() TrackSelectionInvokeResponseArrayOutput {
+	return i.ToTrackSelectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TrackSelectionInvokeResponseArray) ToTrackSelectionInvokeResponseArrayOutputWithContext(ctx context.Context) TrackSelectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrackSelectionInvokeResponseArrayOutput)
+}
+
+// Class to select a track
+type TrackSelectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TrackSelectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (o TrackSelectionInvokeResponseOutput) ToTrackSelectionInvokeResponseOutput() TrackSelectionInvokeResponseOutput {
+	return o
+}
+
+func (o TrackSelectionInvokeResponseOutput) ToTrackSelectionInvokeResponseOutputWithContext(ctx context.Context) TrackSelectionInvokeResponseOutput {
+	return o
+}
+
+// TrackSelections is a track property condition list which can specify track(s)
+func (o TrackSelectionInvokeResponseOutput) TrackSelections() TrackPropertyConditionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v TrackSelectionInvokeResponse) []TrackPropertyConditionInvokeResponse { return v.TrackSelections }).(TrackPropertyConditionInvokeResponseArrayOutput)
+}
+
+type TrackSelectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TrackSelectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrackSelectionInvokeResponse)(nil)).Elem()
+}
+
+func (o TrackSelectionInvokeResponseArrayOutput) ToTrackSelectionInvokeResponseArrayOutput() TrackSelectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TrackSelectionInvokeResponseArrayOutput) ToTrackSelectionInvokeResponseArrayOutputWithContext(ctx context.Context) TrackSelectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TrackSelectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) TrackSelectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrackSelectionInvokeResponse {
+		return vs[0].([]TrackSelectionInvokeResponse)[vs[1].(int)]
+	}).(TrackSelectionInvokeResponseOutput)
 }
 
 // Class to select a track
@@ -21855,6 +31397,124 @@ func (o TransformOutputArrayOutput) Index(i pulumi.IntInput) TransformOutputOutp
 }
 
 // Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
+type TransformOutputInvokeResponse struct {
+	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+	OnError *string `pulumi:"onError"`
+	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+	Preset interface{} `pulumi:"preset"`
+	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+	RelativePriority *string `pulumi:"relativePriority"`
+}
+
+// TransformOutputInvokeResponseInput is an input type that accepts TransformOutputInvokeResponseArgs and TransformOutputInvokeResponseOutput values.
+// You can construct a concrete instance of `TransformOutputInvokeResponseInput` via:
+//
+//          TransformOutputInvokeResponseArgs{...}
+type TransformOutputInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTransformOutputInvokeResponseOutput() TransformOutputInvokeResponseOutput
+	ToTransformOutputInvokeResponseOutputWithContext(context.Context) TransformOutputInvokeResponseOutput
+}
+
+// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
+type TransformOutputInvokeResponseArgs struct {
+	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+	OnError pulumi.StringPtrInput `pulumi:"onError"`
+	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+	Preset pulumi.Input `pulumi:"preset"`
+	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+	RelativePriority pulumi.StringPtrInput `pulumi:"relativePriority"`
+}
+
+func (TransformOutputInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputInvokeResponse)(nil)).Elem()
+}
+
+func (i TransformOutputInvokeResponseArgs) ToTransformOutputInvokeResponseOutput() TransformOutputInvokeResponseOutput {
+	return i.ToTransformOutputInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TransformOutputInvokeResponseArgs) ToTransformOutputInvokeResponseOutputWithContext(ctx context.Context) TransformOutputInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputInvokeResponseOutput)
+}
+
+// TransformOutputInvokeResponseArrayInput is an input type that accepts TransformOutputInvokeResponseArray and TransformOutputInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TransformOutputInvokeResponseArrayInput` via:
+//
+//          TransformOutputInvokeResponseArray{ TransformOutputInvokeResponseArgs{...} }
+type TransformOutputInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTransformOutputInvokeResponseArrayOutput() TransformOutputInvokeResponseArrayOutput
+	ToTransformOutputInvokeResponseArrayOutputWithContext(context.Context) TransformOutputInvokeResponseArrayOutput
+}
+
+type TransformOutputInvokeResponseArray []TransformOutputInvokeResponseInput
+
+func (TransformOutputInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputInvokeResponse)(nil)).Elem()
+}
+
+func (i TransformOutputInvokeResponseArray) ToTransformOutputInvokeResponseArrayOutput() TransformOutputInvokeResponseArrayOutput {
+	return i.ToTransformOutputInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TransformOutputInvokeResponseArray) ToTransformOutputInvokeResponseArrayOutputWithContext(ctx context.Context) TransformOutputInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputInvokeResponseArrayOutput)
+}
+
+// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
+type TransformOutputInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformOutputInvokeResponse)(nil)).Elem()
+}
+
+func (o TransformOutputInvokeResponseOutput) ToTransformOutputInvokeResponseOutput() TransformOutputInvokeResponseOutput {
+	return o
+}
+
+func (o TransformOutputInvokeResponseOutput) ToTransformOutputInvokeResponseOutputWithContext(ctx context.Context) TransformOutputInvokeResponseOutput {
+	return o
+}
+
+// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+func (o TransformOutputInvokeResponseOutput) OnError() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputInvokeResponse) *string { return v.OnError }).(pulumi.StringPtrOutput)
+}
+
+// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+func (o TransformOutputInvokeResponseOutput) Preset() pulumi.AnyOutput {
+	return o.ApplyT(func(v TransformOutputInvokeResponse) interface{} { return v.Preset }).(pulumi.AnyOutput)
+}
+
+// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+func (o TransformOutputInvokeResponseOutput) RelativePriority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformOutputInvokeResponse) *string { return v.RelativePriority }).(pulumi.StringPtrOutput)
+}
+
+type TransformOutputInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TransformOutputInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransformOutputInvokeResponse)(nil)).Elem()
+}
+
+func (o TransformOutputInvokeResponseArrayOutput) ToTransformOutputInvokeResponseArrayOutput() TransformOutputInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TransformOutputInvokeResponseArrayOutput) ToTransformOutputInvokeResponseArrayOutputWithContext(ctx context.Context) TransformOutputInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TransformOutputInvokeResponseArrayOutput) Index(i pulumi.IntInput) TransformOutputInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputInvokeResponse {
+		return vs[0].([]TransformOutputInvokeResponse)[vs[1].(int)]
+	}).(TransformOutputInvokeResponseOutput)
+}
+
+// Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
 type TransformOutputResponse struct {
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 	OnError *string `pulumi:"onError"`
@@ -22046,6 +31706,82 @@ func (o TransportStreamFormatOutput) OdataType() pulumi.StringOutput {
 // The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
 func (o TransportStreamFormatOutput) OutputFiles() OutputFileArrayOutput {
 	return o.ApplyT(func(v TransportStreamFormat) []OutputFile { return v.OutputFiles }).(OutputFileArrayOutput)
+}
+
+// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+type TransportStreamFormatInvokeResponse struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern string `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType string `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles []OutputFileInvokeResponse `pulumi:"outputFiles"`
+}
+
+// TransportStreamFormatInvokeResponseInput is an input type that accepts TransportStreamFormatInvokeResponseArgs and TransportStreamFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `TransportStreamFormatInvokeResponseInput` via:
+//
+//          TransportStreamFormatInvokeResponseArgs{...}
+type TransportStreamFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTransportStreamFormatInvokeResponseOutput() TransportStreamFormatInvokeResponseOutput
+	ToTransportStreamFormatInvokeResponseOutputWithContext(context.Context) TransportStreamFormatInvokeResponseOutput
+}
+
+// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+type TransportStreamFormatInvokeResponseArgs struct {
+	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+	FilenamePattern pulumi.StringInput `pulumi:"filenamePattern"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+	OutputFiles OutputFileInvokeResponseArrayInput `pulumi:"outputFiles"`
+}
+
+func (TransportStreamFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransportStreamFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i TransportStreamFormatInvokeResponseArgs) ToTransportStreamFormatInvokeResponseOutput() TransportStreamFormatInvokeResponseOutput {
+	return i.ToTransportStreamFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TransportStreamFormatInvokeResponseArgs) ToTransportStreamFormatInvokeResponseOutputWithContext(ctx context.Context) TransportStreamFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransportStreamFormatInvokeResponseOutput)
+}
+
+// Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
+type TransportStreamFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TransportStreamFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransportStreamFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o TransportStreamFormatInvokeResponseOutput) ToTransportStreamFormatInvokeResponseOutput() TransportStreamFormatInvokeResponseOutput {
+	return o
+}
+
+func (o TransportStreamFormatInvokeResponseOutput) ToTransportStreamFormatInvokeResponseOutputWithContext(ctx context.Context) TransportStreamFormatInvokeResponseOutput {
+	return o
+}
+
+// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+func (o TransportStreamFormatInvokeResponseOutput) FilenamePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v TransportStreamFormatInvokeResponse) string { return v.FilenamePattern }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.MultiBitrateFormat'.
+func (o TransportStreamFormatInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v TransportStreamFormatInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
+func (o TransportStreamFormatInvokeResponseOutput) OutputFiles() OutputFileInvokeResponseArrayOutput {
+	return o.ApplyT(func(v TransportStreamFormatInvokeResponse) []OutputFileInvokeResponse { return v.OutputFiles }).(OutputFileInvokeResponseArrayOutput)
 }
 
 // Describes the properties for generating an MPEG-2 Transport Stream (ISO/IEC 13818-1) output video file(s).
@@ -22295,6 +32031,91 @@ func (o VideoAnalyzerPresetOutput) OdataType() pulumi.StringOutput {
 }
 
 // A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+type VideoAnalyzerPresetInvokeResponse struct {
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+	AudioLanguage *string `pulumi:"audioLanguage"`
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself
+	ExperimentalOptions map[string]string `pulumi:"experimentalOptions"`
+	// Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+	InsightsToExtract *string `pulumi:"insightsToExtract"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// VideoAnalyzerPresetInvokeResponseInput is an input type that accepts VideoAnalyzerPresetInvokeResponseArgs and VideoAnalyzerPresetInvokeResponseOutput values.
+// You can construct a concrete instance of `VideoAnalyzerPresetInvokeResponseInput` via:
+//
+//          VideoAnalyzerPresetInvokeResponseArgs{...}
+type VideoAnalyzerPresetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVideoAnalyzerPresetInvokeResponseOutput() VideoAnalyzerPresetInvokeResponseOutput
+	ToVideoAnalyzerPresetInvokeResponseOutputWithContext(context.Context) VideoAnalyzerPresetInvokeResponseOutput
+}
+
+// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+type VideoAnalyzerPresetInvokeResponseArgs struct {
+	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+	AudioLanguage pulumi.StringPtrInput `pulumi:"audioLanguage"`
+	// Dictionary containing key value pairs for parameters not exposed in the preset itself
+	ExperimentalOptions pulumi.StringMapInput `pulumi:"experimentalOptions"`
+	// Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+	InsightsToExtract pulumi.StringPtrInput `pulumi:"insightsToExtract"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (VideoAnalyzerPresetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoAnalyzerPresetInvokeResponse)(nil)).Elem()
+}
+
+func (i VideoAnalyzerPresetInvokeResponseArgs) ToVideoAnalyzerPresetInvokeResponseOutput() VideoAnalyzerPresetInvokeResponseOutput {
+	return i.ToVideoAnalyzerPresetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VideoAnalyzerPresetInvokeResponseArgs) ToVideoAnalyzerPresetInvokeResponseOutputWithContext(ctx context.Context) VideoAnalyzerPresetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoAnalyzerPresetInvokeResponseOutput)
+}
+
+// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+type VideoAnalyzerPresetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VideoAnalyzerPresetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoAnalyzerPresetInvokeResponse)(nil)).Elem()
+}
+
+func (o VideoAnalyzerPresetInvokeResponseOutput) ToVideoAnalyzerPresetInvokeResponseOutput() VideoAnalyzerPresetInvokeResponseOutput {
+	return o
+}
+
+func (o VideoAnalyzerPresetInvokeResponseOutput) ToVideoAnalyzerPresetInvokeResponseOutputWithContext(ctx context.Context) VideoAnalyzerPresetInvokeResponseOutput {
+	return o
+}
+
+// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
+func (o VideoAnalyzerPresetInvokeResponseOutput) AudioLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoAnalyzerPresetInvokeResponse) *string { return v.AudioLanguage }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary containing key value pairs for parameters not exposed in the preset itself
+func (o VideoAnalyzerPresetInvokeResponseOutput) ExperimentalOptions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VideoAnalyzerPresetInvokeResponse) map[string]string { return v.ExperimentalOptions }).(pulumi.StringMapOutput)
+}
+
+// Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+func (o VideoAnalyzerPresetInvokeResponseOutput) InsightsToExtract() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoAnalyzerPresetInvokeResponse) *string { return v.InsightsToExtract }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
+func (o VideoAnalyzerPresetInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v VideoAnalyzerPresetInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
 type VideoAnalyzerPresetResponse struct {
 	// The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
 	AudioLanguage *string `pulumi:"audioLanguage"`
@@ -22377,6 +32198,91 @@ func (o VideoAnalyzerPresetResponseOutput) InsightsToExtract() pulumi.StringPtrO
 // Expected value is '#Microsoft.Media.AudioAnalyzerPreset'.
 func (o VideoAnalyzerPresetResponseOutput) OdataType() pulumi.StringOutput {
 	return o.ApplyT(func(v VideoAnalyzerPresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Describes the basic properties for encoding the input video.
+type VideoInvokeResponse struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType string `pulumi:"odataType"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode *string `pulumi:"stretchMode"`
+}
+
+// VideoInvokeResponseInput is an input type that accepts VideoInvokeResponseArgs and VideoInvokeResponseOutput values.
+// You can construct a concrete instance of `VideoInvokeResponseInput` via:
+//
+//          VideoInvokeResponseArgs{...}
+type VideoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVideoInvokeResponseOutput() VideoInvokeResponseOutput
+	ToVideoInvokeResponseOutputWithContext(context.Context) VideoInvokeResponseOutput
+}
+
+// Describes the basic properties for encoding the input video.
+type VideoInvokeResponseArgs struct {
+	// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
+	// An optional label for the codec. The label can be used to control muxing behavior.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.Video'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
+}
+
+func (VideoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoInvokeResponse)(nil)).Elem()
+}
+
+func (i VideoInvokeResponseArgs) ToVideoInvokeResponseOutput() VideoInvokeResponseOutput {
+	return i.ToVideoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VideoInvokeResponseArgs) ToVideoInvokeResponseOutputWithContext(ctx context.Context) VideoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoInvokeResponseOutput)
+}
+
+// Describes the basic properties for encoding the input video.
+type VideoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VideoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoInvokeResponse)(nil)).Elem()
+}
+
+func (o VideoInvokeResponseOutput) ToVideoInvokeResponseOutput() VideoInvokeResponseOutput {
+	return o
+}
+
+func (o VideoInvokeResponseOutput) ToVideoInvokeResponseOutputWithContext(ctx context.Context) VideoInvokeResponseOutput {
+	return o
+}
+
+// The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+func (o VideoInvokeResponseOutput) KeyFrameInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoInvokeResponse) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
+}
+
+// An optional label for the codec. The label can be used to control muxing behavior.
+func (o VideoInvokeResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoInvokeResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.Video'.
+func (o VideoInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v VideoInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+func (o VideoInvokeResponseOutput) StretchMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoInvokeResponse) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
 // Describes the properties of a video overlay.
@@ -22516,6 +32422,145 @@ func (o VideoOverlayOutput) Position() RectanglePtrOutput {
 // The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
 func (o VideoOverlayOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VideoOverlay) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// Describes the properties of a video overlay.
+type VideoOverlayInvokeResponse struct {
+	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
+	AudioGainLevel *float64 `pulumi:"audioGainLevel"`
+	// An optional rectangular window used to crop the overlay image or video.
+	CropRectangle *RectangleInvokeResponse `pulumi:"cropRectangle"`
+	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	End *string `pulumi:"end"`
+	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
+	FadeInDuration *string `pulumi:"fadeInDuration"`
+	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
+	FadeOutDuration *string `pulumi:"fadeOutDuration"`
+	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+	InputLabel string `pulumi:"inputLabel"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoOverlay'.
+	OdataType string `pulumi:"odataType"`
+	// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
+	Opacity *float64 `pulumi:"opacity"`
+	// The location in the input video where the overlay is applied.
+	Position *RectangleInvokeResponse `pulumi:"position"`
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	Start *string `pulumi:"start"`
+}
+
+// VideoOverlayInvokeResponseInput is an input type that accepts VideoOverlayInvokeResponseArgs and VideoOverlayInvokeResponseOutput values.
+// You can construct a concrete instance of `VideoOverlayInvokeResponseInput` via:
+//
+//          VideoOverlayInvokeResponseArgs{...}
+type VideoOverlayInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVideoOverlayInvokeResponseOutput() VideoOverlayInvokeResponseOutput
+	ToVideoOverlayInvokeResponseOutputWithContext(context.Context) VideoOverlayInvokeResponseOutput
+}
+
+// Describes the properties of a video overlay.
+type VideoOverlayInvokeResponseArgs struct {
+	// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
+	AudioGainLevel pulumi.Float64PtrInput `pulumi:"audioGainLevel"`
+	// An optional rectangular window used to crop the overlay image or video.
+	CropRectangle RectangleInvokeResponsePtrInput `pulumi:"cropRectangle"`
+	// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
+	FadeInDuration pulumi.StringPtrInput `pulumi:"fadeInDuration"`
+	// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
+	FadeOutDuration pulumi.StringPtrInput `pulumi:"fadeOutDuration"`
+	// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+	InputLabel pulumi.StringInput `pulumi:"inputLabel"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoOverlay'.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+	// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
+	Opacity pulumi.Float64PtrInput `pulumi:"opacity"`
+	// The location in the input video where the overlay is applied.
+	Position RectangleInvokeResponsePtrInput `pulumi:"position"`
+	// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (VideoOverlayInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoOverlayInvokeResponse)(nil)).Elem()
+}
+
+func (i VideoOverlayInvokeResponseArgs) ToVideoOverlayInvokeResponseOutput() VideoOverlayInvokeResponseOutput {
+	return i.ToVideoOverlayInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VideoOverlayInvokeResponseArgs) ToVideoOverlayInvokeResponseOutputWithContext(ctx context.Context) VideoOverlayInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VideoOverlayInvokeResponseOutput)
+}
+
+// Describes the properties of a video overlay.
+type VideoOverlayInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VideoOverlayInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VideoOverlayInvokeResponse)(nil)).Elem()
+}
+
+func (o VideoOverlayInvokeResponseOutput) ToVideoOverlayInvokeResponseOutput() VideoOverlayInvokeResponseOutput {
+	return o
+}
+
+func (o VideoOverlayInvokeResponseOutput) ToVideoOverlayInvokeResponseOutputWithContext(ctx context.Context) VideoOverlayInvokeResponseOutput {
+	return o
+}
+
+// The gain level of audio in the overlay. The value should be in the range [0, 1.0]. The default is 1.0.
+func (o VideoOverlayInvokeResponseOutput) AudioGainLevel() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VideoOverlayInvokeResponse) *float64 { return v.AudioGainLevel }).(pulumi.Float64PtrOutput)
+}
+
+// An optional rectangular window used to crop the overlay image or video.
+func (o VideoOverlayInvokeResponseOutput) CropRectangle() RectangleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v VideoOverlayInvokeResponse) *RectangleInvokeResponse { return v.CropRectangle }).(RectangleInvokeResponsePtrOutput)
+}
+
+// The position in the input video at which the overlay ends. The value should be in ISO 8601 duration format. For example, PT30S to end the overlay at 30 seconds in to the input video. If not specified the overlay will be applied until the end of the input video if inputLoop is true. Else, if inputLoop is false, then overlay will last as long as the duration of the overlay media.
+func (o VideoOverlayInvokeResponseOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoOverlayInvokeResponse) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as PT0S).
+func (o VideoOverlayInvokeResponseOutput) FadeInDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoOverlayInvokeResponse) *string { return v.FadeInDuration }).(pulumi.StringPtrOutput)
+}
+
+// The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
+func (o VideoOverlayInvokeResponseOutput) FadeOutDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoOverlayInvokeResponse) *string { return v.FadeOutDuration }).(pulumi.StringPtrOutput)
+}
+
+// The label of the job input which is to be used as an overlay. The Input must specify exactly one file. You can specify an image file in JPG or PNG formats, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file. See https://aka.ms/mesformats for the complete list of supported audio and video file formats.
+func (o VideoOverlayInvokeResponseOutput) InputLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v VideoOverlayInvokeResponse) string { return v.InputLabel }).(pulumi.StringOutput)
+}
+
+// The discriminator for derived types.
+// Expected value is '#Microsoft.Media.VideoOverlay'.
+func (o VideoOverlayInvokeResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v VideoOverlayInvokeResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque.
+func (o VideoOverlayInvokeResponseOutput) Opacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VideoOverlayInvokeResponse) *float64 { return v.Opacity }).(pulumi.Float64PtrOutput)
+}
+
+// The location in the input video where the overlay is applied.
+func (o VideoOverlayInvokeResponseOutput) Position() RectangleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v VideoOverlayInvokeResponse) *RectangleInvokeResponse { return v.Position }).(RectangleInvokeResponsePtrOutput)
+}
+
+// The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds in to the input video. If not specified the overlay starts from the beginning of the input video.
+func (o VideoOverlayInvokeResponseOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VideoOverlayInvokeResponse) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
 
 // Describes the properties of a video overlay.
@@ -22744,293 +32789,423 @@ func (o VideoResponseOutput) StretchMode() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(AacAudioOutput{})
+	pulumi.RegisterOutputType(AacAudioInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AacAudioResponseOutput{})
 	pulumi.RegisterOutputType(AbsoluteClipTimeOutput{})
 	pulumi.RegisterOutputType(AbsoluteClipTimePtrOutput{})
+	pulumi.RegisterOutputType(AbsoluteClipTimeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AbsoluteClipTimeInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AbsoluteClipTimeResponseOutput{})
 	pulumi.RegisterOutputType(AbsoluteClipTimeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(AkamaiAccessControlInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AkamaiAccessControlInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyArrayOutput{})
+	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(AssetFileEncryptionMetadataResponseOutput{})
-	pulumi.RegisterOutputType(AssetFileEncryptionMetadataResponseArrayOutput{})
-	pulumi.RegisterOutputType(AssetStreamingLocatorResponseOutput{})
-	pulumi.RegisterOutputType(AssetStreamingLocatorResponseArrayOutput{})
+	pulumi.RegisterOutputType(AssetFileEncryptionMetadataInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AssetFileEncryptionMetadataInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(AssetStreamingLocatorInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AssetStreamingLocatorInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AudioOutput{})
 	pulumi.RegisterOutputType(AudioAnalyzerPresetOutput{})
+	pulumi.RegisterOutputType(AudioAnalyzerPresetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AudioAnalyzerPresetResponseOutput{})
+	pulumi.RegisterOutputType(AudioInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AudioOverlayOutput{})
+	pulumi.RegisterOutputType(AudioOverlayInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AudioOverlayResponseOutput{})
 	pulumi.RegisterOutputType(AudioResponseOutput{})
 	pulumi.RegisterOutputType(BuiltInStandardEncoderPresetOutput{})
+	pulumi.RegisterOutputType(BuiltInStandardEncoderPresetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BuiltInStandardEncoderPresetResponseOutput{})
 	pulumi.RegisterOutputType(CbcsDrmConfigurationOutput{})
 	pulumi.RegisterOutputType(CbcsDrmConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CbcsDrmConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CbcsDrmConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CbcsDrmConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(CbcsDrmConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(CencDrmConfigurationOutput{})
 	pulumi.RegisterOutputType(CencDrmConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CencDrmConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CencDrmConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CencDrmConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(CencDrmConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCbcsOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCbcsPtrOutput{})
+	pulumi.RegisterOutputType(CommonEncryptionCbcsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCbcsResponseOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCbcsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCencOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCencPtrOutput{})
+	pulumi.RegisterOutputType(CommonEncryptionCencInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCencResponseOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCencResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyClearKeyConfigurationOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyClearKeyConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyClearKeyConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayConfigurationOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayOfflineRentalConfigurationOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayOfflineRentalConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayOfflineRentalConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayOfflineRentalConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyFairPlayOfflineRentalConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOpenRestrictionOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyOpenRestrictionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOpenRestrictionResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionArrayOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyOptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyOptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyConfigurationOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyLicenseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyLicenseArrayOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyLicenseInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyLicenseInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyLicenseResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyLicenseResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyPlayRightOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyPlayRightPtrOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyPlayRightInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyPlayRightInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyPlayRightResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPlayReadyPlayRightResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyRsaTokenKeyOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyRsaTokenKeyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyRsaTokenKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicySymmetricTokenKeyOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicySymmetricTokenKeyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicySymmetricTokenKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyTokenClaimOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyTokenClaimArrayOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyTokenClaimInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyTokenClaimInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyTokenClaimResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyTokenClaimResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyTokenRestrictionOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyTokenRestrictionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyTokenRestrictionResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyUnknownConfigurationOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyUnknownConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyUnknownConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyUnknownRestrictionOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyUnknownRestrictionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyUnknownRestrictionResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyWidevineConfigurationOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyWidevineConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyWidevineConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyX509CertificateTokenKeyOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyX509CertificateTokenKeyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyX509CertificateTokenKeyResponseOutput{})
 	pulumi.RegisterOutputType(CopyAudioOutput{})
+	pulumi.RegisterOutputType(CopyAudioInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CopyAudioResponseOutput{})
 	pulumi.RegisterOutputType(CopyVideoOutput{})
+	pulumi.RegisterOutputType(CopyVideoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CopyVideoResponseOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(CrossSiteAccessPoliciesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesResponseOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DefaultKeyOutput{})
 	pulumi.RegisterOutputType(DefaultKeyPtrOutput{})
+	pulumi.RegisterOutputType(DefaultKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DefaultKeyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DefaultKeyResponseOutput{})
 	pulumi.RegisterOutputType(DefaultKeyResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeinterlaceOutput{})
 	pulumi.RegisterOutputType(DeinterlacePtrOutput{})
+	pulumi.RegisterOutputType(DeinterlaceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DeinterlaceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeinterlaceResponseOutput{})
 	pulumi.RegisterOutputType(DeinterlaceResponsePtrOutput{})
-	pulumi.RegisterOutputType(EdgeUsageDataCollectionPolicyResponseOutput{})
-	pulumi.RegisterOutputType(EdgeUsageDataEventHubResponseOutput{})
-	pulumi.RegisterOutputType(EdgeUsageDataEventHubResponsePtrOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataCollectionPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataEventHubInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataEventHubInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnabledProtocolsOutput{})
 	pulumi.RegisterOutputType(EnabledProtocolsPtrOutput{})
+	pulumi.RegisterOutputType(EnabledProtocolsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EnabledProtocolsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnabledProtocolsResponseOutput{})
 	pulumi.RegisterOutputType(EnabledProtocolsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvelopeEncryptionOutput{})
 	pulumi.RegisterOutputType(EnvelopeEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(EnvelopeEncryptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EnvelopeEncryptionResponseOutput{})
 	pulumi.RegisterOutputType(EnvelopeEncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(FaceDetectorPresetOutput{})
+	pulumi.RegisterOutputType(FaceDetectorPresetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(FaceDetectorPresetResponseOutput{})
 	pulumi.RegisterOutputType(FilterTrackPropertyConditionOutput{})
 	pulumi.RegisterOutputType(FilterTrackPropertyConditionArrayOutput{})
+	pulumi.RegisterOutputType(FilterTrackPropertyConditionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FilterTrackPropertyConditionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FilterTrackPropertyConditionResponseOutput{})
 	pulumi.RegisterOutputType(FilterTrackPropertyConditionResponseArrayOutput{})
 	pulumi.RegisterOutputType(FilterTrackSelectionOutput{})
 	pulumi.RegisterOutputType(FilterTrackSelectionArrayOutput{})
+	pulumi.RegisterOutputType(FilterTrackSelectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FilterTrackSelectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FilterTrackSelectionResponseOutput{})
 	pulumi.RegisterOutputType(FilterTrackSelectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(FiltersOutput{})
 	pulumi.RegisterOutputType(FiltersPtrOutput{})
+	pulumi.RegisterOutputType(FiltersInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FiltersInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(FiltersResponseOutput{})
 	pulumi.RegisterOutputType(FiltersResponsePtrOutput{})
 	pulumi.RegisterOutputType(FirstQualityOutput{})
 	pulumi.RegisterOutputType(FirstQualityPtrOutput{})
+	pulumi.RegisterOutputType(FirstQualityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(FirstQualityResponseOutput{})
 	pulumi.RegisterOutputType(FirstQualityResponsePtrOutput{})
 	pulumi.RegisterOutputType(H264LayerOutput{})
 	pulumi.RegisterOutputType(H264LayerArrayOutput{})
+	pulumi.RegisterOutputType(H264LayerInvokeResponseOutput{})
+	pulumi.RegisterOutputType(H264LayerInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(H264LayerResponseOutput{})
 	pulumi.RegisterOutputType(H264LayerResponseArrayOutput{})
 	pulumi.RegisterOutputType(H264VideoOutput{})
+	pulumi.RegisterOutputType(H264VideoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(H264VideoResponseOutput{})
 	pulumi.RegisterOutputType(HlsOutput{})
 	pulumi.RegisterOutputType(HlsPtrOutput{})
+	pulumi.RegisterOutputType(HlsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HlsResponseOutput{})
 	pulumi.RegisterOutputType(HlsResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPAccessControlOutput{})
 	pulumi.RegisterOutputType(IPAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(IPAccessControlInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IPAccessControlInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(IPAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPRangeOutput{})
 	pulumi.RegisterOutputType(IPRangeArrayOutput{})
+	pulumi.RegisterOutputType(IPRangeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IPRangeInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IPRangeResponseOutput{})
 	pulumi.RegisterOutputType(IPRangeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ImageOutput{})
 	pulumi.RegisterOutputType(ImageFormatOutput{})
+	pulumi.RegisterOutputType(ImageFormatInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ImageFormatResponseOutput{})
+	pulumi.RegisterOutputType(ImageInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ImageResponseOutput{})
+	pulumi.RegisterOutputType(JobErrorDetailInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobErrorDetailInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailResponseArrayOutput{})
+	pulumi.RegisterOutputType(JobErrorInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobErrorResponseOutput{})
 	pulumi.RegisterOutputType(JobInputAssetOutput{})
+	pulumi.RegisterOutputType(JobInputAssetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobInputAssetResponseOutput{})
 	pulumi.RegisterOutputType(JobInputClipOutput{})
+	pulumi.RegisterOutputType(JobInputClipInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobInputClipResponseOutput{})
 	pulumi.RegisterOutputType(JobInputHttpOutput{})
+	pulumi.RegisterOutputType(JobInputHttpInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobInputHttpResponseOutput{})
 	pulumi.RegisterOutputType(JobInputsOutput{})
+	pulumi.RegisterOutputType(JobInputsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobInputsResponseOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetArrayOutput{})
+	pulumi.RegisterOutputType(JobOutputAssetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobOutputAssetInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetResponseOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetResponseArrayOutput{})
 	pulumi.RegisterOutputType(JpgFormatOutput{})
+	pulumi.RegisterOutputType(JpgFormatInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JpgFormatResponseOutput{})
 	pulumi.RegisterOutputType(JpgImageOutput{})
+	pulumi.RegisterOutputType(JpgImageInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JpgImageResponseOutput{})
 	pulumi.RegisterOutputType(JpgLayerOutput{})
 	pulumi.RegisterOutputType(JpgLayerArrayOutput{})
+	pulumi.RegisterOutputType(JpgLayerInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JpgLayerInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JpgLayerResponseOutput{})
 	pulumi.RegisterOutputType(JpgLayerResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventEncodingInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointArrayOutput{})
+	pulumi.RegisterOutputType(LiveEventEndpointInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventEndpointInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventInputOutput{})
 	pulumi.RegisterOutputType(LiveEventInputPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventInputAccessControlInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventInputAccessControlInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlResponsePtrOutput{})
+	pulumi.RegisterOutputType(LiveEventInputInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventInputResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventInputResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewAccessControlInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewAccessControlInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewAccessControlResponsePtrOutput{})
+	pulumi.RegisterOutputType(LiveEventPreviewInvokeResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventPreviewResponsePtrOutput{})
 	pulumi.RegisterOutputType(Mp4FormatOutput{})
+	pulumi.RegisterOutputType(Mp4FormatInvokeResponseOutput{})
 	pulumi.RegisterOutputType(Mp4FormatResponseOutput{})
 	pulumi.RegisterOutputType(MultiBitrateFormatOutput{})
+	pulumi.RegisterOutputType(MultiBitrateFormatInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MultiBitrateFormatResponseOutput{})
 	pulumi.RegisterOutputType(NoEncryptionOutput{})
 	pulumi.RegisterOutputType(NoEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(NoEncryptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NoEncryptionResponseOutput{})
 	pulumi.RegisterOutputType(NoEncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(OutputFileOutput{})
 	pulumi.RegisterOutputType(OutputFileArrayOutput{})
+	pulumi.RegisterOutputType(OutputFileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OutputFileInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(OutputFileResponseOutput{})
 	pulumi.RegisterOutputType(OutputFileResponseArrayOutput{})
 	pulumi.RegisterOutputType(PngFormatOutput{})
+	pulumi.RegisterOutputType(PngFormatInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PngFormatResponseOutput{})
 	pulumi.RegisterOutputType(PngImageOutput{})
+	pulumi.RegisterOutputType(PngImageInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PngImageResponseOutput{})
 	pulumi.RegisterOutputType(PngLayerOutput{})
 	pulumi.RegisterOutputType(PngLayerArrayOutput{})
+	pulumi.RegisterOutputType(PngLayerInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PngLayerInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PngLayerResponseOutput{})
 	pulumi.RegisterOutputType(PngLayerResponseArrayOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangePtrOutput{})
+	pulumi.RegisterOutputType(PresentationTimeRangeInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeResponseOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RectangleOutput{})
 	pulumi.RegisterOutputType(RectanglePtrOutput{})
+	pulumi.RegisterOutputType(RectangleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RectangleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(RectangleResponseOutput{})
 	pulumi.RegisterOutputType(RectangleResponsePtrOutput{})
 	pulumi.RegisterOutputType(StandardEncoderPresetOutput{})
+	pulumi.RegisterOutputType(StandardEncoderPresetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StandardEncoderPresetResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(StorageAccountInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(StreamingEndpointAccessControlInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyArrayOutput{})
+	pulumi.RegisterOutputType(StreamingLocatorContentKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StreamingLocatorContentKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyResponseOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(StreamingPathResponseOutput{})
-	pulumi.RegisterOutputType(StreamingPathResponseArrayOutput{})
+	pulumi.RegisterOutputType(StreamingPathInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StreamingPathInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyArrayOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyContentKeyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyContentKeyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyResponseOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeysOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeysPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyContentKeysInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyContentKeysInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeysResponseOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeysResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyFairPlayConfigurationOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyFairPlayConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyFairPlayConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyFairPlayConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyFairPlayConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyFairPlayConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyPlayReadyConfigurationOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyPlayReadyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyPlayReadyConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyPlayReadyConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyPlayReadyConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyPlayReadyConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyWidevineConfigurationOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyWidevineConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyWidevineConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StreamingPolicyWidevineConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyWidevineConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyWidevineConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(TrackPropertyConditionOutput{})
 	pulumi.RegisterOutputType(TrackPropertyConditionArrayOutput{})
+	pulumi.RegisterOutputType(TrackPropertyConditionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TrackPropertyConditionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TrackPropertyConditionResponseOutput{})
 	pulumi.RegisterOutputType(TrackPropertyConditionResponseArrayOutput{})
 	pulumi.RegisterOutputType(TrackSelectionOutput{})
 	pulumi.RegisterOutputType(TrackSelectionArrayOutput{})
+	pulumi.RegisterOutputType(TrackSelectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TrackSelectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TrackSelectionResponseOutput{})
 	pulumi.RegisterOutputType(TrackSelectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputOutput{})
 	pulumi.RegisterOutputType(TransformOutputArrayOutput{})
+	pulumi.RegisterOutputType(TransformOutputInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TransformOutputInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseArrayOutput{})
 	pulumi.RegisterOutputType(TransportStreamFormatOutput{})
+	pulumi.RegisterOutputType(TransportStreamFormatInvokeResponseOutput{})
 	pulumi.RegisterOutputType(TransportStreamFormatResponseOutput{})
 	pulumi.RegisterOutputType(VideoOutput{})
 	pulumi.RegisterOutputType(VideoAnalyzerPresetOutput{})
+	pulumi.RegisterOutputType(VideoAnalyzerPresetInvokeResponseOutput{})
 	pulumi.RegisterOutputType(VideoAnalyzerPresetResponseOutput{})
+	pulumi.RegisterOutputType(VideoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(VideoOverlayOutput{})
+	pulumi.RegisterOutputType(VideoOverlayInvokeResponseOutput{})
 	pulumi.RegisterOutputType(VideoOverlayResponseOutput{})
 	pulumi.RegisterOutputType(VideoResponseOutput{})
 }

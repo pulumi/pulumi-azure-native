@@ -54,7 +54,7 @@ type LookupDedicatedCloudNodeResult struct {
 	// purchase id
 	PurchaseId string `pulumi:"purchaseId"`
 	// Dedicated Cloud Nodes SKU
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Node status, indicates is private cloud set up on this node or not
 	Status string `pulumi:"status"`
 	// Dedicated Cloud Nodes tags

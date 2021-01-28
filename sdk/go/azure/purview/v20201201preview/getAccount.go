@@ -27,7 +27,7 @@ type LookupAccountArgs struct {
 type LookupAccountResult struct {
 	// Cloud connectors.
 	// External cloud identifier used as part of scanning configuration.
-	CloudConnectors *CloudConnectorsResponse `pulumi:"cloudConnectors"`
+	CloudConnectors *CloudConnectorsInvokeResponse `pulumi:"cloudConnectors"`
 	// Gets the time at which the entity was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// Gets the creator of the entity.
@@ -35,27 +35,27 @@ type LookupAccountResult struct {
 	// Gets the creators of the entity's object id.
 	CreatedByObjectId string `pulumi:"createdByObjectId"`
 	// The URIs that are the public endpoints of the account.
-	Endpoints AccountPropertiesResponseEndpoints `pulumi:"endpoints"`
+	Endpoints AccountPropertiesInvokeResponseEndpoints `pulumi:"endpoints"`
 	// Gets or sets the friendly name.
 	FriendlyName string `pulumi:"friendlyName"`
 	// Gets or sets the identifier.
 	Id string `pulumi:"id"`
 	// Identity Info on the tracked resource
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// Gets or sets the location.
 	Location *string `pulumi:"location"`
 	// Gets the resource identifiers of the managed resources.
-	ManagedResources AccountPropertiesResponseManagedResources `pulumi:"managedResources"`
+	ManagedResources AccountPropertiesInvokeResponseManagedResources `pulumi:"managedResources"`
 	// Gets or sets the name.
 	Name string `pulumi:"name"`
 	// Gets the private endpoint connections information.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Gets or sets the state of the provisioning.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Gets or sets the public network access.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Gets or sets the Sku.
-	Sku *AccountSkuResponse `pulumi:"sku"`
+	Sku *AccountSkuInvokeResponse `pulumi:"sku"`
 	// Tags on the azure resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the type.

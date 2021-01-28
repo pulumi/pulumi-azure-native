@@ -11,6 +11,106 @@ import (
 )
 
 // The description of an X509 CA Certificate.
+type CertificatePropertiesInvokeResponse struct {
+	// The certificate's creation date and time.
+	Created string `pulumi:"created"`
+	// The certificate's expiration date and time.
+	Expiry string `pulumi:"expiry"`
+	// Determines whether certificate has been verified.
+	IsVerified bool `pulumi:"isVerified"`
+	// The certificate's subject name.
+	Subject string `pulumi:"subject"`
+	// The certificate's thumbprint.
+	Thumbprint string `pulumi:"thumbprint"`
+	// The certificate's last update date and time.
+	Updated string `pulumi:"updated"`
+}
+
+// CertificatePropertiesInvokeResponseInput is an input type that accepts CertificatePropertiesInvokeResponseArgs and CertificatePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CertificatePropertiesInvokeResponseInput` via:
+//
+//          CertificatePropertiesInvokeResponseArgs{...}
+type CertificatePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCertificatePropertiesInvokeResponseOutput() CertificatePropertiesInvokeResponseOutput
+	ToCertificatePropertiesInvokeResponseOutputWithContext(context.Context) CertificatePropertiesInvokeResponseOutput
+}
+
+// The description of an X509 CA Certificate.
+type CertificatePropertiesInvokeResponseArgs struct {
+	// The certificate's creation date and time.
+	Created pulumi.StringInput `pulumi:"created"`
+	// The certificate's expiration date and time.
+	Expiry pulumi.StringInput `pulumi:"expiry"`
+	// Determines whether certificate has been verified.
+	IsVerified pulumi.BoolInput `pulumi:"isVerified"`
+	// The certificate's subject name.
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// The certificate's thumbprint.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	// The certificate's last update date and time.
+	Updated pulumi.StringInput `pulumi:"updated"`
+}
+
+func (CertificatePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CertificatePropertiesInvokeResponseArgs) ToCertificatePropertiesInvokeResponseOutput() CertificatePropertiesInvokeResponseOutput {
+	return i.ToCertificatePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CertificatePropertiesInvokeResponseArgs) ToCertificatePropertiesInvokeResponseOutputWithContext(ctx context.Context) CertificatePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesInvokeResponseOutput)
+}
+
+// The description of an X509 CA Certificate.
+type CertificatePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CertificatePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CertificatePropertiesInvokeResponseOutput) ToCertificatePropertiesInvokeResponseOutput() CertificatePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CertificatePropertiesInvokeResponseOutput) ToCertificatePropertiesInvokeResponseOutputWithContext(ctx context.Context) CertificatePropertiesInvokeResponseOutput {
+	return o
+}
+
+// The certificate's creation date and time.
+func (o CertificatePropertiesInvokeResponseOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// The certificate's expiration date and time.
+func (o CertificatePropertiesInvokeResponseOutput) Expiry() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Expiry }).(pulumi.StringOutput)
+}
+
+// Determines whether certificate has been verified.
+func (o CertificatePropertiesInvokeResponseOutput) IsVerified() pulumi.BoolOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) bool { return v.IsVerified }).(pulumi.BoolOutput)
+}
+
+// The certificate's subject name.
+func (o CertificatePropertiesInvokeResponseOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+// The certificate's thumbprint.
+func (o CertificatePropertiesInvokeResponseOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// The certificate's last update date and time.
+func (o CertificatePropertiesInvokeResponseOutput) Updated() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Updated }).(pulumi.StringOutput)
+}
+
+// The description of an X509 CA Certificate.
 type CertificatePropertiesResponse struct {
 	// The certificate's creation date and time.
 	Created string `pulumi:"created"`
@@ -471,6 +571,137 @@ func (o IotDpsPropertiesDescriptionPtrOutput) State() pulumi.StringPtrOutput {
 }
 
 // the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+type IotDpsPropertiesDescriptionInvokeResponse struct {
+	// Allocation policy to be used by this provisioning service.
+	AllocationPolicy *string `pulumi:"allocationPolicy"`
+	// List of authorization keys for a provisioning service.
+	AuthorizationPolicies []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse `pulumi:"authorizationPolicies"`
+	// Device endpoint for this provisioning service.
+	DeviceProvisioningHostName string `pulumi:"deviceProvisioningHostName"`
+	// Unique identifier of this provisioning service.
+	IdScope string `pulumi:"idScope"`
+	// List of IoT hubs associated with this provisioning service.
+	IotHubs []IotHubDefinitionDescriptionInvokeResponse `pulumi:"iotHubs"`
+	// The IP filter rules.
+	IpFilterRules []IpFilterRuleInvokeResponse `pulumi:"ipFilterRules"`
+	// The ARM provisioning state of the provisioning service.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Service endpoint for provisioning service.
+	ServiceOperationsHostName string `pulumi:"serviceOperationsHostName"`
+	// Current state of the provisioning service.
+	State *string `pulumi:"state"`
+}
+
+// IotDpsPropertiesDescriptionInvokeResponseInput is an input type that accepts IotDpsPropertiesDescriptionInvokeResponseArgs and IotDpsPropertiesDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `IotDpsPropertiesDescriptionInvokeResponseInput` via:
+//
+//          IotDpsPropertiesDescriptionInvokeResponseArgs{...}
+type IotDpsPropertiesDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIotDpsPropertiesDescriptionInvokeResponseOutput() IotDpsPropertiesDescriptionInvokeResponseOutput
+	ToIotDpsPropertiesDescriptionInvokeResponseOutputWithContext(context.Context) IotDpsPropertiesDescriptionInvokeResponseOutput
+}
+
+// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+type IotDpsPropertiesDescriptionInvokeResponseArgs struct {
+	// Allocation policy to be used by this provisioning service.
+	AllocationPolicy pulumi.StringPtrInput `pulumi:"allocationPolicy"`
+	// List of authorization keys for a provisioning service.
+	AuthorizationPolicies SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayInput `pulumi:"authorizationPolicies"`
+	// Device endpoint for this provisioning service.
+	DeviceProvisioningHostName pulumi.StringInput `pulumi:"deviceProvisioningHostName"`
+	// Unique identifier of this provisioning service.
+	IdScope pulumi.StringInput `pulumi:"idScope"`
+	// List of IoT hubs associated with this provisioning service.
+	IotHubs IotHubDefinitionDescriptionInvokeResponseArrayInput `pulumi:"iotHubs"`
+	// The IP filter rules.
+	IpFilterRules IpFilterRuleInvokeResponseArrayInput `pulumi:"ipFilterRules"`
+	// The ARM provisioning state of the provisioning service.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Service endpoint for provisioning service.
+	ServiceOperationsHostName pulumi.StringInput `pulumi:"serviceOperationsHostName"`
+	// Current state of the provisioning service.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (IotDpsPropertiesDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsPropertiesDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i IotDpsPropertiesDescriptionInvokeResponseArgs) ToIotDpsPropertiesDescriptionInvokeResponseOutput() IotDpsPropertiesDescriptionInvokeResponseOutput {
+	return i.ToIotDpsPropertiesDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IotDpsPropertiesDescriptionInvokeResponseArgs) ToIotDpsPropertiesDescriptionInvokeResponseOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotDpsPropertiesDescriptionInvokeResponseOutput)
+}
+
+// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+type IotDpsPropertiesDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IotDpsPropertiesDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsPropertiesDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) ToIotDpsPropertiesDescriptionInvokeResponseOutput() IotDpsPropertiesDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) ToIotDpsPropertiesDescriptionInvokeResponseOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionInvokeResponseOutput {
+	return o
+}
+
+// Allocation policy to be used by this provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) AllocationPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) *string { return v.AllocationPolicy }).(pulumi.StringPtrOutput)
+}
+
+// List of authorization keys for a provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) AuthorizationPolicies() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse {
+		return v.AuthorizationPolicies
+	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput)
+}
+
+// Device endpoint for this provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) DeviceProvisioningHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) string { return v.DeviceProvisioningHostName }).(pulumi.StringOutput)
+}
+
+// Unique identifier of this provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) IdScope() pulumi.StringOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) string { return v.IdScope }).(pulumi.StringOutput)
+}
+
+// List of IoT hubs associated with this provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) IotHubs() IotHubDefinitionDescriptionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) []IotHubDefinitionDescriptionInvokeResponse {
+		return v.IotHubs
+	}).(IotHubDefinitionDescriptionInvokeResponseArrayOutput)
+}
+
+// The IP filter rules.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) IpFilterRules() IpFilterRuleInvokeResponseArrayOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) []IpFilterRuleInvokeResponse { return v.IpFilterRules }).(IpFilterRuleInvokeResponseArrayOutput)
+}
+
+// The ARM provisioning state of the provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Service endpoint for provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) ServiceOperationsHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) string { return v.ServiceOperationsHostName }).(pulumi.StringOutput)
+}
+
+// Current state of the provisioning service.
+func (o IotDpsPropertiesDescriptionInvokeResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsPropertiesDescriptionInvokeResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
 type IotDpsPropertiesDescriptionResponse struct {
 	// Allocation policy to be used by this provisioning service.
 	AllocationPolicy *string `pulumi:"allocationPolicy"`
@@ -912,6 +1143,79 @@ func (o IotDpsSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // List of possible provisioning service SKUs.
+type IotDpsSkuInfoInvokeResponse struct {
+	// The number of units to provision
+	Capacity *float64 `pulumi:"capacity"`
+	// Sku name.
+	Name *string `pulumi:"name"`
+	// Pricing tier name of the provisioning service.
+	Tier string `pulumi:"tier"`
+}
+
+// IotDpsSkuInfoInvokeResponseInput is an input type that accepts IotDpsSkuInfoInvokeResponseArgs and IotDpsSkuInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `IotDpsSkuInfoInvokeResponseInput` via:
+//
+//          IotDpsSkuInfoInvokeResponseArgs{...}
+type IotDpsSkuInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIotDpsSkuInfoInvokeResponseOutput() IotDpsSkuInfoInvokeResponseOutput
+	ToIotDpsSkuInfoInvokeResponseOutputWithContext(context.Context) IotDpsSkuInfoInvokeResponseOutput
+}
+
+// List of possible provisioning service SKUs.
+type IotDpsSkuInfoInvokeResponseArgs struct {
+	// The number of units to provision
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
+	// Sku name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Pricing tier name of the provisioning service.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (IotDpsSkuInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i IotDpsSkuInfoInvokeResponseArgs) ToIotDpsSkuInfoInvokeResponseOutput() IotDpsSkuInfoInvokeResponseOutput {
+	return i.ToIotDpsSkuInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IotDpsSkuInfoInvokeResponseArgs) ToIotDpsSkuInfoInvokeResponseOutputWithContext(ctx context.Context) IotDpsSkuInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotDpsSkuInfoInvokeResponseOutput)
+}
+
+// List of possible provisioning service SKUs.
+type IotDpsSkuInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IotDpsSkuInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotDpsSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o IotDpsSkuInfoInvokeResponseOutput) ToIotDpsSkuInfoInvokeResponseOutput() IotDpsSkuInfoInvokeResponseOutput {
+	return o
+}
+
+func (o IotDpsSkuInfoInvokeResponseOutput) ToIotDpsSkuInfoInvokeResponseOutputWithContext(ctx context.Context) IotDpsSkuInfoInvokeResponseOutput {
+	return o
+}
+
+// The number of units to provision
+func (o IotDpsSkuInfoInvokeResponseOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v IotDpsSkuInfoInvokeResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
+}
+
+// Sku name.
+func (o IotDpsSkuInfoInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotDpsSkuInfoInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Pricing tier name of the provisioning service.
+func (o IotDpsSkuInfoInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v IotDpsSkuInfoInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// List of possible provisioning service SKUs.
 type IotDpsSkuInfoResponse struct {
 	// The number of units to provision
 	Capacity *float64 `pulumi:"capacity"`
@@ -1211,6 +1515,142 @@ func (o IotHubDefinitionDescriptionArrayOutput) Index(i pulumi.IntInput) IotHubD
 }
 
 // Description of the IoT hub.
+type IotHubDefinitionDescriptionInvokeResponse struct {
+	// weight to apply for a given iot h.
+	AllocationWeight *int `pulumi:"allocationWeight"`
+	// flag for applying allocationPolicy or not for a given iot hub.
+	ApplyAllocationPolicy *bool `pulumi:"applyAllocationPolicy"`
+	// Connection string og the IoT hub.
+	ConnectionString string `pulumi:"connectionString"`
+	// ARM region of the IoT hub.
+	Location string `pulumi:"location"`
+	// Host name of the IoT hub.
+	Name string `pulumi:"name"`
+}
+
+// IotHubDefinitionDescriptionInvokeResponseInput is an input type that accepts IotHubDefinitionDescriptionInvokeResponseArgs and IotHubDefinitionDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `IotHubDefinitionDescriptionInvokeResponseInput` via:
+//
+//          IotHubDefinitionDescriptionInvokeResponseArgs{...}
+type IotHubDefinitionDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIotHubDefinitionDescriptionInvokeResponseOutput() IotHubDefinitionDescriptionInvokeResponseOutput
+	ToIotHubDefinitionDescriptionInvokeResponseOutputWithContext(context.Context) IotHubDefinitionDescriptionInvokeResponseOutput
+}
+
+// Description of the IoT hub.
+type IotHubDefinitionDescriptionInvokeResponseArgs struct {
+	// weight to apply for a given iot h.
+	AllocationWeight pulumi.IntPtrInput `pulumi:"allocationWeight"`
+	// flag for applying allocationPolicy or not for a given iot hub.
+	ApplyAllocationPolicy pulumi.BoolPtrInput `pulumi:"applyAllocationPolicy"`
+	// Connection string og the IoT hub.
+	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	// ARM region of the IoT hub.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Host name of the IoT hub.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (IotHubDefinitionDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDefinitionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i IotHubDefinitionDescriptionInvokeResponseArgs) ToIotHubDefinitionDescriptionInvokeResponseOutput() IotHubDefinitionDescriptionInvokeResponseOutput {
+	return i.ToIotHubDefinitionDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IotHubDefinitionDescriptionInvokeResponseArgs) ToIotHubDefinitionDescriptionInvokeResponseOutputWithContext(ctx context.Context) IotHubDefinitionDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDefinitionDescriptionInvokeResponseOutput)
+}
+
+// IotHubDefinitionDescriptionInvokeResponseArrayInput is an input type that accepts IotHubDefinitionDescriptionInvokeResponseArray and IotHubDefinitionDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IotHubDefinitionDescriptionInvokeResponseArrayInput` via:
+//
+//          IotHubDefinitionDescriptionInvokeResponseArray{ IotHubDefinitionDescriptionInvokeResponseArgs{...} }
+type IotHubDefinitionDescriptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIotHubDefinitionDescriptionInvokeResponseArrayOutput() IotHubDefinitionDescriptionInvokeResponseArrayOutput
+	ToIotHubDefinitionDescriptionInvokeResponseArrayOutputWithContext(context.Context) IotHubDefinitionDescriptionInvokeResponseArrayOutput
+}
+
+type IotHubDefinitionDescriptionInvokeResponseArray []IotHubDefinitionDescriptionInvokeResponseInput
+
+func (IotHubDefinitionDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IotHubDefinitionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i IotHubDefinitionDescriptionInvokeResponseArray) ToIotHubDefinitionDescriptionInvokeResponseArrayOutput() IotHubDefinitionDescriptionInvokeResponseArrayOutput {
+	return i.ToIotHubDefinitionDescriptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IotHubDefinitionDescriptionInvokeResponseArray) ToIotHubDefinitionDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) IotHubDefinitionDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotHubDefinitionDescriptionInvokeResponseArrayOutput)
+}
+
+// Description of the IoT hub.
+type IotHubDefinitionDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IotHubDefinitionDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDefinitionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) ToIotHubDefinitionDescriptionInvokeResponseOutput() IotHubDefinitionDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) ToIotHubDefinitionDescriptionInvokeResponseOutputWithContext(ctx context.Context) IotHubDefinitionDescriptionInvokeResponseOutput {
+	return o
+}
+
+// weight to apply for a given iot h.
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) AllocationWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IotHubDefinitionDescriptionInvokeResponse) *int { return v.AllocationWeight }).(pulumi.IntPtrOutput)
+}
+
+// flag for applying allocationPolicy or not for a given iot hub.
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) ApplyAllocationPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IotHubDefinitionDescriptionInvokeResponse) *bool { return v.ApplyAllocationPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// Connection string og the IoT hub.
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDefinitionDescriptionInvokeResponse) string { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// ARM region of the IoT hub.
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDefinitionDescriptionInvokeResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Host name of the IoT hub.
+func (o IotHubDefinitionDescriptionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IotHubDefinitionDescriptionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type IotHubDefinitionDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IotHubDefinitionDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IotHubDefinitionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o IotHubDefinitionDescriptionInvokeResponseArrayOutput) ToIotHubDefinitionDescriptionInvokeResponseArrayOutput() IotHubDefinitionDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IotHubDefinitionDescriptionInvokeResponseArrayOutput) ToIotHubDefinitionDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) IotHubDefinitionDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IotHubDefinitionDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) IotHubDefinitionDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IotHubDefinitionDescriptionInvokeResponse {
+		return vs[0].([]IotHubDefinitionDescriptionInvokeResponse)[vs[1].(int)]
+	}).(IotHubDefinitionDescriptionInvokeResponseOutput)
+}
+
+// Description of the IoT hub.
 type IotHubDefinitionDescriptionResponse struct {
 	// weight to apply for a given iot h.
 	AllocationWeight *int `pulumi:"allocationWeight"`
@@ -1474,6 +1914,133 @@ func (o IpFilterRuleArrayOutput) Index(i pulumi.IntInput) IpFilterRuleOutput {
 }
 
 // The IP filter rules for the IoT dps.
+type IpFilterRuleInvokeResponse struct {
+	// The desired action for requests captured by this rule.
+	Action string `pulumi:"action"`
+	// The name of the IP filter rule.
+	FilterName string `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask string `pulumi:"ipMask"`
+	// Target for requests captured by this rule.
+	Target *string `pulumi:"target"`
+}
+
+// IpFilterRuleInvokeResponseInput is an input type that accepts IpFilterRuleInvokeResponseArgs and IpFilterRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `IpFilterRuleInvokeResponseInput` via:
+//
+//          IpFilterRuleInvokeResponseArgs{...}
+type IpFilterRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIpFilterRuleInvokeResponseOutput() IpFilterRuleInvokeResponseOutput
+	ToIpFilterRuleInvokeResponseOutputWithContext(context.Context) IpFilterRuleInvokeResponseOutput
+}
+
+// The IP filter rules for the IoT dps.
+type IpFilterRuleInvokeResponseArgs struct {
+	// The desired action for requests captured by this rule.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The name of the IP filter rule.
+	FilterName pulumi.StringInput `pulumi:"filterName"`
+	// A string that contains the IP address range in CIDR notation for the rule.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	// Target for requests captured by this rule.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (IpFilterRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IpFilterRuleInvokeResponseArgs) ToIpFilterRuleInvokeResponseOutput() IpFilterRuleInvokeResponseOutput {
+	return i.ToIpFilterRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IpFilterRuleInvokeResponseArgs) ToIpFilterRuleInvokeResponseOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleInvokeResponseOutput)
+}
+
+// IpFilterRuleInvokeResponseArrayInput is an input type that accepts IpFilterRuleInvokeResponseArray and IpFilterRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IpFilterRuleInvokeResponseArrayInput` via:
+//
+//          IpFilterRuleInvokeResponseArray{ IpFilterRuleInvokeResponseArgs{...} }
+type IpFilterRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIpFilterRuleInvokeResponseArrayOutput() IpFilterRuleInvokeResponseArrayOutput
+	ToIpFilterRuleInvokeResponseArrayOutputWithContext(context.Context) IpFilterRuleInvokeResponseArrayOutput
+}
+
+type IpFilterRuleInvokeResponseArray []IpFilterRuleInvokeResponseInput
+
+func (IpFilterRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i IpFilterRuleInvokeResponseArray) ToIpFilterRuleInvokeResponseArrayOutput() IpFilterRuleInvokeResponseArrayOutput {
+	return i.ToIpFilterRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IpFilterRuleInvokeResponseArray) ToIpFilterRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpFilterRuleInvokeResponseArrayOutput)
+}
+
+// The IP filter rules for the IoT dps.
+type IpFilterRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IpFilterRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IpFilterRuleInvokeResponseOutput) ToIpFilterRuleInvokeResponseOutput() IpFilterRuleInvokeResponseOutput {
+	return o
+}
+
+func (o IpFilterRuleInvokeResponseOutput) ToIpFilterRuleInvokeResponseOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseOutput {
+	return o
+}
+
+// The desired action for requests captured by this rule.
+func (o IpFilterRuleInvokeResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// The name of the IP filter rule.
+func (o IpFilterRuleInvokeResponseOutput) FilterName() pulumi.StringOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) string { return v.FilterName }).(pulumi.StringOutput)
+}
+
+// A string that contains the IP address range in CIDR notation for the rule.
+func (o IpFilterRuleInvokeResponseOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+// Target for requests captured by this rule.
+func (o IpFilterRuleInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpFilterRuleInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type IpFilterRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IpFilterRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpFilterRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o IpFilterRuleInvokeResponseArrayOutput) ToIpFilterRuleInvokeResponseArrayOutput() IpFilterRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpFilterRuleInvokeResponseArrayOutput) ToIpFilterRuleInvokeResponseArrayOutputWithContext(ctx context.Context) IpFilterRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IpFilterRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) IpFilterRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpFilterRuleInvokeResponse {
+		return vs[0].([]IpFilterRuleInvokeResponse)[vs[1].(int)]
+	}).(IpFilterRuleInvokeResponseOutput)
+}
+
+// The IP filter rules for the IoT dps.
 type IpFilterRuleResponse struct {
 	// The desired action for requests captured by this rule.
 	Action string `pulumi:"action"`
@@ -1728,6 +2295,141 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput
 }
 
 // Description of the shared access key.
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse struct {
+	// Name of the key.
+	KeyName string `pulumi:"keyName"`
+	// Primary SAS key value.
+	PrimaryKey *string `pulumi:"primaryKey"`
+	// Rights that this key has.
+	Rights string `pulumi:"rights"`
+	// Secondary SAS key value.
+	SecondaryKey *string `pulumi:"secondaryKey"`
+}
+
+// SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseInput is an input type that accepts SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs and SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseInput` via:
+//
+//          SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs{...}
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput
+	ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutputWithContext(context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput
+}
+
+// Description of the shared access key.
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs struct {
+	// Name of the key.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// Primary SAS key value.
+	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
+	// Rights that this key has.
+	Rights pulumi.StringInput `pulumi:"rights"`
+	// Secondary SAS key value.
+	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
+}
+
+func (SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput {
+	return i.ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput)
+}
+
+// SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayInput is an input type that accepts SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray and SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayInput` via:
+//
+//          SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray{ SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArgs{...} }
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput
+	ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutputWithContext(context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput
+}
+
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseInput
+
+func (SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput {
+	return i.ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArray) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput)
+}
+
+// Description of the shared access key.
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput {
+	return o
+}
+
+// Name of the key.
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse) string {
+		return v.KeyName
+	}).(pulumi.StringOutput)
+}
+
+// Primary SAS key value.
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse) *string {
+		return v.PrimaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Rights that this key has.
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) Rights() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse) string {
+		return v.Rights
+	}).(pulumi.StringOutput)
+}
+
+// Secondary SAS key value.
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse) *string {
+		return v.SecondaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput() SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput) ToSharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse {
+		return vs[0].([]SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse)[vs[1].(int)]
+	}).(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput)
+}
+
+// Description of the shared access key.
 type SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse struct {
 	// Name of the key.
 	KeyName string `pulumi:"keyName"`
@@ -1859,26 +2561,35 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArr
 }
 
 func init() {
+	pulumi.RegisterOutputType(CertificatePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoPtrOutput{})
+	pulumi.RegisterOutputType(IotDpsSkuInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoResponseOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionOutput{})
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(IotHubDefinitionDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IotHubDefinitionDescriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(IotHubDefinitionDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(IpFilterRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IpFilterRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseOutput{})
 	pulumi.RegisterOutputType(IpFilterRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArrayOutput{})
 }

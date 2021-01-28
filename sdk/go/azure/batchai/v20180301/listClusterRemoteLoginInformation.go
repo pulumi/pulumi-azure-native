@@ -28,5 +28,5 @@ type ListClusterRemoteLoginInformationResult struct {
 	// The continuation token.
 	NextLink *string `pulumi:"nextLink"`
 	// The collection of returned remote login details.
-	Value []RemoteLoginInformationResponse `pulumi:"value"`
+	Value []RemoteLoginInformationInvokeResponse `pulumi:"value"`
 }

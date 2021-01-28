@@ -30,5 +30,5 @@ type ListWebhookEventsResult struct {
 	// The URI that can be used to request the next list of events.
 	NextLink *string `pulumi:"nextLink"`
 	// The list of events. Since this list may be incomplete, the nextLink field should be used to request the next list of events.
-	Value []EventResponse `pulumi:"value"`
+	Value []EventInvokeResponse `pulumi:"value"`
 }

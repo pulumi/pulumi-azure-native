@@ -28,9 +28,9 @@ type LookupVirtualNetworkArgs struct {
 // Virtual Network resource
 type LookupVirtualNetworkResult struct {
 	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
-	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
+	AddressSpace *AddressSpaceInvokeResponse `pulumi:"addressSpace"`
 	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
-	DhcpOptions *DhcpOptionsResponse `pulumi:"dhcpOptions"`
+	DhcpOptions *DhcpOptionsInvokeResponse `pulumi:"dhcpOptions"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource Id
@@ -44,7 +44,7 @@ type LookupVirtualNetworkResult struct {
 	// Gets or sets resource GUID property of the VirtualNetwork resource
 	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Gets or sets List of subnets in a VirtualNetwork
-	Subnets []SubnetResponse `pulumi:"subnets"`
+	Subnets []SubnetInvokeResponse `pulumi:"subnets"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

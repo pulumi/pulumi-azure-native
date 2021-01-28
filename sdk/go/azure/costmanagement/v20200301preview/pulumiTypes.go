@@ -120,6 +120,115 @@ func (o CostAllocationProportionArrayOutput) Index(i pulumi.IntInput) CostAlloca
 }
 
 // Target resources and allocation
+type CostAllocationProportionInvokeResponse struct {
+	// Target resource for cost allocation
+	Name string `pulumi:"name"`
+	// Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
+	Percentage float64 `pulumi:"percentage"`
+}
+
+// CostAllocationProportionInvokeResponseInput is an input type that accepts CostAllocationProportionInvokeResponseArgs and CostAllocationProportionInvokeResponseOutput values.
+// You can construct a concrete instance of `CostAllocationProportionInvokeResponseInput` via:
+//
+//          CostAllocationProportionInvokeResponseArgs{...}
+type CostAllocationProportionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCostAllocationProportionInvokeResponseOutput() CostAllocationProportionInvokeResponseOutput
+	ToCostAllocationProportionInvokeResponseOutputWithContext(context.Context) CostAllocationProportionInvokeResponseOutput
+}
+
+// Target resources and allocation
+type CostAllocationProportionInvokeResponseArgs struct {
+	// Target resource for cost allocation
+	Name pulumi.StringInput `pulumi:"name"`
+	// Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
+	Percentage pulumi.Float64Input `pulumi:"percentage"`
+}
+
+func (CostAllocationProportionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostAllocationProportionInvokeResponse)(nil)).Elem()
+}
+
+func (i CostAllocationProportionInvokeResponseArgs) ToCostAllocationProportionInvokeResponseOutput() CostAllocationProportionInvokeResponseOutput {
+	return i.ToCostAllocationProportionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CostAllocationProportionInvokeResponseArgs) ToCostAllocationProportionInvokeResponseOutputWithContext(ctx context.Context) CostAllocationProportionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationProportionInvokeResponseOutput)
+}
+
+// CostAllocationProportionInvokeResponseArrayInput is an input type that accepts CostAllocationProportionInvokeResponseArray and CostAllocationProportionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CostAllocationProportionInvokeResponseArrayInput` via:
+//
+//          CostAllocationProportionInvokeResponseArray{ CostAllocationProportionInvokeResponseArgs{...} }
+type CostAllocationProportionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCostAllocationProportionInvokeResponseArrayOutput() CostAllocationProportionInvokeResponseArrayOutput
+	ToCostAllocationProportionInvokeResponseArrayOutputWithContext(context.Context) CostAllocationProportionInvokeResponseArrayOutput
+}
+
+type CostAllocationProportionInvokeResponseArray []CostAllocationProportionInvokeResponseInput
+
+func (CostAllocationProportionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostAllocationProportionInvokeResponse)(nil)).Elem()
+}
+
+func (i CostAllocationProportionInvokeResponseArray) ToCostAllocationProportionInvokeResponseArrayOutput() CostAllocationProportionInvokeResponseArrayOutput {
+	return i.ToCostAllocationProportionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CostAllocationProportionInvokeResponseArray) ToCostAllocationProportionInvokeResponseArrayOutputWithContext(ctx context.Context) CostAllocationProportionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationProportionInvokeResponseArrayOutput)
+}
+
+// Target resources and allocation
+type CostAllocationProportionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CostAllocationProportionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostAllocationProportionInvokeResponse)(nil)).Elem()
+}
+
+func (o CostAllocationProportionInvokeResponseOutput) ToCostAllocationProportionInvokeResponseOutput() CostAllocationProportionInvokeResponseOutput {
+	return o
+}
+
+func (o CostAllocationProportionInvokeResponseOutput) ToCostAllocationProportionInvokeResponseOutputWithContext(ctx context.Context) CostAllocationProportionInvokeResponseOutput {
+	return o
+}
+
+// Target resource for cost allocation
+func (o CostAllocationProportionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CostAllocationProportionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
+func (o CostAllocationProportionInvokeResponseOutput) Percentage() pulumi.Float64Output {
+	return o.ApplyT(func(v CostAllocationProportionInvokeResponse) float64 { return v.Percentage }).(pulumi.Float64Output)
+}
+
+type CostAllocationProportionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CostAllocationProportionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CostAllocationProportionInvokeResponse)(nil)).Elem()
+}
+
+func (o CostAllocationProportionInvokeResponseArrayOutput) ToCostAllocationProportionInvokeResponseArrayOutput() CostAllocationProportionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CostAllocationProportionInvokeResponseArrayOutput) ToCostAllocationProportionInvokeResponseArrayOutputWithContext(ctx context.Context) CostAllocationProportionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CostAllocationProportionInvokeResponseArrayOutput) Index(i pulumi.IntInput) CostAllocationProportionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CostAllocationProportionInvokeResponse {
+		return vs[0].([]CostAllocationProportionInvokeResponse)[vs[1].(int)]
+	}).(CostAllocationProportionInvokeResponseOutput)
+}
+
+// Target resources and allocation
 type CostAllocationProportionResponse struct {
 	// Target resource for cost allocation
 	Name string `pulumi:"name"`
@@ -379,6 +488,74 @@ func (o CostAllocationRuleDetailsPtrOutput) TargetResources() TargetCostAllocati
 		}
 		return v.TargetResources
 	}).(TargetCostAllocationResourceArrayOutput)
+}
+
+// Resource details of the cost allocation rule
+type CostAllocationRuleDetailsInvokeResponse struct {
+	// Source resources for cost allocation. At this time, this list can contain no more than one element.
+	SourceResources []SourceCostAllocationResourceInvokeResponse `pulumi:"sourceResources"`
+	// Target resources for cost allocation. At this time, this list can contain no more than one element.
+	TargetResources []TargetCostAllocationResourceInvokeResponse `pulumi:"targetResources"`
+}
+
+// CostAllocationRuleDetailsInvokeResponseInput is an input type that accepts CostAllocationRuleDetailsInvokeResponseArgs and CostAllocationRuleDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `CostAllocationRuleDetailsInvokeResponseInput` via:
+//
+//          CostAllocationRuleDetailsInvokeResponseArgs{...}
+type CostAllocationRuleDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCostAllocationRuleDetailsInvokeResponseOutput() CostAllocationRuleDetailsInvokeResponseOutput
+	ToCostAllocationRuleDetailsInvokeResponseOutputWithContext(context.Context) CostAllocationRuleDetailsInvokeResponseOutput
+}
+
+// Resource details of the cost allocation rule
+type CostAllocationRuleDetailsInvokeResponseArgs struct {
+	// Source resources for cost allocation. At this time, this list can contain no more than one element.
+	SourceResources SourceCostAllocationResourceInvokeResponseArrayInput `pulumi:"sourceResources"`
+	// Target resources for cost allocation. At this time, this list can contain no more than one element.
+	TargetResources TargetCostAllocationResourceInvokeResponseArrayInput `pulumi:"targetResources"`
+}
+
+func (CostAllocationRuleDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostAllocationRuleDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i CostAllocationRuleDetailsInvokeResponseArgs) ToCostAllocationRuleDetailsInvokeResponseOutput() CostAllocationRuleDetailsInvokeResponseOutput {
+	return i.ToCostAllocationRuleDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CostAllocationRuleDetailsInvokeResponseArgs) ToCostAllocationRuleDetailsInvokeResponseOutputWithContext(ctx context.Context) CostAllocationRuleDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRuleDetailsInvokeResponseOutput)
+}
+
+// Resource details of the cost allocation rule
+type CostAllocationRuleDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CostAllocationRuleDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostAllocationRuleDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o CostAllocationRuleDetailsInvokeResponseOutput) ToCostAllocationRuleDetailsInvokeResponseOutput() CostAllocationRuleDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o CostAllocationRuleDetailsInvokeResponseOutput) ToCostAllocationRuleDetailsInvokeResponseOutputWithContext(ctx context.Context) CostAllocationRuleDetailsInvokeResponseOutput {
+	return o
+}
+
+// Source resources for cost allocation. At this time, this list can contain no more than one element.
+func (o CostAllocationRuleDetailsInvokeResponseOutput) SourceResources() SourceCostAllocationResourceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CostAllocationRuleDetailsInvokeResponse) []SourceCostAllocationResourceInvokeResponse {
+		return v.SourceResources
+	}).(SourceCostAllocationResourceInvokeResponseArrayOutput)
+}
+
+// Target resources for cost allocation. At this time, this list can contain no more than one element.
+func (o CostAllocationRuleDetailsInvokeResponseOutput) TargetResources() TargetCostAllocationResourceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CostAllocationRuleDetailsInvokeResponse) []TargetCostAllocationResourceInvokeResponse {
+		return v.TargetResources
+	}).(TargetCostAllocationResourceInvokeResponseArrayOutput)
 }
 
 // Resource details of the cost allocation rule
@@ -711,6 +888,99 @@ func (o CostAllocationRulePropertiesPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 // The properties of a cost allocation rule
+type CostAllocationRulePropertiesInvokeResponse struct {
+	// Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
+	CreatedDate string `pulumi:"createdDate"`
+	// Description of a cost allocation rule.
+	Description *string `pulumi:"description"`
+	// Resource information for the cost allocation rule
+	Details CostAllocationRuleDetailsInvokeResponse `pulumi:"details"`
+	// Status of the rule
+	Status string `pulumi:"status"`
+	// Time at which the rule was last updated.
+	UpdatedDate string `pulumi:"updatedDate"`
+}
+
+// CostAllocationRulePropertiesInvokeResponseInput is an input type that accepts CostAllocationRulePropertiesInvokeResponseArgs and CostAllocationRulePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CostAllocationRulePropertiesInvokeResponseInput` via:
+//
+//          CostAllocationRulePropertiesInvokeResponseArgs{...}
+type CostAllocationRulePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCostAllocationRulePropertiesInvokeResponseOutput() CostAllocationRulePropertiesInvokeResponseOutput
+	ToCostAllocationRulePropertiesInvokeResponseOutputWithContext(context.Context) CostAllocationRulePropertiesInvokeResponseOutput
+}
+
+// The properties of a cost allocation rule
+type CostAllocationRulePropertiesInvokeResponseArgs struct {
+	// Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
+	// Description of a cost allocation rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Resource information for the cost allocation rule
+	Details CostAllocationRuleDetailsInvokeResponseInput `pulumi:"details"`
+	// Status of the rule
+	Status pulumi.StringInput `pulumi:"status"`
+	// Time at which the rule was last updated.
+	UpdatedDate pulumi.StringInput `pulumi:"updatedDate"`
+}
+
+func (CostAllocationRulePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostAllocationRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CostAllocationRulePropertiesInvokeResponseArgs) ToCostAllocationRulePropertiesInvokeResponseOutput() CostAllocationRulePropertiesInvokeResponseOutput {
+	return i.ToCostAllocationRulePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CostAllocationRulePropertiesInvokeResponseArgs) ToCostAllocationRulePropertiesInvokeResponseOutputWithContext(ctx context.Context) CostAllocationRulePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRulePropertiesInvokeResponseOutput)
+}
+
+// The properties of a cost allocation rule
+type CostAllocationRulePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CostAllocationRulePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CostAllocationRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CostAllocationRulePropertiesInvokeResponseOutput) ToCostAllocationRulePropertiesInvokeResponseOutput() CostAllocationRulePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CostAllocationRulePropertiesInvokeResponseOutput) ToCostAllocationRulePropertiesInvokeResponseOutputWithContext(ctx context.Context) CostAllocationRulePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
+func (o CostAllocationRulePropertiesInvokeResponseOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v CostAllocationRulePropertiesInvokeResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Description of a cost allocation rule.
+func (o CostAllocationRulePropertiesInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CostAllocationRulePropertiesInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Resource information for the cost allocation rule
+func (o CostAllocationRulePropertiesInvokeResponseOutput) Details() CostAllocationRuleDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v CostAllocationRulePropertiesInvokeResponse) CostAllocationRuleDetailsInvokeResponse {
+		return v.Details
+	}).(CostAllocationRuleDetailsInvokeResponseOutput)
+}
+
+// Status of the rule
+func (o CostAllocationRulePropertiesInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v CostAllocationRulePropertiesInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Time at which the rule was last updated.
+func (o CostAllocationRulePropertiesInvokeResponseOutput) UpdatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v CostAllocationRulePropertiesInvokeResponse) string { return v.UpdatedDate }).(pulumi.StringOutput)
+}
+
+// The properties of a cost allocation rule
 type CostAllocationRulePropertiesResponse struct {
 	// Time at which the rule was created. Rules that change cost for the same resource are applied in order of creation.
 	CreatedDate string `pulumi:"createdDate"`
@@ -1039,6 +1309,124 @@ func (o SourceCostAllocationResourceArrayOutput) Index(i pulumi.IntInput) Source
 }
 
 // Source resources for cost allocation
+type SourceCostAllocationResourceInvokeResponse struct {
+	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+	Name string `pulumi:"name"`
+	// Type of resources contained in this cost allocation rule
+	ResourceType string `pulumi:"resourceType"`
+	// Source Resources for cost allocation. This list cannot contain more than 25 values.
+	Values []string `pulumi:"values"`
+}
+
+// SourceCostAllocationResourceInvokeResponseInput is an input type that accepts SourceCostAllocationResourceInvokeResponseArgs and SourceCostAllocationResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `SourceCostAllocationResourceInvokeResponseInput` via:
+//
+//          SourceCostAllocationResourceInvokeResponseArgs{...}
+type SourceCostAllocationResourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSourceCostAllocationResourceInvokeResponseOutput() SourceCostAllocationResourceInvokeResponseOutput
+	ToSourceCostAllocationResourceInvokeResponseOutputWithContext(context.Context) SourceCostAllocationResourceInvokeResponseOutput
+}
+
+// Source resources for cost allocation
+type SourceCostAllocationResourceInvokeResponseArgs struct {
+	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of resources contained in this cost allocation rule
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Source Resources for cost allocation. This list cannot contain more than 25 values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (SourceCostAllocationResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCostAllocationResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i SourceCostAllocationResourceInvokeResponseArgs) ToSourceCostAllocationResourceInvokeResponseOutput() SourceCostAllocationResourceInvokeResponseOutput {
+	return i.ToSourceCostAllocationResourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SourceCostAllocationResourceInvokeResponseArgs) ToSourceCostAllocationResourceInvokeResponseOutputWithContext(ctx context.Context) SourceCostAllocationResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceCostAllocationResourceInvokeResponseOutput)
+}
+
+// SourceCostAllocationResourceInvokeResponseArrayInput is an input type that accepts SourceCostAllocationResourceInvokeResponseArray and SourceCostAllocationResourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SourceCostAllocationResourceInvokeResponseArrayInput` via:
+//
+//          SourceCostAllocationResourceInvokeResponseArray{ SourceCostAllocationResourceInvokeResponseArgs{...} }
+type SourceCostAllocationResourceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSourceCostAllocationResourceInvokeResponseArrayOutput() SourceCostAllocationResourceInvokeResponseArrayOutput
+	ToSourceCostAllocationResourceInvokeResponseArrayOutputWithContext(context.Context) SourceCostAllocationResourceInvokeResponseArrayOutput
+}
+
+type SourceCostAllocationResourceInvokeResponseArray []SourceCostAllocationResourceInvokeResponseInput
+
+func (SourceCostAllocationResourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceCostAllocationResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i SourceCostAllocationResourceInvokeResponseArray) ToSourceCostAllocationResourceInvokeResponseArrayOutput() SourceCostAllocationResourceInvokeResponseArrayOutput {
+	return i.ToSourceCostAllocationResourceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SourceCostAllocationResourceInvokeResponseArray) ToSourceCostAllocationResourceInvokeResponseArrayOutputWithContext(ctx context.Context) SourceCostAllocationResourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceCostAllocationResourceInvokeResponseArrayOutput)
+}
+
+// Source resources for cost allocation
+type SourceCostAllocationResourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceCostAllocationResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceCostAllocationResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o SourceCostAllocationResourceInvokeResponseOutput) ToSourceCostAllocationResourceInvokeResponseOutput() SourceCostAllocationResourceInvokeResponseOutput {
+	return o
+}
+
+func (o SourceCostAllocationResourceInvokeResponseOutput) ToSourceCostAllocationResourceInvokeResponseOutputWithContext(ctx context.Context) SourceCostAllocationResourceInvokeResponseOutput {
+	return o
+}
+
+// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+func (o SourceCostAllocationResourceInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceCostAllocationResourceInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of resources contained in this cost allocation rule
+func (o SourceCostAllocationResourceInvokeResponseOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceCostAllocationResourceInvokeResponse) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Source Resources for cost allocation. This list cannot contain more than 25 values.
+func (o SourceCostAllocationResourceInvokeResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SourceCostAllocationResourceInvokeResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SourceCostAllocationResourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SourceCostAllocationResourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceCostAllocationResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o SourceCostAllocationResourceInvokeResponseArrayOutput) ToSourceCostAllocationResourceInvokeResponseArrayOutput() SourceCostAllocationResourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SourceCostAllocationResourceInvokeResponseArrayOutput) ToSourceCostAllocationResourceInvokeResponseArrayOutputWithContext(ctx context.Context) SourceCostAllocationResourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SourceCostAllocationResourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) SourceCostAllocationResourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceCostAllocationResourceInvokeResponse {
+		return vs[0].([]SourceCostAllocationResourceInvokeResponse)[vs[1].(int)]
+	}).(SourceCostAllocationResourceInvokeResponseOutput)
+}
+
+// Source resources for cost allocation
 type SourceCostAllocationResourceResponse struct {
 	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
 	Name string `pulumi:"name"`
@@ -1284,6 +1672,135 @@ func (o TargetCostAllocationResourceArrayOutput) Index(i pulumi.IntInput) Target
 }
 
 // Target resources for cost allocation.
+type TargetCostAllocationResourceInvokeResponse struct {
+	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+	Name string `pulumi:"name"`
+	// Method of cost allocation for the rule
+	PolicyType string `pulumi:"policyType"`
+	// Type of resources contained in this cost allocation rule
+	ResourceType string `pulumi:"resourceType"`
+	// Target resources for cost allocation. This list cannot contain more than 25 values.
+	Values []CostAllocationProportionInvokeResponse `pulumi:"values"`
+}
+
+// TargetCostAllocationResourceInvokeResponseInput is an input type that accepts TargetCostAllocationResourceInvokeResponseArgs and TargetCostAllocationResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `TargetCostAllocationResourceInvokeResponseInput` via:
+//
+//          TargetCostAllocationResourceInvokeResponseArgs{...}
+type TargetCostAllocationResourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTargetCostAllocationResourceInvokeResponseOutput() TargetCostAllocationResourceInvokeResponseOutput
+	ToTargetCostAllocationResourceInvokeResponseOutputWithContext(context.Context) TargetCostAllocationResourceInvokeResponseOutput
+}
+
+// Target resources for cost allocation.
+type TargetCostAllocationResourceInvokeResponseArgs struct {
+	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+	Name pulumi.StringInput `pulumi:"name"`
+	// Method of cost allocation for the rule
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+	// Type of resources contained in this cost allocation rule
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Target resources for cost allocation. This list cannot contain more than 25 values.
+	Values CostAllocationProportionInvokeResponseArrayInput `pulumi:"values"`
+}
+
+func (TargetCostAllocationResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetCostAllocationResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i TargetCostAllocationResourceInvokeResponseArgs) ToTargetCostAllocationResourceInvokeResponseOutput() TargetCostAllocationResourceInvokeResponseOutput {
+	return i.ToTargetCostAllocationResourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TargetCostAllocationResourceInvokeResponseArgs) ToTargetCostAllocationResourceInvokeResponseOutputWithContext(ctx context.Context) TargetCostAllocationResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetCostAllocationResourceInvokeResponseOutput)
+}
+
+// TargetCostAllocationResourceInvokeResponseArrayInput is an input type that accepts TargetCostAllocationResourceInvokeResponseArray and TargetCostAllocationResourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TargetCostAllocationResourceInvokeResponseArrayInput` via:
+//
+//          TargetCostAllocationResourceInvokeResponseArray{ TargetCostAllocationResourceInvokeResponseArgs{...} }
+type TargetCostAllocationResourceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTargetCostAllocationResourceInvokeResponseArrayOutput() TargetCostAllocationResourceInvokeResponseArrayOutput
+	ToTargetCostAllocationResourceInvokeResponseArrayOutputWithContext(context.Context) TargetCostAllocationResourceInvokeResponseArrayOutput
+}
+
+type TargetCostAllocationResourceInvokeResponseArray []TargetCostAllocationResourceInvokeResponseInput
+
+func (TargetCostAllocationResourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetCostAllocationResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i TargetCostAllocationResourceInvokeResponseArray) ToTargetCostAllocationResourceInvokeResponseArrayOutput() TargetCostAllocationResourceInvokeResponseArrayOutput {
+	return i.ToTargetCostAllocationResourceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TargetCostAllocationResourceInvokeResponseArray) ToTargetCostAllocationResourceInvokeResponseArrayOutputWithContext(ctx context.Context) TargetCostAllocationResourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetCostAllocationResourceInvokeResponseArrayOutput)
+}
+
+// Target resources for cost allocation.
+type TargetCostAllocationResourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TargetCostAllocationResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetCostAllocationResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o TargetCostAllocationResourceInvokeResponseOutput) ToTargetCostAllocationResourceInvokeResponseOutput() TargetCostAllocationResourceInvokeResponseOutput {
+	return o
+}
+
+func (o TargetCostAllocationResourceInvokeResponseOutput) ToTargetCostAllocationResourceInvokeResponseOutputWithContext(ctx context.Context) TargetCostAllocationResourceInvokeResponseOutput {
+	return o
+}
+
+// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
+func (o TargetCostAllocationResourceInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetCostAllocationResourceInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Method of cost allocation for the rule
+func (o TargetCostAllocationResourceInvokeResponseOutput) PolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetCostAllocationResourceInvokeResponse) string { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+// Type of resources contained in this cost allocation rule
+func (o TargetCostAllocationResourceInvokeResponseOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetCostAllocationResourceInvokeResponse) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Target resources for cost allocation. This list cannot contain more than 25 values.
+func (o TargetCostAllocationResourceInvokeResponseOutput) Values() CostAllocationProportionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v TargetCostAllocationResourceInvokeResponse) []CostAllocationProportionInvokeResponse {
+		return v.Values
+	}).(CostAllocationProportionInvokeResponseArrayOutput)
+}
+
+type TargetCostAllocationResourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetCostAllocationResourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetCostAllocationResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o TargetCostAllocationResourceInvokeResponseArrayOutput) ToTargetCostAllocationResourceInvokeResponseArrayOutput() TargetCostAllocationResourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TargetCostAllocationResourceInvokeResponseArrayOutput) ToTargetCostAllocationResourceInvokeResponseArrayOutputWithContext(ctx context.Context) TargetCostAllocationResourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TargetCostAllocationResourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) TargetCostAllocationResourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetCostAllocationResourceInvokeResponse {
+		return vs[0].([]TargetCostAllocationResourceInvokeResponse)[vs[1].(int)]
+	}).(TargetCostAllocationResourceInvokeResponseOutput)
+}
+
+// Target resources for cost allocation.
 type TargetCostAllocationResourceResponse struct {
 	// If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
 	Name string `pulumi:"name"`
@@ -1413,22 +1930,30 @@ func (o TargetCostAllocationResourceResponseArrayOutput) Index(i pulumi.IntInput
 func init() {
 	pulumi.RegisterOutputType(CostAllocationProportionOutput{})
 	pulumi.RegisterOutputType(CostAllocationProportionArrayOutput{})
+	pulumi.RegisterOutputType(CostAllocationProportionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CostAllocationProportionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CostAllocationProportionResponseOutput{})
 	pulumi.RegisterOutputType(CostAllocationProportionResponseArrayOutput{})
 	pulumi.RegisterOutputType(CostAllocationRuleDetailsOutput{})
 	pulumi.RegisterOutputType(CostAllocationRuleDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CostAllocationRuleDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CostAllocationRuleDetailsResponseOutput{})
 	pulumi.RegisterOutputType(CostAllocationRuleDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CostAllocationRulePropertiesOutput{})
 	pulumi.RegisterOutputType(CostAllocationRulePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CostAllocationRulePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CostAllocationRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CostAllocationRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceCostAllocationResourceOutput{})
 	pulumi.RegisterOutputType(SourceCostAllocationResourceArrayOutput{})
+	pulumi.RegisterOutputType(SourceCostAllocationResourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SourceCostAllocationResourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SourceCostAllocationResourceResponseOutput{})
 	pulumi.RegisterOutputType(SourceCostAllocationResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(TargetCostAllocationResourceOutput{})
 	pulumi.RegisterOutputType(TargetCostAllocationResourceArrayOutput{})
+	pulumi.RegisterOutputType(TargetCostAllocationResourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TargetCostAllocationResourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TargetCostAllocationResourceResponseOutput{})
 	pulumi.RegisterOutputType(TargetCostAllocationResourceResponseArrayOutput{})
 }

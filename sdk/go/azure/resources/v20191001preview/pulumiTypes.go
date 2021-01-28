@@ -183,6 +183,81 @@ func (o ManagedServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutp
 }
 
 // Managed identity generic object.
+type ManagedServiceIdentityInvokeResponse struct {
+	// ID of the Azure Active Directory.
+	TenantId *string `pulumi:"tenantId"`
+	// Type of the managed identity.
+	Type *string `pulumi:"type"`
+	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+	UserAssignedIdentities map[string]UserAssignedIdentityInvokeResponse `pulumi:"userAssignedIdentities"`
+}
+
+// ManagedServiceIdentityInvokeResponseInput is an input type that accepts ManagedServiceIdentityInvokeResponseArgs and ManagedServiceIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityInvokeResponseInput` via:
+//
+//          ManagedServiceIdentityInvokeResponseArgs{...}
+type ManagedServiceIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityInvokeResponseOutput() ManagedServiceIdentityInvokeResponseOutput
+	ToManagedServiceIdentityInvokeResponseOutputWithContext(context.Context) ManagedServiceIdentityInvokeResponseOutput
+}
+
+// Managed identity generic object.
+type ManagedServiceIdentityInvokeResponseArgs struct {
+	// ID of the Azure Active Directory.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Type of the managed identity.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+	UserAssignedIdentities UserAssignedIdentityInvokeResponseMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ManagedServiceIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityInvokeResponseArgs) ToManagedServiceIdentityInvokeResponseOutput() ManagedServiceIdentityInvokeResponseOutput {
+	return i.ToManagedServiceIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityInvokeResponseArgs) ToManagedServiceIdentityInvokeResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityInvokeResponseOutput)
+}
+
+// Managed identity generic object.
+type ManagedServiceIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityInvokeResponseOutput) ToManagedServiceIdentityInvokeResponseOutput() ManagedServiceIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityInvokeResponseOutput) ToManagedServiceIdentityInvokeResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityInvokeResponseOutput {
+	return o
+}
+
+// ID of the Azure Active Directory.
+func (o ManagedServiceIdentityInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Type of the managed identity.
+func (o ManagedServiceIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+func (o ManagedServiceIdentityInvokeResponseOutput) UserAssignedIdentities() UserAssignedIdentityInvokeResponseMapOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityInvokeResponse) map[string]UserAssignedIdentityInvokeResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityInvokeResponseMapOutput)
+}
+
+// Managed identity generic object.
 type ManagedServiceIdentityResponse struct {
 	// ID of the Azure Active Directory.
 	TenantId *string `pulumi:"tenantId"`
@@ -354,6 +429,106 @@ func (o ManagedServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAs
 		}
 		return v.UserAssignedIdentities
 	}).(UserAssignedIdentityResponseMapOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -586,6 +761,115 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 // User-assigned managed identity.
+type UserAssignedIdentityInvokeResponse struct {
+	// Client App Id associated with this identity.
+	ClientId string `pulumi:"clientId"`
+	// Azure Active Directory principal ID associated with this identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// UserAssignedIdentityInvokeResponseInput is an input type that accepts UserAssignedIdentityInvokeResponseArgs and UserAssignedIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityInvokeResponseInput` via:
+//
+//          UserAssignedIdentityInvokeResponseArgs{...}
+type UserAssignedIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityInvokeResponseOutput() UserAssignedIdentityInvokeResponseOutput
+	ToUserAssignedIdentityInvokeResponseOutputWithContext(context.Context) UserAssignedIdentityInvokeResponseOutput
+}
+
+// User-assigned managed identity.
+type UserAssignedIdentityInvokeResponseArgs struct {
+	// Client App Id associated with this identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Azure Active Directory principal ID associated with this identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserAssignedIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityInvokeResponseArgs) ToUserAssignedIdentityInvokeResponseOutput() UserAssignedIdentityInvokeResponseOutput {
+	return i.ToUserAssignedIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityInvokeResponseArgs) ToUserAssignedIdentityInvokeResponseOutputWithContext(ctx context.Context) UserAssignedIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityInvokeResponseOutput)
+}
+
+// UserAssignedIdentityInvokeResponseMapInput is an input type that accepts UserAssignedIdentityInvokeResponseMap and UserAssignedIdentityInvokeResponseMapOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityInvokeResponseMapInput` via:
+//
+//          UserAssignedIdentityInvokeResponseMap{ "key": UserAssignedIdentityInvokeResponseArgs{...} }
+type UserAssignedIdentityInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityInvokeResponseMapOutput() UserAssignedIdentityInvokeResponseMapOutput
+	ToUserAssignedIdentityInvokeResponseMapOutputWithContext(context.Context) UserAssignedIdentityInvokeResponseMapOutput
+}
+
+type UserAssignedIdentityInvokeResponseMap map[string]UserAssignedIdentityInvokeResponseInput
+
+func (UserAssignedIdentityInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityInvokeResponseMap) ToUserAssignedIdentityInvokeResponseMapOutput() UserAssignedIdentityInvokeResponseMapOutput {
+	return i.ToUserAssignedIdentityInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityInvokeResponseMap) ToUserAssignedIdentityInvokeResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityInvokeResponseMapOutput)
+}
+
+// User-assigned managed identity.
+type UserAssignedIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityInvokeResponseOutput) ToUserAssignedIdentityInvokeResponseOutput() UserAssignedIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityInvokeResponseOutput) ToUserAssignedIdentityInvokeResponseOutputWithContext(ctx context.Context) UserAssignedIdentityInvokeResponseOutput {
+	return o
+}
+
+// Client App Id associated with this identity.
+func (o UserAssignedIdentityInvokeResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityInvokeResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Azure Active Directory principal ID associated with this identity.
+func (o UserAssignedIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityInvokeResponseMapOutput) ToUserAssignedIdentityInvokeResponseMapOutput() UserAssignedIdentityInvokeResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityInvokeResponseMapOutput) ToUserAssignedIdentityInvokeResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityInvokeResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityInvokeResponse {
+		return vs[0].(map[string]UserAssignedIdentityInvokeResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityInvokeResponseOutput)
+}
+
+// User-assigned managed identity.
 type UserAssignedIdentityResponse struct {
 	// Client App Id associated with this identity.
 	ClientId string `pulumi:"clientId"`
@@ -697,10 +981,14 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 func init() {
 	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

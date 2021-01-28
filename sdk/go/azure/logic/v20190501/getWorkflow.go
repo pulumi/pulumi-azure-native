@@ -26,7 +26,7 @@ type LookupWorkflowArgs struct {
 // The workflow type.
 type LookupWorkflowResult struct {
 	// The access control configuration.
-	AccessControl *FlowAccessControlConfigurationResponse `pulumi:"accessControl"`
+	AccessControl *FlowAccessControlConfigurationInvokeResponse `pulumi:"accessControl"`
 	// Gets the access endpoint.
 	AccessEndpoint string `pulumi:"accessEndpoint"`
 	// Gets the changed time.
@@ -36,23 +36,23 @@ type LookupWorkflowResult struct {
 	// The definition.
 	Definition interface{} `pulumi:"definition"`
 	// The endpoints configuration.
-	EndpointsConfiguration *FlowEndpointsConfigurationResponse `pulumi:"endpointsConfiguration"`
+	EndpointsConfiguration *FlowEndpointsConfigurationInvokeResponse `pulumi:"endpointsConfiguration"`
 	// The resource id.
 	Id string `pulumi:"id"`
 	// The integration account.
-	IntegrationAccount *ResourceReferenceResponse `pulumi:"integrationAccount"`
+	IntegrationAccount *ResourceReferenceInvokeResponse `pulumi:"integrationAccount"`
 	// The integration service environment.
-	IntegrationServiceEnvironment *ResourceReferenceResponse `pulumi:"integrationServiceEnvironment"`
+	IntegrationServiceEnvironment *ResourceReferenceInvokeResponse `pulumi:"integrationServiceEnvironment"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The parameters.
-	Parameters map[string]WorkflowParameterResponse `pulumi:"parameters"`
+	Parameters map[string]WorkflowParameterInvokeResponse `pulumi:"parameters"`
 	// Gets the provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// The state.
 	State *string `pulumi:"state"`
 	// The resource tags.

@@ -120,6 +120,115 @@ func (o PrincipalsArrayOutput) Index(i pulumi.IntInput) PrincipalsOutput {
 }
 
 // User principals.
+type PrincipalsInvokeResponse struct {
+	// Object Id for the user
+	ObjectId *string `pulumi:"objectId"`
+	// UPN of the user.
+	Upn *string `pulumi:"upn"`
+}
+
+// PrincipalsInvokeResponseInput is an input type that accepts PrincipalsInvokeResponseArgs and PrincipalsInvokeResponseOutput values.
+// You can construct a concrete instance of `PrincipalsInvokeResponseInput` via:
+//
+//          PrincipalsInvokeResponseArgs{...}
+type PrincipalsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrincipalsInvokeResponseOutput() PrincipalsInvokeResponseOutput
+	ToPrincipalsInvokeResponseOutputWithContext(context.Context) PrincipalsInvokeResponseOutput
+}
+
+// User principals.
+type PrincipalsInvokeResponseArgs struct {
+	// Object Id for the user
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// UPN of the user.
+	Upn pulumi.StringPtrInput `pulumi:"upn"`
+}
+
+func (PrincipalsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalsInvokeResponse)(nil)).Elem()
+}
+
+func (i PrincipalsInvokeResponseArgs) ToPrincipalsInvokeResponseOutput() PrincipalsInvokeResponseOutput {
+	return i.ToPrincipalsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrincipalsInvokeResponseArgs) ToPrincipalsInvokeResponseOutputWithContext(ctx context.Context) PrincipalsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalsInvokeResponseOutput)
+}
+
+// PrincipalsInvokeResponseArrayInput is an input type that accepts PrincipalsInvokeResponseArray and PrincipalsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrincipalsInvokeResponseArrayInput` via:
+//
+//          PrincipalsInvokeResponseArray{ PrincipalsInvokeResponseArgs{...} }
+type PrincipalsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrincipalsInvokeResponseArrayOutput() PrincipalsInvokeResponseArrayOutput
+	ToPrincipalsInvokeResponseArrayOutputWithContext(context.Context) PrincipalsInvokeResponseArrayOutput
+}
+
+type PrincipalsInvokeResponseArray []PrincipalsInvokeResponseInput
+
+func (PrincipalsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrincipalsInvokeResponse)(nil)).Elem()
+}
+
+func (i PrincipalsInvokeResponseArray) ToPrincipalsInvokeResponseArrayOutput() PrincipalsInvokeResponseArrayOutput {
+	return i.ToPrincipalsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrincipalsInvokeResponseArray) ToPrincipalsInvokeResponseArrayOutputWithContext(ctx context.Context) PrincipalsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrincipalsInvokeResponseArrayOutput)
+}
+
+// User principals.
+type PrincipalsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrincipalsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalsInvokeResponse)(nil)).Elem()
+}
+
+func (o PrincipalsInvokeResponseOutput) ToPrincipalsInvokeResponseOutput() PrincipalsInvokeResponseOutput {
+	return o
+}
+
+func (o PrincipalsInvokeResponseOutput) ToPrincipalsInvokeResponseOutputWithContext(ctx context.Context) PrincipalsInvokeResponseOutput {
+	return o
+}
+
+// Object Id for the user
+func (o PrincipalsInvokeResponseOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrincipalsInvokeResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// UPN of the user.
+func (o PrincipalsInvokeResponseOutput) Upn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrincipalsInvokeResponse) *string { return v.Upn }).(pulumi.StringPtrOutput)
+}
+
+type PrincipalsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrincipalsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrincipalsInvokeResponse)(nil)).Elem()
+}
+
+func (o PrincipalsInvokeResponseArrayOutput) ToPrincipalsInvokeResponseArrayOutput() PrincipalsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrincipalsInvokeResponseArrayOutput) ToPrincipalsInvokeResponseArrayOutputWithContext(ctx context.Context) PrincipalsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrincipalsInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrincipalsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrincipalsInvokeResponse {
+		return vs[0].([]PrincipalsInvokeResponse)[vs[1].(int)]
+	}).(PrincipalsInvokeResponseOutput)
+}
+
+// User principals.
 type PrincipalsResponse struct {
 	// Object Id for the user
 	ObjectId *string `pulumi:"objectId"`
@@ -231,6 +340,8 @@ func (o PrincipalsResponseArrayOutput) Index(i pulumi.IntInput) PrincipalsRespon
 func init() {
 	pulumi.RegisterOutputType(PrincipalsOutput{})
 	pulumi.RegisterOutputType(PrincipalsArrayOutput{})
+	pulumi.RegisterOutputType(PrincipalsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrincipalsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrincipalsResponseOutput{})
 	pulumi.RegisterOutputType(PrincipalsResponseArrayOutput{})
 }

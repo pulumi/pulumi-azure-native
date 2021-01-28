@@ -28,12 +28,12 @@ type LookupEventChannelArgs struct {
 // Event Channel.
 type LookupEventChannelResult struct {
 	// Represents the destination of an event channel.
-	Destination *EventChannelDestinationResponse `pulumi:"destination"`
+	Destination *EventChannelDestinationInvokeResponse `pulumi:"destination"`
 	// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
 	// the event channel and corresponding partner topic are deleted.
 	ExpirationTimeIfNotActivatedUtc *string `pulumi:"expirationTimeIfNotActivatedUtc"`
 	// Information about the filter for the event channel.
-	Filter *EventChannelFilterResponse `pulumi:"filter"`
+	Filter *EventChannelFilterInvokeResponse `pulumi:"filter"`
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
 	// Name of the resource
@@ -46,7 +46,7 @@ type LookupEventChannelResult struct {
 	// Provisioning state of the event channel.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Source of the event channel. This represents a unique resource in the partner's resource model.
-	Source *EventChannelSourceResponse `pulumi:"source"`
+	Source *EventChannelSourceInvokeResponse `pulumi:"source"`
 	// Type of the resource
 	Type string `pulumi:"type"`
 }

@@ -26,9 +26,9 @@ type LookupApiManagementServiceArgs struct {
 // A single API Management service resource in List or Get response.
 type LookupApiManagementServiceResult struct {
 	// Additional datacenter locations of the API Management service.
-	AdditionalLocations []AdditionalLocationResponse `pulumi:"additionalLocations"`
+	AdditionalLocations []AdditionalLocationInvokeResponse `pulumi:"additionalLocations"`
 	// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
-	Certificates []CertificateConfigurationResponse `pulumi:"certificates"`
+	Certificates []CertificateConfigurationInvokeResponse `pulumi:"certificates"`
 	// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	CreatedAtUtc string `pulumi:"createdAtUtc"`
 	// Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
@@ -40,11 +40,11 @@ type LookupApiManagementServiceResult struct {
 	// Gateway URL of the API Management service.
 	GatewayUrl string `pulumi:"gatewayUrl"`
 	// Custom hostname configuration of the API Management service.
-	HostnameConfigurations []HostnameConfigurationResponse `pulumi:"hostnameConfigurations"`
+	HostnameConfigurations []HostnameConfigurationInvokeResponse `pulumi:"hostnameConfigurations"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Managed service identity of the Api Management service.
-	Identity *ApiManagementServiceIdentityResponse `pulumi:"identity"`
+	Identity *ApiManagementServiceIdentityInvokeResponse `pulumi:"identity"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Management API endpoint URL of the API Management service.
@@ -68,7 +68,7 @@ type LookupApiManagementServiceResult struct {
 	// SCM endpoint URL of the API Management service.
 	ScmUrl string `pulumi:"scmUrl"`
 	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
+	Sku ApiManagementServiceSkuPropertiesInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
@@ -76,7 +76,7 @@ type LookupApiManagementServiceResult struct {
 	// Resource type for API Management resource is set to Microsoft.ApiManagement.
 	Type string `pulumi:"type"`
 	// Virtual network configuration of the API Management service.
-	VirtualNetworkConfiguration *VirtualNetworkConfigurationResponse `pulumi:"virtualNetworkConfiguration"`
+	VirtualNetworkConfiguration *VirtualNetworkConfigurationInvokeResponse `pulumi:"virtualNetworkConfiguration"`
 	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
 }

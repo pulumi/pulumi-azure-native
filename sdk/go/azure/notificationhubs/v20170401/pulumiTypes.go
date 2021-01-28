@@ -183,6 +183,79 @@ func (o AdmCredentialPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 }
 
 // Description of a NotificationHub AdmCredential.
+type AdmCredentialInvokeResponse struct {
+	// The URL of the authorization token.
+	AuthTokenUrl *string `pulumi:"authTokenUrl"`
+	// The client identifier.
+	ClientId *string `pulumi:"clientId"`
+	// The credential secret access key.
+	ClientSecret *string `pulumi:"clientSecret"`
+}
+
+// AdmCredentialInvokeResponseInput is an input type that accepts AdmCredentialInvokeResponseArgs and AdmCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `AdmCredentialInvokeResponseInput` via:
+//
+//          AdmCredentialInvokeResponseArgs{...}
+type AdmCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdmCredentialInvokeResponseOutput() AdmCredentialInvokeResponseOutput
+	ToAdmCredentialInvokeResponseOutputWithContext(context.Context) AdmCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub AdmCredential.
+type AdmCredentialInvokeResponseArgs struct {
+	// The URL of the authorization token.
+	AuthTokenUrl pulumi.StringPtrInput `pulumi:"authTokenUrl"`
+	// The client identifier.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The credential secret access key.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+}
+
+func (AdmCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i AdmCredentialInvokeResponseArgs) ToAdmCredentialInvokeResponseOutput() AdmCredentialInvokeResponseOutput {
+	return i.ToAdmCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdmCredentialInvokeResponseArgs) ToAdmCredentialInvokeResponseOutputWithContext(ctx context.Context) AdmCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialInvokeResponseOutput)
+}
+
+// Description of a NotificationHub AdmCredential.
+type AdmCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdmCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o AdmCredentialInvokeResponseOutput) ToAdmCredentialInvokeResponseOutput() AdmCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o AdmCredentialInvokeResponseOutput) ToAdmCredentialInvokeResponseOutputWithContext(ctx context.Context) AdmCredentialInvokeResponseOutput {
+	return o
+}
+
+// The URL of the authorization token.
+func (o AdmCredentialInvokeResponseOutput) AuthTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdmCredentialInvokeResponse) *string { return v.AuthTokenUrl }).(pulumi.StringPtrOutput)
+}
+
+// The client identifier.
+func (o AdmCredentialInvokeResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdmCredentialInvokeResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The credential secret access key.
+func (o AdmCredentialInvokeResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdmCredentialInvokeResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub AdmCredential.
 type AdmCredentialResponse struct {
 	// The URL of the authorization token.
 	AuthTokenUrl *string `pulumi:"authTokenUrl"`
@@ -619,6 +692,124 @@ func (o ApnsCredentialPtrOutput) Token() pulumi.StringPtrOutput {
 		}
 		return v.Token
 	}).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub ApnsCredential.
+type ApnsCredentialInvokeResponse struct {
+	// The APNS certificate. Specify if using Certificate Authentication Mode.
+	ApnsCertificate *string `pulumi:"apnsCertificate"`
+	// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
+	AppId *string `pulumi:"appId"`
+	// The name of the application or BundleId. Specify if using Token Authentication Mode.
+	AppName *string `pulumi:"appName"`
+	// The APNS certificate password if it exists.
+	CertificateKey *string `pulumi:"certificateKey"`
+	// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
+	Endpoint *string `pulumi:"endpoint"`
+	// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
+	KeyId *string `pulumi:"keyId"`
+	// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
+	Token *string `pulumi:"token"`
+}
+
+// ApnsCredentialInvokeResponseInput is an input type that accepts ApnsCredentialInvokeResponseArgs and ApnsCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `ApnsCredentialInvokeResponseInput` via:
+//
+//          ApnsCredentialInvokeResponseArgs{...}
+type ApnsCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApnsCredentialInvokeResponseOutput() ApnsCredentialInvokeResponseOutput
+	ToApnsCredentialInvokeResponseOutputWithContext(context.Context) ApnsCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub ApnsCredential.
+type ApnsCredentialInvokeResponseArgs struct {
+	// The APNS certificate. Specify if using Certificate Authentication Mode.
+	ApnsCertificate pulumi.StringPtrInput `pulumi:"apnsCertificate"`
+	// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
+	AppId pulumi.StringPtrInput `pulumi:"appId"`
+	// The name of the application or BundleId. Specify if using Token Authentication Mode.
+	AppName pulumi.StringPtrInput `pulumi:"appName"`
+	// The APNS certificate password if it exists.
+	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
+	// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
+	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
+	// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+	// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
+	Token pulumi.StringPtrInput `pulumi:"token"`
+}
+
+func (ApnsCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i ApnsCredentialInvokeResponseArgs) ToApnsCredentialInvokeResponseOutput() ApnsCredentialInvokeResponseOutput {
+	return i.ToApnsCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApnsCredentialInvokeResponseArgs) ToApnsCredentialInvokeResponseOutputWithContext(ctx context.Context) ApnsCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialInvokeResponseOutput)
+}
+
+// Description of a NotificationHub ApnsCredential.
+type ApnsCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApnsCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o ApnsCredentialInvokeResponseOutput) ToApnsCredentialInvokeResponseOutput() ApnsCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o ApnsCredentialInvokeResponseOutput) ToApnsCredentialInvokeResponseOutputWithContext(ctx context.Context) ApnsCredentialInvokeResponseOutput {
+	return o
+}
+
+// The APNS certificate. Specify if using Certificate Authentication Mode.
+func (o ApnsCredentialInvokeResponseOutput) ApnsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialInvokeResponse) *string { return v.ApnsCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
+func (o ApnsCredentialInvokeResponseOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialInvokeResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the application or BundleId. Specify if using Token Authentication Mode.
+func (o ApnsCredentialInvokeResponseOutput) AppName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialInvokeResponse) *string { return v.AppName }).(pulumi.StringPtrOutput)
+}
+
+// The APNS certificate password if it exists.
+func (o ApnsCredentialInvokeResponseOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialInvokeResponse) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
+}
+
+// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
+func (o ApnsCredentialInvokeResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialInvokeResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
+func (o ApnsCredentialInvokeResponseOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialInvokeResponse) *string { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
+func (o ApnsCredentialInvokeResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialInvokeResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
+func (o ApnsCredentialInvokeResponseOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialInvokeResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
 
 // Description of a NotificationHub ApnsCredential.
@@ -1061,6 +1252,79 @@ func (o BaiduCredentialPtrOutput) BaiduSecretKey() pulumi.StringPtrOutput {
 }
 
 // Description of a NotificationHub BaiduCredential.
+type BaiduCredentialInvokeResponse struct {
+	// Baidu Api Key.
+	BaiduApiKey *string `pulumi:"baiduApiKey"`
+	// Baidu Endpoint.
+	BaiduEndPoint *string `pulumi:"baiduEndPoint"`
+	// Baidu Secret Key
+	BaiduSecretKey *string `pulumi:"baiduSecretKey"`
+}
+
+// BaiduCredentialInvokeResponseInput is an input type that accepts BaiduCredentialInvokeResponseArgs and BaiduCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `BaiduCredentialInvokeResponseInput` via:
+//
+//          BaiduCredentialInvokeResponseArgs{...}
+type BaiduCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBaiduCredentialInvokeResponseOutput() BaiduCredentialInvokeResponseOutput
+	ToBaiduCredentialInvokeResponseOutputWithContext(context.Context) BaiduCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub BaiduCredential.
+type BaiduCredentialInvokeResponseArgs struct {
+	// Baidu Api Key.
+	BaiduApiKey pulumi.StringPtrInput `pulumi:"baiduApiKey"`
+	// Baidu Endpoint.
+	BaiduEndPoint pulumi.StringPtrInput `pulumi:"baiduEndPoint"`
+	// Baidu Secret Key
+	BaiduSecretKey pulumi.StringPtrInput `pulumi:"baiduSecretKey"`
+}
+
+func (BaiduCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaiduCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i BaiduCredentialInvokeResponseArgs) ToBaiduCredentialInvokeResponseOutput() BaiduCredentialInvokeResponseOutput {
+	return i.ToBaiduCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BaiduCredentialInvokeResponseArgs) ToBaiduCredentialInvokeResponseOutputWithContext(ctx context.Context) BaiduCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialInvokeResponseOutput)
+}
+
+// Description of a NotificationHub BaiduCredential.
+type BaiduCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BaiduCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaiduCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o BaiduCredentialInvokeResponseOutput) ToBaiduCredentialInvokeResponseOutput() BaiduCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o BaiduCredentialInvokeResponseOutput) ToBaiduCredentialInvokeResponseOutputWithContext(ctx context.Context) BaiduCredentialInvokeResponseOutput {
+	return o
+}
+
+// Baidu Api Key.
+func (o BaiduCredentialInvokeResponseOutput) BaiduApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaiduCredentialInvokeResponse) *string { return v.BaiduApiKey }).(pulumi.StringPtrOutput)
+}
+
+// Baidu Endpoint.
+func (o BaiduCredentialInvokeResponseOutput) BaiduEndPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaiduCredentialInvokeResponse) *string { return v.BaiduEndPoint }).(pulumi.StringPtrOutput)
+}
+
+// Baidu Secret Key
+func (o BaiduCredentialInvokeResponseOutput) BaiduSecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaiduCredentialInvokeResponse) *string { return v.BaiduSecretKey }).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialResponse struct {
 	// Baidu Api Key.
 	BaiduApiKey *string `pulumi:"baiduApiKey"`
@@ -1386,6 +1650,70 @@ func (o GcmCredentialPtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
 }
 
 // Description of a NotificationHub GcmCredential.
+type GcmCredentialInvokeResponse struct {
+	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
+	GcmEndpoint *string `pulumi:"gcmEndpoint"`
+	// The Google API key.
+	GoogleApiKey *string `pulumi:"googleApiKey"`
+}
+
+// GcmCredentialInvokeResponseInput is an input type that accepts GcmCredentialInvokeResponseArgs and GcmCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `GcmCredentialInvokeResponseInput` via:
+//
+//          GcmCredentialInvokeResponseArgs{...}
+type GcmCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGcmCredentialInvokeResponseOutput() GcmCredentialInvokeResponseOutput
+	ToGcmCredentialInvokeResponseOutputWithContext(context.Context) GcmCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub GcmCredential.
+type GcmCredentialInvokeResponseArgs struct {
+	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
+	GcmEndpoint pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
+	// The Google API key.
+	GoogleApiKey pulumi.StringPtrInput `pulumi:"googleApiKey"`
+}
+
+func (GcmCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i GcmCredentialInvokeResponseArgs) ToGcmCredentialInvokeResponseOutput() GcmCredentialInvokeResponseOutput {
+	return i.ToGcmCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GcmCredentialInvokeResponseArgs) ToGcmCredentialInvokeResponseOutputWithContext(ctx context.Context) GcmCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialInvokeResponseOutput)
+}
+
+// Description of a NotificationHub GcmCredential.
+type GcmCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GcmCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o GcmCredentialInvokeResponseOutput) ToGcmCredentialInvokeResponseOutput() GcmCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o GcmCredentialInvokeResponseOutput) ToGcmCredentialInvokeResponseOutputWithContext(ctx context.Context) GcmCredentialInvokeResponseOutput {
+	return o
+}
+
+// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
+func (o GcmCredentialInvokeResponseOutput) GcmEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GcmCredentialInvokeResponse) *string { return v.GcmEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The Google API key.
+func (o GcmCredentialInvokeResponseOutput) GoogleApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GcmCredentialInvokeResponse) *string { return v.GoogleApiKey }).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub GcmCredential.
 type GcmCredentialResponse struct {
 	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
 	GcmEndpoint *string `pulumi:"gcmEndpoint"`
@@ -1708,6 +2036,79 @@ func (o MpnsCredentialPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 		}
 		return v.Thumbprint
 	}).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub MpnsCredential.
+type MpnsCredentialInvokeResponse struct {
+	// The certificate key for this credential.
+	CertificateKey *string `pulumi:"certificateKey"`
+	// The MPNS certificate.
+	MpnsCertificate *string `pulumi:"mpnsCertificate"`
+	// The MPNS certificate Thumbprint
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// MpnsCredentialInvokeResponseInput is an input type that accepts MpnsCredentialInvokeResponseArgs and MpnsCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `MpnsCredentialInvokeResponseInput` via:
+//
+//          MpnsCredentialInvokeResponseArgs{...}
+type MpnsCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMpnsCredentialInvokeResponseOutput() MpnsCredentialInvokeResponseOutput
+	ToMpnsCredentialInvokeResponseOutputWithContext(context.Context) MpnsCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub MpnsCredential.
+type MpnsCredentialInvokeResponseArgs struct {
+	// The certificate key for this credential.
+	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
+	// The MPNS certificate.
+	MpnsCertificate pulumi.StringPtrInput `pulumi:"mpnsCertificate"`
+	// The MPNS certificate Thumbprint
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (MpnsCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MpnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i MpnsCredentialInvokeResponseArgs) ToMpnsCredentialInvokeResponseOutput() MpnsCredentialInvokeResponseOutput {
+	return i.ToMpnsCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MpnsCredentialInvokeResponseArgs) ToMpnsCredentialInvokeResponseOutputWithContext(ctx context.Context) MpnsCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialInvokeResponseOutput)
+}
+
+// Description of a NotificationHub MpnsCredential.
+type MpnsCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MpnsCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MpnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o MpnsCredentialInvokeResponseOutput) ToMpnsCredentialInvokeResponseOutput() MpnsCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o MpnsCredentialInvokeResponseOutput) ToMpnsCredentialInvokeResponseOutputWithContext(ctx context.Context) MpnsCredentialInvokeResponseOutput {
+	return o
+}
+
+// The certificate key for this credential.
+func (o MpnsCredentialInvokeResponseOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MpnsCredentialInvokeResponse) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
+}
+
+// The MPNS certificate.
+func (o MpnsCredentialInvokeResponseOutput) MpnsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MpnsCredentialInvokeResponse) *string { return v.MpnsCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The MPNS certificate Thumbprint
+func (o MpnsCredentialInvokeResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MpnsCredentialInvokeResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 // Description of a NotificationHub MpnsCredential.
@@ -2062,6 +2463,178 @@ func (o SharedAccessAuthorizationRulePropertiesArrayOutput) Index(i pulumi.IntIn
 }
 
 // SharedAccessAuthorizationRule properties.
+type SharedAccessAuthorizationRulePropertiesInvokeResponse struct {
+	// A string that describes the claim type
+	ClaimType string `pulumi:"claimType"`
+	// A string that describes the claim value
+	ClaimValue string `pulumi:"claimValue"`
+	// The created time for this rule
+	CreatedTime string `pulumi:"createdTime"`
+	// A string that describes the authorization rule.
+	KeyName string `pulumi:"keyName"`
+	// The last modified time for this rule
+	ModifiedTime string `pulumi:"modifiedTime"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey string `pulumi:"primaryKey"`
+	// The revision number for the rule
+	Revision int `pulumi:"revision"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey string `pulumi:"secondaryKey"`
+}
+
+// SharedAccessAuthorizationRulePropertiesInvokeResponseInput is an input type that accepts SharedAccessAuthorizationRulePropertiesInvokeResponseArgs and SharedAccessAuthorizationRulePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SharedAccessAuthorizationRulePropertiesInvokeResponseInput` via:
+//
+//          SharedAccessAuthorizationRulePropertiesInvokeResponseArgs{...}
+type SharedAccessAuthorizationRulePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseOutput
+	ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseOutput
+}
+
+// SharedAccessAuthorizationRule properties.
+type SharedAccessAuthorizationRulePropertiesInvokeResponseArgs struct {
+	// A string that describes the claim type
+	ClaimType pulumi.StringInput `pulumi:"claimType"`
+	// A string that describes the claim value
+	ClaimValue pulumi.StringInput `pulumi:"claimValue"`
+	// The created time for this rule
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// A string that describes the authorization rule.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
+	// The last modified time for this rule
+	ModifiedTime pulumi.StringInput `pulumi:"modifiedTime"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
+	// The revision number for the rule
+	Revision pulumi.IntInput `pulumi:"revision"`
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput `pulumi:"rights"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
+}
+
+func (SharedAccessAuthorizationRulePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessAuthorizationRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SharedAccessAuthorizationRulePropertiesInvokeResponseArgs) ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseOutput {
+	return i.ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SharedAccessAuthorizationRulePropertiesInvokeResponseArgs) ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesInvokeResponseOutput)
+}
+
+// SharedAccessAuthorizationRulePropertiesInvokeResponseArrayInput is an input type that accepts SharedAccessAuthorizationRulePropertiesInvokeResponseArray and SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SharedAccessAuthorizationRulePropertiesInvokeResponseArrayInput` via:
+//
+//          SharedAccessAuthorizationRulePropertiesInvokeResponseArray{ SharedAccessAuthorizationRulePropertiesInvokeResponseArgs{...} }
+type SharedAccessAuthorizationRulePropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput
+	ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput
+}
+
+type SharedAccessAuthorizationRulePropertiesInvokeResponseArray []SharedAccessAuthorizationRulePropertiesInvokeResponseInput
+
+func (SharedAccessAuthorizationRulePropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessAuthorizationRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SharedAccessAuthorizationRulePropertiesInvokeResponseArray) ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput {
+	return i.ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SharedAccessAuthorizationRulePropertiesInvokeResponseArray) ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput)
+}
+
+// SharedAccessAuthorizationRule properties.
+type SharedAccessAuthorizationRulePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessAuthorizationRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseOutput {
+	return o
+}
+
+// A string that describes the claim type
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ClaimType() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) string { return v.ClaimType }).(pulumi.StringOutput)
+}
+
+// A string that describes the claim value
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ClaimValue() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) string { return v.ClaimValue }).(pulumi.StringOutput)
+}
+
+// The created time for this rule
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// A string that describes the authorization rule.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The last modified time for this rule
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) string { return v.ModifiedTime }).(pulumi.StringOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// The revision number for the rule
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) Revision() pulumi.IntOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) int { return v.Revision }).(pulumi.IntOutput)
+}
+
+// The rights associated with the rule.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) []string { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+type SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessAuthorizationRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput) ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput) ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) SharedAccessAuthorizationRulePropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedAccessAuthorizationRulePropertiesInvokeResponse {
+		return vs[0].([]SharedAccessAuthorizationRulePropertiesInvokeResponse)[vs[1].(int)]
+	}).(SharedAccessAuthorizationRulePropertiesInvokeResponseOutput)
+}
+
+// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesResponse struct {
 	// A string that describes the claim type
 	ClaimType string `pulumi:"claimType"`
@@ -2234,7 +2807,7 @@ func (o SharedAccessAuthorizationRulePropertiesResponseArrayOutput) Index(i pulu
 }
 
 // Description of a Namespace AuthorizationRules.
-type SharedAccessAuthorizationRuleResourceResponse struct {
+type SharedAccessAuthorizationRuleResourceInvokeResponse struct {
 	// A string that describes the claim type
 	ClaimType string `pulumi:"claimType"`
 	// A string that describes the claim value
@@ -2260,26 +2833,26 @@ type SharedAccessAuthorizationRuleResourceResponse struct {
 	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 	SecondaryKey string `pulumi:"secondaryKey"`
 	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 }
 
-// SharedAccessAuthorizationRuleResourceResponseInput is an input type that accepts SharedAccessAuthorizationRuleResourceResponseArgs and SharedAccessAuthorizationRuleResourceResponseOutput values.
-// You can construct a concrete instance of `SharedAccessAuthorizationRuleResourceResponseInput` via:
+// SharedAccessAuthorizationRuleResourceInvokeResponseInput is an input type that accepts SharedAccessAuthorizationRuleResourceInvokeResponseArgs and SharedAccessAuthorizationRuleResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `SharedAccessAuthorizationRuleResourceInvokeResponseInput` via:
 //
-//          SharedAccessAuthorizationRuleResourceResponseArgs{...}
-type SharedAccessAuthorizationRuleResourceResponseInput interface {
+//          SharedAccessAuthorizationRuleResourceInvokeResponseArgs{...}
+type SharedAccessAuthorizationRuleResourceInvokeResponseInput interface {
 	pulumi.Input
 
-	ToSharedAccessAuthorizationRuleResourceResponseOutput() SharedAccessAuthorizationRuleResourceResponseOutput
-	ToSharedAccessAuthorizationRuleResourceResponseOutputWithContext(context.Context) SharedAccessAuthorizationRuleResourceResponseOutput
+	ToSharedAccessAuthorizationRuleResourceInvokeResponseOutput() SharedAccessAuthorizationRuleResourceInvokeResponseOutput
+	ToSharedAccessAuthorizationRuleResourceInvokeResponseOutputWithContext(context.Context) SharedAccessAuthorizationRuleResourceInvokeResponseOutput
 }
 
 // Description of a Namespace AuthorizationRules.
-type SharedAccessAuthorizationRuleResourceResponseArgs struct {
+type SharedAccessAuthorizationRuleResourceInvokeResponseArgs struct {
 	// A string that describes the claim type
 	ClaimType pulumi.StringInput `pulumi:"claimType"`
 	// A string that describes the claim value
@@ -2305,158 +2878,158 @@ type SharedAccessAuthorizationRuleResourceResponseArgs struct {
 	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
 	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 	// The sku of the created namespace
-	Sku SkuResponsePtrInput `pulumi:"sku"`
+	Sku SkuInvokeResponsePtrInput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (SharedAccessAuthorizationRuleResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedAccessAuthorizationRuleResourceResponse)(nil)).Elem()
+func (SharedAccessAuthorizationRuleResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessAuthorizationRuleResourceInvokeResponse)(nil)).Elem()
 }
 
-func (i SharedAccessAuthorizationRuleResourceResponseArgs) ToSharedAccessAuthorizationRuleResourceResponseOutput() SharedAccessAuthorizationRuleResourceResponseOutput {
-	return i.ToSharedAccessAuthorizationRuleResourceResponseOutputWithContext(context.Background())
+func (i SharedAccessAuthorizationRuleResourceInvokeResponseArgs) ToSharedAccessAuthorizationRuleResourceInvokeResponseOutput() SharedAccessAuthorizationRuleResourceInvokeResponseOutput {
+	return i.ToSharedAccessAuthorizationRuleResourceInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i SharedAccessAuthorizationRuleResourceResponseArgs) ToSharedAccessAuthorizationRuleResourceResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRuleResourceResponseOutput)
+func (i SharedAccessAuthorizationRuleResourceInvokeResponseArgs) ToSharedAccessAuthorizationRuleResourceInvokeResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRuleResourceInvokeResponseOutput)
 }
 
-// SharedAccessAuthorizationRuleResourceResponseArrayInput is an input type that accepts SharedAccessAuthorizationRuleResourceResponseArray and SharedAccessAuthorizationRuleResourceResponseArrayOutput values.
-// You can construct a concrete instance of `SharedAccessAuthorizationRuleResourceResponseArrayInput` via:
+// SharedAccessAuthorizationRuleResourceInvokeResponseArrayInput is an input type that accepts SharedAccessAuthorizationRuleResourceInvokeResponseArray and SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SharedAccessAuthorizationRuleResourceInvokeResponseArrayInput` via:
 //
-//          SharedAccessAuthorizationRuleResourceResponseArray{ SharedAccessAuthorizationRuleResourceResponseArgs{...} }
-type SharedAccessAuthorizationRuleResourceResponseArrayInput interface {
+//          SharedAccessAuthorizationRuleResourceInvokeResponseArray{ SharedAccessAuthorizationRuleResourceInvokeResponseArgs{...} }
+type SharedAccessAuthorizationRuleResourceInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToSharedAccessAuthorizationRuleResourceResponseArrayOutput() SharedAccessAuthorizationRuleResourceResponseArrayOutput
-	ToSharedAccessAuthorizationRuleResourceResponseArrayOutputWithContext(context.Context) SharedAccessAuthorizationRuleResourceResponseArrayOutput
+	ToSharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput() SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput
+	ToSharedAccessAuthorizationRuleResourceInvokeResponseArrayOutputWithContext(context.Context) SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput
 }
 
-type SharedAccessAuthorizationRuleResourceResponseArray []SharedAccessAuthorizationRuleResourceResponseInput
+type SharedAccessAuthorizationRuleResourceInvokeResponseArray []SharedAccessAuthorizationRuleResourceInvokeResponseInput
 
-func (SharedAccessAuthorizationRuleResourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SharedAccessAuthorizationRuleResourceResponse)(nil)).Elem()
+func (SharedAccessAuthorizationRuleResourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessAuthorizationRuleResourceInvokeResponse)(nil)).Elem()
 }
 
-func (i SharedAccessAuthorizationRuleResourceResponseArray) ToSharedAccessAuthorizationRuleResourceResponseArrayOutput() SharedAccessAuthorizationRuleResourceResponseArrayOutput {
-	return i.ToSharedAccessAuthorizationRuleResourceResponseArrayOutputWithContext(context.Background())
+func (i SharedAccessAuthorizationRuleResourceInvokeResponseArray) ToSharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput() SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput {
+	return i.ToSharedAccessAuthorizationRuleResourceInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i SharedAccessAuthorizationRuleResourceResponseArray) ToSharedAccessAuthorizationRuleResourceResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRuleResourceResponseArrayOutput)
+func (i SharedAccessAuthorizationRuleResourceInvokeResponseArray) ToSharedAccessAuthorizationRuleResourceInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput)
 }
 
 // Description of a Namespace AuthorizationRules.
-type SharedAccessAuthorizationRuleResourceResponseOutput struct{ *pulumi.OutputState }
+type SharedAccessAuthorizationRuleResourceInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (SharedAccessAuthorizationRuleResourceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedAccessAuthorizationRuleResourceResponse)(nil)).Elem()
+func (SharedAccessAuthorizationRuleResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessAuthorizationRuleResourceInvokeResponse)(nil)).Elem()
 }
 
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) ToSharedAccessAuthorizationRuleResourceResponseOutput() SharedAccessAuthorizationRuleResourceResponseOutput {
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) ToSharedAccessAuthorizationRuleResourceInvokeResponseOutput() SharedAccessAuthorizationRuleResourceInvokeResponseOutput {
 	return o
 }
 
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) ToSharedAccessAuthorizationRuleResourceResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceResponseOutput {
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) ToSharedAccessAuthorizationRuleResourceInvokeResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceInvokeResponseOutput {
 	return o
 }
 
 // A string that describes the claim type
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) ClaimType() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.ClaimType }).(pulumi.StringOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) ClaimType() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) string { return v.ClaimType }).(pulumi.StringOutput)
 }
 
 // A string that describes the claim value
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) ClaimValue() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.ClaimValue }).(pulumi.StringOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) ClaimValue() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) string { return v.ClaimValue }).(pulumi.StringOutput)
 }
 
 // The created time for this rule
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) CreatedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // Resource Id
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Id }).(pulumi.StringOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // A string that describes the authorization rule.
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) KeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.KeyName }).(pulumi.StringOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
 // Resource location
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // The last modified time for this rule
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) ModifiedTime() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.ModifiedTime }).(pulumi.StringOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) ModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) string { return v.ModifiedTime }).(pulumi.StringOutput)
 }
 
 // Resource name
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // A base64-encoded 256-bit primary key for signing and validating the SAS token.
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) PrimaryKey() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
 // The revision number for the rule
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) Revision() pulumi.IntOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) int { return v.Revision }).(pulumi.IntOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) Revision() pulumi.IntOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) int { return v.Revision }).(pulumi.IntOutput)
 }
 
 // The rights associated with the rule.
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) Rights() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) []string { return v.Rights }).(pulumi.StringArrayOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) []string { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
 // A base64-encoded 256-bit primary key for signing and validating the SAS token.
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) SecondaryKey() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
 // The sku of the created namespace
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) Sku() SkuInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) *SkuInvokeResponse { return v.Sku }).(SkuInvokeResponsePtrOutput)
 }
 
 // Resource tags
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Resource type
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Type }).(pulumi.StringOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type SharedAccessAuthorizationRuleResourceResponseArrayOutput struct{ *pulumi.OutputState }
+type SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (SharedAccessAuthorizationRuleResourceResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SharedAccessAuthorizationRuleResourceResponse)(nil)).Elem()
+func (SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessAuthorizationRuleResourceInvokeResponse)(nil)).Elem()
 }
 
-func (o SharedAccessAuthorizationRuleResourceResponseArrayOutput) ToSharedAccessAuthorizationRuleResourceResponseArrayOutput() SharedAccessAuthorizationRuleResourceResponseArrayOutput {
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput) ToSharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput() SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput {
 	return o
 }
 
-func (o SharedAccessAuthorizationRuleResourceResponseArrayOutput) ToSharedAccessAuthorizationRuleResourceResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceResponseArrayOutput {
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput) ToSharedAccessAuthorizationRuleResourceInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput {
 	return o
 }
 
-func (o SharedAccessAuthorizationRuleResourceResponseArrayOutput) Index(i pulumi.IntInput) SharedAccessAuthorizationRuleResourceResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedAccessAuthorizationRuleResourceResponse {
-		return vs[0].([]SharedAccessAuthorizationRuleResourceResponse)[vs[1].(int)]
-	}).(SharedAccessAuthorizationRuleResourceResponseOutput)
+func (o SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) SharedAccessAuthorizationRuleResourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedAccessAuthorizationRuleResourceInvokeResponse {
+		return vs[0].([]SharedAccessAuthorizationRuleResourceInvokeResponse)[vs[1].(int)]
+	}).(SharedAccessAuthorizationRuleResourceInvokeResponseOutput)
 }
 
 // The Sku description for a namespace
@@ -2662,6 +3235,216 @@ func (o SkuPtrOutput) Size() pulumi.StringPtrOutput {
 // The tier of particular sku
 func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Sku description for a namespace
+type SkuInvokeResponse struct {
+	// The capacity of the resource
+	Capacity *int `pulumi:"capacity"`
+	// The Sku Family
+	Family *string `pulumi:"family"`
+	// Name of the notification hub sku
+	Name string `pulumi:"name"`
+	// The Sku size
+	Size *string `pulumi:"size"`
+	// The tier of particular sku
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The Sku description for a namespace
+type SkuInvokeResponseArgs struct {
+	// The capacity of the resource
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The Sku Family
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// Name of the notification hub sku
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Sku size
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The tier of particular sku
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponsePtrOutput() SkuInvokeResponsePtrOutput {
+	return i.ToSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponsePtrOutputWithContext(ctx context.Context) SkuInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput).ToSkuInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SkuInvokeResponsePtrInput is an input type that accepts SkuInvokeResponseArgs, SkuInvokeResponsePtr and SkuInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SkuInvokeResponsePtrInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponsePtrOutput() SkuInvokeResponsePtrOutput
+	ToSkuInvokeResponsePtrOutputWithContext(context.Context) SkuInvokeResponsePtrOutput
+}
+
+type skuInvokeResponsePtrType SkuInvokeResponseArgs
+
+func SkuInvokeResponsePtr(v *SkuInvokeResponseArgs) SkuInvokeResponsePtrInput {
+	return (*skuInvokeResponsePtrType)(v)
+}
+
+func (*skuInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i *skuInvokeResponsePtrType) ToSkuInvokeResponsePtrOutput() SkuInvokeResponsePtrOutput {
+	return i.ToSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *skuInvokeResponsePtrType) ToSkuInvokeResponsePtrOutputWithContext(ctx context.Context) SkuInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponsePtrOutput)
+}
+
+// The Sku description for a namespace
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponsePtrOutput() SkuInvokeResponsePtrOutput {
+	return o.ToSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponsePtrOutputWithContext(ctx context.Context) SkuInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *SkuInvokeResponse {
+		return &v
+	}).(SkuInvokeResponsePtrOutput)
+}
+
+// The capacity of the resource
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The Sku Family
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// Name of the notification hub sku
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Sku size
+func (o SkuInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The tier of particular sku
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type SkuInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponsePtrOutput) ToSkuInvokeResponsePtrOutput() SkuInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SkuInvokeResponsePtrOutput) ToSkuInvokeResponsePtrOutputWithContext(ctx context.Context) SkuInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SkuInvokeResponsePtrOutput) Elem() SkuInvokeResponseOutput {
+	return o.ApplyT(func(v *SkuInvokeResponse) SkuInvokeResponse { return *v }).(SkuInvokeResponseOutput)
+}
+
+// The capacity of the resource
+func (o SkuInvokeResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SkuInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The Sku Family
+func (o SkuInvokeResponsePtrOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Family
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the notification hub sku
+func (o SkuInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Sku size
+func (o SkuInvokeResponsePtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tier of particular sku
+func (o SkuInvokeResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3052,6 +3835,79 @@ func (o WnsCredentialPtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
 }
 
 // Description of a NotificationHub WnsCredential.
+type WnsCredentialInvokeResponse struct {
+	// The package ID for this credential.
+	PackageSid *string `pulumi:"packageSid"`
+	// The secret key.
+	SecretKey *string `pulumi:"secretKey"`
+	// The Windows Live endpoint.
+	WindowsLiveEndpoint *string `pulumi:"windowsLiveEndpoint"`
+}
+
+// WnsCredentialInvokeResponseInput is an input type that accepts WnsCredentialInvokeResponseArgs and WnsCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `WnsCredentialInvokeResponseInput` via:
+//
+//          WnsCredentialInvokeResponseArgs{...}
+type WnsCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWnsCredentialInvokeResponseOutput() WnsCredentialInvokeResponseOutput
+	ToWnsCredentialInvokeResponseOutputWithContext(context.Context) WnsCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub WnsCredential.
+type WnsCredentialInvokeResponseArgs struct {
+	// The package ID for this credential.
+	PackageSid pulumi.StringPtrInput `pulumi:"packageSid"`
+	// The secret key.
+	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
+	// The Windows Live endpoint.
+	WindowsLiveEndpoint pulumi.StringPtrInput `pulumi:"windowsLiveEndpoint"`
+}
+
+func (WnsCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i WnsCredentialInvokeResponseArgs) ToWnsCredentialInvokeResponseOutput() WnsCredentialInvokeResponseOutput {
+	return i.ToWnsCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WnsCredentialInvokeResponseArgs) ToWnsCredentialInvokeResponseOutputWithContext(ctx context.Context) WnsCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialInvokeResponseOutput)
+}
+
+// Description of a NotificationHub WnsCredential.
+type WnsCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WnsCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o WnsCredentialInvokeResponseOutput) ToWnsCredentialInvokeResponseOutput() WnsCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o WnsCredentialInvokeResponseOutput) ToWnsCredentialInvokeResponseOutputWithContext(ctx context.Context) WnsCredentialInvokeResponseOutput {
+	return o
+}
+
+// The package ID for this credential.
+func (o WnsCredentialInvokeResponseOutput) PackageSid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WnsCredentialInvokeResponse) *string { return v.PackageSid }).(pulumi.StringPtrOutput)
+}
+
+// The secret key.
+func (o WnsCredentialInvokeResponseOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WnsCredentialInvokeResponse) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
+// The Windows Live endpoint.
+func (o WnsCredentialInvokeResponseOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WnsCredentialInvokeResponse) *string { return v.WindowsLiveEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub WnsCredential.
 type WnsCredentialResponse struct {
 	// The package ID for this credential.
 	PackageSid *string `pulumi:"packageSid"`
@@ -3226,37 +4082,47 @@ func (o WnsCredentialResponsePtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOu
 func init() {
 	pulumi.RegisterOutputType(AdmCredentialOutput{})
 	pulumi.RegisterOutputType(AdmCredentialPtrOutput{})
+	pulumi.RegisterOutputType(AdmCredentialInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AdmCredentialResponseOutput{})
 	pulumi.RegisterOutputType(AdmCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialPtrOutput{})
+	pulumi.RegisterOutputType(ApnsCredentialInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialPtrOutput{})
+	pulumi.RegisterOutputType(BaiduCredentialInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialResponseOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(GcmCredentialOutput{})
 	pulumi.RegisterOutputType(GcmCredentialPtrOutput{})
+	pulumi.RegisterOutputType(GcmCredentialInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GcmCredentialResponseOutput{})
 	pulumi.RegisterOutputType(GcmCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialPtrOutput{})
+	pulumi.RegisterOutputType(MpnsCredentialInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesArrayOutput{})
+	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseArrayOutput{})
-	pulumi.RegisterOutputType(SharedAccessAuthorizationRuleResourceResponseOutput{})
-	pulumi.RegisterOutputType(SharedAccessAuthorizationRuleResourceResponseArrayOutput{})
+	pulumi.RegisterOutputType(SharedAccessAuthorizationRuleResourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SharedAccessAuthorizationRuleResourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(WnsCredentialOutput{})
 	pulumi.RegisterOutputType(WnsCredentialPtrOutput{})
+	pulumi.RegisterOutputType(WnsCredentialInvokeResponseOutput{})
 	pulumi.RegisterOutputType(WnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(WnsCredentialResponsePtrOutput{})
 }

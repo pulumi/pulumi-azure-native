@@ -34,7 +34,7 @@ type LookupReplicationFabricResult struct {
 	// Resource Name
 	Name string `pulumi:"name"`
 	// Fabric related data.
-	Properties FabricPropertiesResponse `pulumi:"properties"`
+	Properties FabricPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource Type
 	Type string `pulumi:"type"`
 }

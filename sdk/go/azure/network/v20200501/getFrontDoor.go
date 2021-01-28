@@ -26,9 +26,9 @@ type LookupFrontDoorArgs struct {
 // Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
 type LookupFrontDoorResult struct {
 	// Backend pools available to routing rules.
-	BackendPools []BackendPoolResponse `pulumi:"backendPools"`
+	BackendPools []BackendPoolInvokeResponse `pulumi:"backendPools"`
 	// Settings for all backendPools
-	BackendPoolsSettings *BackendPoolsSettingsResponse `pulumi:"backendPoolsSettings"`
+	BackendPoolsSettings *BackendPoolsSettingsInvokeResponse `pulumi:"backendPoolsSettings"`
 	// The host that each frontendEndpoint must CNAME to.
 	Cname string `pulumi:"cname"`
 	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
@@ -38,13 +38,13 @@ type LookupFrontDoorResult struct {
 	// The Id of the frontdoor.
 	FrontdoorId string `pulumi:"frontdoorId"`
 	// Frontend endpoints available to routing rules.
-	FrontendEndpoints []FrontendEndpointResponse `pulumi:"frontendEndpoints"`
+	FrontendEndpoints []FrontendEndpointInvokeResponse `pulumi:"frontendEndpoints"`
 	// Health probe settings associated with this Front Door instance.
-	HealthProbeSettings []HealthProbeSettingsModelResponse `pulumi:"healthProbeSettings"`
+	HealthProbeSettings []HealthProbeSettingsModelInvokeResponse `pulumi:"healthProbeSettings"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Load balancing settings associated with this Front Door instance.
-	LoadBalancingSettings []LoadBalancingSettingsModelResponse `pulumi:"loadBalancingSettings"`
+	LoadBalancingSettings []LoadBalancingSettingsModelInvokeResponse `pulumi:"loadBalancingSettings"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -54,9 +54,9 @@ type LookupFrontDoorResult struct {
 	// Resource status of the Front Door.
 	ResourceState string `pulumi:"resourceState"`
 	// Routing rules associated with this Front Door.
-	RoutingRules []RoutingRuleResponse `pulumi:"routingRules"`
+	RoutingRules []RoutingRuleInvokeResponse `pulumi:"routingRules"`
 	// Rules Engine Configurations available to routing rules.
-	RulesEngines []RulesEngineResponse `pulumi:"rulesEngines"`
+	RulesEngines []RulesEngineInvokeResponse `pulumi:"rulesEngines"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -38,13 +38,13 @@ type LookupExpressRouteCircuitConnectionResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-	ExpressRouteCircuitPeering *SubResourceResponse `pulumi:"expressRouteCircuitPeering"`
+	ExpressRouteCircuitPeering *SubResourceInvokeResponse `pulumi:"expressRouteCircuitPeering"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
-	PeerExpressRouteCircuitPeering *SubResourceResponse `pulumi:"peerExpressRouteCircuitPeering"`
+	PeerExpressRouteCircuitPeering *SubResourceInvokeResponse `pulumi:"peerExpressRouteCircuitPeering"`
 	// Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState string `pulumi:"provisioningState"`
 }

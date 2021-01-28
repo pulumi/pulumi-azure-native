@@ -34,7 +34,7 @@ type LookupServerResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityInvokeResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The master server id of a replica server.
@@ -46,11 +46,11 @@ type LookupServerResult struct {
 	// The replication role of the server.
 	ReplicationRole *string `pulumi:"replicationRole"`
 	// The SKU (pricing tier) of the server.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Enable ssl enforcement or not when connect to server.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
-	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
+	StorageProfile *StorageProfileInvokeResponse `pulumi:"storageProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

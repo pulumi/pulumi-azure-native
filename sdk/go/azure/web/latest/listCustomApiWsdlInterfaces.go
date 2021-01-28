@@ -24,7 +24,7 @@ type ListCustomApiWsdlInterfacesArgs struct {
 	// The location
 	Location string `pulumi:"location"`
 	// The service with name and endpoint names
-	Service *WsdlService `pulumi:"service"`
+	Service *WsdlServiceInvoke `pulumi:"service"`
 	// Subscription Id
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The WSDL URL
@@ -34,5 +34,5 @@ type ListCustomApiWsdlInterfacesArgs struct {
 // A list of custom API WSDL interfaces
 type ListCustomApiWsdlInterfacesResult struct {
 	// Collection of WSDL interfaces
-	Value []WsdlServiceResponse `pulumi:"value"`
+	Value []WsdlServiceInvokeResponse `pulumi:"value"`
 }

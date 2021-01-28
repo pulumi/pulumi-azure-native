@@ -111,6 +111,106 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput) Index(i pulu
 }
 
 // Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse struct {
+	// The rule baseline result
+	Result []string `pulumi:"result"`
+}
+
+// DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseInput is an input type that accepts DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs and DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput values.
+// You can construct a concrete instance of `DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseInput` via:
+//
+//          DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs{...}
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput
+	ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput
+}
+
+// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs struct {
+	// The rule baseline result
+	Result pulumi.StringArrayInput `pulumi:"result"`
+}
+
+func (DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse)(nil)).Elem()
+}
+
+func (i DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput {
+	return i.ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput)
+}
+
+// DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayInput is an input type that accepts DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray and DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayInput` via:
+//
+//          DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray{ DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArgs{...} }
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput
+	ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutputWithContext(context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput
+}
+
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray []DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseInput
+
+func (DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse)(nil)).Elem()
+}
+
+func (i DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput {
+	return i.ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArray) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput)
+}
+
+// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse)(nil)).Elem()
+}
+
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput {
+	return o
+}
+
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput {
+	return o
+}
+
+// The rule baseline result
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput) Result() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse) []string { return v.Result }).(pulumi.StringArrayOutput)
+}
+
+type DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse)(nil)).Elem()
+}
+
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput() DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput) ToDatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput) Index(i pulumi.IntInput) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse {
+		return vs[0].([]DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponse)[vs[1].(int)]
+	}).(DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput)
+}
+
+// Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
 type DatabaseVulnerabilityAssessmentRuleBaselineItemResponse struct {
 	// The rule baseline result
 	Result []string `pulumi:"result"`
@@ -418,6 +518,97 @@ func (o JobSchedulePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Scheduling properties of a job.
+type JobScheduleInvokeResponse struct {
+	// Whether or not the schedule is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Schedule end time.
+	EndTime *string `pulumi:"endTime"`
+	// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
+	Interval *string `pulumi:"interval"`
+	// Schedule start time.
+	StartTime *string `pulumi:"startTime"`
+	// Schedule interval type
+	Type *string `pulumi:"type"`
+}
+
+// JobScheduleInvokeResponseInput is an input type that accepts JobScheduleInvokeResponseArgs and JobScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `JobScheduleInvokeResponseInput` via:
+//
+//          JobScheduleInvokeResponseArgs{...}
+type JobScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobScheduleInvokeResponseOutput() JobScheduleInvokeResponseOutput
+	ToJobScheduleInvokeResponseOutputWithContext(context.Context) JobScheduleInvokeResponseOutput
+}
+
+// Scheduling properties of a job.
+type JobScheduleInvokeResponseArgs struct {
+	// Whether or not the schedule is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Schedule end time.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
+	Interval pulumi.StringPtrInput `pulumi:"interval"`
+	// Schedule start time.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+	// Schedule interval type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (JobScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i JobScheduleInvokeResponseArgs) ToJobScheduleInvokeResponseOutput() JobScheduleInvokeResponseOutput {
+	return i.ToJobScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobScheduleInvokeResponseArgs) ToJobScheduleInvokeResponseOutputWithContext(ctx context.Context) JobScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleInvokeResponseOutput)
+}
+
+// Scheduling properties of a job.
+type JobScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o JobScheduleInvokeResponseOutput) ToJobScheduleInvokeResponseOutput() JobScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o JobScheduleInvokeResponseOutput) ToJobScheduleInvokeResponseOutputWithContext(ctx context.Context) JobScheduleInvokeResponseOutput {
+	return o
+}
+
+// Whether or not the schedule is enabled.
+func (o JobScheduleInvokeResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobScheduleInvokeResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Schedule end time.
+func (o JobScheduleInvokeResponseOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobScheduleInvokeResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Value of the schedule's recurring interval, if the schedule type is recurring. ISO8601 duration format.
+func (o JobScheduleInvokeResponseOutput) Interval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobScheduleInvokeResponse) *string { return v.Interval }).(pulumi.StringPtrOutput)
+}
+
+// Schedule start time.
+func (o JobScheduleInvokeResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobScheduleInvokeResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Schedule interval type
+func (o JobScheduleInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobScheduleInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Scheduling properties of a job.
@@ -803,6 +994,79 @@ func (o JobStepActionPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 // The action to be executed by a job step.
+type JobStepActionInvokeResponse struct {
+	// The source of the action to execute.
+	Source *string `pulumi:"source"`
+	// Type of action being executed by the job step.
+	Type *string `pulumi:"type"`
+	// The action value, for example the text of the T-SQL script to execute.
+	Value string `pulumi:"value"`
+}
+
+// JobStepActionInvokeResponseInput is an input type that accepts JobStepActionInvokeResponseArgs and JobStepActionInvokeResponseOutput values.
+// You can construct a concrete instance of `JobStepActionInvokeResponseInput` via:
+//
+//          JobStepActionInvokeResponseArgs{...}
+type JobStepActionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobStepActionInvokeResponseOutput() JobStepActionInvokeResponseOutput
+	ToJobStepActionInvokeResponseOutputWithContext(context.Context) JobStepActionInvokeResponseOutput
+}
+
+// The action to be executed by a job step.
+type JobStepActionInvokeResponseArgs struct {
+	// The source of the action to execute.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// Type of action being executed by the job step.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The action value, for example the text of the T-SQL script to execute.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (JobStepActionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepActionInvokeResponse)(nil)).Elem()
+}
+
+func (i JobStepActionInvokeResponseArgs) ToJobStepActionInvokeResponseOutput() JobStepActionInvokeResponseOutput {
+	return i.ToJobStepActionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobStepActionInvokeResponseArgs) ToJobStepActionInvokeResponseOutputWithContext(ctx context.Context) JobStepActionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepActionInvokeResponseOutput)
+}
+
+// The action to be executed by a job step.
+type JobStepActionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobStepActionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepActionInvokeResponse)(nil)).Elem()
+}
+
+func (o JobStepActionInvokeResponseOutput) ToJobStepActionInvokeResponseOutput() JobStepActionInvokeResponseOutput {
+	return o
+}
+
+func (o JobStepActionInvokeResponseOutput) ToJobStepActionInvokeResponseOutputWithContext(ctx context.Context) JobStepActionInvokeResponseOutput {
+	return o
+}
+
+// The source of the action to execute.
+func (o JobStepActionInvokeResponseOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepActionInvokeResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// Type of action being executed by the job step.
+func (o JobStepActionInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepActionInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The action value, for example the text of the T-SQL script to execute.
+func (o JobStepActionInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepActionInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+// The action to be executed by a job step.
 type JobStepActionResponse struct {
 	// The source of the action to execute.
 	Source *string `pulumi:"source"`
@@ -1182,6 +1446,97 @@ func (o JobStepExecutionOptionsPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 		}
 		return v.TimeoutSeconds
 	}).(pulumi.IntPtrOutput)
+}
+
+// The execution options of a job step.
+type JobStepExecutionOptionsInvokeResponse struct {
+	// Initial delay between retries for job step execution.
+	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`
+	// The maximum amount of time to wait between retries for job step execution.
+	MaximumRetryIntervalSeconds *int `pulumi:"maximumRetryIntervalSeconds"`
+	// Maximum number of times the job step will be reattempted if the first attempt fails.
+	RetryAttempts *int `pulumi:"retryAttempts"`
+	// The backoff multiplier for the time between retries.
+	RetryIntervalBackoffMultiplier *float64 `pulumi:"retryIntervalBackoffMultiplier"`
+	// Execution timeout for the job step.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+
+// JobStepExecutionOptionsInvokeResponseInput is an input type that accepts JobStepExecutionOptionsInvokeResponseArgs and JobStepExecutionOptionsInvokeResponseOutput values.
+// You can construct a concrete instance of `JobStepExecutionOptionsInvokeResponseInput` via:
+//
+//          JobStepExecutionOptionsInvokeResponseArgs{...}
+type JobStepExecutionOptionsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobStepExecutionOptionsInvokeResponseOutput() JobStepExecutionOptionsInvokeResponseOutput
+	ToJobStepExecutionOptionsInvokeResponseOutputWithContext(context.Context) JobStepExecutionOptionsInvokeResponseOutput
+}
+
+// The execution options of a job step.
+type JobStepExecutionOptionsInvokeResponseArgs struct {
+	// Initial delay between retries for job step execution.
+	InitialRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"initialRetryIntervalSeconds"`
+	// The maximum amount of time to wait between retries for job step execution.
+	MaximumRetryIntervalSeconds pulumi.IntPtrInput `pulumi:"maximumRetryIntervalSeconds"`
+	// Maximum number of times the job step will be reattempted if the first attempt fails.
+	RetryAttempts pulumi.IntPtrInput `pulumi:"retryAttempts"`
+	// The backoff multiplier for the time between retries.
+	RetryIntervalBackoffMultiplier pulumi.Float64PtrInput `pulumi:"retryIntervalBackoffMultiplier"`
+	// Execution timeout for the job step.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+}
+
+func (JobStepExecutionOptionsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepExecutionOptionsInvokeResponse)(nil)).Elem()
+}
+
+func (i JobStepExecutionOptionsInvokeResponseArgs) ToJobStepExecutionOptionsInvokeResponseOutput() JobStepExecutionOptionsInvokeResponseOutput {
+	return i.ToJobStepExecutionOptionsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobStepExecutionOptionsInvokeResponseArgs) ToJobStepExecutionOptionsInvokeResponseOutputWithContext(ctx context.Context) JobStepExecutionOptionsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepExecutionOptionsInvokeResponseOutput)
+}
+
+// The execution options of a job step.
+type JobStepExecutionOptionsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobStepExecutionOptionsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepExecutionOptionsInvokeResponse)(nil)).Elem()
+}
+
+func (o JobStepExecutionOptionsInvokeResponseOutput) ToJobStepExecutionOptionsInvokeResponseOutput() JobStepExecutionOptionsInvokeResponseOutput {
+	return o
+}
+
+func (o JobStepExecutionOptionsInvokeResponseOutput) ToJobStepExecutionOptionsInvokeResponseOutputWithContext(ctx context.Context) JobStepExecutionOptionsInvokeResponseOutput {
+	return o
+}
+
+// Initial delay between retries for job step execution.
+func (o JobStepExecutionOptionsInvokeResponseOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobStepExecutionOptionsInvokeResponse) *int { return v.InitialRetryIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The maximum amount of time to wait between retries for job step execution.
+func (o JobStepExecutionOptionsInvokeResponseOutput) MaximumRetryIntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobStepExecutionOptionsInvokeResponse) *int { return v.MaximumRetryIntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of times the job step will be reattempted if the first attempt fails.
+func (o JobStepExecutionOptionsInvokeResponseOutput) RetryAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobStepExecutionOptionsInvokeResponse) *int { return v.RetryAttempts }).(pulumi.IntPtrOutput)
+}
+
+// The backoff multiplier for the time between retries.
+func (o JobStepExecutionOptionsInvokeResponseOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JobStepExecutionOptionsInvokeResponse) *float64 { return v.RetryIntervalBackoffMultiplier }).(pulumi.Float64PtrOutput)
+}
+
+// Execution timeout for the job step.
+func (o JobStepExecutionOptionsInvokeResponseOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobStepExecutionOptionsInvokeResponse) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 // The execution options of a job step.
@@ -1662,6 +2017,124 @@ func (o JobStepOutputPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The output configuration of a job step.
+type JobStepOutputInvokeResponse struct {
+	// The resource ID of the credential to use to connect to the output destination.
+	Credential string `pulumi:"credential"`
+	// The output destination database.
+	DatabaseName string `pulumi:"databaseName"`
+	// The output destination resource group.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The output destination schema.
+	SchemaName *string `pulumi:"schemaName"`
+	// The output destination server name.
+	ServerName string `pulumi:"serverName"`
+	// The output destination subscription id.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The output destination table.
+	TableName string `pulumi:"tableName"`
+	// The output destination type.
+	Type *string `pulumi:"type"`
+}
+
+// JobStepOutputInvokeResponseInput is an input type that accepts JobStepOutputInvokeResponseArgs and JobStepOutputInvokeResponseOutput values.
+// You can construct a concrete instance of `JobStepOutputInvokeResponseInput` via:
+//
+//          JobStepOutputInvokeResponseArgs{...}
+type JobStepOutputInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobStepOutputInvokeResponseOutput() JobStepOutputInvokeResponseOutput
+	ToJobStepOutputInvokeResponseOutputWithContext(context.Context) JobStepOutputInvokeResponseOutput
+}
+
+// The output configuration of a job step.
+type JobStepOutputInvokeResponseArgs struct {
+	// The resource ID of the credential to use to connect to the output destination.
+	Credential pulumi.StringInput `pulumi:"credential"`
+	// The output destination database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The output destination resource group.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// The output destination schema.
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
+	// The output destination server name.
+	ServerName pulumi.StringInput `pulumi:"serverName"`
+	// The output destination subscription id.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The output destination table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// The output destination type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (JobStepOutputInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepOutputInvokeResponse)(nil)).Elem()
+}
+
+func (i JobStepOutputInvokeResponseArgs) ToJobStepOutputInvokeResponseOutput() JobStepOutputInvokeResponseOutput {
+	return i.ToJobStepOutputInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobStepOutputInvokeResponseArgs) ToJobStepOutputInvokeResponseOutputWithContext(ctx context.Context) JobStepOutputInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStepOutputInvokeResponseOutput)
+}
+
+// The output configuration of a job step.
+type JobStepOutputInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobStepOutputInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStepOutputInvokeResponse)(nil)).Elem()
+}
+
+func (o JobStepOutputInvokeResponseOutput) ToJobStepOutputInvokeResponseOutput() JobStepOutputInvokeResponseOutput {
+	return o
+}
+
+func (o JobStepOutputInvokeResponseOutput) ToJobStepOutputInvokeResponseOutputWithContext(ctx context.Context) JobStepOutputInvokeResponseOutput {
+	return o
+}
+
+// The resource ID of the credential to use to connect to the output destination.
+func (o JobStepOutputInvokeResponseOutput) Credential() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) string { return v.Credential }).(pulumi.StringOutput)
+}
+
+// The output destination database.
+func (o JobStepOutputInvokeResponseOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The output destination resource group.
+func (o JobStepOutputInvokeResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The output destination schema.
+func (o JobStepOutputInvokeResponseOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+// The output destination server name.
+func (o JobStepOutputInvokeResponseOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// The output destination subscription id.
+func (o JobStepOutputInvokeResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The output destination table.
+func (o JobStepOutputInvokeResponseOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+// The output destination type.
+func (o JobStepOutputInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The output configuration of a job step.
 type JobStepOutputResponse struct {
 	// The resource ID of the credential to use to connect to the output destination.
 	Credential string `pulumi:"credential"`
@@ -2083,6 +2556,160 @@ func (o JobTargetArrayOutput) Index(i pulumi.IntInput) JobTargetOutput {
 }
 
 // A job target, for example a specific database or a container of databases that is evaluated during job execution.
+type JobTargetInvokeResponse struct {
+	// The target database name.
+	DatabaseName *string `pulumi:"databaseName"`
+	// The target elastic pool name.
+	ElasticPoolName *string `pulumi:"elasticPoolName"`
+	// Whether the target is included or excluded from the group.
+	MembershipType *string `pulumi:"membershipType"`
+	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+	RefreshCredential *string `pulumi:"refreshCredential"`
+	// The target server name.
+	ServerName *string `pulumi:"serverName"`
+	// The target shard map.
+	ShardMapName *string `pulumi:"shardMapName"`
+	// The target type.
+	Type string `pulumi:"type"`
+}
+
+// JobTargetInvokeResponseInput is an input type that accepts JobTargetInvokeResponseArgs and JobTargetInvokeResponseOutput values.
+// You can construct a concrete instance of `JobTargetInvokeResponseInput` via:
+//
+//          JobTargetInvokeResponseArgs{...}
+type JobTargetInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobTargetInvokeResponseOutput() JobTargetInvokeResponseOutput
+	ToJobTargetInvokeResponseOutputWithContext(context.Context) JobTargetInvokeResponseOutput
+}
+
+// A job target, for example a specific database or a container of databases that is evaluated during job execution.
+type JobTargetInvokeResponseArgs struct {
+	// The target database name.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// The target elastic pool name.
+	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
+	// Whether the target is included or excluded from the group.
+	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
+	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
+	// The target server name.
+	ServerName pulumi.StringPtrInput `pulumi:"serverName"`
+	// The target shard map.
+	ShardMapName pulumi.StringPtrInput `pulumi:"shardMapName"`
+	// The target type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (JobTargetInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTargetInvokeResponse)(nil)).Elem()
+}
+
+func (i JobTargetInvokeResponseArgs) ToJobTargetInvokeResponseOutput() JobTargetInvokeResponseOutput {
+	return i.ToJobTargetInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobTargetInvokeResponseArgs) ToJobTargetInvokeResponseOutputWithContext(ctx context.Context) JobTargetInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTargetInvokeResponseOutput)
+}
+
+// JobTargetInvokeResponseArrayInput is an input type that accepts JobTargetInvokeResponseArray and JobTargetInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JobTargetInvokeResponseArrayInput` via:
+//
+//          JobTargetInvokeResponseArray{ JobTargetInvokeResponseArgs{...} }
+type JobTargetInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJobTargetInvokeResponseArrayOutput() JobTargetInvokeResponseArrayOutput
+	ToJobTargetInvokeResponseArrayOutputWithContext(context.Context) JobTargetInvokeResponseArrayOutput
+}
+
+type JobTargetInvokeResponseArray []JobTargetInvokeResponseInput
+
+func (JobTargetInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTargetInvokeResponse)(nil)).Elem()
+}
+
+func (i JobTargetInvokeResponseArray) ToJobTargetInvokeResponseArrayOutput() JobTargetInvokeResponseArrayOutput {
+	return i.ToJobTargetInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JobTargetInvokeResponseArray) ToJobTargetInvokeResponseArrayOutputWithContext(ctx context.Context) JobTargetInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTargetInvokeResponseArrayOutput)
+}
+
+// A job target, for example a specific database or a container of databases that is evaluated during job execution.
+type JobTargetInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobTargetInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTargetInvokeResponse)(nil)).Elem()
+}
+
+func (o JobTargetInvokeResponseOutput) ToJobTargetInvokeResponseOutput() JobTargetInvokeResponseOutput {
+	return o
+}
+
+func (o JobTargetInvokeResponseOutput) ToJobTargetInvokeResponseOutputWithContext(ctx context.Context) JobTargetInvokeResponseOutput {
+	return o
+}
+
+// The target database name.
+func (o JobTargetInvokeResponseOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// The target elastic pool name.
+func (o JobTargetInvokeResponseOutput) ElasticPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.ElasticPoolName }).(pulumi.StringPtrOutput)
+}
+
+// Whether the target is included or excluded from the group.
+func (o JobTargetInvokeResponseOutput) MembershipType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
+func (o JobTargetInvokeResponseOutput) RefreshCredential() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.RefreshCredential }).(pulumi.StringPtrOutput)
+}
+
+// The target server name.
+func (o JobTargetInvokeResponseOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// The target shard map.
+func (o JobTargetInvokeResponseOutput) ShardMapName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) *string { return v.ShardMapName }).(pulumi.StringPtrOutput)
+}
+
+// The target type.
+func (o JobTargetInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTargetInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type JobTargetInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTargetInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTargetInvokeResponse)(nil)).Elem()
+}
+
+func (o JobTargetInvokeResponseArrayOutput) ToJobTargetInvokeResponseArrayOutput() JobTargetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobTargetInvokeResponseArrayOutput) ToJobTargetInvokeResponseArrayOutputWithContext(ctx context.Context) JobTargetInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobTargetInvokeResponseArrayOutput) Index(i pulumi.IntInput) JobTargetInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTargetInvokeResponse {
+		return vs[0].([]JobTargetInvokeResponse)[vs[1].(int)]
+	}).(JobTargetInvokeResponseOutput)
+}
+
+// A job target, for example a specific database or a container of databases that is evaluated during job execution.
 type JobTargetResponse struct {
 	// The target database name.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -2444,6 +3071,97 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// An ARM Resource SKU.
+type SkuInvokeResponse struct {
+	// Capacity of the particular SKU.
+	Capacity *int `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family *string `pulumi:"family"`
+	// The name of the SKU, typically, a letter + Number code, e.g. P3.
+	Name string `pulumi:"name"`
+	// Size of the particular SKU
+	Size *string `pulumi:"size"`
+	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// An ARM Resource SKU.
+type SkuInvokeResponseArgs struct {
+	// Capacity of the particular SKU.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the SKU, typically, a letter + Number code, e.g. P3.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Size of the particular SKU
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The tier or edition of the particular SKU, e.g. Basic, Premium.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// An ARM Resource SKU.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Capacity of the particular SKU.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here.
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU, typically, a letter + Number code, e.g. P3.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Size of the particular SKU
+func (o SkuInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The tier or edition of the particular SKU, e.g. Basic, Premium.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 // An ARM Resource SKU.
@@ -2831,6 +3549,81 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) IsEnabled() pu
 }
 
 // Properties of a Vulnerability Assessment recurring scans.
+type VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse struct {
+	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
+	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
+	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	Emails []string `pulumi:"emails"`
+	// Recurring scans state.
+	IsEnabled *bool `pulumi:"isEnabled"`
+}
+
+// VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseInput is an input type that accepts VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs and VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseInput` via:
+//
+//          VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs{...}
+type VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput() VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput
+	ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutputWithContext(context.Context) VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput
+}
+
+// Properties of a Vulnerability Assessment recurring scans.
+type VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs struct {
+	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
+	EmailSubscriptionAdmins pulumi.BoolPtrInput `pulumi:"emailSubscriptionAdmins"`
+	// Specifies an array of e-mail addresses to which the scan notification is sent.
+	Emails pulumi.StringArrayInput `pulumi:"emails"`
+	// Recurring scans state.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+}
+
+func (VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput() VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput {
+	return i.ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseArgs) ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput)
+}
+
+// Properties of a Vulnerability Assessment recurring scans.
+type VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput() VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Specifies that the schedule scan notification will be is sent to the subscription administrators.
+func (o VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) EmailSubscriptionAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse) *bool {
+		return v.EmailSubscriptionAdmins
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an array of e-mail addresses to which the scan notification is sent.
+func (o VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse) []string { return v.Emails }).(pulumi.StringArrayOutput)
+}
+
+// Recurring scans state.
+func (o VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesInvokeResponse) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Properties of a Vulnerability Assessment recurring scans.
 type VulnerabilityAssessmentRecurringScansPropertiesResponse struct {
 	// Specifies that the schedule scan notification will be is sent to the subscription administrators.
 	EmailSubscriptionAdmins *bool `pulumi:"emailSubscriptionAdmins"`
@@ -3009,34 +3802,44 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) IsEnab
 func init() {
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobScheduleOutput{})
 	pulumi.RegisterOutputType(JobSchedulePtrOutput{})
+	pulumi.RegisterOutputType(JobScheduleInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobScheduleResponseOutput{})
 	pulumi.RegisterOutputType(JobScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStepActionOutput{})
 	pulumi.RegisterOutputType(JobStepActionPtrOutput{})
+	pulumi.RegisterOutputType(JobStepActionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobStepActionResponseOutput{})
 	pulumi.RegisterOutputType(JobStepActionResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsPtrOutput{})
+	pulumi.RegisterOutputType(JobStepExecutionOptionsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsResponseOutput{})
 	pulumi.RegisterOutputType(JobStepExecutionOptionsResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobStepOutputOutput{})
 	pulumi.RegisterOutputType(JobStepOutputPtrOutput{})
+	pulumi.RegisterOutputType(JobStepOutputInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobStepOutputResponseOutput{})
 	pulumi.RegisterOutputType(JobStepOutputResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobTargetOutput{})
 	pulumi.RegisterOutputType(JobTargetArrayOutput{})
+	pulumi.RegisterOutputType(JobTargetInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobTargetInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobTargetResponseOutput{})
 	pulumi.RegisterOutputType(JobTargetResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput{})
 }

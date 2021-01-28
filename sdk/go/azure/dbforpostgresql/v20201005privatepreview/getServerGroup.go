@@ -38,7 +38,7 @@ type LookupServerGroupResult struct {
 	// The mode to create a new server group.
 	CreateMode *string `pulumi:"createMode"`
 	// The delegated subnet arguments for a server group.
-	DelegatedSubnetArguments *ServerGroupPropertiesResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
+	DelegatedSubnetArguments *ServerGroupPropertiesInvokeResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
 	// The earliest restore point time (ISO8601 format) for server group.
 	EarliestRestoreTime string `pulumi:"earliestRestoreTime"`
 	// If Citus MX is enabled or not for the server group.
@@ -52,7 +52,7 @@ type LookupServerGroupResult struct {
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Maintenance window of a server group.
-	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
+	MaintenanceWindow *MaintenanceWindowInvokeResponse `pulumi:"maintenanceWindow"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from. It's required when 'createMode' is 'PointInTimeRestore'
@@ -62,7 +62,7 @@ type LookupServerGroupResult struct {
 	// The resource provider type of server group.
 	ResourceProviderType string `pulumi:"resourceProviderType"`
 	// The list of server role groups.
-	ServerRoleGroups []ServerRoleGroupResponse `pulumi:"serverRoleGroups"`
+	ServerRoleGroups []ServerRoleGroupInvokeResponse `pulumi:"serverRoleGroups"`
 	// The source server group location to restore from. It's required when 'createMode' is 'PointInTimeRestore'
 	SourceLocation *string `pulumi:"sourceLocation"`
 	// The source resource group name to restore from. It's required when 'createMode' is 'PointInTimeRestore'
@@ -76,7 +76,7 @@ type LookupServerGroupResult struct {
 	// A state of a server group that is visible to user.
 	State string `pulumi:"state"`
 	// The system metadata relating to this resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

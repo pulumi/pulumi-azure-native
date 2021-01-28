@@ -28,9 +28,9 @@ type LookupExportArgs struct {
 // An export resource.
 type LookupExportResult struct {
 	// Has the definition for the export.
-	Definition ExportDefinitionResponse `pulumi:"definition"`
+	Definition ExportDefinitionInvokeResponse `pulumi:"definition"`
 	// Has delivery information for the export.
-	DeliveryInfo ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
+	DeliveryInfo ExportDeliveryInfoInvokeResponse `pulumi:"deliveryInfo"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
 	// The format of the export being delivered. Currently only 'Csv' is supported.
@@ -42,9 +42,9 @@ type LookupExportResult struct {
 	// If the export has an active schedule, provides an estimate of the next execution time.
 	NextRunTimeEstimate string `pulumi:"nextRunTimeEstimate"`
 	// If requested, has the most recent execution history for the export.
-	RunHistory *ExportExecutionListResultResponse `pulumi:"runHistory"`
+	RunHistory *ExportExecutionListResultInvokeResponse `pulumi:"runHistory"`
 	// Has schedule information for the export.
-	Schedule *ExportScheduleResponse `pulumi:"schedule"`
+	Schedule *ExportScheduleInvokeResponse `pulumi:"schedule"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

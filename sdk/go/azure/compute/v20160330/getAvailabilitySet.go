@@ -36,11 +36,11 @@ type LookupAvailabilitySetResult struct {
 	// Update Domain count.
 	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
 	// The resource status information.
-	Statuses []InstanceViewStatusResponse `pulumi:"statuses"`
+	Statuses []InstanceViewStatusInvokeResponse `pulumi:"statuses"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// A list of references to all virtual machines in the availability set.
-	VirtualMachines []SubResourceResponse `pulumi:"virtualMachines"`
+	VirtualMachines []SubResourceInvokeResponse `pulumi:"virtualMachines"`
 }

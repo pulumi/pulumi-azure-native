@@ -34,7 +34,7 @@ type LookupSqlResourceSqlRoleDefinitionResult struct {
 	// The name of the database account.
 	Name string `pulumi:"name"`
 	// The set of operations allowed through this Role Definition.
-	Permissions []PermissionResponse `pulumi:"permissions"`
+	Permissions []PermissionInvokeResponse `pulumi:"permissions"`
 	// A user-friendly name for the Role Definition. Must be unique for the database account.
 	RoleName *string `pulumi:"roleName"`
 	// The type of Azure resource.

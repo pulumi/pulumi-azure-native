@@ -40,7 +40,7 @@ type LookupManagedInstanceResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the managed instance.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityInvokeResponse `pulumi:"identity"`
 	// The Id of the instance pool this managed server belongs to.
 	InstancePoolId *string `pulumi:"instancePoolId"`
 	// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
@@ -66,7 +66,7 @@ type LookupManagedInstanceResult struct {
 	// Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The resource identifier of the source managed instance associated with create operation of this instance.
 	SourceManagedInstanceId *string `pulumi:"sourceManagedInstanceId"`
 	// The state of the managed instance.

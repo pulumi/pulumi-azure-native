@@ -44,7 +44,7 @@ type LookupSyncGroupResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Sync schema of the sync group.
-	Schema *SyncGroupSchemaResponse `pulumi:"schema"`
+	Schema *SyncGroupSchemaInvokeResponse `pulumi:"schema"`
 	// ARM resource id of the sync database in the sync group.
 	SyncDatabaseId *string `pulumi:"syncDatabaseId"`
 	// Sync state of the sync group.

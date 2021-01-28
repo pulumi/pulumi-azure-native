@@ -202,6 +202,70 @@ func (o PutAliasRequestPropertiesPtrOutput) Workload() pulumi.StringPtrOutput {
 }
 
 // Put subscription creation result properties.
+type PutAliasResponsePropertiesInvokeResponse struct {
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Newly created subscription Id.
+	SubscriptionId string `pulumi:"subscriptionId"`
+}
+
+// PutAliasResponsePropertiesInvokeResponseInput is an input type that accepts PutAliasResponsePropertiesInvokeResponseArgs and PutAliasResponsePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `PutAliasResponsePropertiesInvokeResponseInput` via:
+//
+//          PutAliasResponsePropertiesInvokeResponseArgs{...}
+type PutAliasResponsePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPutAliasResponsePropertiesInvokeResponseOutput() PutAliasResponsePropertiesInvokeResponseOutput
+	ToPutAliasResponsePropertiesInvokeResponseOutputWithContext(context.Context) PutAliasResponsePropertiesInvokeResponseOutput
+}
+
+// Put subscription creation result properties.
+type PutAliasResponsePropertiesInvokeResponseArgs struct {
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Newly created subscription Id.
+	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
+}
+
+func (PutAliasResponsePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PutAliasResponsePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i PutAliasResponsePropertiesInvokeResponseArgs) ToPutAliasResponsePropertiesInvokeResponseOutput() PutAliasResponsePropertiesInvokeResponseOutput {
+	return i.ToPutAliasResponsePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PutAliasResponsePropertiesInvokeResponseArgs) ToPutAliasResponsePropertiesInvokeResponseOutputWithContext(ctx context.Context) PutAliasResponsePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PutAliasResponsePropertiesInvokeResponseOutput)
+}
+
+// Put subscription creation result properties.
+type PutAliasResponsePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PutAliasResponsePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PutAliasResponsePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o PutAliasResponsePropertiesInvokeResponseOutput) ToPutAliasResponsePropertiesInvokeResponseOutput() PutAliasResponsePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o PutAliasResponsePropertiesInvokeResponseOutput) ToPutAliasResponsePropertiesInvokeResponseOutputWithContext(ctx context.Context) PutAliasResponsePropertiesInvokeResponseOutput {
+	return o
+}
+
+// The provisioning state of the resource.
+func (o PutAliasResponsePropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PutAliasResponsePropertiesInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Newly created subscription Id.
+func (o PutAliasResponsePropertiesInvokeResponseOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v PutAliasResponsePropertiesInvokeResponse) string { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// Put subscription creation result properties.
 type PutAliasResponsePropertiesResponse struct {
 	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
@@ -357,6 +421,7 @@ func (o PutAliasResponsePropertiesResponsePtrOutput) SubscriptionId() pulumi.Str
 func init() {
 	pulumi.RegisterOutputType(PutAliasRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(PutAliasRequestPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PutAliasResponsePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PutAliasResponsePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PutAliasResponsePropertiesResponsePtrOutput{})
 }

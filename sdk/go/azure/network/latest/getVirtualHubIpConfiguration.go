@@ -40,9 +40,9 @@ type LookupVirtualHubIpConfigurationResult struct {
 	// The provisioning state of the IP configuration resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The reference to the public IP resource.
-	PublicIPAddress *PublicIPAddressResponse `pulumi:"publicIPAddress"`
+	PublicIPAddress *PublicIPAddressInvokeResponse `pulumi:"publicIPAddress"`
 	// The reference to the subnet resource.
-	Subnet *SubnetResponse `pulumi:"subnet"`
+	Subnet *SubnetInvokeResponse `pulumi:"subnet"`
 	// Ipconfiguration type.
 	Type string `pulumi:"type"`
 }

@@ -28,11 +28,11 @@ type LookupDiskResult struct {
 	// the storage account type of the disk.
 	AccountType *string `pulumi:"accountType"`
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponse `pulumi:"creationData"`
+	CreationData CreationDataInvokeResponse `pulumi:"creationData"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Encryption settings for disk or snapshot
-	EncryptionSettings *EncryptionSettingsResponse `pulumi:"encryptionSettings"`
+	EncryptionSettings *EncryptionSettingsInvokeResponse `pulumi:"encryptionSettings"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location

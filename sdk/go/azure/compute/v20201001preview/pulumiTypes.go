@@ -145,6 +145,142 @@ func (o CloudServiceExtensionProfilePtrOutput) Extensions() ExtensionArrayOutput
 }
 
 // Describes a cloud service extension profile.
+type CloudServiceExtensionProfileInvokeResponse struct {
+	// List of extensions for the cloud service.
+	Extensions []ExtensionInvokeResponse `pulumi:"extensions"`
+}
+
+// CloudServiceExtensionProfileInvokeResponseInput is an input type that accepts CloudServiceExtensionProfileInvokeResponseArgs and CloudServiceExtensionProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServiceExtensionProfileInvokeResponseInput` via:
+//
+//          CloudServiceExtensionProfileInvokeResponseArgs{...}
+type CloudServiceExtensionProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServiceExtensionProfileInvokeResponseOutput() CloudServiceExtensionProfileInvokeResponseOutput
+	ToCloudServiceExtensionProfileInvokeResponseOutputWithContext(context.Context) CloudServiceExtensionProfileInvokeResponseOutput
+}
+
+// Describes a cloud service extension profile.
+type CloudServiceExtensionProfileInvokeResponseArgs struct {
+	// List of extensions for the cloud service.
+	Extensions ExtensionInvokeResponseArrayInput `pulumi:"extensions"`
+}
+
+func (CloudServiceExtensionProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceExtensionProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceExtensionProfileInvokeResponseArgs) ToCloudServiceExtensionProfileInvokeResponseOutput() CloudServiceExtensionProfileInvokeResponseOutput {
+	return i.ToCloudServiceExtensionProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServiceExtensionProfileInvokeResponseArgs) ToCloudServiceExtensionProfileInvokeResponseOutputWithContext(ctx context.Context) CloudServiceExtensionProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionProfileInvokeResponseOutput)
+}
+
+func (i CloudServiceExtensionProfileInvokeResponseArgs) ToCloudServiceExtensionProfileInvokeResponsePtrOutput() CloudServiceExtensionProfileInvokeResponsePtrOutput {
+	return i.ToCloudServiceExtensionProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudServiceExtensionProfileInvokeResponseArgs) ToCloudServiceExtensionProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionProfileInvokeResponseOutput).ToCloudServiceExtensionProfileInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CloudServiceExtensionProfileInvokeResponsePtrInput is an input type that accepts CloudServiceExtensionProfileInvokeResponseArgs, CloudServiceExtensionProfileInvokeResponsePtr and CloudServiceExtensionProfileInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CloudServiceExtensionProfileInvokeResponsePtrInput` via:
+//
+//          CloudServiceExtensionProfileInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudServiceExtensionProfileInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudServiceExtensionProfileInvokeResponsePtrOutput() CloudServiceExtensionProfileInvokeResponsePtrOutput
+	ToCloudServiceExtensionProfileInvokeResponsePtrOutputWithContext(context.Context) CloudServiceExtensionProfileInvokeResponsePtrOutput
+}
+
+type cloudServiceExtensionProfileInvokeResponsePtrType CloudServiceExtensionProfileInvokeResponseArgs
+
+func CloudServiceExtensionProfileInvokeResponsePtr(v *CloudServiceExtensionProfileInvokeResponseArgs) CloudServiceExtensionProfileInvokeResponsePtrInput {
+	return (*cloudServiceExtensionProfileInvokeResponsePtrType)(v)
+}
+
+func (*cloudServiceExtensionProfileInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceExtensionProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i *cloudServiceExtensionProfileInvokeResponsePtrType) ToCloudServiceExtensionProfileInvokeResponsePtrOutput() CloudServiceExtensionProfileInvokeResponsePtrOutput {
+	return i.ToCloudServiceExtensionProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServiceExtensionProfileInvokeResponsePtrType) ToCloudServiceExtensionProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionProfileInvokeResponsePtrOutput)
+}
+
+// Describes a cloud service extension profile.
+type CloudServiceExtensionProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceExtensionProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceExtensionProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceExtensionProfileInvokeResponseOutput) ToCloudServiceExtensionProfileInvokeResponseOutput() CloudServiceExtensionProfileInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceExtensionProfileInvokeResponseOutput) ToCloudServiceExtensionProfileInvokeResponseOutputWithContext(ctx context.Context) CloudServiceExtensionProfileInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceExtensionProfileInvokeResponseOutput) ToCloudServiceExtensionProfileInvokeResponsePtrOutput() CloudServiceExtensionProfileInvokeResponsePtrOutput {
+	return o.ToCloudServiceExtensionProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudServiceExtensionProfileInvokeResponseOutput) ToCloudServiceExtensionProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceExtensionProfileInvokeResponse) *CloudServiceExtensionProfileInvokeResponse {
+		return &v
+	}).(CloudServiceExtensionProfileInvokeResponsePtrOutput)
+}
+
+// List of extensions for the cloud service.
+func (o CloudServiceExtensionProfileInvokeResponseOutput) Extensions() ExtensionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CloudServiceExtensionProfileInvokeResponse) []ExtensionInvokeResponse { return v.Extensions }).(ExtensionInvokeResponseArrayOutput)
+}
+
+type CloudServiceExtensionProfileInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceExtensionProfileInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceExtensionProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceExtensionProfileInvokeResponsePtrOutput) ToCloudServiceExtensionProfileInvokeResponsePtrOutput() CloudServiceExtensionProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceExtensionProfileInvokeResponsePtrOutput) ToCloudServiceExtensionProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceExtensionProfileInvokeResponsePtrOutput) Elem() CloudServiceExtensionProfileInvokeResponseOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionProfileInvokeResponse) CloudServiceExtensionProfileInvokeResponse {
+		return *v
+	}).(CloudServiceExtensionProfileInvokeResponseOutput)
+}
+
+// List of extensions for the cloud service.
+func (o CloudServiceExtensionProfileInvokeResponsePtrOutput) Extensions() ExtensionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionProfileInvokeResponse) []ExtensionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Extensions
+	}).(ExtensionInvokeResponseArrayOutput)
+}
+
+// Describes a cloud service extension profile.
 type CloudServiceExtensionProfileResponse struct {
 	// List of extensions for the cloud service.
 	Extensions []ExtensionResponse `pulumi:"extensions"`
@@ -571,6 +707,327 @@ func (o CloudServiceExtensionPropertiesPtrOutput) Type() pulumi.StringPtrOutput 
 // Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
 func (o CloudServiceExtensionPropertiesPtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudServiceExtensionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TypeHandlerVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Extension Properties.
+type CloudServiceExtensionPropertiesInvokeResponse struct {
+	// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Tag to force apply the provided public and protected settings.
+	// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
+	// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
+	// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
+	// it is up to handler implementation whether to re-run it or not
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// Protected settings for the extension which are encrypted before sent to the role instance.
+	ProtectedSettings             *string                                            `pulumi:"protectedSettings"`
+	ProtectedSettingsFromKeyVault *CloudServiceVaultAndSecretReferenceInvokeResponse `pulumi:"protectedSettingsFromKeyVault"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher *string `pulumi:"publisher"`
+	// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
+	RolesAppliedTo []string `pulumi:"rolesAppliedTo"`
+	// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
+	Settings *string `pulumi:"settings"`
+	// Specifies the type of the extension.
+	Type *string `pulumi:"type"`
+	// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
+	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+}
+
+// CloudServiceExtensionPropertiesInvokeResponseInput is an input type that accepts CloudServiceExtensionPropertiesInvokeResponseArgs and CloudServiceExtensionPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServiceExtensionPropertiesInvokeResponseInput` via:
+//
+//          CloudServiceExtensionPropertiesInvokeResponseArgs{...}
+type CloudServiceExtensionPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServiceExtensionPropertiesInvokeResponseOutput() CloudServiceExtensionPropertiesInvokeResponseOutput
+	ToCloudServiceExtensionPropertiesInvokeResponseOutputWithContext(context.Context) CloudServiceExtensionPropertiesInvokeResponseOutput
+}
+
+// Extension Properties.
+type CloudServiceExtensionPropertiesInvokeResponseArgs struct {
+	// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// Tag to force apply the provided public and protected settings.
+	// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
+	// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
+	// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
+	// it is up to handler implementation whether to re-run it or not
+	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
+	// Protected settings for the extension which are encrypted before sent to the role instance.
+	ProtectedSettings             pulumi.StringPtrInput                                     `pulumi:"protectedSettings"`
+	ProtectedSettingsFromKeyVault CloudServiceVaultAndSecretReferenceInvokeResponsePtrInput `pulumi:"protectedSettingsFromKeyVault"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
+	RolesAppliedTo pulumi.StringArrayInput `pulumi:"rolesAppliedTo"`
+	// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
+	Settings pulumi.StringPtrInput `pulumi:"settings"`
+	// Specifies the type of the extension.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
+	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+}
+
+func (CloudServiceExtensionPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceExtensionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceExtensionPropertiesInvokeResponseArgs) ToCloudServiceExtensionPropertiesInvokeResponseOutput() CloudServiceExtensionPropertiesInvokeResponseOutput {
+	return i.ToCloudServiceExtensionPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServiceExtensionPropertiesInvokeResponseArgs) ToCloudServiceExtensionPropertiesInvokeResponseOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionPropertiesInvokeResponseOutput)
+}
+
+func (i CloudServiceExtensionPropertiesInvokeResponseArgs) ToCloudServiceExtensionPropertiesInvokeResponsePtrOutput() CloudServiceExtensionPropertiesInvokeResponsePtrOutput {
+	return i.ToCloudServiceExtensionPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudServiceExtensionPropertiesInvokeResponseArgs) ToCloudServiceExtensionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionPropertiesInvokeResponseOutput).ToCloudServiceExtensionPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CloudServiceExtensionPropertiesInvokeResponsePtrInput is an input type that accepts CloudServiceExtensionPropertiesInvokeResponseArgs, CloudServiceExtensionPropertiesInvokeResponsePtr and CloudServiceExtensionPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CloudServiceExtensionPropertiesInvokeResponsePtrInput` via:
+//
+//          CloudServiceExtensionPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudServiceExtensionPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudServiceExtensionPropertiesInvokeResponsePtrOutput() CloudServiceExtensionPropertiesInvokeResponsePtrOutput
+	ToCloudServiceExtensionPropertiesInvokeResponsePtrOutputWithContext(context.Context) CloudServiceExtensionPropertiesInvokeResponsePtrOutput
+}
+
+type cloudServiceExtensionPropertiesInvokeResponsePtrType CloudServiceExtensionPropertiesInvokeResponseArgs
+
+func CloudServiceExtensionPropertiesInvokeResponsePtr(v *CloudServiceExtensionPropertiesInvokeResponseArgs) CloudServiceExtensionPropertiesInvokeResponsePtrInput {
+	return (*cloudServiceExtensionPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*cloudServiceExtensionPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceExtensionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *cloudServiceExtensionPropertiesInvokeResponsePtrType) ToCloudServiceExtensionPropertiesInvokeResponsePtrOutput() CloudServiceExtensionPropertiesInvokeResponsePtrOutput {
+	return i.ToCloudServiceExtensionPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServiceExtensionPropertiesInvokeResponsePtrType) ToCloudServiceExtensionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceExtensionPropertiesInvokeResponsePtrOutput)
+}
+
+// Extension Properties.
+type CloudServiceExtensionPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceExtensionPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceExtensionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) ToCloudServiceExtensionPropertiesInvokeResponseOutput() CloudServiceExtensionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) ToCloudServiceExtensionPropertiesInvokeResponseOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) ToCloudServiceExtensionPropertiesInvokeResponsePtrOutput() CloudServiceExtensionPropertiesInvokeResponsePtrOutput {
+	return o.ToCloudServiceExtensionPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) ToCloudServiceExtensionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) *CloudServiceExtensionPropertiesInvokeResponse {
+		return &v
+	}).(CloudServiceExtensionPropertiesInvokeResponsePtrOutput)
+}
+
+// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Tag to force apply the provided public and protected settings.
+// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
+// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
+// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
+// it is up to handler implementation whether to re-run it or not
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// Protected settings for the extension which are encrypted before sent to the role instance.
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) ProtectedSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) ProtectedSettingsFromKeyVault() CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) *CloudServiceVaultAndSecretReferenceInvokeResponse {
+		return v.ProtectedSettingsFromKeyVault
+	}).(CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the extension handler publisher.
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) RolesAppliedTo() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) []string { return v.RolesAppliedTo }).(pulumi.StringArrayOutput)
+}
+
+// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) Settings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) *string { return v.Settings }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of the extension.
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
+func (o CloudServiceExtensionPropertiesInvokeResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceExtensionPropertiesInvokeResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+type CloudServiceExtensionPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceExtensionPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceExtensionPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) ToCloudServiceExtensionPropertiesInvokeResponsePtrOutput() CloudServiceExtensionPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) ToCloudServiceExtensionPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceExtensionPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) Elem() CloudServiceExtensionPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) CloudServiceExtensionPropertiesInvokeResponse {
+		return *v
+	}).(CloudServiceExtensionPropertiesInvokeResponseOutput)
+}
+
+// Explicitly specify whether platform can automatically upgrade typeHandlerVersion to higher minor versions when they become available.
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoUpgradeMinorVersion
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Tag to force apply the provided public and protected settings.
+// Changing the tag value allows for re-running the extension without changing any of the public or protected settings.
+// If forceUpdateTag is not changed, updates to public or protected settings would still be applied by the handler.
+// If neither forceUpdateTag nor any of public or protected settings change, extension would flow to the role instance with the same sequence-number, and
+// it is up to handler implementation whether to re-run it or not
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForceUpdateTag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Protected settings for the extension which are encrypted before sent to the role instance.
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) ProtectedSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProtectedSettings
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) ProtectedSettingsFromKeyVault() CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) *CloudServiceVaultAndSecretReferenceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ProtectedSettingsFromKeyVault
+	}).(CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the extension handler publisher.
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Publisher
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional list of roles to apply this extension. If property is not specified or '*' is specified, extension is applied to all roles in the cloud service.
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) RolesAppliedTo() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RolesAppliedTo
+	}).(pulumi.StringArrayOutput)
+}
+
+// Public settings for the extension. For JSON extensions, this is the JSON settings for the extension. For XML Extension (like RDP), this is the XML setting for the extension.
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) Settings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Settings
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of the extension.
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
+func (o CloudServiceExtensionPropertiesInvokeResponsePtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServiceExtensionPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1047,6 +1504,159 @@ func (o CloudServiceNetworkProfilePtrOutput) SwappableCloudService() SubResource
 }
 
 // Network Profile for the cloud service.
+type CloudServiceNetworkProfileInvokeResponse struct {
+	// The list of load balancer configurations for the cloud service.
+	LoadBalancerConfigurations []LoadBalancerConfigurationInvokeResponse `pulumi:"loadBalancerConfigurations"`
+	SwappableCloudService      *SubResourceInvokeResponse                `pulumi:"swappableCloudService"`
+}
+
+// CloudServiceNetworkProfileInvokeResponseInput is an input type that accepts CloudServiceNetworkProfileInvokeResponseArgs and CloudServiceNetworkProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServiceNetworkProfileInvokeResponseInput` via:
+//
+//          CloudServiceNetworkProfileInvokeResponseArgs{...}
+type CloudServiceNetworkProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServiceNetworkProfileInvokeResponseOutput() CloudServiceNetworkProfileInvokeResponseOutput
+	ToCloudServiceNetworkProfileInvokeResponseOutputWithContext(context.Context) CloudServiceNetworkProfileInvokeResponseOutput
+}
+
+// Network Profile for the cloud service.
+type CloudServiceNetworkProfileInvokeResponseArgs struct {
+	// The list of load balancer configurations for the cloud service.
+	LoadBalancerConfigurations LoadBalancerConfigurationInvokeResponseArrayInput `pulumi:"loadBalancerConfigurations"`
+	SwappableCloudService      SubResourceInvokeResponsePtrInput                 `pulumi:"swappableCloudService"`
+}
+
+func (CloudServiceNetworkProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceNetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceNetworkProfileInvokeResponseArgs) ToCloudServiceNetworkProfileInvokeResponseOutput() CloudServiceNetworkProfileInvokeResponseOutput {
+	return i.ToCloudServiceNetworkProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServiceNetworkProfileInvokeResponseArgs) ToCloudServiceNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) CloudServiceNetworkProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceNetworkProfileInvokeResponseOutput)
+}
+
+func (i CloudServiceNetworkProfileInvokeResponseArgs) ToCloudServiceNetworkProfileInvokeResponsePtrOutput() CloudServiceNetworkProfileInvokeResponsePtrOutput {
+	return i.ToCloudServiceNetworkProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudServiceNetworkProfileInvokeResponseArgs) ToCloudServiceNetworkProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceNetworkProfileInvokeResponseOutput).ToCloudServiceNetworkProfileInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CloudServiceNetworkProfileInvokeResponsePtrInput is an input type that accepts CloudServiceNetworkProfileInvokeResponseArgs, CloudServiceNetworkProfileInvokeResponsePtr and CloudServiceNetworkProfileInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CloudServiceNetworkProfileInvokeResponsePtrInput` via:
+//
+//          CloudServiceNetworkProfileInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudServiceNetworkProfileInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudServiceNetworkProfileInvokeResponsePtrOutput() CloudServiceNetworkProfileInvokeResponsePtrOutput
+	ToCloudServiceNetworkProfileInvokeResponsePtrOutputWithContext(context.Context) CloudServiceNetworkProfileInvokeResponsePtrOutput
+}
+
+type cloudServiceNetworkProfileInvokeResponsePtrType CloudServiceNetworkProfileInvokeResponseArgs
+
+func CloudServiceNetworkProfileInvokeResponsePtr(v *CloudServiceNetworkProfileInvokeResponseArgs) CloudServiceNetworkProfileInvokeResponsePtrInput {
+	return (*cloudServiceNetworkProfileInvokeResponsePtrType)(v)
+}
+
+func (*cloudServiceNetworkProfileInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceNetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i *cloudServiceNetworkProfileInvokeResponsePtrType) ToCloudServiceNetworkProfileInvokeResponsePtrOutput() CloudServiceNetworkProfileInvokeResponsePtrOutput {
+	return i.ToCloudServiceNetworkProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServiceNetworkProfileInvokeResponsePtrType) ToCloudServiceNetworkProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceNetworkProfileInvokeResponsePtrOutput)
+}
+
+// Network Profile for the cloud service.
+type CloudServiceNetworkProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceNetworkProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceNetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceNetworkProfileInvokeResponseOutput) ToCloudServiceNetworkProfileInvokeResponseOutput() CloudServiceNetworkProfileInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceNetworkProfileInvokeResponseOutput) ToCloudServiceNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) CloudServiceNetworkProfileInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceNetworkProfileInvokeResponseOutput) ToCloudServiceNetworkProfileInvokeResponsePtrOutput() CloudServiceNetworkProfileInvokeResponsePtrOutput {
+	return o.ToCloudServiceNetworkProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudServiceNetworkProfileInvokeResponseOutput) ToCloudServiceNetworkProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceNetworkProfileInvokeResponse) *CloudServiceNetworkProfileInvokeResponse {
+		return &v
+	}).(CloudServiceNetworkProfileInvokeResponsePtrOutput)
+}
+
+// The list of load balancer configurations for the cloud service.
+func (o CloudServiceNetworkProfileInvokeResponseOutput) LoadBalancerConfigurations() LoadBalancerConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CloudServiceNetworkProfileInvokeResponse) []LoadBalancerConfigurationInvokeResponse {
+		return v.LoadBalancerConfigurations
+	}).(LoadBalancerConfigurationInvokeResponseArrayOutput)
+}
+
+func (o CloudServiceNetworkProfileInvokeResponseOutput) SwappableCloudService() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceNetworkProfileInvokeResponse) *SubResourceInvokeResponse {
+		return v.SwappableCloudService
+	}).(SubResourceInvokeResponsePtrOutput)
+}
+
+type CloudServiceNetworkProfileInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceNetworkProfileInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceNetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceNetworkProfileInvokeResponsePtrOutput) ToCloudServiceNetworkProfileInvokeResponsePtrOutput() CloudServiceNetworkProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceNetworkProfileInvokeResponsePtrOutput) ToCloudServiceNetworkProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceNetworkProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceNetworkProfileInvokeResponsePtrOutput) Elem() CloudServiceNetworkProfileInvokeResponseOutput {
+	return o.ApplyT(func(v *CloudServiceNetworkProfileInvokeResponse) CloudServiceNetworkProfileInvokeResponse { return *v }).(CloudServiceNetworkProfileInvokeResponseOutput)
+}
+
+// The list of load balancer configurations for the cloud service.
+func (o CloudServiceNetworkProfileInvokeResponsePtrOutput) LoadBalancerConfigurations() LoadBalancerConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *CloudServiceNetworkProfileInvokeResponse) []LoadBalancerConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerConfigurations
+	}).(LoadBalancerConfigurationInvokeResponseArrayOutput)
+}
+
+func (o CloudServiceNetworkProfileInvokeResponsePtrOutput) SwappableCloudService() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CloudServiceNetworkProfileInvokeResponse) *SubResourceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SwappableCloudService
+	}).(SubResourceInvokeResponsePtrOutput)
+}
+
+// Network Profile for the cloud service.
 type CloudServiceNetworkProfileResponse struct {
 	// The list of load balancer configurations for the cloud service.
 	LoadBalancerConfigurations []LoadBalancerConfigurationResponse `pulumi:"loadBalancerConfigurations"`
@@ -1329,6 +1939,142 @@ func (o CloudServiceOsProfilePtrOutput) Secrets() CloudServiceVaultSecretGroupAr
 		}
 		return v.Secrets
 	}).(CloudServiceVaultSecretGroupArrayOutput)
+}
+
+// Describes the OS profile for the cloud service.
+type CloudServiceOsProfileInvokeResponse struct {
+	// Specifies set of certificates that should be installed onto the role instances.
+	Secrets []CloudServiceVaultSecretGroupInvokeResponse `pulumi:"secrets"`
+}
+
+// CloudServiceOsProfileInvokeResponseInput is an input type that accepts CloudServiceOsProfileInvokeResponseArgs and CloudServiceOsProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServiceOsProfileInvokeResponseInput` via:
+//
+//          CloudServiceOsProfileInvokeResponseArgs{...}
+type CloudServiceOsProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServiceOsProfileInvokeResponseOutput() CloudServiceOsProfileInvokeResponseOutput
+	ToCloudServiceOsProfileInvokeResponseOutputWithContext(context.Context) CloudServiceOsProfileInvokeResponseOutput
+}
+
+// Describes the OS profile for the cloud service.
+type CloudServiceOsProfileInvokeResponseArgs struct {
+	// Specifies set of certificates that should be installed onto the role instances.
+	Secrets CloudServiceVaultSecretGroupInvokeResponseArrayInput `pulumi:"secrets"`
+}
+
+func (CloudServiceOsProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceOsProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceOsProfileInvokeResponseArgs) ToCloudServiceOsProfileInvokeResponseOutput() CloudServiceOsProfileInvokeResponseOutput {
+	return i.ToCloudServiceOsProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServiceOsProfileInvokeResponseArgs) ToCloudServiceOsProfileInvokeResponseOutputWithContext(ctx context.Context) CloudServiceOsProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOsProfileInvokeResponseOutput)
+}
+
+func (i CloudServiceOsProfileInvokeResponseArgs) ToCloudServiceOsProfileInvokeResponsePtrOutput() CloudServiceOsProfileInvokeResponsePtrOutput {
+	return i.ToCloudServiceOsProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudServiceOsProfileInvokeResponseArgs) ToCloudServiceOsProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceOsProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOsProfileInvokeResponseOutput).ToCloudServiceOsProfileInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CloudServiceOsProfileInvokeResponsePtrInput is an input type that accepts CloudServiceOsProfileInvokeResponseArgs, CloudServiceOsProfileInvokeResponsePtr and CloudServiceOsProfileInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CloudServiceOsProfileInvokeResponsePtrInput` via:
+//
+//          CloudServiceOsProfileInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudServiceOsProfileInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudServiceOsProfileInvokeResponsePtrOutput() CloudServiceOsProfileInvokeResponsePtrOutput
+	ToCloudServiceOsProfileInvokeResponsePtrOutputWithContext(context.Context) CloudServiceOsProfileInvokeResponsePtrOutput
+}
+
+type cloudServiceOsProfileInvokeResponsePtrType CloudServiceOsProfileInvokeResponseArgs
+
+func CloudServiceOsProfileInvokeResponsePtr(v *CloudServiceOsProfileInvokeResponseArgs) CloudServiceOsProfileInvokeResponsePtrInput {
+	return (*cloudServiceOsProfileInvokeResponsePtrType)(v)
+}
+
+func (*cloudServiceOsProfileInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceOsProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i *cloudServiceOsProfileInvokeResponsePtrType) ToCloudServiceOsProfileInvokeResponsePtrOutput() CloudServiceOsProfileInvokeResponsePtrOutput {
+	return i.ToCloudServiceOsProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServiceOsProfileInvokeResponsePtrType) ToCloudServiceOsProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceOsProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceOsProfileInvokeResponsePtrOutput)
+}
+
+// Describes the OS profile for the cloud service.
+type CloudServiceOsProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceOsProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceOsProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceOsProfileInvokeResponseOutput) ToCloudServiceOsProfileInvokeResponseOutput() CloudServiceOsProfileInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceOsProfileInvokeResponseOutput) ToCloudServiceOsProfileInvokeResponseOutputWithContext(ctx context.Context) CloudServiceOsProfileInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceOsProfileInvokeResponseOutput) ToCloudServiceOsProfileInvokeResponsePtrOutput() CloudServiceOsProfileInvokeResponsePtrOutput {
+	return o.ToCloudServiceOsProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudServiceOsProfileInvokeResponseOutput) ToCloudServiceOsProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceOsProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceOsProfileInvokeResponse) *CloudServiceOsProfileInvokeResponse {
+		return &v
+	}).(CloudServiceOsProfileInvokeResponsePtrOutput)
+}
+
+// Specifies set of certificates that should be installed onto the role instances.
+func (o CloudServiceOsProfileInvokeResponseOutput) Secrets() CloudServiceVaultSecretGroupInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CloudServiceOsProfileInvokeResponse) []CloudServiceVaultSecretGroupInvokeResponse {
+		return v.Secrets
+	}).(CloudServiceVaultSecretGroupInvokeResponseArrayOutput)
+}
+
+type CloudServiceOsProfileInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceOsProfileInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceOsProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceOsProfileInvokeResponsePtrOutput) ToCloudServiceOsProfileInvokeResponsePtrOutput() CloudServiceOsProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceOsProfileInvokeResponsePtrOutput) ToCloudServiceOsProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceOsProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceOsProfileInvokeResponsePtrOutput) Elem() CloudServiceOsProfileInvokeResponseOutput {
+	return o.ApplyT(func(v *CloudServiceOsProfileInvokeResponse) CloudServiceOsProfileInvokeResponse { return *v }).(CloudServiceOsProfileInvokeResponseOutput)
+}
+
+// Specifies set of certificates that should be installed onto the role instances.
+func (o CloudServiceOsProfileInvokeResponsePtrOutput) Secrets() CloudServiceVaultSecretGroupInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *CloudServiceOsProfileInvokeResponse) []CloudServiceVaultSecretGroupInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Secrets
+	}).(CloudServiceVaultSecretGroupInvokeResponseArrayOutput)
 }
 
 // Describes the OS profile for the cloud service.
@@ -1769,6 +2515,172 @@ func (o CloudServicePropertiesPtrOutput) UpgradeMode() pulumi.StringPtrOutput {
 		}
 		return v.UpgradeMode
 	}).(pulumi.StringPtrOutput)
+}
+
+// Cloud service properties
+type CloudServicePropertiesInvokeResponse struct {
+	// Specifies the XML service configuration (.cscfg) for the cloud service.
+	Configuration *string `pulumi:"configuration"`
+	// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
+	// This is a write-only property and is not returned in GET calls.
+	ConfigurationUrl *string `pulumi:"configurationUrl"`
+	// Describes a cloud service extension profile.
+	ExtensionProfile *CloudServiceExtensionProfileInvokeResponse `pulumi:"extensionProfile"`
+	// Network Profile for the cloud service.
+	NetworkProfile *CloudServiceNetworkProfileInvokeResponse `pulumi:"networkProfile"`
+	// Describes the OS profile for the cloud service.
+	OsProfile *CloudServiceOsProfileInvokeResponse `pulumi:"osProfile"`
+	// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
+	// This is a write-only property and is not returned in GET calls.
+	PackageUrl *string `pulumi:"packageUrl"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Describes the role profile for the cloud service.
+	RoleProfile *CloudServiceRoleProfileInvokeResponse `pulumi:"roleProfile"`
+	// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
+	// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
+	StartCloudService *bool `pulumi:"startCloudService"`
+	// The unique identifier for the cloud service.
+	UniqueId string `pulumi:"uniqueId"`
+	// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
+	// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
+	// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
+	UpgradeMode *string `pulumi:"upgradeMode"`
+}
+
+// CloudServicePropertiesInvokeResponseInput is an input type that accepts CloudServicePropertiesInvokeResponseArgs and CloudServicePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServicePropertiesInvokeResponseInput` via:
+//
+//          CloudServicePropertiesInvokeResponseArgs{...}
+type CloudServicePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServicePropertiesInvokeResponseOutput() CloudServicePropertiesInvokeResponseOutput
+	ToCloudServicePropertiesInvokeResponseOutputWithContext(context.Context) CloudServicePropertiesInvokeResponseOutput
+}
+
+// Cloud service properties
+type CloudServicePropertiesInvokeResponseArgs struct {
+	// Specifies the XML service configuration (.cscfg) for the cloud service.
+	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
+	// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
+	// This is a write-only property and is not returned in GET calls.
+	ConfigurationUrl pulumi.StringPtrInput `pulumi:"configurationUrl"`
+	// Describes a cloud service extension profile.
+	ExtensionProfile CloudServiceExtensionProfileInvokeResponsePtrInput `pulumi:"extensionProfile"`
+	// Network Profile for the cloud service.
+	NetworkProfile CloudServiceNetworkProfileInvokeResponsePtrInput `pulumi:"networkProfile"`
+	// Describes the OS profile for the cloud service.
+	OsProfile CloudServiceOsProfileInvokeResponsePtrInput `pulumi:"osProfile"`
+	// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
+	// This is a write-only property and is not returned in GET calls.
+	PackageUrl pulumi.StringPtrInput `pulumi:"packageUrl"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Describes the role profile for the cloud service.
+	RoleProfile CloudServiceRoleProfileInvokeResponsePtrInput `pulumi:"roleProfile"`
+	// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
+	// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
+	StartCloudService pulumi.BoolPtrInput `pulumi:"startCloudService"`
+	// The unique identifier for the cloud service.
+	UniqueId pulumi.StringInput `pulumi:"uniqueId"`
+	// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
+	// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
+	// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
+	UpgradeMode pulumi.StringPtrInput `pulumi:"upgradeMode"`
+}
+
+func (CloudServicePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServicePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServicePropertiesInvokeResponseArgs) ToCloudServicePropertiesInvokeResponseOutput() CloudServicePropertiesInvokeResponseOutput {
+	return i.ToCloudServicePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServicePropertiesInvokeResponseArgs) ToCloudServicePropertiesInvokeResponseOutputWithContext(ctx context.Context) CloudServicePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServicePropertiesInvokeResponseOutput)
+}
+
+// Cloud service properties
+type CloudServicePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServicePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServicePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServicePropertiesInvokeResponseOutput) ToCloudServicePropertiesInvokeResponseOutput() CloudServicePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServicePropertiesInvokeResponseOutput) ToCloudServicePropertiesInvokeResponseOutputWithContext(ctx context.Context) CloudServicePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Specifies the XML service configuration (.cscfg) for the cloud service.
+func (o CloudServicePropertiesInvokeResponseOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) *string { return v.Configuration }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a URL that refers to the location of the service configuration in the Blob service. The service package URL  can be Shared Access Signature (SAS) URI from any storage account.
+// This is a write-only property and is not returned in GET calls.
+func (o CloudServicePropertiesInvokeResponseOutput) ConfigurationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) *string { return v.ConfigurationUrl }).(pulumi.StringPtrOutput)
+}
+
+// Describes a cloud service extension profile.
+func (o CloudServicePropertiesInvokeResponseOutput) ExtensionProfile() CloudServiceExtensionProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) *CloudServiceExtensionProfileInvokeResponse {
+		return v.ExtensionProfile
+	}).(CloudServiceExtensionProfileInvokeResponsePtrOutput)
+}
+
+// Network Profile for the cloud service.
+func (o CloudServicePropertiesInvokeResponseOutput) NetworkProfile() CloudServiceNetworkProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) *CloudServiceNetworkProfileInvokeResponse {
+		return v.NetworkProfile
+	}).(CloudServiceNetworkProfileInvokeResponsePtrOutput)
+}
+
+// Describes the OS profile for the cloud service.
+func (o CloudServicePropertiesInvokeResponseOutput) OsProfile() CloudServiceOsProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) *CloudServiceOsProfileInvokeResponse { return v.OsProfile }).(CloudServiceOsProfileInvokeResponsePtrOutput)
+}
+
+// Specifies a URL that refers to the location of the service package in the Blob service. The service package URL can be Shared Access Signature (SAS) URI from any storage account.
+// This is a write-only property and is not returned in GET calls.
+func (o CloudServicePropertiesInvokeResponseOutput) PackageUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) *string { return v.PackageUrl }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o CloudServicePropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Describes the role profile for the cloud service.
+func (o CloudServicePropertiesInvokeResponseOutput) RoleProfile() CloudServiceRoleProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) *CloudServiceRoleProfileInvokeResponse {
+		return v.RoleProfile
+	}).(CloudServiceRoleProfileInvokeResponsePtrOutput)
+}
+
+// (Optional) Indicates whether to start the cloud service immediately after it is created. The default value is `true`.
+// If false, the service model is still deployed, but the code is not run immediately. Instead, the service is PoweredOff until you call Start, at which time the service will be started. A deployed service still incurs charges, even if it is poweredoff.
+func (o CloudServicePropertiesInvokeResponseOutput) StartCloudService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) *bool { return v.StartCloudService }).(pulumi.BoolPtrOutput)
+}
+
+// The unique identifier for the cloud service.
+func (o CloudServicePropertiesInvokeResponseOutput) UniqueId() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) string { return v.UniqueId }).(pulumi.StringOutput)
+}
+
+// Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
+// Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
+// If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
+func (o CloudServicePropertiesInvokeResponseOutput) UpgradeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServicePropertiesInvokeResponse) *string { return v.UpgradeMode }).(pulumi.StringPtrOutput)
 }
 
 // Cloud service properties
@@ -2251,6 +3163,142 @@ func (o CloudServiceRoleProfilePtrOutput) Roles() CloudServiceRoleProfilePropert
 	}).(CloudServiceRoleProfilePropertiesArrayOutput)
 }
 
+// Describes the role profile for the cloud service.
+type CloudServiceRoleProfileInvokeResponse struct {
+	// List of roles for the cloud service.
+	Roles []CloudServiceRoleProfilePropertiesInvokeResponse `pulumi:"roles"`
+}
+
+// CloudServiceRoleProfileInvokeResponseInput is an input type that accepts CloudServiceRoleProfileInvokeResponseArgs and CloudServiceRoleProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServiceRoleProfileInvokeResponseInput` via:
+//
+//          CloudServiceRoleProfileInvokeResponseArgs{...}
+type CloudServiceRoleProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServiceRoleProfileInvokeResponseOutput() CloudServiceRoleProfileInvokeResponseOutput
+	ToCloudServiceRoleProfileInvokeResponseOutputWithContext(context.Context) CloudServiceRoleProfileInvokeResponseOutput
+}
+
+// Describes the role profile for the cloud service.
+type CloudServiceRoleProfileInvokeResponseArgs struct {
+	// List of roles for the cloud service.
+	Roles CloudServiceRoleProfilePropertiesInvokeResponseArrayInput `pulumi:"roles"`
+}
+
+func (CloudServiceRoleProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceRoleProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceRoleProfileInvokeResponseArgs) ToCloudServiceRoleProfileInvokeResponseOutput() CloudServiceRoleProfileInvokeResponseOutput {
+	return i.ToCloudServiceRoleProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServiceRoleProfileInvokeResponseArgs) ToCloudServiceRoleProfileInvokeResponseOutputWithContext(ctx context.Context) CloudServiceRoleProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfileInvokeResponseOutput)
+}
+
+func (i CloudServiceRoleProfileInvokeResponseArgs) ToCloudServiceRoleProfileInvokeResponsePtrOutput() CloudServiceRoleProfileInvokeResponsePtrOutput {
+	return i.ToCloudServiceRoleProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudServiceRoleProfileInvokeResponseArgs) ToCloudServiceRoleProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfileInvokeResponseOutput).ToCloudServiceRoleProfileInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CloudServiceRoleProfileInvokeResponsePtrInput is an input type that accepts CloudServiceRoleProfileInvokeResponseArgs, CloudServiceRoleProfileInvokeResponsePtr and CloudServiceRoleProfileInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CloudServiceRoleProfileInvokeResponsePtrInput` via:
+//
+//          CloudServiceRoleProfileInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudServiceRoleProfileInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudServiceRoleProfileInvokeResponsePtrOutput() CloudServiceRoleProfileInvokeResponsePtrOutput
+	ToCloudServiceRoleProfileInvokeResponsePtrOutputWithContext(context.Context) CloudServiceRoleProfileInvokeResponsePtrOutput
+}
+
+type cloudServiceRoleProfileInvokeResponsePtrType CloudServiceRoleProfileInvokeResponseArgs
+
+func CloudServiceRoleProfileInvokeResponsePtr(v *CloudServiceRoleProfileInvokeResponseArgs) CloudServiceRoleProfileInvokeResponsePtrInput {
+	return (*cloudServiceRoleProfileInvokeResponsePtrType)(v)
+}
+
+func (*cloudServiceRoleProfileInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceRoleProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i *cloudServiceRoleProfileInvokeResponsePtrType) ToCloudServiceRoleProfileInvokeResponsePtrOutput() CloudServiceRoleProfileInvokeResponsePtrOutput {
+	return i.ToCloudServiceRoleProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServiceRoleProfileInvokeResponsePtrType) ToCloudServiceRoleProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfileInvokeResponsePtrOutput)
+}
+
+// Describes the role profile for the cloud service.
+type CloudServiceRoleProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceRoleProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceRoleProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceRoleProfileInvokeResponseOutput) ToCloudServiceRoleProfileInvokeResponseOutput() CloudServiceRoleProfileInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceRoleProfileInvokeResponseOutput) ToCloudServiceRoleProfileInvokeResponseOutputWithContext(ctx context.Context) CloudServiceRoleProfileInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceRoleProfileInvokeResponseOutput) ToCloudServiceRoleProfileInvokeResponsePtrOutput() CloudServiceRoleProfileInvokeResponsePtrOutput {
+	return o.ToCloudServiceRoleProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudServiceRoleProfileInvokeResponseOutput) ToCloudServiceRoleProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceRoleProfileInvokeResponse) *CloudServiceRoleProfileInvokeResponse {
+		return &v
+	}).(CloudServiceRoleProfileInvokeResponsePtrOutput)
+}
+
+// List of roles for the cloud service.
+func (o CloudServiceRoleProfileInvokeResponseOutput) Roles() CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CloudServiceRoleProfileInvokeResponse) []CloudServiceRoleProfilePropertiesInvokeResponse {
+		return v.Roles
+	}).(CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput)
+}
+
+type CloudServiceRoleProfileInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceRoleProfileInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceRoleProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceRoleProfileInvokeResponsePtrOutput) ToCloudServiceRoleProfileInvokeResponsePtrOutput() CloudServiceRoleProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceRoleProfileInvokeResponsePtrOutput) ToCloudServiceRoleProfileInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceRoleProfileInvokeResponsePtrOutput) Elem() CloudServiceRoleProfileInvokeResponseOutput {
+	return o.ApplyT(func(v *CloudServiceRoleProfileInvokeResponse) CloudServiceRoleProfileInvokeResponse { return *v }).(CloudServiceRoleProfileInvokeResponseOutput)
+}
+
+// List of roles for the cloud service.
+func (o CloudServiceRoleProfileInvokeResponsePtrOutput) Roles() CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *CloudServiceRoleProfileInvokeResponse) []CloudServiceRoleProfilePropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Roles
+	}).(CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput)
+}
+
 // Describes the role properties.
 type CloudServiceRoleProfileProperties struct {
 	// Resource name.
@@ -2358,6 +3406,117 @@ func (o CloudServiceRoleProfilePropertiesArrayOutput) Index(i pulumi.IntInput) C
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudServiceRoleProfileProperties {
 		return vs[0].([]CloudServiceRoleProfileProperties)[vs[1].(int)]
 	}).(CloudServiceRoleProfilePropertiesOutput)
+}
+
+// Describes the role properties.
+type CloudServiceRoleProfilePropertiesInvokeResponse struct {
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Describes the cloud service role sku.
+	Sku *CloudServiceRoleSkuInvokeResponse `pulumi:"sku"`
+}
+
+// CloudServiceRoleProfilePropertiesInvokeResponseInput is an input type that accepts CloudServiceRoleProfilePropertiesInvokeResponseArgs and CloudServiceRoleProfilePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServiceRoleProfilePropertiesInvokeResponseInput` via:
+//
+//          CloudServiceRoleProfilePropertiesInvokeResponseArgs{...}
+type CloudServiceRoleProfilePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServiceRoleProfilePropertiesInvokeResponseOutput() CloudServiceRoleProfilePropertiesInvokeResponseOutput
+	ToCloudServiceRoleProfilePropertiesInvokeResponseOutputWithContext(context.Context) CloudServiceRoleProfilePropertiesInvokeResponseOutput
+}
+
+// Describes the role properties.
+type CloudServiceRoleProfilePropertiesInvokeResponseArgs struct {
+	// Resource name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Describes the cloud service role sku.
+	Sku CloudServiceRoleSkuInvokeResponsePtrInput `pulumi:"sku"`
+}
+
+func (CloudServiceRoleProfilePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceRoleProfilePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceRoleProfilePropertiesInvokeResponseArgs) ToCloudServiceRoleProfilePropertiesInvokeResponseOutput() CloudServiceRoleProfilePropertiesInvokeResponseOutput {
+	return i.ToCloudServiceRoleProfilePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServiceRoleProfilePropertiesInvokeResponseArgs) ToCloudServiceRoleProfilePropertiesInvokeResponseOutputWithContext(ctx context.Context) CloudServiceRoleProfilePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfilePropertiesInvokeResponseOutput)
+}
+
+// CloudServiceRoleProfilePropertiesInvokeResponseArrayInput is an input type that accepts CloudServiceRoleProfilePropertiesInvokeResponseArray and CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CloudServiceRoleProfilePropertiesInvokeResponseArrayInput` via:
+//
+//          CloudServiceRoleProfilePropertiesInvokeResponseArray{ CloudServiceRoleProfilePropertiesInvokeResponseArgs{...} }
+type CloudServiceRoleProfilePropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCloudServiceRoleProfilePropertiesInvokeResponseArrayOutput() CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput
+	ToCloudServiceRoleProfilePropertiesInvokeResponseArrayOutputWithContext(context.Context) CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput
+}
+
+type CloudServiceRoleProfilePropertiesInvokeResponseArray []CloudServiceRoleProfilePropertiesInvokeResponseInput
+
+func (CloudServiceRoleProfilePropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServiceRoleProfilePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceRoleProfilePropertiesInvokeResponseArray) ToCloudServiceRoleProfilePropertiesInvokeResponseArrayOutput() CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput {
+	return i.ToCloudServiceRoleProfilePropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CloudServiceRoleProfilePropertiesInvokeResponseArray) ToCloudServiceRoleProfilePropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput)
+}
+
+// Describes the role properties.
+type CloudServiceRoleProfilePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceRoleProfilePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceRoleProfilePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceRoleProfilePropertiesInvokeResponseOutput) ToCloudServiceRoleProfilePropertiesInvokeResponseOutput() CloudServiceRoleProfilePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceRoleProfilePropertiesInvokeResponseOutput) ToCloudServiceRoleProfilePropertiesInvokeResponseOutputWithContext(ctx context.Context) CloudServiceRoleProfilePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Resource name.
+func (o CloudServiceRoleProfilePropertiesInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceRoleProfilePropertiesInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Describes the cloud service role sku.
+func (o CloudServiceRoleProfilePropertiesInvokeResponseOutput) Sku() CloudServiceRoleSkuInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceRoleProfilePropertiesInvokeResponse) *CloudServiceRoleSkuInvokeResponse {
+		return v.Sku
+	}).(CloudServiceRoleSkuInvokeResponsePtrOutput)
+}
+
+type CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServiceRoleProfilePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput) ToCloudServiceRoleProfilePropertiesInvokeResponseArrayOutput() CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput) ToCloudServiceRoleProfilePropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) CloudServiceRoleProfilePropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudServiceRoleProfilePropertiesInvokeResponse {
+		return vs[0].([]CloudServiceRoleProfilePropertiesInvokeResponse)[vs[1].(int)]
+	}).(CloudServiceRoleProfilePropertiesInvokeResponseOutput)
 }
 
 // Describes the role properties.
@@ -2776,6 +3935,178 @@ func (o CloudServiceRoleSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Describes the cloud service role sku.
+type CloudServiceRoleSkuInvokeResponse struct {
+	// Specifies the number of role instances in the cloud service.
+	Capacity *float64 `pulumi:"capacity"`
+	// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
+	Name *string `pulumi:"name"`
+	// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
+	Tier *string `pulumi:"tier"`
+}
+
+// CloudServiceRoleSkuInvokeResponseInput is an input type that accepts CloudServiceRoleSkuInvokeResponseArgs and CloudServiceRoleSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServiceRoleSkuInvokeResponseInput` via:
+//
+//          CloudServiceRoleSkuInvokeResponseArgs{...}
+type CloudServiceRoleSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServiceRoleSkuInvokeResponseOutput() CloudServiceRoleSkuInvokeResponseOutput
+	ToCloudServiceRoleSkuInvokeResponseOutputWithContext(context.Context) CloudServiceRoleSkuInvokeResponseOutput
+}
+
+// Describes the cloud service role sku.
+type CloudServiceRoleSkuInvokeResponseArgs struct {
+	// Specifies the number of role instances in the cloud service.
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
+	// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (CloudServiceRoleSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceRoleSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceRoleSkuInvokeResponseArgs) ToCloudServiceRoleSkuInvokeResponseOutput() CloudServiceRoleSkuInvokeResponseOutput {
+	return i.ToCloudServiceRoleSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServiceRoleSkuInvokeResponseArgs) ToCloudServiceRoleSkuInvokeResponseOutputWithContext(ctx context.Context) CloudServiceRoleSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleSkuInvokeResponseOutput)
+}
+
+func (i CloudServiceRoleSkuInvokeResponseArgs) ToCloudServiceRoleSkuInvokeResponsePtrOutput() CloudServiceRoleSkuInvokeResponsePtrOutput {
+	return i.ToCloudServiceRoleSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudServiceRoleSkuInvokeResponseArgs) ToCloudServiceRoleSkuInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleSkuInvokeResponseOutput).ToCloudServiceRoleSkuInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CloudServiceRoleSkuInvokeResponsePtrInput is an input type that accepts CloudServiceRoleSkuInvokeResponseArgs, CloudServiceRoleSkuInvokeResponsePtr and CloudServiceRoleSkuInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CloudServiceRoleSkuInvokeResponsePtrInput` via:
+//
+//          CloudServiceRoleSkuInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudServiceRoleSkuInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudServiceRoleSkuInvokeResponsePtrOutput() CloudServiceRoleSkuInvokeResponsePtrOutput
+	ToCloudServiceRoleSkuInvokeResponsePtrOutputWithContext(context.Context) CloudServiceRoleSkuInvokeResponsePtrOutput
+}
+
+type cloudServiceRoleSkuInvokeResponsePtrType CloudServiceRoleSkuInvokeResponseArgs
+
+func CloudServiceRoleSkuInvokeResponsePtr(v *CloudServiceRoleSkuInvokeResponseArgs) CloudServiceRoleSkuInvokeResponsePtrInput {
+	return (*cloudServiceRoleSkuInvokeResponsePtrType)(v)
+}
+
+func (*cloudServiceRoleSkuInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceRoleSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i *cloudServiceRoleSkuInvokeResponsePtrType) ToCloudServiceRoleSkuInvokeResponsePtrOutput() CloudServiceRoleSkuInvokeResponsePtrOutput {
+	return i.ToCloudServiceRoleSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServiceRoleSkuInvokeResponsePtrType) ToCloudServiceRoleSkuInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceRoleSkuInvokeResponsePtrOutput)
+}
+
+// Describes the cloud service role sku.
+type CloudServiceRoleSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceRoleSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceRoleSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceRoleSkuInvokeResponseOutput) ToCloudServiceRoleSkuInvokeResponseOutput() CloudServiceRoleSkuInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceRoleSkuInvokeResponseOutput) ToCloudServiceRoleSkuInvokeResponseOutputWithContext(ctx context.Context) CloudServiceRoleSkuInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceRoleSkuInvokeResponseOutput) ToCloudServiceRoleSkuInvokeResponsePtrOutput() CloudServiceRoleSkuInvokeResponsePtrOutput {
+	return o.ToCloudServiceRoleSkuInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudServiceRoleSkuInvokeResponseOutput) ToCloudServiceRoleSkuInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceRoleSkuInvokeResponse) *CloudServiceRoleSkuInvokeResponse {
+		return &v
+	}).(CloudServiceRoleSkuInvokeResponsePtrOutput)
+}
+
+// Specifies the number of role instances in the cloud service.
+func (o CloudServiceRoleSkuInvokeResponseOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CloudServiceRoleSkuInvokeResponse) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
+}
+
+// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
+func (o CloudServiceRoleSkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceRoleSkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
+func (o CloudServiceRoleSkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceRoleSkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type CloudServiceRoleSkuInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceRoleSkuInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceRoleSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceRoleSkuInvokeResponsePtrOutput) ToCloudServiceRoleSkuInvokeResponsePtrOutput() CloudServiceRoleSkuInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceRoleSkuInvokeResponsePtrOutput) ToCloudServiceRoleSkuInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceRoleSkuInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceRoleSkuInvokeResponsePtrOutput) Elem() CloudServiceRoleSkuInvokeResponseOutput {
+	return o.ApplyT(func(v *CloudServiceRoleSkuInvokeResponse) CloudServiceRoleSkuInvokeResponse { return *v }).(CloudServiceRoleSkuInvokeResponseOutput)
+}
+
+// Specifies the number of role instances in the cloud service.
+func (o CloudServiceRoleSkuInvokeResponsePtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CloudServiceRoleSkuInvokeResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
+func (o CloudServiceRoleSkuInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServiceRoleSkuInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
+func (o CloudServiceRoleSkuInvokeResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServiceRoleSkuInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the cloud service role sku.
 type CloudServiceRoleSkuResponse struct {
 	// Specifies the number of role instances in the cloud service.
 	Capacity *float64 `pulumi:"capacity"`
@@ -3088,6 +4419,151 @@ func (o CloudServiceVaultAndSecretReferencePtrOutput) SourceVault() SubResourceP
 	}).(SubResourcePtrOutput)
 }
 
+type CloudServiceVaultAndSecretReferenceInvokeResponse struct {
+	SecretUrl   *string                    `pulumi:"secretUrl"`
+	SourceVault *SubResourceInvokeResponse `pulumi:"sourceVault"`
+}
+
+// CloudServiceVaultAndSecretReferenceInvokeResponseInput is an input type that accepts CloudServiceVaultAndSecretReferenceInvokeResponseArgs and CloudServiceVaultAndSecretReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServiceVaultAndSecretReferenceInvokeResponseInput` via:
+//
+//          CloudServiceVaultAndSecretReferenceInvokeResponseArgs{...}
+type CloudServiceVaultAndSecretReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServiceVaultAndSecretReferenceInvokeResponseOutput() CloudServiceVaultAndSecretReferenceInvokeResponseOutput
+	ToCloudServiceVaultAndSecretReferenceInvokeResponseOutputWithContext(context.Context) CloudServiceVaultAndSecretReferenceInvokeResponseOutput
+}
+
+type CloudServiceVaultAndSecretReferenceInvokeResponseArgs struct {
+	SecretUrl   pulumi.StringPtrInput             `pulumi:"secretUrl"`
+	SourceVault SubResourceInvokeResponsePtrInput `pulumi:"sourceVault"`
+}
+
+func (CloudServiceVaultAndSecretReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceVaultAndSecretReferenceInvokeResponseArgs) ToCloudServiceVaultAndSecretReferenceInvokeResponseOutput() CloudServiceVaultAndSecretReferenceInvokeResponseOutput {
+	return i.ToCloudServiceVaultAndSecretReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServiceVaultAndSecretReferenceInvokeResponseArgs) ToCloudServiceVaultAndSecretReferenceInvokeResponseOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultAndSecretReferenceInvokeResponseOutput)
+}
+
+func (i CloudServiceVaultAndSecretReferenceInvokeResponseArgs) ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput() CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return i.ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CloudServiceVaultAndSecretReferenceInvokeResponseArgs) ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultAndSecretReferenceInvokeResponseOutput).ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CloudServiceVaultAndSecretReferenceInvokeResponsePtrInput is an input type that accepts CloudServiceVaultAndSecretReferenceInvokeResponseArgs, CloudServiceVaultAndSecretReferenceInvokeResponsePtr and CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CloudServiceVaultAndSecretReferenceInvokeResponsePtrInput` via:
+//
+//          CloudServiceVaultAndSecretReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CloudServiceVaultAndSecretReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput() CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput
+	ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Context) CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput
+}
+
+type cloudServiceVaultAndSecretReferenceInvokeResponsePtrType CloudServiceVaultAndSecretReferenceInvokeResponseArgs
+
+func CloudServiceVaultAndSecretReferenceInvokeResponsePtr(v *CloudServiceVaultAndSecretReferenceInvokeResponseArgs) CloudServiceVaultAndSecretReferenceInvokeResponsePtrInput {
+	return (*cloudServiceVaultAndSecretReferenceInvokeResponsePtrType)(v)
+}
+
+func (*cloudServiceVaultAndSecretReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *cloudServiceVaultAndSecretReferenceInvokeResponsePtrType) ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput() CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return i.ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cloudServiceVaultAndSecretReferenceInvokeResponsePtrType) ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput)
+}
+
+type CloudServiceVaultAndSecretReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceVaultAndSecretReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceVaultAndSecretReferenceInvokeResponseOutput) ToCloudServiceVaultAndSecretReferenceInvokeResponseOutput() CloudServiceVaultAndSecretReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceVaultAndSecretReferenceInvokeResponseOutput) ToCloudServiceVaultAndSecretReferenceInvokeResponseOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceVaultAndSecretReferenceInvokeResponseOutput) ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput() CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o.ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CloudServiceVaultAndSecretReferenceInvokeResponseOutput) ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceVaultAndSecretReferenceInvokeResponse) *CloudServiceVaultAndSecretReferenceInvokeResponse {
+		return &v
+	}).(CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput)
+}
+func (o CloudServiceVaultAndSecretReferenceInvokeResponseOutput) SecretUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceVaultAndSecretReferenceInvokeResponse) *string { return v.SecretUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CloudServiceVaultAndSecretReferenceInvokeResponseOutput) SourceVault() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceVaultAndSecretReferenceInvokeResponse) *SubResourceInvokeResponse {
+		return v.SourceVault
+	}).(SubResourceInvokeResponsePtrOutput)
+}
+
+type CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudServiceVaultAndSecretReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput) ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput() CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput) ToCloudServiceVaultAndSecretReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput) Elem() CloudServiceVaultAndSecretReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *CloudServiceVaultAndSecretReferenceInvokeResponse) CloudServiceVaultAndSecretReferenceInvokeResponse {
+		return *v
+	}).(CloudServiceVaultAndSecretReferenceInvokeResponseOutput)
+}
+
+func (o CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput) SecretUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudServiceVaultAndSecretReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput) SourceVault() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CloudServiceVaultAndSecretReferenceInvokeResponse) *SubResourceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SourceVault
+	}).(SubResourceInvokeResponsePtrOutput)
+}
+
 type CloudServiceVaultAndSecretReferenceResponse struct {
 	SecretUrl   *string              `pulumi:"secretUrl"`
 	SourceVault *SubResourceResponse `pulumi:"sourceVault"`
@@ -3332,6 +4808,106 @@ func (o CloudServiceVaultCertificateArrayOutput) Index(i pulumi.IntInput) CloudS
 }
 
 // Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
+type CloudServiceVaultCertificateInvokeResponse struct {
+	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
+	CertificateUrl *string `pulumi:"certificateUrl"`
+}
+
+// CloudServiceVaultCertificateInvokeResponseInput is an input type that accepts CloudServiceVaultCertificateInvokeResponseArgs and CloudServiceVaultCertificateInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServiceVaultCertificateInvokeResponseInput` via:
+//
+//          CloudServiceVaultCertificateInvokeResponseArgs{...}
+type CloudServiceVaultCertificateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServiceVaultCertificateInvokeResponseOutput() CloudServiceVaultCertificateInvokeResponseOutput
+	ToCloudServiceVaultCertificateInvokeResponseOutputWithContext(context.Context) CloudServiceVaultCertificateInvokeResponseOutput
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
+type CloudServiceVaultCertificateInvokeResponseArgs struct {
+	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
+	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
+}
+
+func (CloudServiceVaultCertificateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceVaultCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceVaultCertificateInvokeResponseArgs) ToCloudServiceVaultCertificateInvokeResponseOutput() CloudServiceVaultCertificateInvokeResponseOutput {
+	return i.ToCloudServiceVaultCertificateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServiceVaultCertificateInvokeResponseArgs) ToCloudServiceVaultCertificateInvokeResponseOutputWithContext(ctx context.Context) CloudServiceVaultCertificateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultCertificateInvokeResponseOutput)
+}
+
+// CloudServiceVaultCertificateInvokeResponseArrayInput is an input type that accepts CloudServiceVaultCertificateInvokeResponseArray and CloudServiceVaultCertificateInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CloudServiceVaultCertificateInvokeResponseArrayInput` via:
+//
+//          CloudServiceVaultCertificateInvokeResponseArray{ CloudServiceVaultCertificateInvokeResponseArgs{...} }
+type CloudServiceVaultCertificateInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCloudServiceVaultCertificateInvokeResponseArrayOutput() CloudServiceVaultCertificateInvokeResponseArrayOutput
+	ToCloudServiceVaultCertificateInvokeResponseArrayOutputWithContext(context.Context) CloudServiceVaultCertificateInvokeResponseArrayOutput
+}
+
+type CloudServiceVaultCertificateInvokeResponseArray []CloudServiceVaultCertificateInvokeResponseInput
+
+func (CloudServiceVaultCertificateInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServiceVaultCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceVaultCertificateInvokeResponseArray) ToCloudServiceVaultCertificateInvokeResponseArrayOutput() CloudServiceVaultCertificateInvokeResponseArrayOutput {
+	return i.ToCloudServiceVaultCertificateInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CloudServiceVaultCertificateInvokeResponseArray) ToCloudServiceVaultCertificateInvokeResponseArrayOutputWithContext(ctx context.Context) CloudServiceVaultCertificateInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultCertificateInvokeResponseArrayOutput)
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
+type CloudServiceVaultCertificateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceVaultCertificateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceVaultCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceVaultCertificateInvokeResponseOutput) ToCloudServiceVaultCertificateInvokeResponseOutput() CloudServiceVaultCertificateInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceVaultCertificateInvokeResponseOutput) ToCloudServiceVaultCertificateInvokeResponseOutputWithContext(ctx context.Context) CloudServiceVaultCertificateInvokeResponseOutput {
+	return o
+}
+
+// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
+func (o CloudServiceVaultCertificateInvokeResponseOutput) CertificateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudServiceVaultCertificateInvokeResponse) *string { return v.CertificateUrl }).(pulumi.StringPtrOutput)
+}
+
+type CloudServiceVaultCertificateInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceVaultCertificateInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServiceVaultCertificateInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceVaultCertificateInvokeResponseArrayOutput) ToCloudServiceVaultCertificateInvokeResponseArrayOutput() CloudServiceVaultCertificateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CloudServiceVaultCertificateInvokeResponseArrayOutput) ToCloudServiceVaultCertificateInvokeResponseArrayOutputWithContext(ctx context.Context) CloudServiceVaultCertificateInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CloudServiceVaultCertificateInvokeResponseArrayOutput) Index(i pulumi.IntInput) CloudServiceVaultCertificateInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudServiceVaultCertificateInvokeResponse {
+		return vs[0].([]CloudServiceVaultCertificateInvokeResponse)[vs[1].(int)]
+	}).(CloudServiceVaultCertificateInvokeResponseOutput)
+}
+
+// Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
 type CloudServiceVaultCertificateResponse struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret.
 	CertificateUrl *string `pulumi:"certificateUrl"`
@@ -3538,6 +5114,117 @@ func (o CloudServiceVaultSecretGroupArrayOutput) Index(i pulumi.IntInput) CloudS
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudServiceVaultSecretGroup {
 		return vs[0].([]CloudServiceVaultSecretGroup)[vs[1].(int)]
 	}).(CloudServiceVaultSecretGroupOutput)
+}
+
+// Describes a set of certificates which are all in the same Key Vault.
+type CloudServiceVaultSecretGroupInvokeResponse struct {
+	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+	SourceVault *SubResourceInvokeResponse `pulumi:"sourceVault"`
+	// The list of key vault references in SourceVault which contain certificates.
+	VaultCertificates []CloudServiceVaultCertificateInvokeResponse `pulumi:"vaultCertificates"`
+}
+
+// CloudServiceVaultSecretGroupInvokeResponseInput is an input type that accepts CloudServiceVaultSecretGroupInvokeResponseArgs and CloudServiceVaultSecretGroupInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudServiceVaultSecretGroupInvokeResponseInput` via:
+//
+//          CloudServiceVaultSecretGroupInvokeResponseArgs{...}
+type CloudServiceVaultSecretGroupInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudServiceVaultSecretGroupInvokeResponseOutput() CloudServiceVaultSecretGroupInvokeResponseOutput
+	ToCloudServiceVaultSecretGroupInvokeResponseOutputWithContext(context.Context) CloudServiceVaultSecretGroupInvokeResponseOutput
+}
+
+// Describes a set of certificates which are all in the same Key Vault.
+type CloudServiceVaultSecretGroupInvokeResponseArgs struct {
+	// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+	SourceVault SubResourceInvokeResponsePtrInput `pulumi:"sourceVault"`
+	// The list of key vault references in SourceVault which contain certificates.
+	VaultCertificates CloudServiceVaultCertificateInvokeResponseArrayInput `pulumi:"vaultCertificates"`
+}
+
+func (CloudServiceVaultSecretGroupInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceVaultSecretGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceVaultSecretGroupInvokeResponseArgs) ToCloudServiceVaultSecretGroupInvokeResponseOutput() CloudServiceVaultSecretGroupInvokeResponseOutput {
+	return i.ToCloudServiceVaultSecretGroupInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudServiceVaultSecretGroupInvokeResponseArgs) ToCloudServiceVaultSecretGroupInvokeResponseOutputWithContext(ctx context.Context) CloudServiceVaultSecretGroupInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultSecretGroupInvokeResponseOutput)
+}
+
+// CloudServiceVaultSecretGroupInvokeResponseArrayInput is an input type that accepts CloudServiceVaultSecretGroupInvokeResponseArray and CloudServiceVaultSecretGroupInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CloudServiceVaultSecretGroupInvokeResponseArrayInput` via:
+//
+//          CloudServiceVaultSecretGroupInvokeResponseArray{ CloudServiceVaultSecretGroupInvokeResponseArgs{...} }
+type CloudServiceVaultSecretGroupInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCloudServiceVaultSecretGroupInvokeResponseArrayOutput() CloudServiceVaultSecretGroupInvokeResponseArrayOutput
+	ToCloudServiceVaultSecretGroupInvokeResponseArrayOutputWithContext(context.Context) CloudServiceVaultSecretGroupInvokeResponseArrayOutput
+}
+
+type CloudServiceVaultSecretGroupInvokeResponseArray []CloudServiceVaultSecretGroupInvokeResponseInput
+
+func (CloudServiceVaultSecretGroupInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServiceVaultSecretGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudServiceVaultSecretGroupInvokeResponseArray) ToCloudServiceVaultSecretGroupInvokeResponseArrayOutput() CloudServiceVaultSecretGroupInvokeResponseArrayOutput {
+	return i.ToCloudServiceVaultSecretGroupInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CloudServiceVaultSecretGroupInvokeResponseArray) ToCloudServiceVaultSecretGroupInvokeResponseArrayOutputWithContext(ctx context.Context) CloudServiceVaultSecretGroupInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudServiceVaultSecretGroupInvokeResponseArrayOutput)
+}
+
+// Describes a set of certificates which are all in the same Key Vault.
+type CloudServiceVaultSecretGroupInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceVaultSecretGroupInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudServiceVaultSecretGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceVaultSecretGroupInvokeResponseOutput) ToCloudServiceVaultSecretGroupInvokeResponseOutput() CloudServiceVaultSecretGroupInvokeResponseOutput {
+	return o
+}
+
+func (o CloudServiceVaultSecretGroupInvokeResponseOutput) ToCloudServiceVaultSecretGroupInvokeResponseOutputWithContext(ctx context.Context) CloudServiceVaultSecretGroupInvokeResponseOutput {
+	return o
+}
+
+// The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+func (o CloudServiceVaultSecretGroupInvokeResponseOutput) SourceVault() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CloudServiceVaultSecretGroupInvokeResponse) *SubResourceInvokeResponse { return v.SourceVault }).(SubResourceInvokeResponsePtrOutput)
+}
+
+// The list of key vault references in SourceVault which contain certificates.
+func (o CloudServiceVaultSecretGroupInvokeResponseOutput) VaultCertificates() CloudServiceVaultCertificateInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CloudServiceVaultSecretGroupInvokeResponse) []CloudServiceVaultCertificateInvokeResponse {
+		return v.VaultCertificates
+	}).(CloudServiceVaultCertificateInvokeResponseArrayOutput)
+}
+
+type CloudServiceVaultSecretGroupInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudServiceVaultSecretGroupInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudServiceVaultSecretGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudServiceVaultSecretGroupInvokeResponseArrayOutput) ToCloudServiceVaultSecretGroupInvokeResponseArrayOutput() CloudServiceVaultSecretGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CloudServiceVaultSecretGroupInvokeResponseArrayOutput) ToCloudServiceVaultSecretGroupInvokeResponseArrayOutputWithContext(ctx context.Context) CloudServiceVaultSecretGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CloudServiceVaultSecretGroupInvokeResponseArrayOutput) Index(i pulumi.IntInput) CloudServiceVaultSecretGroupInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudServiceVaultSecretGroupInvokeResponse {
+		return vs[0].([]CloudServiceVaultSecretGroupInvokeResponse)[vs[1].(int)]
+	}).(CloudServiceVaultSecretGroupInvokeResponseOutput)
 }
 
 // Describes a set of certificates which are all in the same Key Vault.
@@ -3761,6 +5448,115 @@ func (o ExtensionArrayOutput) Index(i pulumi.IntInput) ExtensionOutput {
 }
 
 // Describes a cloud service Extension.
+type ExtensionInvokeResponse struct {
+	// The name of the extension.
+	Name *string `pulumi:"name"`
+	// Extension Properties.
+	Properties *CloudServiceExtensionPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// ExtensionInvokeResponseInput is an input type that accepts ExtensionInvokeResponseArgs and ExtensionInvokeResponseOutput values.
+// You can construct a concrete instance of `ExtensionInvokeResponseInput` via:
+//
+//          ExtensionInvokeResponseArgs{...}
+type ExtensionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToExtensionInvokeResponseOutput() ExtensionInvokeResponseOutput
+	ToExtensionInvokeResponseOutputWithContext(context.Context) ExtensionInvokeResponseOutput
+}
+
+// Describes a cloud service Extension.
+type ExtensionInvokeResponseArgs struct {
+	// The name of the extension.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Extension Properties.
+	Properties CloudServiceExtensionPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (ExtensionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionInvokeResponse)(nil)).Elem()
+}
+
+func (i ExtensionInvokeResponseArgs) ToExtensionInvokeResponseOutput() ExtensionInvokeResponseOutput {
+	return i.ToExtensionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ExtensionInvokeResponseArgs) ToExtensionInvokeResponseOutputWithContext(ctx context.Context) ExtensionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionInvokeResponseOutput)
+}
+
+// ExtensionInvokeResponseArrayInput is an input type that accepts ExtensionInvokeResponseArray and ExtensionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ExtensionInvokeResponseArrayInput` via:
+//
+//          ExtensionInvokeResponseArray{ ExtensionInvokeResponseArgs{...} }
+type ExtensionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToExtensionInvokeResponseArrayOutput() ExtensionInvokeResponseArrayOutput
+	ToExtensionInvokeResponseArrayOutputWithContext(context.Context) ExtensionInvokeResponseArrayOutput
+}
+
+type ExtensionInvokeResponseArray []ExtensionInvokeResponseInput
+
+func (ExtensionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionInvokeResponse)(nil)).Elem()
+}
+
+func (i ExtensionInvokeResponseArray) ToExtensionInvokeResponseArrayOutput() ExtensionInvokeResponseArrayOutput {
+	return i.ToExtensionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ExtensionInvokeResponseArray) ToExtensionInvokeResponseArrayOutputWithContext(ctx context.Context) ExtensionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionInvokeResponseArrayOutput)
+}
+
+// Describes a cloud service Extension.
+type ExtensionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtensionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionInvokeResponse)(nil)).Elem()
+}
+
+func (o ExtensionInvokeResponseOutput) ToExtensionInvokeResponseOutput() ExtensionInvokeResponseOutput {
+	return o
+}
+
+func (o ExtensionInvokeResponseOutput) ToExtensionInvokeResponseOutputWithContext(ctx context.Context) ExtensionInvokeResponseOutput {
+	return o
+}
+
+// The name of the extension.
+func (o ExtensionInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Extension Properties.
+func (o ExtensionInvokeResponseOutput) Properties() CloudServiceExtensionPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ExtensionInvokeResponse) *CloudServiceExtensionPropertiesInvokeResponse { return v.Properties }).(CloudServiceExtensionPropertiesInvokeResponsePtrOutput)
+}
+
+type ExtensionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ExtensionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExtensionInvokeResponse)(nil)).Elem()
+}
+
+func (o ExtensionInvokeResponseArrayOutput) ToExtensionInvokeResponseArrayOutput() ExtensionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ExtensionInvokeResponseArrayOutput) ToExtensionInvokeResponseArrayOutputWithContext(ctx context.Context) ExtensionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ExtensionInvokeResponseArrayOutput) Index(i pulumi.IntInput) ExtensionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExtensionInvokeResponse {
+		return vs[0].([]ExtensionInvokeResponse)[vs[1].(int)]
+	}).(ExtensionInvokeResponseOutput)
+}
+
+// Describes a cloud service Extension.
 type ExtensionResponse struct {
 	// The name of the extension.
 	Name *string `pulumi:"name"`
@@ -3975,6 +5771,114 @@ func (o LoadBalancerConfigurationArrayOutput) Index(i pulumi.IntInput) LoadBalan
 	}).(LoadBalancerConfigurationOutput)
 }
 
+// Describes the load balancer configuration.
+type LoadBalancerConfigurationInvokeResponse struct {
+	// Resource Name
+	Name       *string                                            `pulumi:"name"`
+	Properties *LoadBalancerConfigurationPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// LoadBalancerConfigurationInvokeResponseInput is an input type that accepts LoadBalancerConfigurationInvokeResponseArgs and LoadBalancerConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `LoadBalancerConfigurationInvokeResponseInput` via:
+//
+//          LoadBalancerConfigurationInvokeResponseArgs{...}
+type LoadBalancerConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLoadBalancerConfigurationInvokeResponseOutput() LoadBalancerConfigurationInvokeResponseOutput
+	ToLoadBalancerConfigurationInvokeResponseOutputWithContext(context.Context) LoadBalancerConfigurationInvokeResponseOutput
+}
+
+// Describes the load balancer configuration.
+type LoadBalancerConfigurationInvokeResponseArgs struct {
+	// Resource Name
+	Name       pulumi.StringPtrInput                                     `pulumi:"name"`
+	Properties LoadBalancerConfigurationPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (LoadBalancerConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i LoadBalancerConfigurationInvokeResponseArgs) ToLoadBalancerConfigurationInvokeResponseOutput() LoadBalancerConfigurationInvokeResponseOutput {
+	return i.ToLoadBalancerConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerConfigurationInvokeResponseArgs) ToLoadBalancerConfigurationInvokeResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationInvokeResponseOutput)
+}
+
+// LoadBalancerConfigurationInvokeResponseArrayInput is an input type that accepts LoadBalancerConfigurationInvokeResponseArray and LoadBalancerConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerConfigurationInvokeResponseArrayInput` via:
+//
+//          LoadBalancerConfigurationInvokeResponseArray{ LoadBalancerConfigurationInvokeResponseArgs{...} }
+type LoadBalancerConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerConfigurationInvokeResponseArrayOutput() LoadBalancerConfigurationInvokeResponseArrayOutput
+	ToLoadBalancerConfigurationInvokeResponseArrayOutputWithContext(context.Context) LoadBalancerConfigurationInvokeResponseArrayOutput
+}
+
+type LoadBalancerConfigurationInvokeResponseArray []LoadBalancerConfigurationInvokeResponseInput
+
+func (LoadBalancerConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i LoadBalancerConfigurationInvokeResponseArray) ToLoadBalancerConfigurationInvokeResponseArrayOutput() LoadBalancerConfigurationInvokeResponseArrayOutput {
+	return i.ToLoadBalancerConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerConfigurationInvokeResponseArray) ToLoadBalancerConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) LoadBalancerConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationInvokeResponseArrayOutput)
+}
+
+// Describes the load balancer configuration.
+type LoadBalancerConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerConfigurationInvokeResponseOutput) ToLoadBalancerConfigurationInvokeResponseOutput() LoadBalancerConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o LoadBalancerConfigurationInvokeResponseOutput) ToLoadBalancerConfigurationInvokeResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationInvokeResponseOutput {
+	return o
+}
+
+// Resource Name
+func (o LoadBalancerConfigurationInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerConfigurationInvokeResponseOutput) Properties() LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationInvokeResponse) *LoadBalancerConfigurationPropertiesInvokeResponse {
+		return v.Properties
+	}).(LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput)
+}
+
+type LoadBalancerConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerConfigurationInvokeResponseArrayOutput) ToLoadBalancerConfigurationInvokeResponseArrayOutput() LoadBalancerConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancerConfigurationInvokeResponseArrayOutput) ToLoadBalancerConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) LoadBalancerConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancerConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) LoadBalancerConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerConfigurationInvokeResponse {
+		return vs[0].([]LoadBalancerConfigurationInvokeResponse)[vs[1].(int)]
+	}).(LoadBalancerConfigurationInvokeResponseOutput)
+}
+
 type LoadBalancerConfigurationProperties struct {
 	// List of IP
 	FrontendIPConfigurations []LoadBalancerFrontendIPConfiguration `pulumi:"frontendIPConfigurations"`
@@ -4106,6 +6010,141 @@ func (o LoadBalancerConfigurationPropertiesPtrOutput) FrontendIPConfigurations()
 		}
 		return v.FrontendIPConfigurations
 	}).(LoadBalancerFrontendIPConfigurationArrayOutput)
+}
+
+type LoadBalancerConfigurationPropertiesInvokeResponse struct {
+	// List of IP
+	FrontendIPConfigurations []LoadBalancerFrontendIPConfigurationInvokeResponse `pulumi:"frontendIPConfigurations"`
+}
+
+// LoadBalancerConfigurationPropertiesInvokeResponseInput is an input type that accepts LoadBalancerConfigurationPropertiesInvokeResponseArgs and LoadBalancerConfigurationPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `LoadBalancerConfigurationPropertiesInvokeResponseInput` via:
+//
+//          LoadBalancerConfigurationPropertiesInvokeResponseArgs{...}
+type LoadBalancerConfigurationPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLoadBalancerConfigurationPropertiesInvokeResponseOutput() LoadBalancerConfigurationPropertiesInvokeResponseOutput
+	ToLoadBalancerConfigurationPropertiesInvokeResponseOutputWithContext(context.Context) LoadBalancerConfigurationPropertiesInvokeResponseOutput
+}
+
+type LoadBalancerConfigurationPropertiesInvokeResponseArgs struct {
+	// List of IP
+	FrontendIPConfigurations LoadBalancerFrontendIPConfigurationInvokeResponseArrayInput `pulumi:"frontendIPConfigurations"`
+}
+
+func (LoadBalancerConfigurationPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i LoadBalancerConfigurationPropertiesInvokeResponseArgs) ToLoadBalancerConfigurationPropertiesInvokeResponseOutput() LoadBalancerConfigurationPropertiesInvokeResponseOutput {
+	return i.ToLoadBalancerConfigurationPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerConfigurationPropertiesInvokeResponseArgs) ToLoadBalancerConfigurationPropertiesInvokeResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesInvokeResponseOutput)
+}
+
+func (i LoadBalancerConfigurationPropertiesInvokeResponseArgs) ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutput() LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput {
+	return i.ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerConfigurationPropertiesInvokeResponseArgs) ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesInvokeResponseOutput).ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// LoadBalancerConfigurationPropertiesInvokeResponsePtrInput is an input type that accepts LoadBalancerConfigurationPropertiesInvokeResponseArgs, LoadBalancerConfigurationPropertiesInvokeResponsePtr and LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `LoadBalancerConfigurationPropertiesInvokeResponsePtrInput` via:
+//
+//          LoadBalancerConfigurationPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LoadBalancerConfigurationPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutput() LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput
+	ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutputWithContext(context.Context) LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput
+}
+
+type loadBalancerConfigurationPropertiesInvokeResponsePtrType LoadBalancerConfigurationPropertiesInvokeResponseArgs
+
+func LoadBalancerConfigurationPropertiesInvokeResponsePtr(v *LoadBalancerConfigurationPropertiesInvokeResponseArgs) LoadBalancerConfigurationPropertiesInvokeResponsePtrInput {
+	return (*loadBalancerConfigurationPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*loadBalancerConfigurationPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *loadBalancerConfigurationPropertiesInvokeResponsePtrType) ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutput() LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput {
+	return i.ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerConfigurationPropertiesInvokeResponsePtrType) ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput)
+}
+
+type LoadBalancerConfigurationPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerConfigurationPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerConfigurationPropertiesInvokeResponseOutput) ToLoadBalancerConfigurationPropertiesInvokeResponseOutput() LoadBalancerConfigurationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o LoadBalancerConfigurationPropertiesInvokeResponseOutput) ToLoadBalancerConfigurationPropertiesInvokeResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o LoadBalancerConfigurationPropertiesInvokeResponseOutput) ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutput() LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput {
+	return o.ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerConfigurationPropertiesInvokeResponseOutput) ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationPropertiesInvokeResponse) *LoadBalancerConfigurationPropertiesInvokeResponse {
+		return &v
+	}).(LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput)
+}
+
+// List of IP
+func (o LoadBalancerConfigurationPropertiesInvokeResponseOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationPropertiesInvokeResponse) []LoadBalancerFrontendIPConfigurationInvokeResponse {
+		return v.FrontendIPConfigurations
+	}).(LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput)
+}
+
+type LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput) ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutput() LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput) ToLoadBalancerConfigurationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput) Elem() LoadBalancerConfigurationPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *LoadBalancerConfigurationPropertiesInvokeResponse) LoadBalancerConfigurationPropertiesInvokeResponse {
+		return *v
+	}).(LoadBalancerConfigurationPropertiesInvokeResponseOutput)
+}
+
+// List of IP
+func (o LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput) FrontendIPConfigurations() LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerConfigurationPropertiesInvokeResponse) []LoadBalancerFrontendIPConfigurationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.FrontendIPConfigurations
+	}).(LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput)
 }
 
 type LoadBalancerConfigurationPropertiesResponse struct {
@@ -4456,6 +6495,111 @@ func (o LoadBalancerFrontendIPConfigurationArrayOutput) Index(i pulumi.IntInput)
 	}).(LoadBalancerFrontendIPConfigurationOutput)
 }
 
+type LoadBalancerFrontendIPConfigurationInvokeResponse struct {
+	Name *string `pulumi:"name"`
+	// Describes a cloud service IP Configuration
+	Properties *LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// LoadBalancerFrontendIPConfigurationInvokeResponseInput is an input type that accepts LoadBalancerFrontendIPConfigurationInvokeResponseArgs and LoadBalancerFrontendIPConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `LoadBalancerFrontendIPConfigurationInvokeResponseInput` via:
+//
+//          LoadBalancerFrontendIPConfigurationInvokeResponseArgs{...}
+type LoadBalancerFrontendIPConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLoadBalancerFrontendIPConfigurationInvokeResponseOutput() LoadBalancerFrontendIPConfigurationInvokeResponseOutput
+	ToLoadBalancerFrontendIPConfigurationInvokeResponseOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationInvokeResponseOutput
+}
+
+type LoadBalancerFrontendIPConfigurationInvokeResponseArgs struct {
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Describes a cloud service IP Configuration
+	Properties LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (LoadBalancerFrontendIPConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerFrontendIPConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i LoadBalancerFrontendIPConfigurationInvokeResponseArgs) ToLoadBalancerFrontendIPConfigurationInvokeResponseOutput() LoadBalancerFrontendIPConfigurationInvokeResponseOutput {
+	return i.ToLoadBalancerFrontendIPConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerFrontendIPConfigurationInvokeResponseArgs) ToLoadBalancerFrontendIPConfigurationInvokeResponseOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationInvokeResponseOutput)
+}
+
+// LoadBalancerFrontendIPConfigurationInvokeResponseArrayInput is an input type that accepts LoadBalancerFrontendIPConfigurationInvokeResponseArray and LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerFrontendIPConfigurationInvokeResponseArrayInput` via:
+//
+//          LoadBalancerFrontendIPConfigurationInvokeResponseArray{ LoadBalancerFrontendIPConfigurationInvokeResponseArgs{...} }
+type LoadBalancerFrontendIPConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput() LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput
+	ToLoadBalancerFrontendIPConfigurationInvokeResponseArrayOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput
+}
+
+type LoadBalancerFrontendIPConfigurationInvokeResponseArray []LoadBalancerFrontendIPConfigurationInvokeResponseInput
+
+func (LoadBalancerFrontendIPConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerFrontendIPConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i LoadBalancerFrontendIPConfigurationInvokeResponseArray) ToLoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput() LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput {
+	return i.ToLoadBalancerFrontendIPConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerFrontendIPConfigurationInvokeResponseArray) ToLoadBalancerFrontendIPConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput)
+}
+
+type LoadBalancerFrontendIPConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerFrontendIPConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerFrontendIPConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerFrontendIPConfigurationInvokeResponseOutput) ToLoadBalancerFrontendIPConfigurationInvokeResponseOutput() LoadBalancerFrontendIPConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o LoadBalancerFrontendIPConfigurationInvokeResponseOutput) ToLoadBalancerFrontendIPConfigurationInvokeResponseOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o LoadBalancerFrontendIPConfigurationInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Describes a cloud service IP Configuration
+func (o LoadBalancerFrontendIPConfigurationInvokeResponseOutput) Properties() LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationInvokeResponse) *LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse {
+		return v.Properties
+	}).(LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput)
+}
+
+type LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerFrontendIPConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput) ToLoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput() LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput) ToLoadBalancerFrontendIPConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) LoadBalancerFrontendIPConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerFrontendIPConfigurationInvokeResponse {
+		return vs[0].([]LoadBalancerFrontendIPConfigurationInvokeResponse)[vs[1].(int)]
+	}).(LoadBalancerFrontendIPConfigurationInvokeResponseOutput)
+}
+
 // Describes a cloud service IP Configuration
 type LoadBalancerFrontendIPConfigurationProperties struct {
 	// The private IP address referenced by the cloud service.
@@ -4620,6 +6764,176 @@ func (o LoadBalancerFrontendIPConfigurationPropertiesPtrOutput) Subnet() SubReso
 		}
 		return v.Subnet
 	}).(SubResourcePtrOutput)
+}
+
+// Describes a cloud service IP Configuration
+type LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse struct {
+	// The private IP address referenced by the cloud service.
+	PrivateIPAddress *string                    `pulumi:"privateIPAddress"`
+	PublicIPAddress  *SubResourceInvokeResponse `pulumi:"publicIPAddress"`
+	Subnet           *SubResourceInvokeResponse `pulumi:"subnet"`
+}
+
+// LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseInput is an input type that accepts LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs and LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseInput` via:
+//
+//          LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs{...}
+type LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput() LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput
+	ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput
+}
+
+// Describes a cloud service IP Configuration
+type LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs struct {
+	// The private IP address referenced by the cloud service.
+	PrivateIPAddress pulumi.StringPtrInput             `pulumi:"privateIPAddress"`
+	PublicIPAddress  SubResourceInvokeResponsePtrInput `pulumi:"publicIPAddress"`
+	Subnet           SubResourceInvokeResponsePtrInput `pulumi:"subnet"`
+}
+
+func (LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput() LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput {
+	return i.ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput)
+}
+
+func (i LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput {
+	return i.ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput).ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrInput is an input type that accepts LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs, LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtr and LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrInput` via:
+//
+//          LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput
+	ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutputWithContext(context.Context) LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput
+}
+
+type loadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrType LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs
+
+func LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtr(v *LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseArgs) LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrInput {
+	return (*loadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*loadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *loadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrType) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput {
+	return i.ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrType) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput)
+}
+
+// Describes a cloud service IP Configuration
+type LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput() LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput {
+	return o.ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse) *LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse {
+		return &v
+	}).(LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput)
+}
+
+// The private IP address referenced by the cloud service.
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse) *string { return v.PrivateIPAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput) PublicIPAddress() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse) *SubResourceInvokeResponse {
+		return v.PublicIPAddress
+	}).(SubResourceInvokeResponsePtrOutput)
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput) Subnet() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse) *SubResourceInvokeResponse {
+		return v.Subnet
+	}).(SubResourceInvokeResponsePtrOutput)
+}
+
+type LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput() LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput) ToLoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput) Elem() LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse) LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse {
+		return *v
+	}).(LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput)
+}
+
+// The private IP address referenced by the cloud service.
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput) PrivateIPAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateIPAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput) PublicIPAddress() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse) *SubResourceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIPAddress
+	}).(SubResourceInvokeResponsePtrOutput)
+}
+
+func (o LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput) Subnet() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *LoadBalancerFrontendIPConfigurationPropertiesInvokeResponse) *SubResourceInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Subnet
+	}).(SubResourceInvokeResponsePtrOutput)
 }
 
 // Describes a cloud service IP Configuration
@@ -5026,6 +7340,137 @@ func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SubResourceInvokeResponse struct {
+	// Resource Id
+	Id *string `pulumi:"id"`
+}
+
+// SubResourceInvokeResponseInput is an input type that accepts SubResourceInvokeResponseArgs and SubResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `SubResourceInvokeResponseInput` via:
+//
+//          SubResourceInvokeResponseArgs{...}
+type SubResourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput
+	ToSubResourceInvokeResponseOutputWithContext(context.Context) SubResourceInvokeResponseOutput
+}
+
+type SubResourceInvokeResponseArgs struct {
+	// Resource Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SubResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput {
+	return i.ToSubResourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponseOutputWithContext(ctx context.Context) SubResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceInvokeResponseOutput)
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponsePtrOutput() SubResourceInvokeResponsePtrOutput {
+	return i.ToSubResourceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponsePtrOutputWithContext(ctx context.Context) SubResourceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceInvokeResponseOutput).ToSubResourceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SubResourceInvokeResponsePtrInput is an input type that accepts SubResourceInvokeResponseArgs, SubResourceInvokeResponsePtr and SubResourceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SubResourceInvokeResponsePtrInput` via:
+//
+//          SubResourceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SubResourceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSubResourceInvokeResponsePtrOutput() SubResourceInvokeResponsePtrOutput
+	ToSubResourceInvokeResponsePtrOutputWithContext(context.Context) SubResourceInvokeResponsePtrOutput
+}
+
+type subResourceInvokeResponsePtrType SubResourceInvokeResponseArgs
+
+func SubResourceInvokeResponsePtr(v *SubResourceInvokeResponseArgs) SubResourceInvokeResponsePtrInput {
+	return (*subResourceInvokeResponsePtrType)(v)
+}
+
+func (*subResourceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i *subResourceInvokeResponsePtrType) ToSubResourceInvokeResponsePtrOutput() SubResourceInvokeResponsePtrOutput {
+	return i.ToSubResourceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *subResourceInvokeResponsePtrType) ToSubResourceInvokeResponsePtrOutputWithContext(ctx context.Context) SubResourceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceInvokeResponsePtrOutput)
+}
+
+type SubResourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponseOutputWithContext(ctx context.Context) SubResourceInvokeResponseOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponsePtrOutput() SubResourceInvokeResponsePtrOutput {
+	return o.ToSubResourceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponsePtrOutputWithContext(ctx context.Context) SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SubResourceInvokeResponse) *SubResourceInvokeResponse {
+		return &v
+	}).(SubResourceInvokeResponsePtrOutput)
+}
+
+// Resource Id
+func (o SubResourceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubResourceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SubResourceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SubResourceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o SubResourceInvokeResponsePtrOutput) ToSubResourceInvokeResponsePtrOutput() SubResourceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponsePtrOutput) ToSubResourceInvokeResponsePtrOutputWithContext(ctx context.Context) SubResourceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponsePtrOutput) Elem() SubResourceInvokeResponseOutput {
+	return o.ApplyT(func(v *SubResourceInvokeResponse) SubResourceInvokeResponse { return *v }).(SubResourceInvokeResponseOutput)
+}
+
+// Resource Id
+func (o SubResourceInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubResourceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 type SubResourceResponse struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
@@ -5160,70 +7605,103 @@ func (o SubResourceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(CloudServiceExtensionProfileOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionProfilePtrOutput{})
+	pulumi.RegisterOutputType(CloudServiceExtensionProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudServiceExtensionProfileInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionProfileResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionPropertiesOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CloudServiceExtensionPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudServiceExtensionPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceNetworkProfileOutput{})
 	pulumi.RegisterOutputType(CloudServiceNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(CloudServiceNetworkProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudServiceNetworkProfileInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceNetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceNetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceOsProfileOutput{})
 	pulumi.RegisterOutputType(CloudServiceOsProfilePtrOutput{})
+	pulumi.RegisterOutputType(CloudServiceOsProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudServiceOsProfileInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceOsProfileResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceOsProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServicePropertiesOutput{})
 	pulumi.RegisterOutputType(CloudServicePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CloudServicePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CloudServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CloudServicePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfileOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfilePtrOutput{})
+	pulumi.RegisterOutputType(CloudServiceRoleProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudServiceRoleProfileInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfilePropertiesOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfilePropertiesArrayOutput{})
+	pulumi.RegisterOutputType(CloudServiceRoleProfilePropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudServiceRoleProfilePropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfilePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfilePropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfileResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleSkuOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleSkuPtrOutput{})
+	pulumi.RegisterOutputType(CloudServiceRoleSkuInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudServiceRoleSkuInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleSkuResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceRoleSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultAndSecretReferenceOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultAndSecretReferencePtrOutput{})
+	pulumi.RegisterOutputType(CloudServiceVaultAndSecretReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudServiceVaultAndSecretReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultAndSecretReferenceResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultAndSecretReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultCertificateOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultCertificateArrayOutput{})
+	pulumi.RegisterOutputType(CloudServiceVaultCertificateInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudServiceVaultCertificateInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultCertificateResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultCertificateResponseArrayOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultSecretGroupOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultSecretGroupArrayOutput{})
+	pulumi.RegisterOutputType(CloudServiceVaultSecretGroupInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudServiceVaultSecretGroupInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultSecretGroupResponseOutput{})
 	pulumi.RegisterOutputType(CloudServiceVaultSecretGroupResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionOutput{})
 	pulumi.RegisterOutputType(ExtensionArrayOutput{})
+	pulumi.RegisterOutputType(ExtensionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ExtensionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionResponseOutput{})
 	pulumi.RegisterOutputType(ExtensionResponseArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LoadBalancerConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerConfigurationPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LoadBalancerConfigurationPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancerFrontendIPConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(SubResourceOutput{})
 	pulumi.RegisterOutputType(SubResourcePtrOutput{})
+	pulumi.RegisterOutputType(SubResourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SubResourceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseOutput{})
 	pulumi.RegisterOutputType(SubResourceResponsePtrOutput{})
 }

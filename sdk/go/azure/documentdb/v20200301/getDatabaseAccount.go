@@ -26,11 +26,11 @@ type LookupDatabaseAccountArgs struct {
 // An Azure Cosmos DB database account.
 type LookupDatabaseAccountResult struct {
 	// List of Cosmos DB capabilities for the account
-	Capabilities []CapabilityResponse `pulumi:"capabilities"`
+	Capabilities []CapabilityInvokeResponse `pulumi:"capabilities"`
 	// The cassandra connector offer type for the Cosmos DB database C* account.
 	ConnectorOffer *string `pulumi:"connectorOffer"`
 	// The consistency policy for the Cosmos DB database account.
-	ConsistencyPolicy *ConsistencyPolicyResponse `pulumi:"consistencyPolicy"`
+	ConsistencyPolicy *ConsistencyPolicyInvokeResponse `pulumi:"consistencyPolicy"`
 	// The offer type for the Cosmos DB database account. Default value: Standard.
 	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -44,7 +44,7 @@ type LookupDatabaseAccountResult struct {
 	// Enables the account to write in multiple locations
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// An array that contains the regions ordered by their failover priorities.
-	FailoverPolicies []FailoverPolicyResponse `pulumi:"failoverPolicies"`
+	FailoverPolicies []FailoverPolicyInvokeResponse `pulumi:"failoverPolicies"`
 	// The unique resource identifier of the ARM resource.
 	Id string `pulumi:"id"`
 	// Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -58,23 +58,23 @@ type LookupDatabaseAccountResult struct {
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// An array that contains all of the locations enabled for the Cosmos DB account.
-	Locations []LocationResponse `pulumi:"locations"`
+	Locations []LocationInvokeResponse `pulumi:"locations"`
 	// The name of the ARM resource.
 	Name string `pulumi:"name"`
 	// List of Private Endpoint Connections configured for the Cosmos DB account.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Whether requests from Public Network are allowed
 	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 	// An array that contains of the read locations enabled for the Cosmos DB account.
-	ReadLocations []LocationResponse `pulumi:"readLocations"`
+	ReadLocations []LocationInvokeResponse `pulumi:"readLocations"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Azure resource.
 	Type string `pulumi:"type"`
 	// List of Virtual Network ACL rules configured for the Cosmos DB account.
-	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
+	VirtualNetworkRules []VirtualNetworkRuleInvokeResponse `pulumi:"virtualNetworkRules"`
 	// An array that contains the write location for the Cosmos DB account.
-	WriteLocations []LocationResponse `pulumi:"writeLocations"`
+	WriteLocations []LocationInvokeResponse `pulumi:"writeLocations"`
 }

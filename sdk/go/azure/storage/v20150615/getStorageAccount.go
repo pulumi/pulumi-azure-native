@@ -30,7 +30,7 @@ type LookupStorageAccountResult struct {
 	// The creation date and time of the storage account in UTC.
 	CreationTime *string `pulumi:"creationTime"`
 	// The custom domain the user assigned to this storage account.
-	CustomDomain *CustomDomainResponse `pulumi:"customDomain"`
+	CustomDomain *CustomDomainInvokeResponse `pulumi:"customDomain"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
@@ -40,13 +40,13 @@ type LookupStorageAccountResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-	PrimaryEndpoints *EndpointsResponse `pulumi:"primaryEndpoints"`
+	PrimaryEndpoints *EndpointsInvokeResponse `pulumi:"primaryEndpoints"`
 	// The location of the primary data center for the storage account.
 	PrimaryLocation *string `pulumi:"primaryLocation"`
 	// The status of the storage account at the time the operation was called.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-	SecondaryEndpoints *EndpointsResponse `pulumi:"secondaryEndpoints"`
+	SecondaryEndpoints *EndpointsInvokeResponse `pulumi:"secondaryEndpoints"`
 	// The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
 	SecondaryLocation *string `pulumi:"secondaryLocation"`
 	// The status indicating whether the primary location of the storage account is available or unavailable.

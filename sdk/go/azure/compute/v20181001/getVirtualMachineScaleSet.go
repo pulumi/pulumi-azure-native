@@ -26,13 +26,13 @@ type LookupVirtualMachineScaleSetArgs struct {
 // Describes a Virtual Machine Scale Set.
 type LookupVirtualMachineScaleSetResult struct {
 	// Policy for automatic repairs.
-	AutomaticRepairsPolicy *AutomaticRepairsPolicyResponse `pulumi:"automaticRepairsPolicy"`
+	AutomaticRepairsPolicy *AutomaticRepairsPolicyInvokeResponse `pulumi:"automaticRepairsPolicy"`
 	// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
 	DoNotRunExtensionsOnOverprovisionedVMs *bool `pulumi:"doNotRunExtensionsOnOverprovisionedVMs"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The identity of the virtual machine scale set, if configured.
-	Identity *VirtualMachineScaleSetIdentityResponse `pulumi:"identity"`
+	Identity *VirtualMachineScaleSetIdentityInvokeResponse `pulumi:"identity"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
@@ -40,17 +40,17 @@ type LookupVirtualMachineScaleSetResult struct {
 	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
 	Overprovision *bool `pulumi:"overprovision"`
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-	Plan *PlanResponse `pulumi:"plan"`
+	Plan *PlanInvokeResponse `pulumi:"plan"`
 	// Fault Domain count for each placement group.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup *SubResourceResponse `pulumi:"proximityPlacementGroup"`
+	ProximityPlacementGroup *SubResourceInvokeResponse `pulumi:"proximityPlacementGroup"`
 	// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The virtual machine scale set sku.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -58,9 +58,9 @@ type LookupVirtualMachineScaleSetResult struct {
 	// Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
 	UniqueId string `pulumi:"uniqueId"`
 	// The upgrade policy.
-	UpgradePolicy *UpgradePolicyResponse `pulumi:"upgradePolicy"`
+	UpgradePolicy *UpgradePolicyInvokeResponse `pulumi:"upgradePolicy"`
 	// The virtual machine profile.
-	VirtualMachineProfile *VirtualMachineScaleSetVMProfileResponse `pulumi:"virtualMachineProfile"`
+	VirtualMachineProfile *VirtualMachineScaleSetVMProfileInvokeResponse `pulumi:"virtualMachineProfile"`
 	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.

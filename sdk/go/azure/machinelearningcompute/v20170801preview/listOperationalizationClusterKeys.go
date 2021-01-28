@@ -26,15 +26,15 @@ type ListOperationalizationClusterKeysArgs struct {
 // Credentials to resources in the cluster.
 type ListOperationalizationClusterKeysResult struct {
 	// Credentials for Azure AppInsights.
-	AppInsights *AppInsightsCredentialsResponse `pulumi:"appInsights"`
+	AppInsights *AppInsightsCredentialsInvokeResponse `pulumi:"appInsights"`
 	// Credentials for Azure Container Registry.
-	ContainerRegistry *ContainerRegistryCredentialsResponse `pulumi:"containerRegistry"`
+	ContainerRegistry *ContainerRegistryCredentialsInvokeResponse `pulumi:"containerRegistry"`
 	// Credentials for Azure Container Service.
-	ContainerService *ContainerServiceCredentialsResponse `pulumi:"containerService"`
+	ContainerService *ContainerServiceCredentialsInvokeResponse `pulumi:"containerService"`
 	// Global authorization keys for all user services deployed in cluster. These are used if the service does not have auth keys.
-	ServiceAuthConfiguration *ServiceAuthConfigurationResponse `pulumi:"serviceAuthConfiguration"`
+	ServiceAuthConfiguration *ServiceAuthConfigurationInvokeResponse `pulumi:"serviceAuthConfiguration"`
 	// The SSL configuration for the services.
-	SslConfiguration *SslConfigurationResponse `pulumi:"sslConfiguration"`
+	SslConfiguration *SslConfigurationInvokeResponse `pulumi:"sslConfiguration"`
 	// Credentials for the Storage Account.
-	StorageAccount *StorageAccountCredentialsResponse `pulumi:"storageAccount"`
+	StorageAccount *StorageAccountCredentialsInvokeResponse `pulumi:"storageAccount"`
 }

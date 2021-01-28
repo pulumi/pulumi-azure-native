@@ -34,7 +34,7 @@ type LookupCustomIPPrefixResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The extended location of the custom IP prefix.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	ExtendedLocation *ExtendedLocationInvokeResponse `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -44,7 +44,7 @@ type LookupCustomIPPrefixResult struct {
 	// The provisioning state of the custom IP prefix resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The list of all referenced PublicIpPrefixes.
-	PublicIpPrefixes []SubResourceResponse `pulumi:"publicIpPrefixes"`
+	PublicIpPrefixes []SubResourceInvokeResponse `pulumi:"publicIpPrefixes"`
 	// The resource GUID property of the custom IP prefix resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Resource tags.

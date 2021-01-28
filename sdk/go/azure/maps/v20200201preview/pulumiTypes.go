@@ -11,6 +11,61 @@ import (
 )
 
 // Creator resource properties
+type CreatorPropertiesInvokeResponse struct {
+	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+	ProvisioningState *string `pulumi:"provisioningState"`
+}
+
+// CreatorPropertiesInvokeResponseInput is an input type that accepts CreatorPropertiesInvokeResponseArgs and CreatorPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CreatorPropertiesInvokeResponseInput` via:
+//
+//          CreatorPropertiesInvokeResponseArgs{...}
+type CreatorPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCreatorPropertiesInvokeResponseOutput() CreatorPropertiesInvokeResponseOutput
+	ToCreatorPropertiesInvokeResponseOutputWithContext(context.Context) CreatorPropertiesInvokeResponseOutput
+}
+
+// Creator resource properties
+type CreatorPropertiesInvokeResponseArgs struct {
+	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+}
+
+func (CreatorPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreatorPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CreatorPropertiesInvokeResponseArgs) ToCreatorPropertiesInvokeResponseOutput() CreatorPropertiesInvokeResponseOutput {
+	return i.ToCreatorPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CreatorPropertiesInvokeResponseArgs) ToCreatorPropertiesInvokeResponseOutputWithContext(ctx context.Context) CreatorPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CreatorPropertiesInvokeResponseOutput)
+}
+
+// Creator resource properties
+type CreatorPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CreatorPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreatorPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CreatorPropertiesInvokeResponseOutput) ToCreatorPropertiesInvokeResponseOutput() CreatorPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CreatorPropertiesInvokeResponseOutput) ToCreatorPropertiesInvokeResponseOutputWithContext(ctx context.Context) CreatorPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+func (o CreatorPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CreatorPropertiesInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Creator resource properties
 type CreatorPropertiesResponse struct {
 	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
 	ProvisioningState *string `pulumi:"provisioningState"`
@@ -145,6 +200,61 @@ func (o CreatorPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 }
 
 // Additional Map account properties
+type MapsAccountPropertiesInvokeResponse struct {
+	// A unique identifier for the maps account
+	XMsClientId *string `pulumi:"xMsClientId"`
+}
+
+// MapsAccountPropertiesInvokeResponseInput is an input type that accepts MapsAccountPropertiesInvokeResponseArgs and MapsAccountPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `MapsAccountPropertiesInvokeResponseInput` via:
+//
+//          MapsAccountPropertiesInvokeResponseArgs{...}
+type MapsAccountPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMapsAccountPropertiesInvokeResponseOutput() MapsAccountPropertiesInvokeResponseOutput
+	ToMapsAccountPropertiesInvokeResponseOutputWithContext(context.Context) MapsAccountPropertiesInvokeResponseOutput
+}
+
+// Additional Map account properties
+type MapsAccountPropertiesInvokeResponseArgs struct {
+	// A unique identifier for the maps account
+	XMsClientId pulumi.StringPtrInput `pulumi:"xMsClientId"`
+}
+
+func (MapsAccountPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MapsAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MapsAccountPropertiesInvokeResponseArgs) ToMapsAccountPropertiesInvokeResponseOutput() MapsAccountPropertiesInvokeResponseOutput {
+	return i.ToMapsAccountPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MapsAccountPropertiesInvokeResponseArgs) ToMapsAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) MapsAccountPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MapsAccountPropertiesInvokeResponseOutput)
+}
+
+// Additional Map account properties
+type MapsAccountPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MapsAccountPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MapsAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MapsAccountPropertiesInvokeResponseOutput) ToMapsAccountPropertiesInvokeResponseOutput() MapsAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MapsAccountPropertiesInvokeResponseOutput) ToMapsAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) MapsAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+// A unique identifier for the maps account
+func (o MapsAccountPropertiesInvokeResponseOutput) XMsClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MapsAccountPropertiesInvokeResponse) *string { return v.XMsClientId }).(pulumi.StringPtrOutput)
+}
+
+// Additional Map account properties
 type MapsAccountPropertiesResponse struct {
 	// A unique identifier for the maps account
 	XMsClientId *string `pulumi:"xMsClientId"`
@@ -276,6 +386,61 @@ func (o MapsAccountPropertiesResponsePtrOutput) XMsClientId() pulumi.StringPtrOu
 		}
 		return v.XMsClientId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Private Atlas resource properties
+type PrivateAtlasPropertiesInvokeResponse struct {
+	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+	ProvisioningState *string `pulumi:"provisioningState"`
+}
+
+// PrivateAtlasPropertiesInvokeResponseInput is an input type that accepts PrivateAtlasPropertiesInvokeResponseArgs and PrivateAtlasPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateAtlasPropertiesInvokeResponseInput` via:
+//
+//          PrivateAtlasPropertiesInvokeResponseArgs{...}
+type PrivateAtlasPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateAtlasPropertiesInvokeResponseOutput() PrivateAtlasPropertiesInvokeResponseOutput
+	ToPrivateAtlasPropertiesInvokeResponseOutputWithContext(context.Context) PrivateAtlasPropertiesInvokeResponseOutput
+}
+
+// Private Atlas resource properties
+type PrivateAtlasPropertiesInvokeResponseArgs struct {
+	// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+}
+
+func (PrivateAtlasPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateAtlasPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateAtlasPropertiesInvokeResponseArgs) ToPrivateAtlasPropertiesInvokeResponseOutput() PrivateAtlasPropertiesInvokeResponseOutput {
+	return i.ToPrivateAtlasPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateAtlasPropertiesInvokeResponseArgs) ToPrivateAtlasPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateAtlasPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateAtlasPropertiesInvokeResponseOutput)
+}
+
+// Private Atlas resource properties
+type PrivateAtlasPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateAtlasPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateAtlasPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateAtlasPropertiesInvokeResponseOutput) ToPrivateAtlasPropertiesInvokeResponseOutput() PrivateAtlasPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateAtlasPropertiesInvokeResponseOutput) ToPrivateAtlasPropertiesInvokeResponseOutputWithContext(ctx context.Context) PrivateAtlasPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
+func (o PrivateAtlasPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateAtlasPropertiesInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // Private Atlas resource properties
@@ -547,6 +712,70 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The SKU of the Maps Account.
+type SkuInvokeResponse struct {
+	// The name of the SKU, in standard format (such as S0).
+	Name string `pulumi:"name"`
+	// Gets the sku tier. This is based on the SKU name.
+	Tier string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The SKU of the Maps Account.
+type SkuInvokeResponseArgs struct {
+	// The name of the SKU, in standard format (such as S0).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gets the sku tier. This is based on the SKU name.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The SKU of the Maps Account.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU, in standard format (such as S0).
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the sku tier. This is based on the SKU name.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// The SKU of the Maps Account.
 type SkuResponse struct {
 	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
@@ -697,6 +926,106 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return &v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -929,16 +1258,21 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(CreatorPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CreatorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CreatorPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(MapsAccountPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MapsAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MapsAccountPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateAtlasPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PrivateAtlasPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateAtlasPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

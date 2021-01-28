@@ -28,7 +28,7 @@ type LookupScheduleArgs struct {
 // Definition of the schedule.
 type LookupScheduleResult struct {
 	// Gets or sets the advanced schedule.
-	AdvancedSchedule *AdvancedScheduleResponse `pulumi:"advancedSchedule"`
+	AdvancedSchedule *AdvancedScheduleInvokeResponse `pulumi:"advancedSchedule"`
 	// Gets or sets the creation time.
 	CreationTime *string `pulumi:"creationTime"`
 	// Gets or sets the description.

@@ -39,7 +39,7 @@ type LookupWebAppResult struct {
 	// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
 	ClientCertMode *string `pulumi:"clientCertMode"`
 	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo *CloningInfoResponse `pulumi:"cloningInfo"`
+	CloningInfo *CloningInfoInvokeResponse `pulumi:"cloningInfo"`
 	// Size of the function container.
 	ContainerSize *int `pulumi:"containerSize"`
 	// Unique identifier that verifies the custom domains assigned to the app. Customer will add this id to a txt record for verification.
@@ -54,14 +54,14 @@ type LookupWebAppResult struct {
 	// the app is not served on those hostnames.
 	EnabledHostNames []string `pulumi:"enabledHostNames"`
 	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
-	HostNameSslStates []HostNameSslStateResponse `pulumi:"hostNameSslStates"`
+	HostNameSslStates []HostNameSslStateInvokeResponse `pulumi:"hostNameSslStates"`
 	// Hostnames associated with the app.
 	HostNames []string `pulumi:"hostNames"`
 	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
 	//  If <code>true</code>, the app is only accessible via API management process.
 	HostNamesDisabled *bool `pulumi:"hostNamesDisabled"`
 	// App Service Environment to use for the app.
-	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	HostingEnvironmentProfile *HostingEnvironmentProfileInvokeResponse `pulumi:"hostingEnvironmentProfile"`
 	// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
 	// http requests
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -70,7 +70,7 @@ type LookupWebAppResult struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Managed service identity.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	Identity *ManagedServiceIdentityInvokeResponse `pulumi:"identity"`
 	// Specifies an operation id if this site has a pending operation.
 	InProgressOperationId string `pulumi:"inProgressOperationId"`
 	// <code>true</code> if the app is a default container; otherwise, <code>false</code>.
@@ -105,9 +105,9 @@ type LookupWebAppResult struct {
 	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
 	ServerFarmId *string `pulumi:"serverFarmId"`
 	// Configuration of the app.
-	SiteConfig *SiteConfigResponse `pulumi:"siteConfig"`
+	SiteConfig *SiteConfigInvokeResponse `pulumi:"siteConfig"`
 	// Status of the last deployment slot swap operation.
-	SlotSwapStatus SlotSwapStatusResponse `pulumi:"slotSwapStatus"`
+	SlotSwapStatus SlotSwapStatusInvokeResponse `pulumi:"slotSwapStatus"`
 	// Current state of the app.
 	State string `pulumi:"state"`
 	// App suspended till in case memory-time quota is exceeded.

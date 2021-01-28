@@ -31,15 +31,15 @@ type LookupIntegrationAccountAgreementResult struct {
 	// The changed time.
 	ChangedTime string `pulumi:"changedTime"`
 	// The agreement content.
-	Content *AgreementContentResponse `pulumi:"content"`
+	Content *AgreementContentInvokeResponse `pulumi:"content"`
 	// The created time.
 	CreatedTime string `pulumi:"createdTime"`
 	// The guest identity.
-	GuestIdentity *BusinessIdentityResponse `pulumi:"guestIdentity"`
+	GuestIdentity *BusinessIdentityInvokeResponse `pulumi:"guestIdentity"`
 	// The guest partner.
 	GuestPartner *string `pulumi:"guestPartner"`
 	// The host identity.
-	HostIdentity *BusinessIdentityResponse `pulumi:"hostIdentity"`
+	HostIdentity *BusinessIdentityInvokeResponse `pulumi:"hostIdentity"`
 	// The host partner.
 	HostPartner *string `pulumi:"hostPartner"`
 	// The resource id.

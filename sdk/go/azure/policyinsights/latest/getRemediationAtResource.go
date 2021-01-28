@@ -28,9 +28,9 @@ type LookupRemediationAtResourceResult struct {
 	// The time at which the remediation was created.
 	CreatedOn string `pulumi:"createdOn"`
 	// The deployment status summary for all deployments created by the remediation.
-	DeploymentStatus RemediationDeploymentSummaryResponse `pulumi:"deploymentStatus"`
+	DeploymentStatus RemediationDeploymentSummaryInvokeResponse `pulumi:"deploymentStatus"`
 	// The filters that will be applied to determine which resources to remediate.
-	Filters *RemediationFiltersResponse `pulumi:"filters"`
+	Filters *RemediationFiltersInvokeResponse `pulumi:"filters"`
 	// The ID of the remediation.
 	Id string `pulumi:"id"`
 	// The time at which the remediation was last updated.

@@ -30,5 +30,5 @@ type ListWebAppSiteBackupsSlotResult struct {
 	// Link to next page of resources.
 	NextLink string `pulumi:"nextLink"`
 	// Collection of resources.
-	Value []BackupItemResponse `pulumi:"value"`
+	Value []BackupItemInvokeResponse `pulumi:"value"`
 }

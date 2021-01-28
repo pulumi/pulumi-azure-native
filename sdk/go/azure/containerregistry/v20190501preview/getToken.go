@@ -30,7 +30,7 @@ type LookupTokenResult struct {
 	// The creation date of scope map.
 	CreationDate string `pulumi:"creationDate"`
 	// The credentials that can be used for authenticating the token.
-	Credentials *TokenCredentialsPropertiesResponse `pulumi:"credentials"`
+	Credentials *TokenCredentialsPropertiesInvokeResponse `pulumi:"credentials"`
 	// The resource ID.
 	Id string `pulumi:"id"`
 	// The name of the resource.
@@ -42,7 +42,7 @@ type LookupTokenResult struct {
 	// The status of the token example enabled or disabled.
 	Status *string `pulumi:"status"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

@@ -26,5 +26,5 @@ type GetVirtualNetworkGatewayVpnclientConnectionHealthArgs struct {
 // List of virtual network gateway vpn client connection health.
 type GetVirtualNetworkGatewayVpnclientConnectionHealthResult struct {
 	// List of vpn client connection health.
-	Value []VpnClientConnectionHealthDetailResponse `pulumi:"value"`
+	Value []VpnClientConnectionHealthDetailInvokeResponse `pulumi:"value"`
 }

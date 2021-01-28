@@ -34,7 +34,7 @@ type LookupManagementGroupDiagnosticSettingResult struct {
 	// Location of the resource
 	Location *string `pulumi:"location"`
 	// The list of logs settings.
-	Logs []ManagementGroupLogSettingsResponse `pulumi:"logs"`
+	Logs []ManagementGroupLogSettingsInvokeResponse `pulumi:"logs"`
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.

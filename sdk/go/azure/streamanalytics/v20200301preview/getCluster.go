@@ -34,9 +34,9 @@ type LookupClusterResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The properties associated with a Stream Analytics cluster.
-	Properties ClusterPropertiesResponse `pulumi:"properties"`
+	Properties ClusterPropertiesInvokeResponse `pulumi:"properties"`
 	// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
-	Sku *ClusterSkuResponse `pulumi:"sku"`
+	Sku *ClusterSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

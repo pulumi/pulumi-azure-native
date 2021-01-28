@@ -38,7 +38,7 @@ type LookupIscsiTargetResult struct {
 	// iSCSI target iqn (iSCSI Qualified Name); example: iqn.2005-03.org.iscsi:server
 	TargetIqn string `pulumi:"targetIqn"`
 	// list of iSCSI target portal groups
-	Tpgs []TargetPortalGroupResponse `pulumi:"tpgs"`
+	Tpgs []TargetPortalGroupInvokeResponse `pulumi:"tpgs"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

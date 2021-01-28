@@ -36,7 +36,7 @@ type LookupVirtualMachineRunCommandByVirtualMachineResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The virtual machine run command instance view.
-	InstanceView VirtualMachineRunCommandInstanceViewResponse `pulumi:"instanceView"`
+	InstanceView VirtualMachineRunCommandInstanceViewInvokeResponse `pulumi:"instanceView"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
@@ -44,9 +44,9 @@ type LookupVirtualMachineRunCommandByVirtualMachineResult struct {
 	// Specifies the Azure storage blob where script output stream will be uploaded.
 	OutputBlobUri *string `pulumi:"outputBlobUri"`
 	// The parameters used by the script.
-	Parameters []RunCommandInputParameterResponse `pulumi:"parameters"`
+	Parameters []RunCommandInputParameterInvokeResponse `pulumi:"parameters"`
 	// The parameters used by the script.
-	ProtectedParameters []RunCommandInputParameterResponse `pulumi:"protectedParameters"`
+	ProtectedParameters []RunCommandInputParameterInvokeResponse `pulumi:"protectedParameters"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Specifies the user account password on the VM when executing the run command.
@@ -54,7 +54,7 @@ type LookupVirtualMachineRunCommandByVirtualMachineResult struct {
 	// Specifies the user account on the VM when executing the run command.
 	RunAsUser *string `pulumi:"runAsUser"`
 	// The source of the run command script.
-	Source *VirtualMachineRunCommandScriptSourceResponse `pulumi:"source"`
+	Source *VirtualMachineRunCommandScriptSourceInvokeResponse `pulumi:"source"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The timeout in seconds to execute the run command.

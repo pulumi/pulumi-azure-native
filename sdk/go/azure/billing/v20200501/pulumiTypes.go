@@ -11,116 +11,116 @@ import (
 )
 
 // Details of the Azure plan.
-type AzurePlanResponse struct {
+type AzurePlanInvokeResponse struct {
 	// The sku description.
 	SkuDescription string `pulumi:"skuDescription"`
 	// The sku id.
 	SkuId *string `pulumi:"skuId"`
 }
 
-// AzurePlanResponseInput is an input type that accepts AzurePlanResponseArgs and AzurePlanResponseOutput values.
-// You can construct a concrete instance of `AzurePlanResponseInput` via:
+// AzurePlanInvokeResponseInput is an input type that accepts AzurePlanInvokeResponseArgs and AzurePlanInvokeResponseOutput values.
+// You can construct a concrete instance of `AzurePlanInvokeResponseInput` via:
 //
-//          AzurePlanResponseArgs{...}
-type AzurePlanResponseInput interface {
+//          AzurePlanInvokeResponseArgs{...}
+type AzurePlanInvokeResponseInput interface {
 	pulumi.Input
 
-	ToAzurePlanResponseOutput() AzurePlanResponseOutput
-	ToAzurePlanResponseOutputWithContext(context.Context) AzurePlanResponseOutput
+	ToAzurePlanInvokeResponseOutput() AzurePlanInvokeResponseOutput
+	ToAzurePlanInvokeResponseOutputWithContext(context.Context) AzurePlanInvokeResponseOutput
 }
 
 // Details of the Azure plan.
-type AzurePlanResponseArgs struct {
+type AzurePlanInvokeResponseArgs struct {
 	// The sku description.
 	SkuDescription pulumi.StringInput `pulumi:"skuDescription"`
 	// The sku id.
 	SkuId pulumi.StringPtrInput `pulumi:"skuId"`
 }
 
-func (AzurePlanResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzurePlanResponse)(nil)).Elem()
+func (AzurePlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzurePlanInvokeResponse)(nil)).Elem()
 }
 
-func (i AzurePlanResponseArgs) ToAzurePlanResponseOutput() AzurePlanResponseOutput {
-	return i.ToAzurePlanResponseOutputWithContext(context.Background())
+func (i AzurePlanInvokeResponseArgs) ToAzurePlanInvokeResponseOutput() AzurePlanInvokeResponseOutput {
+	return i.ToAzurePlanInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i AzurePlanResponseArgs) ToAzurePlanResponseOutputWithContext(ctx context.Context) AzurePlanResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzurePlanResponseOutput)
+func (i AzurePlanInvokeResponseArgs) ToAzurePlanInvokeResponseOutputWithContext(ctx context.Context) AzurePlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzurePlanInvokeResponseOutput)
 }
 
-// AzurePlanResponseArrayInput is an input type that accepts AzurePlanResponseArray and AzurePlanResponseArrayOutput values.
-// You can construct a concrete instance of `AzurePlanResponseArrayInput` via:
+// AzurePlanInvokeResponseArrayInput is an input type that accepts AzurePlanInvokeResponseArray and AzurePlanInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AzurePlanInvokeResponseArrayInput` via:
 //
-//          AzurePlanResponseArray{ AzurePlanResponseArgs{...} }
-type AzurePlanResponseArrayInput interface {
+//          AzurePlanInvokeResponseArray{ AzurePlanInvokeResponseArgs{...} }
+type AzurePlanInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToAzurePlanResponseArrayOutput() AzurePlanResponseArrayOutput
-	ToAzurePlanResponseArrayOutputWithContext(context.Context) AzurePlanResponseArrayOutput
+	ToAzurePlanInvokeResponseArrayOutput() AzurePlanInvokeResponseArrayOutput
+	ToAzurePlanInvokeResponseArrayOutputWithContext(context.Context) AzurePlanInvokeResponseArrayOutput
 }
 
-type AzurePlanResponseArray []AzurePlanResponseInput
+type AzurePlanInvokeResponseArray []AzurePlanInvokeResponseInput
 
-func (AzurePlanResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzurePlanResponse)(nil)).Elem()
+func (AzurePlanInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzurePlanInvokeResponse)(nil)).Elem()
 }
 
-func (i AzurePlanResponseArray) ToAzurePlanResponseArrayOutput() AzurePlanResponseArrayOutput {
-	return i.ToAzurePlanResponseArrayOutputWithContext(context.Background())
+func (i AzurePlanInvokeResponseArray) ToAzurePlanInvokeResponseArrayOutput() AzurePlanInvokeResponseArrayOutput {
+	return i.ToAzurePlanInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i AzurePlanResponseArray) ToAzurePlanResponseArrayOutputWithContext(ctx context.Context) AzurePlanResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzurePlanResponseArrayOutput)
+func (i AzurePlanInvokeResponseArray) ToAzurePlanInvokeResponseArrayOutputWithContext(ctx context.Context) AzurePlanInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzurePlanInvokeResponseArrayOutput)
 }
 
 // Details of the Azure plan.
-type AzurePlanResponseOutput struct{ *pulumi.OutputState }
+type AzurePlanInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (AzurePlanResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzurePlanResponse)(nil)).Elem()
+func (AzurePlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzurePlanInvokeResponse)(nil)).Elem()
 }
 
-func (o AzurePlanResponseOutput) ToAzurePlanResponseOutput() AzurePlanResponseOutput {
+func (o AzurePlanInvokeResponseOutput) ToAzurePlanInvokeResponseOutput() AzurePlanInvokeResponseOutput {
 	return o
 }
 
-func (o AzurePlanResponseOutput) ToAzurePlanResponseOutputWithContext(ctx context.Context) AzurePlanResponseOutput {
+func (o AzurePlanInvokeResponseOutput) ToAzurePlanInvokeResponseOutputWithContext(ctx context.Context) AzurePlanInvokeResponseOutput {
 	return o
 }
 
 // The sku description.
-func (o AzurePlanResponseOutput) SkuDescription() pulumi.StringOutput {
-	return o.ApplyT(func(v AzurePlanResponse) string { return v.SkuDescription }).(pulumi.StringOutput)
+func (o AzurePlanInvokeResponseOutput) SkuDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v AzurePlanInvokeResponse) string { return v.SkuDescription }).(pulumi.StringOutput)
 }
 
 // The sku id.
-func (o AzurePlanResponseOutput) SkuId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzurePlanResponse) *string { return v.SkuId }).(pulumi.StringPtrOutput)
+func (o AzurePlanInvokeResponseOutput) SkuId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzurePlanInvokeResponse) *string { return v.SkuId }).(pulumi.StringPtrOutput)
 }
 
-type AzurePlanResponseArrayOutput struct{ *pulumi.OutputState }
+type AzurePlanInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (AzurePlanResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzurePlanResponse)(nil)).Elem()
+func (AzurePlanInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzurePlanInvokeResponse)(nil)).Elem()
 }
 
-func (o AzurePlanResponseArrayOutput) ToAzurePlanResponseArrayOutput() AzurePlanResponseArrayOutput {
+func (o AzurePlanInvokeResponseArrayOutput) ToAzurePlanInvokeResponseArrayOutput() AzurePlanInvokeResponseArrayOutput {
 	return o
 }
 
-func (o AzurePlanResponseArrayOutput) ToAzurePlanResponseArrayOutputWithContext(ctx context.Context) AzurePlanResponseArrayOutput {
+func (o AzurePlanInvokeResponseArrayOutput) ToAzurePlanInvokeResponseArrayOutputWithContext(ctx context.Context) AzurePlanInvokeResponseArrayOutput {
 	return o
 }
 
-func (o AzurePlanResponseArrayOutput) Index(i pulumi.IntInput) AzurePlanResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzurePlanResponse {
-		return vs[0].([]AzurePlanResponse)[vs[1].(int)]
-	}).(AzurePlanResponseOutput)
+func (o AzurePlanInvokeResponseArrayOutput) Index(i pulumi.IntInput) AzurePlanInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzurePlanInvokeResponse {
+		return vs[0].([]AzurePlanInvokeResponse)[vs[1].(int)]
+	}).(AzurePlanInvokeResponseOutput)
 }
 
 // Invoice section properties with create subscription permission.
-type InvoiceSectionWithCreateSubPermissionResponse struct {
+type InvoiceSectionWithCreateSubPermissionInvokeResponse struct {
 	// The name of the billing profile for the invoice section.
 	BillingProfileDisplayName string `pulumi:"billingProfileDisplayName"`
 	// The ID of the billing profile for the invoice section.
@@ -134,7 +134,7 @@ type InvoiceSectionWithCreateSubPermissionResponse struct {
 	// The system generated unique identifier for a billing profile.
 	BillingProfileSystemId string `pulumi:"billingProfileSystemId"`
 	// Enabled azure plans for the associated billing profile.
-	EnabledAzurePlans []AzurePlanResponse `pulumi:"enabledAzurePlans"`
+	EnabledAzurePlans []AzurePlanInvokeResponse `pulumi:"enabledAzurePlans"`
 	// The name of the invoice section.
 	InvoiceSectionDisplayName string `pulumi:"invoiceSectionDisplayName"`
 	// The ID of the invoice section.
@@ -143,19 +143,19 @@ type InvoiceSectionWithCreateSubPermissionResponse struct {
 	InvoiceSectionSystemId string `pulumi:"invoiceSectionSystemId"`
 }
 
-// InvoiceSectionWithCreateSubPermissionResponseInput is an input type that accepts InvoiceSectionWithCreateSubPermissionResponseArgs and InvoiceSectionWithCreateSubPermissionResponseOutput values.
-// You can construct a concrete instance of `InvoiceSectionWithCreateSubPermissionResponseInput` via:
+// InvoiceSectionWithCreateSubPermissionInvokeResponseInput is an input type that accepts InvoiceSectionWithCreateSubPermissionInvokeResponseArgs and InvoiceSectionWithCreateSubPermissionInvokeResponseOutput values.
+// You can construct a concrete instance of `InvoiceSectionWithCreateSubPermissionInvokeResponseInput` via:
 //
-//          InvoiceSectionWithCreateSubPermissionResponseArgs{...}
-type InvoiceSectionWithCreateSubPermissionResponseInput interface {
+//          InvoiceSectionWithCreateSubPermissionInvokeResponseArgs{...}
+type InvoiceSectionWithCreateSubPermissionInvokeResponseInput interface {
 	pulumi.Input
 
-	ToInvoiceSectionWithCreateSubPermissionResponseOutput() InvoiceSectionWithCreateSubPermissionResponseOutput
-	ToInvoiceSectionWithCreateSubPermissionResponseOutputWithContext(context.Context) InvoiceSectionWithCreateSubPermissionResponseOutput
+	ToInvoiceSectionWithCreateSubPermissionInvokeResponseOutput() InvoiceSectionWithCreateSubPermissionInvokeResponseOutput
+	ToInvoiceSectionWithCreateSubPermissionInvokeResponseOutputWithContext(context.Context) InvoiceSectionWithCreateSubPermissionInvokeResponseOutput
 }
 
 // Invoice section properties with create subscription permission.
-type InvoiceSectionWithCreateSubPermissionResponseArgs struct {
+type InvoiceSectionWithCreateSubPermissionInvokeResponseArgs struct {
 	// The name of the billing profile for the invoice section.
 	BillingProfileDisplayName pulumi.StringInput `pulumi:"billingProfileDisplayName"`
 	// The ID of the billing profile for the invoice section.
@@ -169,7 +169,7 @@ type InvoiceSectionWithCreateSubPermissionResponseArgs struct {
 	// The system generated unique identifier for a billing profile.
 	BillingProfileSystemId pulumi.StringInput `pulumi:"billingProfileSystemId"`
 	// Enabled azure plans for the associated billing profile.
-	EnabledAzurePlans AzurePlanResponseArrayInput `pulumi:"enabledAzurePlans"`
+	EnabledAzurePlans AzurePlanInvokeResponseArrayInput `pulumi:"enabledAzurePlans"`
 	// The name of the invoice section.
 	InvoiceSectionDisplayName pulumi.StringInput `pulumi:"invoiceSectionDisplayName"`
 	// The ID of the invoice section.
@@ -178,131 +178,137 @@ type InvoiceSectionWithCreateSubPermissionResponseArgs struct {
 	InvoiceSectionSystemId pulumi.StringInput `pulumi:"invoiceSectionSystemId"`
 }
 
-func (InvoiceSectionWithCreateSubPermissionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InvoiceSectionWithCreateSubPermissionResponse)(nil)).Elem()
+func (InvoiceSectionWithCreateSubPermissionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvoiceSectionWithCreateSubPermissionInvokeResponse)(nil)).Elem()
 }
 
-func (i InvoiceSectionWithCreateSubPermissionResponseArgs) ToInvoiceSectionWithCreateSubPermissionResponseOutput() InvoiceSectionWithCreateSubPermissionResponseOutput {
-	return i.ToInvoiceSectionWithCreateSubPermissionResponseOutputWithContext(context.Background())
+func (i InvoiceSectionWithCreateSubPermissionInvokeResponseArgs) ToInvoiceSectionWithCreateSubPermissionInvokeResponseOutput() InvoiceSectionWithCreateSubPermissionInvokeResponseOutput {
+	return i.ToInvoiceSectionWithCreateSubPermissionInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i InvoiceSectionWithCreateSubPermissionResponseArgs) ToInvoiceSectionWithCreateSubPermissionResponseOutputWithContext(ctx context.Context) InvoiceSectionWithCreateSubPermissionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InvoiceSectionWithCreateSubPermissionResponseOutput)
+func (i InvoiceSectionWithCreateSubPermissionInvokeResponseArgs) ToInvoiceSectionWithCreateSubPermissionInvokeResponseOutputWithContext(ctx context.Context) InvoiceSectionWithCreateSubPermissionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvoiceSectionWithCreateSubPermissionInvokeResponseOutput)
 }
 
-// InvoiceSectionWithCreateSubPermissionResponseArrayInput is an input type that accepts InvoiceSectionWithCreateSubPermissionResponseArray and InvoiceSectionWithCreateSubPermissionResponseArrayOutput values.
-// You can construct a concrete instance of `InvoiceSectionWithCreateSubPermissionResponseArrayInput` via:
+// InvoiceSectionWithCreateSubPermissionInvokeResponseArrayInput is an input type that accepts InvoiceSectionWithCreateSubPermissionInvokeResponseArray and InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `InvoiceSectionWithCreateSubPermissionInvokeResponseArrayInput` via:
 //
-//          InvoiceSectionWithCreateSubPermissionResponseArray{ InvoiceSectionWithCreateSubPermissionResponseArgs{...} }
-type InvoiceSectionWithCreateSubPermissionResponseArrayInput interface {
+//          InvoiceSectionWithCreateSubPermissionInvokeResponseArray{ InvoiceSectionWithCreateSubPermissionInvokeResponseArgs{...} }
+type InvoiceSectionWithCreateSubPermissionInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToInvoiceSectionWithCreateSubPermissionResponseArrayOutput() InvoiceSectionWithCreateSubPermissionResponseArrayOutput
-	ToInvoiceSectionWithCreateSubPermissionResponseArrayOutputWithContext(context.Context) InvoiceSectionWithCreateSubPermissionResponseArrayOutput
+	ToInvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput() InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput
+	ToInvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutputWithContext(context.Context) InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput
 }
 
-type InvoiceSectionWithCreateSubPermissionResponseArray []InvoiceSectionWithCreateSubPermissionResponseInput
+type InvoiceSectionWithCreateSubPermissionInvokeResponseArray []InvoiceSectionWithCreateSubPermissionInvokeResponseInput
 
-func (InvoiceSectionWithCreateSubPermissionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InvoiceSectionWithCreateSubPermissionResponse)(nil)).Elem()
+func (InvoiceSectionWithCreateSubPermissionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InvoiceSectionWithCreateSubPermissionInvokeResponse)(nil)).Elem()
 }
 
-func (i InvoiceSectionWithCreateSubPermissionResponseArray) ToInvoiceSectionWithCreateSubPermissionResponseArrayOutput() InvoiceSectionWithCreateSubPermissionResponseArrayOutput {
-	return i.ToInvoiceSectionWithCreateSubPermissionResponseArrayOutputWithContext(context.Background())
+func (i InvoiceSectionWithCreateSubPermissionInvokeResponseArray) ToInvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput() InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput {
+	return i.ToInvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i InvoiceSectionWithCreateSubPermissionResponseArray) ToInvoiceSectionWithCreateSubPermissionResponseArrayOutputWithContext(ctx context.Context) InvoiceSectionWithCreateSubPermissionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InvoiceSectionWithCreateSubPermissionResponseArrayOutput)
+func (i InvoiceSectionWithCreateSubPermissionInvokeResponseArray) ToInvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutputWithContext(ctx context.Context) InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput)
 }
 
 // Invoice section properties with create subscription permission.
-type InvoiceSectionWithCreateSubPermissionResponseOutput struct{ *pulumi.OutputState }
+type InvoiceSectionWithCreateSubPermissionInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (InvoiceSectionWithCreateSubPermissionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InvoiceSectionWithCreateSubPermissionResponse)(nil)).Elem()
+func (InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvoiceSectionWithCreateSubPermissionInvokeResponse)(nil)).Elem()
 }
 
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) ToInvoiceSectionWithCreateSubPermissionResponseOutput() InvoiceSectionWithCreateSubPermissionResponseOutput {
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) ToInvoiceSectionWithCreateSubPermissionInvokeResponseOutput() InvoiceSectionWithCreateSubPermissionInvokeResponseOutput {
 	return o
 }
 
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) ToInvoiceSectionWithCreateSubPermissionResponseOutputWithContext(ctx context.Context) InvoiceSectionWithCreateSubPermissionResponseOutput {
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) ToInvoiceSectionWithCreateSubPermissionInvokeResponseOutputWithContext(ctx context.Context) InvoiceSectionWithCreateSubPermissionInvokeResponseOutput {
 	return o
 }
 
 // The name of the billing profile for the invoice section.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileDisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileDisplayName }).(pulumi.StringOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) BillingProfileDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionInvokeResponse) string { return v.BillingProfileDisplayName }).(pulumi.StringOutput)
 }
 
 // The ID of the billing profile for the invoice section.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileId() pulumi.StringOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileId }).(pulumi.StringOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) BillingProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionInvokeResponse) string { return v.BillingProfileId }).(pulumi.StringOutput)
 }
 
 // The billing profile spending limit.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileSpendingLimit() pulumi.StringOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileSpendingLimit }).(pulumi.StringOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) BillingProfileSpendingLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionInvokeResponse) string {
+		return v.BillingProfileSpendingLimit
+	}).(pulumi.StringOutput)
 }
 
 // The status of the billing profile.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileStatus }).(pulumi.StringOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) BillingProfileStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionInvokeResponse) string { return v.BillingProfileStatus }).(pulumi.StringOutput)
 }
 
 // Reason for the specified billing profile status.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileStatusReasonCode() pulumi.StringOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileStatusReasonCode }).(pulumi.StringOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) BillingProfileStatusReasonCode() pulumi.StringOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionInvokeResponse) string {
+		return v.BillingProfileStatusReasonCode
+	}).(pulumi.StringOutput)
 }
 
 // The system generated unique identifier for a billing profile.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) BillingProfileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.BillingProfileSystemId }).(pulumi.StringOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) BillingProfileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionInvokeResponse) string { return v.BillingProfileSystemId }).(pulumi.StringOutput)
 }
 
 // Enabled azure plans for the associated billing profile.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) EnabledAzurePlans() AzurePlanResponseArrayOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) []AzurePlanResponse { return v.EnabledAzurePlans }).(AzurePlanResponseArrayOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) EnabledAzurePlans() AzurePlanInvokeResponseArrayOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionInvokeResponse) []AzurePlanInvokeResponse {
+		return v.EnabledAzurePlans
+	}).(AzurePlanInvokeResponseArrayOutput)
 }
 
 // The name of the invoice section.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) InvoiceSectionDisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.InvoiceSectionDisplayName }).(pulumi.StringOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) InvoiceSectionDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionInvokeResponse) string { return v.InvoiceSectionDisplayName }).(pulumi.StringOutput)
 }
 
 // The ID of the invoice section.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) InvoiceSectionId() pulumi.StringOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.InvoiceSectionId }).(pulumi.StringOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) InvoiceSectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionInvokeResponse) string { return v.InvoiceSectionId }).(pulumi.StringOutput)
 }
 
 // The system generated unique identifier for an invoice section.
-func (o InvoiceSectionWithCreateSubPermissionResponseOutput) InvoiceSectionSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionResponse) string { return v.InvoiceSectionSystemId }).(pulumi.StringOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseOutput) InvoiceSectionSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v InvoiceSectionWithCreateSubPermissionInvokeResponse) string { return v.InvoiceSectionSystemId }).(pulumi.StringOutput)
 }
 
-type InvoiceSectionWithCreateSubPermissionResponseArrayOutput struct{ *pulumi.OutputState }
+type InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (InvoiceSectionWithCreateSubPermissionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InvoiceSectionWithCreateSubPermissionResponse)(nil)).Elem()
+func (InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InvoiceSectionWithCreateSubPermissionInvokeResponse)(nil)).Elem()
 }
 
-func (o InvoiceSectionWithCreateSubPermissionResponseArrayOutput) ToInvoiceSectionWithCreateSubPermissionResponseArrayOutput() InvoiceSectionWithCreateSubPermissionResponseArrayOutput {
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput) ToInvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput() InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput {
 	return o
 }
 
-func (o InvoiceSectionWithCreateSubPermissionResponseArrayOutput) ToInvoiceSectionWithCreateSubPermissionResponseArrayOutputWithContext(ctx context.Context) InvoiceSectionWithCreateSubPermissionResponseArrayOutput {
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput) ToInvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutputWithContext(ctx context.Context) InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput {
 	return o
 }
 
-func (o InvoiceSectionWithCreateSubPermissionResponseArrayOutput) Index(i pulumi.IntInput) InvoiceSectionWithCreateSubPermissionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InvoiceSectionWithCreateSubPermissionResponse {
-		return vs[0].([]InvoiceSectionWithCreateSubPermissionResponse)[vs[1].(int)]
-	}).(InvoiceSectionWithCreateSubPermissionResponseOutput)
+func (o InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput) Index(i pulumi.IntInput) InvoiceSectionWithCreateSubPermissionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InvoiceSectionWithCreateSubPermissionInvokeResponse {
+		return vs[0].([]InvoiceSectionWithCreateSubPermissionInvokeResponse)[vs[1].(int)]
+	}).(InvoiceSectionWithCreateSubPermissionInvokeResponseOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(AzurePlanResponseOutput{})
-	pulumi.RegisterOutputType(AzurePlanResponseArrayOutput{})
-	pulumi.RegisterOutputType(InvoiceSectionWithCreateSubPermissionResponseOutput{})
-	pulumi.RegisterOutputType(InvoiceSectionWithCreateSubPermissionResponseArrayOutput{})
+	pulumi.RegisterOutputType(AzurePlanInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzurePlanInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(InvoiceSectionWithCreateSubPermissionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(InvoiceSectionWithCreateSubPermissionInvokeResponseArrayOutput{})
 }

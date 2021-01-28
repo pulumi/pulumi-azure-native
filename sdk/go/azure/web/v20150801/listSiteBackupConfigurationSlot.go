@@ -28,9 +28,9 @@ type ListSiteBackupConfigurationSlotArgs struct {
 // Description of a backup which will be performed
 type ListSiteBackupConfigurationSlotResult struct {
 	// Schedule for the backup if it is executed periodically
-	BackupSchedule *BackupScheduleResponse `pulumi:"backupSchedule"`
+	BackupSchedule *BackupScheduleInvokeResponse `pulumi:"backupSchedule"`
 	// Databases included in the backup
-	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
+	Databases []DatabaseBackupSettingInvokeResponse `pulumi:"databases"`
 	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id

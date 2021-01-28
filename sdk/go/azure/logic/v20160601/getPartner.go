@@ -30,7 +30,7 @@ type LookupPartnerResult struct {
 	// The changed time.
 	ChangedTime string `pulumi:"changedTime"`
 	// The partner content.
-	Content PartnerContentResponse `pulumi:"content"`
+	Content PartnerContentInvokeResponse `pulumi:"content"`
 	// The created time.
 	CreatedTime string `pulumi:"createdTime"`
 	// The resource id.

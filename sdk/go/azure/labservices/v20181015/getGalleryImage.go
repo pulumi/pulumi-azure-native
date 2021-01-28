@@ -40,7 +40,7 @@ type LookupGalleryImageResult struct {
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
 	// The image reference of the gallery image.
-	ImageReference GalleryImageReferenceResponse `pulumi:"imageReference"`
+	ImageReference GalleryImageReferenceInvokeResponse `pulumi:"imageReference"`
 	// Indicates whether this gallery image is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// Indicates whether this gallery has been overridden for this lab account
@@ -48,7 +48,7 @@ type LookupGalleryImageResult struct {
 	// Indicates if the plan has been authorized for programmatic deployment.
 	IsPlanAuthorized *bool `pulumi:"isPlanAuthorized"`
 	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
+	LatestOperationResult LatestOperationResultInvokeResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

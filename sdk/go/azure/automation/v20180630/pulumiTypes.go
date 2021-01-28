@@ -164,6 +164,159 @@ func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 // Definition of the runbook property type.
+type ContentHashInvokeResponse struct {
+	// Gets or sets the content hash algorithm used to hash the content.
+	Algorithm string `pulumi:"algorithm"`
+	// Gets or sets expected hash value of the content.
+	Value string `pulumi:"value"`
+}
+
+// ContentHashInvokeResponseInput is an input type that accepts ContentHashInvokeResponseArgs and ContentHashInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentHashInvokeResponseInput` via:
+//
+//          ContentHashInvokeResponseArgs{...}
+type ContentHashInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput
+	ToContentHashInvokeResponseOutputWithContext(context.Context) ContentHashInvokeResponseOutput
+}
+
+// Definition of the runbook property type.
+type ContentHashInvokeResponseArgs struct {
+	// Gets or sets the content hash algorithm used to hash the content.
+	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	// Gets or sets expected hash value of the content.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ContentHashInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput {
+	return i.ToContentHashInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponseOutputWithContext(ctx context.Context) ContentHashInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponseOutput)
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return i.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponseOutput).ToContentHashInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContentHashInvokeResponsePtrInput is an input type that accepts ContentHashInvokeResponseArgs, ContentHashInvokeResponsePtr and ContentHashInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContentHashInvokeResponsePtrInput` via:
+//
+//          ContentHashInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentHashInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput
+	ToContentHashInvokeResponsePtrOutputWithContext(context.Context) ContentHashInvokeResponsePtrOutput
+}
+
+type contentHashInvokeResponsePtrType ContentHashInvokeResponseArgs
+
+func ContentHashInvokeResponsePtr(v *ContentHashInvokeResponseArgs) ContentHashInvokeResponsePtrInput {
+	return (*contentHashInvokeResponsePtrType)(v)
+}
+
+func (*contentHashInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (i *contentHashInvokeResponsePtrType) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return i.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentHashInvokeResponsePtrType) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Definition of the runbook property type.
+type ContentHashInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentHashInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponseOutputWithContext(ctx context.Context) ContentHashInvokeResponseOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return o.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) *ContentHashInvokeResponse {
+		return &v
+	}).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Gets or sets the content hash algorithm used to hash the content.
+func (o ContentHashInvokeResponseOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) string { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// Gets or sets expected hash value of the content.
+func (o ContentHashInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ContentHashInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentHashInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentHashInvokeResponsePtrOutput) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponsePtrOutput) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponsePtrOutput) Elem() ContentHashInvokeResponseOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) ContentHashInvokeResponse { return *v }).(ContentHashInvokeResponseOutput)
+}
+
+// Gets or sets the content hash algorithm used to hash the content.
+func (o ContentHashInvokeResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets expected hash value of the content.
+func (o ContentHashInvokeResponsePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// Definition of the runbook property type.
 type ContentHashResponse struct {
 	// Gets or sets the content hash algorithm used to hash the content.
 	Algorithm string `pulumi:"algorithm"`
@@ -489,6 +642,178 @@ func (o ContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 // Definition of the content link.
+type ContentLinkInvokeResponse struct {
+	// Gets or sets the hash.
+	ContentHash *ContentHashInvokeResponse `pulumi:"contentHash"`
+	// Gets or sets the uri of the runbook content.
+	Uri *string `pulumi:"uri"`
+	// Gets or sets the version of the content.
+	Version *string `pulumi:"version"`
+}
+
+// ContentLinkInvokeResponseInput is an input type that accepts ContentLinkInvokeResponseArgs and ContentLinkInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentLinkInvokeResponseInput` via:
+//
+//          ContentLinkInvokeResponseArgs{...}
+type ContentLinkInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput
+	ToContentLinkInvokeResponseOutputWithContext(context.Context) ContentLinkInvokeResponseOutput
+}
+
+// Definition of the content link.
+type ContentLinkInvokeResponseArgs struct {
+	// Gets or sets the hash.
+	ContentHash ContentHashInvokeResponsePtrInput `pulumi:"contentHash"`
+	// Gets or sets the uri of the runbook content.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	// Gets or sets the version of the content.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ContentLinkInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput {
+	return i.ToContentLinkInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponseOutputWithContext(ctx context.Context) ContentLinkInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkInvokeResponseOutput)
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return i.ToContentLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkInvokeResponseOutput).ToContentLinkInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContentLinkInvokeResponsePtrInput is an input type that accepts ContentLinkInvokeResponseArgs, ContentLinkInvokeResponsePtr and ContentLinkInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContentLinkInvokeResponsePtrInput` via:
+//
+//          ContentLinkInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentLinkInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput
+	ToContentLinkInvokeResponsePtrOutputWithContext(context.Context) ContentLinkInvokeResponsePtrOutput
+}
+
+type contentLinkInvokeResponsePtrType ContentLinkInvokeResponseArgs
+
+func ContentLinkInvokeResponsePtr(v *ContentLinkInvokeResponseArgs) ContentLinkInvokeResponsePtrInput {
+	return (*contentLinkInvokeResponsePtrType)(v)
+}
+
+func (*contentLinkInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i *contentLinkInvokeResponsePtrType) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return i.ToContentLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentLinkInvokeResponsePtrType) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkInvokeResponsePtrOutput)
+}
+
+// Definition of the content link.
+type ContentLinkInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentLinkInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponseOutputWithContext(ctx context.Context) ContentLinkInvokeResponseOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return o.ToContentLinkInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *ContentLinkInvokeResponse {
+		return &v
+	}).(ContentLinkInvokeResponsePtrOutput)
+}
+
+// Gets or sets the hash.
+func (o ContentLinkInvokeResponseOutput) ContentHash() ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *ContentHashInvokeResponse { return v.ContentHash }).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Gets or sets the uri of the runbook content.
+func (o ContentLinkInvokeResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the version of the content.
+func (o ContentLinkInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ContentLinkInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentLinkInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentLinkInvokeResponsePtrOutput) ToContentLinkInvokeResponsePtrOutput() ContentLinkInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponsePtrOutput) ToContentLinkInvokeResponsePtrOutputWithContext(ctx context.Context) ContentLinkInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponsePtrOutput) Elem() ContentLinkInvokeResponseOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) ContentLinkInvokeResponse { return *v }).(ContentLinkInvokeResponseOutput)
+}
+
+// Gets or sets the hash.
+func (o ContentLinkInvokeResponsePtrOutput) ContentHash() ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) *ContentHashInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ContentHash
+	}).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Gets or sets the uri of the runbook content.
+func (o ContentLinkInvokeResponsePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the version of the content.
+func (o ContentLinkInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentLinkInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// Definition of the content link.
 type ContentLinkResponse struct {
 	// Gets or sets the hash.
 	ContentHash *ContentHashResponse `pulumi:"contentHash"`
@@ -658,6 +983,70 @@ func (o ContentLinkResponsePtrOutput) Version() pulumi.StringPtrOutput {
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+// Definition of the module error info type.
+type ModuleErrorInfoInvokeResponse struct {
+	// Gets or sets the error code.
+	Code *string `pulumi:"code"`
+	// Gets or sets the error message.
+	Message *string `pulumi:"message"`
+}
+
+// ModuleErrorInfoInvokeResponseInput is an input type that accepts ModuleErrorInfoInvokeResponseArgs and ModuleErrorInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ModuleErrorInfoInvokeResponseInput` via:
+//
+//          ModuleErrorInfoInvokeResponseArgs{...}
+type ModuleErrorInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToModuleErrorInfoInvokeResponseOutput() ModuleErrorInfoInvokeResponseOutput
+	ToModuleErrorInfoInvokeResponseOutputWithContext(context.Context) ModuleErrorInfoInvokeResponseOutput
+}
+
+// Definition of the module error info type.
+type ModuleErrorInfoInvokeResponseArgs struct {
+	// Gets or sets the error code.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// Gets or sets the error message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+}
+
+func (ModuleErrorInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ModuleErrorInfoInvokeResponseArgs) ToModuleErrorInfoInvokeResponseOutput() ModuleErrorInfoInvokeResponseOutput {
+	return i.ToModuleErrorInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ModuleErrorInfoInvokeResponseArgs) ToModuleErrorInfoInvokeResponseOutputWithContext(ctx context.Context) ModuleErrorInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModuleErrorInfoInvokeResponseOutput)
+}
+
+// Definition of the module error info type.
+type ModuleErrorInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ModuleErrorInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModuleErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ModuleErrorInfoInvokeResponseOutput) ToModuleErrorInfoInvokeResponseOutput() ModuleErrorInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ModuleErrorInfoInvokeResponseOutput) ToModuleErrorInfoInvokeResponseOutputWithContext(ctx context.Context) ModuleErrorInfoInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the error code.
+func (o ModuleErrorInfoInvokeResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleErrorInfoInvokeResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the error message.
+func (o ModuleErrorInfoInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModuleErrorInfoInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
 // Definition of the module error info type.
@@ -1039,6 +1428,103 @@ func (o RunbookDraftPtrOutput) Parameters() RunbookParameterMapOutput {
 	}).(RunbookParameterMapOutput)
 }
 
+type RunbookDraftInvokeResponse struct {
+	// Gets or sets the creation time of the runbook draft.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the draft runbook content link.
+	DraftContentLink *ContentLinkInvokeResponse `pulumi:"draftContentLink"`
+	// Gets or sets whether runbook is in edit mode.
+	InEdit *bool `pulumi:"inEdit"`
+	// Gets or sets the last modified time of the runbook draft.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// Gets or sets the runbook output types.
+	OutputTypes []string `pulumi:"outputTypes"`
+	// Gets or sets the runbook draft parameters.
+	Parameters map[string]RunbookParameterInvokeResponse `pulumi:"parameters"`
+}
+
+// RunbookDraftInvokeResponseInput is an input type that accepts RunbookDraftInvokeResponseArgs and RunbookDraftInvokeResponseOutput values.
+// You can construct a concrete instance of `RunbookDraftInvokeResponseInput` via:
+//
+//          RunbookDraftInvokeResponseArgs{...}
+type RunbookDraftInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRunbookDraftInvokeResponseOutput() RunbookDraftInvokeResponseOutput
+	ToRunbookDraftInvokeResponseOutputWithContext(context.Context) RunbookDraftInvokeResponseOutput
+}
+
+type RunbookDraftInvokeResponseArgs struct {
+	// Gets or sets the creation time of the runbook draft.
+	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
+	// Gets or sets the draft runbook content link.
+	DraftContentLink ContentLinkInvokeResponsePtrInput `pulumi:"draftContentLink"`
+	// Gets or sets whether runbook is in edit mode.
+	InEdit pulumi.BoolPtrInput `pulumi:"inEdit"`
+	// Gets or sets the last modified time of the runbook draft.
+	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
+	// Gets or sets the runbook output types.
+	OutputTypes pulumi.StringArrayInput `pulumi:"outputTypes"`
+	// Gets or sets the runbook draft parameters.
+	Parameters RunbookParameterInvokeResponseMapInput `pulumi:"parameters"`
+}
+
+func (RunbookDraftInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookDraftInvokeResponse)(nil)).Elem()
+}
+
+func (i RunbookDraftInvokeResponseArgs) ToRunbookDraftInvokeResponseOutput() RunbookDraftInvokeResponseOutput {
+	return i.ToRunbookDraftInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RunbookDraftInvokeResponseArgs) ToRunbookDraftInvokeResponseOutputWithContext(ctx context.Context) RunbookDraftInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookDraftInvokeResponseOutput)
+}
+
+type RunbookDraftInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RunbookDraftInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookDraftInvokeResponse)(nil)).Elem()
+}
+
+func (o RunbookDraftInvokeResponseOutput) ToRunbookDraftInvokeResponseOutput() RunbookDraftInvokeResponseOutput {
+	return o
+}
+
+func (o RunbookDraftInvokeResponseOutput) ToRunbookDraftInvokeResponseOutputWithContext(ctx context.Context) RunbookDraftInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the creation time of the runbook draft.
+func (o RunbookDraftInvokeResponseOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the draft runbook content link.
+func (o RunbookDraftInvokeResponseOutput) DraftContentLink() ContentLinkInvokeResponsePtrOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) *ContentLinkInvokeResponse { return v.DraftContentLink }).(ContentLinkInvokeResponsePtrOutput)
+}
+
+// Gets or sets whether runbook is in edit mode.
+func (o RunbookDraftInvokeResponseOutput) InEdit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) *bool { return v.InEdit }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the last modified time of the runbook draft.
+func (o RunbookDraftInvokeResponseOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the runbook output types.
+func (o RunbookDraftInvokeResponseOutput) OutputTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) []string { return v.OutputTypes }).(pulumi.StringArrayOutput)
+}
+
+// Gets or sets the runbook draft parameters.
+func (o RunbookDraftInvokeResponseOutput) Parameters() RunbookParameterInvokeResponseMapOutput {
+	return o.ApplyT(func(v RunbookDraftInvokeResponse) map[string]RunbookParameterInvokeResponse { return v.Parameters }).(RunbookParameterInvokeResponseMapOutput)
+}
+
 type RunbookDraftResponse struct {
 	// Gets or sets the creation time of the runbook draft.
 	CreationTime *string `pulumi:"creationTime"`
@@ -1393,6 +1879,133 @@ func (o RunbookParameterMapOutput) MapIndex(k pulumi.StringInput) RunbookParamet
 }
 
 // Definition of the runbook parameter type.
+type RunbookParameterInvokeResponse struct {
+	// Gets or sets the default value of parameter.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+	IsMandatory *bool `pulumi:"isMandatory"`
+	// Get or sets the position of the parameter.
+	Position *int `pulumi:"position"`
+	// Gets or sets the type of the parameter.
+	Type *string `pulumi:"type"`
+}
+
+// RunbookParameterInvokeResponseInput is an input type that accepts RunbookParameterInvokeResponseArgs and RunbookParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `RunbookParameterInvokeResponseInput` via:
+//
+//          RunbookParameterInvokeResponseArgs{...}
+type RunbookParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRunbookParameterInvokeResponseOutput() RunbookParameterInvokeResponseOutput
+	ToRunbookParameterInvokeResponseOutputWithContext(context.Context) RunbookParameterInvokeResponseOutput
+}
+
+// Definition of the runbook parameter type.
+type RunbookParameterInvokeResponseArgs struct {
+	// Gets or sets the default value of parameter.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+	IsMandatory pulumi.BoolPtrInput `pulumi:"isMandatory"`
+	// Get or sets the position of the parameter.
+	Position pulumi.IntPtrInput `pulumi:"position"`
+	// Gets or sets the type of the parameter.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RunbookParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i RunbookParameterInvokeResponseArgs) ToRunbookParameterInvokeResponseOutput() RunbookParameterInvokeResponseOutput {
+	return i.ToRunbookParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RunbookParameterInvokeResponseArgs) ToRunbookParameterInvokeResponseOutputWithContext(ctx context.Context) RunbookParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookParameterInvokeResponseOutput)
+}
+
+// RunbookParameterInvokeResponseMapInput is an input type that accepts RunbookParameterInvokeResponseMap and RunbookParameterInvokeResponseMapOutput values.
+// You can construct a concrete instance of `RunbookParameterInvokeResponseMapInput` via:
+//
+//          RunbookParameterInvokeResponseMap{ "key": RunbookParameterInvokeResponseArgs{...} }
+type RunbookParameterInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToRunbookParameterInvokeResponseMapOutput() RunbookParameterInvokeResponseMapOutput
+	ToRunbookParameterInvokeResponseMapOutputWithContext(context.Context) RunbookParameterInvokeResponseMapOutput
+}
+
+type RunbookParameterInvokeResponseMap map[string]RunbookParameterInvokeResponseInput
+
+func (RunbookParameterInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RunbookParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i RunbookParameterInvokeResponseMap) ToRunbookParameterInvokeResponseMapOutput() RunbookParameterInvokeResponseMapOutput {
+	return i.ToRunbookParameterInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i RunbookParameterInvokeResponseMap) ToRunbookParameterInvokeResponseMapOutputWithContext(ctx context.Context) RunbookParameterInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunbookParameterInvokeResponseMapOutput)
+}
+
+// Definition of the runbook parameter type.
+type RunbookParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RunbookParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunbookParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o RunbookParameterInvokeResponseOutput) ToRunbookParameterInvokeResponseOutput() RunbookParameterInvokeResponseOutput {
+	return o
+}
+
+func (o RunbookParameterInvokeResponseOutput) ToRunbookParameterInvokeResponseOutputWithContext(ctx context.Context) RunbookParameterInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the default value of parameter.
+func (o RunbookParameterInvokeResponseOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookParameterInvokeResponse) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+func (o RunbookParameterInvokeResponseOutput) IsMandatory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RunbookParameterInvokeResponse) *bool { return v.IsMandatory }).(pulumi.BoolPtrOutput)
+}
+
+// Get or sets the position of the parameter.
+func (o RunbookParameterInvokeResponseOutput) Position() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RunbookParameterInvokeResponse) *int { return v.Position }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the type of the parameter.
+func (o RunbookParameterInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunbookParameterInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type RunbookParameterInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (RunbookParameterInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RunbookParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o RunbookParameterInvokeResponseMapOutput) ToRunbookParameterInvokeResponseMapOutput() RunbookParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o RunbookParameterInvokeResponseMapOutput) ToRunbookParameterInvokeResponseMapOutputWithContext(ctx context.Context) RunbookParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o RunbookParameterInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) RunbookParameterInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RunbookParameterInvokeResponse {
+		return vs[0].(map[string]RunbookParameterInvokeResponse)[vs[1].(string)]
+	}).(RunbookParameterInvokeResponseOutput)
+}
+
+// Definition of the runbook parameter type.
 type RunbookParameterResponse struct {
 	// Gets or sets the default value of parameter.
 	DefaultValue *string `pulumi:"defaultValue"`
@@ -1522,20 +2135,28 @@ func (o RunbookParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Runboo
 func init() {
 	pulumi.RegisterOutputType(ContentHashOutput{})
 	pulumi.RegisterOutputType(ContentHashPtrOutput{})
+	pulumi.RegisterOutputType(ContentHashInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentHashInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentHashResponseOutput{})
 	pulumi.RegisterOutputType(ContentHashResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentLinkOutput{})
 	pulumi.RegisterOutputType(ContentLinkPtrOutput{})
+	pulumi.RegisterOutputType(ContentLinkInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentLinkInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentLinkResponseOutput{})
 	pulumi.RegisterOutputType(ContentLinkResponsePtrOutput{})
+	pulumi.RegisterOutputType(ModuleErrorInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ModuleErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(ModuleErrorInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(RunbookDraftOutput{})
 	pulumi.RegisterOutputType(RunbookDraftPtrOutput{})
+	pulumi.RegisterOutputType(RunbookDraftInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RunbookDraftResponseOutput{})
 	pulumi.RegisterOutputType(RunbookDraftResponsePtrOutput{})
 	pulumi.RegisterOutputType(RunbookParameterOutput{})
 	pulumi.RegisterOutputType(RunbookParameterMapOutput{})
+	pulumi.RegisterOutputType(RunbookParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RunbookParameterInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(RunbookParameterResponseOutput{})
 	pulumi.RegisterOutputType(RunbookParameterResponseMapOutput{})
 }

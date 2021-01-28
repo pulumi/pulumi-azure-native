@@ -34,7 +34,7 @@ type LookupServerResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityInvokeResponse `pulumi:"identity"`
 	// Kind of sql server. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// Resource location.

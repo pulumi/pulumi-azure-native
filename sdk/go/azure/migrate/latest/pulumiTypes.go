@@ -430,6 +430,322 @@ func (o AssessmentPropertiesPtrOutput) VmUptime() VmUptimePtrOutput {
 }
 
 // Properties of an assessment.
+type AssessmentPropertiesInvokeResponse struct {
+	// Storage type selected for this disk.
+	AzureDiskType string `pulumi:"azureDiskType"`
+	// AHUB discount on windows virtual machines.
+	AzureHybridUseBenefit string `pulumi:"azureHybridUseBenefit"`
+	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+	AzureLocation string `pulumi:"azureLocation"`
+	// Offer code according to which cost estimation is done.
+	AzureOfferCode string `pulumi:"azureOfferCode"`
+	// Pricing tier for Size evaluation.
+	AzurePricingTier string `pulumi:"azurePricingTier"`
+	// Storage Redundancy type offered by Azure.
+	AzureStorageRedundancy string `pulumi:"azureStorageRedundancy"`
+	// List of azure VM families.
+	AzureVmFamilies []string `pulumi:"azureVmFamilies"`
+	// Confidence rating percentage for assessment. Can be in the range [0, 100].
+	ConfidenceRatingInPercentage float64 `pulumi:"confidenceRatingInPercentage"`
+	// Time when this project was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp string `pulumi:"createdTimestamp"`
+	// Currency to report prices in.
+	Currency string `pulumi:"currency"`
+	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+	DiscountPercentage float64 `pulumi:"discountPercentage"`
+	// Enterprise agreement subscription arm id.
+	EaSubscriptionId string `pulumi:"eaSubscriptionId"`
+	// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyBandwidthCost float64 `pulumi:"monthlyBandwidthCost"`
+	// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyComputeCost float64 `pulumi:"monthlyComputeCost"`
+	// Monthly premium storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyPremiumStorageCost float64 `pulumi:"monthlyPremiumStorageCost"`
+	// Monthly standard SSD storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyStandardSSDStorageCost float64 `pulumi:"monthlyStandardSSDStorageCost"`
+	// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyStorageCost float64 `pulumi:"monthlyStorageCost"`
+	// Number of assessed machines part of this assessment.
+	NumberOfMachines int `pulumi:"numberOfMachines"`
+	// Percentile of performance data used to recommend Azure size.
+	Percentile string `pulumi:"percentile"`
+	// End time to consider performance data for assessment
+	PerfDataEndTime string `pulumi:"perfDataEndTime"`
+	// Start time to consider performance data for assessment
+	PerfDataStartTime string `pulumi:"perfDataStartTime"`
+	// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+	PricesTimestamp string `pulumi:"pricesTimestamp"`
+	// Azure reserved instance.
+	ReservedInstance string `pulumi:"reservedInstance"`
+	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+	ScalingFactor float64 `pulumi:"scalingFactor"`
+	// Assessment sizing criterion.
+	SizingCriterion string `pulumi:"sizingCriterion"`
+	// User configurable setting that describes the status of the assessment.
+	Stage string `pulumi:"stage"`
+	// Whether the assessment has been created and is valid.
+	Status string `pulumi:"status"`
+	// Time range of performance data used to recommend a size.
+	TimeRange string `pulumi:"timeRange"`
+	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
+	// Specify the duration for which the VMs are up in the on-premises environment.
+	VmUptime VmUptimeInvokeResponse `pulumi:"vmUptime"`
+}
+
+// AssessmentPropertiesInvokeResponseInput is an input type that accepts AssessmentPropertiesInvokeResponseArgs and AssessmentPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AssessmentPropertiesInvokeResponseInput` via:
+//
+//          AssessmentPropertiesInvokeResponseArgs{...}
+type AssessmentPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAssessmentPropertiesInvokeResponseOutput() AssessmentPropertiesInvokeResponseOutput
+	ToAssessmentPropertiesInvokeResponseOutputWithContext(context.Context) AssessmentPropertiesInvokeResponseOutput
+}
+
+// Properties of an assessment.
+type AssessmentPropertiesInvokeResponseArgs struct {
+	// Storage type selected for this disk.
+	AzureDiskType pulumi.StringInput `pulumi:"azureDiskType"`
+	// AHUB discount on windows virtual machines.
+	AzureHybridUseBenefit pulumi.StringInput `pulumi:"azureHybridUseBenefit"`
+	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+	AzureLocation pulumi.StringInput `pulumi:"azureLocation"`
+	// Offer code according to which cost estimation is done.
+	AzureOfferCode pulumi.StringInput `pulumi:"azureOfferCode"`
+	// Pricing tier for Size evaluation.
+	AzurePricingTier pulumi.StringInput `pulumi:"azurePricingTier"`
+	// Storage Redundancy type offered by Azure.
+	AzureStorageRedundancy pulumi.StringInput `pulumi:"azureStorageRedundancy"`
+	// List of azure VM families.
+	AzureVmFamilies pulumi.StringArrayInput `pulumi:"azureVmFamilies"`
+	// Confidence rating percentage for assessment. Can be in the range [0, 100].
+	ConfidenceRatingInPercentage pulumi.Float64Input `pulumi:"confidenceRatingInPercentage"`
+	// Time when this project was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp pulumi.StringInput `pulumi:"createdTimestamp"`
+	// Currency to report prices in.
+	Currency pulumi.StringInput `pulumi:"currency"`
+	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+	DiscountPercentage pulumi.Float64Input `pulumi:"discountPercentage"`
+	// Enterprise agreement subscription arm id.
+	EaSubscriptionId pulumi.StringInput `pulumi:"eaSubscriptionId"`
+	// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyBandwidthCost pulumi.Float64Input `pulumi:"monthlyBandwidthCost"`
+	// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyComputeCost pulumi.Float64Input `pulumi:"monthlyComputeCost"`
+	// Monthly premium storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyPremiumStorageCost pulumi.Float64Input `pulumi:"monthlyPremiumStorageCost"`
+	// Monthly standard SSD storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyStandardSSDStorageCost pulumi.Float64Input `pulumi:"monthlyStandardSSDStorageCost"`
+	// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyStorageCost pulumi.Float64Input `pulumi:"monthlyStorageCost"`
+	// Number of assessed machines part of this assessment.
+	NumberOfMachines pulumi.IntInput `pulumi:"numberOfMachines"`
+	// Percentile of performance data used to recommend Azure size.
+	Percentile pulumi.StringInput `pulumi:"percentile"`
+	// End time to consider performance data for assessment
+	PerfDataEndTime pulumi.StringInput `pulumi:"perfDataEndTime"`
+	// Start time to consider performance data for assessment
+	PerfDataStartTime pulumi.StringInput `pulumi:"perfDataStartTime"`
+	// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+	PricesTimestamp pulumi.StringInput `pulumi:"pricesTimestamp"`
+	// Azure reserved instance.
+	ReservedInstance pulumi.StringInput `pulumi:"reservedInstance"`
+	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+	ScalingFactor pulumi.Float64Input `pulumi:"scalingFactor"`
+	// Assessment sizing criterion.
+	SizingCriterion pulumi.StringInput `pulumi:"sizingCriterion"`
+	// User configurable setting that describes the status of the assessment.
+	Stage pulumi.StringInput `pulumi:"stage"`
+	// Whether the assessment has been created and is valid.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Time range of performance data used to recommend a size.
+	TimeRange pulumi.StringInput `pulumi:"timeRange"`
+	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp pulumi.StringInput `pulumi:"updatedTimestamp"`
+	// Specify the duration for which the VMs are up in the on-premises environment.
+	VmUptime VmUptimeInvokeResponseInput `pulumi:"vmUptime"`
+}
+
+func (AssessmentPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AssessmentPropertiesInvokeResponseArgs) ToAssessmentPropertiesInvokeResponseOutput() AssessmentPropertiesInvokeResponseOutput {
+	return i.ToAssessmentPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AssessmentPropertiesInvokeResponseArgs) ToAssessmentPropertiesInvokeResponseOutputWithContext(ctx context.Context) AssessmentPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentPropertiesInvokeResponseOutput)
+}
+
+// Properties of an assessment.
+type AssessmentPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AssessmentPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AssessmentPropertiesInvokeResponseOutput) ToAssessmentPropertiesInvokeResponseOutput() AssessmentPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AssessmentPropertiesInvokeResponseOutput) ToAssessmentPropertiesInvokeResponseOutputWithContext(ctx context.Context) AssessmentPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Storage type selected for this disk.
+func (o AssessmentPropertiesInvokeResponseOutput) AzureDiskType() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.AzureDiskType }).(pulumi.StringOutput)
+}
+
+// AHUB discount on windows virtual machines.
+func (o AssessmentPropertiesInvokeResponseOutput) AzureHybridUseBenefit() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.AzureHybridUseBenefit }).(pulumi.StringOutput)
+}
+
+// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+func (o AssessmentPropertiesInvokeResponseOutput) AzureLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.AzureLocation }).(pulumi.StringOutput)
+}
+
+// Offer code according to which cost estimation is done.
+func (o AssessmentPropertiesInvokeResponseOutput) AzureOfferCode() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.AzureOfferCode }).(pulumi.StringOutput)
+}
+
+// Pricing tier for Size evaluation.
+func (o AssessmentPropertiesInvokeResponseOutput) AzurePricingTier() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.AzurePricingTier }).(pulumi.StringOutput)
+}
+
+// Storage Redundancy type offered by Azure.
+func (o AssessmentPropertiesInvokeResponseOutput) AzureStorageRedundancy() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.AzureStorageRedundancy }).(pulumi.StringOutput)
+}
+
+// List of azure VM families.
+func (o AssessmentPropertiesInvokeResponseOutput) AzureVmFamilies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) []string { return v.AzureVmFamilies }).(pulumi.StringArrayOutput)
+}
+
+// Confidence rating percentage for assessment. Can be in the range [0, 100].
+func (o AssessmentPropertiesInvokeResponseOutput) ConfidenceRatingInPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) float64 { return v.ConfidenceRatingInPercentage }).(pulumi.Float64Output)
+}
+
+// Time when this project was created. Date-Time represented in ISO-8601 format.
+func (o AssessmentPropertiesInvokeResponseOutput) CreatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.CreatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Currency to report prices in.
+func (o AssessmentPropertiesInvokeResponseOutput) Currency() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.Currency }).(pulumi.StringOutput)
+}
+
+// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+func (o AssessmentPropertiesInvokeResponseOutput) DiscountPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) float64 { return v.DiscountPercentage }).(pulumi.Float64Output)
+}
+
+// Enterprise agreement subscription arm id.
+func (o AssessmentPropertiesInvokeResponseOutput) EaSubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.EaSubscriptionId }).(pulumi.StringOutput)
+}
+
+// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+func (o AssessmentPropertiesInvokeResponseOutput) MonthlyBandwidthCost() pulumi.Float64Output {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) float64 { return v.MonthlyBandwidthCost }).(pulumi.Float64Output)
+}
+
+// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+func (o AssessmentPropertiesInvokeResponseOutput) MonthlyComputeCost() pulumi.Float64Output {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) float64 { return v.MonthlyComputeCost }).(pulumi.Float64Output)
+}
+
+// Monthly premium storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+func (o AssessmentPropertiesInvokeResponseOutput) MonthlyPremiumStorageCost() pulumi.Float64Output {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) float64 { return v.MonthlyPremiumStorageCost }).(pulumi.Float64Output)
+}
+
+// Monthly standard SSD storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+func (o AssessmentPropertiesInvokeResponseOutput) MonthlyStandardSSDStorageCost() pulumi.Float64Output {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) float64 { return v.MonthlyStandardSSDStorageCost }).(pulumi.Float64Output)
+}
+
+// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+func (o AssessmentPropertiesInvokeResponseOutput) MonthlyStorageCost() pulumi.Float64Output {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) float64 { return v.MonthlyStorageCost }).(pulumi.Float64Output)
+}
+
+// Number of assessed machines part of this assessment.
+func (o AssessmentPropertiesInvokeResponseOutput) NumberOfMachines() pulumi.IntOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) int { return v.NumberOfMachines }).(pulumi.IntOutput)
+}
+
+// Percentile of performance data used to recommend Azure size.
+func (o AssessmentPropertiesInvokeResponseOutput) Percentile() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.Percentile }).(pulumi.StringOutput)
+}
+
+// End time to consider performance data for assessment
+func (o AssessmentPropertiesInvokeResponseOutput) PerfDataEndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.PerfDataEndTime }).(pulumi.StringOutput)
+}
+
+// Start time to consider performance data for assessment
+func (o AssessmentPropertiesInvokeResponseOutput) PerfDataStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.PerfDataStartTime }).(pulumi.StringOutput)
+}
+
+// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+func (o AssessmentPropertiesInvokeResponseOutput) PricesTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.PricesTimestamp }).(pulumi.StringOutput)
+}
+
+// Azure reserved instance.
+func (o AssessmentPropertiesInvokeResponseOutput) ReservedInstance() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.ReservedInstance }).(pulumi.StringOutput)
+}
+
+// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+func (o AssessmentPropertiesInvokeResponseOutput) ScalingFactor() pulumi.Float64Output {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) float64 { return v.ScalingFactor }).(pulumi.Float64Output)
+}
+
+// Assessment sizing criterion.
+func (o AssessmentPropertiesInvokeResponseOutput) SizingCriterion() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.SizingCriterion }).(pulumi.StringOutput)
+}
+
+// User configurable setting that describes the status of the assessment.
+func (o AssessmentPropertiesInvokeResponseOutput) Stage() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.Stage }).(pulumi.StringOutput)
+}
+
+// Whether the assessment has been created and is valid.
+func (o AssessmentPropertiesInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Time range of performance data used to recommend a size.
+func (o AssessmentPropertiesInvokeResponseOutput) TimeRange() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.TimeRange }).(pulumi.StringOutput)
+}
+
+// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+func (o AssessmentPropertiesInvokeResponseOutput) UpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) string { return v.UpdatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Specify the duration for which the VMs are up in the on-premises environment.
+func (o AssessmentPropertiesInvokeResponseOutput) VmUptime() VmUptimeInvokeResponseOutput {
+	return o.ApplyT(func(v AssessmentPropertiesInvokeResponse) VmUptimeInvokeResponse { return v.VmUptime }).(VmUptimeInvokeResponseOutput)
+}
+
+// Properties of an assessment.
 type AssessmentPropertiesResponse struct {
 	// Storage type selected for this disk.
 	AzureDiskType string `pulumi:"azureDiskType"`
@@ -1240,6 +1556,179 @@ func (o CollectorAgentPropertiesPtrOutput) SpnDetails() CollectorBodyAgentSpnPro
 	}).(CollectorBodyAgentSpnPropertiesPtrOutput)
 }
 
+type CollectorAgentPropertiesInvokeResponse struct {
+	Id               string                                         `pulumi:"id"`
+	LastHeartbeatUtc string                                         `pulumi:"lastHeartbeatUtc"`
+	SpnDetails       *CollectorBodyAgentSpnPropertiesInvokeResponse `pulumi:"spnDetails"`
+	Version          string                                         `pulumi:"version"`
+}
+
+// CollectorAgentPropertiesInvokeResponseInput is an input type that accepts CollectorAgentPropertiesInvokeResponseArgs and CollectorAgentPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CollectorAgentPropertiesInvokeResponseInput` via:
+//
+//          CollectorAgentPropertiesInvokeResponseArgs{...}
+type CollectorAgentPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCollectorAgentPropertiesInvokeResponseOutput() CollectorAgentPropertiesInvokeResponseOutput
+	ToCollectorAgentPropertiesInvokeResponseOutputWithContext(context.Context) CollectorAgentPropertiesInvokeResponseOutput
+}
+
+type CollectorAgentPropertiesInvokeResponseArgs struct {
+	Id               pulumi.StringInput                                    `pulumi:"id"`
+	LastHeartbeatUtc pulumi.StringInput                                    `pulumi:"lastHeartbeatUtc"`
+	SpnDetails       CollectorBodyAgentSpnPropertiesInvokeResponsePtrInput `pulumi:"spnDetails"`
+	Version          pulumi.StringInput                                    `pulumi:"version"`
+}
+
+func (CollectorAgentPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectorAgentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CollectorAgentPropertiesInvokeResponseArgs) ToCollectorAgentPropertiesInvokeResponseOutput() CollectorAgentPropertiesInvokeResponseOutput {
+	return i.ToCollectorAgentPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CollectorAgentPropertiesInvokeResponseArgs) ToCollectorAgentPropertiesInvokeResponseOutputWithContext(ctx context.Context) CollectorAgentPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectorAgentPropertiesInvokeResponseOutput)
+}
+
+func (i CollectorAgentPropertiesInvokeResponseArgs) ToCollectorAgentPropertiesInvokeResponsePtrOutput() CollectorAgentPropertiesInvokeResponsePtrOutput {
+	return i.ToCollectorAgentPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CollectorAgentPropertiesInvokeResponseArgs) ToCollectorAgentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CollectorAgentPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectorAgentPropertiesInvokeResponseOutput).ToCollectorAgentPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CollectorAgentPropertiesInvokeResponsePtrInput is an input type that accepts CollectorAgentPropertiesInvokeResponseArgs, CollectorAgentPropertiesInvokeResponsePtr and CollectorAgentPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CollectorAgentPropertiesInvokeResponsePtrInput` via:
+//
+//          CollectorAgentPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CollectorAgentPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCollectorAgentPropertiesInvokeResponsePtrOutput() CollectorAgentPropertiesInvokeResponsePtrOutput
+	ToCollectorAgentPropertiesInvokeResponsePtrOutputWithContext(context.Context) CollectorAgentPropertiesInvokeResponsePtrOutput
+}
+
+type collectorAgentPropertiesInvokeResponsePtrType CollectorAgentPropertiesInvokeResponseArgs
+
+func CollectorAgentPropertiesInvokeResponsePtr(v *CollectorAgentPropertiesInvokeResponseArgs) CollectorAgentPropertiesInvokeResponsePtrInput {
+	return (*collectorAgentPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*collectorAgentPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectorAgentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *collectorAgentPropertiesInvokeResponsePtrType) ToCollectorAgentPropertiesInvokeResponsePtrOutput() CollectorAgentPropertiesInvokeResponsePtrOutput {
+	return i.ToCollectorAgentPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *collectorAgentPropertiesInvokeResponsePtrType) ToCollectorAgentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CollectorAgentPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectorAgentPropertiesInvokeResponsePtrOutput)
+}
+
+type CollectorAgentPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CollectorAgentPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectorAgentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CollectorAgentPropertiesInvokeResponseOutput) ToCollectorAgentPropertiesInvokeResponseOutput() CollectorAgentPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CollectorAgentPropertiesInvokeResponseOutput) ToCollectorAgentPropertiesInvokeResponseOutputWithContext(ctx context.Context) CollectorAgentPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CollectorAgentPropertiesInvokeResponseOutput) ToCollectorAgentPropertiesInvokeResponsePtrOutput() CollectorAgentPropertiesInvokeResponsePtrOutput {
+	return o.ToCollectorAgentPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CollectorAgentPropertiesInvokeResponseOutput) ToCollectorAgentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CollectorAgentPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CollectorAgentPropertiesInvokeResponse) *CollectorAgentPropertiesInvokeResponse {
+		return &v
+	}).(CollectorAgentPropertiesInvokeResponsePtrOutput)
+}
+func (o CollectorAgentPropertiesInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CollectorAgentPropertiesInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o CollectorAgentPropertiesInvokeResponseOutput) LastHeartbeatUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v CollectorAgentPropertiesInvokeResponse) string { return v.LastHeartbeatUtc }).(pulumi.StringOutput)
+}
+
+func (o CollectorAgentPropertiesInvokeResponseOutput) SpnDetails() CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CollectorAgentPropertiesInvokeResponse) *CollectorBodyAgentSpnPropertiesInvokeResponse {
+		return v.SpnDetails
+	}).(CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput)
+}
+
+func (o CollectorAgentPropertiesInvokeResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v CollectorAgentPropertiesInvokeResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type CollectorAgentPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CollectorAgentPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectorAgentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CollectorAgentPropertiesInvokeResponsePtrOutput) ToCollectorAgentPropertiesInvokeResponsePtrOutput() CollectorAgentPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CollectorAgentPropertiesInvokeResponsePtrOutput) ToCollectorAgentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CollectorAgentPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CollectorAgentPropertiesInvokeResponsePtrOutput) Elem() CollectorAgentPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *CollectorAgentPropertiesInvokeResponse) CollectorAgentPropertiesInvokeResponse { return *v }).(CollectorAgentPropertiesInvokeResponseOutput)
+}
+
+func (o CollectorAgentPropertiesInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectorAgentPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CollectorAgentPropertiesInvokeResponsePtrOutput) LastHeartbeatUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectorAgentPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastHeartbeatUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CollectorAgentPropertiesInvokeResponsePtrOutput) SpnDetails() CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CollectorAgentPropertiesInvokeResponse) *CollectorBodyAgentSpnPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SpnDetails
+	}).(CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput)
+}
+
+func (o CollectorAgentPropertiesInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectorAgentPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type CollectorAgentPropertiesResponse struct {
 	Id               string                                   `pulumi:"id"`
 	LastHeartbeatUtc string                                   `pulumi:"lastHeartbeatUtc"`
@@ -1618,6 +2107,215 @@ func (o CollectorBodyAgentSpnPropertiesPtrOutput) TenantId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type CollectorBodyAgentSpnPropertiesInvokeResponse struct {
+	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	ApplicationId *string `pulumi:"applicationId"`
+	// Intended audience for the service principal.
+	Audience *string `pulumi:"audience"`
+	// AAD Authority URL which was used to request the token for the service principal.
+	Authority *string `pulumi:"authority"`
+	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	ObjectId *string `pulumi:"objectId"`
+	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// CollectorBodyAgentSpnPropertiesInvokeResponseInput is an input type that accepts CollectorBodyAgentSpnPropertiesInvokeResponseArgs and CollectorBodyAgentSpnPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CollectorBodyAgentSpnPropertiesInvokeResponseInput` via:
+//
+//          CollectorBodyAgentSpnPropertiesInvokeResponseArgs{...}
+type CollectorBodyAgentSpnPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCollectorBodyAgentSpnPropertiesInvokeResponseOutput() CollectorBodyAgentSpnPropertiesInvokeResponseOutput
+	ToCollectorBodyAgentSpnPropertiesInvokeResponseOutputWithContext(context.Context) CollectorBodyAgentSpnPropertiesInvokeResponseOutput
+}
+
+type CollectorBodyAgentSpnPropertiesInvokeResponseArgs struct {
+	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// Intended audience for the service principal.
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// AAD Authority URL which was used to request the token for the service principal.
+	Authority pulumi.StringPtrInput `pulumi:"authority"`
+	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (CollectorBodyAgentSpnPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectorBodyAgentSpnPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CollectorBodyAgentSpnPropertiesInvokeResponseArgs) ToCollectorBodyAgentSpnPropertiesInvokeResponseOutput() CollectorBodyAgentSpnPropertiesInvokeResponseOutput {
+	return i.ToCollectorBodyAgentSpnPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CollectorBodyAgentSpnPropertiesInvokeResponseArgs) ToCollectorBodyAgentSpnPropertiesInvokeResponseOutputWithContext(ctx context.Context) CollectorBodyAgentSpnPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectorBodyAgentSpnPropertiesInvokeResponseOutput)
+}
+
+func (i CollectorBodyAgentSpnPropertiesInvokeResponseArgs) ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput() CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput {
+	return i.ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CollectorBodyAgentSpnPropertiesInvokeResponseArgs) ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectorBodyAgentSpnPropertiesInvokeResponseOutput).ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CollectorBodyAgentSpnPropertiesInvokeResponsePtrInput is an input type that accepts CollectorBodyAgentSpnPropertiesInvokeResponseArgs, CollectorBodyAgentSpnPropertiesInvokeResponsePtr and CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CollectorBodyAgentSpnPropertiesInvokeResponsePtrInput` via:
+//
+//          CollectorBodyAgentSpnPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CollectorBodyAgentSpnPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput() CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput
+	ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutputWithContext(context.Context) CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput
+}
+
+type collectorBodyAgentSpnPropertiesInvokeResponsePtrType CollectorBodyAgentSpnPropertiesInvokeResponseArgs
+
+func CollectorBodyAgentSpnPropertiesInvokeResponsePtr(v *CollectorBodyAgentSpnPropertiesInvokeResponseArgs) CollectorBodyAgentSpnPropertiesInvokeResponsePtrInput {
+	return (*collectorBodyAgentSpnPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*collectorBodyAgentSpnPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectorBodyAgentSpnPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *collectorBodyAgentSpnPropertiesInvokeResponsePtrType) ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput() CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput {
+	return i.ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *collectorBodyAgentSpnPropertiesInvokeResponsePtrType) ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput)
+}
+
+type CollectorBodyAgentSpnPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CollectorBodyAgentSpnPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectorBodyAgentSpnPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CollectorBodyAgentSpnPropertiesInvokeResponseOutput) ToCollectorBodyAgentSpnPropertiesInvokeResponseOutput() CollectorBodyAgentSpnPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CollectorBodyAgentSpnPropertiesInvokeResponseOutput) ToCollectorBodyAgentSpnPropertiesInvokeResponseOutputWithContext(ctx context.Context) CollectorBodyAgentSpnPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CollectorBodyAgentSpnPropertiesInvokeResponseOutput) ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput() CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput {
+	return o.ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CollectorBodyAgentSpnPropertiesInvokeResponseOutput) ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesInvokeResponse) *CollectorBodyAgentSpnPropertiesInvokeResponse {
+		return &v
+	}).(CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput)
+}
+
+// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o CollectorBodyAgentSpnPropertiesInvokeResponseOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesInvokeResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// Intended audience for the service principal.
+func (o CollectorBodyAgentSpnPropertiesInvokeResponseOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesInvokeResponse) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// AAD Authority URL which was used to request the token for the service principal.
+func (o CollectorBodyAgentSpnPropertiesInvokeResponseOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesInvokeResponse) *string { return v.Authority }).(pulumi.StringPtrOutput)
+}
+
+// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o CollectorBodyAgentSpnPropertiesInvokeResponseOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesInvokeResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o CollectorBodyAgentSpnPropertiesInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectorBodyAgentSpnPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput) ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput() CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput) ToCollectorBodyAgentSpnPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput) Elem() CollectorBodyAgentSpnPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesInvokeResponse) CollectorBodyAgentSpnPropertiesInvokeResponse {
+		return *v
+	}).(CollectorBodyAgentSpnPropertiesInvokeResponseOutput)
+}
+
+// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Intended audience for the service principal.
+func (o CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// AAD Authority URL which was used to request the token for the service principal.
+func (o CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authority
+	}).(pulumi.StringPtrOutput)
+}
+
+// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 type CollectorBodyAgentSpnPropertiesResponse struct {
 	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
 	ApplicationId *string `pulumi:"applicationId"`
@@ -1970,6 +2668,84 @@ func (o CollectorPropertiesPtrOutput) DiscoverySiteId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type CollectorPropertiesInvokeResponse struct {
+	AgentProperties *CollectorAgentPropertiesInvokeResponse `pulumi:"agentProperties"`
+	// Time when this collector was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp string `pulumi:"createdTimestamp"`
+	// The ARM id of the discovery service site.
+	DiscoverySiteId *string `pulumi:"discoverySiteId"`
+	// Time when this collector was updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
+}
+
+// CollectorPropertiesInvokeResponseInput is an input type that accepts CollectorPropertiesInvokeResponseArgs and CollectorPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CollectorPropertiesInvokeResponseInput` via:
+//
+//          CollectorPropertiesInvokeResponseArgs{...}
+type CollectorPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCollectorPropertiesInvokeResponseOutput() CollectorPropertiesInvokeResponseOutput
+	ToCollectorPropertiesInvokeResponseOutputWithContext(context.Context) CollectorPropertiesInvokeResponseOutput
+}
+
+type CollectorPropertiesInvokeResponseArgs struct {
+	AgentProperties CollectorAgentPropertiesInvokeResponsePtrInput `pulumi:"agentProperties"`
+	// Time when this collector was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp pulumi.StringInput `pulumi:"createdTimestamp"`
+	// The ARM id of the discovery service site.
+	DiscoverySiteId pulumi.StringPtrInput `pulumi:"discoverySiteId"`
+	// Time when this collector was updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp pulumi.StringInput `pulumi:"updatedTimestamp"`
+}
+
+func (CollectorPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectorPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CollectorPropertiesInvokeResponseArgs) ToCollectorPropertiesInvokeResponseOutput() CollectorPropertiesInvokeResponseOutput {
+	return i.ToCollectorPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CollectorPropertiesInvokeResponseArgs) ToCollectorPropertiesInvokeResponseOutputWithContext(ctx context.Context) CollectorPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectorPropertiesInvokeResponseOutput)
+}
+
+type CollectorPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CollectorPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectorPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CollectorPropertiesInvokeResponseOutput) ToCollectorPropertiesInvokeResponseOutput() CollectorPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CollectorPropertiesInvokeResponseOutput) ToCollectorPropertiesInvokeResponseOutputWithContext(ctx context.Context) CollectorPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CollectorPropertiesInvokeResponseOutput) AgentProperties() CollectorAgentPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CollectorPropertiesInvokeResponse) *CollectorAgentPropertiesInvokeResponse {
+		return v.AgentProperties
+	}).(CollectorAgentPropertiesInvokeResponsePtrOutput)
+}
+
+// Time when this collector was created. Date-Time represented in ISO-8601 format.
+func (o CollectorPropertiesInvokeResponseOutput) CreatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CollectorPropertiesInvokeResponse) string { return v.CreatedTimestamp }).(pulumi.StringOutput)
+}
+
+// The ARM id of the discovery service site.
+func (o CollectorPropertiesInvokeResponseOutput) DiscoverySiteId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CollectorPropertiesInvokeResponse) *string { return v.DiscoverySiteId }).(pulumi.StringPtrOutput)
+}
+
+// Time when this collector was updated. Date-Time represented in ISO-8601 format.
+func (o CollectorPropertiesInvokeResponseOutput) UpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v CollectorPropertiesInvokeResponse) string { return v.UpdatedTimestamp }).(pulumi.StringOutput)
+}
+
 type CollectorPropertiesResponse struct {
 	AgentProperties *CollectorAgentPropertiesResponse `pulumi:"agentProperties"`
 	// Time when this collector was created. Date-Time represented in ISO-8601 format.
@@ -2151,6 +2927,106 @@ func (o CollectorPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPt
 		}
 		return &v.UpdatedTimestamp
 	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of group resource.
+type GroupPropertiesInvokeResponse struct {
+	// If the assessments are in running state.
+	AreAssessmentsRunning bool `pulumi:"areAssessmentsRunning"`
+	// List of References to Assessments created on this group.
+	Assessments []string `pulumi:"assessments"`
+	// Time when this group was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp string `pulumi:"createdTimestamp"`
+	// Whether the group has been created and is valid.
+	GroupStatus string `pulumi:"groupStatus"`
+	// Number of machines part of this group.
+	MachineCount int `pulumi:"machineCount"`
+	// Time when this group was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
+}
+
+// GroupPropertiesInvokeResponseInput is an input type that accepts GroupPropertiesInvokeResponseArgs and GroupPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `GroupPropertiesInvokeResponseInput` via:
+//
+//          GroupPropertiesInvokeResponseArgs{...}
+type GroupPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGroupPropertiesInvokeResponseOutput() GroupPropertiesInvokeResponseOutput
+	ToGroupPropertiesInvokeResponseOutputWithContext(context.Context) GroupPropertiesInvokeResponseOutput
+}
+
+// Properties of group resource.
+type GroupPropertiesInvokeResponseArgs struct {
+	// If the assessments are in running state.
+	AreAssessmentsRunning pulumi.BoolInput `pulumi:"areAssessmentsRunning"`
+	// List of References to Assessments created on this group.
+	Assessments pulumi.StringArrayInput `pulumi:"assessments"`
+	// Time when this group was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp pulumi.StringInput `pulumi:"createdTimestamp"`
+	// Whether the group has been created and is valid.
+	GroupStatus pulumi.StringInput `pulumi:"groupStatus"`
+	// Number of machines part of this group.
+	MachineCount pulumi.IntInput `pulumi:"machineCount"`
+	// Time when this group was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp pulumi.StringInput `pulumi:"updatedTimestamp"`
+}
+
+func (GroupPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i GroupPropertiesInvokeResponseArgs) ToGroupPropertiesInvokeResponseOutput() GroupPropertiesInvokeResponseOutput {
+	return i.ToGroupPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GroupPropertiesInvokeResponseArgs) ToGroupPropertiesInvokeResponseOutputWithContext(ctx context.Context) GroupPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPropertiesInvokeResponseOutput)
+}
+
+// Properties of group resource.
+type GroupPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GroupPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o GroupPropertiesInvokeResponseOutput) ToGroupPropertiesInvokeResponseOutput() GroupPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o GroupPropertiesInvokeResponseOutput) ToGroupPropertiesInvokeResponseOutputWithContext(ctx context.Context) GroupPropertiesInvokeResponseOutput {
+	return o
+}
+
+// If the assessments are in running state.
+func (o GroupPropertiesInvokeResponseOutput) AreAssessmentsRunning() pulumi.BoolOutput {
+	return o.ApplyT(func(v GroupPropertiesInvokeResponse) bool { return v.AreAssessmentsRunning }).(pulumi.BoolOutput)
+}
+
+// List of References to Assessments created on this group.
+func (o GroupPropertiesInvokeResponseOutput) Assessments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupPropertiesInvokeResponse) []string { return v.Assessments }).(pulumi.StringArrayOutput)
+}
+
+// Time when this group was created. Date-Time represented in ISO-8601 format.
+func (o GroupPropertiesInvokeResponseOutput) CreatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPropertiesInvokeResponse) string { return v.CreatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Whether the group has been created and is valid.
+func (o GroupPropertiesInvokeResponseOutput) GroupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPropertiesInvokeResponse) string { return v.GroupStatus }).(pulumi.StringOutput)
+}
+
+// Number of machines part of this group.
+func (o GroupPropertiesInvokeResponseOutput) MachineCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GroupPropertiesInvokeResponse) int { return v.MachineCount }).(pulumi.IntOutput)
+}
+
+// Time when this group was last updated. Date-Time represented in ISO-8601 format.
+func (o GroupPropertiesInvokeResponseOutput) UpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPropertiesInvokeResponse) string { return v.UpdatedTimestamp }).(pulumi.StringOutput)
 }
 
 // Properties of group resource.
@@ -2571,6 +3447,160 @@ func (o ProjectPropertiesPtrOutput) ProjectStatus() pulumi.StringPtrOutput {
 		}
 		return v.ProjectStatus
 	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a project.
+type ProjectPropertiesInvokeResponse struct {
+	// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
+	AssessmentSolutionId *string `pulumi:"assessmentSolutionId"`
+	// Time when this project was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp string `pulumi:"createdTimestamp"`
+	// The ARM id of service map workspace created by customer.
+	CustomerWorkspaceId *string `pulumi:"customerWorkspaceId"`
+	// Location of service map workspace created by customer.
+	CustomerWorkspaceLocation *string `pulumi:"customerWorkspaceLocation"`
+	// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+	LastAssessmentTimestamp string `pulumi:"lastAssessmentTimestamp"`
+	// Number of assessments created in the project.
+	NumberOfAssessments int `pulumi:"numberOfAssessments"`
+	// Number of groups created in the project.
+	NumberOfGroups int `pulumi:"numberOfGroups"`
+	// Number of machines in the project.
+	NumberOfMachines int `pulumi:"numberOfMachines"`
+	// Assessment project status.
+	ProjectStatus *string `pulumi:"projectStatus"`
+	// Provisioning state of the project.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Endpoint at which the collector agent can call agent REST API.
+	ServiceEndpoint string `pulumi:"serviceEndpoint"`
+	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
+}
+
+// ProjectPropertiesInvokeResponseInput is an input type that accepts ProjectPropertiesInvokeResponseArgs and ProjectPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ProjectPropertiesInvokeResponseInput` via:
+//
+//          ProjectPropertiesInvokeResponseArgs{...}
+type ProjectPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToProjectPropertiesInvokeResponseOutput() ProjectPropertiesInvokeResponseOutput
+	ToProjectPropertiesInvokeResponseOutputWithContext(context.Context) ProjectPropertiesInvokeResponseOutput
+}
+
+// Properties of a project.
+type ProjectPropertiesInvokeResponseArgs struct {
+	// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
+	AssessmentSolutionId pulumi.StringPtrInput `pulumi:"assessmentSolutionId"`
+	// Time when this project was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp pulumi.StringInput `pulumi:"createdTimestamp"`
+	// The ARM id of service map workspace created by customer.
+	CustomerWorkspaceId pulumi.StringPtrInput `pulumi:"customerWorkspaceId"`
+	// Location of service map workspace created by customer.
+	CustomerWorkspaceLocation pulumi.StringPtrInput `pulumi:"customerWorkspaceLocation"`
+	// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+	LastAssessmentTimestamp pulumi.StringInput `pulumi:"lastAssessmentTimestamp"`
+	// Number of assessments created in the project.
+	NumberOfAssessments pulumi.IntInput `pulumi:"numberOfAssessments"`
+	// Number of groups created in the project.
+	NumberOfGroups pulumi.IntInput `pulumi:"numberOfGroups"`
+	// Number of machines in the project.
+	NumberOfMachines pulumi.IntInput `pulumi:"numberOfMachines"`
+	// Assessment project status.
+	ProjectStatus pulumi.StringPtrInput `pulumi:"projectStatus"`
+	// Provisioning state of the project.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Endpoint at which the collector agent can call agent REST API.
+	ServiceEndpoint pulumi.StringInput `pulumi:"serviceEndpoint"`
+	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp pulumi.StringInput `pulumi:"updatedTimestamp"`
+}
+
+func (ProjectPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ProjectPropertiesInvokeResponseArgs) ToProjectPropertiesInvokeResponseOutput() ProjectPropertiesInvokeResponseOutput {
+	return i.ToProjectPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ProjectPropertiesInvokeResponseArgs) ToProjectPropertiesInvokeResponseOutputWithContext(ctx context.Context) ProjectPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectPropertiesInvokeResponseOutput)
+}
+
+// Properties of a project.
+type ProjectPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ProjectPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ProjectPropertiesInvokeResponseOutput) ToProjectPropertiesInvokeResponseOutput() ProjectPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ProjectPropertiesInvokeResponseOutput) ToProjectPropertiesInvokeResponseOutputWithContext(ctx context.Context) ProjectPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
+func (o ProjectPropertiesInvokeResponseOutput) AssessmentSolutionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) *string { return v.AssessmentSolutionId }).(pulumi.StringPtrOutput)
+}
+
+// Time when this project was created. Date-Time represented in ISO-8601 format.
+func (o ProjectPropertiesInvokeResponseOutput) CreatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) string { return v.CreatedTimestamp }).(pulumi.StringOutput)
+}
+
+// The ARM id of service map workspace created by customer.
+func (o ProjectPropertiesInvokeResponseOutput) CustomerWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) *string { return v.CustomerWorkspaceId }).(pulumi.StringPtrOutput)
+}
+
+// Location of service map workspace created by customer.
+func (o ProjectPropertiesInvokeResponseOutput) CustomerWorkspaceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) *string { return v.CustomerWorkspaceLocation }).(pulumi.StringPtrOutput)
+}
+
+// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+func (o ProjectPropertiesInvokeResponseOutput) LastAssessmentTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) string { return v.LastAssessmentTimestamp }).(pulumi.StringOutput)
+}
+
+// Number of assessments created in the project.
+func (o ProjectPropertiesInvokeResponseOutput) NumberOfAssessments() pulumi.IntOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) int { return v.NumberOfAssessments }).(pulumi.IntOutput)
+}
+
+// Number of groups created in the project.
+func (o ProjectPropertiesInvokeResponseOutput) NumberOfGroups() pulumi.IntOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) int { return v.NumberOfGroups }).(pulumi.IntOutput)
+}
+
+// Number of machines in the project.
+func (o ProjectPropertiesInvokeResponseOutput) NumberOfMachines() pulumi.IntOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) int { return v.NumberOfMachines }).(pulumi.IntOutput)
+}
+
+// Assessment project status.
+func (o ProjectPropertiesInvokeResponseOutput) ProjectStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) *string { return v.ProjectStatus }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state of the project.
+func (o ProjectPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Endpoint at which the collector agent can call agent REST API.
+func (o ProjectPropertiesInvokeResponseOutput) ServiceEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) string { return v.ServiceEndpoint }).(pulumi.StringOutput)
+}
+
+// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+func (o ProjectPropertiesInvokeResponseOutput) UpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectPropertiesInvokeResponse) string { return v.UpdatedTimestamp }).(pulumi.StringOutput)
 }
 
 // Properties of a project.
@@ -3066,6 +4096,67 @@ func (o VmUptimePtrOutput) HoursPerDay() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+type VmUptimeInvokeResponse struct {
+	// Number of days in a month for VM uptime.
+	DaysPerMonth *float64 `pulumi:"daysPerMonth"`
+	// Number of hours per day for VM uptime.
+	HoursPerDay *float64 `pulumi:"hoursPerDay"`
+}
+
+// VmUptimeInvokeResponseInput is an input type that accepts VmUptimeInvokeResponseArgs and VmUptimeInvokeResponseOutput values.
+// You can construct a concrete instance of `VmUptimeInvokeResponseInput` via:
+//
+//          VmUptimeInvokeResponseArgs{...}
+type VmUptimeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVmUptimeInvokeResponseOutput() VmUptimeInvokeResponseOutput
+	ToVmUptimeInvokeResponseOutputWithContext(context.Context) VmUptimeInvokeResponseOutput
+}
+
+type VmUptimeInvokeResponseArgs struct {
+	// Number of days in a month for VM uptime.
+	DaysPerMonth pulumi.Float64PtrInput `pulumi:"daysPerMonth"`
+	// Number of hours per day for VM uptime.
+	HoursPerDay pulumi.Float64PtrInput `pulumi:"hoursPerDay"`
+}
+
+func (VmUptimeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmUptimeInvokeResponse)(nil)).Elem()
+}
+
+func (i VmUptimeInvokeResponseArgs) ToVmUptimeInvokeResponseOutput() VmUptimeInvokeResponseOutput {
+	return i.ToVmUptimeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VmUptimeInvokeResponseArgs) ToVmUptimeInvokeResponseOutputWithContext(ctx context.Context) VmUptimeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmUptimeInvokeResponseOutput)
+}
+
+type VmUptimeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VmUptimeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmUptimeInvokeResponse)(nil)).Elem()
+}
+
+func (o VmUptimeInvokeResponseOutput) ToVmUptimeInvokeResponseOutput() VmUptimeInvokeResponseOutput {
+	return o
+}
+
+func (o VmUptimeInvokeResponseOutput) ToVmUptimeInvokeResponseOutputWithContext(ctx context.Context) VmUptimeInvokeResponseOutput {
+	return o
+}
+
+// Number of days in a month for VM uptime.
+func (o VmUptimeInvokeResponseOutput) DaysPerMonth() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VmUptimeInvokeResponse) *float64 { return v.DaysPerMonth }).(pulumi.Float64PtrOutput)
+}
+
+// Number of hours per day for VM uptime.
+func (o VmUptimeInvokeResponseOutput) HoursPerDay() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VmUptimeInvokeResponse) *float64 { return v.HoursPerDay }).(pulumi.Float64PtrOutput)
+}
+
 type VmUptimeResponse struct {
 	// Number of days in a month for VM uptime.
 	DaysPerMonth *float64 `pulumi:"daysPerMonth"`
@@ -3219,28 +4310,37 @@ func (o VmUptimeResponsePtrOutput) HoursPerDay() pulumi.Float64PtrOutput {
 func init() {
 	pulumi.RegisterOutputType(AssessmentPropertiesOutput{})
 	pulumi.RegisterOutputType(AssessmentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AssessmentPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CollectorAgentPropertiesOutput{})
 	pulumi.RegisterOutputType(CollectorAgentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CollectorAgentPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CollectorAgentPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CollectorAgentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CollectorAgentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CollectorBodyAgentSpnPropertiesOutput{})
 	pulumi.RegisterOutputType(CollectorBodyAgentSpnPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CollectorBodyAgentSpnPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CollectorBodyAgentSpnPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CollectorBodyAgentSpnPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CollectorBodyAgentSpnPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CollectorPropertiesOutput{})
 	pulumi.RegisterOutputType(CollectorPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CollectorPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CollectorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CollectorPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(GroupPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GroupPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProjectPropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ProjectPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ProjectPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProjectPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VmUptimeOutput{})
 	pulumi.RegisterOutputType(VmUptimePtrOutput{})
+	pulumi.RegisterOutputType(VmUptimeInvokeResponseOutput{})
 	pulumi.RegisterOutputType(VmUptimeResponseOutput{})
 	pulumi.RegisterOutputType(VmUptimeResponsePtrOutput{})
 }

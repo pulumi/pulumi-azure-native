@@ -36,7 +36,7 @@ type LookupFormulaResult struct {
 	// The description of the formula.
 	Description *string `pulumi:"description"`
 	// The content of the formula.
-	FormulaContent *LabVirtualMachineCreationParameterResponse `pulumi:"formulaContent"`
+	FormulaContent *LabVirtualMachineCreationParameterInvokeResponse `pulumi:"formulaContent"`
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
 	// The location of the resource.
@@ -54,5 +54,5 @@ type LookupFormulaResult struct {
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
 	// Information about a VM from which a formula is to be created.
-	Vm *FormulaPropertiesFromVmResponse `pulumi:"vm"`
+	Vm *FormulaPropertiesFromVmInvokeResponse `pulumi:"vm"`
 }

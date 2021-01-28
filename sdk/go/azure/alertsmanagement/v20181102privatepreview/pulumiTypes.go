@@ -221,6 +221,144 @@ func (o ActionRulePropertiesPtrOutput) SuppressionConfig() SuppressionConfigPtrO
 }
 
 // Action rule properties defining scope, conditions, suppression logic for action rule
+type ActionRulePropertiesInvokeResponse struct {
+	// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+	Conditions *ConditionsInvokeResponse `pulumi:"conditions"`
+	// Creation time of action rule. Date-Time in ISO-8601 format.
+	CreatedAt string `pulumi:"createdAt"`
+	// Created by user name.
+	CreatedBy string `pulumi:"createdBy"`
+	// Description of action rule
+	Description *string `pulumi:"description"`
+	// Last updated time of action rule. Date-Time in ISO-8601 format.
+	LastModifiedAt string `pulumi:"lastModifiedAt"`
+	// Last modified by user name.
+	LastModifiedBy string `pulumi:"lastModifiedBy"`
+	// Resource group where action rule is stored
+	ResourceGroup string `pulumi:"resourceGroup"`
+	// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+	Scope *ScopeInvokeResponse `pulumi:"scope"`
+	// Indicates if the given action rule is enabled or disabled
+	Status *string `pulumi:"status"`
+	// Suppression logic for a given action rule
+	SuppressionConfig *SuppressionConfigInvokeResponse `pulumi:"suppressionConfig"`
+}
+
+// ActionRulePropertiesInvokeResponseInput is an input type that accepts ActionRulePropertiesInvokeResponseArgs and ActionRulePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ActionRulePropertiesInvokeResponseInput` via:
+//
+//          ActionRulePropertiesInvokeResponseArgs{...}
+type ActionRulePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToActionRulePropertiesInvokeResponseOutput() ActionRulePropertiesInvokeResponseOutput
+	ToActionRulePropertiesInvokeResponseOutputWithContext(context.Context) ActionRulePropertiesInvokeResponseOutput
+}
+
+// Action rule properties defining scope, conditions, suppression logic for action rule
+type ActionRulePropertiesInvokeResponseArgs struct {
+	// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+	Conditions ConditionsInvokeResponsePtrInput `pulumi:"conditions"`
+	// Creation time of action rule. Date-Time in ISO-8601 format.
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Created by user name.
+	CreatedBy pulumi.StringInput `pulumi:"createdBy"`
+	// Description of action rule
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Last updated time of action rule. Date-Time in ISO-8601 format.
+	LastModifiedAt pulumi.StringInput `pulumi:"lastModifiedAt"`
+	// Last modified by user name.
+	LastModifiedBy pulumi.StringInput `pulumi:"lastModifiedBy"`
+	// Resource group where action rule is stored
+	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
+	// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+	Scope ScopeInvokeResponsePtrInput `pulumi:"scope"`
+	// Indicates if the given action rule is enabled or disabled
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Suppression logic for a given action rule
+	SuppressionConfig SuppressionConfigInvokeResponsePtrInput `pulumi:"suppressionConfig"`
+}
+
+func (ActionRulePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ActionRulePropertiesInvokeResponseArgs) ToActionRulePropertiesInvokeResponseOutput() ActionRulePropertiesInvokeResponseOutput {
+	return i.ToActionRulePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ActionRulePropertiesInvokeResponseArgs) ToActionRulePropertiesInvokeResponseOutputWithContext(ctx context.Context) ActionRulePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionRulePropertiesInvokeResponseOutput)
+}
+
+// Action rule properties defining scope, conditions, suppression logic for action rule
+type ActionRulePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ActionRulePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ActionRulePropertiesInvokeResponseOutput) ToActionRulePropertiesInvokeResponseOutput() ActionRulePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ActionRulePropertiesInvokeResponseOutput) ToActionRulePropertiesInvokeResponseOutputWithContext(ctx context.Context) ActionRulePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+func (o ActionRulePropertiesInvokeResponseOutput) Conditions() ConditionsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ActionRulePropertiesInvokeResponse) *ConditionsInvokeResponse { return v.Conditions }).(ConditionsInvokeResponsePtrOutput)
+}
+
+// Creation time of action rule. Date-Time in ISO-8601 format.
+func (o ActionRulePropertiesInvokeResponseOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRulePropertiesInvokeResponse) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Created by user name.
+func (o ActionRulePropertiesInvokeResponseOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRulePropertiesInvokeResponse) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// Description of action rule
+func (o ActionRulePropertiesInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionRulePropertiesInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Last updated time of action rule. Date-Time in ISO-8601 format.
+func (o ActionRulePropertiesInvokeResponseOutput) LastModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRulePropertiesInvokeResponse) string { return v.LastModifiedAt }).(pulumi.StringOutput)
+}
+
+// Last modified by user name.
+func (o ActionRulePropertiesInvokeResponseOutput) LastModifiedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRulePropertiesInvokeResponse) string { return v.LastModifiedBy }).(pulumi.StringOutput)
+}
+
+// Resource group where action rule is stored
+func (o ActionRulePropertiesInvokeResponseOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionRulePropertiesInvokeResponse) string { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+func (o ActionRulePropertiesInvokeResponseOutput) Scope() ScopeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ActionRulePropertiesInvokeResponse) *ScopeInvokeResponse { return v.Scope }).(ScopeInvokeResponsePtrOutput)
+}
+
+// Indicates if the given action rule is enabled or disabled
+func (o ActionRulePropertiesInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionRulePropertiesInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Suppression logic for a given action rule
+func (o ActionRulePropertiesInvokeResponseOutput) SuppressionConfig() SuppressionConfigInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ActionRulePropertiesInvokeResponse) *SuppressionConfigInvokeResponse {
+		return v.SuppressionConfig
+	}).(SuppressionConfigInvokeResponsePtrOutput)
+}
+
+// Action rule properties defining scope, conditions, suppression logic for action rule
 type ActionRulePropertiesResponse struct {
 	// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 	Conditions *ConditionsResponse `pulumi:"conditions"`
@@ -671,6 +809,159 @@ func (o ConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 // list of values to match for a given condition.
 func (o ConditionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Condition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// condition to trigger an action rule
+type ConditionInvokeResponse struct {
+	// operator for a given condition
+	Operator *string `pulumi:"operator"`
+	// list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// ConditionInvokeResponseInput is an input type that accepts ConditionInvokeResponseArgs and ConditionInvokeResponseOutput values.
+// You can construct a concrete instance of `ConditionInvokeResponseInput` via:
+//
+//          ConditionInvokeResponseArgs{...}
+type ConditionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConditionInvokeResponseOutput() ConditionInvokeResponseOutput
+	ToConditionInvokeResponseOutputWithContext(context.Context) ConditionInvokeResponseOutput
+}
+
+// condition to trigger an action rule
+type ConditionInvokeResponseArgs struct {
+	// operator for a given condition
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ConditionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i ConditionInvokeResponseArgs) ToConditionInvokeResponseOutput() ConditionInvokeResponseOutput {
+	return i.ToConditionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConditionInvokeResponseArgs) ToConditionInvokeResponseOutputWithContext(ctx context.Context) ConditionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionInvokeResponseOutput)
+}
+
+func (i ConditionInvokeResponseArgs) ToConditionInvokeResponsePtrOutput() ConditionInvokeResponsePtrOutput {
+	return i.ToConditionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConditionInvokeResponseArgs) ToConditionInvokeResponsePtrOutputWithContext(ctx context.Context) ConditionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionInvokeResponseOutput).ToConditionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ConditionInvokeResponsePtrInput is an input type that accepts ConditionInvokeResponseArgs, ConditionInvokeResponsePtr and ConditionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ConditionInvokeResponsePtrInput` via:
+//
+//          ConditionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConditionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToConditionInvokeResponsePtrOutput() ConditionInvokeResponsePtrOutput
+	ToConditionInvokeResponsePtrOutputWithContext(context.Context) ConditionInvokeResponsePtrOutput
+}
+
+type conditionInvokeResponsePtrType ConditionInvokeResponseArgs
+
+func ConditionInvokeResponsePtr(v *ConditionInvokeResponseArgs) ConditionInvokeResponsePtrInput {
+	return (*conditionInvokeResponsePtrType)(v)
+}
+
+func (*conditionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConditionInvokeResponse)(nil)).Elem()
+}
+
+func (i *conditionInvokeResponsePtrType) ToConditionInvokeResponsePtrOutput() ConditionInvokeResponsePtrOutput {
+	return i.ToConditionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *conditionInvokeResponsePtrType) ToConditionInvokeResponsePtrOutputWithContext(ctx context.Context) ConditionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+type ConditionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConditionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o ConditionInvokeResponseOutput) ToConditionInvokeResponseOutput() ConditionInvokeResponseOutput {
+	return o
+}
+
+func (o ConditionInvokeResponseOutput) ToConditionInvokeResponseOutputWithContext(ctx context.Context) ConditionInvokeResponseOutput {
+	return o
+}
+
+func (o ConditionInvokeResponseOutput) ToConditionInvokeResponsePtrOutput() ConditionInvokeResponsePtrOutput {
+	return o.ToConditionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConditionInvokeResponseOutput) ToConditionInvokeResponsePtrOutputWithContext(ctx context.Context) ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionInvokeResponse) *ConditionInvokeResponse {
+		return &v
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// operator for a given condition
+func (o ConditionInvokeResponseOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConditionInvokeResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// list of values to match for a given condition.
+func (o ConditionInvokeResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConditionInvokeResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ConditionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConditionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConditionInvokeResponse)(nil)).Elem()
+}
+
+func (o ConditionInvokeResponsePtrOutput) ToConditionInvokeResponsePtrOutput() ConditionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConditionInvokeResponsePtrOutput) ToConditionInvokeResponsePtrOutputWithContext(ctx context.Context) ConditionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConditionInvokeResponsePtrOutput) Elem() ConditionInvokeResponseOutput {
+	return o.ApplyT(func(v *ConditionInvokeResponse) ConditionInvokeResponse { return *v }).(ConditionInvokeResponseOutput)
+}
+
+// operator for a given condition
+func (o ConditionInvokeResponsePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConditionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// list of values to match for a given condition.
+func (o ConditionInvokeResponsePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConditionInvokeResponse) []string {
 		if v == nil {
 			return nil
 		}
@@ -1156,6 +1447,330 @@ func (o ConditionsPtrOutput) TargetResourceType() ConditionPtrOutput {
 }
 
 // Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+type ConditionsInvokeResponse struct {
+	// condition to trigger an action rule
+	AlertRuleId *ConditionInvokeResponse `pulumi:"alertRuleId"`
+	// condition to trigger an action rule
+	ApplicationInsightsSearchResults *ConditionInvokeResponse `pulumi:"applicationInsightsSearchResults"`
+	// condition to trigger an action rule
+	Description *ConditionInvokeResponse `pulumi:"description"`
+	// condition to trigger an action rule
+	LogAnalyticsSearchResults *ConditionInvokeResponse `pulumi:"logAnalyticsSearchResults"`
+	// condition to trigger an action rule
+	MonitorCondition *ConditionInvokeResponse `pulumi:"monitorCondition"`
+	// condition to trigger an action rule
+	MonitorService *ConditionInvokeResponse `pulumi:"monitorService"`
+	// condition to trigger an action rule
+	Severity *ConditionInvokeResponse `pulumi:"severity"`
+	// condition to trigger an action rule
+	SignalType *ConditionInvokeResponse `pulumi:"signalType"`
+	// condition to trigger an action rule
+	TargetResource *ConditionInvokeResponse `pulumi:"targetResource"`
+	// condition to trigger an action rule
+	TargetResourceGroup *ConditionInvokeResponse `pulumi:"targetResourceGroup"`
+	// condition to trigger an action rule
+	TargetResourceType *ConditionInvokeResponse `pulumi:"targetResourceType"`
+}
+
+// ConditionsInvokeResponseInput is an input type that accepts ConditionsInvokeResponseArgs and ConditionsInvokeResponseOutput values.
+// You can construct a concrete instance of `ConditionsInvokeResponseInput` via:
+//
+//          ConditionsInvokeResponseArgs{...}
+type ConditionsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConditionsInvokeResponseOutput() ConditionsInvokeResponseOutput
+	ToConditionsInvokeResponseOutputWithContext(context.Context) ConditionsInvokeResponseOutput
+}
+
+// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+type ConditionsInvokeResponseArgs struct {
+	// condition to trigger an action rule
+	AlertRuleId ConditionInvokeResponsePtrInput `pulumi:"alertRuleId"`
+	// condition to trigger an action rule
+	ApplicationInsightsSearchResults ConditionInvokeResponsePtrInput `pulumi:"applicationInsightsSearchResults"`
+	// condition to trigger an action rule
+	Description ConditionInvokeResponsePtrInput `pulumi:"description"`
+	// condition to trigger an action rule
+	LogAnalyticsSearchResults ConditionInvokeResponsePtrInput `pulumi:"logAnalyticsSearchResults"`
+	// condition to trigger an action rule
+	MonitorCondition ConditionInvokeResponsePtrInput `pulumi:"monitorCondition"`
+	// condition to trigger an action rule
+	MonitorService ConditionInvokeResponsePtrInput `pulumi:"monitorService"`
+	// condition to trigger an action rule
+	Severity ConditionInvokeResponsePtrInput `pulumi:"severity"`
+	// condition to trigger an action rule
+	SignalType ConditionInvokeResponsePtrInput `pulumi:"signalType"`
+	// condition to trigger an action rule
+	TargetResource ConditionInvokeResponsePtrInput `pulumi:"targetResource"`
+	// condition to trigger an action rule
+	TargetResourceGroup ConditionInvokeResponsePtrInput `pulumi:"targetResourceGroup"`
+	// condition to trigger an action rule
+	TargetResourceType ConditionInvokeResponsePtrInput `pulumi:"targetResourceType"`
+}
+
+func (ConditionsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionsInvokeResponse)(nil)).Elem()
+}
+
+func (i ConditionsInvokeResponseArgs) ToConditionsInvokeResponseOutput() ConditionsInvokeResponseOutput {
+	return i.ToConditionsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConditionsInvokeResponseArgs) ToConditionsInvokeResponseOutputWithContext(ctx context.Context) ConditionsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionsInvokeResponseOutput)
+}
+
+func (i ConditionsInvokeResponseArgs) ToConditionsInvokeResponsePtrOutput() ConditionsInvokeResponsePtrOutput {
+	return i.ToConditionsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConditionsInvokeResponseArgs) ToConditionsInvokeResponsePtrOutputWithContext(ctx context.Context) ConditionsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionsInvokeResponseOutput).ToConditionsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ConditionsInvokeResponsePtrInput is an input type that accepts ConditionsInvokeResponseArgs, ConditionsInvokeResponsePtr and ConditionsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ConditionsInvokeResponsePtrInput` via:
+//
+//          ConditionsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConditionsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToConditionsInvokeResponsePtrOutput() ConditionsInvokeResponsePtrOutput
+	ToConditionsInvokeResponsePtrOutputWithContext(context.Context) ConditionsInvokeResponsePtrOutput
+}
+
+type conditionsInvokeResponsePtrType ConditionsInvokeResponseArgs
+
+func ConditionsInvokeResponsePtr(v *ConditionsInvokeResponseArgs) ConditionsInvokeResponsePtrInput {
+	return (*conditionsInvokeResponsePtrType)(v)
+}
+
+func (*conditionsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConditionsInvokeResponse)(nil)).Elem()
+}
+
+func (i *conditionsInvokeResponsePtrType) ToConditionsInvokeResponsePtrOutput() ConditionsInvokeResponsePtrOutput {
+	return i.ToConditionsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *conditionsInvokeResponsePtrType) ToConditionsInvokeResponsePtrOutputWithContext(ctx context.Context) ConditionsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConditionsInvokeResponsePtrOutput)
+}
+
+// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
+type ConditionsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConditionsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConditionsInvokeResponse)(nil)).Elem()
+}
+
+func (o ConditionsInvokeResponseOutput) ToConditionsInvokeResponseOutput() ConditionsInvokeResponseOutput {
+	return o
+}
+
+func (o ConditionsInvokeResponseOutput) ToConditionsInvokeResponseOutputWithContext(ctx context.Context) ConditionsInvokeResponseOutput {
+	return o
+}
+
+func (o ConditionsInvokeResponseOutput) ToConditionsInvokeResponsePtrOutput() ConditionsInvokeResponsePtrOutput {
+	return o.ToConditionsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConditionsInvokeResponseOutput) ToConditionsInvokeResponsePtrOutputWithContext(ctx context.Context) ConditionsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionsInvokeResponse {
+		return &v
+	}).(ConditionsInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) AlertRuleId() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.AlertRuleId }).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) ApplicationInsightsSearchResults() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.ApplicationInsightsSearchResults }).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) Description() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.Description }).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) LogAnalyticsSearchResults() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.LogAnalyticsSearchResults }).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) MonitorCondition() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.MonitorCondition }).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) MonitorService() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.MonitorService }).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) Severity() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.Severity }).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) SignalType() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.SignalType }).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) TargetResource() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.TargetResource }).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) TargetResourceGroup() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.TargetResourceGroup }).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponseOutput) TargetResourceType() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ConditionsInvokeResponse) *ConditionInvokeResponse { return v.TargetResourceType }).(ConditionInvokeResponsePtrOutput)
+}
+
+type ConditionsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConditionsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConditionsInvokeResponse)(nil)).Elem()
+}
+
+func (o ConditionsInvokeResponsePtrOutput) ToConditionsInvokeResponsePtrOutput() ConditionsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConditionsInvokeResponsePtrOutput) ToConditionsInvokeResponsePtrOutputWithContext(ctx context.Context) ConditionsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ConditionsInvokeResponsePtrOutput) Elem() ConditionsInvokeResponseOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) ConditionsInvokeResponse { return *v }).(ConditionsInvokeResponseOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) AlertRuleId() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AlertRuleId
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) ApplicationInsightsSearchResults() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationInsightsSearchResults
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) Description() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) LogAnalyticsSearchResults() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LogAnalyticsSearchResults
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) MonitorCondition() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorCondition
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) MonitorService() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorService
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) Severity() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Severity
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) SignalType() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SignalType
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) TargetResource() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResource
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) TargetResourceGroup() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResourceGroup
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// condition to trigger an action rule
+func (o ConditionsInvokeResponsePtrOutput) TargetResourceType() ConditionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ConditionsInvokeResponse) *ConditionInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResourceType
+	}).(ConditionInvokeResponsePtrOutput)
+}
+
+// Conditions in alert instance to be matched for a given action rule. Default value is all. Multiple values could be provided with comma separation.
 type ConditionsResponse struct {
 	// condition to trigger an action rule
 	AlertRuleId *ConditionResponse `pulumi:"alertRuleId"`
@@ -1633,6 +2248,159 @@ func (o ScopePtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 // Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+type ScopeInvokeResponse struct {
+	// type of target scope
+	Type *string `pulumi:"type"`
+	// list of ARM IDs of the given scope type which will be the target of the given action rule.
+	Values []string `pulumi:"values"`
+}
+
+// ScopeInvokeResponseInput is an input type that accepts ScopeInvokeResponseArgs and ScopeInvokeResponseOutput values.
+// You can construct a concrete instance of `ScopeInvokeResponseInput` via:
+//
+//          ScopeInvokeResponseArgs{...}
+type ScopeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToScopeInvokeResponseOutput() ScopeInvokeResponseOutput
+	ToScopeInvokeResponseOutputWithContext(context.Context) ScopeInvokeResponseOutput
+}
+
+// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+type ScopeInvokeResponseArgs struct {
+	// type of target scope
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// list of ARM IDs of the given scope type which will be the target of the given action rule.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ScopeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeInvokeResponse)(nil)).Elem()
+}
+
+func (i ScopeInvokeResponseArgs) ToScopeInvokeResponseOutput() ScopeInvokeResponseOutput {
+	return i.ToScopeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ScopeInvokeResponseArgs) ToScopeInvokeResponseOutputWithContext(ctx context.Context) ScopeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeInvokeResponseOutput)
+}
+
+func (i ScopeInvokeResponseArgs) ToScopeInvokeResponsePtrOutput() ScopeInvokeResponsePtrOutput {
+	return i.ToScopeInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ScopeInvokeResponseArgs) ToScopeInvokeResponsePtrOutputWithContext(ctx context.Context) ScopeInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeInvokeResponseOutput).ToScopeInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ScopeInvokeResponsePtrInput is an input type that accepts ScopeInvokeResponseArgs, ScopeInvokeResponsePtr and ScopeInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ScopeInvokeResponsePtrInput` via:
+//
+//          ScopeInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ScopeInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToScopeInvokeResponsePtrOutput() ScopeInvokeResponsePtrOutput
+	ToScopeInvokeResponsePtrOutputWithContext(context.Context) ScopeInvokeResponsePtrOutput
+}
+
+type scopeInvokeResponsePtrType ScopeInvokeResponseArgs
+
+func ScopeInvokeResponsePtr(v *ScopeInvokeResponseArgs) ScopeInvokeResponsePtrInput {
+	return (*scopeInvokeResponsePtrType)(v)
+}
+
+func (*scopeInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeInvokeResponse)(nil)).Elem()
+}
+
+func (i *scopeInvokeResponsePtrType) ToScopeInvokeResponsePtrOutput() ScopeInvokeResponsePtrOutput {
+	return i.ToScopeInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *scopeInvokeResponsePtrType) ToScopeInvokeResponsePtrOutputWithContext(ctx context.Context) ScopeInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeInvokeResponsePtrOutput)
+}
+
+// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
+type ScopeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ScopeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeInvokeResponse)(nil)).Elem()
+}
+
+func (o ScopeInvokeResponseOutput) ToScopeInvokeResponseOutput() ScopeInvokeResponseOutput {
+	return o
+}
+
+func (o ScopeInvokeResponseOutput) ToScopeInvokeResponseOutputWithContext(ctx context.Context) ScopeInvokeResponseOutput {
+	return o
+}
+
+func (o ScopeInvokeResponseOutput) ToScopeInvokeResponsePtrOutput() ScopeInvokeResponsePtrOutput {
+	return o.ToScopeInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ScopeInvokeResponseOutput) ToScopeInvokeResponsePtrOutputWithContext(ctx context.Context) ScopeInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ScopeInvokeResponse) *ScopeInvokeResponse {
+		return &v
+	}).(ScopeInvokeResponsePtrOutput)
+}
+
+// type of target scope
+func (o ScopeInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScopeInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// list of ARM IDs of the given scope type which will be the target of the given action rule.
+func (o ScopeInvokeResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScopeInvokeResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ScopeInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ScopeInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeInvokeResponse)(nil)).Elem()
+}
+
+func (o ScopeInvokeResponsePtrOutput) ToScopeInvokeResponsePtrOutput() ScopeInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ScopeInvokeResponsePtrOutput) ToScopeInvokeResponsePtrOutputWithContext(ctx context.Context) ScopeInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ScopeInvokeResponsePtrOutput) Elem() ScopeInvokeResponseOutput {
+	return o.ApplyT(func(v *ScopeInvokeResponse) ScopeInvokeResponse { return *v }).(ScopeInvokeResponseOutput)
+}
+
+// type of target scope
+func (o ScopeInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// list of ARM IDs of the given scope type which will be the target of the given action rule.
+func (o ScopeInvokeResponsePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScopeInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
 type ScopeResponse struct {
 	// type of target scope
 	Type *string `pulumi:"type"`
@@ -1936,6 +2704,159 @@ func (o SuppressionConfigPtrOutput) Schedule() SuppressionSchedulePtrOutput {
 		}
 		return v.Schedule
 	}).(SuppressionSchedulePtrOutput)
+}
+
+// Suppression logic for a given action rule
+type SuppressionConfigInvokeResponse struct {
+	// Specifies when the suppression should be applied
+	RecurrenceType string `pulumi:"recurrenceType"`
+	// Schedule for a given suppression configuration.
+	Schedule *SuppressionScheduleInvokeResponse `pulumi:"schedule"`
+}
+
+// SuppressionConfigInvokeResponseInput is an input type that accepts SuppressionConfigInvokeResponseArgs and SuppressionConfigInvokeResponseOutput values.
+// You can construct a concrete instance of `SuppressionConfigInvokeResponseInput` via:
+//
+//          SuppressionConfigInvokeResponseArgs{...}
+type SuppressionConfigInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSuppressionConfigInvokeResponseOutput() SuppressionConfigInvokeResponseOutput
+	ToSuppressionConfigInvokeResponseOutputWithContext(context.Context) SuppressionConfigInvokeResponseOutput
+}
+
+// Suppression logic for a given action rule
+type SuppressionConfigInvokeResponseArgs struct {
+	// Specifies when the suppression should be applied
+	RecurrenceType pulumi.StringInput `pulumi:"recurrenceType"`
+	// Schedule for a given suppression configuration.
+	Schedule SuppressionScheduleInvokeResponsePtrInput `pulumi:"schedule"`
+}
+
+func (SuppressionConfigInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionConfigInvokeResponse)(nil)).Elem()
+}
+
+func (i SuppressionConfigInvokeResponseArgs) ToSuppressionConfigInvokeResponseOutput() SuppressionConfigInvokeResponseOutput {
+	return i.ToSuppressionConfigInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SuppressionConfigInvokeResponseArgs) ToSuppressionConfigInvokeResponseOutputWithContext(ctx context.Context) SuppressionConfigInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionConfigInvokeResponseOutput)
+}
+
+func (i SuppressionConfigInvokeResponseArgs) ToSuppressionConfigInvokeResponsePtrOutput() SuppressionConfigInvokeResponsePtrOutput {
+	return i.ToSuppressionConfigInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SuppressionConfigInvokeResponseArgs) ToSuppressionConfigInvokeResponsePtrOutputWithContext(ctx context.Context) SuppressionConfigInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionConfigInvokeResponseOutput).ToSuppressionConfigInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SuppressionConfigInvokeResponsePtrInput is an input type that accepts SuppressionConfigInvokeResponseArgs, SuppressionConfigInvokeResponsePtr and SuppressionConfigInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SuppressionConfigInvokeResponsePtrInput` via:
+//
+//          SuppressionConfigInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SuppressionConfigInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSuppressionConfigInvokeResponsePtrOutput() SuppressionConfigInvokeResponsePtrOutput
+	ToSuppressionConfigInvokeResponsePtrOutputWithContext(context.Context) SuppressionConfigInvokeResponsePtrOutput
+}
+
+type suppressionConfigInvokeResponsePtrType SuppressionConfigInvokeResponseArgs
+
+func SuppressionConfigInvokeResponsePtr(v *SuppressionConfigInvokeResponseArgs) SuppressionConfigInvokeResponsePtrInput {
+	return (*suppressionConfigInvokeResponsePtrType)(v)
+}
+
+func (*suppressionConfigInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuppressionConfigInvokeResponse)(nil)).Elem()
+}
+
+func (i *suppressionConfigInvokeResponsePtrType) ToSuppressionConfigInvokeResponsePtrOutput() SuppressionConfigInvokeResponsePtrOutput {
+	return i.ToSuppressionConfigInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *suppressionConfigInvokeResponsePtrType) ToSuppressionConfigInvokeResponsePtrOutputWithContext(ctx context.Context) SuppressionConfigInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionConfigInvokeResponsePtrOutput)
+}
+
+// Suppression logic for a given action rule
+type SuppressionConfigInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SuppressionConfigInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionConfigInvokeResponse)(nil)).Elem()
+}
+
+func (o SuppressionConfigInvokeResponseOutput) ToSuppressionConfigInvokeResponseOutput() SuppressionConfigInvokeResponseOutput {
+	return o
+}
+
+func (o SuppressionConfigInvokeResponseOutput) ToSuppressionConfigInvokeResponseOutputWithContext(ctx context.Context) SuppressionConfigInvokeResponseOutput {
+	return o
+}
+
+func (o SuppressionConfigInvokeResponseOutput) ToSuppressionConfigInvokeResponsePtrOutput() SuppressionConfigInvokeResponsePtrOutput {
+	return o.ToSuppressionConfigInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SuppressionConfigInvokeResponseOutput) ToSuppressionConfigInvokeResponsePtrOutputWithContext(ctx context.Context) SuppressionConfigInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SuppressionConfigInvokeResponse) *SuppressionConfigInvokeResponse {
+		return &v
+	}).(SuppressionConfigInvokeResponsePtrOutput)
+}
+
+// Specifies when the suppression should be applied
+func (o SuppressionConfigInvokeResponseOutput) RecurrenceType() pulumi.StringOutput {
+	return o.ApplyT(func(v SuppressionConfigInvokeResponse) string { return v.RecurrenceType }).(pulumi.StringOutput)
+}
+
+// Schedule for a given suppression configuration.
+func (o SuppressionConfigInvokeResponseOutput) Schedule() SuppressionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SuppressionConfigInvokeResponse) *SuppressionScheduleInvokeResponse { return v.Schedule }).(SuppressionScheduleInvokeResponsePtrOutput)
+}
+
+type SuppressionConfigInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SuppressionConfigInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuppressionConfigInvokeResponse)(nil)).Elem()
+}
+
+func (o SuppressionConfigInvokeResponsePtrOutput) ToSuppressionConfigInvokeResponsePtrOutput() SuppressionConfigInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SuppressionConfigInvokeResponsePtrOutput) ToSuppressionConfigInvokeResponsePtrOutputWithContext(ctx context.Context) SuppressionConfigInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SuppressionConfigInvokeResponsePtrOutput) Elem() SuppressionConfigInvokeResponseOutput {
+	return o.ApplyT(func(v *SuppressionConfigInvokeResponse) SuppressionConfigInvokeResponse { return *v }).(SuppressionConfigInvokeResponseOutput)
+}
+
+// Specifies when the suppression should be applied
+func (o SuppressionConfigInvokeResponsePtrOutput) RecurrenceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuppressionConfigInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RecurrenceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Schedule for a given suppression configuration.
+func (o SuppressionConfigInvokeResponsePtrOutput) Schedule() SuppressionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *SuppressionConfigInvokeResponse) *SuppressionScheduleInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(SuppressionScheduleInvokeResponsePtrOutput)
 }
 
 // Suppression logic for a given action rule
@@ -2302,6 +3223,216 @@ func (o SuppressionSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Schedule for a given suppression configuration.
+type SuppressionScheduleInvokeResponse struct {
+	// End date for suppression
+	EndDate *string `pulumi:"endDate"`
+	// End date for suppression
+	EndTime *string `pulumi:"endTime"`
+	// Specifies the values for recurrence pattern
+	RecurrenceValues []int `pulumi:"recurrenceValues"`
+	// Start date for suppression
+	StartDate *string `pulumi:"startDate"`
+	// Start time for suppression
+	StartTime *string `pulumi:"startTime"`
+}
+
+// SuppressionScheduleInvokeResponseInput is an input type that accepts SuppressionScheduleInvokeResponseArgs and SuppressionScheduleInvokeResponseOutput values.
+// You can construct a concrete instance of `SuppressionScheduleInvokeResponseInput` via:
+//
+//          SuppressionScheduleInvokeResponseArgs{...}
+type SuppressionScheduleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSuppressionScheduleInvokeResponseOutput() SuppressionScheduleInvokeResponseOutput
+	ToSuppressionScheduleInvokeResponseOutputWithContext(context.Context) SuppressionScheduleInvokeResponseOutput
+}
+
+// Schedule for a given suppression configuration.
+type SuppressionScheduleInvokeResponseArgs struct {
+	// End date for suppression
+	EndDate pulumi.StringPtrInput `pulumi:"endDate"`
+	// End date for suppression
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Specifies the values for recurrence pattern
+	RecurrenceValues pulumi.IntArrayInput `pulumi:"recurrenceValues"`
+	// Start date for suppression
+	StartDate pulumi.StringPtrInput `pulumi:"startDate"`
+	// Start time for suppression
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (SuppressionScheduleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i SuppressionScheduleInvokeResponseArgs) ToSuppressionScheduleInvokeResponseOutput() SuppressionScheduleInvokeResponseOutput {
+	return i.ToSuppressionScheduleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SuppressionScheduleInvokeResponseArgs) ToSuppressionScheduleInvokeResponseOutputWithContext(ctx context.Context) SuppressionScheduleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionScheduleInvokeResponseOutput)
+}
+
+func (i SuppressionScheduleInvokeResponseArgs) ToSuppressionScheduleInvokeResponsePtrOutput() SuppressionScheduleInvokeResponsePtrOutput {
+	return i.ToSuppressionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SuppressionScheduleInvokeResponseArgs) ToSuppressionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) SuppressionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionScheduleInvokeResponseOutput).ToSuppressionScheduleInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SuppressionScheduleInvokeResponsePtrInput is an input type that accepts SuppressionScheduleInvokeResponseArgs, SuppressionScheduleInvokeResponsePtr and SuppressionScheduleInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SuppressionScheduleInvokeResponsePtrInput` via:
+//
+//          SuppressionScheduleInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SuppressionScheduleInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSuppressionScheduleInvokeResponsePtrOutput() SuppressionScheduleInvokeResponsePtrOutput
+	ToSuppressionScheduleInvokeResponsePtrOutputWithContext(context.Context) SuppressionScheduleInvokeResponsePtrOutput
+}
+
+type suppressionScheduleInvokeResponsePtrType SuppressionScheduleInvokeResponseArgs
+
+func SuppressionScheduleInvokeResponsePtr(v *SuppressionScheduleInvokeResponseArgs) SuppressionScheduleInvokeResponsePtrInput {
+	return (*suppressionScheduleInvokeResponsePtrType)(v)
+}
+
+func (*suppressionScheduleInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuppressionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (i *suppressionScheduleInvokeResponsePtrType) ToSuppressionScheduleInvokeResponsePtrOutput() SuppressionScheduleInvokeResponsePtrOutput {
+	return i.ToSuppressionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *suppressionScheduleInvokeResponsePtrType) ToSuppressionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) SuppressionScheduleInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SuppressionScheduleInvokeResponsePtrOutput)
+}
+
+// Schedule for a given suppression configuration.
+type SuppressionScheduleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SuppressionScheduleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SuppressionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o SuppressionScheduleInvokeResponseOutput) ToSuppressionScheduleInvokeResponseOutput() SuppressionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o SuppressionScheduleInvokeResponseOutput) ToSuppressionScheduleInvokeResponseOutputWithContext(ctx context.Context) SuppressionScheduleInvokeResponseOutput {
+	return o
+}
+
+func (o SuppressionScheduleInvokeResponseOutput) ToSuppressionScheduleInvokeResponsePtrOutput() SuppressionScheduleInvokeResponsePtrOutput {
+	return o.ToSuppressionScheduleInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SuppressionScheduleInvokeResponseOutput) ToSuppressionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) SuppressionScheduleInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SuppressionScheduleInvokeResponse) *SuppressionScheduleInvokeResponse {
+		return &v
+	}).(SuppressionScheduleInvokeResponsePtrOutput)
+}
+
+// End date for suppression
+func (o SuppressionScheduleInvokeResponseOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SuppressionScheduleInvokeResponse) *string { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// End date for suppression
+func (o SuppressionScheduleInvokeResponseOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SuppressionScheduleInvokeResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the values for recurrence pattern
+func (o SuppressionScheduleInvokeResponseOutput) RecurrenceValues() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v SuppressionScheduleInvokeResponse) []int { return v.RecurrenceValues }).(pulumi.IntArrayOutput)
+}
+
+// Start date for suppression
+func (o SuppressionScheduleInvokeResponseOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SuppressionScheduleInvokeResponse) *string { return v.StartDate }).(pulumi.StringPtrOutput)
+}
+
+// Start time for suppression
+func (o SuppressionScheduleInvokeResponseOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SuppressionScheduleInvokeResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type SuppressionScheduleInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SuppressionScheduleInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SuppressionScheduleInvokeResponse)(nil)).Elem()
+}
+
+func (o SuppressionScheduleInvokeResponsePtrOutput) ToSuppressionScheduleInvokeResponsePtrOutput() SuppressionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SuppressionScheduleInvokeResponsePtrOutput) ToSuppressionScheduleInvokeResponsePtrOutputWithContext(ctx context.Context) SuppressionScheduleInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SuppressionScheduleInvokeResponsePtrOutput) Elem() SuppressionScheduleInvokeResponseOutput {
+	return o.ApplyT(func(v *SuppressionScheduleInvokeResponse) SuppressionScheduleInvokeResponse { return *v }).(SuppressionScheduleInvokeResponseOutput)
+}
+
+// End date for suppression
+func (o SuppressionScheduleInvokeResponsePtrOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuppressionScheduleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// End date for suppression
+func (o SuppressionScheduleInvokeResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuppressionScheduleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the values for recurrence pattern
+func (o SuppressionScheduleInvokeResponsePtrOutput) RecurrenceValues() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *SuppressionScheduleInvokeResponse) []int {
+		if v == nil {
+			return nil
+		}
+		return v.RecurrenceValues
+	}).(pulumi.IntArrayOutput)
+}
+
+// Start date for suppression
+func (o SuppressionScheduleInvokeResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuppressionScheduleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start time for suppression
+func (o SuppressionScheduleInvokeResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SuppressionScheduleInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Schedule for a given suppression configuration.
 type SuppressionScheduleResponse struct {
 	// End date for suppression
 	EndDate *string `pulumi:"endDate"`
@@ -2514,26 +3645,37 @@ func (o SuppressionScheduleResponsePtrOutput) StartTime() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(ActionRulePropertiesOutput{})
 	pulumi.RegisterOutputType(ActionRulePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ActionRulePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ActionRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ActionRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConditionOutput{})
 	pulumi.RegisterOutputType(ConditionPtrOutput{})
+	pulumi.RegisterOutputType(ConditionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConditionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConditionResponseOutput{})
 	pulumi.RegisterOutputType(ConditionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConditionsOutput{})
 	pulumi.RegisterOutputType(ConditionsPtrOutput{})
+	pulumi.RegisterOutputType(ConditionsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConditionsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConditionsResponseOutput{})
 	pulumi.RegisterOutputType(ConditionsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScopeOutput{})
 	pulumi.RegisterOutputType(ScopePtrOutput{})
+	pulumi.RegisterOutputType(ScopeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ScopeInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScopeResponseOutput{})
 	pulumi.RegisterOutputType(ScopeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SuppressionConfigOutput{})
 	pulumi.RegisterOutputType(SuppressionConfigPtrOutput{})
+	pulumi.RegisterOutputType(SuppressionConfigInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SuppressionConfigInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SuppressionConfigResponseOutput{})
 	pulumi.RegisterOutputType(SuppressionConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(SuppressionScheduleOutput{})
 	pulumi.RegisterOutputType(SuppressionSchedulePtrOutput{})
+	pulumi.RegisterOutputType(SuppressionScheduleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SuppressionScheduleInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SuppressionScheduleResponseOutput{})
 	pulumi.RegisterOutputType(SuppressionScheduleResponsePtrOutput{})
 }

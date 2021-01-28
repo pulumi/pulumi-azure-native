@@ -32,7 +32,7 @@ type LookupDomainResult struct {
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
 	InputSchema *string `pulumi:"inputSchema"`
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.
-	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
+	InputSchemaMapping *JsonInputSchemaMappingInvokeResponse `pulumi:"inputSchemaMapping"`
 	// Location of the resource
 	Location string `pulumi:"location"`
 	// Metric resource id for the domain.

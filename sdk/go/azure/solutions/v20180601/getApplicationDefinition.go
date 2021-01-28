@@ -26,9 +26,9 @@ type LookupApplicationDefinitionArgs struct {
 // Information about managed application definition.
 type LookupApplicationDefinitionResult struct {
 	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-	Artifacts []ApplicationArtifactResponse `pulumi:"artifacts"`
+	Artifacts []ApplicationArtifactInvokeResponse `pulumi:"artifacts"`
 	// The managed application provider authorizations.
-	Authorizations []ApplicationProviderAuthorizationResponse `pulumi:"authorizations"`
+	Authorizations []ApplicationProviderAuthorizationInvokeResponse `pulumi:"authorizations"`
 	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
 	CreateUiDefinition interface{} `pulumi:"createUiDefinition"`
 	// The managed application definition description.
@@ -38,7 +38,7 @@ type LookupApplicationDefinitionResult struct {
 	// Resource ID
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// A value indicating whether the package is enabled or not.
 	IsEnabled *string `pulumi:"isEnabled"`
 	// Resource location
@@ -54,7 +54,7 @@ type LookupApplicationDefinitionResult struct {
 	// The managed application definition package file Uri. Use this element
 	PackageFileUri *string `pulumi:"packageFileUri"`
 	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

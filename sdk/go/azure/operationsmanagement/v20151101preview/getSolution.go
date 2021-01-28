@@ -32,9 +32,9 @@ type LookupSolutionResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Plan for solution object supported by the OperationsManagement resource provider.
-	Plan *SolutionPlanResponse `pulumi:"plan"`
+	Plan *SolutionPlanInvokeResponse `pulumi:"plan"`
 	// Properties for solution object supported by the OperationsManagement resource provider.
-	Properties SolutionPropertiesResponse `pulumi:"properties"`
+	Properties SolutionPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

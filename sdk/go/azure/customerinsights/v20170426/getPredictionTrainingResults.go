@@ -28,9 +28,9 @@ type GetPredictionTrainingResultsArgs struct {
 // The training results of the prediction.
 type GetPredictionTrainingResultsResult struct {
 	// Canonical profiles.
-	CanonicalProfiles []CanonicalProfileDefinitionResponse `pulumi:"canonicalProfiles"`
+	CanonicalProfiles []CanonicalProfileDefinitionInvokeResponse `pulumi:"canonicalProfiles"`
 	// Prediction distribution.
-	PredictionDistribution PredictionDistributionDefinitionResponse `pulumi:"predictionDistribution"`
+	PredictionDistribution PredictionDistributionDefinitionInvokeResponse `pulumi:"predictionDistribution"`
 	// Instance count of the primary profile.
 	PrimaryProfileInstanceCount float64 `pulumi:"primaryProfileInstanceCount"`
 	// Score name.

@@ -26,7 +26,7 @@ type LookupAccountArgs struct {
 // NetApp account resource
 type LookupAccountResult struct {
 	// Active Directories
-	ActiveDirectories []ActiveDirectoryResponse `pulumi:"activeDirectories"`
+	ActiveDirectories []ActiveDirectoryInvokeResponse `pulumi:"activeDirectories"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location

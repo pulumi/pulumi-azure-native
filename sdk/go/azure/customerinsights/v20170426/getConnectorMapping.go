@@ -52,7 +52,7 @@ type LookupConnectorMappingResult struct {
 	// The last modified time.
 	LastModified string `pulumi:"lastModified"`
 	// The properties of the mapping.
-	MappingProperties ConnectorMappingPropertiesResponse `pulumi:"mappingProperties"`
+	MappingProperties ConnectorMappingPropertiesInvokeResponse `pulumi:"mappingProperties"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The next run time based on customer's settings.

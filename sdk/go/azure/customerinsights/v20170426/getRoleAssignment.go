@@ -30,9 +30,9 @@ type LookupRoleAssignmentResult struct {
 	// The name of the metadata object.
 	AssignmentName string `pulumi:"assignmentName"`
 	// Widget types set for the assignment.
-	ConflationPolicies *ResourceSetDescriptionResponse `pulumi:"conflationPolicies"`
+	ConflationPolicies *ResourceSetDescriptionInvokeResponse `pulumi:"conflationPolicies"`
 	// Connectors set for the assignment.
-	Connectors *ResourceSetDescriptionResponse `pulumi:"connectors"`
+	Connectors *ResourceSetDescriptionInvokeResponse `pulumi:"connectors"`
 	// Localized description for the metadata.
 	Description map[string]string `pulumi:"description"`
 	// Localized display names for the metadata.
@@ -40,37 +40,37 @@ type LookupRoleAssignmentResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Interactions set for the assignment.
-	Interactions *ResourceSetDescriptionResponse `pulumi:"interactions"`
+	Interactions *ResourceSetDescriptionInvokeResponse `pulumi:"interactions"`
 	// Kpis set for the assignment.
-	Kpis *ResourceSetDescriptionResponse `pulumi:"kpis"`
+	Kpis *ResourceSetDescriptionInvokeResponse `pulumi:"kpis"`
 	// Links set for the assignment.
-	Links *ResourceSetDescriptionResponse `pulumi:"links"`
+	Links *ResourceSetDescriptionInvokeResponse `pulumi:"links"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The principals being assigned to.
-	Principals []AssignmentPrincipalResponse `pulumi:"principals"`
+	Principals []AssignmentPrincipalInvokeResponse `pulumi:"principals"`
 	// Profiles set for the assignment.
-	Profiles *ResourceSetDescriptionResponse `pulumi:"profiles"`
+	Profiles *ResourceSetDescriptionInvokeResponse `pulumi:"profiles"`
 	// Provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The Role assignments set for the relationship links.
-	RelationshipLinks *ResourceSetDescriptionResponse `pulumi:"relationshipLinks"`
+	RelationshipLinks *ResourceSetDescriptionInvokeResponse `pulumi:"relationshipLinks"`
 	// The Role assignments set for the relationships.
-	Relationships *ResourceSetDescriptionResponse `pulumi:"relationships"`
+	Relationships *ResourceSetDescriptionInvokeResponse `pulumi:"relationships"`
 	// Type of roles.
 	Role string `pulumi:"role"`
 	// The Role assignments set for the assignment.
-	RoleAssignments *ResourceSetDescriptionResponse `pulumi:"roleAssignments"`
+	RoleAssignments *ResourceSetDescriptionInvokeResponse `pulumi:"roleAssignments"`
 	// Sas Policies set for the assignment.
-	SasPolicies *ResourceSetDescriptionResponse `pulumi:"sasPolicies"`
+	SasPolicies *ResourceSetDescriptionInvokeResponse `pulumi:"sasPolicies"`
 	// The Role assignments set for the assignment.
-	Segments *ResourceSetDescriptionResponse `pulumi:"segments"`
+	Segments *ResourceSetDescriptionInvokeResponse `pulumi:"segments"`
 	// The hub name.
 	TenantId string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Views set for the assignment.
-	Views *ResourceSetDescriptionResponse `pulumi:"views"`
+	Views *ResourceSetDescriptionInvokeResponse `pulumi:"views"`
 	// Widget types set for the assignment.
-	WidgetTypes *ResourceSetDescriptionResponse `pulumi:"widgetTypes"`
+	WidgetTypes *ResourceSetDescriptionInvokeResponse `pulumi:"widgetTypes"`
 }

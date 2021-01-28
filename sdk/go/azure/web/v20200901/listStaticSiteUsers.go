@@ -30,5 +30,5 @@ type ListStaticSiteUsersResult struct {
 	// Link to next page of resources.
 	NextLink string `pulumi:"nextLink"`
 	// Collection of resources.
-	Value []StaticSiteUserARMResourceResponse `pulumi:"value"`
+	Value []StaticSiteUserARMResourceInvokeResponse `pulumi:"value"`
 }

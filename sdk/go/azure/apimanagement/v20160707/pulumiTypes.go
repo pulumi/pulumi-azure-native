@@ -138,6 +138,144 @@ func (o AdditionalRegionArrayOutput) Index(i pulumi.IntInput) AdditionalRegionOu
 }
 
 // Description of an additional API Management resource location.
+type AdditionalRegionInvokeResponse struct {
+	// The location name of the additional region among Azure Data center regions.
+	Location string `pulumi:"location"`
+	// The SKU type in the location.
+	SkuType string `pulumi:"skuType"`
+	// The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
+	SkuUnitCount *int `pulumi:"skuUnitCount"`
+	// Static IP addresses of the location's virtual machines.
+	StaticIPs []string `pulumi:"staticIPs"`
+	// Virtual network configuration for the location.
+	Vpnconfiguration *VirtualNetworkConfigurationInvokeResponse `pulumi:"vpnconfiguration"`
+}
+
+// AdditionalRegionInvokeResponseInput is an input type that accepts AdditionalRegionInvokeResponseArgs and AdditionalRegionInvokeResponseOutput values.
+// You can construct a concrete instance of `AdditionalRegionInvokeResponseInput` via:
+//
+//          AdditionalRegionInvokeResponseArgs{...}
+type AdditionalRegionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdditionalRegionInvokeResponseOutput() AdditionalRegionInvokeResponseOutput
+	ToAdditionalRegionInvokeResponseOutputWithContext(context.Context) AdditionalRegionInvokeResponseOutput
+}
+
+// Description of an additional API Management resource location.
+type AdditionalRegionInvokeResponseArgs struct {
+	// The location name of the additional region among Azure Data center regions.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The SKU type in the location.
+	SkuType pulumi.StringInput `pulumi:"skuType"`
+	// The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
+	SkuUnitCount pulumi.IntPtrInput `pulumi:"skuUnitCount"`
+	// Static IP addresses of the location's virtual machines.
+	StaticIPs pulumi.StringArrayInput `pulumi:"staticIPs"`
+	// Virtual network configuration for the location.
+	Vpnconfiguration VirtualNetworkConfigurationInvokeResponsePtrInput `pulumi:"vpnconfiguration"`
+}
+
+func (AdditionalRegionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalRegionInvokeResponse)(nil)).Elem()
+}
+
+func (i AdditionalRegionInvokeResponseArgs) ToAdditionalRegionInvokeResponseOutput() AdditionalRegionInvokeResponseOutput {
+	return i.ToAdditionalRegionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdditionalRegionInvokeResponseArgs) ToAdditionalRegionInvokeResponseOutputWithContext(ctx context.Context) AdditionalRegionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalRegionInvokeResponseOutput)
+}
+
+// AdditionalRegionInvokeResponseArrayInput is an input type that accepts AdditionalRegionInvokeResponseArray and AdditionalRegionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AdditionalRegionInvokeResponseArrayInput` via:
+//
+//          AdditionalRegionInvokeResponseArray{ AdditionalRegionInvokeResponseArgs{...} }
+type AdditionalRegionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAdditionalRegionInvokeResponseArrayOutput() AdditionalRegionInvokeResponseArrayOutput
+	ToAdditionalRegionInvokeResponseArrayOutputWithContext(context.Context) AdditionalRegionInvokeResponseArrayOutput
+}
+
+type AdditionalRegionInvokeResponseArray []AdditionalRegionInvokeResponseInput
+
+func (AdditionalRegionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdditionalRegionInvokeResponse)(nil)).Elem()
+}
+
+func (i AdditionalRegionInvokeResponseArray) ToAdditionalRegionInvokeResponseArrayOutput() AdditionalRegionInvokeResponseArrayOutput {
+	return i.ToAdditionalRegionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AdditionalRegionInvokeResponseArray) ToAdditionalRegionInvokeResponseArrayOutputWithContext(ctx context.Context) AdditionalRegionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalRegionInvokeResponseArrayOutput)
+}
+
+// Description of an additional API Management resource location.
+type AdditionalRegionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdditionalRegionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalRegionInvokeResponse)(nil)).Elem()
+}
+
+func (o AdditionalRegionInvokeResponseOutput) ToAdditionalRegionInvokeResponseOutput() AdditionalRegionInvokeResponseOutput {
+	return o
+}
+
+func (o AdditionalRegionInvokeResponseOutput) ToAdditionalRegionInvokeResponseOutputWithContext(ctx context.Context) AdditionalRegionInvokeResponseOutput {
+	return o
+}
+
+// The location name of the additional region among Azure Data center regions.
+func (o AdditionalRegionInvokeResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v AdditionalRegionInvokeResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The SKU type in the location.
+func (o AdditionalRegionInvokeResponseOutput) SkuType() pulumi.StringOutput {
+	return o.ApplyT(func(v AdditionalRegionInvokeResponse) string { return v.SkuType }).(pulumi.StringOutput)
+}
+
+// The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
+func (o AdditionalRegionInvokeResponseOutput) SkuUnitCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AdditionalRegionInvokeResponse) *int { return v.SkuUnitCount }).(pulumi.IntPtrOutput)
+}
+
+// Static IP addresses of the location's virtual machines.
+func (o AdditionalRegionInvokeResponseOutput) StaticIPs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AdditionalRegionInvokeResponse) []string { return v.StaticIPs }).(pulumi.StringArrayOutput)
+}
+
+// Virtual network configuration for the location.
+func (o AdditionalRegionInvokeResponseOutput) Vpnconfiguration() VirtualNetworkConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AdditionalRegionInvokeResponse) *VirtualNetworkConfigurationInvokeResponse {
+		return v.Vpnconfiguration
+	}).(VirtualNetworkConfigurationInvokeResponsePtrOutput)
+}
+
+type AdditionalRegionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AdditionalRegionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdditionalRegionInvokeResponse)(nil)).Elem()
+}
+
+func (o AdditionalRegionInvokeResponseArrayOutput) ToAdditionalRegionInvokeResponseArrayOutput() AdditionalRegionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AdditionalRegionInvokeResponseArrayOutput) ToAdditionalRegionInvokeResponseArrayOutputWithContext(ctx context.Context) AdditionalRegionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AdditionalRegionInvokeResponseArrayOutput) Index(i pulumi.IntInput) AdditionalRegionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdditionalRegionInvokeResponse {
+		return vs[0].([]AdditionalRegionInvokeResponse)[vs[1].(int)]
+	}).(AdditionalRegionInvokeResponseOutput)
+}
+
+// Description of an additional API Management resource location.
 type AdditionalRegionResponse struct {
 	// The location name of the additional region among Azure Data center regions.
 	Location string `pulumi:"location"`
@@ -427,6 +565,70 @@ func (o ApiManagementServiceSkuPropertiesPtrOutput) Name() pulumi.StringPtrOutpu
 }
 
 // API Management service resource SKU properties.
+type ApiManagementServiceSkuPropertiesInvokeResponse struct {
+	// Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
+	Capacity *int `pulumi:"capacity"`
+	// Name of the Sku.
+	Name string `pulumi:"name"`
+}
+
+// ApiManagementServiceSkuPropertiesInvokeResponseInput is an input type that accepts ApiManagementServiceSkuPropertiesInvokeResponseArgs and ApiManagementServiceSkuPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ApiManagementServiceSkuPropertiesInvokeResponseInput` via:
+//
+//          ApiManagementServiceSkuPropertiesInvokeResponseArgs{...}
+type ApiManagementServiceSkuPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApiManagementServiceSkuPropertiesInvokeResponseOutput() ApiManagementServiceSkuPropertiesInvokeResponseOutput
+	ToApiManagementServiceSkuPropertiesInvokeResponseOutputWithContext(context.Context) ApiManagementServiceSkuPropertiesInvokeResponseOutput
+}
+
+// API Management service resource SKU properties.
+type ApiManagementServiceSkuPropertiesInvokeResponseArgs struct {
+	// Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Name of the Sku.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ApiManagementServiceSkuPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiManagementServiceSkuPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ApiManagementServiceSkuPropertiesInvokeResponseArgs) ToApiManagementServiceSkuPropertiesInvokeResponseOutput() ApiManagementServiceSkuPropertiesInvokeResponseOutput {
+	return i.ToApiManagementServiceSkuPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApiManagementServiceSkuPropertiesInvokeResponseArgs) ToApiManagementServiceSkuPropertiesInvokeResponseOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceSkuPropertiesInvokeResponseOutput)
+}
+
+// API Management service resource SKU properties.
+type ApiManagementServiceSkuPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApiManagementServiceSkuPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiManagementServiceSkuPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ApiManagementServiceSkuPropertiesInvokeResponseOutput) ToApiManagementServiceSkuPropertiesInvokeResponseOutput() ApiManagementServiceSkuPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ApiManagementServiceSkuPropertiesInvokeResponseOutput) ToApiManagementServiceSkuPropertiesInvokeResponseOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
+func (o ApiManagementServiceSkuPropertiesInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiManagementServiceSkuPropertiesInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Name of the Sku.
+func (o ApiManagementServiceSkuPropertiesInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiManagementServiceSkuPropertiesInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// API Management service resource SKU properties.
 type ApiManagementServiceSkuPropertiesResponse struct {
 	// Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
 	Capacity *int `pulumi:"capacity"`
@@ -710,6 +912,79 @@ func (o CertificateInformationOutput) Thumbprint() pulumi.StringOutput {
 }
 
 // SSL certificate information.
+type CertificateInformationInvokeResponse struct {
+	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	Expiry string `pulumi:"expiry"`
+	// Subject of the certificate.
+	Subject string `pulumi:"subject"`
+	// Thumbprint of the certificate.
+	Thumbprint string `pulumi:"thumbprint"`
+}
+
+// CertificateInformationInvokeResponseInput is an input type that accepts CertificateInformationInvokeResponseArgs and CertificateInformationInvokeResponseOutput values.
+// You can construct a concrete instance of `CertificateInformationInvokeResponseInput` via:
+//
+//          CertificateInformationInvokeResponseArgs{...}
+type CertificateInformationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCertificateInformationInvokeResponseOutput() CertificateInformationInvokeResponseOutput
+	ToCertificateInformationInvokeResponseOutputWithContext(context.Context) CertificateInformationInvokeResponseOutput
+}
+
+// SSL certificate information.
+type CertificateInformationInvokeResponseArgs struct {
+	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	Expiry pulumi.StringInput `pulumi:"expiry"`
+	// Subject of the certificate.
+	Subject pulumi.StringInput `pulumi:"subject"`
+	// Thumbprint of the certificate.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+}
+
+func (CertificateInformationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateInformationInvokeResponse)(nil)).Elem()
+}
+
+func (i CertificateInformationInvokeResponseArgs) ToCertificateInformationInvokeResponseOutput() CertificateInformationInvokeResponseOutput {
+	return i.ToCertificateInformationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CertificateInformationInvokeResponseArgs) ToCertificateInformationInvokeResponseOutputWithContext(ctx context.Context) CertificateInformationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateInformationInvokeResponseOutput)
+}
+
+// SSL certificate information.
+type CertificateInformationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CertificateInformationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateInformationInvokeResponse)(nil)).Elem()
+}
+
+func (o CertificateInformationInvokeResponseOutput) ToCertificateInformationInvokeResponseOutput() CertificateInformationInvokeResponseOutput {
+	return o
+}
+
+func (o CertificateInformationInvokeResponseOutput) ToCertificateInformationInvokeResponseOutputWithContext(ctx context.Context) CertificateInformationInvokeResponseOutput {
+	return o
+}
+
+// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+func (o CertificateInformationInvokeResponseOutput) Expiry() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateInformationInvokeResponse) string { return v.Expiry }).(pulumi.StringOutput)
+}
+
+// Subject of the certificate.
+func (o CertificateInformationInvokeResponseOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateInformationInvokeResponse) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the certificate.
+func (o CertificateInformationInvokeResponseOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateInformationInvokeResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// SSL certificate information.
 type CertificateInformationResponse struct {
 	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	Expiry string `pulumi:"expiry"`
@@ -898,6 +1173,124 @@ func (o HostnameConfigurationArrayOutput) Index(i pulumi.IntInput) HostnameConfi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostnameConfiguration {
 		return vs[0].([]HostnameConfiguration)[vs[1].(int)]
 	}).(HostnameConfigurationOutput)
+}
+
+// Custom hostname configuration.
+type HostnameConfigurationInvokeResponse struct {
+	// Certificate information.
+	Certificate CertificateInformationInvokeResponse `pulumi:"certificate"`
+	// Hostname.
+	Hostname string `pulumi:"hostname"`
+	// Hostname type.
+	Type string `pulumi:"type"`
+}
+
+// HostnameConfigurationInvokeResponseInput is an input type that accepts HostnameConfigurationInvokeResponseArgs and HostnameConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `HostnameConfigurationInvokeResponseInput` via:
+//
+//          HostnameConfigurationInvokeResponseArgs{...}
+type HostnameConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHostnameConfigurationInvokeResponseOutput() HostnameConfigurationInvokeResponseOutput
+	ToHostnameConfigurationInvokeResponseOutputWithContext(context.Context) HostnameConfigurationInvokeResponseOutput
+}
+
+// Custom hostname configuration.
+type HostnameConfigurationInvokeResponseArgs struct {
+	// Certificate information.
+	Certificate CertificateInformationInvokeResponseInput `pulumi:"certificate"`
+	// Hostname.
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+	// Hostname type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (HostnameConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostnameConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i HostnameConfigurationInvokeResponseArgs) ToHostnameConfigurationInvokeResponseOutput() HostnameConfigurationInvokeResponseOutput {
+	return i.ToHostnameConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HostnameConfigurationInvokeResponseArgs) ToHostnameConfigurationInvokeResponseOutputWithContext(ctx context.Context) HostnameConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostnameConfigurationInvokeResponseOutput)
+}
+
+// HostnameConfigurationInvokeResponseArrayInput is an input type that accepts HostnameConfigurationInvokeResponseArray and HostnameConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `HostnameConfigurationInvokeResponseArrayInput` via:
+//
+//          HostnameConfigurationInvokeResponseArray{ HostnameConfigurationInvokeResponseArgs{...} }
+type HostnameConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToHostnameConfigurationInvokeResponseArrayOutput() HostnameConfigurationInvokeResponseArrayOutput
+	ToHostnameConfigurationInvokeResponseArrayOutputWithContext(context.Context) HostnameConfigurationInvokeResponseArrayOutput
+}
+
+type HostnameConfigurationInvokeResponseArray []HostnameConfigurationInvokeResponseInput
+
+func (HostnameConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostnameConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i HostnameConfigurationInvokeResponseArray) ToHostnameConfigurationInvokeResponseArrayOutput() HostnameConfigurationInvokeResponseArrayOutput {
+	return i.ToHostnameConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HostnameConfigurationInvokeResponseArray) ToHostnameConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) HostnameConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostnameConfigurationInvokeResponseArrayOutput)
+}
+
+// Custom hostname configuration.
+type HostnameConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HostnameConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostnameConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o HostnameConfigurationInvokeResponseOutput) ToHostnameConfigurationInvokeResponseOutput() HostnameConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o HostnameConfigurationInvokeResponseOutput) ToHostnameConfigurationInvokeResponseOutputWithContext(ctx context.Context) HostnameConfigurationInvokeResponseOutput {
+	return o
+}
+
+// Certificate information.
+func (o HostnameConfigurationInvokeResponseOutput) Certificate() CertificateInformationInvokeResponseOutput {
+	return o.ApplyT(func(v HostnameConfigurationInvokeResponse) CertificateInformationInvokeResponse { return v.Certificate }).(CertificateInformationInvokeResponseOutput)
+}
+
+// Hostname.
+func (o HostnameConfigurationInvokeResponseOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v HostnameConfigurationInvokeResponse) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+// Hostname type.
+func (o HostnameConfigurationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HostnameConfigurationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type HostnameConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HostnameConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostnameConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o HostnameConfigurationInvokeResponseArrayOutput) ToHostnameConfigurationInvokeResponseArrayOutput() HostnameConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HostnameConfigurationInvokeResponseArrayOutput) ToHostnameConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) HostnameConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HostnameConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) HostnameConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostnameConfigurationInvokeResponse {
+		return vs[0].([]HostnameConfigurationInvokeResponse)[vs[1].(int)]
+	}).(HostnameConfigurationInvokeResponseOutput)
 }
 
 // Custom hostname configuration.
@@ -1862,6 +2255,199 @@ func (o VirtualNetworkConfigurationPtrOutput) SubnetResourceId() pulumi.StringPt
 }
 
 // Configuration of a virtual network to which API Management service is deployed.
+type VirtualNetworkConfigurationInvokeResponse struct {
+	// The location of the virtual network.
+	Location *string `pulumi:"location"`
+	// The name of the subnet Resource ID. This has format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/{virtual network name}/subnets/{subnet name}.
+	SubnetResourceId *string `pulumi:"subnetResourceId"`
+	// The name of the subnet.
+	Subnetname string `pulumi:"subnetname"`
+	// The virtual network ID. This is typically a GUID. Expect a null GUID by default.
+	Vnetid string `pulumi:"vnetid"`
+}
+
+// VirtualNetworkConfigurationInvokeResponseInput is an input type that accepts VirtualNetworkConfigurationInvokeResponseArgs and VirtualNetworkConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualNetworkConfigurationInvokeResponseInput` via:
+//
+//          VirtualNetworkConfigurationInvokeResponseArgs{...}
+type VirtualNetworkConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkConfigurationInvokeResponseOutput() VirtualNetworkConfigurationInvokeResponseOutput
+	ToVirtualNetworkConfigurationInvokeResponseOutputWithContext(context.Context) VirtualNetworkConfigurationInvokeResponseOutput
+}
+
+// Configuration of a virtual network to which API Management service is deployed.
+type VirtualNetworkConfigurationInvokeResponseArgs struct {
+	// The location of the virtual network.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the subnet Resource ID. This has format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/{virtual network name}/subnets/{subnet name}.
+	SubnetResourceId pulumi.StringPtrInput `pulumi:"subnetResourceId"`
+	// The name of the subnet.
+	Subnetname pulumi.StringInput `pulumi:"subnetname"`
+	// The virtual network ID. This is typically a GUID. Expect a null GUID by default.
+	Vnetid pulumi.StringInput `pulumi:"vnetid"`
+}
+
+func (VirtualNetworkConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkConfigurationInvokeResponseArgs) ToVirtualNetworkConfigurationInvokeResponseOutput() VirtualNetworkConfigurationInvokeResponseOutput {
+	return i.ToVirtualNetworkConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkConfigurationInvokeResponseArgs) ToVirtualNetworkConfigurationInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkConfigurationInvokeResponseOutput)
+}
+
+func (i VirtualNetworkConfigurationInvokeResponseArgs) ToVirtualNetworkConfigurationInvokeResponsePtrOutput() VirtualNetworkConfigurationInvokeResponsePtrOutput {
+	return i.ToVirtualNetworkConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkConfigurationInvokeResponseArgs) ToVirtualNetworkConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkConfigurationInvokeResponseOutput).ToVirtualNetworkConfigurationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkConfigurationInvokeResponsePtrInput is an input type that accepts VirtualNetworkConfigurationInvokeResponseArgs, VirtualNetworkConfigurationInvokeResponsePtr and VirtualNetworkConfigurationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkConfigurationInvokeResponsePtrInput` via:
+//
+//          VirtualNetworkConfigurationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNetworkConfigurationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkConfigurationInvokeResponsePtrOutput() VirtualNetworkConfigurationInvokeResponsePtrOutput
+	ToVirtualNetworkConfigurationInvokeResponsePtrOutputWithContext(context.Context) VirtualNetworkConfigurationInvokeResponsePtrOutput
+}
+
+type virtualNetworkConfigurationInvokeResponsePtrType VirtualNetworkConfigurationInvokeResponseArgs
+
+func VirtualNetworkConfigurationInvokeResponsePtr(v *VirtualNetworkConfigurationInvokeResponseArgs) VirtualNetworkConfigurationInvokeResponsePtrInput {
+	return (*virtualNetworkConfigurationInvokeResponsePtrType)(v)
+}
+
+func (*virtualNetworkConfigurationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i *virtualNetworkConfigurationInvokeResponsePtrType) ToVirtualNetworkConfigurationInvokeResponsePtrOutput() VirtualNetworkConfigurationInvokeResponsePtrOutput {
+	return i.ToVirtualNetworkConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkConfigurationInvokeResponsePtrType) ToVirtualNetworkConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkConfigurationInvokeResponsePtrOutput)
+}
+
+// Configuration of a virtual network to which API Management service is deployed.
+type VirtualNetworkConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkConfigurationInvokeResponseOutput) ToVirtualNetworkConfigurationInvokeResponseOutput() VirtualNetworkConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkConfigurationInvokeResponseOutput) ToVirtualNetworkConfigurationInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkConfigurationInvokeResponseOutput) ToVirtualNetworkConfigurationInvokeResponsePtrOutput() VirtualNetworkConfigurationInvokeResponsePtrOutput {
+	return o.ToVirtualNetworkConfigurationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkConfigurationInvokeResponseOutput) ToVirtualNetworkConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v VirtualNetworkConfigurationInvokeResponse) *VirtualNetworkConfigurationInvokeResponse {
+		return &v
+	}).(VirtualNetworkConfigurationInvokeResponsePtrOutput)
+}
+
+// The location of the virtual network.
+func (o VirtualNetworkConfigurationInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkConfigurationInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the subnet Resource ID. This has format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/{virtual network name}/subnets/{subnet name}.
+func (o VirtualNetworkConfigurationInvokeResponseOutput) SubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkConfigurationInvokeResponse) *string { return v.SubnetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the subnet.
+func (o VirtualNetworkConfigurationInvokeResponseOutput) Subnetname() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkConfigurationInvokeResponse) string { return v.Subnetname }).(pulumi.StringOutput)
+}
+
+// The virtual network ID. This is typically a GUID. Expect a null GUID by default.
+func (o VirtualNetworkConfigurationInvokeResponseOutput) Vnetid() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkConfigurationInvokeResponse) string { return v.Vnetid }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkConfigurationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkConfigurationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkConfigurationInvokeResponsePtrOutput) ToVirtualNetworkConfigurationInvokeResponsePtrOutput() VirtualNetworkConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o VirtualNetworkConfigurationInvokeResponsePtrOutput) ToVirtualNetworkConfigurationInvokeResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o VirtualNetworkConfigurationInvokeResponsePtrOutput) Elem() VirtualNetworkConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v *VirtualNetworkConfigurationInvokeResponse) VirtualNetworkConfigurationInvokeResponse {
+		return *v
+	}).(VirtualNetworkConfigurationInvokeResponseOutput)
+}
+
+// The location of the virtual network.
+func (o VirtualNetworkConfigurationInvokeResponsePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the subnet Resource ID. This has format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/{virtual network name}/subnets/{subnet name}.
+func (o VirtualNetworkConfigurationInvokeResponsePtrOutput) SubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the subnet.
+func (o VirtualNetworkConfigurationInvokeResponsePtrOutput) Subnetname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Subnetname
+	}).(pulumi.StringPtrOutput)
+}
+
+// The virtual network ID. This is typically a GUID. Expect a null GUID by default.
+func (o VirtualNetworkConfigurationInvokeResponsePtrOutput) Vnetid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkConfigurationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Vnetid
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration of a virtual network to which API Management service is deployed.
 type VirtualNetworkConfigurationResponse struct {
 	// The location of the virtual network.
 	Location *string `pulumi:"location"`
@@ -2055,17 +2641,23 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) Vnetid() pulumi.StringPtrO
 func init() {
 	pulumi.RegisterOutputType(AdditionalRegionOutput{})
 	pulumi.RegisterOutputType(AdditionalRegionArrayOutput{})
+	pulumi.RegisterOutputType(AdditionalRegionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AdditionalRegionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AdditionalRegionResponseOutput{})
 	pulumi.RegisterOutputType(AdditionalRegionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AuthenticationSettingsContractOutput{})
 	pulumi.RegisterOutputType(CertificateInformationOutput{})
+	pulumi.RegisterOutputType(CertificateInformationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CertificateInformationResponseOutput{})
 	pulumi.RegisterOutputType(HostnameConfigurationOutput{})
 	pulumi.RegisterOutputType(HostnameConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(HostnameConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HostnameConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(HostnameConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(HostnameConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(OAuth2AuthenticationSettingsContractOutput{})
@@ -2080,6 +2672,8 @@ func init() {
 	pulumi.RegisterOutputType(TokenBodyParameterContractOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkConfigurationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigurationResponsePtrOutput{})
 }

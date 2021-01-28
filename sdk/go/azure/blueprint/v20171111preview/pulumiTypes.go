@@ -145,6 +145,61 @@ func (o AssignmentLockSettingsPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 // Defines how Blueprint-managed resources will be locked.
+type AssignmentLockSettingsInvokeResponse struct {
+	// Lock mode.
+	Mode *string `pulumi:"mode"`
+}
+
+// AssignmentLockSettingsInvokeResponseInput is an input type that accepts AssignmentLockSettingsInvokeResponseArgs and AssignmentLockSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AssignmentLockSettingsInvokeResponseInput` via:
+//
+//          AssignmentLockSettingsInvokeResponseArgs{...}
+type AssignmentLockSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAssignmentLockSettingsInvokeResponseOutput() AssignmentLockSettingsInvokeResponseOutput
+	ToAssignmentLockSettingsInvokeResponseOutputWithContext(context.Context) AssignmentLockSettingsInvokeResponseOutput
+}
+
+// Defines how Blueprint-managed resources will be locked.
+type AssignmentLockSettingsInvokeResponseArgs struct {
+	// Lock mode.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (AssignmentLockSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentLockSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AssignmentLockSettingsInvokeResponseArgs) ToAssignmentLockSettingsInvokeResponseOutput() AssignmentLockSettingsInvokeResponseOutput {
+	return i.ToAssignmentLockSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AssignmentLockSettingsInvokeResponseArgs) ToAssignmentLockSettingsInvokeResponseOutputWithContext(ctx context.Context) AssignmentLockSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentLockSettingsInvokeResponseOutput)
+}
+
+// Defines how Blueprint-managed resources will be locked.
+type AssignmentLockSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AssignmentLockSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentLockSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AssignmentLockSettingsInvokeResponseOutput) ToAssignmentLockSettingsInvokeResponseOutput() AssignmentLockSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AssignmentLockSettingsInvokeResponseOutput) ToAssignmentLockSettingsInvokeResponseOutputWithContext(ctx context.Context) AssignmentLockSettingsInvokeResponseOutput {
+	return o
+}
+
+// Lock mode.
+func (o AssignmentLockSettingsInvokeResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssignmentLockSettingsInvokeResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Defines how Blueprint-managed resources will be locked.
 type AssignmentLockSettingsResponse struct {
 	// Lock mode.
 	Mode *string `pulumi:"mode"`
@@ -276,6 +331,70 @@ func (o AssignmentLockSettingsResponsePtrOutput) Mode() pulumi.StringPtrOutput {
 		}
 		return v.Mode
 	}).(pulumi.StringPtrOutput)
+}
+
+// The status of Blueprint assignment. This field is readonly.
+type AssignmentStatusInvokeResponse struct {
+	// Last modified time of this blueprint.
+	LastModified string `pulumi:"lastModified"`
+	// Creation time of this blueprint.
+	TimeCreated string `pulumi:"timeCreated"`
+}
+
+// AssignmentStatusInvokeResponseInput is an input type that accepts AssignmentStatusInvokeResponseArgs and AssignmentStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `AssignmentStatusInvokeResponseInput` via:
+//
+//          AssignmentStatusInvokeResponseArgs{...}
+type AssignmentStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAssignmentStatusInvokeResponseOutput() AssignmentStatusInvokeResponseOutput
+	ToAssignmentStatusInvokeResponseOutputWithContext(context.Context) AssignmentStatusInvokeResponseOutput
+}
+
+// The status of Blueprint assignment. This field is readonly.
+type AssignmentStatusInvokeResponseArgs struct {
+	// Last modified time of this blueprint.
+	LastModified pulumi.StringInput `pulumi:"lastModified"`
+	// Creation time of this blueprint.
+	TimeCreated pulumi.StringInput `pulumi:"timeCreated"`
+}
+
+func (AssignmentStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i AssignmentStatusInvokeResponseArgs) ToAssignmentStatusInvokeResponseOutput() AssignmentStatusInvokeResponseOutput {
+	return i.ToAssignmentStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AssignmentStatusInvokeResponseArgs) ToAssignmentStatusInvokeResponseOutputWithContext(ctx context.Context) AssignmentStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentStatusInvokeResponseOutput)
+}
+
+// The status of Blueprint assignment. This field is readonly.
+type AssignmentStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AssignmentStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o AssignmentStatusInvokeResponseOutput) ToAssignmentStatusInvokeResponseOutput() AssignmentStatusInvokeResponseOutput {
+	return o
+}
+
+func (o AssignmentStatusInvokeResponseOutput) ToAssignmentStatusInvokeResponseOutputWithContext(ctx context.Context) AssignmentStatusInvokeResponseOutput {
+	return o
+}
+
+// Last modified time of this blueprint.
+func (o AssignmentStatusInvokeResponseOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentStatusInvokeResponse) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// Creation time of this blueprint.
+func (o AssignmentStatusInvokeResponseOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentStatusInvokeResponse) string { return v.TimeCreated }).(pulumi.StringOutput)
 }
 
 // The status of Blueprint assignment. This field is readonly.
@@ -429,6 +548,70 @@ func (o AssignmentStatusResponsePtrOutput) TimeCreated() pulumi.StringPtrOutput 
 		}
 		return &v.TimeCreated
 	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the blueprint. This field is readonly.
+type BlueprintStatusInvokeResponse struct {
+	// Last modified time of this blueprint.
+	LastModified string `pulumi:"lastModified"`
+	// Creation time of this blueprint.
+	TimeCreated string `pulumi:"timeCreated"`
+}
+
+// BlueprintStatusInvokeResponseInput is an input type that accepts BlueprintStatusInvokeResponseArgs and BlueprintStatusInvokeResponseOutput values.
+// You can construct a concrete instance of `BlueprintStatusInvokeResponseInput` via:
+//
+//          BlueprintStatusInvokeResponseArgs{...}
+type BlueprintStatusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBlueprintStatusInvokeResponseOutput() BlueprintStatusInvokeResponseOutput
+	ToBlueprintStatusInvokeResponseOutputWithContext(context.Context) BlueprintStatusInvokeResponseOutput
+}
+
+// The status of the blueprint. This field is readonly.
+type BlueprintStatusInvokeResponseArgs struct {
+	// Last modified time of this blueprint.
+	LastModified pulumi.StringInput `pulumi:"lastModified"`
+	// Creation time of this blueprint.
+	TimeCreated pulumi.StringInput `pulumi:"timeCreated"`
+}
+
+func (BlueprintStatusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlueprintStatusInvokeResponse)(nil)).Elem()
+}
+
+func (i BlueprintStatusInvokeResponseArgs) ToBlueprintStatusInvokeResponseOutput() BlueprintStatusInvokeResponseOutput {
+	return i.ToBlueprintStatusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BlueprintStatusInvokeResponseArgs) ToBlueprintStatusInvokeResponseOutputWithContext(ctx context.Context) BlueprintStatusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlueprintStatusInvokeResponseOutput)
+}
+
+// The status of the blueprint. This field is readonly.
+type BlueprintStatusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BlueprintStatusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlueprintStatusInvokeResponse)(nil)).Elem()
+}
+
+func (o BlueprintStatusInvokeResponseOutput) ToBlueprintStatusInvokeResponseOutput() BlueprintStatusInvokeResponseOutput {
+	return o
+}
+
+func (o BlueprintStatusInvokeResponseOutput) ToBlueprintStatusInvokeResponseOutputWithContext(ctx context.Context) BlueprintStatusInvokeResponseOutput {
+	return o
+}
+
+// Last modified time of this blueprint.
+func (o BlueprintStatusInvokeResponseOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v BlueprintStatusInvokeResponse) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// Creation time of this blueprint.
+func (o BlueprintStatusInvokeResponseOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v BlueprintStatusInvokeResponse) string { return v.TimeCreated }).(pulumi.StringOutput)
 }
 
 // The status of the blueprint. This field is readonly.
@@ -757,6 +940,79 @@ func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Managed Service Identity
+type ManagedServiceIdentityInvokeResponse struct {
+	// Azure Active Directory principal ID associated with this Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// ID of the Azure Active Directory.
+	TenantId *string `pulumi:"tenantId"`
+	// Type of the Managed Service Identity.
+	Type string `pulumi:"type"`
+}
+
+// ManagedServiceIdentityInvokeResponseInput is an input type that accepts ManagedServiceIdentityInvokeResponseArgs and ManagedServiceIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityInvokeResponseInput` via:
+//
+//          ManagedServiceIdentityInvokeResponseArgs{...}
+type ManagedServiceIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityInvokeResponseOutput() ManagedServiceIdentityInvokeResponseOutput
+	ToManagedServiceIdentityInvokeResponseOutputWithContext(context.Context) ManagedServiceIdentityInvokeResponseOutput
+}
+
+// Managed Service Identity
+type ManagedServiceIdentityInvokeResponseArgs struct {
+	// Azure Active Directory principal ID associated with this Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// ID of the Azure Active Directory.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Type of the Managed Service Identity.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ManagedServiceIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedServiceIdentityInvokeResponseArgs) ToManagedServiceIdentityInvokeResponseOutput() ManagedServiceIdentityInvokeResponseOutput {
+	return i.ToManagedServiceIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedServiceIdentityInvokeResponseArgs) ToManagedServiceIdentityInvokeResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityInvokeResponseOutput)
+}
+
+// Managed Service Identity
+type ManagedServiceIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityInvokeResponseOutput) ToManagedServiceIdentityInvokeResponseOutput() ManagedServiceIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityInvokeResponseOutput) ToManagedServiceIdentityInvokeResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityInvokeResponseOutput {
+	return o
+}
+
+// Azure Active Directory principal ID associated with this Identity.
+func (o ManagedServiceIdentityInvokeResponseOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityInvokeResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// ID of the Azure Active Directory.
+func (o ManagedServiceIdentityInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Type of the Managed Service Identity.
+func (o ManagedServiceIdentityInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedServiceIdentityInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Managed Service Identity
 type ManagedServiceIdentityResponse struct {
 	// Azure Active Directory principal ID associated with this Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1074,6 +1330,151 @@ func (o ParameterDefinitionMapOutput) MapIndex(k pulumi.StringInput) ParameterDe
 }
 
 // Represent a parameter with constrains and metadata.
+type ParameterDefinitionInvokeResponse struct {
+	// Array of allowed values for this parameter.
+	AllowedValues []interface{} `pulumi:"allowedValues"`
+	// Default Value for this parameter.
+	DefaultValue interface{} `pulumi:"defaultValue"`
+	// Description of this parameter/resourceGroup.
+	Description *string `pulumi:"description"`
+	// DisplayName of this parameter/resourceGroup.
+	DisplayName *string `pulumi:"displayName"`
+	// StrongType for UI to render rich experience during assignment time.
+	StrongType *string `pulumi:"strongType"`
+	// Allowed data types for Azure Resource Manager template parameters.
+	Type string `pulumi:"type"`
+}
+
+// ParameterDefinitionInvokeResponseInput is an input type that accepts ParameterDefinitionInvokeResponseArgs and ParameterDefinitionInvokeResponseOutput values.
+// You can construct a concrete instance of `ParameterDefinitionInvokeResponseInput` via:
+//
+//          ParameterDefinitionInvokeResponseArgs{...}
+type ParameterDefinitionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToParameterDefinitionInvokeResponseOutput() ParameterDefinitionInvokeResponseOutput
+	ToParameterDefinitionInvokeResponseOutputWithContext(context.Context) ParameterDefinitionInvokeResponseOutput
+}
+
+// Represent a parameter with constrains and metadata.
+type ParameterDefinitionInvokeResponseArgs struct {
+	// Array of allowed values for this parameter.
+	AllowedValues pulumi.ArrayInput `pulumi:"allowedValues"`
+	// Default Value for this parameter.
+	DefaultValue pulumi.Input `pulumi:"defaultValue"`
+	// Description of this parameter/resourceGroup.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// DisplayName of this parameter/resourceGroup.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// StrongType for UI to render rich experience during assignment time.
+	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
+	// Allowed data types for Azure Resource Manager template parameters.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ParameterDefinitionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i ParameterDefinitionInvokeResponseArgs) ToParameterDefinitionInvokeResponseOutput() ParameterDefinitionInvokeResponseOutput {
+	return i.ToParameterDefinitionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ParameterDefinitionInvokeResponseArgs) ToParameterDefinitionInvokeResponseOutputWithContext(ctx context.Context) ParameterDefinitionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionInvokeResponseOutput)
+}
+
+// ParameterDefinitionInvokeResponseMapInput is an input type that accepts ParameterDefinitionInvokeResponseMap and ParameterDefinitionInvokeResponseMapOutput values.
+// You can construct a concrete instance of `ParameterDefinitionInvokeResponseMapInput` via:
+//
+//          ParameterDefinitionInvokeResponseMap{ "key": ParameterDefinitionInvokeResponseArgs{...} }
+type ParameterDefinitionInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToParameterDefinitionInvokeResponseMapOutput() ParameterDefinitionInvokeResponseMapOutput
+	ToParameterDefinitionInvokeResponseMapOutputWithContext(context.Context) ParameterDefinitionInvokeResponseMapOutput
+}
+
+type ParameterDefinitionInvokeResponseMap map[string]ParameterDefinitionInvokeResponseInput
+
+func (ParameterDefinitionInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i ParameterDefinitionInvokeResponseMap) ToParameterDefinitionInvokeResponseMapOutput() ParameterDefinitionInvokeResponseMapOutput {
+	return i.ToParameterDefinitionInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i ParameterDefinitionInvokeResponseMap) ToParameterDefinitionInvokeResponseMapOutputWithContext(ctx context.Context) ParameterDefinitionInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionInvokeResponseMapOutput)
+}
+
+// Represent a parameter with constrains and metadata.
+type ParameterDefinitionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ParameterDefinitionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o ParameterDefinitionInvokeResponseOutput) ToParameterDefinitionInvokeResponseOutput() ParameterDefinitionInvokeResponseOutput {
+	return o
+}
+
+func (o ParameterDefinitionInvokeResponseOutput) ToParameterDefinitionInvokeResponseOutputWithContext(ctx context.Context) ParameterDefinitionInvokeResponseOutput {
+	return o
+}
+
+// Array of allowed values for this parameter.
+func (o ParameterDefinitionInvokeResponseOutput) AllowedValues() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ParameterDefinitionInvokeResponse) []interface{} { return v.AllowedValues }).(pulumi.ArrayOutput)
+}
+
+// Default Value for this parameter.
+func (o ParameterDefinitionInvokeResponseOutput) DefaultValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v ParameterDefinitionInvokeResponse) interface{} { return v.DefaultValue }).(pulumi.AnyOutput)
+}
+
+// Description of this parameter/resourceGroup.
+func (o ParameterDefinitionInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// DisplayName of this parameter/resourceGroup.
+func (o ParameterDefinitionInvokeResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionInvokeResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// StrongType for UI to render rich experience during assignment time.
+func (o ParameterDefinitionInvokeResponseOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionInvokeResponse) *string { return v.StrongType }).(pulumi.StringPtrOutput)
+}
+
+// Allowed data types for Azure Resource Manager template parameters.
+func (o ParameterDefinitionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ParameterDefinitionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ParameterDefinitionInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ParameterDefinitionInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o ParameterDefinitionInvokeResponseMapOutput) ToParameterDefinitionInvokeResponseMapOutput() ParameterDefinitionInvokeResponseMapOutput {
+	return o
+}
+
+func (o ParameterDefinitionInvokeResponseMapOutput) ToParameterDefinitionInvokeResponseMapOutputWithContext(ctx context.Context) ParameterDefinitionInvokeResponseMapOutput {
+	return o
+}
+
+func (o ParameterDefinitionInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) ParameterDefinitionInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterDefinitionInvokeResponse {
+		return vs[0].(map[string]ParameterDefinitionInvokeResponse)[vs[1].(string)]
+	}).(ParameterDefinitionInvokeResponseOutput)
+}
+
+// Represent a parameter with constrains and metadata.
 type ParameterDefinitionResponse struct {
 	// Array of allowed values for this parameter.
 	AllowedValues []interface{} `pulumi:"allowedValues"`
@@ -1319,6 +1720,106 @@ func (o ParameterValueBaseMapOutput) MapIndex(k pulumi.StringInput) ParameterVal
 }
 
 // Base class for ParameterValue.
+type ParameterValueBaseInvokeResponse struct {
+	// Optional property, just to establish ParameterValueBase as a BaseClass.
+	Description *string `pulumi:"description"`
+}
+
+// ParameterValueBaseInvokeResponseInput is an input type that accepts ParameterValueBaseInvokeResponseArgs and ParameterValueBaseInvokeResponseOutput values.
+// You can construct a concrete instance of `ParameterValueBaseInvokeResponseInput` via:
+//
+//          ParameterValueBaseInvokeResponseArgs{...}
+type ParameterValueBaseInvokeResponseInput interface {
+	pulumi.Input
+
+	ToParameterValueBaseInvokeResponseOutput() ParameterValueBaseInvokeResponseOutput
+	ToParameterValueBaseInvokeResponseOutputWithContext(context.Context) ParameterValueBaseInvokeResponseOutput
+}
+
+// Base class for ParameterValue.
+type ParameterValueBaseInvokeResponseArgs struct {
+	// Optional property, just to establish ParameterValueBase as a BaseClass.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+}
+
+func (ParameterValueBaseInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterValueBaseInvokeResponse)(nil)).Elem()
+}
+
+func (i ParameterValueBaseInvokeResponseArgs) ToParameterValueBaseInvokeResponseOutput() ParameterValueBaseInvokeResponseOutput {
+	return i.ToParameterValueBaseInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ParameterValueBaseInvokeResponseArgs) ToParameterValueBaseInvokeResponseOutputWithContext(ctx context.Context) ParameterValueBaseInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterValueBaseInvokeResponseOutput)
+}
+
+// ParameterValueBaseInvokeResponseMapInput is an input type that accepts ParameterValueBaseInvokeResponseMap and ParameterValueBaseInvokeResponseMapOutput values.
+// You can construct a concrete instance of `ParameterValueBaseInvokeResponseMapInput` via:
+//
+//          ParameterValueBaseInvokeResponseMap{ "key": ParameterValueBaseInvokeResponseArgs{...} }
+type ParameterValueBaseInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToParameterValueBaseInvokeResponseMapOutput() ParameterValueBaseInvokeResponseMapOutput
+	ToParameterValueBaseInvokeResponseMapOutputWithContext(context.Context) ParameterValueBaseInvokeResponseMapOutput
+}
+
+type ParameterValueBaseInvokeResponseMap map[string]ParameterValueBaseInvokeResponseInput
+
+func (ParameterValueBaseInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterValueBaseInvokeResponse)(nil)).Elem()
+}
+
+func (i ParameterValueBaseInvokeResponseMap) ToParameterValueBaseInvokeResponseMapOutput() ParameterValueBaseInvokeResponseMapOutput {
+	return i.ToParameterValueBaseInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i ParameterValueBaseInvokeResponseMap) ToParameterValueBaseInvokeResponseMapOutputWithContext(ctx context.Context) ParameterValueBaseInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterValueBaseInvokeResponseMapOutput)
+}
+
+// Base class for ParameterValue.
+type ParameterValueBaseInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ParameterValueBaseInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterValueBaseInvokeResponse)(nil)).Elem()
+}
+
+func (o ParameterValueBaseInvokeResponseOutput) ToParameterValueBaseInvokeResponseOutput() ParameterValueBaseInvokeResponseOutput {
+	return o
+}
+
+func (o ParameterValueBaseInvokeResponseOutput) ToParameterValueBaseInvokeResponseOutputWithContext(ctx context.Context) ParameterValueBaseInvokeResponseOutput {
+	return o
+}
+
+// Optional property, just to establish ParameterValueBase as a BaseClass.
+func (o ParameterValueBaseInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterValueBaseInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+type ParameterValueBaseInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ParameterValueBaseInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterValueBaseInvokeResponse)(nil)).Elem()
+}
+
+func (o ParameterValueBaseInvokeResponseMapOutput) ToParameterValueBaseInvokeResponseMapOutput() ParameterValueBaseInvokeResponseMapOutput {
+	return o
+}
+
+func (o ParameterValueBaseInvokeResponseMapOutput) ToParameterValueBaseInvokeResponseMapOutputWithContext(ctx context.Context) ParameterValueBaseInvokeResponseMapOutput {
+	return o
+}
+
+func (o ParameterValueBaseInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) ParameterValueBaseInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterValueBaseInvokeResponse {
+		return vs[0].(map[string]ParameterValueBaseInvokeResponse)[vs[1].(string)]
+	}).(ParameterValueBaseInvokeResponseOutput)
+}
+
+// Base class for ParameterValue.
 type ParameterValueBaseResponse struct {
 	// Optional property, just to establish ParameterValueBase as a BaseClass.
 	Description *string `pulumi:"description"`
@@ -1561,6 +2062,151 @@ func (o ResourceGroupDefinitionMapOutput) MapIndex(k pulumi.StringInput) Resourc
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceGroupDefinition {
 		return vs[0].(map[string]ResourceGroupDefinition)[vs[1].(string)]
 	}).(ResourceGroupDefinitionOutput)
+}
+
+// Represents an Azure resource group in a Blueprint definition.
+type ResourceGroupDefinitionInvokeResponse struct {
+	// Artifacts which need to be deployed before this resource group.
+	DependsOn []string `pulumi:"dependsOn"`
+	// Description of this parameter/resourceGroup.
+	Description *string `pulumi:"description"`
+	// DisplayName of this parameter/resourceGroup.
+	DisplayName *string `pulumi:"displayName"`
+	// Location of this resourceGroup, leave empty if the resource group location will be specified during the Blueprint assignment.
+	Location *string `pulumi:"location"`
+	// Name of this resourceGroup, leave empty if the resource group name will be specified during the Blueprint assignment.
+	Name *string `pulumi:"name"`
+	// StrongType for UI to render rich experience during assignment time.
+	StrongType *string `pulumi:"strongType"`
+}
+
+// ResourceGroupDefinitionInvokeResponseInput is an input type that accepts ResourceGroupDefinitionInvokeResponseArgs and ResourceGroupDefinitionInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceGroupDefinitionInvokeResponseInput` via:
+//
+//          ResourceGroupDefinitionInvokeResponseArgs{...}
+type ResourceGroupDefinitionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceGroupDefinitionInvokeResponseOutput() ResourceGroupDefinitionInvokeResponseOutput
+	ToResourceGroupDefinitionInvokeResponseOutputWithContext(context.Context) ResourceGroupDefinitionInvokeResponseOutput
+}
+
+// Represents an Azure resource group in a Blueprint definition.
+type ResourceGroupDefinitionInvokeResponseArgs struct {
+	// Artifacts which need to be deployed before this resource group.
+	DependsOn pulumi.StringArrayInput `pulumi:"dependsOn"`
+	// Description of this parameter/resourceGroup.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// DisplayName of this parameter/resourceGroup.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Location of this resourceGroup, leave empty if the resource group location will be specified during the Blueprint assignment.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Name of this resourceGroup, leave empty if the resource group name will be specified during the Blueprint assignment.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// StrongType for UI to render rich experience during assignment time.
+	StrongType pulumi.StringPtrInput `pulumi:"strongType"`
+}
+
+func (ResourceGroupDefinitionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceGroupDefinitionInvokeResponseArgs) ToResourceGroupDefinitionInvokeResponseOutput() ResourceGroupDefinitionInvokeResponseOutput {
+	return i.ToResourceGroupDefinitionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupDefinitionInvokeResponseArgs) ToResourceGroupDefinitionInvokeResponseOutputWithContext(ctx context.Context) ResourceGroupDefinitionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupDefinitionInvokeResponseOutput)
+}
+
+// ResourceGroupDefinitionInvokeResponseMapInput is an input type that accepts ResourceGroupDefinitionInvokeResponseMap and ResourceGroupDefinitionInvokeResponseMapOutput values.
+// You can construct a concrete instance of `ResourceGroupDefinitionInvokeResponseMapInput` via:
+//
+//          ResourceGroupDefinitionInvokeResponseMap{ "key": ResourceGroupDefinitionInvokeResponseArgs{...} }
+type ResourceGroupDefinitionInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToResourceGroupDefinitionInvokeResponseMapOutput() ResourceGroupDefinitionInvokeResponseMapOutput
+	ToResourceGroupDefinitionInvokeResponseMapOutputWithContext(context.Context) ResourceGroupDefinitionInvokeResponseMapOutput
+}
+
+type ResourceGroupDefinitionInvokeResponseMap map[string]ResourceGroupDefinitionInvokeResponseInput
+
+func (ResourceGroupDefinitionInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResourceGroupDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceGroupDefinitionInvokeResponseMap) ToResourceGroupDefinitionInvokeResponseMapOutput() ResourceGroupDefinitionInvokeResponseMapOutput {
+	return i.ToResourceGroupDefinitionInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupDefinitionInvokeResponseMap) ToResourceGroupDefinitionInvokeResponseMapOutputWithContext(ctx context.Context) ResourceGroupDefinitionInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupDefinitionInvokeResponseMapOutput)
+}
+
+// Represents an Azure resource group in a Blueprint definition.
+type ResourceGroupDefinitionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupDefinitionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceGroupDefinitionInvokeResponseOutput) ToResourceGroupDefinitionInvokeResponseOutput() ResourceGroupDefinitionInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceGroupDefinitionInvokeResponseOutput) ToResourceGroupDefinitionInvokeResponseOutputWithContext(ctx context.Context) ResourceGroupDefinitionInvokeResponseOutput {
+	return o
+}
+
+// Artifacts which need to be deployed before this resource group.
+func (o ResourceGroupDefinitionInvokeResponseOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceGroupDefinitionInvokeResponse) []string { return v.DependsOn }).(pulumi.StringArrayOutput)
+}
+
+// Description of this parameter/resourceGroup.
+func (o ResourceGroupDefinitionInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupDefinitionInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// DisplayName of this parameter/resourceGroup.
+func (o ResourceGroupDefinitionInvokeResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupDefinitionInvokeResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Location of this resourceGroup, leave empty if the resource group location will be specified during the Blueprint assignment.
+func (o ResourceGroupDefinitionInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupDefinitionInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of this resourceGroup, leave empty if the resource group name will be specified during the Blueprint assignment.
+func (o ResourceGroupDefinitionInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupDefinitionInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// StrongType for UI to render rich experience during assignment time.
+func (o ResourceGroupDefinitionInvokeResponseOutput) StrongType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupDefinitionInvokeResponse) *string { return v.StrongType }).(pulumi.StringPtrOutput)
+}
+
+type ResourceGroupDefinitionInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupDefinitionInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResourceGroupDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceGroupDefinitionInvokeResponseMapOutput) ToResourceGroupDefinitionInvokeResponseMapOutput() ResourceGroupDefinitionInvokeResponseMapOutput {
+	return o
+}
+
+func (o ResourceGroupDefinitionInvokeResponseMapOutput) ToResourceGroupDefinitionInvokeResponseMapOutputWithContext(ctx context.Context) ResourceGroupDefinitionInvokeResponseMapOutput {
+	return o
+}
+
+func (o ResourceGroupDefinitionInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupDefinitionInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceGroupDefinitionInvokeResponse {
+		return vs[0].(map[string]ResourceGroupDefinitionInvokeResponse)[vs[1].(string)]
+	}).(ResourceGroupDefinitionInvokeResponseOutput)
 }
 
 // Represents an Azure resource group in a Blueprint definition.
@@ -1818,6 +2464,115 @@ func (o ResourceGroupValueMapOutput) MapIndex(k pulumi.StringInput) ResourceGrou
 }
 
 // Represents an Azure resource group.
+type ResourceGroupValueInvokeResponse struct {
+	// Location of the resource group
+	Location *string `pulumi:"location"`
+	// Name of the resource group
+	Name *string `pulumi:"name"`
+}
+
+// ResourceGroupValueInvokeResponseInput is an input type that accepts ResourceGroupValueInvokeResponseArgs and ResourceGroupValueInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceGroupValueInvokeResponseInput` via:
+//
+//          ResourceGroupValueInvokeResponseArgs{...}
+type ResourceGroupValueInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceGroupValueInvokeResponseOutput() ResourceGroupValueInvokeResponseOutput
+	ToResourceGroupValueInvokeResponseOutputWithContext(context.Context) ResourceGroupValueInvokeResponseOutput
+}
+
+// Represents an Azure resource group.
+type ResourceGroupValueInvokeResponseArgs struct {
+	// Location of the resource group
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Name of the resource group
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ResourceGroupValueInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupValueInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceGroupValueInvokeResponseArgs) ToResourceGroupValueInvokeResponseOutput() ResourceGroupValueInvokeResponseOutput {
+	return i.ToResourceGroupValueInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupValueInvokeResponseArgs) ToResourceGroupValueInvokeResponseOutputWithContext(ctx context.Context) ResourceGroupValueInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupValueInvokeResponseOutput)
+}
+
+// ResourceGroupValueInvokeResponseMapInput is an input type that accepts ResourceGroupValueInvokeResponseMap and ResourceGroupValueInvokeResponseMapOutput values.
+// You can construct a concrete instance of `ResourceGroupValueInvokeResponseMapInput` via:
+//
+//          ResourceGroupValueInvokeResponseMap{ "key": ResourceGroupValueInvokeResponseArgs{...} }
+type ResourceGroupValueInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToResourceGroupValueInvokeResponseMapOutput() ResourceGroupValueInvokeResponseMapOutput
+	ToResourceGroupValueInvokeResponseMapOutputWithContext(context.Context) ResourceGroupValueInvokeResponseMapOutput
+}
+
+type ResourceGroupValueInvokeResponseMap map[string]ResourceGroupValueInvokeResponseInput
+
+func (ResourceGroupValueInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResourceGroupValueInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceGroupValueInvokeResponseMap) ToResourceGroupValueInvokeResponseMapOutput() ResourceGroupValueInvokeResponseMapOutput {
+	return i.ToResourceGroupValueInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i ResourceGroupValueInvokeResponseMap) ToResourceGroupValueInvokeResponseMapOutputWithContext(ctx context.Context) ResourceGroupValueInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupValueInvokeResponseMapOutput)
+}
+
+// Represents an Azure resource group.
+type ResourceGroupValueInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupValueInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGroupValueInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceGroupValueInvokeResponseOutput) ToResourceGroupValueInvokeResponseOutput() ResourceGroupValueInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceGroupValueInvokeResponseOutput) ToResourceGroupValueInvokeResponseOutputWithContext(ctx context.Context) ResourceGroupValueInvokeResponseOutput {
+	return o
+}
+
+// Location of the resource group
+func (o ResourceGroupValueInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupValueInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource group
+func (o ResourceGroupValueInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceGroupValueInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ResourceGroupValueInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ResourceGroupValueInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResourceGroupValueInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceGroupValueInvokeResponseMapOutput) ToResourceGroupValueInvokeResponseMapOutput() ResourceGroupValueInvokeResponseMapOutput {
+	return o
+}
+
+func (o ResourceGroupValueInvokeResponseMapOutput) ToResourceGroupValueInvokeResponseMapOutputWithContext(ctx context.Context) ResourceGroupValueInvokeResponseMapOutput {
+	return o
+}
+
+func (o ResourceGroupValueInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupValueInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceGroupValueInvokeResponse {
+		return vs[0].(map[string]ResourceGroupValueInvokeResponse)[vs[1].(string)]
+	}).(ResourceGroupValueInvokeResponseOutput)
+}
+
+// Represents an Azure resource group.
 type ResourceGroupValueResponse struct {
 	// Location of the resource group
 	Location *string `pulumi:"location"`
@@ -1929,30 +2684,42 @@ func (o ResourceGroupValueResponseMapOutput) MapIndex(k pulumi.StringInput) Reso
 func init() {
 	pulumi.RegisterOutputType(AssignmentLockSettingsOutput{})
 	pulumi.RegisterOutputType(AssignmentLockSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AssignmentLockSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentLockSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentLockSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(AssignmentStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentStatusResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(BlueprintStatusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BlueprintStatusResponseOutput{})
 	pulumi.RegisterOutputType(BlueprintStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ParameterDefinitionOutput{})
 	pulumi.RegisterOutputType(ParameterDefinitionMapOutput{})
+	pulumi.RegisterOutputType(ParameterDefinitionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ParameterDefinitionInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(ParameterDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ParameterDefinitionResponseMapOutput{})
 	pulumi.RegisterOutputType(ParameterValueBaseOutput{})
 	pulumi.RegisterOutputType(ParameterValueBaseMapOutput{})
+	pulumi.RegisterOutputType(ParameterValueBaseInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ParameterValueBaseInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(ParameterValueBaseResponseOutput{})
 	pulumi.RegisterOutputType(ParameterValueBaseResponseMapOutput{})
 	pulumi.RegisterOutputType(ResourceGroupDefinitionOutput{})
 	pulumi.RegisterOutputType(ResourceGroupDefinitionMapOutput{})
+	pulumi.RegisterOutputType(ResourceGroupDefinitionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResourceGroupDefinitionInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(ResourceGroupDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ResourceGroupDefinitionResponseMapOutput{})
 	pulumi.RegisterOutputType(ResourceGroupValueOutput{})
 	pulumi.RegisterOutputType(ResourceGroupValueMapOutput{})
+	pulumi.RegisterOutputType(ResourceGroupValueInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResourceGroupValueInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(ResourceGroupValueResponseOutput{})
 	pulumi.RegisterOutputType(ResourceGroupValueResponseMapOutput{})
 }

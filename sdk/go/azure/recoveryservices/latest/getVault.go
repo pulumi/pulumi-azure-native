@@ -30,15 +30,15 @@ type LookupVaultResult struct {
 	// Resource Id represents the complete path to the resource.
 	Id string `pulumi:"id"`
 	// Identity for the resource.
-	Identity *IdentityDataResponse `pulumi:"identity"`
+	Identity *IdentityDataInvokeResponse `pulumi:"identity"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name associated with the resource.
 	Name string `pulumi:"name"`
 	// Properties of the vault.
-	Properties VaultPropertiesResponse `pulumi:"properties"`
+	Properties VaultPropertiesInvokeResponse `pulumi:"properties"`
 	// Identifies the unique system identifier for each Azure resource.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...

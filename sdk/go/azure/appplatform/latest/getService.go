@@ -32,9 +32,9 @@ type LookupServiceResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Properties of the Service resource
-	Properties ClusterResourcePropertiesResponse `pulumi:"properties"`
+	Properties ClusterResourcePropertiesInvokeResponse `pulumi:"properties"`
 	// Sku of the Service resource
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

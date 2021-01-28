@@ -28,7 +28,7 @@ type LookupStorageAccountCredentialArgs struct {
 // The storage account credential.
 type LookupStorageAccountCredentialResult struct {
 	// The details of the storage account password.
-	AccessKey *AsymmetricEncryptedSecretResponse `pulumi:"accessKey"`
+	AccessKey *AsymmetricEncryptedSecretInvokeResponse `pulumi:"accessKey"`
 	// The storage endpoint
 	EndPoint string `pulumi:"endPoint"`
 	// The path ID that uniquely identifies the object.

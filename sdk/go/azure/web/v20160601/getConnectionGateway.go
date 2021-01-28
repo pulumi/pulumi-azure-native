@@ -34,8 +34,8 @@ type LookupConnectionGatewayResult struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
-	Name       string                                        `pulumi:"name"`
-	Properties ConnectionGatewayDefinitionResponseProperties `pulumi:"properties"`
+	Name       string                                              `pulumi:"name"`
+	Properties ConnectionGatewayDefinitionInvokeResponseProperties `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

@@ -48,5 +48,5 @@ type LookupSqlVirtualMachineGroupResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Cluster Active Directory domain profile.
-	WsfcDomainProfile *WsfcDomainProfileResponse `pulumi:"wsfcDomainProfile"`
+	WsfcDomainProfile *WsfcDomainProfileInvokeResponse `pulumi:"wsfcDomainProfile"`
 }

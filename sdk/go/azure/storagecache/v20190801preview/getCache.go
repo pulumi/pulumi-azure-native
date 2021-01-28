@@ -28,7 +28,7 @@ type LookupCacheResult struct {
 	// The size of this cache's cache, in GB.
 	CacheSizeGB *int `pulumi:"cacheSizeGB"`
 	// Health of the cache.
-	Health CacheHealthResponse `pulumi:"health"`
+	Health CacheHealthInvokeResponse `pulumi:"health"`
 	// Fully qualified URL of the cache.
 	Id string `pulumi:"id"`
 	// Region name string.
@@ -40,7 +40,7 @@ type LookupCacheResult struct {
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Sku for the cache.
-	Sku *CacheResponseSku `pulumi:"sku"`
+	Sku *CacheInvokeResponseSku `pulumi:"sku"`
 	// Subnet used for the cache.
 	Subnet *string `pulumi:"subnet"`
 	// ARM tags as name/value pairs.
@@ -48,5 +48,5 @@ type LookupCacheResult struct {
 	// Type for the cache; Microsoft.StorageCache/Cache
 	Type string `pulumi:"type"`
 	// Upgrade status of the cache.
-	UpgradeStatus *CacheUpgradeStatusResponse `pulumi:"upgradeStatus"`
+	UpgradeStatus *CacheUpgradeStatusInvokeResponse `pulumi:"upgradeStatus"`
 }

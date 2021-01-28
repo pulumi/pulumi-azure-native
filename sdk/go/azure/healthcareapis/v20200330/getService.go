@@ -30,7 +30,7 @@ type LookupServiceResult struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ServicesResourceResponseIdentity `pulumi:"identity"`
+	Identity *ServicesResourceInvokeResponseIdentity `pulumi:"identity"`
 	// The kind of the service.
 	Kind string `pulumi:"kind"`
 	// The resource location.
@@ -38,7 +38,7 @@ type LookupServiceResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The common properties of a service.
-	Properties ServicesPropertiesResponse `pulumi:"properties"`
+	Properties ServicesPropertiesInvokeResponse `pulumi:"properties"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

@@ -42,7 +42,7 @@ type LookupVirtualWanResult struct {
 	// The office local breakout category.
 	Office365LocalBreakoutCategory string `pulumi:"office365LocalBreakoutCategory"`
 	// List of all P2SVpnServerConfigurations associated with the virtual wan.
-	P2SVpnServerConfigurations []P2SVpnServerConfigurationResponse `pulumi:"p2SVpnServerConfigurations"`
+	P2SVpnServerConfigurations []P2SVpnServerConfigurationInvokeResponse `pulumi:"p2SVpnServerConfigurations"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The Security Provider name.
@@ -52,6 +52,6 @@ type LookupVirtualWanResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// List of VirtualHubs in the VirtualWAN.
-	VirtualHubs []SubResourceResponse `pulumi:"virtualHubs"`
-	VpnSites    []SubResourceResponse `pulumi:"vpnSites"`
+	VirtualHubs []SubResourceInvokeResponse `pulumi:"virtualHubs"`
+	VpnSites    []SubResourceInvokeResponse `pulumi:"vpnSites"`
 }

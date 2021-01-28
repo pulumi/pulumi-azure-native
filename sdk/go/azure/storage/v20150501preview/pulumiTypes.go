@@ -11,6 +11,70 @@ import (
 )
 
 // The custom domain assigned to this storage account. This can be set via Update.
+type CustomDomainInvokeResponse struct {
+	// Gets or sets the custom domain name. Name is the CNAME source.
+	Name *string `pulumi:"name"`
+	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
+	UseSubDomainName *bool `pulumi:"useSubDomainName"`
+}
+
+// CustomDomainInvokeResponseInput is an input type that accepts CustomDomainInvokeResponseArgs and CustomDomainInvokeResponseOutput values.
+// You can construct a concrete instance of `CustomDomainInvokeResponseInput` via:
+//
+//          CustomDomainInvokeResponseArgs{...}
+type CustomDomainInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCustomDomainInvokeResponseOutput() CustomDomainInvokeResponseOutput
+	ToCustomDomainInvokeResponseOutputWithContext(context.Context) CustomDomainInvokeResponseOutput
+}
+
+// The custom domain assigned to this storage account. This can be set via Update.
+type CustomDomainInvokeResponseArgs struct {
+	// Gets or sets the custom domain name. Name is the CNAME source.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
+	UseSubDomainName pulumi.BoolPtrInput `pulumi:"useSubDomainName"`
+}
+
+func (CustomDomainInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomDomainInvokeResponseArgs) ToCustomDomainInvokeResponseOutput() CustomDomainInvokeResponseOutput {
+	return i.ToCustomDomainInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CustomDomainInvokeResponseArgs) ToCustomDomainInvokeResponseOutputWithContext(ctx context.Context) CustomDomainInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainInvokeResponseOutput)
+}
+
+// The custom domain assigned to this storage account. This can be set via Update.
+type CustomDomainInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomDomainInvokeResponseOutput) ToCustomDomainInvokeResponseOutput() CustomDomainInvokeResponseOutput {
+	return o
+}
+
+func (o CustomDomainInvokeResponseOutput) ToCustomDomainInvokeResponseOutputWithContext(ctx context.Context) CustomDomainInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the custom domain name. Name is the CNAME source.
+func (o CustomDomainInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates
+func (o CustomDomainInvokeResponseOutput) UseSubDomainName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CustomDomainInvokeResponse) *bool { return v.UseSubDomainName }).(pulumi.BoolPtrOutput)
+}
+
+// The custom domain assigned to this storage account. This can be set via Update.
 type CustomDomainResponse struct {
 	// Gets or sets the custom domain name. Name is the CNAME source.
 	Name *string `pulumi:"name"`
@@ -161,6 +225,79 @@ func (o CustomDomainResponsePtrOutput) UseSubDomainName() pulumi.BoolPtrOutput {
 		}
 		return v.UseSubDomainName
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The URIs that are used to perform a retrieval of a public blob, queue or table object.
+type EndpointsInvokeResponse struct {
+	// Gets the blob endpoint.
+	Blob *string `pulumi:"blob"`
+	// Gets the queue endpoint.
+	Queue *string `pulumi:"queue"`
+	// Gets the table endpoint.
+	Table *string `pulumi:"table"`
+}
+
+// EndpointsInvokeResponseInput is an input type that accepts EndpointsInvokeResponseArgs and EndpointsInvokeResponseOutput values.
+// You can construct a concrete instance of `EndpointsInvokeResponseInput` via:
+//
+//          EndpointsInvokeResponseArgs{...}
+type EndpointsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEndpointsInvokeResponseOutput() EndpointsInvokeResponseOutput
+	ToEndpointsInvokeResponseOutputWithContext(context.Context) EndpointsInvokeResponseOutput
+}
+
+// The URIs that are used to perform a retrieval of a public blob, queue or table object.
+type EndpointsInvokeResponseArgs struct {
+	// Gets the blob endpoint.
+	Blob pulumi.StringPtrInput `pulumi:"blob"`
+	// Gets the queue endpoint.
+	Queue pulumi.StringPtrInput `pulumi:"queue"`
+	// Gets the table endpoint.
+	Table pulumi.StringPtrInput `pulumi:"table"`
+}
+
+func (EndpointsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointsInvokeResponse)(nil)).Elem()
+}
+
+func (i EndpointsInvokeResponseArgs) ToEndpointsInvokeResponseOutput() EndpointsInvokeResponseOutput {
+	return i.ToEndpointsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EndpointsInvokeResponseArgs) ToEndpointsInvokeResponseOutputWithContext(ctx context.Context) EndpointsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointsInvokeResponseOutput)
+}
+
+// The URIs that are used to perform a retrieval of a public blob, queue or table object.
+type EndpointsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EndpointsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointsInvokeResponse)(nil)).Elem()
+}
+
+func (o EndpointsInvokeResponseOutput) ToEndpointsInvokeResponseOutput() EndpointsInvokeResponseOutput {
+	return o
+}
+
+func (o EndpointsInvokeResponseOutput) ToEndpointsInvokeResponseOutputWithContext(ctx context.Context) EndpointsInvokeResponseOutput {
+	return o
+}
+
+// Gets the blob endpoint.
+func (o EndpointsInvokeResponseOutput) Blob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointsInvokeResponse) *string { return v.Blob }).(pulumi.StringPtrOutput)
+}
+
+// Gets the queue endpoint.
+func (o EndpointsInvokeResponseOutput) Queue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointsInvokeResponse) *string { return v.Queue }).(pulumi.StringPtrOutput)
+}
+
+// Gets the table endpoint.
+func (o EndpointsInvokeResponseOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointsInvokeResponse) *string { return v.Table }).(pulumi.StringPtrOutput)
 }
 
 // The URIs that are used to perform a retrieval of a public blob, queue or table object.
@@ -336,8 +473,10 @@ func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(CustomDomainInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponsePtrOutput{})
+	pulumi.RegisterOutputType(EndpointsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponsePtrOutput{})
 }

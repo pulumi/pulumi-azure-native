@@ -38,7 +38,7 @@ type LookupWebAppPublicCertificateResult struct {
 	// Public Certificate Location
 	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Certificate Thumbprint
 	Thumbprint string `pulumi:"thumbprint"`
 	// Resource type.

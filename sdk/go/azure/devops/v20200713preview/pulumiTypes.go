@@ -164,6 +164,159 @@ func (o AuthorizationPtrOutput) Parameters() pulumi.StringMapOutput {
 }
 
 // Authorization info used to access a resource (like code repository).
+type AuthorizationInvokeResponse struct {
+	// Type of authorization.
+	AuthorizationType string `pulumi:"authorizationType"`
+	// Authorization parameters corresponding to the authorization type.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// AuthorizationInvokeResponseInput is an input type that accepts AuthorizationInvokeResponseArgs and AuthorizationInvokeResponseOutput values.
+// You can construct a concrete instance of `AuthorizationInvokeResponseInput` via:
+//
+//          AuthorizationInvokeResponseArgs{...}
+type AuthorizationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAuthorizationInvokeResponseOutput() AuthorizationInvokeResponseOutput
+	ToAuthorizationInvokeResponseOutputWithContext(context.Context) AuthorizationInvokeResponseOutput
+}
+
+// Authorization info used to access a resource (like code repository).
+type AuthorizationInvokeResponseArgs struct {
+	// Type of authorization.
+	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
+	// Authorization parameters corresponding to the authorization type.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (AuthorizationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (i AuthorizationInvokeResponseArgs) ToAuthorizationInvokeResponseOutput() AuthorizationInvokeResponseOutput {
+	return i.ToAuthorizationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AuthorizationInvokeResponseArgs) ToAuthorizationInvokeResponseOutputWithContext(ctx context.Context) AuthorizationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationInvokeResponseOutput)
+}
+
+func (i AuthorizationInvokeResponseArgs) ToAuthorizationInvokeResponsePtrOutput() AuthorizationInvokeResponsePtrOutput {
+	return i.ToAuthorizationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AuthorizationInvokeResponseArgs) ToAuthorizationInvokeResponsePtrOutputWithContext(ctx context.Context) AuthorizationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationInvokeResponseOutput).ToAuthorizationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AuthorizationInvokeResponsePtrInput is an input type that accepts AuthorizationInvokeResponseArgs, AuthorizationInvokeResponsePtr and AuthorizationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AuthorizationInvokeResponsePtrInput` via:
+//
+//          AuthorizationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AuthorizationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAuthorizationInvokeResponsePtrOutput() AuthorizationInvokeResponsePtrOutput
+	ToAuthorizationInvokeResponsePtrOutputWithContext(context.Context) AuthorizationInvokeResponsePtrOutput
+}
+
+type authorizationInvokeResponsePtrType AuthorizationInvokeResponseArgs
+
+func AuthorizationInvokeResponsePtr(v *AuthorizationInvokeResponseArgs) AuthorizationInvokeResponsePtrInput {
+	return (*authorizationInvokeResponsePtrType)(v)
+}
+
+func (*authorizationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (i *authorizationInvokeResponsePtrType) ToAuthorizationInvokeResponsePtrOutput() AuthorizationInvokeResponsePtrOutput {
+	return i.ToAuthorizationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *authorizationInvokeResponsePtrType) ToAuthorizationInvokeResponsePtrOutputWithContext(ctx context.Context) AuthorizationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationInvokeResponsePtrOutput)
+}
+
+// Authorization info used to access a resource (like code repository).
+type AuthorizationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AuthorizationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (o AuthorizationInvokeResponseOutput) ToAuthorizationInvokeResponseOutput() AuthorizationInvokeResponseOutput {
+	return o
+}
+
+func (o AuthorizationInvokeResponseOutput) ToAuthorizationInvokeResponseOutputWithContext(ctx context.Context) AuthorizationInvokeResponseOutput {
+	return o
+}
+
+func (o AuthorizationInvokeResponseOutput) ToAuthorizationInvokeResponsePtrOutput() AuthorizationInvokeResponsePtrOutput {
+	return o.ToAuthorizationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AuthorizationInvokeResponseOutput) ToAuthorizationInvokeResponsePtrOutputWithContext(ctx context.Context) AuthorizationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AuthorizationInvokeResponse) *AuthorizationInvokeResponse {
+		return &v
+	}).(AuthorizationInvokeResponsePtrOutput)
+}
+
+// Type of authorization.
+func (o AuthorizationInvokeResponseOutput) AuthorizationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizationInvokeResponse) string { return v.AuthorizationType }).(pulumi.StringOutput)
+}
+
+// Authorization parameters corresponding to the authorization type.
+func (o AuthorizationInvokeResponseOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AuthorizationInvokeResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type AuthorizationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AuthorizationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (o AuthorizationInvokeResponsePtrOutput) ToAuthorizationInvokeResponsePtrOutput() AuthorizationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AuthorizationInvokeResponsePtrOutput) ToAuthorizationInvokeResponsePtrOutputWithContext(ctx context.Context) AuthorizationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AuthorizationInvokeResponsePtrOutput) Elem() AuthorizationInvokeResponseOutput {
+	return o.ApplyT(func(v *AuthorizationInvokeResponse) AuthorizationInvokeResponse { return *v }).(AuthorizationInvokeResponseOutput)
+}
+
+// Type of authorization.
+func (o AuthorizationInvokeResponsePtrOutput) AuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Authorization parameters corresponding to the authorization type.
+func (o AuthorizationInvokeResponsePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AuthorizationInvokeResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Authorization info used to access a resource (like code repository).
 type AuthorizationResponse struct {
 	// Type of authorization.
 	AuthorizationType string `pulumi:"authorizationType"`
@@ -467,6 +620,70 @@ func (o BootstrapConfigurationPtrOutput) Template() PipelineTemplatePtrOutput {
 		}
 		return &v.Template
 	}).(PipelineTemplatePtrOutput)
+}
+
+// Configuration used to bootstrap a Pipeline.
+type BootstrapConfigurationInvokeResponse struct {
+	// Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
+	SourceRepository *CodeRepositoryInvokeResponse `pulumi:"sourceRepository"`
+	// Template used to bootstrap the pipeline.
+	Template PipelineTemplateInvokeResponse `pulumi:"template"`
+}
+
+// BootstrapConfigurationInvokeResponseInput is an input type that accepts BootstrapConfigurationInvokeResponseArgs and BootstrapConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `BootstrapConfigurationInvokeResponseInput` via:
+//
+//          BootstrapConfigurationInvokeResponseArgs{...}
+type BootstrapConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBootstrapConfigurationInvokeResponseOutput() BootstrapConfigurationInvokeResponseOutput
+	ToBootstrapConfigurationInvokeResponseOutputWithContext(context.Context) BootstrapConfigurationInvokeResponseOutput
+}
+
+// Configuration used to bootstrap a Pipeline.
+type BootstrapConfigurationInvokeResponseArgs struct {
+	// Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
+	SourceRepository CodeRepositoryInvokeResponsePtrInput `pulumi:"sourceRepository"`
+	// Template used to bootstrap the pipeline.
+	Template PipelineTemplateInvokeResponseInput `pulumi:"template"`
+}
+
+func (BootstrapConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BootstrapConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i BootstrapConfigurationInvokeResponseArgs) ToBootstrapConfigurationInvokeResponseOutput() BootstrapConfigurationInvokeResponseOutput {
+	return i.ToBootstrapConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BootstrapConfigurationInvokeResponseArgs) ToBootstrapConfigurationInvokeResponseOutputWithContext(ctx context.Context) BootstrapConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BootstrapConfigurationInvokeResponseOutput)
+}
+
+// Configuration used to bootstrap a Pipeline.
+type BootstrapConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BootstrapConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BootstrapConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o BootstrapConfigurationInvokeResponseOutput) ToBootstrapConfigurationInvokeResponseOutput() BootstrapConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o BootstrapConfigurationInvokeResponseOutput) ToBootstrapConfigurationInvokeResponseOutputWithContext(ctx context.Context) BootstrapConfigurationInvokeResponseOutput {
+	return o
+}
+
+// Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
+func (o BootstrapConfigurationInvokeResponseOutput) SourceRepository() CodeRepositoryInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BootstrapConfigurationInvokeResponse) *CodeRepositoryInvokeResponse { return v.SourceRepository }).(CodeRepositoryInvokeResponsePtrOutput)
+}
+
+// Template used to bootstrap the pipeline.
+func (o BootstrapConfigurationInvokeResponseOutput) Template() PipelineTemplateInvokeResponseOutput {
+	return o.ApplyT(func(v BootstrapConfigurationInvokeResponse) PipelineTemplateInvokeResponse { return v.Template }).(PipelineTemplateInvokeResponseOutput)
 }
 
 // Configuration used to bootstrap a Pipeline.
@@ -825,6 +1042,216 @@ func (o CodeRepositoryPtrOutput) Properties() pulumi.StringMapOutput {
 // Type of code repository.
 func (o CodeRepositoryPtrOutput) RepositoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Repository containing the source code for a pipeline.
+type CodeRepositoryInvokeResponse struct {
+	// Authorization info to access the code repository.
+	Authorization *AuthorizationInvokeResponse `pulumi:"authorization"`
+	// Default branch used to configure Continuous Integration (CI) in the pipeline.
+	DefaultBranch string `pulumi:"defaultBranch"`
+	// Unique immutable identifier of the code repository.
+	Id string `pulumi:"id"`
+	// Repository-specific properties.
+	Properties map[string]string `pulumi:"properties"`
+	// Type of code repository.
+	RepositoryType string `pulumi:"repositoryType"`
+}
+
+// CodeRepositoryInvokeResponseInput is an input type that accepts CodeRepositoryInvokeResponseArgs and CodeRepositoryInvokeResponseOutput values.
+// You can construct a concrete instance of `CodeRepositoryInvokeResponseInput` via:
+//
+//          CodeRepositoryInvokeResponseArgs{...}
+type CodeRepositoryInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryInvokeResponseOutput() CodeRepositoryInvokeResponseOutput
+	ToCodeRepositoryInvokeResponseOutputWithContext(context.Context) CodeRepositoryInvokeResponseOutput
+}
+
+// Repository containing the source code for a pipeline.
+type CodeRepositoryInvokeResponseArgs struct {
+	// Authorization info to access the code repository.
+	Authorization AuthorizationInvokeResponsePtrInput `pulumi:"authorization"`
+	// Default branch used to configure Continuous Integration (CI) in the pipeline.
+	DefaultBranch pulumi.StringInput `pulumi:"defaultBranch"`
+	// Unique immutable identifier of the code repository.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Repository-specific properties.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Type of code repository.
+	RepositoryType pulumi.StringInput `pulumi:"repositoryType"`
+}
+
+func (CodeRepositoryInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepositoryInvokeResponse)(nil)).Elem()
+}
+
+func (i CodeRepositoryInvokeResponseArgs) ToCodeRepositoryInvokeResponseOutput() CodeRepositoryInvokeResponseOutput {
+	return i.ToCodeRepositoryInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CodeRepositoryInvokeResponseArgs) ToCodeRepositoryInvokeResponseOutputWithContext(ctx context.Context) CodeRepositoryInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryInvokeResponseOutput)
+}
+
+func (i CodeRepositoryInvokeResponseArgs) ToCodeRepositoryInvokeResponsePtrOutput() CodeRepositoryInvokeResponsePtrOutput {
+	return i.ToCodeRepositoryInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CodeRepositoryInvokeResponseArgs) ToCodeRepositoryInvokeResponsePtrOutputWithContext(ctx context.Context) CodeRepositoryInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryInvokeResponseOutput).ToCodeRepositoryInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// CodeRepositoryInvokeResponsePtrInput is an input type that accepts CodeRepositoryInvokeResponseArgs, CodeRepositoryInvokeResponsePtr and CodeRepositoryInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CodeRepositoryInvokeResponsePtrInput` via:
+//
+//          CodeRepositoryInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CodeRepositoryInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryInvokeResponsePtrOutput() CodeRepositoryInvokeResponsePtrOutput
+	ToCodeRepositoryInvokeResponsePtrOutputWithContext(context.Context) CodeRepositoryInvokeResponsePtrOutput
+}
+
+type codeRepositoryInvokeResponsePtrType CodeRepositoryInvokeResponseArgs
+
+func CodeRepositoryInvokeResponsePtr(v *CodeRepositoryInvokeResponseArgs) CodeRepositoryInvokeResponsePtrInput {
+	return (*codeRepositoryInvokeResponsePtrType)(v)
+}
+
+func (*codeRepositoryInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeRepositoryInvokeResponse)(nil)).Elem()
+}
+
+func (i *codeRepositoryInvokeResponsePtrType) ToCodeRepositoryInvokeResponsePtrOutput() CodeRepositoryInvokeResponsePtrOutput {
+	return i.ToCodeRepositoryInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *codeRepositoryInvokeResponsePtrType) ToCodeRepositoryInvokeResponsePtrOutputWithContext(ctx context.Context) CodeRepositoryInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryInvokeResponsePtrOutput)
+}
+
+// Repository containing the source code for a pipeline.
+type CodeRepositoryInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepositoryInvokeResponse)(nil)).Elem()
+}
+
+func (o CodeRepositoryInvokeResponseOutput) ToCodeRepositoryInvokeResponseOutput() CodeRepositoryInvokeResponseOutput {
+	return o
+}
+
+func (o CodeRepositoryInvokeResponseOutput) ToCodeRepositoryInvokeResponseOutputWithContext(ctx context.Context) CodeRepositoryInvokeResponseOutput {
+	return o
+}
+
+func (o CodeRepositoryInvokeResponseOutput) ToCodeRepositoryInvokeResponsePtrOutput() CodeRepositoryInvokeResponsePtrOutput {
+	return o.ToCodeRepositoryInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CodeRepositoryInvokeResponseOutput) ToCodeRepositoryInvokeResponsePtrOutputWithContext(ctx context.Context) CodeRepositoryInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CodeRepositoryInvokeResponse) *CodeRepositoryInvokeResponse {
+		return &v
+	}).(CodeRepositoryInvokeResponsePtrOutput)
+}
+
+// Authorization info to access the code repository.
+func (o CodeRepositoryInvokeResponseOutput) Authorization() AuthorizationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CodeRepositoryInvokeResponse) *AuthorizationInvokeResponse { return v.Authorization }).(AuthorizationInvokeResponsePtrOutput)
+}
+
+// Default branch used to configure Continuous Integration (CI) in the pipeline.
+func (o CodeRepositoryInvokeResponseOutput) DefaultBranch() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeRepositoryInvokeResponse) string { return v.DefaultBranch }).(pulumi.StringOutput)
+}
+
+// Unique immutable identifier of the code repository.
+func (o CodeRepositoryInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeRepositoryInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Repository-specific properties.
+func (o CodeRepositoryInvokeResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CodeRepositoryInvokeResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Type of code repository.
+func (o CodeRepositoryInvokeResponseOutput) RepositoryType() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeRepositoryInvokeResponse) string { return v.RepositoryType }).(pulumi.StringOutput)
+}
+
+type CodeRepositoryInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeRepositoryInvokeResponse)(nil)).Elem()
+}
+
+func (o CodeRepositoryInvokeResponsePtrOutput) ToCodeRepositoryInvokeResponsePtrOutput() CodeRepositoryInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CodeRepositoryInvokeResponsePtrOutput) ToCodeRepositoryInvokeResponsePtrOutputWithContext(ctx context.Context) CodeRepositoryInvokeResponsePtrOutput {
+	return o
+}
+
+func (o CodeRepositoryInvokeResponsePtrOutput) Elem() CodeRepositoryInvokeResponseOutput {
+	return o.ApplyT(func(v *CodeRepositoryInvokeResponse) CodeRepositoryInvokeResponse { return *v }).(CodeRepositoryInvokeResponseOutput)
+}
+
+// Authorization info to access the code repository.
+func (o CodeRepositoryInvokeResponsePtrOutput) Authorization() AuthorizationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryInvokeResponse) *AuthorizationInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Authorization
+	}).(AuthorizationInvokeResponsePtrOutput)
+}
+
+// Default branch used to configure Continuous Integration (CI) in the pipeline.
+func (o CodeRepositoryInvokeResponsePtrOutput) DefaultBranch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultBranch
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique immutable identifier of the code repository.
+func (o CodeRepositoryInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Repository-specific properties.
+func (o CodeRepositoryInvokeResponsePtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CodeRepositoryInvokeResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+// Type of code repository.
+func (o CodeRepositoryInvokeResponsePtrOutput) RepositoryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1196,6 +1623,70 @@ func (o PipelineTemplatePtrOutput) Parameters() pulumi.StringMapOutput {
 }
 
 // Template used to bootstrap the pipeline.
+type PipelineTemplateInvokeResponse struct {
+	// Unique identifier of the pipeline template.
+	Id string `pulumi:"id"`
+	// Dictionary of input parameters used in the pipeline template.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// PipelineTemplateInvokeResponseInput is an input type that accepts PipelineTemplateInvokeResponseArgs and PipelineTemplateInvokeResponseOutput values.
+// You can construct a concrete instance of `PipelineTemplateInvokeResponseInput` via:
+//
+//          PipelineTemplateInvokeResponseArgs{...}
+type PipelineTemplateInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPipelineTemplateInvokeResponseOutput() PipelineTemplateInvokeResponseOutput
+	ToPipelineTemplateInvokeResponseOutputWithContext(context.Context) PipelineTemplateInvokeResponseOutput
+}
+
+// Template used to bootstrap the pipeline.
+type PipelineTemplateInvokeResponseArgs struct {
+	// Unique identifier of the pipeline template.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Dictionary of input parameters used in the pipeline template.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (PipelineTemplateInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTemplateInvokeResponse)(nil)).Elem()
+}
+
+func (i PipelineTemplateInvokeResponseArgs) ToPipelineTemplateInvokeResponseOutput() PipelineTemplateInvokeResponseOutput {
+	return i.ToPipelineTemplateInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PipelineTemplateInvokeResponseArgs) ToPipelineTemplateInvokeResponseOutputWithContext(ctx context.Context) PipelineTemplateInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTemplateInvokeResponseOutput)
+}
+
+// Template used to bootstrap the pipeline.
+type PipelineTemplateInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PipelineTemplateInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTemplateInvokeResponse)(nil)).Elem()
+}
+
+func (o PipelineTemplateInvokeResponseOutput) ToPipelineTemplateInvokeResponseOutput() PipelineTemplateInvokeResponseOutput {
+	return o
+}
+
+func (o PipelineTemplateInvokeResponseOutput) ToPipelineTemplateInvokeResponseOutputWithContext(ctx context.Context) PipelineTemplateInvokeResponseOutput {
+	return o
+}
+
+// Unique identifier of the pipeline template.
+func (o PipelineTemplateInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineTemplateInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Dictionary of input parameters used in the pipeline template.
+func (o PipelineTemplateInvokeResponseOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PipelineTemplateInvokeResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Template used to bootstrap the pipeline.
 type PipelineTemplateResponse struct {
 	// Unique identifier of the pipeline template.
 	Id string `pulumi:"id"`
@@ -1346,6 +1837,106 @@ func (o PipelineTemplateResponsePtrOutput) Parameters() pulumi.StringMapOutput {
 		}
 		return v.Parameters
 	}).(pulumi.StringMapOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -1580,20 +2171,27 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(AuthorizationOutput{})
 	pulumi.RegisterOutputType(AuthorizationPtrOutput{})
+	pulumi.RegisterOutputType(AuthorizationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AuthorizationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(AuthorizationResponsePtrOutput{})
 	pulumi.RegisterOutputType(BootstrapConfigurationOutput{})
 	pulumi.RegisterOutputType(BootstrapConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BootstrapConfigurationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BootstrapConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(BootstrapConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryResponseOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryResponsePtrOutput{})
 	pulumi.RegisterOutputType(PipelineTemplateOutput{})
 	pulumi.RegisterOutputType(PipelineTemplatePtrOutput{})
+	pulumi.RegisterOutputType(PipelineTemplateInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PipelineTemplateResponseOutput{})
 	pulumi.RegisterOutputType(PipelineTemplateResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

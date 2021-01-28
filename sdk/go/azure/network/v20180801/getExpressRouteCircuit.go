@@ -30,7 +30,7 @@ type LookupExpressRouteCircuitResult struct {
 	// Flag to enable Global Reach on the circuit.
 	AllowGlobalReach *bool `pulumi:"allowGlobalReach"`
 	// The list of authorizations.
-	Authorizations []ExpressRouteCircuitAuthorizationResponse `pulumi:"authorizations"`
+	Authorizations []ExpressRouteCircuitAuthorizationInvokeResponse `pulumi:"authorizations"`
 	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
 	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
 	// The CircuitProvisioningState state of the resource.
@@ -38,7 +38,7 @@ type LookupExpressRouteCircuitResult struct {
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
-	ExpressRoutePort *SubResourceResponse `pulumi:"expressRoutePort"`
+	ExpressRoutePort *SubResourceInvokeResponse `pulumi:"expressRoutePort"`
 	// The GatewayManager Etag.
 	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
 	// Resource ID.
@@ -48,7 +48,7 @@ type LookupExpressRouteCircuitResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The list of peerings.
-	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
+	Peerings []ExpressRouteCircuitPeeringInvokeResponse `pulumi:"peerings"`
 	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The ServiceKey.
@@ -56,11 +56,11 @@ type LookupExpressRouteCircuitResult struct {
 	// The ServiceProviderNotes.
 	ServiceProviderNotes *string `pulumi:"serviceProviderNotes"`
 	// The ServiceProviderProperties.
-	ServiceProviderProperties *ExpressRouteCircuitServiceProviderPropertiesResponse `pulumi:"serviceProviderProperties"`
+	ServiceProviderProperties *ExpressRouteCircuitServiceProviderPropertiesInvokeResponse `pulumi:"serviceProviderProperties"`
 	// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
 	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
 	// The SKU.
-	Sku *ExpressRouteCircuitSkuResponse `pulumi:"sku"`
+	Sku *ExpressRouteCircuitSkuInvokeResponse `pulumi:"sku"`
 	// The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
 	Stag int `pulumi:"stag"`
 	// Resource tags.

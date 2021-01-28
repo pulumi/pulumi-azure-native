@@ -28,7 +28,7 @@ type LookupTagAtScopeResult struct {
 	// The name of the tags wrapper resource.
 	Name string `pulumi:"name"`
 	// The set of tags.
-	Properties TagsResponse `pulumi:"properties"`
+	Properties TagsInvokeResponse `pulumi:"properties"`
 	// The type of the tags wrapper resource.
 	Type string `pulumi:"type"`
 }

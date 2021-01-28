@@ -28,25 +28,25 @@ type LookupStorageTargetArgs struct {
 // Type of the Storage Target.
 type LookupStorageTargetResult struct {
 	// Properties when targetType is clfs.
-	Clfs *ClfsTargetResponse `pulumi:"clfs"`
+	Clfs *ClfsTargetInvokeResponse `pulumi:"clfs"`
 	// Resource ID of the Storage Target.
 	Id string `pulumi:"id"`
 	// List of Cache namespace junctions to target for namespace associations.
-	Junctions []NamespaceJunctionResponse `pulumi:"junctions"`
+	Junctions []NamespaceJunctionInvokeResponse `pulumi:"junctions"`
 	// Region name string.
 	Location string `pulumi:"location"`
 	// Name of the Storage Target.
 	Name string `pulumi:"name"`
 	// Properties when targetType is nfs3.
-	Nfs3 *Nfs3TargetResponse `pulumi:"nfs3"`
+	Nfs3 *Nfs3TargetInvokeResponse `pulumi:"nfs3"`
 	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Type of the Storage Target.
 	TargetType string `pulumi:"targetType"`
 	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
 	Type string `pulumi:"type"`
 	// Properties when targetType is unknown.
-	Unknown *UnknownTargetResponse `pulumi:"unknown"`
+	Unknown *UnknownTargetInvokeResponse `pulumi:"unknown"`
 }

@@ -50,7 +50,7 @@ type LookupWebhookResult struct {
 	// Gets or sets the name of the hybrid worker group the webhook job will run on.
 	RunOn *string `pulumi:"runOn"`
 	// Gets or sets the runbook the webhook is associated with.
-	Runbook *RunbookAssociationPropertyResponse `pulumi:"runbook"`
+	Runbook *RunbookAssociationPropertyInvokeResponse `pulumi:"runbook"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 	// Gets or sets the webhook uri.

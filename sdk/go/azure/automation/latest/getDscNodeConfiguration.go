@@ -28,7 +28,7 @@ type LookupDscNodeConfigurationArgs struct {
 // Definition of the dsc node configuration.
 type LookupDscNodeConfigurationResult struct {
 	// Gets or sets the configuration of the node.
-	Configuration *DscConfigurationAssociationPropertyResponse `pulumi:"configuration"`
+	Configuration *DscConfigurationAssociationPropertyInvokeResponse `pulumi:"configuration"`
 	// Gets or sets creation time.
 	CreationTime *string `pulumi:"creationTime"`
 	// Fully qualified resource Id for the resource

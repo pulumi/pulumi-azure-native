@@ -28,7 +28,7 @@ type LookupConnectedRegistryArgs struct {
 // An object that represents a connected registry for a container registry.
 type LookupConnectedRegistryResult struct {
 	// The activation properties of the connected registry.
-	Activation ActivationPropertiesResponse `pulumi:"activation"`
+	Activation ActivationPropertiesInvokeResponse `pulumi:"activation"`
 	// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
 	ClientTokenIds []string `pulumi:"clientTokenIds"`
 	// The current connection state of the connected registry.
@@ -38,21 +38,21 @@ type LookupConnectedRegistryResult struct {
 	// The last activity time of the connected registry.
 	LastActivityTime string `pulumi:"lastActivityTime"`
 	// The logging properties of the connected registry.
-	Logging *LoggingPropertiesResponse `pulumi:"logging"`
+	Logging *LoggingPropertiesInvokeResponse `pulumi:"logging"`
 	// The login server properties of the connected registry.
-	LoginServer *LoginServerPropertiesResponse `pulumi:"loginServer"`
+	LoginServer *LoginServerPropertiesInvokeResponse `pulumi:"loginServer"`
 	// The mode of the connected registry resource that indicates the permissions of the registry.
 	Mode string `pulumi:"mode"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The parent of the connected registry.
-	Parent ParentPropertiesResponse `pulumi:"parent"`
+	Parent ParentPropertiesInvokeResponse `pulumi:"parent"`
 	// Provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The list of current statuses of the connected registry.
-	StatusDetails []StatusDetailPropertiesResponse `pulumi:"statusDetails"`
+	StatusDetails []StatusDetailPropertiesInvokeResponse `pulumi:"statusDetails"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 	// The current version of ACR runtime on the connected registry.

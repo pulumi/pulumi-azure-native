@@ -30,7 +30,7 @@ type LookupPeerAsnResult struct {
 	// The Autonomous System Number (ASN) of the peer.
 	PeerAsn *int `pulumi:"peerAsn"`
 	// The contact information of the peer.
-	PeerContactInfo *ContactInfoResponse `pulumi:"peerContactInfo"`
+	PeerContactInfo *ContactInfoInvokeResponse `pulumi:"peerContactInfo"`
 	// The name of the peer.
 	PeerName *string `pulumi:"peerName"`
 	// The type of the resource.

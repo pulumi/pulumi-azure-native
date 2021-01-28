@@ -28,7 +28,7 @@ type LookupTemplateSpecVersionArgs struct {
 // Template Spec Version object.
 type LookupTemplateSpecVersionResult struct {
 	// An array of Template Spec artifacts.
-	Artifacts []TemplateSpecTemplateArtifactResponse `pulumi:"artifacts"`
+	Artifacts []TemplateSpecTemplateArtifactInvokeResponse `pulumi:"artifacts"`
 	// Template Spec version description.
 	Description *string `pulumi:"description"`
 	// String Id used to locate any resource on Azure.
@@ -38,7 +38,7 @@ type LookupTemplateSpecVersionResult struct {
 	// Name of this resource.
 	Name string `pulumi:"name"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Resource Manager template content.

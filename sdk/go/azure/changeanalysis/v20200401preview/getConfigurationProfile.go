@@ -26,13 +26,13 @@ type LookupConfigurationProfileResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The identity block returned by ARM resource that supports managed identity.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityInvokeResponse `pulumi:"identity"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The properties of a configuration profile.
-	Properties ConfigurationProfileResourcePropertiesResponse `pulumi:"properties"`
+	Properties ConfigurationProfileResourcePropertiesInvokeResponse `pulumi:"properties"`
 	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
-	SystemData *SystemDataResponse `pulumi:"systemData"`
+	SystemData *SystemDataInvokeResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

@@ -40,7 +40,7 @@ type LookupClusterResult struct {
 	// The state of the cluster provisioning
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The cluster SKU
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

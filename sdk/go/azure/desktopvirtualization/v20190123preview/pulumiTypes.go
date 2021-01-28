@@ -183,6 +183,79 @@ func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 }
 
 // Represents a RegistrationInfo definition.
+type RegistrationInfoInvokeResponse struct {
+	// Expiration time of registration token.
+	ExpirationTime *string `pulumi:"expirationTime"`
+	// Update registration token.
+	ResetToken *bool `pulumi:"resetToken"`
+	// The registration token base64 encoded string.
+	Token *string `pulumi:"token"`
+}
+
+// RegistrationInfoInvokeResponseInput is an input type that accepts RegistrationInfoInvokeResponseArgs and RegistrationInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `RegistrationInfoInvokeResponseInput` via:
+//
+//          RegistrationInfoInvokeResponseArgs{...}
+type RegistrationInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRegistrationInfoInvokeResponseOutput() RegistrationInfoInvokeResponseOutput
+	ToRegistrationInfoInvokeResponseOutputWithContext(context.Context) RegistrationInfoInvokeResponseOutput
+}
+
+// Represents a RegistrationInfo definition.
+type RegistrationInfoInvokeResponseArgs struct {
+	// Expiration time of registration token.
+	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
+	// Update registration token.
+	ResetToken pulumi.BoolPtrInput `pulumi:"resetToken"`
+	// The registration token base64 encoded string.
+	Token pulumi.StringPtrInput `pulumi:"token"`
+}
+
+func (RegistrationInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i RegistrationInfoInvokeResponseArgs) ToRegistrationInfoInvokeResponseOutput() RegistrationInfoInvokeResponseOutput {
+	return i.ToRegistrationInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RegistrationInfoInvokeResponseArgs) ToRegistrationInfoInvokeResponseOutputWithContext(ctx context.Context) RegistrationInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoInvokeResponseOutput)
+}
+
+// Represents a RegistrationInfo definition.
+type RegistrationInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RegistrationInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o RegistrationInfoInvokeResponseOutput) ToRegistrationInfoInvokeResponseOutput() RegistrationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o RegistrationInfoInvokeResponseOutput) ToRegistrationInfoInvokeResponseOutputWithContext(ctx context.Context) RegistrationInfoInvokeResponseOutput {
+	return o
+}
+
+// Expiration time of registration token.
+func (o RegistrationInfoInvokeResponseOutput) ExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationInfoInvokeResponse) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
+}
+
+// Update registration token.
+func (o RegistrationInfoInvokeResponseOutput) ResetToken() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistrationInfoInvokeResponse) *bool { return v.ResetToken }).(pulumi.BoolPtrOutput)
+}
+
+// The registration token base64 encoded string.
+func (o RegistrationInfoInvokeResponseOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationInfoInvokeResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+// Represents a RegistrationInfo definition.
 type RegistrationInfoResponse struct {
 	// Expiration time of registration token.
 	ExpirationTime *string `pulumi:"expirationTime"`
@@ -357,6 +430,7 @@ func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(RegistrationInfoOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoPtrOutput{})
+	pulumi.RegisterOutputType(RegistrationInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoResponsePtrOutput{})
 }

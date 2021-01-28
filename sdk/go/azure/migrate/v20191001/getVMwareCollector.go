@@ -26,9 +26,9 @@ type LookupVMwareCollectorArgs struct {
 }
 
 type LookupVMwareCollectorResult struct {
-	ETag       *string                     `pulumi:"eTag"`
-	Id         string                      `pulumi:"id"`
-	Name       string                      `pulumi:"name"`
-	Properties CollectorPropertiesResponse `pulumi:"properties"`
-	Type       string                      `pulumi:"type"`
+	ETag       *string                           `pulumi:"eTag"`
+	Id         string                            `pulumi:"id"`
+	Name       string                            `pulumi:"name"`
+	Properties CollectorPropertiesInvokeResponse `pulumi:"properties"`
+	Type       string                            `pulumi:"type"`
 }

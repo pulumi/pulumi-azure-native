@@ -34,33 +34,33 @@ type LookupDomainServiceResult struct {
 	// The name of the Azure domain that the user would like to deploy Domain Services to.
 	DomainName *string `pulumi:"domainName"`
 	// DomainSecurity Settings
-	DomainSecuritySettings *DomainSecuritySettingsResponse `pulumi:"domainSecuritySettings"`
+	DomainSecuritySettings *DomainSecuritySettingsInvokeResponse `pulumi:"domainSecuritySettings"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
 	// Enabled or Disabled flag to turn on Group-based filtered sync
 	FilteredSync *string `pulumi:"filteredSync"`
 	// List of Domain Health Alerts
-	HealthAlerts []HealthAlertResponse `pulumi:"healthAlerts"`
+	HealthAlerts []HealthAlertInvokeResponse `pulumi:"healthAlerts"`
 	// Last domain evaluation run DateTime
 	HealthLastEvaluated string `pulumi:"healthLastEvaluated"`
 	// List of Domain Health Monitors
-	HealthMonitors []HealthMonitorResponse `pulumi:"healthMonitors"`
+	HealthMonitors []HealthMonitorInvokeResponse `pulumi:"healthMonitors"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Secure LDAP Settings
-	LdapsSettings *LdapsSettingsResponse `pulumi:"ldapsSettings"`
+	LdapsSettings *LdapsSettingsInvokeResponse `pulumi:"ldapsSettings"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Migration Properties
-	MigrationProperties MigrationPropertiesResponse `pulumi:"migrationProperties"`
+	MigrationProperties MigrationPropertiesInvokeResponse `pulumi:"migrationProperties"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Notification Settings
-	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
+	NotificationSettings *NotificationSettingsInvokeResponse `pulumi:"notificationSettings"`
 	// the current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource Forest Settings
-	ResourceForestSettings *ResourceForestSettingsResponse `pulumi:"resourceForestSettings"`
+	ResourceForestSettings *ResourceForestSettingsInvokeResponse `pulumi:"resourceForestSettings"`
 	// Status of Domain Service instance
 	ServiceStatus string `pulumi:"serviceStatus"`
 	// Sku Type

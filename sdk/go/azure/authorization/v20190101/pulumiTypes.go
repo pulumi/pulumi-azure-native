@@ -145,6 +145,79 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Identity for the resource.
+type IdentityInvokeResponse struct {
+	// The principal ID of the resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of the resource identity.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// IdentityInvokeResponseInput is an input type that accepts IdentityInvokeResponseArgs and IdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentityInvokeResponseInput` via:
+//
+//          IdentityInvokeResponseArgs{...}
+type IdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput
+	ToIdentityInvokeResponseOutputWithContext(context.Context) IdentityInvokeResponseOutput
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseArgs struct {
+	// The principal ID of the resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of the resource identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return i.ToIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityInvokeResponseOutput)
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal ID of the resource identity.
+func (o IdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of the resource identity.
+func (o IdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o IdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of the resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -426,6 +499,115 @@ func (o PolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) PolicyDef
 }
 
 // The policy definition reference.
+type PolicyDefinitionReferenceInvokeResponse struct {
+	// Required if a parameter is used in policy rule.
+	Parameters interface{} `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+}
+
+// PolicyDefinitionReferenceInvokeResponseInput is an input type that accepts PolicyDefinitionReferenceInvokeResponseArgs and PolicyDefinitionReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `PolicyDefinitionReferenceInvokeResponseInput` via:
+//
+//          PolicyDefinitionReferenceInvokeResponseArgs{...}
+type PolicyDefinitionReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionReferenceInvokeResponseOutput() PolicyDefinitionReferenceInvokeResponseOutput
+	ToPolicyDefinitionReferenceInvokeResponseOutputWithContext(context.Context) PolicyDefinitionReferenceInvokeResponseOutput
+}
+
+// The policy definition reference.
+type PolicyDefinitionReferenceInvokeResponseArgs struct {
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition.
+	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
+}
+
+func (PolicyDefinitionReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i PolicyDefinitionReferenceInvokeResponseArgs) ToPolicyDefinitionReferenceInvokeResponseOutput() PolicyDefinitionReferenceInvokeResponseOutput {
+	return i.ToPolicyDefinitionReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionReferenceInvokeResponseArgs) ToPolicyDefinitionReferenceInvokeResponseOutputWithContext(ctx context.Context) PolicyDefinitionReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionReferenceInvokeResponseOutput)
+}
+
+// PolicyDefinitionReferenceInvokeResponseArrayInput is an input type that accepts PolicyDefinitionReferenceInvokeResponseArray and PolicyDefinitionReferenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PolicyDefinitionReferenceInvokeResponseArrayInput` via:
+//
+//          PolicyDefinitionReferenceInvokeResponseArray{ PolicyDefinitionReferenceInvokeResponseArgs{...} }
+type PolicyDefinitionReferenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPolicyDefinitionReferenceInvokeResponseArrayOutput() PolicyDefinitionReferenceInvokeResponseArrayOutput
+	ToPolicyDefinitionReferenceInvokeResponseArrayOutputWithContext(context.Context) PolicyDefinitionReferenceInvokeResponseArrayOutput
+}
+
+type PolicyDefinitionReferenceInvokeResponseArray []PolicyDefinitionReferenceInvokeResponseInput
+
+func (PolicyDefinitionReferenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyDefinitionReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i PolicyDefinitionReferenceInvokeResponseArray) ToPolicyDefinitionReferenceInvokeResponseArrayOutput() PolicyDefinitionReferenceInvokeResponseArrayOutput {
+	return i.ToPolicyDefinitionReferenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyDefinitionReferenceInvokeResponseArray) ToPolicyDefinitionReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) PolicyDefinitionReferenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionReferenceInvokeResponseArrayOutput)
+}
+
+// The policy definition reference.
+type PolicyDefinitionReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDefinitionReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o PolicyDefinitionReferenceInvokeResponseOutput) ToPolicyDefinitionReferenceInvokeResponseOutput() PolicyDefinitionReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o PolicyDefinitionReferenceInvokeResponseOutput) ToPolicyDefinitionReferenceInvokeResponseOutputWithContext(ctx context.Context) PolicyDefinitionReferenceInvokeResponseOutput {
+	return o
+}
+
+// Required if a parameter is used in policy rule.
+func (o PolicyDefinitionReferenceInvokeResponseOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v PolicyDefinitionReferenceInvokeResponse) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The ID of the policy definition or policy set definition.
+func (o PolicyDefinitionReferenceInvokeResponseOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyDefinitionReferenceInvokeResponse) *string { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+type PolicyDefinitionReferenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyDefinitionReferenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyDefinitionReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o PolicyDefinitionReferenceInvokeResponseArrayOutput) ToPolicyDefinitionReferenceInvokeResponseArrayOutput() PolicyDefinitionReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PolicyDefinitionReferenceInvokeResponseArrayOutput) ToPolicyDefinitionReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) PolicyDefinitionReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PolicyDefinitionReferenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) PolicyDefinitionReferenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyDefinitionReferenceInvokeResponse {
+		return vs[0].([]PolicyDefinitionReferenceInvokeResponse)[vs[1].(int)]
+	}).(PolicyDefinitionReferenceInvokeResponseOutput)
+}
+
+// The policy definition reference.
 type PolicyDefinitionReferenceResponse struct {
 	// Required if a parameter is used in policy rule.
 	Parameters interface{} `pulumi:"parameters"`
@@ -688,6 +870,70 @@ func (o PolicySkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // The policy sku. This property is optional, obsolete, and will be ignored.
+type PolicySkuInvokeResponse struct {
+	// The name of the policy sku. Possible values are A0 and A1.
+	Name string `pulumi:"name"`
+	// The policy sku tier. Possible values are Free and Standard.
+	Tier *string `pulumi:"tier"`
+}
+
+// PolicySkuInvokeResponseInput is an input type that accepts PolicySkuInvokeResponseArgs and PolicySkuInvokeResponseOutput values.
+// You can construct a concrete instance of `PolicySkuInvokeResponseInput` via:
+//
+//          PolicySkuInvokeResponseArgs{...}
+type PolicySkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPolicySkuInvokeResponseOutput() PolicySkuInvokeResponseOutput
+	ToPolicySkuInvokeResponseOutputWithContext(context.Context) PolicySkuInvokeResponseOutput
+}
+
+// The policy sku. This property is optional, obsolete, and will be ignored.
+type PolicySkuInvokeResponseArgs struct {
+	// The name of the policy sku. Possible values are A0 and A1.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The policy sku tier. Possible values are Free and Standard.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (PolicySkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySkuInvokeResponse)(nil)).Elem()
+}
+
+func (i PolicySkuInvokeResponseArgs) ToPolicySkuInvokeResponseOutput() PolicySkuInvokeResponseOutput {
+	return i.ToPolicySkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PolicySkuInvokeResponseArgs) ToPolicySkuInvokeResponseOutputWithContext(ctx context.Context) PolicySkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicySkuInvokeResponseOutput)
+}
+
+// The policy sku. This property is optional, obsolete, and will be ignored.
+type PolicySkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PolicySkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicySkuInvokeResponse)(nil)).Elem()
+}
+
+func (o PolicySkuInvokeResponseOutput) ToPolicySkuInvokeResponseOutput() PolicySkuInvokeResponseOutput {
+	return o
+}
+
+func (o PolicySkuInvokeResponseOutput) ToPolicySkuInvokeResponseOutputWithContext(ctx context.Context) PolicySkuInvokeResponseOutput {
+	return o
+}
+
+// The name of the policy sku. Possible values are A0 and A1.
+func (o PolicySkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicySkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The policy sku tier. Possible values are Free and Standard.
+func (o PolicySkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The policy sku. This property is optional, obsolete, and will be ignored.
 type PolicySkuResponse struct {
 	// The name of the policy sku. Possible values are A0 and A1.
 	Name string `pulumi:"name"`
@@ -843,14 +1089,18 @@ func (o PolicySkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceArrayOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PolicyDefinitionReferenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(PolicySkuOutput{})
 	pulumi.RegisterOutputType(PolicySkuPtrOutput{})
+	pulumi.RegisterOutputType(PolicySkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PolicySkuResponseOutput{})
 	pulumi.RegisterOutputType(PolicySkuResponsePtrOutput{})
 }

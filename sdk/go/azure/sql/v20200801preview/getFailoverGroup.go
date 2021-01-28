@@ -36,11 +36,11 @@ type LookupFailoverGroupResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// List of partner server information for the failover group.
-	PartnerServers []PartnerInfoResponse `pulumi:"partnerServers"`
+	PartnerServers []PartnerInfoInvokeResponse `pulumi:"partnerServers"`
 	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint *FailoverGroupReadOnlyEndpointResponse `pulumi:"readOnlyEndpoint"`
+	ReadOnlyEndpoint *FailoverGroupReadOnlyEndpointInvokeResponse `pulumi:"readOnlyEndpoint"`
 	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint FailoverGroupReadWriteEndpointResponse `pulumi:"readWriteEndpoint"`
+	ReadWriteEndpoint FailoverGroupReadWriteEndpointInvokeResponse `pulumi:"readWriteEndpoint"`
 	// Local replication role of the failover group instance.
 	ReplicationRole string `pulumi:"replicationRole"`
 	// Replication state of the failover group instance.

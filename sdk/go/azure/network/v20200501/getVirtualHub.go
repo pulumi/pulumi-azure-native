@@ -28,31 +28,31 @@ type LookupVirtualHubResult struct {
 	// Address-prefix for this VirtualHub.
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// The azureFirewall associated with this VirtualHub.
-	AzureFirewall *SubResourceResponse `pulumi:"azureFirewall"`
+	AzureFirewall *SubResourceInvokeResponse `pulumi:"azureFirewall"`
 	// List of references to Bgp Connections.
-	BgpConnections []SubResourceResponse `pulumi:"bgpConnections"`
+	BgpConnections []SubResourceInvokeResponse `pulumi:"bgpConnections"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The expressRouteGateway associated with this VirtualHub.
-	ExpressRouteGateway *SubResourceResponse `pulumi:"expressRouteGateway"`
+	ExpressRouteGateway *SubResourceInvokeResponse `pulumi:"expressRouteGateway"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// List of references to IpConfigurations.
-	IpConfigurations []SubResourceResponse `pulumi:"ipConfigurations"`
+	IpConfigurations []SubResourceInvokeResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The P2SVpnGateway associated with this VirtualHub.
-	P2SVpnGateway *SubResourceResponse `pulumi:"p2SVpnGateway"`
+	P2SVpnGateway *SubResourceInvokeResponse `pulumi:"p2SVpnGateway"`
 	// The provisioning state of the virtual hub resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The routeTable associated with this virtual hub.
-	RouteTable *VirtualHubRouteTableResponse `pulumi:"routeTable"`
+	RouteTable *VirtualHubRouteTableInvokeResponse `pulumi:"routeTable"`
 	// The routing state.
 	RoutingState string `pulumi:"routingState"`
 	// The securityPartnerProvider associated with this VirtualHub.
-	SecurityPartnerProvider *SubResourceResponse `pulumi:"securityPartnerProvider"`
+	SecurityPartnerProvider *SubResourceInvokeResponse `pulumi:"securityPartnerProvider"`
 	// The Security Provider name.
 	SecurityProviderName *string `pulumi:"securityProviderName"`
 	// The sku of this VirtualHub.
@@ -62,13 +62,13 @@ type LookupVirtualHubResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// List of all virtual hub route table v2s associated with this VirtualHub.
-	VirtualHubRouteTableV2s []VirtualHubRouteTableV2Response `pulumi:"virtualHubRouteTableV2s"`
+	VirtualHubRouteTableV2s []VirtualHubRouteTableV2InvokeResponse `pulumi:"virtualHubRouteTableV2s"`
 	// VirtualRouter ASN.
 	VirtualRouterAsn *float64 `pulumi:"virtualRouterAsn"`
 	// VirtualRouter IPs.
 	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 	// The VirtualWAN to which the VirtualHub belongs.
-	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
+	VirtualWan *SubResourceInvokeResponse `pulumi:"virtualWan"`
 	// The VpnGateway associated with this VirtualHub.
-	VpnGateway *SubResourceResponse `pulumi:"vpnGateway"`
+	VpnGateway *SubResourceInvokeResponse `pulumi:"vpnGateway"`
 }

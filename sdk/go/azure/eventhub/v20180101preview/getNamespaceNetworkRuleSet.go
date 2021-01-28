@@ -30,7 +30,7 @@ type LookupNamespaceNetworkRuleSetResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// List of IpRules
-	IpRules []NWRuleSetIpRulesResponse `pulumi:"ipRules"`
+	IpRules []NWRuleSetIpRulesInvokeResponse `pulumi:"ipRules"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Value that indicates whether Trusted Service Access is Enabled or not.
@@ -38,5 +38,5 @@ type LookupNamespaceNetworkRuleSetResult struct {
 	// Resource type.
 	Type string `pulumi:"type"`
 	// List VirtualNetwork Rules
-	VirtualNetworkRules []NWRuleSetVirtualNetworkRulesResponse `pulumi:"virtualNetworkRules"`
+	VirtualNetworkRules []NWRuleSetVirtualNetworkRulesInvokeResponse `pulumi:"virtualNetworkRules"`
 }

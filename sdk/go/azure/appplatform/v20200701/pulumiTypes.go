@@ -240,6 +240,133 @@ func (o AppResourcePropertiesPtrOutput) TemporaryDisk() TemporaryDiskPtrOutput {
 }
 
 // App resource properties payload
+type AppResourcePropertiesInvokeResponse struct {
+	// Name of the active deployment of the App
+	ActiveDeploymentName *string `pulumi:"activeDeploymentName"`
+	// Date time when the resource is created
+	CreatedTime string `pulumi:"createdTime"`
+	// Fully qualified dns Name.
+	Fqdn *string `pulumi:"fqdn"`
+	// Indicate if only https is allowed.
+	HttpsOnly *bool `pulumi:"httpsOnly"`
+	// Persistent disk settings
+	PersistentDisk *PersistentDiskInvokeResponse `pulumi:"persistentDisk"`
+	// Provisioning state of the App
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Indicates whether the App exposes public endpoint
+	Public *bool `pulumi:"public"`
+	// Temporary disk settings
+	TemporaryDisk *TemporaryDiskInvokeResponse `pulumi:"temporaryDisk"`
+	// URL of the App
+	Url string `pulumi:"url"`
+}
+
+// AppResourcePropertiesInvokeResponseInput is an input type that accepts AppResourcePropertiesInvokeResponseArgs and AppResourcePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AppResourcePropertiesInvokeResponseInput` via:
+//
+//          AppResourcePropertiesInvokeResponseArgs{...}
+type AppResourcePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAppResourcePropertiesInvokeResponseOutput() AppResourcePropertiesInvokeResponseOutput
+	ToAppResourcePropertiesInvokeResponseOutputWithContext(context.Context) AppResourcePropertiesInvokeResponseOutput
+}
+
+// App resource properties payload
+type AppResourcePropertiesInvokeResponseArgs struct {
+	// Name of the active deployment of the App
+	ActiveDeploymentName pulumi.StringPtrInput `pulumi:"activeDeploymentName"`
+	// Date time when the resource is created
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// Fully qualified dns Name.
+	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// Indicate if only https is allowed.
+	HttpsOnly pulumi.BoolPtrInput `pulumi:"httpsOnly"`
+	// Persistent disk settings
+	PersistentDisk PersistentDiskInvokeResponsePtrInput `pulumi:"persistentDisk"`
+	// Provisioning state of the App
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Indicates whether the App exposes public endpoint
+	Public pulumi.BoolPtrInput `pulumi:"public"`
+	// Temporary disk settings
+	TemporaryDisk TemporaryDiskInvokeResponsePtrInput `pulumi:"temporaryDisk"`
+	// URL of the App
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (AppResourcePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AppResourcePropertiesInvokeResponseArgs) ToAppResourcePropertiesInvokeResponseOutput() AppResourcePropertiesInvokeResponseOutput {
+	return i.ToAppResourcePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AppResourcePropertiesInvokeResponseArgs) ToAppResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) AppResourcePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppResourcePropertiesInvokeResponseOutput)
+}
+
+// App resource properties payload
+type AppResourcePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AppResourcePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AppResourcePropertiesInvokeResponseOutput) ToAppResourcePropertiesInvokeResponseOutput() AppResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AppResourcePropertiesInvokeResponseOutput) ToAppResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) AppResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Name of the active deployment of the App
+func (o AppResourcePropertiesInvokeResponseOutput) ActiveDeploymentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourcePropertiesInvokeResponse) *string { return v.ActiveDeploymentName }).(pulumi.StringPtrOutput)
+}
+
+// Date time when the resource is created
+func (o AppResourcePropertiesInvokeResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AppResourcePropertiesInvokeResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Fully qualified dns Name.
+func (o AppResourcePropertiesInvokeResponseOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourcePropertiesInvokeResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// Indicate if only https is allowed.
+func (o AppResourcePropertiesInvokeResponseOutput) HttpsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppResourcePropertiesInvokeResponse) *bool { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Persistent disk settings
+func (o AppResourcePropertiesInvokeResponseOutput) PersistentDisk() PersistentDiskInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AppResourcePropertiesInvokeResponse) *PersistentDiskInvokeResponse { return v.PersistentDisk }).(PersistentDiskInvokeResponsePtrOutput)
+}
+
+// Provisioning state of the App
+func (o AppResourcePropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AppResourcePropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Indicates whether the App exposes public endpoint
+func (o AppResourcePropertiesInvokeResponseOutput) Public() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AppResourcePropertiesInvokeResponse) *bool { return v.Public }).(pulumi.BoolPtrOutput)
+}
+
+// Temporary disk settings
+func (o AppResourcePropertiesInvokeResponseOutput) TemporaryDisk() TemporaryDiskInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AppResourcePropertiesInvokeResponse) *TemporaryDiskInvokeResponse { return v.TemporaryDisk }).(TemporaryDiskInvokeResponsePtrOutput)
+}
+
+// URL of the App
+func (o AppResourcePropertiesInvokeResponseOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v AppResourcePropertiesInvokeResponse) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// App resource properties payload
 type AppResourcePropertiesResponse struct {
 	// Name of the active deployment of the App
 	ActiveDeploymentName *string `pulumi:"activeDeploymentName"`
@@ -698,6 +825,124 @@ func (o BindingResourcePropertiesPtrOutput) ResourceId() pulumi.StringPtrOutput 
 }
 
 // Binding resource properties payload
+type BindingResourcePropertiesInvokeResponse struct {
+	// Binding parameters of the Binding resource
+	BindingParameters map[string]interface{} `pulumi:"bindingParameters"`
+	// Creation time of the Binding resource
+	CreatedAt string `pulumi:"createdAt"`
+	// The generated Spring Boot property file for this binding. The secret will be deducted.
+	GeneratedProperties string `pulumi:"generatedProperties"`
+	// The key of the bound resource
+	Key *string `pulumi:"key"`
+	// The Azure resource id of the bound resource
+	ResourceId *string `pulumi:"resourceId"`
+	// The name of the bound resource
+	ResourceName string `pulumi:"resourceName"`
+	// The standard Azure resource type of the bound resource
+	ResourceType string `pulumi:"resourceType"`
+	// Update time of the Binding resource
+	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+// BindingResourcePropertiesInvokeResponseInput is an input type that accepts BindingResourcePropertiesInvokeResponseArgs and BindingResourcePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `BindingResourcePropertiesInvokeResponseInput` via:
+//
+//          BindingResourcePropertiesInvokeResponseArgs{...}
+type BindingResourcePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBindingResourcePropertiesInvokeResponseOutput() BindingResourcePropertiesInvokeResponseOutput
+	ToBindingResourcePropertiesInvokeResponseOutputWithContext(context.Context) BindingResourcePropertiesInvokeResponseOutput
+}
+
+// Binding resource properties payload
+type BindingResourcePropertiesInvokeResponseArgs struct {
+	// Binding parameters of the Binding resource
+	BindingParameters pulumi.MapInput `pulumi:"bindingParameters"`
+	// Creation time of the Binding resource
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// The generated Spring Boot property file for this binding. The secret will be deducted.
+	GeneratedProperties pulumi.StringInput `pulumi:"generatedProperties"`
+	// The key of the bound resource
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The Azure resource id of the bound resource
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The name of the bound resource
+	ResourceName pulumi.StringInput `pulumi:"resourceName"`
+	// The standard Azure resource type of the bound resource
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// Update time of the Binding resource
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+}
+
+func (BindingResourcePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BindingResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i BindingResourcePropertiesInvokeResponseArgs) ToBindingResourcePropertiesInvokeResponseOutput() BindingResourcePropertiesInvokeResponseOutput {
+	return i.ToBindingResourcePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BindingResourcePropertiesInvokeResponseArgs) ToBindingResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) BindingResourcePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BindingResourcePropertiesInvokeResponseOutput)
+}
+
+// Binding resource properties payload
+type BindingResourcePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BindingResourcePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BindingResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o BindingResourcePropertiesInvokeResponseOutput) ToBindingResourcePropertiesInvokeResponseOutput() BindingResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o BindingResourcePropertiesInvokeResponseOutput) ToBindingResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) BindingResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Binding parameters of the Binding resource
+func (o BindingResourcePropertiesInvokeResponseOutput) BindingParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v BindingResourcePropertiesInvokeResponse) map[string]interface{} { return v.BindingParameters }).(pulumi.MapOutput)
+}
+
+// Creation time of the Binding resource
+func (o BindingResourcePropertiesInvokeResponseOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v BindingResourcePropertiesInvokeResponse) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The generated Spring Boot property file for this binding. The secret will be deducted.
+func (o BindingResourcePropertiesInvokeResponseOutput) GeneratedProperties() pulumi.StringOutput {
+	return o.ApplyT(func(v BindingResourcePropertiesInvokeResponse) string { return v.GeneratedProperties }).(pulumi.StringOutput)
+}
+
+// The key of the bound resource
+func (o BindingResourcePropertiesInvokeResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BindingResourcePropertiesInvokeResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The Azure resource id of the bound resource
+func (o BindingResourcePropertiesInvokeResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BindingResourcePropertiesInvokeResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the bound resource
+func (o BindingResourcePropertiesInvokeResponseOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v BindingResourcePropertiesInvokeResponse) string { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+// The standard Azure resource type of the bound resource
+func (o BindingResourcePropertiesInvokeResponseOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v BindingResourcePropertiesInvokeResponse) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Update time of the Binding resource
+func (o BindingResourcePropertiesInvokeResponseOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v BindingResourcePropertiesInvokeResponse) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Binding resource properties payload
 type BindingResourcePropertiesResponse struct {
 	// Binding parameters of the Binding resource
 	BindingParameters map[string]interface{} `pulumi:"bindingParameters"`
@@ -1134,6 +1379,142 @@ func (o CertificatePropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 		}
 		return &v.VaultUri
 	}).(pulumi.StringPtrOutput)
+}
+
+// Certificate resource payload.
+type CertificatePropertiesInvokeResponse struct {
+	// The activate date of certificate.
+	ActivateDate string `pulumi:"activateDate"`
+	// The certificate version of key vault.
+	CertVersion *string `pulumi:"certVersion"`
+	// The domain list of certificate.
+	DnsNames []string `pulumi:"dnsNames"`
+	// The expiration date of certificate.
+	ExpirationDate string `pulumi:"expirationDate"`
+	// The issue date of certificate.
+	IssuedDate string `pulumi:"issuedDate"`
+	// The issuer of certificate.
+	Issuer string `pulumi:"issuer"`
+	// The certificate name of key vault.
+	KeyVaultCertName string `pulumi:"keyVaultCertName"`
+	// The subject name of certificate.
+	SubjectName string `pulumi:"subjectName"`
+	// The thumbprint of certificate.
+	Thumbprint string `pulumi:"thumbprint"`
+	// The vault uri of user key vault.
+	VaultUri string `pulumi:"vaultUri"`
+}
+
+// CertificatePropertiesInvokeResponseInput is an input type that accepts CertificatePropertiesInvokeResponseArgs and CertificatePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CertificatePropertiesInvokeResponseInput` via:
+//
+//          CertificatePropertiesInvokeResponseArgs{...}
+type CertificatePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCertificatePropertiesInvokeResponseOutput() CertificatePropertiesInvokeResponseOutput
+	ToCertificatePropertiesInvokeResponseOutputWithContext(context.Context) CertificatePropertiesInvokeResponseOutput
+}
+
+// Certificate resource payload.
+type CertificatePropertiesInvokeResponseArgs struct {
+	// The activate date of certificate.
+	ActivateDate pulumi.StringInput `pulumi:"activateDate"`
+	// The certificate version of key vault.
+	CertVersion pulumi.StringPtrInput `pulumi:"certVersion"`
+	// The domain list of certificate.
+	DnsNames pulumi.StringArrayInput `pulumi:"dnsNames"`
+	// The expiration date of certificate.
+	ExpirationDate pulumi.StringInput `pulumi:"expirationDate"`
+	// The issue date of certificate.
+	IssuedDate pulumi.StringInput `pulumi:"issuedDate"`
+	// The issuer of certificate.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The certificate name of key vault.
+	KeyVaultCertName pulumi.StringInput `pulumi:"keyVaultCertName"`
+	// The subject name of certificate.
+	SubjectName pulumi.StringInput `pulumi:"subjectName"`
+	// The thumbprint of certificate.
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	// The vault uri of user key vault.
+	VaultUri pulumi.StringInput `pulumi:"vaultUri"`
+}
+
+func (CertificatePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CertificatePropertiesInvokeResponseArgs) ToCertificatePropertiesInvokeResponseOutput() CertificatePropertiesInvokeResponseOutput {
+	return i.ToCertificatePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CertificatePropertiesInvokeResponseArgs) ToCertificatePropertiesInvokeResponseOutputWithContext(ctx context.Context) CertificatePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesInvokeResponseOutput)
+}
+
+// Certificate resource payload.
+type CertificatePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CertificatePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CertificatePropertiesInvokeResponseOutput) ToCertificatePropertiesInvokeResponseOutput() CertificatePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CertificatePropertiesInvokeResponseOutput) ToCertificatePropertiesInvokeResponseOutputWithContext(ctx context.Context) CertificatePropertiesInvokeResponseOutput {
+	return o
+}
+
+// The activate date of certificate.
+func (o CertificatePropertiesInvokeResponseOutput) ActivateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.ActivateDate }).(pulumi.StringOutput)
+}
+
+// The certificate version of key vault.
+func (o CertificatePropertiesInvokeResponseOutput) CertVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) *string { return v.CertVersion }).(pulumi.StringPtrOutput)
+}
+
+// The domain list of certificate.
+func (o CertificatePropertiesInvokeResponseOutput) DnsNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) []string { return v.DnsNames }).(pulumi.StringArrayOutput)
+}
+
+// The expiration date of certificate.
+func (o CertificatePropertiesInvokeResponseOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+// The issue date of certificate.
+func (o CertificatePropertiesInvokeResponseOutput) IssuedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.IssuedDate }).(pulumi.StringOutput)
+}
+
+// The issuer of certificate.
+func (o CertificatePropertiesInvokeResponseOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// The certificate name of key vault.
+func (o CertificatePropertiesInvokeResponseOutput) KeyVaultCertName() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.KeyVaultCertName }).(pulumi.StringOutput)
+}
+
+// The subject name of certificate.
+func (o CertificatePropertiesInvokeResponseOutput) SubjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.SubjectName }).(pulumi.StringOutput)
+}
+
+// The thumbprint of certificate.
+func (o CertificatePropertiesInvokeResponseOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// The vault uri of user key vault.
+func (o CertificatePropertiesInvokeResponseOutput) VaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePropertiesInvokeResponse) string { return v.VaultUri }).(pulumi.StringOutput)
 }
 
 // Certificate resource payload.
@@ -1576,6 +1957,88 @@ func (o ClusterResourcePropertiesPtrOutput) NetworkProfile() NetworkProfilePtrOu
 }
 
 // Service properties payload
+type ClusterResourcePropertiesInvokeResponse struct {
+	// Network profile of the Service
+	NetworkProfile *NetworkProfileInvokeResponse `pulumi:"networkProfile"`
+	// Provisioning state of the Service
+	ProvisioningState string `pulumi:"provisioningState"`
+	// ServiceInstanceEntity GUID which uniquely identifies a created resource
+	ServiceId string `pulumi:"serviceId"`
+	// Version of the Service
+	Version int `pulumi:"version"`
+}
+
+// ClusterResourcePropertiesInvokeResponseInput is an input type that accepts ClusterResourcePropertiesInvokeResponseArgs and ClusterResourcePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterResourcePropertiesInvokeResponseInput` via:
+//
+//          ClusterResourcePropertiesInvokeResponseArgs{...}
+type ClusterResourcePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterResourcePropertiesInvokeResponseOutput() ClusterResourcePropertiesInvokeResponseOutput
+	ToClusterResourcePropertiesInvokeResponseOutputWithContext(context.Context) ClusterResourcePropertiesInvokeResponseOutput
+}
+
+// Service properties payload
+type ClusterResourcePropertiesInvokeResponseArgs struct {
+	// Network profile of the Service
+	NetworkProfile NetworkProfileInvokeResponsePtrInput `pulumi:"networkProfile"`
+	// Provisioning state of the Service
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// ServiceInstanceEntity GUID which uniquely identifies a created resource
+	ServiceId pulumi.StringInput `pulumi:"serviceId"`
+	// Version of the Service
+	Version pulumi.IntInput `pulumi:"version"`
+}
+
+func (ClusterResourcePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterResourcePropertiesInvokeResponseArgs) ToClusterResourcePropertiesInvokeResponseOutput() ClusterResourcePropertiesInvokeResponseOutput {
+	return i.ToClusterResourcePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterResourcePropertiesInvokeResponseArgs) ToClusterResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) ClusterResourcePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcePropertiesInvokeResponseOutput)
+}
+
+// Service properties payload
+type ClusterResourcePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterResourcePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterResourcePropertiesInvokeResponseOutput) ToClusterResourcePropertiesInvokeResponseOutput() ClusterResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterResourcePropertiesInvokeResponseOutput) ToClusterResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) ClusterResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Network profile of the Service
+func (o ClusterResourcePropertiesInvokeResponseOutput) NetworkProfile() NetworkProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ClusterResourcePropertiesInvokeResponse) *NetworkProfileInvokeResponse { return v.NetworkProfile }).(NetworkProfileInvokeResponsePtrOutput)
+}
+
+// Provisioning state of the Service
+func (o ClusterResourcePropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterResourcePropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// ServiceInstanceEntity GUID which uniquely identifies a created resource
+func (o ClusterResourcePropertiesInvokeResponseOutput) ServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterResourcePropertiesInvokeResponse) string { return v.ServiceId }).(pulumi.StringOutput)
+}
+
+// Version of the Service
+func (o ClusterResourcePropertiesInvokeResponseOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterResourcePropertiesInvokeResponse) int { return v.Version }).(pulumi.IntOutput)
+}
+
+// Service properties payload
 type ClusterResourcePropertiesResponse struct {
 	// Network profile of the Service
 	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
@@ -1920,6 +2383,79 @@ func (o CustomDomainPropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 }
 
 // Custom domain of app resource payload.
+type CustomDomainPropertiesInvokeResponse struct {
+	// The app name of domain.
+	AppName string `pulumi:"appName"`
+	// The bound certificate name of domain.
+	CertName *string `pulumi:"certName"`
+	// The thumbprint of bound certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// CustomDomainPropertiesInvokeResponseInput is an input type that accepts CustomDomainPropertiesInvokeResponseArgs and CustomDomainPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `CustomDomainPropertiesInvokeResponseInput` via:
+//
+//          CustomDomainPropertiesInvokeResponseArgs{...}
+type CustomDomainPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCustomDomainPropertiesInvokeResponseOutput() CustomDomainPropertiesInvokeResponseOutput
+	ToCustomDomainPropertiesInvokeResponseOutputWithContext(context.Context) CustomDomainPropertiesInvokeResponseOutput
+}
+
+// Custom domain of app resource payload.
+type CustomDomainPropertiesInvokeResponseArgs struct {
+	// The app name of domain.
+	AppName pulumi.StringInput `pulumi:"appName"`
+	// The bound certificate name of domain.
+	CertName pulumi.StringPtrInput `pulumi:"certName"`
+	// The thumbprint of bound certificate.
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (CustomDomainPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i CustomDomainPropertiesInvokeResponseArgs) ToCustomDomainPropertiesInvokeResponseOutput() CustomDomainPropertiesInvokeResponseOutput {
+	return i.ToCustomDomainPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CustomDomainPropertiesInvokeResponseArgs) ToCustomDomainPropertiesInvokeResponseOutputWithContext(ctx context.Context) CustomDomainPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesInvokeResponseOutput)
+}
+
+// Custom domain of app resource payload.
+type CustomDomainPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomDomainPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDomainPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o CustomDomainPropertiesInvokeResponseOutput) ToCustomDomainPropertiesInvokeResponseOutput() CustomDomainPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o CustomDomainPropertiesInvokeResponseOutput) ToCustomDomainPropertiesInvokeResponseOutputWithContext(ctx context.Context) CustomDomainPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The app name of domain.
+func (o CustomDomainPropertiesInvokeResponseOutput) AppName() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomDomainPropertiesInvokeResponse) string { return v.AppName }).(pulumi.StringOutput)
+}
+
+// The bound certificate name of domain.
+func (o CustomDomainPropertiesInvokeResponseOutput) CertName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPropertiesInvokeResponse) *string { return v.CertName }).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint of bound certificate.
+func (o CustomDomainPropertiesInvokeResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPropertiesInvokeResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Custom domain of app resource payload.
 type CustomDomainPropertiesResponse struct {
 	// The app name of domain.
 	AppName string `pulumi:"appName"`
@@ -2089,6 +2625,142 @@ func (o CustomDomainPropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOu
 		}
 		return v.Thumbprint
 	}).(pulumi.StringPtrOutput)
+}
+
+// Deployment instance payload
+type DeploymentInstanceInvokeResponse struct {
+	// Discovery status of the deployment instance
+	DiscoveryStatus string `pulumi:"discoveryStatus"`
+	// Name of the deployment instance
+	Name string `pulumi:"name"`
+	// Failed reason of the deployment instance
+	Reason string `pulumi:"reason"`
+	// Start time of the deployment instance
+	StartTime string `pulumi:"startTime"`
+	// Status of the deployment instance
+	Status string `pulumi:"status"`
+}
+
+// DeploymentInstanceInvokeResponseInput is an input type that accepts DeploymentInstanceInvokeResponseArgs and DeploymentInstanceInvokeResponseOutput values.
+// You can construct a concrete instance of `DeploymentInstanceInvokeResponseInput` via:
+//
+//          DeploymentInstanceInvokeResponseArgs{...}
+type DeploymentInstanceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeploymentInstanceInvokeResponseOutput() DeploymentInstanceInvokeResponseOutput
+	ToDeploymentInstanceInvokeResponseOutputWithContext(context.Context) DeploymentInstanceInvokeResponseOutput
+}
+
+// Deployment instance payload
+type DeploymentInstanceInvokeResponseArgs struct {
+	// Discovery status of the deployment instance
+	DiscoveryStatus pulumi.StringInput `pulumi:"discoveryStatus"`
+	// Name of the deployment instance
+	Name pulumi.StringInput `pulumi:"name"`
+	// Failed reason of the deployment instance
+	Reason pulumi.StringInput `pulumi:"reason"`
+	// Start time of the deployment instance
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// Status of the deployment instance
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (DeploymentInstanceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentInstanceInvokeResponse)(nil)).Elem()
+}
+
+func (i DeploymentInstanceInvokeResponseArgs) ToDeploymentInstanceInvokeResponseOutput() DeploymentInstanceInvokeResponseOutput {
+	return i.ToDeploymentInstanceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeploymentInstanceInvokeResponseArgs) ToDeploymentInstanceInvokeResponseOutputWithContext(ctx context.Context) DeploymentInstanceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentInstanceInvokeResponseOutput)
+}
+
+// DeploymentInstanceInvokeResponseArrayInput is an input type that accepts DeploymentInstanceInvokeResponseArray and DeploymentInstanceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DeploymentInstanceInvokeResponseArrayInput` via:
+//
+//          DeploymentInstanceInvokeResponseArray{ DeploymentInstanceInvokeResponseArgs{...} }
+type DeploymentInstanceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentInstanceInvokeResponseArrayOutput() DeploymentInstanceInvokeResponseArrayOutput
+	ToDeploymentInstanceInvokeResponseArrayOutputWithContext(context.Context) DeploymentInstanceInvokeResponseArrayOutput
+}
+
+type DeploymentInstanceInvokeResponseArray []DeploymentInstanceInvokeResponseInput
+
+func (DeploymentInstanceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentInstanceInvokeResponse)(nil)).Elem()
+}
+
+func (i DeploymentInstanceInvokeResponseArray) ToDeploymentInstanceInvokeResponseArrayOutput() DeploymentInstanceInvokeResponseArrayOutput {
+	return i.ToDeploymentInstanceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentInstanceInvokeResponseArray) ToDeploymentInstanceInvokeResponseArrayOutputWithContext(ctx context.Context) DeploymentInstanceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentInstanceInvokeResponseArrayOutput)
+}
+
+// Deployment instance payload
+type DeploymentInstanceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeploymentInstanceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentInstanceInvokeResponse)(nil)).Elem()
+}
+
+func (o DeploymentInstanceInvokeResponseOutput) ToDeploymentInstanceInvokeResponseOutput() DeploymentInstanceInvokeResponseOutput {
+	return o
+}
+
+func (o DeploymentInstanceInvokeResponseOutput) ToDeploymentInstanceInvokeResponseOutputWithContext(ctx context.Context) DeploymentInstanceInvokeResponseOutput {
+	return o
+}
+
+// Discovery status of the deployment instance
+func (o DeploymentInstanceInvokeResponseOutput) DiscoveryStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentInstanceInvokeResponse) string { return v.DiscoveryStatus }).(pulumi.StringOutput)
+}
+
+// Name of the deployment instance
+func (o DeploymentInstanceInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentInstanceInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Failed reason of the deployment instance
+func (o DeploymentInstanceInvokeResponseOutput) Reason() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentInstanceInvokeResponse) string { return v.Reason }).(pulumi.StringOutput)
+}
+
+// Start time of the deployment instance
+func (o DeploymentInstanceInvokeResponseOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentInstanceInvokeResponse) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Status of the deployment instance
+func (o DeploymentInstanceInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentInstanceInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type DeploymentInstanceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentInstanceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentInstanceInvokeResponse)(nil)).Elem()
+}
+
+func (o DeploymentInstanceInvokeResponseArrayOutput) ToDeploymentInstanceInvokeResponseArrayOutput() DeploymentInstanceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DeploymentInstanceInvokeResponseArrayOutput) ToDeploymentInstanceInvokeResponseArrayOutputWithContext(ctx context.Context) DeploymentInstanceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DeploymentInstanceInvokeResponseArrayOutput) Index(i pulumi.IntInput) DeploymentInstanceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentInstanceInvokeResponse {
+		return vs[0].([]DeploymentInstanceInvokeResponse)[vs[1].(int)]
+	}).(DeploymentInstanceInvokeResponseOutput)
 }
 
 // Deployment instance payload
@@ -2378,6 +3050,128 @@ func (o DeploymentResourcePropertiesPtrOutput) Source() UserSourceInfoPtrOutput 
 		}
 		return v.Source
 	}).(UserSourceInfoPtrOutput)
+}
+
+// Deployment resource properties payload
+type DeploymentResourcePropertiesInvokeResponse struct {
+	// Indicates whether the Deployment is active
+	Active bool `pulumi:"active"`
+	// App name of the deployment
+	AppName string `pulumi:"appName"`
+	// Date time when the resource is created
+	CreatedTime string `pulumi:"createdTime"`
+	// Deployment settings of the Deployment
+	DeploymentSettings *DeploymentSettingsInvokeResponse `pulumi:"deploymentSettings"`
+	// Collection of instances belong to the Deployment
+	Instances []DeploymentInstanceInvokeResponse `pulumi:"instances"`
+	// Provisioning state of the Deployment
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Uploaded source information of the deployment.
+	Source *UserSourceInfoInvokeResponse `pulumi:"source"`
+	// Status of the Deployment
+	Status string `pulumi:"status"`
+}
+
+// DeploymentResourcePropertiesInvokeResponseInput is an input type that accepts DeploymentResourcePropertiesInvokeResponseArgs and DeploymentResourcePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `DeploymentResourcePropertiesInvokeResponseInput` via:
+//
+//          DeploymentResourcePropertiesInvokeResponseArgs{...}
+type DeploymentResourcePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeploymentResourcePropertiesInvokeResponseOutput() DeploymentResourcePropertiesInvokeResponseOutput
+	ToDeploymentResourcePropertiesInvokeResponseOutputWithContext(context.Context) DeploymentResourcePropertiesInvokeResponseOutput
+}
+
+// Deployment resource properties payload
+type DeploymentResourcePropertiesInvokeResponseArgs struct {
+	// Indicates whether the Deployment is active
+	Active pulumi.BoolInput `pulumi:"active"`
+	// App name of the deployment
+	AppName pulumi.StringInput `pulumi:"appName"`
+	// Date time when the resource is created
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// Deployment settings of the Deployment
+	DeploymentSettings DeploymentSettingsInvokeResponsePtrInput `pulumi:"deploymentSettings"`
+	// Collection of instances belong to the Deployment
+	Instances DeploymentInstanceInvokeResponseArrayInput `pulumi:"instances"`
+	// Provisioning state of the Deployment
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Uploaded source information of the deployment.
+	Source UserSourceInfoInvokeResponsePtrInput `pulumi:"source"`
+	// Status of the Deployment
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (DeploymentResourcePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i DeploymentResourcePropertiesInvokeResponseArgs) ToDeploymentResourcePropertiesInvokeResponseOutput() DeploymentResourcePropertiesInvokeResponseOutput {
+	return i.ToDeploymentResourcePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeploymentResourcePropertiesInvokeResponseArgs) ToDeploymentResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) DeploymentResourcePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentResourcePropertiesInvokeResponseOutput)
+}
+
+// Deployment resource properties payload
+type DeploymentResourcePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeploymentResourcePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentResourcePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o DeploymentResourcePropertiesInvokeResponseOutput) ToDeploymentResourcePropertiesInvokeResponseOutput() DeploymentResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o DeploymentResourcePropertiesInvokeResponseOutput) ToDeploymentResourcePropertiesInvokeResponseOutputWithContext(ctx context.Context) DeploymentResourcePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Indicates whether the Deployment is active
+func (o DeploymentResourcePropertiesInvokeResponseOutput) Active() pulumi.BoolOutput {
+	return o.ApplyT(func(v DeploymentResourcePropertiesInvokeResponse) bool { return v.Active }).(pulumi.BoolOutput)
+}
+
+// App name of the deployment
+func (o DeploymentResourcePropertiesInvokeResponseOutput) AppName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentResourcePropertiesInvokeResponse) string { return v.AppName }).(pulumi.StringOutput)
+}
+
+// Date time when the resource is created
+func (o DeploymentResourcePropertiesInvokeResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentResourcePropertiesInvokeResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Deployment settings of the Deployment
+func (o DeploymentResourcePropertiesInvokeResponseOutput) DeploymentSettings() DeploymentSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DeploymentResourcePropertiesInvokeResponse) *DeploymentSettingsInvokeResponse {
+		return v.DeploymentSettings
+	}).(DeploymentSettingsInvokeResponsePtrOutput)
+}
+
+// Collection of instances belong to the Deployment
+func (o DeploymentResourcePropertiesInvokeResponseOutput) Instances() DeploymentInstanceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DeploymentResourcePropertiesInvokeResponse) []DeploymentInstanceInvokeResponse {
+		return v.Instances
+	}).(DeploymentInstanceInvokeResponseArrayOutput)
+}
+
+// Provisioning state of the Deployment
+func (o DeploymentResourcePropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentResourcePropertiesInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Uploaded source information of the deployment.
+func (o DeploymentResourcePropertiesInvokeResponseOutput) Source() UserSourceInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DeploymentResourcePropertiesInvokeResponse) *UserSourceInfoInvokeResponse { return v.Source }).(UserSourceInfoInvokeResponsePtrOutput)
+}
+
+// Status of the Deployment
+func (o DeploymentResourcePropertiesInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentResourcePropertiesInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // Deployment resource properties payload
@@ -2877,6 +3671,235 @@ func (o DeploymentSettingsPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 }
 
 // Deployment settings payload
+type DeploymentSettingsInvokeResponse struct {
+	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+	Cpu *int `pulumi:"cpu"`
+	// Collection of environment variables
+	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// JVM parameter
+	JvmOptions *string `pulumi:"jvmOptions"`
+	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
+	MemoryInGB *int `pulumi:"memoryInGB"`
+	// The path to the .NET executable relative to zip root
+	NetCoreMainEntryPath *string `pulumi:"netCoreMainEntryPath"`
+	// Runtime version
+	RuntimeVersion *string `pulumi:"runtimeVersion"`
+}
+
+// DeploymentSettingsInvokeResponseInput is an input type that accepts DeploymentSettingsInvokeResponseArgs and DeploymentSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `DeploymentSettingsInvokeResponseInput` via:
+//
+//          DeploymentSettingsInvokeResponseArgs{...}
+type DeploymentSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDeploymentSettingsInvokeResponseOutput() DeploymentSettingsInvokeResponseOutput
+	ToDeploymentSettingsInvokeResponseOutputWithContext(context.Context) DeploymentSettingsInvokeResponseOutput
+}
+
+// Deployment settings payload
+type DeploymentSettingsInvokeResponseArgs struct {
+	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
+	// Collection of environment variables
+	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
+	// JVM parameter
+	JvmOptions pulumi.StringPtrInput `pulumi:"jvmOptions"`
+	// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
+	MemoryInGB pulumi.IntPtrInput `pulumi:"memoryInGB"`
+	// The path to the .NET executable relative to zip root
+	NetCoreMainEntryPath pulumi.StringPtrInput `pulumi:"netCoreMainEntryPath"`
+	// Runtime version
+	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
+}
+
+func (DeploymentSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i DeploymentSettingsInvokeResponseArgs) ToDeploymentSettingsInvokeResponseOutput() DeploymentSettingsInvokeResponseOutput {
+	return i.ToDeploymentSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DeploymentSettingsInvokeResponseArgs) ToDeploymentSettingsInvokeResponseOutputWithContext(ctx context.Context) DeploymentSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsInvokeResponseOutput)
+}
+
+func (i DeploymentSettingsInvokeResponseArgs) ToDeploymentSettingsInvokeResponsePtrOutput() DeploymentSettingsInvokeResponsePtrOutput {
+	return i.ToDeploymentSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentSettingsInvokeResponseArgs) ToDeploymentSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) DeploymentSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsInvokeResponseOutput).ToDeploymentSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// DeploymentSettingsInvokeResponsePtrInput is an input type that accepts DeploymentSettingsInvokeResponseArgs, DeploymentSettingsInvokeResponsePtr and DeploymentSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `DeploymentSettingsInvokeResponsePtrInput` via:
+//
+//          DeploymentSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DeploymentSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentSettingsInvokeResponsePtrOutput() DeploymentSettingsInvokeResponsePtrOutput
+	ToDeploymentSettingsInvokeResponsePtrOutputWithContext(context.Context) DeploymentSettingsInvokeResponsePtrOutput
+}
+
+type deploymentSettingsInvokeResponsePtrType DeploymentSettingsInvokeResponseArgs
+
+func DeploymentSettingsInvokeResponsePtr(v *DeploymentSettingsInvokeResponseArgs) DeploymentSettingsInvokeResponsePtrInput {
+	return (*deploymentSettingsInvokeResponsePtrType)(v)
+}
+
+func (*deploymentSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *deploymentSettingsInvokeResponsePtrType) ToDeploymentSettingsInvokeResponsePtrOutput() DeploymentSettingsInvokeResponsePtrOutput {
+	return i.ToDeploymentSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentSettingsInvokeResponsePtrType) ToDeploymentSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) DeploymentSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentSettingsInvokeResponsePtrOutput)
+}
+
+// Deployment settings payload
+type DeploymentSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DeploymentSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o DeploymentSettingsInvokeResponseOutput) ToDeploymentSettingsInvokeResponseOutput() DeploymentSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o DeploymentSettingsInvokeResponseOutput) ToDeploymentSettingsInvokeResponseOutputWithContext(ctx context.Context) DeploymentSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o DeploymentSettingsInvokeResponseOutput) ToDeploymentSettingsInvokeResponsePtrOutput() DeploymentSettingsInvokeResponsePtrOutput {
+	return o.ToDeploymentSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentSettingsInvokeResponseOutput) ToDeploymentSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) DeploymentSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DeploymentSettingsInvokeResponse) *DeploymentSettingsInvokeResponse {
+		return &v
+	}).(DeploymentSettingsInvokeResponsePtrOutput)
+}
+
+// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+func (o DeploymentSettingsInvokeResponseOutput) Cpu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentSettingsInvokeResponse) *int { return v.Cpu }).(pulumi.IntPtrOutput)
+}
+
+// Collection of environment variables
+func (o DeploymentSettingsInvokeResponseOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeploymentSettingsInvokeResponse) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+}
+
+// JVM parameter
+func (o DeploymentSettingsInvokeResponseOutput) JvmOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSettingsInvokeResponse) *string { return v.JvmOptions }).(pulumi.StringPtrOutput)
+}
+
+// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
+func (o DeploymentSettingsInvokeResponseOutput) MemoryInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentSettingsInvokeResponse) *int { return v.MemoryInGB }).(pulumi.IntPtrOutput)
+}
+
+// The path to the .NET executable relative to zip root
+func (o DeploymentSettingsInvokeResponseOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSettingsInvokeResponse) *string { return v.NetCoreMainEntryPath }).(pulumi.StringPtrOutput)
+}
+
+// Runtime version
+func (o DeploymentSettingsInvokeResponseOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentSettingsInvokeResponse) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o DeploymentSettingsInvokeResponsePtrOutput) ToDeploymentSettingsInvokeResponsePtrOutput() DeploymentSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DeploymentSettingsInvokeResponsePtrOutput) ToDeploymentSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) DeploymentSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o DeploymentSettingsInvokeResponsePtrOutput) Elem() DeploymentSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *DeploymentSettingsInvokeResponse) DeploymentSettingsInvokeResponse { return *v }).(DeploymentSettingsInvokeResponseOutput)
+}
+
+// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
+func (o DeploymentSettingsInvokeResponsePtrOutput) Cpu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(pulumi.IntPtrOutput)
+}
+
+// Collection of environment variables
+func (o DeploymentSettingsInvokeResponsePtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeploymentSettingsInvokeResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.EnvironmentVariables
+	}).(pulumi.StringMapOutput)
+}
+
+// JVM parameter
+func (o DeploymentSettingsInvokeResponsePtrOutput) JvmOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JvmOptions
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
+func (o DeploymentSettingsInvokeResponsePtrOutput) MemoryInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryInGB
+	}).(pulumi.IntPtrOutput)
+}
+
+// The path to the .NET executable relative to zip root
+func (o DeploymentSettingsInvokeResponsePtrOutput) NetCoreMainEntryPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreMainEntryPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Runtime version
+func (o DeploymentSettingsInvokeResponsePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Deployment settings payload
 type DeploymentSettingsResponse struct {
 	// Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
 	Cpu *int `pulumi:"cpu"`
@@ -3278,6 +4301,79 @@ func (o ManagedIdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Managed identity properties retrieved from ARM request headers.
+type ManagedIdentityPropertiesInvokeResponse struct {
+	// Principal Id
+	PrincipalId *string `pulumi:"principalId"`
+	// Tenant Id
+	TenantId *string `pulumi:"tenantId"`
+	// Type of the managed identity
+	Type *string `pulumi:"type"`
+}
+
+// ManagedIdentityPropertiesInvokeResponseInput is an input type that accepts ManagedIdentityPropertiesInvokeResponseArgs and ManagedIdentityPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedIdentityPropertiesInvokeResponseInput` via:
+//
+//          ManagedIdentityPropertiesInvokeResponseArgs{...}
+type ManagedIdentityPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedIdentityPropertiesInvokeResponseOutput() ManagedIdentityPropertiesInvokeResponseOutput
+	ToManagedIdentityPropertiesInvokeResponseOutputWithContext(context.Context) ManagedIdentityPropertiesInvokeResponseOutput
+}
+
+// Managed identity properties retrieved from ARM request headers.
+type ManagedIdentityPropertiesInvokeResponseArgs struct {
+	// Principal Id
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// Tenant Id
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Type of the managed identity
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ManagedIdentityPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedIdentityPropertiesInvokeResponseArgs) ToManagedIdentityPropertiesInvokeResponseOutput() ManagedIdentityPropertiesInvokeResponseOutput {
+	return i.ToManagedIdentityPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedIdentityPropertiesInvokeResponseArgs) ToManagedIdentityPropertiesInvokeResponseOutputWithContext(ctx context.Context) ManagedIdentityPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityPropertiesInvokeResponseOutput)
+}
+
+// Managed identity properties retrieved from ARM request headers.
+type ManagedIdentityPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedIdentityPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedIdentityPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedIdentityPropertiesInvokeResponseOutput) ToManagedIdentityPropertiesInvokeResponseOutput() ManagedIdentityPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedIdentityPropertiesInvokeResponseOutput) ToManagedIdentityPropertiesInvokeResponseOutputWithContext(ctx context.Context) ManagedIdentityPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Principal Id
+func (o ManagedIdentityPropertiesInvokeResponseOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityPropertiesInvokeResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id
+func (o ManagedIdentityPropertiesInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityPropertiesInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Type of the managed identity
+func (o ManagedIdentityPropertiesInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentityPropertiesInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Managed identity properties retrieved from ARM request headers.
 type ManagedIdentityPropertiesResponse struct {
 	// Principal Id
 	PrincipalId *string `pulumi:"principalId"`
@@ -3657,6 +4753,369 @@ func (o NetworkProfilePtrOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput
 		}
 		return v.ServiceRuntimeSubnetId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Service network profile payload
+type NetworkProfileInvokeResponse struct {
+	// Name of the resource group containing network resources of Azure Spring Cloud Apps
+	AppNetworkResourceGroup *string `pulumi:"appNetworkResourceGroup"`
+	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+	AppSubnetId *string `pulumi:"appSubnetId"`
+	// Desired outbound IP resources for Azure Spring Cloud instance.
+	OutboundIPs NetworkProfileInvokeResponseOutboundIPs `pulumi:"outboundIPs"`
+	// Azure Spring Cloud service reserved CIDR
+	ServiceCidr *string `pulumi:"serviceCidr"`
+	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+	ServiceRuntimeNetworkResourceGroup *string `pulumi:"serviceRuntimeNetworkResourceGroup"`
+	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+	ServiceRuntimeSubnetId *string `pulumi:"serviceRuntimeSubnetId"`
+}
+
+// NetworkProfileInvokeResponseInput is an input type that accepts NetworkProfileInvokeResponseArgs and NetworkProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkProfileInvokeResponseInput` via:
+//
+//          NetworkProfileInvokeResponseArgs{...}
+type NetworkProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput
+	ToNetworkProfileInvokeResponseOutputWithContext(context.Context) NetworkProfileInvokeResponseOutput
+}
+
+// Service network profile payload
+type NetworkProfileInvokeResponseArgs struct {
+	// Name of the resource group containing network resources of Azure Spring Cloud Apps
+	AppNetworkResourceGroup pulumi.StringPtrInput `pulumi:"appNetworkResourceGroup"`
+	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+	AppSubnetId pulumi.StringPtrInput `pulumi:"appSubnetId"`
+	// Desired outbound IP resources for Azure Spring Cloud instance.
+	OutboundIPs NetworkProfileInvokeResponseOutboundIPsInput `pulumi:"outboundIPs"`
+	// Azure Spring Cloud service reserved CIDR
+	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
+	// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+	ServiceRuntimeNetworkResourceGroup pulumi.StringPtrInput `pulumi:"serviceRuntimeNetworkResourceGroup"`
+	// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+	ServiceRuntimeSubnetId pulumi.StringPtrInput `pulumi:"serviceRuntimeSubnetId"`
+}
+
+func (NetworkProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput {
+	return i.ToNetworkProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileInvokeResponseOutput)
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponsePtrOutput() NetworkProfileInvokeResponsePtrOutput {
+	return i.ToNetworkProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileInvokeResponseOutput).ToNetworkProfileInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// NetworkProfileInvokeResponsePtrInput is an input type that accepts NetworkProfileInvokeResponseArgs, NetworkProfileInvokeResponsePtr and NetworkProfileInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `NetworkProfileInvokeResponsePtrInput` via:
+//
+//          NetworkProfileInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkProfileInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToNetworkProfileInvokeResponsePtrOutput() NetworkProfileInvokeResponsePtrOutput
+	ToNetworkProfileInvokeResponsePtrOutputWithContext(context.Context) NetworkProfileInvokeResponsePtrOutput
+}
+
+type networkProfileInvokeResponsePtrType NetworkProfileInvokeResponseArgs
+
+func NetworkProfileInvokeResponsePtr(v *NetworkProfileInvokeResponseArgs) NetworkProfileInvokeResponsePtrInput {
+	return (*networkProfileInvokeResponsePtrType)(v)
+}
+
+func (*networkProfileInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i *networkProfileInvokeResponsePtrType) ToNetworkProfileInvokeResponsePtrOutput() NetworkProfileInvokeResponsePtrOutput {
+	return i.ToNetworkProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *networkProfileInvokeResponsePtrType) ToNetworkProfileInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkProfileInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileInvokeResponsePtrOutput)
+}
+
+// Service network profile payload
+type NetworkProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponsePtrOutput() NetworkProfileInvokeResponsePtrOutput {
+	return o.ToNetworkProfileInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkProfileInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *NetworkProfileInvokeResponse {
+		return &v
+	}).(NetworkProfileInvokeResponsePtrOutput)
+}
+
+// Name of the resource group containing network resources of Azure Spring Cloud Apps
+func (o NetworkProfileInvokeResponseOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.AppNetworkResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+func (o NetworkProfileInvokeResponseOutput) AppSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.AppSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Desired outbound IP resources for Azure Spring Cloud instance.
+func (o NetworkProfileInvokeResponseOutput) OutboundIPs() NetworkProfileInvokeResponseOutboundIPsOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) NetworkProfileInvokeResponseOutboundIPs { return v.OutboundIPs }).(NetworkProfileInvokeResponseOutboundIPsOutput)
+}
+
+// Azure Spring Cloud service reserved CIDR
+func (o NetworkProfileInvokeResponseOutput) ServiceCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+func (o NetworkProfileInvokeResponseOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.ServiceRuntimeNetworkResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+func (o NetworkProfileInvokeResponseOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.ServiceRuntimeSubnetId }).(pulumi.StringPtrOutput)
+}
+
+type NetworkProfileInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkProfileInvokeResponsePtrOutput) ToNetworkProfileInvokeResponsePtrOutput() NetworkProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponsePtrOutput) ToNetworkProfileInvokeResponsePtrOutputWithContext(ctx context.Context) NetworkProfileInvokeResponsePtrOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponsePtrOutput) Elem() NetworkProfileInvokeResponseOutput {
+	return o.ApplyT(func(v *NetworkProfileInvokeResponse) NetworkProfileInvokeResponse { return *v }).(NetworkProfileInvokeResponseOutput)
+}
+
+// Name of the resource group containing network resources of Azure Spring Cloud Apps
+func (o NetworkProfileInvokeResponsePtrOutput) AppNetworkResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkProfileInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppNetworkResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+func (o NetworkProfileInvokeResponsePtrOutput) AppSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkProfileInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Desired outbound IP resources for Azure Spring Cloud instance.
+func (o NetworkProfileInvokeResponsePtrOutput) OutboundIPs() NetworkProfileInvokeResponseOutboundIPsPtrOutput {
+	return o.ApplyT(func(v *NetworkProfileInvokeResponse) *NetworkProfileInvokeResponseOutboundIPs {
+		if v == nil {
+			return nil
+		}
+		return &v.OutboundIPs
+	}).(NetworkProfileInvokeResponseOutboundIPsPtrOutput)
+}
+
+// Azure Spring Cloud service reserved CIDR
+func (o NetworkProfileInvokeResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkProfileInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceCidr
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+func (o NetworkProfileInvokeResponsePtrOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkProfileInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceRuntimeNetworkResourceGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+func (o NetworkProfileInvokeResponsePtrOutput) ServiceRuntimeSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkProfileInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceRuntimeSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Desired outbound IP resources for Azure Spring Cloud instance.
+type NetworkProfileInvokeResponseOutboundIPs struct {
+	// A list of public IP addresses.
+	PublicIPs []string `pulumi:"publicIPs"`
+}
+
+// NetworkProfileInvokeResponseOutboundIPsInput is an input type that accepts NetworkProfileInvokeResponseOutboundIPsArgs and NetworkProfileInvokeResponseOutboundIPsOutput values.
+// You can construct a concrete instance of `NetworkProfileInvokeResponseOutboundIPsInput` via:
+//
+//          NetworkProfileInvokeResponseOutboundIPsArgs{...}
+type NetworkProfileInvokeResponseOutboundIPsInput interface {
+	pulumi.Input
+
+	ToNetworkProfileInvokeResponseOutboundIPsOutput() NetworkProfileInvokeResponseOutboundIPsOutput
+	ToNetworkProfileInvokeResponseOutboundIPsOutputWithContext(context.Context) NetworkProfileInvokeResponseOutboundIPsOutput
+}
+
+// Desired outbound IP resources for Azure Spring Cloud instance.
+type NetworkProfileInvokeResponseOutboundIPsArgs struct {
+	// A list of public IP addresses.
+	PublicIPs pulumi.StringArrayInput `pulumi:"publicIPs"`
+}
+
+func (NetworkProfileInvokeResponseOutboundIPsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponseOutboundIPs)(nil)).Elem()
+}
+
+func (i NetworkProfileInvokeResponseOutboundIPsArgs) ToNetworkProfileInvokeResponseOutboundIPsOutput() NetworkProfileInvokeResponseOutboundIPsOutput {
+	return i.ToNetworkProfileInvokeResponseOutboundIPsOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileInvokeResponseOutboundIPsArgs) ToNetworkProfileInvokeResponseOutboundIPsOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutboundIPsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileInvokeResponseOutboundIPsOutput)
+}
+
+func (i NetworkProfileInvokeResponseOutboundIPsArgs) ToNetworkProfileInvokeResponseOutboundIPsPtrOutput() NetworkProfileInvokeResponseOutboundIPsPtrOutput {
+	return i.ToNetworkProfileInvokeResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileInvokeResponseOutboundIPsArgs) ToNetworkProfileInvokeResponseOutboundIPsPtrOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileInvokeResponseOutboundIPsOutput).ToNetworkProfileInvokeResponseOutboundIPsPtrOutputWithContext(ctx)
+}
+
+// NetworkProfileInvokeResponseOutboundIPsPtrInput is an input type that accepts NetworkProfileInvokeResponseOutboundIPsArgs, NetworkProfileInvokeResponseOutboundIPsPtr and NetworkProfileInvokeResponseOutboundIPsPtrOutput values.
+// You can construct a concrete instance of `NetworkProfileInvokeResponseOutboundIPsPtrInput` via:
+//
+//          NetworkProfileInvokeResponseOutboundIPsArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkProfileInvokeResponseOutboundIPsPtrInput interface {
+	pulumi.Input
+
+	ToNetworkProfileInvokeResponseOutboundIPsPtrOutput() NetworkProfileInvokeResponseOutboundIPsPtrOutput
+	ToNetworkProfileInvokeResponseOutboundIPsPtrOutputWithContext(context.Context) NetworkProfileInvokeResponseOutboundIPsPtrOutput
+}
+
+type networkProfileInvokeResponseOutboundIPsPtrType NetworkProfileInvokeResponseOutboundIPsArgs
+
+func NetworkProfileInvokeResponseOutboundIPsPtr(v *NetworkProfileInvokeResponseOutboundIPsArgs) NetworkProfileInvokeResponseOutboundIPsPtrInput {
+	return (*networkProfileInvokeResponseOutboundIPsPtrType)(v)
+}
+
+func (*networkProfileInvokeResponseOutboundIPsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProfileInvokeResponseOutboundIPs)(nil)).Elem()
+}
+
+func (i *networkProfileInvokeResponseOutboundIPsPtrType) ToNetworkProfileInvokeResponseOutboundIPsPtrOutput() NetworkProfileInvokeResponseOutboundIPsPtrOutput {
+	return i.ToNetworkProfileInvokeResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i *networkProfileInvokeResponseOutboundIPsPtrType) ToNetworkProfileInvokeResponseOutboundIPsPtrOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileInvokeResponseOutboundIPsPtrOutput)
+}
+
+// Desired outbound IP resources for Azure Spring Cloud instance.
+type NetworkProfileInvokeResponseOutboundIPsOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileInvokeResponseOutboundIPsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponseOutboundIPs)(nil)).Elem()
+}
+
+func (o NetworkProfileInvokeResponseOutboundIPsOutput) ToNetworkProfileInvokeResponseOutboundIPsOutput() NetworkProfileInvokeResponseOutboundIPsOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponseOutboundIPsOutput) ToNetworkProfileInvokeResponseOutboundIPsOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutboundIPsOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponseOutboundIPsOutput) ToNetworkProfileInvokeResponseOutboundIPsPtrOutput() NetworkProfileInvokeResponseOutboundIPsPtrOutput {
+	return o.ToNetworkProfileInvokeResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkProfileInvokeResponseOutboundIPsOutput) ToNetworkProfileInvokeResponseOutboundIPsPtrOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutboundIPsPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponseOutboundIPs) *NetworkProfileInvokeResponseOutboundIPs {
+		return &v
+	}).(NetworkProfileInvokeResponseOutboundIPsPtrOutput)
+}
+
+// A list of public IP addresses.
+func (o NetworkProfileInvokeResponseOutboundIPsOutput) PublicIPs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponseOutboundIPs) []string { return v.PublicIPs }).(pulumi.StringArrayOutput)
+}
+
+type NetworkProfileInvokeResponseOutboundIPsPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileInvokeResponseOutboundIPsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkProfileInvokeResponseOutboundIPs)(nil)).Elem()
+}
+
+func (o NetworkProfileInvokeResponseOutboundIPsPtrOutput) ToNetworkProfileInvokeResponseOutboundIPsPtrOutput() NetworkProfileInvokeResponseOutboundIPsPtrOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponseOutboundIPsPtrOutput) ToNetworkProfileInvokeResponseOutboundIPsPtrOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutboundIPsPtrOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponseOutboundIPsPtrOutput) Elem() NetworkProfileInvokeResponseOutboundIPsOutput {
+	return o.ApplyT(func(v *NetworkProfileInvokeResponseOutboundIPs) NetworkProfileInvokeResponseOutboundIPs { return *v }).(NetworkProfileInvokeResponseOutboundIPsOutput)
+}
+
+// A list of public IP addresses.
+func (o NetworkProfileInvokeResponseOutboundIPsPtrOutput) PublicIPs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkProfileInvokeResponseOutboundIPs) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIPs
+	}).(pulumi.StringArrayOutput)
 }
 
 // Service network profile payload
@@ -4176,6 +5635,178 @@ func (o PersistentDiskPtrOutput) SizeInGB() pulumi.IntPtrOutput {
 }
 
 // Persistent disk payload
+type PersistentDiskInvokeResponse struct {
+	// Mount path of the persistent disk
+	MountPath *string `pulumi:"mountPath"`
+	// Size of the persistent disk in GB
+	SizeInGB *int `pulumi:"sizeInGB"`
+	// Size of the used persistent disk in GB
+	UsedInGB int `pulumi:"usedInGB"`
+}
+
+// PersistentDiskInvokeResponseInput is an input type that accepts PersistentDiskInvokeResponseArgs and PersistentDiskInvokeResponseOutput values.
+// You can construct a concrete instance of `PersistentDiskInvokeResponseInput` via:
+//
+//          PersistentDiskInvokeResponseArgs{...}
+type PersistentDiskInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPersistentDiskInvokeResponseOutput() PersistentDiskInvokeResponseOutput
+	ToPersistentDiskInvokeResponseOutputWithContext(context.Context) PersistentDiskInvokeResponseOutput
+}
+
+// Persistent disk payload
+type PersistentDiskInvokeResponseArgs struct {
+	// Mount path of the persistent disk
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+	// Size of the persistent disk in GB
+	SizeInGB pulumi.IntPtrInput `pulumi:"sizeInGB"`
+	// Size of the used persistent disk in GB
+	UsedInGB pulumi.IntInput `pulumi:"usedInGB"`
+}
+
+func (PersistentDiskInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistentDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i PersistentDiskInvokeResponseArgs) ToPersistentDiskInvokeResponseOutput() PersistentDiskInvokeResponseOutput {
+	return i.ToPersistentDiskInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PersistentDiskInvokeResponseArgs) ToPersistentDiskInvokeResponseOutputWithContext(ctx context.Context) PersistentDiskInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistentDiskInvokeResponseOutput)
+}
+
+func (i PersistentDiskInvokeResponseArgs) ToPersistentDiskInvokeResponsePtrOutput() PersistentDiskInvokeResponsePtrOutput {
+	return i.ToPersistentDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PersistentDiskInvokeResponseArgs) ToPersistentDiskInvokeResponsePtrOutputWithContext(ctx context.Context) PersistentDiskInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistentDiskInvokeResponseOutput).ToPersistentDiskInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PersistentDiskInvokeResponsePtrInput is an input type that accepts PersistentDiskInvokeResponseArgs, PersistentDiskInvokeResponsePtr and PersistentDiskInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PersistentDiskInvokeResponsePtrInput` via:
+//
+//          PersistentDiskInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PersistentDiskInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPersistentDiskInvokeResponsePtrOutput() PersistentDiskInvokeResponsePtrOutput
+	ToPersistentDiskInvokeResponsePtrOutputWithContext(context.Context) PersistentDiskInvokeResponsePtrOutput
+}
+
+type persistentDiskInvokeResponsePtrType PersistentDiskInvokeResponseArgs
+
+func PersistentDiskInvokeResponsePtr(v *PersistentDiskInvokeResponseArgs) PersistentDiskInvokeResponsePtrInput {
+	return (*persistentDiskInvokeResponsePtrType)(v)
+}
+
+func (*persistentDiskInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersistentDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i *persistentDiskInvokeResponsePtrType) ToPersistentDiskInvokeResponsePtrOutput() PersistentDiskInvokeResponsePtrOutput {
+	return i.ToPersistentDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *persistentDiskInvokeResponsePtrType) ToPersistentDiskInvokeResponsePtrOutputWithContext(ctx context.Context) PersistentDiskInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistentDiskInvokeResponsePtrOutput)
+}
+
+// Persistent disk payload
+type PersistentDiskInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PersistentDiskInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistentDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o PersistentDiskInvokeResponseOutput) ToPersistentDiskInvokeResponseOutput() PersistentDiskInvokeResponseOutput {
+	return o
+}
+
+func (o PersistentDiskInvokeResponseOutput) ToPersistentDiskInvokeResponseOutputWithContext(ctx context.Context) PersistentDiskInvokeResponseOutput {
+	return o
+}
+
+func (o PersistentDiskInvokeResponseOutput) ToPersistentDiskInvokeResponsePtrOutput() PersistentDiskInvokeResponsePtrOutput {
+	return o.ToPersistentDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PersistentDiskInvokeResponseOutput) ToPersistentDiskInvokeResponsePtrOutputWithContext(ctx context.Context) PersistentDiskInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PersistentDiskInvokeResponse) *PersistentDiskInvokeResponse {
+		return &v
+	}).(PersistentDiskInvokeResponsePtrOutput)
+}
+
+// Mount path of the persistent disk
+func (o PersistentDiskInvokeResponseOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PersistentDiskInvokeResponse) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// Size of the persistent disk in GB
+func (o PersistentDiskInvokeResponseOutput) SizeInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PersistentDiskInvokeResponse) *int { return v.SizeInGB }).(pulumi.IntPtrOutput)
+}
+
+// Size of the used persistent disk in GB
+func (o PersistentDiskInvokeResponseOutput) UsedInGB() pulumi.IntOutput {
+	return o.ApplyT(func(v PersistentDiskInvokeResponse) int { return v.UsedInGB }).(pulumi.IntOutput)
+}
+
+type PersistentDiskInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PersistentDiskInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersistentDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o PersistentDiskInvokeResponsePtrOutput) ToPersistentDiskInvokeResponsePtrOutput() PersistentDiskInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PersistentDiskInvokeResponsePtrOutput) ToPersistentDiskInvokeResponsePtrOutputWithContext(ctx context.Context) PersistentDiskInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PersistentDiskInvokeResponsePtrOutput) Elem() PersistentDiskInvokeResponseOutput {
+	return o.ApplyT(func(v *PersistentDiskInvokeResponse) PersistentDiskInvokeResponse { return *v }).(PersistentDiskInvokeResponseOutput)
+}
+
+// Mount path of the persistent disk
+func (o PersistentDiskInvokeResponsePtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PersistentDiskInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Size of the persistent disk in GB
+func (o PersistentDiskInvokeResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PersistentDiskInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInGB
+	}).(pulumi.IntPtrOutput)
+}
+
+// Size of the used persistent disk in GB
+func (o PersistentDiskInvokeResponsePtrOutput) UsedInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PersistentDiskInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.UsedInGB
+	}).(pulumi.IntPtrOutput)
+}
+
+// Persistent disk payload
 type PersistentDiskResponse struct {
 	// Mount path of the persistent disk
 	MountPath *string `pulumi:"mountPath"`
@@ -4520,6 +6151,79 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Sku of Azure Spring Cloud
+type SkuInvokeResponse struct {
+	// Current capacity of the target resource
+	Capacity *int `pulumi:"capacity"`
+	// Name of the Sku
+	Name *string `pulumi:"name"`
+	// Tier of the Sku
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Sku of Azure Spring Cloud
+type SkuInvokeResponseArgs struct {
+	// Current capacity of the target resource
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Name of the Sku
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Tier of the Sku
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Sku of Azure Spring Cloud
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Current capacity of the target resource
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Name of the Sku
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Tier of the Sku
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// Sku of Azure Spring Cloud
 type SkuResponse struct {
 	// Current capacity of the target resource
 	Capacity *int `pulumi:"capacity"`
@@ -4837,6 +6541,159 @@ func (o TemporaryDiskPtrOutput) MountPath() pulumi.StringPtrOutput {
 // Size of the temporary disk in GB
 func (o TemporaryDiskPtrOutput) SizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TemporaryDisk) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInGB
+	}).(pulumi.IntPtrOutput)
+}
+
+// Temporary disk payload
+type TemporaryDiskInvokeResponse struct {
+	// Mount path of the temporary disk
+	MountPath *string `pulumi:"mountPath"`
+	// Size of the temporary disk in GB
+	SizeInGB *int `pulumi:"sizeInGB"`
+}
+
+// TemporaryDiskInvokeResponseInput is an input type that accepts TemporaryDiskInvokeResponseArgs and TemporaryDiskInvokeResponseOutput values.
+// You can construct a concrete instance of `TemporaryDiskInvokeResponseInput` via:
+//
+//          TemporaryDiskInvokeResponseArgs{...}
+type TemporaryDiskInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTemporaryDiskInvokeResponseOutput() TemporaryDiskInvokeResponseOutput
+	ToTemporaryDiskInvokeResponseOutputWithContext(context.Context) TemporaryDiskInvokeResponseOutput
+}
+
+// Temporary disk payload
+type TemporaryDiskInvokeResponseArgs struct {
+	// Mount path of the temporary disk
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+	// Size of the temporary disk in GB
+	SizeInGB pulumi.IntPtrInput `pulumi:"sizeInGB"`
+}
+
+func (TemporaryDiskInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemporaryDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i TemporaryDiskInvokeResponseArgs) ToTemporaryDiskInvokeResponseOutput() TemporaryDiskInvokeResponseOutput {
+	return i.ToTemporaryDiskInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TemporaryDiskInvokeResponseArgs) ToTemporaryDiskInvokeResponseOutputWithContext(ctx context.Context) TemporaryDiskInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemporaryDiskInvokeResponseOutput)
+}
+
+func (i TemporaryDiskInvokeResponseArgs) ToTemporaryDiskInvokeResponsePtrOutput() TemporaryDiskInvokeResponsePtrOutput {
+	return i.ToTemporaryDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TemporaryDiskInvokeResponseArgs) ToTemporaryDiskInvokeResponsePtrOutputWithContext(ctx context.Context) TemporaryDiskInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemporaryDiskInvokeResponseOutput).ToTemporaryDiskInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// TemporaryDiskInvokeResponsePtrInput is an input type that accepts TemporaryDiskInvokeResponseArgs, TemporaryDiskInvokeResponsePtr and TemporaryDiskInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TemporaryDiskInvokeResponsePtrInput` via:
+//
+//          TemporaryDiskInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TemporaryDiskInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToTemporaryDiskInvokeResponsePtrOutput() TemporaryDiskInvokeResponsePtrOutput
+	ToTemporaryDiskInvokeResponsePtrOutputWithContext(context.Context) TemporaryDiskInvokeResponsePtrOutput
+}
+
+type temporaryDiskInvokeResponsePtrType TemporaryDiskInvokeResponseArgs
+
+func TemporaryDiskInvokeResponsePtr(v *TemporaryDiskInvokeResponseArgs) TemporaryDiskInvokeResponsePtrInput {
+	return (*temporaryDiskInvokeResponsePtrType)(v)
+}
+
+func (*temporaryDiskInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemporaryDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i *temporaryDiskInvokeResponsePtrType) ToTemporaryDiskInvokeResponsePtrOutput() TemporaryDiskInvokeResponsePtrOutput {
+	return i.ToTemporaryDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *temporaryDiskInvokeResponsePtrType) ToTemporaryDiskInvokeResponsePtrOutputWithContext(ctx context.Context) TemporaryDiskInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemporaryDiskInvokeResponsePtrOutput)
+}
+
+// Temporary disk payload
+type TemporaryDiskInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TemporaryDiskInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemporaryDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o TemporaryDiskInvokeResponseOutput) ToTemporaryDiskInvokeResponseOutput() TemporaryDiskInvokeResponseOutput {
+	return o
+}
+
+func (o TemporaryDiskInvokeResponseOutput) ToTemporaryDiskInvokeResponseOutputWithContext(ctx context.Context) TemporaryDiskInvokeResponseOutput {
+	return o
+}
+
+func (o TemporaryDiskInvokeResponseOutput) ToTemporaryDiskInvokeResponsePtrOutput() TemporaryDiskInvokeResponsePtrOutput {
+	return o.ToTemporaryDiskInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TemporaryDiskInvokeResponseOutput) ToTemporaryDiskInvokeResponsePtrOutputWithContext(ctx context.Context) TemporaryDiskInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TemporaryDiskInvokeResponse) *TemporaryDiskInvokeResponse {
+		return &v
+	}).(TemporaryDiskInvokeResponsePtrOutput)
+}
+
+// Mount path of the temporary disk
+func (o TemporaryDiskInvokeResponseOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemporaryDiskInvokeResponse) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// Size of the temporary disk in GB
+func (o TemporaryDiskInvokeResponseOutput) SizeInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TemporaryDiskInvokeResponse) *int { return v.SizeInGB }).(pulumi.IntPtrOutput)
+}
+
+type TemporaryDiskInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TemporaryDiskInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemporaryDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o TemporaryDiskInvokeResponsePtrOutput) ToTemporaryDiskInvokeResponsePtrOutput() TemporaryDiskInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TemporaryDiskInvokeResponsePtrOutput) ToTemporaryDiskInvokeResponsePtrOutputWithContext(ctx context.Context) TemporaryDiskInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TemporaryDiskInvokeResponsePtrOutput) Elem() TemporaryDiskInvokeResponseOutput {
+	return o.ApplyT(func(v *TemporaryDiskInvokeResponse) TemporaryDiskInvokeResponse { return *v }).(TemporaryDiskInvokeResponseOutput)
+}
+
+// Mount path of the temporary disk
+func (o TemporaryDiskInvokeResponsePtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemporaryDiskInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Size of the temporary disk in GB
+func (o TemporaryDiskInvokeResponsePtrOutput) SizeInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TemporaryDiskInvokeResponse) *int {
 		if v == nil {
 			return nil
 		}
@@ -5193,6 +7050,201 @@ func (o UserSourceInfoPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 // Source information for a deployment
+type UserSourceInfoInvokeResponse struct {
+	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
+	// the relative path to the target module/project.
+	ArtifactSelector *string `pulumi:"artifactSelector"`
+	// Relative path of the storage which stores the source
+	RelativePath *string `pulumi:"relativePath"`
+	// Type of the source uploaded
+	Type *string `pulumi:"type"`
+	// Version of the source
+	Version *string `pulumi:"version"`
+}
+
+// UserSourceInfoInvokeResponseInput is an input type that accepts UserSourceInfoInvokeResponseArgs and UserSourceInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `UserSourceInfoInvokeResponseInput` via:
+//
+//          UserSourceInfoInvokeResponseArgs{...}
+type UserSourceInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToUserSourceInfoInvokeResponseOutput() UserSourceInfoInvokeResponseOutput
+	ToUserSourceInfoInvokeResponseOutputWithContext(context.Context) UserSourceInfoInvokeResponseOutput
+}
+
+// Source information for a deployment
+type UserSourceInfoInvokeResponseArgs struct {
+	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
+	// the relative path to the target module/project.
+	ArtifactSelector pulumi.StringPtrInput `pulumi:"artifactSelector"`
+	// Relative path of the storage which stores the source
+	RelativePath pulumi.StringPtrInput `pulumi:"relativePath"`
+	// Type of the source uploaded
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Version of the source
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (UserSourceInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSourceInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i UserSourceInfoInvokeResponseArgs) ToUserSourceInfoInvokeResponseOutput() UserSourceInfoInvokeResponseOutput {
+	return i.ToUserSourceInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i UserSourceInfoInvokeResponseArgs) ToUserSourceInfoInvokeResponseOutputWithContext(ctx context.Context) UserSourceInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSourceInfoInvokeResponseOutput)
+}
+
+func (i UserSourceInfoInvokeResponseArgs) ToUserSourceInfoInvokeResponsePtrOutput() UserSourceInfoInvokeResponsePtrOutput {
+	return i.ToUserSourceInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UserSourceInfoInvokeResponseArgs) ToUserSourceInfoInvokeResponsePtrOutputWithContext(ctx context.Context) UserSourceInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSourceInfoInvokeResponseOutput).ToUserSourceInfoInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// UserSourceInfoInvokeResponsePtrInput is an input type that accepts UserSourceInfoInvokeResponseArgs, UserSourceInfoInvokeResponsePtr and UserSourceInfoInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `UserSourceInfoInvokeResponsePtrInput` via:
+//
+//          UserSourceInfoInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UserSourceInfoInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToUserSourceInfoInvokeResponsePtrOutput() UserSourceInfoInvokeResponsePtrOutput
+	ToUserSourceInfoInvokeResponsePtrOutputWithContext(context.Context) UserSourceInfoInvokeResponsePtrOutput
+}
+
+type userSourceInfoInvokeResponsePtrType UserSourceInfoInvokeResponseArgs
+
+func UserSourceInfoInvokeResponsePtr(v *UserSourceInfoInvokeResponseArgs) UserSourceInfoInvokeResponsePtrInput {
+	return (*userSourceInfoInvokeResponsePtrType)(v)
+}
+
+func (*userSourceInfoInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSourceInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i *userSourceInfoInvokeResponsePtrType) ToUserSourceInfoInvokeResponsePtrOutput() UserSourceInfoInvokeResponsePtrOutput {
+	return i.ToUserSourceInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *userSourceInfoInvokeResponsePtrType) ToUserSourceInfoInvokeResponsePtrOutputWithContext(ctx context.Context) UserSourceInfoInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSourceInfoInvokeResponsePtrOutput)
+}
+
+// Source information for a deployment
+type UserSourceInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (UserSourceInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSourceInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o UserSourceInfoInvokeResponseOutput) ToUserSourceInfoInvokeResponseOutput() UserSourceInfoInvokeResponseOutput {
+	return o
+}
+
+func (o UserSourceInfoInvokeResponseOutput) ToUserSourceInfoInvokeResponseOutputWithContext(ctx context.Context) UserSourceInfoInvokeResponseOutput {
+	return o
+}
+
+func (o UserSourceInfoInvokeResponseOutput) ToUserSourceInfoInvokeResponsePtrOutput() UserSourceInfoInvokeResponsePtrOutput {
+	return o.ToUserSourceInfoInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UserSourceInfoInvokeResponseOutput) ToUserSourceInfoInvokeResponsePtrOutputWithContext(ctx context.Context) UserSourceInfoInvokeResponsePtrOutput {
+	return o.ApplyT(func(v UserSourceInfoInvokeResponse) *UserSourceInfoInvokeResponse {
+		return &v
+	}).(UserSourceInfoInvokeResponsePtrOutput)
+}
+
+// Selector for the artifact to be used for the deployment for multi-module projects. This should be
+// the relative path to the target module/project.
+func (o UserSourceInfoInvokeResponseOutput) ArtifactSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSourceInfoInvokeResponse) *string { return v.ArtifactSelector }).(pulumi.StringPtrOutput)
+}
+
+// Relative path of the storage which stores the source
+func (o UserSourceInfoInvokeResponseOutput) RelativePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSourceInfoInvokeResponse) *string { return v.RelativePath }).(pulumi.StringPtrOutput)
+}
+
+// Type of the source uploaded
+func (o UserSourceInfoInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSourceInfoInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Version of the source
+func (o UserSourceInfoInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSourceInfoInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type UserSourceInfoInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserSourceInfoInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSourceInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o UserSourceInfoInvokeResponsePtrOutput) ToUserSourceInfoInvokeResponsePtrOutput() UserSourceInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o UserSourceInfoInvokeResponsePtrOutput) ToUserSourceInfoInvokeResponsePtrOutputWithContext(ctx context.Context) UserSourceInfoInvokeResponsePtrOutput {
+	return o
+}
+
+func (o UserSourceInfoInvokeResponsePtrOutput) Elem() UserSourceInfoInvokeResponseOutput {
+	return o.ApplyT(func(v *UserSourceInfoInvokeResponse) UserSourceInfoInvokeResponse { return *v }).(UserSourceInfoInvokeResponseOutput)
+}
+
+// Selector for the artifact to be used for the deployment for multi-module projects. This should be
+// the relative path to the target module/project.
+func (o UserSourceInfoInvokeResponsePtrOutput) ArtifactSelector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSourceInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactSelector
+	}).(pulumi.StringPtrOutput)
+}
+
+// Relative path of the storage which stores the source
+func (o UserSourceInfoInvokeResponsePtrOutput) RelativePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSourceInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RelativePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the source uploaded
+func (o UserSourceInfoInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSourceInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the source
+func (o UserSourceInfoInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSourceInfoInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source information for a deployment
 type UserSourceInfoResponse struct {
 	// Selector for the artifact to be used for the deployment for multi-module projects. This should be
 	// the relative path to the target module/project.
@@ -5390,58 +7442,80 @@ func (o UserSourceInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(AppResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(AppResourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AppResourcePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AppResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AppResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BindingResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(BindingResourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BindingResourcePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(BindingResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BindingResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CertificatePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterResourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterResourcePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainPropertiesOutput{})
 	pulumi.RegisterOutputType(CustomDomainPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CustomDomainPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentInstanceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DeploymentInstanceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentInstanceResponseOutput{})
 	pulumi.RegisterOutputType(DeploymentInstanceResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(DeploymentResourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentResourcePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DeploymentResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DeploymentResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeploymentSettingsOutput{})
 	pulumi.RegisterOutputType(DeploymentSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DeploymentSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeploymentSettingsResponseOutput{})
 	pulumi.RegisterOutputType(DeploymentSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ManagedIdentityPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileOutput{})
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(NetworkProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NetworkProfileInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(NetworkProfileInvokeResponseOutboundIPsOutput{})
+	pulumi.RegisterOutputType(NetworkProfileInvokeResponseOutboundIPsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutboundIPsOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutboundIPsPtrOutput{})
 	pulumi.RegisterOutputType(PersistentDiskOutput{})
 	pulumi.RegisterOutputType(PersistentDiskPtrOutput{})
+	pulumi.RegisterOutputType(PersistentDiskInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PersistentDiskInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PersistentDiskResponseOutput{})
 	pulumi.RegisterOutputType(PersistentDiskResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskPtrOutput{})
+	pulumi.RegisterOutputType(TemporaryDiskInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TemporaryDiskInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskResponseOutput{})
 	pulumi.RegisterOutputType(TemporaryDiskResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserSourceInfoOutput{})
 	pulumi.RegisterOutputType(UserSourceInfoPtrOutput{})
+	pulumi.RegisterOutputType(UserSourceInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UserSourceInfoInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserSourceInfoResponseOutput{})
 	pulumi.RegisterOutputType(UserSourceInfoResponsePtrOutput{})
 }

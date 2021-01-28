@@ -183,6 +183,79 @@ func (o APIServerProfilePtrOutput) Visibility() pulumi.StringPtrOutput {
 }
 
 // APIServerProfile represents an API server profile.
+type APIServerProfileInvokeResponse struct {
+	// The IP of the cluster API server (immutable).
+	Ip *string `pulumi:"ip"`
+	// The URL to access the cluster API server (immutable).
+	Url *string `pulumi:"url"`
+	// API server visibility (immutable).
+	Visibility *string `pulumi:"visibility"`
+}
+
+// APIServerProfileInvokeResponseInput is an input type that accepts APIServerProfileInvokeResponseArgs and APIServerProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `APIServerProfileInvokeResponseInput` via:
+//
+//          APIServerProfileInvokeResponseArgs{...}
+type APIServerProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAPIServerProfileInvokeResponseOutput() APIServerProfileInvokeResponseOutput
+	ToAPIServerProfileInvokeResponseOutputWithContext(context.Context) APIServerProfileInvokeResponseOutput
+}
+
+// APIServerProfile represents an API server profile.
+type APIServerProfileInvokeResponseArgs struct {
+	// The IP of the cluster API server (immutable).
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// The URL to access the cluster API server (immutable).
+	Url pulumi.StringPtrInput `pulumi:"url"`
+	// API server visibility (immutable).
+	Visibility pulumi.StringPtrInput `pulumi:"visibility"`
+}
+
+func (APIServerProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*APIServerProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i APIServerProfileInvokeResponseArgs) ToAPIServerProfileInvokeResponseOutput() APIServerProfileInvokeResponseOutput {
+	return i.ToAPIServerProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i APIServerProfileInvokeResponseArgs) ToAPIServerProfileInvokeResponseOutputWithContext(ctx context.Context) APIServerProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(APIServerProfileInvokeResponseOutput)
+}
+
+// APIServerProfile represents an API server profile.
+type APIServerProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (APIServerProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*APIServerProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o APIServerProfileInvokeResponseOutput) ToAPIServerProfileInvokeResponseOutput() APIServerProfileInvokeResponseOutput {
+	return o
+}
+
+func (o APIServerProfileInvokeResponseOutput) ToAPIServerProfileInvokeResponseOutputWithContext(ctx context.Context) APIServerProfileInvokeResponseOutput {
+	return o
+}
+
+// The IP of the cluster API server (immutable).
+func (o APIServerProfileInvokeResponseOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v APIServerProfileInvokeResponse) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// The URL to access the cluster API server (immutable).
+func (o APIServerProfileInvokeResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v APIServerProfileInvokeResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// API server visibility (immutable).
+func (o APIServerProfileInvokeResponseOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v APIServerProfileInvokeResponse) *string { return v.Visibility }).(pulumi.StringPtrOutput)
+}
+
+// APIServerProfile represents an API server profile.
 type APIServerProfileResponse struct {
 	// The IP of the cluster API server (immutable).
 	Ip *string `pulumi:"ip"`
@@ -546,6 +619,88 @@ func (o ClusterProfilePtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 // ClusterProfile represents a cluster profile.
+type ClusterProfileInvokeResponse struct {
+	// The domain for the cluster (immutable).
+	Domain *string `pulumi:"domain"`
+	// The pull secret for the cluster (immutable).
+	PullSecret *string `pulumi:"pullSecret"`
+	// The ID of the cluster resource group (immutable).
+	ResourceGroupId *string `pulumi:"resourceGroupId"`
+	// The version of the cluster (immutable).
+	Version *string `pulumi:"version"`
+}
+
+// ClusterProfileInvokeResponseInput is an input type that accepts ClusterProfileInvokeResponseArgs and ClusterProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterProfileInvokeResponseInput` via:
+//
+//          ClusterProfileInvokeResponseArgs{...}
+type ClusterProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterProfileInvokeResponseOutput() ClusterProfileInvokeResponseOutput
+	ToClusterProfileInvokeResponseOutputWithContext(context.Context) ClusterProfileInvokeResponseOutput
+}
+
+// ClusterProfile represents a cluster profile.
+type ClusterProfileInvokeResponseArgs struct {
+	// The domain for the cluster (immutable).
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// The pull secret for the cluster (immutable).
+	PullSecret pulumi.StringPtrInput `pulumi:"pullSecret"`
+	// The ID of the cluster resource group (immutable).
+	ResourceGroupId pulumi.StringPtrInput `pulumi:"resourceGroupId"`
+	// The version of the cluster (immutable).
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ClusterProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterProfileInvokeResponseArgs) ToClusterProfileInvokeResponseOutput() ClusterProfileInvokeResponseOutput {
+	return i.ToClusterProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterProfileInvokeResponseArgs) ToClusterProfileInvokeResponseOutputWithContext(ctx context.Context) ClusterProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterProfileInvokeResponseOutput)
+}
+
+// ClusterProfile represents a cluster profile.
+type ClusterProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterProfileInvokeResponseOutput) ToClusterProfileInvokeResponseOutput() ClusterProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterProfileInvokeResponseOutput) ToClusterProfileInvokeResponseOutputWithContext(ctx context.Context) ClusterProfileInvokeResponseOutput {
+	return o
+}
+
+// The domain for the cluster (immutable).
+func (o ClusterProfileInvokeResponseOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterProfileInvokeResponse) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// The pull secret for the cluster (immutable).
+func (o ClusterProfileInvokeResponseOutput) PullSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterProfileInvokeResponse) *string { return v.PullSecret }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the cluster resource group (immutable).
+func (o ClusterProfileInvokeResponseOutput) ResourceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterProfileInvokeResponse) *string { return v.ResourceGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The version of the cluster (immutable).
+func (o ClusterProfileInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterProfileInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// ClusterProfile represents a cluster profile.
 type ClusterProfileResponse struct {
 	// The domain for the cluster (immutable).
 	Domain *string `pulumi:"domain"`
@@ -871,6 +1026,61 @@ func (o ConsoleProfilePtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 // ConsoleProfile represents a console profile.
+type ConsoleProfileInvokeResponse struct {
+	// The URL to access the cluster console (immutable).
+	Url *string `pulumi:"url"`
+}
+
+// ConsoleProfileInvokeResponseInput is an input type that accepts ConsoleProfileInvokeResponseArgs and ConsoleProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ConsoleProfileInvokeResponseInput` via:
+//
+//          ConsoleProfileInvokeResponseArgs{...}
+type ConsoleProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConsoleProfileInvokeResponseOutput() ConsoleProfileInvokeResponseOutput
+	ToConsoleProfileInvokeResponseOutputWithContext(context.Context) ConsoleProfileInvokeResponseOutput
+}
+
+// ConsoleProfile represents a console profile.
+type ConsoleProfileInvokeResponseArgs struct {
+	// The URL to access the cluster console (immutable).
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (ConsoleProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsoleProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ConsoleProfileInvokeResponseArgs) ToConsoleProfileInvokeResponseOutput() ConsoleProfileInvokeResponseOutput {
+	return i.ToConsoleProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConsoleProfileInvokeResponseArgs) ToConsoleProfileInvokeResponseOutputWithContext(ctx context.Context) ConsoleProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsoleProfileInvokeResponseOutput)
+}
+
+// ConsoleProfile represents a console profile.
+type ConsoleProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConsoleProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsoleProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ConsoleProfileInvokeResponseOutput) ToConsoleProfileInvokeResponseOutput() ConsoleProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ConsoleProfileInvokeResponseOutput) ToConsoleProfileInvokeResponseOutputWithContext(ctx context.Context) ConsoleProfileInvokeResponseOutput {
+	return o
+}
+
+// The URL to access the cluster console (immutable).
+func (o ConsoleProfileInvokeResponseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsoleProfileInvokeResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// ConsoleProfile represents a console profile.
 type ConsoleProfileResponse struct {
 	// The URL to access the cluster console (immutable).
 	Url *string `pulumi:"url"`
@@ -1120,6 +1330,124 @@ func (o IngressProfileArrayOutput) Index(i pulumi.IntInput) IngressProfileOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IngressProfile {
 		return vs[0].([]IngressProfile)[vs[1].(int)]
 	}).(IngressProfileOutput)
+}
+
+// IngressProfile represents an ingress profile.
+type IngressProfileInvokeResponse struct {
+	// The IP of the ingress (immutable).
+	Ip *string `pulumi:"ip"`
+	// The ingress profile name.  Must be "default" (immutable).
+	Name *string `pulumi:"name"`
+	// Ingress visibility (immutable).
+	Visibility *string `pulumi:"visibility"`
+}
+
+// IngressProfileInvokeResponseInput is an input type that accepts IngressProfileInvokeResponseArgs and IngressProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `IngressProfileInvokeResponseInput` via:
+//
+//          IngressProfileInvokeResponseArgs{...}
+type IngressProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIngressProfileInvokeResponseOutput() IngressProfileInvokeResponseOutput
+	ToIngressProfileInvokeResponseOutputWithContext(context.Context) IngressProfileInvokeResponseOutput
+}
+
+// IngressProfile represents an ingress profile.
+type IngressProfileInvokeResponseArgs struct {
+	// The IP of the ingress (immutable).
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// The ingress profile name.  Must be "default" (immutable).
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Ingress visibility (immutable).
+	Visibility pulumi.StringPtrInput `pulumi:"visibility"`
+}
+
+func (IngressProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i IngressProfileInvokeResponseArgs) ToIngressProfileInvokeResponseOutput() IngressProfileInvokeResponseOutput {
+	return i.ToIngressProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IngressProfileInvokeResponseArgs) ToIngressProfileInvokeResponseOutputWithContext(ctx context.Context) IngressProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressProfileInvokeResponseOutput)
+}
+
+// IngressProfileInvokeResponseArrayInput is an input type that accepts IngressProfileInvokeResponseArray and IngressProfileInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `IngressProfileInvokeResponseArrayInput` via:
+//
+//          IngressProfileInvokeResponseArray{ IngressProfileInvokeResponseArgs{...} }
+type IngressProfileInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToIngressProfileInvokeResponseArrayOutput() IngressProfileInvokeResponseArrayOutput
+	ToIngressProfileInvokeResponseArrayOutputWithContext(context.Context) IngressProfileInvokeResponseArrayOutput
+}
+
+type IngressProfileInvokeResponseArray []IngressProfileInvokeResponseInput
+
+func (IngressProfileInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IngressProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i IngressProfileInvokeResponseArray) ToIngressProfileInvokeResponseArrayOutput() IngressProfileInvokeResponseArrayOutput {
+	return i.ToIngressProfileInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IngressProfileInvokeResponseArray) ToIngressProfileInvokeResponseArrayOutputWithContext(ctx context.Context) IngressProfileInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IngressProfileInvokeResponseArrayOutput)
+}
+
+// IngressProfile represents an ingress profile.
+type IngressProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IngressProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngressProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o IngressProfileInvokeResponseOutput) ToIngressProfileInvokeResponseOutput() IngressProfileInvokeResponseOutput {
+	return o
+}
+
+func (o IngressProfileInvokeResponseOutput) ToIngressProfileInvokeResponseOutputWithContext(ctx context.Context) IngressProfileInvokeResponseOutput {
+	return o
+}
+
+// The IP of the ingress (immutable).
+func (o IngressProfileInvokeResponseOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressProfileInvokeResponse) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// The ingress profile name.  Must be "default" (immutable).
+func (o IngressProfileInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressProfileInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Ingress visibility (immutable).
+func (o IngressProfileInvokeResponseOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IngressProfileInvokeResponse) *string { return v.Visibility }).(pulumi.StringPtrOutput)
+}
+
+type IngressProfileInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IngressProfileInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IngressProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o IngressProfileInvokeResponseArrayOutput) ToIngressProfileInvokeResponseArrayOutput() IngressProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IngressProfileInvokeResponseArrayOutput) ToIngressProfileInvokeResponseArrayOutputWithContext(ctx context.Context) IngressProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o IngressProfileInvokeResponseArrayOutput) Index(i pulumi.IntInput) IngressProfileInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IngressProfileInvokeResponse {
+		return vs[0].([]IngressProfileInvokeResponse)[vs[1].(int)]
+	}).(IngressProfileInvokeResponseOutput)
 }
 
 // IngressProfile represents an ingress profile.
@@ -1391,6 +1719,70 @@ func (o MasterProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 		}
 		return v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+// MasterProfile represents a master profile.
+type MasterProfileInvokeResponse struct {
+	// The Azure resource ID of the master subnet (immutable).
+	SubnetId *string `pulumi:"subnetId"`
+	// The size of the master VMs (immutable).
+	VmSize *string `pulumi:"vmSize"`
+}
+
+// MasterProfileInvokeResponseInput is an input type that accepts MasterProfileInvokeResponseArgs and MasterProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `MasterProfileInvokeResponseInput` via:
+//
+//          MasterProfileInvokeResponseArgs{...}
+type MasterProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMasterProfileInvokeResponseOutput() MasterProfileInvokeResponseOutput
+	ToMasterProfileInvokeResponseOutputWithContext(context.Context) MasterProfileInvokeResponseOutput
+}
+
+// MasterProfile represents a master profile.
+type MasterProfileInvokeResponseArgs struct {
+	// The Azure resource ID of the master subnet (immutable).
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The size of the master VMs (immutable).
+	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
+}
+
+func (MasterProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MasterProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i MasterProfileInvokeResponseArgs) ToMasterProfileInvokeResponseOutput() MasterProfileInvokeResponseOutput {
+	return i.ToMasterProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MasterProfileInvokeResponseArgs) ToMasterProfileInvokeResponseOutputWithContext(ctx context.Context) MasterProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MasterProfileInvokeResponseOutput)
+}
+
+// MasterProfile represents a master profile.
+type MasterProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MasterProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MasterProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o MasterProfileInvokeResponseOutput) ToMasterProfileInvokeResponseOutput() MasterProfileInvokeResponseOutput {
+	return o
+}
+
+func (o MasterProfileInvokeResponseOutput) ToMasterProfileInvokeResponseOutputWithContext(ctx context.Context) MasterProfileInvokeResponseOutput {
+	return o
+}
+
+// The Azure resource ID of the master subnet (immutable).
+func (o MasterProfileInvokeResponseOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MasterProfileInvokeResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The size of the master VMs (immutable).
+func (o MasterProfileInvokeResponseOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MasterProfileInvokeResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
 
 // MasterProfile represents a master profile.
@@ -1700,6 +2092,70 @@ func (o NetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 }
 
 // NetworkProfile represents a network profile.
+type NetworkProfileInvokeResponse struct {
+	// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+	PodCidr *string `pulumi:"podCidr"`
+	// The CIDR used for OpenShift/Kubernetes Services (immutable).
+	ServiceCidr *string `pulumi:"serviceCidr"`
+}
+
+// NetworkProfileInvokeResponseInput is an input type that accepts NetworkProfileInvokeResponseArgs and NetworkProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkProfileInvokeResponseInput` via:
+//
+//          NetworkProfileInvokeResponseArgs{...}
+type NetworkProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput
+	ToNetworkProfileInvokeResponseOutputWithContext(context.Context) NetworkProfileInvokeResponseOutput
+}
+
+// NetworkProfile represents a network profile.
+type NetworkProfileInvokeResponseArgs struct {
+	// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
+	// The CIDR used for OpenShift/Kubernetes Services (immutable).
+	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
+}
+
+func (NetworkProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput {
+	return i.ToNetworkProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkProfileInvokeResponseArgs) ToNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileInvokeResponseOutput)
+}
+
+// NetworkProfile represents a network profile.
+type NetworkProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponseOutput() NetworkProfileInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkProfileInvokeResponseOutput) ToNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) NetworkProfileInvokeResponseOutput {
+	return o
+}
+
+// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+func (o NetworkProfileInvokeResponseOutput) PodCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
+}
+
+// The CIDR used for OpenShift/Kubernetes Services (immutable).
+func (o NetworkProfileInvokeResponseOutput) ServiceCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileInvokeResponse) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
+}
+
+// NetworkProfile represents a network profile.
 type NetworkProfileResponse struct {
 	// The CIDR used for OpenShift/Kubernetes Pods (immutable).
 	PodCidr *string `pulumi:"podCidr"`
@@ -2006,6 +2462,70 @@ func (o ServicePrincipalProfilePtrOutput) ClientSecret() pulumi.StringPtrOutput 
 }
 
 // ServicePrincipalProfile represents a service principal profile.
+type ServicePrincipalProfileInvokeResponse struct {
+	// The client ID used for the cluster (immutable).
+	ClientId *string `pulumi:"clientId"`
+	// The client secret used for the cluster (immutable).
+	ClientSecret *string `pulumi:"clientSecret"`
+}
+
+// ServicePrincipalProfileInvokeResponseInput is an input type that accepts ServicePrincipalProfileInvokeResponseArgs and ServicePrincipalProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `ServicePrincipalProfileInvokeResponseInput` via:
+//
+//          ServicePrincipalProfileInvokeResponseArgs{...}
+type ServicePrincipalProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServicePrincipalProfileInvokeResponseOutput() ServicePrincipalProfileInvokeResponseOutput
+	ToServicePrincipalProfileInvokeResponseOutputWithContext(context.Context) ServicePrincipalProfileInvokeResponseOutput
+}
+
+// ServicePrincipalProfile represents a service principal profile.
+type ServicePrincipalProfileInvokeResponseArgs struct {
+	// The client ID used for the cluster (immutable).
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The client secret used for the cluster (immutable).
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+}
+
+func (ServicePrincipalProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i ServicePrincipalProfileInvokeResponseArgs) ToServicePrincipalProfileInvokeResponseOutput() ServicePrincipalProfileInvokeResponseOutput {
+	return i.ToServicePrincipalProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServicePrincipalProfileInvokeResponseArgs) ToServicePrincipalProfileInvokeResponseOutputWithContext(ctx context.Context) ServicePrincipalProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalProfileInvokeResponseOutput)
+}
+
+// ServicePrincipalProfile represents a service principal profile.
+type ServicePrincipalProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServicePrincipalProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePrincipalProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o ServicePrincipalProfileInvokeResponseOutput) ToServicePrincipalProfileInvokeResponseOutput() ServicePrincipalProfileInvokeResponseOutput {
+	return o
+}
+
+func (o ServicePrincipalProfileInvokeResponseOutput) ToServicePrincipalProfileInvokeResponseOutputWithContext(ctx context.Context) ServicePrincipalProfileInvokeResponseOutput {
+	return o
+}
+
+// The client ID used for the cluster (immutable).
+func (o ServicePrincipalProfileInvokeResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalProfileInvokeResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret used for the cluster (immutable).
+func (o ServicePrincipalProfileInvokeResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServicePrincipalProfileInvokeResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// ServicePrincipalProfile represents a service principal profile.
 type ServicePrincipalProfileResponse struct {
 	// The client ID used for the cluster (immutable).
 	ClientId *string `pulumi:"clientId"`
@@ -2295,6 +2815,142 @@ func (o WorkerProfileArrayOutput) Index(i pulumi.IntInput) WorkerProfileOutput {
 }
 
 // WorkerProfile represents a worker profile.
+type WorkerProfileInvokeResponse struct {
+	// The number of worker VMs.  Must be between 3 and 20 (immutable).
+	Count *int `pulumi:"count"`
+	// The disk size of the worker VMs.  Must be 128 or greater (immutable).
+	DiskSizeGB *int `pulumi:"diskSizeGB"`
+	// The worker profile name.  Must be "worker" (immutable).
+	Name *string `pulumi:"name"`
+	// The Azure resource ID of the worker subnet (immutable).
+	SubnetId *string `pulumi:"subnetId"`
+	// The size of the worker VMs (immutable).
+	VmSize *string `pulumi:"vmSize"`
+}
+
+// WorkerProfileInvokeResponseInput is an input type that accepts WorkerProfileInvokeResponseArgs and WorkerProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkerProfileInvokeResponseInput` via:
+//
+//          WorkerProfileInvokeResponseArgs{...}
+type WorkerProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkerProfileInvokeResponseOutput() WorkerProfileInvokeResponseOutput
+	ToWorkerProfileInvokeResponseOutputWithContext(context.Context) WorkerProfileInvokeResponseOutput
+}
+
+// WorkerProfile represents a worker profile.
+type WorkerProfileInvokeResponseArgs struct {
+	// The number of worker VMs.  Must be between 3 and 20 (immutable).
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The disk size of the worker VMs.  Must be 128 or greater (immutable).
+	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
+	// The worker profile name.  Must be "worker" (immutable).
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The Azure resource ID of the worker subnet (immutable).
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// The size of the worker VMs (immutable).
+	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
+}
+
+func (WorkerProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkerProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkerProfileInvokeResponseArgs) ToWorkerProfileInvokeResponseOutput() WorkerProfileInvokeResponseOutput {
+	return i.ToWorkerProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkerProfileInvokeResponseArgs) ToWorkerProfileInvokeResponseOutputWithContext(ctx context.Context) WorkerProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkerProfileInvokeResponseOutput)
+}
+
+// WorkerProfileInvokeResponseArrayInput is an input type that accepts WorkerProfileInvokeResponseArray and WorkerProfileInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `WorkerProfileInvokeResponseArrayInput` via:
+//
+//          WorkerProfileInvokeResponseArray{ WorkerProfileInvokeResponseArgs{...} }
+type WorkerProfileInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToWorkerProfileInvokeResponseArrayOutput() WorkerProfileInvokeResponseArrayOutput
+	ToWorkerProfileInvokeResponseArrayOutputWithContext(context.Context) WorkerProfileInvokeResponseArrayOutput
+}
+
+type WorkerProfileInvokeResponseArray []WorkerProfileInvokeResponseInput
+
+func (WorkerProfileInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkerProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkerProfileInvokeResponseArray) ToWorkerProfileInvokeResponseArrayOutput() WorkerProfileInvokeResponseArrayOutput {
+	return i.ToWorkerProfileInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WorkerProfileInvokeResponseArray) ToWorkerProfileInvokeResponseArrayOutputWithContext(ctx context.Context) WorkerProfileInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkerProfileInvokeResponseArrayOutput)
+}
+
+// WorkerProfile represents a worker profile.
+type WorkerProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkerProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkerProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkerProfileInvokeResponseOutput) ToWorkerProfileInvokeResponseOutput() WorkerProfileInvokeResponseOutput {
+	return o
+}
+
+func (o WorkerProfileInvokeResponseOutput) ToWorkerProfileInvokeResponseOutputWithContext(ctx context.Context) WorkerProfileInvokeResponseOutput {
+	return o
+}
+
+// The number of worker VMs.  Must be between 3 and 20 (immutable).
+func (o WorkerProfileInvokeResponseOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkerProfileInvokeResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// The disk size of the worker VMs.  Must be 128 or greater (immutable).
+func (o WorkerProfileInvokeResponseOutput) DiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkerProfileInvokeResponse) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// The worker profile name.  Must be "worker" (immutable).
+func (o WorkerProfileInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerProfileInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The Azure resource ID of the worker subnet (immutable).
+func (o WorkerProfileInvokeResponseOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerProfileInvokeResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The size of the worker VMs (immutable).
+func (o WorkerProfileInvokeResponseOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerProfileInvokeResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
+}
+
+type WorkerProfileInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkerProfileInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkerProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkerProfileInvokeResponseArrayOutput) ToWorkerProfileInvokeResponseArrayOutput() WorkerProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkerProfileInvokeResponseArrayOutput) ToWorkerProfileInvokeResponseArrayOutputWithContext(ctx context.Context) WorkerProfileInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkerProfileInvokeResponseArrayOutput) Index(i pulumi.IntInput) WorkerProfileInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkerProfileInvokeResponse {
+		return vs[0].([]WorkerProfileInvokeResponse)[vs[1].(int)]
+	}).(WorkerProfileInvokeResponseOutput)
+}
+
+// WorkerProfile represents a worker profile.
 type WorkerProfileResponse struct {
 	// The number of worker VMs.  Must be between 3 and 20 (immutable).
 	Count *int `pulumi:"count"`
@@ -2433,34 +3089,44 @@ func (o WorkerProfileResponseArrayOutput) Index(i pulumi.IntInput) WorkerProfile
 func init() {
 	pulumi.RegisterOutputType(APIServerProfileOutput{})
 	pulumi.RegisterOutputType(APIServerProfilePtrOutput{})
+	pulumi.RegisterOutputType(APIServerProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(APIServerProfileResponseOutput{})
 	pulumi.RegisterOutputType(APIServerProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterProfileOutput{})
 	pulumi.RegisterOutputType(ClusterProfilePtrOutput{})
+	pulumi.RegisterOutputType(ClusterProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterProfileResponseOutput{})
 	pulumi.RegisterOutputType(ClusterProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConsoleProfileOutput{})
 	pulumi.RegisterOutputType(ConsoleProfilePtrOutput{})
+	pulumi.RegisterOutputType(ConsoleProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConsoleProfileResponseOutput{})
 	pulumi.RegisterOutputType(ConsoleProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(IngressProfileOutput{})
 	pulumi.RegisterOutputType(IngressProfileArrayOutput{})
+	pulumi.RegisterOutputType(IngressProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IngressProfileInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(IngressProfileResponseOutput{})
 	pulumi.RegisterOutputType(IngressProfileResponseArrayOutput{})
 	pulumi.RegisterOutputType(MasterProfileOutput{})
 	pulumi.RegisterOutputType(MasterProfilePtrOutput{})
+	pulumi.RegisterOutputType(MasterProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MasterProfileResponseOutput{})
 	pulumi.RegisterOutputType(MasterProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileOutput{})
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(NetworkProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalProfileOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalProfilePtrOutput{})
+	pulumi.RegisterOutputType(ServicePrincipalProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalProfileResponseOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkerProfileOutput{})
 	pulumi.RegisterOutputType(WorkerProfileArrayOutput{})
+	pulumi.RegisterOutputType(WorkerProfileInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkerProfileInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(WorkerProfileResponseOutput{})
 	pulumi.RegisterOutputType(WorkerProfileResponseArrayOutput{})
 }

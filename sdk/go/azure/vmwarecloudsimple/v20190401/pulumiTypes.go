@@ -221,6 +221,97 @@ func (o GuestOSCustomizationPtrOutput) Username() pulumi.StringPtrOutput {
 }
 
 // Guest OS Customization properties
+type GuestOSCustomizationInvokeResponse struct {
+	// List of dns servers to use
+	DnsServers []string `pulumi:"dnsServers"`
+	// Virtual Machine hostname
+	HostName *string `pulumi:"hostName"`
+	// Password for login
+	Password *string `pulumi:"password"`
+	// id of customization policy
+	PolicyId *string `pulumi:"policyId"`
+	// Username for login
+	Username *string `pulumi:"username"`
+}
+
+// GuestOSCustomizationInvokeResponseInput is an input type that accepts GuestOSCustomizationInvokeResponseArgs and GuestOSCustomizationInvokeResponseOutput values.
+// You can construct a concrete instance of `GuestOSCustomizationInvokeResponseInput` via:
+//
+//          GuestOSCustomizationInvokeResponseArgs{...}
+type GuestOSCustomizationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGuestOSCustomizationInvokeResponseOutput() GuestOSCustomizationInvokeResponseOutput
+	ToGuestOSCustomizationInvokeResponseOutputWithContext(context.Context) GuestOSCustomizationInvokeResponseOutput
+}
+
+// Guest OS Customization properties
+type GuestOSCustomizationInvokeResponseArgs struct {
+	// List of dns servers to use
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// Virtual Machine hostname
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// Password for login
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// id of customization policy
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// Username for login
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (GuestOSCustomizationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestOSCustomizationInvokeResponse)(nil)).Elem()
+}
+
+func (i GuestOSCustomizationInvokeResponseArgs) ToGuestOSCustomizationInvokeResponseOutput() GuestOSCustomizationInvokeResponseOutput {
+	return i.ToGuestOSCustomizationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GuestOSCustomizationInvokeResponseArgs) ToGuestOSCustomizationInvokeResponseOutputWithContext(ctx context.Context) GuestOSCustomizationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestOSCustomizationInvokeResponseOutput)
+}
+
+// Guest OS Customization properties
+type GuestOSCustomizationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GuestOSCustomizationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestOSCustomizationInvokeResponse)(nil)).Elem()
+}
+
+func (o GuestOSCustomizationInvokeResponseOutput) ToGuestOSCustomizationInvokeResponseOutput() GuestOSCustomizationInvokeResponseOutput {
+	return o
+}
+
+func (o GuestOSCustomizationInvokeResponseOutput) ToGuestOSCustomizationInvokeResponseOutputWithContext(ctx context.Context) GuestOSCustomizationInvokeResponseOutput {
+	return o
+}
+
+// List of dns servers to use
+func (o GuestOSCustomizationInvokeResponseOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GuestOSCustomizationInvokeResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// Virtual Machine hostname
+func (o GuestOSCustomizationInvokeResponseOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestOSCustomizationInvokeResponse) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// Password for login
+func (o GuestOSCustomizationInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestOSCustomizationInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// id of customization policy
+func (o GuestOSCustomizationInvokeResponseOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestOSCustomizationInvokeResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// Username for login
+func (o GuestOSCustomizationInvokeResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestOSCustomizationInvokeResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+// Guest OS Customization properties
 type GuestOSCustomizationResponse struct {
 	// List of dns servers to use
 	DnsServers []string `pulumi:"dnsServers"`
@@ -679,6 +770,254 @@ func (o GuestOSNICCustomizationPtrOutput) SecondaryWinsServer() pulumi.StringPtr
 }
 
 // Guest OS nic customization
+type GuestOSNICCustomizationInvokeResponse struct {
+	// IP address allocation method
+	Allocation *string `pulumi:"allocation"`
+	// List of dns servers to use
+	DnsServers []string `pulumi:"dnsServers"`
+	// Gateway addresses assigned to nic
+	Gateway []string `pulumi:"gateway"`
+	// Static ip address for nic
+	IpAddress *string `pulumi:"ipAddress"`
+	// Network mask for nic
+	Mask *string `pulumi:"mask"`
+	// primary WINS server for Windows
+	PrimaryWinsServer *string `pulumi:"primaryWinsServer"`
+	// secondary WINS server for Windows
+	SecondaryWinsServer *string `pulumi:"secondaryWinsServer"`
+}
+
+// GuestOSNICCustomizationInvokeResponseInput is an input type that accepts GuestOSNICCustomizationInvokeResponseArgs and GuestOSNICCustomizationInvokeResponseOutput values.
+// You can construct a concrete instance of `GuestOSNICCustomizationInvokeResponseInput` via:
+//
+//          GuestOSNICCustomizationInvokeResponseArgs{...}
+type GuestOSNICCustomizationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGuestOSNICCustomizationInvokeResponseOutput() GuestOSNICCustomizationInvokeResponseOutput
+	ToGuestOSNICCustomizationInvokeResponseOutputWithContext(context.Context) GuestOSNICCustomizationInvokeResponseOutput
+}
+
+// Guest OS nic customization
+type GuestOSNICCustomizationInvokeResponseArgs struct {
+	// IP address allocation method
+	Allocation pulumi.StringPtrInput `pulumi:"allocation"`
+	// List of dns servers to use
+	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
+	// Gateway addresses assigned to nic
+	Gateway pulumi.StringArrayInput `pulumi:"gateway"`
+	// Static ip address for nic
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// Network mask for nic
+	Mask pulumi.StringPtrInput `pulumi:"mask"`
+	// primary WINS server for Windows
+	PrimaryWinsServer pulumi.StringPtrInput `pulumi:"primaryWinsServer"`
+	// secondary WINS server for Windows
+	SecondaryWinsServer pulumi.StringPtrInput `pulumi:"secondaryWinsServer"`
+}
+
+func (GuestOSNICCustomizationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestOSNICCustomizationInvokeResponse)(nil)).Elem()
+}
+
+func (i GuestOSNICCustomizationInvokeResponseArgs) ToGuestOSNICCustomizationInvokeResponseOutput() GuestOSNICCustomizationInvokeResponseOutput {
+	return i.ToGuestOSNICCustomizationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GuestOSNICCustomizationInvokeResponseArgs) ToGuestOSNICCustomizationInvokeResponseOutputWithContext(ctx context.Context) GuestOSNICCustomizationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestOSNICCustomizationInvokeResponseOutput)
+}
+
+func (i GuestOSNICCustomizationInvokeResponseArgs) ToGuestOSNICCustomizationInvokeResponsePtrOutput() GuestOSNICCustomizationInvokeResponsePtrOutput {
+	return i.ToGuestOSNICCustomizationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GuestOSNICCustomizationInvokeResponseArgs) ToGuestOSNICCustomizationInvokeResponsePtrOutputWithContext(ctx context.Context) GuestOSNICCustomizationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestOSNICCustomizationInvokeResponseOutput).ToGuestOSNICCustomizationInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// GuestOSNICCustomizationInvokeResponsePtrInput is an input type that accepts GuestOSNICCustomizationInvokeResponseArgs, GuestOSNICCustomizationInvokeResponsePtr and GuestOSNICCustomizationInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `GuestOSNICCustomizationInvokeResponsePtrInput` via:
+//
+//          GuestOSNICCustomizationInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GuestOSNICCustomizationInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToGuestOSNICCustomizationInvokeResponsePtrOutput() GuestOSNICCustomizationInvokeResponsePtrOutput
+	ToGuestOSNICCustomizationInvokeResponsePtrOutputWithContext(context.Context) GuestOSNICCustomizationInvokeResponsePtrOutput
+}
+
+type guestOSNICCustomizationInvokeResponsePtrType GuestOSNICCustomizationInvokeResponseArgs
+
+func GuestOSNICCustomizationInvokeResponsePtr(v *GuestOSNICCustomizationInvokeResponseArgs) GuestOSNICCustomizationInvokeResponsePtrInput {
+	return (*guestOSNICCustomizationInvokeResponsePtrType)(v)
+}
+
+func (*guestOSNICCustomizationInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuestOSNICCustomizationInvokeResponse)(nil)).Elem()
+}
+
+func (i *guestOSNICCustomizationInvokeResponsePtrType) ToGuestOSNICCustomizationInvokeResponsePtrOutput() GuestOSNICCustomizationInvokeResponsePtrOutput {
+	return i.ToGuestOSNICCustomizationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *guestOSNICCustomizationInvokeResponsePtrType) ToGuestOSNICCustomizationInvokeResponsePtrOutputWithContext(ctx context.Context) GuestOSNICCustomizationInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuestOSNICCustomizationInvokeResponsePtrOutput)
+}
+
+// Guest OS nic customization
+type GuestOSNICCustomizationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GuestOSNICCustomizationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuestOSNICCustomizationInvokeResponse)(nil)).Elem()
+}
+
+func (o GuestOSNICCustomizationInvokeResponseOutput) ToGuestOSNICCustomizationInvokeResponseOutput() GuestOSNICCustomizationInvokeResponseOutput {
+	return o
+}
+
+func (o GuestOSNICCustomizationInvokeResponseOutput) ToGuestOSNICCustomizationInvokeResponseOutputWithContext(ctx context.Context) GuestOSNICCustomizationInvokeResponseOutput {
+	return o
+}
+
+func (o GuestOSNICCustomizationInvokeResponseOutput) ToGuestOSNICCustomizationInvokeResponsePtrOutput() GuestOSNICCustomizationInvokeResponsePtrOutput {
+	return o.ToGuestOSNICCustomizationInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GuestOSNICCustomizationInvokeResponseOutput) ToGuestOSNICCustomizationInvokeResponsePtrOutputWithContext(ctx context.Context) GuestOSNICCustomizationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GuestOSNICCustomizationInvokeResponse) *GuestOSNICCustomizationInvokeResponse {
+		return &v
+	}).(GuestOSNICCustomizationInvokeResponsePtrOutput)
+}
+
+// IP address allocation method
+func (o GuestOSNICCustomizationInvokeResponseOutput) Allocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestOSNICCustomizationInvokeResponse) *string { return v.Allocation }).(pulumi.StringPtrOutput)
+}
+
+// List of dns servers to use
+func (o GuestOSNICCustomizationInvokeResponseOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GuestOSNICCustomizationInvokeResponse) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+// Gateway addresses assigned to nic
+func (o GuestOSNICCustomizationInvokeResponseOutput) Gateway() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GuestOSNICCustomizationInvokeResponse) []string { return v.Gateway }).(pulumi.StringArrayOutput)
+}
+
+// Static ip address for nic
+func (o GuestOSNICCustomizationInvokeResponseOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestOSNICCustomizationInvokeResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Network mask for nic
+func (o GuestOSNICCustomizationInvokeResponseOutput) Mask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestOSNICCustomizationInvokeResponse) *string { return v.Mask }).(pulumi.StringPtrOutput)
+}
+
+// primary WINS server for Windows
+func (o GuestOSNICCustomizationInvokeResponseOutput) PrimaryWinsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestOSNICCustomizationInvokeResponse) *string { return v.PrimaryWinsServer }).(pulumi.StringPtrOutput)
+}
+
+// secondary WINS server for Windows
+func (o GuestOSNICCustomizationInvokeResponseOutput) SecondaryWinsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuestOSNICCustomizationInvokeResponse) *string { return v.SecondaryWinsServer }).(pulumi.StringPtrOutput)
+}
+
+type GuestOSNICCustomizationInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GuestOSNICCustomizationInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuestOSNICCustomizationInvokeResponse)(nil)).Elem()
+}
+
+func (o GuestOSNICCustomizationInvokeResponsePtrOutput) ToGuestOSNICCustomizationInvokeResponsePtrOutput() GuestOSNICCustomizationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GuestOSNICCustomizationInvokeResponsePtrOutput) ToGuestOSNICCustomizationInvokeResponsePtrOutputWithContext(ctx context.Context) GuestOSNICCustomizationInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GuestOSNICCustomizationInvokeResponsePtrOutput) Elem() GuestOSNICCustomizationInvokeResponseOutput {
+	return o.ApplyT(func(v *GuestOSNICCustomizationInvokeResponse) GuestOSNICCustomizationInvokeResponse { return *v }).(GuestOSNICCustomizationInvokeResponseOutput)
+}
+
+// IP address allocation method
+func (o GuestOSNICCustomizationInvokeResponsePtrOutput) Allocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestOSNICCustomizationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Allocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of dns servers to use
+func (o GuestOSNICCustomizationInvokeResponsePtrOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GuestOSNICCustomizationInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Gateway addresses assigned to nic
+func (o GuestOSNICCustomizationInvokeResponsePtrOutput) Gateway() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GuestOSNICCustomizationInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Gateway
+	}).(pulumi.StringArrayOutput)
+}
+
+// Static ip address for nic
+func (o GuestOSNICCustomizationInvokeResponsePtrOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestOSNICCustomizationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Network mask for nic
+func (o GuestOSNICCustomizationInvokeResponsePtrOutput) Mask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestOSNICCustomizationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mask
+	}).(pulumi.StringPtrOutput)
+}
+
+// primary WINS server for Windows
+func (o GuestOSNICCustomizationInvokeResponsePtrOutput) PrimaryWinsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestOSNICCustomizationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryWinsServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// secondary WINS server for Windows
+func (o GuestOSNICCustomizationInvokeResponsePtrOutput) SecondaryWinsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestOSNICCustomizationInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryWinsServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Guest OS nic customization
 type GuestOSNICCustomizationResponse struct {
 	// IP address allocation method
 	Allocation *string `pulumi:"allocation"`
@@ -1058,6 +1397,106 @@ func (o ResourcePoolPtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// Resource pool model
+type ResourcePoolInvokeResponse struct {
+	// Hierarchical resource pool name
+	FullName string `pulumi:"fullName"`
+	// resource pool id (privateCloudId:vsphereId)
+	Id string `pulumi:"id"`
+	// Azure region
+	Location string `pulumi:"location"`
+	// {ResourcePoolName}
+	Name string `pulumi:"name"`
+	// The Private Cloud Id
+	PrivateCloudId string `pulumi:"privateCloudId"`
+	// {resourceProviderNamespace}/{resourceType}
+	Type string `pulumi:"type"`
+}
+
+// ResourcePoolInvokeResponseInput is an input type that accepts ResourcePoolInvokeResponseArgs and ResourcePoolInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourcePoolInvokeResponseInput` via:
+//
+//          ResourcePoolInvokeResponseArgs{...}
+type ResourcePoolInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourcePoolInvokeResponseOutput() ResourcePoolInvokeResponseOutput
+	ToResourcePoolInvokeResponseOutputWithContext(context.Context) ResourcePoolInvokeResponseOutput
+}
+
+// Resource pool model
+type ResourcePoolInvokeResponseArgs struct {
+	// Hierarchical resource pool name
+	FullName pulumi.StringInput `pulumi:"fullName"`
+	// resource pool id (privateCloudId:vsphereId)
+	Id pulumi.StringInput `pulumi:"id"`
+	// Azure region
+	Location pulumi.StringInput `pulumi:"location"`
+	// {ResourcePoolName}
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Private Cloud Id
+	PrivateCloudId pulumi.StringInput `pulumi:"privateCloudId"`
+	// {resourceProviderNamespace}/{resourceType}
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ResourcePoolInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePoolInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourcePoolInvokeResponseArgs) ToResourcePoolInvokeResponseOutput() ResourcePoolInvokeResponseOutput {
+	return i.ToResourcePoolInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourcePoolInvokeResponseArgs) ToResourcePoolInvokeResponseOutputWithContext(ctx context.Context) ResourcePoolInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourcePoolInvokeResponseOutput)
+}
+
+// Resource pool model
+type ResourcePoolInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourcePoolInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourcePoolInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourcePoolInvokeResponseOutput) ToResourcePoolInvokeResponseOutput() ResourcePoolInvokeResponseOutput {
+	return o
+}
+
+func (o ResourcePoolInvokeResponseOutput) ToResourcePoolInvokeResponseOutputWithContext(ctx context.Context) ResourcePoolInvokeResponseOutput {
+	return o
+}
+
+// Hierarchical resource pool name
+func (o ResourcePoolInvokeResponseOutput) FullName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourcePoolInvokeResponse) string { return v.FullName }).(pulumi.StringOutput)
+}
+
+// resource pool id (privateCloudId:vsphereId)
+func (o ResourcePoolInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourcePoolInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure region
+func (o ResourcePoolInvokeResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourcePoolInvokeResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// {ResourcePoolName}
+func (o ResourcePoolInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourcePoolInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Private Cloud Id
+func (o ResourcePoolInvokeResponseOutput) PrivateCloudId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourcePoolInvokeResponse) string { return v.PrivateCloudId }).(pulumi.StringOutput)
+}
+
+// {resourceProviderNamespace}/{resourceType}
+func (o ResourcePoolInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourcePoolInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Resource pool model
@@ -1500,6 +1939,97 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // The purchase SKU for CloudSimple paid resources
+type SkuInvokeResponse struct {
+	// The capacity of the SKU
+	Capacity *string `pulumi:"capacity"`
+	// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
+	Description *string `pulumi:"description"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here
+	Family *string `pulumi:"family"`
+	// The name of the SKU for VMWare CloudSimple Node
+	Name string `pulumi:"name"`
+	// The tier of the SKU
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The purchase SKU for CloudSimple paid resources
+type SkuInvokeResponseArgs struct {
+	// The capacity of the SKU
+	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
+	// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// If the service has different generations of hardware, for the same SKU, then that can be captured here
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the SKU for VMWare CloudSimple Node
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tier of the SKU
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The purchase SKU for CloudSimple paid resources
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The capacity of the SKU
+func (o SkuInvokeResponseOutput) Capacity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Capacity }).(pulumi.StringPtrOutput)
+}
+
+// dedicatedCloudNode example: 8 x Ten-Core Intel® Xeon® Processor E5-2640 v4 2.40GHz 25MB Cache (90W); 12 x 64GB PC4-19200 2400MHz DDR4 ECC Registered DIMM, ...
+func (o SkuInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// If the service has different generations of hardware, for the same SKU, then that can be captured here
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SKU for VMWare CloudSimple Node
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tier of the SKU
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The purchase SKU for CloudSimple paid resources
 type SkuResponse struct {
 	// The capacity of the SKU
 	Capacity *string `pulumi:"capacity"`
@@ -1837,6 +2367,133 @@ func (o VirtualDiskArrayOutput) Index(i pulumi.IntInput) VirtualDiskOutput {
 }
 
 // Virtual disk controller model
+type VirtualDiskControllerInvokeResponse struct {
+	// Controller's id
+	Id string `pulumi:"id"`
+	// The display name of Controller
+	Name string `pulumi:"name"`
+	// dik controller subtype (VMWARE_PARAVIRTUAL, BUS_PARALLEL, LSI_PARALLEL, LSI_SAS)
+	SubType string `pulumi:"subType"`
+	// disk controller type (SCSI)
+	Type string `pulumi:"type"`
+}
+
+// VirtualDiskControllerInvokeResponseInput is an input type that accepts VirtualDiskControllerInvokeResponseArgs and VirtualDiskControllerInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualDiskControllerInvokeResponseInput` via:
+//
+//          VirtualDiskControllerInvokeResponseArgs{...}
+type VirtualDiskControllerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualDiskControllerInvokeResponseOutput() VirtualDiskControllerInvokeResponseOutput
+	ToVirtualDiskControllerInvokeResponseOutputWithContext(context.Context) VirtualDiskControllerInvokeResponseOutput
+}
+
+// Virtual disk controller model
+type VirtualDiskControllerInvokeResponseArgs struct {
+	// Controller's id
+	Id pulumi.StringInput `pulumi:"id"`
+	// The display name of Controller
+	Name pulumi.StringInput `pulumi:"name"`
+	// dik controller subtype (VMWARE_PARAVIRTUAL, BUS_PARALLEL, LSI_PARALLEL, LSI_SAS)
+	SubType pulumi.StringInput `pulumi:"subType"`
+	// disk controller type (SCSI)
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VirtualDiskControllerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualDiskControllerInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualDiskControllerInvokeResponseArgs) ToVirtualDiskControllerInvokeResponseOutput() VirtualDiskControllerInvokeResponseOutput {
+	return i.ToVirtualDiskControllerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualDiskControllerInvokeResponseArgs) ToVirtualDiskControllerInvokeResponseOutputWithContext(ctx context.Context) VirtualDiskControllerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualDiskControllerInvokeResponseOutput)
+}
+
+// VirtualDiskControllerInvokeResponseArrayInput is an input type that accepts VirtualDiskControllerInvokeResponseArray and VirtualDiskControllerInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VirtualDiskControllerInvokeResponseArrayInput` via:
+//
+//          VirtualDiskControllerInvokeResponseArray{ VirtualDiskControllerInvokeResponseArgs{...} }
+type VirtualDiskControllerInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVirtualDiskControllerInvokeResponseArrayOutput() VirtualDiskControllerInvokeResponseArrayOutput
+	ToVirtualDiskControllerInvokeResponseArrayOutputWithContext(context.Context) VirtualDiskControllerInvokeResponseArrayOutput
+}
+
+type VirtualDiskControllerInvokeResponseArray []VirtualDiskControllerInvokeResponseInput
+
+func (VirtualDiskControllerInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualDiskControllerInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualDiskControllerInvokeResponseArray) ToVirtualDiskControllerInvokeResponseArrayOutput() VirtualDiskControllerInvokeResponseArrayOutput {
+	return i.ToVirtualDiskControllerInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualDiskControllerInvokeResponseArray) ToVirtualDiskControllerInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualDiskControllerInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualDiskControllerInvokeResponseArrayOutput)
+}
+
+// Virtual disk controller model
+type VirtualDiskControllerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualDiskControllerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualDiskControllerInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualDiskControllerInvokeResponseOutput) ToVirtualDiskControllerInvokeResponseOutput() VirtualDiskControllerInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualDiskControllerInvokeResponseOutput) ToVirtualDiskControllerInvokeResponseOutputWithContext(ctx context.Context) VirtualDiskControllerInvokeResponseOutput {
+	return o
+}
+
+// Controller's id
+func (o VirtualDiskControllerInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualDiskControllerInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The display name of Controller
+func (o VirtualDiskControllerInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualDiskControllerInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// dik controller subtype (VMWARE_PARAVIRTUAL, BUS_PARALLEL, LSI_PARALLEL, LSI_SAS)
+func (o VirtualDiskControllerInvokeResponseOutput) SubType() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualDiskControllerInvokeResponse) string { return v.SubType }).(pulumi.StringOutput)
+}
+
+// disk controller type (SCSI)
+func (o VirtualDiskControllerInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualDiskControllerInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type VirtualDiskControllerInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualDiskControllerInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualDiskControllerInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualDiskControllerInvokeResponseArrayOutput) ToVirtualDiskControllerInvokeResponseArrayOutput() VirtualDiskControllerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualDiskControllerInvokeResponseArrayOutput) ToVirtualDiskControllerInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualDiskControllerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualDiskControllerInvokeResponseArrayOutput) Index(i pulumi.IntInput) VirtualDiskControllerInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualDiskControllerInvokeResponse {
+		return vs[0].([]VirtualDiskControllerInvokeResponse)[vs[1].(int)]
+	}).(VirtualDiskControllerInvokeResponseOutput)
+}
+
+// Virtual disk controller model
 type VirtualDiskControllerResponse struct {
 	// Controller's id
 	Id string `pulumi:"id"`
@@ -1961,6 +2618,142 @@ func (o VirtualDiskControllerResponseArrayOutput) Index(i pulumi.IntInput) Virtu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualDiskControllerResponse {
 		return vs[0].([]VirtualDiskControllerResponse)[vs[1].(int)]
 	}).(VirtualDiskControllerResponseOutput)
+}
+
+// Virtual disk model
+type VirtualDiskInvokeResponse struct {
+	// Disk's Controller id
+	ControllerId string `pulumi:"controllerId"`
+	// Disk's independence mode type
+	IndependenceMode string `pulumi:"independenceMode"`
+	// Disk's total size
+	TotalSize int `pulumi:"totalSize"`
+	// Disk's id
+	VirtualDiskId *string `pulumi:"virtualDiskId"`
+	// Disk's display name
+	VirtualDiskName string `pulumi:"virtualDiskName"`
+}
+
+// VirtualDiskInvokeResponseInput is an input type that accepts VirtualDiskInvokeResponseArgs and VirtualDiskInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualDiskInvokeResponseInput` via:
+//
+//          VirtualDiskInvokeResponseArgs{...}
+type VirtualDiskInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualDiskInvokeResponseOutput() VirtualDiskInvokeResponseOutput
+	ToVirtualDiskInvokeResponseOutputWithContext(context.Context) VirtualDiskInvokeResponseOutput
+}
+
+// Virtual disk model
+type VirtualDiskInvokeResponseArgs struct {
+	// Disk's Controller id
+	ControllerId pulumi.StringInput `pulumi:"controllerId"`
+	// Disk's independence mode type
+	IndependenceMode pulumi.StringInput `pulumi:"independenceMode"`
+	// Disk's total size
+	TotalSize pulumi.IntInput `pulumi:"totalSize"`
+	// Disk's id
+	VirtualDiskId pulumi.StringPtrInput `pulumi:"virtualDiskId"`
+	// Disk's display name
+	VirtualDiskName pulumi.StringInput `pulumi:"virtualDiskName"`
+}
+
+func (VirtualDiskInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualDiskInvokeResponseArgs) ToVirtualDiskInvokeResponseOutput() VirtualDiskInvokeResponseOutput {
+	return i.ToVirtualDiskInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualDiskInvokeResponseArgs) ToVirtualDiskInvokeResponseOutputWithContext(ctx context.Context) VirtualDiskInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualDiskInvokeResponseOutput)
+}
+
+// VirtualDiskInvokeResponseArrayInput is an input type that accepts VirtualDiskInvokeResponseArray and VirtualDiskInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VirtualDiskInvokeResponseArrayInput` via:
+//
+//          VirtualDiskInvokeResponseArray{ VirtualDiskInvokeResponseArgs{...} }
+type VirtualDiskInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVirtualDiskInvokeResponseArrayOutput() VirtualDiskInvokeResponseArrayOutput
+	ToVirtualDiskInvokeResponseArrayOutputWithContext(context.Context) VirtualDiskInvokeResponseArrayOutput
+}
+
+type VirtualDiskInvokeResponseArray []VirtualDiskInvokeResponseInput
+
+func (VirtualDiskInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualDiskInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualDiskInvokeResponseArray) ToVirtualDiskInvokeResponseArrayOutput() VirtualDiskInvokeResponseArrayOutput {
+	return i.ToVirtualDiskInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualDiskInvokeResponseArray) ToVirtualDiskInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualDiskInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualDiskInvokeResponseArrayOutput)
+}
+
+// Virtual disk model
+type VirtualDiskInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualDiskInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualDiskInvokeResponseOutput) ToVirtualDiskInvokeResponseOutput() VirtualDiskInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualDiskInvokeResponseOutput) ToVirtualDiskInvokeResponseOutputWithContext(ctx context.Context) VirtualDiskInvokeResponseOutput {
+	return o
+}
+
+// Disk's Controller id
+func (o VirtualDiskInvokeResponseOutput) ControllerId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualDiskInvokeResponse) string { return v.ControllerId }).(pulumi.StringOutput)
+}
+
+// Disk's independence mode type
+func (o VirtualDiskInvokeResponseOutput) IndependenceMode() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualDiskInvokeResponse) string { return v.IndependenceMode }).(pulumi.StringOutput)
+}
+
+// Disk's total size
+func (o VirtualDiskInvokeResponseOutput) TotalSize() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualDiskInvokeResponse) int { return v.TotalSize }).(pulumi.IntOutput)
+}
+
+// Disk's id
+func (o VirtualDiskInvokeResponseOutput) VirtualDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualDiskInvokeResponse) *string { return v.VirtualDiskId }).(pulumi.StringPtrOutput)
+}
+
+// Disk's display name
+func (o VirtualDiskInvokeResponseOutput) VirtualDiskName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualDiskInvokeResponse) string { return v.VirtualDiskName }).(pulumi.StringOutput)
+}
+
+type VirtualDiskInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualDiskInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualDiskInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualDiskInvokeResponseArrayOutput) ToVirtualDiskInvokeResponseArrayOutput() VirtualDiskInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualDiskInvokeResponseArrayOutput) ToVirtualDiskInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualDiskInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualDiskInvokeResponseArrayOutput) Index(i pulumi.IntInput) VirtualDiskInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualDiskInvokeResponse {
+		return vs[0].([]VirtualDiskInvokeResponse)[vs[1].(int)]
+	}).(VirtualDiskInvokeResponseOutput)
 }
 
 // Virtual disk model
@@ -2152,6 +2945,106 @@ func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Cont
 // virtual network id (privateCloudId:vsphereId)
 func (o VirtualNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetwork) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Virtual network model
+type VirtualNetworkInvokeResponse struct {
+	// can be used in vm creation/deletion
+	Assignable bool `pulumi:"assignable"`
+	// virtual network id (privateCloudId:vsphereId)
+	Id string `pulumi:"id"`
+	// Azure region
+	Location string `pulumi:"location"`
+	// {VirtualNetworkName}
+	Name string `pulumi:"name"`
+	// The Private Cloud id
+	PrivateCloudId string `pulumi:"privateCloudId"`
+	// {resourceProviderNamespace}/{resourceType}
+	Type string `pulumi:"type"`
+}
+
+// VirtualNetworkInvokeResponseInput is an input type that accepts VirtualNetworkInvokeResponseArgs and VirtualNetworkInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualNetworkInvokeResponseInput` via:
+//
+//          VirtualNetworkInvokeResponseArgs{...}
+type VirtualNetworkInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkInvokeResponseOutput() VirtualNetworkInvokeResponseOutput
+	ToVirtualNetworkInvokeResponseOutputWithContext(context.Context) VirtualNetworkInvokeResponseOutput
+}
+
+// Virtual network model
+type VirtualNetworkInvokeResponseArgs struct {
+	// can be used in vm creation/deletion
+	Assignable pulumi.BoolInput `pulumi:"assignable"`
+	// virtual network id (privateCloudId:vsphereId)
+	Id pulumi.StringInput `pulumi:"id"`
+	// Azure region
+	Location pulumi.StringInput `pulumi:"location"`
+	// {VirtualNetworkName}
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Private Cloud id
+	PrivateCloudId pulumi.StringInput `pulumi:"privateCloudId"`
+	// {resourceProviderNamespace}/{resourceType}
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VirtualNetworkInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkInvokeResponseArgs) ToVirtualNetworkInvokeResponseOutput() VirtualNetworkInvokeResponseOutput {
+	return i.ToVirtualNetworkInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkInvokeResponseArgs) ToVirtualNetworkInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkInvokeResponseOutput)
+}
+
+// Virtual network model
+type VirtualNetworkInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkInvokeResponseOutput) ToVirtualNetworkInvokeResponseOutput() VirtualNetworkInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkInvokeResponseOutput) ToVirtualNetworkInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkInvokeResponseOutput {
+	return o
+}
+
+// can be used in vm creation/deletion
+func (o VirtualNetworkInvokeResponseOutput) Assignable() pulumi.BoolOutput {
+	return o.ApplyT(func(v VirtualNetworkInvokeResponse) bool { return v.Assignable }).(pulumi.BoolOutput)
+}
+
+// virtual network id (privateCloudId:vsphereId)
+func (o VirtualNetworkInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure region
+func (o VirtualNetworkInvokeResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkInvokeResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// {VirtualNetworkName}
+func (o VirtualNetworkInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Private Cloud id
+func (o VirtualNetworkInvokeResponseOutput) PrivateCloudId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkInvokeResponse) string { return v.PrivateCloudId }).(pulumi.StringOutput)
+}
+
+// {resourceProviderNamespace}/{resourceType}
+func (o VirtualNetworkInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Virtual network model
@@ -2409,6 +3302,169 @@ func (o VirtualNicArrayOutput) Index(i pulumi.IntInput) VirtualNicOutput {
 }
 
 // Virtual NIC model
+type VirtualNicInvokeResponse struct {
+	// guest OS customization for nic
+	Customization *GuestOSNICCustomizationInvokeResponse `pulumi:"customization"`
+	// NIC ip address
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// NIC MAC address
+	MacAddress *string `pulumi:"macAddress"`
+	// Virtual Network
+	Network VirtualNetworkInvokeResponse `pulumi:"network"`
+	// NIC type
+	NicType string `pulumi:"nicType"`
+	// Is NIC powered on/off on boot
+	PowerOnBoot *bool `pulumi:"powerOnBoot"`
+	// NIC id
+	VirtualNicId *string `pulumi:"virtualNicId"`
+	// NIC name
+	VirtualNicName string `pulumi:"virtualNicName"`
+}
+
+// VirtualNicInvokeResponseInput is an input type that accepts VirtualNicInvokeResponseArgs and VirtualNicInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualNicInvokeResponseInput` via:
+//
+//          VirtualNicInvokeResponseArgs{...}
+type VirtualNicInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNicInvokeResponseOutput() VirtualNicInvokeResponseOutput
+	ToVirtualNicInvokeResponseOutputWithContext(context.Context) VirtualNicInvokeResponseOutput
+}
+
+// Virtual NIC model
+type VirtualNicInvokeResponseArgs struct {
+	// guest OS customization for nic
+	Customization GuestOSNICCustomizationInvokeResponsePtrInput `pulumi:"customization"`
+	// NIC ip address
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// NIC MAC address
+	MacAddress pulumi.StringPtrInput `pulumi:"macAddress"`
+	// Virtual Network
+	Network VirtualNetworkInvokeResponseInput `pulumi:"network"`
+	// NIC type
+	NicType pulumi.StringInput `pulumi:"nicType"`
+	// Is NIC powered on/off on boot
+	PowerOnBoot pulumi.BoolPtrInput `pulumi:"powerOnBoot"`
+	// NIC id
+	VirtualNicId pulumi.StringPtrInput `pulumi:"virtualNicId"`
+	// NIC name
+	VirtualNicName pulumi.StringInput `pulumi:"virtualNicName"`
+}
+
+func (VirtualNicInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNicInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNicInvokeResponseArgs) ToVirtualNicInvokeResponseOutput() VirtualNicInvokeResponseOutput {
+	return i.ToVirtualNicInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNicInvokeResponseArgs) ToVirtualNicInvokeResponseOutputWithContext(ctx context.Context) VirtualNicInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNicInvokeResponseOutput)
+}
+
+// VirtualNicInvokeResponseArrayInput is an input type that accepts VirtualNicInvokeResponseArray and VirtualNicInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VirtualNicInvokeResponseArrayInput` via:
+//
+//          VirtualNicInvokeResponseArray{ VirtualNicInvokeResponseArgs{...} }
+type VirtualNicInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNicInvokeResponseArrayOutput() VirtualNicInvokeResponseArrayOutput
+	ToVirtualNicInvokeResponseArrayOutputWithContext(context.Context) VirtualNicInvokeResponseArrayOutput
+}
+
+type VirtualNicInvokeResponseArray []VirtualNicInvokeResponseInput
+
+func (VirtualNicInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNicInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNicInvokeResponseArray) ToVirtualNicInvokeResponseArrayOutput() VirtualNicInvokeResponseArrayOutput {
+	return i.ToVirtualNicInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNicInvokeResponseArray) ToVirtualNicInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualNicInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNicInvokeResponseArrayOutput)
+}
+
+// Virtual NIC model
+type VirtualNicInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNicInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNicInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNicInvokeResponseOutput) ToVirtualNicInvokeResponseOutput() VirtualNicInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualNicInvokeResponseOutput) ToVirtualNicInvokeResponseOutputWithContext(ctx context.Context) VirtualNicInvokeResponseOutput {
+	return o
+}
+
+// guest OS customization for nic
+func (o VirtualNicInvokeResponseOutput) Customization() GuestOSNICCustomizationInvokeResponsePtrOutput {
+	return o.ApplyT(func(v VirtualNicInvokeResponse) *GuestOSNICCustomizationInvokeResponse { return v.Customization }).(GuestOSNICCustomizationInvokeResponsePtrOutput)
+}
+
+// NIC ip address
+func (o VirtualNicInvokeResponseOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNicInvokeResponse) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// NIC MAC address
+func (o VirtualNicInvokeResponseOutput) MacAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNicInvokeResponse) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
+}
+
+// Virtual Network
+func (o VirtualNicInvokeResponseOutput) Network() VirtualNetworkInvokeResponseOutput {
+	return o.ApplyT(func(v VirtualNicInvokeResponse) VirtualNetworkInvokeResponse { return v.Network }).(VirtualNetworkInvokeResponseOutput)
+}
+
+// NIC type
+func (o VirtualNicInvokeResponseOutput) NicType() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNicInvokeResponse) string { return v.NicType }).(pulumi.StringOutput)
+}
+
+// Is NIC powered on/off on boot
+func (o VirtualNicInvokeResponseOutput) PowerOnBoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNicInvokeResponse) *bool { return v.PowerOnBoot }).(pulumi.BoolPtrOutput)
+}
+
+// NIC id
+func (o VirtualNicInvokeResponseOutput) VirtualNicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNicInvokeResponse) *string { return v.VirtualNicId }).(pulumi.StringPtrOutput)
+}
+
+// NIC name
+func (o VirtualNicInvokeResponseOutput) VirtualNicName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNicInvokeResponse) string { return v.VirtualNicName }).(pulumi.StringOutput)
+}
+
+type VirtualNicInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNicInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNicInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNicInvokeResponseArrayOutput) ToVirtualNicInvokeResponseArrayOutput() VirtualNicInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNicInvokeResponseArrayOutput) ToVirtualNicInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualNicInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNicInvokeResponseArrayOutput) Index(i pulumi.IntInput) VirtualNicInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNicInvokeResponse {
+		return vs[0].([]VirtualNicInvokeResponse)[vs[1].(int)]
+	}).(VirtualNicInvokeResponseOutput)
+}
+
+// Virtual NIC model
 type VirtualNicResponse struct {
 	// guest OS customization for nic
 	Customization *GuestOSNICCustomizationResponse `pulumi:"customization"`
@@ -2574,30 +3630,42 @@ func (o VirtualNicResponseArrayOutput) Index(i pulumi.IntInput) VirtualNicRespon
 func init() {
 	pulumi.RegisterOutputType(GuestOSCustomizationOutput{})
 	pulumi.RegisterOutputType(GuestOSCustomizationPtrOutput{})
+	pulumi.RegisterOutputType(GuestOSCustomizationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(GuestOSCustomizationResponseOutput{})
 	pulumi.RegisterOutputType(GuestOSCustomizationResponsePtrOutput{})
 	pulumi.RegisterOutputType(GuestOSNICCustomizationOutput{})
 	pulumi.RegisterOutputType(GuestOSNICCustomizationPtrOutput{})
+	pulumi.RegisterOutputType(GuestOSNICCustomizationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GuestOSNICCustomizationInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(GuestOSNICCustomizationResponseOutput{})
 	pulumi.RegisterOutputType(GuestOSNICCustomizationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourcePoolOutput{})
 	pulumi.RegisterOutputType(ResourcePoolPtrOutput{})
+	pulumi.RegisterOutputType(ResourcePoolInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourcePoolResponseOutput{})
 	pulumi.RegisterOutputType(ResourcePoolResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualDiskOutput{})
 	pulumi.RegisterOutputType(VirtualDiskArrayOutput{})
+	pulumi.RegisterOutputType(VirtualDiskControllerInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VirtualDiskControllerInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualDiskControllerResponseOutput{})
 	pulumi.RegisterOutputType(VirtualDiskControllerResponseArrayOutput{})
+	pulumi.RegisterOutputType(VirtualDiskInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VirtualDiskInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualDiskResponseOutput{})
 	pulumi.RegisterOutputType(VirtualDiskResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkInvokeResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNicOutput{})
 	pulumi.RegisterOutputType(VirtualNicArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNicInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VirtualNicInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNicResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNicResponseArrayOutput{})
 }

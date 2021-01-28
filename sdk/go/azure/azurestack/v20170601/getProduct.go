@@ -30,7 +30,7 @@ type GetProductResult struct {
 	// The part number used for billing purposes.
 	BillingPartNumber *string `pulumi:"billingPartNumber"`
 	// Product compatibility with current device.
-	Compatibility *CompatibilityResponse `pulumi:"compatibility"`
+	Compatibility *CompatibilityInvokeResponse `pulumi:"compatibility"`
 	// The description of the product.
 	Description *string `pulumi:"description"`
 	// The display name of the product.
@@ -40,13 +40,13 @@ type GetProductResult struct {
 	// The identifier of the gallery item corresponding to the product.
 	GalleryItemIdentity *string `pulumi:"galleryItemIdentity"`
 	// Additional links available for this product.
-	IconUris *IconUrisResponse `pulumi:"iconUris"`
+	IconUris *IconUrisInvokeResponse `pulumi:"iconUris"`
 	// ID of the resource.
 	Id string `pulumi:"id"`
 	// The legal terms.
 	LegalTerms *string `pulumi:"legalTerms"`
 	// Additional links available for this product.
-	Links []ProductLinkResponse `pulumi:"links"`
+	Links []ProductLinkInvokeResponse `pulumi:"links"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
 	// The offer representing the product.
@@ -60,7 +60,7 @@ type GetProductResult struct {
 	// The kind of the product (virtualMachine or virtualMachineExtension)
 	ProductKind *string `pulumi:"productKind"`
 	// Additional properties for the product.
-	ProductProperties *ProductPropertiesResponse `pulumi:"productProperties"`
+	ProductProperties *ProductPropertiesInvokeResponse `pulumi:"productProperties"`
 	// The user-friendly name of the product publisher.
 	PublisherDisplayName *string `pulumi:"publisherDisplayName"`
 	// Publisher identifier.

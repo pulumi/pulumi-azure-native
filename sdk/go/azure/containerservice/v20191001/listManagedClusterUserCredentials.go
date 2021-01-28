@@ -26,5 +26,5 @@ type ListManagedClusterUserCredentialsArgs struct {
 // The list of credential result response.
 type ListManagedClusterUserCredentialsResult struct {
 	// Base64-encoded Kubernetes configuration file.
-	Kubeconfigs []CredentialResultResponse `pulumi:"kubeconfigs"`
+	Kubeconfigs []CredentialResultInvokeResponse `pulumi:"kubeconfigs"`
 }

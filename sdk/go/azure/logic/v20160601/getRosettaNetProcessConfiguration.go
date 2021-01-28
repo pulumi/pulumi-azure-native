@@ -28,7 +28,7 @@ type LookupRosettaNetProcessConfigurationArgs struct {
 // The integration account RosettaNet process configuration.
 type LookupRosettaNetProcessConfigurationResult struct {
 	// The RosettaNet process configuration activity settings.
-	ActivitySettings RosettaNetPipActivitySettingsResponse `pulumi:"activitySettings"`
+	ActivitySettings RosettaNetPipActivitySettingsInvokeResponse `pulumi:"activitySettings"`
 	// The changed time.
 	ChangedTime string `pulumi:"changedTime"`
 	// The created time.
@@ -38,7 +38,7 @@ type LookupRosettaNetProcessConfigurationResult struct {
 	// The resource id.
 	Id string `pulumi:"id"`
 	// The RosettaNet initiator role settings.
-	InitiatorRoleSettings RosettaNetPipRoleSettingsResponse `pulumi:"initiatorRoleSettings"`
+	InitiatorRoleSettings RosettaNetPipRoleSettingsInvokeResponse `pulumi:"initiatorRoleSettings"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.
@@ -52,7 +52,7 @@ type LookupRosettaNetProcessConfigurationResult struct {
 	// The integration account RosettaNet process version.
 	ProcessVersion string `pulumi:"processVersion"`
 	// The RosettaNet responder role settings.
-	ResponderRoleSettings RosettaNetPipRoleSettingsResponse `pulumi:"responderRoleSettings"`
+	ResponderRoleSettings RosettaNetPipRoleSettingsInvokeResponse `pulumi:"responderRoleSettings"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

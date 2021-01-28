@@ -145,6 +145,140 @@ func (o AdmCredentialPtrOutput) Properties() AdmCredentialPropertiesPtrOutput {
 }
 
 // Description of a NotificationHub AdmCredential.
+type AdmCredentialInvokeResponse struct {
+	// Gets or sets properties of NotificationHub AdmCredential.
+	Properties *AdmCredentialPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// AdmCredentialInvokeResponseInput is an input type that accepts AdmCredentialInvokeResponseArgs and AdmCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `AdmCredentialInvokeResponseInput` via:
+//
+//          AdmCredentialInvokeResponseArgs{...}
+type AdmCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdmCredentialInvokeResponseOutput() AdmCredentialInvokeResponseOutput
+	ToAdmCredentialInvokeResponseOutputWithContext(context.Context) AdmCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub AdmCredential.
+type AdmCredentialInvokeResponseArgs struct {
+	// Gets or sets properties of NotificationHub AdmCredential.
+	Properties AdmCredentialPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (AdmCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i AdmCredentialInvokeResponseArgs) ToAdmCredentialInvokeResponseOutput() AdmCredentialInvokeResponseOutput {
+	return i.ToAdmCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdmCredentialInvokeResponseArgs) ToAdmCredentialInvokeResponseOutputWithContext(ctx context.Context) AdmCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialInvokeResponseOutput)
+}
+
+func (i AdmCredentialInvokeResponseArgs) ToAdmCredentialInvokeResponsePtrOutput() AdmCredentialInvokeResponsePtrOutput {
+	return i.ToAdmCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AdmCredentialInvokeResponseArgs) ToAdmCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) AdmCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialInvokeResponseOutput).ToAdmCredentialInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AdmCredentialInvokeResponsePtrInput is an input type that accepts AdmCredentialInvokeResponseArgs, AdmCredentialInvokeResponsePtr and AdmCredentialInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AdmCredentialInvokeResponsePtrInput` via:
+//
+//          AdmCredentialInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AdmCredentialInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAdmCredentialInvokeResponsePtrOutput() AdmCredentialInvokeResponsePtrOutput
+	ToAdmCredentialInvokeResponsePtrOutputWithContext(context.Context) AdmCredentialInvokeResponsePtrOutput
+}
+
+type admCredentialInvokeResponsePtrType AdmCredentialInvokeResponseArgs
+
+func AdmCredentialInvokeResponsePtr(v *AdmCredentialInvokeResponseArgs) AdmCredentialInvokeResponsePtrInput {
+	return (*admCredentialInvokeResponsePtrType)(v)
+}
+
+func (*admCredentialInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i *admCredentialInvokeResponsePtrType) ToAdmCredentialInvokeResponsePtrOutput() AdmCredentialInvokeResponsePtrOutput {
+	return i.ToAdmCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *admCredentialInvokeResponsePtrType) ToAdmCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) AdmCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub AdmCredential.
+type AdmCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdmCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o AdmCredentialInvokeResponseOutput) ToAdmCredentialInvokeResponseOutput() AdmCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o AdmCredentialInvokeResponseOutput) ToAdmCredentialInvokeResponseOutputWithContext(ctx context.Context) AdmCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o AdmCredentialInvokeResponseOutput) ToAdmCredentialInvokeResponsePtrOutput() AdmCredentialInvokeResponsePtrOutput {
+	return o.ToAdmCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AdmCredentialInvokeResponseOutput) ToAdmCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) AdmCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AdmCredentialInvokeResponse) *AdmCredentialInvokeResponse {
+		return &v
+	}).(AdmCredentialInvokeResponsePtrOutput)
+}
+
+// Gets or sets properties of NotificationHub AdmCredential.
+func (o AdmCredentialInvokeResponseOutput) Properties() AdmCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AdmCredentialInvokeResponse) *AdmCredentialPropertiesInvokeResponse { return v.Properties }).(AdmCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+type AdmCredentialInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AdmCredentialInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o AdmCredentialInvokeResponsePtrOutput) ToAdmCredentialInvokeResponsePtrOutput() AdmCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AdmCredentialInvokeResponsePtrOutput) ToAdmCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) AdmCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AdmCredentialInvokeResponsePtrOutput) Elem() AdmCredentialInvokeResponseOutput {
+	return o.ApplyT(func(v *AdmCredentialInvokeResponse) AdmCredentialInvokeResponse { return *v }).(AdmCredentialInvokeResponseOutput)
+}
+
+// Gets or sets properties of NotificationHub AdmCredential.
+func (o AdmCredentialInvokeResponsePtrOutput) Properties() AdmCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *AdmCredentialInvokeResponse) *AdmCredentialPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(AdmCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub AdmCredential.
 type AdmCredentialProperties struct {
 	// Gets or sets the URL of the authorization token.
 	AuthTokenUrl *string `pulumi:"authTokenUrl"`
@@ -309,6 +443,178 @@ func (o AdmCredentialPropertiesPtrOutput) ClientId() pulumi.StringPtrOutput {
 // Gets or sets the credential secret access key.
 func (o AdmCredentialPropertiesPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AdmCredentialProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub AdmCredential.
+type AdmCredentialPropertiesInvokeResponse struct {
+	// Gets or sets the URL of the authorization token.
+	AuthTokenUrl *string `pulumi:"authTokenUrl"`
+	// Gets or sets the client identifier.
+	ClientId *string `pulumi:"clientId"`
+	// Gets or sets the credential secret access key.
+	ClientSecret *string `pulumi:"clientSecret"`
+}
+
+// AdmCredentialPropertiesInvokeResponseInput is an input type that accepts AdmCredentialPropertiesInvokeResponseArgs and AdmCredentialPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `AdmCredentialPropertiesInvokeResponseInput` via:
+//
+//          AdmCredentialPropertiesInvokeResponseArgs{...}
+type AdmCredentialPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdmCredentialPropertiesInvokeResponseOutput() AdmCredentialPropertiesInvokeResponseOutput
+	ToAdmCredentialPropertiesInvokeResponseOutputWithContext(context.Context) AdmCredentialPropertiesInvokeResponseOutput
+}
+
+// Description of a NotificationHub AdmCredential.
+type AdmCredentialPropertiesInvokeResponseArgs struct {
+	// Gets or sets the URL of the authorization token.
+	AuthTokenUrl pulumi.StringPtrInput `pulumi:"authTokenUrl"`
+	// Gets or sets the client identifier.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Gets or sets the credential secret access key.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+}
+
+func (AdmCredentialPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdmCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i AdmCredentialPropertiesInvokeResponseArgs) ToAdmCredentialPropertiesInvokeResponseOutput() AdmCredentialPropertiesInvokeResponseOutput {
+	return i.ToAdmCredentialPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdmCredentialPropertiesInvokeResponseArgs) ToAdmCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) AdmCredentialPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPropertiesInvokeResponseOutput)
+}
+
+func (i AdmCredentialPropertiesInvokeResponseArgs) ToAdmCredentialPropertiesInvokeResponsePtrOutput() AdmCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToAdmCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AdmCredentialPropertiesInvokeResponseArgs) ToAdmCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPropertiesInvokeResponseOutput).ToAdmCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AdmCredentialPropertiesInvokeResponsePtrInput is an input type that accepts AdmCredentialPropertiesInvokeResponseArgs, AdmCredentialPropertiesInvokeResponsePtr and AdmCredentialPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AdmCredentialPropertiesInvokeResponsePtrInput` via:
+//
+//          AdmCredentialPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AdmCredentialPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAdmCredentialPropertiesInvokeResponsePtrOutput() AdmCredentialPropertiesInvokeResponsePtrOutput
+	ToAdmCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Context) AdmCredentialPropertiesInvokeResponsePtrOutput
+}
+
+type admCredentialPropertiesInvokeResponsePtrType AdmCredentialPropertiesInvokeResponseArgs
+
+func AdmCredentialPropertiesInvokeResponsePtr(v *AdmCredentialPropertiesInvokeResponseArgs) AdmCredentialPropertiesInvokeResponsePtrInput {
+	return (*admCredentialPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*admCredentialPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdmCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *admCredentialPropertiesInvokeResponsePtrType) ToAdmCredentialPropertiesInvokeResponsePtrOutput() AdmCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToAdmCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *admCredentialPropertiesInvokeResponsePtrType) ToAdmCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub AdmCredential.
+type AdmCredentialPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdmCredentialPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdmCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AdmCredentialPropertiesInvokeResponseOutput) ToAdmCredentialPropertiesInvokeResponseOutput() AdmCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AdmCredentialPropertiesInvokeResponseOutput) ToAdmCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) AdmCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o AdmCredentialPropertiesInvokeResponseOutput) ToAdmCredentialPropertiesInvokeResponsePtrOutput() AdmCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ToAdmCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AdmCredentialPropertiesInvokeResponseOutput) ToAdmCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AdmCredentialPropertiesInvokeResponse) *AdmCredentialPropertiesInvokeResponse {
+		return &v
+	}).(AdmCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the URL of the authorization token.
+func (o AdmCredentialPropertiesInvokeResponseOutput) AuthTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdmCredentialPropertiesInvokeResponse) *string { return v.AuthTokenUrl }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the client identifier.
+func (o AdmCredentialPropertiesInvokeResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdmCredentialPropertiesInvokeResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the credential secret access key.
+func (o AdmCredentialPropertiesInvokeResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdmCredentialPropertiesInvokeResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+type AdmCredentialPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AdmCredentialPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdmCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o AdmCredentialPropertiesInvokeResponsePtrOutput) ToAdmCredentialPropertiesInvokeResponsePtrOutput() AdmCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AdmCredentialPropertiesInvokeResponsePtrOutput) ToAdmCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AdmCredentialPropertiesInvokeResponsePtrOutput) Elem() AdmCredentialPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *AdmCredentialPropertiesInvokeResponse) AdmCredentialPropertiesInvokeResponse { return *v }).(AdmCredentialPropertiesInvokeResponseOutput)
+}
+
+// Gets or sets the URL of the authorization token.
+func (o AdmCredentialPropertiesInvokeResponsePtrOutput) AuthTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdmCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthTokenUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the client identifier.
+func (o AdmCredentialPropertiesInvokeResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdmCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the credential secret access key.
+func (o AdmCredentialPropertiesInvokeResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdmCredentialPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -757,6 +1063,140 @@ func (o ApnsCredentialPtrOutput) Properties() ApnsCredentialPropertiesPtrOutput 
 }
 
 // Description of a NotificationHub ApnsCredential.
+type ApnsCredentialInvokeResponse struct {
+	// Gets or sets properties of NotificationHub ApnsCredential.
+	Properties *ApnsCredentialPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// ApnsCredentialInvokeResponseInput is an input type that accepts ApnsCredentialInvokeResponseArgs and ApnsCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `ApnsCredentialInvokeResponseInput` via:
+//
+//          ApnsCredentialInvokeResponseArgs{...}
+type ApnsCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApnsCredentialInvokeResponseOutput() ApnsCredentialInvokeResponseOutput
+	ToApnsCredentialInvokeResponseOutputWithContext(context.Context) ApnsCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub ApnsCredential.
+type ApnsCredentialInvokeResponseArgs struct {
+	// Gets or sets properties of NotificationHub ApnsCredential.
+	Properties ApnsCredentialPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (ApnsCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i ApnsCredentialInvokeResponseArgs) ToApnsCredentialInvokeResponseOutput() ApnsCredentialInvokeResponseOutput {
+	return i.ToApnsCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApnsCredentialInvokeResponseArgs) ToApnsCredentialInvokeResponseOutputWithContext(ctx context.Context) ApnsCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialInvokeResponseOutput)
+}
+
+func (i ApnsCredentialInvokeResponseArgs) ToApnsCredentialInvokeResponsePtrOutput() ApnsCredentialInvokeResponsePtrOutput {
+	return i.ToApnsCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApnsCredentialInvokeResponseArgs) ToApnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialInvokeResponseOutput).ToApnsCredentialInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ApnsCredentialInvokeResponsePtrInput is an input type that accepts ApnsCredentialInvokeResponseArgs, ApnsCredentialInvokeResponsePtr and ApnsCredentialInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ApnsCredentialInvokeResponsePtrInput` via:
+//
+//          ApnsCredentialInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApnsCredentialInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToApnsCredentialInvokeResponsePtrOutput() ApnsCredentialInvokeResponsePtrOutput
+	ToApnsCredentialInvokeResponsePtrOutputWithContext(context.Context) ApnsCredentialInvokeResponsePtrOutput
+}
+
+type apnsCredentialInvokeResponsePtrType ApnsCredentialInvokeResponseArgs
+
+func ApnsCredentialInvokeResponsePtr(v *ApnsCredentialInvokeResponseArgs) ApnsCredentialInvokeResponsePtrInput {
+	return (*apnsCredentialInvokeResponsePtrType)(v)
+}
+
+func (*apnsCredentialInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i *apnsCredentialInvokeResponsePtrType) ToApnsCredentialInvokeResponsePtrOutput() ApnsCredentialInvokeResponsePtrOutput {
+	return i.ToApnsCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apnsCredentialInvokeResponsePtrType) ToApnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub ApnsCredential.
+type ApnsCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApnsCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o ApnsCredentialInvokeResponseOutput) ToApnsCredentialInvokeResponseOutput() ApnsCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o ApnsCredentialInvokeResponseOutput) ToApnsCredentialInvokeResponseOutputWithContext(ctx context.Context) ApnsCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o ApnsCredentialInvokeResponseOutput) ToApnsCredentialInvokeResponsePtrOutput() ApnsCredentialInvokeResponsePtrOutput {
+	return o.ToApnsCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApnsCredentialInvokeResponseOutput) ToApnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApnsCredentialInvokeResponse) *ApnsCredentialInvokeResponse {
+		return &v
+	}).(ApnsCredentialInvokeResponsePtrOutput)
+}
+
+// Gets or sets properties of NotificationHub ApnsCredential.
+func (o ApnsCredentialInvokeResponseOutput) Properties() ApnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApnsCredentialInvokeResponse) *ApnsCredentialPropertiesInvokeResponse { return v.Properties }).(ApnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+type ApnsCredentialInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApnsCredentialInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o ApnsCredentialInvokeResponsePtrOutput) ToApnsCredentialInvokeResponsePtrOutput() ApnsCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApnsCredentialInvokeResponsePtrOutput) ToApnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApnsCredentialInvokeResponsePtrOutput) Elem() ApnsCredentialInvokeResponseOutput {
+	return o.ApplyT(func(v *ApnsCredentialInvokeResponse) ApnsCredentialInvokeResponse { return *v }).(ApnsCredentialInvokeResponseOutput)
+}
+
+// Gets or sets properties of NotificationHub ApnsCredential.
+func (o ApnsCredentialInvokeResponsePtrOutput) Properties() ApnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialInvokeResponse) *ApnsCredentialPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(ApnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub ApnsCredential.
 type ApnsCredentialProperties struct {
 	// Gets or sets the APNS certificate.
 	ApnsCertificate *string `pulumi:"apnsCertificate"`
@@ -940,6 +1380,197 @@ func (o ApnsCredentialPropertiesPtrOutput) Endpoint() pulumi.StringPtrOutput {
 // Gets or sets the Apns certificate Thumbprint
 func (o ApnsCredentialPropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsCredentialProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Thumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub ApnsCredential.
+type ApnsCredentialPropertiesInvokeResponse struct {
+	// Gets or sets the APNS certificate.
+	ApnsCertificate *string `pulumi:"apnsCertificate"`
+	// Gets or sets the certificate key.
+	CertificateKey *string `pulumi:"certificateKey"`
+	// Gets or sets the endpoint of this credential.
+	Endpoint *string `pulumi:"endpoint"`
+	// Gets or sets the Apns certificate Thumbprint
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// ApnsCredentialPropertiesInvokeResponseInput is an input type that accepts ApnsCredentialPropertiesInvokeResponseArgs and ApnsCredentialPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ApnsCredentialPropertiesInvokeResponseInput` via:
+//
+//          ApnsCredentialPropertiesInvokeResponseArgs{...}
+type ApnsCredentialPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApnsCredentialPropertiesInvokeResponseOutput() ApnsCredentialPropertiesInvokeResponseOutput
+	ToApnsCredentialPropertiesInvokeResponseOutputWithContext(context.Context) ApnsCredentialPropertiesInvokeResponseOutput
+}
+
+// Description of a NotificationHub ApnsCredential.
+type ApnsCredentialPropertiesInvokeResponseArgs struct {
+	// Gets or sets the APNS certificate.
+	ApnsCertificate pulumi.StringPtrInput `pulumi:"apnsCertificate"`
+	// Gets or sets the certificate key.
+	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
+	// Gets or sets the endpoint of this credential.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// Gets or sets the Apns certificate Thumbprint
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (ApnsCredentialPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ApnsCredentialPropertiesInvokeResponseArgs) ToApnsCredentialPropertiesInvokeResponseOutput() ApnsCredentialPropertiesInvokeResponseOutput {
+	return i.ToApnsCredentialPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApnsCredentialPropertiesInvokeResponseArgs) ToApnsCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) ApnsCredentialPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPropertiesInvokeResponseOutput)
+}
+
+func (i ApnsCredentialPropertiesInvokeResponseArgs) ToApnsCredentialPropertiesInvokeResponsePtrOutput() ApnsCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToApnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApnsCredentialPropertiesInvokeResponseArgs) ToApnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPropertiesInvokeResponseOutput).ToApnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ApnsCredentialPropertiesInvokeResponsePtrInput is an input type that accepts ApnsCredentialPropertiesInvokeResponseArgs, ApnsCredentialPropertiesInvokeResponsePtr and ApnsCredentialPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ApnsCredentialPropertiesInvokeResponsePtrInput` via:
+//
+//          ApnsCredentialPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApnsCredentialPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToApnsCredentialPropertiesInvokeResponsePtrOutput() ApnsCredentialPropertiesInvokeResponsePtrOutput
+	ToApnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Context) ApnsCredentialPropertiesInvokeResponsePtrOutput
+}
+
+type apnsCredentialPropertiesInvokeResponsePtrType ApnsCredentialPropertiesInvokeResponseArgs
+
+func ApnsCredentialPropertiesInvokeResponsePtr(v *ApnsCredentialPropertiesInvokeResponseArgs) ApnsCredentialPropertiesInvokeResponsePtrInput {
+	return (*apnsCredentialPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*apnsCredentialPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *apnsCredentialPropertiesInvokeResponsePtrType) ToApnsCredentialPropertiesInvokeResponsePtrOutput() ApnsCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToApnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *apnsCredentialPropertiesInvokeResponsePtrType) ToApnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub ApnsCredential.
+type ApnsCredentialPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApnsCredentialPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ApnsCredentialPropertiesInvokeResponseOutput) ToApnsCredentialPropertiesInvokeResponseOutput() ApnsCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ApnsCredentialPropertiesInvokeResponseOutput) ToApnsCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) ApnsCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ApnsCredentialPropertiesInvokeResponseOutput) ToApnsCredentialPropertiesInvokeResponsePtrOutput() ApnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ToApnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApnsCredentialPropertiesInvokeResponseOutput) ToApnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ApnsCredentialPropertiesInvokeResponse) *ApnsCredentialPropertiesInvokeResponse {
+		return &v
+	}).(ApnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the APNS certificate.
+func (o ApnsCredentialPropertiesInvokeResponseOutput) ApnsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialPropertiesInvokeResponse) *string { return v.ApnsCertificate }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the certificate key.
+func (o ApnsCredentialPropertiesInvokeResponseOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialPropertiesInvokeResponse) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the endpoint of this credential.
+func (o ApnsCredentialPropertiesInvokeResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialPropertiesInvokeResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Apns certificate Thumbprint
+func (o ApnsCredentialPropertiesInvokeResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialPropertiesInvokeResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type ApnsCredentialPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApnsCredentialPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ApnsCredentialPropertiesInvokeResponsePtrOutput) ToApnsCredentialPropertiesInvokeResponsePtrOutput() ApnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApnsCredentialPropertiesInvokeResponsePtrOutput) ToApnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ApnsCredentialPropertiesInvokeResponsePtrOutput) Elem() ApnsCredentialPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *ApnsCredentialPropertiesInvokeResponse) ApnsCredentialPropertiesInvokeResponse { return *v }).(ApnsCredentialPropertiesInvokeResponseOutput)
+}
+
+// Gets or sets the APNS certificate.
+func (o ApnsCredentialPropertiesInvokeResponsePtrOutput) ApnsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApnsCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the certificate key.
+func (o ApnsCredentialPropertiesInvokeResponsePtrOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the endpoint of this credential.
+func (o ApnsCredentialPropertiesInvokeResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Apns certificate Thumbprint
+func (o ApnsCredentialPropertiesInvokeResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1407,6 +2038,140 @@ func (o BaiduCredentialPtrOutput) Properties() BaiduCredentialPropertiesPtrOutpu
 }
 
 // Description of a NotificationHub BaiduCredential.
+type BaiduCredentialInvokeResponse struct {
+	// Gets or sets properties of NotificationHub BaiduCredential.
+	Properties *BaiduCredentialPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// BaiduCredentialInvokeResponseInput is an input type that accepts BaiduCredentialInvokeResponseArgs and BaiduCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `BaiduCredentialInvokeResponseInput` via:
+//
+//          BaiduCredentialInvokeResponseArgs{...}
+type BaiduCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBaiduCredentialInvokeResponseOutput() BaiduCredentialInvokeResponseOutput
+	ToBaiduCredentialInvokeResponseOutputWithContext(context.Context) BaiduCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub BaiduCredential.
+type BaiduCredentialInvokeResponseArgs struct {
+	// Gets or sets properties of NotificationHub BaiduCredential.
+	Properties BaiduCredentialPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (BaiduCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaiduCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i BaiduCredentialInvokeResponseArgs) ToBaiduCredentialInvokeResponseOutput() BaiduCredentialInvokeResponseOutput {
+	return i.ToBaiduCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BaiduCredentialInvokeResponseArgs) ToBaiduCredentialInvokeResponseOutputWithContext(ctx context.Context) BaiduCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialInvokeResponseOutput)
+}
+
+func (i BaiduCredentialInvokeResponseArgs) ToBaiduCredentialInvokeResponsePtrOutput() BaiduCredentialInvokeResponsePtrOutput {
+	return i.ToBaiduCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BaiduCredentialInvokeResponseArgs) ToBaiduCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialInvokeResponseOutput).ToBaiduCredentialInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// BaiduCredentialInvokeResponsePtrInput is an input type that accepts BaiduCredentialInvokeResponseArgs, BaiduCredentialInvokeResponsePtr and BaiduCredentialInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `BaiduCredentialInvokeResponsePtrInput` via:
+//
+//          BaiduCredentialInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BaiduCredentialInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToBaiduCredentialInvokeResponsePtrOutput() BaiduCredentialInvokeResponsePtrOutput
+	ToBaiduCredentialInvokeResponsePtrOutputWithContext(context.Context) BaiduCredentialInvokeResponsePtrOutput
+}
+
+type baiduCredentialInvokeResponsePtrType BaiduCredentialInvokeResponseArgs
+
+func BaiduCredentialInvokeResponsePtr(v *BaiduCredentialInvokeResponseArgs) BaiduCredentialInvokeResponsePtrInput {
+	return (*baiduCredentialInvokeResponsePtrType)(v)
+}
+
+func (*baiduCredentialInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BaiduCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i *baiduCredentialInvokeResponsePtrType) ToBaiduCredentialInvokeResponsePtrOutput() BaiduCredentialInvokeResponsePtrOutput {
+	return i.ToBaiduCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *baiduCredentialInvokeResponsePtrType) ToBaiduCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub BaiduCredential.
+type BaiduCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BaiduCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaiduCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o BaiduCredentialInvokeResponseOutput) ToBaiduCredentialInvokeResponseOutput() BaiduCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o BaiduCredentialInvokeResponseOutput) ToBaiduCredentialInvokeResponseOutputWithContext(ctx context.Context) BaiduCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o BaiduCredentialInvokeResponseOutput) ToBaiduCredentialInvokeResponsePtrOutput() BaiduCredentialInvokeResponsePtrOutput {
+	return o.ToBaiduCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BaiduCredentialInvokeResponseOutput) ToBaiduCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BaiduCredentialInvokeResponse) *BaiduCredentialInvokeResponse {
+		return &v
+	}).(BaiduCredentialInvokeResponsePtrOutput)
+}
+
+// Gets or sets properties of NotificationHub BaiduCredential.
+func (o BaiduCredentialInvokeResponseOutput) Properties() BaiduCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BaiduCredentialInvokeResponse) *BaiduCredentialPropertiesInvokeResponse { return v.Properties }).(BaiduCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+type BaiduCredentialInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BaiduCredentialInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BaiduCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o BaiduCredentialInvokeResponsePtrOutput) ToBaiduCredentialInvokeResponsePtrOutput() BaiduCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BaiduCredentialInvokeResponsePtrOutput) ToBaiduCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BaiduCredentialInvokeResponsePtrOutput) Elem() BaiduCredentialInvokeResponseOutput {
+	return o.ApplyT(func(v *BaiduCredentialInvokeResponse) BaiduCredentialInvokeResponse { return *v }).(BaiduCredentialInvokeResponseOutput)
+}
+
+// Gets or sets properties of NotificationHub BaiduCredential.
+func (o BaiduCredentialInvokeResponsePtrOutput) Properties() BaiduCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *BaiduCredentialInvokeResponse) *BaiduCredentialPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(BaiduCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub BaiduCredential.
 type BaiduCredentialProperties struct {
 	// Get or Set Baidu Api Key.
 	BaiduApiKey *string `pulumi:"baiduApiKey"`
@@ -1571,6 +2336,178 @@ func (o BaiduCredentialPropertiesPtrOutput) BaiduEndPoint() pulumi.StringPtrOutp
 // Get or Set Baidu Secret Key
 func (o BaiduCredentialPropertiesPtrOutput) BaiduSecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BaiduCredentialProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaiduSecretKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub BaiduCredential.
+type BaiduCredentialPropertiesInvokeResponse struct {
+	// Get or Set Baidu Api Key.
+	BaiduApiKey *string `pulumi:"baiduApiKey"`
+	// Get or Set Baidu Endpoint.
+	BaiduEndPoint *string `pulumi:"baiduEndPoint"`
+	// Get or Set Baidu Secret Key
+	BaiduSecretKey *string `pulumi:"baiduSecretKey"`
+}
+
+// BaiduCredentialPropertiesInvokeResponseInput is an input type that accepts BaiduCredentialPropertiesInvokeResponseArgs and BaiduCredentialPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `BaiduCredentialPropertiesInvokeResponseInput` via:
+//
+//          BaiduCredentialPropertiesInvokeResponseArgs{...}
+type BaiduCredentialPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBaiduCredentialPropertiesInvokeResponseOutput() BaiduCredentialPropertiesInvokeResponseOutput
+	ToBaiduCredentialPropertiesInvokeResponseOutputWithContext(context.Context) BaiduCredentialPropertiesInvokeResponseOutput
+}
+
+// Description of a NotificationHub BaiduCredential.
+type BaiduCredentialPropertiesInvokeResponseArgs struct {
+	// Get or Set Baidu Api Key.
+	BaiduApiKey pulumi.StringPtrInput `pulumi:"baiduApiKey"`
+	// Get or Set Baidu Endpoint.
+	BaiduEndPoint pulumi.StringPtrInput `pulumi:"baiduEndPoint"`
+	// Get or Set Baidu Secret Key
+	BaiduSecretKey pulumi.StringPtrInput `pulumi:"baiduSecretKey"`
+}
+
+func (BaiduCredentialPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaiduCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i BaiduCredentialPropertiesInvokeResponseArgs) ToBaiduCredentialPropertiesInvokeResponseOutput() BaiduCredentialPropertiesInvokeResponseOutput {
+	return i.ToBaiduCredentialPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BaiduCredentialPropertiesInvokeResponseArgs) ToBaiduCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) BaiduCredentialPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPropertiesInvokeResponseOutput)
+}
+
+func (i BaiduCredentialPropertiesInvokeResponseArgs) ToBaiduCredentialPropertiesInvokeResponsePtrOutput() BaiduCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToBaiduCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BaiduCredentialPropertiesInvokeResponseArgs) ToBaiduCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPropertiesInvokeResponseOutput).ToBaiduCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// BaiduCredentialPropertiesInvokeResponsePtrInput is an input type that accepts BaiduCredentialPropertiesInvokeResponseArgs, BaiduCredentialPropertiesInvokeResponsePtr and BaiduCredentialPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `BaiduCredentialPropertiesInvokeResponsePtrInput` via:
+//
+//          BaiduCredentialPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BaiduCredentialPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToBaiduCredentialPropertiesInvokeResponsePtrOutput() BaiduCredentialPropertiesInvokeResponsePtrOutput
+	ToBaiduCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Context) BaiduCredentialPropertiesInvokeResponsePtrOutput
+}
+
+type baiduCredentialPropertiesInvokeResponsePtrType BaiduCredentialPropertiesInvokeResponseArgs
+
+func BaiduCredentialPropertiesInvokeResponsePtr(v *BaiduCredentialPropertiesInvokeResponseArgs) BaiduCredentialPropertiesInvokeResponsePtrInput {
+	return (*baiduCredentialPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*baiduCredentialPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BaiduCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *baiduCredentialPropertiesInvokeResponsePtrType) ToBaiduCredentialPropertiesInvokeResponsePtrOutput() BaiduCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToBaiduCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *baiduCredentialPropertiesInvokeResponsePtrType) ToBaiduCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub BaiduCredential.
+type BaiduCredentialPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BaiduCredentialPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BaiduCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o BaiduCredentialPropertiesInvokeResponseOutput) ToBaiduCredentialPropertiesInvokeResponseOutput() BaiduCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o BaiduCredentialPropertiesInvokeResponseOutput) ToBaiduCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) BaiduCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o BaiduCredentialPropertiesInvokeResponseOutput) ToBaiduCredentialPropertiesInvokeResponsePtrOutput() BaiduCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ToBaiduCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BaiduCredentialPropertiesInvokeResponseOutput) ToBaiduCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BaiduCredentialPropertiesInvokeResponse) *BaiduCredentialPropertiesInvokeResponse {
+		return &v
+	}).(BaiduCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Get or Set Baidu Api Key.
+func (o BaiduCredentialPropertiesInvokeResponseOutput) BaiduApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaiduCredentialPropertiesInvokeResponse) *string { return v.BaiduApiKey }).(pulumi.StringPtrOutput)
+}
+
+// Get or Set Baidu Endpoint.
+func (o BaiduCredentialPropertiesInvokeResponseOutput) BaiduEndPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaiduCredentialPropertiesInvokeResponse) *string { return v.BaiduEndPoint }).(pulumi.StringPtrOutput)
+}
+
+// Get or Set Baidu Secret Key
+func (o BaiduCredentialPropertiesInvokeResponseOutput) BaiduSecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaiduCredentialPropertiesInvokeResponse) *string { return v.BaiduSecretKey }).(pulumi.StringPtrOutput)
+}
+
+type BaiduCredentialPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BaiduCredentialPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BaiduCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o BaiduCredentialPropertiesInvokeResponsePtrOutput) ToBaiduCredentialPropertiesInvokeResponsePtrOutput() BaiduCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BaiduCredentialPropertiesInvokeResponsePtrOutput) ToBaiduCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BaiduCredentialPropertiesInvokeResponsePtrOutput) Elem() BaiduCredentialPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *BaiduCredentialPropertiesInvokeResponse) BaiduCredentialPropertiesInvokeResponse { return *v }).(BaiduCredentialPropertiesInvokeResponseOutput)
+}
+
+// Get or Set Baidu Api Key.
+func (o BaiduCredentialPropertiesInvokeResponsePtrOutput) BaiduApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaiduCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaiduApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Get or Set Baidu Endpoint.
+func (o BaiduCredentialPropertiesInvokeResponsePtrOutput) BaiduEndPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaiduCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaiduEndPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Get or Set Baidu Secret Key
+func (o BaiduCredentialPropertiesInvokeResponsePtrOutput) BaiduSecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaiduCredentialPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2019,6 +2956,140 @@ func (o GcmCredentialPtrOutput) Properties() GcmCredentialPropertiesPtrOutput {
 }
 
 // Description of a NotificationHub GcmCredential.
+type GcmCredentialInvokeResponse struct {
+	// Gets or sets properties of NotificationHub GcmCredential.
+	Properties *GcmCredentialPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// GcmCredentialInvokeResponseInput is an input type that accepts GcmCredentialInvokeResponseArgs and GcmCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `GcmCredentialInvokeResponseInput` via:
+//
+//          GcmCredentialInvokeResponseArgs{...}
+type GcmCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGcmCredentialInvokeResponseOutput() GcmCredentialInvokeResponseOutput
+	ToGcmCredentialInvokeResponseOutputWithContext(context.Context) GcmCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub GcmCredential.
+type GcmCredentialInvokeResponseArgs struct {
+	// Gets or sets properties of NotificationHub GcmCredential.
+	Properties GcmCredentialPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (GcmCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i GcmCredentialInvokeResponseArgs) ToGcmCredentialInvokeResponseOutput() GcmCredentialInvokeResponseOutput {
+	return i.ToGcmCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GcmCredentialInvokeResponseArgs) ToGcmCredentialInvokeResponseOutputWithContext(ctx context.Context) GcmCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialInvokeResponseOutput)
+}
+
+func (i GcmCredentialInvokeResponseArgs) ToGcmCredentialInvokeResponsePtrOutput() GcmCredentialInvokeResponsePtrOutput {
+	return i.ToGcmCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GcmCredentialInvokeResponseArgs) ToGcmCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) GcmCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialInvokeResponseOutput).ToGcmCredentialInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// GcmCredentialInvokeResponsePtrInput is an input type that accepts GcmCredentialInvokeResponseArgs, GcmCredentialInvokeResponsePtr and GcmCredentialInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `GcmCredentialInvokeResponsePtrInput` via:
+//
+//          GcmCredentialInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GcmCredentialInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToGcmCredentialInvokeResponsePtrOutput() GcmCredentialInvokeResponsePtrOutput
+	ToGcmCredentialInvokeResponsePtrOutputWithContext(context.Context) GcmCredentialInvokeResponsePtrOutput
+}
+
+type gcmCredentialInvokeResponsePtrType GcmCredentialInvokeResponseArgs
+
+func GcmCredentialInvokeResponsePtr(v *GcmCredentialInvokeResponseArgs) GcmCredentialInvokeResponsePtrInput {
+	return (*gcmCredentialInvokeResponsePtrType)(v)
+}
+
+func (*gcmCredentialInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i *gcmCredentialInvokeResponsePtrType) ToGcmCredentialInvokeResponsePtrOutput() GcmCredentialInvokeResponsePtrOutput {
+	return i.ToGcmCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *gcmCredentialInvokeResponsePtrType) ToGcmCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) GcmCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub GcmCredential.
+type GcmCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GcmCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o GcmCredentialInvokeResponseOutput) ToGcmCredentialInvokeResponseOutput() GcmCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o GcmCredentialInvokeResponseOutput) ToGcmCredentialInvokeResponseOutputWithContext(ctx context.Context) GcmCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o GcmCredentialInvokeResponseOutput) ToGcmCredentialInvokeResponsePtrOutput() GcmCredentialInvokeResponsePtrOutput {
+	return o.ToGcmCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GcmCredentialInvokeResponseOutput) ToGcmCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) GcmCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GcmCredentialInvokeResponse) *GcmCredentialInvokeResponse {
+		return &v
+	}).(GcmCredentialInvokeResponsePtrOutput)
+}
+
+// Gets or sets properties of NotificationHub GcmCredential.
+func (o GcmCredentialInvokeResponseOutput) Properties() GcmCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GcmCredentialInvokeResponse) *GcmCredentialPropertiesInvokeResponse { return v.Properties }).(GcmCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+type GcmCredentialInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GcmCredentialInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcmCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o GcmCredentialInvokeResponsePtrOutput) ToGcmCredentialInvokeResponsePtrOutput() GcmCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GcmCredentialInvokeResponsePtrOutput) ToGcmCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) GcmCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GcmCredentialInvokeResponsePtrOutput) Elem() GcmCredentialInvokeResponseOutput {
+	return o.ApplyT(func(v *GcmCredentialInvokeResponse) GcmCredentialInvokeResponse { return *v }).(GcmCredentialInvokeResponseOutput)
+}
+
+// Gets or sets properties of NotificationHub GcmCredential.
+func (o GcmCredentialInvokeResponsePtrOutput) Properties() GcmCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *GcmCredentialInvokeResponse) *GcmCredentialPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(GcmCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub GcmCredential.
 type GcmCredentialProperties struct {
 	// Gets or sets the GCM endpoint.
 	GcmEndpoint *string `pulumi:"gcmEndpoint"`
@@ -2164,6 +3235,159 @@ func (o GcmCredentialPropertiesPtrOutput) GcmEndpoint() pulumi.StringPtrOutput {
 // Gets or sets the Google API key.
 func (o GcmCredentialPropertiesPtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GcmCredentialProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub GcmCredential.
+type GcmCredentialPropertiesInvokeResponse struct {
+	// Gets or sets the GCM endpoint.
+	GcmEndpoint *string `pulumi:"gcmEndpoint"`
+	// Gets or sets the Google API key.
+	GoogleApiKey *string `pulumi:"googleApiKey"`
+}
+
+// GcmCredentialPropertiesInvokeResponseInput is an input type that accepts GcmCredentialPropertiesInvokeResponseArgs and GcmCredentialPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `GcmCredentialPropertiesInvokeResponseInput` via:
+//
+//          GcmCredentialPropertiesInvokeResponseArgs{...}
+type GcmCredentialPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToGcmCredentialPropertiesInvokeResponseOutput() GcmCredentialPropertiesInvokeResponseOutput
+	ToGcmCredentialPropertiesInvokeResponseOutputWithContext(context.Context) GcmCredentialPropertiesInvokeResponseOutput
+}
+
+// Description of a NotificationHub GcmCredential.
+type GcmCredentialPropertiesInvokeResponseArgs struct {
+	// Gets or sets the GCM endpoint.
+	GcmEndpoint pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
+	// Gets or sets the Google API key.
+	GoogleApiKey pulumi.StringPtrInput `pulumi:"googleApiKey"`
+}
+
+func (GcmCredentialPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcmCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i GcmCredentialPropertiesInvokeResponseArgs) ToGcmCredentialPropertiesInvokeResponseOutput() GcmCredentialPropertiesInvokeResponseOutput {
+	return i.ToGcmCredentialPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i GcmCredentialPropertiesInvokeResponseArgs) ToGcmCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) GcmCredentialPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPropertiesInvokeResponseOutput)
+}
+
+func (i GcmCredentialPropertiesInvokeResponseArgs) ToGcmCredentialPropertiesInvokeResponsePtrOutput() GcmCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToGcmCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GcmCredentialPropertiesInvokeResponseArgs) ToGcmCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPropertiesInvokeResponseOutput).ToGcmCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// GcmCredentialPropertiesInvokeResponsePtrInput is an input type that accepts GcmCredentialPropertiesInvokeResponseArgs, GcmCredentialPropertiesInvokeResponsePtr and GcmCredentialPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `GcmCredentialPropertiesInvokeResponsePtrInput` via:
+//
+//          GcmCredentialPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GcmCredentialPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToGcmCredentialPropertiesInvokeResponsePtrOutput() GcmCredentialPropertiesInvokeResponsePtrOutput
+	ToGcmCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Context) GcmCredentialPropertiesInvokeResponsePtrOutput
+}
+
+type gcmCredentialPropertiesInvokeResponsePtrType GcmCredentialPropertiesInvokeResponseArgs
+
+func GcmCredentialPropertiesInvokeResponsePtr(v *GcmCredentialPropertiesInvokeResponseArgs) GcmCredentialPropertiesInvokeResponsePtrInput {
+	return (*gcmCredentialPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*gcmCredentialPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcmCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *gcmCredentialPropertiesInvokeResponsePtrType) ToGcmCredentialPropertiesInvokeResponsePtrOutput() GcmCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToGcmCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *gcmCredentialPropertiesInvokeResponsePtrType) ToGcmCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub GcmCredential.
+type GcmCredentialPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (GcmCredentialPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GcmCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o GcmCredentialPropertiesInvokeResponseOutput) ToGcmCredentialPropertiesInvokeResponseOutput() GcmCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o GcmCredentialPropertiesInvokeResponseOutput) ToGcmCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) GcmCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o GcmCredentialPropertiesInvokeResponseOutput) ToGcmCredentialPropertiesInvokeResponsePtrOutput() GcmCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ToGcmCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GcmCredentialPropertiesInvokeResponseOutput) ToGcmCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v GcmCredentialPropertiesInvokeResponse) *GcmCredentialPropertiesInvokeResponse {
+		return &v
+	}).(GcmCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the GCM endpoint.
+func (o GcmCredentialPropertiesInvokeResponseOutput) GcmEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GcmCredentialPropertiesInvokeResponse) *string { return v.GcmEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Google API key.
+func (o GcmCredentialPropertiesInvokeResponseOutput) GoogleApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GcmCredentialPropertiesInvokeResponse) *string { return v.GoogleApiKey }).(pulumi.StringPtrOutput)
+}
+
+type GcmCredentialPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GcmCredentialPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GcmCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o GcmCredentialPropertiesInvokeResponsePtrOutput) ToGcmCredentialPropertiesInvokeResponsePtrOutput() GcmCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GcmCredentialPropertiesInvokeResponsePtrOutput) ToGcmCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o GcmCredentialPropertiesInvokeResponsePtrOutput) Elem() GcmCredentialPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *GcmCredentialPropertiesInvokeResponse) GcmCredentialPropertiesInvokeResponse { return *v }).(GcmCredentialPropertiesInvokeResponseOutput)
+}
+
+// Gets or sets the GCM endpoint.
+func (o GcmCredentialPropertiesInvokeResponsePtrOutput) GcmEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GcmCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GcmEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Google API key.
+func (o GcmCredentialPropertiesInvokeResponsePtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GcmCredentialPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2593,6 +3817,140 @@ func (o MpnsCredentialPtrOutput) Properties() MpnsCredentialPropertiesPtrOutput 
 }
 
 // Description of a NotificationHub MpnsCredential.
+type MpnsCredentialInvokeResponse struct {
+	// Gets or sets properties of NotificationHub MpnsCredential.
+	Properties *MpnsCredentialPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// MpnsCredentialInvokeResponseInput is an input type that accepts MpnsCredentialInvokeResponseArgs and MpnsCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `MpnsCredentialInvokeResponseInput` via:
+//
+//          MpnsCredentialInvokeResponseArgs{...}
+type MpnsCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMpnsCredentialInvokeResponseOutput() MpnsCredentialInvokeResponseOutput
+	ToMpnsCredentialInvokeResponseOutputWithContext(context.Context) MpnsCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub MpnsCredential.
+type MpnsCredentialInvokeResponseArgs struct {
+	// Gets or sets properties of NotificationHub MpnsCredential.
+	Properties MpnsCredentialPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (MpnsCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MpnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i MpnsCredentialInvokeResponseArgs) ToMpnsCredentialInvokeResponseOutput() MpnsCredentialInvokeResponseOutput {
+	return i.ToMpnsCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MpnsCredentialInvokeResponseArgs) ToMpnsCredentialInvokeResponseOutputWithContext(ctx context.Context) MpnsCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialInvokeResponseOutput)
+}
+
+func (i MpnsCredentialInvokeResponseArgs) ToMpnsCredentialInvokeResponsePtrOutput() MpnsCredentialInvokeResponsePtrOutput {
+	return i.ToMpnsCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MpnsCredentialInvokeResponseArgs) ToMpnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialInvokeResponseOutput).ToMpnsCredentialInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MpnsCredentialInvokeResponsePtrInput is an input type that accepts MpnsCredentialInvokeResponseArgs, MpnsCredentialInvokeResponsePtr and MpnsCredentialInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MpnsCredentialInvokeResponsePtrInput` via:
+//
+//          MpnsCredentialInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MpnsCredentialInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMpnsCredentialInvokeResponsePtrOutput() MpnsCredentialInvokeResponsePtrOutput
+	ToMpnsCredentialInvokeResponsePtrOutputWithContext(context.Context) MpnsCredentialInvokeResponsePtrOutput
+}
+
+type mpnsCredentialInvokeResponsePtrType MpnsCredentialInvokeResponseArgs
+
+func MpnsCredentialInvokeResponsePtr(v *MpnsCredentialInvokeResponseArgs) MpnsCredentialInvokeResponsePtrInput {
+	return (*mpnsCredentialInvokeResponsePtrType)(v)
+}
+
+func (*mpnsCredentialInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MpnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i *mpnsCredentialInvokeResponsePtrType) ToMpnsCredentialInvokeResponsePtrOutput() MpnsCredentialInvokeResponsePtrOutput {
+	return i.ToMpnsCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mpnsCredentialInvokeResponsePtrType) ToMpnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub MpnsCredential.
+type MpnsCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MpnsCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MpnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o MpnsCredentialInvokeResponseOutput) ToMpnsCredentialInvokeResponseOutput() MpnsCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o MpnsCredentialInvokeResponseOutput) ToMpnsCredentialInvokeResponseOutputWithContext(ctx context.Context) MpnsCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o MpnsCredentialInvokeResponseOutput) ToMpnsCredentialInvokeResponsePtrOutput() MpnsCredentialInvokeResponsePtrOutput {
+	return o.ToMpnsCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MpnsCredentialInvokeResponseOutput) ToMpnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MpnsCredentialInvokeResponse) *MpnsCredentialInvokeResponse {
+		return &v
+	}).(MpnsCredentialInvokeResponsePtrOutput)
+}
+
+// Gets or sets properties of NotificationHub MpnsCredential.
+func (o MpnsCredentialInvokeResponseOutput) Properties() MpnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MpnsCredentialInvokeResponse) *MpnsCredentialPropertiesInvokeResponse { return v.Properties }).(MpnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+type MpnsCredentialInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MpnsCredentialInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MpnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o MpnsCredentialInvokeResponsePtrOutput) ToMpnsCredentialInvokeResponsePtrOutput() MpnsCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MpnsCredentialInvokeResponsePtrOutput) ToMpnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MpnsCredentialInvokeResponsePtrOutput) Elem() MpnsCredentialInvokeResponseOutput {
+	return o.ApplyT(func(v *MpnsCredentialInvokeResponse) MpnsCredentialInvokeResponse { return *v }).(MpnsCredentialInvokeResponseOutput)
+}
+
+// Gets or sets properties of NotificationHub MpnsCredential.
+func (o MpnsCredentialInvokeResponsePtrOutput) Properties() MpnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *MpnsCredentialInvokeResponse) *MpnsCredentialPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(MpnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub MpnsCredential.
 type MpnsCredentialProperties struct {
 	// Gets or sets the certificate key for this credential.
 	CertificateKey *string `pulumi:"certificateKey"`
@@ -2757,6 +4115,178 @@ func (o MpnsCredentialPropertiesPtrOutput) MpnsCertificate() pulumi.StringPtrOut
 // Gets or sets the Mpns certificate Thumbprint
 func (o MpnsCredentialPropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MpnsCredentialProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Thumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub MpnsCredential.
+type MpnsCredentialPropertiesInvokeResponse struct {
+	// Gets or sets the certificate key for this credential.
+	CertificateKey *string `pulumi:"certificateKey"`
+	// Gets or sets the MPNS certificate.
+	MpnsCertificate *string `pulumi:"mpnsCertificate"`
+	// Gets or sets the Mpns certificate Thumbprint
+	Thumbprint *string `pulumi:"thumbprint"`
+}
+
+// MpnsCredentialPropertiesInvokeResponseInput is an input type that accepts MpnsCredentialPropertiesInvokeResponseArgs and MpnsCredentialPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `MpnsCredentialPropertiesInvokeResponseInput` via:
+//
+//          MpnsCredentialPropertiesInvokeResponseArgs{...}
+type MpnsCredentialPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMpnsCredentialPropertiesInvokeResponseOutput() MpnsCredentialPropertiesInvokeResponseOutput
+	ToMpnsCredentialPropertiesInvokeResponseOutputWithContext(context.Context) MpnsCredentialPropertiesInvokeResponseOutput
+}
+
+// Description of a NotificationHub MpnsCredential.
+type MpnsCredentialPropertiesInvokeResponseArgs struct {
+	// Gets or sets the certificate key for this credential.
+	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
+	// Gets or sets the MPNS certificate.
+	MpnsCertificate pulumi.StringPtrInput `pulumi:"mpnsCertificate"`
+	// Gets or sets the Mpns certificate Thumbprint
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
+}
+
+func (MpnsCredentialPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MpnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MpnsCredentialPropertiesInvokeResponseArgs) ToMpnsCredentialPropertiesInvokeResponseOutput() MpnsCredentialPropertiesInvokeResponseOutput {
+	return i.ToMpnsCredentialPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MpnsCredentialPropertiesInvokeResponseArgs) ToMpnsCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) MpnsCredentialPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPropertiesInvokeResponseOutput)
+}
+
+func (i MpnsCredentialPropertiesInvokeResponseArgs) ToMpnsCredentialPropertiesInvokeResponsePtrOutput() MpnsCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToMpnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MpnsCredentialPropertiesInvokeResponseArgs) ToMpnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPropertiesInvokeResponseOutput).ToMpnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MpnsCredentialPropertiesInvokeResponsePtrInput is an input type that accepts MpnsCredentialPropertiesInvokeResponseArgs, MpnsCredentialPropertiesInvokeResponsePtr and MpnsCredentialPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MpnsCredentialPropertiesInvokeResponsePtrInput` via:
+//
+//          MpnsCredentialPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MpnsCredentialPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMpnsCredentialPropertiesInvokeResponsePtrOutput() MpnsCredentialPropertiesInvokeResponsePtrOutput
+	ToMpnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Context) MpnsCredentialPropertiesInvokeResponsePtrOutput
+}
+
+type mpnsCredentialPropertiesInvokeResponsePtrType MpnsCredentialPropertiesInvokeResponseArgs
+
+func MpnsCredentialPropertiesInvokeResponsePtr(v *MpnsCredentialPropertiesInvokeResponseArgs) MpnsCredentialPropertiesInvokeResponsePtrInput {
+	return (*mpnsCredentialPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*mpnsCredentialPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MpnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *mpnsCredentialPropertiesInvokeResponsePtrType) ToMpnsCredentialPropertiesInvokeResponsePtrOutput() MpnsCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToMpnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mpnsCredentialPropertiesInvokeResponsePtrType) ToMpnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub MpnsCredential.
+type MpnsCredentialPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MpnsCredentialPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MpnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MpnsCredentialPropertiesInvokeResponseOutput) ToMpnsCredentialPropertiesInvokeResponseOutput() MpnsCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MpnsCredentialPropertiesInvokeResponseOutput) ToMpnsCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) MpnsCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MpnsCredentialPropertiesInvokeResponseOutput) ToMpnsCredentialPropertiesInvokeResponsePtrOutput() MpnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ToMpnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MpnsCredentialPropertiesInvokeResponseOutput) ToMpnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MpnsCredentialPropertiesInvokeResponse) *MpnsCredentialPropertiesInvokeResponse {
+		return &v
+	}).(MpnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the certificate key for this credential.
+func (o MpnsCredentialPropertiesInvokeResponseOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MpnsCredentialPropertiesInvokeResponse) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the MPNS certificate.
+func (o MpnsCredentialPropertiesInvokeResponseOutput) MpnsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MpnsCredentialPropertiesInvokeResponse) *string { return v.MpnsCertificate }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Mpns certificate Thumbprint
+func (o MpnsCredentialPropertiesInvokeResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MpnsCredentialPropertiesInvokeResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+type MpnsCredentialPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MpnsCredentialPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MpnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MpnsCredentialPropertiesInvokeResponsePtrOutput) ToMpnsCredentialPropertiesInvokeResponsePtrOutput() MpnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MpnsCredentialPropertiesInvokeResponsePtrOutput) ToMpnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MpnsCredentialPropertiesInvokeResponsePtrOutput) Elem() MpnsCredentialPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *MpnsCredentialPropertiesInvokeResponse) MpnsCredentialPropertiesInvokeResponse { return *v }).(MpnsCredentialPropertiesInvokeResponseOutput)
+}
+
+// Gets or sets the certificate key for this credential.
+func (o MpnsCredentialPropertiesInvokeResponsePtrOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MpnsCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the MPNS certificate.
+func (o MpnsCredentialPropertiesInvokeResponsePtrOutput) MpnsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MpnsCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MpnsCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Mpns certificate Thumbprint
+func (o MpnsCredentialPropertiesInvokeResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MpnsCredentialPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -3395,6 +4925,151 @@ func (o NamespacePropertiesPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
 }
 
 // Namespace properties.
+type NamespacePropertiesInvokeResponse struct {
+	// The time the namespace was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Whether or not the namespace is set as Critical.
+	Critical *bool `pulumi:"critical"`
+	// Whether or not the namespace is currently enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the namespace.
+	Name *string `pulumi:"name"`
+	// Gets or sets the namespace type.
+	NamespaceType *string `pulumi:"namespaceType"`
+	// Gets or sets provisioning state of the Namespace.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+	Region *string `pulumi:"region"`
+	// ScaleUnit where the namespace gets created
+	ScaleUnit *string `pulumi:"scaleUnit"`
+	// Endpoint you can use to perform NotificationHub operations.
+	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
+	// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+	Status *string `pulumi:"status"`
+	// The Id of the Azure subscription associated with the namespace.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+}
+
+// NamespacePropertiesInvokeResponseInput is an input type that accepts NamespacePropertiesInvokeResponseArgs and NamespacePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `NamespacePropertiesInvokeResponseInput` via:
+//
+//          NamespacePropertiesInvokeResponseArgs{...}
+type NamespacePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNamespacePropertiesInvokeResponseOutput() NamespacePropertiesInvokeResponseOutput
+	ToNamespacePropertiesInvokeResponseOutputWithContext(context.Context) NamespacePropertiesInvokeResponseOutput
+}
+
+// Namespace properties.
+type NamespacePropertiesInvokeResponseArgs struct {
+	// The time the namespace was created.
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// Whether or not the namespace is set as Critical.
+	Critical pulumi.BoolPtrInput `pulumi:"critical"`
+	// Whether or not the namespace is currently enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The name of the namespace.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Gets or sets the namespace type.
+	NamespaceType pulumi.StringPtrInput `pulumi:"namespaceType"`
+	// Gets or sets provisioning state of the Namespace.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// ScaleUnit where the namespace gets created
+	ScaleUnit pulumi.StringPtrInput `pulumi:"scaleUnit"`
+	// Endpoint you can use to perform NotificationHub operations.
+	ServiceBusEndpoint pulumi.StringPtrInput `pulumi:"serviceBusEndpoint"`
+	// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The Id of the Azure subscription associated with the namespace.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+}
+
+func (NamespacePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespacePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i NamespacePropertiesInvokeResponseArgs) ToNamespacePropertiesInvokeResponseOutput() NamespacePropertiesInvokeResponseOutput {
+	return i.ToNamespacePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NamespacePropertiesInvokeResponseArgs) ToNamespacePropertiesInvokeResponseOutputWithContext(ctx context.Context) NamespacePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NamespacePropertiesInvokeResponseOutput)
+}
+
+// Namespace properties.
+type NamespacePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NamespacePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NamespacePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o NamespacePropertiesInvokeResponseOutput) ToNamespacePropertiesInvokeResponseOutput() NamespacePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o NamespacePropertiesInvokeResponseOutput) ToNamespacePropertiesInvokeResponseOutputWithContext(ctx context.Context) NamespacePropertiesInvokeResponseOutput {
+	return o
+}
+
+// The time the namespace was created.
+func (o NamespacePropertiesInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not the namespace is set as Critical.
+func (o NamespacePropertiesInvokeResponseOutput) Critical() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *bool { return v.Critical }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not the namespace is currently enabled.
+func (o NamespacePropertiesInvokeResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the namespace.
+func (o NamespacePropertiesInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the namespace type.
+func (o NamespacePropertiesInvokeResponseOutput) NamespaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *string { return v.NamespaceType }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets provisioning state of the Namespace.
+func (o NamespacePropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+func (o NamespacePropertiesInvokeResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// ScaleUnit where the namespace gets created
+func (o NamespacePropertiesInvokeResponseOutput) ScaleUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *string { return v.ScaleUnit }).(pulumi.StringPtrOutput)
+}
+
+// Endpoint you can use to perform NotificationHub operations.
+func (o NamespacePropertiesInvokeResponseOutput) ServiceBusEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *string { return v.ServiceBusEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+func (o NamespacePropertiesInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The Id of the Azure subscription associated with the namespace.
+func (o NamespacePropertiesInvokeResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespacePropertiesInvokeResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Namespace properties.
 type NamespacePropertiesResponse struct {
 	// The time the namespace was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -4007,6 +5682,137 @@ func (o NotificationHubPropertiesPtrOutput) WnsCredential() WnsCredentialPtrOutp
 }
 
 // NotificationHub properties.
+type NotificationHubPropertiesInvokeResponse struct {
+	// The AdmCredential of the created NotificationHub
+	AdmCredential *AdmCredentialInvokeResponse `pulumi:"admCredential"`
+	// The ApnsCredential of the created NotificationHub
+	ApnsCredential *ApnsCredentialInvokeResponse `pulumi:"apnsCredential"`
+	// The AuthorizationRules of the created NotificationHub
+	AuthorizationRules []SharedAccessAuthorizationRulePropertiesInvokeResponse `pulumi:"authorizationRules"`
+	// The BaiduCredential of the created NotificationHub
+	BaiduCredential *BaiduCredentialInvokeResponse `pulumi:"baiduCredential"`
+	// The GcmCredential of the created NotificationHub
+	GcmCredential *GcmCredentialInvokeResponse `pulumi:"gcmCredential"`
+	// The MpnsCredential of the created NotificationHub
+	MpnsCredential *MpnsCredentialInvokeResponse `pulumi:"mpnsCredential"`
+	// The NotificationHub name.
+	Name *string `pulumi:"name"`
+	// The RegistrationTtl of the created NotificationHub
+	RegistrationTtl *string `pulumi:"registrationTtl"`
+	// The WnsCredential of the created NotificationHub
+	WnsCredential *WnsCredentialInvokeResponse `pulumi:"wnsCredential"`
+}
+
+// NotificationHubPropertiesInvokeResponseInput is an input type that accepts NotificationHubPropertiesInvokeResponseArgs and NotificationHubPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `NotificationHubPropertiesInvokeResponseInput` via:
+//
+//          NotificationHubPropertiesInvokeResponseArgs{...}
+type NotificationHubPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNotificationHubPropertiesInvokeResponseOutput() NotificationHubPropertiesInvokeResponseOutput
+	ToNotificationHubPropertiesInvokeResponseOutputWithContext(context.Context) NotificationHubPropertiesInvokeResponseOutput
+}
+
+// NotificationHub properties.
+type NotificationHubPropertiesInvokeResponseArgs struct {
+	// The AdmCredential of the created NotificationHub
+	AdmCredential AdmCredentialInvokeResponsePtrInput `pulumi:"admCredential"`
+	// The ApnsCredential of the created NotificationHub
+	ApnsCredential ApnsCredentialInvokeResponsePtrInput `pulumi:"apnsCredential"`
+	// The AuthorizationRules of the created NotificationHub
+	AuthorizationRules SharedAccessAuthorizationRulePropertiesInvokeResponseArrayInput `pulumi:"authorizationRules"`
+	// The BaiduCredential of the created NotificationHub
+	BaiduCredential BaiduCredentialInvokeResponsePtrInput `pulumi:"baiduCredential"`
+	// The GcmCredential of the created NotificationHub
+	GcmCredential GcmCredentialInvokeResponsePtrInput `pulumi:"gcmCredential"`
+	// The MpnsCredential of the created NotificationHub
+	MpnsCredential MpnsCredentialInvokeResponsePtrInput `pulumi:"mpnsCredential"`
+	// The NotificationHub name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The RegistrationTtl of the created NotificationHub
+	RegistrationTtl pulumi.StringPtrInput `pulumi:"registrationTtl"`
+	// The WnsCredential of the created NotificationHub
+	WnsCredential WnsCredentialInvokeResponsePtrInput `pulumi:"wnsCredential"`
+}
+
+func (NotificationHubPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHubPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i NotificationHubPropertiesInvokeResponseArgs) ToNotificationHubPropertiesInvokeResponseOutput() NotificationHubPropertiesInvokeResponseOutput {
+	return i.ToNotificationHubPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NotificationHubPropertiesInvokeResponseArgs) ToNotificationHubPropertiesInvokeResponseOutputWithContext(ctx context.Context) NotificationHubPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubPropertiesInvokeResponseOutput)
+}
+
+// NotificationHub properties.
+type NotificationHubPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NotificationHubPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationHubPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o NotificationHubPropertiesInvokeResponseOutput) ToNotificationHubPropertiesInvokeResponseOutput() NotificationHubPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o NotificationHubPropertiesInvokeResponseOutput) ToNotificationHubPropertiesInvokeResponseOutputWithContext(ctx context.Context) NotificationHubPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The AdmCredential of the created NotificationHub
+func (o NotificationHubPropertiesInvokeResponseOutput) AdmCredential() AdmCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NotificationHubPropertiesInvokeResponse) *AdmCredentialInvokeResponse { return v.AdmCredential }).(AdmCredentialInvokeResponsePtrOutput)
+}
+
+// The ApnsCredential of the created NotificationHub
+func (o NotificationHubPropertiesInvokeResponseOutput) ApnsCredential() ApnsCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NotificationHubPropertiesInvokeResponse) *ApnsCredentialInvokeResponse { return v.ApnsCredential }).(ApnsCredentialInvokeResponsePtrOutput)
+}
+
+// The AuthorizationRules of the created NotificationHub
+func (o NotificationHubPropertiesInvokeResponseOutput) AuthorizationRules() SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v NotificationHubPropertiesInvokeResponse) []SharedAccessAuthorizationRulePropertiesInvokeResponse {
+		return v.AuthorizationRules
+	}).(SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput)
+}
+
+// The BaiduCredential of the created NotificationHub
+func (o NotificationHubPropertiesInvokeResponseOutput) BaiduCredential() BaiduCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NotificationHubPropertiesInvokeResponse) *BaiduCredentialInvokeResponse {
+		return v.BaiduCredential
+	}).(BaiduCredentialInvokeResponsePtrOutput)
+}
+
+// The GcmCredential of the created NotificationHub
+func (o NotificationHubPropertiesInvokeResponseOutput) GcmCredential() GcmCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NotificationHubPropertiesInvokeResponse) *GcmCredentialInvokeResponse { return v.GcmCredential }).(GcmCredentialInvokeResponsePtrOutput)
+}
+
+// The MpnsCredential of the created NotificationHub
+func (o NotificationHubPropertiesInvokeResponseOutput) MpnsCredential() MpnsCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NotificationHubPropertiesInvokeResponse) *MpnsCredentialInvokeResponse { return v.MpnsCredential }).(MpnsCredentialInvokeResponsePtrOutput)
+}
+
+// The NotificationHub name.
+func (o NotificationHubPropertiesInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationHubPropertiesInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The RegistrationTtl of the created NotificationHub
+func (o NotificationHubPropertiesInvokeResponseOutput) RegistrationTtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationHubPropertiesInvokeResponse) *string { return v.RegistrationTtl }).(pulumi.StringPtrOutput)
+}
+
+// The WnsCredential of the created NotificationHub
+func (o NotificationHubPropertiesInvokeResponseOutput) WnsCredential() WnsCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NotificationHubPropertiesInvokeResponse) *WnsCredentialInvokeResponse { return v.WnsCredential }).(WnsCredentialInvokeResponsePtrOutput)
+}
+
+// NotificationHub properties.
 type NotificationHubPropertiesResponse struct {
 	// The AdmCredential of the created NotificationHub
 	AdmCredential *AdmCredentialResponse `pulumi:"admCredential"`
@@ -4467,6 +6273,178 @@ func (o SharedAccessAuthorizationRulePropertiesArrayOutput) Index(i pulumi.IntIn
 }
 
 // SharedAccessAuthorizationRule properties.
+type SharedAccessAuthorizationRulePropertiesInvokeResponse struct {
+	// The type of the claim.
+	ClaimType *string `pulumi:"claimType"`
+	// The value of the claim.
+	ClaimValue *string `pulumi:"claimValue"`
+	// The time at which the authorization rule was created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The name of the key that was used.
+	KeyName *string `pulumi:"keyName"`
+	// The most recent time the rule was updated.
+	ModifiedTime *string `pulumi:"modifiedTime"`
+	// The primary key that was used.
+	PrimaryKey *string `pulumi:"primaryKey"`
+	// The revision number for the rule.
+	Revision *int `pulumi:"revision"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
+	// The secondary key that was used.
+	SecondaryKey *string `pulumi:"secondaryKey"`
+}
+
+// SharedAccessAuthorizationRulePropertiesInvokeResponseInput is an input type that accepts SharedAccessAuthorizationRulePropertiesInvokeResponseArgs and SharedAccessAuthorizationRulePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SharedAccessAuthorizationRulePropertiesInvokeResponseInput` via:
+//
+//          SharedAccessAuthorizationRulePropertiesInvokeResponseArgs{...}
+type SharedAccessAuthorizationRulePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseOutput
+	ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseOutput
+}
+
+// SharedAccessAuthorizationRule properties.
+type SharedAccessAuthorizationRulePropertiesInvokeResponseArgs struct {
+	// The type of the claim.
+	ClaimType pulumi.StringPtrInput `pulumi:"claimType"`
+	// The value of the claim.
+	ClaimValue pulumi.StringPtrInput `pulumi:"claimValue"`
+	// The time at which the authorization rule was created.
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	// The name of the key that was used.
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// The most recent time the rule was updated.
+	ModifiedTime pulumi.StringPtrInput `pulumi:"modifiedTime"`
+	// The primary key that was used.
+	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
+	// The revision number for the rule.
+	Revision pulumi.IntPtrInput `pulumi:"revision"`
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput `pulumi:"rights"`
+	// The secondary key that was used.
+	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
+}
+
+func (SharedAccessAuthorizationRulePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessAuthorizationRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SharedAccessAuthorizationRulePropertiesInvokeResponseArgs) ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseOutput {
+	return i.ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SharedAccessAuthorizationRulePropertiesInvokeResponseArgs) ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesInvokeResponseOutput)
+}
+
+// SharedAccessAuthorizationRulePropertiesInvokeResponseArrayInput is an input type that accepts SharedAccessAuthorizationRulePropertiesInvokeResponseArray and SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SharedAccessAuthorizationRulePropertiesInvokeResponseArrayInput` via:
+//
+//          SharedAccessAuthorizationRulePropertiesInvokeResponseArray{ SharedAccessAuthorizationRulePropertiesInvokeResponseArgs{...} }
+type SharedAccessAuthorizationRulePropertiesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput
+	ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput
+}
+
+type SharedAccessAuthorizationRulePropertiesInvokeResponseArray []SharedAccessAuthorizationRulePropertiesInvokeResponseInput
+
+func (SharedAccessAuthorizationRulePropertiesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessAuthorizationRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SharedAccessAuthorizationRulePropertiesInvokeResponseArray) ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput {
+	return i.ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SharedAccessAuthorizationRulePropertiesInvokeResponseArray) ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput)
+}
+
+// SharedAccessAuthorizationRule properties.
+type SharedAccessAuthorizationRulePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedAccessAuthorizationRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ToSharedAccessAuthorizationRulePropertiesInvokeResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseOutput {
+	return o
+}
+
+// The type of the claim.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ClaimType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) *string { return v.ClaimType }).(pulumi.StringPtrOutput)
+}
+
+// The value of the claim.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ClaimValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) *string { return v.ClaimValue }).(pulumi.StringPtrOutput)
+}
+
+// The time at which the authorization rule was created.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the key that was used.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// The most recent time the rule was updated.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) ModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) *string { return v.ModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The primary key that was used.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// The revision number for the rule.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) Revision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) *int { return v.Revision }).(pulumi.IntPtrOutput)
+}
+
+// The rights associated with the rule.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) []string { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// The secondary key that was used.
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesInvokeResponse) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+type SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SharedAccessAuthorizationRulePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput) ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput() SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput) ToSharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput) Index(i pulumi.IntInput) SharedAccessAuthorizationRulePropertiesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedAccessAuthorizationRulePropertiesInvokeResponse {
+		return vs[0].([]SharedAccessAuthorizationRulePropertiesInvokeResponse)[vs[1].(int)]
+	}).(SharedAccessAuthorizationRulePropertiesInvokeResponseOutput)
+}
+
+// SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesResponse struct {
 	// The type of the claim.
 	ClaimType *string `pulumi:"claimType"`
@@ -4773,6 +6751,140 @@ func (o WnsCredentialPtrOutput) Properties() WnsCredentialPropertiesPtrOutput {
 }
 
 // Description of a NotificationHub WnsCredential.
+type WnsCredentialInvokeResponse struct {
+	// Gets or sets properties of NotificationHub WnsCredential.
+	Properties *WnsCredentialPropertiesInvokeResponse `pulumi:"properties"`
+}
+
+// WnsCredentialInvokeResponseInput is an input type that accepts WnsCredentialInvokeResponseArgs and WnsCredentialInvokeResponseOutput values.
+// You can construct a concrete instance of `WnsCredentialInvokeResponseInput` via:
+//
+//          WnsCredentialInvokeResponseArgs{...}
+type WnsCredentialInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWnsCredentialInvokeResponseOutput() WnsCredentialInvokeResponseOutput
+	ToWnsCredentialInvokeResponseOutputWithContext(context.Context) WnsCredentialInvokeResponseOutput
+}
+
+// Description of a NotificationHub WnsCredential.
+type WnsCredentialInvokeResponseArgs struct {
+	// Gets or sets properties of NotificationHub WnsCredential.
+	Properties WnsCredentialPropertiesInvokeResponsePtrInput `pulumi:"properties"`
+}
+
+func (WnsCredentialInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i WnsCredentialInvokeResponseArgs) ToWnsCredentialInvokeResponseOutput() WnsCredentialInvokeResponseOutput {
+	return i.ToWnsCredentialInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WnsCredentialInvokeResponseArgs) ToWnsCredentialInvokeResponseOutputWithContext(ctx context.Context) WnsCredentialInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialInvokeResponseOutput)
+}
+
+func (i WnsCredentialInvokeResponseArgs) ToWnsCredentialInvokeResponsePtrOutput() WnsCredentialInvokeResponsePtrOutput {
+	return i.ToWnsCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WnsCredentialInvokeResponseArgs) ToWnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) WnsCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialInvokeResponseOutput).ToWnsCredentialInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WnsCredentialInvokeResponsePtrInput is an input type that accepts WnsCredentialInvokeResponseArgs, WnsCredentialInvokeResponsePtr and WnsCredentialInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WnsCredentialInvokeResponsePtrInput` via:
+//
+//          WnsCredentialInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WnsCredentialInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWnsCredentialInvokeResponsePtrOutput() WnsCredentialInvokeResponsePtrOutput
+	ToWnsCredentialInvokeResponsePtrOutputWithContext(context.Context) WnsCredentialInvokeResponsePtrOutput
+}
+
+type wnsCredentialInvokeResponsePtrType WnsCredentialInvokeResponseArgs
+
+func WnsCredentialInvokeResponsePtr(v *WnsCredentialInvokeResponseArgs) WnsCredentialInvokeResponsePtrInput {
+	return (*wnsCredentialInvokeResponsePtrType)(v)
+}
+
+func (*wnsCredentialInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (i *wnsCredentialInvokeResponsePtrType) ToWnsCredentialInvokeResponsePtrOutput() WnsCredentialInvokeResponsePtrOutput {
+	return i.ToWnsCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *wnsCredentialInvokeResponsePtrType) ToWnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) WnsCredentialInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub WnsCredential.
+type WnsCredentialInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WnsCredentialInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o WnsCredentialInvokeResponseOutput) ToWnsCredentialInvokeResponseOutput() WnsCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o WnsCredentialInvokeResponseOutput) ToWnsCredentialInvokeResponseOutputWithContext(ctx context.Context) WnsCredentialInvokeResponseOutput {
+	return o
+}
+
+func (o WnsCredentialInvokeResponseOutput) ToWnsCredentialInvokeResponsePtrOutput() WnsCredentialInvokeResponsePtrOutput {
+	return o.ToWnsCredentialInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WnsCredentialInvokeResponseOutput) ToWnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) WnsCredentialInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WnsCredentialInvokeResponse) *WnsCredentialInvokeResponse {
+		return &v
+	}).(WnsCredentialInvokeResponsePtrOutput)
+}
+
+// Gets or sets properties of NotificationHub WnsCredential.
+func (o WnsCredentialInvokeResponseOutput) Properties() WnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WnsCredentialInvokeResponse) *WnsCredentialPropertiesInvokeResponse { return v.Properties }).(WnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+type WnsCredentialInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WnsCredentialInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WnsCredentialInvokeResponse)(nil)).Elem()
+}
+
+func (o WnsCredentialInvokeResponsePtrOutput) ToWnsCredentialInvokeResponsePtrOutput() WnsCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WnsCredentialInvokeResponsePtrOutput) ToWnsCredentialInvokeResponsePtrOutputWithContext(ctx context.Context) WnsCredentialInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WnsCredentialInvokeResponsePtrOutput) Elem() WnsCredentialInvokeResponseOutput {
+	return o.ApplyT(func(v *WnsCredentialInvokeResponse) WnsCredentialInvokeResponse { return *v }).(WnsCredentialInvokeResponseOutput)
+}
+
+// Gets or sets properties of NotificationHub WnsCredential.
+func (o WnsCredentialInvokeResponsePtrOutput) Properties() WnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *WnsCredentialInvokeResponse) *WnsCredentialPropertiesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(WnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub WnsCredential.
 type WnsCredentialProperties struct {
 	// Gets or sets the package ID for this credential.
 	PackageSid *string `pulumi:"packageSid"`
@@ -4937,6 +7049,178 @@ func (o WnsCredentialPropertiesPtrOutput) SecretKey() pulumi.StringPtrOutput {
 // Gets or sets the Windows Live endpoint.
 func (o WnsCredentialPropertiesPtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WnsCredentialProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WindowsLiveEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description of a NotificationHub WnsCredential.
+type WnsCredentialPropertiesInvokeResponse struct {
+	// Gets or sets the package ID for this credential.
+	PackageSid *string `pulumi:"packageSid"`
+	// Gets or sets the secret key.
+	SecretKey *string `pulumi:"secretKey"`
+	// Gets or sets the Windows Live endpoint.
+	WindowsLiveEndpoint *string `pulumi:"windowsLiveEndpoint"`
+}
+
+// WnsCredentialPropertiesInvokeResponseInput is an input type that accepts WnsCredentialPropertiesInvokeResponseArgs and WnsCredentialPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `WnsCredentialPropertiesInvokeResponseInput` via:
+//
+//          WnsCredentialPropertiesInvokeResponseArgs{...}
+type WnsCredentialPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWnsCredentialPropertiesInvokeResponseOutput() WnsCredentialPropertiesInvokeResponseOutput
+	ToWnsCredentialPropertiesInvokeResponseOutputWithContext(context.Context) WnsCredentialPropertiesInvokeResponseOutput
+}
+
+// Description of a NotificationHub WnsCredential.
+type WnsCredentialPropertiesInvokeResponseArgs struct {
+	// Gets or sets the package ID for this credential.
+	PackageSid pulumi.StringPtrInput `pulumi:"packageSid"`
+	// Gets or sets the secret key.
+	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
+	// Gets or sets the Windows Live endpoint.
+	WindowsLiveEndpoint pulumi.StringPtrInput `pulumi:"windowsLiveEndpoint"`
+}
+
+func (WnsCredentialPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i WnsCredentialPropertiesInvokeResponseArgs) ToWnsCredentialPropertiesInvokeResponseOutput() WnsCredentialPropertiesInvokeResponseOutput {
+	return i.ToWnsCredentialPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WnsCredentialPropertiesInvokeResponseArgs) ToWnsCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) WnsCredentialPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPropertiesInvokeResponseOutput)
+}
+
+func (i WnsCredentialPropertiesInvokeResponseArgs) ToWnsCredentialPropertiesInvokeResponsePtrOutput() WnsCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToWnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WnsCredentialPropertiesInvokeResponseArgs) ToWnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPropertiesInvokeResponseOutput).ToWnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// WnsCredentialPropertiesInvokeResponsePtrInput is an input type that accepts WnsCredentialPropertiesInvokeResponseArgs, WnsCredentialPropertiesInvokeResponsePtr and WnsCredentialPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `WnsCredentialPropertiesInvokeResponsePtrInput` via:
+//
+//          WnsCredentialPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WnsCredentialPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToWnsCredentialPropertiesInvokeResponsePtrOutput() WnsCredentialPropertiesInvokeResponsePtrOutput
+	ToWnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Context) WnsCredentialPropertiesInvokeResponsePtrOutput
+}
+
+type wnsCredentialPropertiesInvokeResponsePtrType WnsCredentialPropertiesInvokeResponseArgs
+
+func WnsCredentialPropertiesInvokeResponsePtr(v *WnsCredentialPropertiesInvokeResponseArgs) WnsCredentialPropertiesInvokeResponsePtrInput {
+	return (*wnsCredentialPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*wnsCredentialPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *wnsCredentialPropertiesInvokeResponsePtrType) ToWnsCredentialPropertiesInvokeResponsePtrOutput() WnsCredentialPropertiesInvokeResponsePtrOutput {
+	return i.ToWnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *wnsCredentialPropertiesInvokeResponsePtrType) ToWnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Description of a NotificationHub WnsCredential.
+type WnsCredentialPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WnsCredentialPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o WnsCredentialPropertiesInvokeResponseOutput) ToWnsCredentialPropertiesInvokeResponseOutput() WnsCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o WnsCredentialPropertiesInvokeResponseOutput) ToWnsCredentialPropertiesInvokeResponseOutputWithContext(ctx context.Context) WnsCredentialPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o WnsCredentialPropertiesInvokeResponseOutput) ToWnsCredentialPropertiesInvokeResponsePtrOutput() WnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ToWnsCredentialPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WnsCredentialPropertiesInvokeResponseOutput) ToWnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v WnsCredentialPropertiesInvokeResponse) *WnsCredentialPropertiesInvokeResponse {
+		return &v
+	}).(WnsCredentialPropertiesInvokeResponsePtrOutput)
+}
+
+// Gets or sets the package ID for this credential.
+func (o WnsCredentialPropertiesInvokeResponseOutput) PackageSid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WnsCredentialPropertiesInvokeResponse) *string { return v.PackageSid }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the secret key.
+func (o WnsCredentialPropertiesInvokeResponseOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WnsCredentialPropertiesInvokeResponse) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Windows Live endpoint.
+func (o WnsCredentialPropertiesInvokeResponseOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WnsCredentialPropertiesInvokeResponse) *string { return v.WindowsLiveEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type WnsCredentialPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WnsCredentialPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WnsCredentialPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o WnsCredentialPropertiesInvokeResponsePtrOutput) ToWnsCredentialPropertiesInvokeResponsePtrOutput() WnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WnsCredentialPropertiesInvokeResponsePtrOutput) ToWnsCredentialPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o WnsCredentialPropertiesInvokeResponsePtrOutput) Elem() WnsCredentialPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *WnsCredentialPropertiesInvokeResponse) WnsCredentialPropertiesInvokeResponse { return *v }).(WnsCredentialPropertiesInvokeResponseOutput)
+}
+
+// Gets or sets the package ID for this credential.
+func (o WnsCredentialPropertiesInvokeResponsePtrOutput) PackageSid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WnsCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PackageSid
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the secret key.
+func (o WnsCredentialPropertiesInvokeResponsePtrOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WnsCredentialPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Windows Live endpoint.
+func (o WnsCredentialPropertiesInvokeResponsePtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WnsCredentialPropertiesInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -5253,60 +7537,88 @@ func (o WnsCredentialResponsePtrOutput) Properties() WnsCredentialPropertiesResp
 func init() {
 	pulumi.RegisterOutputType(AdmCredentialOutput{})
 	pulumi.RegisterOutputType(AdmCredentialPtrOutput{})
+	pulumi.RegisterOutputType(AdmCredentialInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AdmCredentialInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AdmCredentialPropertiesOutput{})
 	pulumi.RegisterOutputType(AdmCredentialPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AdmCredentialPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AdmCredentialPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AdmCredentialPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AdmCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AdmCredentialResponseOutput{})
 	pulumi.RegisterOutputType(AdmCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialPtrOutput{})
+	pulumi.RegisterOutputType(ApnsCredentialInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApnsCredentialInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialPropertiesOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ApnsCredentialPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApnsCredentialPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialPtrOutput{})
+	pulumi.RegisterOutputType(BaiduCredentialInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BaiduCredentialInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialPropertiesOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(BaiduCredentialPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BaiduCredentialPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialResponseOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(GcmCredentialOutput{})
 	pulumi.RegisterOutputType(GcmCredentialPtrOutput{})
+	pulumi.RegisterOutputType(GcmCredentialInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GcmCredentialInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(GcmCredentialPropertiesOutput{})
 	pulumi.RegisterOutputType(GcmCredentialPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GcmCredentialPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(GcmCredentialPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(GcmCredentialPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GcmCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(GcmCredentialResponseOutput{})
 	pulumi.RegisterOutputType(GcmCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialPtrOutput{})
+	pulumi.RegisterOutputType(MpnsCredentialInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MpnsCredentialInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialPropertiesOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MpnsCredentialPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MpnsCredentialPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(NamespacePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(NotificationHubPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesArrayOutput{})
+	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(WnsCredentialOutput{})
 	pulumi.RegisterOutputType(WnsCredentialPtrOutput{})
+	pulumi.RegisterOutputType(WnsCredentialInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WnsCredentialInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WnsCredentialPropertiesOutput{})
 	pulumi.RegisterOutputType(WnsCredentialPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WnsCredentialPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WnsCredentialPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(WnsCredentialPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WnsCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WnsCredentialResponseOutput{})

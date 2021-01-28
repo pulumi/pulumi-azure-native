@@ -32,11 +32,11 @@ type LookupManagedClusterResult struct {
 	// vm admin user name.
 	AdminUserName string `pulumi:"adminUserName"`
 	// Azure active directory.
-	AzureActiveDirectory *AzureActiveDirectoryResponse `pulumi:"azureActiveDirectory"`
+	AzureActiveDirectory *AzureActiveDirectoryInvokeResponse `pulumi:"azureActiveDirectory"`
 	// The port used for client connections to the cluster.
 	ClientConnectionPort *int `pulumi:"clientConnectionPort"`
 	// client certificates for the cluster.
-	Clients []ClientCertificateResponse `pulumi:"clients"`
+	Clients []ClientCertificateInvokeResponse `pulumi:"clients"`
 	// The cluster certificate thumbprint used node to node communication.
 	ClusterCertificateThumbprint string `pulumi:"clusterCertificateThumbprint"`
 	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
@@ -50,7 +50,7 @@ type LookupManagedClusterResult struct {
 	// Azure resource etag.
 	Etag string `pulumi:"etag"`
 	// The list of custom fabric settings to configure the cluster.
-	FabricSettings []SettingsSectionDescriptionResponse `pulumi:"fabricSettings"`
+	FabricSettings []SettingsSectionDescriptionInvokeResponse `pulumi:"fabricSettings"`
 	// the cluster Fully qualified domain name.
 	Fqdn string `pulumi:"fqdn"`
 	// The port used for http connections to the cluster.
@@ -58,7 +58,7 @@ type LookupManagedClusterResult struct {
 	// Azure resource identifier.
 	Id string `pulumi:"id"`
 	// Describes load balancing rules.
-	LoadBalancingRules []LoadBalancingRuleResponse `pulumi:"loadBalancingRules"`
+	LoadBalancingRules []LoadBalancingRuleInvokeResponse `pulumi:"loadBalancingRules"`
 	// Azure resource location.
 	Location string `pulumi:"location"`
 	// Azure resource name.
@@ -66,7 +66,7 @@ type LookupManagedClusterResult struct {
 	// The provisioning state of the managed cluster resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku of the managed cluster
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.

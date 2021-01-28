@@ -11,6 +11,61 @@ import (
 )
 
 // Additional Map account properties
+type MapsAccountPropertiesInvokeResponse struct {
+	// A unique identifier for the maps account
+	XMsClientId *string `pulumi:"xMsClientId"`
+}
+
+// MapsAccountPropertiesInvokeResponseInput is an input type that accepts MapsAccountPropertiesInvokeResponseArgs and MapsAccountPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `MapsAccountPropertiesInvokeResponseInput` via:
+//
+//          MapsAccountPropertiesInvokeResponseArgs{...}
+type MapsAccountPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMapsAccountPropertiesInvokeResponseOutput() MapsAccountPropertiesInvokeResponseOutput
+	ToMapsAccountPropertiesInvokeResponseOutputWithContext(context.Context) MapsAccountPropertiesInvokeResponseOutput
+}
+
+// Additional Map account properties
+type MapsAccountPropertiesInvokeResponseArgs struct {
+	// A unique identifier for the maps account
+	XMsClientId pulumi.StringPtrInput `pulumi:"xMsClientId"`
+}
+
+func (MapsAccountPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MapsAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MapsAccountPropertiesInvokeResponseArgs) ToMapsAccountPropertiesInvokeResponseOutput() MapsAccountPropertiesInvokeResponseOutput {
+	return i.ToMapsAccountPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MapsAccountPropertiesInvokeResponseArgs) ToMapsAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) MapsAccountPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MapsAccountPropertiesInvokeResponseOutput)
+}
+
+// Additional Map account properties
+type MapsAccountPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MapsAccountPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MapsAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MapsAccountPropertiesInvokeResponseOutput) ToMapsAccountPropertiesInvokeResponseOutput() MapsAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MapsAccountPropertiesInvokeResponseOutput) ToMapsAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) MapsAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+// A unique identifier for the maps account
+func (o MapsAccountPropertiesInvokeResponseOutput) XMsClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MapsAccountPropertiesInvokeResponse) *string { return v.XMsClientId }).(pulumi.StringPtrOutput)
+}
+
+// Additional Map account properties
 type MapsAccountPropertiesResponse struct {
 	// A unique identifier for the maps account
 	XMsClientId *string `pulumi:"xMsClientId"`
@@ -279,6 +334,70 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The SKU of the Maps Account.
+type SkuInvokeResponse struct {
+	// The name of the SKU, in standard format (such as S0).
+	Name string `pulumi:"name"`
+	// Gets the sku tier. This is based on the SKU name.
+	Tier string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The SKU of the Maps Account.
+type SkuInvokeResponseArgs struct {
+	// The name of the SKU, in standard format (such as S0).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gets the sku tier. This is based on the SKU name.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The SKU of the Maps Account.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU, in standard format (such as S0).
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the sku tier. This is based on the SKU name.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// The SKU of the Maps Account.
 type SkuResponse struct {
 	// The name of the SKU, in standard format (such as S0).
 	Name string `pulumi:"name"`
@@ -432,10 +551,12 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(MapsAccountPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MapsAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MapsAccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

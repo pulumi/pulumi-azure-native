@@ -56,7 +56,7 @@ type LookupWebAppFunctionResult struct {
 	// Secrets file URI.
 	SecretsFileHref *string `pulumi:"secretsFileHref"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Test data used when testing via the Azure Portal.
 	TestData *string `pulumi:"testData"`
 	// Test data URI.

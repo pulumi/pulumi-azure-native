@@ -36,7 +36,7 @@ type LookupAccountResult struct {
 	// Gets the status of the account at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -30,17 +30,17 @@ type LookupJobResult struct {
 	// Reason for cancellation.
 	CancellationReason string `pulumi:"cancellationReason"`
 	// Delivery Info of Job.
-	DeliveryInfo *JobDeliveryInfoResponse `pulumi:"deliveryInfo"`
+	DeliveryInfo *JobDeliveryInfoInvokeResponse `pulumi:"deliveryInfo"`
 	// Delivery type of Job.
 	DeliveryType *string `pulumi:"deliveryType"`
 	// Details of a job run. This field will only be sent for expand details filter.
 	Details interface{} `pulumi:"details"`
 	// Top level error for the job.
-	Error CloudErrorResponse `pulumi:"error"`
+	Error CloudErrorInvokeResponse `pulumi:"error"`
 	// Id of the object.
 	Id string `pulumi:"id"`
 	// Msi identity of the resource
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Identity *ResourceIdentityInvokeResponse `pulumi:"identity"`
 	// Describes whether the job is cancellable or not.
 	IsCancellable bool `pulumi:"isCancellable"`
 	// Flag to indicate cancellation of scheduled job.
@@ -56,7 +56,7 @@ type LookupJobResult struct {
 	// Name of the object.
 	Name string `pulumi:"name"`
 	// The sku type.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Time at which the job was started in UTC ISO 8601 format.
 	StartTime string `pulumi:"startTime"`
 	// Name of the stage which is in progress.

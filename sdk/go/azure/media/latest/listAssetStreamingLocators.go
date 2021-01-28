@@ -28,5 +28,5 @@ type ListAssetStreamingLocatorsArgs struct {
 // The Streaming Locators associated with this Asset.
 type ListAssetStreamingLocatorsResult struct {
 	// The list of Streaming Locators.
-	StreamingLocators []AssetStreamingLocatorResponse `pulumi:"streamingLocators"`
+	StreamingLocators []AssetStreamingLocatorInvokeResponse `pulumi:"streamingLocators"`
 }

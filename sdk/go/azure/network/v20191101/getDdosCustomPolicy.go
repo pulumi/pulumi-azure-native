@@ -34,11 +34,11 @@ type LookupDdosCustomPolicyResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The protocol-specific DDoS policy customization parameters.
-	ProtocolCustomSettings []ProtocolCustomSettingsFormatResponse `pulumi:"protocolCustomSettings"`
+	ProtocolCustomSettings []ProtocolCustomSettingsFormatInvokeResponse `pulumi:"protocolCustomSettings"`
 	// The provisioning state of the DDoS custom policy resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-	PublicIPAddresses []SubResourceResponse `pulumi:"publicIPAddresses"`
+	PublicIPAddresses []SubResourceInvokeResponse `pulumi:"publicIPAddresses"`
 	// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Resource tags.

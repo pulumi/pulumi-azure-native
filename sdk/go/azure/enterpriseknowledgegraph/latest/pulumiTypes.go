@@ -183,6 +183,79 @@ func (o EnterpriseKnowledgeGraphPropertiesPtrOutput) ProvisioningState() pulumi.
 }
 
 // The parameters to provide for the EnterpriseKnowledgeGraph.
+type EnterpriseKnowledgeGraphPropertiesInvokeResponse struct {
+	// The description of the EnterpriseKnowledgeGraph
+	Description *string `pulumi:"description"`
+	// Specifies the metadata  of the resource.
+	Metadata interface{} `pulumi:"metadata"`
+	// The state of EnterpriseKnowledgeGraph provisioning
+	ProvisioningState *string `pulumi:"provisioningState"`
+}
+
+// EnterpriseKnowledgeGraphPropertiesInvokeResponseInput is an input type that accepts EnterpriseKnowledgeGraphPropertiesInvokeResponseArgs and EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `EnterpriseKnowledgeGraphPropertiesInvokeResponseInput` via:
+//
+//          EnterpriseKnowledgeGraphPropertiesInvokeResponseArgs{...}
+type EnterpriseKnowledgeGraphPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEnterpriseKnowledgeGraphPropertiesInvokeResponseOutput() EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput
+	ToEnterpriseKnowledgeGraphPropertiesInvokeResponseOutputWithContext(context.Context) EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput
+}
+
+// The parameters to provide for the EnterpriseKnowledgeGraph.
+type EnterpriseKnowledgeGraphPropertiesInvokeResponseArgs struct {
+	// The description of the EnterpriseKnowledgeGraph
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Specifies the metadata  of the resource.
+	Metadata pulumi.Input `pulumi:"metadata"`
+	// The state of EnterpriseKnowledgeGraph provisioning
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+}
+
+func (EnterpriseKnowledgeGraphPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseKnowledgeGraphPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i EnterpriseKnowledgeGraphPropertiesInvokeResponseArgs) ToEnterpriseKnowledgeGraphPropertiesInvokeResponseOutput() EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput {
+	return i.ToEnterpriseKnowledgeGraphPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EnterpriseKnowledgeGraphPropertiesInvokeResponseArgs) ToEnterpriseKnowledgeGraphPropertiesInvokeResponseOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput)
+}
+
+// The parameters to provide for the EnterpriseKnowledgeGraph.
+type EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnterpriseKnowledgeGraphPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput) ToEnterpriseKnowledgeGraphPropertiesInvokeResponseOutput() EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput) ToEnterpriseKnowledgeGraphPropertiesInvokeResponseOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The description of the EnterpriseKnowledgeGraph
+func (o EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnterpriseKnowledgeGraphPropertiesInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the metadata  of the resource.
+func (o EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v EnterpriseKnowledgeGraphPropertiesInvokeResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The state of EnterpriseKnowledgeGraph provisioning
+func (o EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnterpriseKnowledgeGraphPropertiesInvokeResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The parameters to provide for the EnterpriseKnowledgeGraph.
 type EnterpriseKnowledgeGraphPropertiesResponse struct {
 	// The description of the EnterpriseKnowledgeGraph
 	Description *string `pulumi:"description"`
@@ -491,6 +564,61 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The SKU of the EnterpriseKnowledgeGraph service account.
+type SkuInvokeResponse struct {
+	// The sku name
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The SKU of the EnterpriseKnowledgeGraph service account.
+type SkuInvokeResponseArgs struct {
+	// The sku name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The SKU of the EnterpriseKnowledgeGraph service account.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The sku name
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU of the EnterpriseKnowledgeGraph service account.
 type SkuResponse struct {
 	// The sku name
 	Name string `pulumi:"name"`
@@ -627,10 +755,12 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesOutput{})
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

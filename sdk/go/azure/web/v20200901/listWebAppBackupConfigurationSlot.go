@@ -30,9 +30,9 @@ type ListWebAppBackupConfigurationSlotResult struct {
 	// Name of the backup.
 	BackupName *string `pulumi:"backupName"`
 	// Schedule for the backup if it is executed periodically.
-	BackupSchedule *BackupScheduleResponse `pulumi:"backupSchedule"`
+	BackupSchedule *BackupScheduleInvokeResponse `pulumi:"backupSchedule"`
 	// Databases included in the backup.
-	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
+	Databases []DatabaseBackupSettingInvokeResponse `pulumi:"databases"`
 	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Resource Id.
@@ -44,7 +44,7 @@ type ListWebAppBackupConfigurationSlotResult struct {
 	// SAS URL to the container.
 	StorageAccountUrl string `pulumi:"storageAccountUrl"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

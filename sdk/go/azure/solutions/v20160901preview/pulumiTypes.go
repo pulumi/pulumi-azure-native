@@ -129,6 +129,124 @@ func (o ApplianceArtifactArrayOutput) Index(i pulumi.IntInput) ApplianceArtifact
 }
 
 // Appliance artifact.
+type ApplianceArtifactInvokeResponse struct {
+	// The appliance artifact name.
+	Name *string `pulumi:"name"`
+	// The appliance artifact type.
+	Type *string `pulumi:"type"`
+	// The appliance artifact blob uri.
+	Uri *string `pulumi:"uri"`
+}
+
+// ApplianceArtifactInvokeResponseInput is an input type that accepts ApplianceArtifactInvokeResponseArgs and ApplianceArtifactInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplianceArtifactInvokeResponseInput` via:
+//
+//          ApplianceArtifactInvokeResponseArgs{...}
+type ApplianceArtifactInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplianceArtifactInvokeResponseOutput() ApplianceArtifactInvokeResponseOutput
+	ToApplianceArtifactInvokeResponseOutputWithContext(context.Context) ApplianceArtifactInvokeResponseOutput
+}
+
+// Appliance artifact.
+type ApplianceArtifactInvokeResponseArgs struct {
+	// The appliance artifact name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The appliance artifact type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The appliance artifact blob uri.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ApplianceArtifactInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplianceArtifactInvokeResponseArgs) ToApplianceArtifactInvokeResponseOutput() ApplianceArtifactInvokeResponseOutput {
+	return i.ToApplianceArtifactInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplianceArtifactInvokeResponseArgs) ToApplianceArtifactInvokeResponseOutputWithContext(ctx context.Context) ApplianceArtifactInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceArtifactInvokeResponseOutput)
+}
+
+// ApplianceArtifactInvokeResponseArrayInput is an input type that accepts ApplianceArtifactInvokeResponseArray and ApplianceArtifactInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ApplianceArtifactInvokeResponseArrayInput` via:
+//
+//          ApplianceArtifactInvokeResponseArray{ ApplianceArtifactInvokeResponseArgs{...} }
+type ApplianceArtifactInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplianceArtifactInvokeResponseArrayOutput() ApplianceArtifactInvokeResponseArrayOutput
+	ToApplianceArtifactInvokeResponseArrayOutputWithContext(context.Context) ApplianceArtifactInvokeResponseArrayOutput
+}
+
+type ApplianceArtifactInvokeResponseArray []ApplianceArtifactInvokeResponseInput
+
+func (ApplianceArtifactInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplianceArtifactInvokeResponseArray) ToApplianceArtifactInvokeResponseArrayOutput() ApplianceArtifactInvokeResponseArrayOutput {
+	return i.ToApplianceArtifactInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplianceArtifactInvokeResponseArray) ToApplianceArtifactInvokeResponseArrayOutputWithContext(ctx context.Context) ApplianceArtifactInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceArtifactInvokeResponseArrayOutput)
+}
+
+// Appliance artifact.
+type ApplianceArtifactInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplianceArtifactInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplianceArtifactInvokeResponseOutput) ToApplianceArtifactInvokeResponseOutput() ApplianceArtifactInvokeResponseOutput {
+	return o
+}
+
+func (o ApplianceArtifactInvokeResponseOutput) ToApplianceArtifactInvokeResponseOutputWithContext(ctx context.Context) ApplianceArtifactInvokeResponseOutput {
+	return o
+}
+
+// The appliance artifact name.
+func (o ApplianceArtifactInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplianceArtifactInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The appliance artifact type.
+func (o ApplianceArtifactInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplianceArtifactInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The appliance artifact blob uri.
+func (o ApplianceArtifactInvokeResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplianceArtifactInvokeResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ApplianceArtifactInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplianceArtifactInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceArtifactInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplianceArtifactInvokeResponseArrayOutput) ToApplianceArtifactInvokeResponseArrayOutput() ApplianceArtifactInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplianceArtifactInvokeResponseArrayOutput) ToApplianceArtifactInvokeResponseArrayOutputWithContext(ctx context.Context) ApplianceArtifactInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplianceArtifactInvokeResponseArrayOutput) Index(i pulumi.IntInput) ApplianceArtifactInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceArtifactInvokeResponse {
+		return vs[0].([]ApplianceArtifactInvokeResponse)[vs[1].(int)]
+	}).(ApplianceArtifactInvokeResponseOutput)
+}
+
+// Appliance artifact.
 type ApplianceArtifactResponse struct {
 	// The appliance artifact name.
 	Name *string `pulumi:"name"`
@@ -353,6 +471,115 @@ func (o ApplianceProviderAuthorizationArrayOutput) Index(i pulumi.IntInput) Appl
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceProviderAuthorization {
 		return vs[0].([]ApplianceProviderAuthorization)[vs[1].(int)]
 	}).(ApplianceProviderAuthorizationOutput)
+}
+
+// The appliance provider authorization.
+type ApplianceProviderAuthorizationInvokeResponse struct {
+	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
+	PrincipalId string `pulumi:"principalId"`
+	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+	RoleDefinitionId string `pulumi:"roleDefinitionId"`
+}
+
+// ApplianceProviderAuthorizationInvokeResponseInput is an input type that accepts ApplianceProviderAuthorizationInvokeResponseArgs and ApplianceProviderAuthorizationInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplianceProviderAuthorizationInvokeResponseInput` via:
+//
+//          ApplianceProviderAuthorizationInvokeResponseArgs{...}
+type ApplianceProviderAuthorizationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplianceProviderAuthorizationInvokeResponseOutput() ApplianceProviderAuthorizationInvokeResponseOutput
+	ToApplianceProviderAuthorizationInvokeResponseOutputWithContext(context.Context) ApplianceProviderAuthorizationInvokeResponseOutput
+}
+
+// The appliance provider authorization.
+type ApplianceProviderAuthorizationInvokeResponseArgs struct {
+	// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
+}
+
+func (ApplianceProviderAuthorizationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceProviderAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplianceProviderAuthorizationInvokeResponseArgs) ToApplianceProviderAuthorizationInvokeResponseOutput() ApplianceProviderAuthorizationInvokeResponseOutput {
+	return i.ToApplianceProviderAuthorizationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplianceProviderAuthorizationInvokeResponseArgs) ToApplianceProviderAuthorizationInvokeResponseOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceProviderAuthorizationInvokeResponseOutput)
+}
+
+// ApplianceProviderAuthorizationInvokeResponseArrayInput is an input type that accepts ApplianceProviderAuthorizationInvokeResponseArray and ApplianceProviderAuthorizationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ApplianceProviderAuthorizationInvokeResponseArrayInput` via:
+//
+//          ApplianceProviderAuthorizationInvokeResponseArray{ ApplianceProviderAuthorizationInvokeResponseArgs{...} }
+type ApplianceProviderAuthorizationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToApplianceProviderAuthorizationInvokeResponseArrayOutput() ApplianceProviderAuthorizationInvokeResponseArrayOutput
+	ToApplianceProviderAuthorizationInvokeResponseArrayOutputWithContext(context.Context) ApplianceProviderAuthorizationInvokeResponseArrayOutput
+}
+
+type ApplianceProviderAuthorizationInvokeResponseArray []ApplianceProviderAuthorizationInvokeResponseInput
+
+func (ApplianceProviderAuthorizationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceProviderAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplianceProviderAuthorizationInvokeResponseArray) ToApplianceProviderAuthorizationInvokeResponseArrayOutput() ApplianceProviderAuthorizationInvokeResponseArrayOutput {
+	return i.ToApplianceProviderAuthorizationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ApplianceProviderAuthorizationInvokeResponseArray) ToApplianceProviderAuthorizationInvokeResponseArrayOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceProviderAuthorizationInvokeResponseArrayOutput)
+}
+
+// The appliance provider authorization.
+type ApplianceProviderAuthorizationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplianceProviderAuthorizationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceProviderAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplianceProviderAuthorizationInvokeResponseOutput) ToApplianceProviderAuthorizationInvokeResponseOutput() ApplianceProviderAuthorizationInvokeResponseOutput {
+	return o
+}
+
+func (o ApplianceProviderAuthorizationInvokeResponseOutput) ToApplianceProviderAuthorizationInvokeResponseOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationInvokeResponseOutput {
+	return o
+}
+
+// The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the appliance resources.
+func (o ApplianceProviderAuthorizationInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplianceProviderAuthorizationInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The provider's role definition identifier. This role will define all the permissions that the provider must have on the appliance's container resource group. This role definition cannot have permission to delete the resource group.
+func (o ApplianceProviderAuthorizationInvokeResponseOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplianceProviderAuthorizationInvokeResponse) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+type ApplianceProviderAuthorizationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplianceProviderAuthorizationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceProviderAuthorizationInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplianceProviderAuthorizationInvokeResponseArrayOutput) ToApplianceProviderAuthorizationInvokeResponseArrayOutput() ApplianceProviderAuthorizationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplianceProviderAuthorizationInvokeResponseArrayOutput) ToApplianceProviderAuthorizationInvokeResponseArrayOutputWithContext(ctx context.Context) ApplianceProviderAuthorizationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ApplianceProviderAuthorizationInvokeResponseArrayOutput) Index(i pulumi.IntInput) ApplianceProviderAuthorizationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceProviderAuthorizationInvokeResponse {
+		return vs[0].([]ApplianceProviderAuthorizationInvokeResponse)[vs[1].(int)]
+	}).(ApplianceProviderAuthorizationInvokeResponseOutput)
 }
 
 // The appliance provider authorization.
@@ -596,6 +823,79 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
+type IdentityInvokeResponse struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// IdentityInvokeResponseInput is an input type that accepts IdentityInvokeResponseArgs and IdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentityInvokeResponseInput` via:
+//
+//          IdentityInvokeResponseArgs{...}
+type IdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput
+	ToIdentityInvokeResponseOutputWithContext(context.Context) IdentityInvokeResponseOutput
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return i.ToIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityInvokeResponseOutput)
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o IdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o IdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.
@@ -978,6 +1278,97 @@ func (o PlanPtrOutput) Version() pulumi.StringPtrOutput {
 		}
 		return &v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+// Plan for the appliance.
+type PlanInvokeResponse struct {
+	// The plan name.
+	Name string `pulumi:"name"`
+	// The product code.
+	Product string `pulumi:"product"`
+	// The promotion code.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher string `pulumi:"publisher"`
+	// The plan's version.
+	Version string `pulumi:"version"`
+}
+
+// PlanInvokeResponseInput is an input type that accepts PlanInvokeResponseArgs and PlanInvokeResponseOutput values.
+// You can construct a concrete instance of `PlanInvokeResponseInput` via:
+//
+//          PlanInvokeResponseArgs{...}
+type PlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPlanInvokeResponseOutput() PlanInvokeResponseOutput
+	ToPlanInvokeResponseOutputWithContext(context.Context) PlanInvokeResponseOutput
+}
+
+// Plan for the appliance.
+type PlanInvokeResponseArgs struct {
+	// The plan name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The product code.
+	Product pulumi.StringInput `pulumi:"product"`
+	// The promotion code.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// The publisher ID.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// The plan's version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (PlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanInvokeResponse)(nil)).Elem()
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponseOutput() PlanInvokeResponseOutput {
+	return i.ToPlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PlanInvokeResponseArgs) ToPlanInvokeResponseOutputWithContext(ctx context.Context) PlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanInvokeResponseOutput)
+}
+
+// Plan for the appliance.
+type PlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanInvokeResponse)(nil)).Elem()
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponseOutput() PlanInvokeResponseOutput {
+	return o
+}
+
+func (o PlanInvokeResponseOutput) ToPlanInvokeResponseOutputWithContext(ctx context.Context) PlanInvokeResponseOutput {
+	return o
+}
+
+// The plan name.
+func (o PlanInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The product code.
+func (o PlanInvokeResponseOutput) Product() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Product }).(pulumi.StringOutput)
+}
+
+// The promotion code.
+func (o PlanInvokeResponseOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// The publisher ID.
+func (o PlanInvokeResponseOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// The plan's version.
+func (o PlanInvokeResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanInvokeResponse) string { return v.Version }).(pulumi.StringOutput)
 }
 
 // Plan for the appliance.
@@ -1420,6 +1811,106 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // SKU for the resource.
+type SkuInvokeResponse struct {
+	// The SKU capacity.
+	Capacity *int `pulumi:"capacity"`
+	// The SKU family.
+	Family *string `pulumi:"family"`
+	// The SKU model.
+	Model *string `pulumi:"model"`
+	// The SKU name.
+	Name string `pulumi:"name"`
+	// The SKU size.
+	Size *string `pulumi:"size"`
+	// The SKU tier.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// SKU for the resource.
+type SkuInvokeResponseArgs struct {
+	// The SKU capacity.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The SKU family.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The SKU model.
+	Model pulumi.StringPtrInput `pulumi:"model"`
+	// The SKU name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The SKU size.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The SKU tier.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// SKU for the resource.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The SKU capacity.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The SKU family.
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The SKU model.
+func (o SkuInvokeResponseOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Model }).(pulumi.StringPtrOutput)
+}
+
+// The SKU name.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The SKU size.
+func (o SkuInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The SKU tier.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// SKU for the resource.
 type SkuResponse struct {
 	// The SKU capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -1651,22 +2142,29 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ApplianceArtifactOutput{})
 	pulumi.RegisterOutputType(ApplianceArtifactArrayOutput{})
+	pulumi.RegisterOutputType(ApplianceArtifactInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApplianceArtifactInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplianceArtifactResponseOutput{})
 	pulumi.RegisterOutputType(ApplianceArtifactResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplianceProviderAuthorizationOutput{})
 	pulumi.RegisterOutputType(ApplianceProviderAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(ApplianceProviderAuthorizationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApplianceProviderAuthorizationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplianceProviderAuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(ApplianceProviderAuthorizationResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(PlanOutput{})
 	pulumi.RegisterOutputType(PlanPtrOutput{})
+	pulumi.RegisterOutputType(PlanInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

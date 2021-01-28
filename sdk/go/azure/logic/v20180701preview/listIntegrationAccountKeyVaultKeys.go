@@ -20,7 +20,7 @@ type ListIntegrationAccountKeyVaultKeysArgs struct {
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The key vault reference.
-	KeyVault KeyVaultReference `pulumi:"keyVault"`
+	KeyVault KeyVaultReferenceInvoke `pulumi:"keyVault"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The skip token.
@@ -32,5 +32,5 @@ type ListIntegrationAccountKeyVaultKeysResult struct {
 	// The skip token.
 	SkipToken *string `pulumi:"skipToken"`
 	// The key vault keys.
-	Value []KeyVaultKeyResponse `pulumi:"value"`
+	Value []KeyVaultKeyInvokeResponse `pulumi:"value"`
 }

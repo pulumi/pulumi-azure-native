@@ -26,9 +26,9 @@ type LookupActivityLogAlertArgs struct {
 // An activity log alert resource.
 type LookupActivityLogAlertResult struct {
 	// The actions that will activate when the condition is met.
-	Actions ActivityLogAlertActionListResponse `pulumi:"actions"`
+	Actions ActivityLogAlertActionListInvokeResponse `pulumi:"actions"`
 	// The condition that will cause this alert to activate.
-	Condition ActivityLogAlertAllOfConditionResponse `pulumi:"condition"`
+	Condition ActivityLogAlertAllOfConditionInvokeResponse `pulumi:"condition"`
 	// A description of this activity log alert.
 	Description *string `pulumi:"description"`
 	// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.

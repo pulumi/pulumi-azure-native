@@ -60,7 +60,7 @@ type LookupOriginResult struct {
 	// Resource status of the origin.
 	ResourceState string `pulumi:"resourceState"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000

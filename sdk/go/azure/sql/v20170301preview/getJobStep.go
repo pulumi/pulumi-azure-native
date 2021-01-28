@@ -32,17 +32,17 @@ type LookupJobStepArgs struct {
 // A job step.
 type LookupJobStepResult struct {
 	// The action payload of the job step.
-	Action JobStepActionResponse `pulumi:"action"`
+	Action JobStepActionInvokeResponse `pulumi:"action"`
 	// The resource ID of the job credential that will be used to connect to the targets.
 	Credential string `pulumi:"credential"`
 	// Execution options for the job step.
-	ExecutionOptions *JobStepExecutionOptionsResponse `pulumi:"executionOptions"`
+	ExecutionOptions *JobStepExecutionOptionsInvokeResponse `pulumi:"executionOptions"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Output destination properties of the job step.
-	Output *JobStepOutputResponse `pulumi:"output"`
+	Output *JobStepOutputInvokeResponse `pulumi:"output"`
 	// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
 	StepId *int `pulumi:"stepId"`
 	// The resource ID of the target group that the job step will be executed on.

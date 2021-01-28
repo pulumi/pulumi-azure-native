@@ -42,9 +42,9 @@ type LookupMSIXPackageResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of package applications.
-	PackageApplications []MsixPackageApplicationsResponse `pulumi:"packageApplications"`
+	PackageApplications []MsixPackageApplicationsInvokeResponse `pulumi:"packageApplications"`
 	// List of package dependencies.
-	PackageDependencies []MsixPackageDependenciesResponse `pulumi:"packageDependencies"`
+	PackageDependencies []MsixPackageDependenciesInvokeResponse `pulumi:"packageDependencies"`
 	// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
 	PackageFamilyName *string `pulumi:"packageFamilyName"`
 	// Package Name from appxmanifest.xml.

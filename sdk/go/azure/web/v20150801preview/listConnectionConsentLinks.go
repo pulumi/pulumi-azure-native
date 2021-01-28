@@ -28,7 +28,7 @@ type ListConnectionConsentLinksArgs struct {
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// Array of links
-	Parameters []ConsentLinkInputParameter `pulumi:"parameters"`
+	Parameters []ConsentLinkInputParameterInvoke `pulumi:"parameters"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -40,5 +40,5 @@ type ListConnectionConsentLinksArgs struct {
 // Collection of consent links
 type ListConnectionConsentLinksResult struct {
 	// Collection of resources
-	Value []ConsentLinkResponse `pulumi:"value"`
+	Value []ConsentLinkInvokeResponse `pulumi:"value"`
 }

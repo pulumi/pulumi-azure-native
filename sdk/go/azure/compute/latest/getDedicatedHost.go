@@ -36,7 +36,7 @@ type LookupDedicatedHostResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The dedicated host instance view.
-	InstanceView DedicatedHostInstanceViewResponse `pulumi:"instanceView"`
+	InstanceView DedicatedHostInstanceViewInvokeResponse `pulumi:"instanceView"`
 	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
 	LicenseType *string `pulumi:"licenseType"`
 	// Resource location
@@ -50,11 +50,11 @@ type LookupDedicatedHostResult struct {
 	// The date when the host was first provisioned.
 	ProvisioningTime string `pulumi:"provisioningTime"`
 	// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// A list of references to all virtual machines in the Dedicated Host.
-	VirtualMachines []SubResourceReadOnlyResponse `pulumi:"virtualMachines"`
+	VirtualMachines []SubResourceReadOnlyInvokeResponse `pulumi:"virtualMachines"`
 }

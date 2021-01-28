@@ -183,6 +183,79 @@ func (o OnPremisePropertyPtrOutput) SigningCertificateThumbprint() pulumi.String
 }
 
 // Properties from the on premise data controller
+type OnPremisePropertyInvokeResponse struct {
+	// A globally unique ID identifying the associated on premise cluster
+	Id string `pulumi:"id"`
+	// Certificate that contains the on premise cluster public key used to verify signing
+	PublicSigningKey string `pulumi:"publicSigningKey"`
+	// Unique thumbprint returned to customer to verify the certificate being uploaded
+	SigningCertificateThumbprint *string `pulumi:"signingCertificateThumbprint"`
+}
+
+// OnPremisePropertyInvokeResponseInput is an input type that accepts OnPremisePropertyInvokeResponseArgs and OnPremisePropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `OnPremisePropertyInvokeResponseInput` via:
+//
+//          OnPremisePropertyInvokeResponseArgs{...}
+type OnPremisePropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOnPremisePropertyInvokeResponseOutput() OnPremisePropertyInvokeResponseOutput
+	ToOnPremisePropertyInvokeResponseOutputWithContext(context.Context) OnPremisePropertyInvokeResponseOutput
+}
+
+// Properties from the on premise data controller
+type OnPremisePropertyInvokeResponseArgs struct {
+	// A globally unique ID identifying the associated on premise cluster
+	Id pulumi.StringInput `pulumi:"id"`
+	// Certificate that contains the on premise cluster public key used to verify signing
+	PublicSigningKey pulumi.StringInput `pulumi:"publicSigningKey"`
+	// Unique thumbprint returned to customer to verify the certificate being uploaded
+	SigningCertificateThumbprint pulumi.StringPtrInput `pulumi:"signingCertificateThumbprint"`
+}
+
+func (OnPremisePropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremisePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i OnPremisePropertyInvokeResponseArgs) ToOnPremisePropertyInvokeResponseOutput() OnPremisePropertyInvokeResponseOutput {
+	return i.ToOnPremisePropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OnPremisePropertyInvokeResponseArgs) ToOnPremisePropertyInvokeResponseOutputWithContext(ctx context.Context) OnPremisePropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnPremisePropertyInvokeResponseOutput)
+}
+
+// Properties from the on premise data controller
+type OnPremisePropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OnPremisePropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnPremisePropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o OnPremisePropertyInvokeResponseOutput) ToOnPremisePropertyInvokeResponseOutput() OnPremisePropertyInvokeResponseOutput {
+	return o
+}
+
+func (o OnPremisePropertyInvokeResponseOutput) ToOnPremisePropertyInvokeResponseOutputWithContext(ctx context.Context) OnPremisePropertyInvokeResponseOutput {
+	return o
+}
+
+// A globally unique ID identifying the associated on premise cluster
+func (o OnPremisePropertyInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremisePropertyInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Certificate that contains the on premise cluster public key used to verify signing
+func (o OnPremisePropertyInvokeResponseOutput) PublicSigningKey() pulumi.StringOutput {
+	return o.ApplyT(func(v OnPremisePropertyInvokeResponse) string { return v.PublicSigningKey }).(pulumi.StringOutput)
+}
+
+// Unique thumbprint returned to customer to verify the certificate being uploaded
+func (o OnPremisePropertyInvokeResponseOutput) SigningCertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnPremisePropertyInvokeResponse) *string { return v.SigningCertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Properties from the on premise data controller
 type OnPremisePropertyResponse struct {
 	// A globally unique ID identifying the associated on premise cluster
 	Id string `pulumi:"id"`
@@ -352,6 +425,106 @@ func (o OnPremisePropertyResponsePtrOutput) SigningCertificateThumbprint() pulum
 		}
 		return v.SigningCertificateThumbprint
 	}).(pulumi.StringPtrOutput)
+}
+
+// Read only system data
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC)
+	CreatedAt *string `pulumi:"createdAt"`
+	// An identifier for the identity that created the resource
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// An identifier for the identity that last modified the resource
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Read only system data
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC)
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// An identifier for the identity that created the resource
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// An identifier for the identity that last modified the resource
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Read only system data
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC)
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// An identifier for the identity that created the resource
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// An identifier for the identity that last modified the resource
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Read only system data
@@ -586,8 +759,10 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(OnPremisePropertyOutput{})
 	pulumi.RegisterOutputType(OnPremisePropertyPtrOutput{})
+	pulumi.RegisterOutputType(OnPremisePropertyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(OnPremisePropertyResponseOutput{})
 	pulumi.RegisterOutputType(OnPremisePropertyResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

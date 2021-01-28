@@ -145,6 +145,142 @@ func (o AdditionalFeaturesServerConfigurationsPtrOutput) IsRServicesEnabled() pu
 }
 
 // Additional SQL Server feature settings.
+type AdditionalFeaturesServerConfigurationsInvokeResponse struct {
+	// Enable or disable R services (SQL 2016 onwards).
+	IsRServicesEnabled *bool `pulumi:"isRServicesEnabled"`
+}
+
+// AdditionalFeaturesServerConfigurationsInvokeResponseInput is an input type that accepts AdditionalFeaturesServerConfigurationsInvokeResponseArgs and AdditionalFeaturesServerConfigurationsInvokeResponseOutput values.
+// You can construct a concrete instance of `AdditionalFeaturesServerConfigurationsInvokeResponseInput` via:
+//
+//          AdditionalFeaturesServerConfigurationsInvokeResponseArgs{...}
+type AdditionalFeaturesServerConfigurationsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdditionalFeaturesServerConfigurationsInvokeResponseOutput() AdditionalFeaturesServerConfigurationsInvokeResponseOutput
+	ToAdditionalFeaturesServerConfigurationsInvokeResponseOutputWithContext(context.Context) AdditionalFeaturesServerConfigurationsInvokeResponseOutput
+}
+
+// Additional SQL Server feature settings.
+type AdditionalFeaturesServerConfigurationsInvokeResponseArgs struct {
+	// Enable or disable R services (SQL 2016 onwards).
+	IsRServicesEnabled pulumi.BoolPtrInput `pulumi:"isRServicesEnabled"`
+}
+
+func (AdditionalFeaturesServerConfigurationsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalFeaturesServerConfigurationsInvokeResponse)(nil)).Elem()
+}
+
+func (i AdditionalFeaturesServerConfigurationsInvokeResponseArgs) ToAdditionalFeaturesServerConfigurationsInvokeResponseOutput() AdditionalFeaturesServerConfigurationsInvokeResponseOutput {
+	return i.ToAdditionalFeaturesServerConfigurationsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdditionalFeaturesServerConfigurationsInvokeResponseArgs) ToAdditionalFeaturesServerConfigurationsInvokeResponseOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalFeaturesServerConfigurationsInvokeResponseOutput)
+}
+
+func (i AdditionalFeaturesServerConfigurationsInvokeResponseArgs) ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput() AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput {
+	return i.ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AdditionalFeaturesServerConfigurationsInvokeResponseArgs) ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalFeaturesServerConfigurationsInvokeResponseOutput).ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AdditionalFeaturesServerConfigurationsInvokeResponsePtrInput is an input type that accepts AdditionalFeaturesServerConfigurationsInvokeResponseArgs, AdditionalFeaturesServerConfigurationsInvokeResponsePtr and AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AdditionalFeaturesServerConfigurationsInvokeResponsePtrInput` via:
+//
+//          AdditionalFeaturesServerConfigurationsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AdditionalFeaturesServerConfigurationsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput() AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput
+	ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutputWithContext(context.Context) AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput
+}
+
+type additionalFeaturesServerConfigurationsInvokeResponsePtrType AdditionalFeaturesServerConfigurationsInvokeResponseArgs
+
+func AdditionalFeaturesServerConfigurationsInvokeResponsePtr(v *AdditionalFeaturesServerConfigurationsInvokeResponseArgs) AdditionalFeaturesServerConfigurationsInvokeResponsePtrInput {
+	return (*additionalFeaturesServerConfigurationsInvokeResponsePtrType)(v)
+}
+
+func (*additionalFeaturesServerConfigurationsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdditionalFeaturesServerConfigurationsInvokeResponse)(nil)).Elem()
+}
+
+func (i *additionalFeaturesServerConfigurationsInvokeResponsePtrType) ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput() AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput {
+	return i.ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *additionalFeaturesServerConfigurationsInvokeResponsePtrType) ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput)
+}
+
+// Additional SQL Server feature settings.
+type AdditionalFeaturesServerConfigurationsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdditionalFeaturesServerConfigurationsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalFeaturesServerConfigurationsInvokeResponse)(nil)).Elem()
+}
+
+func (o AdditionalFeaturesServerConfigurationsInvokeResponseOutput) ToAdditionalFeaturesServerConfigurationsInvokeResponseOutput() AdditionalFeaturesServerConfigurationsInvokeResponseOutput {
+	return o
+}
+
+func (o AdditionalFeaturesServerConfigurationsInvokeResponseOutput) ToAdditionalFeaturesServerConfigurationsInvokeResponseOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsInvokeResponseOutput {
+	return o
+}
+
+func (o AdditionalFeaturesServerConfigurationsInvokeResponseOutput) ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput() AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput {
+	return o.ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AdditionalFeaturesServerConfigurationsInvokeResponseOutput) ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AdditionalFeaturesServerConfigurationsInvokeResponse) *AdditionalFeaturesServerConfigurationsInvokeResponse {
+		return &v
+	}).(AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput)
+}
+
+// Enable or disable R services (SQL 2016 onwards).
+func (o AdditionalFeaturesServerConfigurationsInvokeResponseOutput) IsRServicesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AdditionalFeaturesServerConfigurationsInvokeResponse) *bool { return v.IsRServicesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AdditionalFeaturesServerConfigurationsInvokeResponse)(nil)).Elem()
+}
+
+func (o AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput) ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput() AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput) ToAdditionalFeaturesServerConfigurationsInvokeResponsePtrOutputWithContext(ctx context.Context) AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput) Elem() AdditionalFeaturesServerConfigurationsInvokeResponseOutput {
+	return o.ApplyT(func(v *AdditionalFeaturesServerConfigurationsInvokeResponse) AdditionalFeaturesServerConfigurationsInvokeResponse {
+		return *v
+	}).(AdditionalFeaturesServerConfigurationsInvokeResponseOutput)
+}
+
+// Enable or disable R services (SQL 2016 onwards).
+func (o AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput) IsRServicesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AdditionalFeaturesServerConfigurationsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsRServicesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Additional SQL Server feature settings.
 type AdditionalFeaturesServerConfigurationsResponse struct {
 	// Enable or disable R services (SQL 2016 onwards).
 	IsRServicesEnabled *bool `pulumi:"isRServicesEnabled"`
@@ -621,6 +757,160 @@ func (o AutoBackupSettingsPtrOutput) StorageAccountUrl() pulumi.StringPtrOutput 
 		}
 		return v.StorageAccountUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configure backups for databases in your SQL virtual machine.
+type AutoBackupSettingsInvokeResponse struct {
+	// Backup schedule type.
+	BackupScheduleType *string `pulumi:"backupScheduleType"`
+	// Include or exclude system databases from auto backup.
+	BackupSystemDbs *bool `pulumi:"backupSystemDbs"`
+	// Enable or disable autobackup on SQL virtual machine.
+	Enable *bool `pulumi:"enable"`
+	// Enable or disable encryption for backup on SQL virtual machine.
+	EnableEncryption *bool `pulumi:"enableEncryption"`
+	// Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
+	FullBackupFrequency *string `pulumi:"fullBackupFrequency"`
+	// Start time of a given day during which full backups can take place. 0-23 hours.
+	FullBackupStartTime *int `pulumi:"fullBackupStartTime"`
+	// Duration of the time window of a given day during which full backups can take place. 1-23 hours.
+	FullBackupWindowHours *int `pulumi:"fullBackupWindowHours"`
+	// Frequency of log backups. 5-60 minutes.
+	LogBackupFrequency *int `pulumi:"logBackupFrequency"`
+	// Password for encryption on backup.
+	Password *string `pulumi:"password"`
+	// Retention period of backup: 1-30 days.
+	RetentionPeriod *int `pulumi:"retentionPeriod"`
+	// Storage account key where backup will be taken to.
+	StorageAccessKey *string `pulumi:"storageAccessKey"`
+	// Storage account url where backup will be taken to.
+	StorageAccountUrl *string `pulumi:"storageAccountUrl"`
+}
+
+// AutoBackupSettingsInvokeResponseInput is an input type that accepts AutoBackupSettingsInvokeResponseArgs and AutoBackupSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AutoBackupSettingsInvokeResponseInput` via:
+//
+//          AutoBackupSettingsInvokeResponseArgs{...}
+type AutoBackupSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutoBackupSettingsInvokeResponseOutput() AutoBackupSettingsInvokeResponseOutput
+	ToAutoBackupSettingsInvokeResponseOutputWithContext(context.Context) AutoBackupSettingsInvokeResponseOutput
+}
+
+// Configure backups for databases in your SQL virtual machine.
+type AutoBackupSettingsInvokeResponseArgs struct {
+	// Backup schedule type.
+	BackupScheduleType pulumi.StringPtrInput `pulumi:"backupScheduleType"`
+	// Include or exclude system databases from auto backup.
+	BackupSystemDbs pulumi.BoolPtrInput `pulumi:"backupSystemDbs"`
+	// Enable or disable autobackup on SQL virtual machine.
+	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+	// Enable or disable encryption for backup on SQL virtual machine.
+	EnableEncryption pulumi.BoolPtrInput `pulumi:"enableEncryption"`
+	// Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
+	FullBackupFrequency pulumi.StringPtrInput `pulumi:"fullBackupFrequency"`
+	// Start time of a given day during which full backups can take place. 0-23 hours.
+	FullBackupStartTime pulumi.IntPtrInput `pulumi:"fullBackupStartTime"`
+	// Duration of the time window of a given day during which full backups can take place. 1-23 hours.
+	FullBackupWindowHours pulumi.IntPtrInput `pulumi:"fullBackupWindowHours"`
+	// Frequency of log backups. 5-60 minutes.
+	LogBackupFrequency pulumi.IntPtrInput `pulumi:"logBackupFrequency"`
+	// Password for encryption on backup.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Retention period of backup: 1-30 days.
+	RetentionPeriod pulumi.IntPtrInput `pulumi:"retentionPeriod"`
+	// Storage account key where backup will be taken to.
+	StorageAccessKey pulumi.StringPtrInput `pulumi:"storageAccessKey"`
+	// Storage account url where backup will be taken to.
+	StorageAccountUrl pulumi.StringPtrInput `pulumi:"storageAccountUrl"`
+}
+
+func (AutoBackupSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoBackupSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AutoBackupSettingsInvokeResponseArgs) ToAutoBackupSettingsInvokeResponseOutput() AutoBackupSettingsInvokeResponseOutput {
+	return i.ToAutoBackupSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutoBackupSettingsInvokeResponseArgs) ToAutoBackupSettingsInvokeResponseOutputWithContext(ctx context.Context) AutoBackupSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoBackupSettingsInvokeResponseOutput)
+}
+
+// Configure backups for databases in your SQL virtual machine.
+type AutoBackupSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutoBackupSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoBackupSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AutoBackupSettingsInvokeResponseOutput) ToAutoBackupSettingsInvokeResponseOutput() AutoBackupSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AutoBackupSettingsInvokeResponseOutput) ToAutoBackupSettingsInvokeResponseOutputWithContext(ctx context.Context) AutoBackupSettingsInvokeResponseOutput {
+	return o
+}
+
+// Backup schedule type.
+func (o AutoBackupSettingsInvokeResponseOutput) BackupScheduleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *string { return v.BackupScheduleType }).(pulumi.StringPtrOutput)
+}
+
+// Include or exclude system databases from auto backup.
+func (o AutoBackupSettingsInvokeResponseOutput) BackupSystemDbs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *bool { return v.BackupSystemDbs }).(pulumi.BoolPtrOutput)
+}
+
+// Enable or disable autobackup on SQL virtual machine.
+func (o AutoBackupSettingsInvokeResponseOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+// Enable or disable encryption for backup on SQL virtual machine.
+func (o AutoBackupSettingsInvokeResponseOutput) EnableEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *bool { return v.EnableEncryption }).(pulumi.BoolPtrOutput)
+}
+
+// Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
+func (o AutoBackupSettingsInvokeResponseOutput) FullBackupFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *string { return v.FullBackupFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Start time of a given day during which full backups can take place. 0-23 hours.
+func (o AutoBackupSettingsInvokeResponseOutput) FullBackupStartTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *int { return v.FullBackupStartTime }).(pulumi.IntPtrOutput)
+}
+
+// Duration of the time window of a given day during which full backups can take place. 1-23 hours.
+func (o AutoBackupSettingsInvokeResponseOutput) FullBackupWindowHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *int { return v.FullBackupWindowHours }).(pulumi.IntPtrOutput)
+}
+
+// Frequency of log backups. 5-60 minutes.
+func (o AutoBackupSettingsInvokeResponseOutput) LogBackupFrequency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *int { return v.LogBackupFrequency }).(pulumi.IntPtrOutput)
+}
+
+// Password for encryption on backup.
+func (o AutoBackupSettingsInvokeResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Retention period of backup: 1-30 days.
+func (o AutoBackupSettingsInvokeResponseOutput) RetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *int { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// Storage account key where backup will be taken to.
+func (o AutoBackupSettingsInvokeResponseOutput) StorageAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *string { return v.StorageAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Storage account url where backup will be taken to.
+func (o AutoBackupSettingsInvokeResponseOutput) StorageAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoBackupSettingsInvokeResponse) *string { return v.StorageAccountUrl }).(pulumi.StringPtrOutput)
 }
 
 // Configure backups for databases in your SQL virtual machine.
@@ -1158,6 +1448,88 @@ func (o AutoPatchingSettingsPtrOutput) MaintenanceWindowStartingHour() pulumi.In
 }
 
 // Set a patching window during which Windows and SQL patches will be applied.
+type AutoPatchingSettingsInvokeResponse struct {
+	// Day of week to apply the patch on.
+	DayOfWeek *string `pulumi:"dayOfWeek"`
+	// Enable or disable autopatching on SQL virtual machine.
+	Enable *bool `pulumi:"enable"`
+	// Duration of patching.
+	MaintenanceWindowDuration *int `pulumi:"maintenanceWindowDuration"`
+	// Hour of the day when patching is initiated. Local VM time.
+	MaintenanceWindowStartingHour *int `pulumi:"maintenanceWindowStartingHour"`
+}
+
+// AutoPatchingSettingsInvokeResponseInput is an input type that accepts AutoPatchingSettingsInvokeResponseArgs and AutoPatchingSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `AutoPatchingSettingsInvokeResponseInput` via:
+//
+//          AutoPatchingSettingsInvokeResponseArgs{...}
+type AutoPatchingSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAutoPatchingSettingsInvokeResponseOutput() AutoPatchingSettingsInvokeResponseOutput
+	ToAutoPatchingSettingsInvokeResponseOutputWithContext(context.Context) AutoPatchingSettingsInvokeResponseOutput
+}
+
+// Set a patching window during which Windows and SQL patches will be applied.
+type AutoPatchingSettingsInvokeResponseArgs struct {
+	// Day of week to apply the patch on.
+	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
+	// Enable or disable autopatching on SQL virtual machine.
+	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+	// Duration of patching.
+	MaintenanceWindowDuration pulumi.IntPtrInput `pulumi:"maintenanceWindowDuration"`
+	// Hour of the day when patching is initiated. Local VM time.
+	MaintenanceWindowStartingHour pulumi.IntPtrInput `pulumi:"maintenanceWindowStartingHour"`
+}
+
+func (AutoPatchingSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoPatchingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i AutoPatchingSettingsInvokeResponseArgs) ToAutoPatchingSettingsInvokeResponseOutput() AutoPatchingSettingsInvokeResponseOutput {
+	return i.ToAutoPatchingSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AutoPatchingSettingsInvokeResponseArgs) ToAutoPatchingSettingsInvokeResponseOutputWithContext(ctx context.Context) AutoPatchingSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoPatchingSettingsInvokeResponseOutput)
+}
+
+// Set a patching window during which Windows and SQL patches will be applied.
+type AutoPatchingSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AutoPatchingSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoPatchingSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o AutoPatchingSettingsInvokeResponseOutput) ToAutoPatchingSettingsInvokeResponseOutput() AutoPatchingSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o AutoPatchingSettingsInvokeResponseOutput) ToAutoPatchingSettingsInvokeResponseOutputWithContext(ctx context.Context) AutoPatchingSettingsInvokeResponseOutput {
+	return o
+}
+
+// Day of week to apply the patch on.
+func (o AutoPatchingSettingsInvokeResponseOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoPatchingSettingsInvokeResponse) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
+}
+
+// Enable or disable autopatching on SQL virtual machine.
+func (o AutoPatchingSettingsInvokeResponseOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutoPatchingSettingsInvokeResponse) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+// Duration of patching.
+func (o AutoPatchingSettingsInvokeResponseOutput) MaintenanceWindowDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoPatchingSettingsInvokeResponse) *int { return v.MaintenanceWindowDuration }).(pulumi.IntPtrOutput)
+}
+
+// Hour of the day when patching is initiated. Local VM time.
+func (o AutoPatchingSettingsInvokeResponseOutput) MaintenanceWindowStartingHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutoPatchingSettingsInvokeResponse) *int { return v.MaintenanceWindowStartingHour }).(pulumi.IntPtrOutput)
+}
+
+// Set a patching window during which Windows and SQL patches will be applied.
 type AutoPatchingSettingsResponse struct {
 	// Day of week to apply the patch on.
 	DayOfWeek *string `pulumi:"dayOfWeek"`
@@ -1559,6 +1931,97 @@ func (o KeyVaultCredentialSettingsPtrOutput) ServicePrincipalSecret() pulumi.Str
 }
 
 // Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.
+type KeyVaultCredentialSettingsInvokeResponse struct {
+	// Azure Key Vault url.
+	AzureKeyVaultUrl *string `pulumi:"azureKeyVaultUrl"`
+	// Credential name.
+	CredentialName *string `pulumi:"credentialName"`
+	// Enable or disable key vault credential setting.
+	Enable *bool `pulumi:"enable"`
+	// Service principal name to access key vault.
+	ServicePrincipalName *string `pulumi:"servicePrincipalName"`
+	// Service principal name secret to access key vault.
+	ServicePrincipalSecret *string `pulumi:"servicePrincipalSecret"`
+}
+
+// KeyVaultCredentialSettingsInvokeResponseInput is an input type that accepts KeyVaultCredentialSettingsInvokeResponseArgs and KeyVaultCredentialSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyVaultCredentialSettingsInvokeResponseInput` via:
+//
+//          KeyVaultCredentialSettingsInvokeResponseArgs{...}
+type KeyVaultCredentialSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyVaultCredentialSettingsInvokeResponseOutput() KeyVaultCredentialSettingsInvokeResponseOutput
+	ToKeyVaultCredentialSettingsInvokeResponseOutputWithContext(context.Context) KeyVaultCredentialSettingsInvokeResponseOutput
+}
+
+// Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.
+type KeyVaultCredentialSettingsInvokeResponseArgs struct {
+	// Azure Key Vault url.
+	AzureKeyVaultUrl pulumi.StringPtrInput `pulumi:"azureKeyVaultUrl"`
+	// Credential name.
+	CredentialName pulumi.StringPtrInput `pulumi:"credentialName"`
+	// Enable or disable key vault credential setting.
+	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+	// Service principal name to access key vault.
+	ServicePrincipalName pulumi.StringPtrInput `pulumi:"servicePrincipalName"`
+	// Service principal name secret to access key vault.
+	ServicePrincipalSecret pulumi.StringPtrInput `pulumi:"servicePrincipalSecret"`
+}
+
+func (KeyVaultCredentialSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCredentialSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyVaultCredentialSettingsInvokeResponseArgs) ToKeyVaultCredentialSettingsInvokeResponseOutput() KeyVaultCredentialSettingsInvokeResponseOutput {
+	return i.ToKeyVaultCredentialSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyVaultCredentialSettingsInvokeResponseArgs) ToKeyVaultCredentialSettingsInvokeResponseOutputWithContext(ctx context.Context) KeyVaultCredentialSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCredentialSettingsInvokeResponseOutput)
+}
+
+// Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.
+type KeyVaultCredentialSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultCredentialSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCredentialSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyVaultCredentialSettingsInvokeResponseOutput) ToKeyVaultCredentialSettingsInvokeResponseOutput() KeyVaultCredentialSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o KeyVaultCredentialSettingsInvokeResponseOutput) ToKeyVaultCredentialSettingsInvokeResponseOutputWithContext(ctx context.Context) KeyVaultCredentialSettingsInvokeResponseOutput {
+	return o
+}
+
+// Azure Key Vault url.
+func (o KeyVaultCredentialSettingsInvokeResponseOutput) AzureKeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialSettingsInvokeResponse) *string { return v.AzureKeyVaultUrl }).(pulumi.StringPtrOutput)
+}
+
+// Credential name.
+func (o KeyVaultCredentialSettingsInvokeResponseOutput) CredentialName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialSettingsInvokeResponse) *string { return v.CredentialName }).(pulumi.StringPtrOutput)
+}
+
+// Enable or disable key vault credential setting.
+func (o KeyVaultCredentialSettingsInvokeResponseOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialSettingsInvokeResponse) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+// Service principal name to access key vault.
+func (o KeyVaultCredentialSettingsInvokeResponseOutput) ServicePrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialSettingsInvokeResponse) *string { return v.ServicePrincipalName }).(pulumi.StringPtrOutput)
+}
+
+// Service principal name secret to access key vault.
+func (o KeyVaultCredentialSettingsInvokeResponseOutput) ServicePrincipalSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCredentialSettingsInvokeResponse) *string { return v.ServicePrincipalSecret }).(pulumi.StringPtrOutput)
+}
+
+// Configure your SQL virtual machine to be able to connect to the Azure Key Vault service.
 type KeyVaultCredentialSettingsResponse struct {
 	// Azure Key Vault url.
 	AzureKeyVaultUrl *string `pulumi:"azureKeyVaultUrl"`
@@ -1905,6 +2368,144 @@ func (o LoadBalancerConfigurationArrayOutput) Index(i pulumi.IntInput) LoadBalan
 }
 
 // A load balancer configuration for an availability group listener.
+type LoadBalancerConfigurationInvokeResponse struct {
+	// Resource id of the load balancer.
+	LoadBalancerResourceId *string `pulumi:"loadBalancerResourceId"`
+	// Private IP address.
+	PrivateIpAddress *PrivateIPAddressInvokeResponse `pulumi:"privateIpAddress"`
+	// Probe port.
+	ProbePort *int `pulumi:"probePort"`
+	// Resource id of the public IP.
+	PublicIpAddressResourceId *string `pulumi:"publicIpAddressResourceId"`
+	// List of the SQL virtual machine instance resource id's that are enrolled into the availability group listener.
+	SqlVirtualMachineInstances []string `pulumi:"sqlVirtualMachineInstances"`
+}
+
+// LoadBalancerConfigurationInvokeResponseInput is an input type that accepts LoadBalancerConfigurationInvokeResponseArgs and LoadBalancerConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `LoadBalancerConfigurationInvokeResponseInput` via:
+//
+//          LoadBalancerConfigurationInvokeResponseArgs{...}
+type LoadBalancerConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToLoadBalancerConfigurationInvokeResponseOutput() LoadBalancerConfigurationInvokeResponseOutput
+	ToLoadBalancerConfigurationInvokeResponseOutputWithContext(context.Context) LoadBalancerConfigurationInvokeResponseOutput
+}
+
+// A load balancer configuration for an availability group listener.
+type LoadBalancerConfigurationInvokeResponseArgs struct {
+	// Resource id of the load balancer.
+	LoadBalancerResourceId pulumi.StringPtrInput `pulumi:"loadBalancerResourceId"`
+	// Private IP address.
+	PrivateIpAddress PrivateIPAddressInvokeResponsePtrInput `pulumi:"privateIpAddress"`
+	// Probe port.
+	ProbePort pulumi.IntPtrInput `pulumi:"probePort"`
+	// Resource id of the public IP.
+	PublicIpAddressResourceId pulumi.StringPtrInput `pulumi:"publicIpAddressResourceId"`
+	// List of the SQL virtual machine instance resource id's that are enrolled into the availability group listener.
+	SqlVirtualMachineInstances pulumi.StringArrayInput `pulumi:"sqlVirtualMachineInstances"`
+}
+
+func (LoadBalancerConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i LoadBalancerConfigurationInvokeResponseArgs) ToLoadBalancerConfigurationInvokeResponseOutput() LoadBalancerConfigurationInvokeResponseOutput {
+	return i.ToLoadBalancerConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerConfigurationInvokeResponseArgs) ToLoadBalancerConfigurationInvokeResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationInvokeResponseOutput)
+}
+
+// LoadBalancerConfigurationInvokeResponseArrayInput is an input type that accepts LoadBalancerConfigurationInvokeResponseArray and LoadBalancerConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerConfigurationInvokeResponseArrayInput` via:
+//
+//          LoadBalancerConfigurationInvokeResponseArray{ LoadBalancerConfigurationInvokeResponseArgs{...} }
+type LoadBalancerConfigurationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerConfigurationInvokeResponseArrayOutput() LoadBalancerConfigurationInvokeResponseArrayOutput
+	ToLoadBalancerConfigurationInvokeResponseArrayOutputWithContext(context.Context) LoadBalancerConfigurationInvokeResponseArrayOutput
+}
+
+type LoadBalancerConfigurationInvokeResponseArray []LoadBalancerConfigurationInvokeResponseInput
+
+func (LoadBalancerConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i LoadBalancerConfigurationInvokeResponseArray) ToLoadBalancerConfigurationInvokeResponseArrayOutput() LoadBalancerConfigurationInvokeResponseArrayOutput {
+	return i.ToLoadBalancerConfigurationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerConfigurationInvokeResponseArray) ToLoadBalancerConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) LoadBalancerConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerConfigurationInvokeResponseArrayOutput)
+}
+
+// A load balancer configuration for an availability group listener.
+type LoadBalancerConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerConfigurationInvokeResponseOutput) ToLoadBalancerConfigurationInvokeResponseOutput() LoadBalancerConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o LoadBalancerConfigurationInvokeResponseOutput) ToLoadBalancerConfigurationInvokeResponseOutputWithContext(ctx context.Context) LoadBalancerConfigurationInvokeResponseOutput {
+	return o
+}
+
+// Resource id of the load balancer.
+func (o LoadBalancerConfigurationInvokeResponseOutput) LoadBalancerResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationInvokeResponse) *string { return v.LoadBalancerResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Private IP address.
+func (o LoadBalancerConfigurationInvokeResponseOutput) PrivateIpAddress() PrivateIPAddressInvokeResponsePtrOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationInvokeResponse) *PrivateIPAddressInvokeResponse {
+		return v.PrivateIpAddress
+	}).(PrivateIPAddressInvokeResponsePtrOutput)
+}
+
+// Probe port.
+func (o LoadBalancerConfigurationInvokeResponseOutput) ProbePort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationInvokeResponse) *int { return v.ProbePort }).(pulumi.IntPtrOutput)
+}
+
+// Resource id of the public IP.
+func (o LoadBalancerConfigurationInvokeResponseOutput) PublicIpAddressResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationInvokeResponse) *string { return v.PublicIpAddressResourceId }).(pulumi.StringPtrOutput)
+}
+
+// List of the SQL virtual machine instance resource id's that are enrolled into the availability group listener.
+func (o LoadBalancerConfigurationInvokeResponseOutput) SqlVirtualMachineInstances() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LoadBalancerConfigurationInvokeResponse) []string { return v.SqlVirtualMachineInstances }).(pulumi.StringArrayOutput)
+}
+
+type LoadBalancerConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o LoadBalancerConfigurationInvokeResponseArrayOutput) ToLoadBalancerConfigurationInvokeResponseArrayOutput() LoadBalancerConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancerConfigurationInvokeResponseArrayOutput) ToLoadBalancerConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) LoadBalancerConfigurationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o LoadBalancerConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) LoadBalancerConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerConfigurationInvokeResponse {
+		return vs[0].([]LoadBalancerConfigurationInvokeResponse)[vs[1].(int)]
+	}).(LoadBalancerConfigurationInvokeResponseOutput)
+}
+
+// A load balancer configuration for an availability group listener.
 type LoadBalancerConfigurationResponse struct {
 	// Resource id of the load balancer.
 	LoadBalancerResourceId *string `pulumi:"loadBalancerResourceId"`
@@ -2186,6 +2787,159 @@ func (o PrivateIPAddressPtrOutput) IpAddress() pulumi.StringPtrOutput {
 // Subnet used to include private IP.
 func (o PrivateIPAddressPtrOutput) SubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateIPAddress) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A private IP address bound to the availability group listener.
+type PrivateIPAddressInvokeResponse struct {
+	// Private IP address bound to the availability group listener.
+	IpAddress *string `pulumi:"ipAddress"`
+	// Subnet used to include private IP.
+	SubnetResourceId *string `pulumi:"subnetResourceId"`
+}
+
+// PrivateIPAddressInvokeResponseInput is an input type that accepts PrivateIPAddressInvokeResponseArgs and PrivateIPAddressInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateIPAddressInvokeResponseInput` via:
+//
+//          PrivateIPAddressInvokeResponseArgs{...}
+type PrivateIPAddressInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateIPAddressInvokeResponseOutput() PrivateIPAddressInvokeResponseOutput
+	ToPrivateIPAddressInvokeResponseOutputWithContext(context.Context) PrivateIPAddressInvokeResponseOutput
+}
+
+// A private IP address bound to the availability group listener.
+type PrivateIPAddressInvokeResponseArgs struct {
+	// Private IP address bound to the availability group listener.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// Subnet used to include private IP.
+	SubnetResourceId pulumi.StringPtrInput `pulumi:"subnetResourceId"`
+}
+
+func (PrivateIPAddressInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateIPAddressInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateIPAddressInvokeResponseArgs) ToPrivateIPAddressInvokeResponseOutput() PrivateIPAddressInvokeResponseOutput {
+	return i.ToPrivateIPAddressInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateIPAddressInvokeResponseArgs) ToPrivateIPAddressInvokeResponseOutputWithContext(ctx context.Context) PrivateIPAddressInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateIPAddressInvokeResponseOutput)
+}
+
+func (i PrivateIPAddressInvokeResponseArgs) ToPrivateIPAddressInvokeResponsePtrOutput() PrivateIPAddressInvokeResponsePtrOutput {
+	return i.ToPrivateIPAddressInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateIPAddressInvokeResponseArgs) ToPrivateIPAddressInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateIPAddressInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateIPAddressInvokeResponseOutput).ToPrivateIPAddressInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PrivateIPAddressInvokeResponsePtrInput is an input type that accepts PrivateIPAddressInvokeResponseArgs, PrivateIPAddressInvokeResponsePtr and PrivateIPAddressInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PrivateIPAddressInvokeResponsePtrInput` via:
+//
+//          PrivateIPAddressInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateIPAddressInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateIPAddressInvokeResponsePtrOutput() PrivateIPAddressInvokeResponsePtrOutput
+	ToPrivateIPAddressInvokeResponsePtrOutputWithContext(context.Context) PrivateIPAddressInvokeResponsePtrOutput
+}
+
+type privateIPAddressInvokeResponsePtrType PrivateIPAddressInvokeResponseArgs
+
+func PrivateIPAddressInvokeResponsePtr(v *PrivateIPAddressInvokeResponseArgs) PrivateIPAddressInvokeResponsePtrInput {
+	return (*privateIPAddressInvokeResponsePtrType)(v)
+}
+
+func (*privateIPAddressInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateIPAddressInvokeResponse)(nil)).Elem()
+}
+
+func (i *privateIPAddressInvokeResponsePtrType) ToPrivateIPAddressInvokeResponsePtrOutput() PrivateIPAddressInvokeResponsePtrOutput {
+	return i.ToPrivateIPAddressInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateIPAddressInvokeResponsePtrType) ToPrivateIPAddressInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateIPAddressInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateIPAddressInvokeResponsePtrOutput)
+}
+
+// A private IP address bound to the availability group listener.
+type PrivateIPAddressInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateIPAddressInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateIPAddressInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateIPAddressInvokeResponseOutput) ToPrivateIPAddressInvokeResponseOutput() PrivateIPAddressInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateIPAddressInvokeResponseOutput) ToPrivateIPAddressInvokeResponseOutputWithContext(ctx context.Context) PrivateIPAddressInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateIPAddressInvokeResponseOutput) ToPrivateIPAddressInvokeResponsePtrOutput() PrivateIPAddressInvokeResponsePtrOutput {
+	return o.ToPrivateIPAddressInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateIPAddressInvokeResponseOutput) ToPrivateIPAddressInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateIPAddressInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PrivateIPAddressInvokeResponse) *PrivateIPAddressInvokeResponse {
+		return &v
+	}).(PrivateIPAddressInvokeResponsePtrOutput)
+}
+
+// Private IP address bound to the availability group listener.
+func (o PrivateIPAddressInvokeResponseOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateIPAddressInvokeResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Subnet used to include private IP.
+func (o PrivateIPAddressInvokeResponseOutput) SubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateIPAddressInvokeResponse) *string { return v.SubnetResourceId }).(pulumi.StringPtrOutput)
+}
+
+type PrivateIPAddressInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateIPAddressInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateIPAddressInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateIPAddressInvokeResponsePtrOutput) ToPrivateIPAddressInvokeResponsePtrOutput() PrivateIPAddressInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateIPAddressInvokeResponsePtrOutput) ToPrivateIPAddressInvokeResponsePtrOutputWithContext(ctx context.Context) PrivateIPAddressInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PrivateIPAddressInvokeResponsePtrOutput) Elem() PrivateIPAddressInvokeResponseOutput {
+	return o.ApplyT(func(v *PrivateIPAddressInvokeResponse) PrivateIPAddressInvokeResponse { return *v }).(PrivateIPAddressInvokeResponseOutput)
+}
+
+// Private IP address bound to the availability group listener.
+func (o PrivateIPAddressInvokeResponsePtrOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateIPAddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subnet used to include private IP.
+func (o PrivateIPAddressInvokeResponsePtrOutput) SubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateIPAddressInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2478,6 +3232,79 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponse struct {
+	// The Azure Active Directory principal id.
+	PrincipalId string `pulumi:"principalId"`
+	// The Azure Active Directory tenant id.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+	Type *string `pulumi:"type"`
+}
+
+// ResourceIdentityInvokeResponseInput is an input type that accepts ResourceIdentityInvokeResponseArgs and ResourceIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceIdentityInvokeResponseInput` via:
+//
+//          ResourceIdentityInvokeResponseArgs{...}
+type ResourceIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput
+	ToResourceIdentityInvokeResponseOutputWithContext(context.Context) ResourceIdentityInvokeResponseOutput
+}
+
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponseArgs struct {
+	// The Azure Active Directory principal id.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Azure Active Directory tenant id.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return i.ToResourceIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityInvokeResponseOutput)
+}
+
+// Azure Active Directory identity configuration for a resource.
+type ResourceIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+// The Azure Active Directory principal id.
+func (o ResourceIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory tenant id.
+func (o ResourceIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+func (o ResourceIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Azure Active Directory identity configuration for a resource.
@@ -2798,6 +3625,159 @@ func (o SQLStorageSettingsPtrOutput) DefaultFilePath() pulumi.StringPtrOutput {
 // Logical Unit Numbers for the disks.
 func (o SQLStorageSettingsPtrOutput) Luns() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SQLStorageSettings) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Luns
+	}).(pulumi.IntArrayOutput)
+}
+
+// Set disk storage settings for SQL Server.
+type SQLStorageSettingsInvokeResponse struct {
+	// SQL Server default file path
+	DefaultFilePath *string `pulumi:"defaultFilePath"`
+	// Logical Unit Numbers for the disks.
+	Luns []int `pulumi:"luns"`
+}
+
+// SQLStorageSettingsInvokeResponseInput is an input type that accepts SQLStorageSettingsInvokeResponseArgs and SQLStorageSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `SQLStorageSettingsInvokeResponseInput` via:
+//
+//          SQLStorageSettingsInvokeResponseArgs{...}
+type SQLStorageSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSQLStorageSettingsInvokeResponseOutput() SQLStorageSettingsInvokeResponseOutput
+	ToSQLStorageSettingsInvokeResponseOutputWithContext(context.Context) SQLStorageSettingsInvokeResponseOutput
+}
+
+// Set disk storage settings for SQL Server.
+type SQLStorageSettingsInvokeResponseArgs struct {
+	// SQL Server default file path
+	DefaultFilePath pulumi.StringPtrInput `pulumi:"defaultFilePath"`
+	// Logical Unit Numbers for the disks.
+	Luns pulumi.IntArrayInput `pulumi:"luns"`
+}
+
+func (SQLStorageSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SQLStorageSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i SQLStorageSettingsInvokeResponseArgs) ToSQLStorageSettingsInvokeResponseOutput() SQLStorageSettingsInvokeResponseOutput {
+	return i.ToSQLStorageSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SQLStorageSettingsInvokeResponseArgs) ToSQLStorageSettingsInvokeResponseOutputWithContext(ctx context.Context) SQLStorageSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SQLStorageSettingsInvokeResponseOutput)
+}
+
+func (i SQLStorageSettingsInvokeResponseArgs) ToSQLStorageSettingsInvokeResponsePtrOutput() SQLStorageSettingsInvokeResponsePtrOutput {
+	return i.ToSQLStorageSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SQLStorageSettingsInvokeResponseArgs) ToSQLStorageSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SQLStorageSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SQLStorageSettingsInvokeResponseOutput).ToSQLStorageSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SQLStorageSettingsInvokeResponsePtrInput is an input type that accepts SQLStorageSettingsInvokeResponseArgs, SQLStorageSettingsInvokeResponsePtr and SQLStorageSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SQLStorageSettingsInvokeResponsePtrInput` via:
+//
+//          SQLStorageSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SQLStorageSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSQLStorageSettingsInvokeResponsePtrOutput() SQLStorageSettingsInvokeResponsePtrOutput
+	ToSQLStorageSettingsInvokeResponsePtrOutputWithContext(context.Context) SQLStorageSettingsInvokeResponsePtrOutput
+}
+
+type sqlstorageSettingsInvokeResponsePtrType SQLStorageSettingsInvokeResponseArgs
+
+func SQLStorageSettingsInvokeResponsePtr(v *SQLStorageSettingsInvokeResponseArgs) SQLStorageSettingsInvokeResponsePtrInput {
+	return (*sqlstorageSettingsInvokeResponsePtrType)(v)
+}
+
+func (*sqlstorageSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SQLStorageSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *sqlstorageSettingsInvokeResponsePtrType) ToSQLStorageSettingsInvokeResponsePtrOutput() SQLStorageSettingsInvokeResponsePtrOutput {
+	return i.ToSQLStorageSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlstorageSettingsInvokeResponsePtrType) ToSQLStorageSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SQLStorageSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SQLStorageSettingsInvokeResponsePtrOutput)
+}
+
+// Set disk storage settings for SQL Server.
+type SQLStorageSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SQLStorageSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SQLStorageSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SQLStorageSettingsInvokeResponseOutput) ToSQLStorageSettingsInvokeResponseOutput() SQLStorageSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SQLStorageSettingsInvokeResponseOutput) ToSQLStorageSettingsInvokeResponseOutputWithContext(ctx context.Context) SQLStorageSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SQLStorageSettingsInvokeResponseOutput) ToSQLStorageSettingsInvokeResponsePtrOutput() SQLStorageSettingsInvokeResponsePtrOutput {
+	return o.ToSQLStorageSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SQLStorageSettingsInvokeResponseOutput) ToSQLStorageSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SQLStorageSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SQLStorageSettingsInvokeResponse) *SQLStorageSettingsInvokeResponse {
+		return &v
+	}).(SQLStorageSettingsInvokeResponsePtrOutput)
+}
+
+// SQL Server default file path
+func (o SQLStorageSettingsInvokeResponseOutput) DefaultFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SQLStorageSettingsInvokeResponse) *string { return v.DefaultFilePath }).(pulumi.StringPtrOutput)
+}
+
+// Logical Unit Numbers for the disks.
+func (o SQLStorageSettingsInvokeResponseOutput) Luns() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v SQLStorageSettingsInvokeResponse) []int { return v.Luns }).(pulumi.IntArrayOutput)
+}
+
+type SQLStorageSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SQLStorageSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SQLStorageSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SQLStorageSettingsInvokeResponsePtrOutput) ToSQLStorageSettingsInvokeResponsePtrOutput() SQLStorageSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SQLStorageSettingsInvokeResponsePtrOutput) ToSQLStorageSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SQLStorageSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SQLStorageSettingsInvokeResponsePtrOutput) Elem() SQLStorageSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *SQLStorageSettingsInvokeResponse) SQLStorageSettingsInvokeResponse { return *v }).(SQLStorageSettingsInvokeResponseOutput)
+}
+
+// SQL Server default file path
+func (o SQLStorageSettingsInvokeResponsePtrOutput) DefaultFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SQLStorageSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultFilePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Logical Unit Numbers for the disks.
+func (o SQLStorageSettingsInvokeResponsePtrOutput) Luns() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *SQLStorageSettingsInvokeResponse) []int {
 		if v == nil {
 			return nil
 		}
@@ -3155,6 +4135,96 @@ func (o ServerConfigurationsManagementSettingsPtrOutput) SqlWorkloadTypeUpdateSe
 		}
 		return v.SqlWorkloadTypeUpdateSettings
 	}).(SqlWorkloadTypeUpdateSettingsPtrOutput)
+}
+
+// Set the connectivity, storage and workload settings.
+type ServerConfigurationsManagementSettingsInvokeResponse struct {
+	// Additional SQL feature settings.
+	AdditionalFeaturesServerConfigurations *AdditionalFeaturesServerConfigurationsInvokeResponse `pulumi:"additionalFeaturesServerConfigurations"`
+	// SQL connectivity type settings.
+	SqlConnectivityUpdateSettings *SqlConnectivityUpdateSettingsInvokeResponse `pulumi:"sqlConnectivityUpdateSettings"`
+	// SQL storage update settings.
+	SqlStorageUpdateSettings *SqlStorageUpdateSettingsInvokeResponse `pulumi:"sqlStorageUpdateSettings"`
+	// SQL workload type settings.
+	SqlWorkloadTypeUpdateSettings *SqlWorkloadTypeUpdateSettingsInvokeResponse `pulumi:"sqlWorkloadTypeUpdateSettings"`
+}
+
+// ServerConfigurationsManagementSettingsInvokeResponseInput is an input type that accepts ServerConfigurationsManagementSettingsInvokeResponseArgs and ServerConfigurationsManagementSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerConfigurationsManagementSettingsInvokeResponseInput` via:
+//
+//          ServerConfigurationsManagementSettingsInvokeResponseArgs{...}
+type ServerConfigurationsManagementSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerConfigurationsManagementSettingsInvokeResponseOutput() ServerConfigurationsManagementSettingsInvokeResponseOutput
+	ToServerConfigurationsManagementSettingsInvokeResponseOutputWithContext(context.Context) ServerConfigurationsManagementSettingsInvokeResponseOutput
+}
+
+// Set the connectivity, storage and workload settings.
+type ServerConfigurationsManagementSettingsInvokeResponseArgs struct {
+	// Additional SQL feature settings.
+	AdditionalFeaturesServerConfigurations AdditionalFeaturesServerConfigurationsInvokeResponsePtrInput `pulumi:"additionalFeaturesServerConfigurations"`
+	// SQL connectivity type settings.
+	SqlConnectivityUpdateSettings SqlConnectivityUpdateSettingsInvokeResponsePtrInput `pulumi:"sqlConnectivityUpdateSettings"`
+	// SQL storage update settings.
+	SqlStorageUpdateSettings SqlStorageUpdateSettingsInvokeResponsePtrInput `pulumi:"sqlStorageUpdateSettings"`
+	// SQL workload type settings.
+	SqlWorkloadTypeUpdateSettings SqlWorkloadTypeUpdateSettingsInvokeResponsePtrInput `pulumi:"sqlWorkloadTypeUpdateSettings"`
+}
+
+func (ServerConfigurationsManagementSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerConfigurationsManagementSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerConfigurationsManagementSettingsInvokeResponseArgs) ToServerConfigurationsManagementSettingsInvokeResponseOutput() ServerConfigurationsManagementSettingsInvokeResponseOutput {
+	return i.ToServerConfigurationsManagementSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerConfigurationsManagementSettingsInvokeResponseArgs) ToServerConfigurationsManagementSettingsInvokeResponseOutputWithContext(ctx context.Context) ServerConfigurationsManagementSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerConfigurationsManagementSettingsInvokeResponseOutput)
+}
+
+// Set the connectivity, storage and workload settings.
+type ServerConfigurationsManagementSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerConfigurationsManagementSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerConfigurationsManagementSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerConfigurationsManagementSettingsInvokeResponseOutput) ToServerConfigurationsManagementSettingsInvokeResponseOutput() ServerConfigurationsManagementSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o ServerConfigurationsManagementSettingsInvokeResponseOutput) ToServerConfigurationsManagementSettingsInvokeResponseOutputWithContext(ctx context.Context) ServerConfigurationsManagementSettingsInvokeResponseOutput {
+	return o
+}
+
+// Additional SQL feature settings.
+func (o ServerConfigurationsManagementSettingsInvokeResponseOutput) AdditionalFeaturesServerConfigurations() AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServerConfigurationsManagementSettingsInvokeResponse) *AdditionalFeaturesServerConfigurationsInvokeResponse {
+		return v.AdditionalFeaturesServerConfigurations
+	}).(AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput)
+}
+
+// SQL connectivity type settings.
+func (o ServerConfigurationsManagementSettingsInvokeResponseOutput) SqlConnectivityUpdateSettings() SqlConnectivityUpdateSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServerConfigurationsManagementSettingsInvokeResponse) *SqlConnectivityUpdateSettingsInvokeResponse {
+		return v.SqlConnectivityUpdateSettings
+	}).(SqlConnectivityUpdateSettingsInvokeResponsePtrOutput)
+}
+
+// SQL storage update settings.
+func (o ServerConfigurationsManagementSettingsInvokeResponseOutput) SqlStorageUpdateSettings() SqlStorageUpdateSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServerConfigurationsManagementSettingsInvokeResponse) *SqlStorageUpdateSettingsInvokeResponse {
+		return v.SqlStorageUpdateSettings
+	}).(SqlStorageUpdateSettingsInvokeResponsePtrOutput)
+}
+
+// SQL workload type settings.
+func (o ServerConfigurationsManagementSettingsInvokeResponseOutput) SqlWorkloadTypeUpdateSettings() SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ServerConfigurationsManagementSettingsInvokeResponse) *SqlWorkloadTypeUpdateSettingsInvokeResponse {
+		return v.SqlWorkloadTypeUpdateSettings
+	}).(SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput)
 }
 
 // Set the connectivity, storage and workload settings.
@@ -3550,6 +4620,199 @@ func (o SqlConnectivityUpdateSettingsPtrOutput) SqlAuthUpdateUserName() pulumi.S
 }
 
 // Set the access level and network port settings for SQL Server.
+type SqlConnectivityUpdateSettingsInvokeResponse struct {
+	// SQL Server connectivity option.
+	ConnectivityType *string `pulumi:"connectivityType"`
+	// SQL Server port.
+	Port *int `pulumi:"port"`
+	// SQL Server sysadmin login password.
+	SqlAuthUpdatePassword *string `pulumi:"sqlAuthUpdatePassword"`
+	// SQL Server sysadmin login to create.
+	SqlAuthUpdateUserName *string `pulumi:"sqlAuthUpdateUserName"`
+}
+
+// SqlConnectivityUpdateSettingsInvokeResponseInput is an input type that accepts SqlConnectivityUpdateSettingsInvokeResponseArgs and SqlConnectivityUpdateSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `SqlConnectivityUpdateSettingsInvokeResponseInput` via:
+//
+//          SqlConnectivityUpdateSettingsInvokeResponseArgs{...}
+type SqlConnectivityUpdateSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSqlConnectivityUpdateSettingsInvokeResponseOutput() SqlConnectivityUpdateSettingsInvokeResponseOutput
+	ToSqlConnectivityUpdateSettingsInvokeResponseOutputWithContext(context.Context) SqlConnectivityUpdateSettingsInvokeResponseOutput
+}
+
+// Set the access level and network port settings for SQL Server.
+type SqlConnectivityUpdateSettingsInvokeResponseArgs struct {
+	// SQL Server connectivity option.
+	ConnectivityType pulumi.StringPtrInput `pulumi:"connectivityType"`
+	// SQL Server port.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// SQL Server sysadmin login password.
+	SqlAuthUpdatePassword pulumi.StringPtrInput `pulumi:"sqlAuthUpdatePassword"`
+	// SQL Server sysadmin login to create.
+	SqlAuthUpdateUserName pulumi.StringPtrInput `pulumi:"sqlAuthUpdateUserName"`
+}
+
+func (SqlConnectivityUpdateSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlConnectivityUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i SqlConnectivityUpdateSettingsInvokeResponseArgs) ToSqlConnectivityUpdateSettingsInvokeResponseOutput() SqlConnectivityUpdateSettingsInvokeResponseOutput {
+	return i.ToSqlConnectivityUpdateSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SqlConnectivityUpdateSettingsInvokeResponseArgs) ToSqlConnectivityUpdateSettingsInvokeResponseOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectivityUpdateSettingsInvokeResponseOutput)
+}
+
+func (i SqlConnectivityUpdateSettingsInvokeResponseArgs) ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutput() SqlConnectivityUpdateSettingsInvokeResponsePtrOutput {
+	return i.ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SqlConnectivityUpdateSettingsInvokeResponseArgs) ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectivityUpdateSettingsInvokeResponseOutput).ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SqlConnectivityUpdateSettingsInvokeResponsePtrInput is an input type that accepts SqlConnectivityUpdateSettingsInvokeResponseArgs, SqlConnectivityUpdateSettingsInvokeResponsePtr and SqlConnectivityUpdateSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SqlConnectivityUpdateSettingsInvokeResponsePtrInput` via:
+//
+//          SqlConnectivityUpdateSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlConnectivityUpdateSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutput() SqlConnectivityUpdateSettingsInvokeResponsePtrOutput
+	ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutputWithContext(context.Context) SqlConnectivityUpdateSettingsInvokeResponsePtrOutput
+}
+
+type sqlConnectivityUpdateSettingsInvokeResponsePtrType SqlConnectivityUpdateSettingsInvokeResponseArgs
+
+func SqlConnectivityUpdateSettingsInvokeResponsePtr(v *SqlConnectivityUpdateSettingsInvokeResponseArgs) SqlConnectivityUpdateSettingsInvokeResponsePtrInput {
+	return (*sqlConnectivityUpdateSettingsInvokeResponsePtrType)(v)
+}
+
+func (*sqlConnectivityUpdateSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlConnectivityUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *sqlConnectivityUpdateSettingsInvokeResponsePtrType) ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutput() SqlConnectivityUpdateSettingsInvokeResponsePtrOutput {
+	return i.ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlConnectivityUpdateSettingsInvokeResponsePtrType) ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectivityUpdateSettingsInvokeResponsePtrOutput)
+}
+
+// Set the access level and network port settings for SQL Server.
+type SqlConnectivityUpdateSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlConnectivityUpdateSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlConnectivityUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SqlConnectivityUpdateSettingsInvokeResponseOutput) ToSqlConnectivityUpdateSettingsInvokeResponseOutput() SqlConnectivityUpdateSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SqlConnectivityUpdateSettingsInvokeResponseOutput) ToSqlConnectivityUpdateSettingsInvokeResponseOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SqlConnectivityUpdateSettingsInvokeResponseOutput) ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutput() SqlConnectivityUpdateSettingsInvokeResponsePtrOutput {
+	return o.ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SqlConnectivityUpdateSettingsInvokeResponseOutput) ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SqlConnectivityUpdateSettingsInvokeResponse) *SqlConnectivityUpdateSettingsInvokeResponse {
+		return &v
+	}).(SqlConnectivityUpdateSettingsInvokeResponsePtrOutput)
+}
+
+// SQL Server connectivity option.
+func (o SqlConnectivityUpdateSettingsInvokeResponseOutput) ConnectivityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectivityUpdateSettingsInvokeResponse) *string { return v.ConnectivityType }).(pulumi.StringPtrOutput)
+}
+
+// SQL Server port.
+func (o SqlConnectivityUpdateSettingsInvokeResponseOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlConnectivityUpdateSettingsInvokeResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// SQL Server sysadmin login password.
+func (o SqlConnectivityUpdateSettingsInvokeResponseOutput) SqlAuthUpdatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectivityUpdateSettingsInvokeResponse) *string { return v.SqlAuthUpdatePassword }).(pulumi.StringPtrOutput)
+}
+
+// SQL Server sysadmin login to create.
+func (o SqlConnectivityUpdateSettingsInvokeResponseOutput) SqlAuthUpdateUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectivityUpdateSettingsInvokeResponse) *string { return v.SqlAuthUpdateUserName }).(pulumi.StringPtrOutput)
+}
+
+type SqlConnectivityUpdateSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlConnectivityUpdateSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlConnectivityUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SqlConnectivityUpdateSettingsInvokeResponsePtrOutput) ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutput() SqlConnectivityUpdateSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SqlConnectivityUpdateSettingsInvokeResponsePtrOutput) ToSqlConnectivityUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlConnectivityUpdateSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SqlConnectivityUpdateSettingsInvokeResponsePtrOutput) Elem() SqlConnectivityUpdateSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *SqlConnectivityUpdateSettingsInvokeResponse) SqlConnectivityUpdateSettingsInvokeResponse {
+		return *v
+	}).(SqlConnectivityUpdateSettingsInvokeResponseOutput)
+}
+
+// SQL Server connectivity option.
+func (o SqlConnectivityUpdateSettingsInvokeResponsePtrOutput) ConnectivityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectivityUpdateSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectivityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// SQL Server port.
+func (o SqlConnectivityUpdateSettingsInvokeResponsePtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlConnectivityUpdateSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// SQL Server sysadmin login password.
+func (o SqlConnectivityUpdateSettingsInvokeResponsePtrOutput) SqlAuthUpdatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectivityUpdateSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SqlAuthUpdatePassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// SQL Server sysadmin login to create.
+func (o SqlConnectivityUpdateSettingsInvokeResponsePtrOutput) SqlAuthUpdateUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectivityUpdateSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SqlAuthUpdateUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set the access level and network port settings for SQL Server.
 type SqlConnectivityUpdateSettingsResponse struct {
 	// SQL Server connectivity option.
 	ConnectivityType *string `pulumi:"connectivityType"`
@@ -3913,6 +5176,178 @@ func (o SqlStorageUpdateSettingsPtrOutput) StartingDeviceId() pulumi.IntPtrOutpu
 }
 
 // Set disk storage settings for SQL Server.
+type SqlStorageUpdateSettingsInvokeResponse struct {
+	// Disk configuration to apply to SQL Server.
+	DiskConfigurationType *string `pulumi:"diskConfigurationType"`
+	// Virtual machine disk count.
+	DiskCount *int `pulumi:"diskCount"`
+	// Device id of the first disk to be updated.
+	StartingDeviceId *int `pulumi:"startingDeviceId"`
+}
+
+// SqlStorageUpdateSettingsInvokeResponseInput is an input type that accepts SqlStorageUpdateSettingsInvokeResponseArgs and SqlStorageUpdateSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `SqlStorageUpdateSettingsInvokeResponseInput` via:
+//
+//          SqlStorageUpdateSettingsInvokeResponseArgs{...}
+type SqlStorageUpdateSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSqlStorageUpdateSettingsInvokeResponseOutput() SqlStorageUpdateSettingsInvokeResponseOutput
+	ToSqlStorageUpdateSettingsInvokeResponseOutputWithContext(context.Context) SqlStorageUpdateSettingsInvokeResponseOutput
+}
+
+// Set disk storage settings for SQL Server.
+type SqlStorageUpdateSettingsInvokeResponseArgs struct {
+	// Disk configuration to apply to SQL Server.
+	DiskConfigurationType pulumi.StringPtrInput `pulumi:"diskConfigurationType"`
+	// Virtual machine disk count.
+	DiskCount pulumi.IntPtrInput `pulumi:"diskCount"`
+	// Device id of the first disk to be updated.
+	StartingDeviceId pulumi.IntPtrInput `pulumi:"startingDeviceId"`
+}
+
+func (SqlStorageUpdateSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlStorageUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i SqlStorageUpdateSettingsInvokeResponseArgs) ToSqlStorageUpdateSettingsInvokeResponseOutput() SqlStorageUpdateSettingsInvokeResponseOutput {
+	return i.ToSqlStorageUpdateSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SqlStorageUpdateSettingsInvokeResponseArgs) ToSqlStorageUpdateSettingsInvokeResponseOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlStorageUpdateSettingsInvokeResponseOutput)
+}
+
+func (i SqlStorageUpdateSettingsInvokeResponseArgs) ToSqlStorageUpdateSettingsInvokeResponsePtrOutput() SqlStorageUpdateSettingsInvokeResponsePtrOutput {
+	return i.ToSqlStorageUpdateSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SqlStorageUpdateSettingsInvokeResponseArgs) ToSqlStorageUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlStorageUpdateSettingsInvokeResponseOutput).ToSqlStorageUpdateSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SqlStorageUpdateSettingsInvokeResponsePtrInput is an input type that accepts SqlStorageUpdateSettingsInvokeResponseArgs, SqlStorageUpdateSettingsInvokeResponsePtr and SqlStorageUpdateSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SqlStorageUpdateSettingsInvokeResponsePtrInput` via:
+//
+//          SqlStorageUpdateSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlStorageUpdateSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSqlStorageUpdateSettingsInvokeResponsePtrOutput() SqlStorageUpdateSettingsInvokeResponsePtrOutput
+	ToSqlStorageUpdateSettingsInvokeResponsePtrOutputWithContext(context.Context) SqlStorageUpdateSettingsInvokeResponsePtrOutput
+}
+
+type sqlStorageUpdateSettingsInvokeResponsePtrType SqlStorageUpdateSettingsInvokeResponseArgs
+
+func SqlStorageUpdateSettingsInvokeResponsePtr(v *SqlStorageUpdateSettingsInvokeResponseArgs) SqlStorageUpdateSettingsInvokeResponsePtrInput {
+	return (*sqlStorageUpdateSettingsInvokeResponsePtrType)(v)
+}
+
+func (*sqlStorageUpdateSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlStorageUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *sqlStorageUpdateSettingsInvokeResponsePtrType) ToSqlStorageUpdateSettingsInvokeResponsePtrOutput() SqlStorageUpdateSettingsInvokeResponsePtrOutput {
+	return i.ToSqlStorageUpdateSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlStorageUpdateSettingsInvokeResponsePtrType) ToSqlStorageUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlStorageUpdateSettingsInvokeResponsePtrOutput)
+}
+
+// Set disk storage settings for SQL Server.
+type SqlStorageUpdateSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlStorageUpdateSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlStorageUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SqlStorageUpdateSettingsInvokeResponseOutput) ToSqlStorageUpdateSettingsInvokeResponseOutput() SqlStorageUpdateSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SqlStorageUpdateSettingsInvokeResponseOutput) ToSqlStorageUpdateSettingsInvokeResponseOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SqlStorageUpdateSettingsInvokeResponseOutput) ToSqlStorageUpdateSettingsInvokeResponsePtrOutput() SqlStorageUpdateSettingsInvokeResponsePtrOutput {
+	return o.ToSqlStorageUpdateSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SqlStorageUpdateSettingsInvokeResponseOutput) ToSqlStorageUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SqlStorageUpdateSettingsInvokeResponse) *SqlStorageUpdateSettingsInvokeResponse {
+		return &v
+	}).(SqlStorageUpdateSettingsInvokeResponsePtrOutput)
+}
+
+// Disk configuration to apply to SQL Server.
+func (o SqlStorageUpdateSettingsInvokeResponseOutput) DiskConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlStorageUpdateSettingsInvokeResponse) *string { return v.DiskConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+// Virtual machine disk count.
+func (o SqlStorageUpdateSettingsInvokeResponseOutput) DiskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlStorageUpdateSettingsInvokeResponse) *int { return v.DiskCount }).(pulumi.IntPtrOutput)
+}
+
+// Device id of the first disk to be updated.
+func (o SqlStorageUpdateSettingsInvokeResponseOutput) StartingDeviceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlStorageUpdateSettingsInvokeResponse) *int { return v.StartingDeviceId }).(pulumi.IntPtrOutput)
+}
+
+type SqlStorageUpdateSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlStorageUpdateSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlStorageUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SqlStorageUpdateSettingsInvokeResponsePtrOutput) ToSqlStorageUpdateSettingsInvokeResponsePtrOutput() SqlStorageUpdateSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SqlStorageUpdateSettingsInvokeResponsePtrOutput) ToSqlStorageUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlStorageUpdateSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SqlStorageUpdateSettingsInvokeResponsePtrOutput) Elem() SqlStorageUpdateSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *SqlStorageUpdateSettingsInvokeResponse) SqlStorageUpdateSettingsInvokeResponse { return *v }).(SqlStorageUpdateSettingsInvokeResponseOutput)
+}
+
+// Disk configuration to apply to SQL Server.
+func (o SqlStorageUpdateSettingsInvokeResponsePtrOutput) DiskConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlStorageUpdateSettingsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskConfigurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Virtual machine disk count.
+func (o SqlStorageUpdateSettingsInvokeResponsePtrOutput) DiskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlStorageUpdateSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DiskCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Device id of the first disk to be updated.
+func (o SqlStorageUpdateSettingsInvokeResponsePtrOutput) StartingDeviceId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlStorageUpdateSettingsInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartingDeviceId
+	}).(pulumi.IntPtrOutput)
+}
+
+// Set disk storage settings for SQL Server.
 type SqlStorageUpdateSettingsResponse struct {
 	// Disk configuration to apply to SQL Server.
 	DiskConfigurationType *string `pulumi:"diskConfigurationType"`
@@ -4211,6 +5646,142 @@ func (o SqlWorkloadTypeUpdateSettingsPtrOutput) Elem() SqlWorkloadTypeUpdateSett
 // SQL Server workload type.
 func (o SqlWorkloadTypeUpdateSettingsPtrOutput) SqlWorkloadType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlWorkloadTypeUpdateSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SqlWorkloadType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set workload type to optimize storage for SQL Server.
+type SqlWorkloadTypeUpdateSettingsInvokeResponse struct {
+	// SQL Server workload type.
+	SqlWorkloadType *string `pulumi:"sqlWorkloadType"`
+}
+
+// SqlWorkloadTypeUpdateSettingsInvokeResponseInput is an input type that accepts SqlWorkloadTypeUpdateSettingsInvokeResponseArgs and SqlWorkloadTypeUpdateSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `SqlWorkloadTypeUpdateSettingsInvokeResponseInput` via:
+//
+//          SqlWorkloadTypeUpdateSettingsInvokeResponseArgs{...}
+type SqlWorkloadTypeUpdateSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSqlWorkloadTypeUpdateSettingsInvokeResponseOutput() SqlWorkloadTypeUpdateSettingsInvokeResponseOutput
+	ToSqlWorkloadTypeUpdateSettingsInvokeResponseOutputWithContext(context.Context) SqlWorkloadTypeUpdateSettingsInvokeResponseOutput
+}
+
+// Set workload type to optimize storage for SQL Server.
+type SqlWorkloadTypeUpdateSettingsInvokeResponseArgs struct {
+	// SQL Server workload type.
+	SqlWorkloadType pulumi.StringPtrInput `pulumi:"sqlWorkloadType"`
+}
+
+func (SqlWorkloadTypeUpdateSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlWorkloadTypeUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i SqlWorkloadTypeUpdateSettingsInvokeResponseArgs) ToSqlWorkloadTypeUpdateSettingsInvokeResponseOutput() SqlWorkloadTypeUpdateSettingsInvokeResponseOutput {
+	return i.ToSqlWorkloadTypeUpdateSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SqlWorkloadTypeUpdateSettingsInvokeResponseArgs) ToSqlWorkloadTypeUpdateSettingsInvokeResponseOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlWorkloadTypeUpdateSettingsInvokeResponseOutput)
+}
+
+func (i SqlWorkloadTypeUpdateSettingsInvokeResponseArgs) ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput() SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput {
+	return i.ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SqlWorkloadTypeUpdateSettingsInvokeResponseArgs) ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlWorkloadTypeUpdateSettingsInvokeResponseOutput).ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SqlWorkloadTypeUpdateSettingsInvokeResponsePtrInput is an input type that accepts SqlWorkloadTypeUpdateSettingsInvokeResponseArgs, SqlWorkloadTypeUpdateSettingsInvokeResponsePtr and SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SqlWorkloadTypeUpdateSettingsInvokeResponsePtrInput` via:
+//
+//          SqlWorkloadTypeUpdateSettingsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlWorkloadTypeUpdateSettingsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput() SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput
+	ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutputWithContext(context.Context) SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput
+}
+
+type sqlWorkloadTypeUpdateSettingsInvokeResponsePtrType SqlWorkloadTypeUpdateSettingsInvokeResponseArgs
+
+func SqlWorkloadTypeUpdateSettingsInvokeResponsePtr(v *SqlWorkloadTypeUpdateSettingsInvokeResponseArgs) SqlWorkloadTypeUpdateSettingsInvokeResponsePtrInput {
+	return (*sqlWorkloadTypeUpdateSettingsInvokeResponsePtrType)(v)
+}
+
+func (*sqlWorkloadTypeUpdateSettingsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlWorkloadTypeUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i *sqlWorkloadTypeUpdateSettingsInvokeResponsePtrType) ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput() SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput {
+	return i.ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlWorkloadTypeUpdateSettingsInvokeResponsePtrType) ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput)
+}
+
+// Set workload type to optimize storage for SQL Server.
+type SqlWorkloadTypeUpdateSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlWorkloadTypeUpdateSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlWorkloadTypeUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SqlWorkloadTypeUpdateSettingsInvokeResponseOutput) ToSqlWorkloadTypeUpdateSettingsInvokeResponseOutput() SqlWorkloadTypeUpdateSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SqlWorkloadTypeUpdateSettingsInvokeResponseOutput) ToSqlWorkloadTypeUpdateSettingsInvokeResponseOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o SqlWorkloadTypeUpdateSettingsInvokeResponseOutput) ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput() SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput {
+	return o.ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SqlWorkloadTypeUpdateSettingsInvokeResponseOutput) ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SqlWorkloadTypeUpdateSettingsInvokeResponse) *SqlWorkloadTypeUpdateSettingsInvokeResponse {
+		return &v
+	}).(SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput)
+}
+
+// SQL Server workload type.
+func (o SqlWorkloadTypeUpdateSettingsInvokeResponseOutput) SqlWorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlWorkloadTypeUpdateSettingsInvokeResponse) *string { return v.SqlWorkloadType }).(pulumi.StringPtrOutput)
+}
+
+type SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlWorkloadTypeUpdateSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput) ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput() SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput) ToSqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutputWithContext(ctx context.Context) SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput) Elem() SqlWorkloadTypeUpdateSettingsInvokeResponseOutput {
+	return o.ApplyT(func(v *SqlWorkloadTypeUpdateSettingsInvokeResponse) SqlWorkloadTypeUpdateSettingsInvokeResponse {
+		return *v
+	}).(SqlWorkloadTypeUpdateSettingsInvokeResponseOutput)
+}
+
+// SQL Server workload type.
+func (o SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput) SqlWorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlWorkloadTypeUpdateSettingsInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -4560,6 +6131,103 @@ func (o StorageConfigurationSettingsPtrOutput) StorageWorkloadType() pulumi.Stri
 		}
 		return v.StorageWorkloadType
 	}).(pulumi.StringPtrOutput)
+}
+
+// Storage Configurations for SQL Data, Log and TempDb.
+type StorageConfigurationSettingsInvokeResponse struct {
+	// Disk configuration to apply to SQL Server.
+	DiskConfigurationType *string `pulumi:"diskConfigurationType"`
+	// SQL Server Data Storage Settings.
+	SqlDataSettings *SQLStorageSettingsInvokeResponse `pulumi:"sqlDataSettings"`
+	// SQL Server Log Storage Settings.
+	SqlLogSettings *SQLStorageSettingsInvokeResponse `pulumi:"sqlLogSettings"`
+	// SQL Server TempDb Storage Settings.
+	SqlTempDbSettings *SQLStorageSettingsInvokeResponse `pulumi:"sqlTempDbSettings"`
+	// Storage workload type.
+	StorageWorkloadType *string `pulumi:"storageWorkloadType"`
+}
+
+// StorageConfigurationSettingsInvokeResponseInput is an input type that accepts StorageConfigurationSettingsInvokeResponseArgs and StorageConfigurationSettingsInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageConfigurationSettingsInvokeResponseInput` via:
+//
+//          StorageConfigurationSettingsInvokeResponseArgs{...}
+type StorageConfigurationSettingsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageConfigurationSettingsInvokeResponseOutput() StorageConfigurationSettingsInvokeResponseOutput
+	ToStorageConfigurationSettingsInvokeResponseOutputWithContext(context.Context) StorageConfigurationSettingsInvokeResponseOutput
+}
+
+// Storage Configurations for SQL Data, Log and TempDb.
+type StorageConfigurationSettingsInvokeResponseArgs struct {
+	// Disk configuration to apply to SQL Server.
+	DiskConfigurationType pulumi.StringPtrInput `pulumi:"diskConfigurationType"`
+	// SQL Server Data Storage Settings.
+	SqlDataSettings SQLStorageSettingsInvokeResponsePtrInput `pulumi:"sqlDataSettings"`
+	// SQL Server Log Storage Settings.
+	SqlLogSettings SQLStorageSettingsInvokeResponsePtrInput `pulumi:"sqlLogSettings"`
+	// SQL Server TempDb Storage Settings.
+	SqlTempDbSettings SQLStorageSettingsInvokeResponsePtrInput `pulumi:"sqlTempDbSettings"`
+	// Storage workload type.
+	StorageWorkloadType pulumi.StringPtrInput `pulumi:"storageWorkloadType"`
+}
+
+func (StorageConfigurationSettingsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageConfigurationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageConfigurationSettingsInvokeResponseArgs) ToStorageConfigurationSettingsInvokeResponseOutput() StorageConfigurationSettingsInvokeResponseOutput {
+	return i.ToStorageConfigurationSettingsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageConfigurationSettingsInvokeResponseArgs) ToStorageConfigurationSettingsInvokeResponseOutputWithContext(ctx context.Context) StorageConfigurationSettingsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageConfigurationSettingsInvokeResponseOutput)
+}
+
+// Storage Configurations for SQL Data, Log and TempDb.
+type StorageConfigurationSettingsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageConfigurationSettingsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageConfigurationSettingsInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageConfigurationSettingsInvokeResponseOutput) ToStorageConfigurationSettingsInvokeResponseOutput() StorageConfigurationSettingsInvokeResponseOutput {
+	return o
+}
+
+func (o StorageConfigurationSettingsInvokeResponseOutput) ToStorageConfigurationSettingsInvokeResponseOutputWithContext(ctx context.Context) StorageConfigurationSettingsInvokeResponseOutput {
+	return o
+}
+
+// Disk configuration to apply to SQL Server.
+func (o StorageConfigurationSettingsInvokeResponseOutput) DiskConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageConfigurationSettingsInvokeResponse) *string { return v.DiskConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+// SQL Server Data Storage Settings.
+func (o StorageConfigurationSettingsInvokeResponseOutput) SqlDataSettings() SQLStorageSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StorageConfigurationSettingsInvokeResponse) *SQLStorageSettingsInvokeResponse {
+		return v.SqlDataSettings
+	}).(SQLStorageSettingsInvokeResponsePtrOutput)
+}
+
+// SQL Server Log Storage Settings.
+func (o StorageConfigurationSettingsInvokeResponseOutput) SqlLogSettings() SQLStorageSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StorageConfigurationSettingsInvokeResponse) *SQLStorageSettingsInvokeResponse {
+		return v.SqlLogSettings
+	}).(SQLStorageSettingsInvokeResponsePtrOutput)
+}
+
+// SQL Server TempDb Storage Settings.
+func (o StorageConfigurationSettingsInvokeResponseOutput) SqlTempDbSettings() SQLStorageSettingsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v StorageConfigurationSettingsInvokeResponse) *SQLStorageSettingsInvokeResponse {
+		return v.SqlTempDbSettings
+	}).(SQLStorageSettingsInvokeResponsePtrOutput)
+}
+
+// Storage workload type.
+func (o StorageConfigurationSettingsInvokeResponseOutput) StorageWorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageConfigurationSettingsInvokeResponse) *string { return v.StorageWorkloadType }).(pulumi.StringPtrOutput)
 }
 
 // Storage Configurations for SQL Data, Log and TempDb.
@@ -4942,6 +6610,79 @@ func (o WsfcDomainCredentialsPtrOutput) SqlServiceAccountPassword() pulumi.Strin
 		}
 		return v.SqlServiceAccountPassword
 	}).(pulumi.StringPtrOutput)
+}
+
+// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+type WsfcDomainCredentialsInvokeResponse struct {
+	// Cluster bootstrap account password.
+	ClusterBootstrapAccountPassword *string `pulumi:"clusterBootstrapAccountPassword"`
+	// Cluster operator account password.
+	ClusterOperatorAccountPassword *string `pulumi:"clusterOperatorAccountPassword"`
+	// SQL service account password.
+	SqlServiceAccountPassword *string `pulumi:"sqlServiceAccountPassword"`
+}
+
+// WsfcDomainCredentialsInvokeResponseInput is an input type that accepts WsfcDomainCredentialsInvokeResponseArgs and WsfcDomainCredentialsInvokeResponseOutput values.
+// You can construct a concrete instance of `WsfcDomainCredentialsInvokeResponseInput` via:
+//
+//          WsfcDomainCredentialsInvokeResponseArgs{...}
+type WsfcDomainCredentialsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWsfcDomainCredentialsInvokeResponseOutput() WsfcDomainCredentialsInvokeResponseOutput
+	ToWsfcDomainCredentialsInvokeResponseOutputWithContext(context.Context) WsfcDomainCredentialsInvokeResponseOutput
+}
+
+// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+type WsfcDomainCredentialsInvokeResponseArgs struct {
+	// Cluster bootstrap account password.
+	ClusterBootstrapAccountPassword pulumi.StringPtrInput `pulumi:"clusterBootstrapAccountPassword"`
+	// Cluster operator account password.
+	ClusterOperatorAccountPassword pulumi.StringPtrInput `pulumi:"clusterOperatorAccountPassword"`
+	// SQL service account password.
+	SqlServiceAccountPassword pulumi.StringPtrInput `pulumi:"sqlServiceAccountPassword"`
+}
+
+func (WsfcDomainCredentialsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WsfcDomainCredentialsInvokeResponse)(nil)).Elem()
+}
+
+func (i WsfcDomainCredentialsInvokeResponseArgs) ToWsfcDomainCredentialsInvokeResponseOutput() WsfcDomainCredentialsInvokeResponseOutput {
+	return i.ToWsfcDomainCredentialsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WsfcDomainCredentialsInvokeResponseArgs) ToWsfcDomainCredentialsInvokeResponseOutputWithContext(ctx context.Context) WsfcDomainCredentialsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WsfcDomainCredentialsInvokeResponseOutput)
+}
+
+// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+type WsfcDomainCredentialsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WsfcDomainCredentialsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WsfcDomainCredentialsInvokeResponse)(nil)).Elem()
+}
+
+func (o WsfcDomainCredentialsInvokeResponseOutput) ToWsfcDomainCredentialsInvokeResponseOutput() WsfcDomainCredentialsInvokeResponseOutput {
+	return o
+}
+
+func (o WsfcDomainCredentialsInvokeResponseOutput) ToWsfcDomainCredentialsInvokeResponseOutputWithContext(ctx context.Context) WsfcDomainCredentialsInvokeResponseOutput {
+	return o
+}
+
+// Cluster bootstrap account password.
+func (o WsfcDomainCredentialsInvokeResponseOutput) ClusterBootstrapAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainCredentialsInvokeResponse) *string { return v.ClusterBootstrapAccountPassword }).(pulumi.StringPtrOutput)
+}
+
+// Cluster operator account password.
+func (o WsfcDomainCredentialsInvokeResponseOutput) ClusterOperatorAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainCredentialsInvokeResponse) *string { return v.ClusterOperatorAccountPassword }).(pulumi.StringPtrOutput)
+}
+
+// SQL service account password.
+func (o WsfcDomainCredentialsInvokeResponseOutput) SqlServiceAccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainCredentialsInvokeResponse) *string { return v.SqlServiceAccountPassword }).(pulumi.StringPtrOutput)
 }
 
 // Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
@@ -5384,6 +7125,124 @@ func (o WsfcDomainProfilePtrOutput) StorageAccountUrl() pulumi.StringPtrOutput {
 }
 
 // Active Directory account details to operate Windows Server Failover Cluster.
+type WsfcDomainProfileInvokeResponse struct {
+	// Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).
+	ClusterBootstrapAccount *string `pulumi:"clusterBootstrapAccount"`
+	// Account name used for operating cluster i.e. will be part of administrators group on all the participating virtual machines in the cluster.
+	ClusterOperatorAccount *string `pulumi:"clusterOperatorAccount"`
+	// Fully qualified name of the domain.
+	DomainFqdn *string `pulumi:"domainFqdn"`
+	// Optional path for fileshare witness.
+	FileShareWitnessPath *string `pulumi:"fileShareWitnessPath"`
+	// Organizational Unit path in which the nodes and cluster will be present.
+	OuPath *string `pulumi:"ouPath"`
+	// Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
+	SqlServiceAccount *string `pulumi:"sqlServiceAccount"`
+	// Primary key of the witness storage account.
+	StorageAccountPrimaryKey *string `pulumi:"storageAccountPrimaryKey"`
+	// Fully qualified ARM resource id of the witness storage account.
+	StorageAccountUrl *string `pulumi:"storageAccountUrl"`
+}
+
+// WsfcDomainProfileInvokeResponseInput is an input type that accepts WsfcDomainProfileInvokeResponseArgs and WsfcDomainProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `WsfcDomainProfileInvokeResponseInput` via:
+//
+//          WsfcDomainProfileInvokeResponseArgs{...}
+type WsfcDomainProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWsfcDomainProfileInvokeResponseOutput() WsfcDomainProfileInvokeResponseOutput
+	ToWsfcDomainProfileInvokeResponseOutputWithContext(context.Context) WsfcDomainProfileInvokeResponseOutput
+}
+
+// Active Directory account details to operate Windows Server Failover Cluster.
+type WsfcDomainProfileInvokeResponseArgs struct {
+	// Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).
+	ClusterBootstrapAccount pulumi.StringPtrInput `pulumi:"clusterBootstrapAccount"`
+	// Account name used for operating cluster i.e. will be part of administrators group on all the participating virtual machines in the cluster.
+	ClusterOperatorAccount pulumi.StringPtrInput `pulumi:"clusterOperatorAccount"`
+	// Fully qualified name of the domain.
+	DomainFqdn pulumi.StringPtrInput `pulumi:"domainFqdn"`
+	// Optional path for fileshare witness.
+	FileShareWitnessPath pulumi.StringPtrInput `pulumi:"fileShareWitnessPath"`
+	// Organizational Unit path in which the nodes and cluster will be present.
+	OuPath pulumi.StringPtrInput `pulumi:"ouPath"`
+	// Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
+	SqlServiceAccount pulumi.StringPtrInput `pulumi:"sqlServiceAccount"`
+	// Primary key of the witness storage account.
+	StorageAccountPrimaryKey pulumi.StringPtrInput `pulumi:"storageAccountPrimaryKey"`
+	// Fully qualified ARM resource id of the witness storage account.
+	StorageAccountUrl pulumi.StringPtrInput `pulumi:"storageAccountUrl"`
+}
+
+func (WsfcDomainProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WsfcDomainProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i WsfcDomainProfileInvokeResponseArgs) ToWsfcDomainProfileInvokeResponseOutput() WsfcDomainProfileInvokeResponseOutput {
+	return i.ToWsfcDomainProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WsfcDomainProfileInvokeResponseArgs) ToWsfcDomainProfileInvokeResponseOutputWithContext(ctx context.Context) WsfcDomainProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WsfcDomainProfileInvokeResponseOutput)
+}
+
+// Active Directory account details to operate Windows Server Failover Cluster.
+type WsfcDomainProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WsfcDomainProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WsfcDomainProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o WsfcDomainProfileInvokeResponseOutput) ToWsfcDomainProfileInvokeResponseOutput() WsfcDomainProfileInvokeResponseOutput {
+	return o
+}
+
+func (o WsfcDomainProfileInvokeResponseOutput) ToWsfcDomainProfileInvokeResponseOutputWithContext(ctx context.Context) WsfcDomainProfileInvokeResponseOutput {
+	return o
+}
+
+// Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).
+func (o WsfcDomainProfileInvokeResponseOutput) ClusterBootstrapAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainProfileInvokeResponse) *string { return v.ClusterBootstrapAccount }).(pulumi.StringPtrOutput)
+}
+
+// Account name used for operating cluster i.e. will be part of administrators group on all the participating virtual machines in the cluster.
+func (o WsfcDomainProfileInvokeResponseOutput) ClusterOperatorAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainProfileInvokeResponse) *string { return v.ClusterOperatorAccount }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified name of the domain.
+func (o WsfcDomainProfileInvokeResponseOutput) DomainFqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainProfileInvokeResponse) *string { return v.DomainFqdn }).(pulumi.StringPtrOutput)
+}
+
+// Optional path for fileshare witness.
+func (o WsfcDomainProfileInvokeResponseOutput) FileShareWitnessPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainProfileInvokeResponse) *string { return v.FileShareWitnessPath }).(pulumi.StringPtrOutput)
+}
+
+// Organizational Unit path in which the nodes and cluster will be present.
+func (o WsfcDomainProfileInvokeResponseOutput) OuPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainProfileInvokeResponse) *string { return v.OuPath }).(pulumi.StringPtrOutput)
+}
+
+// Account name under which SQL service will run on all participating SQL virtual machines in the cluster.
+func (o WsfcDomainProfileInvokeResponseOutput) SqlServiceAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainProfileInvokeResponse) *string { return v.SqlServiceAccount }).(pulumi.StringPtrOutput)
+}
+
+// Primary key of the witness storage account.
+func (o WsfcDomainProfileInvokeResponseOutput) StorageAccountPrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainProfileInvokeResponse) *string { return v.StorageAccountPrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM resource id of the witness storage account.
+func (o WsfcDomainProfileInvokeResponseOutput) StorageAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WsfcDomainProfileInvokeResponse) *string { return v.StorageAccountUrl }).(pulumi.StringPtrOutput)
+}
+
+// Active Directory account details to operate Windows Server Failover Cluster.
 type WsfcDomainProfileResponse struct {
 	// Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain).
 	ClusterBootstrapAccount *string `pulumi:"clusterBootstrapAccount"`
@@ -5653,62 +7512,84 @@ func (o WsfcDomainProfileResponsePtrOutput) StorageAccountUrl() pulumi.StringPtr
 func init() {
 	pulumi.RegisterOutputType(AdditionalFeaturesServerConfigurationsOutput{})
 	pulumi.RegisterOutputType(AdditionalFeaturesServerConfigurationsPtrOutput{})
+	pulumi.RegisterOutputType(AdditionalFeaturesServerConfigurationsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AdditionalFeaturesServerConfigurationsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AdditionalFeaturesServerConfigurationsResponseOutput{})
 	pulumi.RegisterOutputType(AdditionalFeaturesServerConfigurationsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutoBackupSettingsOutput{})
 	pulumi.RegisterOutputType(AutoBackupSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AutoBackupSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AutoBackupSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AutoBackupSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutoPatchingSettingsOutput{})
 	pulumi.RegisterOutputType(AutoPatchingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AutoPatchingSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AutoPatchingSettingsResponseOutput{})
 	pulumi.RegisterOutputType(AutoPatchingSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultCredentialSettingsOutput{})
 	pulumi.RegisterOutputType(KeyVaultCredentialSettingsPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultCredentialSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultCredentialSettingsResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultCredentialSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(LoadBalancerConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancerConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateIPAddressOutput{})
 	pulumi.RegisterOutputType(PrivateIPAddressPtrOutput{})
+	pulumi.RegisterOutputType(PrivateIPAddressInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateIPAddressInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateIPAddressResponseOutput{})
 	pulumi.RegisterOutputType(PrivateIPAddressResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(SQLStorageSettingsOutput{})
 	pulumi.RegisterOutputType(SQLStorageSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SQLStorageSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SQLStorageSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SQLStorageSettingsResponseOutput{})
 	pulumi.RegisterOutputType(SQLStorageSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerConfigurationsManagementSettingsOutput{})
 	pulumi.RegisterOutputType(ServerConfigurationsManagementSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ServerConfigurationsManagementSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServerConfigurationsManagementSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ServerConfigurationsManagementSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlConnectivityUpdateSettingsOutput{})
 	pulumi.RegisterOutputType(SqlConnectivityUpdateSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SqlConnectivityUpdateSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SqlConnectivityUpdateSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlConnectivityUpdateSettingsResponseOutput{})
 	pulumi.RegisterOutputType(SqlConnectivityUpdateSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlStorageUpdateSettingsOutput{})
 	pulumi.RegisterOutputType(SqlStorageUpdateSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SqlStorageUpdateSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SqlStorageUpdateSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlStorageUpdateSettingsResponseOutput{})
 	pulumi.RegisterOutputType(SqlStorageUpdateSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlWorkloadTypeUpdateSettingsOutput{})
 	pulumi.RegisterOutputType(SqlWorkloadTypeUpdateSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SqlWorkloadTypeUpdateSettingsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SqlWorkloadTypeUpdateSettingsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlWorkloadTypeUpdateSettingsResponseOutput{})
 	pulumi.RegisterOutputType(SqlWorkloadTypeUpdateSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageConfigurationSettingsOutput{})
 	pulumi.RegisterOutputType(StorageConfigurationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StorageConfigurationSettingsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageConfigurationSettingsResponseOutput{})
 	pulumi.RegisterOutputType(StorageConfigurationSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(WsfcDomainCredentialsOutput{})
 	pulumi.RegisterOutputType(WsfcDomainCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(WsfcDomainCredentialsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(WsfcDomainCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(WsfcDomainCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(WsfcDomainProfileOutput{})
 	pulumi.RegisterOutputType(WsfcDomainProfilePtrOutput{})
+	pulumi.RegisterOutputType(WsfcDomainProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(WsfcDomainProfileResponseOutput{})
 	pulumi.RegisterOutputType(WsfcDomainProfileResponsePtrOutput{})
 }

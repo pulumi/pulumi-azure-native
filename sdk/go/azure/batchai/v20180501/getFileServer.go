@@ -30,11 +30,11 @@ type LookupFileServerResult struct {
 	// Time when the FileServer was created.
 	CreationTime string `pulumi:"creationTime"`
 	// Information about disks attached to File Server VM.
-	DataDisks *DataDisksResponse `pulumi:"dataDisks"`
+	DataDisks *DataDisksInvokeResponse `pulumi:"dataDisks"`
 	// The ID of the resource.
 	Id string `pulumi:"id"`
 	// File Server mount settings.
-	MountSettings MountSettingsResponse `pulumi:"mountSettings"`
+	MountSettings MountSettingsInvokeResponse `pulumi:"mountSettings"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
@@ -42,9 +42,9 @@ type LookupFileServerResult struct {
 	// Time when the provisioning state was changed.
 	ProvisioningStateTransitionTime string `pulumi:"provisioningStateTransitionTime"`
 	// SSH configuration for accessing the File Server node.
-	SshConfiguration *SshConfigurationResponse `pulumi:"sshConfiguration"`
+	SshConfiguration *SshConfigurationInvokeResponse `pulumi:"sshConfiguration"`
 	// File Server virtual network subnet resource ID.
-	Subnet *ResourceIdResponse `pulumi:"subnet"`
+	Subnet *ResourceIdInvokeResponse `pulumi:"subnet"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 	// VM size of the File Server.

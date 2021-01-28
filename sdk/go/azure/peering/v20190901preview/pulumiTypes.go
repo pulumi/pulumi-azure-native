@@ -259,6 +259,330 @@ func (o BgpSessionPtrOutput) SessionPrefixV6() pulumi.StringPtrOutput {
 }
 
 // The properties that define a BGP session.
+type BgpSessionInvokeResponse struct {
+	// The maximum number of prefixes advertised over the IPv4 session.
+	MaxPrefixesAdvertisedV4 *int `pulumi:"maxPrefixesAdvertisedV4"`
+	// The maximum number of prefixes advertised over the IPv6 session.
+	MaxPrefixesAdvertisedV6 *int `pulumi:"maxPrefixesAdvertisedV6"`
+	// The MD5 authentication key of the session.
+	Md5AuthenticationKey *string `pulumi:"md5AuthenticationKey"`
+	// The IPv4 session address on Microsoft's end.
+	MicrosoftSessionIPv4Address string `pulumi:"microsoftSessionIPv4Address"`
+	// The IPv6 session address on Microsoft's end.
+	MicrosoftSessionIPv6Address string `pulumi:"microsoftSessionIPv6Address"`
+	// The IPv4 session address on peer's end.
+	PeerSessionIPv4Address *string `pulumi:"peerSessionIPv4Address"`
+	// The IPv6 session address on peer's end.
+	PeerSessionIPv6Address *string `pulumi:"peerSessionIPv6Address"`
+	// The IPv4 prefix that contains both ends' IPv4 addresses.
+	SessionPrefixV4 *string `pulumi:"sessionPrefixV4"`
+	// The IPv6 prefix that contains both ends' IPv6 addresses.
+	SessionPrefixV6 *string `pulumi:"sessionPrefixV6"`
+	// The state of the IPv4 session.
+	SessionStateV4 string `pulumi:"sessionStateV4"`
+	// The state of the IPv6 session.
+	SessionStateV6 string `pulumi:"sessionStateV6"`
+}
+
+// BgpSessionInvokeResponseInput is an input type that accepts BgpSessionInvokeResponseArgs and BgpSessionInvokeResponseOutput values.
+// You can construct a concrete instance of `BgpSessionInvokeResponseInput` via:
+//
+//          BgpSessionInvokeResponseArgs{...}
+type BgpSessionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBgpSessionInvokeResponseOutput() BgpSessionInvokeResponseOutput
+	ToBgpSessionInvokeResponseOutputWithContext(context.Context) BgpSessionInvokeResponseOutput
+}
+
+// The properties that define a BGP session.
+type BgpSessionInvokeResponseArgs struct {
+	// The maximum number of prefixes advertised over the IPv4 session.
+	MaxPrefixesAdvertisedV4 pulumi.IntPtrInput `pulumi:"maxPrefixesAdvertisedV4"`
+	// The maximum number of prefixes advertised over the IPv6 session.
+	MaxPrefixesAdvertisedV6 pulumi.IntPtrInput `pulumi:"maxPrefixesAdvertisedV6"`
+	// The MD5 authentication key of the session.
+	Md5AuthenticationKey pulumi.StringPtrInput `pulumi:"md5AuthenticationKey"`
+	// The IPv4 session address on Microsoft's end.
+	MicrosoftSessionIPv4Address pulumi.StringInput `pulumi:"microsoftSessionIPv4Address"`
+	// The IPv6 session address on Microsoft's end.
+	MicrosoftSessionIPv6Address pulumi.StringInput `pulumi:"microsoftSessionIPv6Address"`
+	// The IPv4 session address on peer's end.
+	PeerSessionIPv4Address pulumi.StringPtrInput `pulumi:"peerSessionIPv4Address"`
+	// The IPv6 session address on peer's end.
+	PeerSessionIPv6Address pulumi.StringPtrInput `pulumi:"peerSessionIPv6Address"`
+	// The IPv4 prefix that contains both ends' IPv4 addresses.
+	SessionPrefixV4 pulumi.StringPtrInput `pulumi:"sessionPrefixV4"`
+	// The IPv6 prefix that contains both ends' IPv6 addresses.
+	SessionPrefixV6 pulumi.StringPtrInput `pulumi:"sessionPrefixV6"`
+	// The state of the IPv4 session.
+	SessionStateV4 pulumi.StringInput `pulumi:"sessionStateV4"`
+	// The state of the IPv6 session.
+	SessionStateV6 pulumi.StringInput `pulumi:"sessionStateV6"`
+}
+
+func (BgpSessionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpSessionInvokeResponse)(nil)).Elem()
+}
+
+func (i BgpSessionInvokeResponseArgs) ToBgpSessionInvokeResponseOutput() BgpSessionInvokeResponseOutput {
+	return i.ToBgpSessionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BgpSessionInvokeResponseArgs) ToBgpSessionInvokeResponseOutputWithContext(ctx context.Context) BgpSessionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpSessionInvokeResponseOutput)
+}
+
+func (i BgpSessionInvokeResponseArgs) ToBgpSessionInvokeResponsePtrOutput() BgpSessionInvokeResponsePtrOutput {
+	return i.ToBgpSessionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BgpSessionInvokeResponseArgs) ToBgpSessionInvokeResponsePtrOutputWithContext(ctx context.Context) BgpSessionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpSessionInvokeResponseOutput).ToBgpSessionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// BgpSessionInvokeResponsePtrInput is an input type that accepts BgpSessionInvokeResponseArgs, BgpSessionInvokeResponsePtr and BgpSessionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `BgpSessionInvokeResponsePtrInput` via:
+//
+//          BgpSessionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BgpSessionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToBgpSessionInvokeResponsePtrOutput() BgpSessionInvokeResponsePtrOutput
+	ToBgpSessionInvokeResponsePtrOutputWithContext(context.Context) BgpSessionInvokeResponsePtrOutput
+}
+
+type bgpSessionInvokeResponsePtrType BgpSessionInvokeResponseArgs
+
+func BgpSessionInvokeResponsePtr(v *BgpSessionInvokeResponseArgs) BgpSessionInvokeResponsePtrInput {
+	return (*bgpSessionInvokeResponsePtrType)(v)
+}
+
+func (*bgpSessionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BgpSessionInvokeResponse)(nil)).Elem()
+}
+
+func (i *bgpSessionInvokeResponsePtrType) ToBgpSessionInvokeResponsePtrOutput() BgpSessionInvokeResponsePtrOutput {
+	return i.ToBgpSessionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *bgpSessionInvokeResponsePtrType) ToBgpSessionInvokeResponsePtrOutputWithContext(ctx context.Context) BgpSessionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BgpSessionInvokeResponsePtrOutput)
+}
+
+// The properties that define a BGP session.
+type BgpSessionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BgpSessionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BgpSessionInvokeResponse)(nil)).Elem()
+}
+
+func (o BgpSessionInvokeResponseOutput) ToBgpSessionInvokeResponseOutput() BgpSessionInvokeResponseOutput {
+	return o
+}
+
+func (o BgpSessionInvokeResponseOutput) ToBgpSessionInvokeResponseOutputWithContext(ctx context.Context) BgpSessionInvokeResponseOutput {
+	return o
+}
+
+func (o BgpSessionInvokeResponseOutput) ToBgpSessionInvokeResponsePtrOutput() BgpSessionInvokeResponsePtrOutput {
+	return o.ToBgpSessionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BgpSessionInvokeResponseOutput) ToBgpSessionInvokeResponsePtrOutputWithContext(ctx context.Context) BgpSessionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) *BgpSessionInvokeResponse {
+		return &v
+	}).(BgpSessionInvokeResponsePtrOutput)
+}
+
+// The maximum number of prefixes advertised over the IPv4 session.
+func (o BgpSessionInvokeResponseOutput) MaxPrefixesAdvertisedV4() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) *int { return v.MaxPrefixesAdvertisedV4 }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of prefixes advertised over the IPv6 session.
+func (o BgpSessionInvokeResponseOutput) MaxPrefixesAdvertisedV6() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) *int { return v.MaxPrefixesAdvertisedV6 }).(pulumi.IntPtrOutput)
+}
+
+// The MD5 authentication key of the session.
+func (o BgpSessionInvokeResponseOutput) Md5AuthenticationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) *string { return v.Md5AuthenticationKey }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 session address on Microsoft's end.
+func (o BgpSessionInvokeResponseOutput) MicrosoftSessionIPv4Address() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) string { return v.MicrosoftSessionIPv4Address }).(pulumi.StringOutput)
+}
+
+// The IPv6 session address on Microsoft's end.
+func (o BgpSessionInvokeResponseOutput) MicrosoftSessionIPv6Address() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) string { return v.MicrosoftSessionIPv6Address }).(pulumi.StringOutput)
+}
+
+// The IPv4 session address on peer's end.
+func (o BgpSessionInvokeResponseOutput) PeerSessionIPv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) *string { return v.PeerSessionIPv4Address }).(pulumi.StringPtrOutput)
+}
+
+// The IPv6 session address on peer's end.
+func (o BgpSessionInvokeResponseOutput) PeerSessionIPv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) *string { return v.PeerSessionIPv6Address }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 prefix that contains both ends' IPv4 addresses.
+func (o BgpSessionInvokeResponseOutput) SessionPrefixV4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) *string { return v.SessionPrefixV4 }).(pulumi.StringPtrOutput)
+}
+
+// The IPv6 prefix that contains both ends' IPv6 addresses.
+func (o BgpSessionInvokeResponseOutput) SessionPrefixV6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) *string { return v.SessionPrefixV6 }).(pulumi.StringPtrOutput)
+}
+
+// The state of the IPv4 session.
+func (o BgpSessionInvokeResponseOutput) SessionStateV4() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) string { return v.SessionStateV4 }).(pulumi.StringOutput)
+}
+
+// The state of the IPv6 session.
+func (o BgpSessionInvokeResponseOutput) SessionStateV6() pulumi.StringOutput {
+	return o.ApplyT(func(v BgpSessionInvokeResponse) string { return v.SessionStateV6 }).(pulumi.StringOutput)
+}
+
+type BgpSessionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BgpSessionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BgpSessionInvokeResponse)(nil)).Elem()
+}
+
+func (o BgpSessionInvokeResponsePtrOutput) ToBgpSessionInvokeResponsePtrOutput() BgpSessionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BgpSessionInvokeResponsePtrOutput) ToBgpSessionInvokeResponsePtrOutputWithContext(ctx context.Context) BgpSessionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BgpSessionInvokeResponsePtrOutput) Elem() BgpSessionInvokeResponseOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) BgpSessionInvokeResponse { return *v }).(BgpSessionInvokeResponseOutput)
+}
+
+// The maximum number of prefixes advertised over the IPv4 session.
+func (o BgpSessionInvokeResponsePtrOutput) MaxPrefixesAdvertisedV4() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPrefixesAdvertisedV4
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of prefixes advertised over the IPv6 session.
+func (o BgpSessionInvokeResponsePtrOutput) MaxPrefixesAdvertisedV6() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPrefixesAdvertisedV6
+	}).(pulumi.IntPtrOutput)
+}
+
+// The MD5 authentication key of the session.
+func (o BgpSessionInvokeResponsePtrOutput) Md5AuthenticationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Md5AuthenticationKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 session address on Microsoft's end.
+func (o BgpSessionInvokeResponsePtrOutput) MicrosoftSessionIPv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MicrosoftSessionIPv4Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPv6 session address on Microsoft's end.
+func (o BgpSessionInvokeResponsePtrOutput) MicrosoftSessionIPv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MicrosoftSessionIPv6Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 session address on peer's end.
+func (o BgpSessionInvokeResponsePtrOutput) PeerSessionIPv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PeerSessionIPv4Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPv6 session address on peer's end.
+func (o BgpSessionInvokeResponsePtrOutput) PeerSessionIPv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PeerSessionIPv6Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 prefix that contains both ends' IPv4 addresses.
+func (o BgpSessionInvokeResponsePtrOutput) SessionPrefixV4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionPrefixV4
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPv6 prefix that contains both ends' IPv6 addresses.
+func (o BgpSessionInvokeResponsePtrOutput) SessionPrefixV6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionPrefixV6
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of the IPv4 session.
+func (o BgpSessionInvokeResponsePtrOutput) SessionStateV4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionStateV4
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of the IPv6 session.
+func (o BgpSessionInvokeResponsePtrOutput) SessionStateV6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpSessionInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionStateV6
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties that define a BGP session.
 type BgpSessionResponse struct {
 	// The maximum number of prefixes advertised over the IPv4 session.
 	MaxPrefixesAdvertisedV4 *int `pulumi:"maxPrefixesAdvertisedV4"`
@@ -736,6 +1060,70 @@ func (o ContactInfoPtrOutput) Phone() pulumi.StringArrayOutput {
 }
 
 // The contact information of the peer.
+type ContactInfoInvokeResponse struct {
+	// The list of email addresses.
+	Emails []string `pulumi:"emails"`
+	// The list of contact numbers.
+	Phone []string `pulumi:"phone"`
+}
+
+// ContactInfoInvokeResponseInput is an input type that accepts ContactInfoInvokeResponseArgs and ContactInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `ContactInfoInvokeResponseInput` via:
+//
+//          ContactInfoInvokeResponseArgs{...}
+type ContactInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContactInfoInvokeResponseOutput() ContactInfoInvokeResponseOutput
+	ToContactInfoInvokeResponseOutputWithContext(context.Context) ContactInfoInvokeResponseOutput
+}
+
+// The contact information of the peer.
+type ContactInfoInvokeResponseArgs struct {
+	// The list of email addresses.
+	Emails pulumi.StringArrayInput `pulumi:"emails"`
+	// The list of contact numbers.
+	Phone pulumi.StringArrayInput `pulumi:"phone"`
+}
+
+func (ContactInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i ContactInfoInvokeResponseArgs) ToContactInfoInvokeResponseOutput() ContactInfoInvokeResponseOutput {
+	return i.ToContactInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContactInfoInvokeResponseArgs) ToContactInfoInvokeResponseOutputWithContext(ctx context.Context) ContactInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactInfoInvokeResponseOutput)
+}
+
+// The contact information of the peer.
+type ContactInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContactInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o ContactInfoInvokeResponseOutput) ToContactInfoInvokeResponseOutput() ContactInfoInvokeResponseOutput {
+	return o
+}
+
+func (o ContactInfoInvokeResponseOutput) ToContactInfoInvokeResponseOutputWithContext(ctx context.Context) ContactInfoInvokeResponseOutput {
+	return o
+}
+
+// The list of email addresses.
+func (o ContactInfoInvokeResponseOutput) Emails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContactInfoInvokeResponse) []string { return v.Emails }).(pulumi.StringArrayOutput)
+}
+
+// The list of contact numbers.
+func (o ContactInfoInvokeResponseOutput) Phone() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContactInfoInvokeResponse) []string { return v.Phone }).(pulumi.StringArrayOutput)
+}
+
+// The contact information of the peer.
 type ContactInfoResponse struct {
 	// The list of email addresses.
 	Emails []string `pulumi:"emails"`
@@ -1034,6 +1422,178 @@ func (o DirectConnectionArrayOutput) Index(i pulumi.IntInput) DirectConnectionOu
 }
 
 // The properties that define a direct connection.
+type DirectConnectionInvokeResponse struct {
+	// The bandwidth of the connection.
+	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
+	// The BGP session associated with the connection.
+	BgpSession *BgpSessionInvokeResponse `pulumi:"bgpSession"`
+	// The unique identifier (GUID) for the connection.
+	ConnectionIdentifier *string `pulumi:"connectionIdentifier"`
+	// The state of the connection.
+	ConnectionState string `pulumi:"connectionState"`
+	// The error message related to the connection state, if any.
+	ErrorMessage string `pulumi:"errorMessage"`
+	// The PeeringDB.com ID of the facility at which the connection has to be set up.
+	PeeringDBFacilityId *int `pulumi:"peeringDBFacilityId"`
+	// The bandwidth that is actually provisioned.
+	ProvisionedBandwidthInMbps int `pulumi:"provisionedBandwidthInMbps"`
+	// The field indicating if Microsoft provides session ip addresses.
+	SessionAddressProvider *string `pulumi:"sessionAddressProvider"`
+	// The flag that indicates whether or not the connection is used for peering service.
+	UseForPeeringService *bool `pulumi:"useForPeeringService"`
+}
+
+// DirectConnectionInvokeResponseInput is an input type that accepts DirectConnectionInvokeResponseArgs and DirectConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `DirectConnectionInvokeResponseInput` via:
+//
+//          DirectConnectionInvokeResponseArgs{...}
+type DirectConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDirectConnectionInvokeResponseOutput() DirectConnectionInvokeResponseOutput
+	ToDirectConnectionInvokeResponseOutputWithContext(context.Context) DirectConnectionInvokeResponseOutput
+}
+
+// The properties that define a direct connection.
+type DirectConnectionInvokeResponseArgs struct {
+	// The bandwidth of the connection.
+	BandwidthInMbps pulumi.IntPtrInput `pulumi:"bandwidthInMbps"`
+	// The BGP session associated with the connection.
+	BgpSession BgpSessionInvokeResponsePtrInput `pulumi:"bgpSession"`
+	// The unique identifier (GUID) for the connection.
+	ConnectionIdentifier pulumi.StringPtrInput `pulumi:"connectionIdentifier"`
+	// The state of the connection.
+	ConnectionState pulumi.StringInput `pulumi:"connectionState"`
+	// The error message related to the connection state, if any.
+	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// The PeeringDB.com ID of the facility at which the connection has to be set up.
+	PeeringDBFacilityId pulumi.IntPtrInput `pulumi:"peeringDBFacilityId"`
+	// The bandwidth that is actually provisioned.
+	ProvisionedBandwidthInMbps pulumi.IntInput `pulumi:"provisionedBandwidthInMbps"`
+	// The field indicating if Microsoft provides session ip addresses.
+	SessionAddressProvider pulumi.StringPtrInput `pulumi:"sessionAddressProvider"`
+	// The flag that indicates whether or not the connection is used for peering service.
+	UseForPeeringService pulumi.BoolPtrInput `pulumi:"useForPeeringService"`
+}
+
+func (DirectConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i DirectConnectionInvokeResponseArgs) ToDirectConnectionInvokeResponseOutput() DirectConnectionInvokeResponseOutput {
+	return i.ToDirectConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DirectConnectionInvokeResponseArgs) ToDirectConnectionInvokeResponseOutputWithContext(ctx context.Context) DirectConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectionInvokeResponseOutput)
+}
+
+// DirectConnectionInvokeResponseArrayInput is an input type that accepts DirectConnectionInvokeResponseArray and DirectConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DirectConnectionInvokeResponseArrayInput` via:
+//
+//          DirectConnectionInvokeResponseArray{ DirectConnectionInvokeResponseArgs{...} }
+type DirectConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDirectConnectionInvokeResponseArrayOutput() DirectConnectionInvokeResponseArrayOutput
+	ToDirectConnectionInvokeResponseArrayOutputWithContext(context.Context) DirectConnectionInvokeResponseArrayOutput
+}
+
+type DirectConnectionInvokeResponseArray []DirectConnectionInvokeResponseInput
+
+func (DirectConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i DirectConnectionInvokeResponseArray) ToDirectConnectionInvokeResponseArrayOutput() DirectConnectionInvokeResponseArrayOutput {
+	return i.ToDirectConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DirectConnectionInvokeResponseArray) ToDirectConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) DirectConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectionInvokeResponseArrayOutput)
+}
+
+// The properties that define a direct connection.
+type DirectConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o DirectConnectionInvokeResponseOutput) ToDirectConnectionInvokeResponseOutput() DirectConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o DirectConnectionInvokeResponseOutput) ToDirectConnectionInvokeResponseOutputWithContext(ctx context.Context) DirectConnectionInvokeResponseOutput {
+	return o
+}
+
+// The bandwidth of the connection.
+func (o DirectConnectionInvokeResponseOutput) BandwidthInMbps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DirectConnectionInvokeResponse) *int { return v.BandwidthInMbps }).(pulumi.IntPtrOutput)
+}
+
+// The BGP session associated with the connection.
+func (o DirectConnectionInvokeResponseOutput) BgpSession() BgpSessionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DirectConnectionInvokeResponse) *BgpSessionInvokeResponse { return v.BgpSession }).(BgpSessionInvokeResponsePtrOutput)
+}
+
+// The unique identifier (GUID) for the connection.
+func (o DirectConnectionInvokeResponseOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectConnectionInvokeResponse) *string { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The state of the connection.
+func (o DirectConnectionInvokeResponseOutput) ConnectionState() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectConnectionInvokeResponse) string { return v.ConnectionState }).(pulumi.StringOutput)
+}
+
+// The error message related to the connection state, if any.
+func (o DirectConnectionInvokeResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectConnectionInvokeResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// The PeeringDB.com ID of the facility at which the connection has to be set up.
+func (o DirectConnectionInvokeResponseOutput) PeeringDBFacilityId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DirectConnectionInvokeResponse) *int { return v.PeeringDBFacilityId }).(pulumi.IntPtrOutput)
+}
+
+// The bandwidth that is actually provisioned.
+func (o DirectConnectionInvokeResponseOutput) ProvisionedBandwidthInMbps() pulumi.IntOutput {
+	return o.ApplyT(func(v DirectConnectionInvokeResponse) int { return v.ProvisionedBandwidthInMbps }).(pulumi.IntOutput)
+}
+
+// The field indicating if Microsoft provides session ip addresses.
+func (o DirectConnectionInvokeResponseOutput) SessionAddressProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectConnectionInvokeResponse) *string { return v.SessionAddressProvider }).(pulumi.StringPtrOutput)
+}
+
+// The flag that indicates whether or not the connection is used for peering service.
+func (o DirectConnectionInvokeResponseOutput) UseForPeeringService() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DirectConnectionInvokeResponse) *bool { return v.UseForPeeringService }).(pulumi.BoolPtrOutput)
+}
+
+type DirectConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o DirectConnectionInvokeResponseArrayOutput) ToDirectConnectionInvokeResponseArrayOutput() DirectConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DirectConnectionInvokeResponseArrayOutput) ToDirectConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) DirectConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DirectConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) DirectConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectConnectionInvokeResponse {
+		return vs[0].([]DirectConnectionInvokeResponse)[vs[1].(int)]
+	}).(DirectConnectionInvokeResponseOutput)
+}
+
+// The properties that define a direct connection.
 type DirectConnectionResponse struct {
 	// The bandwidth of the connection.
 	BandwidthInMbps *int `pulumi:"bandwidthInMbps"`
@@ -1321,6 +1881,142 @@ func (o ExchangeConnectionArrayOutput) Index(i pulumi.IntInput) ExchangeConnecti
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExchangeConnection {
 		return vs[0].([]ExchangeConnection)[vs[1].(int)]
 	}).(ExchangeConnectionOutput)
+}
+
+// The properties that define an exchange connection.
+type ExchangeConnectionInvokeResponse struct {
+	// The BGP session associated with the connection.
+	BgpSession *BgpSessionInvokeResponse `pulumi:"bgpSession"`
+	// The unique identifier (GUID) for the connection.
+	ConnectionIdentifier *string `pulumi:"connectionIdentifier"`
+	// The state of the connection.
+	ConnectionState string `pulumi:"connectionState"`
+	// The error message related to the connection state, if any.
+	ErrorMessage string `pulumi:"errorMessage"`
+	// The PeeringDB.com ID of the facility at which the connection has to be set up.
+	PeeringDBFacilityId *int `pulumi:"peeringDBFacilityId"`
+}
+
+// ExchangeConnectionInvokeResponseInput is an input type that accepts ExchangeConnectionInvokeResponseArgs and ExchangeConnectionInvokeResponseOutput values.
+// You can construct a concrete instance of `ExchangeConnectionInvokeResponseInput` via:
+//
+//          ExchangeConnectionInvokeResponseArgs{...}
+type ExchangeConnectionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToExchangeConnectionInvokeResponseOutput() ExchangeConnectionInvokeResponseOutput
+	ToExchangeConnectionInvokeResponseOutputWithContext(context.Context) ExchangeConnectionInvokeResponseOutput
+}
+
+// The properties that define an exchange connection.
+type ExchangeConnectionInvokeResponseArgs struct {
+	// The BGP session associated with the connection.
+	BgpSession BgpSessionInvokeResponsePtrInput `pulumi:"bgpSession"`
+	// The unique identifier (GUID) for the connection.
+	ConnectionIdentifier pulumi.StringPtrInput `pulumi:"connectionIdentifier"`
+	// The state of the connection.
+	ConnectionState pulumi.StringInput `pulumi:"connectionState"`
+	// The error message related to the connection state, if any.
+	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
+	// The PeeringDB.com ID of the facility at which the connection has to be set up.
+	PeeringDBFacilityId pulumi.IntPtrInput `pulumi:"peeringDBFacilityId"`
+}
+
+func (ExchangeConnectionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExchangeConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i ExchangeConnectionInvokeResponseArgs) ToExchangeConnectionInvokeResponseOutput() ExchangeConnectionInvokeResponseOutput {
+	return i.ToExchangeConnectionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ExchangeConnectionInvokeResponseArgs) ToExchangeConnectionInvokeResponseOutputWithContext(ctx context.Context) ExchangeConnectionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExchangeConnectionInvokeResponseOutput)
+}
+
+// ExchangeConnectionInvokeResponseArrayInput is an input type that accepts ExchangeConnectionInvokeResponseArray and ExchangeConnectionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ExchangeConnectionInvokeResponseArrayInput` via:
+//
+//          ExchangeConnectionInvokeResponseArray{ ExchangeConnectionInvokeResponseArgs{...} }
+type ExchangeConnectionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToExchangeConnectionInvokeResponseArrayOutput() ExchangeConnectionInvokeResponseArrayOutput
+	ToExchangeConnectionInvokeResponseArrayOutputWithContext(context.Context) ExchangeConnectionInvokeResponseArrayOutput
+}
+
+type ExchangeConnectionInvokeResponseArray []ExchangeConnectionInvokeResponseInput
+
+func (ExchangeConnectionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExchangeConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (i ExchangeConnectionInvokeResponseArray) ToExchangeConnectionInvokeResponseArrayOutput() ExchangeConnectionInvokeResponseArrayOutput {
+	return i.ToExchangeConnectionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ExchangeConnectionInvokeResponseArray) ToExchangeConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) ExchangeConnectionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExchangeConnectionInvokeResponseArrayOutput)
+}
+
+// The properties that define an exchange connection.
+type ExchangeConnectionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ExchangeConnectionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExchangeConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o ExchangeConnectionInvokeResponseOutput) ToExchangeConnectionInvokeResponseOutput() ExchangeConnectionInvokeResponseOutput {
+	return o
+}
+
+func (o ExchangeConnectionInvokeResponseOutput) ToExchangeConnectionInvokeResponseOutputWithContext(ctx context.Context) ExchangeConnectionInvokeResponseOutput {
+	return o
+}
+
+// The BGP session associated with the connection.
+func (o ExchangeConnectionInvokeResponseOutput) BgpSession() BgpSessionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ExchangeConnectionInvokeResponse) *BgpSessionInvokeResponse { return v.BgpSession }).(BgpSessionInvokeResponsePtrOutput)
+}
+
+// The unique identifier (GUID) for the connection.
+func (o ExchangeConnectionInvokeResponseOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExchangeConnectionInvokeResponse) *string { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The state of the connection.
+func (o ExchangeConnectionInvokeResponseOutput) ConnectionState() pulumi.StringOutput {
+	return o.ApplyT(func(v ExchangeConnectionInvokeResponse) string { return v.ConnectionState }).(pulumi.StringOutput)
+}
+
+// The error message related to the connection state, if any.
+func (o ExchangeConnectionInvokeResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ExchangeConnectionInvokeResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// The PeeringDB.com ID of the facility at which the connection has to be set up.
+func (o ExchangeConnectionInvokeResponseOutput) PeeringDBFacilityId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExchangeConnectionInvokeResponse) *int { return v.PeeringDBFacilityId }).(pulumi.IntPtrOutput)
+}
+
+type ExchangeConnectionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ExchangeConnectionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExchangeConnectionInvokeResponse)(nil)).Elem()
+}
+
+func (o ExchangeConnectionInvokeResponseArrayOutput) ToExchangeConnectionInvokeResponseArrayOutput() ExchangeConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ExchangeConnectionInvokeResponseArrayOutput) ToExchangeConnectionInvokeResponseArrayOutputWithContext(ctx context.Context) ExchangeConnectionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ExchangeConnectionInvokeResponseArrayOutput) Index(i pulumi.IntInput) ExchangeConnectionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExchangeConnectionInvokeResponse {
+		return vs[0].([]ExchangeConnectionInvokeResponse)[vs[1].(int)]
+	}).(ExchangeConnectionInvokeResponseOutput)
 }
 
 // The properties that define an exchange connection.
@@ -1629,6 +2325,88 @@ func (o PeeringPropertiesDirectPtrOutput) PeerAsn() SubResourcePtrOutput {
 		}
 		return v.PeerAsn
 	}).(SubResourcePtrOutput)
+}
+
+// The properties that define a direct peering.
+type PeeringPropertiesDirectInvokeResponse struct {
+	// The set of connections that constitute a direct peering.
+	Connections []DirectConnectionInvokeResponse `pulumi:"connections"`
+	// The type of direct peering.
+	DirectPeeringType *string `pulumi:"directPeeringType"`
+	// The reference of the peer ASN.
+	PeerAsn *SubResourceInvokeResponse `pulumi:"peerAsn"`
+	// The flag that indicates whether or not the peering is used for peering service.
+	UseForPeeringService bool `pulumi:"useForPeeringService"`
+}
+
+// PeeringPropertiesDirectInvokeResponseInput is an input type that accepts PeeringPropertiesDirectInvokeResponseArgs and PeeringPropertiesDirectInvokeResponseOutput values.
+// You can construct a concrete instance of `PeeringPropertiesDirectInvokeResponseInput` via:
+//
+//          PeeringPropertiesDirectInvokeResponseArgs{...}
+type PeeringPropertiesDirectInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPeeringPropertiesDirectInvokeResponseOutput() PeeringPropertiesDirectInvokeResponseOutput
+	ToPeeringPropertiesDirectInvokeResponseOutputWithContext(context.Context) PeeringPropertiesDirectInvokeResponseOutput
+}
+
+// The properties that define a direct peering.
+type PeeringPropertiesDirectInvokeResponseArgs struct {
+	// The set of connections that constitute a direct peering.
+	Connections DirectConnectionInvokeResponseArrayInput `pulumi:"connections"`
+	// The type of direct peering.
+	DirectPeeringType pulumi.StringPtrInput `pulumi:"directPeeringType"`
+	// The reference of the peer ASN.
+	PeerAsn SubResourceInvokeResponsePtrInput `pulumi:"peerAsn"`
+	// The flag that indicates whether or not the peering is used for peering service.
+	UseForPeeringService pulumi.BoolInput `pulumi:"useForPeeringService"`
+}
+
+func (PeeringPropertiesDirectInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringPropertiesDirectInvokeResponse)(nil)).Elem()
+}
+
+func (i PeeringPropertiesDirectInvokeResponseArgs) ToPeeringPropertiesDirectInvokeResponseOutput() PeeringPropertiesDirectInvokeResponseOutput {
+	return i.ToPeeringPropertiesDirectInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PeeringPropertiesDirectInvokeResponseArgs) ToPeeringPropertiesDirectInvokeResponseOutputWithContext(ctx context.Context) PeeringPropertiesDirectInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesDirectInvokeResponseOutput)
+}
+
+// The properties that define a direct peering.
+type PeeringPropertiesDirectInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PeeringPropertiesDirectInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringPropertiesDirectInvokeResponse)(nil)).Elem()
+}
+
+func (o PeeringPropertiesDirectInvokeResponseOutput) ToPeeringPropertiesDirectInvokeResponseOutput() PeeringPropertiesDirectInvokeResponseOutput {
+	return o
+}
+
+func (o PeeringPropertiesDirectInvokeResponseOutput) ToPeeringPropertiesDirectInvokeResponseOutputWithContext(ctx context.Context) PeeringPropertiesDirectInvokeResponseOutput {
+	return o
+}
+
+// The set of connections that constitute a direct peering.
+func (o PeeringPropertiesDirectInvokeResponseOutput) Connections() DirectConnectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v PeeringPropertiesDirectInvokeResponse) []DirectConnectionInvokeResponse { return v.Connections }).(DirectConnectionInvokeResponseArrayOutput)
+}
+
+// The type of direct peering.
+func (o PeeringPropertiesDirectInvokeResponseOutput) DirectPeeringType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringPropertiesDirectInvokeResponse) *string { return v.DirectPeeringType }).(pulumi.StringPtrOutput)
+}
+
+// The reference of the peer ASN.
+func (o PeeringPropertiesDirectInvokeResponseOutput) PeerAsn() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PeeringPropertiesDirectInvokeResponse) *SubResourceInvokeResponse { return v.PeerAsn }).(SubResourceInvokeResponsePtrOutput)
+}
+
+// The flag that indicates whether or not the peering is used for peering service.
+func (o PeeringPropertiesDirectInvokeResponseOutput) UseForPeeringService() pulumi.BoolOutput {
+	return o.ApplyT(func(v PeeringPropertiesDirectInvokeResponse) bool { return v.UseForPeeringService }).(pulumi.BoolOutput)
 }
 
 // The properties that define a direct peering.
@@ -1976,6 +2754,72 @@ func (o PeeringPropertiesExchangePtrOutput) PeerAsn() SubResourcePtrOutput {
 }
 
 // The properties that define an exchange peering.
+type PeeringPropertiesExchangeInvokeResponse struct {
+	// The set of connections that constitute an exchange peering.
+	Connections []ExchangeConnectionInvokeResponse `pulumi:"connections"`
+	// The reference of the peer ASN.
+	PeerAsn *SubResourceInvokeResponse `pulumi:"peerAsn"`
+}
+
+// PeeringPropertiesExchangeInvokeResponseInput is an input type that accepts PeeringPropertiesExchangeInvokeResponseArgs and PeeringPropertiesExchangeInvokeResponseOutput values.
+// You can construct a concrete instance of `PeeringPropertiesExchangeInvokeResponseInput` via:
+//
+//          PeeringPropertiesExchangeInvokeResponseArgs{...}
+type PeeringPropertiesExchangeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPeeringPropertiesExchangeInvokeResponseOutput() PeeringPropertiesExchangeInvokeResponseOutput
+	ToPeeringPropertiesExchangeInvokeResponseOutputWithContext(context.Context) PeeringPropertiesExchangeInvokeResponseOutput
+}
+
+// The properties that define an exchange peering.
+type PeeringPropertiesExchangeInvokeResponseArgs struct {
+	// The set of connections that constitute an exchange peering.
+	Connections ExchangeConnectionInvokeResponseArrayInput `pulumi:"connections"`
+	// The reference of the peer ASN.
+	PeerAsn SubResourceInvokeResponsePtrInput `pulumi:"peerAsn"`
+}
+
+func (PeeringPropertiesExchangeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringPropertiesExchangeInvokeResponse)(nil)).Elem()
+}
+
+func (i PeeringPropertiesExchangeInvokeResponseArgs) ToPeeringPropertiesExchangeInvokeResponseOutput() PeeringPropertiesExchangeInvokeResponseOutput {
+	return i.ToPeeringPropertiesExchangeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PeeringPropertiesExchangeInvokeResponseArgs) ToPeeringPropertiesExchangeInvokeResponseOutputWithContext(ctx context.Context) PeeringPropertiesExchangeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesExchangeInvokeResponseOutput)
+}
+
+// The properties that define an exchange peering.
+type PeeringPropertiesExchangeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PeeringPropertiesExchangeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringPropertiesExchangeInvokeResponse)(nil)).Elem()
+}
+
+func (o PeeringPropertiesExchangeInvokeResponseOutput) ToPeeringPropertiesExchangeInvokeResponseOutput() PeeringPropertiesExchangeInvokeResponseOutput {
+	return o
+}
+
+func (o PeeringPropertiesExchangeInvokeResponseOutput) ToPeeringPropertiesExchangeInvokeResponseOutputWithContext(ctx context.Context) PeeringPropertiesExchangeInvokeResponseOutput {
+	return o
+}
+
+// The set of connections that constitute an exchange peering.
+func (o PeeringPropertiesExchangeInvokeResponseOutput) Connections() ExchangeConnectionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v PeeringPropertiesExchangeInvokeResponse) []ExchangeConnectionInvokeResponse {
+		return v.Connections
+	}).(ExchangeConnectionInvokeResponseArrayOutput)
+}
+
+// The reference of the peer ASN.
+func (o PeeringPropertiesExchangeInvokeResponseOutput) PeerAsn() SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PeeringPropertiesExchangeInvokeResponse) *SubResourceInvokeResponse { return v.PeerAsn }).(SubResourceInvokeResponsePtrOutput)
+}
+
+// The properties that define an exchange peering.
 type PeeringPropertiesExchangeResponse struct {
 	// The set of connections that constitute an exchange peering.
 	Connections []ExchangeConnectionResponse `pulumi:"connections"`
@@ -2126,6 +2970,142 @@ func (o PeeringPropertiesExchangeResponsePtrOutput) PeerAsn() SubResourceRespons
 		}
 		return v.PeerAsn
 	}).(SubResourceResponsePtrOutput)
+}
+
+// The details of the event associated with a prefix.
+type PeeringServicePrefixEventInvokeResponse struct {
+	// The description of the event associated with a prefix.
+	EventDescription string `pulumi:"eventDescription"`
+	// The level of the event associated with a prefix.
+	EventLevel string `pulumi:"eventLevel"`
+	// The summary of the event associated with a prefix.
+	EventSummary string `pulumi:"eventSummary"`
+	// The timestamp of the event associated with a prefix.
+	EventTimestamp string `pulumi:"eventTimestamp"`
+	// The type of the event associated with a prefix.
+	EventType string `pulumi:"eventType"`
+}
+
+// PeeringServicePrefixEventInvokeResponseInput is an input type that accepts PeeringServicePrefixEventInvokeResponseArgs and PeeringServicePrefixEventInvokeResponseOutput values.
+// You can construct a concrete instance of `PeeringServicePrefixEventInvokeResponseInput` via:
+//
+//          PeeringServicePrefixEventInvokeResponseArgs{...}
+type PeeringServicePrefixEventInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPeeringServicePrefixEventInvokeResponseOutput() PeeringServicePrefixEventInvokeResponseOutput
+	ToPeeringServicePrefixEventInvokeResponseOutputWithContext(context.Context) PeeringServicePrefixEventInvokeResponseOutput
+}
+
+// The details of the event associated with a prefix.
+type PeeringServicePrefixEventInvokeResponseArgs struct {
+	// The description of the event associated with a prefix.
+	EventDescription pulumi.StringInput `pulumi:"eventDescription"`
+	// The level of the event associated with a prefix.
+	EventLevel pulumi.StringInput `pulumi:"eventLevel"`
+	// The summary of the event associated with a prefix.
+	EventSummary pulumi.StringInput `pulumi:"eventSummary"`
+	// The timestamp of the event associated with a prefix.
+	EventTimestamp pulumi.StringInput `pulumi:"eventTimestamp"`
+	// The type of the event associated with a prefix.
+	EventType pulumi.StringInput `pulumi:"eventType"`
+}
+
+func (PeeringServicePrefixEventInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringServicePrefixEventInvokeResponse)(nil)).Elem()
+}
+
+func (i PeeringServicePrefixEventInvokeResponseArgs) ToPeeringServicePrefixEventInvokeResponseOutput() PeeringServicePrefixEventInvokeResponseOutput {
+	return i.ToPeeringServicePrefixEventInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PeeringServicePrefixEventInvokeResponseArgs) ToPeeringServicePrefixEventInvokeResponseOutputWithContext(ctx context.Context) PeeringServicePrefixEventInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringServicePrefixEventInvokeResponseOutput)
+}
+
+// PeeringServicePrefixEventInvokeResponseArrayInput is an input type that accepts PeeringServicePrefixEventInvokeResponseArray and PeeringServicePrefixEventInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PeeringServicePrefixEventInvokeResponseArrayInput` via:
+//
+//          PeeringServicePrefixEventInvokeResponseArray{ PeeringServicePrefixEventInvokeResponseArgs{...} }
+type PeeringServicePrefixEventInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPeeringServicePrefixEventInvokeResponseArrayOutput() PeeringServicePrefixEventInvokeResponseArrayOutput
+	ToPeeringServicePrefixEventInvokeResponseArrayOutputWithContext(context.Context) PeeringServicePrefixEventInvokeResponseArrayOutput
+}
+
+type PeeringServicePrefixEventInvokeResponseArray []PeeringServicePrefixEventInvokeResponseInput
+
+func (PeeringServicePrefixEventInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PeeringServicePrefixEventInvokeResponse)(nil)).Elem()
+}
+
+func (i PeeringServicePrefixEventInvokeResponseArray) ToPeeringServicePrefixEventInvokeResponseArrayOutput() PeeringServicePrefixEventInvokeResponseArrayOutput {
+	return i.ToPeeringServicePrefixEventInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PeeringServicePrefixEventInvokeResponseArray) ToPeeringServicePrefixEventInvokeResponseArrayOutputWithContext(ctx context.Context) PeeringServicePrefixEventInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringServicePrefixEventInvokeResponseArrayOutput)
+}
+
+// The details of the event associated with a prefix.
+type PeeringServicePrefixEventInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PeeringServicePrefixEventInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringServicePrefixEventInvokeResponse)(nil)).Elem()
+}
+
+func (o PeeringServicePrefixEventInvokeResponseOutput) ToPeeringServicePrefixEventInvokeResponseOutput() PeeringServicePrefixEventInvokeResponseOutput {
+	return o
+}
+
+func (o PeeringServicePrefixEventInvokeResponseOutput) ToPeeringServicePrefixEventInvokeResponseOutputWithContext(ctx context.Context) PeeringServicePrefixEventInvokeResponseOutput {
+	return o
+}
+
+// The description of the event associated with a prefix.
+func (o PeeringServicePrefixEventInvokeResponseOutput) EventDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v PeeringServicePrefixEventInvokeResponse) string { return v.EventDescription }).(pulumi.StringOutput)
+}
+
+// The level of the event associated with a prefix.
+func (o PeeringServicePrefixEventInvokeResponseOutput) EventLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v PeeringServicePrefixEventInvokeResponse) string { return v.EventLevel }).(pulumi.StringOutput)
+}
+
+// The summary of the event associated with a prefix.
+func (o PeeringServicePrefixEventInvokeResponseOutput) EventSummary() pulumi.StringOutput {
+	return o.ApplyT(func(v PeeringServicePrefixEventInvokeResponse) string { return v.EventSummary }).(pulumi.StringOutput)
+}
+
+// The timestamp of the event associated with a prefix.
+func (o PeeringServicePrefixEventInvokeResponseOutput) EventTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v PeeringServicePrefixEventInvokeResponse) string { return v.EventTimestamp }).(pulumi.StringOutput)
+}
+
+// The type of the event associated with a prefix.
+func (o PeeringServicePrefixEventInvokeResponseOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v PeeringServicePrefixEventInvokeResponse) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+type PeeringServicePrefixEventInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PeeringServicePrefixEventInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PeeringServicePrefixEventInvokeResponse)(nil)).Elem()
+}
+
+func (o PeeringServicePrefixEventInvokeResponseArrayOutput) ToPeeringServicePrefixEventInvokeResponseArrayOutput() PeeringServicePrefixEventInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PeeringServicePrefixEventInvokeResponseArrayOutput) ToPeeringServicePrefixEventInvokeResponseArrayOutputWithContext(ctx context.Context) PeeringServicePrefixEventInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PeeringServicePrefixEventInvokeResponseArrayOutput) Index(i pulumi.IntInput) PeeringServicePrefixEventInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PeeringServicePrefixEventInvokeResponse {
+		return vs[0].([]PeeringServicePrefixEventInvokeResponse)[vs[1].(int)]
+	}).(PeeringServicePrefixEventInvokeResponseOutput)
 }
 
 // The details of the event associated with a prefix.
@@ -2456,6 +3436,88 @@ func (o PeeringSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // The SKU that defines the tier and kind of the peering.
+type PeeringSkuInvokeResponse struct {
+	// The family of the peering SKU.
+	Family *string `pulumi:"family"`
+	// The name of the peering SKU.
+	Name *string `pulumi:"name"`
+	// The size of the peering SKU.
+	Size *string `pulumi:"size"`
+	// The tier of the peering SKU.
+	Tier *string `pulumi:"tier"`
+}
+
+// PeeringSkuInvokeResponseInput is an input type that accepts PeeringSkuInvokeResponseArgs and PeeringSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `PeeringSkuInvokeResponseInput` via:
+//
+//          PeeringSkuInvokeResponseArgs{...}
+type PeeringSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPeeringSkuInvokeResponseOutput() PeeringSkuInvokeResponseOutput
+	ToPeeringSkuInvokeResponseOutputWithContext(context.Context) PeeringSkuInvokeResponseOutput
+}
+
+// The SKU that defines the tier and kind of the peering.
+type PeeringSkuInvokeResponseArgs struct {
+	// The family of the peering SKU.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The name of the peering SKU.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The size of the peering SKU.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// The tier of the peering SKU.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (PeeringSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i PeeringSkuInvokeResponseArgs) ToPeeringSkuInvokeResponseOutput() PeeringSkuInvokeResponseOutput {
+	return i.ToPeeringSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PeeringSkuInvokeResponseArgs) ToPeeringSkuInvokeResponseOutputWithContext(ctx context.Context) PeeringSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringSkuInvokeResponseOutput)
+}
+
+// The SKU that defines the tier and kind of the peering.
+type PeeringSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PeeringSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o PeeringSkuInvokeResponseOutput) ToPeeringSkuInvokeResponseOutput() PeeringSkuInvokeResponseOutput {
+	return o
+}
+
+func (o PeeringSkuInvokeResponseOutput) ToPeeringSkuInvokeResponseOutputWithContext(ctx context.Context) PeeringSkuInvokeResponseOutput {
+	return o
+}
+
+// The family of the peering SKU.
+func (o PeeringSkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringSkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The name of the peering SKU.
+func (o PeeringSkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringSkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The size of the peering SKU.
+func (o PeeringSkuInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringSkuInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The tier of the peering SKU.
+func (o PeeringSkuInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringSkuInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The SKU that defines the tier and kind of the peering.
 type PeeringSkuResponse struct {
 	// The family of the peering SKU.
 	Family *string `pulumi:"family"`
@@ -2781,6 +3843,140 @@ func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The sub resource.
+type SubResourceInvokeResponse struct {
+	// The identifier of the referenced resource.
+	Id *string `pulumi:"id"`
+}
+
+// SubResourceInvokeResponseInput is an input type that accepts SubResourceInvokeResponseArgs and SubResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `SubResourceInvokeResponseInput` via:
+//
+//          SubResourceInvokeResponseArgs{...}
+type SubResourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput
+	ToSubResourceInvokeResponseOutputWithContext(context.Context) SubResourceInvokeResponseOutput
+}
+
+// The sub resource.
+type SubResourceInvokeResponseArgs struct {
+	// The identifier of the referenced resource.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SubResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput {
+	return i.ToSubResourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponseOutputWithContext(ctx context.Context) SubResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceInvokeResponseOutput)
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponsePtrOutput() SubResourceInvokeResponsePtrOutput {
+	return i.ToSubResourceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SubResourceInvokeResponseArgs) ToSubResourceInvokeResponsePtrOutputWithContext(ctx context.Context) SubResourceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceInvokeResponseOutput).ToSubResourceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SubResourceInvokeResponsePtrInput is an input type that accepts SubResourceInvokeResponseArgs, SubResourceInvokeResponsePtr and SubResourceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SubResourceInvokeResponsePtrInput` via:
+//
+//          SubResourceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SubResourceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSubResourceInvokeResponsePtrOutput() SubResourceInvokeResponsePtrOutput
+	ToSubResourceInvokeResponsePtrOutputWithContext(context.Context) SubResourceInvokeResponsePtrOutput
+}
+
+type subResourceInvokeResponsePtrType SubResourceInvokeResponseArgs
+
+func SubResourceInvokeResponsePtr(v *SubResourceInvokeResponseArgs) SubResourceInvokeResponsePtrInput {
+	return (*subResourceInvokeResponsePtrType)(v)
+}
+
+func (*subResourceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i *subResourceInvokeResponsePtrType) ToSubResourceInvokeResponsePtrOutput() SubResourceInvokeResponsePtrOutput {
+	return i.ToSubResourceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *subResourceInvokeResponsePtrType) ToSubResourceInvokeResponsePtrOutputWithContext(ctx context.Context) SubResourceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceInvokeResponsePtrOutput)
+}
+
+// The sub resource.
+type SubResourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SubResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponseOutput() SubResourceInvokeResponseOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponseOutputWithContext(ctx context.Context) SubResourceInvokeResponseOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponsePtrOutput() SubResourceInvokeResponsePtrOutput {
+	return o.ToSubResourceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SubResourceInvokeResponseOutput) ToSubResourceInvokeResponsePtrOutputWithContext(ctx context.Context) SubResourceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SubResourceInvokeResponse) *SubResourceInvokeResponse {
+		return &v
+	}).(SubResourceInvokeResponsePtrOutput)
+}
+
+// The identifier of the referenced resource.
+func (o SubResourceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubResourceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SubResourceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SubResourceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o SubResourceInvokeResponsePtrOutput) ToSubResourceInvokeResponsePtrOutput() SubResourceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponsePtrOutput) ToSubResourceInvokeResponsePtrOutputWithContext(ctx context.Context) SubResourceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SubResourceInvokeResponsePtrOutput) Elem() SubResourceInvokeResponseOutput {
+	return o.ApplyT(func(v *SubResourceInvokeResponse) SubResourceInvokeResponse { return *v }).(SubResourceInvokeResponseOutput)
+}
+
+// The identifier of the referenced resource.
+func (o SubResourceInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubResourceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The sub resource.
 type SubResourceResponse struct {
 	// The identifier of the referenced resource.
 	Id *string `pulumi:"id"`
@@ -2917,36 +4113,50 @@ func (o SubResourceResponsePtrOutput) Id() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(BgpSessionOutput{})
 	pulumi.RegisterOutputType(BgpSessionPtrOutput{})
+	pulumi.RegisterOutputType(BgpSessionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BgpSessionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(BgpSessionResponseOutput{})
 	pulumi.RegisterOutputType(BgpSessionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContactInfoOutput{})
 	pulumi.RegisterOutputType(ContactInfoPtrOutput{})
+	pulumi.RegisterOutputType(ContactInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContactInfoResponseOutput{})
 	pulumi.RegisterOutputType(ContactInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(DirectConnectionOutput{})
 	pulumi.RegisterOutputType(DirectConnectionArrayOutput{})
+	pulumi.RegisterOutputType(DirectConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DirectConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DirectConnectionResponseOutput{})
 	pulumi.RegisterOutputType(DirectConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExchangeConnectionOutput{})
 	pulumi.RegisterOutputType(ExchangeConnectionArrayOutput{})
+	pulumi.RegisterOutputType(ExchangeConnectionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ExchangeConnectionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExchangeConnectionResponseOutput{})
 	pulumi.RegisterOutputType(ExchangeConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesDirectOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesDirectPtrOutput{})
+	pulumi.RegisterOutputType(PeeringPropertiesDirectInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesDirectResponseOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesDirectResponsePtrOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesExchangeOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesExchangePtrOutput{})
+	pulumi.RegisterOutputType(PeeringPropertiesExchangeInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesExchangeResponseOutput{})
 	pulumi.RegisterOutputType(PeeringPropertiesExchangeResponsePtrOutput{})
+	pulumi.RegisterOutputType(PeeringServicePrefixEventInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PeeringServicePrefixEventInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PeeringServicePrefixEventResponseOutput{})
 	pulumi.RegisterOutputType(PeeringServicePrefixEventResponseArrayOutput{})
 	pulumi.RegisterOutputType(PeeringSkuOutput{})
 	pulumi.RegisterOutputType(PeeringSkuPtrOutput{})
+	pulumi.RegisterOutputType(PeeringSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PeeringSkuResponseOutput{})
 	pulumi.RegisterOutputType(PeeringSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceOutput{})
 	pulumi.RegisterOutputType(SubResourcePtrOutput{})
+	pulumi.RegisterOutputType(SubResourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SubResourceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseOutput{})
 	pulumi.RegisterOutputType(SubResourceResponsePtrOutput{})
 }

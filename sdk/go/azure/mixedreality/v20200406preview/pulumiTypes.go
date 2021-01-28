@@ -141,6 +141,76 @@ func (o RemoteRenderingAccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RemoteRenderingAccountInvokeResponseIdentity struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// RemoteRenderingAccountInvokeResponseIdentityInput is an input type that accepts RemoteRenderingAccountInvokeResponseIdentityArgs and RemoteRenderingAccountInvokeResponseIdentityOutput values.
+// You can construct a concrete instance of `RemoteRenderingAccountInvokeResponseIdentityInput` via:
+//
+//          RemoteRenderingAccountInvokeResponseIdentityArgs{...}
+type RemoteRenderingAccountInvokeResponseIdentityInput interface {
+	pulumi.Input
+
+	ToRemoteRenderingAccountInvokeResponseIdentityOutput() RemoteRenderingAccountInvokeResponseIdentityOutput
+	ToRemoteRenderingAccountInvokeResponseIdentityOutputWithContext(context.Context) RemoteRenderingAccountInvokeResponseIdentityOutput
+}
+
+type RemoteRenderingAccountInvokeResponseIdentityArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (RemoteRenderingAccountInvokeResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteRenderingAccountInvokeResponseIdentity)(nil)).Elem()
+}
+
+func (i RemoteRenderingAccountInvokeResponseIdentityArgs) ToRemoteRenderingAccountInvokeResponseIdentityOutput() RemoteRenderingAccountInvokeResponseIdentityOutput {
+	return i.ToRemoteRenderingAccountInvokeResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i RemoteRenderingAccountInvokeResponseIdentityArgs) ToRemoteRenderingAccountInvokeResponseIdentityOutputWithContext(ctx context.Context) RemoteRenderingAccountInvokeResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteRenderingAccountInvokeResponseIdentityOutput)
+}
+
+type RemoteRenderingAccountInvokeResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (RemoteRenderingAccountInvokeResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteRenderingAccountInvokeResponseIdentity)(nil)).Elem()
+}
+
+func (o RemoteRenderingAccountInvokeResponseIdentityOutput) ToRemoteRenderingAccountInvokeResponseIdentityOutput() RemoteRenderingAccountInvokeResponseIdentityOutput {
+	return o
+}
+
+func (o RemoteRenderingAccountInvokeResponseIdentityOutput) ToRemoteRenderingAccountInvokeResponseIdentityOutputWithContext(ctx context.Context) RemoteRenderingAccountInvokeResponseIdentityOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o RemoteRenderingAccountInvokeResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteRenderingAccountInvokeResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o RemoteRenderingAccountInvokeResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v RemoteRenderingAccountInvokeResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o RemoteRenderingAccountInvokeResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemoteRenderingAccountInvokeResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 type RemoteRenderingAccountResponseIdentity struct {
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -313,6 +383,7 @@ func (o RemoteRenderingAccountResponseIdentityPtrOutput) Type() pulumi.StringPtr
 func init() {
 	pulumi.RegisterOutputType(RemoteRenderingAccountIdentityOutput{})
 	pulumi.RegisterOutputType(RemoteRenderingAccountIdentityPtrOutput{})
+	pulumi.RegisterOutputType(RemoteRenderingAccountInvokeResponseIdentityOutput{})
 	pulumi.RegisterOutputType(RemoteRenderingAccountResponseIdentityOutput{})
 	pulumi.RegisterOutputType(RemoteRenderingAccountResponseIdentityPtrOutput{})
 }

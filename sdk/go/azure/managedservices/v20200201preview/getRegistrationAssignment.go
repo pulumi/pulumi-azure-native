@@ -32,7 +32,7 @@ type LookupRegistrationAssignmentResult struct {
 	// Name of the registration assignment.
 	Name string `pulumi:"name"`
 	// Properties of a registration assignment.
-	Properties RegistrationAssignmentPropertiesResponse `pulumi:"properties"`
+	Properties RegistrationAssignmentPropertiesInvokeResponse `pulumi:"properties"`
 	// Type of the resource.
 	Type string `pulumi:"type"`
 }

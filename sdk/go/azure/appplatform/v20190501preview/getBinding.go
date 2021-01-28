@@ -34,7 +34,7 @@ type LookupBindingResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Properties of the Binding resource
-	Properties BindingResourcePropertiesResponse `pulumi:"properties"`
+	Properties BindingResourcePropertiesInvokeResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

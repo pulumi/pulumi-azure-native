@@ -30,7 +30,7 @@ type LookupApplicationResult struct {
 	// Resource ID
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
 	Kind string `pulumi:"kind"`
 	// Resource location
@@ -46,11 +46,11 @@ type LookupApplicationResult struct {
 	// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
 	Parameters interface{} `pulumi:"parameters"`
 	// The plan information.
-	Plan *PlanResponse `pulumi:"plan"`
+	Plan *PlanInvokeResponse `pulumi:"plan"`
 	// The managed application provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

@@ -20,15 +20,15 @@ type GetApplicationGatewayBackendHealthOnDemandArgs struct {
 	// The name of the application gateway.
 	ApplicationGatewayName string `pulumi:"applicationGatewayName"`
 	// Reference of backend pool of application gateway to which probe request will be sent.
-	BackendAddressPool *SubResource `pulumi:"backendAddressPool"`
+	BackendAddressPool *SubResourceInvoke `pulumi:"backendAddressPool"`
 	// Reference of backend http setting of application gateway to be used for test probe.
-	BackendHttpSettings *SubResource `pulumi:"backendHttpSettings"`
+	BackendHttpSettings *SubResourceInvoke `pulumi:"backendHttpSettings"`
 	// Expands BackendAddressPool and BackendHttpSettings referenced in backend health.
 	Expand *string `pulumi:"expand"`
 	// Host name to send the probe to.
 	Host *string `pulumi:"host"`
 	// Criterion for classifying a healthy probe response.
-	Match *ApplicationGatewayProbeHealthResponseMatch `pulumi:"match"`
+	Match *ApplicationGatewayProbeHealthResponseMatchInvoke `pulumi:"match"`
 	// Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>
 	Path *string `pulumi:"path"`
 	// Whether the host header should be picked from the backend http settings. Default value is false.
@@ -44,7 +44,7 @@ type GetApplicationGatewayBackendHealthOnDemandArgs struct {
 // Result of on demand test probe
 type GetApplicationGatewayBackendHealthOnDemandResult struct {
 	// Reference of an ApplicationGatewayBackendAddressPool resource.
-	BackendAddressPool *ApplicationGatewayBackendAddressPoolResponse `pulumi:"backendAddressPool"`
+	BackendAddressPool *ApplicationGatewayBackendAddressPoolInvokeResponse `pulumi:"backendAddressPool"`
 	// Application gateway BackendHealthHttp settings.
-	BackendHealthHttpSettings *ApplicationGatewayBackendHealthHttpSettingsResponse `pulumi:"backendHealthHttpSettings"`
+	BackendHealthHttpSettings *ApplicationGatewayBackendHealthHttpSettingsInvokeResponse `pulumi:"backendHealthHttpSettings"`
 }

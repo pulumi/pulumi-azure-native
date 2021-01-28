@@ -30,5 +30,5 @@ type ListDeviceFailoverTarsArgs struct {
 // The list of all devices in a resource and their eligibility status as a failover target device.
 type ListDeviceFailoverTarsResult struct {
 	// The list of all the failover targets.
-	Value []FailoverTargetResponse `pulumi:"value"`
+	Value []FailoverTargetInvokeResponse `pulumi:"value"`
 }

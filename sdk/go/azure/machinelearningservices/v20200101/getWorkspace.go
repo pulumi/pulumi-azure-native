@@ -36,7 +36,7 @@ type LookupWorkspaceResult struct {
 	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
 	DiscoveryUrl *string `pulumi:"discoveryUrl"`
 	// The encryption settings of Azure ML workspace.
-	Encryption *EncryptionPropertyResponse `pulumi:"encryption"`
+	Encryption *EncryptionPropertyInvokeResponse `pulumi:"encryption"`
 	// The friendly name for this workspace. This name in mutable
 	FriendlyName *string `pulumi:"friendlyName"`
 	// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
@@ -44,7 +44,7 @@ type LookupWorkspaceResult struct {
 	// Specifies the resource ID.
 	Id string `pulumi:"id"`
 	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
 	KeyVault *string `pulumi:"keyVault"`
 	// Specifies the location of the resource.
@@ -56,7 +56,7 @@ type LookupWorkspaceResult struct {
 	// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
 	ServiceProvisionedResourceGroup string `pulumi:"serviceProvisionedResourceGroup"`
 	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
 	StorageAccount *string `pulumi:"storageAccount"`
 	// Contains resource tags defined as key/value pairs.

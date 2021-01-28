@@ -26,5 +26,5 @@ type ListQueryKeyBySearchServiceArgs struct {
 // Response containing the query API keys for a given Azure Cognitive Search service.
 type ListQueryKeyBySearchServiceResult struct {
 	// The query keys for the Azure Cognitive Search service.
-	Value []QueryKeyResponse `pulumi:"value"`
+	Value []QueryKeyInvokeResponse `pulumi:"value"`
 }

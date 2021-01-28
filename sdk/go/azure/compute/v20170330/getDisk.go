@@ -26,11 +26,11 @@ type LookupDiskArgs struct {
 // Disk resource.
 type LookupDiskResult struct {
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponse `pulumi:"creationData"`
+	CreationData CreationDataInvokeResponse `pulumi:"creationData"`
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Encryption settings for disk or snapshot
-	EncryptionSettings *EncryptionSettingsResponse `pulumi:"encryptionSettings"`
+	EncryptionSettings *EncryptionSettingsInvokeResponse `pulumi:"encryptionSettings"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location
@@ -44,7 +44,7 @@ type LookupDiskResult struct {
 	// The disk provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
-	Sku *DiskSkuResponse `pulumi:"sku"`
+	Sku *DiskSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The time when the disk was created.

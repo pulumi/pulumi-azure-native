@@ -28,9 +28,9 @@ type LookupGatewayResult struct {
 	// User readable description of the gateway.
 	Description *string `pulumi:"description"`
 	// Network that the Application is using.
-	DestinationNetwork NetworkRefResponse `pulumi:"destinationNetwork"`
+	DestinationNetwork NetworkRefInvokeResponse `pulumi:"destinationNetwork"`
 	// Configuration for http connectivity for this gateway.
-	Http []HttpConfigResponse `pulumi:"http"`
+	Http []HttpConfigInvokeResponse `pulumi:"http"`
 	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
@@ -42,7 +42,7 @@ type LookupGatewayResult struct {
 	// State of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Network the gateway should listen on for requests.
-	SourceNetwork NetworkRefResponse `pulumi:"sourceNetwork"`
+	SourceNetwork NetworkRefInvokeResponse `pulumi:"sourceNetwork"`
 	// Status of the resource.
 	Status string `pulumi:"status"`
 	// Gives additional information about the current status of the gateway.
@@ -50,7 +50,7 @@ type LookupGatewayResult struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration for tcp connectivity for this gateway.
-	Tcp []TcpConfigResponse `pulumi:"tcp"`
+	Tcp []TcpConfigInvokeResponse `pulumi:"tcp"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

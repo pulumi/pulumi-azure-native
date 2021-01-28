@@ -129,6 +129,124 @@ func (o AssignmentPrincipalArrayOutput) Index(i pulumi.IntInput) AssignmentPrinc
 }
 
 // The AssignmentPrincipal
+type AssignmentPrincipalInvokeResponse struct {
+	// The principal id being assigned to.
+	PrincipalId string `pulumi:"principalId"`
+	// Other metadata for the principal.
+	PrincipalMetadata map[string]string `pulumi:"principalMetadata"`
+	// The Type of the principal ID.
+	PrincipalType string `pulumi:"principalType"`
+}
+
+// AssignmentPrincipalInvokeResponseInput is an input type that accepts AssignmentPrincipalInvokeResponseArgs and AssignmentPrincipalInvokeResponseOutput values.
+// You can construct a concrete instance of `AssignmentPrincipalInvokeResponseInput` via:
+//
+//          AssignmentPrincipalInvokeResponseArgs{...}
+type AssignmentPrincipalInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAssignmentPrincipalInvokeResponseOutput() AssignmentPrincipalInvokeResponseOutput
+	ToAssignmentPrincipalInvokeResponseOutputWithContext(context.Context) AssignmentPrincipalInvokeResponseOutput
+}
+
+// The AssignmentPrincipal
+type AssignmentPrincipalInvokeResponseArgs struct {
+	// The principal id being assigned to.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Other metadata for the principal.
+	PrincipalMetadata pulumi.StringMapInput `pulumi:"principalMetadata"`
+	// The Type of the principal ID.
+	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+}
+
+func (AssignmentPrincipalInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentPrincipalInvokeResponse)(nil)).Elem()
+}
+
+func (i AssignmentPrincipalInvokeResponseArgs) ToAssignmentPrincipalInvokeResponseOutput() AssignmentPrincipalInvokeResponseOutput {
+	return i.ToAssignmentPrincipalInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AssignmentPrincipalInvokeResponseArgs) ToAssignmentPrincipalInvokeResponseOutputWithContext(ctx context.Context) AssignmentPrincipalInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPrincipalInvokeResponseOutput)
+}
+
+// AssignmentPrincipalInvokeResponseArrayInput is an input type that accepts AssignmentPrincipalInvokeResponseArray and AssignmentPrincipalInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AssignmentPrincipalInvokeResponseArrayInput` via:
+//
+//          AssignmentPrincipalInvokeResponseArray{ AssignmentPrincipalInvokeResponseArgs{...} }
+type AssignmentPrincipalInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAssignmentPrincipalInvokeResponseArrayOutput() AssignmentPrincipalInvokeResponseArrayOutput
+	ToAssignmentPrincipalInvokeResponseArrayOutputWithContext(context.Context) AssignmentPrincipalInvokeResponseArrayOutput
+}
+
+type AssignmentPrincipalInvokeResponseArray []AssignmentPrincipalInvokeResponseInput
+
+func (AssignmentPrincipalInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentPrincipalInvokeResponse)(nil)).Elem()
+}
+
+func (i AssignmentPrincipalInvokeResponseArray) ToAssignmentPrincipalInvokeResponseArrayOutput() AssignmentPrincipalInvokeResponseArrayOutput {
+	return i.ToAssignmentPrincipalInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AssignmentPrincipalInvokeResponseArray) ToAssignmentPrincipalInvokeResponseArrayOutputWithContext(ctx context.Context) AssignmentPrincipalInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssignmentPrincipalInvokeResponseArrayOutput)
+}
+
+// The AssignmentPrincipal
+type AssignmentPrincipalInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AssignmentPrincipalInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssignmentPrincipalInvokeResponse)(nil)).Elem()
+}
+
+func (o AssignmentPrincipalInvokeResponseOutput) ToAssignmentPrincipalInvokeResponseOutput() AssignmentPrincipalInvokeResponseOutput {
+	return o
+}
+
+func (o AssignmentPrincipalInvokeResponseOutput) ToAssignmentPrincipalInvokeResponseOutputWithContext(ctx context.Context) AssignmentPrincipalInvokeResponseOutput {
+	return o
+}
+
+// The principal id being assigned to.
+func (o AssignmentPrincipalInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentPrincipalInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Other metadata for the principal.
+func (o AssignmentPrincipalInvokeResponseOutput) PrincipalMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AssignmentPrincipalInvokeResponse) map[string]string { return v.PrincipalMetadata }).(pulumi.StringMapOutput)
+}
+
+// The Type of the principal ID.
+func (o AssignmentPrincipalInvokeResponseOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v AssignmentPrincipalInvokeResponse) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+type AssignmentPrincipalInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AssignmentPrincipalInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssignmentPrincipalInvokeResponse)(nil)).Elem()
+}
+
+func (o AssignmentPrincipalInvokeResponseArrayOutput) ToAssignmentPrincipalInvokeResponseArrayOutput() AssignmentPrincipalInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AssignmentPrincipalInvokeResponseArrayOutput) ToAssignmentPrincipalInvokeResponseArrayOutputWithContext(ctx context.Context) AssignmentPrincipalInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AssignmentPrincipalInvokeResponseArrayOutput) Index(i pulumi.IntInput) AssignmentPrincipalInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssignmentPrincipalInvokeResponse {
+		return vs[0].([]AssignmentPrincipalInvokeResponse)[vs[1].(int)]
+	}).(AssignmentPrincipalInvokeResponseOutput)
+}
+
+// The AssignmentPrincipal
 type AssignmentPrincipalResponse struct {
 	// The principal id being assigned to.
 	PrincipalId string `pulumi:"principalId"`
@@ -397,6 +515,70 @@ func (o ConnectorMappingAvailabilityPtrOutput) Interval() pulumi.IntPtrOutput {
 		}
 		return &v.Interval
 	}).(pulumi.IntPtrOutput)
+}
+
+// Connector mapping property availability.
+type ConnectorMappingAvailabilityInvokeResponse struct {
+	// The frequency to update.
+	Frequency *string `pulumi:"frequency"`
+	// The interval of the given frequency to use.
+	Interval int `pulumi:"interval"`
+}
+
+// ConnectorMappingAvailabilityInvokeResponseInput is an input type that accepts ConnectorMappingAvailabilityInvokeResponseArgs and ConnectorMappingAvailabilityInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectorMappingAvailabilityInvokeResponseInput` via:
+//
+//          ConnectorMappingAvailabilityInvokeResponseArgs{...}
+type ConnectorMappingAvailabilityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectorMappingAvailabilityInvokeResponseOutput() ConnectorMappingAvailabilityInvokeResponseOutput
+	ToConnectorMappingAvailabilityInvokeResponseOutputWithContext(context.Context) ConnectorMappingAvailabilityInvokeResponseOutput
+}
+
+// Connector mapping property availability.
+type ConnectorMappingAvailabilityInvokeResponseArgs struct {
+	// The frequency to update.
+	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+	// The interval of the given frequency to use.
+	Interval pulumi.IntInput `pulumi:"interval"`
+}
+
+func (ConnectorMappingAvailabilityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingAvailabilityInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectorMappingAvailabilityInvokeResponseArgs) ToConnectorMappingAvailabilityInvokeResponseOutput() ConnectorMappingAvailabilityInvokeResponseOutput {
+	return i.ToConnectorMappingAvailabilityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectorMappingAvailabilityInvokeResponseArgs) ToConnectorMappingAvailabilityInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingAvailabilityInvokeResponseOutput)
+}
+
+// Connector mapping property availability.
+type ConnectorMappingAvailabilityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectorMappingAvailabilityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingAvailabilityInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectorMappingAvailabilityInvokeResponseOutput) ToConnectorMappingAvailabilityInvokeResponseOutput() ConnectorMappingAvailabilityInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectorMappingAvailabilityInvokeResponseOutput) ToConnectorMappingAvailabilityInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingAvailabilityInvokeResponseOutput {
+	return o
+}
+
+// The frequency to update.
+func (o ConnectorMappingAvailabilityInvokeResponseOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingAvailabilityInvokeResponse) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+// The interval of the given frequency to use.
+func (o ConnectorMappingAvailabilityInvokeResponseOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v ConnectorMappingAvailabilityInvokeResponse) int { return v.Interval }).(pulumi.IntOutput)
 }
 
 // Connector mapping property availability.
@@ -706,6 +888,70 @@ func (o ConnectorMappingCompleteOperationPtrOutput) DestinationFolder() pulumi.S
 }
 
 // The complete operation.
+type ConnectorMappingCompleteOperationInvokeResponse struct {
+	// The type of completion operation.
+	CompletionOperationType *string `pulumi:"completionOperationType"`
+	// The destination folder where files will be moved to once the import is done.
+	DestinationFolder *string `pulumi:"destinationFolder"`
+}
+
+// ConnectorMappingCompleteOperationInvokeResponseInput is an input type that accepts ConnectorMappingCompleteOperationInvokeResponseArgs and ConnectorMappingCompleteOperationInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectorMappingCompleteOperationInvokeResponseInput` via:
+//
+//          ConnectorMappingCompleteOperationInvokeResponseArgs{...}
+type ConnectorMappingCompleteOperationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectorMappingCompleteOperationInvokeResponseOutput() ConnectorMappingCompleteOperationInvokeResponseOutput
+	ToConnectorMappingCompleteOperationInvokeResponseOutputWithContext(context.Context) ConnectorMappingCompleteOperationInvokeResponseOutput
+}
+
+// The complete operation.
+type ConnectorMappingCompleteOperationInvokeResponseArgs struct {
+	// The type of completion operation.
+	CompletionOperationType pulumi.StringPtrInput `pulumi:"completionOperationType"`
+	// The destination folder where files will be moved to once the import is done.
+	DestinationFolder pulumi.StringPtrInput `pulumi:"destinationFolder"`
+}
+
+func (ConnectorMappingCompleteOperationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingCompleteOperationInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectorMappingCompleteOperationInvokeResponseArgs) ToConnectorMappingCompleteOperationInvokeResponseOutput() ConnectorMappingCompleteOperationInvokeResponseOutput {
+	return i.ToConnectorMappingCompleteOperationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectorMappingCompleteOperationInvokeResponseArgs) ToConnectorMappingCompleteOperationInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingCompleteOperationInvokeResponseOutput)
+}
+
+// The complete operation.
+type ConnectorMappingCompleteOperationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectorMappingCompleteOperationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingCompleteOperationInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectorMappingCompleteOperationInvokeResponseOutput) ToConnectorMappingCompleteOperationInvokeResponseOutput() ConnectorMappingCompleteOperationInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectorMappingCompleteOperationInvokeResponseOutput) ToConnectorMappingCompleteOperationInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingCompleteOperationInvokeResponseOutput {
+	return o
+}
+
+// The type of completion operation.
+func (o ConnectorMappingCompleteOperationInvokeResponseOutput) CompletionOperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingCompleteOperationInvokeResponse) *string { return v.CompletionOperationType }).(pulumi.StringPtrOutput)
+}
+
+// The destination folder where files will be moved to once the import is done.
+func (o ConnectorMappingCompleteOperationInvokeResponseOutput) DestinationFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingCompleteOperationInvokeResponse) *string { return v.DestinationFolder }).(pulumi.StringPtrOutput)
+}
+
+// The complete operation.
 type ConnectorMappingCompleteOperationResponse struct {
 	// The type of completion operation.
 	CompletionOperationType *string `pulumi:"completionOperationType"`
@@ -1011,6 +1257,70 @@ func (o ConnectorMappingErrorManagementPtrOutput) ErrorManagementType() pulumi.S
 		}
 		return &v.ErrorManagementType
 	}).(pulumi.StringPtrOutput)
+}
+
+// The error management.
+type ConnectorMappingErrorManagementInvokeResponse struct {
+	// The error limit allowed while importing data.
+	ErrorLimit *int `pulumi:"errorLimit"`
+	// The type of error management to use for the mapping.
+	ErrorManagementType string `pulumi:"errorManagementType"`
+}
+
+// ConnectorMappingErrorManagementInvokeResponseInput is an input type that accepts ConnectorMappingErrorManagementInvokeResponseArgs and ConnectorMappingErrorManagementInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectorMappingErrorManagementInvokeResponseInput` via:
+//
+//          ConnectorMappingErrorManagementInvokeResponseArgs{...}
+type ConnectorMappingErrorManagementInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectorMappingErrorManagementInvokeResponseOutput() ConnectorMappingErrorManagementInvokeResponseOutput
+	ToConnectorMappingErrorManagementInvokeResponseOutputWithContext(context.Context) ConnectorMappingErrorManagementInvokeResponseOutput
+}
+
+// The error management.
+type ConnectorMappingErrorManagementInvokeResponseArgs struct {
+	// The error limit allowed while importing data.
+	ErrorLimit pulumi.IntPtrInput `pulumi:"errorLimit"`
+	// The type of error management to use for the mapping.
+	ErrorManagementType pulumi.StringInput `pulumi:"errorManagementType"`
+}
+
+func (ConnectorMappingErrorManagementInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingErrorManagementInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectorMappingErrorManagementInvokeResponseArgs) ToConnectorMappingErrorManagementInvokeResponseOutput() ConnectorMappingErrorManagementInvokeResponseOutput {
+	return i.ToConnectorMappingErrorManagementInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectorMappingErrorManagementInvokeResponseArgs) ToConnectorMappingErrorManagementInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingErrorManagementInvokeResponseOutput)
+}
+
+// The error management.
+type ConnectorMappingErrorManagementInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectorMappingErrorManagementInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingErrorManagementInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectorMappingErrorManagementInvokeResponseOutput) ToConnectorMappingErrorManagementInvokeResponseOutput() ConnectorMappingErrorManagementInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectorMappingErrorManagementInvokeResponseOutput) ToConnectorMappingErrorManagementInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingErrorManagementInvokeResponseOutput {
+	return o
+}
+
+// The error limit allowed while importing data.
+func (o ConnectorMappingErrorManagementInvokeResponseOutput) ErrorLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingErrorManagementInvokeResponse) *int { return v.ErrorLimit }).(pulumi.IntPtrOutput)
+}
+
+// The type of error management to use for the mapping.
+func (o ConnectorMappingErrorManagementInvokeResponseOutput) ErrorManagementType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorMappingErrorManagementInvokeResponse) string { return v.ErrorManagementType }).(pulumi.StringOutput)
 }
 
 // The error management.
@@ -1393,6 +1703,106 @@ func (o ConnectorMappingFormatPtrOutput) QuoteEscapeCharacter() pulumi.StringPtr
 		}
 		return v.QuoteEscapeCharacter
 	}).(pulumi.StringPtrOutput)
+}
+
+// Connector mapping property format.
+type ConnectorMappingFormatInvokeResponse struct {
+	// The oData language.
+	AcceptLanguage *string `pulumi:"acceptLanguage"`
+	// Character separating array elements.
+	ArraySeparator *string `pulumi:"arraySeparator"`
+	// The character that signifies a break between columns.
+	ColumnDelimiter *string `pulumi:"columnDelimiter"`
+	// The type mapping format.
+	FormatType string `pulumi:"formatType"`
+	// Quote character, used to indicate enquoted fields.
+	QuoteCharacter *string `pulumi:"quoteCharacter"`
+	// Escape character for quotes, can be the same as the quoteCharacter.
+	QuoteEscapeCharacter *string `pulumi:"quoteEscapeCharacter"`
+}
+
+// ConnectorMappingFormatInvokeResponseInput is an input type that accepts ConnectorMappingFormatInvokeResponseArgs and ConnectorMappingFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectorMappingFormatInvokeResponseInput` via:
+//
+//          ConnectorMappingFormatInvokeResponseArgs{...}
+type ConnectorMappingFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectorMappingFormatInvokeResponseOutput() ConnectorMappingFormatInvokeResponseOutput
+	ToConnectorMappingFormatInvokeResponseOutputWithContext(context.Context) ConnectorMappingFormatInvokeResponseOutput
+}
+
+// Connector mapping property format.
+type ConnectorMappingFormatInvokeResponseArgs struct {
+	// The oData language.
+	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
+	// Character separating array elements.
+	ArraySeparator pulumi.StringPtrInput `pulumi:"arraySeparator"`
+	// The character that signifies a break between columns.
+	ColumnDelimiter pulumi.StringPtrInput `pulumi:"columnDelimiter"`
+	// The type mapping format.
+	FormatType pulumi.StringInput `pulumi:"formatType"`
+	// Quote character, used to indicate enquoted fields.
+	QuoteCharacter pulumi.StringPtrInput `pulumi:"quoteCharacter"`
+	// Escape character for quotes, can be the same as the quoteCharacter.
+	QuoteEscapeCharacter pulumi.StringPtrInput `pulumi:"quoteEscapeCharacter"`
+}
+
+func (ConnectorMappingFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectorMappingFormatInvokeResponseArgs) ToConnectorMappingFormatInvokeResponseOutput() ConnectorMappingFormatInvokeResponseOutput {
+	return i.ToConnectorMappingFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectorMappingFormatInvokeResponseArgs) ToConnectorMappingFormatInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingFormatInvokeResponseOutput)
+}
+
+// Connector mapping property format.
+type ConnectorMappingFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectorMappingFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectorMappingFormatInvokeResponseOutput) ToConnectorMappingFormatInvokeResponseOutput() ConnectorMappingFormatInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectorMappingFormatInvokeResponseOutput) ToConnectorMappingFormatInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingFormatInvokeResponseOutput {
+	return o
+}
+
+// The oData language.
+func (o ConnectorMappingFormatInvokeResponseOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingFormatInvokeResponse) *string { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+// Character separating array elements.
+func (o ConnectorMappingFormatInvokeResponseOutput) ArraySeparator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingFormatInvokeResponse) *string { return v.ArraySeparator }).(pulumi.StringPtrOutput)
+}
+
+// The character that signifies a break between columns.
+func (o ConnectorMappingFormatInvokeResponseOutput) ColumnDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingFormatInvokeResponse) *string { return v.ColumnDelimiter }).(pulumi.StringPtrOutput)
+}
+
+// The type mapping format.
+func (o ConnectorMappingFormatInvokeResponseOutput) FormatType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorMappingFormatInvokeResponse) string { return v.FormatType }).(pulumi.StringOutput)
+}
+
+// Quote character, used to indicate enquoted fields.
+func (o ConnectorMappingFormatInvokeResponseOutput) QuoteCharacter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingFormatInvokeResponse) *string { return v.QuoteCharacter }).(pulumi.StringPtrOutput)
+}
+
+// Escape character for quotes, can be the same as the quoteCharacter.
+func (o ConnectorMappingFormatInvokeResponseOutput) QuoteEscapeCharacter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingFormatInvokeResponse) *string { return v.QuoteEscapeCharacter }).(pulumi.StringPtrOutput)
 }
 
 // Connector mapping property format.
@@ -1892,6 +2302,132 @@ func (o ConnectorMappingPropertiesPtrOutput) Structure() ConnectorMappingStructu
 }
 
 // The connector mapping properties.
+type ConnectorMappingPropertiesInvokeResponse struct {
+	// The availability of mapping property.
+	Availability ConnectorMappingAvailabilityInvokeResponse `pulumi:"availability"`
+	// The operation after import is done.
+	CompleteOperation ConnectorMappingCompleteOperationInvokeResponse `pulumi:"completeOperation"`
+	// The error management setting for the mapping.
+	ErrorManagement ConnectorMappingErrorManagementInvokeResponse `pulumi:"errorManagement"`
+	// The file filter for the mapping.
+	FileFilter *string `pulumi:"fileFilter"`
+	// The folder path for the mapping.
+	FolderPath *string `pulumi:"folderPath"`
+	// The format of mapping property.
+	Format ConnectorMappingFormatInvokeResponse `pulumi:"format"`
+	// If the file contains a header or not.
+	HasHeader *bool `pulumi:"hasHeader"`
+	// Ingestion mapping information at property level.
+	Structure []ConnectorMappingStructureInvokeResponse `pulumi:"structure"`
+}
+
+// ConnectorMappingPropertiesInvokeResponseInput is an input type that accepts ConnectorMappingPropertiesInvokeResponseArgs and ConnectorMappingPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectorMappingPropertiesInvokeResponseInput` via:
+//
+//          ConnectorMappingPropertiesInvokeResponseArgs{...}
+type ConnectorMappingPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectorMappingPropertiesInvokeResponseOutput() ConnectorMappingPropertiesInvokeResponseOutput
+	ToConnectorMappingPropertiesInvokeResponseOutputWithContext(context.Context) ConnectorMappingPropertiesInvokeResponseOutput
+}
+
+// The connector mapping properties.
+type ConnectorMappingPropertiesInvokeResponseArgs struct {
+	// The availability of mapping property.
+	Availability ConnectorMappingAvailabilityInvokeResponseInput `pulumi:"availability"`
+	// The operation after import is done.
+	CompleteOperation ConnectorMappingCompleteOperationInvokeResponseInput `pulumi:"completeOperation"`
+	// The error management setting for the mapping.
+	ErrorManagement ConnectorMappingErrorManagementInvokeResponseInput `pulumi:"errorManagement"`
+	// The file filter for the mapping.
+	FileFilter pulumi.StringPtrInput `pulumi:"fileFilter"`
+	// The folder path for the mapping.
+	FolderPath pulumi.StringPtrInput `pulumi:"folderPath"`
+	// The format of mapping property.
+	Format ConnectorMappingFormatInvokeResponseInput `pulumi:"format"`
+	// If the file contains a header or not.
+	HasHeader pulumi.BoolPtrInput `pulumi:"hasHeader"`
+	// Ingestion mapping information at property level.
+	Structure ConnectorMappingStructureInvokeResponseArrayInput `pulumi:"structure"`
+}
+
+func (ConnectorMappingPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectorMappingPropertiesInvokeResponseArgs) ToConnectorMappingPropertiesInvokeResponseOutput() ConnectorMappingPropertiesInvokeResponseOutput {
+	return i.ToConnectorMappingPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectorMappingPropertiesInvokeResponseArgs) ToConnectorMappingPropertiesInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingPropertiesInvokeResponseOutput)
+}
+
+// The connector mapping properties.
+type ConnectorMappingPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectorMappingPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectorMappingPropertiesInvokeResponseOutput) ToConnectorMappingPropertiesInvokeResponseOutput() ConnectorMappingPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectorMappingPropertiesInvokeResponseOutput) ToConnectorMappingPropertiesInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The availability of mapping property.
+func (o ConnectorMappingPropertiesInvokeResponseOutput) Availability() ConnectorMappingAvailabilityInvokeResponseOutput {
+	return o.ApplyT(func(v ConnectorMappingPropertiesInvokeResponse) ConnectorMappingAvailabilityInvokeResponse {
+		return v.Availability
+	}).(ConnectorMappingAvailabilityInvokeResponseOutput)
+}
+
+// The operation after import is done.
+func (o ConnectorMappingPropertiesInvokeResponseOutput) CompleteOperation() ConnectorMappingCompleteOperationInvokeResponseOutput {
+	return o.ApplyT(func(v ConnectorMappingPropertiesInvokeResponse) ConnectorMappingCompleteOperationInvokeResponse {
+		return v.CompleteOperation
+	}).(ConnectorMappingCompleteOperationInvokeResponseOutput)
+}
+
+// The error management setting for the mapping.
+func (o ConnectorMappingPropertiesInvokeResponseOutput) ErrorManagement() ConnectorMappingErrorManagementInvokeResponseOutput {
+	return o.ApplyT(func(v ConnectorMappingPropertiesInvokeResponse) ConnectorMappingErrorManagementInvokeResponse {
+		return v.ErrorManagement
+	}).(ConnectorMappingErrorManagementInvokeResponseOutput)
+}
+
+// The file filter for the mapping.
+func (o ConnectorMappingPropertiesInvokeResponseOutput) FileFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingPropertiesInvokeResponse) *string { return v.FileFilter }).(pulumi.StringPtrOutput)
+}
+
+// The folder path for the mapping.
+func (o ConnectorMappingPropertiesInvokeResponseOutput) FolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingPropertiesInvokeResponse) *string { return v.FolderPath }).(pulumi.StringPtrOutput)
+}
+
+// The format of mapping property.
+func (o ConnectorMappingPropertiesInvokeResponseOutput) Format() ConnectorMappingFormatInvokeResponseOutput {
+	return o.ApplyT(func(v ConnectorMappingPropertiesInvokeResponse) ConnectorMappingFormatInvokeResponse { return v.Format }).(ConnectorMappingFormatInvokeResponseOutput)
+}
+
+// If the file contains a header or not.
+func (o ConnectorMappingPropertiesInvokeResponseOutput) HasHeader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingPropertiesInvokeResponse) *bool { return v.HasHeader }).(pulumi.BoolPtrOutput)
+}
+
+// Ingestion mapping information at property level.
+func (o ConnectorMappingPropertiesInvokeResponseOutput) Structure() ConnectorMappingStructureInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ConnectorMappingPropertiesInvokeResponse) []ConnectorMappingStructureInvokeResponse {
+		return v.Structure
+	}).(ConnectorMappingStructureInvokeResponseArrayOutput)
+}
+
+// The connector mapping properties.
 type ConnectorMappingPropertiesResponse struct {
 	// The availability of mapping property.
 	Availability ConnectorMappingAvailabilityResponse `pulumi:"availability"`
@@ -2290,6 +2826,133 @@ func (o ConnectorMappingStructureArrayOutput) Index(i pulumi.IntInput) Connector
 }
 
 // Connector mapping property structure.
+type ConnectorMappingStructureInvokeResponse struct {
+	// The column name of the import file.
+	ColumnName string `pulumi:"columnName"`
+	// Custom format specifier for input parsing.
+	CustomFormatSpecifier *string `pulumi:"customFormatSpecifier"`
+	// Indicates if the column is encrypted.
+	IsEncrypted *bool `pulumi:"isEncrypted"`
+	// The property name of the mapping entity.
+	PropertyName string `pulumi:"propertyName"`
+}
+
+// ConnectorMappingStructureInvokeResponseInput is an input type that accepts ConnectorMappingStructureInvokeResponseArgs and ConnectorMappingStructureInvokeResponseOutput values.
+// You can construct a concrete instance of `ConnectorMappingStructureInvokeResponseInput` via:
+//
+//          ConnectorMappingStructureInvokeResponseArgs{...}
+type ConnectorMappingStructureInvokeResponseInput interface {
+	pulumi.Input
+
+	ToConnectorMappingStructureInvokeResponseOutput() ConnectorMappingStructureInvokeResponseOutput
+	ToConnectorMappingStructureInvokeResponseOutputWithContext(context.Context) ConnectorMappingStructureInvokeResponseOutput
+}
+
+// Connector mapping property structure.
+type ConnectorMappingStructureInvokeResponseArgs struct {
+	// The column name of the import file.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// Custom format specifier for input parsing.
+	CustomFormatSpecifier pulumi.StringPtrInput `pulumi:"customFormatSpecifier"`
+	// Indicates if the column is encrypted.
+	IsEncrypted pulumi.BoolPtrInput `pulumi:"isEncrypted"`
+	// The property name of the mapping entity.
+	PropertyName pulumi.StringInput `pulumi:"propertyName"`
+}
+
+func (ConnectorMappingStructureInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingStructureInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectorMappingStructureInvokeResponseArgs) ToConnectorMappingStructureInvokeResponseOutput() ConnectorMappingStructureInvokeResponseOutput {
+	return i.ToConnectorMappingStructureInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ConnectorMappingStructureInvokeResponseArgs) ToConnectorMappingStructureInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingStructureInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingStructureInvokeResponseOutput)
+}
+
+// ConnectorMappingStructureInvokeResponseArrayInput is an input type that accepts ConnectorMappingStructureInvokeResponseArray and ConnectorMappingStructureInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ConnectorMappingStructureInvokeResponseArrayInput` via:
+//
+//          ConnectorMappingStructureInvokeResponseArray{ ConnectorMappingStructureInvokeResponseArgs{...} }
+type ConnectorMappingStructureInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToConnectorMappingStructureInvokeResponseArrayOutput() ConnectorMappingStructureInvokeResponseArrayOutput
+	ToConnectorMappingStructureInvokeResponseArrayOutputWithContext(context.Context) ConnectorMappingStructureInvokeResponseArrayOutput
+}
+
+type ConnectorMappingStructureInvokeResponseArray []ConnectorMappingStructureInvokeResponseInput
+
+func (ConnectorMappingStructureInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectorMappingStructureInvokeResponse)(nil)).Elem()
+}
+
+func (i ConnectorMappingStructureInvokeResponseArray) ToConnectorMappingStructureInvokeResponseArrayOutput() ConnectorMappingStructureInvokeResponseArrayOutput {
+	return i.ToConnectorMappingStructureInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectorMappingStructureInvokeResponseArray) ToConnectorMappingStructureInvokeResponseArrayOutputWithContext(ctx context.Context) ConnectorMappingStructureInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingStructureInvokeResponseArrayOutput)
+}
+
+// Connector mapping property structure.
+type ConnectorMappingStructureInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ConnectorMappingStructureInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorMappingStructureInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectorMappingStructureInvokeResponseOutput) ToConnectorMappingStructureInvokeResponseOutput() ConnectorMappingStructureInvokeResponseOutput {
+	return o
+}
+
+func (o ConnectorMappingStructureInvokeResponseOutput) ToConnectorMappingStructureInvokeResponseOutputWithContext(ctx context.Context) ConnectorMappingStructureInvokeResponseOutput {
+	return o
+}
+
+// The column name of the import file.
+func (o ConnectorMappingStructureInvokeResponseOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorMappingStructureInvokeResponse) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// Custom format specifier for input parsing.
+func (o ConnectorMappingStructureInvokeResponseOutput) CustomFormatSpecifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingStructureInvokeResponse) *string { return v.CustomFormatSpecifier }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the column is encrypted.
+func (o ConnectorMappingStructureInvokeResponseOutput) IsEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingStructureInvokeResponse) *bool { return v.IsEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// The property name of the mapping entity.
+func (o ConnectorMappingStructureInvokeResponseOutput) PropertyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorMappingStructureInvokeResponse) string { return v.PropertyName }).(pulumi.StringOutput)
+}
+
+type ConnectorMappingStructureInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectorMappingStructureInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectorMappingStructureInvokeResponse)(nil)).Elem()
+}
+
+func (o ConnectorMappingStructureInvokeResponseArrayOutput) ToConnectorMappingStructureInvokeResponseArrayOutput() ConnectorMappingStructureInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ConnectorMappingStructureInvokeResponseArrayOutput) ToConnectorMappingStructureInvokeResponseArrayOutputWithContext(ctx context.Context) ConnectorMappingStructureInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ConnectorMappingStructureInvokeResponseArrayOutput) Index(i pulumi.IntInput) ConnectorMappingStructureInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectorMappingStructureInvokeResponse {
+		return vs[0].([]ConnectorMappingStructureInvokeResponse)[vs[1].(int)]
+	}).(ConnectorMappingStructureInvokeResponseOutput)
+}
+
+// Connector mapping property structure.
 type ConnectorMappingStructureResponse struct {
 	// The column name of the import file.
 	ColumnName string `pulumi:"columnName"`
@@ -2414,6 +3077,151 @@ func (o ConnectorMappingStructureResponseArrayOutput) Index(i pulumi.IntInput) C
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectorMappingStructureResponse {
 		return vs[0].([]ConnectorMappingStructureResponse)[vs[1].(int)]
 	}).(ConnectorMappingStructureResponseOutput)
+}
+
+// The data source precedence is a way to know the precedence of each data source.
+type DataSourcePrecedenceInvokeResponse struct {
+	// The data source reference id.
+	DataSourceReferenceId string `pulumi:"dataSourceReferenceId"`
+	// The data source type.
+	DataSourceType string `pulumi:"dataSourceType"`
+	// The data source ID.
+	Id int `pulumi:"id"`
+	// The data source name
+	Name string `pulumi:"name"`
+	// the precedence value.
+	Precedence *int `pulumi:"precedence"`
+	// The data source status.
+	Status string `pulumi:"status"`
+}
+
+// DataSourcePrecedenceInvokeResponseInput is an input type that accepts DataSourcePrecedenceInvokeResponseArgs and DataSourcePrecedenceInvokeResponseOutput values.
+// You can construct a concrete instance of `DataSourcePrecedenceInvokeResponseInput` via:
+//
+//          DataSourcePrecedenceInvokeResponseArgs{...}
+type DataSourcePrecedenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataSourcePrecedenceInvokeResponseOutput() DataSourcePrecedenceInvokeResponseOutput
+	ToDataSourcePrecedenceInvokeResponseOutputWithContext(context.Context) DataSourcePrecedenceInvokeResponseOutput
+}
+
+// The data source precedence is a way to know the precedence of each data source.
+type DataSourcePrecedenceInvokeResponseArgs struct {
+	// The data source reference id.
+	DataSourceReferenceId pulumi.StringInput `pulumi:"dataSourceReferenceId"`
+	// The data source type.
+	DataSourceType pulumi.StringInput `pulumi:"dataSourceType"`
+	// The data source ID.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The data source name
+	Name pulumi.StringInput `pulumi:"name"`
+	// the precedence value.
+	Precedence pulumi.IntPtrInput `pulumi:"precedence"`
+	// The data source status.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (DataSourcePrecedenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourcePrecedenceInvokeResponse)(nil)).Elem()
+}
+
+func (i DataSourcePrecedenceInvokeResponseArgs) ToDataSourcePrecedenceInvokeResponseOutput() DataSourcePrecedenceInvokeResponseOutput {
+	return i.ToDataSourcePrecedenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataSourcePrecedenceInvokeResponseArgs) ToDataSourcePrecedenceInvokeResponseOutputWithContext(ctx context.Context) DataSourcePrecedenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePrecedenceInvokeResponseOutput)
+}
+
+// DataSourcePrecedenceInvokeResponseArrayInput is an input type that accepts DataSourcePrecedenceInvokeResponseArray and DataSourcePrecedenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataSourcePrecedenceInvokeResponseArrayInput` via:
+//
+//          DataSourcePrecedenceInvokeResponseArray{ DataSourcePrecedenceInvokeResponseArgs{...} }
+type DataSourcePrecedenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataSourcePrecedenceInvokeResponseArrayOutput() DataSourcePrecedenceInvokeResponseArrayOutput
+	ToDataSourcePrecedenceInvokeResponseArrayOutputWithContext(context.Context) DataSourcePrecedenceInvokeResponseArrayOutput
+}
+
+type DataSourcePrecedenceInvokeResponseArray []DataSourcePrecedenceInvokeResponseInput
+
+func (DataSourcePrecedenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourcePrecedenceInvokeResponse)(nil)).Elem()
+}
+
+func (i DataSourcePrecedenceInvokeResponseArray) ToDataSourcePrecedenceInvokeResponseArrayOutput() DataSourcePrecedenceInvokeResponseArrayOutput {
+	return i.ToDataSourcePrecedenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourcePrecedenceInvokeResponseArray) ToDataSourcePrecedenceInvokeResponseArrayOutputWithContext(ctx context.Context) DataSourcePrecedenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePrecedenceInvokeResponseArrayOutput)
+}
+
+// The data source precedence is a way to know the precedence of each data source.
+type DataSourcePrecedenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataSourcePrecedenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourcePrecedenceInvokeResponse)(nil)).Elem()
+}
+
+func (o DataSourcePrecedenceInvokeResponseOutput) ToDataSourcePrecedenceInvokeResponseOutput() DataSourcePrecedenceInvokeResponseOutput {
+	return o
+}
+
+func (o DataSourcePrecedenceInvokeResponseOutput) ToDataSourcePrecedenceInvokeResponseOutputWithContext(ctx context.Context) DataSourcePrecedenceInvokeResponseOutput {
+	return o
+}
+
+// The data source reference id.
+func (o DataSourcePrecedenceInvokeResponseOutput) DataSourceReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourcePrecedenceInvokeResponse) string { return v.DataSourceReferenceId }).(pulumi.StringOutput)
+}
+
+// The data source type.
+func (o DataSourcePrecedenceInvokeResponseOutput) DataSourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourcePrecedenceInvokeResponse) string { return v.DataSourceType }).(pulumi.StringOutput)
+}
+
+// The data source ID.
+func (o DataSourcePrecedenceInvokeResponseOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v DataSourcePrecedenceInvokeResponse) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The data source name
+func (o DataSourcePrecedenceInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourcePrecedenceInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// the precedence value.
+func (o DataSourcePrecedenceInvokeResponseOutput) Precedence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourcePrecedenceInvokeResponse) *int { return v.Precedence }).(pulumi.IntPtrOutput)
+}
+
+// The data source status.
+func (o DataSourcePrecedenceInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourcePrecedenceInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type DataSourcePrecedenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourcePrecedenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourcePrecedenceInvokeResponse)(nil)).Elem()
+}
+
+func (o DataSourcePrecedenceInvokeResponseArrayOutput) ToDataSourcePrecedenceInvokeResponseArrayOutput() DataSourcePrecedenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataSourcePrecedenceInvokeResponseArrayOutput) ToDataSourcePrecedenceInvokeResponseArrayOutputWithContext(ctx context.Context) DataSourcePrecedenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataSourcePrecedenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataSourcePrecedenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourcePrecedenceInvokeResponse {
+		return vs[0].([]DataSourcePrecedenceInvokeResponse)[vs[1].(int)]
+	}).(DataSourcePrecedenceInvokeResponseOutput)
 }
 
 // The data source precedence is a way to know the precedence of each data source.
@@ -2734,6 +3542,79 @@ func (o HubBillingInfoFormatPtrOutput) SkuName() pulumi.StringPtrOutput {
 }
 
 // Hub billing info.
+type HubBillingInfoFormatInvokeResponse struct {
+	// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
+	MaxUnits *int `pulumi:"maxUnits"`
+	// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
+	MinUnits *int `pulumi:"minUnits"`
+	// The sku name.
+	SkuName *string `pulumi:"skuName"`
+}
+
+// HubBillingInfoFormatInvokeResponseInput is an input type that accepts HubBillingInfoFormatInvokeResponseArgs and HubBillingInfoFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `HubBillingInfoFormatInvokeResponseInput` via:
+//
+//          HubBillingInfoFormatInvokeResponseArgs{...}
+type HubBillingInfoFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHubBillingInfoFormatInvokeResponseOutput() HubBillingInfoFormatInvokeResponseOutput
+	ToHubBillingInfoFormatInvokeResponseOutputWithContext(context.Context) HubBillingInfoFormatInvokeResponseOutput
+}
+
+// Hub billing info.
+type HubBillingInfoFormatInvokeResponseArgs struct {
+	// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
+	MaxUnits pulumi.IntPtrInput `pulumi:"maxUnits"`
+	// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
+	MinUnits pulumi.IntPtrInput `pulumi:"minUnits"`
+	// The sku name.
+	SkuName pulumi.StringPtrInput `pulumi:"skuName"`
+}
+
+func (HubBillingInfoFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubBillingInfoFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i HubBillingInfoFormatInvokeResponseArgs) ToHubBillingInfoFormatInvokeResponseOutput() HubBillingInfoFormatInvokeResponseOutput {
+	return i.ToHubBillingInfoFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HubBillingInfoFormatInvokeResponseArgs) ToHubBillingInfoFormatInvokeResponseOutputWithContext(ctx context.Context) HubBillingInfoFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubBillingInfoFormatInvokeResponseOutput)
+}
+
+// Hub billing info.
+type HubBillingInfoFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HubBillingInfoFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubBillingInfoFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o HubBillingInfoFormatInvokeResponseOutput) ToHubBillingInfoFormatInvokeResponseOutput() HubBillingInfoFormatInvokeResponseOutput {
+	return o
+}
+
+func (o HubBillingInfoFormatInvokeResponseOutput) ToHubBillingInfoFormatInvokeResponseOutputWithContext(ctx context.Context) HubBillingInfoFormatInvokeResponseOutput {
+	return o
+}
+
+// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
+func (o HubBillingInfoFormatInvokeResponseOutput) MaxUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HubBillingInfoFormatInvokeResponse) *int { return v.MaxUnits }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
+func (o HubBillingInfoFormatInvokeResponseOutput) MinUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HubBillingInfoFormatInvokeResponse) *int { return v.MinUnits }).(pulumi.IntPtrOutput)
+}
+
+// The sku name.
+func (o HubBillingInfoFormatInvokeResponseOutput) SkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HubBillingInfoFormatInvokeResponse) *string { return v.SkuName }).(pulumi.StringPtrOutput)
+}
+
+// Hub billing info.
 type HubBillingInfoFormatResponse struct {
 	// The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
 	MaxUnits *int `pulumi:"maxUnits"`
@@ -3015,6 +3896,115 @@ func (o KpiAliasArrayOutput) Index(i pulumi.IntInput) KpiAliasOutput {
 }
 
 // The KPI alias.
+type KpiAliasInvokeResponse struct {
+	// KPI alias name.
+	AliasName string `pulumi:"aliasName"`
+	// The expression.
+	Expression string `pulumi:"expression"`
+}
+
+// KpiAliasInvokeResponseInput is an input type that accepts KpiAliasInvokeResponseArgs and KpiAliasInvokeResponseOutput values.
+// You can construct a concrete instance of `KpiAliasInvokeResponseInput` via:
+//
+//          KpiAliasInvokeResponseArgs{...}
+type KpiAliasInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKpiAliasInvokeResponseOutput() KpiAliasInvokeResponseOutput
+	ToKpiAliasInvokeResponseOutputWithContext(context.Context) KpiAliasInvokeResponseOutput
+}
+
+// The KPI alias.
+type KpiAliasInvokeResponseArgs struct {
+	// KPI alias name.
+	AliasName pulumi.StringInput `pulumi:"aliasName"`
+	// The expression.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (KpiAliasInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiAliasInvokeResponse)(nil)).Elem()
+}
+
+func (i KpiAliasInvokeResponseArgs) ToKpiAliasInvokeResponseOutput() KpiAliasInvokeResponseOutput {
+	return i.ToKpiAliasInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KpiAliasInvokeResponseArgs) ToKpiAliasInvokeResponseOutputWithContext(ctx context.Context) KpiAliasInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiAliasInvokeResponseOutput)
+}
+
+// KpiAliasInvokeResponseArrayInput is an input type that accepts KpiAliasInvokeResponseArray and KpiAliasInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `KpiAliasInvokeResponseArrayInput` via:
+//
+//          KpiAliasInvokeResponseArray{ KpiAliasInvokeResponseArgs{...} }
+type KpiAliasInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToKpiAliasInvokeResponseArrayOutput() KpiAliasInvokeResponseArrayOutput
+	ToKpiAliasInvokeResponseArrayOutputWithContext(context.Context) KpiAliasInvokeResponseArrayOutput
+}
+
+type KpiAliasInvokeResponseArray []KpiAliasInvokeResponseInput
+
+func (KpiAliasInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KpiAliasInvokeResponse)(nil)).Elem()
+}
+
+func (i KpiAliasInvokeResponseArray) ToKpiAliasInvokeResponseArrayOutput() KpiAliasInvokeResponseArrayOutput {
+	return i.ToKpiAliasInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KpiAliasInvokeResponseArray) ToKpiAliasInvokeResponseArrayOutputWithContext(ctx context.Context) KpiAliasInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiAliasInvokeResponseArrayOutput)
+}
+
+// The KPI alias.
+type KpiAliasInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KpiAliasInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiAliasInvokeResponse)(nil)).Elem()
+}
+
+func (o KpiAliasInvokeResponseOutput) ToKpiAliasInvokeResponseOutput() KpiAliasInvokeResponseOutput {
+	return o
+}
+
+func (o KpiAliasInvokeResponseOutput) ToKpiAliasInvokeResponseOutputWithContext(ctx context.Context) KpiAliasInvokeResponseOutput {
+	return o
+}
+
+// KPI alias name.
+func (o KpiAliasInvokeResponseOutput) AliasName() pulumi.StringOutput {
+	return o.ApplyT(func(v KpiAliasInvokeResponse) string { return v.AliasName }).(pulumi.StringOutput)
+}
+
+// The expression.
+func (o KpiAliasInvokeResponseOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v KpiAliasInvokeResponse) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type KpiAliasInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KpiAliasInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KpiAliasInvokeResponse)(nil)).Elem()
+}
+
+func (o KpiAliasInvokeResponseArrayOutput) ToKpiAliasInvokeResponseArrayOutput() KpiAliasInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KpiAliasInvokeResponseArrayOutput) ToKpiAliasInvokeResponseArrayOutputWithContext(ctx context.Context) KpiAliasInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KpiAliasInvokeResponseArrayOutput) Index(i pulumi.IntInput) KpiAliasInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KpiAliasInvokeResponse {
+		return vs[0].([]KpiAliasInvokeResponse)[vs[1].(int)]
+	}).(KpiAliasInvokeResponseOutput)
+}
+
+// The KPI alias.
 type KpiAliasResponse struct {
 	// KPI alias name.
 	AliasName string `pulumi:"aliasName"`
@@ -3233,6 +4223,115 @@ func (o KpiExtractArrayOutput) Index(i pulumi.IntInput) KpiExtractOutput {
 }
 
 // The KPI extract.
+type KpiExtractInvokeResponse struct {
+	// The expression.
+	Expression string `pulumi:"expression"`
+	// KPI extract name.
+	ExtractName string `pulumi:"extractName"`
+}
+
+// KpiExtractInvokeResponseInput is an input type that accepts KpiExtractInvokeResponseArgs and KpiExtractInvokeResponseOutput values.
+// You can construct a concrete instance of `KpiExtractInvokeResponseInput` via:
+//
+//          KpiExtractInvokeResponseArgs{...}
+type KpiExtractInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKpiExtractInvokeResponseOutput() KpiExtractInvokeResponseOutput
+	ToKpiExtractInvokeResponseOutputWithContext(context.Context) KpiExtractInvokeResponseOutput
+}
+
+// The KPI extract.
+type KpiExtractInvokeResponseArgs struct {
+	// The expression.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// KPI extract name.
+	ExtractName pulumi.StringInput `pulumi:"extractName"`
+}
+
+func (KpiExtractInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiExtractInvokeResponse)(nil)).Elem()
+}
+
+func (i KpiExtractInvokeResponseArgs) ToKpiExtractInvokeResponseOutput() KpiExtractInvokeResponseOutput {
+	return i.ToKpiExtractInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KpiExtractInvokeResponseArgs) ToKpiExtractInvokeResponseOutputWithContext(ctx context.Context) KpiExtractInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiExtractInvokeResponseOutput)
+}
+
+// KpiExtractInvokeResponseArrayInput is an input type that accepts KpiExtractInvokeResponseArray and KpiExtractInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `KpiExtractInvokeResponseArrayInput` via:
+//
+//          KpiExtractInvokeResponseArray{ KpiExtractInvokeResponseArgs{...} }
+type KpiExtractInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToKpiExtractInvokeResponseArrayOutput() KpiExtractInvokeResponseArrayOutput
+	ToKpiExtractInvokeResponseArrayOutputWithContext(context.Context) KpiExtractInvokeResponseArrayOutput
+}
+
+type KpiExtractInvokeResponseArray []KpiExtractInvokeResponseInput
+
+func (KpiExtractInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KpiExtractInvokeResponse)(nil)).Elem()
+}
+
+func (i KpiExtractInvokeResponseArray) ToKpiExtractInvokeResponseArrayOutput() KpiExtractInvokeResponseArrayOutput {
+	return i.ToKpiExtractInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KpiExtractInvokeResponseArray) ToKpiExtractInvokeResponseArrayOutputWithContext(ctx context.Context) KpiExtractInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiExtractInvokeResponseArrayOutput)
+}
+
+// The KPI extract.
+type KpiExtractInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KpiExtractInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiExtractInvokeResponse)(nil)).Elem()
+}
+
+func (o KpiExtractInvokeResponseOutput) ToKpiExtractInvokeResponseOutput() KpiExtractInvokeResponseOutput {
+	return o
+}
+
+func (o KpiExtractInvokeResponseOutput) ToKpiExtractInvokeResponseOutputWithContext(ctx context.Context) KpiExtractInvokeResponseOutput {
+	return o
+}
+
+// The expression.
+func (o KpiExtractInvokeResponseOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v KpiExtractInvokeResponse) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// KPI extract name.
+func (o KpiExtractInvokeResponseOutput) ExtractName() pulumi.StringOutput {
+	return o.ApplyT(func(v KpiExtractInvokeResponse) string { return v.ExtractName }).(pulumi.StringOutput)
+}
+
+type KpiExtractInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KpiExtractInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KpiExtractInvokeResponse)(nil)).Elem()
+}
+
+func (o KpiExtractInvokeResponseArrayOutput) ToKpiExtractInvokeResponseArrayOutput() KpiExtractInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KpiExtractInvokeResponseArrayOutput) ToKpiExtractInvokeResponseArrayOutputWithContext(ctx context.Context) KpiExtractInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KpiExtractInvokeResponseArrayOutput) Index(i pulumi.IntInput) KpiExtractInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KpiExtractInvokeResponse {
+		return vs[0].([]KpiExtractInvokeResponse)[vs[1].(int)]
+	}).(KpiExtractInvokeResponseOutput)
+}
+
+// The KPI extract.
 type KpiExtractResponse struct {
 	// The expression.
 	Expression string `pulumi:"expression"`
@@ -3339,6 +4438,124 @@ func (o KpiExtractResponseArrayOutput) Index(i pulumi.IntInput) KpiExtractRespon
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KpiExtractResponse {
 		return vs[0].([]KpiExtractResponse)[vs[1].(int)]
 	}).(KpiExtractResponseOutput)
+}
+
+// The KPI GroupBy field metadata.
+type KpiGroupByMetadataInvokeResponse struct {
+	// The display name.
+	DisplayName map[string]string `pulumi:"displayName"`
+	// The name of the field.
+	FieldName *string `pulumi:"fieldName"`
+	// The type of the field.
+	FieldType *string `pulumi:"fieldType"`
+}
+
+// KpiGroupByMetadataInvokeResponseInput is an input type that accepts KpiGroupByMetadataInvokeResponseArgs and KpiGroupByMetadataInvokeResponseOutput values.
+// You can construct a concrete instance of `KpiGroupByMetadataInvokeResponseInput` via:
+//
+//          KpiGroupByMetadataInvokeResponseArgs{...}
+type KpiGroupByMetadataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKpiGroupByMetadataInvokeResponseOutput() KpiGroupByMetadataInvokeResponseOutput
+	ToKpiGroupByMetadataInvokeResponseOutputWithContext(context.Context) KpiGroupByMetadataInvokeResponseOutput
+}
+
+// The KPI GroupBy field metadata.
+type KpiGroupByMetadataInvokeResponseArgs struct {
+	// The display name.
+	DisplayName pulumi.StringMapInput `pulumi:"displayName"`
+	// The name of the field.
+	FieldName pulumi.StringPtrInput `pulumi:"fieldName"`
+	// The type of the field.
+	FieldType pulumi.StringPtrInput `pulumi:"fieldType"`
+}
+
+func (KpiGroupByMetadataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiGroupByMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i KpiGroupByMetadataInvokeResponseArgs) ToKpiGroupByMetadataInvokeResponseOutput() KpiGroupByMetadataInvokeResponseOutput {
+	return i.ToKpiGroupByMetadataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KpiGroupByMetadataInvokeResponseArgs) ToKpiGroupByMetadataInvokeResponseOutputWithContext(ctx context.Context) KpiGroupByMetadataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiGroupByMetadataInvokeResponseOutput)
+}
+
+// KpiGroupByMetadataInvokeResponseArrayInput is an input type that accepts KpiGroupByMetadataInvokeResponseArray and KpiGroupByMetadataInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `KpiGroupByMetadataInvokeResponseArrayInput` via:
+//
+//          KpiGroupByMetadataInvokeResponseArray{ KpiGroupByMetadataInvokeResponseArgs{...} }
+type KpiGroupByMetadataInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToKpiGroupByMetadataInvokeResponseArrayOutput() KpiGroupByMetadataInvokeResponseArrayOutput
+	ToKpiGroupByMetadataInvokeResponseArrayOutputWithContext(context.Context) KpiGroupByMetadataInvokeResponseArrayOutput
+}
+
+type KpiGroupByMetadataInvokeResponseArray []KpiGroupByMetadataInvokeResponseInput
+
+func (KpiGroupByMetadataInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KpiGroupByMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i KpiGroupByMetadataInvokeResponseArray) ToKpiGroupByMetadataInvokeResponseArrayOutput() KpiGroupByMetadataInvokeResponseArrayOutput {
+	return i.ToKpiGroupByMetadataInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KpiGroupByMetadataInvokeResponseArray) ToKpiGroupByMetadataInvokeResponseArrayOutputWithContext(ctx context.Context) KpiGroupByMetadataInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiGroupByMetadataInvokeResponseArrayOutput)
+}
+
+// The KPI GroupBy field metadata.
+type KpiGroupByMetadataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KpiGroupByMetadataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiGroupByMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (o KpiGroupByMetadataInvokeResponseOutput) ToKpiGroupByMetadataInvokeResponseOutput() KpiGroupByMetadataInvokeResponseOutput {
+	return o
+}
+
+func (o KpiGroupByMetadataInvokeResponseOutput) ToKpiGroupByMetadataInvokeResponseOutputWithContext(ctx context.Context) KpiGroupByMetadataInvokeResponseOutput {
+	return o
+}
+
+// The display name.
+func (o KpiGroupByMetadataInvokeResponseOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v KpiGroupByMetadataInvokeResponse) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
+}
+
+// The name of the field.
+func (o KpiGroupByMetadataInvokeResponseOutput) FieldName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KpiGroupByMetadataInvokeResponse) *string { return v.FieldName }).(pulumi.StringPtrOutput)
+}
+
+// The type of the field.
+func (o KpiGroupByMetadataInvokeResponseOutput) FieldType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KpiGroupByMetadataInvokeResponse) *string { return v.FieldType }).(pulumi.StringPtrOutput)
+}
+
+type KpiGroupByMetadataInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KpiGroupByMetadataInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KpiGroupByMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (o KpiGroupByMetadataInvokeResponseArrayOutput) ToKpiGroupByMetadataInvokeResponseArrayOutput() KpiGroupByMetadataInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KpiGroupByMetadataInvokeResponseArrayOutput) ToKpiGroupByMetadataInvokeResponseArrayOutputWithContext(ctx context.Context) KpiGroupByMetadataInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KpiGroupByMetadataInvokeResponseArrayOutput) Index(i pulumi.IntInput) KpiGroupByMetadataInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KpiGroupByMetadataInvokeResponse {
+		return vs[0].([]KpiGroupByMetadataInvokeResponse)[vs[1].(int)]
+	}).(KpiGroupByMetadataInvokeResponseOutput)
 }
 
 // The KPI GroupBy field metadata.
@@ -3457,6 +4674,106 @@ func (o KpiGroupByMetadataResponseArrayOutput) Index(i pulumi.IntInput) KpiGroup
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KpiGroupByMetadataResponse {
 		return vs[0].([]KpiGroupByMetadataResponse)[vs[1].(int)]
 	}).(KpiGroupByMetadataResponseOutput)
+}
+
+// The KPI participant profile metadata.
+type KpiParticipantProfilesMetadataInvokeResponse struct {
+	// Name of the type.
+	TypeName string `pulumi:"typeName"`
+}
+
+// KpiParticipantProfilesMetadataInvokeResponseInput is an input type that accepts KpiParticipantProfilesMetadataInvokeResponseArgs and KpiParticipantProfilesMetadataInvokeResponseOutput values.
+// You can construct a concrete instance of `KpiParticipantProfilesMetadataInvokeResponseInput` via:
+//
+//          KpiParticipantProfilesMetadataInvokeResponseArgs{...}
+type KpiParticipantProfilesMetadataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKpiParticipantProfilesMetadataInvokeResponseOutput() KpiParticipantProfilesMetadataInvokeResponseOutput
+	ToKpiParticipantProfilesMetadataInvokeResponseOutputWithContext(context.Context) KpiParticipantProfilesMetadataInvokeResponseOutput
+}
+
+// The KPI participant profile metadata.
+type KpiParticipantProfilesMetadataInvokeResponseArgs struct {
+	// Name of the type.
+	TypeName pulumi.StringInput `pulumi:"typeName"`
+}
+
+func (KpiParticipantProfilesMetadataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiParticipantProfilesMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i KpiParticipantProfilesMetadataInvokeResponseArgs) ToKpiParticipantProfilesMetadataInvokeResponseOutput() KpiParticipantProfilesMetadataInvokeResponseOutput {
+	return i.ToKpiParticipantProfilesMetadataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KpiParticipantProfilesMetadataInvokeResponseArgs) ToKpiParticipantProfilesMetadataInvokeResponseOutputWithContext(ctx context.Context) KpiParticipantProfilesMetadataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiParticipantProfilesMetadataInvokeResponseOutput)
+}
+
+// KpiParticipantProfilesMetadataInvokeResponseArrayInput is an input type that accepts KpiParticipantProfilesMetadataInvokeResponseArray and KpiParticipantProfilesMetadataInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `KpiParticipantProfilesMetadataInvokeResponseArrayInput` via:
+//
+//          KpiParticipantProfilesMetadataInvokeResponseArray{ KpiParticipantProfilesMetadataInvokeResponseArgs{...} }
+type KpiParticipantProfilesMetadataInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToKpiParticipantProfilesMetadataInvokeResponseArrayOutput() KpiParticipantProfilesMetadataInvokeResponseArrayOutput
+	ToKpiParticipantProfilesMetadataInvokeResponseArrayOutputWithContext(context.Context) KpiParticipantProfilesMetadataInvokeResponseArrayOutput
+}
+
+type KpiParticipantProfilesMetadataInvokeResponseArray []KpiParticipantProfilesMetadataInvokeResponseInput
+
+func (KpiParticipantProfilesMetadataInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KpiParticipantProfilesMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i KpiParticipantProfilesMetadataInvokeResponseArray) ToKpiParticipantProfilesMetadataInvokeResponseArrayOutput() KpiParticipantProfilesMetadataInvokeResponseArrayOutput {
+	return i.ToKpiParticipantProfilesMetadataInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i KpiParticipantProfilesMetadataInvokeResponseArray) ToKpiParticipantProfilesMetadataInvokeResponseArrayOutputWithContext(ctx context.Context) KpiParticipantProfilesMetadataInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiParticipantProfilesMetadataInvokeResponseArrayOutput)
+}
+
+// The KPI participant profile metadata.
+type KpiParticipantProfilesMetadataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KpiParticipantProfilesMetadataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiParticipantProfilesMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (o KpiParticipantProfilesMetadataInvokeResponseOutput) ToKpiParticipantProfilesMetadataInvokeResponseOutput() KpiParticipantProfilesMetadataInvokeResponseOutput {
+	return o
+}
+
+func (o KpiParticipantProfilesMetadataInvokeResponseOutput) ToKpiParticipantProfilesMetadataInvokeResponseOutputWithContext(ctx context.Context) KpiParticipantProfilesMetadataInvokeResponseOutput {
+	return o
+}
+
+// Name of the type.
+func (o KpiParticipantProfilesMetadataInvokeResponseOutput) TypeName() pulumi.StringOutput {
+	return o.ApplyT(func(v KpiParticipantProfilesMetadataInvokeResponse) string { return v.TypeName }).(pulumi.StringOutput)
+}
+
+type KpiParticipantProfilesMetadataInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (KpiParticipantProfilesMetadataInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KpiParticipantProfilesMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (o KpiParticipantProfilesMetadataInvokeResponseArrayOutput) ToKpiParticipantProfilesMetadataInvokeResponseArrayOutput() KpiParticipantProfilesMetadataInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KpiParticipantProfilesMetadataInvokeResponseArrayOutput) ToKpiParticipantProfilesMetadataInvokeResponseArrayOutputWithContext(ctx context.Context) KpiParticipantProfilesMetadataInvokeResponseArrayOutput {
+	return o
+}
+
+func (o KpiParticipantProfilesMetadataInvokeResponseArrayOutput) Index(i pulumi.IntInput) KpiParticipantProfilesMetadataInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KpiParticipantProfilesMetadataInvokeResponse {
+		return vs[0].([]KpiParticipantProfilesMetadataInvokeResponse)[vs[1].(int)]
+	}).(KpiParticipantProfilesMetadataInvokeResponseOutput)
 }
 
 // The KPI participant profile metadata.
@@ -3729,6 +5046,79 @@ func (o KpiThresholdsPtrOutput) UpperLimit() pulumi.Float64PtrOutput {
 		}
 		return &v.UpperLimit
 	}).(pulumi.Float64PtrOutput)
+}
+
+// Defines the KPI Threshold limits.
+type KpiThresholdsInvokeResponse struct {
+	// Whether or not the KPI is an increasing KPI.
+	IncreasingKpi bool `pulumi:"increasingKpi"`
+	// The lower threshold limit.
+	LowerLimit float64 `pulumi:"lowerLimit"`
+	// The upper threshold limit.
+	UpperLimit float64 `pulumi:"upperLimit"`
+}
+
+// KpiThresholdsInvokeResponseInput is an input type that accepts KpiThresholdsInvokeResponseArgs and KpiThresholdsInvokeResponseOutput values.
+// You can construct a concrete instance of `KpiThresholdsInvokeResponseInput` via:
+//
+//          KpiThresholdsInvokeResponseArgs{...}
+type KpiThresholdsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKpiThresholdsInvokeResponseOutput() KpiThresholdsInvokeResponseOutput
+	ToKpiThresholdsInvokeResponseOutputWithContext(context.Context) KpiThresholdsInvokeResponseOutput
+}
+
+// Defines the KPI Threshold limits.
+type KpiThresholdsInvokeResponseArgs struct {
+	// Whether or not the KPI is an increasing KPI.
+	IncreasingKpi pulumi.BoolInput `pulumi:"increasingKpi"`
+	// The lower threshold limit.
+	LowerLimit pulumi.Float64Input `pulumi:"lowerLimit"`
+	// The upper threshold limit.
+	UpperLimit pulumi.Float64Input `pulumi:"upperLimit"`
+}
+
+func (KpiThresholdsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiThresholdsInvokeResponse)(nil)).Elem()
+}
+
+func (i KpiThresholdsInvokeResponseArgs) ToKpiThresholdsInvokeResponseOutput() KpiThresholdsInvokeResponseOutput {
+	return i.ToKpiThresholdsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KpiThresholdsInvokeResponseArgs) ToKpiThresholdsInvokeResponseOutputWithContext(ctx context.Context) KpiThresholdsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KpiThresholdsInvokeResponseOutput)
+}
+
+// Defines the KPI Threshold limits.
+type KpiThresholdsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KpiThresholdsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KpiThresholdsInvokeResponse)(nil)).Elem()
+}
+
+func (o KpiThresholdsInvokeResponseOutput) ToKpiThresholdsInvokeResponseOutput() KpiThresholdsInvokeResponseOutput {
+	return o
+}
+
+func (o KpiThresholdsInvokeResponseOutput) ToKpiThresholdsInvokeResponseOutputWithContext(ctx context.Context) KpiThresholdsInvokeResponseOutput {
+	return o
+}
+
+// Whether or not the KPI is an increasing KPI.
+func (o KpiThresholdsInvokeResponseOutput) IncreasingKpi() pulumi.BoolOutput {
+	return o.ApplyT(func(v KpiThresholdsInvokeResponse) bool { return v.IncreasingKpi }).(pulumi.BoolOutput)
+}
+
+// The lower threshold limit.
+func (o KpiThresholdsInvokeResponseOutput) LowerLimit() pulumi.Float64Output {
+	return o.ApplyT(func(v KpiThresholdsInvokeResponse) float64 { return v.LowerLimit }).(pulumi.Float64Output)
+}
+
+// The upper threshold limit.
+func (o KpiThresholdsInvokeResponseOutput) UpperLimit() pulumi.Float64Output {
+	return o.ApplyT(func(v KpiThresholdsInvokeResponse) float64 { return v.UpperLimit }).(pulumi.Float64Output)
 }
 
 // Defines the KPI Threshold limits.
@@ -4013,6 +5403,115 @@ func (o ParticipantPropertyReferenceArrayOutput) Index(i pulumi.IntInput) Partic
 }
 
 // The participant property reference.
+type ParticipantPropertyReferenceInvokeResponse struct {
+	// The interaction property that maps to the profile property.
+	InteractionPropertyName string `pulumi:"interactionPropertyName"`
+	// The profile property that maps to the interaction property.
+	ProfilePropertyName string `pulumi:"profilePropertyName"`
+}
+
+// ParticipantPropertyReferenceInvokeResponseInput is an input type that accepts ParticipantPropertyReferenceInvokeResponseArgs and ParticipantPropertyReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ParticipantPropertyReferenceInvokeResponseInput` via:
+//
+//          ParticipantPropertyReferenceInvokeResponseArgs{...}
+type ParticipantPropertyReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToParticipantPropertyReferenceInvokeResponseOutput() ParticipantPropertyReferenceInvokeResponseOutput
+	ToParticipantPropertyReferenceInvokeResponseOutputWithContext(context.Context) ParticipantPropertyReferenceInvokeResponseOutput
+}
+
+// The participant property reference.
+type ParticipantPropertyReferenceInvokeResponseArgs struct {
+	// The interaction property that maps to the profile property.
+	InteractionPropertyName pulumi.StringInput `pulumi:"interactionPropertyName"`
+	// The profile property that maps to the interaction property.
+	ProfilePropertyName pulumi.StringInput `pulumi:"profilePropertyName"`
+}
+
+func (ParticipantPropertyReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParticipantPropertyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ParticipantPropertyReferenceInvokeResponseArgs) ToParticipantPropertyReferenceInvokeResponseOutput() ParticipantPropertyReferenceInvokeResponseOutput {
+	return i.ToParticipantPropertyReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ParticipantPropertyReferenceInvokeResponseArgs) ToParticipantPropertyReferenceInvokeResponseOutputWithContext(ctx context.Context) ParticipantPropertyReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParticipantPropertyReferenceInvokeResponseOutput)
+}
+
+// ParticipantPropertyReferenceInvokeResponseArrayInput is an input type that accepts ParticipantPropertyReferenceInvokeResponseArray and ParticipantPropertyReferenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ParticipantPropertyReferenceInvokeResponseArrayInput` via:
+//
+//          ParticipantPropertyReferenceInvokeResponseArray{ ParticipantPropertyReferenceInvokeResponseArgs{...} }
+type ParticipantPropertyReferenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToParticipantPropertyReferenceInvokeResponseArrayOutput() ParticipantPropertyReferenceInvokeResponseArrayOutput
+	ToParticipantPropertyReferenceInvokeResponseArrayOutputWithContext(context.Context) ParticipantPropertyReferenceInvokeResponseArrayOutput
+}
+
+type ParticipantPropertyReferenceInvokeResponseArray []ParticipantPropertyReferenceInvokeResponseInput
+
+func (ParticipantPropertyReferenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ParticipantPropertyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ParticipantPropertyReferenceInvokeResponseArray) ToParticipantPropertyReferenceInvokeResponseArrayOutput() ParticipantPropertyReferenceInvokeResponseArrayOutput {
+	return i.ToParticipantPropertyReferenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ParticipantPropertyReferenceInvokeResponseArray) ToParticipantPropertyReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) ParticipantPropertyReferenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParticipantPropertyReferenceInvokeResponseArrayOutput)
+}
+
+// The participant property reference.
+type ParticipantPropertyReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ParticipantPropertyReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParticipantPropertyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ParticipantPropertyReferenceInvokeResponseOutput) ToParticipantPropertyReferenceInvokeResponseOutput() ParticipantPropertyReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ParticipantPropertyReferenceInvokeResponseOutput) ToParticipantPropertyReferenceInvokeResponseOutputWithContext(ctx context.Context) ParticipantPropertyReferenceInvokeResponseOutput {
+	return o
+}
+
+// The interaction property that maps to the profile property.
+func (o ParticipantPropertyReferenceInvokeResponseOutput) InteractionPropertyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ParticipantPropertyReferenceInvokeResponse) string { return v.InteractionPropertyName }).(pulumi.StringOutput)
+}
+
+// The profile property that maps to the interaction property.
+func (o ParticipantPropertyReferenceInvokeResponseOutput) ProfilePropertyName() pulumi.StringOutput {
+	return o.ApplyT(func(v ParticipantPropertyReferenceInvokeResponse) string { return v.ProfilePropertyName }).(pulumi.StringOutput)
+}
+
+type ParticipantPropertyReferenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ParticipantPropertyReferenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ParticipantPropertyReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ParticipantPropertyReferenceInvokeResponseArrayOutput) ToParticipantPropertyReferenceInvokeResponseArrayOutput() ParticipantPropertyReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ParticipantPropertyReferenceInvokeResponseArrayOutput) ToParticipantPropertyReferenceInvokeResponseArrayOutputWithContext(ctx context.Context) ParticipantPropertyReferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ParticipantPropertyReferenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) ParticipantPropertyReferenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParticipantPropertyReferenceInvokeResponse {
+		return vs[0].([]ParticipantPropertyReferenceInvokeResponse)[vs[1].(int)]
+	}).(ParticipantPropertyReferenceInvokeResponseOutput)
+}
+
+// The participant property reference.
 type ParticipantPropertyReferenceResponse struct {
 	// The interaction property that maps to the profile property.
 	InteractionPropertyName string `pulumi:"interactionPropertyName"`
@@ -4228,6 +5727,115 @@ func (o ProfileEnumValidValuesFormatArrayOutput) Index(i pulumi.IntInput) Profil
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileEnumValidValuesFormat {
 		return vs[0].([]ProfileEnumValidValuesFormat)[vs[1].(int)]
 	}).(ProfileEnumValidValuesFormatOutput)
+}
+
+// Valid enum values in case of an enum property.
+type ProfileEnumValidValuesFormatInvokeResponse struct {
+	// Localized names of the enum member.
+	LocalizedValueNames map[string]string `pulumi:"localizedValueNames"`
+	// The integer value of the enum member.
+	Value *int `pulumi:"value"`
+}
+
+// ProfileEnumValidValuesFormatInvokeResponseInput is an input type that accepts ProfileEnumValidValuesFormatInvokeResponseArgs and ProfileEnumValidValuesFormatInvokeResponseOutput values.
+// You can construct a concrete instance of `ProfileEnumValidValuesFormatInvokeResponseInput` via:
+//
+//          ProfileEnumValidValuesFormatInvokeResponseArgs{...}
+type ProfileEnumValidValuesFormatInvokeResponseInput interface {
+	pulumi.Input
+
+	ToProfileEnumValidValuesFormatInvokeResponseOutput() ProfileEnumValidValuesFormatInvokeResponseOutput
+	ToProfileEnumValidValuesFormatInvokeResponseOutputWithContext(context.Context) ProfileEnumValidValuesFormatInvokeResponseOutput
+}
+
+// Valid enum values in case of an enum property.
+type ProfileEnumValidValuesFormatInvokeResponseArgs struct {
+	// Localized names of the enum member.
+	LocalizedValueNames pulumi.StringMapInput `pulumi:"localizedValueNames"`
+	// The integer value of the enum member.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (ProfileEnumValidValuesFormatInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileEnumValidValuesFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i ProfileEnumValidValuesFormatInvokeResponseArgs) ToProfileEnumValidValuesFormatInvokeResponseOutput() ProfileEnumValidValuesFormatInvokeResponseOutput {
+	return i.ToProfileEnumValidValuesFormatInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ProfileEnumValidValuesFormatInvokeResponseArgs) ToProfileEnumValidValuesFormatInvokeResponseOutputWithContext(ctx context.Context) ProfileEnumValidValuesFormatInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileEnumValidValuesFormatInvokeResponseOutput)
+}
+
+// ProfileEnumValidValuesFormatInvokeResponseArrayInput is an input type that accepts ProfileEnumValidValuesFormatInvokeResponseArray and ProfileEnumValidValuesFormatInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ProfileEnumValidValuesFormatInvokeResponseArrayInput` via:
+//
+//          ProfileEnumValidValuesFormatInvokeResponseArray{ ProfileEnumValidValuesFormatInvokeResponseArgs{...} }
+type ProfileEnumValidValuesFormatInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToProfileEnumValidValuesFormatInvokeResponseArrayOutput() ProfileEnumValidValuesFormatInvokeResponseArrayOutput
+	ToProfileEnumValidValuesFormatInvokeResponseArrayOutputWithContext(context.Context) ProfileEnumValidValuesFormatInvokeResponseArrayOutput
+}
+
+type ProfileEnumValidValuesFormatInvokeResponseArray []ProfileEnumValidValuesFormatInvokeResponseInput
+
+func (ProfileEnumValidValuesFormatInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileEnumValidValuesFormatInvokeResponse)(nil)).Elem()
+}
+
+func (i ProfileEnumValidValuesFormatInvokeResponseArray) ToProfileEnumValidValuesFormatInvokeResponseArrayOutput() ProfileEnumValidValuesFormatInvokeResponseArrayOutput {
+	return i.ToProfileEnumValidValuesFormatInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileEnumValidValuesFormatInvokeResponseArray) ToProfileEnumValidValuesFormatInvokeResponseArrayOutputWithContext(ctx context.Context) ProfileEnumValidValuesFormatInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileEnumValidValuesFormatInvokeResponseArrayOutput)
+}
+
+// Valid enum values in case of an enum property.
+type ProfileEnumValidValuesFormatInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ProfileEnumValidValuesFormatInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileEnumValidValuesFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o ProfileEnumValidValuesFormatInvokeResponseOutput) ToProfileEnumValidValuesFormatInvokeResponseOutput() ProfileEnumValidValuesFormatInvokeResponseOutput {
+	return o
+}
+
+func (o ProfileEnumValidValuesFormatInvokeResponseOutput) ToProfileEnumValidValuesFormatInvokeResponseOutputWithContext(ctx context.Context) ProfileEnumValidValuesFormatInvokeResponseOutput {
+	return o
+}
+
+// Localized names of the enum member.
+func (o ProfileEnumValidValuesFormatInvokeResponseOutput) LocalizedValueNames() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ProfileEnumValidValuesFormatInvokeResponse) map[string]string { return v.LocalizedValueNames }).(pulumi.StringMapOutput)
+}
+
+// The integer value of the enum member.
+func (o ProfileEnumValidValuesFormatInvokeResponseOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProfileEnumValidValuesFormatInvokeResponse) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type ProfileEnumValidValuesFormatInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileEnumValidValuesFormatInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileEnumValidValuesFormatInvokeResponse)(nil)).Elem()
+}
+
+func (o ProfileEnumValidValuesFormatInvokeResponseArrayOutput) ToProfileEnumValidValuesFormatInvokeResponseArrayOutput() ProfileEnumValidValuesFormatInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ProfileEnumValidValuesFormatInvokeResponseArrayOutput) ToProfileEnumValidValuesFormatInvokeResponseArrayOutputWithContext(ctx context.Context) ProfileEnumValidValuesFormatInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ProfileEnumValidValuesFormatInvokeResponseArrayOutput) Index(i pulumi.IntInput) ProfileEnumValidValuesFormatInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileEnumValidValuesFormatInvokeResponse {
+		return vs[0].([]ProfileEnumValidValuesFormatInvokeResponse)[vs[1].(int)]
+	}).(ProfileEnumValidValuesFormatInvokeResponseOutput)
 }
 
 // Valid enum values in case of an enum property.
@@ -4563,6 +6171,245 @@ func (o PropertyDefinitionArrayOutput) Index(i pulumi.IntInput) PropertyDefiniti
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PropertyDefinition {
 		return vs[0].([]PropertyDefinition)[vs[1].(int)]
 	}).(PropertyDefinitionOutput)
+}
+
+// Property definition.
+type PropertyDefinitionInvokeResponse struct {
+	// Array value separator for properties with isArray set.
+	ArrayValueSeparator *string `pulumi:"arrayValueSeparator"`
+	// This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
+	DataSourcePrecedenceRules []DataSourcePrecedenceInvokeResponse `pulumi:"dataSourcePrecedenceRules"`
+	// Describes valid values for an enum property.
+	EnumValidValues []ProfileEnumValidValuesFormatInvokeResponse `pulumi:"enumValidValues"`
+	// Name of the property.
+	FieldName string `pulumi:"fieldName"`
+	// Type of the property.
+	FieldType string `pulumi:"fieldType"`
+	// Indicates if the property is actually an array of the fieldType above on the data api.
+	IsArray *bool `pulumi:"isArray"`
+	// Whether property is available in graph or not.
+	IsAvailableInGraph *bool `pulumi:"isAvailableInGraph"`
+	// Indicates if the property is an enum.
+	IsEnum *bool `pulumi:"isEnum"`
+	// Indicates if the property is an flag enum.
+	IsFlagEnum *bool `pulumi:"isFlagEnum"`
+	// Whether the property is an Image.
+	IsImage *bool `pulumi:"isImage"`
+	// Whether the property is a localized string.
+	IsLocalizedString *bool `pulumi:"isLocalizedString"`
+	// Whether the property is a name or a part of name.
+	IsName *bool `pulumi:"isName"`
+	// Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
+	IsRequired *bool `pulumi:"isRequired"`
+	// Max length of string. Used only if type is string.
+	MaxLength *int `pulumi:"maxLength"`
+	// The ID associated with the property.
+	PropertyId *string `pulumi:"propertyId"`
+	// URL encoded schema.org item prop link for the property.
+	SchemaItemPropLink *string `pulumi:"schemaItemPropLink"`
+}
+
+// PropertyDefinitionInvokeResponseInput is an input type that accepts PropertyDefinitionInvokeResponseArgs and PropertyDefinitionInvokeResponseOutput values.
+// You can construct a concrete instance of `PropertyDefinitionInvokeResponseInput` via:
+//
+//          PropertyDefinitionInvokeResponseArgs{...}
+type PropertyDefinitionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPropertyDefinitionInvokeResponseOutput() PropertyDefinitionInvokeResponseOutput
+	ToPropertyDefinitionInvokeResponseOutputWithContext(context.Context) PropertyDefinitionInvokeResponseOutput
+}
+
+// Property definition.
+type PropertyDefinitionInvokeResponseArgs struct {
+	// Array value separator for properties with isArray set.
+	ArrayValueSeparator pulumi.StringPtrInput `pulumi:"arrayValueSeparator"`
+	// This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
+	DataSourcePrecedenceRules DataSourcePrecedenceInvokeResponseArrayInput `pulumi:"dataSourcePrecedenceRules"`
+	// Describes valid values for an enum property.
+	EnumValidValues ProfileEnumValidValuesFormatInvokeResponseArrayInput `pulumi:"enumValidValues"`
+	// Name of the property.
+	FieldName pulumi.StringInput `pulumi:"fieldName"`
+	// Type of the property.
+	FieldType pulumi.StringInput `pulumi:"fieldType"`
+	// Indicates if the property is actually an array of the fieldType above on the data api.
+	IsArray pulumi.BoolPtrInput `pulumi:"isArray"`
+	// Whether property is available in graph or not.
+	IsAvailableInGraph pulumi.BoolPtrInput `pulumi:"isAvailableInGraph"`
+	// Indicates if the property is an enum.
+	IsEnum pulumi.BoolPtrInput `pulumi:"isEnum"`
+	// Indicates if the property is an flag enum.
+	IsFlagEnum pulumi.BoolPtrInput `pulumi:"isFlagEnum"`
+	// Whether the property is an Image.
+	IsImage pulumi.BoolPtrInput `pulumi:"isImage"`
+	// Whether the property is a localized string.
+	IsLocalizedString pulumi.BoolPtrInput `pulumi:"isLocalizedString"`
+	// Whether the property is a name or a part of name.
+	IsName pulumi.BoolPtrInput `pulumi:"isName"`
+	// Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
+	IsRequired pulumi.BoolPtrInput `pulumi:"isRequired"`
+	// Max length of string. Used only if type is string.
+	MaxLength pulumi.IntPtrInput `pulumi:"maxLength"`
+	// The ID associated with the property.
+	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
+	// URL encoded schema.org item prop link for the property.
+	SchemaItemPropLink pulumi.StringPtrInput `pulumi:"schemaItemPropLink"`
+}
+
+func (PropertyDefinitionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertyDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i PropertyDefinitionInvokeResponseArgs) ToPropertyDefinitionInvokeResponseOutput() PropertyDefinitionInvokeResponseOutput {
+	return i.ToPropertyDefinitionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PropertyDefinitionInvokeResponseArgs) ToPropertyDefinitionInvokeResponseOutputWithContext(ctx context.Context) PropertyDefinitionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertyDefinitionInvokeResponseOutput)
+}
+
+// PropertyDefinitionInvokeResponseArrayInput is an input type that accepts PropertyDefinitionInvokeResponseArray and PropertyDefinitionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PropertyDefinitionInvokeResponseArrayInput` via:
+//
+//          PropertyDefinitionInvokeResponseArray{ PropertyDefinitionInvokeResponseArgs{...} }
+type PropertyDefinitionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPropertyDefinitionInvokeResponseArrayOutput() PropertyDefinitionInvokeResponseArrayOutput
+	ToPropertyDefinitionInvokeResponseArrayOutputWithContext(context.Context) PropertyDefinitionInvokeResponseArrayOutput
+}
+
+type PropertyDefinitionInvokeResponseArray []PropertyDefinitionInvokeResponseInput
+
+func (PropertyDefinitionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PropertyDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (i PropertyDefinitionInvokeResponseArray) ToPropertyDefinitionInvokeResponseArrayOutput() PropertyDefinitionInvokeResponseArrayOutput {
+	return i.ToPropertyDefinitionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PropertyDefinitionInvokeResponseArray) ToPropertyDefinitionInvokeResponseArrayOutputWithContext(ctx context.Context) PropertyDefinitionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertyDefinitionInvokeResponseArrayOutput)
+}
+
+// Property definition.
+type PropertyDefinitionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PropertyDefinitionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertyDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o PropertyDefinitionInvokeResponseOutput) ToPropertyDefinitionInvokeResponseOutput() PropertyDefinitionInvokeResponseOutput {
+	return o
+}
+
+func (o PropertyDefinitionInvokeResponseOutput) ToPropertyDefinitionInvokeResponseOutputWithContext(ctx context.Context) PropertyDefinitionInvokeResponseOutput {
+	return o
+}
+
+// Array value separator for properties with isArray set.
+func (o PropertyDefinitionInvokeResponseOutput) ArrayValueSeparator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *string { return v.ArrayValueSeparator }).(pulumi.StringPtrOutput)
+}
+
+// This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
+func (o PropertyDefinitionInvokeResponseOutput) DataSourcePrecedenceRules() DataSourcePrecedenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) []DataSourcePrecedenceInvokeResponse {
+		return v.DataSourcePrecedenceRules
+	}).(DataSourcePrecedenceInvokeResponseArrayOutput)
+}
+
+// Describes valid values for an enum property.
+func (o PropertyDefinitionInvokeResponseOutput) EnumValidValues() ProfileEnumValidValuesFormatInvokeResponseArrayOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) []ProfileEnumValidValuesFormatInvokeResponse {
+		return v.EnumValidValues
+	}).(ProfileEnumValidValuesFormatInvokeResponseArrayOutput)
+}
+
+// Name of the property.
+func (o PropertyDefinitionInvokeResponseOutput) FieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) string { return v.FieldName }).(pulumi.StringOutput)
+}
+
+// Type of the property.
+func (o PropertyDefinitionInvokeResponseOutput) FieldType() pulumi.StringOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) string { return v.FieldType }).(pulumi.StringOutput)
+}
+
+// Indicates if the property is actually an array of the fieldType above on the data api.
+func (o PropertyDefinitionInvokeResponseOutput) IsArray() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *bool { return v.IsArray }).(pulumi.BoolPtrOutput)
+}
+
+// Whether property is available in graph or not.
+func (o PropertyDefinitionInvokeResponseOutput) IsAvailableInGraph() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *bool { return v.IsAvailableInGraph }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if the property is an enum.
+func (o PropertyDefinitionInvokeResponseOutput) IsEnum() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *bool { return v.IsEnum }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if the property is an flag enum.
+func (o PropertyDefinitionInvokeResponseOutput) IsFlagEnum() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *bool { return v.IsFlagEnum }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the property is an Image.
+func (o PropertyDefinitionInvokeResponseOutput) IsImage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *bool { return v.IsImage }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the property is a localized string.
+func (o PropertyDefinitionInvokeResponseOutput) IsLocalizedString() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *bool { return v.IsLocalizedString }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the property is a name or a part of name.
+func (o PropertyDefinitionInvokeResponseOutput) IsName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *bool { return v.IsName }).(pulumi.BoolPtrOutput)
+}
+
+// Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
+func (o PropertyDefinitionInvokeResponseOutput) IsRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *bool { return v.IsRequired }).(pulumi.BoolPtrOutput)
+}
+
+// Max length of string. Used only if type is string.
+func (o PropertyDefinitionInvokeResponseOutput) MaxLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *int { return v.MaxLength }).(pulumi.IntPtrOutput)
+}
+
+// The ID associated with the property.
+func (o PropertyDefinitionInvokeResponseOutput) PropertyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
+}
+
+// URL encoded schema.org item prop link for the property.
+func (o PropertyDefinitionInvokeResponseOutput) SchemaItemPropLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PropertyDefinitionInvokeResponse) *string { return v.SchemaItemPropLink }).(pulumi.StringPtrOutput)
+}
+
+type PropertyDefinitionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PropertyDefinitionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PropertyDefinitionInvokeResponse)(nil)).Elem()
+}
+
+func (o PropertyDefinitionInvokeResponseArrayOutput) ToPropertyDefinitionInvokeResponseArrayOutput() PropertyDefinitionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PropertyDefinitionInvokeResponseArrayOutput) ToPropertyDefinitionInvokeResponseArrayOutputWithContext(ctx context.Context) PropertyDefinitionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PropertyDefinitionInvokeResponseArrayOutput) Index(i pulumi.IntInput) PropertyDefinitionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PropertyDefinitionInvokeResponse {
+		return vs[0].([]PropertyDefinitionInvokeResponse)[vs[1].(int)]
+	}).(PropertyDefinitionInvokeResponseOutput)
 }
 
 // Property definition.
@@ -4919,6 +6766,124 @@ func (o RelationshipLinkFieldMappingArrayOutput) Index(i pulumi.IntInput) Relati
 }
 
 // The fields mapping for Relationships.
+type RelationshipLinkFieldMappingInvokeResponse struct {
+	// The field name on the Interaction Type.
+	InteractionFieldName string `pulumi:"interactionFieldName"`
+	// Link type.
+	LinkType *string `pulumi:"linkType"`
+	// The field name on the Relationship metadata.
+	RelationshipFieldName string `pulumi:"relationshipFieldName"`
+}
+
+// RelationshipLinkFieldMappingInvokeResponseInput is an input type that accepts RelationshipLinkFieldMappingInvokeResponseArgs and RelationshipLinkFieldMappingInvokeResponseOutput values.
+// You can construct a concrete instance of `RelationshipLinkFieldMappingInvokeResponseInput` via:
+//
+//          RelationshipLinkFieldMappingInvokeResponseArgs{...}
+type RelationshipLinkFieldMappingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRelationshipLinkFieldMappingInvokeResponseOutput() RelationshipLinkFieldMappingInvokeResponseOutput
+	ToRelationshipLinkFieldMappingInvokeResponseOutputWithContext(context.Context) RelationshipLinkFieldMappingInvokeResponseOutput
+}
+
+// The fields mapping for Relationships.
+type RelationshipLinkFieldMappingInvokeResponseArgs struct {
+	// The field name on the Interaction Type.
+	InteractionFieldName pulumi.StringInput `pulumi:"interactionFieldName"`
+	// Link type.
+	LinkType pulumi.StringPtrInput `pulumi:"linkType"`
+	// The field name on the Relationship metadata.
+	RelationshipFieldName pulumi.StringInput `pulumi:"relationshipFieldName"`
+}
+
+func (RelationshipLinkFieldMappingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipLinkFieldMappingInvokeResponse)(nil)).Elem()
+}
+
+func (i RelationshipLinkFieldMappingInvokeResponseArgs) ToRelationshipLinkFieldMappingInvokeResponseOutput() RelationshipLinkFieldMappingInvokeResponseOutput {
+	return i.ToRelationshipLinkFieldMappingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RelationshipLinkFieldMappingInvokeResponseArgs) ToRelationshipLinkFieldMappingInvokeResponseOutputWithContext(ctx context.Context) RelationshipLinkFieldMappingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkFieldMappingInvokeResponseOutput)
+}
+
+// RelationshipLinkFieldMappingInvokeResponseArrayInput is an input type that accepts RelationshipLinkFieldMappingInvokeResponseArray and RelationshipLinkFieldMappingInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RelationshipLinkFieldMappingInvokeResponseArrayInput` via:
+//
+//          RelationshipLinkFieldMappingInvokeResponseArray{ RelationshipLinkFieldMappingInvokeResponseArgs{...} }
+type RelationshipLinkFieldMappingInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToRelationshipLinkFieldMappingInvokeResponseArrayOutput() RelationshipLinkFieldMappingInvokeResponseArrayOutput
+	ToRelationshipLinkFieldMappingInvokeResponseArrayOutputWithContext(context.Context) RelationshipLinkFieldMappingInvokeResponseArrayOutput
+}
+
+type RelationshipLinkFieldMappingInvokeResponseArray []RelationshipLinkFieldMappingInvokeResponseInput
+
+func (RelationshipLinkFieldMappingInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RelationshipLinkFieldMappingInvokeResponse)(nil)).Elem()
+}
+
+func (i RelationshipLinkFieldMappingInvokeResponseArray) ToRelationshipLinkFieldMappingInvokeResponseArrayOutput() RelationshipLinkFieldMappingInvokeResponseArrayOutput {
+	return i.ToRelationshipLinkFieldMappingInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RelationshipLinkFieldMappingInvokeResponseArray) ToRelationshipLinkFieldMappingInvokeResponseArrayOutputWithContext(ctx context.Context) RelationshipLinkFieldMappingInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkFieldMappingInvokeResponseArrayOutput)
+}
+
+// The fields mapping for Relationships.
+type RelationshipLinkFieldMappingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RelationshipLinkFieldMappingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipLinkFieldMappingInvokeResponse)(nil)).Elem()
+}
+
+func (o RelationshipLinkFieldMappingInvokeResponseOutput) ToRelationshipLinkFieldMappingInvokeResponseOutput() RelationshipLinkFieldMappingInvokeResponseOutput {
+	return o
+}
+
+func (o RelationshipLinkFieldMappingInvokeResponseOutput) ToRelationshipLinkFieldMappingInvokeResponseOutputWithContext(ctx context.Context) RelationshipLinkFieldMappingInvokeResponseOutput {
+	return o
+}
+
+// The field name on the Interaction Type.
+func (o RelationshipLinkFieldMappingInvokeResponseOutput) InteractionFieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v RelationshipLinkFieldMappingInvokeResponse) string { return v.InteractionFieldName }).(pulumi.StringOutput)
+}
+
+// Link type.
+func (o RelationshipLinkFieldMappingInvokeResponseOutput) LinkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RelationshipLinkFieldMappingInvokeResponse) *string { return v.LinkType }).(pulumi.StringPtrOutput)
+}
+
+// The field name on the Relationship metadata.
+func (o RelationshipLinkFieldMappingInvokeResponseOutput) RelationshipFieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v RelationshipLinkFieldMappingInvokeResponse) string { return v.RelationshipFieldName }).(pulumi.StringOutput)
+}
+
+type RelationshipLinkFieldMappingInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RelationshipLinkFieldMappingInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RelationshipLinkFieldMappingInvokeResponse)(nil)).Elem()
+}
+
+func (o RelationshipLinkFieldMappingInvokeResponseArrayOutput) ToRelationshipLinkFieldMappingInvokeResponseArrayOutput() RelationshipLinkFieldMappingInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RelationshipLinkFieldMappingInvokeResponseArrayOutput) ToRelationshipLinkFieldMappingInvokeResponseArrayOutputWithContext(ctx context.Context) RelationshipLinkFieldMappingInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RelationshipLinkFieldMappingInvokeResponseArrayOutput) Index(i pulumi.IntInput) RelationshipLinkFieldMappingInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RelationshipLinkFieldMappingInvokeResponse {
+		return vs[0].([]RelationshipLinkFieldMappingInvokeResponse)[vs[1].(int)]
+	}).(RelationshipLinkFieldMappingInvokeResponseOutput)
+}
+
+// The fields mapping for Relationships.
 type RelationshipLinkFieldMappingResponse struct {
 	// The field name on the Interaction Type.
 	InteractionFieldName string `pulumi:"interactionFieldName"`
@@ -5146,6 +7111,115 @@ func (o RelationshipTypeFieldMappingArrayOutput) Index(i pulumi.IntInput) Relati
 }
 
 // Map a field of profile to its corresponding StrongId in Related Profile.
+type RelationshipTypeFieldMappingInvokeResponse struct {
+	// Specifies the fieldName in profile.
+	ProfileFieldName string `pulumi:"profileFieldName"`
+	// Specifies the KeyProperty (from StrongId) of the related profile.
+	RelatedProfileKeyProperty string `pulumi:"relatedProfileKeyProperty"`
+}
+
+// RelationshipTypeFieldMappingInvokeResponseInput is an input type that accepts RelationshipTypeFieldMappingInvokeResponseArgs and RelationshipTypeFieldMappingInvokeResponseOutput values.
+// You can construct a concrete instance of `RelationshipTypeFieldMappingInvokeResponseInput` via:
+//
+//          RelationshipTypeFieldMappingInvokeResponseArgs{...}
+type RelationshipTypeFieldMappingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRelationshipTypeFieldMappingInvokeResponseOutput() RelationshipTypeFieldMappingInvokeResponseOutput
+	ToRelationshipTypeFieldMappingInvokeResponseOutputWithContext(context.Context) RelationshipTypeFieldMappingInvokeResponseOutput
+}
+
+// Map a field of profile to its corresponding StrongId in Related Profile.
+type RelationshipTypeFieldMappingInvokeResponseArgs struct {
+	// Specifies the fieldName in profile.
+	ProfileFieldName pulumi.StringInput `pulumi:"profileFieldName"`
+	// Specifies the KeyProperty (from StrongId) of the related profile.
+	RelatedProfileKeyProperty pulumi.StringInput `pulumi:"relatedProfileKeyProperty"`
+}
+
+func (RelationshipTypeFieldMappingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipTypeFieldMappingInvokeResponse)(nil)).Elem()
+}
+
+func (i RelationshipTypeFieldMappingInvokeResponseArgs) ToRelationshipTypeFieldMappingInvokeResponseOutput() RelationshipTypeFieldMappingInvokeResponseOutput {
+	return i.ToRelationshipTypeFieldMappingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RelationshipTypeFieldMappingInvokeResponseArgs) ToRelationshipTypeFieldMappingInvokeResponseOutputWithContext(ctx context.Context) RelationshipTypeFieldMappingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeFieldMappingInvokeResponseOutput)
+}
+
+// RelationshipTypeFieldMappingInvokeResponseArrayInput is an input type that accepts RelationshipTypeFieldMappingInvokeResponseArray and RelationshipTypeFieldMappingInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RelationshipTypeFieldMappingInvokeResponseArrayInput` via:
+//
+//          RelationshipTypeFieldMappingInvokeResponseArray{ RelationshipTypeFieldMappingInvokeResponseArgs{...} }
+type RelationshipTypeFieldMappingInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToRelationshipTypeFieldMappingInvokeResponseArrayOutput() RelationshipTypeFieldMappingInvokeResponseArrayOutput
+	ToRelationshipTypeFieldMappingInvokeResponseArrayOutputWithContext(context.Context) RelationshipTypeFieldMappingInvokeResponseArrayOutput
+}
+
+type RelationshipTypeFieldMappingInvokeResponseArray []RelationshipTypeFieldMappingInvokeResponseInput
+
+func (RelationshipTypeFieldMappingInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RelationshipTypeFieldMappingInvokeResponse)(nil)).Elem()
+}
+
+func (i RelationshipTypeFieldMappingInvokeResponseArray) ToRelationshipTypeFieldMappingInvokeResponseArrayOutput() RelationshipTypeFieldMappingInvokeResponseArrayOutput {
+	return i.ToRelationshipTypeFieldMappingInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RelationshipTypeFieldMappingInvokeResponseArray) ToRelationshipTypeFieldMappingInvokeResponseArrayOutputWithContext(ctx context.Context) RelationshipTypeFieldMappingInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeFieldMappingInvokeResponseArrayOutput)
+}
+
+// Map a field of profile to its corresponding StrongId in Related Profile.
+type RelationshipTypeFieldMappingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RelationshipTypeFieldMappingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipTypeFieldMappingInvokeResponse)(nil)).Elem()
+}
+
+func (o RelationshipTypeFieldMappingInvokeResponseOutput) ToRelationshipTypeFieldMappingInvokeResponseOutput() RelationshipTypeFieldMappingInvokeResponseOutput {
+	return o
+}
+
+func (o RelationshipTypeFieldMappingInvokeResponseOutput) ToRelationshipTypeFieldMappingInvokeResponseOutputWithContext(ctx context.Context) RelationshipTypeFieldMappingInvokeResponseOutput {
+	return o
+}
+
+// Specifies the fieldName in profile.
+func (o RelationshipTypeFieldMappingInvokeResponseOutput) ProfileFieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v RelationshipTypeFieldMappingInvokeResponse) string { return v.ProfileFieldName }).(pulumi.StringOutput)
+}
+
+// Specifies the KeyProperty (from StrongId) of the related profile.
+func (o RelationshipTypeFieldMappingInvokeResponseOutput) RelatedProfileKeyProperty() pulumi.StringOutput {
+	return o.ApplyT(func(v RelationshipTypeFieldMappingInvokeResponse) string { return v.RelatedProfileKeyProperty }).(pulumi.StringOutput)
+}
+
+type RelationshipTypeFieldMappingInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RelationshipTypeFieldMappingInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RelationshipTypeFieldMappingInvokeResponse)(nil)).Elem()
+}
+
+func (o RelationshipTypeFieldMappingInvokeResponseArrayOutput) ToRelationshipTypeFieldMappingInvokeResponseArrayOutput() RelationshipTypeFieldMappingInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RelationshipTypeFieldMappingInvokeResponseArrayOutput) ToRelationshipTypeFieldMappingInvokeResponseArrayOutputWithContext(ctx context.Context) RelationshipTypeFieldMappingInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RelationshipTypeFieldMappingInvokeResponseArrayOutput) Index(i pulumi.IntInput) RelationshipTypeFieldMappingInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RelationshipTypeFieldMappingInvokeResponse {
+		return vs[0].([]RelationshipTypeFieldMappingInvokeResponse)[vs[1].(int)]
+	}).(RelationshipTypeFieldMappingInvokeResponseOutput)
+}
+
+// Map a field of profile to its corresponding StrongId in Related Profile.
 type RelationshipTypeFieldMappingResponse struct {
 	// Specifies the fieldName in profile.
 	ProfileFieldName string `pulumi:"profileFieldName"`
@@ -5352,6 +7426,108 @@ func (o RelationshipTypeMappingArrayOutput) Index(i pulumi.IntInput) Relationshi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RelationshipTypeMapping {
 		return vs[0].([]RelationshipTypeMapping)[vs[1].(int)]
 	}).(RelationshipTypeMappingOutput)
+}
+
+// Maps fields in Profile to their corresponding StrongIds in Related Profile.
+type RelationshipTypeMappingInvokeResponse struct {
+	// Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
+	FieldMappings []RelationshipTypeFieldMappingInvokeResponse `pulumi:"fieldMappings"`
+}
+
+// RelationshipTypeMappingInvokeResponseInput is an input type that accepts RelationshipTypeMappingInvokeResponseArgs and RelationshipTypeMappingInvokeResponseOutput values.
+// You can construct a concrete instance of `RelationshipTypeMappingInvokeResponseInput` via:
+//
+//          RelationshipTypeMappingInvokeResponseArgs{...}
+type RelationshipTypeMappingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRelationshipTypeMappingInvokeResponseOutput() RelationshipTypeMappingInvokeResponseOutput
+	ToRelationshipTypeMappingInvokeResponseOutputWithContext(context.Context) RelationshipTypeMappingInvokeResponseOutput
+}
+
+// Maps fields in Profile to their corresponding StrongIds in Related Profile.
+type RelationshipTypeMappingInvokeResponseArgs struct {
+	// Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
+	FieldMappings RelationshipTypeFieldMappingInvokeResponseArrayInput `pulumi:"fieldMappings"`
+}
+
+func (RelationshipTypeMappingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipTypeMappingInvokeResponse)(nil)).Elem()
+}
+
+func (i RelationshipTypeMappingInvokeResponseArgs) ToRelationshipTypeMappingInvokeResponseOutput() RelationshipTypeMappingInvokeResponseOutput {
+	return i.ToRelationshipTypeMappingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RelationshipTypeMappingInvokeResponseArgs) ToRelationshipTypeMappingInvokeResponseOutputWithContext(ctx context.Context) RelationshipTypeMappingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeMappingInvokeResponseOutput)
+}
+
+// RelationshipTypeMappingInvokeResponseArrayInput is an input type that accepts RelationshipTypeMappingInvokeResponseArray and RelationshipTypeMappingInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RelationshipTypeMappingInvokeResponseArrayInput` via:
+//
+//          RelationshipTypeMappingInvokeResponseArray{ RelationshipTypeMappingInvokeResponseArgs{...} }
+type RelationshipTypeMappingInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToRelationshipTypeMappingInvokeResponseArrayOutput() RelationshipTypeMappingInvokeResponseArrayOutput
+	ToRelationshipTypeMappingInvokeResponseArrayOutputWithContext(context.Context) RelationshipTypeMappingInvokeResponseArrayOutput
+}
+
+type RelationshipTypeMappingInvokeResponseArray []RelationshipTypeMappingInvokeResponseInput
+
+func (RelationshipTypeMappingInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RelationshipTypeMappingInvokeResponse)(nil)).Elem()
+}
+
+func (i RelationshipTypeMappingInvokeResponseArray) ToRelationshipTypeMappingInvokeResponseArrayOutput() RelationshipTypeMappingInvokeResponseArrayOutput {
+	return i.ToRelationshipTypeMappingInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RelationshipTypeMappingInvokeResponseArray) ToRelationshipTypeMappingInvokeResponseArrayOutputWithContext(ctx context.Context) RelationshipTypeMappingInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeMappingInvokeResponseArrayOutput)
+}
+
+// Maps fields in Profile to their corresponding StrongIds in Related Profile.
+type RelationshipTypeMappingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RelationshipTypeMappingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelationshipTypeMappingInvokeResponse)(nil)).Elem()
+}
+
+func (o RelationshipTypeMappingInvokeResponseOutput) ToRelationshipTypeMappingInvokeResponseOutput() RelationshipTypeMappingInvokeResponseOutput {
+	return o
+}
+
+func (o RelationshipTypeMappingInvokeResponseOutput) ToRelationshipTypeMappingInvokeResponseOutputWithContext(ctx context.Context) RelationshipTypeMappingInvokeResponseOutput {
+	return o
+}
+
+// Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
+func (o RelationshipTypeMappingInvokeResponseOutput) FieldMappings() RelationshipTypeFieldMappingInvokeResponseArrayOutput {
+	return o.ApplyT(func(v RelationshipTypeMappingInvokeResponse) []RelationshipTypeFieldMappingInvokeResponse {
+		return v.FieldMappings
+	}).(RelationshipTypeFieldMappingInvokeResponseArrayOutput)
+}
+
+type RelationshipTypeMappingInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RelationshipTypeMappingInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RelationshipTypeMappingInvokeResponse)(nil)).Elem()
+}
+
+func (o RelationshipTypeMappingInvokeResponseArrayOutput) ToRelationshipTypeMappingInvokeResponseArrayOutput() RelationshipTypeMappingInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RelationshipTypeMappingInvokeResponseArrayOutput) ToRelationshipTypeMappingInvokeResponseArrayOutputWithContext(ctx context.Context) RelationshipTypeMappingInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RelationshipTypeMappingInvokeResponseArrayOutput) Index(i pulumi.IntInput) RelationshipTypeMappingInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RelationshipTypeMappingInvokeResponse {
+		return vs[0].([]RelationshipTypeMappingInvokeResponse)[vs[1].(int)]
+	}).(RelationshipTypeMappingInvokeResponseOutput)
 }
 
 // Maps fields in Profile to their corresponding StrongIds in Related Profile.
@@ -5605,6 +7781,70 @@ func (o ResourceSetDescriptionPtrOutput) Exceptions() pulumi.StringArrayOutput {
 		}
 		return v.Exceptions
 	}).(pulumi.StringArrayOutput)
+}
+
+// The resource set description.
+type ResourceSetDescriptionInvokeResponse struct {
+	// The elements included in the set.
+	Elements []string `pulumi:"elements"`
+	// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+	Exceptions []string `pulumi:"exceptions"`
+}
+
+// ResourceSetDescriptionInvokeResponseInput is an input type that accepts ResourceSetDescriptionInvokeResponseArgs and ResourceSetDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceSetDescriptionInvokeResponseInput` via:
+//
+//          ResourceSetDescriptionInvokeResponseArgs{...}
+type ResourceSetDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceSetDescriptionInvokeResponseOutput() ResourceSetDescriptionInvokeResponseOutput
+	ToResourceSetDescriptionInvokeResponseOutputWithContext(context.Context) ResourceSetDescriptionInvokeResponseOutput
+}
+
+// The resource set description.
+type ResourceSetDescriptionInvokeResponseArgs struct {
+	// The elements included in the set.
+	Elements pulumi.StringArrayInput `pulumi:"elements"`
+	// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+	Exceptions pulumi.StringArrayInput `pulumi:"exceptions"`
+}
+
+func (ResourceSetDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceSetDescriptionInvokeResponseArgs) ToResourceSetDescriptionInvokeResponseOutput() ResourceSetDescriptionInvokeResponseOutput {
+	return i.ToResourceSetDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceSetDescriptionInvokeResponseArgs) ToResourceSetDescriptionInvokeResponseOutputWithContext(ctx context.Context) ResourceSetDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDescriptionInvokeResponseOutput)
+}
+
+// The resource set description.
+type ResourceSetDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceSetDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceSetDescriptionInvokeResponseOutput) ToResourceSetDescriptionInvokeResponseOutput() ResourceSetDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceSetDescriptionInvokeResponseOutput) ToResourceSetDescriptionInvokeResponseOutputWithContext(ctx context.Context) ResourceSetDescriptionInvokeResponseOutput {
+	return o
+}
+
+// The elements included in the set.
+func (o ResourceSetDescriptionInvokeResponseOutput) Elements() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceSetDescriptionInvokeResponse) []string { return v.Elements }).(pulumi.StringArrayOutput)
+}
+
+// The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+func (o ResourceSetDescriptionInvokeResponseOutput) Exceptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceSetDescriptionInvokeResponse) []string { return v.Exceptions }).(pulumi.StringArrayOutput)
 }
 
 // The resource set description.
@@ -5888,6 +8128,133 @@ func (o StrongIdArrayOutput) Index(i pulumi.IntInput) StrongIdOutput {
 }
 
 // Property/Properties which represent a unique ID.
+type StrongIdInvokeResponse struct {
+	// Localized descriptions.
+	Description map[string]string `pulumi:"description"`
+	// Localized display name.
+	DisplayName map[string]string `pulumi:"displayName"`
+	// The properties which make up the unique ID.
+	KeyPropertyNames []string `pulumi:"keyPropertyNames"`
+	// The Name identifying the strong ID.
+	StrongIdName string `pulumi:"strongIdName"`
+}
+
+// StrongIdInvokeResponseInput is an input type that accepts StrongIdInvokeResponseArgs and StrongIdInvokeResponseOutput values.
+// You can construct a concrete instance of `StrongIdInvokeResponseInput` via:
+//
+//          StrongIdInvokeResponseArgs{...}
+type StrongIdInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStrongIdInvokeResponseOutput() StrongIdInvokeResponseOutput
+	ToStrongIdInvokeResponseOutputWithContext(context.Context) StrongIdInvokeResponseOutput
+}
+
+// Property/Properties which represent a unique ID.
+type StrongIdInvokeResponseArgs struct {
+	// Localized descriptions.
+	Description pulumi.StringMapInput `pulumi:"description"`
+	// Localized display name.
+	DisplayName pulumi.StringMapInput `pulumi:"displayName"`
+	// The properties which make up the unique ID.
+	KeyPropertyNames pulumi.StringArrayInput `pulumi:"keyPropertyNames"`
+	// The Name identifying the strong ID.
+	StrongIdName pulumi.StringInput `pulumi:"strongIdName"`
+}
+
+func (StrongIdInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StrongIdInvokeResponse)(nil)).Elem()
+}
+
+func (i StrongIdInvokeResponseArgs) ToStrongIdInvokeResponseOutput() StrongIdInvokeResponseOutput {
+	return i.ToStrongIdInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StrongIdInvokeResponseArgs) ToStrongIdInvokeResponseOutputWithContext(ctx context.Context) StrongIdInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StrongIdInvokeResponseOutput)
+}
+
+// StrongIdInvokeResponseArrayInput is an input type that accepts StrongIdInvokeResponseArray and StrongIdInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `StrongIdInvokeResponseArrayInput` via:
+//
+//          StrongIdInvokeResponseArray{ StrongIdInvokeResponseArgs{...} }
+type StrongIdInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToStrongIdInvokeResponseArrayOutput() StrongIdInvokeResponseArrayOutput
+	ToStrongIdInvokeResponseArrayOutputWithContext(context.Context) StrongIdInvokeResponseArrayOutput
+}
+
+type StrongIdInvokeResponseArray []StrongIdInvokeResponseInput
+
+func (StrongIdInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StrongIdInvokeResponse)(nil)).Elem()
+}
+
+func (i StrongIdInvokeResponseArray) ToStrongIdInvokeResponseArrayOutput() StrongIdInvokeResponseArrayOutput {
+	return i.ToStrongIdInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StrongIdInvokeResponseArray) ToStrongIdInvokeResponseArrayOutputWithContext(ctx context.Context) StrongIdInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StrongIdInvokeResponseArrayOutput)
+}
+
+// Property/Properties which represent a unique ID.
+type StrongIdInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StrongIdInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StrongIdInvokeResponse)(nil)).Elem()
+}
+
+func (o StrongIdInvokeResponseOutput) ToStrongIdInvokeResponseOutput() StrongIdInvokeResponseOutput {
+	return o
+}
+
+func (o StrongIdInvokeResponseOutput) ToStrongIdInvokeResponseOutputWithContext(ctx context.Context) StrongIdInvokeResponseOutput {
+	return o
+}
+
+// Localized descriptions.
+func (o StrongIdInvokeResponseOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v StrongIdInvokeResponse) map[string]string { return v.Description }).(pulumi.StringMapOutput)
+}
+
+// Localized display name.
+func (o StrongIdInvokeResponseOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v StrongIdInvokeResponse) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
+}
+
+// The properties which make up the unique ID.
+func (o StrongIdInvokeResponseOutput) KeyPropertyNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StrongIdInvokeResponse) []string { return v.KeyPropertyNames }).(pulumi.StringArrayOutput)
+}
+
+// The Name identifying the strong ID.
+func (o StrongIdInvokeResponseOutput) StrongIdName() pulumi.StringOutput {
+	return o.ApplyT(func(v StrongIdInvokeResponse) string { return v.StrongIdName }).(pulumi.StringOutput)
+}
+
+type StrongIdInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StrongIdInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StrongIdInvokeResponse)(nil)).Elem()
+}
+
+func (o StrongIdInvokeResponseArrayOutput) ToStrongIdInvokeResponseArrayOutput() StrongIdInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StrongIdInvokeResponseArrayOutput) ToStrongIdInvokeResponseArrayOutputWithContext(ctx context.Context) StrongIdInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StrongIdInvokeResponseArrayOutput) Index(i pulumi.IntInput) StrongIdInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StrongIdInvokeResponse {
+		return vs[0].([]StrongIdInvokeResponse)[vs[1].(int)]
+	}).(StrongIdInvokeResponseOutput)
+}
+
+// Property/Properties which represent a unique ID.
 type StrongIdResponse struct {
 	// Localized descriptions.
 	Description map[string]string `pulumi:"description"`
@@ -6142,6 +8509,133 @@ func (o TypePropertiesMappingArrayOutput) Index(i pulumi.IntInput) TypePropertie
 }
 
 // Metadata for a Link's property mapping.
+type TypePropertiesMappingInvokeResponse struct {
+	//  Property name on the source Interaction Type.
+	InteractionTypePropertyName string `pulumi:"interactionTypePropertyName"`
+	// Flag to indicate whether the Profile Type property is an id on the Profile Type.
+	IsProfileTypeId *bool `pulumi:"isProfileTypeId"`
+	// Link type.
+	LinkType *string `pulumi:"linkType"`
+	// Property name on the target Profile Type.
+	ProfileTypePropertyName string `pulumi:"profileTypePropertyName"`
+}
+
+// TypePropertiesMappingInvokeResponseInput is an input type that accepts TypePropertiesMappingInvokeResponseArgs and TypePropertiesMappingInvokeResponseOutput values.
+// You can construct a concrete instance of `TypePropertiesMappingInvokeResponseInput` via:
+//
+//          TypePropertiesMappingInvokeResponseArgs{...}
+type TypePropertiesMappingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTypePropertiesMappingInvokeResponseOutput() TypePropertiesMappingInvokeResponseOutput
+	ToTypePropertiesMappingInvokeResponseOutputWithContext(context.Context) TypePropertiesMappingInvokeResponseOutput
+}
+
+// Metadata for a Link's property mapping.
+type TypePropertiesMappingInvokeResponseArgs struct {
+	//  Property name on the source Interaction Type.
+	InteractionTypePropertyName pulumi.StringInput `pulumi:"interactionTypePropertyName"`
+	// Flag to indicate whether the Profile Type property is an id on the Profile Type.
+	IsProfileTypeId pulumi.BoolPtrInput `pulumi:"isProfileTypeId"`
+	// Link type.
+	LinkType pulumi.StringPtrInput `pulumi:"linkType"`
+	// Property name on the target Profile Type.
+	ProfileTypePropertyName pulumi.StringInput `pulumi:"profileTypePropertyName"`
+}
+
+func (TypePropertiesMappingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypePropertiesMappingInvokeResponse)(nil)).Elem()
+}
+
+func (i TypePropertiesMappingInvokeResponseArgs) ToTypePropertiesMappingInvokeResponseOutput() TypePropertiesMappingInvokeResponseOutput {
+	return i.ToTypePropertiesMappingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TypePropertiesMappingInvokeResponseArgs) ToTypePropertiesMappingInvokeResponseOutputWithContext(ctx context.Context) TypePropertiesMappingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypePropertiesMappingInvokeResponseOutput)
+}
+
+// TypePropertiesMappingInvokeResponseArrayInput is an input type that accepts TypePropertiesMappingInvokeResponseArray and TypePropertiesMappingInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TypePropertiesMappingInvokeResponseArrayInput` via:
+//
+//          TypePropertiesMappingInvokeResponseArray{ TypePropertiesMappingInvokeResponseArgs{...} }
+type TypePropertiesMappingInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTypePropertiesMappingInvokeResponseArrayOutput() TypePropertiesMappingInvokeResponseArrayOutput
+	ToTypePropertiesMappingInvokeResponseArrayOutputWithContext(context.Context) TypePropertiesMappingInvokeResponseArrayOutput
+}
+
+type TypePropertiesMappingInvokeResponseArray []TypePropertiesMappingInvokeResponseInput
+
+func (TypePropertiesMappingInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TypePropertiesMappingInvokeResponse)(nil)).Elem()
+}
+
+func (i TypePropertiesMappingInvokeResponseArray) ToTypePropertiesMappingInvokeResponseArrayOutput() TypePropertiesMappingInvokeResponseArrayOutput {
+	return i.ToTypePropertiesMappingInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TypePropertiesMappingInvokeResponseArray) ToTypePropertiesMappingInvokeResponseArrayOutputWithContext(ctx context.Context) TypePropertiesMappingInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypePropertiesMappingInvokeResponseArrayOutput)
+}
+
+// Metadata for a Link's property mapping.
+type TypePropertiesMappingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TypePropertiesMappingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypePropertiesMappingInvokeResponse)(nil)).Elem()
+}
+
+func (o TypePropertiesMappingInvokeResponseOutput) ToTypePropertiesMappingInvokeResponseOutput() TypePropertiesMappingInvokeResponseOutput {
+	return o
+}
+
+func (o TypePropertiesMappingInvokeResponseOutput) ToTypePropertiesMappingInvokeResponseOutputWithContext(ctx context.Context) TypePropertiesMappingInvokeResponseOutput {
+	return o
+}
+
+//  Property name on the source Interaction Type.
+func (o TypePropertiesMappingInvokeResponseOutput) InteractionTypePropertyName() pulumi.StringOutput {
+	return o.ApplyT(func(v TypePropertiesMappingInvokeResponse) string { return v.InteractionTypePropertyName }).(pulumi.StringOutput)
+}
+
+// Flag to indicate whether the Profile Type property is an id on the Profile Type.
+func (o TypePropertiesMappingInvokeResponseOutput) IsProfileTypeId() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TypePropertiesMappingInvokeResponse) *bool { return v.IsProfileTypeId }).(pulumi.BoolPtrOutput)
+}
+
+// Link type.
+func (o TypePropertiesMappingInvokeResponseOutput) LinkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TypePropertiesMappingInvokeResponse) *string { return v.LinkType }).(pulumi.StringPtrOutput)
+}
+
+// Property name on the target Profile Type.
+func (o TypePropertiesMappingInvokeResponseOutput) ProfileTypePropertyName() pulumi.StringOutput {
+	return o.ApplyT(func(v TypePropertiesMappingInvokeResponse) string { return v.ProfileTypePropertyName }).(pulumi.StringOutput)
+}
+
+type TypePropertiesMappingInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TypePropertiesMappingInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TypePropertiesMappingInvokeResponse)(nil)).Elem()
+}
+
+func (o TypePropertiesMappingInvokeResponseArrayOutput) ToTypePropertiesMappingInvokeResponseArrayOutput() TypePropertiesMappingInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TypePropertiesMappingInvokeResponseArrayOutput) ToTypePropertiesMappingInvokeResponseArrayOutputWithContext(ctx context.Context) TypePropertiesMappingInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TypePropertiesMappingInvokeResponseArrayOutput) Index(i pulumi.IntInput) TypePropertiesMappingInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TypePropertiesMappingInvokeResponse {
+		return vs[0].([]TypePropertiesMappingInvokeResponse)[vs[1].(int)]
+	}).(TypePropertiesMappingInvokeResponseOutput)
+}
+
+// Metadata for a Link's property mapping.
 type TypePropertiesMappingResponse struct {
 	//  Property name on the source Interaction Type.
 	InteractionTypePropertyName string `pulumi:"interactionTypePropertyName"`
@@ -6271,88 +8765,126 @@ func (o TypePropertiesMappingResponseArrayOutput) Index(i pulumi.IntInput) TypeP
 func init() {
 	pulumi.RegisterOutputType(AssignmentPrincipalOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalArrayOutput{})
+	pulumi.RegisterOutputType(AssignmentPrincipalInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AssignmentPrincipalInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorMappingAvailabilityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingCompleteOperationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingErrorManagementOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingErrorManagementPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorMappingErrorManagementInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingErrorManagementResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingErrorManagementResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingFormatOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingFormatPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorMappingFormatInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingFormatResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingPropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorMappingPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingStructureOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingStructureArrayOutput{})
+	pulumi.RegisterOutputType(ConnectorMappingStructureInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ConnectorMappingStructureInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingStructureResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingStructureResponseArrayOutput{})
+	pulumi.RegisterOutputType(DataSourcePrecedenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataSourcePrecedenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataSourcePrecedenceResponseOutput{})
 	pulumi.RegisterOutputType(DataSourcePrecedenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatPtrOutput{})
+	pulumi.RegisterOutputType(HubBillingInfoFormatInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatResponseOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(KpiAliasOutput{})
 	pulumi.RegisterOutputType(KpiAliasArrayOutput{})
+	pulumi.RegisterOutputType(KpiAliasInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KpiAliasInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(KpiAliasResponseOutput{})
 	pulumi.RegisterOutputType(KpiAliasResponseArrayOutput{})
 	pulumi.RegisterOutputType(KpiExtractOutput{})
 	pulumi.RegisterOutputType(KpiExtractArrayOutput{})
+	pulumi.RegisterOutputType(KpiExtractInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KpiExtractInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(KpiExtractResponseOutput{})
 	pulumi.RegisterOutputType(KpiExtractResponseArrayOutput{})
+	pulumi.RegisterOutputType(KpiGroupByMetadataInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KpiGroupByMetadataInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(KpiGroupByMetadataResponseOutput{})
 	pulumi.RegisterOutputType(KpiGroupByMetadataResponseArrayOutput{})
+	pulumi.RegisterOutputType(KpiParticipantProfilesMetadataInvokeResponseOutput{})
+	pulumi.RegisterOutputType(KpiParticipantProfilesMetadataInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(KpiParticipantProfilesMetadataResponseOutput{})
 	pulumi.RegisterOutputType(KpiParticipantProfilesMetadataResponseArrayOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsPtrOutput{})
+	pulumi.RegisterOutputType(KpiThresholdsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsResponseOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceArrayOutput{})
+	pulumi.RegisterOutputType(ParticipantPropertyReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ParticipantPropertyReferenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatArrayOutput{})
+	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatResponseOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatResponseArrayOutput{})
 	pulumi.RegisterOutputType(PropertyDefinitionOutput{})
 	pulumi.RegisterOutputType(PropertyDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(PropertyDefinitionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PropertyDefinitionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PropertyDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(PropertyDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkFieldMappingOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkFieldMappingArrayOutput{})
+	pulumi.RegisterOutputType(RelationshipLinkFieldMappingInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RelationshipLinkFieldMappingInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkFieldMappingResponseOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkFieldMappingResponseArrayOutput{})
 	pulumi.RegisterOutputType(RelationshipTypeFieldMappingOutput{})
 	pulumi.RegisterOutputType(RelationshipTypeFieldMappingArrayOutput{})
+	pulumi.RegisterOutputType(RelationshipTypeFieldMappingInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RelationshipTypeFieldMappingInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(RelationshipTypeFieldMappingResponseOutput{})
 	pulumi.RegisterOutputType(RelationshipTypeFieldMappingResponseArrayOutput{})
 	pulumi.RegisterOutputType(RelationshipTypeMappingOutput{})
 	pulumi.RegisterOutputType(RelationshipTypeMappingArrayOutput{})
+	pulumi.RegisterOutputType(RelationshipTypeMappingInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RelationshipTypeMappingInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(RelationshipTypeMappingResponseOutput{})
 	pulumi.RegisterOutputType(RelationshipTypeMappingResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSetDescriptionOutput{})
 	pulumi.RegisterOutputType(ResourceSetDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSetDescriptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSetDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSetDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(StrongIdOutput{})
 	pulumi.RegisterOutputType(StrongIdArrayOutput{})
+	pulumi.RegisterOutputType(StrongIdInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StrongIdInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(StrongIdResponseOutput{})
 	pulumi.RegisterOutputType(StrongIdResponseArrayOutput{})
 	pulumi.RegisterOutputType(TypePropertiesMappingOutput{})
 	pulumi.RegisterOutputType(TypePropertiesMappingArrayOutput{})
+	pulumi.RegisterOutputType(TypePropertiesMappingInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TypePropertiesMappingInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TypePropertiesMappingResponseOutput{})
 	pulumi.RegisterOutputType(TypePropertiesMappingResponseArrayOutput{})
 }

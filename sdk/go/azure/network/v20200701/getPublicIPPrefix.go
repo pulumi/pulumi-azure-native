@@ -28,19 +28,19 @@ type LookupPublicIPPrefixArgs struct {
 // Public IP prefix resource.
 type LookupPublicIPPrefixResult struct {
 	// The customIpPrefix that this prefix is associated with.
-	CustomIPPrefix *SubResourceResponse `pulumi:"customIPPrefix"`
+	CustomIPPrefix *SubResourceInvokeResponse `pulumi:"customIPPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The extended location of the public ip address.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	ExtendedLocation *ExtendedLocationInvokeResponse `pulumi:"extendedLocation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The allocated Prefix.
 	IpPrefix string `pulumi:"ipPrefix"`
 	// The list of tags associated with the public IP prefix.
-	IpTags []IpTagResponse `pulumi:"ipTags"`
+	IpTags []IpTagInvokeResponse `pulumi:"ipTags"`
 	// The reference to load balancer frontend IP configuration associated with the public IP prefix.
-	LoadBalancerFrontendIpConfiguration SubResourceResponse `pulumi:"loadBalancerFrontendIpConfiguration"`
+	LoadBalancerFrontendIpConfiguration SubResourceInvokeResponse `pulumi:"loadBalancerFrontendIpConfiguration"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
@@ -52,11 +52,11 @@ type LookupPublicIPPrefixResult struct {
 	// The public IP address version.
 	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
 	// The list of all referenced PublicIPAddresses.
-	PublicIPAddresses []ReferencedPublicIpAddressResponse `pulumi:"publicIPAddresses"`
+	PublicIPAddresses []ReferencedPublicIpAddressInvokeResponse `pulumi:"publicIPAddresses"`
 	// The resource GUID property of the public IP prefix resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// The public IP prefix SKU.
-	Sku *PublicIPPrefixSkuResponse `pulumi:"sku"`
+	Sku *PublicIPPrefixSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -28,5 +28,5 @@ type ListLinkedResourceResult struct {
 	// Link to the next set of results, if any.
 	NextLink *string `pulumi:"nextLink"`
 	// Results of a list operation.
-	Value []LinkedResourceResponse `pulumi:"value"`
+	Value []LinkedResourceInvokeResponse `pulumi:"value"`
 }

@@ -34,9 +34,9 @@ type LookupDeploymentResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Properties of the Deployment resource
-	Properties DeploymentResourcePropertiesResponse `pulumi:"properties"`
+	Properties DeploymentResourcePropertiesInvokeResponse `pulumi:"properties"`
 	// Sku of the Deployment resource
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

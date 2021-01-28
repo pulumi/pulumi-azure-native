@@ -32,9 +32,9 @@ type LookupExperimentResult struct {
 	// The state of the Experiment
 	EnabledState *string `pulumi:"enabledState"`
 	// The endpoint A of an experiment
-	EndpointA *EndpointResponse `pulumi:"endpointA"`
+	EndpointA *EndpointInvokeResponse `pulumi:"endpointA"`
 	// The endpoint B of an experiment
-	EndpointB *EndpointResponse `pulumi:"endpointB"`
+	EndpointB *EndpointInvokeResponse `pulumi:"endpointB"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource location.

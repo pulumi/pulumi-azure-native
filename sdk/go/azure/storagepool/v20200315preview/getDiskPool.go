@@ -28,7 +28,7 @@ type LookupDiskPoolResult struct {
 	// Logical zone for DiskPool resource.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// List of Azure managed disks to attach to a DiskPool
-	Disks []DiskResponse `pulumi:"disks"`
+	Disks []DiskInvokeResponse `pulumi:"disks"`
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
@@ -38,13 +38,13 @@ type LookupDiskPoolResult struct {
 	// State of the operation on the resource
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Sku description.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Operational status of the Disk pool
 	Status string `pulumi:"status"`
 	// Azure resource id of the subnet for the DiskPool
 	SubnetId string `pulumi:"subnetId"`
 	// Resource metadata required by ARM RPC
-	SystemData SystemMetadataResponse `pulumi:"systemData"`
+	SystemData SystemMetadataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

@@ -28,13 +28,13 @@ type LookupUserArgs struct {
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 type LookupUserResult struct {
 	// The password details.
-	EncryptedPassword *AsymmetricEncryptedSecretResponse `pulumi:"encryptedPassword"`
+	EncryptedPassword *AsymmetricEncryptedSecretInvokeResponse `pulumi:"encryptedPassword"`
 	// The path ID that uniquely identifies the object.
 	Id string `pulumi:"id"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// List of shares that the user has rights on. This field should not be specified during user creation.
-	ShareAccessRights []ShareAccessRightResponse `pulumi:"shareAccessRights"`
+	ShareAccessRights []ShareAccessRightInvokeResponse `pulumi:"shareAccessRights"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 	// Type of the user.

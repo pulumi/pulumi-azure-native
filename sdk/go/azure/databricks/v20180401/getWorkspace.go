@@ -26,9 +26,9 @@ type LookupWorkspaceArgs struct {
 // Information about workspace.
 type LookupWorkspaceResult struct {
 	// The workspace provider authorizations.
-	Authorizations []WorkspaceProviderAuthorizationResponse `pulumi:"authorizations"`
+	Authorizations []WorkspaceProviderAuthorizationInvokeResponse `pulumi:"authorizations"`
 	// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-	CreatedBy *CreatedByResponse `pulumi:"createdBy"`
+	CreatedBy *CreatedByInvokeResponse `pulumi:"createdBy"`
 	// Specifies the date and time when the workspace is created.
 	CreatedDateTime string `pulumi:"createdDateTime"`
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -40,13 +40,13 @@ type LookupWorkspaceResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The workspace's custom parameters.
-	Parameters *WorkspaceCustomParametersResponse `pulumi:"parameters"`
+	Parameters *WorkspaceCustomParametersInvokeResponse `pulumi:"parameters"`
 	// The workspace provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The details of Managed Identity of Storage Account
-	StorageAccountIdentity *ManagedIdentityConfigurationResponse `pulumi:"storageAccountIdentity"`
+	StorageAccountIdentity *ManagedIdentityConfigurationInvokeResponse `pulumi:"storageAccountIdentity"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -54,7 +54,7 @@ type LookupWorkspaceResult struct {
 	// The blob URI where the UI definition file is located.
 	UiDefinitionUri *string `pulumi:"uiDefinitionUri"`
 	// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-	UpdatedBy *CreatedByResponse `pulumi:"updatedBy"`
+	UpdatedBy *CreatedByInvokeResponse `pulumi:"updatedBy"`
 	// The unique identifier of the databricks workspace in databricks control plane.
 	WorkspaceId string `pulumi:"workspaceId"`
 	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'

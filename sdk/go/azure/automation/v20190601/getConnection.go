@@ -28,7 +28,7 @@ type LookupConnectionArgs struct {
 // Definition of the connection.
 type LookupConnectionResult struct {
 	// Gets or sets the connectionType of the connection.
-	ConnectionType *ConnectionTypeAssociationPropertyResponse `pulumi:"connectionType"`
+	ConnectionType *ConnectionTypeAssociationPropertyInvokeResponse `pulumi:"connectionType"`
 	// Gets the creation time.
 	CreationTime string `pulumi:"creationTime"`
 	// Gets or sets the description.

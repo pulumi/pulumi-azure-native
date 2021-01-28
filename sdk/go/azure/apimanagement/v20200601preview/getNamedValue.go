@@ -32,7 +32,7 @@ type LookupNamedValueResult struct {
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// KeyVault location details of the namedValue.
-	KeyVault *KeyVaultContractPropertiesResponse `pulumi:"keyVault"`
+	KeyVault *KeyVaultContractPropertiesInvokeResponse `pulumi:"keyVault"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.

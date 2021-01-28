@@ -34,7 +34,7 @@ type LookupCustomDomainResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Properties of the custom domain resource.
-	Properties CustomDomainPropertiesResponse `pulumi:"properties"`
+	Properties CustomDomainPropertiesInvokeResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

@@ -82,7 +82,7 @@ type LookupDatabaseResult struct {
 	// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
 	ReadScale *string `pulumi:"readScale"`
 	// The recommended indices for this database.
-	RecommendedIndex []RecommendedIndexResponse `pulumi:"recommendedIndex"`
+	RecommendedIndex []RecommendedIndexInvokeResponse `pulumi:"recommendedIndex"`
 	// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
 	RecoveryServicesRecoveryPointResourceId *string `pulumi:"recoveryServicesRecoveryPointResourceId"`
 	// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
@@ -100,7 +100,7 @@ type LookupDatabaseResult struct {
 	// The current service level objective of the database.
 	ServiceLevelObjective string `pulumi:"serviceLevelObjective"`
 	// The list of service tier advisors for this database. Expanded property
-	ServiceTierAdvisors []ServiceTierAdvisorResponse `pulumi:"serviceTierAdvisors"`
+	ServiceTierAdvisors []ServiceTierAdvisorInvokeResponse `pulumi:"serviceTierAdvisors"`
 	// Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
 	// Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
@@ -110,7 +110,7 @@ type LookupDatabaseResult struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The transparent data encryption info for this database.
-	TransparentDataEncryption []TransparentDataEncryptionResponse `pulumi:"transparentDataEncryption"`
+	TransparentDataEncryption []TransparentDataEncryptionInvokeResponse `pulumi:"transparentDataEncryption"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.

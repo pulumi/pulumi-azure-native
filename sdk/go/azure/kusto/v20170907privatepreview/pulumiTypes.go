@@ -179,6 +179,76 @@ func (o AzureSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AzureSkuInvokeResponse struct {
+	// SKU capacity.
+	Capacity *int `pulumi:"capacity"`
+	// SKU name.
+	Name string `pulumi:"name"`
+	// SKU tier.
+	Tier string `pulumi:"tier"`
+}
+
+// AzureSkuInvokeResponseInput is an input type that accepts AzureSkuInvokeResponseArgs and AzureSkuInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureSkuInvokeResponseInput` via:
+//
+//          AzureSkuInvokeResponseArgs{...}
+type AzureSkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureSkuInvokeResponseOutput() AzureSkuInvokeResponseOutput
+	ToAzureSkuInvokeResponseOutputWithContext(context.Context) AzureSkuInvokeResponseOutput
+}
+
+type AzureSkuInvokeResponseArgs struct {
+	// SKU capacity.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// SKU name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// SKU tier.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (AzureSkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSkuInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureSkuInvokeResponseArgs) ToAzureSkuInvokeResponseOutput() AzureSkuInvokeResponseOutput {
+	return i.ToAzureSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureSkuInvokeResponseArgs) ToAzureSkuInvokeResponseOutputWithContext(ctx context.Context) AzureSkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureSkuInvokeResponseOutput)
+}
+
+type AzureSkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureSkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSkuInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureSkuInvokeResponseOutput) ToAzureSkuInvokeResponseOutput() AzureSkuInvokeResponseOutput {
+	return o
+}
+
+func (o AzureSkuInvokeResponseOutput) ToAzureSkuInvokeResponseOutputWithContext(ctx context.Context) AzureSkuInvokeResponseOutput {
+	return o
+}
+
+// SKU capacity.
+func (o AzureSkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureSkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// SKU name.
+func (o AzureSkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// SKU tier.
+func (o AzureSkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureSkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
 type AzureSkuResponse struct {
 	// SKU capacity.
 	Capacity *int `pulumi:"capacity"`
@@ -348,7 +418,7 @@ func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type DatabasePrincipalResponse struct {
+type DatabasePrincipalInvokeResponse struct {
 	// Application id - relevant only for application principal type.
 	AppId *string `pulumi:"appId"`
 	// Database principal email if exists.
@@ -363,18 +433,18 @@ type DatabasePrincipalResponse struct {
 	Type string `pulumi:"type"`
 }
 
-// DatabasePrincipalResponseInput is an input type that accepts DatabasePrincipalResponseArgs and DatabasePrincipalResponseOutput values.
-// You can construct a concrete instance of `DatabasePrincipalResponseInput` via:
+// DatabasePrincipalInvokeResponseInput is an input type that accepts DatabasePrincipalInvokeResponseArgs and DatabasePrincipalInvokeResponseOutput values.
+// You can construct a concrete instance of `DatabasePrincipalInvokeResponseInput` via:
 //
-//          DatabasePrincipalResponseArgs{...}
-type DatabasePrincipalResponseInput interface {
+//          DatabasePrincipalInvokeResponseArgs{...}
+type DatabasePrincipalInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDatabasePrincipalResponseOutput() DatabasePrincipalResponseOutput
-	ToDatabasePrincipalResponseOutputWithContext(context.Context) DatabasePrincipalResponseOutput
+	ToDatabasePrincipalInvokeResponseOutput() DatabasePrincipalInvokeResponseOutput
+	ToDatabasePrincipalInvokeResponseOutputWithContext(context.Context) DatabasePrincipalInvokeResponseOutput
 }
 
-type DatabasePrincipalResponseArgs struct {
+type DatabasePrincipalInvokeResponseArgs struct {
 	// Application id - relevant only for application principal type.
 	AppId pulumi.StringPtrInput `pulumi:"appId"`
 	// Database principal email if exists.
@@ -389,105 +459,157 @@ type DatabasePrincipalResponseArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (DatabasePrincipalResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalResponse)(nil)).Elem()
+func (DatabasePrincipalInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalInvokeResponse)(nil)).Elem()
 }
 
-func (i DatabasePrincipalResponseArgs) ToDatabasePrincipalResponseOutput() DatabasePrincipalResponseOutput {
-	return i.ToDatabasePrincipalResponseOutputWithContext(context.Background())
+func (i DatabasePrincipalInvokeResponseArgs) ToDatabasePrincipalInvokeResponseOutput() DatabasePrincipalInvokeResponseOutput {
+	return i.ToDatabasePrincipalInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DatabasePrincipalResponseArgs) ToDatabasePrincipalResponseOutputWithContext(ctx context.Context) DatabasePrincipalResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalResponseOutput)
+func (i DatabasePrincipalInvokeResponseArgs) ToDatabasePrincipalInvokeResponseOutputWithContext(ctx context.Context) DatabasePrincipalInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalInvokeResponseOutput)
 }
 
-// DatabasePrincipalResponseArrayInput is an input type that accepts DatabasePrincipalResponseArray and DatabasePrincipalResponseArrayOutput values.
-// You can construct a concrete instance of `DatabasePrincipalResponseArrayInput` via:
+// DatabasePrincipalInvokeResponseArrayInput is an input type that accepts DatabasePrincipalInvokeResponseArray and DatabasePrincipalInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DatabasePrincipalInvokeResponseArrayInput` via:
 //
-//          DatabasePrincipalResponseArray{ DatabasePrincipalResponseArgs{...} }
-type DatabasePrincipalResponseArrayInput interface {
+//          DatabasePrincipalInvokeResponseArray{ DatabasePrincipalInvokeResponseArgs{...} }
+type DatabasePrincipalInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToDatabasePrincipalResponseArrayOutput() DatabasePrincipalResponseArrayOutput
-	ToDatabasePrincipalResponseArrayOutputWithContext(context.Context) DatabasePrincipalResponseArrayOutput
+	ToDatabasePrincipalInvokeResponseArrayOutput() DatabasePrincipalInvokeResponseArrayOutput
+	ToDatabasePrincipalInvokeResponseArrayOutputWithContext(context.Context) DatabasePrincipalInvokeResponseArrayOutput
 }
 
-type DatabasePrincipalResponseArray []DatabasePrincipalResponseInput
+type DatabasePrincipalInvokeResponseArray []DatabasePrincipalInvokeResponseInput
 
-func (DatabasePrincipalResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabasePrincipalResponse)(nil)).Elem()
+func (DatabasePrincipalInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabasePrincipalInvokeResponse)(nil)).Elem()
 }
 
-func (i DatabasePrincipalResponseArray) ToDatabasePrincipalResponseArrayOutput() DatabasePrincipalResponseArrayOutput {
-	return i.ToDatabasePrincipalResponseArrayOutputWithContext(context.Background())
+func (i DatabasePrincipalInvokeResponseArray) ToDatabasePrincipalInvokeResponseArrayOutput() DatabasePrincipalInvokeResponseArrayOutput {
+	return i.ToDatabasePrincipalInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i DatabasePrincipalResponseArray) ToDatabasePrincipalResponseArrayOutputWithContext(ctx context.Context) DatabasePrincipalResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalResponseArrayOutput)
+func (i DatabasePrincipalInvokeResponseArray) ToDatabasePrincipalInvokeResponseArrayOutputWithContext(ctx context.Context) DatabasePrincipalInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalInvokeResponseArrayOutput)
 }
 
-type DatabasePrincipalResponseOutput struct{ *pulumi.OutputState }
+type DatabasePrincipalInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DatabasePrincipalResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalResponse)(nil)).Elem()
+func (DatabasePrincipalInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalInvokeResponse)(nil)).Elem()
 }
 
-func (o DatabasePrincipalResponseOutput) ToDatabasePrincipalResponseOutput() DatabasePrincipalResponseOutput {
+func (o DatabasePrincipalInvokeResponseOutput) ToDatabasePrincipalInvokeResponseOutput() DatabasePrincipalInvokeResponseOutput {
 	return o
 }
 
-func (o DatabasePrincipalResponseOutput) ToDatabasePrincipalResponseOutputWithContext(ctx context.Context) DatabasePrincipalResponseOutput {
+func (o DatabasePrincipalInvokeResponseOutput) ToDatabasePrincipalInvokeResponseOutputWithContext(ctx context.Context) DatabasePrincipalInvokeResponseOutput {
 	return o
 }
 
 // Application id - relevant only for application principal type.
-func (o DatabasePrincipalResponseOutput) AppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
+func (o DatabasePrincipalInvokeResponseOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabasePrincipalInvokeResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
 }
 
 // Database principal email if exists.
-func (o DatabasePrincipalResponseOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
+func (o DatabasePrincipalInvokeResponseOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabasePrincipalInvokeResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
 // Database principal fully qualified name.
-func (o DatabasePrincipalResponseOutput) Fqn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabasePrincipalResponse) *string { return v.Fqn }).(pulumi.StringPtrOutput)
+func (o DatabasePrincipalInvokeResponseOutput) Fqn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabasePrincipalInvokeResponse) *string { return v.Fqn }).(pulumi.StringPtrOutput)
 }
 
 // Database principal name.
-func (o DatabasePrincipalResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o DatabasePrincipalInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabasePrincipalInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Database principal role.
-func (o DatabasePrincipalResponseOutput) Role() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Role }).(pulumi.StringOutput)
+func (o DatabasePrincipalInvokeResponseOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabasePrincipalInvokeResponse) string { return v.Role }).(pulumi.StringOutput)
 }
 
 // Database principal type.
-func (o DatabasePrincipalResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePrincipalResponse) string { return v.Type }).(pulumi.StringOutput)
+func (o DatabasePrincipalInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabasePrincipalInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type DatabasePrincipalResponseArrayOutput struct{ *pulumi.OutputState }
+type DatabasePrincipalInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (DatabasePrincipalResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabasePrincipalResponse)(nil)).Elem()
+func (DatabasePrincipalInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabasePrincipalInvokeResponse)(nil)).Elem()
 }
 
-func (o DatabasePrincipalResponseArrayOutput) ToDatabasePrincipalResponseArrayOutput() DatabasePrincipalResponseArrayOutput {
+func (o DatabasePrincipalInvokeResponseArrayOutput) ToDatabasePrincipalInvokeResponseArrayOutput() DatabasePrincipalInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DatabasePrincipalResponseArrayOutput) ToDatabasePrincipalResponseArrayOutputWithContext(ctx context.Context) DatabasePrincipalResponseArrayOutput {
+func (o DatabasePrincipalInvokeResponseArrayOutput) ToDatabasePrincipalInvokeResponseArrayOutputWithContext(ctx context.Context) DatabasePrincipalInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DatabasePrincipalResponseArrayOutput) Index(i pulumi.IntInput) DatabasePrincipalResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabasePrincipalResponse {
-		return vs[0].([]DatabasePrincipalResponse)[vs[1].(int)]
-	}).(DatabasePrincipalResponseOutput)
+func (o DatabasePrincipalInvokeResponseArrayOutput) Index(i pulumi.IntInput) DatabasePrincipalInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabasePrincipalInvokeResponse {
+		return vs[0].([]DatabasePrincipalInvokeResponse)[vs[1].(int)]
+	}).(DatabasePrincipalInvokeResponseOutput)
+}
+
+type DatabaseStatisticsInvokeResponse struct {
+	// The database size - the total size of compressed data and index in bytes.
+	Size *float64 `pulumi:"size"`
+}
+
+// DatabaseStatisticsInvokeResponseInput is an input type that accepts DatabaseStatisticsInvokeResponseArgs and DatabaseStatisticsInvokeResponseOutput values.
+// You can construct a concrete instance of `DatabaseStatisticsInvokeResponseInput` via:
+//
+//          DatabaseStatisticsInvokeResponseArgs{...}
+type DatabaseStatisticsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDatabaseStatisticsInvokeResponseOutput() DatabaseStatisticsInvokeResponseOutput
+	ToDatabaseStatisticsInvokeResponseOutputWithContext(context.Context) DatabaseStatisticsInvokeResponseOutput
+}
+
+type DatabaseStatisticsInvokeResponseArgs struct {
+	// The database size - the total size of compressed data and index in bytes.
+	Size pulumi.Float64PtrInput `pulumi:"size"`
+}
+
+func (DatabaseStatisticsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseStatisticsInvokeResponse)(nil)).Elem()
+}
+
+func (i DatabaseStatisticsInvokeResponseArgs) ToDatabaseStatisticsInvokeResponseOutput() DatabaseStatisticsInvokeResponseOutput {
+	return i.ToDatabaseStatisticsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DatabaseStatisticsInvokeResponseArgs) ToDatabaseStatisticsInvokeResponseOutputWithContext(ctx context.Context) DatabaseStatisticsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseStatisticsInvokeResponseOutput)
+}
+
+type DatabaseStatisticsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseStatisticsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseStatisticsInvokeResponse)(nil)).Elem()
+}
+
+func (o DatabaseStatisticsInvokeResponseOutput) ToDatabaseStatisticsInvokeResponseOutput() DatabaseStatisticsInvokeResponseOutput {
+	return o
+}
+
+func (o DatabaseStatisticsInvokeResponseOutput) ToDatabaseStatisticsInvokeResponseOutputWithContext(ctx context.Context) DatabaseStatisticsInvokeResponseOutput {
+	return o
+}
+
+// The database size - the total size of compressed data and index in bytes.
+func (o DatabaseStatisticsInvokeResponseOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DatabaseStatisticsInvokeResponse) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
 }
 
 type DatabaseStatisticsResponse struct {
@@ -718,6 +840,103 @@ func (o TrustedExternalTenantArrayOutput) Index(i pulumi.IntInput) TrustedExtern
 	}).(TrustedExternalTenantOutput)
 }
 
+type TrustedExternalTenantInvokeResponse struct {
+	// GUID representing an external tenant.
+	Value *string `pulumi:"value"`
+}
+
+// TrustedExternalTenantInvokeResponseInput is an input type that accepts TrustedExternalTenantInvokeResponseArgs and TrustedExternalTenantInvokeResponseOutput values.
+// You can construct a concrete instance of `TrustedExternalTenantInvokeResponseInput` via:
+//
+//          TrustedExternalTenantInvokeResponseArgs{...}
+type TrustedExternalTenantInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTrustedExternalTenantInvokeResponseOutput() TrustedExternalTenantInvokeResponseOutput
+	ToTrustedExternalTenantInvokeResponseOutputWithContext(context.Context) TrustedExternalTenantInvokeResponseOutput
+}
+
+type TrustedExternalTenantInvokeResponseArgs struct {
+	// GUID representing an external tenant.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TrustedExternalTenantInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedExternalTenantInvokeResponse)(nil)).Elem()
+}
+
+func (i TrustedExternalTenantInvokeResponseArgs) ToTrustedExternalTenantInvokeResponseOutput() TrustedExternalTenantInvokeResponseOutput {
+	return i.ToTrustedExternalTenantInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TrustedExternalTenantInvokeResponseArgs) ToTrustedExternalTenantInvokeResponseOutputWithContext(ctx context.Context) TrustedExternalTenantInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedExternalTenantInvokeResponseOutput)
+}
+
+// TrustedExternalTenantInvokeResponseArrayInput is an input type that accepts TrustedExternalTenantInvokeResponseArray and TrustedExternalTenantInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TrustedExternalTenantInvokeResponseArrayInput` via:
+//
+//          TrustedExternalTenantInvokeResponseArray{ TrustedExternalTenantInvokeResponseArgs{...} }
+type TrustedExternalTenantInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTrustedExternalTenantInvokeResponseArrayOutput() TrustedExternalTenantInvokeResponseArrayOutput
+	ToTrustedExternalTenantInvokeResponseArrayOutputWithContext(context.Context) TrustedExternalTenantInvokeResponseArrayOutput
+}
+
+type TrustedExternalTenantInvokeResponseArray []TrustedExternalTenantInvokeResponseInput
+
+func (TrustedExternalTenantInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustedExternalTenantInvokeResponse)(nil)).Elem()
+}
+
+func (i TrustedExternalTenantInvokeResponseArray) ToTrustedExternalTenantInvokeResponseArrayOutput() TrustedExternalTenantInvokeResponseArrayOutput {
+	return i.ToTrustedExternalTenantInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TrustedExternalTenantInvokeResponseArray) ToTrustedExternalTenantInvokeResponseArrayOutputWithContext(ctx context.Context) TrustedExternalTenantInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustedExternalTenantInvokeResponseArrayOutput)
+}
+
+type TrustedExternalTenantInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TrustedExternalTenantInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustedExternalTenantInvokeResponse)(nil)).Elem()
+}
+
+func (o TrustedExternalTenantInvokeResponseOutput) ToTrustedExternalTenantInvokeResponseOutput() TrustedExternalTenantInvokeResponseOutput {
+	return o
+}
+
+func (o TrustedExternalTenantInvokeResponseOutput) ToTrustedExternalTenantInvokeResponseOutputWithContext(ctx context.Context) TrustedExternalTenantInvokeResponseOutput {
+	return o
+}
+
+// GUID representing an external tenant.
+func (o TrustedExternalTenantInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustedExternalTenantInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TrustedExternalTenantInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TrustedExternalTenantInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustedExternalTenantInvokeResponse)(nil)).Elem()
+}
+
+func (o TrustedExternalTenantInvokeResponseArrayOutput) ToTrustedExternalTenantInvokeResponseArrayOutput() TrustedExternalTenantInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TrustedExternalTenantInvokeResponseArrayOutput) ToTrustedExternalTenantInvokeResponseArrayOutputWithContext(ctx context.Context) TrustedExternalTenantInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TrustedExternalTenantInvokeResponseArrayOutput) Index(i pulumi.IntInput) TrustedExternalTenantInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrustedExternalTenantInvokeResponse {
+		return vs[0].([]TrustedExternalTenantInvokeResponse)[vs[1].(int)]
+	}).(TrustedExternalTenantInvokeResponseOutput)
+}
+
 type TrustedExternalTenantResponse struct {
 	// GUID representing an external tenant.
 	Value *string `pulumi:"value"`
@@ -818,14 +1037,18 @@ func (o TrustedExternalTenantResponseArrayOutput) Index(i pulumi.IntInput) Trust
 func init() {
 	pulumi.RegisterOutputType(AzureSkuOutput{})
 	pulumi.RegisterOutputType(AzureSkuPtrOutput{})
+	pulumi.RegisterOutputType(AzureSkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponseOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(DatabasePrincipalResponseOutput{})
-	pulumi.RegisterOutputType(DatabasePrincipalResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseStatisticsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseStatisticsResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseStatisticsResponsePtrOutput{})
 	pulumi.RegisterOutputType(TrustedExternalTenantOutput{})
 	pulumi.RegisterOutputType(TrustedExternalTenantArrayOutput{})
+	pulumi.RegisterOutputType(TrustedExternalTenantInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TrustedExternalTenantInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TrustedExternalTenantResponseOutput{})
 	pulumi.RegisterOutputType(TrustedExternalTenantResponseArrayOutput{})
 }

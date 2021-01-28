@@ -46,11 +46,11 @@ type LookupIpAllocationResult struct {
 	// The address prefix Type for the IpAllocation.
 	PrefixType *string `pulumi:"prefixType"`
 	// The Subnet that using the prefix of this IpAllocation resource.
-	Subnet SubResourceResponse `pulumi:"subnet"`
+	Subnet SubResourceInvokeResponse `pulumi:"subnet"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// The VirtualNetwork that using the prefix of this IpAllocation resource.
-	VirtualNetwork SubResourceResponse `pulumi:"virtualNetwork"`
+	VirtualNetwork SubResourceInvokeResponse `pulumi:"virtualNetwork"`
 }

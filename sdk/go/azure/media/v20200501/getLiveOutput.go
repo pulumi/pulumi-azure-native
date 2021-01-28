@@ -38,7 +38,7 @@ type LookupLiveOutputResult struct {
 	// The description of the live output.
 	Description *string `pulumi:"description"`
 	// HTTP Live Streaming (HLS) packing setting for the live output.
-	Hls *HlsResponse `pulumi:"hls"`
+	Hls *HlsInvokeResponse `pulumi:"hls"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The time the live output was last modified.

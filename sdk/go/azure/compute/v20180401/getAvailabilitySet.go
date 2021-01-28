@@ -36,15 +36,15 @@ type LookupAvailabilitySetResult struct {
 	// Update Domain count.
 	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
 	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup *SubResourceResponse `pulumi:"proximityPlacementGroup"`
+	ProximityPlacementGroup *SubResourceInvokeResponse `pulumi:"proximityPlacementGroup"`
 	// Sku of the availability set
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// The resource status information.
-	Statuses []InstanceViewStatusResponse `pulumi:"statuses"`
+	Statuses []InstanceViewStatusInvokeResponse `pulumi:"statuses"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// A list of references to all virtual machines in the availability set.
-	VirtualMachines []SubResourceResponse `pulumi:"virtualMachines"`
+	VirtualMachines []SubResourceInvokeResponse `pulumi:"virtualMachines"`
 }

@@ -28,13 +28,13 @@ type LookupIntegrationAccountResult struct {
 	// The resource id.
 	Id string `pulumi:"id"`
 	// The integration service environment.
-	IntegrationServiceEnvironment *IntegrationServiceEnvironmentResponse `pulumi:"integrationServiceEnvironment"`
+	IntegrationServiceEnvironment *IntegrationServiceEnvironmentInvokeResponse `pulumi:"integrationServiceEnvironment"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The sku.
-	Sku *IntegrationAccountSkuResponse `pulumi:"sku"`
+	Sku *IntegrationAccountSkuInvokeResponse `pulumi:"sku"`
 	// The workflow state.
 	State *string `pulumi:"state"`
 	// The resource tags.

@@ -28,5 +28,5 @@ type ListWorkflowRunActionExpressionTracesArgs struct {
 }
 
 type ListWorkflowRunActionExpressionTracesResult struct {
-	Inputs []ExpressionRootResponse `pulumi:"inputs"`
+	Inputs []ExpressionRootInvokeResponse `pulumi:"inputs"`
 }

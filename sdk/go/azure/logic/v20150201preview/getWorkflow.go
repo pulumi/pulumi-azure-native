@@ -33,7 +33,7 @@ type LookupWorkflowResult struct {
 	// Gets or sets the definition.
 	Definition interface{} `pulumi:"definition"`
 	// Gets or sets the link to definition.
-	DefinitionLink *ContentLinkResponse `pulumi:"definitionLink"`
+	DefinitionLink *ContentLinkInvokeResponse `pulumi:"definitionLink"`
 	// Gets or sets the resource id.
 	Id *string `pulumi:"id"`
 	// Gets or sets the resource location.
@@ -41,13 +41,13 @@ type LookupWorkflowResult struct {
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
 	// Gets or sets the parameters.
-	Parameters map[string]WorkflowParameterResponse `pulumi:"parameters"`
+	Parameters map[string]WorkflowParameterInvokeResponse `pulumi:"parameters"`
 	// Gets or sets the link to parameters.
-	ParametersLink *ContentLinkResponse `pulumi:"parametersLink"`
+	ParametersLink *ContentLinkInvokeResponse `pulumi:"parametersLink"`
 	// Gets the provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Gets or sets the sku.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Gets or sets the state.
 	State *string `pulumi:"state"`
 	// Gets or sets the resource tags.

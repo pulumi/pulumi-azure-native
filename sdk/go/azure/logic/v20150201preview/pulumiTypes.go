@@ -160,6 +160,156 @@ func (o ContentHashPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ContentHashInvokeResponse struct {
+	// Gets or sets the algorithm.
+	Algorithm *string `pulumi:"algorithm"`
+	// Gets or sets the value.
+	Value *string `pulumi:"value"`
+}
+
+// ContentHashInvokeResponseInput is an input type that accepts ContentHashInvokeResponseArgs and ContentHashInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentHashInvokeResponseInput` via:
+//
+//          ContentHashInvokeResponseArgs{...}
+type ContentHashInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput
+	ToContentHashInvokeResponseOutputWithContext(context.Context) ContentHashInvokeResponseOutput
+}
+
+type ContentHashInvokeResponseArgs struct {
+	// Gets or sets the algorithm.
+	Algorithm pulumi.StringPtrInput `pulumi:"algorithm"`
+	// Gets or sets the value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ContentHashInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput {
+	return i.ToContentHashInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponseOutputWithContext(ctx context.Context) ContentHashInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponseOutput)
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return i.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContentHashInvokeResponseArgs) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponseOutput).ToContentHashInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ContentHashInvokeResponsePtrInput is an input type that accepts ContentHashInvokeResponseArgs, ContentHashInvokeResponsePtr and ContentHashInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ContentHashInvokeResponsePtrInput` via:
+//
+//          ContentHashInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContentHashInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput
+	ToContentHashInvokeResponsePtrOutputWithContext(context.Context) ContentHashInvokeResponsePtrOutput
+}
+
+type contentHashInvokeResponsePtrType ContentHashInvokeResponseArgs
+
+func ContentHashInvokeResponsePtr(v *ContentHashInvokeResponseArgs) ContentHashInvokeResponsePtrInput {
+	return (*contentHashInvokeResponsePtrType)(v)
+}
+
+func (*contentHashInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (i *contentHashInvokeResponsePtrType) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return i.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *contentHashInvokeResponsePtrType) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentHashInvokeResponsePtrOutput)
+}
+
+type ContentHashInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentHashInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponseOutput() ContentHashInvokeResponseOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponseOutputWithContext(ctx context.Context) ContentHashInvokeResponseOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return o.ToContentHashInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContentHashInvokeResponseOutput) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) *ContentHashInvokeResponse {
+		return &v
+	}).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Gets or sets the algorithm.
+func (o ContentHashInvokeResponseOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) *string { return v.Algorithm }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the value.
+func (o ContentHashInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentHashInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ContentHashInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentHashInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentHashInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentHashInvokeResponsePtrOutput) ToContentHashInvokeResponsePtrOutput() ContentHashInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponsePtrOutput) ToContentHashInvokeResponsePtrOutputWithContext(ctx context.Context) ContentHashInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ContentHashInvokeResponsePtrOutput) Elem() ContentHashInvokeResponseOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) ContentHashInvokeResponse { return *v }).(ContentHashInvokeResponseOutput)
+}
+
+// Gets or sets the algorithm.
+func (o ContentHashInvokeResponsePtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the value.
+func (o ContentHashInvokeResponsePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentHashInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type ContentHashResponse struct {
 	// Gets or sets the algorithm.
 	Algorithm *string `pulumi:"algorithm"`
@@ -517,6 +667,94 @@ func (o ContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ContentLinkInvokeResponse struct {
+	// Gets or sets the content hash.
+	ContentHash *ContentHashInvokeResponse `pulumi:"contentHash"`
+	// Gets or sets the content size.
+	ContentSize *float64 `pulumi:"contentSize"`
+	// Gets or sets the content version.
+	ContentVersion *string `pulumi:"contentVersion"`
+	// Gets or sets the metadata.
+	Metadata interface{} `pulumi:"metadata"`
+	// Gets or sets the content link URI.
+	Uri *string `pulumi:"uri"`
+}
+
+// ContentLinkInvokeResponseInput is an input type that accepts ContentLinkInvokeResponseArgs and ContentLinkInvokeResponseOutput values.
+// You can construct a concrete instance of `ContentLinkInvokeResponseInput` via:
+//
+//          ContentLinkInvokeResponseArgs{...}
+type ContentLinkInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput
+	ToContentLinkInvokeResponseOutputWithContext(context.Context) ContentLinkInvokeResponseOutput
+}
+
+type ContentLinkInvokeResponseArgs struct {
+	// Gets or sets the content hash.
+	ContentHash ContentHashInvokeResponsePtrInput `pulumi:"contentHash"`
+	// Gets or sets the content size.
+	ContentSize pulumi.Float64PtrInput `pulumi:"contentSize"`
+	// Gets or sets the content version.
+	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
+	// Gets or sets the metadata.
+	Metadata pulumi.Input `pulumi:"metadata"`
+	// Gets or sets the content link URI.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ContentLinkInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput {
+	return i.ToContentLinkInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContentLinkInvokeResponseArgs) ToContentLinkInvokeResponseOutputWithContext(ctx context.Context) ContentLinkInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentLinkInvokeResponseOutput)
+}
+
+type ContentLinkInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentLinkInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponseOutput() ContentLinkInvokeResponseOutput {
+	return o
+}
+
+func (o ContentLinkInvokeResponseOutput) ToContentLinkInvokeResponseOutputWithContext(ctx context.Context) ContentLinkInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the content hash.
+func (o ContentLinkInvokeResponseOutput) ContentHash() ContentHashInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *ContentHashInvokeResponse { return v.ContentHash }).(ContentHashInvokeResponsePtrOutput)
+}
+
+// Gets or sets the content size.
+func (o ContentLinkInvokeResponseOutput) ContentSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *float64 { return v.ContentSize }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the content version.
+func (o ContentLinkInvokeResponseOutput) ContentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *string { return v.ContentVersion }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the metadata.
+func (o ContentLinkInvokeResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets or sets the content link URI.
+func (o ContentLinkInvokeResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentLinkInvokeResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
 type ContentLinkResponse struct {
 	// Gets or sets the content hash.
 	ContentHash *ContentHashResponse `pulumi:"contentHash"`
@@ -855,6 +1093,175 @@ func (o ResourceReferencePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResourceReferenceInvokeResponse struct {
+	// Gets or sets the resource id.
+	Id *string `pulumi:"id"`
+	// Gets the resource name.
+	Name string `pulumi:"name"`
+	// Gets the resource type.
+	Type string `pulumi:"type"`
+}
+
+// ResourceReferenceInvokeResponseInput is an input type that accepts ResourceReferenceInvokeResponseArgs and ResourceReferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceReferenceInvokeResponseInput` via:
+//
+//          ResourceReferenceInvokeResponseArgs{...}
+type ResourceReferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput
+	ToResourceReferenceInvokeResponseOutputWithContext(context.Context) ResourceReferenceInvokeResponseOutput
+}
+
+type ResourceReferenceInvokeResponseArgs struct {
+	// Gets or sets the resource id.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Gets the resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Gets the resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ResourceReferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput {
+	return i.ToResourceReferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponseOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponseOutput)
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponsePtrOutput() ResourceReferenceInvokeResponsePtrOutput {
+	return i.ToResourceReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceReferenceInvokeResponseArgs) ToResourceReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponseOutput).ToResourceReferenceInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ResourceReferenceInvokeResponsePtrInput is an input type that accepts ResourceReferenceInvokeResponseArgs, ResourceReferenceInvokeResponsePtr and ResourceReferenceInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ResourceReferenceInvokeResponsePtrInput` via:
+//
+//          ResourceReferenceInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceReferenceInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToResourceReferenceInvokeResponsePtrOutput() ResourceReferenceInvokeResponsePtrOutput
+	ToResourceReferenceInvokeResponsePtrOutputWithContext(context.Context) ResourceReferenceInvokeResponsePtrOutput
+}
+
+type resourceReferenceInvokeResponsePtrType ResourceReferenceInvokeResponseArgs
+
+func ResourceReferenceInvokeResponsePtr(v *ResourceReferenceInvokeResponseArgs) ResourceReferenceInvokeResponsePtrInput {
+	return (*resourceReferenceInvokeResponsePtrType)(v)
+}
+
+func (*resourceReferenceInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i *resourceReferenceInvokeResponsePtrType) ToResourceReferenceInvokeResponsePtrOutput() ResourceReferenceInvokeResponsePtrOutput {
+	return i.ToResourceReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceReferenceInvokeResponsePtrType) ToResourceReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceInvokeResponsePtrOutput)
+}
+
+type ResourceReferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponseOutput() ResourceReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponseOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponsePtrOutput() ResourceReferenceInvokeResponsePtrOutput {
+	return o.ToResourceReferenceInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceReferenceInvokeResponseOutput) ToResourceReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ResourceReferenceInvokeResponse) *ResourceReferenceInvokeResponse {
+		return &v
+	}).(ResourceReferenceInvokeResponsePtrOutput)
+}
+
+// Gets or sets the resource id.
+func (o ResourceReferenceInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceReferenceInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o ResourceReferenceInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceReferenceInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the resource type.
+func (o ResourceReferenceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceReferenceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ResourceReferenceInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceReferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceInvokeResponsePtrOutput) ToResourceReferenceInvokeResponsePtrOutput() ResourceReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponsePtrOutput) ToResourceReferenceInvokeResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ResourceReferenceInvokeResponsePtrOutput) Elem() ResourceReferenceInvokeResponseOutput {
+	return o.ApplyT(func(v *ResourceReferenceInvokeResponse) ResourceReferenceInvokeResponse { return *v }).(ResourceReferenceInvokeResponseOutput)
+}
+
+// Gets or sets the resource id.
+func (o ResourceReferenceInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o ResourceReferenceInvokeResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource type.
+func (o ResourceReferenceInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceReferenceInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResourceReferenceResponse struct {
 	// Gets or sets the resource id.
 	Id *string `pulumi:"id"`
@@ -1174,6 +1581,67 @@ func (o SkuPtrOutput) Plan() ResourceReferencePtrOutput {
 	}).(ResourceReferencePtrOutput)
 }
 
+type SkuInvokeResponse struct {
+	// Gets or sets the name.
+	Name *string `pulumi:"name"`
+	// Gets or sets the reference to plan.
+	Plan *ResourceReferenceInvokeResponse `pulumi:"plan"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+type SkuInvokeResponseArgs struct {
+	// Gets or sets the name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Gets or sets the reference to plan.
+	Plan ResourceReferenceInvokeResponsePtrInput `pulumi:"plan"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the name.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the reference to plan.
+func (o SkuInvokeResponseOutput) Plan() ResourceReferenceInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *ResourceReferenceInvokeResponse { return v.Plan }).(ResourceReferenceInvokeResponsePtrOutput)
+}
+
 type SkuResponse struct {
 	// Gets or sets the name.
 	Name *string `pulumi:"name"`
@@ -1439,6 +1907,121 @@ func (o WorkflowParameterMapOutput) MapIndex(k pulumi.StringInput) WorkflowParam
 	}).(WorkflowParameterOutput)
 }
 
+type WorkflowParameterInvokeResponse struct {
+	// Gets or sets the metadata.
+	Metadata interface{} `pulumi:"metadata"`
+	// Gets or sets the type.
+	Type *string `pulumi:"type"`
+	// Gets or sets the value.
+	Value interface{} `pulumi:"value"`
+}
+
+// WorkflowParameterInvokeResponseInput is an input type that accepts WorkflowParameterInvokeResponseArgs and WorkflowParameterInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkflowParameterInvokeResponseInput` via:
+//
+//          WorkflowParameterInvokeResponseArgs{...}
+type WorkflowParameterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkflowParameterInvokeResponseOutput() WorkflowParameterInvokeResponseOutput
+	ToWorkflowParameterInvokeResponseOutputWithContext(context.Context) WorkflowParameterInvokeResponseOutput
+}
+
+type WorkflowParameterInvokeResponseArgs struct {
+	// Gets or sets the metadata.
+	Metadata pulumi.Input `pulumi:"metadata"`
+	// Gets or sets the type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Gets or sets the value.
+	Value pulumi.Input `pulumi:"value"`
+}
+
+func (WorkflowParameterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkflowParameterInvokeResponseArgs) ToWorkflowParameterInvokeResponseOutput() WorkflowParameterInvokeResponseOutput {
+	return i.ToWorkflowParameterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkflowParameterInvokeResponseArgs) ToWorkflowParameterInvokeResponseOutputWithContext(ctx context.Context) WorkflowParameterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterInvokeResponseOutput)
+}
+
+// WorkflowParameterInvokeResponseMapInput is an input type that accepts WorkflowParameterInvokeResponseMap and WorkflowParameterInvokeResponseMapOutput values.
+// You can construct a concrete instance of `WorkflowParameterInvokeResponseMapInput` via:
+//
+//          WorkflowParameterInvokeResponseMap{ "key": WorkflowParameterInvokeResponseArgs{...} }
+type WorkflowParameterInvokeResponseMapInput interface {
+	pulumi.Input
+
+	ToWorkflowParameterInvokeResponseMapOutput() WorkflowParameterInvokeResponseMapOutput
+	ToWorkflowParameterInvokeResponseMapOutputWithContext(context.Context) WorkflowParameterInvokeResponseMapOutput
+}
+
+type WorkflowParameterInvokeResponseMap map[string]WorkflowParameterInvokeResponseInput
+
+func (WorkflowParameterInvokeResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowParameterInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkflowParameterInvokeResponseMap) ToWorkflowParameterInvokeResponseMapOutput() WorkflowParameterInvokeResponseMapOutput {
+	return i.ToWorkflowParameterInvokeResponseMapOutputWithContext(context.Background())
+}
+
+func (i WorkflowParameterInvokeResponseMap) ToWorkflowParameterInvokeResponseMapOutputWithContext(ctx context.Context) WorkflowParameterInvokeResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterInvokeResponseMapOutput)
+}
+
+type WorkflowParameterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkflowParameterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkflowParameterInvokeResponseOutput) ToWorkflowParameterInvokeResponseOutput() WorkflowParameterInvokeResponseOutput {
+	return o
+}
+
+func (o WorkflowParameterInvokeResponseOutput) ToWorkflowParameterInvokeResponseOutputWithContext(ctx context.Context) WorkflowParameterInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets the metadata.
+func (o WorkflowParameterInvokeResponseOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameterInvokeResponse) interface{} { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets or sets the type.
+func (o WorkflowParameterInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowParameterInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the value.
+func (o WorkflowParameterInvokeResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v WorkflowParameterInvokeResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+type WorkflowParameterInvokeResponseMapOutput struct{ *pulumi.OutputState }
+
+func (WorkflowParameterInvokeResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WorkflowParameterInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkflowParameterInvokeResponseMapOutput) ToWorkflowParameterInvokeResponseMapOutput() WorkflowParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o WorkflowParameterInvokeResponseMapOutput) ToWorkflowParameterInvokeResponseMapOutputWithContext(ctx context.Context) WorkflowParameterInvokeResponseMapOutput {
+	return o
+}
+
+func (o WorkflowParameterInvokeResponseMapOutput) MapIndex(k pulumi.StringInput) WorkflowParameterInvokeResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkflowParameterInvokeResponse {
+		return vs[0].(map[string]WorkflowParameterInvokeResponse)[vs[1].(string)]
+	}).(WorkflowParameterInvokeResponseOutput)
+}
+
 type WorkflowParameterResponse struct {
 	// Gets or sets the metadata.
 	Metadata interface{} `pulumi:"metadata"`
@@ -1557,22 +2140,30 @@ func (o WorkflowParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Workf
 func init() {
 	pulumi.RegisterOutputType(ContentHashOutput{})
 	pulumi.RegisterOutputType(ContentHashPtrOutput{})
+	pulumi.RegisterOutputType(ContentHashInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ContentHashInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentHashResponseOutput{})
 	pulumi.RegisterOutputType(ContentHashResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContentLinkOutput{})
 	pulumi.RegisterOutputType(ContentLinkPtrOutput{})
+	pulumi.RegisterOutputType(ContentLinkInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContentLinkResponseOutput{})
 	pulumi.RegisterOutputType(ContentLinkResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceOutput{})
 	pulumi.RegisterOutputType(ResourceReferencePtrOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterMapOutput{})
+	pulumi.RegisterOutputType(WorkflowParameterInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkflowParameterInvokeResponseMapOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterResponseOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterResponseMapOutput{})
 }

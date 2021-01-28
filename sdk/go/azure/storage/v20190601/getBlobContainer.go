@@ -44,7 +44,7 @@ type LookupBlobContainerResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The ImmutabilityPolicy property of the container.
-	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponse `pulumi:"immutabilityPolicy"`
+	ImmutabilityPolicy ImmutabilityPolicyPropertiesInvokeResponse `pulumi:"immutabilityPolicy"`
 	// Returns the date and time the container was last modified.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
@@ -54,7 +54,7 @@ type LookupBlobContainerResult struct {
 	// The lease status of the container.
 	LeaseStatus string `pulumi:"leaseStatus"`
 	// The LegalHold property of the container.
-	LegalHold LegalHoldPropertiesResponse `pulumi:"legalHold"`
+	LegalHold LegalHoldPropertiesInvokeResponse `pulumi:"legalHold"`
 	// A name-value pair to associate with the container as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource

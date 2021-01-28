@@ -34,35 +34,35 @@ type LookupSubnetResult struct {
 	// List of  address prefixes for the subnet.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// Gets an array of references to the delegations on the subnet.
-	Delegations []DelegationResponse `pulumi:"delegations"`
+	Delegations []DelegationInvokeResponse `pulumi:"delegations"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// An array of references to interface endpoints
-	InterfaceEndpoints []InterfaceEndpointResponse `pulumi:"interfaceEndpoints"`
+	InterfaceEndpoints []InterfaceEndpointInvokeResponse `pulumi:"interfaceEndpoints"`
 	// Array of IP configuration profiles which reference this subnet.
-	IpConfigurationProfiles []IPConfigurationProfileResponse `pulumi:"ipConfigurationProfiles"`
+	IpConfigurationProfiles []IPConfigurationProfileInvokeResponse `pulumi:"ipConfigurationProfiles"`
 	// Gets an array of references to the network interface IP configurations using subnet.
-	IpConfigurations []IPConfigurationResponse `pulumi:"ipConfigurations"`
+	IpConfigurations []IPConfigurationInvokeResponse `pulumi:"ipConfigurations"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// Nat gateway associated with this subnet.
-	NatGateway *SubResourceResponse `pulumi:"natGateway"`
+	NatGateway *SubResourceInvokeResponse `pulumi:"natGateway"`
 	// The reference of the NetworkSecurityGroup resource.
-	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
+	NetworkSecurityGroup *NetworkSecurityGroupInvokeResponse `pulumi:"networkSecurityGroup"`
 	// The provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
 	Purpose string `pulumi:"purpose"`
 	// Gets an array of references to the external resources using subnet.
-	ResourceNavigationLinks []ResourceNavigationLinkResponse `pulumi:"resourceNavigationLinks"`
+	ResourceNavigationLinks []ResourceNavigationLinkInvokeResponse `pulumi:"resourceNavigationLinks"`
 	// The reference of the RouteTable resource.
-	RouteTable *RouteTableResponse `pulumi:"routeTable"`
+	RouteTable *RouteTableInvokeResponse `pulumi:"routeTable"`
 	// Gets an array of references to services injecting into this subnet.
-	ServiceAssociationLinks []ServiceAssociationLinkResponse `pulumi:"serviceAssociationLinks"`
+	ServiceAssociationLinks []ServiceAssociationLinkInvokeResponse `pulumi:"serviceAssociationLinks"`
 	// An array of service endpoint policies.
-	ServiceEndpointPolicies []ServiceEndpointPolicyResponse `pulumi:"serviceEndpointPolicies"`
+	ServiceEndpointPolicies []ServiceEndpointPolicyInvokeResponse `pulumi:"serviceEndpointPolicies"`
 	// An array of service endpoints.
-	ServiceEndpoints []ServiceEndpointPropertiesFormatResponse `pulumi:"serviceEndpoints"`
+	ServiceEndpoints []ServiceEndpointPropertiesFormatInvokeResponse `pulumi:"serviceEndpoints"`
 }

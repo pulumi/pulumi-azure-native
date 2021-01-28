@@ -36,13 +36,13 @@ type LookupVirtualMachineScaleSetResult struct {
 	// The provisioning state, which only appears in the response.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The virtual machine scale set sku.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// The upgrade policy.
-	UpgradePolicy *UpgradePolicyResponse `pulumi:"upgradePolicy"`
+	UpgradePolicy *UpgradePolicyInvokeResponse `pulumi:"upgradePolicy"`
 	// The virtual machine profile.
-	VirtualMachineProfile *VirtualMachineScaleSetVMProfileResponse `pulumi:"virtualMachineProfile"`
+	VirtualMachineProfile *VirtualMachineScaleSetVMProfileInvokeResponse `pulumi:"virtualMachineProfile"`
 }

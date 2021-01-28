@@ -165,6 +165,160 @@ func (o MsixPackageApplicationsArrayOutput) Index(i pulumi.IntInput) MsixPackage
 }
 
 // Schema for MSIX Package Application properties.
+type MsixPackageApplicationsInvokeResponse struct {
+	// Package Application Id, found in appxmanifest.xml.
+	AppId *string `pulumi:"appId"`
+	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppUserModelID *string `pulumi:"appUserModelID"`
+	// Description of Package Application.
+	Description *string `pulumi:"description"`
+	// User friendly name.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// User friendly name.
+	IconImageName *string `pulumi:"iconImageName"`
+	// the icon a 64 bit string as a byte array.
+	RawIcon *string `pulumi:"rawIcon"`
+	// the icon a 64 bit string as a byte array.
+	RawPng *string `pulumi:"rawPng"`
+}
+
+// MsixPackageApplicationsInvokeResponseInput is an input type that accepts MsixPackageApplicationsInvokeResponseArgs and MsixPackageApplicationsInvokeResponseOutput values.
+// You can construct a concrete instance of `MsixPackageApplicationsInvokeResponseInput` via:
+//
+//          MsixPackageApplicationsInvokeResponseArgs{...}
+type MsixPackageApplicationsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMsixPackageApplicationsInvokeResponseOutput() MsixPackageApplicationsInvokeResponseOutput
+	ToMsixPackageApplicationsInvokeResponseOutputWithContext(context.Context) MsixPackageApplicationsInvokeResponseOutput
+}
+
+// Schema for MSIX Package Application properties.
+type MsixPackageApplicationsInvokeResponseArgs struct {
+	// Package Application Id, found in appxmanifest.xml.
+	AppId pulumi.StringPtrInput `pulumi:"appId"`
+	// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+	AppUserModelID pulumi.StringPtrInput `pulumi:"appUserModelID"`
+	// Description of Package Application.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// User friendly name.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// User friendly name.
+	IconImageName pulumi.StringPtrInput `pulumi:"iconImageName"`
+	// the icon a 64 bit string as a byte array.
+	RawIcon pulumi.StringPtrInput `pulumi:"rawIcon"`
+	// the icon a 64 bit string as a byte array.
+	RawPng pulumi.StringPtrInput `pulumi:"rawPng"`
+}
+
+func (MsixPackageApplicationsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsixPackageApplicationsInvokeResponse)(nil)).Elem()
+}
+
+func (i MsixPackageApplicationsInvokeResponseArgs) ToMsixPackageApplicationsInvokeResponseOutput() MsixPackageApplicationsInvokeResponseOutput {
+	return i.ToMsixPackageApplicationsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MsixPackageApplicationsInvokeResponseArgs) ToMsixPackageApplicationsInvokeResponseOutputWithContext(ctx context.Context) MsixPackageApplicationsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageApplicationsInvokeResponseOutput)
+}
+
+// MsixPackageApplicationsInvokeResponseArrayInput is an input type that accepts MsixPackageApplicationsInvokeResponseArray and MsixPackageApplicationsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MsixPackageApplicationsInvokeResponseArrayInput` via:
+//
+//          MsixPackageApplicationsInvokeResponseArray{ MsixPackageApplicationsInvokeResponseArgs{...} }
+type MsixPackageApplicationsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMsixPackageApplicationsInvokeResponseArrayOutput() MsixPackageApplicationsInvokeResponseArrayOutput
+	ToMsixPackageApplicationsInvokeResponseArrayOutputWithContext(context.Context) MsixPackageApplicationsInvokeResponseArrayOutput
+}
+
+type MsixPackageApplicationsInvokeResponseArray []MsixPackageApplicationsInvokeResponseInput
+
+func (MsixPackageApplicationsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MsixPackageApplicationsInvokeResponse)(nil)).Elem()
+}
+
+func (i MsixPackageApplicationsInvokeResponseArray) ToMsixPackageApplicationsInvokeResponseArrayOutput() MsixPackageApplicationsInvokeResponseArrayOutput {
+	return i.ToMsixPackageApplicationsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MsixPackageApplicationsInvokeResponseArray) ToMsixPackageApplicationsInvokeResponseArrayOutputWithContext(ctx context.Context) MsixPackageApplicationsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageApplicationsInvokeResponseArrayOutput)
+}
+
+// Schema for MSIX Package Application properties.
+type MsixPackageApplicationsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MsixPackageApplicationsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsixPackageApplicationsInvokeResponse)(nil)).Elem()
+}
+
+func (o MsixPackageApplicationsInvokeResponseOutput) ToMsixPackageApplicationsInvokeResponseOutput() MsixPackageApplicationsInvokeResponseOutput {
+	return o
+}
+
+func (o MsixPackageApplicationsInvokeResponseOutput) ToMsixPackageApplicationsInvokeResponseOutputWithContext(ctx context.Context) MsixPackageApplicationsInvokeResponseOutput {
+	return o
+}
+
+// Package Application Id, found in appxmanifest.xml.
+func (o MsixPackageApplicationsInvokeResponseOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+// Used to activate Package Application. Consists of Package Name and ApplicationID. Found in appxmanifest.xml.
+func (o MsixPackageApplicationsInvokeResponseOutput) AppUserModelID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.AppUserModelID }).(pulumi.StringPtrOutput)
+}
+
+// Description of Package Application.
+func (o MsixPackageApplicationsInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// User friendly name.
+func (o MsixPackageApplicationsInvokeResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// User friendly name.
+func (o MsixPackageApplicationsInvokeResponseOutput) IconImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.IconImageName }).(pulumi.StringPtrOutput)
+}
+
+// the icon a 64 bit string as a byte array.
+func (o MsixPackageApplicationsInvokeResponseOutput) RawIcon() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.RawIcon }).(pulumi.StringPtrOutput)
+}
+
+// the icon a 64 bit string as a byte array.
+func (o MsixPackageApplicationsInvokeResponseOutput) RawPng() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageApplicationsInvokeResponse) *string { return v.RawPng }).(pulumi.StringPtrOutput)
+}
+
+type MsixPackageApplicationsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MsixPackageApplicationsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MsixPackageApplicationsInvokeResponse)(nil)).Elem()
+}
+
+func (o MsixPackageApplicationsInvokeResponseArrayOutput) ToMsixPackageApplicationsInvokeResponseArrayOutput() MsixPackageApplicationsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MsixPackageApplicationsInvokeResponseArrayOutput) ToMsixPackageApplicationsInvokeResponseArrayOutputWithContext(ctx context.Context) MsixPackageApplicationsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MsixPackageApplicationsInvokeResponseArrayOutput) Index(i pulumi.IntInput) MsixPackageApplicationsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MsixPackageApplicationsInvokeResponse {
+		return vs[0].([]MsixPackageApplicationsInvokeResponse)[vs[1].(int)]
+	}).(MsixPackageApplicationsInvokeResponseOutput)
+}
+
+// Schema for MSIX Package Application properties.
 type MsixPackageApplicationsResponse struct {
 	// Package Application Id, found in appxmanifest.xml.
 	AppId *string `pulumi:"appId"`
@@ -434,6 +588,124 @@ func (o MsixPackageDependenciesArrayOutput) Index(i pulumi.IntInput) MsixPackage
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MsixPackageDependencies {
 		return vs[0].([]MsixPackageDependencies)[vs[1].(int)]
 	}).(MsixPackageDependenciesOutput)
+}
+
+// Schema for MSIX Package Dependencies properties.
+type MsixPackageDependenciesInvokeResponse struct {
+	// Name of package dependency.
+	DependencyName *string `pulumi:"dependencyName"`
+	// Dependency version required.
+	MinVersion *string `pulumi:"minVersion"`
+	// Name of dependency publisher.
+	Publisher *string `pulumi:"publisher"`
+}
+
+// MsixPackageDependenciesInvokeResponseInput is an input type that accepts MsixPackageDependenciesInvokeResponseArgs and MsixPackageDependenciesInvokeResponseOutput values.
+// You can construct a concrete instance of `MsixPackageDependenciesInvokeResponseInput` via:
+//
+//          MsixPackageDependenciesInvokeResponseArgs{...}
+type MsixPackageDependenciesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMsixPackageDependenciesInvokeResponseOutput() MsixPackageDependenciesInvokeResponseOutput
+	ToMsixPackageDependenciesInvokeResponseOutputWithContext(context.Context) MsixPackageDependenciesInvokeResponseOutput
+}
+
+// Schema for MSIX Package Dependencies properties.
+type MsixPackageDependenciesInvokeResponseArgs struct {
+	// Name of package dependency.
+	DependencyName pulumi.StringPtrInput `pulumi:"dependencyName"`
+	// Dependency version required.
+	MinVersion pulumi.StringPtrInput `pulumi:"minVersion"`
+	// Name of dependency publisher.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+}
+
+func (MsixPackageDependenciesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsixPackageDependenciesInvokeResponse)(nil)).Elem()
+}
+
+func (i MsixPackageDependenciesInvokeResponseArgs) ToMsixPackageDependenciesInvokeResponseOutput() MsixPackageDependenciesInvokeResponseOutput {
+	return i.ToMsixPackageDependenciesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MsixPackageDependenciesInvokeResponseArgs) ToMsixPackageDependenciesInvokeResponseOutputWithContext(ctx context.Context) MsixPackageDependenciesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageDependenciesInvokeResponseOutput)
+}
+
+// MsixPackageDependenciesInvokeResponseArrayInput is an input type that accepts MsixPackageDependenciesInvokeResponseArray and MsixPackageDependenciesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `MsixPackageDependenciesInvokeResponseArrayInput` via:
+//
+//          MsixPackageDependenciesInvokeResponseArray{ MsixPackageDependenciesInvokeResponseArgs{...} }
+type MsixPackageDependenciesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToMsixPackageDependenciesInvokeResponseArrayOutput() MsixPackageDependenciesInvokeResponseArrayOutput
+	ToMsixPackageDependenciesInvokeResponseArrayOutputWithContext(context.Context) MsixPackageDependenciesInvokeResponseArrayOutput
+}
+
+type MsixPackageDependenciesInvokeResponseArray []MsixPackageDependenciesInvokeResponseInput
+
+func (MsixPackageDependenciesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MsixPackageDependenciesInvokeResponse)(nil)).Elem()
+}
+
+func (i MsixPackageDependenciesInvokeResponseArray) ToMsixPackageDependenciesInvokeResponseArrayOutput() MsixPackageDependenciesInvokeResponseArrayOutput {
+	return i.ToMsixPackageDependenciesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MsixPackageDependenciesInvokeResponseArray) ToMsixPackageDependenciesInvokeResponseArrayOutputWithContext(ctx context.Context) MsixPackageDependenciesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MsixPackageDependenciesInvokeResponseArrayOutput)
+}
+
+// Schema for MSIX Package Dependencies properties.
+type MsixPackageDependenciesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MsixPackageDependenciesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsixPackageDependenciesInvokeResponse)(nil)).Elem()
+}
+
+func (o MsixPackageDependenciesInvokeResponseOutput) ToMsixPackageDependenciesInvokeResponseOutput() MsixPackageDependenciesInvokeResponseOutput {
+	return o
+}
+
+func (o MsixPackageDependenciesInvokeResponseOutput) ToMsixPackageDependenciesInvokeResponseOutputWithContext(ctx context.Context) MsixPackageDependenciesInvokeResponseOutput {
+	return o
+}
+
+// Name of package dependency.
+func (o MsixPackageDependenciesInvokeResponseOutput) DependencyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageDependenciesInvokeResponse) *string { return v.DependencyName }).(pulumi.StringPtrOutput)
+}
+
+// Dependency version required.
+func (o MsixPackageDependenciesInvokeResponseOutput) MinVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageDependenciesInvokeResponse) *string { return v.MinVersion }).(pulumi.StringPtrOutput)
+}
+
+// Name of dependency publisher.
+func (o MsixPackageDependenciesInvokeResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsixPackageDependenciesInvokeResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+type MsixPackageDependenciesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MsixPackageDependenciesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MsixPackageDependenciesInvokeResponse)(nil)).Elem()
+}
+
+func (o MsixPackageDependenciesInvokeResponseArrayOutput) ToMsixPackageDependenciesInvokeResponseArrayOutput() MsixPackageDependenciesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MsixPackageDependenciesInvokeResponseArrayOutput) ToMsixPackageDependenciesInvokeResponseArrayOutputWithContext(ctx context.Context) MsixPackageDependenciesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o MsixPackageDependenciesInvokeResponseArrayOutput) Index(i pulumi.IntInput) MsixPackageDependenciesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MsixPackageDependenciesInvokeResponse {
+		return vs[0].([]MsixPackageDependenciesInvokeResponse)[vs[1].(int)]
+	}).(MsixPackageDependenciesInvokeResponseOutput)
 }
 
 // Schema for MSIX Package Dependencies properties.
@@ -727,6 +999,79 @@ func (o RegistrationInfoPtrOutput) Token() pulumi.StringPtrOutput {
 }
 
 // Represents a RegistrationInfo definition.
+type RegistrationInfoInvokeResponse struct {
+	// Expiration time of registration token.
+	ExpirationTime *string `pulumi:"expirationTime"`
+	// The type of resetting the token.
+	RegistrationTokenOperation *string `pulumi:"registrationTokenOperation"`
+	// The registration token base64 encoded string.
+	Token *string `pulumi:"token"`
+}
+
+// RegistrationInfoInvokeResponseInput is an input type that accepts RegistrationInfoInvokeResponseArgs and RegistrationInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `RegistrationInfoInvokeResponseInput` via:
+//
+//          RegistrationInfoInvokeResponseArgs{...}
+type RegistrationInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRegistrationInfoInvokeResponseOutput() RegistrationInfoInvokeResponseOutput
+	ToRegistrationInfoInvokeResponseOutputWithContext(context.Context) RegistrationInfoInvokeResponseOutput
+}
+
+// Represents a RegistrationInfo definition.
+type RegistrationInfoInvokeResponseArgs struct {
+	// Expiration time of registration token.
+	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
+	// The type of resetting the token.
+	RegistrationTokenOperation pulumi.StringPtrInput `pulumi:"registrationTokenOperation"`
+	// The registration token base64 encoded string.
+	Token pulumi.StringPtrInput `pulumi:"token"`
+}
+
+func (RegistrationInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i RegistrationInfoInvokeResponseArgs) ToRegistrationInfoInvokeResponseOutput() RegistrationInfoInvokeResponseOutput {
+	return i.ToRegistrationInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RegistrationInfoInvokeResponseArgs) ToRegistrationInfoInvokeResponseOutputWithContext(ctx context.Context) RegistrationInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationInfoInvokeResponseOutput)
+}
+
+// Represents a RegistrationInfo definition.
+type RegistrationInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RegistrationInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o RegistrationInfoInvokeResponseOutput) ToRegistrationInfoInvokeResponseOutput() RegistrationInfoInvokeResponseOutput {
+	return o
+}
+
+func (o RegistrationInfoInvokeResponseOutput) ToRegistrationInfoInvokeResponseOutputWithContext(ctx context.Context) RegistrationInfoInvokeResponseOutput {
+	return o
+}
+
+// Expiration time of registration token.
+func (o RegistrationInfoInvokeResponseOutput) ExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationInfoInvokeResponse) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
+}
+
+// The type of resetting the token.
+func (o RegistrationInfoInvokeResponseOutput) RegistrationTokenOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationInfoInvokeResponse) *string { return v.RegistrationTokenOperation }).(pulumi.StringPtrOutput)
+}
+
+// The registration token base64 encoded string.
+func (o RegistrationInfoInvokeResponseOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationInfoInvokeResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+// Represents a RegistrationInfo definition.
 type RegistrationInfoResponse struct {
 	// Expiration time of registration token.
 	ExpirationTime *string `pulumi:"expirationTime"`
@@ -901,14 +1246,19 @@ func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(MsixPackageApplicationsOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsArrayOutput{})
+	pulumi.RegisterOutputType(MsixPackageApplicationsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MsixPackageApplicationsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsResponseOutput{})
 	pulumi.RegisterOutputType(MsixPackageApplicationsResponseArrayOutput{})
 	pulumi.RegisterOutputType(MsixPackageDependenciesOutput{})
 	pulumi.RegisterOutputType(MsixPackageDependenciesArrayOutput{})
+	pulumi.RegisterOutputType(MsixPackageDependenciesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MsixPackageDependenciesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(MsixPackageDependenciesResponseOutput{})
 	pulumi.RegisterOutputType(MsixPackageDependenciesResponseArrayOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoPtrOutput{})
+	pulumi.RegisterOutputType(RegistrationInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationInfoResponsePtrOutput{})
 }

@@ -120,6 +120,115 @@ func (o ReferenceDataSetKeyPropertyArrayOutput) Index(i pulumi.IntInput) Referen
 }
 
 // A key property for the reference data set. A reference data set can have multiple key properties.
+type ReferenceDataSetKeyPropertyInvokeResponse struct {
+	// The name of the key property.
+	Name *string `pulumi:"name"`
+	// The type of the key property.
+	Type *string `pulumi:"type"`
+}
+
+// ReferenceDataSetKeyPropertyInvokeResponseInput is an input type that accepts ReferenceDataSetKeyPropertyInvokeResponseArgs and ReferenceDataSetKeyPropertyInvokeResponseOutput values.
+// You can construct a concrete instance of `ReferenceDataSetKeyPropertyInvokeResponseInput` via:
+//
+//          ReferenceDataSetKeyPropertyInvokeResponseArgs{...}
+type ReferenceDataSetKeyPropertyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToReferenceDataSetKeyPropertyInvokeResponseOutput() ReferenceDataSetKeyPropertyInvokeResponseOutput
+	ToReferenceDataSetKeyPropertyInvokeResponseOutputWithContext(context.Context) ReferenceDataSetKeyPropertyInvokeResponseOutput
+}
+
+// A key property for the reference data set. A reference data set can have multiple key properties.
+type ReferenceDataSetKeyPropertyInvokeResponseArgs struct {
+	// The name of the key property.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the key property.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ReferenceDataSetKeyPropertyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceDataSetKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i ReferenceDataSetKeyPropertyInvokeResponseArgs) ToReferenceDataSetKeyPropertyInvokeResponseOutput() ReferenceDataSetKeyPropertyInvokeResponseOutput {
+	return i.ToReferenceDataSetKeyPropertyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ReferenceDataSetKeyPropertyInvokeResponseArgs) ToReferenceDataSetKeyPropertyInvokeResponseOutputWithContext(ctx context.Context) ReferenceDataSetKeyPropertyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetKeyPropertyInvokeResponseOutput)
+}
+
+// ReferenceDataSetKeyPropertyInvokeResponseArrayInput is an input type that accepts ReferenceDataSetKeyPropertyInvokeResponseArray and ReferenceDataSetKeyPropertyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ReferenceDataSetKeyPropertyInvokeResponseArrayInput` via:
+//
+//          ReferenceDataSetKeyPropertyInvokeResponseArray{ ReferenceDataSetKeyPropertyInvokeResponseArgs{...} }
+type ReferenceDataSetKeyPropertyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToReferenceDataSetKeyPropertyInvokeResponseArrayOutput() ReferenceDataSetKeyPropertyInvokeResponseArrayOutput
+	ToReferenceDataSetKeyPropertyInvokeResponseArrayOutputWithContext(context.Context) ReferenceDataSetKeyPropertyInvokeResponseArrayOutput
+}
+
+type ReferenceDataSetKeyPropertyInvokeResponseArray []ReferenceDataSetKeyPropertyInvokeResponseInput
+
+func (ReferenceDataSetKeyPropertyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReferenceDataSetKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (i ReferenceDataSetKeyPropertyInvokeResponseArray) ToReferenceDataSetKeyPropertyInvokeResponseArrayOutput() ReferenceDataSetKeyPropertyInvokeResponseArrayOutput {
+	return i.ToReferenceDataSetKeyPropertyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ReferenceDataSetKeyPropertyInvokeResponseArray) ToReferenceDataSetKeyPropertyInvokeResponseArrayOutputWithContext(ctx context.Context) ReferenceDataSetKeyPropertyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetKeyPropertyInvokeResponseArrayOutput)
+}
+
+// A key property for the reference data set. A reference data set can have multiple key properties.
+type ReferenceDataSetKeyPropertyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ReferenceDataSetKeyPropertyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReferenceDataSetKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ReferenceDataSetKeyPropertyInvokeResponseOutput) ToReferenceDataSetKeyPropertyInvokeResponseOutput() ReferenceDataSetKeyPropertyInvokeResponseOutput {
+	return o
+}
+
+func (o ReferenceDataSetKeyPropertyInvokeResponseOutput) ToReferenceDataSetKeyPropertyInvokeResponseOutputWithContext(ctx context.Context) ReferenceDataSetKeyPropertyInvokeResponseOutput {
+	return o
+}
+
+// The name of the key property.
+func (o ReferenceDataSetKeyPropertyInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceDataSetKeyPropertyInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the key property.
+func (o ReferenceDataSetKeyPropertyInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReferenceDataSetKeyPropertyInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ReferenceDataSetKeyPropertyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ReferenceDataSetKeyPropertyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReferenceDataSetKeyPropertyInvokeResponse)(nil)).Elem()
+}
+
+func (o ReferenceDataSetKeyPropertyInvokeResponseArrayOutput) ToReferenceDataSetKeyPropertyInvokeResponseArrayOutput() ReferenceDataSetKeyPropertyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ReferenceDataSetKeyPropertyInvokeResponseArrayOutput) ToReferenceDataSetKeyPropertyInvokeResponseArrayOutputWithContext(ctx context.Context) ReferenceDataSetKeyPropertyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ReferenceDataSetKeyPropertyInvokeResponseArrayOutput) Index(i pulumi.IntInput) ReferenceDataSetKeyPropertyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReferenceDataSetKeyPropertyInvokeResponse {
+		return vs[0].([]ReferenceDataSetKeyPropertyInvokeResponse)[vs[1].(int)]
+	}).(ReferenceDataSetKeyPropertyInvokeResponseOutput)
+}
+
+// A key property for the reference data set. A reference data set can have multiple key properties.
 type ReferenceDataSetKeyPropertyResponse struct {
 	// The name of the key property.
 	Name *string `pulumi:"name"`
@@ -382,6 +491,70 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+type SkuInvokeResponse struct {
+	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+	Capacity int `pulumi:"capacity"`
+	// The name of this SKU.
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+type SkuInvokeResponseArgs struct {
+	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The name of this SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// The name of this SKU.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 type SkuResponse struct {
 	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 	Capacity int `pulumi:"capacity"`
@@ -537,10 +710,13 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyArrayOutput{})
+	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyResponseOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

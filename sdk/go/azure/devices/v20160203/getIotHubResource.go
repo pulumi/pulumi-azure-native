@@ -34,11 +34,11 @@ type LookupIotHubResourceResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The properties of an IoT hub.
-	Properties IotHubPropertiesResponse `pulumi:"properties"`
+	Properties IotHubPropertiesInvokeResponse `pulumi:"properties"`
 	// The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
 	Resourcegroup string `pulumi:"resourcegroup"`
 	// Information about the SKU of the IoT hub.
-	Sku IotHubSkuInfoResponse `pulumi:"sku"`
+	Sku IotHubSkuInfoInvokeResponse `pulumi:"sku"`
 	// The subscription identifier.
 	Subscriptionid string `pulumi:"subscriptionid"`
 	// The resource tags.

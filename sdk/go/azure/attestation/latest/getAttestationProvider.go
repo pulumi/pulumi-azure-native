@@ -34,11 +34,11 @@ type LookupAttestationProviderResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of private endpoint connections associated with the attestation provider.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Status of attestation service.
 	Status *string `pulumi:"status"`
 	// The system metadata relating to this resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Trust model for the attestation provider.

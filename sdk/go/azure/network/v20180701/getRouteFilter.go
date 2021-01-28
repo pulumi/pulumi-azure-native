@@ -36,11 +36,11 @@ type LookupRouteFilterResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// A collection of references to express route circuit peerings.
-	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
+	Peerings []ExpressRouteCircuitPeeringInvokeResponse `pulumi:"peerings"`
 	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Collection of RouteFilterRules contained within a route filter.
-	Rules []RouteFilterRuleResponse `pulumi:"rules"`
+	Rules []RouteFilterRuleInvokeResponse `pulumi:"rules"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

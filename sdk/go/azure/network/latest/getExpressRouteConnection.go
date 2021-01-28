@@ -32,7 +32,7 @@ type LookupExpressRouteConnectionResult struct {
 	// Enable internet security.
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ExpressRoute circuit peering.
-	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponse `pulumi:"expressRouteCircuitPeering"`
+	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdInvokeResponse `pulumi:"expressRouteCircuitPeering"`
 	// Enable FastPath to vWan Firewall hub.
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// Resource ID.
@@ -42,7 +42,7 @@ type LookupExpressRouteConnectionResult struct {
 	// The provisioning state of the express route connection resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The Routing Configuration indicating the associated and propagated route tables on this connection.
-	RoutingConfiguration *RoutingConfigurationResponse `pulumi:"routingConfiguration"`
+	RoutingConfiguration *RoutingConfigurationInvokeResponse `pulumi:"routingConfiguration"`
 	// The routing weight associated to the connection.
 	RoutingWeight *int `pulumi:"routingWeight"`
 }

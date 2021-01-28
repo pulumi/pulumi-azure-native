@@ -32,7 +32,7 @@ type LookupManagementConfigurationResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
-	Properties ManagementConfigurationPropertiesResponse `pulumi:"properties"`
+	Properties ManagementConfigurationPropertiesInvokeResponse `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

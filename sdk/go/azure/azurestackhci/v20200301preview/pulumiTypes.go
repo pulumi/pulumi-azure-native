@@ -11,6 +11,178 @@ import (
 )
 
 // Cluster node details.
+type ClusterNodeInvokeResponse struct {
+	// Number of physical cores on the cluster node.
+	CoreCount float64 `pulumi:"coreCount"`
+	// Id of the node in the cluster.
+	Id float64 `pulumi:"id"`
+	// Manufacturer of the cluster node hardware.
+	Manufacturer string `pulumi:"manufacturer"`
+	// Total available memory on the cluster node (in GiB).
+	MemoryInGiB float64 `pulumi:"memoryInGiB"`
+	// Model name of the cluster node hardware.
+	Model string `pulumi:"model"`
+	// Name of the cluster node.
+	Name string `pulumi:"name"`
+	// Operating system running on the cluster node.
+	OsName string `pulumi:"osName"`
+	// Version of the operating system running on the cluster node.
+	OsVersion string `pulumi:"osVersion"`
+	// Immutable id of the cluster node.
+	SerialNumber string `pulumi:"serialNumber"`
+}
+
+// ClusterNodeInvokeResponseInput is an input type that accepts ClusterNodeInvokeResponseArgs and ClusterNodeInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterNodeInvokeResponseInput` via:
+//
+//          ClusterNodeInvokeResponseArgs{...}
+type ClusterNodeInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterNodeInvokeResponseOutput() ClusterNodeInvokeResponseOutput
+	ToClusterNodeInvokeResponseOutputWithContext(context.Context) ClusterNodeInvokeResponseOutput
+}
+
+// Cluster node details.
+type ClusterNodeInvokeResponseArgs struct {
+	// Number of physical cores on the cluster node.
+	CoreCount pulumi.Float64Input `pulumi:"coreCount"`
+	// Id of the node in the cluster.
+	Id pulumi.Float64Input `pulumi:"id"`
+	// Manufacturer of the cluster node hardware.
+	Manufacturer pulumi.StringInput `pulumi:"manufacturer"`
+	// Total available memory on the cluster node (in GiB).
+	MemoryInGiB pulumi.Float64Input `pulumi:"memoryInGiB"`
+	// Model name of the cluster node hardware.
+	Model pulumi.StringInput `pulumi:"model"`
+	// Name of the cluster node.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Operating system running on the cluster node.
+	OsName pulumi.StringInput `pulumi:"osName"`
+	// Version of the operating system running on the cluster node.
+	OsVersion pulumi.StringInput `pulumi:"osVersion"`
+	// Immutable id of the cluster node.
+	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
+}
+
+func (ClusterNodeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNodeInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterNodeInvokeResponseArgs) ToClusterNodeInvokeResponseOutput() ClusterNodeInvokeResponseOutput {
+	return i.ToClusterNodeInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterNodeInvokeResponseArgs) ToClusterNodeInvokeResponseOutputWithContext(ctx context.Context) ClusterNodeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeInvokeResponseOutput)
+}
+
+// ClusterNodeInvokeResponseArrayInput is an input type that accepts ClusterNodeInvokeResponseArray and ClusterNodeInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ClusterNodeInvokeResponseArrayInput` via:
+//
+//          ClusterNodeInvokeResponseArray{ ClusterNodeInvokeResponseArgs{...} }
+type ClusterNodeInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToClusterNodeInvokeResponseArrayOutput() ClusterNodeInvokeResponseArrayOutput
+	ToClusterNodeInvokeResponseArrayOutputWithContext(context.Context) ClusterNodeInvokeResponseArrayOutput
+}
+
+type ClusterNodeInvokeResponseArray []ClusterNodeInvokeResponseInput
+
+func (ClusterNodeInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterNodeInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterNodeInvokeResponseArray) ToClusterNodeInvokeResponseArrayOutput() ClusterNodeInvokeResponseArrayOutput {
+	return i.ToClusterNodeInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterNodeInvokeResponseArray) ToClusterNodeInvokeResponseArrayOutputWithContext(ctx context.Context) ClusterNodeInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeInvokeResponseArrayOutput)
+}
+
+// Cluster node details.
+type ClusterNodeInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterNodeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNodeInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterNodeInvokeResponseOutput) ToClusterNodeInvokeResponseOutput() ClusterNodeInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterNodeInvokeResponseOutput) ToClusterNodeInvokeResponseOutputWithContext(ctx context.Context) ClusterNodeInvokeResponseOutput {
+	return o
+}
+
+// Number of physical cores on the cluster node.
+func (o ClusterNodeInvokeResponseOutput) CoreCount() pulumi.Float64Output {
+	return o.ApplyT(func(v ClusterNodeInvokeResponse) float64 { return v.CoreCount }).(pulumi.Float64Output)
+}
+
+// Id of the node in the cluster.
+func (o ClusterNodeInvokeResponseOutput) Id() pulumi.Float64Output {
+	return o.ApplyT(func(v ClusterNodeInvokeResponse) float64 { return v.Id }).(pulumi.Float64Output)
+}
+
+// Manufacturer of the cluster node hardware.
+func (o ClusterNodeInvokeResponseOutput) Manufacturer() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNodeInvokeResponse) string { return v.Manufacturer }).(pulumi.StringOutput)
+}
+
+// Total available memory on the cluster node (in GiB).
+func (o ClusterNodeInvokeResponseOutput) MemoryInGiB() pulumi.Float64Output {
+	return o.ApplyT(func(v ClusterNodeInvokeResponse) float64 { return v.MemoryInGiB }).(pulumi.Float64Output)
+}
+
+// Model name of the cluster node hardware.
+func (o ClusterNodeInvokeResponseOutput) Model() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNodeInvokeResponse) string { return v.Model }).(pulumi.StringOutput)
+}
+
+// Name of the cluster node.
+func (o ClusterNodeInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNodeInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operating system running on the cluster node.
+func (o ClusterNodeInvokeResponseOutput) OsName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNodeInvokeResponse) string { return v.OsName }).(pulumi.StringOutput)
+}
+
+// Version of the operating system running on the cluster node.
+func (o ClusterNodeInvokeResponseOutput) OsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNodeInvokeResponse) string { return v.OsVersion }).(pulumi.StringOutput)
+}
+
+// Immutable id of the cluster node.
+func (o ClusterNodeInvokeResponseOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterNodeInvokeResponse) string { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
+type ClusterNodeInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterNodeInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterNodeInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterNodeInvokeResponseArrayOutput) ToClusterNodeInvokeResponseArrayOutput() ClusterNodeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClusterNodeInvokeResponseArrayOutput) ToClusterNodeInvokeResponseArrayOutputWithContext(ctx context.Context) ClusterNodeInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClusterNodeInvokeResponseArrayOutput) Index(i pulumi.IntInput) ClusterNodeInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterNodeInvokeResponse {
+		return vs[0].([]ClusterNodeInvokeResponse)[vs[1].(int)]
+	}).(ClusterNodeInvokeResponseOutput)
+}
+
+// Cluster node details.
 type ClusterNodeResponse struct {
 	// Number of physical cores on the cluster node.
 	CoreCount float64 `pulumi:"coreCount"`
@@ -180,6 +352,97 @@ func (o ClusterNodeResponseArrayOutput) Index(i pulumi.IntInput) ClusterNodeResp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterNodeResponse {
 		return vs[0].([]ClusterNodeResponse)[vs[1].(int)]
 	}).(ClusterNodeResponseOutput)
+}
+
+// Properties reported by cluster agent.
+type ClusterReportedPropertiesInvokeResponse struct {
+	// Unique id generated by the on-prem cluster.
+	ClusterId string `pulumi:"clusterId"`
+	// Name of the on-prem cluster connected to this resource.
+	ClusterName string `pulumi:"clusterName"`
+	// Version of the cluster software.
+	ClusterVersion string `pulumi:"clusterVersion"`
+	// Last time the cluster reported the data.
+	LastUpdated string `pulumi:"lastUpdated"`
+	// List of nodes reported by the cluster.
+	Nodes []ClusterNodeInvokeResponse `pulumi:"nodes"`
+}
+
+// ClusterReportedPropertiesInvokeResponseInput is an input type that accepts ClusterReportedPropertiesInvokeResponseArgs and ClusterReportedPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterReportedPropertiesInvokeResponseInput` via:
+//
+//          ClusterReportedPropertiesInvokeResponseArgs{...}
+type ClusterReportedPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterReportedPropertiesInvokeResponseOutput() ClusterReportedPropertiesInvokeResponseOutput
+	ToClusterReportedPropertiesInvokeResponseOutputWithContext(context.Context) ClusterReportedPropertiesInvokeResponseOutput
+}
+
+// Properties reported by cluster agent.
+type ClusterReportedPropertiesInvokeResponseArgs struct {
+	// Unique id generated by the on-prem cluster.
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
+	// Name of the on-prem cluster connected to this resource.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Version of the cluster software.
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
+	// Last time the cluster reported the data.
+	LastUpdated pulumi.StringInput `pulumi:"lastUpdated"`
+	// List of nodes reported by the cluster.
+	Nodes ClusterNodeInvokeResponseArrayInput `pulumi:"nodes"`
+}
+
+func (ClusterReportedPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterReportedPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterReportedPropertiesInvokeResponseArgs) ToClusterReportedPropertiesInvokeResponseOutput() ClusterReportedPropertiesInvokeResponseOutput {
+	return i.ToClusterReportedPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterReportedPropertiesInvokeResponseArgs) ToClusterReportedPropertiesInvokeResponseOutputWithContext(ctx context.Context) ClusterReportedPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterReportedPropertiesInvokeResponseOutput)
+}
+
+// Properties reported by cluster agent.
+type ClusterReportedPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterReportedPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterReportedPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterReportedPropertiesInvokeResponseOutput) ToClusterReportedPropertiesInvokeResponseOutput() ClusterReportedPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterReportedPropertiesInvokeResponseOutput) ToClusterReportedPropertiesInvokeResponseOutputWithContext(ctx context.Context) ClusterReportedPropertiesInvokeResponseOutput {
+	return o
+}
+
+// Unique id generated by the on-prem cluster.
+func (o ClusterReportedPropertiesInvokeResponseOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterReportedPropertiesInvokeResponse) string { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// Name of the on-prem cluster connected to this resource.
+func (o ClusterReportedPropertiesInvokeResponseOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterReportedPropertiesInvokeResponse) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// Version of the cluster software.
+func (o ClusterReportedPropertiesInvokeResponseOutput) ClusterVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterReportedPropertiesInvokeResponse) string { return v.ClusterVersion }).(pulumi.StringOutput)
+}
+
+// Last time the cluster reported the data.
+func (o ClusterReportedPropertiesInvokeResponseOutput) LastUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterReportedPropertiesInvokeResponse) string { return v.LastUpdated }).(pulumi.StringOutput)
+}
+
+// List of nodes reported by the cluster.
+func (o ClusterReportedPropertiesInvokeResponseOutput) Nodes() ClusterNodeInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ClusterReportedPropertiesInvokeResponse) []ClusterNodeInvokeResponse { return v.Nodes }).(ClusterNodeInvokeResponseArrayOutput)
 }
 
 // Properties reported by cluster agent.
@@ -393,8 +656,11 @@ func (o ClusterReportedPropertiesResponsePtrOutput) Nodes() ClusterNodeResponseA
 }
 
 func init() {
+	pulumi.RegisterOutputType(ClusterNodeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ClusterNodeInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterNodeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterNodeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ClusterReportedPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterReportedPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterReportedPropertiesResponsePtrOutput{})
 }

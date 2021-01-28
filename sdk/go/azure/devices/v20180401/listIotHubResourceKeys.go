@@ -28,5 +28,5 @@ type ListIotHubResourceKeysResult struct {
 	// The next link.
 	NextLink string `pulumi:"nextLink"`
 	// The list of shared access policies.
-	Value []SharedAccessSignatureAuthorizationRuleResponse `pulumi:"value"`
+	Value []SharedAccessSignatureAuthorizationRuleInvokeResponse `pulumi:"value"`
 }

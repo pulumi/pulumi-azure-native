@@ -78,6 +78,73 @@ func (o EventHubEventSubscriptionDestinationOutput) ResourceId() pulumi.StringPt
 }
 
 // Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationInvokeResponse struct {
+	// Type of the endpoint for the event subscription destination
+	// Expected value is 'EventHub'.
+	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// EventHubEventSubscriptionDestinationInvokeResponseInput is an input type that accepts EventHubEventSubscriptionDestinationInvokeResponseArgs and EventHubEventSubscriptionDestinationInvokeResponseOutput values.
+// You can construct a concrete instance of `EventHubEventSubscriptionDestinationInvokeResponseInput` via:
+//
+//          EventHubEventSubscriptionDestinationInvokeResponseArgs{...}
+type EventHubEventSubscriptionDestinationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventHubEventSubscriptionDestinationInvokeResponseOutput() EventHubEventSubscriptionDestinationInvokeResponseOutput
+	ToEventHubEventSubscriptionDestinationInvokeResponseOutputWithContext(context.Context) EventHubEventSubscriptionDestinationInvokeResponseOutput
+}
+
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationInvokeResponseArgs struct {
+	// Type of the endpoint for the event subscription destination
+	// Expected value is 'EventHub'.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (EventHubEventSubscriptionDestinationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubEventSubscriptionDestinationInvokeResponse)(nil)).Elem()
+}
+
+func (i EventHubEventSubscriptionDestinationInvokeResponseArgs) ToEventHubEventSubscriptionDestinationInvokeResponseOutput() EventHubEventSubscriptionDestinationInvokeResponseOutput {
+	return i.ToEventHubEventSubscriptionDestinationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventHubEventSubscriptionDestinationInvokeResponseArgs) ToEventHubEventSubscriptionDestinationInvokeResponseOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubEventSubscriptionDestinationInvokeResponseOutput)
+}
+
+// Information about the event hub destination for an event subscription
+type EventHubEventSubscriptionDestinationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubEventSubscriptionDestinationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubEventSubscriptionDestinationInvokeResponse)(nil)).Elem()
+}
+
+func (o EventHubEventSubscriptionDestinationInvokeResponseOutput) ToEventHubEventSubscriptionDestinationInvokeResponseOutput() EventHubEventSubscriptionDestinationInvokeResponseOutput {
+	return o
+}
+
+func (o EventHubEventSubscriptionDestinationInvokeResponseOutput) ToEventHubEventSubscriptionDestinationInvokeResponseOutputWithContext(ctx context.Context) EventHubEventSubscriptionDestinationInvokeResponseOutput {
+	return o
+}
+
+// Type of the endpoint for the event subscription destination
+// Expected value is 'EventHub'.
+func (o EventHubEventSubscriptionDestinationInvokeResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubEventSubscriptionDestinationInvokeResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The Azure Resource Id that represents the endpoint of an Event Hub destination of an event subscription.
+func (o EventHubEventSubscriptionDestinationInvokeResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubEventSubscriptionDestinationInvokeResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Information about the event hub destination for an event subscription
 type EventHubEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination
 	// Expected value is 'EventHub'.
@@ -353,6 +420,103 @@ func (o EventSubscriptionFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutp
 		}
 		return v.SubjectEndsWith
 	}).(pulumi.StringPtrOutput)
+}
+
+// Filter for the Event Subscription
+type EventSubscriptionFilterInvokeResponse struct {
+	// A list of applicable event types that need to be part of the event subscription.
+	// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
+	IncludedEventTypes []string `pulumi:"includedEventTypes"`
+	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
+	// should be compared in a case sensitive manner.
+	IsSubjectCaseSensitive *bool `pulumi:"isSubjectCaseSensitive"`
+	// An optional string to filter events for an event subscription based on a resource path prefix.
+	// The format of this depends on the publisher of the events.
+	// Wildcard characters are not supported in this path.
+	SubjectBeginsWith *string `pulumi:"subjectBeginsWith"`
+	// An optional string to filter events for an event subscription based on a resource path suffix.
+	// Wildcard characters are not supported in this path.
+	SubjectEndsWith *string `pulumi:"subjectEndsWith"`
+}
+
+// EventSubscriptionFilterInvokeResponseInput is an input type that accepts EventSubscriptionFilterInvokeResponseArgs and EventSubscriptionFilterInvokeResponseOutput values.
+// You can construct a concrete instance of `EventSubscriptionFilterInvokeResponseInput` via:
+//
+//          EventSubscriptionFilterInvokeResponseArgs{...}
+type EventSubscriptionFilterInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventSubscriptionFilterInvokeResponseOutput() EventSubscriptionFilterInvokeResponseOutput
+	ToEventSubscriptionFilterInvokeResponseOutputWithContext(context.Context) EventSubscriptionFilterInvokeResponseOutput
+}
+
+// Filter for the Event Subscription
+type EventSubscriptionFilterInvokeResponseArgs struct {
+	// A list of applicable event types that need to be part of the event subscription.
+	// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
+	IncludedEventTypes pulumi.StringArrayInput `pulumi:"includedEventTypes"`
+	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
+	// should be compared in a case sensitive manner.
+	IsSubjectCaseSensitive pulumi.BoolPtrInput `pulumi:"isSubjectCaseSensitive"`
+	// An optional string to filter events for an event subscription based on a resource path prefix.
+	// The format of this depends on the publisher of the events.
+	// Wildcard characters are not supported in this path.
+	SubjectBeginsWith pulumi.StringPtrInput `pulumi:"subjectBeginsWith"`
+	// An optional string to filter events for an event subscription based on a resource path suffix.
+	// Wildcard characters are not supported in this path.
+	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
+}
+
+func (EventSubscriptionFilterInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionFilterInvokeResponse)(nil)).Elem()
+}
+
+func (i EventSubscriptionFilterInvokeResponseArgs) ToEventSubscriptionFilterInvokeResponseOutput() EventSubscriptionFilterInvokeResponseOutput {
+	return i.ToEventSubscriptionFilterInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventSubscriptionFilterInvokeResponseArgs) ToEventSubscriptionFilterInvokeResponseOutputWithContext(ctx context.Context) EventSubscriptionFilterInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterInvokeResponseOutput)
+}
+
+// Filter for the Event Subscription
+type EventSubscriptionFilterInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventSubscriptionFilterInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSubscriptionFilterInvokeResponse)(nil)).Elem()
+}
+
+func (o EventSubscriptionFilterInvokeResponseOutput) ToEventSubscriptionFilterInvokeResponseOutput() EventSubscriptionFilterInvokeResponseOutput {
+	return o
+}
+
+func (o EventSubscriptionFilterInvokeResponseOutput) ToEventSubscriptionFilterInvokeResponseOutputWithContext(ctx context.Context) EventSubscriptionFilterInvokeResponseOutput {
+	return o
+}
+
+// A list of applicable event types that need to be part of the event subscription.
+// If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
+func (o EventSubscriptionFilterInvokeResponseOutput) IncludedEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventSubscriptionFilterInvokeResponse) []string { return v.IncludedEventTypes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
+// should be compared in a case sensitive manner.
+func (o EventSubscriptionFilterInvokeResponseOutput) IsSubjectCaseSensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionFilterInvokeResponse) *bool { return v.IsSubjectCaseSensitive }).(pulumi.BoolPtrOutput)
+}
+
+// An optional string to filter events for an event subscription based on a resource path prefix.
+// The format of this depends on the publisher of the events.
+// Wildcard characters are not supported in this path.
+func (o EventSubscriptionFilterInvokeResponseOutput) SubjectBeginsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionFilterInvokeResponse) *string { return v.SubjectBeginsWith }).(pulumi.StringPtrOutput)
+}
+
+// An optional string to filter events for an event subscription based on a resource path suffix.
+// Wildcard characters are not supported in this path.
+func (o EventSubscriptionFilterInvokeResponseOutput) SubjectEndsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionFilterInvokeResponse) *string { return v.SubjectEndsWith }).(pulumi.StringPtrOutput)
 }
 
 // Filter for the Event Subscription
@@ -634,6 +798,82 @@ func (o WebHookEventSubscriptionDestinationOutput) EndpointUrl() pulumi.StringPt
 }
 
 // Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationInvokeResponse struct {
+	// The base URL that represents the endpoint of the destination of an event subscription.
+	EndpointBaseUrl string `pulumi:"endpointBaseUrl"`
+	// Type of the endpoint for the event subscription destination
+	// Expected value is 'WebHook'.
+	EndpointType string `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the destination of an event subscription.
+	EndpointUrl *string `pulumi:"endpointUrl"`
+}
+
+// WebHookEventSubscriptionDestinationInvokeResponseInput is an input type that accepts WebHookEventSubscriptionDestinationInvokeResponseArgs and WebHookEventSubscriptionDestinationInvokeResponseOutput values.
+// You can construct a concrete instance of `WebHookEventSubscriptionDestinationInvokeResponseInput` via:
+//
+//          WebHookEventSubscriptionDestinationInvokeResponseArgs{...}
+type WebHookEventSubscriptionDestinationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWebHookEventSubscriptionDestinationInvokeResponseOutput() WebHookEventSubscriptionDestinationInvokeResponseOutput
+	ToWebHookEventSubscriptionDestinationInvokeResponseOutputWithContext(context.Context) WebHookEventSubscriptionDestinationInvokeResponseOutput
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationInvokeResponseArgs struct {
+	// The base URL that represents the endpoint of the destination of an event subscription.
+	EndpointBaseUrl pulumi.StringInput `pulumi:"endpointBaseUrl"`
+	// Type of the endpoint for the event subscription destination
+	// Expected value is 'WebHook'.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the destination of an event subscription.
+	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+}
+
+func (WebHookEventSubscriptionDestinationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebHookEventSubscriptionDestinationInvokeResponse)(nil)).Elem()
+}
+
+func (i WebHookEventSubscriptionDestinationInvokeResponseArgs) ToWebHookEventSubscriptionDestinationInvokeResponseOutput() WebHookEventSubscriptionDestinationInvokeResponseOutput {
+	return i.ToWebHookEventSubscriptionDestinationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WebHookEventSubscriptionDestinationInvokeResponseArgs) ToWebHookEventSubscriptionDestinationInvokeResponseOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebHookEventSubscriptionDestinationInvokeResponseOutput)
+}
+
+// Information about the webhook destination for an event subscription
+type WebHookEventSubscriptionDestinationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WebHookEventSubscriptionDestinationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebHookEventSubscriptionDestinationInvokeResponse)(nil)).Elem()
+}
+
+func (o WebHookEventSubscriptionDestinationInvokeResponseOutput) ToWebHookEventSubscriptionDestinationInvokeResponseOutput() WebHookEventSubscriptionDestinationInvokeResponseOutput {
+	return o
+}
+
+func (o WebHookEventSubscriptionDestinationInvokeResponseOutput) ToWebHookEventSubscriptionDestinationInvokeResponseOutputWithContext(ctx context.Context) WebHookEventSubscriptionDestinationInvokeResponseOutput {
+	return o
+}
+
+// The base URL that represents the endpoint of the destination of an event subscription.
+func (o WebHookEventSubscriptionDestinationInvokeResponseOutput) EndpointBaseUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestinationInvokeResponse) string { return v.EndpointBaseUrl }).(pulumi.StringOutput)
+}
+
+// Type of the endpoint for the event subscription destination
+// Expected value is 'WebHook'.
+func (o WebHookEventSubscriptionDestinationInvokeResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestinationInvokeResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The URL that represents the endpoint of the destination of an event subscription.
+func (o WebHookEventSubscriptionDestinationInvokeResponseOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebHookEventSubscriptionDestinationInvokeResponse) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+}
+
+// Information about the webhook destination for an event subscription
 type WebHookEventSubscriptionDestinationResponse struct {
 	// The base URL that represents the endpoint of the destination of an event subscription.
 	EndpointBaseUrl string `pulumi:"endpointBaseUrl"`
@@ -711,11 +951,14 @@ func (o WebHookEventSubscriptionDestinationResponseOutput) EndpointUrl() pulumi.
 
 func init() {
 	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationOutput{})
+	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EventHubEventSubscriptionDestinationResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterPtrOutput{})
+	pulumi.RegisterOutputType(EventSubscriptionFilterInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(WebHookEventSubscriptionDestinationOutput{})
+	pulumi.RegisterOutputType(WebHookEventSubscriptionDestinationInvokeResponseOutput{})
 	pulumi.RegisterOutputType(WebHookEventSubscriptionDestinationResponseOutput{})
 }

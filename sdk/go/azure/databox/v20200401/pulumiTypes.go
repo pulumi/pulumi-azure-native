@@ -11,7 +11,7 @@ import (
 )
 
 // Credential details of the account.
-type AccountCredentialDetailsResponse struct {
+type AccountCredentialDetailsInvokeResponse struct {
 	// Connection string of the account endpoint to use the account as a storage endpoint on the device.
 	AccountConnectionString string `pulumi:"accountConnectionString"`
 	// Name of the account.
@@ -19,22 +19,22 @@ type AccountCredentialDetailsResponse struct {
 	// Type of the account.
 	DataAccountType string `pulumi:"dataAccountType"`
 	// Per share level unencrypted access credentials.
-	ShareCredentialDetails []ShareCredentialDetailsResponse `pulumi:"shareCredentialDetails"`
+	ShareCredentialDetails []ShareCredentialDetailsInvokeResponse `pulumi:"shareCredentialDetails"`
 }
 
-// AccountCredentialDetailsResponseInput is an input type that accepts AccountCredentialDetailsResponseArgs and AccountCredentialDetailsResponseOutput values.
-// You can construct a concrete instance of `AccountCredentialDetailsResponseInput` via:
+// AccountCredentialDetailsInvokeResponseInput is an input type that accepts AccountCredentialDetailsInvokeResponseArgs and AccountCredentialDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `AccountCredentialDetailsInvokeResponseInput` via:
 //
-//          AccountCredentialDetailsResponseArgs{...}
-type AccountCredentialDetailsResponseInput interface {
+//          AccountCredentialDetailsInvokeResponseArgs{...}
+type AccountCredentialDetailsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToAccountCredentialDetailsResponseOutput() AccountCredentialDetailsResponseOutput
-	ToAccountCredentialDetailsResponseOutputWithContext(context.Context) AccountCredentialDetailsResponseOutput
+	ToAccountCredentialDetailsInvokeResponseOutput() AccountCredentialDetailsInvokeResponseOutput
+	ToAccountCredentialDetailsInvokeResponseOutputWithContext(context.Context) AccountCredentialDetailsInvokeResponseOutput
 }
 
 // Credential details of the account.
-type AccountCredentialDetailsResponseArgs struct {
+type AccountCredentialDetailsInvokeResponseArgs struct {
 	// Connection string of the account endpoint to use the account as a storage endpoint on the device.
 	AccountConnectionString pulumi.StringInput `pulumi:"accountConnectionString"`
 	// Name of the account.
@@ -42,101 +42,210 @@ type AccountCredentialDetailsResponseArgs struct {
 	// Type of the account.
 	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
 	// Per share level unencrypted access credentials.
-	ShareCredentialDetails ShareCredentialDetailsResponseArrayInput `pulumi:"shareCredentialDetails"`
+	ShareCredentialDetails ShareCredentialDetailsInvokeResponseArrayInput `pulumi:"shareCredentialDetails"`
 }
 
-func (AccountCredentialDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountCredentialDetailsResponse)(nil)).Elem()
+func (AccountCredentialDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountCredentialDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (i AccountCredentialDetailsResponseArgs) ToAccountCredentialDetailsResponseOutput() AccountCredentialDetailsResponseOutput {
-	return i.ToAccountCredentialDetailsResponseOutputWithContext(context.Background())
+func (i AccountCredentialDetailsInvokeResponseArgs) ToAccountCredentialDetailsInvokeResponseOutput() AccountCredentialDetailsInvokeResponseOutput {
+	return i.ToAccountCredentialDetailsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i AccountCredentialDetailsResponseArgs) ToAccountCredentialDetailsResponseOutputWithContext(ctx context.Context) AccountCredentialDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountCredentialDetailsResponseOutput)
+func (i AccountCredentialDetailsInvokeResponseArgs) ToAccountCredentialDetailsInvokeResponseOutputWithContext(ctx context.Context) AccountCredentialDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCredentialDetailsInvokeResponseOutput)
 }
 
-// AccountCredentialDetailsResponseArrayInput is an input type that accepts AccountCredentialDetailsResponseArray and AccountCredentialDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `AccountCredentialDetailsResponseArrayInput` via:
+// AccountCredentialDetailsInvokeResponseArrayInput is an input type that accepts AccountCredentialDetailsInvokeResponseArray and AccountCredentialDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AccountCredentialDetailsInvokeResponseArrayInput` via:
 //
-//          AccountCredentialDetailsResponseArray{ AccountCredentialDetailsResponseArgs{...} }
-type AccountCredentialDetailsResponseArrayInput interface {
+//          AccountCredentialDetailsInvokeResponseArray{ AccountCredentialDetailsInvokeResponseArgs{...} }
+type AccountCredentialDetailsInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToAccountCredentialDetailsResponseArrayOutput() AccountCredentialDetailsResponseArrayOutput
-	ToAccountCredentialDetailsResponseArrayOutputWithContext(context.Context) AccountCredentialDetailsResponseArrayOutput
+	ToAccountCredentialDetailsInvokeResponseArrayOutput() AccountCredentialDetailsInvokeResponseArrayOutput
+	ToAccountCredentialDetailsInvokeResponseArrayOutputWithContext(context.Context) AccountCredentialDetailsInvokeResponseArrayOutput
 }
 
-type AccountCredentialDetailsResponseArray []AccountCredentialDetailsResponseInput
+type AccountCredentialDetailsInvokeResponseArray []AccountCredentialDetailsInvokeResponseInput
 
-func (AccountCredentialDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountCredentialDetailsResponse)(nil)).Elem()
+func (AccountCredentialDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountCredentialDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (i AccountCredentialDetailsResponseArray) ToAccountCredentialDetailsResponseArrayOutput() AccountCredentialDetailsResponseArrayOutput {
-	return i.ToAccountCredentialDetailsResponseArrayOutputWithContext(context.Background())
+func (i AccountCredentialDetailsInvokeResponseArray) ToAccountCredentialDetailsInvokeResponseArrayOutput() AccountCredentialDetailsInvokeResponseArrayOutput {
+	return i.ToAccountCredentialDetailsInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i AccountCredentialDetailsResponseArray) ToAccountCredentialDetailsResponseArrayOutputWithContext(ctx context.Context) AccountCredentialDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountCredentialDetailsResponseArrayOutput)
+func (i AccountCredentialDetailsInvokeResponseArray) ToAccountCredentialDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) AccountCredentialDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCredentialDetailsInvokeResponseArrayOutput)
 }
 
 // Credential details of the account.
-type AccountCredentialDetailsResponseOutput struct{ *pulumi.OutputState }
+type AccountCredentialDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (AccountCredentialDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountCredentialDetailsResponse)(nil)).Elem()
+func (AccountCredentialDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountCredentialDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (o AccountCredentialDetailsResponseOutput) ToAccountCredentialDetailsResponseOutput() AccountCredentialDetailsResponseOutput {
+func (o AccountCredentialDetailsInvokeResponseOutput) ToAccountCredentialDetailsInvokeResponseOutput() AccountCredentialDetailsInvokeResponseOutput {
 	return o
 }
 
-func (o AccountCredentialDetailsResponseOutput) ToAccountCredentialDetailsResponseOutputWithContext(ctx context.Context) AccountCredentialDetailsResponseOutput {
+func (o AccountCredentialDetailsInvokeResponseOutput) ToAccountCredentialDetailsInvokeResponseOutputWithContext(ctx context.Context) AccountCredentialDetailsInvokeResponseOutput {
 	return o
 }
 
 // Connection string of the account endpoint to use the account as a storage endpoint on the device.
-func (o AccountCredentialDetailsResponseOutput) AccountConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountCredentialDetailsResponse) string { return v.AccountConnectionString }).(pulumi.StringOutput)
+func (o AccountCredentialDetailsInvokeResponseOutput) AccountConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountCredentialDetailsInvokeResponse) string { return v.AccountConnectionString }).(pulumi.StringOutput)
 }
 
 // Name of the account.
-func (o AccountCredentialDetailsResponseOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountCredentialDetailsResponse) string { return v.AccountName }).(pulumi.StringOutput)
+func (o AccountCredentialDetailsInvokeResponseOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountCredentialDetailsInvokeResponse) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
 // Type of the account.
-func (o AccountCredentialDetailsResponseOutput) DataAccountType() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountCredentialDetailsResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
+func (o AccountCredentialDetailsInvokeResponseOutput) DataAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountCredentialDetailsInvokeResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
 }
 
 // Per share level unencrypted access credentials.
-func (o AccountCredentialDetailsResponseOutput) ShareCredentialDetails() ShareCredentialDetailsResponseArrayOutput {
-	return o.ApplyT(func(v AccountCredentialDetailsResponse) []ShareCredentialDetailsResponse {
+func (o AccountCredentialDetailsInvokeResponseOutput) ShareCredentialDetails() ShareCredentialDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v AccountCredentialDetailsInvokeResponse) []ShareCredentialDetailsInvokeResponse {
 		return v.ShareCredentialDetails
-	}).(ShareCredentialDetailsResponseArrayOutput)
+	}).(ShareCredentialDetailsInvokeResponseArrayOutput)
 }
 
-type AccountCredentialDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+type AccountCredentialDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (AccountCredentialDetailsResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccountCredentialDetailsResponse)(nil)).Elem()
+func (AccountCredentialDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountCredentialDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (o AccountCredentialDetailsResponseArrayOutput) ToAccountCredentialDetailsResponseArrayOutput() AccountCredentialDetailsResponseArrayOutput {
+func (o AccountCredentialDetailsInvokeResponseArrayOutput) ToAccountCredentialDetailsInvokeResponseArrayOutput() AccountCredentialDetailsInvokeResponseArrayOutput {
 	return o
 }
 
-func (o AccountCredentialDetailsResponseArrayOutput) ToAccountCredentialDetailsResponseArrayOutputWithContext(ctx context.Context) AccountCredentialDetailsResponseArrayOutput {
+func (o AccountCredentialDetailsInvokeResponseArrayOutput) ToAccountCredentialDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) AccountCredentialDetailsInvokeResponseArrayOutput {
 	return o
 }
 
-func (o AccountCredentialDetailsResponseArrayOutput) Index(i pulumi.IntInput) AccountCredentialDetailsResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountCredentialDetailsResponse {
-		return vs[0].([]AccountCredentialDetailsResponse)[vs[1].(int)]
-	}).(AccountCredentialDetailsResponseOutput)
+func (o AccountCredentialDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) AccountCredentialDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountCredentialDetailsInvokeResponse {
+		return vs[0].([]AccountCredentialDetailsInvokeResponse)[vs[1].(int)]
+	}).(AccountCredentialDetailsInvokeResponseOutput)
+}
+
+// Additional error info.
+type AdditionalErrorInfoInvokeResponse struct {
+	// Additional error info.
+	Info interface{} `pulumi:"info"`
+	// Additional error type.
+	Type *string `pulumi:"type"`
+}
+
+// AdditionalErrorInfoInvokeResponseInput is an input type that accepts AdditionalErrorInfoInvokeResponseArgs and AdditionalErrorInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `AdditionalErrorInfoInvokeResponseInput` via:
+//
+//          AdditionalErrorInfoInvokeResponseArgs{...}
+type AdditionalErrorInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAdditionalErrorInfoInvokeResponseOutput() AdditionalErrorInfoInvokeResponseOutput
+	ToAdditionalErrorInfoInvokeResponseOutputWithContext(context.Context) AdditionalErrorInfoInvokeResponseOutput
+}
+
+// Additional error info.
+type AdditionalErrorInfoInvokeResponseArgs struct {
+	// Additional error info.
+	Info pulumi.Input `pulumi:"info"`
+	// Additional error type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (AdditionalErrorInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i AdditionalErrorInfoInvokeResponseArgs) ToAdditionalErrorInfoInvokeResponseOutput() AdditionalErrorInfoInvokeResponseOutput {
+	return i.ToAdditionalErrorInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AdditionalErrorInfoInvokeResponseArgs) ToAdditionalErrorInfoInvokeResponseOutputWithContext(ctx context.Context) AdditionalErrorInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalErrorInfoInvokeResponseOutput)
+}
+
+// AdditionalErrorInfoInvokeResponseArrayInput is an input type that accepts AdditionalErrorInfoInvokeResponseArray and AdditionalErrorInfoInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AdditionalErrorInfoInvokeResponseArrayInput` via:
+//
+//          AdditionalErrorInfoInvokeResponseArray{ AdditionalErrorInfoInvokeResponseArgs{...} }
+type AdditionalErrorInfoInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAdditionalErrorInfoInvokeResponseArrayOutput() AdditionalErrorInfoInvokeResponseArrayOutput
+	ToAdditionalErrorInfoInvokeResponseArrayOutputWithContext(context.Context) AdditionalErrorInfoInvokeResponseArrayOutput
+}
+
+type AdditionalErrorInfoInvokeResponseArray []AdditionalErrorInfoInvokeResponseInput
+
+func (AdditionalErrorInfoInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdditionalErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i AdditionalErrorInfoInvokeResponseArray) ToAdditionalErrorInfoInvokeResponseArrayOutput() AdditionalErrorInfoInvokeResponseArrayOutput {
+	return i.ToAdditionalErrorInfoInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AdditionalErrorInfoInvokeResponseArray) ToAdditionalErrorInfoInvokeResponseArrayOutputWithContext(ctx context.Context) AdditionalErrorInfoInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdditionalErrorInfoInvokeResponseArrayOutput)
+}
+
+// Additional error info.
+type AdditionalErrorInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AdditionalErrorInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdditionalErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AdditionalErrorInfoInvokeResponseOutput) ToAdditionalErrorInfoInvokeResponseOutput() AdditionalErrorInfoInvokeResponseOutput {
+	return o
+}
+
+func (o AdditionalErrorInfoInvokeResponseOutput) ToAdditionalErrorInfoInvokeResponseOutputWithContext(ctx context.Context) AdditionalErrorInfoInvokeResponseOutput {
+	return o
+}
+
+// Additional error info.
+func (o AdditionalErrorInfoInvokeResponseOutput) Info() pulumi.AnyOutput {
+	return o.ApplyT(func(v AdditionalErrorInfoInvokeResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
+}
+
+// Additional error type.
+func (o AdditionalErrorInfoInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdditionalErrorInfoInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type AdditionalErrorInfoInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AdditionalErrorInfoInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AdditionalErrorInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o AdditionalErrorInfoInvokeResponseArrayOutput) ToAdditionalErrorInfoInvokeResponseArrayOutput() AdditionalErrorInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AdditionalErrorInfoInvokeResponseArrayOutput) ToAdditionalErrorInfoInvokeResponseArrayOutputWithContext(ctx context.Context) AdditionalErrorInfoInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AdditionalErrorInfoInvokeResponseArrayOutput) Index(i pulumi.IntInput) AdditionalErrorInfoInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AdditionalErrorInfoInvokeResponse {
+		return vs[0].([]AdditionalErrorInfoInvokeResponse)[vs[1].(int)]
+	}).(AdditionalErrorInfoInvokeResponseOutput)
 }
 
 // Additional error info.
@@ -249,112 +358,112 @@ func (o AdditionalErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) Additio
 }
 
 // The Network Adapter configuration of a DataBox.
-type ApplianceNetworkConfigurationResponse struct {
+type ApplianceNetworkConfigurationInvokeResponse struct {
 	// Mac Address.
 	MacAddress string `pulumi:"macAddress"`
 	// Name of the network.
 	Name string `pulumi:"name"`
 }
 
-// ApplianceNetworkConfigurationResponseInput is an input type that accepts ApplianceNetworkConfigurationResponseArgs and ApplianceNetworkConfigurationResponseOutput values.
-// You can construct a concrete instance of `ApplianceNetworkConfigurationResponseInput` via:
+// ApplianceNetworkConfigurationInvokeResponseInput is an input type that accepts ApplianceNetworkConfigurationInvokeResponseArgs and ApplianceNetworkConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplianceNetworkConfigurationInvokeResponseInput` via:
 //
-//          ApplianceNetworkConfigurationResponseArgs{...}
-type ApplianceNetworkConfigurationResponseInput interface {
+//          ApplianceNetworkConfigurationInvokeResponseArgs{...}
+type ApplianceNetworkConfigurationInvokeResponseInput interface {
 	pulumi.Input
 
-	ToApplianceNetworkConfigurationResponseOutput() ApplianceNetworkConfigurationResponseOutput
-	ToApplianceNetworkConfigurationResponseOutputWithContext(context.Context) ApplianceNetworkConfigurationResponseOutput
+	ToApplianceNetworkConfigurationInvokeResponseOutput() ApplianceNetworkConfigurationInvokeResponseOutput
+	ToApplianceNetworkConfigurationInvokeResponseOutputWithContext(context.Context) ApplianceNetworkConfigurationInvokeResponseOutput
 }
 
 // The Network Adapter configuration of a DataBox.
-type ApplianceNetworkConfigurationResponseArgs struct {
+type ApplianceNetworkConfigurationInvokeResponseArgs struct {
 	// Mac Address.
 	MacAddress pulumi.StringInput `pulumi:"macAddress"`
 	// Name of the network.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
-func (ApplianceNetworkConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplianceNetworkConfigurationResponse)(nil)).Elem()
+func (ApplianceNetworkConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceNetworkConfigurationInvokeResponse)(nil)).Elem()
 }
 
-func (i ApplianceNetworkConfigurationResponseArgs) ToApplianceNetworkConfigurationResponseOutput() ApplianceNetworkConfigurationResponseOutput {
-	return i.ToApplianceNetworkConfigurationResponseOutputWithContext(context.Background())
+func (i ApplianceNetworkConfigurationInvokeResponseArgs) ToApplianceNetworkConfigurationInvokeResponseOutput() ApplianceNetworkConfigurationInvokeResponseOutput {
+	return i.ToApplianceNetworkConfigurationInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ApplianceNetworkConfigurationResponseArgs) ToApplianceNetworkConfigurationResponseOutputWithContext(ctx context.Context) ApplianceNetworkConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplianceNetworkConfigurationResponseOutput)
+func (i ApplianceNetworkConfigurationInvokeResponseArgs) ToApplianceNetworkConfigurationInvokeResponseOutputWithContext(ctx context.Context) ApplianceNetworkConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceNetworkConfigurationInvokeResponseOutput)
 }
 
-// ApplianceNetworkConfigurationResponseArrayInput is an input type that accepts ApplianceNetworkConfigurationResponseArray and ApplianceNetworkConfigurationResponseArrayOutput values.
-// You can construct a concrete instance of `ApplianceNetworkConfigurationResponseArrayInput` via:
+// ApplianceNetworkConfigurationInvokeResponseArrayInput is an input type that accepts ApplianceNetworkConfigurationInvokeResponseArray and ApplianceNetworkConfigurationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ApplianceNetworkConfigurationInvokeResponseArrayInput` via:
 //
-//          ApplianceNetworkConfigurationResponseArray{ ApplianceNetworkConfigurationResponseArgs{...} }
-type ApplianceNetworkConfigurationResponseArrayInput interface {
+//          ApplianceNetworkConfigurationInvokeResponseArray{ ApplianceNetworkConfigurationInvokeResponseArgs{...} }
+type ApplianceNetworkConfigurationInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToApplianceNetworkConfigurationResponseArrayOutput() ApplianceNetworkConfigurationResponseArrayOutput
-	ToApplianceNetworkConfigurationResponseArrayOutputWithContext(context.Context) ApplianceNetworkConfigurationResponseArrayOutput
+	ToApplianceNetworkConfigurationInvokeResponseArrayOutput() ApplianceNetworkConfigurationInvokeResponseArrayOutput
+	ToApplianceNetworkConfigurationInvokeResponseArrayOutputWithContext(context.Context) ApplianceNetworkConfigurationInvokeResponseArrayOutput
 }
 
-type ApplianceNetworkConfigurationResponseArray []ApplianceNetworkConfigurationResponseInput
+type ApplianceNetworkConfigurationInvokeResponseArray []ApplianceNetworkConfigurationInvokeResponseInput
 
-func (ApplianceNetworkConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplianceNetworkConfigurationResponse)(nil)).Elem()
+func (ApplianceNetworkConfigurationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceNetworkConfigurationInvokeResponse)(nil)).Elem()
 }
 
-func (i ApplianceNetworkConfigurationResponseArray) ToApplianceNetworkConfigurationResponseArrayOutput() ApplianceNetworkConfigurationResponseArrayOutput {
-	return i.ToApplianceNetworkConfigurationResponseArrayOutputWithContext(context.Background())
+func (i ApplianceNetworkConfigurationInvokeResponseArray) ToApplianceNetworkConfigurationInvokeResponseArrayOutput() ApplianceNetworkConfigurationInvokeResponseArrayOutput {
+	return i.ToApplianceNetworkConfigurationInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ApplianceNetworkConfigurationResponseArray) ToApplianceNetworkConfigurationResponseArrayOutputWithContext(ctx context.Context) ApplianceNetworkConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplianceNetworkConfigurationResponseArrayOutput)
+func (i ApplianceNetworkConfigurationInvokeResponseArray) ToApplianceNetworkConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) ApplianceNetworkConfigurationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplianceNetworkConfigurationInvokeResponseArrayOutput)
 }
 
 // The Network Adapter configuration of a DataBox.
-type ApplianceNetworkConfigurationResponseOutput struct{ *pulumi.OutputState }
+type ApplianceNetworkConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ApplianceNetworkConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplianceNetworkConfigurationResponse)(nil)).Elem()
+func (ApplianceNetworkConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplianceNetworkConfigurationInvokeResponse)(nil)).Elem()
 }
 
-func (o ApplianceNetworkConfigurationResponseOutput) ToApplianceNetworkConfigurationResponseOutput() ApplianceNetworkConfigurationResponseOutput {
+func (o ApplianceNetworkConfigurationInvokeResponseOutput) ToApplianceNetworkConfigurationInvokeResponseOutput() ApplianceNetworkConfigurationInvokeResponseOutput {
 	return o
 }
 
-func (o ApplianceNetworkConfigurationResponseOutput) ToApplianceNetworkConfigurationResponseOutputWithContext(ctx context.Context) ApplianceNetworkConfigurationResponseOutput {
+func (o ApplianceNetworkConfigurationInvokeResponseOutput) ToApplianceNetworkConfigurationInvokeResponseOutputWithContext(ctx context.Context) ApplianceNetworkConfigurationInvokeResponseOutput {
 	return o
 }
 
 // Mac Address.
-func (o ApplianceNetworkConfigurationResponseOutput) MacAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplianceNetworkConfigurationResponse) string { return v.MacAddress }).(pulumi.StringOutput)
+func (o ApplianceNetworkConfigurationInvokeResponseOutput) MacAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplianceNetworkConfigurationInvokeResponse) string { return v.MacAddress }).(pulumi.StringOutput)
 }
 
 // Name of the network.
-func (o ApplianceNetworkConfigurationResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplianceNetworkConfigurationResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o ApplianceNetworkConfigurationInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplianceNetworkConfigurationInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type ApplianceNetworkConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+type ApplianceNetworkConfigurationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ApplianceNetworkConfigurationResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplianceNetworkConfigurationResponse)(nil)).Elem()
+func (ApplianceNetworkConfigurationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplianceNetworkConfigurationInvokeResponse)(nil)).Elem()
 }
 
-func (o ApplianceNetworkConfigurationResponseArrayOutput) ToApplianceNetworkConfigurationResponseArrayOutput() ApplianceNetworkConfigurationResponseArrayOutput {
+func (o ApplianceNetworkConfigurationInvokeResponseArrayOutput) ToApplianceNetworkConfigurationInvokeResponseArrayOutput() ApplianceNetworkConfigurationInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ApplianceNetworkConfigurationResponseArrayOutput) ToApplianceNetworkConfigurationResponseArrayOutputWithContext(ctx context.Context) ApplianceNetworkConfigurationResponseArrayOutput {
+func (o ApplianceNetworkConfigurationInvokeResponseArrayOutput) ToApplianceNetworkConfigurationInvokeResponseArrayOutputWithContext(ctx context.Context) ApplianceNetworkConfigurationInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ApplianceNetworkConfigurationResponseArrayOutput) Index(i pulumi.IntInput) ApplianceNetworkConfigurationResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceNetworkConfigurationResponse {
-		return vs[0].([]ApplianceNetworkConfigurationResponse)[vs[1].(int)]
-	}).(ApplianceNetworkConfigurationResponseOutput)
+func (o ApplianceNetworkConfigurationInvokeResponseArrayOutput) Index(i pulumi.IntInput) ApplianceNetworkConfigurationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplianceNetworkConfigurationInvokeResponse {
+		return vs[0].([]ApplianceNetworkConfigurationInvokeResponse)[vs[1].(int)]
+	}).(ApplianceNetworkConfigurationInvokeResponseOutput)
 }
 
 // Filter details to transfer Azure files
@@ -522,6 +631,178 @@ func (o AzureFileFilterDetailsPtrOutput) FilePrefixList() pulumi.StringArrayOutp
 // List of file shares to be transferred.
 func (o AzureFileFilterDetailsPtrOutput) FileShareList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AzureFileFilterDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FileShareList
+	}).(pulumi.StringArrayOutput)
+}
+
+// Filter details to transfer Azure files
+type AzureFileFilterDetailsInvokeResponse struct {
+	// List of full path of the files to be transferred.
+	FilePathList []string `pulumi:"filePathList"`
+	// Prefix list of the Azure files to be transferred.
+	FilePrefixList []string `pulumi:"filePrefixList"`
+	// List of file shares to be transferred.
+	FileShareList []string `pulumi:"fileShareList"`
+}
+
+// AzureFileFilterDetailsInvokeResponseInput is an input type that accepts AzureFileFilterDetailsInvokeResponseArgs and AzureFileFilterDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureFileFilterDetailsInvokeResponseInput` via:
+//
+//          AzureFileFilterDetailsInvokeResponseArgs{...}
+type AzureFileFilterDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureFileFilterDetailsInvokeResponseOutput() AzureFileFilterDetailsInvokeResponseOutput
+	ToAzureFileFilterDetailsInvokeResponseOutputWithContext(context.Context) AzureFileFilterDetailsInvokeResponseOutput
+}
+
+// Filter details to transfer Azure files
+type AzureFileFilterDetailsInvokeResponseArgs struct {
+	// List of full path of the files to be transferred.
+	FilePathList pulumi.StringArrayInput `pulumi:"filePathList"`
+	// Prefix list of the Azure files to be transferred.
+	FilePrefixList pulumi.StringArrayInput `pulumi:"filePrefixList"`
+	// List of file shares to be transferred.
+	FileShareList pulumi.StringArrayInput `pulumi:"fileShareList"`
+}
+
+func (AzureFileFilterDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFileFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureFileFilterDetailsInvokeResponseArgs) ToAzureFileFilterDetailsInvokeResponseOutput() AzureFileFilterDetailsInvokeResponseOutput {
+	return i.ToAzureFileFilterDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureFileFilterDetailsInvokeResponseArgs) ToAzureFileFilterDetailsInvokeResponseOutputWithContext(ctx context.Context) AzureFileFilterDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFileFilterDetailsInvokeResponseOutput)
+}
+
+func (i AzureFileFilterDetailsInvokeResponseArgs) ToAzureFileFilterDetailsInvokeResponsePtrOutput() AzureFileFilterDetailsInvokeResponsePtrOutput {
+	return i.ToAzureFileFilterDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureFileFilterDetailsInvokeResponseArgs) ToAzureFileFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) AzureFileFilterDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFileFilterDetailsInvokeResponseOutput).ToAzureFileFilterDetailsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// AzureFileFilterDetailsInvokeResponsePtrInput is an input type that accepts AzureFileFilterDetailsInvokeResponseArgs, AzureFileFilterDetailsInvokeResponsePtr and AzureFileFilterDetailsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `AzureFileFilterDetailsInvokeResponsePtrInput` via:
+//
+//          AzureFileFilterDetailsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureFileFilterDetailsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureFileFilterDetailsInvokeResponsePtrOutput() AzureFileFilterDetailsInvokeResponsePtrOutput
+	ToAzureFileFilterDetailsInvokeResponsePtrOutputWithContext(context.Context) AzureFileFilterDetailsInvokeResponsePtrOutput
+}
+
+type azureFileFilterDetailsInvokeResponsePtrType AzureFileFilterDetailsInvokeResponseArgs
+
+func AzureFileFilterDetailsInvokeResponsePtr(v *AzureFileFilterDetailsInvokeResponseArgs) AzureFileFilterDetailsInvokeResponsePtrInput {
+	return (*azureFileFilterDetailsInvokeResponsePtrType)(v)
+}
+
+func (*azureFileFilterDetailsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureFileFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i *azureFileFilterDetailsInvokeResponsePtrType) ToAzureFileFilterDetailsInvokeResponsePtrOutput() AzureFileFilterDetailsInvokeResponsePtrOutput {
+	return i.ToAzureFileFilterDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureFileFilterDetailsInvokeResponsePtrType) ToAzureFileFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) AzureFileFilterDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureFileFilterDetailsInvokeResponsePtrOutput)
+}
+
+// Filter details to transfer Azure files
+type AzureFileFilterDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureFileFilterDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureFileFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureFileFilterDetailsInvokeResponseOutput) ToAzureFileFilterDetailsInvokeResponseOutput() AzureFileFilterDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o AzureFileFilterDetailsInvokeResponseOutput) ToAzureFileFilterDetailsInvokeResponseOutputWithContext(ctx context.Context) AzureFileFilterDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o AzureFileFilterDetailsInvokeResponseOutput) ToAzureFileFilterDetailsInvokeResponsePtrOutput() AzureFileFilterDetailsInvokeResponsePtrOutput {
+	return o.ToAzureFileFilterDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureFileFilterDetailsInvokeResponseOutput) ToAzureFileFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) AzureFileFilterDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v AzureFileFilterDetailsInvokeResponse) *AzureFileFilterDetailsInvokeResponse {
+		return &v
+	}).(AzureFileFilterDetailsInvokeResponsePtrOutput)
+}
+
+// List of full path of the files to be transferred.
+func (o AzureFileFilterDetailsInvokeResponseOutput) FilePathList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureFileFilterDetailsInvokeResponse) []string { return v.FilePathList }).(pulumi.StringArrayOutput)
+}
+
+// Prefix list of the Azure files to be transferred.
+func (o AzureFileFilterDetailsInvokeResponseOutput) FilePrefixList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureFileFilterDetailsInvokeResponse) []string { return v.FilePrefixList }).(pulumi.StringArrayOutput)
+}
+
+// List of file shares to be transferred.
+func (o AzureFileFilterDetailsInvokeResponseOutput) FileShareList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AzureFileFilterDetailsInvokeResponse) []string { return v.FileShareList }).(pulumi.StringArrayOutput)
+}
+
+type AzureFileFilterDetailsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureFileFilterDetailsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureFileFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureFileFilterDetailsInvokeResponsePtrOutput) ToAzureFileFilterDetailsInvokeResponsePtrOutput() AzureFileFilterDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureFileFilterDetailsInvokeResponsePtrOutput) ToAzureFileFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) AzureFileFilterDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o AzureFileFilterDetailsInvokeResponsePtrOutput) Elem() AzureFileFilterDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v *AzureFileFilterDetailsInvokeResponse) AzureFileFilterDetailsInvokeResponse { return *v }).(AzureFileFilterDetailsInvokeResponseOutput)
+}
+
+// List of full path of the files to be transferred.
+func (o AzureFileFilterDetailsInvokeResponsePtrOutput) FilePathList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureFileFilterDetailsInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FilePathList
+	}).(pulumi.StringArrayOutput)
+}
+
+// Prefix list of the Azure files to be transferred.
+func (o AzureFileFilterDetailsInvokeResponsePtrOutput) FilePrefixList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureFileFilterDetailsInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FilePrefixList
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of file shares to be transferred.
+func (o AzureFileFilterDetailsInvokeResponsePtrOutput) FileShareList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureFileFilterDetailsInvokeResponse) []string {
 		if v == nil {
 			return nil
 		}
@@ -874,6 +1155,178 @@ func (o BlobFilterDetailsPtrOutput) ContainerList() pulumi.StringArrayOutput {
 }
 
 // Filter details to transfer Azure Blobs
+type BlobFilterDetailsInvokeResponse struct {
+	// List of full path of the blobs to be transferred.
+	BlobPathList []string `pulumi:"blobPathList"`
+	// Prefix list of the Azure blobs to be transferred.
+	BlobPrefixList []string `pulumi:"blobPrefixList"`
+	// List of blob containers to be transferred.
+	ContainerList []string `pulumi:"containerList"`
+}
+
+// BlobFilterDetailsInvokeResponseInput is an input type that accepts BlobFilterDetailsInvokeResponseArgs and BlobFilterDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `BlobFilterDetailsInvokeResponseInput` via:
+//
+//          BlobFilterDetailsInvokeResponseArgs{...}
+type BlobFilterDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToBlobFilterDetailsInvokeResponseOutput() BlobFilterDetailsInvokeResponseOutput
+	ToBlobFilterDetailsInvokeResponseOutputWithContext(context.Context) BlobFilterDetailsInvokeResponseOutput
+}
+
+// Filter details to transfer Azure Blobs
+type BlobFilterDetailsInvokeResponseArgs struct {
+	// List of full path of the blobs to be transferred.
+	BlobPathList pulumi.StringArrayInput `pulumi:"blobPathList"`
+	// Prefix list of the Azure blobs to be transferred.
+	BlobPrefixList pulumi.StringArrayInput `pulumi:"blobPrefixList"`
+	// List of blob containers to be transferred.
+	ContainerList pulumi.StringArrayInput `pulumi:"containerList"`
+}
+
+func (BlobFilterDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i BlobFilterDetailsInvokeResponseArgs) ToBlobFilterDetailsInvokeResponseOutput() BlobFilterDetailsInvokeResponseOutput {
+	return i.ToBlobFilterDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i BlobFilterDetailsInvokeResponseArgs) ToBlobFilterDetailsInvokeResponseOutputWithContext(ctx context.Context) BlobFilterDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobFilterDetailsInvokeResponseOutput)
+}
+
+func (i BlobFilterDetailsInvokeResponseArgs) ToBlobFilterDetailsInvokeResponsePtrOutput() BlobFilterDetailsInvokeResponsePtrOutput {
+	return i.ToBlobFilterDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BlobFilterDetailsInvokeResponseArgs) ToBlobFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) BlobFilterDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobFilterDetailsInvokeResponseOutput).ToBlobFilterDetailsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// BlobFilterDetailsInvokeResponsePtrInput is an input type that accepts BlobFilterDetailsInvokeResponseArgs, BlobFilterDetailsInvokeResponsePtr and BlobFilterDetailsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `BlobFilterDetailsInvokeResponsePtrInput` via:
+//
+//          BlobFilterDetailsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type BlobFilterDetailsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToBlobFilterDetailsInvokeResponsePtrOutput() BlobFilterDetailsInvokeResponsePtrOutput
+	ToBlobFilterDetailsInvokeResponsePtrOutputWithContext(context.Context) BlobFilterDetailsInvokeResponsePtrOutput
+}
+
+type blobFilterDetailsInvokeResponsePtrType BlobFilterDetailsInvokeResponseArgs
+
+func BlobFilterDetailsInvokeResponsePtr(v *BlobFilterDetailsInvokeResponseArgs) BlobFilterDetailsInvokeResponsePtrInput {
+	return (*blobFilterDetailsInvokeResponsePtrType)(v)
+}
+
+func (*blobFilterDetailsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i *blobFilterDetailsInvokeResponsePtrType) ToBlobFilterDetailsInvokeResponsePtrOutput() BlobFilterDetailsInvokeResponsePtrOutput {
+	return i.ToBlobFilterDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *blobFilterDetailsInvokeResponsePtrType) ToBlobFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) BlobFilterDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobFilterDetailsInvokeResponsePtrOutput)
+}
+
+// Filter details to transfer Azure Blobs
+type BlobFilterDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (BlobFilterDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o BlobFilterDetailsInvokeResponseOutput) ToBlobFilterDetailsInvokeResponseOutput() BlobFilterDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o BlobFilterDetailsInvokeResponseOutput) ToBlobFilterDetailsInvokeResponseOutputWithContext(ctx context.Context) BlobFilterDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o BlobFilterDetailsInvokeResponseOutput) ToBlobFilterDetailsInvokeResponsePtrOutput() BlobFilterDetailsInvokeResponsePtrOutput {
+	return o.ToBlobFilterDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BlobFilterDetailsInvokeResponseOutput) ToBlobFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) BlobFilterDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v BlobFilterDetailsInvokeResponse) *BlobFilterDetailsInvokeResponse {
+		return &v
+	}).(BlobFilterDetailsInvokeResponsePtrOutput)
+}
+
+// List of full path of the blobs to be transferred.
+func (o BlobFilterDetailsInvokeResponseOutput) BlobPathList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobFilterDetailsInvokeResponse) []string { return v.BlobPathList }).(pulumi.StringArrayOutput)
+}
+
+// Prefix list of the Azure blobs to be transferred.
+func (o BlobFilterDetailsInvokeResponseOutput) BlobPrefixList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobFilterDetailsInvokeResponse) []string { return v.BlobPrefixList }).(pulumi.StringArrayOutput)
+}
+
+// List of blob containers to be transferred.
+func (o BlobFilterDetailsInvokeResponseOutput) ContainerList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobFilterDetailsInvokeResponse) []string { return v.ContainerList }).(pulumi.StringArrayOutput)
+}
+
+type BlobFilterDetailsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BlobFilterDetailsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o BlobFilterDetailsInvokeResponsePtrOutput) ToBlobFilterDetailsInvokeResponsePtrOutput() BlobFilterDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BlobFilterDetailsInvokeResponsePtrOutput) ToBlobFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) BlobFilterDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o BlobFilterDetailsInvokeResponsePtrOutput) Elem() BlobFilterDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v *BlobFilterDetailsInvokeResponse) BlobFilterDetailsInvokeResponse { return *v }).(BlobFilterDetailsInvokeResponseOutput)
+}
+
+// List of full path of the blobs to be transferred.
+func (o BlobFilterDetailsInvokeResponsePtrOutput) BlobPathList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobFilterDetailsInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobPathList
+	}).(pulumi.StringArrayOutput)
+}
+
+// Prefix list of the Azure blobs to be transferred.
+func (o BlobFilterDetailsInvokeResponsePtrOutput) BlobPrefixList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobFilterDetailsInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobPrefixList
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of blob containers to be transferred.
+func (o BlobFilterDetailsInvokeResponsePtrOutput) ContainerList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BlobFilterDetailsInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerList
+	}).(pulumi.StringArrayOutput)
+}
+
+// Filter details to transfer Azure Blobs
 type BlobFilterDetailsResponse struct {
 	// List of full path of the blobs to be transferred.
 	BlobPathList []string `pulumi:"blobPathList"`
@@ -1043,6 +1496,142 @@ func (o BlobFilterDetailsResponsePtrOutput) ContainerList() pulumi.StringArrayOu
 		}
 		return v.ContainerList
 	}).(pulumi.StringArrayOutput)
+}
+
+// Cloud error.
+type CloudErrorInvokeResponse struct {
+	// Cloud error additional info.
+	AdditionalInfo []AdditionalErrorInfoInvokeResponse `pulumi:"additionalInfo"`
+	// Cloud error code.
+	Code *string `pulumi:"code"`
+	// Cloud error details.
+	Details []CloudErrorInvokeResponse `pulumi:"details"`
+	// Cloud error message.
+	Message *string `pulumi:"message"`
+	// Cloud error target.
+	Target *string `pulumi:"target"`
+}
+
+// CloudErrorInvokeResponseInput is an input type that accepts CloudErrorInvokeResponseArgs and CloudErrorInvokeResponseOutput values.
+// You can construct a concrete instance of `CloudErrorInvokeResponseInput` via:
+//
+//          CloudErrorInvokeResponseArgs{...}
+type CloudErrorInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCloudErrorInvokeResponseOutput() CloudErrorInvokeResponseOutput
+	ToCloudErrorInvokeResponseOutputWithContext(context.Context) CloudErrorInvokeResponseOutput
+}
+
+// Cloud error.
+type CloudErrorInvokeResponseArgs struct {
+	// Cloud error additional info.
+	AdditionalInfo AdditionalErrorInfoInvokeResponseArrayInput `pulumi:"additionalInfo"`
+	// Cloud error code.
+	Code pulumi.StringPtrInput `pulumi:"code"`
+	// Cloud error details.
+	Details CloudErrorInvokeResponseArrayInput `pulumi:"details"`
+	// Cloud error message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Cloud error target.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+}
+
+func (CloudErrorInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudErrorInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudErrorInvokeResponseArgs) ToCloudErrorInvokeResponseOutput() CloudErrorInvokeResponseOutput {
+	return i.ToCloudErrorInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CloudErrorInvokeResponseArgs) ToCloudErrorInvokeResponseOutputWithContext(ctx context.Context) CloudErrorInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorInvokeResponseOutput)
+}
+
+// CloudErrorInvokeResponseArrayInput is an input type that accepts CloudErrorInvokeResponseArray and CloudErrorInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CloudErrorInvokeResponseArrayInput` via:
+//
+//          CloudErrorInvokeResponseArray{ CloudErrorInvokeResponseArgs{...} }
+type CloudErrorInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCloudErrorInvokeResponseArrayOutput() CloudErrorInvokeResponseArrayOutput
+	ToCloudErrorInvokeResponseArrayOutputWithContext(context.Context) CloudErrorInvokeResponseArrayOutput
+}
+
+type CloudErrorInvokeResponseArray []CloudErrorInvokeResponseInput
+
+func (CloudErrorInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudErrorInvokeResponse)(nil)).Elem()
+}
+
+func (i CloudErrorInvokeResponseArray) ToCloudErrorInvokeResponseArrayOutput() CloudErrorInvokeResponseArrayOutput {
+	return i.ToCloudErrorInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CloudErrorInvokeResponseArray) ToCloudErrorInvokeResponseArrayOutputWithContext(ctx context.Context) CloudErrorInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudErrorInvokeResponseArrayOutput)
+}
+
+// Cloud error.
+type CloudErrorInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CloudErrorInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudErrorInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudErrorInvokeResponseOutput) ToCloudErrorInvokeResponseOutput() CloudErrorInvokeResponseOutput {
+	return o
+}
+
+func (o CloudErrorInvokeResponseOutput) ToCloudErrorInvokeResponseOutputWithContext(ctx context.Context) CloudErrorInvokeResponseOutput {
+	return o
+}
+
+// Cloud error additional info.
+func (o CloudErrorInvokeResponseOutput) AdditionalInfo() AdditionalErrorInfoInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CloudErrorInvokeResponse) []AdditionalErrorInfoInvokeResponse { return v.AdditionalInfo }).(AdditionalErrorInfoInvokeResponseArrayOutput)
+}
+
+// Cloud error code.
+func (o CloudErrorInvokeResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudErrorInvokeResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+// Cloud error details.
+func (o CloudErrorInvokeResponseOutput) Details() CloudErrorInvokeResponseArrayOutput {
+	return o.ApplyT(func(v CloudErrorInvokeResponse) []CloudErrorInvokeResponse { return v.Details }).(CloudErrorInvokeResponseArrayOutput)
+}
+
+// Cloud error message.
+func (o CloudErrorInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudErrorInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Cloud error target.
+func (o CloudErrorInvokeResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudErrorInvokeResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type CloudErrorInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudErrorInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudErrorInvokeResponse)(nil)).Elem()
+}
+
+func (o CloudErrorInvokeResponseArrayOutput) ToCloudErrorInvokeResponseArrayOutput() CloudErrorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CloudErrorInvokeResponseArrayOutput) ToCloudErrorInvokeResponseArrayOutputWithContext(ctx context.Context) CloudErrorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CloudErrorInvokeResponseArrayOutput) Index(i pulumi.IntInput) CloudErrorInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudErrorInvokeResponse {
+		return vs[0].([]CloudErrorInvokeResponse)[vs[1].(int)]
+	}).(CloudErrorInvokeResponseOutput)
 }
 
 // Cloud error.
@@ -1401,6 +1990,108 @@ func (o ContactDetailsOutput) PhoneExtension() pulumi.StringPtrOutput {
 }
 
 // Contact Details.
+type ContactDetailsInvokeResponse struct {
+	// Contact name of the person.
+	ContactName string `pulumi:"contactName"`
+	// List of Email-ids to be notified about job progress.
+	EmailList []string `pulumi:"emailList"`
+	// Mobile number of the contact person.
+	Mobile *string `pulumi:"mobile"`
+	// Notification preference for a job stage.
+	NotificationPreference []NotificationPreferenceInvokeResponse `pulumi:"notificationPreference"`
+	// Phone number of the contact person.
+	Phone string `pulumi:"phone"`
+	// Phone extension number of the contact person.
+	PhoneExtension *string `pulumi:"phoneExtension"`
+}
+
+// ContactDetailsInvokeResponseInput is an input type that accepts ContactDetailsInvokeResponseArgs and ContactDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `ContactDetailsInvokeResponseInput` via:
+//
+//          ContactDetailsInvokeResponseArgs{...}
+type ContactDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToContactDetailsInvokeResponseOutput() ContactDetailsInvokeResponseOutput
+	ToContactDetailsInvokeResponseOutputWithContext(context.Context) ContactDetailsInvokeResponseOutput
+}
+
+// Contact Details.
+type ContactDetailsInvokeResponseArgs struct {
+	// Contact name of the person.
+	ContactName pulumi.StringInput `pulumi:"contactName"`
+	// List of Email-ids to be notified about job progress.
+	EmailList pulumi.StringArrayInput `pulumi:"emailList"`
+	// Mobile number of the contact person.
+	Mobile pulumi.StringPtrInput `pulumi:"mobile"`
+	// Notification preference for a job stage.
+	NotificationPreference NotificationPreferenceInvokeResponseArrayInput `pulumi:"notificationPreference"`
+	// Phone number of the contact person.
+	Phone pulumi.StringInput `pulumi:"phone"`
+	// Phone extension number of the contact person.
+	PhoneExtension pulumi.StringPtrInput `pulumi:"phoneExtension"`
+}
+
+func (ContactDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i ContactDetailsInvokeResponseArgs) ToContactDetailsInvokeResponseOutput() ContactDetailsInvokeResponseOutput {
+	return i.ToContactDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ContactDetailsInvokeResponseArgs) ToContactDetailsInvokeResponseOutputWithContext(ctx context.Context) ContactDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailsInvokeResponseOutput)
+}
+
+// Contact Details.
+type ContactDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ContactDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o ContactDetailsInvokeResponseOutput) ToContactDetailsInvokeResponseOutput() ContactDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o ContactDetailsInvokeResponseOutput) ToContactDetailsInvokeResponseOutputWithContext(ctx context.Context) ContactDetailsInvokeResponseOutput {
+	return o
+}
+
+// Contact name of the person.
+func (o ContactDetailsInvokeResponseOutput) ContactName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactDetailsInvokeResponse) string { return v.ContactName }).(pulumi.StringOutput)
+}
+
+// List of Email-ids to be notified about job progress.
+func (o ContactDetailsInvokeResponseOutput) EmailList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContactDetailsInvokeResponse) []string { return v.EmailList }).(pulumi.StringArrayOutput)
+}
+
+// Mobile number of the contact person.
+func (o ContactDetailsInvokeResponseOutput) Mobile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactDetailsInvokeResponse) *string { return v.Mobile }).(pulumi.StringPtrOutput)
+}
+
+// Notification preference for a job stage.
+func (o ContactDetailsInvokeResponseOutput) NotificationPreference() NotificationPreferenceInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ContactDetailsInvokeResponse) []NotificationPreferenceInvokeResponse {
+		return v.NotificationPreference
+	}).(NotificationPreferenceInvokeResponseArrayOutput)
+}
+
+// Phone number of the contact person.
+func (o ContactDetailsInvokeResponseOutput) Phone() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactDetailsInvokeResponse) string { return v.Phone }).(pulumi.StringOutput)
+}
+
+// Phone extension number of the contact person.
+func (o ContactDetailsInvokeResponseOutput) PhoneExtension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactDetailsInvokeResponse) *string { return v.PhoneExtension }).(pulumi.StringPtrOutput)
+}
+
+// Contact Details.
 type ContactDetailsResponse struct {
 	// Contact name of the person.
 	ContactName string `pulumi:"contactName"`
@@ -1498,6 +2189,235 @@ func (o ContactDetailsResponseOutput) Phone() pulumi.StringOutput {
 // Phone extension number of the contact person.
 func (o ContactDetailsResponseOutput) PhoneExtension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactDetailsResponse) *string { return v.PhoneExtension }).(pulumi.StringPtrOutput)
+}
+
+// Copy progress.
+type CopyProgressInvokeResponse struct {
+	// Id of the account where the data needs to be uploaded.
+	AccountId string `pulumi:"accountId"`
+	// To indicate bytes transferred.
+	BytesProcessed float64 `pulumi:"bytesProcessed"`
+	// Data Account Type.
+	DataAccountType string `pulumi:"dataAccountType"`
+	// To indicate directories errored out in the job.
+	DirectoriesErroredOut float64 `pulumi:"directoriesErroredOut"`
+	// Number of files which could not be copied
+	FilesErroredOut float64 `pulumi:"filesErroredOut"`
+	// Number of files processed
+	FilesProcessed float64 `pulumi:"filesProcessed"`
+	// To indicate directories renamed
+	InvalidDirectoriesProcessed float64 `pulumi:"invalidDirectoriesProcessed"`
+	// Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
+	InvalidFileBytesUploaded float64 `pulumi:"invalidFileBytesUploaded"`
+	// Number of files not adhering to azure naming conventions which were processed by automatic renaming
+	InvalidFilesProcessed float64 `pulumi:"invalidFilesProcessed"`
+	// To indicate if enumeration of data is in progress.
+	// Until this is true, the TotalBytesToProcess may not be valid.
+	IsEnumerationInProgress bool `pulumi:"isEnumerationInProgress"`
+	// Number of folders not adhering to azure naming conventions which were processed by automatic renaming
+	RenamedContainerCount float64 `pulumi:"renamedContainerCount"`
+	// Name of the storage account. This will be empty for data account types other than storage account.
+	StorageAccountName string `pulumi:"storageAccountName"`
+	// Total amount of data to be processed by the job.
+	TotalBytesToProcess float64 `pulumi:"totalBytesToProcess"`
+	// Total files to process
+	TotalFilesToProcess float64 `pulumi:"totalFilesToProcess"`
+	// Transfer type of data
+	TransferType string `pulumi:"transferType"`
+}
+
+// CopyProgressInvokeResponseInput is an input type that accepts CopyProgressInvokeResponseArgs and CopyProgressInvokeResponseOutput values.
+// You can construct a concrete instance of `CopyProgressInvokeResponseInput` via:
+//
+//          CopyProgressInvokeResponseArgs{...}
+type CopyProgressInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCopyProgressInvokeResponseOutput() CopyProgressInvokeResponseOutput
+	ToCopyProgressInvokeResponseOutputWithContext(context.Context) CopyProgressInvokeResponseOutput
+}
+
+// Copy progress.
+type CopyProgressInvokeResponseArgs struct {
+	// Id of the account where the data needs to be uploaded.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// To indicate bytes transferred.
+	BytesProcessed pulumi.Float64Input `pulumi:"bytesProcessed"`
+	// Data Account Type.
+	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
+	// To indicate directories errored out in the job.
+	DirectoriesErroredOut pulumi.Float64Input `pulumi:"directoriesErroredOut"`
+	// Number of files which could not be copied
+	FilesErroredOut pulumi.Float64Input `pulumi:"filesErroredOut"`
+	// Number of files processed
+	FilesProcessed pulumi.Float64Input `pulumi:"filesProcessed"`
+	// To indicate directories renamed
+	InvalidDirectoriesProcessed pulumi.Float64Input `pulumi:"invalidDirectoriesProcessed"`
+	// Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
+	InvalidFileBytesUploaded pulumi.Float64Input `pulumi:"invalidFileBytesUploaded"`
+	// Number of files not adhering to azure naming conventions which were processed by automatic renaming
+	InvalidFilesProcessed pulumi.Float64Input `pulumi:"invalidFilesProcessed"`
+	// To indicate if enumeration of data is in progress.
+	// Until this is true, the TotalBytesToProcess may not be valid.
+	IsEnumerationInProgress pulumi.BoolInput `pulumi:"isEnumerationInProgress"`
+	// Number of folders not adhering to azure naming conventions which were processed by automatic renaming
+	RenamedContainerCount pulumi.Float64Input `pulumi:"renamedContainerCount"`
+	// Name of the storage account. This will be empty for data account types other than storage account.
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	// Total amount of data to be processed by the job.
+	TotalBytesToProcess pulumi.Float64Input `pulumi:"totalBytesToProcess"`
+	// Total files to process
+	TotalFilesToProcess pulumi.Float64Input `pulumi:"totalFilesToProcess"`
+	// Transfer type of data
+	TransferType pulumi.StringInput `pulumi:"transferType"`
+}
+
+func (CopyProgressInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyProgressInvokeResponse)(nil)).Elem()
+}
+
+func (i CopyProgressInvokeResponseArgs) ToCopyProgressInvokeResponseOutput() CopyProgressInvokeResponseOutput {
+	return i.ToCopyProgressInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CopyProgressInvokeResponseArgs) ToCopyProgressInvokeResponseOutputWithContext(ctx context.Context) CopyProgressInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CopyProgressInvokeResponseOutput)
+}
+
+// CopyProgressInvokeResponseArrayInput is an input type that accepts CopyProgressInvokeResponseArray and CopyProgressInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CopyProgressInvokeResponseArrayInput` via:
+//
+//          CopyProgressInvokeResponseArray{ CopyProgressInvokeResponseArgs{...} }
+type CopyProgressInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCopyProgressInvokeResponseArrayOutput() CopyProgressInvokeResponseArrayOutput
+	ToCopyProgressInvokeResponseArrayOutputWithContext(context.Context) CopyProgressInvokeResponseArrayOutput
+}
+
+type CopyProgressInvokeResponseArray []CopyProgressInvokeResponseInput
+
+func (CopyProgressInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CopyProgressInvokeResponse)(nil)).Elem()
+}
+
+func (i CopyProgressInvokeResponseArray) ToCopyProgressInvokeResponseArrayOutput() CopyProgressInvokeResponseArrayOutput {
+	return i.ToCopyProgressInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CopyProgressInvokeResponseArray) ToCopyProgressInvokeResponseArrayOutputWithContext(ctx context.Context) CopyProgressInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CopyProgressInvokeResponseArrayOutput)
+}
+
+// Copy progress.
+type CopyProgressInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CopyProgressInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyProgressInvokeResponse)(nil)).Elem()
+}
+
+func (o CopyProgressInvokeResponseOutput) ToCopyProgressInvokeResponseOutput() CopyProgressInvokeResponseOutput {
+	return o
+}
+
+func (o CopyProgressInvokeResponseOutput) ToCopyProgressInvokeResponseOutputWithContext(ctx context.Context) CopyProgressInvokeResponseOutput {
+	return o
+}
+
+// Id of the account where the data needs to be uploaded.
+func (o CopyProgressInvokeResponseOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// To indicate bytes transferred.
+func (o CopyProgressInvokeResponseOutput) BytesProcessed() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) float64 { return v.BytesProcessed }).(pulumi.Float64Output)
+}
+
+// Data Account Type.
+func (o CopyProgressInvokeResponseOutput) DataAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
+}
+
+// To indicate directories errored out in the job.
+func (o CopyProgressInvokeResponseOutput) DirectoriesErroredOut() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) float64 { return v.DirectoriesErroredOut }).(pulumi.Float64Output)
+}
+
+// Number of files which could not be copied
+func (o CopyProgressInvokeResponseOutput) FilesErroredOut() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) float64 { return v.FilesErroredOut }).(pulumi.Float64Output)
+}
+
+// Number of files processed
+func (o CopyProgressInvokeResponseOutput) FilesProcessed() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) float64 { return v.FilesProcessed }).(pulumi.Float64Output)
+}
+
+// To indicate directories renamed
+func (o CopyProgressInvokeResponseOutput) InvalidDirectoriesProcessed() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) float64 { return v.InvalidDirectoriesProcessed }).(pulumi.Float64Output)
+}
+
+// Total amount of data not adhering to azure naming conventions which were processed by automatic renaming
+func (o CopyProgressInvokeResponseOutput) InvalidFileBytesUploaded() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) float64 { return v.InvalidFileBytesUploaded }).(pulumi.Float64Output)
+}
+
+// Number of files not adhering to azure naming conventions which were processed by automatic renaming
+func (o CopyProgressInvokeResponseOutput) InvalidFilesProcessed() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) float64 { return v.InvalidFilesProcessed }).(pulumi.Float64Output)
+}
+
+// To indicate if enumeration of data is in progress.
+// Until this is true, the TotalBytesToProcess may not be valid.
+func (o CopyProgressInvokeResponseOutput) IsEnumerationInProgress() pulumi.BoolOutput {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) bool { return v.IsEnumerationInProgress }).(pulumi.BoolOutput)
+}
+
+// Number of folders not adhering to azure naming conventions which were processed by automatic renaming
+func (o CopyProgressInvokeResponseOutput) RenamedContainerCount() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) float64 { return v.RenamedContainerCount }).(pulumi.Float64Output)
+}
+
+// Name of the storage account. This will be empty for data account types other than storage account.
+func (o CopyProgressInvokeResponseOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) string { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Total amount of data to be processed by the job.
+func (o CopyProgressInvokeResponseOutput) TotalBytesToProcess() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) float64 { return v.TotalBytesToProcess }).(pulumi.Float64Output)
+}
+
+// Total files to process
+func (o CopyProgressInvokeResponseOutput) TotalFilesToProcess() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) float64 { return v.TotalFilesToProcess }).(pulumi.Float64Output)
+}
+
+// Transfer type of data
+func (o CopyProgressInvokeResponseOutput) TransferType() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyProgressInvokeResponse) string { return v.TransferType }).(pulumi.StringOutput)
+}
+
+type CopyProgressInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CopyProgressInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CopyProgressInvokeResponse)(nil)).Elem()
+}
+
+func (o CopyProgressInvokeResponseArrayOutput) ToCopyProgressInvokeResponseArrayOutput() CopyProgressInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CopyProgressInvokeResponseArrayOutput) ToCopyProgressInvokeResponseArrayOutputWithContext(ctx context.Context) CopyProgressInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CopyProgressInvokeResponseArrayOutput) Index(i pulumi.IntInput) CopyProgressInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CopyProgressInvokeResponse {
+		return vs[0].([]CopyProgressInvokeResponse)[vs[1].(int)]
+	}).(CopyProgressInvokeResponseOutput)
 }
 
 // Copy progress.
@@ -1730,6 +2650,91 @@ func (o CopyProgressResponseArrayOutput) Index(i pulumi.IntInput) CopyProgressRe
 }
 
 // Copy log details for a storage account of a DataBox job
+type DataBoxAccountCopyLogDetailsInvokeResponse struct {
+	// Account name.
+	AccountName string `pulumi:"accountName"`
+	// Indicates the type of job details.
+	// Expected value is 'DataBox'.
+	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
+	// Link for copy logs.
+	CopyLogLink string `pulumi:"copyLogLink"`
+	// Link for copy verbose logs. This will be set only when LogCollectionLevel is set to Verbose.
+	CopyVerboseLogLink string `pulumi:"copyVerboseLogLink"`
+}
+
+// DataBoxAccountCopyLogDetailsInvokeResponseInput is an input type that accepts DataBoxAccountCopyLogDetailsInvokeResponseArgs and DataBoxAccountCopyLogDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxAccountCopyLogDetailsInvokeResponseInput` via:
+//
+//          DataBoxAccountCopyLogDetailsInvokeResponseArgs{...}
+type DataBoxAccountCopyLogDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataBoxAccountCopyLogDetailsInvokeResponseOutput() DataBoxAccountCopyLogDetailsInvokeResponseOutput
+	ToDataBoxAccountCopyLogDetailsInvokeResponseOutputWithContext(context.Context) DataBoxAccountCopyLogDetailsInvokeResponseOutput
+}
+
+// Copy log details for a storage account of a DataBox job
+type DataBoxAccountCopyLogDetailsInvokeResponseArgs struct {
+	// Account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Indicates the type of job details.
+	// Expected value is 'DataBox'.
+	CopyLogDetailsType pulumi.StringInput `pulumi:"copyLogDetailsType"`
+	// Link for copy logs.
+	CopyLogLink pulumi.StringInput `pulumi:"copyLogLink"`
+	// Link for copy verbose logs. This will be set only when LogCollectionLevel is set to Verbose.
+	CopyVerboseLogLink pulumi.StringInput `pulumi:"copyVerboseLogLink"`
+}
+
+func (DataBoxAccountCopyLogDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxAccountCopyLogDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DataBoxAccountCopyLogDetailsInvokeResponseArgs) ToDataBoxAccountCopyLogDetailsInvokeResponseOutput() DataBoxAccountCopyLogDetailsInvokeResponseOutput {
+	return i.ToDataBoxAccountCopyLogDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataBoxAccountCopyLogDetailsInvokeResponseArgs) ToDataBoxAccountCopyLogDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxAccountCopyLogDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxAccountCopyLogDetailsInvokeResponseOutput)
+}
+
+// Copy log details for a storage account of a DataBox job
+type DataBoxAccountCopyLogDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataBoxAccountCopyLogDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxAccountCopyLogDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DataBoxAccountCopyLogDetailsInvokeResponseOutput) ToDataBoxAccountCopyLogDetailsInvokeResponseOutput() DataBoxAccountCopyLogDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o DataBoxAccountCopyLogDetailsInvokeResponseOutput) ToDataBoxAccountCopyLogDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxAccountCopyLogDetailsInvokeResponseOutput {
+	return o
+}
+
+// Account name.
+func (o DataBoxAccountCopyLogDetailsInvokeResponseOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxAccountCopyLogDetailsInvokeResponse) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Indicates the type of job details.
+// Expected value is 'DataBox'.
+func (o DataBoxAccountCopyLogDetailsInvokeResponseOutput) CopyLogDetailsType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxAccountCopyLogDetailsInvokeResponse) string { return v.CopyLogDetailsType }).(pulumi.StringOutput)
+}
+
+// Link for copy logs.
+func (o DataBoxAccountCopyLogDetailsInvokeResponseOutput) CopyLogLink() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxAccountCopyLogDetailsInvokeResponse) string { return v.CopyLogLink }).(pulumi.StringOutput)
+}
+
+// Link for copy verbose logs. This will be set only when LogCollectionLevel is set to Verbose.
+func (o DataBoxAccountCopyLogDetailsInvokeResponseOutput) CopyVerboseLogLink() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxAccountCopyLogDetailsInvokeResponse) string { return v.CopyVerboseLogLink }).(pulumi.StringOutput)
+}
+
+// Copy log details for a storage account of a DataBox job
 type DataBoxAccountCopyLogDetailsResponse struct {
 	// Account name.
 	AccountName string `pulumi:"accountName"`
@@ -1815,6 +2820,91 @@ func (o DataBoxAccountCopyLogDetailsResponseOutput) CopyVerboseLogLink() pulumi.
 }
 
 // Copy Log Details for a disk
+type DataBoxDiskCopyLogDetailsInvokeResponse struct {
+	// Indicates the type of job details.
+	// Expected value is 'DataBoxDisk'.
+	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
+	// Disk Serial Number.
+	DiskSerialNumber string `pulumi:"diskSerialNumber"`
+	// Link for copy error logs.
+	ErrorLogLink string `pulumi:"errorLogLink"`
+	// Link for copy verbose logs.
+	VerboseLogLink string `pulumi:"verboseLogLink"`
+}
+
+// DataBoxDiskCopyLogDetailsInvokeResponseInput is an input type that accepts DataBoxDiskCopyLogDetailsInvokeResponseArgs and DataBoxDiskCopyLogDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxDiskCopyLogDetailsInvokeResponseInput` via:
+//
+//          DataBoxDiskCopyLogDetailsInvokeResponseArgs{...}
+type DataBoxDiskCopyLogDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataBoxDiskCopyLogDetailsInvokeResponseOutput() DataBoxDiskCopyLogDetailsInvokeResponseOutput
+	ToDataBoxDiskCopyLogDetailsInvokeResponseOutputWithContext(context.Context) DataBoxDiskCopyLogDetailsInvokeResponseOutput
+}
+
+// Copy Log Details for a disk
+type DataBoxDiskCopyLogDetailsInvokeResponseArgs struct {
+	// Indicates the type of job details.
+	// Expected value is 'DataBoxDisk'.
+	CopyLogDetailsType pulumi.StringInput `pulumi:"copyLogDetailsType"`
+	// Disk Serial Number.
+	DiskSerialNumber pulumi.StringInput `pulumi:"diskSerialNumber"`
+	// Link for copy error logs.
+	ErrorLogLink pulumi.StringInput `pulumi:"errorLogLink"`
+	// Link for copy verbose logs.
+	VerboseLogLink pulumi.StringInput `pulumi:"verboseLogLink"`
+}
+
+func (DataBoxDiskCopyLogDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxDiskCopyLogDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DataBoxDiskCopyLogDetailsInvokeResponseArgs) ToDataBoxDiskCopyLogDetailsInvokeResponseOutput() DataBoxDiskCopyLogDetailsInvokeResponseOutput {
+	return i.ToDataBoxDiskCopyLogDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataBoxDiskCopyLogDetailsInvokeResponseArgs) ToDataBoxDiskCopyLogDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxDiskCopyLogDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskCopyLogDetailsInvokeResponseOutput)
+}
+
+// Copy Log Details for a disk
+type DataBoxDiskCopyLogDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataBoxDiskCopyLogDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxDiskCopyLogDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DataBoxDiskCopyLogDetailsInvokeResponseOutput) ToDataBoxDiskCopyLogDetailsInvokeResponseOutput() DataBoxDiskCopyLogDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o DataBoxDiskCopyLogDetailsInvokeResponseOutput) ToDataBoxDiskCopyLogDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxDiskCopyLogDetailsInvokeResponseOutput {
+	return o
+}
+
+// Indicates the type of job details.
+// Expected value is 'DataBoxDisk'.
+func (o DataBoxDiskCopyLogDetailsInvokeResponseOutput) CopyLogDetailsType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskCopyLogDetailsInvokeResponse) string { return v.CopyLogDetailsType }).(pulumi.StringOutput)
+}
+
+// Disk Serial Number.
+func (o DataBoxDiskCopyLogDetailsInvokeResponseOutput) DiskSerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskCopyLogDetailsInvokeResponse) string { return v.DiskSerialNumber }).(pulumi.StringOutput)
+}
+
+// Link for copy error logs.
+func (o DataBoxDiskCopyLogDetailsInvokeResponseOutput) ErrorLogLink() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskCopyLogDetailsInvokeResponse) string { return v.ErrorLogLink }).(pulumi.StringOutput)
+}
+
+// Link for copy verbose logs.
+func (o DataBoxDiskCopyLogDetailsInvokeResponseOutput) VerboseLogLink() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskCopyLogDetailsInvokeResponse) string { return v.VerboseLogLink }).(pulumi.StringOutput)
+}
+
+// Copy Log Details for a disk
 type DataBoxDiskCopyLogDetailsResponse struct {
 	// Indicates the type of job details.
 	// Expected value is 'DataBoxDisk'.
@@ -1897,6 +2987,133 @@ func (o DataBoxDiskCopyLogDetailsResponseOutput) ErrorLogLink() pulumi.StringOut
 // Link for copy verbose logs.
 func (o DataBoxDiskCopyLogDetailsResponseOutput) VerboseLogLink() pulumi.StringOutput {
 	return o.ApplyT(func(v DataBoxDiskCopyLogDetailsResponse) string { return v.VerboseLogLink }).(pulumi.StringOutput)
+}
+
+// DataBox Disk Copy Progress
+type DataBoxDiskCopyProgressInvokeResponse struct {
+	// Bytes copied during the copy of disk.
+	BytesCopied float64 `pulumi:"bytesCopied"`
+	// Indicates the percentage completed for the copy of the disk.
+	PercentComplete int `pulumi:"percentComplete"`
+	// The serial number of the disk
+	SerialNumber string `pulumi:"serialNumber"`
+	// The Status of the copy
+	Status string `pulumi:"status"`
+}
+
+// DataBoxDiskCopyProgressInvokeResponseInput is an input type that accepts DataBoxDiskCopyProgressInvokeResponseArgs and DataBoxDiskCopyProgressInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxDiskCopyProgressInvokeResponseInput` via:
+//
+//          DataBoxDiskCopyProgressInvokeResponseArgs{...}
+type DataBoxDiskCopyProgressInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataBoxDiskCopyProgressInvokeResponseOutput() DataBoxDiskCopyProgressInvokeResponseOutput
+	ToDataBoxDiskCopyProgressInvokeResponseOutputWithContext(context.Context) DataBoxDiskCopyProgressInvokeResponseOutput
+}
+
+// DataBox Disk Copy Progress
+type DataBoxDiskCopyProgressInvokeResponseArgs struct {
+	// Bytes copied during the copy of disk.
+	BytesCopied pulumi.Float64Input `pulumi:"bytesCopied"`
+	// Indicates the percentage completed for the copy of the disk.
+	PercentComplete pulumi.IntInput `pulumi:"percentComplete"`
+	// The serial number of the disk
+	SerialNumber pulumi.StringInput `pulumi:"serialNumber"`
+	// The Status of the copy
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (DataBoxDiskCopyProgressInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxDiskCopyProgressInvokeResponse)(nil)).Elem()
+}
+
+func (i DataBoxDiskCopyProgressInvokeResponseArgs) ToDataBoxDiskCopyProgressInvokeResponseOutput() DataBoxDiskCopyProgressInvokeResponseOutput {
+	return i.ToDataBoxDiskCopyProgressInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataBoxDiskCopyProgressInvokeResponseArgs) ToDataBoxDiskCopyProgressInvokeResponseOutputWithContext(ctx context.Context) DataBoxDiskCopyProgressInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskCopyProgressInvokeResponseOutput)
+}
+
+// DataBoxDiskCopyProgressInvokeResponseArrayInput is an input type that accepts DataBoxDiskCopyProgressInvokeResponseArray and DataBoxDiskCopyProgressInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataBoxDiskCopyProgressInvokeResponseArrayInput` via:
+//
+//          DataBoxDiskCopyProgressInvokeResponseArray{ DataBoxDiskCopyProgressInvokeResponseArgs{...} }
+type DataBoxDiskCopyProgressInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataBoxDiskCopyProgressInvokeResponseArrayOutput() DataBoxDiskCopyProgressInvokeResponseArrayOutput
+	ToDataBoxDiskCopyProgressInvokeResponseArrayOutputWithContext(context.Context) DataBoxDiskCopyProgressInvokeResponseArrayOutput
+}
+
+type DataBoxDiskCopyProgressInvokeResponseArray []DataBoxDiskCopyProgressInvokeResponseInput
+
+func (DataBoxDiskCopyProgressInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataBoxDiskCopyProgressInvokeResponse)(nil)).Elem()
+}
+
+func (i DataBoxDiskCopyProgressInvokeResponseArray) ToDataBoxDiskCopyProgressInvokeResponseArrayOutput() DataBoxDiskCopyProgressInvokeResponseArrayOutput {
+	return i.ToDataBoxDiskCopyProgressInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataBoxDiskCopyProgressInvokeResponseArray) ToDataBoxDiskCopyProgressInvokeResponseArrayOutputWithContext(ctx context.Context) DataBoxDiskCopyProgressInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskCopyProgressInvokeResponseArrayOutput)
+}
+
+// DataBox Disk Copy Progress
+type DataBoxDiskCopyProgressInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataBoxDiskCopyProgressInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxDiskCopyProgressInvokeResponse)(nil)).Elem()
+}
+
+func (o DataBoxDiskCopyProgressInvokeResponseOutput) ToDataBoxDiskCopyProgressInvokeResponseOutput() DataBoxDiskCopyProgressInvokeResponseOutput {
+	return o
+}
+
+func (o DataBoxDiskCopyProgressInvokeResponseOutput) ToDataBoxDiskCopyProgressInvokeResponseOutputWithContext(ctx context.Context) DataBoxDiskCopyProgressInvokeResponseOutput {
+	return o
+}
+
+// Bytes copied during the copy of disk.
+func (o DataBoxDiskCopyProgressInvokeResponseOutput) BytesCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v DataBoxDiskCopyProgressInvokeResponse) float64 { return v.BytesCopied }).(pulumi.Float64Output)
+}
+
+// Indicates the percentage completed for the copy of the disk.
+func (o DataBoxDiskCopyProgressInvokeResponseOutput) PercentComplete() pulumi.IntOutput {
+	return o.ApplyT(func(v DataBoxDiskCopyProgressInvokeResponse) int { return v.PercentComplete }).(pulumi.IntOutput)
+}
+
+// The serial number of the disk
+func (o DataBoxDiskCopyProgressInvokeResponseOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskCopyProgressInvokeResponse) string { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
+// The Status of the copy
+func (o DataBoxDiskCopyProgressInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskCopyProgressInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type DataBoxDiskCopyProgressInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataBoxDiskCopyProgressInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataBoxDiskCopyProgressInvokeResponse)(nil)).Elem()
+}
+
+func (o DataBoxDiskCopyProgressInvokeResponseArrayOutput) ToDataBoxDiskCopyProgressInvokeResponseArrayOutput() DataBoxDiskCopyProgressInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataBoxDiskCopyProgressInvokeResponseArrayOutput) ToDataBoxDiskCopyProgressInvokeResponseArrayOutputWithContext(ctx context.Context) DataBoxDiskCopyProgressInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataBoxDiskCopyProgressInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataBoxDiskCopyProgressInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataBoxDiskCopyProgressInvokeResponse {
+		return vs[0].([]DataBoxDiskCopyProgressInvokeResponse)[vs[1].(int)]
+	}).(DataBoxDiskCopyProgressInvokeResponseOutput)
 }
 
 // DataBox Disk Copy Progress
@@ -2157,6 +3374,227 @@ func (o DataBoxDiskJobDetailsOutput) ShippingAddress() ShippingAddressPtrOutput 
 }
 
 // DataBox Disk Job Details.
+type DataBoxDiskJobDetailsInvokeResponse struct {
+	// Shared access key to download the chain of custody logs
+	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
+	// Contact details for notification and shipping.
+	ContactDetails ContactDetailsInvokeResponse `pulumi:"contactDetails"`
+	// List of copy log details.
+	CopyLogDetails []interface{} `pulumi:"copyLogDetails"`
+	// Copy progress per disk.
+	CopyProgress []DataBoxDiskCopyProgressInvokeResponse `pulumi:"copyProgress"`
+	// Details of the data to be exported from azure.
+	DataExportDetails []DataExportDetailsInvokeResponse `pulumi:"dataExportDetails"`
+	// Details of the data to be imported into azure.
+	DataImportDetails []DataImportDetailsInvokeResponse `pulumi:"dataImportDetails"`
+	// Delivery package shipping details.
+	DeliveryPackage PackageShippingDetailsInvokeResponse `pulumi:"deliveryPackage"`
+	// Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
+	DisksAndSizeDetails map[string]int `pulumi:"disksAndSizeDetails"`
+	// The expected size of the data, which needs to be transferred in this job, in terabytes.
+	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	// Indicates the type of job details.
+	// Expected value is 'DataBoxDisk'.
+	JobDetailsType string `pulumi:"jobDetailsType"`
+	// List of stages that run in the job.
+	JobStages []JobStagesInvokeResponse `pulumi:"jobStages"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey KeyEncryptionKeyInvokeResponse `pulumi:"keyEncryptionKey"`
+	// User entered passkey for DataBox Disk job.
+	Passkey *string `pulumi:"passkey"`
+	// Preferences for the order.
+	Preferences *PreferencesInvokeResponse `pulumi:"preferences"`
+	// User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+	PreferredDisks map[string]int `pulumi:"preferredDisks"`
+	// Return package shipping details.
+	ReturnPackage PackageShippingDetailsInvokeResponse `pulumi:"returnPackage"`
+	// Shared access key to download the return shipment label
+	ReverseShipmentLabelSasKey string `pulumi:"reverseShipmentLabelSasKey"`
+	// Shipping address of the customer.
+	ShippingAddress *ShippingAddressInvokeResponse `pulumi:"shippingAddress"`
+}
+
+// DataBoxDiskJobDetailsInvokeResponseInput is an input type that accepts DataBoxDiskJobDetailsInvokeResponseArgs and DataBoxDiskJobDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxDiskJobDetailsInvokeResponseInput` via:
+//
+//          DataBoxDiskJobDetailsInvokeResponseArgs{...}
+type DataBoxDiskJobDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataBoxDiskJobDetailsInvokeResponseOutput() DataBoxDiskJobDetailsInvokeResponseOutput
+	ToDataBoxDiskJobDetailsInvokeResponseOutputWithContext(context.Context) DataBoxDiskJobDetailsInvokeResponseOutput
+}
+
+// DataBox Disk Job Details.
+type DataBoxDiskJobDetailsInvokeResponseArgs struct {
+	// Shared access key to download the chain of custody logs
+	ChainOfCustodySasKey pulumi.StringInput `pulumi:"chainOfCustodySasKey"`
+	// Contact details for notification and shipping.
+	ContactDetails ContactDetailsInvokeResponseInput `pulumi:"contactDetails"`
+	// List of copy log details.
+	CopyLogDetails pulumi.ArrayInput `pulumi:"copyLogDetails"`
+	// Copy progress per disk.
+	CopyProgress DataBoxDiskCopyProgressInvokeResponseArrayInput `pulumi:"copyProgress"`
+	// Details of the data to be exported from azure.
+	DataExportDetails DataExportDetailsInvokeResponseArrayInput `pulumi:"dataExportDetails"`
+	// Details of the data to be imported into azure.
+	DataImportDetails DataImportDetailsInvokeResponseArrayInput `pulumi:"dataImportDetails"`
+	// Delivery package shipping details.
+	DeliveryPackage PackageShippingDetailsInvokeResponseInput `pulumi:"deliveryPackage"`
+	// Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
+	DisksAndSizeDetails pulumi.IntMapInput `pulumi:"disksAndSizeDetails"`
+	// The expected size of the data, which needs to be transferred in this job, in terabytes.
+	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	// Indicates the type of job details.
+	// Expected value is 'DataBoxDisk'.
+	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
+	// List of stages that run in the job.
+	JobStages JobStagesInvokeResponseArrayInput `pulumi:"jobStages"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey KeyEncryptionKeyInvokeResponseInput `pulumi:"keyEncryptionKey"`
+	// User entered passkey for DataBox Disk job.
+	Passkey pulumi.StringPtrInput `pulumi:"passkey"`
+	// Preferences for the order.
+	Preferences PreferencesInvokeResponsePtrInput `pulumi:"preferences"`
+	// User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+	PreferredDisks pulumi.IntMapInput `pulumi:"preferredDisks"`
+	// Return package shipping details.
+	ReturnPackage PackageShippingDetailsInvokeResponseInput `pulumi:"returnPackage"`
+	// Shared access key to download the return shipment label
+	ReverseShipmentLabelSasKey pulumi.StringInput `pulumi:"reverseShipmentLabelSasKey"`
+	// Shipping address of the customer.
+	ShippingAddress ShippingAddressInvokeResponsePtrInput `pulumi:"shippingAddress"`
+}
+
+func (DataBoxDiskJobDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxDiskJobDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DataBoxDiskJobDetailsInvokeResponseArgs) ToDataBoxDiskJobDetailsInvokeResponseOutput() DataBoxDiskJobDetailsInvokeResponseOutput {
+	return i.ToDataBoxDiskJobDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataBoxDiskJobDetailsInvokeResponseArgs) ToDataBoxDiskJobDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxDiskJobDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskJobDetailsInvokeResponseOutput)
+}
+
+// DataBox Disk Job Details.
+type DataBoxDiskJobDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataBoxDiskJobDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxDiskJobDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) ToDataBoxDiskJobDetailsInvokeResponseOutput() DataBoxDiskJobDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) ToDataBoxDiskJobDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxDiskJobDetailsInvokeResponseOutput {
+	return o
+}
+
+// Shared access key to download the chain of custody logs
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) ChainOfCustodySasKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) string { return v.ChainOfCustodySasKey }).(pulumi.StringOutput)
+}
+
+// Contact details for notification and shipping.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) ContactDetails() ContactDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) ContactDetailsInvokeResponse { return v.ContactDetails }).(ContactDetailsInvokeResponseOutput)
+}
+
+// List of copy log details.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) CopyLogDetails() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) []interface{} { return v.CopyLogDetails }).(pulumi.ArrayOutput)
+}
+
+// Copy progress per disk.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) CopyProgress() DataBoxDiskCopyProgressInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) []DataBoxDiskCopyProgressInvokeResponse {
+		return v.CopyProgress
+	}).(DataBoxDiskCopyProgressInvokeResponseArrayOutput)
+}
+
+// Details of the data to be exported from azure.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) DataExportDetails() DataExportDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) []DataExportDetailsInvokeResponse {
+		return v.DataExportDetails
+	}).(DataExportDetailsInvokeResponseArrayOutput)
+}
+
+// Details of the data to be imported into azure.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) DataImportDetails() DataImportDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) []DataImportDetailsInvokeResponse {
+		return v.DataImportDetails
+	}).(DataImportDetailsInvokeResponseArrayOutput)
+}
+
+// Delivery package shipping details.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) DeliveryPackage() PackageShippingDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) PackageShippingDetailsInvokeResponse {
+		return v.DeliveryPackage
+	}).(PackageShippingDetailsInvokeResponseOutput)
+}
+
+// Contains the map of disk serial number to the disk size being used for the job. Is returned only after the disks are shipped to the customer.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) DisksAndSizeDetails() pulumi.IntMapOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) map[string]int { return v.DisksAndSizeDetails }).(pulumi.IntMapOutput)
+}
+
+// The expected size of the data, which needs to be transferred in this job, in terabytes.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+}
+
+// Indicates the type of job details.
+// Expected value is 'DataBoxDisk'.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) JobDetailsType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) string { return v.JobDetailsType }).(pulumi.StringOutput)
+}
+
+// List of stages that run in the job.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) JobStages() JobStagesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) []JobStagesInvokeResponse { return v.JobStages }).(JobStagesInvokeResponseArrayOutput)
+}
+
+// Details about which key encryption type is being used.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) KeyEncryptionKey() KeyEncryptionKeyInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) KeyEncryptionKeyInvokeResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyInvokeResponseOutput)
+}
+
+// User entered passkey for DataBox Disk job.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) Passkey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) *string { return v.Passkey }).(pulumi.StringPtrOutput)
+}
+
+// Preferences for the order.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) Preferences() PreferencesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) *PreferencesInvokeResponse { return v.Preferences }).(PreferencesInvokeResponsePtrOutput)
+}
+
+// User preference on what size disks are needed for the job. The map is from the disk size in TB to the count. Eg. {2,5} means 5 disks of 2 TB size. Key is string but will be checked against an int.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) PreferredDisks() pulumi.IntMapOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) map[string]int { return v.PreferredDisks }).(pulumi.IntMapOutput)
+}
+
+// Return package shipping details.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) ReturnPackage() PackageShippingDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) PackageShippingDetailsInvokeResponse {
+		return v.ReturnPackage
+	}).(PackageShippingDetailsInvokeResponseOutput)
+}
+
+// Shared access key to download the return shipment label
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) ReverseShipmentLabelSasKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) string { return v.ReverseShipmentLabelSasKey }).(pulumi.StringOutput)
+}
+
+// Shipping address of the customer.
+func (o DataBoxDiskJobDetailsInvokeResponseOutput) ShippingAddress() ShippingAddressInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DataBoxDiskJobDetailsInvokeResponse) *ShippingAddressInvokeResponse { return v.ShippingAddress }).(ShippingAddressInvokeResponsePtrOutput)
+}
+
+// DataBox Disk Job Details.
 type DataBoxDiskJobDetailsResponse struct {
 	// Shared access key to download the chain of custody logs
 	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
@@ -2368,13 +3806,13 @@ func (o DataBoxDiskJobDetailsResponseOutput) ShippingAddress() ShippingAddressRe
 }
 
 // The secrets related to disk job.
-type DataBoxDiskJobSecretsResponse struct {
+type DataBoxDiskJobSecretsInvokeResponse struct {
 	// Dc Access Security Code for Customer Managed Shipping
-	DcAccessSecurityCode DcAccessSecurityCodeResponse `pulumi:"dcAccessSecurityCode"`
+	DcAccessSecurityCode DcAccessSecurityCodeInvokeResponse `pulumi:"dcAccessSecurityCode"`
 	// Contains the list of secrets object for that device.
-	DiskSecrets []DiskSecretResponse `pulumi:"diskSecrets"`
+	DiskSecrets []DiskSecretInvokeResponse `pulumi:"diskSecrets"`
 	// Error while fetching the secrets.
-	Error CloudErrorResponse `pulumi:"error"`
+	Error CloudErrorInvokeResponse `pulumi:"error"`
 	// Whether passkey was provided by user.
 	IsPasskeyUserDefined bool `pulumi:"isPasskeyUserDefined"`
 	// Used to indicate what type of job secrets object.
@@ -2384,25 +3822,25 @@ type DataBoxDiskJobSecretsResponse struct {
 	PassKey string `pulumi:"passKey"`
 }
 
-// DataBoxDiskJobSecretsResponseInput is an input type that accepts DataBoxDiskJobSecretsResponseArgs and DataBoxDiskJobSecretsResponseOutput values.
-// You can construct a concrete instance of `DataBoxDiskJobSecretsResponseInput` via:
+// DataBoxDiskJobSecretsInvokeResponseInput is an input type that accepts DataBoxDiskJobSecretsInvokeResponseArgs and DataBoxDiskJobSecretsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxDiskJobSecretsInvokeResponseInput` via:
 //
-//          DataBoxDiskJobSecretsResponseArgs{...}
-type DataBoxDiskJobSecretsResponseInput interface {
+//          DataBoxDiskJobSecretsInvokeResponseArgs{...}
+type DataBoxDiskJobSecretsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDataBoxDiskJobSecretsResponseOutput() DataBoxDiskJobSecretsResponseOutput
-	ToDataBoxDiskJobSecretsResponseOutputWithContext(context.Context) DataBoxDiskJobSecretsResponseOutput
+	ToDataBoxDiskJobSecretsInvokeResponseOutput() DataBoxDiskJobSecretsInvokeResponseOutput
+	ToDataBoxDiskJobSecretsInvokeResponseOutputWithContext(context.Context) DataBoxDiskJobSecretsInvokeResponseOutput
 }
 
 // The secrets related to disk job.
-type DataBoxDiskJobSecretsResponseArgs struct {
+type DataBoxDiskJobSecretsInvokeResponseArgs struct {
 	// Dc Access Security Code for Customer Managed Shipping
-	DcAccessSecurityCode DcAccessSecurityCodeResponseInput `pulumi:"dcAccessSecurityCode"`
+	DcAccessSecurityCode DcAccessSecurityCodeInvokeResponseInput `pulumi:"dcAccessSecurityCode"`
 	// Contains the list of secrets object for that device.
-	DiskSecrets DiskSecretResponseArrayInput `pulumi:"diskSecrets"`
+	DiskSecrets DiskSecretInvokeResponseArrayInput `pulumi:"diskSecrets"`
 	// Error while fetching the secrets.
-	Error CloudErrorResponseInput `pulumi:"error"`
+	Error CloudErrorInvokeResponseInput `pulumi:"error"`
 	// Whether passkey was provided by user.
 	IsPasskeyUserDefined pulumi.BoolInput `pulumi:"isPasskeyUserDefined"`
 	// Used to indicate what type of job secrets object.
@@ -2412,62 +3850,149 @@ type DataBoxDiskJobSecretsResponseArgs struct {
 	PassKey pulumi.StringInput `pulumi:"passKey"`
 }
 
-func (DataBoxDiskJobSecretsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxDiskJobSecretsResponse)(nil)).Elem()
+func (DataBoxDiskJobSecretsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxDiskJobSecretsInvokeResponse)(nil)).Elem()
 }
 
-func (i DataBoxDiskJobSecretsResponseArgs) ToDataBoxDiskJobSecretsResponseOutput() DataBoxDiskJobSecretsResponseOutput {
-	return i.ToDataBoxDiskJobSecretsResponseOutputWithContext(context.Background())
+func (i DataBoxDiskJobSecretsInvokeResponseArgs) ToDataBoxDiskJobSecretsInvokeResponseOutput() DataBoxDiskJobSecretsInvokeResponseOutput {
+	return i.ToDataBoxDiskJobSecretsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DataBoxDiskJobSecretsResponseArgs) ToDataBoxDiskJobSecretsResponseOutputWithContext(ctx context.Context) DataBoxDiskJobSecretsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskJobSecretsResponseOutput)
+func (i DataBoxDiskJobSecretsInvokeResponseArgs) ToDataBoxDiskJobSecretsInvokeResponseOutputWithContext(ctx context.Context) DataBoxDiskJobSecretsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxDiskJobSecretsInvokeResponseOutput)
 }
 
 // The secrets related to disk job.
-type DataBoxDiskJobSecretsResponseOutput struct{ *pulumi.OutputState }
+type DataBoxDiskJobSecretsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DataBoxDiskJobSecretsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxDiskJobSecretsResponse)(nil)).Elem()
+func (DataBoxDiskJobSecretsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxDiskJobSecretsInvokeResponse)(nil)).Elem()
 }
 
-func (o DataBoxDiskJobSecretsResponseOutput) ToDataBoxDiskJobSecretsResponseOutput() DataBoxDiskJobSecretsResponseOutput {
+func (o DataBoxDiskJobSecretsInvokeResponseOutput) ToDataBoxDiskJobSecretsInvokeResponseOutput() DataBoxDiskJobSecretsInvokeResponseOutput {
 	return o
 }
 
-func (o DataBoxDiskJobSecretsResponseOutput) ToDataBoxDiskJobSecretsResponseOutputWithContext(ctx context.Context) DataBoxDiskJobSecretsResponseOutput {
+func (o DataBoxDiskJobSecretsInvokeResponseOutput) ToDataBoxDiskJobSecretsInvokeResponseOutputWithContext(ctx context.Context) DataBoxDiskJobSecretsInvokeResponseOutput {
 	return o
 }
 
 // Dc Access Security Code for Customer Managed Shipping
-func (o DataBoxDiskJobSecretsResponseOutput) DcAccessSecurityCode() DcAccessSecurityCodeResponseOutput {
-	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) DcAccessSecurityCodeResponse { return v.DcAccessSecurityCode }).(DcAccessSecurityCodeResponseOutput)
+func (o DataBoxDiskJobSecretsInvokeResponseOutput) DcAccessSecurityCode() DcAccessSecurityCodeInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxDiskJobSecretsInvokeResponse) DcAccessSecurityCodeInvokeResponse {
+		return v.DcAccessSecurityCode
+	}).(DcAccessSecurityCodeInvokeResponseOutput)
 }
 
 // Contains the list of secrets object for that device.
-func (o DataBoxDiskJobSecretsResponseOutput) DiskSecrets() DiskSecretResponseArrayOutput {
-	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) []DiskSecretResponse { return v.DiskSecrets }).(DiskSecretResponseArrayOutput)
+func (o DataBoxDiskJobSecretsInvokeResponseOutput) DiskSecrets() DiskSecretInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxDiskJobSecretsInvokeResponse) []DiskSecretInvokeResponse { return v.DiskSecrets }).(DiskSecretInvokeResponseArrayOutput)
 }
 
 // Error while fetching the secrets.
-func (o DataBoxDiskJobSecretsResponseOutput) Error() CloudErrorResponseOutput {
-	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) CloudErrorResponse { return v.Error }).(CloudErrorResponseOutput)
+func (o DataBoxDiskJobSecretsInvokeResponseOutput) Error() CloudErrorInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxDiskJobSecretsInvokeResponse) CloudErrorInvokeResponse { return v.Error }).(CloudErrorInvokeResponseOutput)
 }
 
 // Whether passkey was provided by user.
-func (o DataBoxDiskJobSecretsResponseOutput) IsPasskeyUserDefined() pulumi.BoolOutput {
-	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) bool { return v.IsPasskeyUserDefined }).(pulumi.BoolOutput)
+func (o DataBoxDiskJobSecretsInvokeResponseOutput) IsPasskeyUserDefined() pulumi.BoolOutput {
+	return o.ApplyT(func(v DataBoxDiskJobSecretsInvokeResponse) bool { return v.IsPasskeyUserDefined }).(pulumi.BoolOutput)
 }
 
 // Used to indicate what type of job secrets object.
 // Expected value is 'DataBoxDisk'.
-func (o DataBoxDiskJobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
+func (o DataBoxDiskJobSecretsInvokeResponseOutput) JobSecretsType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskJobSecretsInvokeResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
 }
 
 // PassKey for the disk Job.
-func (o DataBoxDiskJobSecretsResponseOutput) PassKey() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxDiskJobSecretsResponse) string { return v.PassKey }).(pulumi.StringOutput)
+func (o DataBoxDiskJobSecretsInvokeResponseOutput) PassKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxDiskJobSecretsInvokeResponse) string { return v.PassKey }).(pulumi.StringOutput)
+}
+
+// Copy log details for a storage account for Databox heavy
+type DataBoxHeavyAccountCopyLogDetailsInvokeResponse struct {
+	// Account name.
+	AccountName string `pulumi:"accountName"`
+	// Indicates the type of job details.
+	// Expected value is 'DataBoxHeavy'.
+	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
+	// Link for copy logs.
+	CopyLogLink []string `pulumi:"copyLogLink"`
+	// Link for copy verbose logs. This will be set only when the LogCollectionLevel is set to verbose.
+	CopyVerboseLogLink []string `pulumi:"copyVerboseLogLink"`
+}
+
+// DataBoxHeavyAccountCopyLogDetailsInvokeResponseInput is an input type that accepts DataBoxHeavyAccountCopyLogDetailsInvokeResponseArgs and DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxHeavyAccountCopyLogDetailsInvokeResponseInput` via:
+//
+//          DataBoxHeavyAccountCopyLogDetailsInvokeResponseArgs{...}
+type DataBoxHeavyAccountCopyLogDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput() DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput
+	ToDataBoxHeavyAccountCopyLogDetailsInvokeResponseOutputWithContext(context.Context) DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput
+}
+
+// Copy log details for a storage account for Databox heavy
+type DataBoxHeavyAccountCopyLogDetailsInvokeResponseArgs struct {
+	// Account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Indicates the type of job details.
+	// Expected value is 'DataBoxHeavy'.
+	CopyLogDetailsType pulumi.StringInput `pulumi:"copyLogDetailsType"`
+	// Link for copy logs.
+	CopyLogLink pulumi.StringArrayInput `pulumi:"copyLogLink"`
+	// Link for copy verbose logs. This will be set only when the LogCollectionLevel is set to verbose.
+	CopyVerboseLogLink pulumi.StringArrayInput `pulumi:"copyVerboseLogLink"`
+}
+
+func (DataBoxHeavyAccountCopyLogDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxHeavyAccountCopyLogDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DataBoxHeavyAccountCopyLogDetailsInvokeResponseArgs) ToDataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput() DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput {
+	return i.ToDataBoxHeavyAccountCopyLogDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataBoxHeavyAccountCopyLogDetailsInvokeResponseArgs) ToDataBoxHeavyAccountCopyLogDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput)
+}
+
+// Copy log details for a storage account for Databox heavy
+type DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxHeavyAccountCopyLogDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput) ToDataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput() DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput) ToDataBoxHeavyAccountCopyLogDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput {
+	return o
+}
+
+// Account name.
+func (o DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxHeavyAccountCopyLogDetailsInvokeResponse) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Indicates the type of job details.
+// Expected value is 'DataBoxHeavy'.
+func (o DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput) CopyLogDetailsType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxHeavyAccountCopyLogDetailsInvokeResponse) string { return v.CopyLogDetailsType }).(pulumi.StringOutput)
+}
+
+// Link for copy logs.
+func (o DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput) CopyLogLink() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataBoxHeavyAccountCopyLogDetailsInvokeResponse) []string { return v.CopyLogLink }).(pulumi.StringArrayOutput)
+}
+
+// Link for copy verbose logs. This will be set only when the LogCollectionLevel is set to verbose.
+func (o DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput) CopyVerboseLogLink() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataBoxHeavyAccountCopyLogDetailsInvokeResponse) []string { return v.CopyVerboseLogLink }).(pulumi.StringArrayOutput)
 }
 
 // Copy log details for a storage account for Databox heavy
@@ -2677,6 +4202,207 @@ func (o DataBoxHeavyJobDetailsOutput) ShippingAddress() ShippingAddressPtrOutput
 }
 
 // Databox Heavy Device Job Details
+type DataBoxHeavyJobDetailsInvokeResponse struct {
+	// Shared access key to download the chain of custody logs
+	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
+	// Contact details for notification and shipping.
+	ContactDetails ContactDetailsInvokeResponse `pulumi:"contactDetails"`
+	// List of copy log details.
+	CopyLogDetails []interface{} `pulumi:"copyLogDetails"`
+	// Copy progress per account.
+	CopyProgress []CopyProgressInvokeResponse `pulumi:"copyProgress"`
+	// Details of the data to be exported from azure.
+	DataExportDetails []DataExportDetailsInvokeResponse `pulumi:"dataExportDetails"`
+	// Details of the data to be imported into azure.
+	DataImportDetails []DataImportDetailsInvokeResponse `pulumi:"dataImportDetails"`
+	// Delivery package shipping details.
+	DeliveryPackage PackageShippingDetailsInvokeResponse `pulumi:"deliveryPackage"`
+	// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+	DevicePassword *string `pulumi:"devicePassword"`
+	// The expected size of the data, which needs to be transferred in this job, in terabytes.
+	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	// Indicates the type of job details.
+	// Expected value is 'DataBoxHeavy'.
+	JobDetailsType string `pulumi:"jobDetailsType"`
+	// List of stages that run in the job.
+	JobStages []JobStagesInvokeResponse `pulumi:"jobStages"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey KeyEncryptionKeyInvokeResponse `pulumi:"keyEncryptionKey"`
+	// Preferences for the order.
+	Preferences *PreferencesInvokeResponse `pulumi:"preferences"`
+	// Return package shipping details.
+	ReturnPackage PackageShippingDetailsInvokeResponse `pulumi:"returnPackage"`
+	// Shared access key to download the return shipment label
+	ReverseShipmentLabelSasKey string `pulumi:"reverseShipmentLabelSasKey"`
+	// Shipping address of the customer.
+	ShippingAddress *ShippingAddressInvokeResponse `pulumi:"shippingAddress"`
+}
+
+// DataBoxHeavyJobDetailsInvokeResponseInput is an input type that accepts DataBoxHeavyJobDetailsInvokeResponseArgs and DataBoxHeavyJobDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxHeavyJobDetailsInvokeResponseInput` via:
+//
+//          DataBoxHeavyJobDetailsInvokeResponseArgs{...}
+type DataBoxHeavyJobDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataBoxHeavyJobDetailsInvokeResponseOutput() DataBoxHeavyJobDetailsInvokeResponseOutput
+	ToDataBoxHeavyJobDetailsInvokeResponseOutputWithContext(context.Context) DataBoxHeavyJobDetailsInvokeResponseOutput
+}
+
+// Databox Heavy Device Job Details
+type DataBoxHeavyJobDetailsInvokeResponseArgs struct {
+	// Shared access key to download the chain of custody logs
+	ChainOfCustodySasKey pulumi.StringInput `pulumi:"chainOfCustodySasKey"`
+	// Contact details for notification and shipping.
+	ContactDetails ContactDetailsInvokeResponseInput `pulumi:"contactDetails"`
+	// List of copy log details.
+	CopyLogDetails pulumi.ArrayInput `pulumi:"copyLogDetails"`
+	// Copy progress per account.
+	CopyProgress CopyProgressInvokeResponseArrayInput `pulumi:"copyProgress"`
+	// Details of the data to be exported from azure.
+	DataExportDetails DataExportDetailsInvokeResponseArrayInput `pulumi:"dataExportDetails"`
+	// Details of the data to be imported into azure.
+	DataImportDetails DataImportDetailsInvokeResponseArrayInput `pulumi:"dataImportDetails"`
+	// Delivery package shipping details.
+	DeliveryPackage PackageShippingDetailsInvokeResponseInput `pulumi:"deliveryPackage"`
+	// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
+	// The expected size of the data, which needs to be transferred in this job, in terabytes.
+	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	// Indicates the type of job details.
+	// Expected value is 'DataBoxHeavy'.
+	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
+	// List of stages that run in the job.
+	JobStages JobStagesInvokeResponseArrayInput `pulumi:"jobStages"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey KeyEncryptionKeyInvokeResponseInput `pulumi:"keyEncryptionKey"`
+	// Preferences for the order.
+	Preferences PreferencesInvokeResponsePtrInput `pulumi:"preferences"`
+	// Return package shipping details.
+	ReturnPackage PackageShippingDetailsInvokeResponseInput `pulumi:"returnPackage"`
+	// Shared access key to download the return shipment label
+	ReverseShipmentLabelSasKey pulumi.StringInput `pulumi:"reverseShipmentLabelSasKey"`
+	// Shipping address of the customer.
+	ShippingAddress ShippingAddressInvokeResponsePtrInput `pulumi:"shippingAddress"`
+}
+
+func (DataBoxHeavyJobDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxHeavyJobDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DataBoxHeavyJobDetailsInvokeResponseArgs) ToDataBoxHeavyJobDetailsInvokeResponseOutput() DataBoxHeavyJobDetailsInvokeResponseOutput {
+	return i.ToDataBoxHeavyJobDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataBoxHeavyJobDetailsInvokeResponseArgs) ToDataBoxHeavyJobDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxHeavyJobDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavyJobDetailsInvokeResponseOutput)
+}
+
+// Databox Heavy Device Job Details
+type DataBoxHeavyJobDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataBoxHeavyJobDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxHeavyJobDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) ToDataBoxHeavyJobDetailsInvokeResponseOutput() DataBoxHeavyJobDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) ToDataBoxHeavyJobDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxHeavyJobDetailsInvokeResponseOutput {
+	return o
+}
+
+// Shared access key to download the chain of custody logs
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) ChainOfCustodySasKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) string { return v.ChainOfCustodySasKey }).(pulumi.StringOutput)
+}
+
+// Contact details for notification and shipping.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) ContactDetails() ContactDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) ContactDetailsInvokeResponse { return v.ContactDetails }).(ContactDetailsInvokeResponseOutput)
+}
+
+// List of copy log details.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) CopyLogDetails() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) []interface{} { return v.CopyLogDetails }).(pulumi.ArrayOutput)
+}
+
+// Copy progress per account.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) CopyProgress() CopyProgressInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) []CopyProgressInvokeResponse { return v.CopyProgress }).(CopyProgressInvokeResponseArrayOutput)
+}
+
+// Details of the data to be exported from azure.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) DataExportDetails() DataExportDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) []DataExportDetailsInvokeResponse {
+		return v.DataExportDetails
+	}).(DataExportDetailsInvokeResponseArrayOutput)
+}
+
+// Details of the data to be imported into azure.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) DataImportDetails() DataImportDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) []DataImportDetailsInvokeResponse {
+		return v.DataImportDetails
+	}).(DataImportDetailsInvokeResponseArrayOutput)
+}
+
+// Delivery package shipping details.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) DeliveryPackage() PackageShippingDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) PackageShippingDetailsInvokeResponse {
+		return v.DeliveryPackage
+	}).(PackageShippingDetailsInvokeResponseOutput)
+}
+
+// Set Device password for unlocking Databox Heavy. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) DevicePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) *string { return v.DevicePassword }).(pulumi.StringPtrOutput)
+}
+
+// The expected size of the data, which needs to be transferred in this job, in terabytes.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+}
+
+// Indicates the type of job details.
+// Expected value is 'DataBoxHeavy'.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) JobDetailsType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) string { return v.JobDetailsType }).(pulumi.StringOutput)
+}
+
+// List of stages that run in the job.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) JobStages() JobStagesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) []JobStagesInvokeResponse { return v.JobStages }).(JobStagesInvokeResponseArrayOutput)
+}
+
+// Details about which key encryption type is being used.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) KeyEncryptionKey() KeyEncryptionKeyInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) KeyEncryptionKeyInvokeResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyInvokeResponseOutput)
+}
+
+// Preferences for the order.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) Preferences() PreferencesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) *PreferencesInvokeResponse { return v.Preferences }).(PreferencesInvokeResponsePtrOutput)
+}
+
+// Return package shipping details.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) ReturnPackage() PackageShippingDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) PackageShippingDetailsInvokeResponse {
+		return v.ReturnPackage
+	}).(PackageShippingDetailsInvokeResponseOutput)
+}
+
+// Shared access key to download the return shipment label
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) ReverseShipmentLabelSasKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) string { return v.ReverseShipmentLabelSasKey }).(pulumi.StringOutput)
+}
+
+// Shipping address of the customer.
+func (o DataBoxHeavyJobDetailsInvokeResponseOutput) ShippingAddress() ShippingAddressInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobDetailsInvokeResponse) *ShippingAddressInvokeResponse { return v.ShippingAddress }).(ShippingAddressInvokeResponsePtrOutput)
+}
+
+// Databox Heavy Device Job Details
 type DataBoxHeavyJobDetailsResponse struct {
 	// Shared access key to download the chain of custody logs
 	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
@@ -2870,94 +4596,98 @@ func (o DataBoxHeavyJobDetailsResponseOutput) ShippingAddress() ShippingAddressR
 }
 
 // The secrets related to a databox heavy job.
-type DataBoxHeavyJobSecretsResponse struct {
+type DataBoxHeavyJobSecretsInvokeResponse struct {
 	// Contains the list of secret objects for a databox heavy job.
-	CabinetPodSecrets []DataBoxHeavySecretResponse `pulumi:"cabinetPodSecrets"`
+	CabinetPodSecrets []DataBoxHeavySecretInvokeResponse `pulumi:"cabinetPodSecrets"`
 	// Dc Access Security Code for Customer Managed Shipping
-	DcAccessSecurityCode DcAccessSecurityCodeResponse `pulumi:"dcAccessSecurityCode"`
+	DcAccessSecurityCode DcAccessSecurityCodeInvokeResponse `pulumi:"dcAccessSecurityCode"`
 	// Error while fetching the secrets.
-	Error CloudErrorResponse `pulumi:"error"`
+	Error CloudErrorInvokeResponse `pulumi:"error"`
 	// Used to indicate what type of job secrets object.
 	// Expected value is 'DataBoxHeavy'.
 	JobSecretsType string `pulumi:"jobSecretsType"`
 }
 
-// DataBoxHeavyJobSecretsResponseInput is an input type that accepts DataBoxHeavyJobSecretsResponseArgs and DataBoxHeavyJobSecretsResponseOutput values.
-// You can construct a concrete instance of `DataBoxHeavyJobSecretsResponseInput` via:
+// DataBoxHeavyJobSecretsInvokeResponseInput is an input type that accepts DataBoxHeavyJobSecretsInvokeResponseArgs and DataBoxHeavyJobSecretsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxHeavyJobSecretsInvokeResponseInput` via:
 //
-//          DataBoxHeavyJobSecretsResponseArgs{...}
-type DataBoxHeavyJobSecretsResponseInput interface {
+//          DataBoxHeavyJobSecretsInvokeResponseArgs{...}
+type DataBoxHeavyJobSecretsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDataBoxHeavyJobSecretsResponseOutput() DataBoxHeavyJobSecretsResponseOutput
-	ToDataBoxHeavyJobSecretsResponseOutputWithContext(context.Context) DataBoxHeavyJobSecretsResponseOutput
+	ToDataBoxHeavyJobSecretsInvokeResponseOutput() DataBoxHeavyJobSecretsInvokeResponseOutput
+	ToDataBoxHeavyJobSecretsInvokeResponseOutputWithContext(context.Context) DataBoxHeavyJobSecretsInvokeResponseOutput
 }
 
 // The secrets related to a databox heavy job.
-type DataBoxHeavyJobSecretsResponseArgs struct {
+type DataBoxHeavyJobSecretsInvokeResponseArgs struct {
 	// Contains the list of secret objects for a databox heavy job.
-	CabinetPodSecrets DataBoxHeavySecretResponseArrayInput `pulumi:"cabinetPodSecrets"`
+	CabinetPodSecrets DataBoxHeavySecretInvokeResponseArrayInput `pulumi:"cabinetPodSecrets"`
 	// Dc Access Security Code for Customer Managed Shipping
-	DcAccessSecurityCode DcAccessSecurityCodeResponseInput `pulumi:"dcAccessSecurityCode"`
+	DcAccessSecurityCode DcAccessSecurityCodeInvokeResponseInput `pulumi:"dcAccessSecurityCode"`
 	// Error while fetching the secrets.
-	Error CloudErrorResponseInput `pulumi:"error"`
+	Error CloudErrorInvokeResponseInput `pulumi:"error"`
 	// Used to indicate what type of job secrets object.
 	// Expected value is 'DataBoxHeavy'.
 	JobSecretsType pulumi.StringInput `pulumi:"jobSecretsType"`
 }
 
-func (DataBoxHeavyJobSecretsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxHeavyJobSecretsResponse)(nil)).Elem()
+func (DataBoxHeavyJobSecretsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxHeavyJobSecretsInvokeResponse)(nil)).Elem()
 }
 
-func (i DataBoxHeavyJobSecretsResponseArgs) ToDataBoxHeavyJobSecretsResponseOutput() DataBoxHeavyJobSecretsResponseOutput {
-	return i.ToDataBoxHeavyJobSecretsResponseOutputWithContext(context.Background())
+func (i DataBoxHeavyJobSecretsInvokeResponseArgs) ToDataBoxHeavyJobSecretsInvokeResponseOutput() DataBoxHeavyJobSecretsInvokeResponseOutput {
+	return i.ToDataBoxHeavyJobSecretsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DataBoxHeavyJobSecretsResponseArgs) ToDataBoxHeavyJobSecretsResponseOutputWithContext(ctx context.Context) DataBoxHeavyJobSecretsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavyJobSecretsResponseOutput)
+func (i DataBoxHeavyJobSecretsInvokeResponseArgs) ToDataBoxHeavyJobSecretsInvokeResponseOutputWithContext(ctx context.Context) DataBoxHeavyJobSecretsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavyJobSecretsInvokeResponseOutput)
 }
 
 // The secrets related to a databox heavy job.
-type DataBoxHeavyJobSecretsResponseOutput struct{ *pulumi.OutputState }
+type DataBoxHeavyJobSecretsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DataBoxHeavyJobSecretsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxHeavyJobSecretsResponse)(nil)).Elem()
+func (DataBoxHeavyJobSecretsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxHeavyJobSecretsInvokeResponse)(nil)).Elem()
 }
 
-func (o DataBoxHeavyJobSecretsResponseOutput) ToDataBoxHeavyJobSecretsResponseOutput() DataBoxHeavyJobSecretsResponseOutput {
+func (o DataBoxHeavyJobSecretsInvokeResponseOutput) ToDataBoxHeavyJobSecretsInvokeResponseOutput() DataBoxHeavyJobSecretsInvokeResponseOutput {
 	return o
 }
 
-func (o DataBoxHeavyJobSecretsResponseOutput) ToDataBoxHeavyJobSecretsResponseOutputWithContext(ctx context.Context) DataBoxHeavyJobSecretsResponseOutput {
+func (o DataBoxHeavyJobSecretsInvokeResponseOutput) ToDataBoxHeavyJobSecretsInvokeResponseOutputWithContext(ctx context.Context) DataBoxHeavyJobSecretsInvokeResponseOutput {
 	return o
 }
 
 // Contains the list of secret objects for a databox heavy job.
-func (o DataBoxHeavyJobSecretsResponseOutput) CabinetPodSecrets() DataBoxHeavySecretResponseArrayOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobSecretsResponse) []DataBoxHeavySecretResponse { return v.CabinetPodSecrets }).(DataBoxHeavySecretResponseArrayOutput)
+func (o DataBoxHeavyJobSecretsInvokeResponseOutput) CabinetPodSecrets() DataBoxHeavySecretInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobSecretsInvokeResponse) []DataBoxHeavySecretInvokeResponse {
+		return v.CabinetPodSecrets
+	}).(DataBoxHeavySecretInvokeResponseArrayOutput)
 }
 
 // Dc Access Security Code for Customer Managed Shipping
-func (o DataBoxHeavyJobSecretsResponseOutput) DcAccessSecurityCode() DcAccessSecurityCodeResponseOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobSecretsResponse) DcAccessSecurityCodeResponse { return v.DcAccessSecurityCode }).(DcAccessSecurityCodeResponseOutput)
+func (o DataBoxHeavyJobSecretsInvokeResponseOutput) DcAccessSecurityCode() DcAccessSecurityCodeInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobSecretsInvokeResponse) DcAccessSecurityCodeInvokeResponse {
+		return v.DcAccessSecurityCode
+	}).(DcAccessSecurityCodeInvokeResponseOutput)
 }
 
 // Error while fetching the secrets.
-func (o DataBoxHeavyJobSecretsResponseOutput) Error() CloudErrorResponseOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobSecretsResponse) CloudErrorResponse { return v.Error }).(CloudErrorResponseOutput)
+func (o DataBoxHeavyJobSecretsInvokeResponseOutput) Error() CloudErrorInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobSecretsInvokeResponse) CloudErrorInvokeResponse { return v.Error }).(CloudErrorInvokeResponseOutput)
 }
 
 // Used to indicate what type of job secrets object.
 // Expected value is 'DataBoxHeavy'.
-func (o DataBoxHeavyJobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxHeavyJobSecretsResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
+func (o DataBoxHeavyJobSecretsInvokeResponseOutput) JobSecretsType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxHeavyJobSecretsInvokeResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
 }
 
 // The secrets related to a databox heavy.
-type DataBoxHeavySecretResponse struct {
+type DataBoxHeavySecretInvokeResponse struct {
 	// Per account level access credentials.
-	AccountCredentialDetails []AccountCredentialDetailsResponse `pulumi:"accountCredentialDetails"`
+	AccountCredentialDetails []AccountCredentialDetailsInvokeResponse `pulumi:"accountCredentialDetails"`
 	// Password for out of the box experience on device.
 	DevicePassword string `pulumi:"devicePassword"`
 	// Serial number of the assigned device.
@@ -2965,24 +4695,24 @@ type DataBoxHeavySecretResponse struct {
 	// The base 64 encoded public key to authenticate with the device
 	EncodedValidationCertPubKey string `pulumi:"encodedValidationCertPubKey"`
 	// Network configuration of the appliance.
-	NetworkConfigurations []ApplianceNetworkConfigurationResponse `pulumi:"networkConfigurations"`
+	NetworkConfigurations []ApplianceNetworkConfigurationInvokeResponse `pulumi:"networkConfigurations"`
 }
 
-// DataBoxHeavySecretResponseInput is an input type that accepts DataBoxHeavySecretResponseArgs and DataBoxHeavySecretResponseOutput values.
-// You can construct a concrete instance of `DataBoxHeavySecretResponseInput` via:
+// DataBoxHeavySecretInvokeResponseInput is an input type that accepts DataBoxHeavySecretInvokeResponseArgs and DataBoxHeavySecretInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxHeavySecretInvokeResponseInput` via:
 //
-//          DataBoxHeavySecretResponseArgs{...}
-type DataBoxHeavySecretResponseInput interface {
+//          DataBoxHeavySecretInvokeResponseArgs{...}
+type DataBoxHeavySecretInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDataBoxHeavySecretResponseOutput() DataBoxHeavySecretResponseOutput
-	ToDataBoxHeavySecretResponseOutputWithContext(context.Context) DataBoxHeavySecretResponseOutput
+	ToDataBoxHeavySecretInvokeResponseOutput() DataBoxHeavySecretInvokeResponseOutput
+	ToDataBoxHeavySecretInvokeResponseOutputWithContext(context.Context) DataBoxHeavySecretInvokeResponseOutput
 }
 
 // The secrets related to a databox heavy.
-type DataBoxHeavySecretResponseArgs struct {
+type DataBoxHeavySecretInvokeResponseArgs struct {
 	// Per account level access credentials.
-	AccountCredentialDetails AccountCredentialDetailsResponseArrayInput `pulumi:"accountCredentialDetails"`
+	AccountCredentialDetails AccountCredentialDetailsInvokeResponseArrayInput `pulumi:"accountCredentialDetails"`
 	// Password for out of the box experience on device.
 	DevicePassword pulumi.StringInput `pulumi:"devicePassword"`
 	// Serial number of the assigned device.
@@ -2990,108 +4720,108 @@ type DataBoxHeavySecretResponseArgs struct {
 	// The base 64 encoded public key to authenticate with the device
 	EncodedValidationCertPubKey pulumi.StringInput `pulumi:"encodedValidationCertPubKey"`
 	// Network configuration of the appliance.
-	NetworkConfigurations ApplianceNetworkConfigurationResponseArrayInput `pulumi:"networkConfigurations"`
+	NetworkConfigurations ApplianceNetworkConfigurationInvokeResponseArrayInput `pulumi:"networkConfigurations"`
 }
 
-func (DataBoxHeavySecretResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxHeavySecretResponse)(nil)).Elem()
+func (DataBoxHeavySecretInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxHeavySecretInvokeResponse)(nil)).Elem()
 }
 
-func (i DataBoxHeavySecretResponseArgs) ToDataBoxHeavySecretResponseOutput() DataBoxHeavySecretResponseOutput {
-	return i.ToDataBoxHeavySecretResponseOutputWithContext(context.Background())
+func (i DataBoxHeavySecretInvokeResponseArgs) ToDataBoxHeavySecretInvokeResponseOutput() DataBoxHeavySecretInvokeResponseOutput {
+	return i.ToDataBoxHeavySecretInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DataBoxHeavySecretResponseArgs) ToDataBoxHeavySecretResponseOutputWithContext(ctx context.Context) DataBoxHeavySecretResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavySecretResponseOutput)
+func (i DataBoxHeavySecretInvokeResponseArgs) ToDataBoxHeavySecretInvokeResponseOutputWithContext(ctx context.Context) DataBoxHeavySecretInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavySecretInvokeResponseOutput)
 }
 
-// DataBoxHeavySecretResponseArrayInput is an input type that accepts DataBoxHeavySecretResponseArray and DataBoxHeavySecretResponseArrayOutput values.
-// You can construct a concrete instance of `DataBoxHeavySecretResponseArrayInput` via:
+// DataBoxHeavySecretInvokeResponseArrayInput is an input type that accepts DataBoxHeavySecretInvokeResponseArray and DataBoxHeavySecretInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataBoxHeavySecretInvokeResponseArrayInput` via:
 //
-//          DataBoxHeavySecretResponseArray{ DataBoxHeavySecretResponseArgs{...} }
-type DataBoxHeavySecretResponseArrayInput interface {
+//          DataBoxHeavySecretInvokeResponseArray{ DataBoxHeavySecretInvokeResponseArgs{...} }
+type DataBoxHeavySecretInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToDataBoxHeavySecretResponseArrayOutput() DataBoxHeavySecretResponseArrayOutput
-	ToDataBoxHeavySecretResponseArrayOutputWithContext(context.Context) DataBoxHeavySecretResponseArrayOutput
+	ToDataBoxHeavySecretInvokeResponseArrayOutput() DataBoxHeavySecretInvokeResponseArrayOutput
+	ToDataBoxHeavySecretInvokeResponseArrayOutputWithContext(context.Context) DataBoxHeavySecretInvokeResponseArrayOutput
 }
 
-type DataBoxHeavySecretResponseArray []DataBoxHeavySecretResponseInput
+type DataBoxHeavySecretInvokeResponseArray []DataBoxHeavySecretInvokeResponseInput
 
-func (DataBoxHeavySecretResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataBoxHeavySecretResponse)(nil)).Elem()
+func (DataBoxHeavySecretInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataBoxHeavySecretInvokeResponse)(nil)).Elem()
 }
 
-func (i DataBoxHeavySecretResponseArray) ToDataBoxHeavySecretResponseArrayOutput() DataBoxHeavySecretResponseArrayOutput {
-	return i.ToDataBoxHeavySecretResponseArrayOutputWithContext(context.Background())
+func (i DataBoxHeavySecretInvokeResponseArray) ToDataBoxHeavySecretInvokeResponseArrayOutput() DataBoxHeavySecretInvokeResponseArrayOutput {
+	return i.ToDataBoxHeavySecretInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i DataBoxHeavySecretResponseArray) ToDataBoxHeavySecretResponseArrayOutputWithContext(ctx context.Context) DataBoxHeavySecretResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavySecretResponseArrayOutput)
+func (i DataBoxHeavySecretInvokeResponseArray) ToDataBoxHeavySecretInvokeResponseArrayOutputWithContext(ctx context.Context) DataBoxHeavySecretInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxHeavySecretInvokeResponseArrayOutput)
 }
 
 // The secrets related to a databox heavy.
-type DataBoxHeavySecretResponseOutput struct{ *pulumi.OutputState }
+type DataBoxHeavySecretInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DataBoxHeavySecretResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxHeavySecretResponse)(nil)).Elem()
+func (DataBoxHeavySecretInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxHeavySecretInvokeResponse)(nil)).Elem()
 }
 
-func (o DataBoxHeavySecretResponseOutput) ToDataBoxHeavySecretResponseOutput() DataBoxHeavySecretResponseOutput {
+func (o DataBoxHeavySecretInvokeResponseOutput) ToDataBoxHeavySecretInvokeResponseOutput() DataBoxHeavySecretInvokeResponseOutput {
 	return o
 }
 
-func (o DataBoxHeavySecretResponseOutput) ToDataBoxHeavySecretResponseOutputWithContext(ctx context.Context) DataBoxHeavySecretResponseOutput {
+func (o DataBoxHeavySecretInvokeResponseOutput) ToDataBoxHeavySecretInvokeResponseOutputWithContext(ctx context.Context) DataBoxHeavySecretInvokeResponseOutput {
 	return o
 }
 
 // Per account level access credentials.
-func (o DataBoxHeavySecretResponseOutput) AccountCredentialDetails() AccountCredentialDetailsResponseArrayOutput {
-	return o.ApplyT(func(v DataBoxHeavySecretResponse) []AccountCredentialDetailsResponse {
+func (o DataBoxHeavySecretInvokeResponseOutput) AccountCredentialDetails() AccountCredentialDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxHeavySecretInvokeResponse) []AccountCredentialDetailsInvokeResponse {
 		return v.AccountCredentialDetails
-	}).(AccountCredentialDetailsResponseArrayOutput)
+	}).(AccountCredentialDetailsInvokeResponseArrayOutput)
 }
 
 // Password for out of the box experience on device.
-func (o DataBoxHeavySecretResponseOutput) DevicePassword() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxHeavySecretResponse) string { return v.DevicePassword }).(pulumi.StringOutput)
+func (o DataBoxHeavySecretInvokeResponseOutput) DevicePassword() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxHeavySecretInvokeResponse) string { return v.DevicePassword }).(pulumi.StringOutput)
 }
 
 // Serial number of the assigned device.
-func (o DataBoxHeavySecretResponseOutput) DeviceSerialNumber() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxHeavySecretResponse) string { return v.DeviceSerialNumber }).(pulumi.StringOutput)
+func (o DataBoxHeavySecretInvokeResponseOutput) DeviceSerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxHeavySecretInvokeResponse) string { return v.DeviceSerialNumber }).(pulumi.StringOutput)
 }
 
 // The base 64 encoded public key to authenticate with the device
-func (o DataBoxHeavySecretResponseOutput) EncodedValidationCertPubKey() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxHeavySecretResponse) string { return v.EncodedValidationCertPubKey }).(pulumi.StringOutput)
+func (o DataBoxHeavySecretInvokeResponseOutput) EncodedValidationCertPubKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxHeavySecretInvokeResponse) string { return v.EncodedValidationCertPubKey }).(pulumi.StringOutput)
 }
 
 // Network configuration of the appliance.
-func (o DataBoxHeavySecretResponseOutput) NetworkConfigurations() ApplianceNetworkConfigurationResponseArrayOutput {
-	return o.ApplyT(func(v DataBoxHeavySecretResponse) []ApplianceNetworkConfigurationResponse {
+func (o DataBoxHeavySecretInvokeResponseOutput) NetworkConfigurations() ApplianceNetworkConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxHeavySecretInvokeResponse) []ApplianceNetworkConfigurationInvokeResponse {
 		return v.NetworkConfigurations
-	}).(ApplianceNetworkConfigurationResponseArrayOutput)
+	}).(ApplianceNetworkConfigurationInvokeResponseArrayOutput)
 }
 
-type DataBoxHeavySecretResponseArrayOutput struct{ *pulumi.OutputState }
+type DataBoxHeavySecretInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (DataBoxHeavySecretResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataBoxHeavySecretResponse)(nil)).Elem()
+func (DataBoxHeavySecretInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataBoxHeavySecretInvokeResponse)(nil)).Elem()
 }
 
-func (o DataBoxHeavySecretResponseArrayOutput) ToDataBoxHeavySecretResponseArrayOutput() DataBoxHeavySecretResponseArrayOutput {
+func (o DataBoxHeavySecretInvokeResponseArrayOutput) ToDataBoxHeavySecretInvokeResponseArrayOutput() DataBoxHeavySecretInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DataBoxHeavySecretResponseArrayOutput) ToDataBoxHeavySecretResponseArrayOutputWithContext(ctx context.Context) DataBoxHeavySecretResponseArrayOutput {
+func (o DataBoxHeavySecretInvokeResponseArrayOutput) ToDataBoxHeavySecretInvokeResponseArrayOutputWithContext(ctx context.Context) DataBoxHeavySecretInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DataBoxHeavySecretResponseArrayOutput) Index(i pulumi.IntInput) DataBoxHeavySecretResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataBoxHeavySecretResponse {
-		return vs[0].([]DataBoxHeavySecretResponse)[vs[1].(int)]
-	}).(DataBoxHeavySecretResponseOutput)
+func (o DataBoxHeavySecretInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataBoxHeavySecretInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataBoxHeavySecretInvokeResponse {
+		return vs[0].([]DataBoxHeavySecretInvokeResponse)[vs[1].(int)]
+	}).(DataBoxHeavySecretInvokeResponseOutput)
 }
 
 // Databox Job Details
@@ -3213,6 +4943,199 @@ func (o DataBoxJobDetailsOutput) Preferences() PreferencesPtrOutput {
 // Shipping address of the customer.
 func (o DataBoxJobDetailsOutput) ShippingAddress() ShippingAddressPtrOutput {
 	return o.ApplyT(func(v DataBoxJobDetails) *ShippingAddress { return v.ShippingAddress }).(ShippingAddressPtrOutput)
+}
+
+// Databox Job Details
+type DataBoxJobDetailsInvokeResponse struct {
+	// Shared access key to download the chain of custody logs
+	ChainOfCustodySasKey string `pulumi:"chainOfCustodySasKey"`
+	// Contact details for notification and shipping.
+	ContactDetails ContactDetailsInvokeResponse `pulumi:"contactDetails"`
+	// List of copy log details.
+	CopyLogDetails []interface{} `pulumi:"copyLogDetails"`
+	// Copy progress per storage account.
+	CopyProgress []CopyProgressInvokeResponse `pulumi:"copyProgress"`
+	// Details of the data to be exported from azure.
+	DataExportDetails []DataExportDetailsInvokeResponse `pulumi:"dataExportDetails"`
+	// Details of the data to be imported into azure.
+	DataImportDetails []DataImportDetailsInvokeResponse `pulumi:"dataImportDetails"`
+	// Delivery package shipping details.
+	DeliveryPackage PackageShippingDetailsInvokeResponse `pulumi:"deliveryPackage"`
+	// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+	DevicePassword *string `pulumi:"devicePassword"`
+	// The expected size of the data, which needs to be transferred in this job, in terabytes.
+	ExpectedDataSizeInTerabytes *int `pulumi:"expectedDataSizeInTerabytes"`
+	// Indicates the type of job details.
+	// Expected value is 'DataBox'.
+	JobDetailsType string `pulumi:"jobDetailsType"`
+	// List of stages that run in the job.
+	JobStages []JobStagesInvokeResponse `pulumi:"jobStages"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey KeyEncryptionKeyInvokeResponse `pulumi:"keyEncryptionKey"`
+	// Preferences for the order.
+	Preferences *PreferencesInvokeResponse `pulumi:"preferences"`
+	// Return package shipping details.
+	ReturnPackage PackageShippingDetailsInvokeResponse `pulumi:"returnPackage"`
+	// Shared access key to download the return shipment label
+	ReverseShipmentLabelSasKey string `pulumi:"reverseShipmentLabelSasKey"`
+	// Shipping address of the customer.
+	ShippingAddress *ShippingAddressInvokeResponse `pulumi:"shippingAddress"`
+}
+
+// DataBoxJobDetailsInvokeResponseInput is an input type that accepts DataBoxJobDetailsInvokeResponseArgs and DataBoxJobDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxJobDetailsInvokeResponseInput` via:
+//
+//          DataBoxJobDetailsInvokeResponseArgs{...}
+type DataBoxJobDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataBoxJobDetailsInvokeResponseOutput() DataBoxJobDetailsInvokeResponseOutput
+	ToDataBoxJobDetailsInvokeResponseOutputWithContext(context.Context) DataBoxJobDetailsInvokeResponseOutput
+}
+
+// Databox Job Details
+type DataBoxJobDetailsInvokeResponseArgs struct {
+	// Shared access key to download the chain of custody logs
+	ChainOfCustodySasKey pulumi.StringInput `pulumi:"chainOfCustodySasKey"`
+	// Contact details for notification and shipping.
+	ContactDetails ContactDetailsInvokeResponseInput `pulumi:"contactDetails"`
+	// List of copy log details.
+	CopyLogDetails pulumi.ArrayInput `pulumi:"copyLogDetails"`
+	// Copy progress per storage account.
+	CopyProgress CopyProgressInvokeResponseArrayInput `pulumi:"copyProgress"`
+	// Details of the data to be exported from azure.
+	DataExportDetails DataExportDetailsInvokeResponseArrayInput `pulumi:"dataExportDetails"`
+	// Details of the data to be imported into azure.
+	DataImportDetails DataImportDetailsInvokeResponseArrayInput `pulumi:"dataImportDetails"`
+	// Delivery package shipping details.
+	DeliveryPackage PackageShippingDetailsInvokeResponseInput `pulumi:"deliveryPackage"`
+	// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+	DevicePassword pulumi.StringPtrInput `pulumi:"devicePassword"`
+	// The expected size of the data, which needs to be transferred in this job, in terabytes.
+	ExpectedDataSizeInTerabytes pulumi.IntPtrInput `pulumi:"expectedDataSizeInTerabytes"`
+	// Indicates the type of job details.
+	// Expected value is 'DataBox'.
+	JobDetailsType pulumi.StringInput `pulumi:"jobDetailsType"`
+	// List of stages that run in the job.
+	JobStages JobStagesInvokeResponseArrayInput `pulumi:"jobStages"`
+	// Details about which key encryption type is being used.
+	KeyEncryptionKey KeyEncryptionKeyInvokeResponseInput `pulumi:"keyEncryptionKey"`
+	// Preferences for the order.
+	Preferences PreferencesInvokeResponsePtrInput `pulumi:"preferences"`
+	// Return package shipping details.
+	ReturnPackage PackageShippingDetailsInvokeResponseInput `pulumi:"returnPackage"`
+	// Shared access key to download the return shipment label
+	ReverseShipmentLabelSasKey pulumi.StringInput `pulumi:"reverseShipmentLabelSasKey"`
+	// Shipping address of the customer.
+	ShippingAddress ShippingAddressInvokeResponsePtrInput `pulumi:"shippingAddress"`
+}
+
+func (DataBoxJobDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxJobDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DataBoxJobDetailsInvokeResponseArgs) ToDataBoxJobDetailsInvokeResponseOutput() DataBoxJobDetailsInvokeResponseOutput {
+	return i.ToDataBoxJobDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataBoxJobDetailsInvokeResponseArgs) ToDataBoxJobDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxJobDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxJobDetailsInvokeResponseOutput)
+}
+
+// Databox Job Details
+type DataBoxJobDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataBoxJobDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxJobDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DataBoxJobDetailsInvokeResponseOutput) ToDataBoxJobDetailsInvokeResponseOutput() DataBoxJobDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o DataBoxJobDetailsInvokeResponseOutput) ToDataBoxJobDetailsInvokeResponseOutputWithContext(ctx context.Context) DataBoxJobDetailsInvokeResponseOutput {
+	return o
+}
+
+// Shared access key to download the chain of custody logs
+func (o DataBoxJobDetailsInvokeResponseOutput) ChainOfCustodySasKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) string { return v.ChainOfCustodySasKey }).(pulumi.StringOutput)
+}
+
+// Contact details for notification and shipping.
+func (o DataBoxJobDetailsInvokeResponseOutput) ContactDetails() ContactDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) ContactDetailsInvokeResponse { return v.ContactDetails }).(ContactDetailsInvokeResponseOutput)
+}
+
+// List of copy log details.
+func (o DataBoxJobDetailsInvokeResponseOutput) CopyLogDetails() pulumi.ArrayOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) []interface{} { return v.CopyLogDetails }).(pulumi.ArrayOutput)
+}
+
+// Copy progress per storage account.
+func (o DataBoxJobDetailsInvokeResponseOutput) CopyProgress() CopyProgressInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) []CopyProgressInvokeResponse { return v.CopyProgress }).(CopyProgressInvokeResponseArrayOutput)
+}
+
+// Details of the data to be exported from azure.
+func (o DataBoxJobDetailsInvokeResponseOutput) DataExportDetails() DataExportDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) []DataExportDetailsInvokeResponse { return v.DataExportDetails }).(DataExportDetailsInvokeResponseArrayOutput)
+}
+
+// Details of the data to be imported into azure.
+func (o DataBoxJobDetailsInvokeResponseOutput) DataImportDetails() DataImportDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) []DataImportDetailsInvokeResponse { return v.DataImportDetails }).(DataImportDetailsInvokeResponseArrayOutput)
+}
+
+// Delivery package shipping details.
+func (o DataBoxJobDetailsInvokeResponseOutput) DeliveryPackage() PackageShippingDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) PackageShippingDetailsInvokeResponse { return v.DeliveryPackage }).(PackageShippingDetailsInvokeResponseOutput)
+}
+
+// Set Device password for unlocking Databox. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+func (o DataBoxJobDetailsInvokeResponseOutput) DevicePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) *string { return v.DevicePassword }).(pulumi.StringPtrOutput)
+}
+
+// The expected size of the data, which needs to be transferred in this job, in terabytes.
+func (o DataBoxJobDetailsInvokeResponseOutput) ExpectedDataSizeInTerabytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) *int { return v.ExpectedDataSizeInTerabytes }).(pulumi.IntPtrOutput)
+}
+
+// Indicates the type of job details.
+// Expected value is 'DataBox'.
+func (o DataBoxJobDetailsInvokeResponseOutput) JobDetailsType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) string { return v.JobDetailsType }).(pulumi.StringOutput)
+}
+
+// List of stages that run in the job.
+func (o DataBoxJobDetailsInvokeResponseOutput) JobStages() JobStagesInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) []JobStagesInvokeResponse { return v.JobStages }).(JobStagesInvokeResponseArrayOutput)
+}
+
+// Details about which key encryption type is being used.
+func (o DataBoxJobDetailsInvokeResponseOutput) KeyEncryptionKey() KeyEncryptionKeyInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) KeyEncryptionKeyInvokeResponse { return v.KeyEncryptionKey }).(KeyEncryptionKeyInvokeResponseOutput)
+}
+
+// Preferences for the order.
+func (o DataBoxJobDetailsInvokeResponseOutput) Preferences() PreferencesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) *PreferencesInvokeResponse { return v.Preferences }).(PreferencesInvokeResponsePtrOutput)
+}
+
+// Return package shipping details.
+func (o DataBoxJobDetailsInvokeResponseOutput) ReturnPackage() PackageShippingDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) PackageShippingDetailsInvokeResponse { return v.ReturnPackage }).(PackageShippingDetailsInvokeResponseOutput)
+}
+
+// Shared access key to download the return shipment label
+func (o DataBoxJobDetailsInvokeResponseOutput) ReverseShipmentLabelSasKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) string { return v.ReverseShipmentLabelSasKey }).(pulumi.StringOutput)
+}
+
+// Shipping address of the customer.
+func (o DataBoxJobDetailsInvokeResponseOutput) ShippingAddress() ShippingAddressInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DataBoxJobDetailsInvokeResponse) *ShippingAddressInvokeResponse { return v.ShippingAddress }).(ShippingAddressInvokeResponsePtrOutput)
 }
 
 // Databox Job Details
@@ -3409,9 +5332,9 @@ func (o DataBoxJobDetailsResponseOutput) ShippingAddress() ShippingAddressRespon
 }
 
 // The secrets related to a DataBox.
-type DataBoxSecretResponse struct {
+type DataBoxSecretInvokeResponse struct {
 	// Per account level access credentials.
-	AccountCredentialDetails []AccountCredentialDetailsResponse `pulumi:"accountCredentialDetails"`
+	AccountCredentialDetails []AccountCredentialDetailsInvokeResponse `pulumi:"accountCredentialDetails"`
 	// Password for out of the box experience on device.
 	DevicePassword string `pulumi:"devicePassword"`
 	// Serial number of the assigned device.
@@ -3419,24 +5342,24 @@ type DataBoxSecretResponse struct {
 	// The base 64 encoded public key to authenticate with the device
 	EncodedValidationCertPubKey string `pulumi:"encodedValidationCertPubKey"`
 	// Network configuration of the appliance.
-	NetworkConfigurations []ApplianceNetworkConfigurationResponse `pulumi:"networkConfigurations"`
+	NetworkConfigurations []ApplianceNetworkConfigurationInvokeResponse `pulumi:"networkConfigurations"`
 }
 
-// DataBoxSecretResponseInput is an input type that accepts DataBoxSecretResponseArgs and DataBoxSecretResponseOutput values.
-// You can construct a concrete instance of `DataBoxSecretResponseInput` via:
+// DataBoxSecretInvokeResponseInput is an input type that accepts DataBoxSecretInvokeResponseArgs and DataBoxSecretInvokeResponseOutput values.
+// You can construct a concrete instance of `DataBoxSecretInvokeResponseInput` via:
 //
-//          DataBoxSecretResponseArgs{...}
-type DataBoxSecretResponseInput interface {
+//          DataBoxSecretInvokeResponseArgs{...}
+type DataBoxSecretInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDataBoxSecretResponseOutput() DataBoxSecretResponseOutput
-	ToDataBoxSecretResponseOutputWithContext(context.Context) DataBoxSecretResponseOutput
+	ToDataBoxSecretInvokeResponseOutput() DataBoxSecretInvokeResponseOutput
+	ToDataBoxSecretInvokeResponseOutputWithContext(context.Context) DataBoxSecretInvokeResponseOutput
 }
 
 // The secrets related to a DataBox.
-type DataBoxSecretResponseArgs struct {
+type DataBoxSecretInvokeResponseArgs struct {
 	// Per account level access credentials.
-	AccountCredentialDetails AccountCredentialDetailsResponseArrayInput `pulumi:"accountCredentialDetails"`
+	AccountCredentialDetails AccountCredentialDetailsInvokeResponseArrayInput `pulumi:"accountCredentialDetails"`
 	// Password for out of the box experience on device.
 	DevicePassword pulumi.StringInput `pulumi:"devicePassword"`
 	// Serial number of the assigned device.
@@ -3444,104 +5367,108 @@ type DataBoxSecretResponseArgs struct {
 	// The base 64 encoded public key to authenticate with the device
 	EncodedValidationCertPubKey pulumi.StringInput `pulumi:"encodedValidationCertPubKey"`
 	// Network configuration of the appliance.
-	NetworkConfigurations ApplianceNetworkConfigurationResponseArrayInput `pulumi:"networkConfigurations"`
+	NetworkConfigurations ApplianceNetworkConfigurationInvokeResponseArrayInput `pulumi:"networkConfigurations"`
 }
 
-func (DataBoxSecretResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxSecretResponse)(nil)).Elem()
+func (DataBoxSecretInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxSecretInvokeResponse)(nil)).Elem()
 }
 
-func (i DataBoxSecretResponseArgs) ToDataBoxSecretResponseOutput() DataBoxSecretResponseOutput {
-	return i.ToDataBoxSecretResponseOutputWithContext(context.Background())
+func (i DataBoxSecretInvokeResponseArgs) ToDataBoxSecretInvokeResponseOutput() DataBoxSecretInvokeResponseOutput {
+	return i.ToDataBoxSecretInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DataBoxSecretResponseArgs) ToDataBoxSecretResponseOutputWithContext(ctx context.Context) DataBoxSecretResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxSecretResponseOutput)
+func (i DataBoxSecretInvokeResponseArgs) ToDataBoxSecretInvokeResponseOutputWithContext(ctx context.Context) DataBoxSecretInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxSecretInvokeResponseOutput)
 }
 
-// DataBoxSecretResponseArrayInput is an input type that accepts DataBoxSecretResponseArray and DataBoxSecretResponseArrayOutput values.
-// You can construct a concrete instance of `DataBoxSecretResponseArrayInput` via:
+// DataBoxSecretInvokeResponseArrayInput is an input type that accepts DataBoxSecretInvokeResponseArray and DataBoxSecretInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataBoxSecretInvokeResponseArrayInput` via:
 //
-//          DataBoxSecretResponseArray{ DataBoxSecretResponseArgs{...} }
-type DataBoxSecretResponseArrayInput interface {
+//          DataBoxSecretInvokeResponseArray{ DataBoxSecretInvokeResponseArgs{...} }
+type DataBoxSecretInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToDataBoxSecretResponseArrayOutput() DataBoxSecretResponseArrayOutput
-	ToDataBoxSecretResponseArrayOutputWithContext(context.Context) DataBoxSecretResponseArrayOutput
+	ToDataBoxSecretInvokeResponseArrayOutput() DataBoxSecretInvokeResponseArrayOutput
+	ToDataBoxSecretInvokeResponseArrayOutputWithContext(context.Context) DataBoxSecretInvokeResponseArrayOutput
 }
 
-type DataBoxSecretResponseArray []DataBoxSecretResponseInput
+type DataBoxSecretInvokeResponseArray []DataBoxSecretInvokeResponseInput
 
-func (DataBoxSecretResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataBoxSecretResponse)(nil)).Elem()
+func (DataBoxSecretInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataBoxSecretInvokeResponse)(nil)).Elem()
 }
 
-func (i DataBoxSecretResponseArray) ToDataBoxSecretResponseArrayOutput() DataBoxSecretResponseArrayOutput {
-	return i.ToDataBoxSecretResponseArrayOutputWithContext(context.Background())
+func (i DataBoxSecretInvokeResponseArray) ToDataBoxSecretInvokeResponseArrayOutput() DataBoxSecretInvokeResponseArrayOutput {
+	return i.ToDataBoxSecretInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i DataBoxSecretResponseArray) ToDataBoxSecretResponseArrayOutputWithContext(ctx context.Context) DataBoxSecretResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataBoxSecretResponseArrayOutput)
+func (i DataBoxSecretInvokeResponseArray) ToDataBoxSecretInvokeResponseArrayOutputWithContext(ctx context.Context) DataBoxSecretInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataBoxSecretInvokeResponseArrayOutput)
 }
 
 // The secrets related to a DataBox.
-type DataBoxSecretResponseOutput struct{ *pulumi.OutputState }
+type DataBoxSecretInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DataBoxSecretResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataBoxSecretResponse)(nil)).Elem()
+func (DataBoxSecretInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataBoxSecretInvokeResponse)(nil)).Elem()
 }
 
-func (o DataBoxSecretResponseOutput) ToDataBoxSecretResponseOutput() DataBoxSecretResponseOutput {
+func (o DataBoxSecretInvokeResponseOutput) ToDataBoxSecretInvokeResponseOutput() DataBoxSecretInvokeResponseOutput {
 	return o
 }
 
-func (o DataBoxSecretResponseOutput) ToDataBoxSecretResponseOutputWithContext(ctx context.Context) DataBoxSecretResponseOutput {
+func (o DataBoxSecretInvokeResponseOutput) ToDataBoxSecretInvokeResponseOutputWithContext(ctx context.Context) DataBoxSecretInvokeResponseOutput {
 	return o
 }
 
 // Per account level access credentials.
-func (o DataBoxSecretResponseOutput) AccountCredentialDetails() AccountCredentialDetailsResponseArrayOutput {
-	return o.ApplyT(func(v DataBoxSecretResponse) []AccountCredentialDetailsResponse { return v.AccountCredentialDetails }).(AccountCredentialDetailsResponseArrayOutput)
+func (o DataBoxSecretInvokeResponseOutput) AccountCredentialDetails() AccountCredentialDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxSecretInvokeResponse) []AccountCredentialDetailsInvokeResponse {
+		return v.AccountCredentialDetails
+	}).(AccountCredentialDetailsInvokeResponseArrayOutput)
 }
 
 // Password for out of the box experience on device.
-func (o DataBoxSecretResponseOutput) DevicePassword() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxSecretResponse) string { return v.DevicePassword }).(pulumi.StringOutput)
+func (o DataBoxSecretInvokeResponseOutput) DevicePassword() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxSecretInvokeResponse) string { return v.DevicePassword }).(pulumi.StringOutput)
 }
 
 // Serial number of the assigned device.
-func (o DataBoxSecretResponseOutput) DeviceSerialNumber() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxSecretResponse) string { return v.DeviceSerialNumber }).(pulumi.StringOutput)
+func (o DataBoxSecretInvokeResponseOutput) DeviceSerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxSecretInvokeResponse) string { return v.DeviceSerialNumber }).(pulumi.StringOutput)
 }
 
 // The base 64 encoded public key to authenticate with the device
-func (o DataBoxSecretResponseOutput) EncodedValidationCertPubKey() pulumi.StringOutput {
-	return o.ApplyT(func(v DataBoxSecretResponse) string { return v.EncodedValidationCertPubKey }).(pulumi.StringOutput)
+func (o DataBoxSecretInvokeResponseOutput) EncodedValidationCertPubKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DataBoxSecretInvokeResponse) string { return v.EncodedValidationCertPubKey }).(pulumi.StringOutput)
 }
 
 // Network configuration of the appliance.
-func (o DataBoxSecretResponseOutput) NetworkConfigurations() ApplianceNetworkConfigurationResponseArrayOutput {
-	return o.ApplyT(func(v DataBoxSecretResponse) []ApplianceNetworkConfigurationResponse { return v.NetworkConfigurations }).(ApplianceNetworkConfigurationResponseArrayOutput)
+func (o DataBoxSecretInvokeResponseOutput) NetworkConfigurations() ApplianceNetworkConfigurationInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataBoxSecretInvokeResponse) []ApplianceNetworkConfigurationInvokeResponse {
+		return v.NetworkConfigurations
+	}).(ApplianceNetworkConfigurationInvokeResponseArrayOutput)
 }
 
-type DataBoxSecretResponseArrayOutput struct{ *pulumi.OutputState }
+type DataBoxSecretInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (DataBoxSecretResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataBoxSecretResponse)(nil)).Elem()
+func (DataBoxSecretInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataBoxSecretInvokeResponse)(nil)).Elem()
 }
 
-func (o DataBoxSecretResponseArrayOutput) ToDataBoxSecretResponseArrayOutput() DataBoxSecretResponseArrayOutput {
+func (o DataBoxSecretInvokeResponseArrayOutput) ToDataBoxSecretInvokeResponseArrayOutput() DataBoxSecretInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DataBoxSecretResponseArrayOutput) ToDataBoxSecretResponseArrayOutputWithContext(ctx context.Context) DataBoxSecretResponseArrayOutput {
+func (o DataBoxSecretInvokeResponseArrayOutput) ToDataBoxSecretInvokeResponseArrayOutputWithContext(ctx context.Context) DataBoxSecretInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DataBoxSecretResponseArrayOutput) Index(i pulumi.IntInput) DataBoxSecretResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataBoxSecretResponse {
-		return vs[0].([]DataBoxSecretResponse)[vs[1].(int)]
-	}).(DataBoxSecretResponseOutput)
+func (o DataBoxSecretInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataBoxSecretInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataBoxSecretInvokeResponse {
+		return vs[0].([]DataBoxSecretInvokeResponse)[vs[1].(int)]
+	}).(DataBoxSecretInvokeResponseOutput)
 }
 
 // Details of the data to be used for exporting data from azure.
@@ -3660,6 +5587,126 @@ func (o DataExportDetailsArrayOutput) Index(i pulumi.IntInput) DataExportDetails
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataExportDetails {
 		return vs[0].([]DataExportDetails)[vs[1].(int)]
 	}).(DataExportDetailsOutput)
+}
+
+// Details of the data to be used for exporting data from azure.
+type DataExportDetailsInvokeResponse struct {
+	// Account details of the data to be transferred
+	AccountDetails interface{} `pulumi:"accountDetails"`
+	// Level of the logs to be collected.
+	LogCollectionLevel *string `pulumi:"logCollectionLevel"`
+	// Configuration for the data transfer.
+	TransferConfiguration TransferConfigurationInvokeResponse `pulumi:"transferConfiguration"`
+}
+
+// DataExportDetailsInvokeResponseInput is an input type that accepts DataExportDetailsInvokeResponseArgs and DataExportDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataExportDetailsInvokeResponseInput` via:
+//
+//          DataExportDetailsInvokeResponseArgs{...}
+type DataExportDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataExportDetailsInvokeResponseOutput() DataExportDetailsInvokeResponseOutput
+	ToDataExportDetailsInvokeResponseOutputWithContext(context.Context) DataExportDetailsInvokeResponseOutput
+}
+
+// Details of the data to be used for exporting data from azure.
+type DataExportDetailsInvokeResponseArgs struct {
+	// Account details of the data to be transferred
+	AccountDetails pulumi.Input `pulumi:"accountDetails"`
+	// Level of the logs to be collected.
+	LogCollectionLevel pulumi.StringPtrInput `pulumi:"logCollectionLevel"`
+	// Configuration for the data transfer.
+	TransferConfiguration TransferConfigurationInvokeResponseInput `pulumi:"transferConfiguration"`
+}
+
+func (DataExportDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExportDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DataExportDetailsInvokeResponseArgs) ToDataExportDetailsInvokeResponseOutput() DataExportDetailsInvokeResponseOutput {
+	return i.ToDataExportDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataExportDetailsInvokeResponseArgs) ToDataExportDetailsInvokeResponseOutputWithContext(ctx context.Context) DataExportDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataExportDetailsInvokeResponseOutput)
+}
+
+// DataExportDetailsInvokeResponseArrayInput is an input type that accepts DataExportDetailsInvokeResponseArray and DataExportDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataExportDetailsInvokeResponseArrayInput` via:
+//
+//          DataExportDetailsInvokeResponseArray{ DataExportDetailsInvokeResponseArgs{...} }
+type DataExportDetailsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataExportDetailsInvokeResponseArrayOutput() DataExportDetailsInvokeResponseArrayOutput
+	ToDataExportDetailsInvokeResponseArrayOutputWithContext(context.Context) DataExportDetailsInvokeResponseArrayOutput
+}
+
+type DataExportDetailsInvokeResponseArray []DataExportDetailsInvokeResponseInput
+
+func (DataExportDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataExportDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DataExportDetailsInvokeResponseArray) ToDataExportDetailsInvokeResponseArrayOutput() DataExportDetailsInvokeResponseArrayOutput {
+	return i.ToDataExportDetailsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataExportDetailsInvokeResponseArray) ToDataExportDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) DataExportDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataExportDetailsInvokeResponseArrayOutput)
+}
+
+// Details of the data to be used for exporting data from azure.
+type DataExportDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataExportDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataExportDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DataExportDetailsInvokeResponseOutput) ToDataExportDetailsInvokeResponseOutput() DataExportDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o DataExportDetailsInvokeResponseOutput) ToDataExportDetailsInvokeResponseOutputWithContext(ctx context.Context) DataExportDetailsInvokeResponseOutput {
+	return o
+}
+
+// Account details of the data to be transferred
+func (o DataExportDetailsInvokeResponseOutput) AccountDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v DataExportDetailsInvokeResponse) interface{} { return v.AccountDetails }).(pulumi.AnyOutput)
+}
+
+// Level of the logs to be collected.
+func (o DataExportDetailsInvokeResponseOutput) LogCollectionLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataExportDetailsInvokeResponse) *string { return v.LogCollectionLevel }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for the data transfer.
+func (o DataExportDetailsInvokeResponseOutput) TransferConfiguration() TransferConfigurationInvokeResponseOutput {
+	return o.ApplyT(func(v DataExportDetailsInvokeResponse) TransferConfigurationInvokeResponse {
+		return v.TransferConfiguration
+	}).(TransferConfigurationInvokeResponseOutput)
+}
+
+type DataExportDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataExportDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataExportDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DataExportDetailsInvokeResponseArrayOutput) ToDataExportDetailsInvokeResponseArrayOutput() DataExportDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataExportDetailsInvokeResponseArrayOutput) ToDataExportDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) DataExportDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataExportDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataExportDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataExportDetailsInvokeResponse {
+		return vs[0].([]DataExportDetailsInvokeResponse)[vs[1].(int)]
+	}).(DataExportDetailsInvokeResponseOutput)
 }
 
 // Details of the data to be used for exporting data from azure.
@@ -3881,6 +5928,106 @@ func (o DataImportDetailsArrayOutput) Index(i pulumi.IntInput) DataImportDetails
 }
 
 // Details of the data to be used for importing data to azure.
+type DataImportDetailsInvokeResponse struct {
+	// Account details of the data to be transferred
+	AccountDetails interface{} `pulumi:"accountDetails"`
+}
+
+// DataImportDetailsInvokeResponseInput is an input type that accepts DataImportDetailsInvokeResponseArgs and DataImportDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataImportDetailsInvokeResponseInput` via:
+//
+//          DataImportDetailsInvokeResponseArgs{...}
+type DataImportDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataImportDetailsInvokeResponseOutput() DataImportDetailsInvokeResponseOutput
+	ToDataImportDetailsInvokeResponseOutputWithContext(context.Context) DataImportDetailsInvokeResponseOutput
+}
+
+// Details of the data to be used for importing data to azure.
+type DataImportDetailsInvokeResponseArgs struct {
+	// Account details of the data to be transferred
+	AccountDetails pulumi.Input `pulumi:"accountDetails"`
+}
+
+func (DataImportDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataImportDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DataImportDetailsInvokeResponseArgs) ToDataImportDetailsInvokeResponseOutput() DataImportDetailsInvokeResponseOutput {
+	return i.ToDataImportDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataImportDetailsInvokeResponseArgs) ToDataImportDetailsInvokeResponseOutputWithContext(ctx context.Context) DataImportDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataImportDetailsInvokeResponseOutput)
+}
+
+// DataImportDetailsInvokeResponseArrayInput is an input type that accepts DataImportDetailsInvokeResponseArray and DataImportDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataImportDetailsInvokeResponseArrayInput` via:
+//
+//          DataImportDetailsInvokeResponseArray{ DataImportDetailsInvokeResponseArgs{...} }
+type DataImportDetailsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataImportDetailsInvokeResponseArrayOutput() DataImportDetailsInvokeResponseArrayOutput
+	ToDataImportDetailsInvokeResponseArrayOutputWithContext(context.Context) DataImportDetailsInvokeResponseArrayOutput
+}
+
+type DataImportDetailsInvokeResponseArray []DataImportDetailsInvokeResponseInput
+
+func (DataImportDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataImportDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i DataImportDetailsInvokeResponseArray) ToDataImportDetailsInvokeResponseArrayOutput() DataImportDetailsInvokeResponseArrayOutput {
+	return i.ToDataImportDetailsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataImportDetailsInvokeResponseArray) ToDataImportDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) DataImportDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataImportDetailsInvokeResponseArrayOutput)
+}
+
+// Details of the data to be used for importing data to azure.
+type DataImportDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataImportDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataImportDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DataImportDetailsInvokeResponseOutput) ToDataImportDetailsInvokeResponseOutput() DataImportDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o DataImportDetailsInvokeResponseOutput) ToDataImportDetailsInvokeResponseOutputWithContext(ctx context.Context) DataImportDetailsInvokeResponseOutput {
+	return o
+}
+
+// Account details of the data to be transferred
+func (o DataImportDetailsInvokeResponseOutput) AccountDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v DataImportDetailsInvokeResponse) interface{} { return v.AccountDetails }).(pulumi.AnyOutput)
+}
+
+type DataImportDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataImportDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataImportDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o DataImportDetailsInvokeResponseArrayOutput) ToDataImportDetailsInvokeResponseArrayOutput() DataImportDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataImportDetailsInvokeResponseArrayOutput) ToDataImportDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) DataImportDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataImportDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataImportDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataImportDetailsInvokeResponse {
+		return vs[0].([]DataImportDetailsInvokeResponse)[vs[1].(int)]
+	}).(DataImportDetailsInvokeResponseOutput)
+}
+
+// Details of the data to be used for importing data to azure.
 type DataImportDetailsResponse struct {
 	// Account details of the data to be transferred
 	AccountDetails interface{} `pulumi:"accountDetails"`
@@ -3981,261 +6128,263 @@ func (o DataImportDetailsResponseArrayOutput) Index(i pulumi.IntInput) DataImpor
 }
 
 // The secrets related to a databox job.
-type DataboxJobSecretsResponse struct {
+type DataboxJobSecretsInvokeResponse struct {
 	// Dc Access Security Code for Customer Managed Shipping
-	DcAccessSecurityCode DcAccessSecurityCodeResponse `pulumi:"dcAccessSecurityCode"`
+	DcAccessSecurityCode DcAccessSecurityCodeInvokeResponse `pulumi:"dcAccessSecurityCode"`
 	// Error while fetching the secrets.
-	Error CloudErrorResponse `pulumi:"error"`
+	Error CloudErrorInvokeResponse `pulumi:"error"`
 	// Used to indicate what type of job secrets object.
 	// Expected value is 'DataBox'.
 	JobSecretsType string `pulumi:"jobSecretsType"`
 	// Contains the list of secret objects for a job.
-	PodSecrets []DataBoxSecretResponse `pulumi:"podSecrets"`
+	PodSecrets []DataBoxSecretInvokeResponse `pulumi:"podSecrets"`
 }
 
-// DataboxJobSecretsResponseInput is an input type that accepts DataboxJobSecretsResponseArgs and DataboxJobSecretsResponseOutput values.
-// You can construct a concrete instance of `DataboxJobSecretsResponseInput` via:
+// DataboxJobSecretsInvokeResponseInput is an input type that accepts DataboxJobSecretsInvokeResponseArgs and DataboxJobSecretsInvokeResponseOutput values.
+// You can construct a concrete instance of `DataboxJobSecretsInvokeResponseInput` via:
 //
-//          DataboxJobSecretsResponseArgs{...}
-type DataboxJobSecretsResponseInput interface {
+//          DataboxJobSecretsInvokeResponseArgs{...}
+type DataboxJobSecretsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDataboxJobSecretsResponseOutput() DataboxJobSecretsResponseOutput
-	ToDataboxJobSecretsResponseOutputWithContext(context.Context) DataboxJobSecretsResponseOutput
+	ToDataboxJobSecretsInvokeResponseOutput() DataboxJobSecretsInvokeResponseOutput
+	ToDataboxJobSecretsInvokeResponseOutputWithContext(context.Context) DataboxJobSecretsInvokeResponseOutput
 }
 
 // The secrets related to a databox job.
-type DataboxJobSecretsResponseArgs struct {
+type DataboxJobSecretsInvokeResponseArgs struct {
 	// Dc Access Security Code for Customer Managed Shipping
-	DcAccessSecurityCode DcAccessSecurityCodeResponseInput `pulumi:"dcAccessSecurityCode"`
+	DcAccessSecurityCode DcAccessSecurityCodeInvokeResponseInput `pulumi:"dcAccessSecurityCode"`
 	// Error while fetching the secrets.
-	Error CloudErrorResponseInput `pulumi:"error"`
+	Error CloudErrorInvokeResponseInput `pulumi:"error"`
 	// Used to indicate what type of job secrets object.
 	// Expected value is 'DataBox'.
 	JobSecretsType pulumi.StringInput `pulumi:"jobSecretsType"`
 	// Contains the list of secret objects for a job.
-	PodSecrets DataBoxSecretResponseArrayInput `pulumi:"podSecrets"`
+	PodSecrets DataBoxSecretInvokeResponseArrayInput `pulumi:"podSecrets"`
 }
 
-func (DataboxJobSecretsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataboxJobSecretsResponse)(nil)).Elem()
+func (DataboxJobSecretsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataboxJobSecretsInvokeResponse)(nil)).Elem()
 }
 
-func (i DataboxJobSecretsResponseArgs) ToDataboxJobSecretsResponseOutput() DataboxJobSecretsResponseOutput {
-	return i.ToDataboxJobSecretsResponseOutputWithContext(context.Background())
+func (i DataboxJobSecretsInvokeResponseArgs) ToDataboxJobSecretsInvokeResponseOutput() DataboxJobSecretsInvokeResponseOutput {
+	return i.ToDataboxJobSecretsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DataboxJobSecretsResponseArgs) ToDataboxJobSecretsResponseOutputWithContext(ctx context.Context) DataboxJobSecretsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataboxJobSecretsResponseOutput)
+func (i DataboxJobSecretsInvokeResponseArgs) ToDataboxJobSecretsInvokeResponseOutputWithContext(ctx context.Context) DataboxJobSecretsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataboxJobSecretsInvokeResponseOutput)
 }
 
 // The secrets related to a databox job.
-type DataboxJobSecretsResponseOutput struct{ *pulumi.OutputState }
+type DataboxJobSecretsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DataboxJobSecretsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataboxJobSecretsResponse)(nil)).Elem()
+func (DataboxJobSecretsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataboxJobSecretsInvokeResponse)(nil)).Elem()
 }
 
-func (o DataboxJobSecretsResponseOutput) ToDataboxJobSecretsResponseOutput() DataboxJobSecretsResponseOutput {
+func (o DataboxJobSecretsInvokeResponseOutput) ToDataboxJobSecretsInvokeResponseOutput() DataboxJobSecretsInvokeResponseOutput {
 	return o
 }
 
-func (o DataboxJobSecretsResponseOutput) ToDataboxJobSecretsResponseOutputWithContext(ctx context.Context) DataboxJobSecretsResponseOutput {
+func (o DataboxJobSecretsInvokeResponseOutput) ToDataboxJobSecretsInvokeResponseOutputWithContext(ctx context.Context) DataboxJobSecretsInvokeResponseOutput {
 	return o
 }
 
 // Dc Access Security Code for Customer Managed Shipping
-func (o DataboxJobSecretsResponseOutput) DcAccessSecurityCode() DcAccessSecurityCodeResponseOutput {
-	return o.ApplyT(func(v DataboxJobSecretsResponse) DcAccessSecurityCodeResponse { return v.DcAccessSecurityCode }).(DcAccessSecurityCodeResponseOutput)
+func (o DataboxJobSecretsInvokeResponseOutput) DcAccessSecurityCode() DcAccessSecurityCodeInvokeResponseOutput {
+	return o.ApplyT(func(v DataboxJobSecretsInvokeResponse) DcAccessSecurityCodeInvokeResponse {
+		return v.DcAccessSecurityCode
+	}).(DcAccessSecurityCodeInvokeResponseOutput)
 }
 
 // Error while fetching the secrets.
-func (o DataboxJobSecretsResponseOutput) Error() CloudErrorResponseOutput {
-	return o.ApplyT(func(v DataboxJobSecretsResponse) CloudErrorResponse { return v.Error }).(CloudErrorResponseOutput)
+func (o DataboxJobSecretsInvokeResponseOutput) Error() CloudErrorInvokeResponseOutput {
+	return o.ApplyT(func(v DataboxJobSecretsInvokeResponse) CloudErrorInvokeResponse { return v.Error }).(CloudErrorInvokeResponseOutput)
 }
 
 // Used to indicate what type of job secrets object.
 // Expected value is 'DataBox'.
-func (o DataboxJobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
-	return o.ApplyT(func(v DataboxJobSecretsResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
+func (o DataboxJobSecretsInvokeResponseOutput) JobSecretsType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataboxJobSecretsInvokeResponse) string { return v.JobSecretsType }).(pulumi.StringOutput)
 }
 
 // Contains the list of secret objects for a job.
-func (o DataboxJobSecretsResponseOutput) PodSecrets() DataBoxSecretResponseArrayOutput {
-	return o.ApplyT(func(v DataboxJobSecretsResponse) []DataBoxSecretResponse { return v.PodSecrets }).(DataBoxSecretResponseArrayOutput)
+func (o DataboxJobSecretsInvokeResponseOutput) PodSecrets() DataBoxSecretInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DataboxJobSecretsInvokeResponse) []DataBoxSecretInvokeResponse { return v.PodSecrets }).(DataBoxSecretInvokeResponseArrayOutput)
 }
 
 // Dc access security code
-type DcAccessSecurityCodeResponse struct {
+type DcAccessSecurityCodeInvokeResponse struct {
 	// Forward Dc access security code.
 	ForwardDcAccessCode *string `pulumi:"forwardDcAccessCode"`
 	// Reverse Dc access security code.
 	ReverseDcAccessCode *string `pulumi:"reverseDcAccessCode"`
 }
 
-// DcAccessSecurityCodeResponseInput is an input type that accepts DcAccessSecurityCodeResponseArgs and DcAccessSecurityCodeResponseOutput values.
-// You can construct a concrete instance of `DcAccessSecurityCodeResponseInput` via:
+// DcAccessSecurityCodeInvokeResponseInput is an input type that accepts DcAccessSecurityCodeInvokeResponseArgs and DcAccessSecurityCodeInvokeResponseOutput values.
+// You can construct a concrete instance of `DcAccessSecurityCodeInvokeResponseInput` via:
 //
-//          DcAccessSecurityCodeResponseArgs{...}
-type DcAccessSecurityCodeResponseInput interface {
+//          DcAccessSecurityCodeInvokeResponseArgs{...}
+type DcAccessSecurityCodeInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDcAccessSecurityCodeResponseOutput() DcAccessSecurityCodeResponseOutput
-	ToDcAccessSecurityCodeResponseOutputWithContext(context.Context) DcAccessSecurityCodeResponseOutput
+	ToDcAccessSecurityCodeInvokeResponseOutput() DcAccessSecurityCodeInvokeResponseOutput
+	ToDcAccessSecurityCodeInvokeResponseOutputWithContext(context.Context) DcAccessSecurityCodeInvokeResponseOutput
 }
 
 // Dc access security code
-type DcAccessSecurityCodeResponseArgs struct {
+type DcAccessSecurityCodeInvokeResponseArgs struct {
 	// Forward Dc access security code.
 	ForwardDcAccessCode pulumi.StringPtrInput `pulumi:"forwardDcAccessCode"`
 	// Reverse Dc access security code.
 	ReverseDcAccessCode pulumi.StringPtrInput `pulumi:"reverseDcAccessCode"`
 }
 
-func (DcAccessSecurityCodeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DcAccessSecurityCodeResponse)(nil)).Elem()
+func (DcAccessSecurityCodeInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DcAccessSecurityCodeInvokeResponse)(nil)).Elem()
 }
 
-func (i DcAccessSecurityCodeResponseArgs) ToDcAccessSecurityCodeResponseOutput() DcAccessSecurityCodeResponseOutput {
-	return i.ToDcAccessSecurityCodeResponseOutputWithContext(context.Background())
+func (i DcAccessSecurityCodeInvokeResponseArgs) ToDcAccessSecurityCodeInvokeResponseOutput() DcAccessSecurityCodeInvokeResponseOutput {
+	return i.ToDcAccessSecurityCodeInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DcAccessSecurityCodeResponseArgs) ToDcAccessSecurityCodeResponseOutputWithContext(ctx context.Context) DcAccessSecurityCodeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DcAccessSecurityCodeResponseOutput)
+func (i DcAccessSecurityCodeInvokeResponseArgs) ToDcAccessSecurityCodeInvokeResponseOutputWithContext(ctx context.Context) DcAccessSecurityCodeInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DcAccessSecurityCodeInvokeResponseOutput)
 }
 
 // Dc access security code
-type DcAccessSecurityCodeResponseOutput struct{ *pulumi.OutputState }
+type DcAccessSecurityCodeInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DcAccessSecurityCodeResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DcAccessSecurityCodeResponse)(nil)).Elem()
+func (DcAccessSecurityCodeInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DcAccessSecurityCodeInvokeResponse)(nil)).Elem()
 }
 
-func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponseOutput() DcAccessSecurityCodeResponseOutput {
+func (o DcAccessSecurityCodeInvokeResponseOutput) ToDcAccessSecurityCodeInvokeResponseOutput() DcAccessSecurityCodeInvokeResponseOutput {
 	return o
 }
 
-func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponseOutputWithContext(ctx context.Context) DcAccessSecurityCodeResponseOutput {
+func (o DcAccessSecurityCodeInvokeResponseOutput) ToDcAccessSecurityCodeInvokeResponseOutputWithContext(ctx context.Context) DcAccessSecurityCodeInvokeResponseOutput {
 	return o
 }
 
 // Forward Dc access security code.
-func (o DcAccessSecurityCodeResponseOutput) ForwardDcAccessCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ForwardDcAccessCode }).(pulumi.StringPtrOutput)
+func (o DcAccessSecurityCodeInvokeResponseOutput) ForwardDcAccessCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DcAccessSecurityCodeInvokeResponse) *string { return v.ForwardDcAccessCode }).(pulumi.StringPtrOutput)
 }
 
 // Reverse Dc access security code.
-func (o DcAccessSecurityCodeResponseOutput) ReverseDcAccessCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *string { return v.ReverseDcAccessCode }).(pulumi.StringPtrOutput)
+func (o DcAccessSecurityCodeInvokeResponseOutput) ReverseDcAccessCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DcAccessSecurityCodeInvokeResponse) *string { return v.ReverseDcAccessCode }).(pulumi.StringPtrOutput)
 }
 
 // Contains all the secrets of a Disk.
-type DiskSecretResponse struct {
+type DiskSecretInvokeResponse struct {
 	// Bit Locker key of the disk which can be used to unlock the disk to copy data.
 	BitLockerKey string `pulumi:"bitLockerKey"`
 	// Serial number of the assigned disk.
 	DiskSerialNumber string `pulumi:"diskSerialNumber"`
 }
 
-// DiskSecretResponseInput is an input type that accepts DiskSecretResponseArgs and DiskSecretResponseOutput values.
-// You can construct a concrete instance of `DiskSecretResponseInput` via:
+// DiskSecretInvokeResponseInput is an input type that accepts DiskSecretInvokeResponseArgs and DiskSecretInvokeResponseOutput values.
+// You can construct a concrete instance of `DiskSecretInvokeResponseInput` via:
 //
-//          DiskSecretResponseArgs{...}
-type DiskSecretResponseInput interface {
+//          DiskSecretInvokeResponseArgs{...}
+type DiskSecretInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDiskSecretResponseOutput() DiskSecretResponseOutput
-	ToDiskSecretResponseOutputWithContext(context.Context) DiskSecretResponseOutput
+	ToDiskSecretInvokeResponseOutput() DiskSecretInvokeResponseOutput
+	ToDiskSecretInvokeResponseOutputWithContext(context.Context) DiskSecretInvokeResponseOutput
 }
 
 // Contains all the secrets of a Disk.
-type DiskSecretResponseArgs struct {
+type DiskSecretInvokeResponseArgs struct {
 	// Bit Locker key of the disk which can be used to unlock the disk to copy data.
 	BitLockerKey pulumi.StringInput `pulumi:"bitLockerKey"`
 	// Serial number of the assigned disk.
 	DiskSerialNumber pulumi.StringInput `pulumi:"diskSerialNumber"`
 }
 
-func (DiskSecretResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskSecretResponse)(nil)).Elem()
+func (DiskSecretInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSecretInvokeResponse)(nil)).Elem()
 }
 
-func (i DiskSecretResponseArgs) ToDiskSecretResponseOutput() DiskSecretResponseOutput {
-	return i.ToDiskSecretResponseOutputWithContext(context.Background())
+func (i DiskSecretInvokeResponseArgs) ToDiskSecretInvokeResponseOutput() DiskSecretInvokeResponseOutput {
+	return i.ToDiskSecretInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DiskSecretResponseArgs) ToDiskSecretResponseOutputWithContext(ctx context.Context) DiskSecretResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskSecretResponseOutput)
+func (i DiskSecretInvokeResponseArgs) ToDiskSecretInvokeResponseOutputWithContext(ctx context.Context) DiskSecretInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskSecretInvokeResponseOutput)
 }
 
-// DiskSecretResponseArrayInput is an input type that accepts DiskSecretResponseArray and DiskSecretResponseArrayOutput values.
-// You can construct a concrete instance of `DiskSecretResponseArrayInput` via:
+// DiskSecretInvokeResponseArrayInput is an input type that accepts DiskSecretInvokeResponseArray and DiskSecretInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DiskSecretInvokeResponseArrayInput` via:
 //
-//          DiskSecretResponseArray{ DiskSecretResponseArgs{...} }
-type DiskSecretResponseArrayInput interface {
+//          DiskSecretInvokeResponseArray{ DiskSecretInvokeResponseArgs{...} }
+type DiskSecretInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToDiskSecretResponseArrayOutput() DiskSecretResponseArrayOutput
-	ToDiskSecretResponseArrayOutputWithContext(context.Context) DiskSecretResponseArrayOutput
+	ToDiskSecretInvokeResponseArrayOutput() DiskSecretInvokeResponseArrayOutput
+	ToDiskSecretInvokeResponseArrayOutputWithContext(context.Context) DiskSecretInvokeResponseArrayOutput
 }
 
-type DiskSecretResponseArray []DiskSecretResponseInput
+type DiskSecretInvokeResponseArray []DiskSecretInvokeResponseInput
 
-func (DiskSecretResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskSecretResponse)(nil)).Elem()
+func (DiskSecretInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiskSecretInvokeResponse)(nil)).Elem()
 }
 
-func (i DiskSecretResponseArray) ToDiskSecretResponseArrayOutput() DiskSecretResponseArrayOutput {
-	return i.ToDiskSecretResponseArrayOutputWithContext(context.Background())
+func (i DiskSecretInvokeResponseArray) ToDiskSecretInvokeResponseArrayOutput() DiskSecretInvokeResponseArrayOutput {
+	return i.ToDiskSecretInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i DiskSecretResponseArray) ToDiskSecretResponseArrayOutputWithContext(ctx context.Context) DiskSecretResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskSecretResponseArrayOutput)
+func (i DiskSecretInvokeResponseArray) ToDiskSecretInvokeResponseArrayOutputWithContext(ctx context.Context) DiskSecretInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiskSecretInvokeResponseArrayOutput)
 }
 
 // Contains all the secrets of a Disk.
-type DiskSecretResponseOutput struct{ *pulumi.OutputState }
+type DiskSecretInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DiskSecretResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskSecretResponse)(nil)).Elem()
+func (DiskSecretInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiskSecretInvokeResponse)(nil)).Elem()
 }
 
-func (o DiskSecretResponseOutput) ToDiskSecretResponseOutput() DiskSecretResponseOutput {
+func (o DiskSecretInvokeResponseOutput) ToDiskSecretInvokeResponseOutput() DiskSecretInvokeResponseOutput {
 	return o
 }
 
-func (o DiskSecretResponseOutput) ToDiskSecretResponseOutputWithContext(ctx context.Context) DiskSecretResponseOutput {
+func (o DiskSecretInvokeResponseOutput) ToDiskSecretInvokeResponseOutputWithContext(ctx context.Context) DiskSecretInvokeResponseOutput {
 	return o
 }
 
 // Bit Locker key of the disk which can be used to unlock the disk to copy data.
-func (o DiskSecretResponseOutput) BitLockerKey() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskSecretResponse) string { return v.BitLockerKey }).(pulumi.StringOutput)
+func (o DiskSecretInvokeResponseOutput) BitLockerKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskSecretInvokeResponse) string { return v.BitLockerKey }).(pulumi.StringOutput)
 }
 
 // Serial number of the assigned disk.
-func (o DiskSecretResponseOutput) DiskSerialNumber() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskSecretResponse) string { return v.DiskSerialNumber }).(pulumi.StringOutput)
+func (o DiskSecretInvokeResponseOutput) DiskSerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v DiskSecretInvokeResponse) string { return v.DiskSerialNumber }).(pulumi.StringOutput)
 }
 
-type DiskSecretResponseArrayOutput struct{ *pulumi.OutputState }
+type DiskSecretInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (DiskSecretResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskSecretResponse)(nil)).Elem()
+func (DiskSecretInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DiskSecretInvokeResponse)(nil)).Elem()
 }
 
-func (o DiskSecretResponseArrayOutput) ToDiskSecretResponseArrayOutput() DiskSecretResponseArrayOutput {
+func (o DiskSecretInvokeResponseArrayOutput) ToDiskSecretInvokeResponseArrayOutput() DiskSecretInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DiskSecretResponseArrayOutput) ToDiskSecretResponseArrayOutputWithContext(ctx context.Context) DiskSecretResponseArrayOutput {
+func (o DiskSecretInvokeResponseArrayOutput) ToDiskSecretInvokeResponseArrayOutputWithContext(ctx context.Context) DiskSecretInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DiskSecretResponseArrayOutput) Index(i pulumi.IntInput) DiskSecretResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskSecretResponse {
-		return vs[0].([]DiskSecretResponse)[vs[1].(int)]
-	}).(DiskSecretResponseOutput)
+func (o DiskSecretInvokeResponseArrayOutput) Index(i pulumi.IntInput) DiskSecretInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskSecretInvokeResponse {
+		return vs[0].([]DiskSecretInvokeResponse)[vs[1].(int)]
+	}).(DiskSecretInvokeResponseOutput)
 }
 
 // Details of the filter files to be used for data transfer.
@@ -4345,6 +6494,115 @@ func (o FilterFileDetailsArrayOutput) Index(i pulumi.IntInput) FilterFileDetails
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFileDetails {
 		return vs[0].([]FilterFileDetails)[vs[1].(int)]
 	}).(FilterFileDetailsOutput)
+}
+
+// Details of the filter files to be used for data transfer.
+type FilterFileDetailsInvokeResponse struct {
+	// Path of the file that contains the details of all items to transfer.
+	FilterFilePath string `pulumi:"filterFilePath"`
+	// Type of the filter file.
+	FilterFileType string `pulumi:"filterFileType"`
+}
+
+// FilterFileDetailsInvokeResponseInput is an input type that accepts FilterFileDetailsInvokeResponseArgs and FilterFileDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `FilterFileDetailsInvokeResponseInput` via:
+//
+//          FilterFileDetailsInvokeResponseArgs{...}
+type FilterFileDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFilterFileDetailsInvokeResponseOutput() FilterFileDetailsInvokeResponseOutput
+	ToFilterFileDetailsInvokeResponseOutputWithContext(context.Context) FilterFileDetailsInvokeResponseOutput
+}
+
+// Details of the filter files to be used for data transfer.
+type FilterFileDetailsInvokeResponseArgs struct {
+	// Path of the file that contains the details of all items to transfer.
+	FilterFilePath pulumi.StringInput `pulumi:"filterFilePath"`
+	// Type of the filter file.
+	FilterFileType pulumi.StringInput `pulumi:"filterFileType"`
+}
+
+func (FilterFileDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterFileDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i FilterFileDetailsInvokeResponseArgs) ToFilterFileDetailsInvokeResponseOutput() FilterFileDetailsInvokeResponseOutput {
+	return i.ToFilterFileDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FilterFileDetailsInvokeResponseArgs) ToFilterFileDetailsInvokeResponseOutputWithContext(ctx context.Context) FilterFileDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterFileDetailsInvokeResponseOutput)
+}
+
+// FilterFileDetailsInvokeResponseArrayInput is an input type that accepts FilterFileDetailsInvokeResponseArray and FilterFileDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FilterFileDetailsInvokeResponseArrayInput` via:
+//
+//          FilterFileDetailsInvokeResponseArray{ FilterFileDetailsInvokeResponseArgs{...} }
+type FilterFileDetailsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFilterFileDetailsInvokeResponseArrayOutput() FilterFileDetailsInvokeResponseArrayOutput
+	ToFilterFileDetailsInvokeResponseArrayOutputWithContext(context.Context) FilterFileDetailsInvokeResponseArrayOutput
+}
+
+type FilterFileDetailsInvokeResponseArray []FilterFileDetailsInvokeResponseInput
+
+func (FilterFileDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterFileDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i FilterFileDetailsInvokeResponseArray) ToFilterFileDetailsInvokeResponseArrayOutput() FilterFileDetailsInvokeResponseArrayOutput {
+	return i.ToFilterFileDetailsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FilterFileDetailsInvokeResponseArray) ToFilterFileDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) FilterFileDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FilterFileDetailsInvokeResponseArrayOutput)
+}
+
+// Details of the filter files to be used for data transfer.
+type FilterFileDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FilterFileDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FilterFileDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o FilterFileDetailsInvokeResponseOutput) ToFilterFileDetailsInvokeResponseOutput() FilterFileDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o FilterFileDetailsInvokeResponseOutput) ToFilterFileDetailsInvokeResponseOutputWithContext(ctx context.Context) FilterFileDetailsInvokeResponseOutput {
+	return o
+}
+
+// Path of the file that contains the details of all items to transfer.
+func (o FilterFileDetailsInvokeResponseOutput) FilterFilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterFileDetailsInvokeResponse) string { return v.FilterFilePath }).(pulumi.StringOutput)
+}
+
+// Type of the filter file.
+func (o FilterFileDetailsInvokeResponseOutput) FilterFileType() pulumi.StringOutput {
+	return o.ApplyT(func(v FilterFileDetailsInvokeResponse) string { return v.FilterFileType }).(pulumi.StringOutput)
+}
+
+type FilterFileDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FilterFileDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FilterFileDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o FilterFileDetailsInvokeResponseArrayOutput) ToFilterFileDetailsInvokeResponseArrayOutput() FilterFileDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FilterFileDetailsInvokeResponseArrayOutput) ToFilterFileDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) FilterFileDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FilterFileDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) FilterFileDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFileDetailsInvokeResponse {
+		return vs[0].([]FilterFileDetailsInvokeResponse)[vs[1].(int)]
+	}).(FilterFileDetailsInvokeResponseOutput)
 }
 
 // Details of the filter files to be used for data transfer.
@@ -4591,6 +6849,61 @@ func (o JobDeliveryInfoPtrOutput) ScheduledDateTime() pulumi.StringPtrOutput {
 }
 
 // Additional delivery info.
+type JobDeliveryInfoInvokeResponse struct {
+	// Scheduled date time.
+	ScheduledDateTime *string `pulumi:"scheduledDateTime"`
+}
+
+// JobDeliveryInfoInvokeResponseInput is an input type that accepts JobDeliveryInfoInvokeResponseArgs and JobDeliveryInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `JobDeliveryInfoInvokeResponseInput` via:
+//
+//          JobDeliveryInfoInvokeResponseArgs{...}
+type JobDeliveryInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobDeliveryInfoInvokeResponseOutput() JobDeliveryInfoInvokeResponseOutput
+	ToJobDeliveryInfoInvokeResponseOutputWithContext(context.Context) JobDeliveryInfoInvokeResponseOutput
+}
+
+// Additional delivery info.
+type JobDeliveryInfoInvokeResponseArgs struct {
+	// Scheduled date time.
+	ScheduledDateTime pulumi.StringPtrInput `pulumi:"scheduledDateTime"`
+}
+
+func (JobDeliveryInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDeliveryInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i JobDeliveryInfoInvokeResponseArgs) ToJobDeliveryInfoInvokeResponseOutput() JobDeliveryInfoInvokeResponseOutput {
+	return i.ToJobDeliveryInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobDeliveryInfoInvokeResponseArgs) ToJobDeliveryInfoInvokeResponseOutputWithContext(ctx context.Context) JobDeliveryInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDeliveryInfoInvokeResponseOutput)
+}
+
+// Additional delivery info.
+type JobDeliveryInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobDeliveryInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDeliveryInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o JobDeliveryInfoInvokeResponseOutput) ToJobDeliveryInfoInvokeResponseOutput() JobDeliveryInfoInvokeResponseOutput {
+	return o
+}
+
+func (o JobDeliveryInfoInvokeResponseOutput) ToJobDeliveryInfoInvokeResponseOutputWithContext(ctx context.Context) JobDeliveryInfoInvokeResponseOutput {
+	return o
+}
+
+// Scheduled date time.
+func (o JobDeliveryInfoInvokeResponseOutput) ScheduledDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDeliveryInfoInvokeResponse) *string { return v.ScheduledDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Additional delivery info.
 type JobDeliveryInfoResponse struct {
 	// Scheduled date time.
 	ScheduledDateTime *string `pulumi:"scheduledDateTime"`
@@ -4722,6 +7035,142 @@ func (o JobDeliveryInfoResponsePtrOutput) ScheduledDateTime() pulumi.StringPtrOu
 		}
 		return v.ScheduledDateTime
 	}).(pulumi.StringPtrOutput)
+}
+
+// Job stages.
+type JobStagesInvokeResponse struct {
+	// Display name of the job stage.
+	DisplayName string `pulumi:"displayName"`
+	// Job Stage Details
+	JobStageDetails interface{} `pulumi:"jobStageDetails"`
+	// Name of the job stage.
+	StageName string `pulumi:"stageName"`
+	// Status of the job stage.
+	StageStatus string `pulumi:"stageStatus"`
+	// Time for the job stage in UTC ISO 8601 format.
+	StageTime string `pulumi:"stageTime"`
+}
+
+// JobStagesInvokeResponseInput is an input type that accepts JobStagesInvokeResponseArgs and JobStagesInvokeResponseOutput values.
+// You can construct a concrete instance of `JobStagesInvokeResponseInput` via:
+//
+//          JobStagesInvokeResponseArgs{...}
+type JobStagesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToJobStagesInvokeResponseOutput() JobStagesInvokeResponseOutput
+	ToJobStagesInvokeResponseOutputWithContext(context.Context) JobStagesInvokeResponseOutput
+}
+
+// Job stages.
+type JobStagesInvokeResponseArgs struct {
+	// Display name of the job stage.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Job Stage Details
+	JobStageDetails pulumi.Input `pulumi:"jobStageDetails"`
+	// Name of the job stage.
+	StageName pulumi.StringInput `pulumi:"stageName"`
+	// Status of the job stage.
+	StageStatus pulumi.StringInput `pulumi:"stageStatus"`
+	// Time for the job stage in UTC ISO 8601 format.
+	StageTime pulumi.StringInput `pulumi:"stageTime"`
+}
+
+func (JobStagesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStagesInvokeResponse)(nil)).Elem()
+}
+
+func (i JobStagesInvokeResponseArgs) ToJobStagesInvokeResponseOutput() JobStagesInvokeResponseOutput {
+	return i.ToJobStagesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i JobStagesInvokeResponseArgs) ToJobStagesInvokeResponseOutputWithContext(ctx context.Context) JobStagesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStagesInvokeResponseOutput)
+}
+
+// JobStagesInvokeResponseArrayInput is an input type that accepts JobStagesInvokeResponseArray and JobStagesInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `JobStagesInvokeResponseArrayInput` via:
+//
+//          JobStagesInvokeResponseArray{ JobStagesInvokeResponseArgs{...} }
+type JobStagesInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToJobStagesInvokeResponseArrayOutput() JobStagesInvokeResponseArrayOutput
+	ToJobStagesInvokeResponseArrayOutputWithContext(context.Context) JobStagesInvokeResponseArrayOutput
+}
+
+type JobStagesInvokeResponseArray []JobStagesInvokeResponseInput
+
+func (JobStagesInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobStagesInvokeResponse)(nil)).Elem()
+}
+
+func (i JobStagesInvokeResponseArray) ToJobStagesInvokeResponseArrayOutput() JobStagesInvokeResponseArrayOutput {
+	return i.ToJobStagesInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i JobStagesInvokeResponseArray) ToJobStagesInvokeResponseArrayOutputWithContext(ctx context.Context) JobStagesInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobStagesInvokeResponseArrayOutput)
+}
+
+// Job stages.
+type JobStagesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (JobStagesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobStagesInvokeResponse)(nil)).Elem()
+}
+
+func (o JobStagesInvokeResponseOutput) ToJobStagesInvokeResponseOutput() JobStagesInvokeResponseOutput {
+	return o
+}
+
+func (o JobStagesInvokeResponseOutput) ToJobStagesInvokeResponseOutputWithContext(ctx context.Context) JobStagesInvokeResponseOutput {
+	return o
+}
+
+// Display name of the job stage.
+func (o JobStagesInvokeResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStagesInvokeResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Job Stage Details
+func (o JobStagesInvokeResponseOutput) JobStageDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v JobStagesInvokeResponse) interface{} { return v.JobStageDetails }).(pulumi.AnyOutput)
+}
+
+// Name of the job stage.
+func (o JobStagesInvokeResponseOutput) StageName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStagesInvokeResponse) string { return v.StageName }).(pulumi.StringOutput)
+}
+
+// Status of the job stage.
+func (o JobStagesInvokeResponseOutput) StageStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStagesInvokeResponse) string { return v.StageStatus }).(pulumi.StringOutput)
+}
+
+// Time for the job stage in UTC ISO 8601 format.
+func (o JobStagesInvokeResponseOutput) StageTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JobStagesInvokeResponse) string { return v.StageTime }).(pulumi.StringOutput)
+}
+
+type JobStagesInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (JobStagesInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobStagesInvokeResponse)(nil)).Elem()
+}
+
+func (o JobStagesInvokeResponseArrayOutput) ToJobStagesInvokeResponseArrayOutput() JobStagesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobStagesInvokeResponseArrayOutput) ToJobStagesInvokeResponseArrayOutputWithContext(ctx context.Context) JobStagesInvokeResponseArrayOutput {
+	return o
+}
+
+func (o JobStagesInvokeResponseArrayOutput) Index(i pulumi.IntInput) JobStagesInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobStagesInvokeResponse {
+		return vs[0].([]JobStagesInvokeResponse)[vs[1].(int)]
+	}).(JobStagesInvokeResponseOutput)
 }
 
 // Job stages.
@@ -4858,6 +7307,79 @@ func (o JobStagesResponseArrayOutput) Index(i pulumi.IntInput) JobStagesResponse
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobStagesResponse {
 		return vs[0].([]JobStagesResponse)[vs[1].(int)]
 	}).(JobStagesResponseOutput)
+}
+
+// Encryption key containing details about key to encrypt different keys.
+type KeyEncryptionKeyInvokeResponse struct {
+	// Type of encryption key used for key encryption.
+	KekType string `pulumi:"kekType"`
+	// Key encryption key. It is required in case of Customer managed KekType.
+	KekUrl *string `pulumi:"kekUrl"`
+	// Kek vault resource id. It is required in case of Customer managed KekType.
+	KekVaultResourceID *string `pulumi:"kekVaultResourceID"`
+}
+
+// KeyEncryptionKeyInvokeResponseInput is an input type that accepts KeyEncryptionKeyInvokeResponseArgs and KeyEncryptionKeyInvokeResponseOutput values.
+// You can construct a concrete instance of `KeyEncryptionKeyInvokeResponseInput` via:
+//
+//          KeyEncryptionKeyInvokeResponseArgs{...}
+type KeyEncryptionKeyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToKeyEncryptionKeyInvokeResponseOutput() KeyEncryptionKeyInvokeResponseOutput
+	ToKeyEncryptionKeyInvokeResponseOutputWithContext(context.Context) KeyEncryptionKeyInvokeResponseOutput
+}
+
+// Encryption key containing details about key to encrypt different keys.
+type KeyEncryptionKeyInvokeResponseArgs struct {
+	// Type of encryption key used for key encryption.
+	KekType pulumi.StringInput `pulumi:"kekType"`
+	// Key encryption key. It is required in case of Customer managed KekType.
+	KekUrl pulumi.StringPtrInput `pulumi:"kekUrl"`
+	// Kek vault resource id. It is required in case of Customer managed KekType.
+	KekVaultResourceID pulumi.StringPtrInput `pulumi:"kekVaultResourceID"`
+}
+
+func (KeyEncryptionKeyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyEncryptionKeyInvokeResponse)(nil)).Elem()
+}
+
+func (i KeyEncryptionKeyInvokeResponseArgs) ToKeyEncryptionKeyInvokeResponseOutput() KeyEncryptionKeyInvokeResponseOutput {
+	return i.ToKeyEncryptionKeyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i KeyEncryptionKeyInvokeResponseArgs) ToKeyEncryptionKeyInvokeResponseOutputWithContext(ctx context.Context) KeyEncryptionKeyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyEncryptionKeyInvokeResponseOutput)
+}
+
+// Encryption key containing details about key to encrypt different keys.
+type KeyEncryptionKeyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyEncryptionKeyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyEncryptionKeyInvokeResponse)(nil)).Elem()
+}
+
+func (o KeyEncryptionKeyInvokeResponseOutput) ToKeyEncryptionKeyInvokeResponseOutput() KeyEncryptionKeyInvokeResponseOutput {
+	return o
+}
+
+func (o KeyEncryptionKeyInvokeResponseOutput) ToKeyEncryptionKeyInvokeResponseOutputWithContext(ctx context.Context) KeyEncryptionKeyInvokeResponseOutput {
+	return o
+}
+
+// Type of encryption key used for key encryption.
+func (o KeyEncryptionKeyInvokeResponseOutput) KekType() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyEncryptionKeyInvokeResponse) string { return v.KekType }).(pulumi.StringOutput)
+}
+
+// Key encryption key. It is required in case of Customer managed KekType.
+func (o KeyEncryptionKeyInvokeResponseOutput) KekUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyEncryptionKeyInvokeResponse) *string { return v.KekUrl }).(pulumi.StringPtrOutput)
+}
+
+// Kek vault resource id. It is required in case of Customer managed KekType.
+func (o KeyEncryptionKeyInvokeResponseOutput) KekVaultResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyEncryptionKeyInvokeResponse) *string { return v.KekVaultResourceID }).(pulumi.StringPtrOutput)
 }
 
 // Encryption key containing details about key to encrypt different keys.
@@ -5016,6 +7538,91 @@ func (o ManagedDiskDetailsOutput) SharePassword() pulumi.StringPtrOutput {
 // Resource Id of the storage account that can be used to copy the vhd for staging.
 func (o ManagedDiskDetailsOutput) StagingStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDiskDetails) string { return v.StagingStorageAccountId }).(pulumi.StringOutput)
+}
+
+// Details of the managed disks.
+type ManagedDiskDetailsInvokeResponse struct {
+	// Account Type of the data to be transferred.
+	// Expected value is 'ManagedDisk'.
+	DataAccountType string `pulumi:"dataAccountType"`
+	// Resource Group Id of the compute disks.
+	ResourceGroupId string `pulumi:"resourceGroupId"`
+	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+	SharePassword *string `pulumi:"sharePassword"`
+	// Resource Id of the storage account that can be used to copy the vhd for staging.
+	StagingStorageAccountId string `pulumi:"stagingStorageAccountId"`
+}
+
+// ManagedDiskDetailsInvokeResponseInput is an input type that accepts ManagedDiskDetailsInvokeResponseArgs and ManagedDiskDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `ManagedDiskDetailsInvokeResponseInput` via:
+//
+//          ManagedDiskDetailsInvokeResponseArgs{...}
+type ManagedDiskDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToManagedDiskDetailsInvokeResponseOutput() ManagedDiskDetailsInvokeResponseOutput
+	ToManagedDiskDetailsInvokeResponseOutputWithContext(context.Context) ManagedDiskDetailsInvokeResponseOutput
+}
+
+// Details of the managed disks.
+type ManagedDiskDetailsInvokeResponseArgs struct {
+	// Account Type of the data to be transferred.
+	// Expected value is 'ManagedDisk'.
+	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
+	// Resource Group Id of the compute disks.
+	ResourceGroupId pulumi.StringInput `pulumi:"resourceGroupId"`
+	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+	SharePassword pulumi.StringPtrInput `pulumi:"sharePassword"`
+	// Resource Id of the storage account that can be used to copy the vhd for staging.
+	StagingStorageAccountId pulumi.StringInput `pulumi:"stagingStorageAccountId"`
+}
+
+func (ManagedDiskDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDiskDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i ManagedDiskDetailsInvokeResponseArgs) ToManagedDiskDetailsInvokeResponseOutput() ManagedDiskDetailsInvokeResponseOutput {
+	return i.ToManagedDiskDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ManagedDiskDetailsInvokeResponseArgs) ToManagedDiskDetailsInvokeResponseOutputWithContext(ctx context.Context) ManagedDiskDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskDetailsInvokeResponseOutput)
+}
+
+// Details of the managed disks.
+type ManagedDiskDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedDiskDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDiskDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o ManagedDiskDetailsInvokeResponseOutput) ToManagedDiskDetailsInvokeResponseOutput() ManagedDiskDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o ManagedDiskDetailsInvokeResponseOutput) ToManagedDiskDetailsInvokeResponseOutputWithContext(ctx context.Context) ManagedDiskDetailsInvokeResponseOutput {
+	return o
+}
+
+// Account Type of the data to be transferred.
+// Expected value is 'ManagedDisk'.
+func (o ManagedDiskDetailsInvokeResponseOutput) DataAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDiskDetailsInvokeResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
+}
+
+// Resource Group Id of the compute disks.
+func (o ManagedDiskDetailsInvokeResponseOutput) ResourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDiskDetailsInvokeResponse) string { return v.ResourceGroupId }).(pulumi.StringOutput)
+}
+
+// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+func (o ManagedDiskDetailsInvokeResponseOutput) SharePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedDiskDetailsInvokeResponse) *string { return v.SharePassword }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id of the storage account that can be used to copy the vhd for staging.
+func (o ManagedDiskDetailsInvokeResponseOutput) StagingStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDiskDetailsInvokeResponse) string { return v.StagingStorageAccountId }).(pulumi.StringOutput)
 }
 
 // Details of the managed disks.
@@ -5213,6 +7820,115 @@ func (o NotificationPreferenceArrayOutput) Index(i pulumi.IntInput) Notification
 }
 
 // Notification preference for a job stage.
+type NotificationPreferenceInvokeResponse struct {
+	// Notification is required or not.
+	SendNotification bool `pulumi:"sendNotification"`
+	// Name of the stage.
+	StageName string `pulumi:"stageName"`
+}
+
+// NotificationPreferenceInvokeResponseInput is an input type that accepts NotificationPreferenceInvokeResponseArgs and NotificationPreferenceInvokeResponseOutput values.
+// You can construct a concrete instance of `NotificationPreferenceInvokeResponseInput` via:
+//
+//          NotificationPreferenceInvokeResponseArgs{...}
+type NotificationPreferenceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNotificationPreferenceInvokeResponseOutput() NotificationPreferenceInvokeResponseOutput
+	ToNotificationPreferenceInvokeResponseOutputWithContext(context.Context) NotificationPreferenceInvokeResponseOutput
+}
+
+// Notification preference for a job stage.
+type NotificationPreferenceInvokeResponseArgs struct {
+	// Notification is required or not.
+	SendNotification pulumi.BoolInput `pulumi:"sendNotification"`
+	// Name of the stage.
+	StageName pulumi.StringInput `pulumi:"stageName"`
+}
+
+func (NotificationPreferenceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationPreferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i NotificationPreferenceInvokeResponseArgs) ToNotificationPreferenceInvokeResponseOutput() NotificationPreferenceInvokeResponseOutput {
+	return i.ToNotificationPreferenceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NotificationPreferenceInvokeResponseArgs) ToNotificationPreferenceInvokeResponseOutputWithContext(ctx context.Context) NotificationPreferenceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationPreferenceInvokeResponseOutput)
+}
+
+// NotificationPreferenceInvokeResponseArrayInput is an input type that accepts NotificationPreferenceInvokeResponseArray and NotificationPreferenceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NotificationPreferenceInvokeResponseArrayInput` via:
+//
+//          NotificationPreferenceInvokeResponseArray{ NotificationPreferenceInvokeResponseArgs{...} }
+type NotificationPreferenceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNotificationPreferenceInvokeResponseArrayOutput() NotificationPreferenceInvokeResponseArrayOutput
+	ToNotificationPreferenceInvokeResponseArrayOutputWithContext(context.Context) NotificationPreferenceInvokeResponseArrayOutput
+}
+
+type NotificationPreferenceInvokeResponseArray []NotificationPreferenceInvokeResponseInput
+
+func (NotificationPreferenceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationPreferenceInvokeResponse)(nil)).Elem()
+}
+
+func (i NotificationPreferenceInvokeResponseArray) ToNotificationPreferenceInvokeResponseArrayOutput() NotificationPreferenceInvokeResponseArrayOutput {
+	return i.ToNotificationPreferenceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationPreferenceInvokeResponseArray) ToNotificationPreferenceInvokeResponseArrayOutputWithContext(ctx context.Context) NotificationPreferenceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationPreferenceInvokeResponseArrayOutput)
+}
+
+// Notification preference for a job stage.
+type NotificationPreferenceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NotificationPreferenceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationPreferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o NotificationPreferenceInvokeResponseOutput) ToNotificationPreferenceInvokeResponseOutput() NotificationPreferenceInvokeResponseOutput {
+	return o
+}
+
+func (o NotificationPreferenceInvokeResponseOutput) ToNotificationPreferenceInvokeResponseOutputWithContext(ctx context.Context) NotificationPreferenceInvokeResponseOutput {
+	return o
+}
+
+// Notification is required or not.
+func (o NotificationPreferenceInvokeResponseOutput) SendNotification() pulumi.BoolOutput {
+	return o.ApplyT(func(v NotificationPreferenceInvokeResponse) bool { return v.SendNotification }).(pulumi.BoolOutput)
+}
+
+// Name of the stage.
+func (o NotificationPreferenceInvokeResponseOutput) StageName() pulumi.StringOutput {
+	return o.ApplyT(func(v NotificationPreferenceInvokeResponse) string { return v.StageName }).(pulumi.StringOutput)
+}
+
+type NotificationPreferenceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationPreferenceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationPreferenceInvokeResponse)(nil)).Elem()
+}
+
+func (o NotificationPreferenceInvokeResponseArrayOutput) ToNotificationPreferenceInvokeResponseArrayOutput() NotificationPreferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NotificationPreferenceInvokeResponseArrayOutput) ToNotificationPreferenceInvokeResponseArrayOutputWithContext(ctx context.Context) NotificationPreferenceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NotificationPreferenceInvokeResponseArrayOutput) Index(i pulumi.IntInput) NotificationPreferenceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationPreferenceInvokeResponse {
+		return vs[0].([]NotificationPreferenceInvokeResponse)[vs[1].(int)]
+	}).(NotificationPreferenceInvokeResponseOutput)
+}
+
+// Notification preference for a job stage.
 type NotificationPreferenceResponse struct {
 	// Notification is required or not.
 	SendNotification bool `pulumi:"sendNotification"`
@@ -5319,6 +8035,79 @@ func (o NotificationPreferenceResponseArrayOutput) Index(i pulumi.IntInput) Noti
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationPreferenceResponse {
 		return vs[0].([]NotificationPreferenceResponse)[vs[1].(int)]
 	}).(NotificationPreferenceResponseOutput)
+}
+
+// Shipping details.
+type PackageShippingDetailsInvokeResponse struct {
+	// Name of the carrier.
+	CarrierName string `pulumi:"carrierName"`
+	// Tracking Id of shipment.
+	TrackingId string `pulumi:"trackingId"`
+	// Url where shipment can be tracked.
+	TrackingUrl string `pulumi:"trackingUrl"`
+}
+
+// PackageShippingDetailsInvokeResponseInput is an input type that accepts PackageShippingDetailsInvokeResponseArgs and PackageShippingDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `PackageShippingDetailsInvokeResponseInput` via:
+//
+//          PackageShippingDetailsInvokeResponseArgs{...}
+type PackageShippingDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPackageShippingDetailsInvokeResponseOutput() PackageShippingDetailsInvokeResponseOutput
+	ToPackageShippingDetailsInvokeResponseOutputWithContext(context.Context) PackageShippingDetailsInvokeResponseOutput
+}
+
+// Shipping details.
+type PackageShippingDetailsInvokeResponseArgs struct {
+	// Name of the carrier.
+	CarrierName pulumi.StringInput `pulumi:"carrierName"`
+	// Tracking Id of shipment.
+	TrackingId pulumi.StringInput `pulumi:"trackingId"`
+	// Url where shipment can be tracked.
+	TrackingUrl pulumi.StringInput `pulumi:"trackingUrl"`
+}
+
+func (PackageShippingDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackageShippingDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i PackageShippingDetailsInvokeResponseArgs) ToPackageShippingDetailsInvokeResponseOutput() PackageShippingDetailsInvokeResponseOutput {
+	return i.ToPackageShippingDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PackageShippingDetailsInvokeResponseArgs) ToPackageShippingDetailsInvokeResponseOutputWithContext(ctx context.Context) PackageShippingDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackageShippingDetailsInvokeResponseOutput)
+}
+
+// Shipping details.
+type PackageShippingDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PackageShippingDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackageShippingDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o PackageShippingDetailsInvokeResponseOutput) ToPackageShippingDetailsInvokeResponseOutput() PackageShippingDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o PackageShippingDetailsInvokeResponseOutput) ToPackageShippingDetailsInvokeResponseOutputWithContext(ctx context.Context) PackageShippingDetailsInvokeResponseOutput {
+	return o
+}
+
+// Name of the carrier.
+func (o PackageShippingDetailsInvokeResponseOutput) CarrierName() pulumi.StringOutput {
+	return o.ApplyT(func(v PackageShippingDetailsInvokeResponse) string { return v.CarrierName }).(pulumi.StringOutput)
+}
+
+// Tracking Id of shipment.
+func (o PackageShippingDetailsInvokeResponseOutput) TrackingId() pulumi.StringOutput {
+	return o.ApplyT(func(v PackageShippingDetailsInvokeResponse) string { return v.TrackingId }).(pulumi.StringOutput)
+}
+
+// Url where shipment can be tracked.
+func (o PackageShippingDetailsInvokeResponseOutput) TrackingUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v PackageShippingDetailsInvokeResponse) string { return v.TrackingUrl }).(pulumi.StringOutput)
 }
 
 // Shipping details.
@@ -5545,6 +8334,159 @@ func (o PreferencesPtrOutput) TransportPreferences() TransportPreferencesPtrOutp
 		}
 		return v.TransportPreferences
 	}).(TransportPreferencesPtrOutput)
+}
+
+// Preferences related to the order
+type PreferencesInvokeResponse struct {
+	// Preferred data center region.
+	PreferredDataCenterRegion []string `pulumi:"preferredDataCenterRegion"`
+	// Preferences related to the shipment logistics of the sku.
+	TransportPreferences *TransportPreferencesInvokeResponse `pulumi:"transportPreferences"`
+}
+
+// PreferencesInvokeResponseInput is an input type that accepts PreferencesInvokeResponseArgs and PreferencesInvokeResponseOutput values.
+// You can construct a concrete instance of `PreferencesInvokeResponseInput` via:
+//
+//          PreferencesInvokeResponseArgs{...}
+type PreferencesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPreferencesInvokeResponseOutput() PreferencesInvokeResponseOutput
+	ToPreferencesInvokeResponseOutputWithContext(context.Context) PreferencesInvokeResponseOutput
+}
+
+// Preferences related to the order
+type PreferencesInvokeResponseArgs struct {
+	// Preferred data center region.
+	PreferredDataCenterRegion pulumi.StringArrayInput `pulumi:"preferredDataCenterRegion"`
+	// Preferences related to the shipment logistics of the sku.
+	TransportPreferences TransportPreferencesInvokeResponsePtrInput `pulumi:"transportPreferences"`
+}
+
+func (PreferencesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PreferencesInvokeResponse)(nil)).Elem()
+}
+
+func (i PreferencesInvokeResponseArgs) ToPreferencesInvokeResponseOutput() PreferencesInvokeResponseOutput {
+	return i.ToPreferencesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PreferencesInvokeResponseArgs) ToPreferencesInvokeResponseOutputWithContext(ctx context.Context) PreferencesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PreferencesInvokeResponseOutput)
+}
+
+func (i PreferencesInvokeResponseArgs) ToPreferencesInvokeResponsePtrOutput() PreferencesInvokeResponsePtrOutput {
+	return i.ToPreferencesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PreferencesInvokeResponseArgs) ToPreferencesInvokeResponsePtrOutputWithContext(ctx context.Context) PreferencesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PreferencesInvokeResponseOutput).ToPreferencesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// PreferencesInvokeResponsePtrInput is an input type that accepts PreferencesInvokeResponseArgs, PreferencesInvokeResponsePtr and PreferencesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `PreferencesInvokeResponsePtrInput` via:
+//
+//          PreferencesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PreferencesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToPreferencesInvokeResponsePtrOutput() PreferencesInvokeResponsePtrOutput
+	ToPreferencesInvokeResponsePtrOutputWithContext(context.Context) PreferencesInvokeResponsePtrOutput
+}
+
+type preferencesInvokeResponsePtrType PreferencesInvokeResponseArgs
+
+func PreferencesInvokeResponsePtr(v *PreferencesInvokeResponseArgs) PreferencesInvokeResponsePtrInput {
+	return (*preferencesInvokeResponsePtrType)(v)
+}
+
+func (*preferencesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PreferencesInvokeResponse)(nil)).Elem()
+}
+
+func (i *preferencesInvokeResponsePtrType) ToPreferencesInvokeResponsePtrOutput() PreferencesInvokeResponsePtrOutput {
+	return i.ToPreferencesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *preferencesInvokeResponsePtrType) ToPreferencesInvokeResponsePtrOutputWithContext(ctx context.Context) PreferencesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PreferencesInvokeResponsePtrOutput)
+}
+
+// Preferences related to the order
+type PreferencesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PreferencesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PreferencesInvokeResponse)(nil)).Elem()
+}
+
+func (o PreferencesInvokeResponseOutput) ToPreferencesInvokeResponseOutput() PreferencesInvokeResponseOutput {
+	return o
+}
+
+func (o PreferencesInvokeResponseOutput) ToPreferencesInvokeResponseOutputWithContext(ctx context.Context) PreferencesInvokeResponseOutput {
+	return o
+}
+
+func (o PreferencesInvokeResponseOutput) ToPreferencesInvokeResponsePtrOutput() PreferencesInvokeResponsePtrOutput {
+	return o.ToPreferencesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PreferencesInvokeResponseOutput) ToPreferencesInvokeResponsePtrOutputWithContext(ctx context.Context) PreferencesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PreferencesInvokeResponse) *PreferencesInvokeResponse {
+		return &v
+	}).(PreferencesInvokeResponsePtrOutput)
+}
+
+// Preferred data center region.
+func (o PreferencesInvokeResponseOutput) PreferredDataCenterRegion() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PreferencesInvokeResponse) []string { return v.PreferredDataCenterRegion }).(pulumi.StringArrayOutput)
+}
+
+// Preferences related to the shipment logistics of the sku.
+func (o PreferencesInvokeResponseOutput) TransportPreferences() TransportPreferencesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v PreferencesInvokeResponse) *TransportPreferencesInvokeResponse { return v.TransportPreferences }).(TransportPreferencesInvokeResponsePtrOutput)
+}
+
+type PreferencesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PreferencesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PreferencesInvokeResponse)(nil)).Elem()
+}
+
+func (o PreferencesInvokeResponsePtrOutput) ToPreferencesInvokeResponsePtrOutput() PreferencesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PreferencesInvokeResponsePtrOutput) ToPreferencesInvokeResponsePtrOutputWithContext(ctx context.Context) PreferencesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o PreferencesInvokeResponsePtrOutput) Elem() PreferencesInvokeResponseOutput {
+	return o.ApplyT(func(v *PreferencesInvokeResponse) PreferencesInvokeResponse { return *v }).(PreferencesInvokeResponseOutput)
+}
+
+// Preferred data center region.
+func (o PreferencesInvokeResponsePtrOutput) PreferredDataCenterRegion() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PreferencesInvokeResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredDataCenterRegion
+	}).(pulumi.StringArrayOutput)
+}
+
+// Preferences related to the shipment logistics of the sku.
+func (o PreferencesInvokeResponsePtrOutput) TransportPreferences() TransportPreferencesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *PreferencesInvokeResponse) *TransportPreferencesInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.TransportPreferences
+	}).(TransportPreferencesInvokeResponsePtrOutput)
 }
 
 // Preferences related to the order
@@ -5835,6 +8777,79 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Msi identity details of the resource
+type ResourceIdentityInvokeResponse struct {
+	// Service Principal Id backing the Msi
+	PrincipalId string `pulumi:"principalId"`
+	// Home Tenant Id
+	TenantId string `pulumi:"tenantId"`
+	// Identity type
+	Type *string `pulumi:"type"`
+}
+
+// ResourceIdentityInvokeResponseInput is an input type that accepts ResourceIdentityInvokeResponseArgs and ResourceIdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `ResourceIdentityInvokeResponseInput` via:
+//
+//          ResourceIdentityInvokeResponseArgs{...}
+type ResourceIdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput
+	ToResourceIdentityInvokeResponseOutputWithContext(context.Context) ResourceIdentityInvokeResponseOutput
+}
+
+// Msi identity details of the resource
+type ResourceIdentityInvokeResponseArgs struct {
+	// Service Principal Id backing the Msi
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Home Tenant Id
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Identity type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ResourceIdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return i.ToResourceIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityInvokeResponseArgs) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityInvokeResponseOutput)
+}
+
+// Msi identity details of the resource
+type ResourceIdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutput() ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityInvokeResponseOutput) ToResourceIdentityInvokeResponseOutputWithContext(ctx context.Context) ResourceIdentityInvokeResponseOutput {
+	return o
+}
+
+// Service Principal Id backing the Msi
+func (o ResourceIdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Home Tenant Id
+func (o ResourceIdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Identity type
+func (o ResourceIdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Msi identity details of the resource
 type ResourceIdentityResponse struct {
 	// Service Principal Id backing the Msi
 	PrincipalId string `pulumi:"principalId"`
@@ -6007,7 +9022,7 @@ func (o ResourceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Credential details of the shares in account.
-type ShareCredentialDetailsResponse struct {
+type ShareCredentialDetailsInvokeResponse struct {
 	// Password for the share.
 	Password string `pulumi:"password"`
 	// Name of the share.
@@ -6020,19 +9035,19 @@ type ShareCredentialDetailsResponse struct {
 	UserName string `pulumi:"userName"`
 }
 
-// ShareCredentialDetailsResponseInput is an input type that accepts ShareCredentialDetailsResponseArgs and ShareCredentialDetailsResponseOutput values.
-// You can construct a concrete instance of `ShareCredentialDetailsResponseInput` via:
+// ShareCredentialDetailsInvokeResponseInput is an input type that accepts ShareCredentialDetailsInvokeResponseArgs and ShareCredentialDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `ShareCredentialDetailsInvokeResponseInput` via:
 //
-//          ShareCredentialDetailsResponseArgs{...}
-type ShareCredentialDetailsResponseInput interface {
+//          ShareCredentialDetailsInvokeResponseArgs{...}
+type ShareCredentialDetailsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToShareCredentialDetailsResponseOutput() ShareCredentialDetailsResponseOutput
-	ToShareCredentialDetailsResponseOutputWithContext(context.Context) ShareCredentialDetailsResponseOutput
+	ToShareCredentialDetailsInvokeResponseOutput() ShareCredentialDetailsInvokeResponseOutput
+	ToShareCredentialDetailsInvokeResponseOutputWithContext(context.Context) ShareCredentialDetailsInvokeResponseOutput
 }
 
 // Credential details of the shares in account.
-type ShareCredentialDetailsResponseArgs struct {
+type ShareCredentialDetailsInvokeResponseArgs struct {
 	// Password for the share.
 	Password pulumi.StringInput `pulumi:"password"`
 	// Name of the share.
@@ -6045,101 +9060,101 @@ type ShareCredentialDetailsResponseArgs struct {
 	UserName pulumi.StringInput `pulumi:"userName"`
 }
 
-func (ShareCredentialDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareCredentialDetailsResponse)(nil)).Elem()
+func (ShareCredentialDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareCredentialDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (i ShareCredentialDetailsResponseArgs) ToShareCredentialDetailsResponseOutput() ShareCredentialDetailsResponseOutput {
-	return i.ToShareCredentialDetailsResponseOutputWithContext(context.Background())
+func (i ShareCredentialDetailsInvokeResponseArgs) ToShareCredentialDetailsInvokeResponseOutput() ShareCredentialDetailsInvokeResponseOutput {
+	return i.ToShareCredentialDetailsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ShareCredentialDetailsResponseArgs) ToShareCredentialDetailsResponseOutputWithContext(ctx context.Context) ShareCredentialDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShareCredentialDetailsResponseOutput)
+func (i ShareCredentialDetailsInvokeResponseArgs) ToShareCredentialDetailsInvokeResponseOutputWithContext(ctx context.Context) ShareCredentialDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareCredentialDetailsInvokeResponseOutput)
 }
 
-// ShareCredentialDetailsResponseArrayInput is an input type that accepts ShareCredentialDetailsResponseArray and ShareCredentialDetailsResponseArrayOutput values.
-// You can construct a concrete instance of `ShareCredentialDetailsResponseArrayInput` via:
+// ShareCredentialDetailsInvokeResponseArrayInput is an input type that accepts ShareCredentialDetailsInvokeResponseArray and ShareCredentialDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ShareCredentialDetailsInvokeResponseArrayInput` via:
 //
-//          ShareCredentialDetailsResponseArray{ ShareCredentialDetailsResponseArgs{...} }
-type ShareCredentialDetailsResponseArrayInput interface {
+//          ShareCredentialDetailsInvokeResponseArray{ ShareCredentialDetailsInvokeResponseArgs{...} }
+type ShareCredentialDetailsInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToShareCredentialDetailsResponseArrayOutput() ShareCredentialDetailsResponseArrayOutput
-	ToShareCredentialDetailsResponseArrayOutputWithContext(context.Context) ShareCredentialDetailsResponseArrayOutput
+	ToShareCredentialDetailsInvokeResponseArrayOutput() ShareCredentialDetailsInvokeResponseArrayOutput
+	ToShareCredentialDetailsInvokeResponseArrayOutputWithContext(context.Context) ShareCredentialDetailsInvokeResponseArrayOutput
 }
 
-type ShareCredentialDetailsResponseArray []ShareCredentialDetailsResponseInput
+type ShareCredentialDetailsInvokeResponseArray []ShareCredentialDetailsInvokeResponseInput
 
-func (ShareCredentialDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ShareCredentialDetailsResponse)(nil)).Elem()
+func (ShareCredentialDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ShareCredentialDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (i ShareCredentialDetailsResponseArray) ToShareCredentialDetailsResponseArrayOutput() ShareCredentialDetailsResponseArrayOutput {
-	return i.ToShareCredentialDetailsResponseArrayOutputWithContext(context.Background())
+func (i ShareCredentialDetailsInvokeResponseArray) ToShareCredentialDetailsInvokeResponseArrayOutput() ShareCredentialDetailsInvokeResponseArrayOutput {
+	return i.ToShareCredentialDetailsInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ShareCredentialDetailsResponseArray) ToShareCredentialDetailsResponseArrayOutputWithContext(ctx context.Context) ShareCredentialDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShareCredentialDetailsResponseArrayOutput)
+func (i ShareCredentialDetailsInvokeResponseArray) ToShareCredentialDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) ShareCredentialDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShareCredentialDetailsInvokeResponseArrayOutput)
 }
 
 // Credential details of the shares in account.
-type ShareCredentialDetailsResponseOutput struct{ *pulumi.OutputState }
+type ShareCredentialDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ShareCredentialDetailsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShareCredentialDetailsResponse)(nil)).Elem()
+func (ShareCredentialDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShareCredentialDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (o ShareCredentialDetailsResponseOutput) ToShareCredentialDetailsResponseOutput() ShareCredentialDetailsResponseOutput {
+func (o ShareCredentialDetailsInvokeResponseOutput) ToShareCredentialDetailsInvokeResponseOutput() ShareCredentialDetailsInvokeResponseOutput {
 	return o
 }
 
-func (o ShareCredentialDetailsResponseOutput) ToShareCredentialDetailsResponseOutputWithContext(ctx context.Context) ShareCredentialDetailsResponseOutput {
+func (o ShareCredentialDetailsInvokeResponseOutput) ToShareCredentialDetailsInvokeResponseOutputWithContext(ctx context.Context) ShareCredentialDetailsInvokeResponseOutput {
 	return o
 }
 
 // Password for the share.
-func (o ShareCredentialDetailsResponseOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v ShareCredentialDetailsResponse) string { return v.Password }).(pulumi.StringOutput)
+func (o ShareCredentialDetailsInvokeResponseOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareCredentialDetailsInvokeResponse) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // Name of the share.
-func (o ShareCredentialDetailsResponseOutput) ShareName() pulumi.StringOutput {
-	return o.ApplyT(func(v ShareCredentialDetailsResponse) string { return v.ShareName }).(pulumi.StringOutput)
+func (o ShareCredentialDetailsInvokeResponseOutput) ShareName() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareCredentialDetailsInvokeResponse) string { return v.ShareName }).(pulumi.StringOutput)
 }
 
 // Type of the share.
-func (o ShareCredentialDetailsResponseOutput) ShareType() pulumi.StringOutput {
-	return o.ApplyT(func(v ShareCredentialDetailsResponse) string { return v.ShareType }).(pulumi.StringOutput)
+func (o ShareCredentialDetailsInvokeResponseOutput) ShareType() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareCredentialDetailsInvokeResponse) string { return v.ShareType }).(pulumi.StringOutput)
 }
 
 // Access protocols supported on the device.
-func (o ShareCredentialDetailsResponseOutput) SupportedAccessProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ShareCredentialDetailsResponse) []string { return v.SupportedAccessProtocols }).(pulumi.StringArrayOutput)
+func (o ShareCredentialDetailsInvokeResponseOutput) SupportedAccessProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ShareCredentialDetailsInvokeResponse) []string { return v.SupportedAccessProtocols }).(pulumi.StringArrayOutput)
 }
 
 // User name for the share.
-func (o ShareCredentialDetailsResponseOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func(v ShareCredentialDetailsResponse) string { return v.UserName }).(pulumi.StringOutput)
+func (o ShareCredentialDetailsInvokeResponseOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v ShareCredentialDetailsInvokeResponse) string { return v.UserName }).(pulumi.StringOutput)
 }
 
-type ShareCredentialDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+type ShareCredentialDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ShareCredentialDetailsResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ShareCredentialDetailsResponse)(nil)).Elem()
+func (ShareCredentialDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ShareCredentialDetailsInvokeResponse)(nil)).Elem()
 }
 
-func (o ShareCredentialDetailsResponseArrayOutput) ToShareCredentialDetailsResponseArrayOutput() ShareCredentialDetailsResponseArrayOutput {
+func (o ShareCredentialDetailsInvokeResponseArrayOutput) ToShareCredentialDetailsInvokeResponseArrayOutput() ShareCredentialDetailsInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ShareCredentialDetailsResponseArrayOutput) ToShareCredentialDetailsResponseArrayOutputWithContext(ctx context.Context) ShareCredentialDetailsResponseArrayOutput {
+func (o ShareCredentialDetailsInvokeResponseArrayOutput) ToShareCredentialDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) ShareCredentialDetailsInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ShareCredentialDetailsResponseArrayOutput) Index(i pulumi.IntInput) ShareCredentialDetailsResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareCredentialDetailsResponse {
-		return vs[0].([]ShareCredentialDetailsResponse)[vs[1].(int)]
-	}).(ShareCredentialDetailsResponseOutput)
+func (o ShareCredentialDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) ShareCredentialDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ShareCredentialDetailsInvokeResponse {
+		return vs[0].([]ShareCredentialDetailsInvokeResponse)[vs[1].(int)]
+	}).(ShareCredentialDetailsInvokeResponseOutput)
 }
 
 // Shipping address where customer wishes to receive the device.
@@ -6440,6 +9455,311 @@ func (o ShippingAddressPtrOutput) StreetAddress3() pulumi.StringPtrOutput {
 // Extended Zip Code.
 func (o ShippingAddressPtrOutput) ZipExtendedCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShippingAddress) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ZipExtendedCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Shipping address where customer wishes to receive the device.
+type ShippingAddressInvokeResponse struct {
+	// Type of address.
+	AddressType *string `pulumi:"addressType"`
+	// Name of the City.
+	City *string `pulumi:"city"`
+	// Name of the company.
+	CompanyName *string `pulumi:"companyName"`
+	// Name of the Country.
+	Country string `pulumi:"country"`
+	// Postal code.
+	PostalCode string `pulumi:"postalCode"`
+	// Name of the State or Province.
+	StateOrProvince *string `pulumi:"stateOrProvince"`
+	// Street Address line 1.
+	StreetAddress1 string `pulumi:"streetAddress1"`
+	// Street Address line 2.
+	StreetAddress2 *string `pulumi:"streetAddress2"`
+	// Street Address line 3.
+	StreetAddress3 *string `pulumi:"streetAddress3"`
+	// Extended Zip Code.
+	ZipExtendedCode *string `pulumi:"zipExtendedCode"`
+}
+
+// ShippingAddressInvokeResponseInput is an input type that accepts ShippingAddressInvokeResponseArgs and ShippingAddressInvokeResponseOutput values.
+// You can construct a concrete instance of `ShippingAddressInvokeResponseInput` via:
+//
+//          ShippingAddressInvokeResponseArgs{...}
+type ShippingAddressInvokeResponseInput interface {
+	pulumi.Input
+
+	ToShippingAddressInvokeResponseOutput() ShippingAddressInvokeResponseOutput
+	ToShippingAddressInvokeResponseOutputWithContext(context.Context) ShippingAddressInvokeResponseOutput
+}
+
+// Shipping address where customer wishes to receive the device.
+type ShippingAddressInvokeResponseArgs struct {
+	// Type of address.
+	AddressType pulumi.StringPtrInput `pulumi:"addressType"`
+	// Name of the City.
+	City pulumi.StringPtrInput `pulumi:"city"`
+	// Name of the company.
+	CompanyName pulumi.StringPtrInput `pulumi:"companyName"`
+	// Name of the Country.
+	Country pulumi.StringInput `pulumi:"country"`
+	// Postal code.
+	PostalCode pulumi.StringInput `pulumi:"postalCode"`
+	// Name of the State or Province.
+	StateOrProvince pulumi.StringPtrInput `pulumi:"stateOrProvince"`
+	// Street Address line 1.
+	StreetAddress1 pulumi.StringInput `pulumi:"streetAddress1"`
+	// Street Address line 2.
+	StreetAddress2 pulumi.StringPtrInput `pulumi:"streetAddress2"`
+	// Street Address line 3.
+	StreetAddress3 pulumi.StringPtrInput `pulumi:"streetAddress3"`
+	// Extended Zip Code.
+	ZipExtendedCode pulumi.StringPtrInput `pulumi:"zipExtendedCode"`
+}
+
+func (ShippingAddressInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShippingAddressInvokeResponse)(nil)).Elem()
+}
+
+func (i ShippingAddressInvokeResponseArgs) ToShippingAddressInvokeResponseOutput() ShippingAddressInvokeResponseOutput {
+	return i.ToShippingAddressInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ShippingAddressInvokeResponseArgs) ToShippingAddressInvokeResponseOutputWithContext(ctx context.Context) ShippingAddressInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShippingAddressInvokeResponseOutput)
+}
+
+func (i ShippingAddressInvokeResponseArgs) ToShippingAddressInvokeResponsePtrOutput() ShippingAddressInvokeResponsePtrOutput {
+	return i.ToShippingAddressInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ShippingAddressInvokeResponseArgs) ToShippingAddressInvokeResponsePtrOutputWithContext(ctx context.Context) ShippingAddressInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShippingAddressInvokeResponseOutput).ToShippingAddressInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ShippingAddressInvokeResponsePtrInput is an input type that accepts ShippingAddressInvokeResponseArgs, ShippingAddressInvokeResponsePtr and ShippingAddressInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ShippingAddressInvokeResponsePtrInput` via:
+//
+//          ShippingAddressInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ShippingAddressInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToShippingAddressInvokeResponsePtrOutput() ShippingAddressInvokeResponsePtrOutput
+	ToShippingAddressInvokeResponsePtrOutputWithContext(context.Context) ShippingAddressInvokeResponsePtrOutput
+}
+
+type shippingAddressInvokeResponsePtrType ShippingAddressInvokeResponseArgs
+
+func ShippingAddressInvokeResponsePtr(v *ShippingAddressInvokeResponseArgs) ShippingAddressInvokeResponsePtrInput {
+	return (*shippingAddressInvokeResponsePtrType)(v)
+}
+
+func (*shippingAddressInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ShippingAddressInvokeResponse)(nil)).Elem()
+}
+
+func (i *shippingAddressInvokeResponsePtrType) ToShippingAddressInvokeResponsePtrOutput() ShippingAddressInvokeResponsePtrOutput {
+	return i.ToShippingAddressInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *shippingAddressInvokeResponsePtrType) ToShippingAddressInvokeResponsePtrOutputWithContext(ctx context.Context) ShippingAddressInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ShippingAddressInvokeResponsePtrOutput)
+}
+
+// Shipping address where customer wishes to receive the device.
+type ShippingAddressInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ShippingAddressInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ShippingAddressInvokeResponse)(nil)).Elem()
+}
+
+func (o ShippingAddressInvokeResponseOutput) ToShippingAddressInvokeResponseOutput() ShippingAddressInvokeResponseOutput {
+	return o
+}
+
+func (o ShippingAddressInvokeResponseOutput) ToShippingAddressInvokeResponseOutputWithContext(ctx context.Context) ShippingAddressInvokeResponseOutput {
+	return o
+}
+
+func (o ShippingAddressInvokeResponseOutput) ToShippingAddressInvokeResponsePtrOutput() ShippingAddressInvokeResponsePtrOutput {
+	return o.ToShippingAddressInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ShippingAddressInvokeResponseOutput) ToShippingAddressInvokeResponsePtrOutputWithContext(ctx context.Context) ShippingAddressInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) *ShippingAddressInvokeResponse {
+		return &v
+	}).(ShippingAddressInvokeResponsePtrOutput)
+}
+
+// Type of address.
+func (o ShippingAddressInvokeResponseOutput) AddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) *string { return v.AddressType }).(pulumi.StringPtrOutput)
+}
+
+// Name of the City.
+func (o ShippingAddressInvokeResponseOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// Name of the company.
+func (o ShippingAddressInvokeResponseOutput) CompanyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) *string { return v.CompanyName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Country.
+func (o ShippingAddressInvokeResponseOutput) Country() pulumi.StringOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) string { return v.Country }).(pulumi.StringOutput)
+}
+
+// Postal code.
+func (o ShippingAddressInvokeResponseOutput) PostalCode() pulumi.StringOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) string { return v.PostalCode }).(pulumi.StringOutput)
+}
+
+// Name of the State or Province.
+func (o ShippingAddressInvokeResponseOutput) StateOrProvince() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) *string { return v.StateOrProvince }).(pulumi.StringPtrOutput)
+}
+
+// Street Address line 1.
+func (o ShippingAddressInvokeResponseOutput) StreetAddress1() pulumi.StringOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) string { return v.StreetAddress1 }).(pulumi.StringOutput)
+}
+
+// Street Address line 2.
+func (o ShippingAddressInvokeResponseOutput) StreetAddress2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) *string { return v.StreetAddress2 }).(pulumi.StringPtrOutput)
+}
+
+// Street Address line 3.
+func (o ShippingAddressInvokeResponseOutput) StreetAddress3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) *string { return v.StreetAddress3 }).(pulumi.StringPtrOutput)
+}
+
+// Extended Zip Code.
+func (o ShippingAddressInvokeResponseOutput) ZipExtendedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ShippingAddressInvokeResponse) *string { return v.ZipExtendedCode }).(pulumi.StringPtrOutput)
+}
+
+type ShippingAddressInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ShippingAddressInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ShippingAddressInvokeResponse)(nil)).Elem()
+}
+
+func (o ShippingAddressInvokeResponsePtrOutput) ToShippingAddressInvokeResponsePtrOutput() ShippingAddressInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ShippingAddressInvokeResponsePtrOutput) ToShippingAddressInvokeResponsePtrOutputWithContext(ctx context.Context) ShippingAddressInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ShippingAddressInvokeResponsePtrOutput) Elem() ShippingAddressInvokeResponseOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) ShippingAddressInvokeResponse { return *v }).(ShippingAddressInvokeResponseOutput)
+}
+
+// Type of address.
+func (o ShippingAddressInvokeResponsePtrOutput) AddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the City.
+func (o ShippingAddressInvokeResponsePtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the company.
+func (o ShippingAddressInvokeResponsePtrOutput) CompanyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompanyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Country.
+func (o ShippingAddressInvokeResponsePtrOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Country
+	}).(pulumi.StringPtrOutput)
+}
+
+// Postal code.
+func (o ShippingAddressInvokeResponsePtrOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PostalCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the State or Province.
+func (o ShippingAddressInvokeResponsePtrOutput) StateOrProvince() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StateOrProvince
+	}).(pulumi.StringPtrOutput)
+}
+
+// Street Address line 1.
+func (o ShippingAddressInvokeResponsePtrOutput) StreetAddress1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreetAddress1
+	}).(pulumi.StringPtrOutput)
+}
+
+// Street Address line 2.
+func (o ShippingAddressInvokeResponsePtrOutput) StreetAddress2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreetAddress2
+	}).(pulumi.StringPtrOutput)
+}
+
+// Street Address line 3.
+func (o ShippingAddressInvokeResponsePtrOutput) StreetAddress3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreetAddress3
+	}).(pulumi.StringPtrOutput)
+}
+
+// Extended Zip Code.
+func (o ShippingAddressInvokeResponsePtrOutput) ZipExtendedCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShippingAddressInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -6925,6 +10245,79 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The Sku.
+type SkuInvokeResponse struct {
+	// The display name of the sku.
+	DisplayName *string `pulumi:"displayName"`
+	// The sku family.
+	Family *string `pulumi:"family"`
+	// The sku name.
+	Name string `pulumi:"name"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// The Sku.
+type SkuInvokeResponseArgs struct {
+	// The display name of the sku.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The sku family.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// The sku name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// The Sku.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The display name of the sku.
+func (o SkuInvokeResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The sku family.
+func (o SkuInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// The sku name.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Sku.
 type SkuResponse struct {
 	// The display name of the sku.
 	DisplayName *string `pulumi:"displayName"`
@@ -7173,6 +10566,82 @@ func (o StorageAccountDetailsOutput) StorageAccountId() pulumi.StringOutput {
 }
 
 // Details for the storage account.
+type StorageAccountDetailsInvokeResponse struct {
+	// Account Type of the data to be transferred.
+	// Expected value is 'StorageAccount'.
+	DataAccountType string `pulumi:"dataAccountType"`
+	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+	SharePassword *string `pulumi:"sharePassword"`
+	// Storage Account Resource Id.
+	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+// StorageAccountDetailsInvokeResponseInput is an input type that accepts StorageAccountDetailsInvokeResponseArgs and StorageAccountDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountDetailsInvokeResponseInput` via:
+//
+//          StorageAccountDetailsInvokeResponseArgs{...}
+type StorageAccountDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountDetailsInvokeResponseOutput() StorageAccountDetailsInvokeResponseOutput
+	ToStorageAccountDetailsInvokeResponseOutputWithContext(context.Context) StorageAccountDetailsInvokeResponseOutput
+}
+
+// Details for the storage account.
+type StorageAccountDetailsInvokeResponseArgs struct {
+	// Account Type of the data to be transferred.
+	// Expected value is 'StorageAccount'.
+	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
+	// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+	SharePassword pulumi.StringPtrInput `pulumi:"sharePassword"`
+	// Storage Account Resource Id.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+}
+
+func (StorageAccountDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountDetailsInvokeResponseArgs) ToStorageAccountDetailsInvokeResponseOutput() StorageAccountDetailsInvokeResponseOutput {
+	return i.ToStorageAccountDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountDetailsInvokeResponseArgs) ToStorageAccountDetailsInvokeResponseOutputWithContext(ctx context.Context) StorageAccountDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountDetailsInvokeResponseOutput)
+}
+
+// Details for the storage account.
+type StorageAccountDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountDetailsInvokeResponseOutput) ToStorageAccountDetailsInvokeResponseOutput() StorageAccountDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountDetailsInvokeResponseOutput) ToStorageAccountDetailsInvokeResponseOutputWithContext(ctx context.Context) StorageAccountDetailsInvokeResponseOutput {
+	return o
+}
+
+// Account Type of the data to be transferred.
+// Expected value is 'StorageAccount'.
+func (o StorageAccountDetailsInvokeResponseOutput) DataAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountDetailsInvokeResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
+}
+
+// Password for all the shares to be created on the device. Should not be passed for TransferType:ExportFromAzure jobs. If this is not passed, the service will generate password itself. This will not be returned in Get Call. Password Requirements :  Password must be minimum of 12 and maximum of 64 characters. Password must have at least one uppercase alphabet, one number and one special character. Password cannot have the following characters : IilLoO0 Password can have only alphabets, numbers and these characters : @#\-$%^!+=;:_()]+
+func (o StorageAccountDetailsInvokeResponseOutput) SharePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountDetailsInvokeResponse) *string { return v.SharePassword }).(pulumi.StringPtrOutput)
+}
+
+// Storage Account Resource Id.
+func (o StorageAccountDetailsInvokeResponseOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountDetailsInvokeResponse) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+// Details for the storage account.
 type StorageAccountDetailsResponse struct {
 	// Account Type of the data to be transferred.
 	// Expected value is 'StorageAccount'.
@@ -7413,6 +10882,178 @@ func (o TransferAllDetailsPtrOutput) TransferAllBlobs() pulumi.BoolPtrOutput {
 // To indicate if all Azure Files have to be transferred
 func (o TransferAllDetailsPtrOutput) TransferAllFiles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TransferAllDetails) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TransferAllFiles
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Details to transfer all data.
+type TransferAllDetailsInvokeResponse struct {
+	// Type of the account of data
+	DataAccountType string `pulumi:"dataAccountType"`
+	// To indicate if all Azure blobs have to be transferred
+	TransferAllBlobs *bool `pulumi:"transferAllBlobs"`
+	// To indicate if all Azure Files have to be transferred
+	TransferAllFiles *bool `pulumi:"transferAllFiles"`
+}
+
+// TransferAllDetailsInvokeResponseInput is an input type that accepts TransferAllDetailsInvokeResponseArgs and TransferAllDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `TransferAllDetailsInvokeResponseInput` via:
+//
+//          TransferAllDetailsInvokeResponseArgs{...}
+type TransferAllDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTransferAllDetailsInvokeResponseOutput() TransferAllDetailsInvokeResponseOutput
+	ToTransferAllDetailsInvokeResponseOutputWithContext(context.Context) TransferAllDetailsInvokeResponseOutput
+}
+
+// Details to transfer all data.
+type TransferAllDetailsInvokeResponseArgs struct {
+	// Type of the account of data
+	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
+	// To indicate if all Azure blobs have to be transferred
+	TransferAllBlobs pulumi.BoolPtrInput `pulumi:"transferAllBlobs"`
+	// To indicate if all Azure Files have to be transferred
+	TransferAllFiles pulumi.BoolPtrInput `pulumi:"transferAllFiles"`
+}
+
+func (TransferAllDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferAllDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i TransferAllDetailsInvokeResponseArgs) ToTransferAllDetailsInvokeResponseOutput() TransferAllDetailsInvokeResponseOutput {
+	return i.ToTransferAllDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TransferAllDetailsInvokeResponseArgs) ToTransferAllDetailsInvokeResponseOutputWithContext(ctx context.Context) TransferAllDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferAllDetailsInvokeResponseOutput)
+}
+
+func (i TransferAllDetailsInvokeResponseArgs) ToTransferAllDetailsInvokeResponsePtrOutput() TransferAllDetailsInvokeResponsePtrOutput {
+	return i.ToTransferAllDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TransferAllDetailsInvokeResponseArgs) ToTransferAllDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) TransferAllDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferAllDetailsInvokeResponseOutput).ToTransferAllDetailsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// TransferAllDetailsInvokeResponsePtrInput is an input type that accepts TransferAllDetailsInvokeResponseArgs, TransferAllDetailsInvokeResponsePtr and TransferAllDetailsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TransferAllDetailsInvokeResponsePtrInput` via:
+//
+//          TransferAllDetailsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TransferAllDetailsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToTransferAllDetailsInvokeResponsePtrOutput() TransferAllDetailsInvokeResponsePtrOutput
+	ToTransferAllDetailsInvokeResponsePtrOutputWithContext(context.Context) TransferAllDetailsInvokeResponsePtrOutput
+}
+
+type transferAllDetailsInvokeResponsePtrType TransferAllDetailsInvokeResponseArgs
+
+func TransferAllDetailsInvokeResponsePtr(v *TransferAllDetailsInvokeResponseArgs) TransferAllDetailsInvokeResponsePtrInput {
+	return (*transferAllDetailsInvokeResponsePtrType)(v)
+}
+
+func (*transferAllDetailsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransferAllDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i *transferAllDetailsInvokeResponsePtrType) ToTransferAllDetailsInvokeResponsePtrOutput() TransferAllDetailsInvokeResponsePtrOutput {
+	return i.ToTransferAllDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *transferAllDetailsInvokeResponsePtrType) ToTransferAllDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) TransferAllDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferAllDetailsInvokeResponsePtrOutput)
+}
+
+// Details to transfer all data.
+type TransferAllDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TransferAllDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferAllDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o TransferAllDetailsInvokeResponseOutput) ToTransferAllDetailsInvokeResponseOutput() TransferAllDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o TransferAllDetailsInvokeResponseOutput) ToTransferAllDetailsInvokeResponseOutputWithContext(ctx context.Context) TransferAllDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o TransferAllDetailsInvokeResponseOutput) ToTransferAllDetailsInvokeResponsePtrOutput() TransferAllDetailsInvokeResponsePtrOutput {
+	return o.ToTransferAllDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TransferAllDetailsInvokeResponseOutput) ToTransferAllDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) TransferAllDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TransferAllDetailsInvokeResponse) *TransferAllDetailsInvokeResponse {
+		return &v
+	}).(TransferAllDetailsInvokeResponsePtrOutput)
+}
+
+// Type of the account of data
+func (o TransferAllDetailsInvokeResponseOutput) DataAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v TransferAllDetailsInvokeResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
+}
+
+// To indicate if all Azure blobs have to be transferred
+func (o TransferAllDetailsInvokeResponseOutput) TransferAllBlobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TransferAllDetailsInvokeResponse) *bool { return v.TransferAllBlobs }).(pulumi.BoolPtrOutput)
+}
+
+// To indicate if all Azure Files have to be transferred
+func (o TransferAllDetailsInvokeResponseOutput) TransferAllFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TransferAllDetailsInvokeResponse) *bool { return v.TransferAllFiles }).(pulumi.BoolPtrOutput)
+}
+
+type TransferAllDetailsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TransferAllDetailsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransferAllDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o TransferAllDetailsInvokeResponsePtrOutput) ToTransferAllDetailsInvokeResponsePtrOutput() TransferAllDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TransferAllDetailsInvokeResponsePtrOutput) ToTransferAllDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) TransferAllDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TransferAllDetailsInvokeResponsePtrOutput) Elem() TransferAllDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v *TransferAllDetailsInvokeResponse) TransferAllDetailsInvokeResponse { return *v }).(TransferAllDetailsInvokeResponseOutput)
+}
+
+// Type of the account of data
+func (o TransferAllDetailsInvokeResponsePtrOutput) DataAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransferAllDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataAccountType
+	}).(pulumi.StringPtrOutput)
+}
+
+// To indicate if all Azure blobs have to be transferred
+func (o TransferAllDetailsInvokeResponsePtrOutput) TransferAllBlobs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TransferAllDetailsInvokeResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TransferAllBlobs
+	}).(pulumi.BoolPtrOutput)
+}
+
+// To indicate if all Azure Files have to be transferred
+func (o TransferAllDetailsInvokeResponsePtrOutput) TransferAllFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TransferAllDetailsInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -7665,6 +11306,359 @@ func (o TransferConfigurationOutput) TransferFilterDetails() TransferConfigurati
 	return o.ApplyT(func(v TransferConfiguration) *TransferConfigurationTransferFilterDetails {
 		return v.TransferFilterDetails
 	}).(TransferConfigurationTransferFilterDetailsPtrOutput)
+}
+
+// Configuration for defining the transfer of data.
+type TransferConfigurationInvokeResponse struct {
+	// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+	TransferAllDetails *TransferConfigurationInvokeResponseTransferAllDetails `pulumi:"transferAllDetails"`
+	// Type of the configuration for transfer.
+	TransferConfigurationType string `pulumi:"transferConfigurationType"`
+	// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+	TransferFilterDetails *TransferConfigurationInvokeResponseTransferFilterDetails `pulumi:"transferFilterDetails"`
+}
+
+// TransferConfigurationInvokeResponseInput is an input type that accepts TransferConfigurationInvokeResponseArgs and TransferConfigurationInvokeResponseOutput values.
+// You can construct a concrete instance of `TransferConfigurationInvokeResponseInput` via:
+//
+//          TransferConfigurationInvokeResponseArgs{...}
+type TransferConfigurationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTransferConfigurationInvokeResponseOutput() TransferConfigurationInvokeResponseOutput
+	ToTransferConfigurationInvokeResponseOutputWithContext(context.Context) TransferConfigurationInvokeResponseOutput
+}
+
+// Configuration for defining the transfer of data.
+type TransferConfigurationInvokeResponseArgs struct {
+	// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+	TransferAllDetails TransferConfigurationInvokeResponseTransferAllDetailsPtrInput `pulumi:"transferAllDetails"`
+	// Type of the configuration for transfer.
+	TransferConfigurationType pulumi.StringInput `pulumi:"transferConfigurationType"`
+	// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+	TransferFilterDetails TransferConfigurationInvokeResponseTransferFilterDetailsPtrInput `pulumi:"transferFilterDetails"`
+}
+
+func (TransferConfigurationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (i TransferConfigurationInvokeResponseArgs) ToTransferConfigurationInvokeResponseOutput() TransferConfigurationInvokeResponseOutput {
+	return i.ToTransferConfigurationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TransferConfigurationInvokeResponseArgs) ToTransferConfigurationInvokeResponseOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationInvokeResponseOutput)
+}
+
+// Configuration for defining the transfer of data.
+type TransferConfigurationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TransferConfigurationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferConfigurationInvokeResponse)(nil)).Elem()
+}
+
+func (o TransferConfigurationInvokeResponseOutput) ToTransferConfigurationInvokeResponseOutput() TransferConfigurationInvokeResponseOutput {
+	return o
+}
+
+func (o TransferConfigurationInvokeResponseOutput) ToTransferConfigurationInvokeResponseOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseOutput {
+	return o
+}
+
+// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+func (o TransferConfigurationInvokeResponseOutput) TransferAllDetails() TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput {
+	return o.ApplyT(func(v TransferConfigurationInvokeResponse) *TransferConfigurationInvokeResponseTransferAllDetails {
+		return v.TransferAllDetails
+	}).(TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput)
+}
+
+// Type of the configuration for transfer.
+func (o TransferConfigurationInvokeResponseOutput) TransferConfigurationType() pulumi.StringOutput {
+	return o.ApplyT(func(v TransferConfigurationInvokeResponse) string { return v.TransferConfigurationType }).(pulumi.StringOutput)
+}
+
+// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+func (o TransferConfigurationInvokeResponseOutput) TransferFilterDetails() TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput {
+	return o.ApplyT(func(v TransferConfigurationInvokeResponse) *TransferConfigurationInvokeResponseTransferFilterDetails {
+		return v.TransferFilterDetails
+	}).(TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput)
+}
+
+// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+type TransferConfigurationInvokeResponseTransferAllDetails struct {
+	// Details to transfer all data.
+	Include *TransferAllDetailsInvokeResponse `pulumi:"include"`
+}
+
+// TransferConfigurationInvokeResponseTransferAllDetailsInput is an input type that accepts TransferConfigurationInvokeResponseTransferAllDetailsArgs and TransferConfigurationInvokeResponseTransferAllDetailsOutput values.
+// You can construct a concrete instance of `TransferConfigurationInvokeResponseTransferAllDetailsInput` via:
+//
+//          TransferConfigurationInvokeResponseTransferAllDetailsArgs{...}
+type TransferConfigurationInvokeResponseTransferAllDetailsInput interface {
+	pulumi.Input
+
+	ToTransferConfigurationInvokeResponseTransferAllDetailsOutput() TransferConfigurationInvokeResponseTransferAllDetailsOutput
+	ToTransferConfigurationInvokeResponseTransferAllDetailsOutputWithContext(context.Context) TransferConfigurationInvokeResponseTransferAllDetailsOutput
+}
+
+// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+type TransferConfigurationInvokeResponseTransferAllDetailsArgs struct {
+	// Details to transfer all data.
+	Include TransferAllDetailsInvokeResponsePtrInput `pulumi:"include"`
+}
+
+func (TransferConfigurationInvokeResponseTransferAllDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferConfigurationInvokeResponseTransferAllDetails)(nil)).Elem()
+}
+
+func (i TransferConfigurationInvokeResponseTransferAllDetailsArgs) ToTransferConfigurationInvokeResponseTransferAllDetailsOutput() TransferConfigurationInvokeResponseTransferAllDetailsOutput {
+	return i.ToTransferConfigurationInvokeResponseTransferAllDetailsOutputWithContext(context.Background())
+}
+
+func (i TransferConfigurationInvokeResponseTransferAllDetailsArgs) ToTransferConfigurationInvokeResponseTransferAllDetailsOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferAllDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationInvokeResponseTransferAllDetailsOutput)
+}
+
+func (i TransferConfigurationInvokeResponseTransferAllDetailsArgs) ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutput() TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput {
+	return i.ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i TransferConfigurationInvokeResponseTransferAllDetailsArgs) ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationInvokeResponseTransferAllDetailsOutput).ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutputWithContext(ctx)
+}
+
+// TransferConfigurationInvokeResponseTransferAllDetailsPtrInput is an input type that accepts TransferConfigurationInvokeResponseTransferAllDetailsArgs, TransferConfigurationInvokeResponseTransferAllDetailsPtr and TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput values.
+// You can construct a concrete instance of `TransferConfigurationInvokeResponseTransferAllDetailsPtrInput` via:
+//
+//          TransferConfigurationInvokeResponseTransferAllDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type TransferConfigurationInvokeResponseTransferAllDetailsPtrInput interface {
+	pulumi.Input
+
+	ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutput() TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput
+	ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutputWithContext(context.Context) TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput
+}
+
+type transferConfigurationInvokeResponseTransferAllDetailsPtrType TransferConfigurationInvokeResponseTransferAllDetailsArgs
+
+func TransferConfigurationInvokeResponseTransferAllDetailsPtr(v *TransferConfigurationInvokeResponseTransferAllDetailsArgs) TransferConfigurationInvokeResponseTransferAllDetailsPtrInput {
+	return (*transferConfigurationInvokeResponseTransferAllDetailsPtrType)(v)
+}
+
+func (*transferConfigurationInvokeResponseTransferAllDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransferConfigurationInvokeResponseTransferAllDetails)(nil)).Elem()
+}
+
+func (i *transferConfigurationInvokeResponseTransferAllDetailsPtrType) ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutput() TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput {
+	return i.ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *transferConfigurationInvokeResponseTransferAllDetailsPtrType) ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput)
+}
+
+// Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+type TransferConfigurationInvokeResponseTransferAllDetailsOutput struct{ *pulumi.OutputState }
+
+func (TransferConfigurationInvokeResponseTransferAllDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferConfigurationInvokeResponseTransferAllDetails)(nil)).Elem()
+}
+
+func (o TransferConfigurationInvokeResponseTransferAllDetailsOutput) ToTransferConfigurationInvokeResponseTransferAllDetailsOutput() TransferConfigurationInvokeResponseTransferAllDetailsOutput {
+	return o
+}
+
+func (o TransferConfigurationInvokeResponseTransferAllDetailsOutput) ToTransferConfigurationInvokeResponseTransferAllDetailsOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferAllDetailsOutput {
+	return o
+}
+
+func (o TransferConfigurationInvokeResponseTransferAllDetailsOutput) ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutput() TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput {
+	return o.ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o TransferConfigurationInvokeResponseTransferAllDetailsOutput) ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput {
+	return o.ApplyT(func(v TransferConfigurationInvokeResponseTransferAllDetails) *TransferConfigurationInvokeResponseTransferAllDetails {
+		return &v
+	}).(TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput)
+}
+
+// Details to transfer all data.
+func (o TransferConfigurationInvokeResponseTransferAllDetailsOutput) Include() TransferAllDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TransferConfigurationInvokeResponseTransferAllDetails) *TransferAllDetailsInvokeResponse {
+		return v.Include
+	}).(TransferAllDetailsInvokeResponsePtrOutput)
+}
+
+type TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransferConfigurationInvokeResponseTransferAllDetails)(nil)).Elem()
+}
+
+func (o TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput) ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutput() TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput {
+	return o
+}
+
+func (o TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput) ToTransferConfigurationInvokeResponseTransferAllDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput {
+	return o
+}
+
+func (o TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput) Elem() TransferConfigurationInvokeResponseTransferAllDetailsOutput {
+	return o.ApplyT(func(v *TransferConfigurationInvokeResponseTransferAllDetails) TransferConfigurationInvokeResponseTransferAllDetails {
+		return *v
+	}).(TransferConfigurationInvokeResponseTransferAllDetailsOutput)
+}
+
+// Details to transfer all data.
+func (o TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput) Include() TransferAllDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *TransferConfigurationInvokeResponseTransferAllDetails) *TransferAllDetailsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(TransferAllDetailsInvokeResponsePtrOutput)
+}
+
+// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+type TransferConfigurationInvokeResponseTransferFilterDetails struct {
+	// Details of the filtering the transfer of data.
+	Include *TransferFilterDetailsInvokeResponse `pulumi:"include"`
+}
+
+// TransferConfigurationInvokeResponseTransferFilterDetailsInput is an input type that accepts TransferConfigurationInvokeResponseTransferFilterDetailsArgs and TransferConfigurationInvokeResponseTransferFilterDetailsOutput values.
+// You can construct a concrete instance of `TransferConfigurationInvokeResponseTransferFilterDetailsInput` via:
+//
+//          TransferConfigurationInvokeResponseTransferFilterDetailsArgs{...}
+type TransferConfigurationInvokeResponseTransferFilterDetailsInput interface {
+	pulumi.Input
+
+	ToTransferConfigurationInvokeResponseTransferFilterDetailsOutput() TransferConfigurationInvokeResponseTransferFilterDetailsOutput
+	ToTransferConfigurationInvokeResponseTransferFilterDetailsOutputWithContext(context.Context) TransferConfigurationInvokeResponseTransferFilterDetailsOutput
+}
+
+// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+type TransferConfigurationInvokeResponseTransferFilterDetailsArgs struct {
+	// Details of the filtering the transfer of data.
+	Include TransferFilterDetailsInvokeResponsePtrInput `pulumi:"include"`
+}
+
+func (TransferConfigurationInvokeResponseTransferFilterDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferConfigurationInvokeResponseTransferFilterDetails)(nil)).Elem()
+}
+
+func (i TransferConfigurationInvokeResponseTransferFilterDetailsArgs) ToTransferConfigurationInvokeResponseTransferFilterDetailsOutput() TransferConfigurationInvokeResponseTransferFilterDetailsOutput {
+	return i.ToTransferConfigurationInvokeResponseTransferFilterDetailsOutputWithContext(context.Background())
+}
+
+func (i TransferConfigurationInvokeResponseTransferFilterDetailsArgs) ToTransferConfigurationInvokeResponseTransferFilterDetailsOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferFilterDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationInvokeResponseTransferFilterDetailsOutput)
+}
+
+func (i TransferConfigurationInvokeResponseTransferFilterDetailsArgs) ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput() TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput {
+	return i.ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i TransferConfigurationInvokeResponseTransferFilterDetailsArgs) ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationInvokeResponseTransferFilterDetailsOutput).ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutputWithContext(ctx)
+}
+
+// TransferConfigurationInvokeResponseTransferFilterDetailsPtrInput is an input type that accepts TransferConfigurationInvokeResponseTransferFilterDetailsArgs, TransferConfigurationInvokeResponseTransferFilterDetailsPtr and TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput values.
+// You can construct a concrete instance of `TransferConfigurationInvokeResponseTransferFilterDetailsPtrInput` via:
+//
+//          TransferConfigurationInvokeResponseTransferFilterDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type TransferConfigurationInvokeResponseTransferFilterDetailsPtrInput interface {
+	pulumi.Input
+
+	ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput() TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput
+	ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutputWithContext(context.Context) TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput
+}
+
+type transferConfigurationInvokeResponseTransferFilterDetailsPtrType TransferConfigurationInvokeResponseTransferFilterDetailsArgs
+
+func TransferConfigurationInvokeResponseTransferFilterDetailsPtr(v *TransferConfigurationInvokeResponseTransferFilterDetailsArgs) TransferConfigurationInvokeResponseTransferFilterDetailsPtrInput {
+	return (*transferConfigurationInvokeResponseTransferFilterDetailsPtrType)(v)
+}
+
+func (*transferConfigurationInvokeResponseTransferFilterDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransferConfigurationInvokeResponseTransferFilterDetails)(nil)).Elem()
+}
+
+func (i *transferConfigurationInvokeResponseTransferFilterDetailsPtrType) ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput() TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput {
+	return i.ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *transferConfigurationInvokeResponseTransferFilterDetailsPtrType) ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput)
+}
+
+// Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+type TransferConfigurationInvokeResponseTransferFilterDetailsOutput struct{ *pulumi.OutputState }
+
+func (TransferConfigurationInvokeResponseTransferFilterDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferConfigurationInvokeResponseTransferFilterDetails)(nil)).Elem()
+}
+
+func (o TransferConfigurationInvokeResponseTransferFilterDetailsOutput) ToTransferConfigurationInvokeResponseTransferFilterDetailsOutput() TransferConfigurationInvokeResponseTransferFilterDetailsOutput {
+	return o
+}
+
+func (o TransferConfigurationInvokeResponseTransferFilterDetailsOutput) ToTransferConfigurationInvokeResponseTransferFilterDetailsOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferFilterDetailsOutput {
+	return o
+}
+
+func (o TransferConfigurationInvokeResponseTransferFilterDetailsOutput) ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput() TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput {
+	return o.ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o TransferConfigurationInvokeResponseTransferFilterDetailsOutput) ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput {
+	return o.ApplyT(func(v TransferConfigurationInvokeResponseTransferFilterDetails) *TransferConfigurationInvokeResponseTransferFilterDetails {
+		return &v
+	}).(TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput)
+}
+
+// Details of the filtering the transfer of data.
+func (o TransferConfigurationInvokeResponseTransferFilterDetailsOutput) Include() TransferFilterDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TransferConfigurationInvokeResponseTransferFilterDetails) *TransferFilterDetailsInvokeResponse {
+		return v.Include
+	}).(TransferFilterDetailsInvokeResponsePtrOutput)
+}
+
+type TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransferConfigurationInvokeResponseTransferFilterDetails)(nil)).Elem()
+}
+
+func (o TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput) ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput() TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput {
+	return o
+}
+
+func (o TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput) ToTransferConfigurationInvokeResponseTransferFilterDetailsPtrOutputWithContext(ctx context.Context) TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput {
+	return o
+}
+
+func (o TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput) Elem() TransferConfigurationInvokeResponseTransferFilterDetailsOutput {
+	return o.ApplyT(func(v *TransferConfigurationInvokeResponseTransferFilterDetails) TransferConfigurationInvokeResponseTransferFilterDetails {
+		return *v
+	}).(TransferConfigurationInvokeResponseTransferFilterDetailsOutput)
+}
+
+// Details of the filtering the transfer of data.
+func (o TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput) Include() TransferFilterDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *TransferConfigurationInvokeResponseTransferFilterDetails) *TransferFilterDetailsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(TransferFilterDetailsInvokeResponsePtrOutput)
 }
 
 // Configuration for defining the transfer of data.
@@ -8480,6 +12474,203 @@ func (o TransferFilterDetailsPtrOutput) FilterFileDetails() FilterFileDetailsArr
 }
 
 // Details of the filtering the transfer of data.
+type TransferFilterDetailsInvokeResponse struct {
+	// Filter details to transfer Azure files.
+	AzureFileFilterDetails *AzureFileFilterDetailsInvokeResponse `pulumi:"azureFileFilterDetails"`
+	// Filter details to transfer blobs.
+	BlobFilterDetails *BlobFilterDetailsInvokeResponse `pulumi:"blobFilterDetails"`
+	// Type of the account of data.
+	DataAccountType string `pulumi:"dataAccountType"`
+	// Details of the filter files to be used for data transfer.
+	FilterFileDetails []FilterFileDetailsInvokeResponse `pulumi:"filterFileDetails"`
+}
+
+// TransferFilterDetailsInvokeResponseInput is an input type that accepts TransferFilterDetailsInvokeResponseArgs and TransferFilterDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `TransferFilterDetailsInvokeResponseInput` via:
+//
+//          TransferFilterDetailsInvokeResponseArgs{...}
+type TransferFilterDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTransferFilterDetailsInvokeResponseOutput() TransferFilterDetailsInvokeResponseOutput
+	ToTransferFilterDetailsInvokeResponseOutputWithContext(context.Context) TransferFilterDetailsInvokeResponseOutput
+}
+
+// Details of the filtering the transfer of data.
+type TransferFilterDetailsInvokeResponseArgs struct {
+	// Filter details to transfer Azure files.
+	AzureFileFilterDetails AzureFileFilterDetailsInvokeResponsePtrInput `pulumi:"azureFileFilterDetails"`
+	// Filter details to transfer blobs.
+	BlobFilterDetails BlobFilterDetailsInvokeResponsePtrInput `pulumi:"blobFilterDetails"`
+	// Type of the account of data.
+	DataAccountType pulumi.StringInput `pulumi:"dataAccountType"`
+	// Details of the filter files to be used for data transfer.
+	FilterFileDetails FilterFileDetailsInvokeResponseArrayInput `pulumi:"filterFileDetails"`
+}
+
+func (TransferFilterDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i TransferFilterDetailsInvokeResponseArgs) ToTransferFilterDetailsInvokeResponseOutput() TransferFilterDetailsInvokeResponseOutput {
+	return i.ToTransferFilterDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TransferFilterDetailsInvokeResponseArgs) ToTransferFilterDetailsInvokeResponseOutputWithContext(ctx context.Context) TransferFilterDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferFilterDetailsInvokeResponseOutput)
+}
+
+func (i TransferFilterDetailsInvokeResponseArgs) ToTransferFilterDetailsInvokeResponsePtrOutput() TransferFilterDetailsInvokeResponsePtrOutput {
+	return i.ToTransferFilterDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TransferFilterDetailsInvokeResponseArgs) ToTransferFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) TransferFilterDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferFilterDetailsInvokeResponseOutput).ToTransferFilterDetailsInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// TransferFilterDetailsInvokeResponsePtrInput is an input type that accepts TransferFilterDetailsInvokeResponseArgs, TransferFilterDetailsInvokeResponsePtr and TransferFilterDetailsInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TransferFilterDetailsInvokeResponsePtrInput` via:
+//
+//          TransferFilterDetailsInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TransferFilterDetailsInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToTransferFilterDetailsInvokeResponsePtrOutput() TransferFilterDetailsInvokeResponsePtrOutput
+	ToTransferFilterDetailsInvokeResponsePtrOutputWithContext(context.Context) TransferFilterDetailsInvokeResponsePtrOutput
+}
+
+type transferFilterDetailsInvokeResponsePtrType TransferFilterDetailsInvokeResponseArgs
+
+func TransferFilterDetailsInvokeResponsePtr(v *TransferFilterDetailsInvokeResponseArgs) TransferFilterDetailsInvokeResponsePtrInput {
+	return (*transferFilterDetailsInvokeResponsePtrType)(v)
+}
+
+func (*transferFilterDetailsInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransferFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i *transferFilterDetailsInvokeResponsePtrType) ToTransferFilterDetailsInvokeResponsePtrOutput() TransferFilterDetailsInvokeResponsePtrOutput {
+	return i.ToTransferFilterDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *transferFilterDetailsInvokeResponsePtrType) ToTransferFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) TransferFilterDetailsInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransferFilterDetailsInvokeResponsePtrOutput)
+}
+
+// Details of the filtering the transfer of data.
+type TransferFilterDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TransferFilterDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransferFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o TransferFilterDetailsInvokeResponseOutput) ToTransferFilterDetailsInvokeResponseOutput() TransferFilterDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o TransferFilterDetailsInvokeResponseOutput) ToTransferFilterDetailsInvokeResponseOutputWithContext(ctx context.Context) TransferFilterDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o TransferFilterDetailsInvokeResponseOutput) ToTransferFilterDetailsInvokeResponsePtrOutput() TransferFilterDetailsInvokeResponsePtrOutput {
+	return o.ToTransferFilterDetailsInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TransferFilterDetailsInvokeResponseOutput) ToTransferFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) TransferFilterDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TransferFilterDetailsInvokeResponse) *TransferFilterDetailsInvokeResponse {
+		return &v
+	}).(TransferFilterDetailsInvokeResponsePtrOutput)
+}
+
+// Filter details to transfer Azure files.
+func (o TransferFilterDetailsInvokeResponseOutput) AzureFileFilterDetails() AzureFileFilterDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TransferFilterDetailsInvokeResponse) *AzureFileFilterDetailsInvokeResponse {
+		return v.AzureFileFilterDetails
+	}).(AzureFileFilterDetailsInvokeResponsePtrOutput)
+}
+
+// Filter details to transfer blobs.
+func (o TransferFilterDetailsInvokeResponseOutput) BlobFilterDetails() BlobFilterDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TransferFilterDetailsInvokeResponse) *BlobFilterDetailsInvokeResponse {
+		return v.BlobFilterDetails
+	}).(BlobFilterDetailsInvokeResponsePtrOutput)
+}
+
+// Type of the account of data.
+func (o TransferFilterDetailsInvokeResponseOutput) DataAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v TransferFilterDetailsInvokeResponse) string { return v.DataAccountType }).(pulumi.StringOutput)
+}
+
+// Details of the filter files to be used for data transfer.
+func (o TransferFilterDetailsInvokeResponseOutput) FilterFileDetails() FilterFileDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v TransferFilterDetailsInvokeResponse) []FilterFileDetailsInvokeResponse {
+		return v.FilterFileDetails
+	}).(FilterFileDetailsInvokeResponseArrayOutput)
+}
+
+type TransferFilterDetailsInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TransferFilterDetailsInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransferFilterDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o TransferFilterDetailsInvokeResponsePtrOutput) ToTransferFilterDetailsInvokeResponsePtrOutput() TransferFilterDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TransferFilterDetailsInvokeResponsePtrOutput) ToTransferFilterDetailsInvokeResponsePtrOutputWithContext(ctx context.Context) TransferFilterDetailsInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TransferFilterDetailsInvokeResponsePtrOutput) Elem() TransferFilterDetailsInvokeResponseOutput {
+	return o.ApplyT(func(v *TransferFilterDetailsInvokeResponse) TransferFilterDetailsInvokeResponse { return *v }).(TransferFilterDetailsInvokeResponseOutput)
+}
+
+// Filter details to transfer Azure files.
+func (o TransferFilterDetailsInvokeResponsePtrOutput) AzureFileFilterDetails() AzureFileFilterDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *TransferFilterDetailsInvokeResponse) *AzureFileFilterDetailsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureFileFilterDetails
+	}).(AzureFileFilterDetailsInvokeResponsePtrOutput)
+}
+
+// Filter details to transfer blobs.
+func (o TransferFilterDetailsInvokeResponsePtrOutput) BlobFilterDetails() BlobFilterDetailsInvokeResponsePtrOutput {
+	return o.ApplyT(func(v *TransferFilterDetailsInvokeResponse) *BlobFilterDetailsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BlobFilterDetails
+	}).(BlobFilterDetailsInvokeResponsePtrOutput)
+}
+
+// Type of the account of data.
+func (o TransferFilterDetailsInvokeResponsePtrOutput) DataAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransferFilterDetailsInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataAccountType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the filter files to be used for data transfer.
+func (o TransferFilterDetailsInvokeResponsePtrOutput) FilterFileDetails() FilterFileDetailsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v *TransferFilterDetailsInvokeResponse) []FilterFileDetailsInvokeResponse {
+		if v == nil {
+			return nil
+		}
+		return v.FilterFileDetails
+	}).(FilterFileDetailsInvokeResponseArrayOutput)
+}
+
+// Details of the filtering the transfer of data.
 type TransferFilterDetailsResponse struct {
 	// Filter details to transfer Azure files.
 	AzureFileFilterDetails *AzureFileFilterDetailsResponse `pulumi:"azureFileFilterDetails"`
@@ -8805,6 +12996,140 @@ func (o TransportPreferencesPtrOutput) PreferredShipmentType() pulumi.StringPtrO
 }
 
 // Preferences related to the shipment logistics of the sku
+type TransportPreferencesInvokeResponse struct {
+	// Indicates Shipment Logistics type that the customer preferred.
+	PreferredShipmentType string `pulumi:"preferredShipmentType"`
+}
+
+// TransportPreferencesInvokeResponseInput is an input type that accepts TransportPreferencesInvokeResponseArgs and TransportPreferencesInvokeResponseOutput values.
+// You can construct a concrete instance of `TransportPreferencesInvokeResponseInput` via:
+//
+//          TransportPreferencesInvokeResponseArgs{...}
+type TransportPreferencesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTransportPreferencesInvokeResponseOutput() TransportPreferencesInvokeResponseOutput
+	ToTransportPreferencesInvokeResponseOutputWithContext(context.Context) TransportPreferencesInvokeResponseOutput
+}
+
+// Preferences related to the shipment logistics of the sku
+type TransportPreferencesInvokeResponseArgs struct {
+	// Indicates Shipment Logistics type that the customer preferred.
+	PreferredShipmentType pulumi.StringInput `pulumi:"preferredShipmentType"`
+}
+
+func (TransportPreferencesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransportPreferencesInvokeResponse)(nil)).Elem()
+}
+
+func (i TransportPreferencesInvokeResponseArgs) ToTransportPreferencesInvokeResponseOutput() TransportPreferencesInvokeResponseOutput {
+	return i.ToTransportPreferencesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TransportPreferencesInvokeResponseArgs) ToTransportPreferencesInvokeResponseOutputWithContext(ctx context.Context) TransportPreferencesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransportPreferencesInvokeResponseOutput)
+}
+
+func (i TransportPreferencesInvokeResponseArgs) ToTransportPreferencesInvokeResponsePtrOutput() TransportPreferencesInvokeResponsePtrOutput {
+	return i.ToTransportPreferencesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TransportPreferencesInvokeResponseArgs) ToTransportPreferencesInvokeResponsePtrOutputWithContext(ctx context.Context) TransportPreferencesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransportPreferencesInvokeResponseOutput).ToTransportPreferencesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// TransportPreferencesInvokeResponsePtrInput is an input type that accepts TransportPreferencesInvokeResponseArgs, TransportPreferencesInvokeResponsePtr and TransportPreferencesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `TransportPreferencesInvokeResponsePtrInput` via:
+//
+//          TransportPreferencesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type TransportPreferencesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToTransportPreferencesInvokeResponsePtrOutput() TransportPreferencesInvokeResponsePtrOutput
+	ToTransportPreferencesInvokeResponsePtrOutputWithContext(context.Context) TransportPreferencesInvokeResponsePtrOutput
+}
+
+type transportPreferencesInvokeResponsePtrType TransportPreferencesInvokeResponseArgs
+
+func TransportPreferencesInvokeResponsePtr(v *TransportPreferencesInvokeResponseArgs) TransportPreferencesInvokeResponsePtrInput {
+	return (*transportPreferencesInvokeResponsePtrType)(v)
+}
+
+func (*transportPreferencesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransportPreferencesInvokeResponse)(nil)).Elem()
+}
+
+func (i *transportPreferencesInvokeResponsePtrType) ToTransportPreferencesInvokeResponsePtrOutput() TransportPreferencesInvokeResponsePtrOutput {
+	return i.ToTransportPreferencesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *transportPreferencesInvokeResponsePtrType) ToTransportPreferencesInvokeResponsePtrOutputWithContext(ctx context.Context) TransportPreferencesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransportPreferencesInvokeResponsePtrOutput)
+}
+
+// Preferences related to the shipment logistics of the sku
+type TransportPreferencesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TransportPreferencesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransportPreferencesInvokeResponse)(nil)).Elem()
+}
+
+func (o TransportPreferencesInvokeResponseOutput) ToTransportPreferencesInvokeResponseOutput() TransportPreferencesInvokeResponseOutput {
+	return o
+}
+
+func (o TransportPreferencesInvokeResponseOutput) ToTransportPreferencesInvokeResponseOutputWithContext(ctx context.Context) TransportPreferencesInvokeResponseOutput {
+	return o
+}
+
+func (o TransportPreferencesInvokeResponseOutput) ToTransportPreferencesInvokeResponsePtrOutput() TransportPreferencesInvokeResponsePtrOutput {
+	return o.ToTransportPreferencesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TransportPreferencesInvokeResponseOutput) ToTransportPreferencesInvokeResponsePtrOutputWithContext(ctx context.Context) TransportPreferencesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v TransportPreferencesInvokeResponse) *TransportPreferencesInvokeResponse {
+		return &v
+	}).(TransportPreferencesInvokeResponsePtrOutput)
+}
+
+// Indicates Shipment Logistics type that the customer preferred.
+func (o TransportPreferencesInvokeResponseOutput) PreferredShipmentType() pulumi.StringOutput {
+	return o.ApplyT(func(v TransportPreferencesInvokeResponse) string { return v.PreferredShipmentType }).(pulumi.StringOutput)
+}
+
+type TransportPreferencesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TransportPreferencesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransportPreferencesInvokeResponse)(nil)).Elem()
+}
+
+func (o TransportPreferencesInvokeResponsePtrOutput) ToTransportPreferencesInvokeResponsePtrOutput() TransportPreferencesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TransportPreferencesInvokeResponsePtrOutput) ToTransportPreferencesInvokeResponsePtrOutputWithContext(ctx context.Context) TransportPreferencesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o TransportPreferencesInvokeResponsePtrOutput) Elem() TransportPreferencesInvokeResponseOutput {
+	return o.ApplyT(func(v *TransportPreferencesInvokeResponse) TransportPreferencesInvokeResponse { return *v }).(TransportPreferencesInvokeResponseOutput)
+}
+
+// Indicates Shipment Logistics type that the customer preferred.
+func (o TransportPreferencesInvokeResponsePtrOutput) PreferredShipmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransportPreferencesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreferredShipmentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Preferences related to the shipment logistics of the sku
 type TransportPreferencesResponse struct {
 	// Indicates Shipment Logistics type that the customer preferred.
 	PreferredShipmentType string `pulumi:"preferredShipmentType"`
@@ -8939,208 +13264,255 @@ func (o TransportPreferencesResponsePtrOutput) PreferredShipmentType() pulumi.St
 }
 
 // Unencrypted credentials for accessing device.
-type UnencryptedCredentialsResponse struct {
+type UnencryptedCredentialsInvokeResponse struct {
 	// Name of the job.
 	JobName string `pulumi:"jobName"`
 	// Secrets related to this job.
 	JobSecrets interface{} `pulumi:"jobSecrets"`
 }
 
-// UnencryptedCredentialsResponseInput is an input type that accepts UnencryptedCredentialsResponseArgs and UnencryptedCredentialsResponseOutput values.
-// You can construct a concrete instance of `UnencryptedCredentialsResponseInput` via:
+// UnencryptedCredentialsInvokeResponseInput is an input type that accepts UnencryptedCredentialsInvokeResponseArgs and UnencryptedCredentialsInvokeResponseOutput values.
+// You can construct a concrete instance of `UnencryptedCredentialsInvokeResponseInput` via:
 //
-//          UnencryptedCredentialsResponseArgs{...}
-type UnencryptedCredentialsResponseInput interface {
+//          UnencryptedCredentialsInvokeResponseArgs{...}
+type UnencryptedCredentialsInvokeResponseInput interface {
 	pulumi.Input
 
-	ToUnencryptedCredentialsResponseOutput() UnencryptedCredentialsResponseOutput
-	ToUnencryptedCredentialsResponseOutputWithContext(context.Context) UnencryptedCredentialsResponseOutput
+	ToUnencryptedCredentialsInvokeResponseOutput() UnencryptedCredentialsInvokeResponseOutput
+	ToUnencryptedCredentialsInvokeResponseOutputWithContext(context.Context) UnencryptedCredentialsInvokeResponseOutput
 }
 
 // Unencrypted credentials for accessing device.
-type UnencryptedCredentialsResponseArgs struct {
+type UnencryptedCredentialsInvokeResponseArgs struct {
 	// Name of the job.
 	JobName pulumi.StringInput `pulumi:"jobName"`
 	// Secrets related to this job.
 	JobSecrets pulumi.Input `pulumi:"jobSecrets"`
 }
 
-func (UnencryptedCredentialsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UnencryptedCredentialsResponse)(nil)).Elem()
+func (UnencryptedCredentialsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnencryptedCredentialsInvokeResponse)(nil)).Elem()
 }
 
-func (i UnencryptedCredentialsResponseArgs) ToUnencryptedCredentialsResponseOutput() UnencryptedCredentialsResponseOutput {
-	return i.ToUnencryptedCredentialsResponseOutputWithContext(context.Background())
+func (i UnencryptedCredentialsInvokeResponseArgs) ToUnencryptedCredentialsInvokeResponseOutput() UnencryptedCredentialsInvokeResponseOutput {
+	return i.ToUnencryptedCredentialsInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i UnencryptedCredentialsResponseArgs) ToUnencryptedCredentialsResponseOutputWithContext(ctx context.Context) UnencryptedCredentialsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UnencryptedCredentialsResponseOutput)
+func (i UnencryptedCredentialsInvokeResponseArgs) ToUnencryptedCredentialsInvokeResponseOutputWithContext(ctx context.Context) UnencryptedCredentialsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnencryptedCredentialsInvokeResponseOutput)
 }
 
-// UnencryptedCredentialsResponseArrayInput is an input type that accepts UnencryptedCredentialsResponseArray and UnencryptedCredentialsResponseArrayOutput values.
-// You can construct a concrete instance of `UnencryptedCredentialsResponseArrayInput` via:
+// UnencryptedCredentialsInvokeResponseArrayInput is an input type that accepts UnencryptedCredentialsInvokeResponseArray and UnencryptedCredentialsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `UnencryptedCredentialsInvokeResponseArrayInput` via:
 //
-//          UnencryptedCredentialsResponseArray{ UnencryptedCredentialsResponseArgs{...} }
-type UnencryptedCredentialsResponseArrayInput interface {
+//          UnencryptedCredentialsInvokeResponseArray{ UnencryptedCredentialsInvokeResponseArgs{...} }
+type UnencryptedCredentialsInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToUnencryptedCredentialsResponseArrayOutput() UnencryptedCredentialsResponseArrayOutput
-	ToUnencryptedCredentialsResponseArrayOutputWithContext(context.Context) UnencryptedCredentialsResponseArrayOutput
+	ToUnencryptedCredentialsInvokeResponseArrayOutput() UnencryptedCredentialsInvokeResponseArrayOutput
+	ToUnencryptedCredentialsInvokeResponseArrayOutputWithContext(context.Context) UnencryptedCredentialsInvokeResponseArrayOutput
 }
 
-type UnencryptedCredentialsResponseArray []UnencryptedCredentialsResponseInput
+type UnencryptedCredentialsInvokeResponseArray []UnencryptedCredentialsInvokeResponseInput
 
-func (UnencryptedCredentialsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UnencryptedCredentialsResponse)(nil)).Elem()
+func (UnencryptedCredentialsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UnencryptedCredentialsInvokeResponse)(nil)).Elem()
 }
 
-func (i UnencryptedCredentialsResponseArray) ToUnencryptedCredentialsResponseArrayOutput() UnencryptedCredentialsResponseArrayOutput {
-	return i.ToUnencryptedCredentialsResponseArrayOutputWithContext(context.Background())
+func (i UnencryptedCredentialsInvokeResponseArray) ToUnencryptedCredentialsInvokeResponseArrayOutput() UnencryptedCredentialsInvokeResponseArrayOutput {
+	return i.ToUnencryptedCredentialsInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i UnencryptedCredentialsResponseArray) ToUnencryptedCredentialsResponseArrayOutputWithContext(ctx context.Context) UnencryptedCredentialsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UnencryptedCredentialsResponseArrayOutput)
+func (i UnencryptedCredentialsInvokeResponseArray) ToUnencryptedCredentialsInvokeResponseArrayOutputWithContext(ctx context.Context) UnencryptedCredentialsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UnencryptedCredentialsInvokeResponseArrayOutput)
 }
 
 // Unencrypted credentials for accessing device.
-type UnencryptedCredentialsResponseOutput struct{ *pulumi.OutputState }
+type UnencryptedCredentialsInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (UnencryptedCredentialsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UnencryptedCredentialsResponse)(nil)).Elem()
+func (UnencryptedCredentialsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UnencryptedCredentialsInvokeResponse)(nil)).Elem()
 }
 
-func (o UnencryptedCredentialsResponseOutput) ToUnencryptedCredentialsResponseOutput() UnencryptedCredentialsResponseOutput {
+func (o UnencryptedCredentialsInvokeResponseOutput) ToUnencryptedCredentialsInvokeResponseOutput() UnencryptedCredentialsInvokeResponseOutput {
 	return o
 }
 
-func (o UnencryptedCredentialsResponseOutput) ToUnencryptedCredentialsResponseOutputWithContext(ctx context.Context) UnencryptedCredentialsResponseOutput {
+func (o UnencryptedCredentialsInvokeResponseOutput) ToUnencryptedCredentialsInvokeResponseOutputWithContext(ctx context.Context) UnencryptedCredentialsInvokeResponseOutput {
 	return o
 }
 
 // Name of the job.
-func (o UnencryptedCredentialsResponseOutput) JobName() pulumi.StringOutput {
-	return o.ApplyT(func(v UnencryptedCredentialsResponse) string { return v.JobName }).(pulumi.StringOutput)
+func (o UnencryptedCredentialsInvokeResponseOutput) JobName() pulumi.StringOutput {
+	return o.ApplyT(func(v UnencryptedCredentialsInvokeResponse) string { return v.JobName }).(pulumi.StringOutput)
 }
 
 // Secrets related to this job.
-func (o UnencryptedCredentialsResponseOutput) JobSecrets() pulumi.AnyOutput {
-	return o.ApplyT(func(v UnencryptedCredentialsResponse) interface{} { return v.JobSecrets }).(pulumi.AnyOutput)
+func (o UnencryptedCredentialsInvokeResponseOutput) JobSecrets() pulumi.AnyOutput {
+	return o.ApplyT(func(v UnencryptedCredentialsInvokeResponse) interface{} { return v.JobSecrets }).(pulumi.AnyOutput)
 }
 
-type UnencryptedCredentialsResponseArrayOutput struct{ *pulumi.OutputState }
+type UnencryptedCredentialsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (UnencryptedCredentialsResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UnencryptedCredentialsResponse)(nil)).Elem()
+func (UnencryptedCredentialsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UnencryptedCredentialsInvokeResponse)(nil)).Elem()
 }
 
-func (o UnencryptedCredentialsResponseArrayOutput) ToUnencryptedCredentialsResponseArrayOutput() UnencryptedCredentialsResponseArrayOutput {
+func (o UnencryptedCredentialsInvokeResponseArrayOutput) ToUnencryptedCredentialsInvokeResponseArrayOutput() UnencryptedCredentialsInvokeResponseArrayOutput {
 	return o
 }
 
-func (o UnencryptedCredentialsResponseArrayOutput) ToUnencryptedCredentialsResponseArrayOutputWithContext(ctx context.Context) UnencryptedCredentialsResponseArrayOutput {
+func (o UnencryptedCredentialsInvokeResponseArrayOutput) ToUnencryptedCredentialsInvokeResponseArrayOutputWithContext(ctx context.Context) UnencryptedCredentialsInvokeResponseArrayOutput {
 	return o
 }
 
-func (o UnencryptedCredentialsResponseArrayOutput) Index(i pulumi.IntInput) UnencryptedCredentialsResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UnencryptedCredentialsResponse {
-		return vs[0].([]UnencryptedCredentialsResponse)[vs[1].(int)]
-	}).(UnencryptedCredentialsResponseOutput)
+func (o UnencryptedCredentialsInvokeResponseArrayOutput) Index(i pulumi.IntInput) UnencryptedCredentialsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UnencryptedCredentialsInvokeResponse {
+		return vs[0].([]UnencryptedCredentialsInvokeResponse)[vs[1].(int)]
+	}).(UnencryptedCredentialsInvokeResponseOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccountCredentialDetailsResponseOutput{})
-	pulumi.RegisterOutputType(AccountCredentialDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(AccountCredentialDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AccountCredentialDetailsInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(AdditionalErrorInfoInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AdditionalErrorInfoInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AdditionalErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(AdditionalErrorInfoResponseArrayOutput{})
-	pulumi.RegisterOutputType(ApplianceNetworkConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(ApplianceNetworkConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ApplianceNetworkConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ApplianceNetworkConfigurationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureFileFilterDetailsOutput{})
 	pulumi.RegisterOutputType(AzureFileFilterDetailsPtrOutput{})
+	pulumi.RegisterOutputType(AzureFileFilterDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AzureFileFilterDetailsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureFileFilterDetailsResponseOutput{})
 	pulumi.RegisterOutputType(AzureFileFilterDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(BlobFilterDetailsOutput{})
 	pulumi.RegisterOutputType(BlobFilterDetailsPtrOutput{})
+	pulumi.RegisterOutputType(BlobFilterDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(BlobFilterDetailsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(BlobFilterDetailsResponseOutput{})
 	pulumi.RegisterOutputType(BlobFilterDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CloudErrorInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CloudErrorInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CloudErrorResponseOutput{})
 	pulumi.RegisterOutputType(CloudErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContactDetailsOutput{})
+	pulumi.RegisterOutputType(ContactDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponseOutput{})
+	pulumi.RegisterOutputType(CopyProgressInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CopyProgressInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CopyProgressResponseOutput{})
 	pulumi.RegisterOutputType(CopyProgressResponseArrayOutput{})
+	pulumi.RegisterOutputType(DataBoxAccountCopyLogDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DataBoxAccountCopyLogDetailsResponseOutput{})
+	pulumi.RegisterOutputType(DataBoxDiskCopyLogDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DataBoxDiskCopyLogDetailsResponseOutput{})
+	pulumi.RegisterOutputType(DataBoxDiskCopyProgressInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataBoxDiskCopyProgressInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataBoxDiskCopyProgressResponseOutput{})
 	pulumi.RegisterOutputType(DataBoxDiskCopyProgressResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataBoxDiskJobDetailsOutput{})
+	pulumi.RegisterOutputType(DataBoxDiskJobDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DataBoxDiskJobDetailsResponseOutput{})
-	pulumi.RegisterOutputType(DataBoxDiskJobSecretsResponseOutput{})
+	pulumi.RegisterOutputType(DataBoxDiskJobSecretsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataBoxHeavyAccountCopyLogDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DataBoxHeavyAccountCopyLogDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DataBoxHeavyJobDetailsOutput{})
+	pulumi.RegisterOutputType(DataBoxHeavyJobDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DataBoxHeavyJobDetailsResponseOutput{})
-	pulumi.RegisterOutputType(DataBoxHeavyJobSecretsResponseOutput{})
-	pulumi.RegisterOutputType(DataBoxHeavySecretResponseOutput{})
-	pulumi.RegisterOutputType(DataBoxHeavySecretResponseArrayOutput{})
+	pulumi.RegisterOutputType(DataBoxHeavyJobSecretsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataBoxHeavySecretInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataBoxHeavySecretInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataBoxJobDetailsOutput{})
+	pulumi.RegisterOutputType(DataBoxJobDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DataBoxJobDetailsResponseOutput{})
-	pulumi.RegisterOutputType(DataBoxSecretResponseOutput{})
-	pulumi.RegisterOutputType(DataBoxSecretResponseArrayOutput{})
+	pulumi.RegisterOutputType(DataBoxSecretInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataBoxSecretInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataExportDetailsOutput{})
 	pulumi.RegisterOutputType(DataExportDetailsArrayOutput{})
+	pulumi.RegisterOutputType(DataExportDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataExportDetailsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataExportDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DataExportDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataImportDetailsOutput{})
 	pulumi.RegisterOutputType(DataImportDetailsArrayOutput{})
+	pulumi.RegisterOutputType(DataImportDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataImportDetailsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataImportDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DataImportDetailsResponseArrayOutput{})
-	pulumi.RegisterOutputType(DataboxJobSecretsResponseOutput{})
-	pulumi.RegisterOutputType(DcAccessSecurityCodeResponseOutput{})
-	pulumi.RegisterOutputType(DiskSecretResponseOutput{})
-	pulumi.RegisterOutputType(DiskSecretResponseArrayOutput{})
+	pulumi.RegisterOutputType(DataboxJobSecretsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DcAccessSecurityCodeInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DiskSecretInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DiskSecretInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FilterFileDetailsOutput{})
 	pulumi.RegisterOutputType(FilterFileDetailsArrayOutput{})
+	pulumi.RegisterOutputType(FilterFileDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FilterFileDetailsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FilterFileDetailsResponseOutput{})
 	pulumi.RegisterOutputType(FilterFileDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobDeliveryInfoOutput{})
 	pulumi.RegisterOutputType(JobDeliveryInfoPtrOutput{})
+	pulumi.RegisterOutputType(JobDeliveryInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(JobDeliveryInfoResponseOutput{})
 	pulumi.RegisterOutputType(JobDeliveryInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(JobStagesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(JobStagesInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobStagesResponseOutput{})
 	pulumi.RegisterOutputType(JobStagesResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyEncryptionKeyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(KeyEncryptionKeyResponseOutput{})
 	pulumi.RegisterOutputType(ManagedDiskDetailsOutput{})
+	pulumi.RegisterOutputType(ManagedDiskDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ManagedDiskDetailsResponseOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceArrayOutput{})
+	pulumi.RegisterOutputType(NotificationPreferenceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NotificationPreferenceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceResponseOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceResponseArrayOutput{})
+	pulumi.RegisterOutputType(PackageShippingDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(PackageShippingDetailsResponseOutput{})
 	pulumi.RegisterOutputType(PreferencesOutput{})
 	pulumi.RegisterOutputType(PreferencesPtrOutput{})
+	pulumi.RegisterOutputType(PreferencesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PreferencesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(PreferencesResponseOutput{})
 	pulumi.RegisterOutputType(PreferencesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(ShareCredentialDetailsResponseOutput{})
-	pulumi.RegisterOutputType(ShareCredentialDetailsResponseArrayOutput{})
+	pulumi.RegisterOutputType(ShareCredentialDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ShareCredentialDetailsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ShippingAddressOutput{})
 	pulumi.RegisterOutputType(ShippingAddressPtrOutput{})
+	pulumi.RegisterOutputType(ShippingAddressInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ShippingAddressInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ShippingAddressResponseOutput{})
 	pulumi.RegisterOutputType(ShippingAddressResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountDetailsOutput{})
+	pulumi.RegisterOutputType(StorageAccountDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountDetailsResponseOutput{})
 	pulumi.RegisterOutputType(TransferAllDetailsOutput{})
 	pulumi.RegisterOutputType(TransferAllDetailsPtrOutput{})
+	pulumi.RegisterOutputType(TransferAllDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TransferAllDetailsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransferAllDetailsResponseOutput{})
 	pulumi.RegisterOutputType(TransferAllDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransferConfigurationOutput{})
+	pulumi.RegisterOutputType(TransferConfigurationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TransferConfigurationInvokeResponseTransferAllDetailsOutput{})
+	pulumi.RegisterOutputType(TransferConfigurationInvokeResponseTransferAllDetailsPtrOutput{})
+	pulumi.RegisterOutputType(TransferConfigurationInvokeResponseTransferFilterDetailsOutput{})
+	pulumi.RegisterOutputType(TransferConfigurationInvokeResponseTransferFilterDetailsPtrOutput{})
 	pulumi.RegisterOutputType(TransferConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(TransferConfigurationResponseTransferAllDetailsOutput{})
 	pulumi.RegisterOutputType(TransferConfigurationResponseTransferAllDetailsPtrOutput{})
@@ -9152,12 +13524,16 @@ func init() {
 	pulumi.RegisterOutputType(TransferConfigurationTransferFilterDetailsPtrOutput{})
 	pulumi.RegisterOutputType(TransferFilterDetailsOutput{})
 	pulumi.RegisterOutputType(TransferFilterDetailsPtrOutput{})
+	pulumi.RegisterOutputType(TransferFilterDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TransferFilterDetailsInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransferFilterDetailsResponseOutput{})
 	pulumi.RegisterOutputType(TransferFilterDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(TransportPreferencesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TransportPreferencesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesResponseOutput{})
 	pulumi.RegisterOutputType(TransportPreferencesResponsePtrOutput{})
-	pulumi.RegisterOutputType(UnencryptedCredentialsResponseOutput{})
-	pulumi.RegisterOutputType(UnencryptedCredentialsResponseArrayOutput{})
+	pulumi.RegisterOutputType(UnencryptedCredentialsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(UnencryptedCredentialsInvokeResponseArrayOutput{})
 }

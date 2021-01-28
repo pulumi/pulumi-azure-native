@@ -32,7 +32,7 @@ type LookupExpressRouteConnectionResult struct {
 	// Enable internet security.
 	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// The ExpressRoute circuit peering.
-	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponse `pulumi:"expressRouteCircuitPeering"`
+	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdInvokeResponse `pulumi:"expressRouteCircuitPeering"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the resource.

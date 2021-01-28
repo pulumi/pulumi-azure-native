@@ -28,7 +28,7 @@ type LookupDiskResult struct {
 	// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
 	BurstingEnabled *bool `pulumi:"burstingEnabled"`
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponse `pulumi:"creationData"`
+	CreationData CreationDataInvokeResponse `pulumi:"creationData"`
 	// ARM id of the DiskAccess resource for using private endpoints on disks.
 	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
@@ -46,11 +46,11 @@ type LookupDiskResult struct {
 	// The state of the disk.
 	DiskState string `pulumi:"diskState"`
 	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption *EncryptionResponse `pulumi:"encryption"`
+	Encryption *EncryptionInvokeResponse `pulumi:"encryption"`
 	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
+	EncryptionSettingsCollection *EncryptionSettingsCollectionInvokeResponse `pulumi:"encryptionSettingsCollection"`
 	// The extended location where the disk will be created. Extended location cannot be changed.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	ExtendedLocation *ExtendedLocationInvokeResponse `pulumi:"extendedLocation"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource Id
@@ -72,11 +72,11 @@ type LookupDiskResult struct {
 	// The disk provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
-	PurchasePlan *PurchasePlanResponse `pulumi:"purchasePlan"`
+	PurchasePlan *PurchasePlanInvokeResponse `pulumi:"purchasePlan"`
 	// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
-	ShareInfo []ShareInfoElementResponse `pulumi:"shareInfo"`
+	ShareInfo []ShareInfoElementInvokeResponse `pulumi:"shareInfo"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-	Sku *DiskSkuResponse `pulumi:"sku"`
+	Sku *DiskSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.

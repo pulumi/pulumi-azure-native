@@ -32,7 +32,7 @@ type LookupAccountResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The SKU of the resource
-	Sku SKUResponse `pulumi:"sku"`
+	Sku SKUInvokeResponse `pulumi:"sku"`
 	// The tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 	// The fully qualified type of the resource

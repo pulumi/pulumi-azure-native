@@ -32,7 +32,7 @@ type LookupPrefixResult struct {
 	// The error message for validation state
 	ErrorMessage string `pulumi:"errorMessage"`
 	// The list of events for peering service prefix
-	Events []PeeringServicePrefixEventResponse `pulumi:"events"`
+	Events []PeeringServicePrefixEventInvokeResponse `pulumi:"events"`
 	// The ID of the resource.
 	Id string `pulumi:"id"`
 	// The prefix learned type

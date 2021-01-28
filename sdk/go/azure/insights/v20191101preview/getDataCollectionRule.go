@@ -26,14 +26,14 @@ type LookupDataCollectionRuleArgs struct {
 // Definition of ARM tracked top level resource.
 type LookupDataCollectionRuleResult struct {
 	// The specification of data flows.
-	DataFlows []DataFlowResponse `pulumi:"dataFlows"`
+	DataFlows []DataFlowInvokeResponse `pulumi:"dataFlows"`
 	// The specification of data sources.
 	// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
-	DataSources *DataCollectionRuleResponseDataSources `pulumi:"dataSources"`
+	DataSources *DataCollectionRuleInvokeResponseDataSources `pulumi:"dataSources"`
 	// Description of the data collection rule.
 	Description *string `pulumi:"description"`
 	// The specification of destinations.
-	Destinations DataCollectionRuleResponseDestinations `pulumi:"destinations"`
+	Destinations DataCollectionRuleInvokeResponseDestinations `pulumi:"destinations"`
 	// Resource entity tag (ETag).
 	Etag string `pulumi:"etag"`
 	// Fully qualified ID of the resource.

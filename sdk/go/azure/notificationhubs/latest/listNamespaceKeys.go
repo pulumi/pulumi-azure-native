@@ -30,5 +30,5 @@ type ListNamespaceKeysResult struct {
 	// Link to the next set of results. Not empty if Value contains incomplete list of AuthorizationRules
 	NextLink *string `pulumi:"nextLink"`
 	// Result of the List AuthorizationRules operation.
-	Value []SharedAccessAuthorizationRuleResourceResponse `pulumi:"value"`
+	Value []SharedAccessAuthorizationRuleResourceInvokeResponse `pulumi:"value"`
 }

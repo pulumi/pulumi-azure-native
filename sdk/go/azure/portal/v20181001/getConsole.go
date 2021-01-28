@@ -24,5 +24,5 @@ type LookupConsoleArgs struct {
 // Cloud shell console
 type LookupConsoleResult struct {
 	// Cloud shell console properties.
-	Properties ConsolePropertiesResponse `pulumi:"properties"`
+	Properties ConsolePropertiesInvokeResponse `pulumi:"properties"`
 }

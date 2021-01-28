@@ -28,17 +28,17 @@ type LookupSnapshotPolicyArgs struct {
 // Snapshot policy information
 type LookupSnapshotPolicyResult struct {
 	// Schedule for daily snapshots
-	DailySchedule *DailyScheduleResponse `pulumi:"dailySchedule"`
+	DailySchedule *DailyScheduleInvokeResponse `pulumi:"dailySchedule"`
 	// The property to decide policy is enabled or not
 	Enabled *bool `pulumi:"enabled"`
 	// Schedule for hourly snapshots
-	HourlySchedule *HourlyScheduleResponse `pulumi:"hourlySchedule"`
+	HourlySchedule *HourlyScheduleInvokeResponse `pulumi:"hourlySchedule"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Schedule for monthly snapshots
-	MonthlySchedule *MonthlyScheduleResponse `pulumi:"monthlySchedule"`
+	MonthlySchedule *MonthlyScheduleInvokeResponse `pulumi:"monthlySchedule"`
 	// Snapshot policy name
 	Name string `pulumi:"name"`
 	// Azure lifecycle management
@@ -48,5 +48,5 @@ type LookupSnapshotPolicyResult struct {
 	// Resource type
 	Type string `pulumi:"type"`
 	// Schedule for weekly snapshots
-	WeeklySchedule *WeeklyScheduleResponse `pulumi:"weeklySchedule"`
+	WeeklySchedule *WeeklyScheduleInvokeResponse `pulumi:"weeklySchedule"`
 }

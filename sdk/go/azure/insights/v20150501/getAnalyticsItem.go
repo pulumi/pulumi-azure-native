@@ -38,7 +38,7 @@ type LookupAnalyticsItemResult struct {
 	// The user-defined name of the item.
 	Name *string `pulumi:"name"`
 	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-	Properties ApplicationInsightsComponentAnalyticsItemPropertiesResponse `pulumi:"properties"`
+	Properties ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponse `pulumi:"properties"`
 	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
 	Scope *string `pulumi:"scope"`
 	// Date and time in UTC when this item was created.

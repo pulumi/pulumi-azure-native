@@ -28,31 +28,31 @@ type LookupNotificationHubArgs struct {
 // Description of a NotificationHub Resource.
 type LookupNotificationHubResult struct {
 	// The AdmCredential of the created NotificationHub
-	AdmCredential *AdmCredentialResponse `pulumi:"admCredential"`
+	AdmCredential *AdmCredentialInvokeResponse `pulumi:"admCredential"`
 	// The ApnsCredential of the created NotificationHub
-	ApnsCredential *ApnsCredentialResponse `pulumi:"apnsCredential"`
+	ApnsCredential *ApnsCredentialInvokeResponse `pulumi:"apnsCredential"`
 	// The AuthorizationRules of the created NotificationHub
-	AuthorizationRules []SharedAccessAuthorizationRulePropertiesResponse `pulumi:"authorizationRules"`
+	AuthorizationRules []SharedAccessAuthorizationRulePropertiesInvokeResponse `pulumi:"authorizationRules"`
 	// The BaiduCredential of the created NotificationHub
-	BaiduCredential *BaiduCredentialResponse `pulumi:"baiduCredential"`
+	BaiduCredential *BaiduCredentialInvokeResponse `pulumi:"baiduCredential"`
 	// The GcmCredential of the created NotificationHub
-	GcmCredential *GcmCredentialResponse `pulumi:"gcmCredential"`
+	GcmCredential *GcmCredentialInvokeResponse `pulumi:"gcmCredential"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The MpnsCredential of the created NotificationHub
-	MpnsCredential *MpnsCredentialResponse `pulumi:"mpnsCredential"`
+	MpnsCredential *MpnsCredentialInvokeResponse `pulumi:"mpnsCredential"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// The RegistrationTtl of the created NotificationHub
 	RegistrationTtl *string `pulumi:"registrationTtl"`
 	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// The WnsCredential of the created NotificationHub
-	WnsCredential *WnsCredentialResponse `pulumi:"wnsCredential"`
+	WnsCredential *WnsCredentialInvokeResponse `pulumi:"wnsCredential"`
 }

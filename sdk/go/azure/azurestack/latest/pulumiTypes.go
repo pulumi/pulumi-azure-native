@@ -11,7 +11,7 @@ import (
 )
 
 // Product compatibility
-type CompatibilityResponse struct {
+type CompatibilityInvokeResponse struct {
 	// Full error message if any compatibility issues are found
 	Description *string `pulumi:"description"`
 	// Tells if product is compatible with current device
@@ -22,19 +22,19 @@ type CompatibilityResponse struct {
 	Message *string `pulumi:"message"`
 }
 
-// CompatibilityResponseInput is an input type that accepts CompatibilityResponseArgs and CompatibilityResponseOutput values.
-// You can construct a concrete instance of `CompatibilityResponseInput` via:
+// CompatibilityInvokeResponseInput is an input type that accepts CompatibilityInvokeResponseArgs and CompatibilityInvokeResponseOutput values.
+// You can construct a concrete instance of `CompatibilityInvokeResponseInput` via:
 //
-//          CompatibilityResponseArgs{...}
-type CompatibilityResponseInput interface {
+//          CompatibilityInvokeResponseArgs{...}
+type CompatibilityInvokeResponseInput interface {
 	pulumi.Input
 
-	ToCompatibilityResponseOutput() CompatibilityResponseOutput
-	ToCompatibilityResponseOutputWithContext(context.Context) CompatibilityResponseOutput
+	ToCompatibilityInvokeResponseOutput() CompatibilityInvokeResponseOutput
+	ToCompatibilityInvokeResponseOutputWithContext(context.Context) CompatibilityInvokeResponseOutput
 }
 
 // Product compatibility
-type CompatibilityResponseArgs struct {
+type CompatibilityInvokeResponseArgs struct {
 	// Full error message if any compatibility issues are found
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Tells if product is compatible with current device
@@ -45,125 +45,125 @@ type CompatibilityResponseArgs struct {
 	Message pulumi.StringPtrInput `pulumi:"message"`
 }
 
-func (CompatibilityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompatibilityResponse)(nil)).Elem()
+func (CompatibilityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompatibilityInvokeResponse)(nil)).Elem()
 }
 
-func (i CompatibilityResponseArgs) ToCompatibilityResponseOutput() CompatibilityResponseOutput {
-	return i.ToCompatibilityResponseOutputWithContext(context.Background())
+func (i CompatibilityInvokeResponseArgs) ToCompatibilityInvokeResponseOutput() CompatibilityInvokeResponseOutput {
+	return i.ToCompatibilityInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i CompatibilityResponseArgs) ToCompatibilityResponseOutputWithContext(ctx context.Context) CompatibilityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CompatibilityResponseOutput)
+func (i CompatibilityInvokeResponseArgs) ToCompatibilityInvokeResponseOutputWithContext(ctx context.Context) CompatibilityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompatibilityInvokeResponseOutput)
 }
 
-func (i CompatibilityResponseArgs) ToCompatibilityResponsePtrOutput() CompatibilityResponsePtrOutput {
-	return i.ToCompatibilityResponsePtrOutputWithContext(context.Background())
+func (i CompatibilityInvokeResponseArgs) ToCompatibilityInvokeResponsePtrOutput() CompatibilityInvokeResponsePtrOutput {
+	return i.ToCompatibilityInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i CompatibilityResponseArgs) ToCompatibilityResponsePtrOutputWithContext(ctx context.Context) CompatibilityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CompatibilityResponseOutput).ToCompatibilityResponsePtrOutputWithContext(ctx)
+func (i CompatibilityInvokeResponseArgs) ToCompatibilityInvokeResponsePtrOutputWithContext(ctx context.Context) CompatibilityInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompatibilityInvokeResponseOutput).ToCompatibilityInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// CompatibilityResponsePtrInput is an input type that accepts CompatibilityResponseArgs, CompatibilityResponsePtr and CompatibilityResponsePtrOutput values.
-// You can construct a concrete instance of `CompatibilityResponsePtrInput` via:
+// CompatibilityInvokeResponsePtrInput is an input type that accepts CompatibilityInvokeResponseArgs, CompatibilityInvokeResponsePtr and CompatibilityInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `CompatibilityInvokeResponsePtrInput` via:
 //
-//          CompatibilityResponseArgs{...}
+//          CompatibilityInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type CompatibilityResponsePtrInput interface {
+type CompatibilityInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToCompatibilityResponsePtrOutput() CompatibilityResponsePtrOutput
-	ToCompatibilityResponsePtrOutputWithContext(context.Context) CompatibilityResponsePtrOutput
+	ToCompatibilityInvokeResponsePtrOutput() CompatibilityInvokeResponsePtrOutput
+	ToCompatibilityInvokeResponsePtrOutputWithContext(context.Context) CompatibilityInvokeResponsePtrOutput
 }
 
-type compatibilityResponsePtrType CompatibilityResponseArgs
+type compatibilityInvokeResponsePtrType CompatibilityInvokeResponseArgs
 
-func CompatibilityResponsePtr(v *CompatibilityResponseArgs) CompatibilityResponsePtrInput {
-	return (*compatibilityResponsePtrType)(v)
+func CompatibilityInvokeResponsePtr(v *CompatibilityInvokeResponseArgs) CompatibilityInvokeResponsePtrInput {
+	return (*compatibilityInvokeResponsePtrType)(v)
 }
 
-func (*compatibilityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CompatibilityResponse)(nil)).Elem()
+func (*compatibilityInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompatibilityInvokeResponse)(nil)).Elem()
 }
 
-func (i *compatibilityResponsePtrType) ToCompatibilityResponsePtrOutput() CompatibilityResponsePtrOutput {
-	return i.ToCompatibilityResponsePtrOutputWithContext(context.Background())
+func (i *compatibilityInvokeResponsePtrType) ToCompatibilityInvokeResponsePtrOutput() CompatibilityInvokeResponsePtrOutput {
+	return i.ToCompatibilityInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *compatibilityResponsePtrType) ToCompatibilityResponsePtrOutputWithContext(ctx context.Context) CompatibilityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CompatibilityResponsePtrOutput)
+func (i *compatibilityInvokeResponsePtrType) ToCompatibilityInvokeResponsePtrOutputWithContext(ctx context.Context) CompatibilityInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompatibilityInvokeResponsePtrOutput)
 }
 
 // Product compatibility
-type CompatibilityResponseOutput struct{ *pulumi.OutputState }
+type CompatibilityInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (CompatibilityResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompatibilityResponse)(nil)).Elem()
+func (CompatibilityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompatibilityInvokeResponse)(nil)).Elem()
 }
 
-func (o CompatibilityResponseOutput) ToCompatibilityResponseOutput() CompatibilityResponseOutput {
+func (o CompatibilityInvokeResponseOutput) ToCompatibilityInvokeResponseOutput() CompatibilityInvokeResponseOutput {
 	return o
 }
 
-func (o CompatibilityResponseOutput) ToCompatibilityResponseOutputWithContext(ctx context.Context) CompatibilityResponseOutput {
+func (o CompatibilityInvokeResponseOutput) ToCompatibilityInvokeResponseOutputWithContext(ctx context.Context) CompatibilityInvokeResponseOutput {
 	return o
 }
 
-func (o CompatibilityResponseOutput) ToCompatibilityResponsePtrOutput() CompatibilityResponsePtrOutput {
-	return o.ToCompatibilityResponsePtrOutputWithContext(context.Background())
+func (o CompatibilityInvokeResponseOutput) ToCompatibilityInvokeResponsePtrOutput() CompatibilityInvokeResponsePtrOutput {
+	return o.ToCompatibilityInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o CompatibilityResponseOutput) ToCompatibilityResponsePtrOutputWithContext(ctx context.Context) CompatibilityResponsePtrOutput {
-	return o.ApplyT(func(v CompatibilityResponse) *CompatibilityResponse {
+func (o CompatibilityInvokeResponseOutput) ToCompatibilityInvokeResponsePtrOutputWithContext(ctx context.Context) CompatibilityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v CompatibilityInvokeResponse) *CompatibilityInvokeResponse {
 		return &v
-	}).(CompatibilityResponsePtrOutput)
+	}).(CompatibilityInvokeResponsePtrOutput)
 }
 
 // Full error message if any compatibility issues are found
-func (o CompatibilityResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CompatibilityResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o CompatibilityInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CompatibilityInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Tells if product is compatible with current device
-func (o CompatibilityResponseOutput) IsCompatible() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CompatibilityResponse) *bool { return v.IsCompatible }).(pulumi.BoolPtrOutput)
+func (o CompatibilityInvokeResponseOutput) IsCompatible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CompatibilityInvokeResponse) *bool { return v.IsCompatible }).(pulumi.BoolPtrOutput)
 }
 
 // List of all issues found
-func (o CompatibilityResponseOutput) Issues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CompatibilityResponse) []string { return v.Issues }).(pulumi.StringArrayOutput)
+func (o CompatibilityInvokeResponseOutput) Issues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CompatibilityInvokeResponse) []string { return v.Issues }).(pulumi.StringArrayOutput)
 }
 
 // Short error message if any compatibility issues are found
-func (o CompatibilityResponseOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CompatibilityResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+func (o CompatibilityInvokeResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CompatibilityInvokeResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-type CompatibilityResponsePtrOutput struct{ *pulumi.OutputState }
+type CompatibilityInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (CompatibilityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CompatibilityResponse)(nil)).Elem()
+func (CompatibilityInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompatibilityInvokeResponse)(nil)).Elem()
 }
 
-func (o CompatibilityResponsePtrOutput) ToCompatibilityResponsePtrOutput() CompatibilityResponsePtrOutput {
+func (o CompatibilityInvokeResponsePtrOutput) ToCompatibilityInvokeResponsePtrOutput() CompatibilityInvokeResponsePtrOutput {
 	return o
 }
 
-func (o CompatibilityResponsePtrOutput) ToCompatibilityResponsePtrOutputWithContext(ctx context.Context) CompatibilityResponsePtrOutput {
+func (o CompatibilityInvokeResponsePtrOutput) ToCompatibilityInvokeResponsePtrOutputWithContext(ctx context.Context) CompatibilityInvokeResponsePtrOutput {
 	return o
 }
 
-func (o CompatibilityResponsePtrOutput) Elem() CompatibilityResponseOutput {
-	return o.ApplyT(func(v *CompatibilityResponse) CompatibilityResponse { return *v }).(CompatibilityResponseOutput)
+func (o CompatibilityInvokeResponsePtrOutput) Elem() CompatibilityInvokeResponseOutput {
+	return o.ApplyT(func(v *CompatibilityInvokeResponse) CompatibilityInvokeResponse { return *v }).(CompatibilityInvokeResponseOutput)
 }
 
 // Full error message if any compatibility issues are found
-func (o CompatibilityResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CompatibilityResponse) *string {
+func (o CompatibilityInvokeResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CompatibilityInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -172,8 +172,8 @@ func (o CompatibilityResponsePtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Tells if product is compatible with current device
-func (o CompatibilityResponsePtrOutput) IsCompatible() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CompatibilityResponse) *bool {
+func (o CompatibilityInvokeResponsePtrOutput) IsCompatible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CompatibilityInvokeResponse) *bool {
 		if v == nil {
 			return nil
 		}
@@ -182,8 +182,8 @@ func (o CompatibilityResponsePtrOutput) IsCompatible() pulumi.BoolPtrOutput {
 }
 
 // List of all issues found
-func (o CompatibilityResponsePtrOutput) Issues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CompatibilityResponse) []string {
+func (o CompatibilityInvokeResponsePtrOutput) Issues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CompatibilityInvokeResponse) []string {
 		if v == nil {
 			return nil
 		}
@@ -192,8 +192,8 @@ func (o CompatibilityResponsePtrOutput) Issues() pulumi.StringArrayOutput {
 }
 
 // Short error message if any compatibility issues are found
-func (o CompatibilityResponsePtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CompatibilityResponse) *string {
+func (o CompatibilityInvokeResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CompatibilityInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -202,116 +202,116 @@ func (o CompatibilityResponsePtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 // Data disk image.
-type DataDiskImageResponse struct {
+type DataDiskImageInvokeResponse struct {
 	// The LUN.
 	Lun int `pulumi:"lun"`
 	// SAS key for source blob.
 	SourceBlobSasUri string `pulumi:"sourceBlobSasUri"`
 }
 
-// DataDiskImageResponseInput is an input type that accepts DataDiskImageResponseArgs and DataDiskImageResponseOutput values.
-// You can construct a concrete instance of `DataDiskImageResponseInput` via:
+// DataDiskImageInvokeResponseInput is an input type that accepts DataDiskImageInvokeResponseArgs and DataDiskImageInvokeResponseOutput values.
+// You can construct a concrete instance of `DataDiskImageInvokeResponseInput` via:
 //
-//          DataDiskImageResponseArgs{...}
-type DataDiskImageResponseInput interface {
+//          DataDiskImageInvokeResponseArgs{...}
+type DataDiskImageInvokeResponseInput interface {
 	pulumi.Input
 
-	ToDataDiskImageResponseOutput() DataDiskImageResponseOutput
-	ToDataDiskImageResponseOutputWithContext(context.Context) DataDiskImageResponseOutput
+	ToDataDiskImageInvokeResponseOutput() DataDiskImageInvokeResponseOutput
+	ToDataDiskImageInvokeResponseOutputWithContext(context.Context) DataDiskImageInvokeResponseOutput
 }
 
 // Data disk image.
-type DataDiskImageResponseArgs struct {
+type DataDiskImageInvokeResponseArgs struct {
 	// The LUN.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// SAS key for source blob.
 	SourceBlobSasUri pulumi.StringInput `pulumi:"sourceBlobSasUri"`
 }
 
-func (DataDiskImageResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataDiskImageResponse)(nil)).Elem()
+func (DataDiskImageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataDiskImageInvokeResponse)(nil)).Elem()
 }
 
-func (i DataDiskImageResponseArgs) ToDataDiskImageResponseOutput() DataDiskImageResponseOutput {
-	return i.ToDataDiskImageResponseOutputWithContext(context.Background())
+func (i DataDiskImageInvokeResponseArgs) ToDataDiskImageInvokeResponseOutput() DataDiskImageInvokeResponseOutput {
+	return i.ToDataDiskImageInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i DataDiskImageResponseArgs) ToDataDiskImageResponseOutputWithContext(ctx context.Context) DataDiskImageResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageResponseOutput)
+func (i DataDiskImageInvokeResponseArgs) ToDataDiskImageInvokeResponseOutputWithContext(ctx context.Context) DataDiskImageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageInvokeResponseOutput)
 }
 
-// DataDiskImageResponseArrayInput is an input type that accepts DataDiskImageResponseArray and DataDiskImageResponseArrayOutput values.
-// You can construct a concrete instance of `DataDiskImageResponseArrayInput` via:
+// DataDiskImageInvokeResponseArrayInput is an input type that accepts DataDiskImageInvokeResponseArray and DataDiskImageInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataDiskImageInvokeResponseArrayInput` via:
 //
-//          DataDiskImageResponseArray{ DataDiskImageResponseArgs{...} }
-type DataDiskImageResponseArrayInput interface {
+//          DataDiskImageInvokeResponseArray{ DataDiskImageInvokeResponseArgs{...} }
+type DataDiskImageInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToDataDiskImageResponseArrayOutput() DataDiskImageResponseArrayOutput
-	ToDataDiskImageResponseArrayOutputWithContext(context.Context) DataDiskImageResponseArrayOutput
+	ToDataDiskImageInvokeResponseArrayOutput() DataDiskImageInvokeResponseArrayOutput
+	ToDataDiskImageInvokeResponseArrayOutputWithContext(context.Context) DataDiskImageInvokeResponseArrayOutput
 }
 
-type DataDiskImageResponseArray []DataDiskImageResponseInput
+type DataDiskImageInvokeResponseArray []DataDiskImageInvokeResponseInput
 
-func (DataDiskImageResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataDiskImageResponse)(nil)).Elem()
+func (DataDiskImageInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataDiskImageInvokeResponse)(nil)).Elem()
 }
 
-func (i DataDiskImageResponseArray) ToDataDiskImageResponseArrayOutput() DataDiskImageResponseArrayOutput {
-	return i.ToDataDiskImageResponseArrayOutputWithContext(context.Background())
+func (i DataDiskImageInvokeResponseArray) ToDataDiskImageInvokeResponseArrayOutput() DataDiskImageInvokeResponseArrayOutput {
+	return i.ToDataDiskImageInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i DataDiskImageResponseArray) ToDataDiskImageResponseArrayOutputWithContext(ctx context.Context) DataDiskImageResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageResponseArrayOutput)
+func (i DataDiskImageInvokeResponseArray) ToDataDiskImageInvokeResponseArrayOutputWithContext(ctx context.Context) DataDiskImageInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataDiskImageInvokeResponseArrayOutput)
 }
 
 // Data disk image.
-type DataDiskImageResponseOutput struct{ *pulumi.OutputState }
+type DataDiskImageInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (DataDiskImageResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataDiskImageResponse)(nil)).Elem()
+func (DataDiskImageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataDiskImageInvokeResponse)(nil)).Elem()
 }
 
-func (o DataDiskImageResponseOutput) ToDataDiskImageResponseOutput() DataDiskImageResponseOutput {
+func (o DataDiskImageInvokeResponseOutput) ToDataDiskImageInvokeResponseOutput() DataDiskImageInvokeResponseOutput {
 	return o
 }
 
-func (o DataDiskImageResponseOutput) ToDataDiskImageResponseOutputWithContext(ctx context.Context) DataDiskImageResponseOutput {
+func (o DataDiskImageInvokeResponseOutput) ToDataDiskImageInvokeResponseOutputWithContext(ctx context.Context) DataDiskImageInvokeResponseOutput {
 	return o
 }
 
 // The LUN.
-func (o DataDiskImageResponseOutput) Lun() pulumi.IntOutput {
-	return o.ApplyT(func(v DataDiskImageResponse) int { return v.Lun }).(pulumi.IntOutput)
+func (o DataDiskImageInvokeResponseOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v DataDiskImageInvokeResponse) int { return v.Lun }).(pulumi.IntOutput)
 }
 
 // SAS key for source blob.
-func (o DataDiskImageResponseOutput) SourceBlobSasUri() pulumi.StringOutput {
-	return o.ApplyT(func(v DataDiskImageResponse) string { return v.SourceBlobSasUri }).(pulumi.StringOutput)
+func (o DataDiskImageInvokeResponseOutput) SourceBlobSasUri() pulumi.StringOutput {
+	return o.ApplyT(func(v DataDiskImageInvokeResponse) string { return v.SourceBlobSasUri }).(pulumi.StringOutput)
 }
 
-type DataDiskImageResponseArrayOutput struct{ *pulumi.OutputState }
+type DataDiskImageInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (DataDiskImageResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataDiskImageResponse)(nil)).Elem()
+func (DataDiskImageInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataDiskImageInvokeResponse)(nil)).Elem()
 }
 
-func (o DataDiskImageResponseArrayOutput) ToDataDiskImageResponseArrayOutput() DataDiskImageResponseArrayOutput {
+func (o DataDiskImageInvokeResponseArrayOutput) ToDataDiskImageInvokeResponseArrayOutput() DataDiskImageInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DataDiskImageResponseArrayOutput) ToDataDiskImageResponseArrayOutputWithContext(ctx context.Context) DataDiskImageResponseArrayOutput {
+func (o DataDiskImageInvokeResponseArrayOutput) ToDataDiskImageInvokeResponseArrayOutputWithContext(ctx context.Context) DataDiskImageInvokeResponseArrayOutput {
 	return o
 }
 
-func (o DataDiskImageResponseArrayOutput) Index(i pulumi.IntInput) DataDiskImageResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataDiskImageResponse {
-		return vs[0].([]DataDiskImageResponse)[vs[1].(int)]
-	}).(DataDiskImageResponseOutput)
+func (o DataDiskImageInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataDiskImageInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataDiskImageInvokeResponse {
+		return vs[0].([]DataDiskImageInvokeResponse)[vs[1].(int)]
+	}).(DataDiskImageInvokeResponseOutput)
 }
 
 // Links to product icons.
-type IconUrisResponse struct {
+type IconUrisInvokeResponse struct {
 	// URI to hero icon.
 	Hero *string `pulumi:"hero"`
 	// URI to large icon.
@@ -324,19 +324,19 @@ type IconUrisResponse struct {
 	Wide *string `pulumi:"wide"`
 }
 
-// IconUrisResponseInput is an input type that accepts IconUrisResponseArgs and IconUrisResponseOutput values.
-// You can construct a concrete instance of `IconUrisResponseInput` via:
+// IconUrisInvokeResponseInput is an input type that accepts IconUrisInvokeResponseArgs and IconUrisInvokeResponseOutput values.
+// You can construct a concrete instance of `IconUrisInvokeResponseInput` via:
 //
-//          IconUrisResponseArgs{...}
-type IconUrisResponseInput interface {
+//          IconUrisInvokeResponseArgs{...}
+type IconUrisInvokeResponseInput interface {
 	pulumi.Input
 
-	ToIconUrisResponseOutput() IconUrisResponseOutput
-	ToIconUrisResponseOutputWithContext(context.Context) IconUrisResponseOutput
+	ToIconUrisInvokeResponseOutput() IconUrisInvokeResponseOutput
+	ToIconUrisInvokeResponseOutputWithContext(context.Context) IconUrisInvokeResponseOutput
 }
 
 // Links to product icons.
-type IconUrisResponseArgs struct {
+type IconUrisInvokeResponseArgs struct {
 	// URI to hero icon.
 	Hero pulumi.StringPtrInput `pulumi:"hero"`
 	// URI to large icon.
@@ -349,130 +349,130 @@ type IconUrisResponseArgs struct {
 	Wide pulumi.StringPtrInput `pulumi:"wide"`
 }
 
-func (IconUrisResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IconUrisResponse)(nil)).Elem()
+func (IconUrisInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IconUrisInvokeResponse)(nil)).Elem()
 }
 
-func (i IconUrisResponseArgs) ToIconUrisResponseOutput() IconUrisResponseOutput {
-	return i.ToIconUrisResponseOutputWithContext(context.Background())
+func (i IconUrisInvokeResponseArgs) ToIconUrisInvokeResponseOutput() IconUrisInvokeResponseOutput {
+	return i.ToIconUrisInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i IconUrisResponseArgs) ToIconUrisResponseOutputWithContext(ctx context.Context) IconUrisResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IconUrisResponseOutput)
+func (i IconUrisInvokeResponseArgs) ToIconUrisInvokeResponseOutputWithContext(ctx context.Context) IconUrisInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IconUrisInvokeResponseOutput)
 }
 
-func (i IconUrisResponseArgs) ToIconUrisResponsePtrOutput() IconUrisResponsePtrOutput {
-	return i.ToIconUrisResponsePtrOutputWithContext(context.Background())
+func (i IconUrisInvokeResponseArgs) ToIconUrisInvokeResponsePtrOutput() IconUrisInvokeResponsePtrOutput {
+	return i.ToIconUrisInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i IconUrisResponseArgs) ToIconUrisResponsePtrOutputWithContext(ctx context.Context) IconUrisResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IconUrisResponseOutput).ToIconUrisResponsePtrOutputWithContext(ctx)
+func (i IconUrisInvokeResponseArgs) ToIconUrisInvokeResponsePtrOutputWithContext(ctx context.Context) IconUrisInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IconUrisInvokeResponseOutput).ToIconUrisInvokeResponsePtrOutputWithContext(ctx)
 }
 
-// IconUrisResponsePtrInput is an input type that accepts IconUrisResponseArgs, IconUrisResponsePtr and IconUrisResponsePtrOutput values.
-// You can construct a concrete instance of `IconUrisResponsePtrInput` via:
+// IconUrisInvokeResponsePtrInput is an input type that accepts IconUrisInvokeResponseArgs, IconUrisInvokeResponsePtr and IconUrisInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `IconUrisInvokeResponsePtrInput` via:
 //
-//          IconUrisResponseArgs{...}
+//          IconUrisInvokeResponseArgs{...}
 //
 //  or:
 //
 //          nil
-type IconUrisResponsePtrInput interface {
+type IconUrisInvokeResponsePtrInput interface {
 	pulumi.Input
 
-	ToIconUrisResponsePtrOutput() IconUrisResponsePtrOutput
-	ToIconUrisResponsePtrOutputWithContext(context.Context) IconUrisResponsePtrOutput
+	ToIconUrisInvokeResponsePtrOutput() IconUrisInvokeResponsePtrOutput
+	ToIconUrisInvokeResponsePtrOutputWithContext(context.Context) IconUrisInvokeResponsePtrOutput
 }
 
-type iconUrisResponsePtrType IconUrisResponseArgs
+type iconUrisInvokeResponsePtrType IconUrisInvokeResponseArgs
 
-func IconUrisResponsePtr(v *IconUrisResponseArgs) IconUrisResponsePtrInput {
-	return (*iconUrisResponsePtrType)(v)
+func IconUrisInvokeResponsePtr(v *IconUrisInvokeResponseArgs) IconUrisInvokeResponsePtrInput {
+	return (*iconUrisInvokeResponsePtrType)(v)
 }
 
-func (*iconUrisResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IconUrisResponse)(nil)).Elem()
+func (*iconUrisInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IconUrisInvokeResponse)(nil)).Elem()
 }
 
-func (i *iconUrisResponsePtrType) ToIconUrisResponsePtrOutput() IconUrisResponsePtrOutput {
-	return i.ToIconUrisResponsePtrOutputWithContext(context.Background())
+func (i *iconUrisInvokeResponsePtrType) ToIconUrisInvokeResponsePtrOutput() IconUrisInvokeResponsePtrOutput {
+	return i.ToIconUrisInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (i *iconUrisResponsePtrType) ToIconUrisResponsePtrOutputWithContext(ctx context.Context) IconUrisResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IconUrisResponsePtrOutput)
+func (i *iconUrisInvokeResponsePtrType) ToIconUrisInvokeResponsePtrOutputWithContext(ctx context.Context) IconUrisInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IconUrisInvokeResponsePtrOutput)
 }
 
 // Links to product icons.
-type IconUrisResponseOutput struct{ *pulumi.OutputState }
+type IconUrisInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (IconUrisResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IconUrisResponse)(nil)).Elem()
+func (IconUrisInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IconUrisInvokeResponse)(nil)).Elem()
 }
 
-func (o IconUrisResponseOutput) ToIconUrisResponseOutput() IconUrisResponseOutput {
+func (o IconUrisInvokeResponseOutput) ToIconUrisInvokeResponseOutput() IconUrisInvokeResponseOutput {
 	return o
 }
 
-func (o IconUrisResponseOutput) ToIconUrisResponseOutputWithContext(ctx context.Context) IconUrisResponseOutput {
+func (o IconUrisInvokeResponseOutput) ToIconUrisInvokeResponseOutputWithContext(ctx context.Context) IconUrisInvokeResponseOutput {
 	return o
 }
 
-func (o IconUrisResponseOutput) ToIconUrisResponsePtrOutput() IconUrisResponsePtrOutput {
-	return o.ToIconUrisResponsePtrOutputWithContext(context.Background())
+func (o IconUrisInvokeResponseOutput) ToIconUrisInvokeResponsePtrOutput() IconUrisInvokeResponsePtrOutput {
+	return o.ToIconUrisInvokeResponsePtrOutputWithContext(context.Background())
 }
 
-func (o IconUrisResponseOutput) ToIconUrisResponsePtrOutputWithContext(ctx context.Context) IconUrisResponsePtrOutput {
-	return o.ApplyT(func(v IconUrisResponse) *IconUrisResponse {
+func (o IconUrisInvokeResponseOutput) ToIconUrisInvokeResponsePtrOutputWithContext(ctx context.Context) IconUrisInvokeResponsePtrOutput {
+	return o.ApplyT(func(v IconUrisInvokeResponse) *IconUrisInvokeResponse {
 		return &v
-	}).(IconUrisResponsePtrOutput)
+	}).(IconUrisInvokeResponsePtrOutput)
 }
 
 // URI to hero icon.
-func (o IconUrisResponseOutput) Hero() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IconUrisResponse) *string { return v.Hero }).(pulumi.StringPtrOutput)
+func (o IconUrisInvokeResponseOutput) Hero() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IconUrisInvokeResponse) *string { return v.Hero }).(pulumi.StringPtrOutput)
 }
 
 // URI to large icon.
-func (o IconUrisResponseOutput) Large() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IconUrisResponse) *string { return v.Large }).(pulumi.StringPtrOutput)
+func (o IconUrisInvokeResponseOutput) Large() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IconUrisInvokeResponse) *string { return v.Large }).(pulumi.StringPtrOutput)
 }
 
 // URI to medium icon.
-func (o IconUrisResponseOutput) Medium() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IconUrisResponse) *string { return v.Medium }).(pulumi.StringPtrOutput)
+func (o IconUrisInvokeResponseOutput) Medium() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IconUrisInvokeResponse) *string { return v.Medium }).(pulumi.StringPtrOutput)
 }
 
 // URI to small icon.
-func (o IconUrisResponseOutput) Small() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IconUrisResponse) *string { return v.Small }).(pulumi.StringPtrOutput)
+func (o IconUrisInvokeResponseOutput) Small() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IconUrisInvokeResponse) *string { return v.Small }).(pulumi.StringPtrOutput)
 }
 
 // URI to wide icon.
-func (o IconUrisResponseOutput) Wide() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IconUrisResponse) *string { return v.Wide }).(pulumi.StringPtrOutput)
+func (o IconUrisInvokeResponseOutput) Wide() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IconUrisInvokeResponse) *string { return v.Wide }).(pulumi.StringPtrOutput)
 }
 
-type IconUrisResponsePtrOutput struct{ *pulumi.OutputState }
+type IconUrisInvokeResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (IconUrisResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IconUrisResponse)(nil)).Elem()
+func (IconUrisInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IconUrisInvokeResponse)(nil)).Elem()
 }
 
-func (o IconUrisResponsePtrOutput) ToIconUrisResponsePtrOutput() IconUrisResponsePtrOutput {
+func (o IconUrisInvokeResponsePtrOutput) ToIconUrisInvokeResponsePtrOutput() IconUrisInvokeResponsePtrOutput {
 	return o
 }
 
-func (o IconUrisResponsePtrOutput) ToIconUrisResponsePtrOutputWithContext(ctx context.Context) IconUrisResponsePtrOutput {
+func (o IconUrisInvokeResponsePtrOutput) ToIconUrisInvokeResponsePtrOutputWithContext(ctx context.Context) IconUrisInvokeResponsePtrOutput {
 	return o
 }
 
-func (o IconUrisResponsePtrOutput) Elem() IconUrisResponseOutput {
-	return o.ApplyT(func(v *IconUrisResponse) IconUrisResponse { return *v }).(IconUrisResponseOutput)
+func (o IconUrisInvokeResponsePtrOutput) Elem() IconUrisInvokeResponseOutput {
+	return o.ApplyT(func(v *IconUrisInvokeResponse) IconUrisInvokeResponse { return *v }).(IconUrisInvokeResponseOutput)
 }
 
 // URI to hero icon.
-func (o IconUrisResponsePtrOutput) Hero() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IconUrisResponse) *string {
+func (o IconUrisInvokeResponsePtrOutput) Hero() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IconUrisInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -481,8 +481,8 @@ func (o IconUrisResponsePtrOutput) Hero() pulumi.StringPtrOutput {
 }
 
 // URI to large icon.
-func (o IconUrisResponsePtrOutput) Large() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IconUrisResponse) *string {
+func (o IconUrisInvokeResponsePtrOutput) Large() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IconUrisInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -491,8 +491,8 @@ func (o IconUrisResponsePtrOutput) Large() pulumi.StringPtrOutput {
 }
 
 // URI to medium icon.
-func (o IconUrisResponsePtrOutput) Medium() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IconUrisResponse) *string {
+func (o IconUrisInvokeResponsePtrOutput) Medium() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IconUrisInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -501,8 +501,8 @@ func (o IconUrisResponsePtrOutput) Medium() pulumi.StringPtrOutput {
 }
 
 // URI to small icon.
-func (o IconUrisResponsePtrOutput) Small() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IconUrisResponse) *string {
+func (o IconUrisInvokeResponsePtrOutput) Small() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IconUrisInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -511,8 +511,8 @@ func (o IconUrisResponsePtrOutput) Small() pulumi.StringPtrOutput {
 }
 
 // URI to wide icon.
-func (o IconUrisResponsePtrOutput) Wide() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IconUrisResponse) *string {
+func (o IconUrisInvokeResponsePtrOutput) Wide() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IconUrisInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -521,318 +521,75 @@ func (o IconUrisResponsePtrOutput) Wide() pulumi.StringPtrOutput {
 }
 
 // OS disk image.
-type OsDiskImageResponse struct {
+type OsDiskImageInvokeResponse struct {
 	// OS operating system type.
 	OperatingSystem string `pulumi:"operatingSystem"`
 	// SAS key for source blob.
 	SourceBlobSasUri string `pulumi:"sourceBlobSasUri"`
 }
 
-// OsDiskImageResponseInput is an input type that accepts OsDiskImageResponseArgs and OsDiskImageResponseOutput values.
-// You can construct a concrete instance of `OsDiskImageResponseInput` via:
+// OsDiskImageInvokeResponseInput is an input type that accepts OsDiskImageInvokeResponseArgs and OsDiskImageInvokeResponseOutput values.
+// You can construct a concrete instance of `OsDiskImageInvokeResponseInput` via:
 //
-//          OsDiskImageResponseArgs{...}
-type OsDiskImageResponseInput interface {
+//          OsDiskImageInvokeResponseArgs{...}
+type OsDiskImageInvokeResponseInput interface {
 	pulumi.Input
 
-	ToOsDiskImageResponseOutput() OsDiskImageResponseOutput
-	ToOsDiskImageResponseOutputWithContext(context.Context) OsDiskImageResponseOutput
+	ToOsDiskImageInvokeResponseOutput() OsDiskImageInvokeResponseOutput
+	ToOsDiskImageInvokeResponseOutputWithContext(context.Context) OsDiskImageInvokeResponseOutput
 }
 
 // OS disk image.
-type OsDiskImageResponseArgs struct {
+type OsDiskImageInvokeResponseArgs struct {
 	// OS operating system type.
 	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
 	// SAS key for source blob.
 	SourceBlobSasUri pulumi.StringInput `pulumi:"sourceBlobSasUri"`
 }
 
-func (OsDiskImageResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OsDiskImageResponse)(nil)).Elem()
+func (OsDiskImageInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OsDiskImageInvokeResponse)(nil)).Elem()
 }
 
-func (i OsDiskImageResponseArgs) ToOsDiskImageResponseOutput() OsDiskImageResponseOutput {
-	return i.ToOsDiskImageResponseOutputWithContext(context.Background())
+func (i OsDiskImageInvokeResponseArgs) ToOsDiskImageInvokeResponseOutput() OsDiskImageInvokeResponseOutput {
+	return i.ToOsDiskImageInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i OsDiskImageResponseArgs) ToOsDiskImageResponseOutputWithContext(ctx context.Context) OsDiskImageResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OsDiskImageResponseOutput)
+func (i OsDiskImageInvokeResponseArgs) ToOsDiskImageInvokeResponseOutputWithContext(ctx context.Context) OsDiskImageInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OsDiskImageInvokeResponseOutput)
 }
 
 // OS disk image.
-type OsDiskImageResponseOutput struct{ *pulumi.OutputState }
+type OsDiskImageInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (OsDiskImageResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OsDiskImageResponse)(nil)).Elem()
+func (OsDiskImageInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OsDiskImageInvokeResponse)(nil)).Elem()
 }
 
-func (o OsDiskImageResponseOutput) ToOsDiskImageResponseOutput() OsDiskImageResponseOutput {
+func (o OsDiskImageInvokeResponseOutput) ToOsDiskImageInvokeResponseOutput() OsDiskImageInvokeResponseOutput {
 	return o
 }
 
-func (o OsDiskImageResponseOutput) ToOsDiskImageResponseOutputWithContext(ctx context.Context) OsDiskImageResponseOutput {
+func (o OsDiskImageInvokeResponseOutput) ToOsDiskImageInvokeResponseOutputWithContext(ctx context.Context) OsDiskImageInvokeResponseOutput {
 	return o
 }
 
 // OS operating system type.
-func (o OsDiskImageResponseOutput) OperatingSystem() pulumi.StringOutput {
-	return o.ApplyT(func(v OsDiskImageResponse) string { return v.OperatingSystem }).(pulumi.StringOutput)
+func (o OsDiskImageInvokeResponseOutput) OperatingSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v OsDiskImageInvokeResponse) string { return v.OperatingSystem }).(pulumi.StringOutput)
 }
 
 // SAS key for source blob.
-func (o OsDiskImageResponseOutput) SourceBlobSasUri() pulumi.StringOutput {
-	return o.ApplyT(func(v OsDiskImageResponse) string { return v.SourceBlobSasUri }).(pulumi.StringOutput)
-}
-
-// Link with additional information about a product.
-type ProductLinkResponse struct {
-	// The description of the link.
-	DisplayName *string `pulumi:"displayName"`
-	// The URI corresponding to the link.
-	Uri *string `pulumi:"uri"`
-}
-
-// ProductLinkResponseInput is an input type that accepts ProductLinkResponseArgs and ProductLinkResponseOutput values.
-// You can construct a concrete instance of `ProductLinkResponseInput` via:
-//
-//          ProductLinkResponseArgs{...}
-type ProductLinkResponseInput interface {
-	pulumi.Input
-
-	ToProductLinkResponseOutput() ProductLinkResponseOutput
-	ToProductLinkResponseOutputWithContext(context.Context) ProductLinkResponseOutput
-}
-
-// Link with additional information about a product.
-type ProductLinkResponseArgs struct {
-	// The description of the link.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The URI corresponding to the link.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-}
-
-func (ProductLinkResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductLinkResponse)(nil)).Elem()
-}
-
-func (i ProductLinkResponseArgs) ToProductLinkResponseOutput() ProductLinkResponseOutput {
-	return i.ToProductLinkResponseOutputWithContext(context.Background())
-}
-
-func (i ProductLinkResponseArgs) ToProductLinkResponseOutputWithContext(ctx context.Context) ProductLinkResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductLinkResponseOutput)
-}
-
-// ProductLinkResponseArrayInput is an input type that accepts ProductLinkResponseArray and ProductLinkResponseArrayOutput values.
-// You can construct a concrete instance of `ProductLinkResponseArrayInput` via:
-//
-//          ProductLinkResponseArray{ ProductLinkResponseArgs{...} }
-type ProductLinkResponseArrayInput interface {
-	pulumi.Input
-
-	ToProductLinkResponseArrayOutput() ProductLinkResponseArrayOutput
-	ToProductLinkResponseArrayOutputWithContext(context.Context) ProductLinkResponseArrayOutput
-}
-
-type ProductLinkResponseArray []ProductLinkResponseInput
-
-func (ProductLinkResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProductLinkResponse)(nil)).Elem()
-}
-
-func (i ProductLinkResponseArray) ToProductLinkResponseArrayOutput() ProductLinkResponseArrayOutput {
-	return i.ToProductLinkResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ProductLinkResponseArray) ToProductLinkResponseArrayOutputWithContext(ctx context.Context) ProductLinkResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductLinkResponseArrayOutput)
-}
-
-// Link with additional information about a product.
-type ProductLinkResponseOutput struct{ *pulumi.OutputState }
-
-func (ProductLinkResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductLinkResponse)(nil)).Elem()
-}
-
-func (o ProductLinkResponseOutput) ToProductLinkResponseOutput() ProductLinkResponseOutput {
-	return o
-}
-
-func (o ProductLinkResponseOutput) ToProductLinkResponseOutputWithContext(ctx context.Context) ProductLinkResponseOutput {
-	return o
-}
-
-// The description of the link.
-func (o ProductLinkResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductLinkResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// The URI corresponding to the link.
-func (o ProductLinkResponseOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductLinkResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
-}
-
-type ProductLinkResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ProductLinkResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProductLinkResponse)(nil)).Elem()
-}
-
-func (o ProductLinkResponseArrayOutput) ToProductLinkResponseArrayOutput() ProductLinkResponseArrayOutput {
-	return o
-}
-
-func (o ProductLinkResponseArrayOutput) ToProductLinkResponseArrayOutputWithContext(ctx context.Context) ProductLinkResponseArrayOutput {
-	return o
-}
-
-func (o ProductLinkResponseArrayOutput) Index(i pulumi.IntInput) ProductLinkResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductLinkResponse {
-		return vs[0].([]ProductLinkResponse)[vs[1].(int)]
-	}).(ProductLinkResponseOutput)
-}
-
-// Additional properties of the product
-type ProductPropertiesResponse struct {
-	// The version.
-	Version *string `pulumi:"version"`
-}
-
-// ProductPropertiesResponseInput is an input type that accepts ProductPropertiesResponseArgs and ProductPropertiesResponseOutput values.
-// You can construct a concrete instance of `ProductPropertiesResponseInput` via:
-//
-//          ProductPropertiesResponseArgs{...}
-type ProductPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToProductPropertiesResponseOutput() ProductPropertiesResponseOutput
-	ToProductPropertiesResponseOutputWithContext(context.Context) ProductPropertiesResponseOutput
-}
-
-// Additional properties of the product
-type ProductPropertiesResponseArgs struct {
-	// The version.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (ProductPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductPropertiesResponse)(nil)).Elem()
-}
-
-func (i ProductPropertiesResponseArgs) ToProductPropertiesResponseOutput() ProductPropertiesResponseOutput {
-	return i.ToProductPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ProductPropertiesResponseArgs) ToProductPropertiesResponseOutputWithContext(ctx context.Context) ProductPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductPropertiesResponseOutput)
-}
-
-func (i ProductPropertiesResponseArgs) ToProductPropertiesResponsePtrOutput() ProductPropertiesResponsePtrOutput {
-	return i.ToProductPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ProductPropertiesResponseArgs) ToProductPropertiesResponsePtrOutputWithContext(ctx context.Context) ProductPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductPropertiesResponseOutput).ToProductPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ProductPropertiesResponsePtrInput is an input type that accepts ProductPropertiesResponseArgs, ProductPropertiesResponsePtr and ProductPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ProductPropertiesResponsePtrInput` via:
-//
-//          ProductPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ProductPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToProductPropertiesResponsePtrOutput() ProductPropertiesResponsePtrOutput
-	ToProductPropertiesResponsePtrOutputWithContext(context.Context) ProductPropertiesResponsePtrOutput
-}
-
-type productPropertiesResponsePtrType ProductPropertiesResponseArgs
-
-func ProductPropertiesResponsePtr(v *ProductPropertiesResponseArgs) ProductPropertiesResponsePtrInput {
-	return (*productPropertiesResponsePtrType)(v)
-}
-
-func (*productPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProductPropertiesResponse)(nil)).Elem()
-}
-
-func (i *productPropertiesResponsePtrType) ToProductPropertiesResponsePtrOutput() ProductPropertiesResponsePtrOutput {
-	return i.ToProductPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *productPropertiesResponsePtrType) ToProductPropertiesResponsePtrOutputWithContext(ctx context.Context) ProductPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductPropertiesResponsePtrOutput)
-}
-
-// Additional properties of the product
-type ProductPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ProductPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductPropertiesResponse)(nil)).Elem()
-}
-
-func (o ProductPropertiesResponseOutput) ToProductPropertiesResponseOutput() ProductPropertiesResponseOutput {
-	return o
-}
-
-func (o ProductPropertiesResponseOutput) ToProductPropertiesResponseOutputWithContext(ctx context.Context) ProductPropertiesResponseOutput {
-	return o
-}
-
-func (o ProductPropertiesResponseOutput) ToProductPropertiesResponsePtrOutput() ProductPropertiesResponsePtrOutput {
-	return o.ToProductPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ProductPropertiesResponseOutput) ToProductPropertiesResponsePtrOutputWithContext(ctx context.Context) ProductPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ProductPropertiesResponse) *ProductPropertiesResponse {
-		return &v
-	}).(ProductPropertiesResponsePtrOutput)
-}
-
-// The version.
-func (o ProductPropertiesResponseOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductPropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type ProductPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ProductPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProductPropertiesResponse)(nil)).Elem()
-}
-
-func (o ProductPropertiesResponsePtrOutput) ToProductPropertiesResponsePtrOutput() ProductPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ProductPropertiesResponsePtrOutput) ToProductPropertiesResponsePtrOutputWithContext(ctx context.Context) ProductPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ProductPropertiesResponsePtrOutput) Elem() ProductPropertiesResponseOutput {
-	return o.ApplyT(func(v *ProductPropertiesResponse) ProductPropertiesResponse { return *v }).(ProductPropertiesResponseOutput)
-}
-
-// The version.
-func (o ProductPropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProductPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
+func (o OsDiskImageInvokeResponseOutput) SourceBlobSasUri() pulumi.StringOutput {
+	return o.ApplyT(func(v OsDiskImageInvokeResponse) string { return v.SourceBlobSasUri }).(pulumi.StringOutput)
 }
 
 // Product information.
-type ProductResponse struct {
+type ProductInvokeResponse struct {
 	// The part number used for billing purposes.
 	BillingPartNumber *string `pulumi:"billingPartNumber"`
 	// Product compatibility with current device.
-	Compatibility *CompatibilityResponse `pulumi:"compatibility"`
+	Compatibility *CompatibilityInvokeResponse `pulumi:"compatibility"`
 	// The description of the product.
 	Description *string `pulumi:"description"`
 	// The display name of the product.
@@ -842,13 +599,13 @@ type ProductResponse struct {
 	// The identifier of the gallery item corresponding to the product.
 	GalleryItemIdentity *string `pulumi:"galleryItemIdentity"`
 	// Additional links available for this product.
-	IconUris *IconUrisResponse `pulumi:"iconUris"`
+	IconUris *IconUrisInvokeResponse `pulumi:"iconUris"`
 	// ID of the resource.
 	Id string `pulumi:"id"`
 	// The legal terms.
 	LegalTerms *string `pulumi:"legalTerms"`
 	// Additional links available for this product.
-	Links []ProductLinkResponse `pulumi:"links"`
+	Links []ProductLinkInvokeResponse `pulumi:"links"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
 	// The offer representing the product.
@@ -862,7 +619,7 @@ type ProductResponse struct {
 	// The kind of the product (virtualMachine or virtualMachineExtension)
 	ProductKind *string `pulumi:"productKind"`
 	// Additional properties for the product.
-	ProductProperties *ProductPropertiesResponse `pulumi:"productProperties"`
+	ProductProperties *ProductPropertiesInvokeResponse `pulumi:"productProperties"`
 	// The user-friendly name of the product publisher.
 	PublisherDisplayName *string `pulumi:"publisherDisplayName"`
 	// Publisher identifier.
@@ -875,23 +632,23 @@ type ProductResponse struct {
 	VmExtensionType *string `pulumi:"vmExtensionType"`
 }
 
-// ProductResponseInput is an input type that accepts ProductResponseArgs and ProductResponseOutput values.
-// You can construct a concrete instance of `ProductResponseInput` via:
+// ProductInvokeResponseInput is an input type that accepts ProductInvokeResponseArgs and ProductInvokeResponseOutput values.
+// You can construct a concrete instance of `ProductInvokeResponseInput` via:
 //
-//          ProductResponseArgs{...}
-type ProductResponseInput interface {
+//          ProductInvokeResponseArgs{...}
+type ProductInvokeResponseInput interface {
 	pulumi.Input
 
-	ToProductResponseOutput() ProductResponseOutput
-	ToProductResponseOutputWithContext(context.Context) ProductResponseOutput
+	ToProductInvokeResponseOutput() ProductInvokeResponseOutput
+	ToProductInvokeResponseOutputWithContext(context.Context) ProductInvokeResponseOutput
 }
 
 // Product information.
-type ProductResponseArgs struct {
+type ProductInvokeResponseArgs struct {
 	// The part number used for billing purposes.
 	BillingPartNumber pulumi.StringPtrInput `pulumi:"billingPartNumber"`
 	// Product compatibility with current device.
-	Compatibility CompatibilityResponsePtrInput `pulumi:"compatibility"`
+	Compatibility CompatibilityInvokeResponsePtrInput `pulumi:"compatibility"`
 	// The description of the product.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The display name of the product.
@@ -901,13 +658,13 @@ type ProductResponseArgs struct {
 	// The identifier of the gallery item corresponding to the product.
 	GalleryItemIdentity pulumi.StringPtrInput `pulumi:"galleryItemIdentity"`
 	// Additional links available for this product.
-	IconUris IconUrisResponsePtrInput `pulumi:"iconUris"`
+	IconUris IconUrisInvokeResponsePtrInput `pulumi:"iconUris"`
 	// ID of the resource.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The legal terms.
 	LegalTerms pulumi.StringPtrInput `pulumi:"legalTerms"`
 	// Additional links available for this product.
-	Links ProductLinkResponseArrayInput `pulumi:"links"`
+	Links ProductLinkInvokeResponseArrayInput `pulumi:"links"`
 	// Name of the resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The offer representing the product.
@@ -921,7 +678,7 @@ type ProductResponseArgs struct {
 	// The kind of the product (virtualMachine or virtualMachineExtension)
 	ProductKind pulumi.StringPtrInput `pulumi:"productKind"`
 	// Additional properties for the product.
-	ProductProperties ProductPropertiesResponsePtrInput `pulumi:"productProperties"`
+	ProductProperties ProductPropertiesInvokeResponsePtrInput `pulumi:"productProperties"`
 	// The user-friendly name of the product publisher.
 	PublisherDisplayName pulumi.StringPtrInput `pulumi:"publisherDisplayName"`
 	// Publisher identifier.
@@ -934,200 +691,443 @@ type ProductResponseArgs struct {
 	VmExtensionType pulumi.StringPtrInput `pulumi:"vmExtensionType"`
 }
 
-func (ProductResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductResponse)(nil)).Elem()
+func (ProductInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductInvokeResponse)(nil)).Elem()
 }
 
-func (i ProductResponseArgs) ToProductResponseOutput() ProductResponseOutput {
-	return i.ToProductResponseOutputWithContext(context.Background())
+func (i ProductInvokeResponseArgs) ToProductInvokeResponseOutput() ProductInvokeResponseOutput {
+	return i.ToProductInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ProductResponseArgs) ToProductResponseOutputWithContext(ctx context.Context) ProductResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductResponseOutput)
+func (i ProductInvokeResponseArgs) ToProductInvokeResponseOutputWithContext(ctx context.Context) ProductInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductInvokeResponseOutput)
 }
 
-// ProductResponseArrayInput is an input type that accepts ProductResponseArray and ProductResponseArrayOutput values.
-// You can construct a concrete instance of `ProductResponseArrayInput` via:
+// ProductInvokeResponseArrayInput is an input type that accepts ProductInvokeResponseArray and ProductInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ProductInvokeResponseArrayInput` via:
 //
-//          ProductResponseArray{ ProductResponseArgs{...} }
-type ProductResponseArrayInput interface {
+//          ProductInvokeResponseArray{ ProductInvokeResponseArgs{...} }
+type ProductInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToProductResponseArrayOutput() ProductResponseArrayOutput
-	ToProductResponseArrayOutputWithContext(context.Context) ProductResponseArrayOutput
+	ToProductInvokeResponseArrayOutput() ProductInvokeResponseArrayOutput
+	ToProductInvokeResponseArrayOutputWithContext(context.Context) ProductInvokeResponseArrayOutput
 }
 
-type ProductResponseArray []ProductResponseInput
+type ProductInvokeResponseArray []ProductInvokeResponseInput
 
-func (ProductResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProductResponse)(nil)).Elem()
+func (ProductInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProductInvokeResponse)(nil)).Elem()
 }
 
-func (i ProductResponseArray) ToProductResponseArrayOutput() ProductResponseArrayOutput {
-	return i.ToProductResponseArrayOutputWithContext(context.Background())
+func (i ProductInvokeResponseArray) ToProductInvokeResponseArrayOutput() ProductInvokeResponseArrayOutput {
+	return i.ToProductInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ProductResponseArray) ToProductResponseArrayOutputWithContext(ctx context.Context) ProductResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductResponseArrayOutput)
+func (i ProductInvokeResponseArray) ToProductInvokeResponseArrayOutputWithContext(ctx context.Context) ProductInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductInvokeResponseArrayOutput)
 }
 
 // Product information.
-type ProductResponseOutput struct{ *pulumi.OutputState }
+type ProductInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ProductResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductResponse)(nil)).Elem()
+func (ProductInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductInvokeResponse)(nil)).Elem()
 }
 
-func (o ProductResponseOutput) ToProductResponseOutput() ProductResponseOutput {
+func (o ProductInvokeResponseOutput) ToProductInvokeResponseOutput() ProductInvokeResponseOutput {
 	return o
 }
 
-func (o ProductResponseOutput) ToProductResponseOutputWithContext(ctx context.Context) ProductResponseOutput {
+func (o ProductInvokeResponseOutput) ToProductInvokeResponseOutputWithContext(ctx context.Context) ProductInvokeResponseOutput {
 	return o
 }
 
 // The part number used for billing purposes.
-func (o ProductResponseOutput) BillingPartNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.BillingPartNumber }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) BillingPartNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.BillingPartNumber }).(pulumi.StringPtrOutput)
 }
 
 // Product compatibility with current device.
-func (o ProductResponseOutput) Compatibility() CompatibilityResponsePtrOutput {
-	return o.ApplyT(func(v ProductResponse) *CompatibilityResponse { return v.Compatibility }).(CompatibilityResponsePtrOutput)
+func (o ProductInvokeResponseOutput) Compatibility() CompatibilityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *CompatibilityInvokeResponse { return v.Compatibility }).(CompatibilityInvokeResponsePtrOutput)
 }
 
 // The description of the product.
-func (o ProductResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The display name of the product.
-func (o ProductResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The entity tag used for optimistic concurrency when modifying the resource.
-func (o ProductResponseOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the gallery item corresponding to the product.
-func (o ProductResponseOutput) GalleryItemIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.GalleryItemIdentity }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) GalleryItemIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.GalleryItemIdentity }).(pulumi.StringPtrOutput)
 }
 
 // Additional links available for this product.
-func (o ProductResponseOutput) IconUris() IconUrisResponsePtrOutput {
-	return o.ApplyT(func(v ProductResponse) *IconUrisResponse { return v.IconUris }).(IconUrisResponsePtrOutput)
+func (o ProductInvokeResponseOutput) IconUris() IconUrisInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *IconUrisInvokeResponse { return v.IconUris }).(IconUrisInvokeResponsePtrOutput)
 }
 
 // ID of the resource.
-func (o ProductResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ProductResponse) string { return v.Id }).(pulumi.StringOutput)
+func (o ProductInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The legal terms.
-func (o ProductResponseOutput) LegalTerms() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.LegalTerms }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) LegalTerms() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.LegalTerms }).(pulumi.StringPtrOutput)
 }
 
 // Additional links available for this product.
-func (o ProductResponseOutput) Links() ProductLinkResponseArrayOutput {
-	return o.ApplyT(func(v ProductResponse) []ProductLinkResponse { return v.Links }).(ProductLinkResponseArrayOutput)
+func (o ProductInvokeResponseOutput) Links() ProductLinkInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) []ProductLinkInvokeResponse { return v.Links }).(ProductLinkInvokeResponseArrayOutput)
 }
 
 // Name of the resource.
-func (o ProductResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProductResponse) string { return v.Name }).(pulumi.StringOutput)
+func (o ProductInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The offer representing the product.
-func (o ProductResponseOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) Offer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.Offer }).(pulumi.StringPtrOutput)
 }
 
 // The version of the product offer.
-func (o ProductResponseOutput) OfferVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.OfferVersion }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) OfferVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.OfferVersion }).(pulumi.StringPtrOutput)
 }
 
 // The length of product content.
-func (o ProductResponseOutput) PayloadLength() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ProductResponse) *float64 { return v.PayloadLength }).(pulumi.Float64PtrOutput)
+func (o ProductInvokeResponseOutput) PayloadLength() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *float64 { return v.PayloadLength }).(pulumi.Float64PtrOutput)
 }
 
 // The privacy policy.
-func (o ProductResponseOutput) PrivacyPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.PrivacyPolicy }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) PrivacyPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.PrivacyPolicy }).(pulumi.StringPtrOutput)
 }
 
 // The kind of the product (virtualMachine or virtualMachineExtension)
-func (o ProductResponseOutput) ProductKind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.ProductKind }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) ProductKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.ProductKind }).(pulumi.StringPtrOutput)
 }
 
 // Additional properties for the product.
-func (o ProductResponseOutput) ProductProperties() ProductPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ProductResponse) *ProductPropertiesResponse { return v.ProductProperties }).(ProductPropertiesResponsePtrOutput)
+func (o ProductInvokeResponseOutput) ProductProperties() ProductPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *ProductPropertiesInvokeResponse { return v.ProductProperties }).(ProductPropertiesInvokeResponsePtrOutput)
 }
 
 // The user-friendly name of the product publisher.
-func (o ProductResponseOutput) PublisherDisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.PublisherDisplayName }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) PublisherDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.PublisherDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Publisher identifier.
-func (o ProductResponseOutput) PublisherIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.PublisherIdentifier }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) PublisherIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.PublisherIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The product SKU.
-func (o ProductResponseOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
 // Type of Resource.
-func (o ProductResponseOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProductResponse) string { return v.Type }).(pulumi.StringOutput)
+func (o ProductInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The type of the Virtual Machine Extension.
-func (o ProductResponseOutput) VmExtensionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProductResponse) *string { return v.VmExtensionType }).(pulumi.StringPtrOutput)
+func (o ProductInvokeResponseOutput) VmExtensionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductInvokeResponse) *string { return v.VmExtensionType }).(pulumi.StringPtrOutput)
 }
 
-type ProductResponseArrayOutput struct{ *pulumi.OutputState }
+type ProductInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ProductResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProductResponse)(nil)).Elem()
+func (ProductInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProductInvokeResponse)(nil)).Elem()
 }
 
-func (o ProductResponseArrayOutput) ToProductResponseArrayOutput() ProductResponseArrayOutput {
+func (o ProductInvokeResponseArrayOutput) ToProductInvokeResponseArrayOutput() ProductInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ProductResponseArrayOutput) ToProductResponseArrayOutputWithContext(ctx context.Context) ProductResponseArrayOutput {
+func (o ProductInvokeResponseArrayOutput) ToProductInvokeResponseArrayOutputWithContext(ctx context.Context) ProductInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ProductResponseArrayOutput) Index(i pulumi.IntInput) ProductResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductResponse {
-		return vs[0].([]ProductResponse)[vs[1].(int)]
-	}).(ProductResponseOutput)
+func (o ProductInvokeResponseArrayOutput) Index(i pulumi.IntInput) ProductInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductInvokeResponse {
+		return vs[0].([]ProductInvokeResponse)[vs[1].(int)]
+	}).(ProductInvokeResponseOutput)
+}
+
+// Link with additional information about a product.
+type ProductLinkInvokeResponse struct {
+	// The description of the link.
+	DisplayName *string `pulumi:"displayName"`
+	// The URI corresponding to the link.
+	Uri *string `pulumi:"uri"`
+}
+
+// ProductLinkInvokeResponseInput is an input type that accepts ProductLinkInvokeResponseArgs and ProductLinkInvokeResponseOutput values.
+// You can construct a concrete instance of `ProductLinkInvokeResponseInput` via:
+//
+//          ProductLinkInvokeResponseArgs{...}
+type ProductLinkInvokeResponseInput interface {
+	pulumi.Input
+
+	ToProductLinkInvokeResponseOutput() ProductLinkInvokeResponseOutput
+	ToProductLinkInvokeResponseOutputWithContext(context.Context) ProductLinkInvokeResponseOutput
+}
+
+// Link with additional information about a product.
+type ProductLinkInvokeResponseArgs struct {
+	// The description of the link.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The URI corresponding to the link.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ProductLinkInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i ProductLinkInvokeResponseArgs) ToProductLinkInvokeResponseOutput() ProductLinkInvokeResponseOutput {
+	return i.ToProductLinkInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ProductLinkInvokeResponseArgs) ToProductLinkInvokeResponseOutputWithContext(ctx context.Context) ProductLinkInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductLinkInvokeResponseOutput)
+}
+
+// ProductLinkInvokeResponseArrayInput is an input type that accepts ProductLinkInvokeResponseArray and ProductLinkInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ProductLinkInvokeResponseArrayInput` via:
+//
+//          ProductLinkInvokeResponseArray{ ProductLinkInvokeResponseArgs{...} }
+type ProductLinkInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToProductLinkInvokeResponseArrayOutput() ProductLinkInvokeResponseArrayOutput
+	ToProductLinkInvokeResponseArrayOutputWithContext(context.Context) ProductLinkInvokeResponseArrayOutput
+}
+
+type ProductLinkInvokeResponseArray []ProductLinkInvokeResponseInput
+
+func (ProductLinkInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProductLinkInvokeResponse)(nil)).Elem()
+}
+
+func (i ProductLinkInvokeResponseArray) ToProductLinkInvokeResponseArrayOutput() ProductLinkInvokeResponseArrayOutput {
+	return i.ToProductLinkInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ProductLinkInvokeResponseArray) ToProductLinkInvokeResponseArrayOutputWithContext(ctx context.Context) ProductLinkInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductLinkInvokeResponseArrayOutput)
+}
+
+// Link with additional information about a product.
+type ProductLinkInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ProductLinkInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ProductLinkInvokeResponseOutput) ToProductLinkInvokeResponseOutput() ProductLinkInvokeResponseOutput {
+	return o
+}
+
+func (o ProductLinkInvokeResponseOutput) ToProductLinkInvokeResponseOutputWithContext(ctx context.Context) ProductLinkInvokeResponseOutput {
+	return o
+}
+
+// The description of the link.
+func (o ProductLinkInvokeResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductLinkInvokeResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The URI corresponding to the link.
+func (o ProductLinkInvokeResponseOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductLinkInvokeResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ProductLinkInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ProductLinkInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProductLinkInvokeResponse)(nil)).Elem()
+}
+
+func (o ProductLinkInvokeResponseArrayOutput) ToProductLinkInvokeResponseArrayOutput() ProductLinkInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ProductLinkInvokeResponseArrayOutput) ToProductLinkInvokeResponseArrayOutputWithContext(ctx context.Context) ProductLinkInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ProductLinkInvokeResponseArrayOutput) Index(i pulumi.IntInput) ProductLinkInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProductLinkInvokeResponse {
+		return vs[0].([]ProductLinkInvokeResponse)[vs[1].(int)]
+	}).(ProductLinkInvokeResponseOutput)
+}
+
+// Additional properties of the product
+type ProductPropertiesInvokeResponse struct {
+	// The version.
+	Version *string `pulumi:"version"`
+}
+
+// ProductPropertiesInvokeResponseInput is an input type that accepts ProductPropertiesInvokeResponseArgs and ProductPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ProductPropertiesInvokeResponseInput` via:
+//
+//          ProductPropertiesInvokeResponseArgs{...}
+type ProductPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToProductPropertiesInvokeResponseOutput() ProductPropertiesInvokeResponseOutput
+	ToProductPropertiesInvokeResponseOutputWithContext(context.Context) ProductPropertiesInvokeResponseOutput
+}
+
+// Additional properties of the product
+type ProductPropertiesInvokeResponseArgs struct {
+	// The version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ProductPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ProductPropertiesInvokeResponseArgs) ToProductPropertiesInvokeResponseOutput() ProductPropertiesInvokeResponseOutput {
+	return i.ToProductPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ProductPropertiesInvokeResponseArgs) ToProductPropertiesInvokeResponseOutputWithContext(ctx context.Context) ProductPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPropertiesInvokeResponseOutput)
+}
+
+func (i ProductPropertiesInvokeResponseArgs) ToProductPropertiesInvokeResponsePtrOutput() ProductPropertiesInvokeResponsePtrOutput {
+	return i.ToProductPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProductPropertiesInvokeResponseArgs) ToProductPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ProductPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPropertiesInvokeResponseOutput).ToProductPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ProductPropertiesInvokeResponsePtrInput is an input type that accepts ProductPropertiesInvokeResponseArgs, ProductPropertiesInvokeResponsePtr and ProductPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ProductPropertiesInvokeResponsePtrInput` via:
+//
+//          ProductPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ProductPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToProductPropertiesInvokeResponsePtrOutput() ProductPropertiesInvokeResponsePtrOutput
+	ToProductPropertiesInvokeResponsePtrOutputWithContext(context.Context) ProductPropertiesInvokeResponsePtrOutput
+}
+
+type productPropertiesInvokeResponsePtrType ProductPropertiesInvokeResponseArgs
+
+func ProductPropertiesInvokeResponsePtr(v *ProductPropertiesInvokeResponseArgs) ProductPropertiesInvokeResponsePtrInput {
+	return (*productPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*productPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProductPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *productPropertiesInvokeResponsePtrType) ToProductPropertiesInvokeResponsePtrOutput() ProductPropertiesInvokeResponsePtrOutput {
+	return i.ToProductPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *productPropertiesInvokeResponsePtrType) ToProductPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ProductPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProductPropertiesInvokeResponsePtrOutput)
+}
+
+// Additional properties of the product
+type ProductPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ProductPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProductPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ProductPropertiesInvokeResponseOutput) ToProductPropertiesInvokeResponseOutput() ProductPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ProductPropertiesInvokeResponseOutput) ToProductPropertiesInvokeResponseOutputWithContext(ctx context.Context) ProductPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ProductPropertiesInvokeResponseOutput) ToProductPropertiesInvokeResponsePtrOutput() ProductPropertiesInvokeResponsePtrOutput {
+	return o.ToProductPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProductPropertiesInvokeResponseOutput) ToProductPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ProductPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ProductPropertiesInvokeResponse) *ProductPropertiesInvokeResponse {
+		return &v
+	}).(ProductPropertiesInvokeResponsePtrOutput)
+}
+
+// The version.
+func (o ProductPropertiesInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProductPropertiesInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ProductPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProductPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProductPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ProductPropertiesInvokeResponsePtrOutput) ToProductPropertiesInvokeResponsePtrOutput() ProductPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ProductPropertiesInvokeResponsePtrOutput) ToProductPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) ProductPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ProductPropertiesInvokeResponsePtrOutput) Elem() ProductPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *ProductPropertiesInvokeResponse) ProductPropertiesInvokeResponse { return *v }).(ProductPropertiesInvokeResponseOutput)
+}
+
+// The version.
+func (o ProductPropertiesInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(CompatibilityResponseOutput{})
-	pulumi.RegisterOutputType(CompatibilityResponsePtrOutput{})
-	pulumi.RegisterOutputType(DataDiskImageResponseOutput{})
-	pulumi.RegisterOutputType(DataDiskImageResponseArrayOutput{})
-	pulumi.RegisterOutputType(IconUrisResponseOutput{})
-	pulumi.RegisterOutputType(IconUrisResponsePtrOutput{})
-	pulumi.RegisterOutputType(OsDiskImageResponseOutput{})
-	pulumi.RegisterOutputType(ProductLinkResponseOutput{})
-	pulumi.RegisterOutputType(ProductLinkResponseArrayOutput{})
-	pulumi.RegisterOutputType(ProductPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ProductPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ProductResponseOutput{})
-	pulumi.RegisterOutputType(ProductResponseArrayOutput{})
+	pulumi.RegisterOutputType(CompatibilityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CompatibilityInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(DataDiskImageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataDiskImageInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(IconUrisInvokeResponseOutput{})
+	pulumi.RegisterOutputType(IconUrisInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(OsDiskImageInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ProductInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ProductInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ProductLinkInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ProductLinkInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(ProductPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ProductPropertiesInvokeResponsePtrOutput{})
 }

@@ -36,11 +36,11 @@ type LookupBlueprintResult struct {
 	// Name of this resource.
 	Name string `pulumi:"name"`
 	// Parameters required by this Blueprint definition.
-	Parameters map[string]ParameterDefinitionResponse `pulumi:"parameters"`
+	Parameters map[string]ParameterDefinitionInvokeResponse `pulumi:"parameters"`
 	// Resource group placeholders defined by this Blueprint definition.
-	ResourceGroups map[string]ResourceGroupDefinitionResponse `pulumi:"resourceGroups"`
+	ResourceGroups map[string]ResourceGroupDefinitionInvokeResponse `pulumi:"resourceGroups"`
 	// Status of the Blueprint. This field is readonly.
-	Status BlueprintStatusResponse `pulumi:"status"`
+	Status BlueprintStatusInvokeResponse `pulumi:"status"`
 	// The scope where this Blueprint can be applied.
 	TargetScope string `pulumi:"targetScope"`
 	// Type of this resource.

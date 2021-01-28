@@ -25,6 +25,6 @@ type ListIotDpsResourceKeysArgs struct {
 
 // List of shared access keys.
 type ListIotDpsResourceKeysResult struct {
-	NextLink string                                                                  `pulumi:"nextLink"`
-	Value    []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse `pulumi:"value"`
+	NextLink string                                                                        `pulumi:"nextLink"`
+	Value    []SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionInvokeResponse `pulumi:"value"`
 }

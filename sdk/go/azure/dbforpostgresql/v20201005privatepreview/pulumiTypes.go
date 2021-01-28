@@ -202,6 +202,88 @@ func (o MaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 }
 
 // Maintenance window of a server group.
+type MaintenanceWindowInvokeResponse struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow *string `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek *int `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour *int `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute *int `pulumi:"startMinute"`
+}
+
+// MaintenanceWindowInvokeResponseInput is an input type that accepts MaintenanceWindowInvokeResponseArgs and MaintenanceWindowInvokeResponseOutput values.
+// You can construct a concrete instance of `MaintenanceWindowInvokeResponseInput` via:
+//
+//          MaintenanceWindowInvokeResponseArgs{...}
+type MaintenanceWindowInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowInvokeResponseOutput() MaintenanceWindowInvokeResponseOutput
+	ToMaintenanceWindowInvokeResponseOutputWithContext(context.Context) MaintenanceWindowInvokeResponseOutput
+}
+
+// Maintenance window of a server group.
+type MaintenanceWindowInvokeResponseArgs struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+}
+
+func (MaintenanceWindowInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowInvokeResponse)(nil)).Elem()
+}
+
+func (i MaintenanceWindowInvokeResponseArgs) ToMaintenanceWindowInvokeResponseOutput() MaintenanceWindowInvokeResponseOutput {
+	return i.ToMaintenanceWindowInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowInvokeResponseArgs) ToMaintenanceWindowInvokeResponseOutputWithContext(ctx context.Context) MaintenanceWindowInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowInvokeResponseOutput)
+}
+
+// Maintenance window of a server group.
+type MaintenanceWindowInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowInvokeResponse)(nil)).Elem()
+}
+
+func (o MaintenanceWindowInvokeResponseOutput) ToMaintenanceWindowInvokeResponseOutput() MaintenanceWindowInvokeResponseOutput {
+	return o
+}
+
+func (o MaintenanceWindowInvokeResponseOutput) ToMaintenanceWindowInvokeResponseOutputWithContext(ctx context.Context) MaintenanceWindowInvokeResponseOutput {
+	return o
+}
+
+// indicates whether custom window is enabled or disabled
+func (o MaintenanceWindowInvokeResponseOutput) CustomWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowInvokeResponse) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
+}
+
+// day of week for maintenance window
+func (o MaintenanceWindowInvokeResponseOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowInvokeResponse) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
+}
+
+// start hour for maintenance window
+func (o MaintenanceWindowInvokeResponseOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowInvokeResponse) *int { return v.StartHour }).(pulumi.IntPtrOutput)
+}
+
+// start minute for maintenance window
+func (o MaintenanceWindowInvokeResponseOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowInvokeResponse) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
+}
+
+// Maintenance window of a server group.
 type MaintenanceWindowResponse struct {
 	// indicates whether custom window is enabled or disabled
 	CustomWindow *string `pulumi:"customWindow"`
@@ -529,6 +611,63 @@ func (o ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput) SubnetArmResourc
 }
 
 // The delegated subnet arguments for a server group.
+type ServerGroupPropertiesInvokeResponseDelegatedSubnetArguments struct {
+	// delegated subnet arm resource id.
+	SubnetArmResourceId *string `pulumi:"subnetArmResourceId"`
+}
+
+// ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsInput is an input type that accepts ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsArgs and ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput values.
+// You can construct a concrete instance of `ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsInput` via:
+//
+//          ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsArgs{...}
+type ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsInput interface {
+	pulumi.Input
+
+	ToServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput() ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput
+	ToServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutputWithContext(context.Context) ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput
+}
+
+// The delegated subnet arguments for a server group.
+type ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsArgs struct {
+	// delegated subnet arm resource id.
+	SubnetArmResourceId pulumi.StringPtrInput `pulumi:"subnetArmResourceId"`
+}
+
+func (ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerGroupPropertiesInvokeResponseDelegatedSubnetArguments)(nil)).Elem()
+}
+
+func (i ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsArgs) ToServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput() ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput {
+	return i.ToServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutputWithContext(context.Background())
+}
+
+func (i ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsArgs) ToServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutputWithContext(ctx context.Context) ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput)
+}
+
+// The delegated subnet arguments for a server group.
+type ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput struct{ *pulumi.OutputState }
+
+func (ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerGroupPropertiesInvokeResponseDelegatedSubnetArguments)(nil)).Elem()
+}
+
+func (o ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput) ToServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput() ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput {
+	return o
+}
+
+func (o ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput) ToServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutputWithContext(ctx context.Context) ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput {
+	return o
+}
+
+// delegated subnet arm resource id.
+func (o ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerGroupPropertiesInvokeResponseDelegatedSubnetArguments) *string {
+		return v.SubnetArmResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The delegated subnet arguments for a server group.
 type ServerGroupPropertiesResponseDelegatedSubnetArguments struct {
 	// delegated subnet arm resource id.
 	SubnetArmResourceId *string `pulumi:"subnetArmResourceId"`
@@ -662,6 +801,115 @@ func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput) SubnetAr
 		}
 		return v.SubnetArmResourceId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The name object for a server.
+type ServerNameItemInvokeResponse struct {
+	// The fully qualified domain name of a server.
+	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
+	// The name of a server.
+	Name *string `pulumi:"name"`
+}
+
+// ServerNameItemInvokeResponseInput is an input type that accepts ServerNameItemInvokeResponseArgs and ServerNameItemInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerNameItemInvokeResponseInput` via:
+//
+//          ServerNameItemInvokeResponseArgs{...}
+type ServerNameItemInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerNameItemInvokeResponseOutput() ServerNameItemInvokeResponseOutput
+	ToServerNameItemInvokeResponseOutputWithContext(context.Context) ServerNameItemInvokeResponseOutput
+}
+
+// The name object for a server.
+type ServerNameItemInvokeResponseArgs struct {
+	// The fully qualified domain name of a server.
+	FullyQualifiedDomainName pulumi.StringInput `pulumi:"fullyQualifiedDomainName"`
+	// The name of a server.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ServerNameItemInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerNameItemInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerNameItemInvokeResponseArgs) ToServerNameItemInvokeResponseOutput() ServerNameItemInvokeResponseOutput {
+	return i.ToServerNameItemInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerNameItemInvokeResponseArgs) ToServerNameItemInvokeResponseOutputWithContext(ctx context.Context) ServerNameItemInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerNameItemInvokeResponseOutput)
+}
+
+// ServerNameItemInvokeResponseArrayInput is an input type that accepts ServerNameItemInvokeResponseArray and ServerNameItemInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ServerNameItemInvokeResponseArrayInput` via:
+//
+//          ServerNameItemInvokeResponseArray{ ServerNameItemInvokeResponseArgs{...} }
+type ServerNameItemInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToServerNameItemInvokeResponseArrayOutput() ServerNameItemInvokeResponseArrayOutput
+	ToServerNameItemInvokeResponseArrayOutputWithContext(context.Context) ServerNameItemInvokeResponseArrayOutput
+}
+
+type ServerNameItemInvokeResponseArray []ServerNameItemInvokeResponseInput
+
+func (ServerNameItemInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerNameItemInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerNameItemInvokeResponseArray) ToServerNameItemInvokeResponseArrayOutput() ServerNameItemInvokeResponseArrayOutput {
+	return i.ToServerNameItemInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServerNameItemInvokeResponseArray) ToServerNameItemInvokeResponseArrayOutputWithContext(ctx context.Context) ServerNameItemInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerNameItemInvokeResponseArrayOutput)
+}
+
+// The name object for a server.
+type ServerNameItemInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerNameItemInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerNameItemInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerNameItemInvokeResponseOutput) ToServerNameItemInvokeResponseOutput() ServerNameItemInvokeResponseOutput {
+	return o
+}
+
+func (o ServerNameItemInvokeResponseOutput) ToServerNameItemInvokeResponseOutputWithContext(ctx context.Context) ServerNameItemInvokeResponseOutput {
+	return o
+}
+
+// The fully qualified domain name of a server.
+func (o ServerNameItemInvokeResponseOutput) FullyQualifiedDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerNameItemInvokeResponse) string { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
+}
+
+// The name of a server.
+func (o ServerNameItemInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerNameItemInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ServerNameItemInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerNameItemInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerNameItemInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerNameItemInvokeResponseArrayOutput) ToServerNameItemInvokeResponseArrayOutput() ServerNameItemInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerNameItemInvokeResponseArrayOutput) ToServerNameItemInvokeResponseArrayOutputWithContext(ctx context.Context) ServerNameItemInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerNameItemInvokeResponseArrayOutput) Index(i pulumi.IntInput) ServerNameItemInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerNameItemInvokeResponse {
+		return vs[0].([]ServerNameItemInvokeResponse)[vs[1].(int)]
+	}).(ServerNameItemInvokeResponseOutput)
 }
 
 // The name object for a server.
@@ -928,6 +1176,178 @@ func (o ServerRoleGroupArrayOutput) Index(i pulumi.IntInput) ServerRoleGroupOutp
 }
 
 // Represents a server role group.
+type ServerRoleGroupInvokeResponse struct {
+	// If high availability is enabled or not for the server.
+	EnableHa *bool `pulumi:"enableHa"`
+	// If public IP is requested or not for a server.
+	EnablePublicIp bool `pulumi:"enablePublicIp"`
+	// The name of the server role group.
+	Name *string `pulumi:"name"`
+	// The role of servers in the server role group.
+	Role *string `pulumi:"role"`
+	// The number of servers in the server role group.
+	ServerCount *int `pulumi:"serverCount"`
+	// The edition of a server (default: GeneralPurpose).
+	ServerEdition *string `pulumi:"serverEdition"`
+	// The list of server names in the server role group.
+	ServerNames []ServerNameItemInvokeResponse `pulumi:"serverNames"`
+	// The storage of a server in MB (max: 2097152 = 2TiB).
+	StorageQuotaInMb *float64 `pulumi:"storageQuotaInMb"`
+	// The vCores count of a server (max: 64).
+	VCores *float64 `pulumi:"vCores"`
+}
+
+// ServerRoleGroupInvokeResponseInput is an input type that accepts ServerRoleGroupInvokeResponseArgs and ServerRoleGroupInvokeResponseOutput values.
+// You can construct a concrete instance of `ServerRoleGroupInvokeResponseInput` via:
+//
+//          ServerRoleGroupInvokeResponseArgs{...}
+type ServerRoleGroupInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServerRoleGroupInvokeResponseOutput() ServerRoleGroupInvokeResponseOutput
+	ToServerRoleGroupInvokeResponseOutputWithContext(context.Context) ServerRoleGroupInvokeResponseOutput
+}
+
+// Represents a server role group.
+type ServerRoleGroupInvokeResponseArgs struct {
+	// If high availability is enabled or not for the server.
+	EnableHa pulumi.BoolPtrInput `pulumi:"enableHa"`
+	// If public IP is requested or not for a server.
+	EnablePublicIp pulumi.BoolInput `pulumi:"enablePublicIp"`
+	// The name of the server role group.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The role of servers in the server role group.
+	Role pulumi.StringPtrInput `pulumi:"role"`
+	// The number of servers in the server role group.
+	ServerCount pulumi.IntPtrInput `pulumi:"serverCount"`
+	// The edition of a server (default: GeneralPurpose).
+	ServerEdition pulumi.StringPtrInput `pulumi:"serverEdition"`
+	// The list of server names in the server role group.
+	ServerNames ServerNameItemInvokeResponseArrayInput `pulumi:"serverNames"`
+	// The storage of a server in MB (max: 2097152 = 2TiB).
+	StorageQuotaInMb pulumi.Float64PtrInput `pulumi:"storageQuotaInMb"`
+	// The vCores count of a server (max: 64).
+	VCores pulumi.Float64PtrInput `pulumi:"vCores"`
+}
+
+func (ServerRoleGroupInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerRoleGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerRoleGroupInvokeResponseArgs) ToServerRoleGroupInvokeResponseOutput() ServerRoleGroupInvokeResponseOutput {
+	return i.ToServerRoleGroupInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServerRoleGroupInvokeResponseArgs) ToServerRoleGroupInvokeResponseOutputWithContext(ctx context.Context) ServerRoleGroupInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerRoleGroupInvokeResponseOutput)
+}
+
+// ServerRoleGroupInvokeResponseArrayInput is an input type that accepts ServerRoleGroupInvokeResponseArray and ServerRoleGroupInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ServerRoleGroupInvokeResponseArrayInput` via:
+//
+//          ServerRoleGroupInvokeResponseArray{ ServerRoleGroupInvokeResponseArgs{...} }
+type ServerRoleGroupInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToServerRoleGroupInvokeResponseArrayOutput() ServerRoleGroupInvokeResponseArrayOutput
+	ToServerRoleGroupInvokeResponseArrayOutputWithContext(context.Context) ServerRoleGroupInvokeResponseArrayOutput
+}
+
+type ServerRoleGroupInvokeResponseArray []ServerRoleGroupInvokeResponseInput
+
+func (ServerRoleGroupInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerRoleGroupInvokeResponse)(nil)).Elem()
+}
+
+func (i ServerRoleGroupInvokeResponseArray) ToServerRoleGroupInvokeResponseArrayOutput() ServerRoleGroupInvokeResponseArrayOutput {
+	return i.ToServerRoleGroupInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServerRoleGroupInvokeResponseArray) ToServerRoleGroupInvokeResponseArrayOutputWithContext(ctx context.Context) ServerRoleGroupInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerRoleGroupInvokeResponseArrayOutput)
+}
+
+// Represents a server role group.
+type ServerRoleGroupInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServerRoleGroupInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerRoleGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerRoleGroupInvokeResponseOutput) ToServerRoleGroupInvokeResponseOutput() ServerRoleGroupInvokeResponseOutput {
+	return o
+}
+
+func (o ServerRoleGroupInvokeResponseOutput) ToServerRoleGroupInvokeResponseOutputWithContext(ctx context.Context) ServerRoleGroupInvokeResponseOutput {
+	return o
+}
+
+// If high availability is enabled or not for the server.
+func (o ServerRoleGroupInvokeResponseOutput) EnableHa() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServerRoleGroupInvokeResponse) *bool { return v.EnableHa }).(pulumi.BoolPtrOutput)
+}
+
+// If public IP is requested or not for a server.
+func (o ServerRoleGroupInvokeResponseOutput) EnablePublicIp() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServerRoleGroupInvokeResponse) bool { return v.EnablePublicIp }).(pulumi.BoolOutput)
+}
+
+// The name of the server role group.
+func (o ServerRoleGroupInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerRoleGroupInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The role of servers in the server role group.
+func (o ServerRoleGroupInvokeResponseOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerRoleGroupInvokeResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// The number of servers in the server role group.
+func (o ServerRoleGroupInvokeResponseOutput) ServerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerRoleGroupInvokeResponse) *int { return v.ServerCount }).(pulumi.IntPtrOutput)
+}
+
+// The edition of a server (default: GeneralPurpose).
+func (o ServerRoleGroupInvokeResponseOutput) ServerEdition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerRoleGroupInvokeResponse) *string { return v.ServerEdition }).(pulumi.StringPtrOutput)
+}
+
+// The list of server names in the server role group.
+func (o ServerRoleGroupInvokeResponseOutput) ServerNames() ServerNameItemInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ServerRoleGroupInvokeResponse) []ServerNameItemInvokeResponse { return v.ServerNames }).(ServerNameItemInvokeResponseArrayOutput)
+}
+
+// The storage of a server in MB (max: 2097152 = 2TiB).
+func (o ServerRoleGroupInvokeResponseOutput) StorageQuotaInMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServerRoleGroupInvokeResponse) *float64 { return v.StorageQuotaInMb }).(pulumi.Float64PtrOutput)
+}
+
+// The vCores count of a server (max: 64).
+func (o ServerRoleGroupInvokeResponseOutput) VCores() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ServerRoleGroupInvokeResponse) *float64 { return v.VCores }).(pulumi.Float64PtrOutput)
+}
+
+type ServerRoleGroupInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerRoleGroupInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerRoleGroupInvokeResponse)(nil)).Elem()
+}
+
+func (o ServerRoleGroupInvokeResponseArrayOutput) ToServerRoleGroupInvokeResponseArrayOutput() ServerRoleGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerRoleGroupInvokeResponseArrayOutput) ToServerRoleGroupInvokeResponseArrayOutputWithContext(ctx context.Context) ServerRoleGroupInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServerRoleGroupInvokeResponseArrayOutput) Index(i pulumi.IntInput) ServerRoleGroupInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerRoleGroupInvokeResponse {
+		return vs[0].([]ServerRoleGroupInvokeResponse)[vs[1].(int)]
+	}).(ServerRoleGroupInvokeResponseOutput)
+}
+
+// Represents a server role group.
 type ServerRoleGroupResponse struct {
 	// If high availability is enabled or not for the server.
 	EnableHa *bool `pulumi:"enableHa"`
@@ -1097,6 +1517,106 @@ func (o ServerRoleGroupResponseArrayOutput) Index(i pulumi.IntInput) ServerRoleG
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerRoleGroupResponse {
 		return vs[0].([]ServerRoleGroupResponse)[vs[1].(int)]
 	}).(ServerRoleGroupResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataInvokeResponseInput is an input type that accepts SystemDataInvokeResponseArgs and SystemDataInvokeResponseOutput values.
+// You can construct a concrete instance of `SystemDataInvokeResponseInput` via:
+//
+//          SystemDataInvokeResponseArgs{...}
+type SystemDataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput
+	ToSystemDataInvokeResponseOutputWithContext(context.Context) SystemDataInvokeResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The type of identity that last modified the resource.
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return i.ToSystemDataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataInvokeResponseArgs) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataInvokeResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataInvokeResponse)(nil)).Elem()
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutput() SystemDataInvokeResponseOutput {
+	return o
+}
+
+func (o SystemDataInvokeResponseOutput) ToSystemDataInvokeResponseOutputWithContext(ctx context.Context) SystemDataInvokeResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataInvokeResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataInvokeResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataInvokeResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataInvokeResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -1331,18 +1851,25 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(MaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerGroupPropertiesDelegatedSubnetArgumentsOutput{})
 	pulumi.RegisterOutputType(ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput{})
+	pulumi.RegisterOutputType(ServerGroupPropertiesInvokeResponseDelegatedSubnetArgumentsOutput{})
 	pulumi.RegisterOutputType(ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput{})
 	pulumi.RegisterOutputType(ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput{})
+	pulumi.RegisterOutputType(ServerNameItemInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServerNameItemInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerNameItemResponseOutput{})
 	pulumi.RegisterOutputType(ServerNameItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerRoleGroupOutput{})
 	pulumi.RegisterOutputType(ServerRoleGroupArrayOutput{})
+	pulumi.RegisterOutputType(ServerRoleGroupInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServerRoleGroupInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerRoleGroupResponseOutput{})
 	pulumi.RegisterOutputType(ServerRoleGroupResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

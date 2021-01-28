@@ -30,7 +30,7 @@ type LookupRoleAssignmentResult struct {
 	// The role assignment name.
 	Name string `pulumi:"name"`
 	// Role assignment properties.
-	Properties RoleAssignmentPropertiesWithScopeResponse `pulumi:"properties"`
+	Properties RoleAssignmentPropertiesWithScopeInvokeResponse `pulumi:"properties"`
 	// The role assignment type.
 	Type string `pulumi:"type"`
 }

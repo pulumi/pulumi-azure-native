@@ -30,13 +30,13 @@ type LookupAutomationAccountResult struct {
 	// Gets or sets the description.
 	Description *string `pulumi:"description"`
 	// Encryption properties for the automation account
-	Encryption *EncryptionPropertiesResponse `pulumi:"encryption"`
+	Encryption *EncryptionPropertiesInvokeResponse `pulumi:"encryption"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
 	// Fully qualified resource Id for the resource
 	Id string `pulumi:"id"`
 	// Identity for the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// Gets or sets the last modified by.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
 	// Gets the last modified time.
@@ -46,11 +46,11 @@ type LookupAutomationAccountResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of Automation operations supported by the Automation resource provider.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
 	PublicNetworkAccess *bool `pulumi:"publicNetworkAccess"`
 	// Gets or sets the SKU of account.
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Gets status of account.
 	State string `pulumi:"state"`
 	// Resource tags.

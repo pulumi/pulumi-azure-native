@@ -38,7 +38,7 @@ type LookupPolicySetDefinitionAtManagementGroupResult struct {
 	// The policy set definition parameters that can be used in policy definition references.
 	Parameters interface{} `pulumi:"parameters"`
 	// An array of policy definition references.
-	PolicyDefinitions []PolicyDefinitionReferenceResponse `pulumi:"policyDefinitions"`
+	PolicyDefinitions []PolicyDefinitionReferenceInvokeResponse `pulumi:"policyDefinitions"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).

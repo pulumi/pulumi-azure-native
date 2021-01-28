@@ -30,7 +30,7 @@ type LookupSaasSubscriptionLevelResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// saas properties
-	Properties SaasResourceResponseProperties `pulumi:"properties"`
+	Properties SaasResourceInvokeResponseProperties `pulumi:"properties"`
 	// the resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -32,7 +32,7 @@ type ListBuildTaskSourceRepositoryPropertiesResult struct {
 	// The full URL to the source code repository
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 	// The authorization properties for accessing the source code repository.
-	SourceControlAuthProperties *SourceControlAuthInfoResponse `pulumi:"sourceControlAuthProperties"`
+	SourceControlAuthProperties *SourceControlAuthInfoInvokeResponse `pulumi:"sourceControlAuthProperties"`
 	// The type of source control service.
 	SourceControlType string `pulumi:"sourceControlType"`
 }

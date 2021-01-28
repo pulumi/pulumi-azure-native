@@ -32,7 +32,7 @@ type LookupPrivateEndpointConnectionResult struct {
 	// The name of the private endpoint connection.
 	Name string `pulumi:"name"`
 	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesInvokeResponse `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

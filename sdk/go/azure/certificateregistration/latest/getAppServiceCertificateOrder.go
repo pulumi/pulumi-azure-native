@@ -30,7 +30,7 @@ type LookupAppServiceCertificateOrderResult struct {
 	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
 	AutoRenew *bool `pulumi:"autoRenew"`
 	// State of the Key Vault secret.
-	Certificates map[string]AppServiceCertificateResponse `pulumi:"certificates"`
+	Certificates map[string]AppServiceCertificateInvokeResponse `pulumi:"certificates"`
 	// Last CSR that was created for this order.
 	Csr *string `pulumi:"csr"`
 	// Certificate distinguished name.
@@ -42,7 +42,7 @@ type LookupAppServiceCertificateOrderResult struct {
 	// Resource Id.
 	Id string `pulumi:"id"`
 	// Intermediate certificate.
-	Intermediate CertificateDetailsResponse `pulumi:"intermediate"`
+	Intermediate CertificateDetailsInvokeResponse `pulumi:"intermediate"`
 	// <code>true</code> if private key is external; otherwise, <code>false</code>.
 	IsPrivateKeyExternal bool `pulumi:"isPrivateKeyExternal"`
 	// Certificate key size.
@@ -62,15 +62,15 @@ type LookupAppServiceCertificateOrderResult struct {
 	// Status of certificate order.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Root certificate.
-	Root CertificateDetailsResponse `pulumi:"root"`
+	Root CertificateDetailsInvokeResponse `pulumi:"root"`
 	// Current serial number of the certificate.
 	SerialNumber string `pulumi:"serialNumber"`
 	// Signed certificate.
-	SignedCertificate CertificateDetailsResponse `pulumi:"signedCertificate"`
+	SignedCertificate CertificateDetailsInvokeResponse `pulumi:"signedCertificate"`
 	// Current order status.
 	Status string `pulumi:"status"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

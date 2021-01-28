@@ -28,5 +28,5 @@ type ListDeviceFailoverSetsArgs struct {
 // The list of failover sets.
 type ListDeviceFailoverSetsResult struct {
 	// The list of failover sets.
-	Value []FailoverSetResponse `pulumi:"value"`
+	Value []FailoverSetInvokeResponse `pulumi:"value"`
 }

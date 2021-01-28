@@ -145,6 +145,61 @@ func (o DigitalTwinsSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Information about the SKU of the DigitalTwinsInstance.
+type DigitalTwinsSkuInfoInvokeResponse struct {
+	// The name of the SKU.
+	Name string `pulumi:"name"`
+}
+
+// DigitalTwinsSkuInfoInvokeResponseInput is an input type that accepts DigitalTwinsSkuInfoInvokeResponseArgs and DigitalTwinsSkuInfoInvokeResponseOutput values.
+// You can construct a concrete instance of `DigitalTwinsSkuInfoInvokeResponseInput` via:
+//
+//          DigitalTwinsSkuInfoInvokeResponseArgs{...}
+type DigitalTwinsSkuInfoInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDigitalTwinsSkuInfoInvokeResponseOutput() DigitalTwinsSkuInfoInvokeResponseOutput
+	ToDigitalTwinsSkuInfoInvokeResponseOutputWithContext(context.Context) DigitalTwinsSkuInfoInvokeResponseOutput
+}
+
+// Information about the SKU of the DigitalTwinsInstance.
+type DigitalTwinsSkuInfoInvokeResponseArgs struct {
+	// The name of the SKU.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (DigitalTwinsSkuInfoInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DigitalTwinsSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (i DigitalTwinsSkuInfoInvokeResponseArgs) ToDigitalTwinsSkuInfoInvokeResponseOutput() DigitalTwinsSkuInfoInvokeResponseOutput {
+	return i.ToDigitalTwinsSkuInfoInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DigitalTwinsSkuInfoInvokeResponseArgs) ToDigitalTwinsSkuInfoInvokeResponseOutputWithContext(ctx context.Context) DigitalTwinsSkuInfoInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DigitalTwinsSkuInfoInvokeResponseOutput)
+}
+
+// Information about the SKU of the DigitalTwinsInstance.
+type DigitalTwinsSkuInfoInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DigitalTwinsSkuInfoInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DigitalTwinsSkuInfoInvokeResponse)(nil)).Elem()
+}
+
+func (o DigitalTwinsSkuInfoInvokeResponseOutput) ToDigitalTwinsSkuInfoInvokeResponseOutput() DigitalTwinsSkuInfoInvokeResponseOutput {
+	return o
+}
+
+func (o DigitalTwinsSkuInfoInvokeResponseOutput) ToDigitalTwinsSkuInfoInvokeResponseOutputWithContext(ctx context.Context) DigitalTwinsSkuInfoInvokeResponseOutput {
+	return o
+}
+
+// The name of the SKU.
+func (o DigitalTwinsSkuInfoInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DigitalTwinsSkuInfoInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Information about the SKU of the DigitalTwinsInstance.
 type DigitalTwinsSkuInfoResponse struct {
 	// The name of the SKU.
 	Name string `pulumi:"name"`
@@ -373,6 +428,118 @@ func (o EventGridOutput) TopicEndpoint() pulumi.StringPtrOutput {
 }
 
 // properties related to eventgrid.
+type EventGridInvokeResponse struct {
+	// EventGrid secondary accesskey. Will be obfuscated during read
+	AccessKey1 string `pulumi:"accessKey1"`
+	// EventGrid secondary accesskey. Will be obfuscated during read
+	AccessKey2 string `pulumi:"accessKey2"`
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime string `pulumi:"createdTime"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
+	EndpointType string `pulumi:"endpointType"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// EventGrid Topic Endpoint
+	TopicEndpoint *string `pulumi:"topicEndpoint"`
+}
+
+// EventGridInvokeResponseInput is an input type that accepts EventGridInvokeResponseArgs and EventGridInvokeResponseOutput values.
+// You can construct a concrete instance of `EventGridInvokeResponseInput` via:
+//
+//          EventGridInvokeResponseArgs{...}
+type EventGridInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventGridInvokeResponseOutput() EventGridInvokeResponseOutput
+	ToEventGridInvokeResponseOutputWithContext(context.Context) EventGridInvokeResponseOutput
+}
+
+// properties related to eventgrid.
+type EventGridInvokeResponseArgs struct {
+	// EventGrid secondary accesskey. Will be obfuscated during read
+	AccessKey1 pulumi.StringInput `pulumi:"accessKey1"`
+	// EventGrid secondary accesskey. Will be obfuscated during read
+	AccessKey2 pulumi.StringInput `pulumi:"accessKey2"`
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'EventGrid'.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// EventGrid Topic Endpoint
+	TopicEndpoint pulumi.StringPtrInput `pulumi:"topicEndpoint"`
+}
+
+func (EventGridInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridInvokeResponse)(nil)).Elem()
+}
+
+func (i EventGridInvokeResponseArgs) ToEventGridInvokeResponseOutput() EventGridInvokeResponseOutput {
+	return i.ToEventGridInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventGridInvokeResponseArgs) ToEventGridInvokeResponseOutputWithContext(ctx context.Context) EventGridInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventGridInvokeResponseOutput)
+}
+
+// properties related to eventgrid.
+type EventGridInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventGridInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridInvokeResponse)(nil)).Elem()
+}
+
+func (o EventGridInvokeResponseOutput) ToEventGridInvokeResponseOutput() EventGridInvokeResponseOutput {
+	return o
+}
+
+func (o EventGridInvokeResponseOutput) ToEventGridInvokeResponseOutputWithContext(ctx context.Context) EventGridInvokeResponseOutput {
+	return o
+}
+
+// EventGrid secondary accesskey. Will be obfuscated during read
+func (o EventGridInvokeResponseOutput) AccessKey1() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) string { return v.AccessKey1 }).(pulumi.StringOutput)
+}
+
+// EventGrid secondary accesskey. Will be obfuscated during read
+func (o EventGridInvokeResponseOutput) AccessKey2() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) string { return v.AccessKey2 }).(pulumi.StringOutput)
+}
+
+// Time when the Endpoint was added to DigitalTwinsInstance.
+func (o EventGridInvokeResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The type of Digital Twins endpoint
+// Expected value is 'EventGrid'.
+func (o EventGridInvokeResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o EventGridInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o EventGridInvokeResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// EventGrid Topic Endpoint
+func (o EventGridInvokeResponseOutput) TopicEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventGridInvokeResponse) *string { return v.TopicEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// properties related to eventgrid.
 type EventGridResponse struct {
 	// EventGrid secondary accesskey. Will be obfuscated during read
 	AccessKey1 string `pulumi:"accessKey1"`
@@ -570,6 +737,109 @@ func (o EventHubOutput) Tags() pulumi.StringMapOutput {
 }
 
 // properties related to eventhub.
+type EventHubInvokeResponse struct {
+	// PrimaryConnectionString of the endpoint. Will be obfuscated during read
+	ConnectionStringPrimaryKey string `pulumi:"connectionStringPrimaryKey"`
+	// SecondaryConnectionString of the endpoint. Will be obfuscated during read
+	ConnectionStringSecondaryKey string `pulumi:"connectionStringSecondaryKey"`
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime string `pulumi:"createdTime"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
+	EndpointType string `pulumi:"endpointType"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// EventHubInvokeResponseInput is an input type that accepts EventHubInvokeResponseArgs and EventHubInvokeResponseOutput values.
+// You can construct a concrete instance of `EventHubInvokeResponseInput` via:
+//
+//          EventHubInvokeResponseArgs{...}
+type EventHubInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEventHubInvokeResponseOutput() EventHubInvokeResponseOutput
+	ToEventHubInvokeResponseOutputWithContext(context.Context) EventHubInvokeResponseOutput
+}
+
+// properties related to eventhub.
+type EventHubInvokeResponseArgs struct {
+	// PrimaryConnectionString of the endpoint. Will be obfuscated during read
+	ConnectionStringPrimaryKey pulumi.StringInput `pulumi:"connectionStringPrimaryKey"`
+	// SecondaryConnectionString of the endpoint. Will be obfuscated during read
+	ConnectionStringSecondaryKey pulumi.StringInput `pulumi:"connectionStringSecondaryKey"`
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'EventHub'.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (EventHubInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubInvokeResponse)(nil)).Elem()
+}
+
+func (i EventHubInvokeResponseArgs) ToEventHubInvokeResponseOutput() EventHubInvokeResponseOutput {
+	return i.ToEventHubInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EventHubInvokeResponseArgs) ToEventHubInvokeResponseOutputWithContext(ctx context.Context) EventHubInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubInvokeResponseOutput)
+}
+
+// properties related to eventhub.
+type EventHubInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EventHubInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubInvokeResponse)(nil)).Elem()
+}
+
+func (o EventHubInvokeResponseOutput) ToEventHubInvokeResponseOutput() EventHubInvokeResponseOutput {
+	return o
+}
+
+func (o EventHubInvokeResponseOutput) ToEventHubInvokeResponseOutputWithContext(ctx context.Context) EventHubInvokeResponseOutput {
+	return o
+}
+
+// PrimaryConnectionString of the endpoint. Will be obfuscated during read
+func (o EventHubInvokeResponseOutput) ConnectionStringPrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) string { return v.ConnectionStringPrimaryKey }).(pulumi.StringOutput)
+}
+
+// SecondaryConnectionString of the endpoint. Will be obfuscated during read
+func (o EventHubInvokeResponseOutput) ConnectionStringSecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) string { return v.ConnectionStringSecondaryKey }).(pulumi.StringOutput)
+}
+
+// Time when the Endpoint was added to DigitalTwinsInstance.
+func (o EventHubInvokeResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The type of Digital Twins endpoint
+// Expected value is 'EventHub'.
+func (o EventHubInvokeResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o EventHubInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o EventHubInvokeResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventHubInvokeResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// properties related to eventhub.
 type EventHubResponse struct {
 	// PrimaryConnectionString of the endpoint. Will be obfuscated during read
 	ConnectionStringPrimaryKey string `pulumi:"connectionStringPrimaryKey"`
@@ -758,6 +1028,109 @@ func (o ServiceBusOutput) Tags() pulumi.StringMapOutput {
 }
 
 // properties related to servicebus.
+type ServiceBusInvokeResponse struct {
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime string `pulumi:"createdTime"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
+	EndpointType string `pulumi:"endpointType"`
+	// PrimaryConnectionString of the endpoint. Will be obfuscated during read
+	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// SecondaryConnectionString of the endpoint. Will be obfuscated during read
+	SecondaryConnectionString string `pulumi:"secondaryConnectionString"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// ServiceBusInvokeResponseInput is an input type that accepts ServiceBusInvokeResponseArgs and ServiceBusInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceBusInvokeResponseInput` via:
+//
+//          ServiceBusInvokeResponseArgs{...}
+type ServiceBusInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceBusInvokeResponseOutput() ServiceBusInvokeResponseOutput
+	ToServiceBusInvokeResponseOutputWithContext(context.Context) ServiceBusInvokeResponseOutput
+}
+
+// properties related to servicebus.
+type ServiceBusInvokeResponseArgs struct {
+	// Time when the Endpoint was added to DigitalTwinsInstance.
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// The type of Digital Twins endpoint
+	// Expected value is 'ServiceBus'.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// PrimaryConnectionString of the endpoint. Will be obfuscated during read
+	PrimaryConnectionString pulumi.StringInput `pulumi:"primaryConnectionString"`
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// SecondaryConnectionString of the endpoint. Will be obfuscated during read
+	SecondaryConnectionString pulumi.StringInput `pulumi:"secondaryConnectionString"`
+	// The resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (ServiceBusInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceBusInvokeResponseArgs) ToServiceBusInvokeResponseOutput() ServiceBusInvokeResponseOutput {
+	return i.ToServiceBusInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceBusInvokeResponseArgs) ToServiceBusInvokeResponseOutputWithContext(ctx context.Context) ServiceBusInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceBusInvokeResponseOutput)
+}
+
+// properties related to servicebus.
+type ServiceBusInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceBusInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceBusInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceBusInvokeResponseOutput) ToServiceBusInvokeResponseOutput() ServiceBusInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceBusInvokeResponseOutput) ToServiceBusInvokeResponseOutputWithContext(ctx context.Context) ServiceBusInvokeResponseOutput {
+	return o
+}
+
+// Time when the Endpoint was added to DigitalTwinsInstance.
+func (o ServiceBusInvokeResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The type of Digital Twins endpoint
+// Expected value is 'ServiceBus'.
+func (o ServiceBusInvokeResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// PrimaryConnectionString of the endpoint. Will be obfuscated during read
+func (o ServiceBusInvokeResponseOutput) PrimaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) string { return v.PrimaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o ServiceBusInvokeResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// SecondaryConnectionString of the endpoint. Will be obfuscated during read
+func (o ServiceBusInvokeResponseOutput) SecondaryConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) string { return v.SecondaryConnectionString }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o ServiceBusInvokeResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceBusInvokeResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// properties related to servicebus.
 type ServiceBusResponse struct {
 	// Time when the Endpoint was added to DigitalTwinsInstance.
 	CreatedTime string `pulumi:"createdTime"`
@@ -863,12 +1236,16 @@ func (o ServiceBusResponseOutput) Tags() pulumi.StringMapOutput {
 func init() {
 	pulumi.RegisterOutputType(DigitalTwinsSkuInfoOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsSkuInfoPtrOutput{})
+	pulumi.RegisterOutputType(DigitalTwinsSkuInfoInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsSkuInfoResponseOutput{})
 	pulumi.RegisterOutputType(DigitalTwinsSkuInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(EventGridOutput{})
+	pulumi.RegisterOutputType(EventGridInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EventGridResponseOutput{})
 	pulumi.RegisterOutputType(EventHubOutput{})
+	pulumi.RegisterOutputType(EventHubInvokeResponseOutput{})
 	pulumi.RegisterOutputType(EventHubResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusOutput{})
+	pulumi.RegisterOutputType(ServiceBusInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ServiceBusResponseOutput{})
 }

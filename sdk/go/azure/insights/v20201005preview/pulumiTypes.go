@@ -120,6 +120,115 @@ func (o HeaderFieldArrayOutput) Index(i pulumi.IntInput) HeaderFieldOutput {
 }
 
 // A header to add to the WebTest.
+type HeaderFieldInvokeResponse struct {
+	// The name of the header.
+	HeaderFieldName *string `pulumi:"headerFieldName"`
+	// The value of the header.
+	HeaderFieldValue *string `pulumi:"headerFieldValue"`
+}
+
+// HeaderFieldInvokeResponseInput is an input type that accepts HeaderFieldInvokeResponseArgs and HeaderFieldInvokeResponseOutput values.
+// You can construct a concrete instance of `HeaderFieldInvokeResponseInput` via:
+//
+//          HeaderFieldInvokeResponseArgs{...}
+type HeaderFieldInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHeaderFieldInvokeResponseOutput() HeaderFieldInvokeResponseOutput
+	ToHeaderFieldInvokeResponseOutputWithContext(context.Context) HeaderFieldInvokeResponseOutput
+}
+
+// A header to add to the WebTest.
+type HeaderFieldInvokeResponseArgs struct {
+	// The name of the header.
+	HeaderFieldName pulumi.StringPtrInput `pulumi:"headerFieldName"`
+	// The value of the header.
+	HeaderFieldValue pulumi.StringPtrInput `pulumi:"headerFieldValue"`
+}
+
+func (HeaderFieldInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HeaderFieldInvokeResponse)(nil)).Elem()
+}
+
+func (i HeaderFieldInvokeResponseArgs) ToHeaderFieldInvokeResponseOutput() HeaderFieldInvokeResponseOutput {
+	return i.ToHeaderFieldInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HeaderFieldInvokeResponseArgs) ToHeaderFieldInvokeResponseOutputWithContext(ctx context.Context) HeaderFieldInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HeaderFieldInvokeResponseOutput)
+}
+
+// HeaderFieldInvokeResponseArrayInput is an input type that accepts HeaderFieldInvokeResponseArray and HeaderFieldInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `HeaderFieldInvokeResponseArrayInput` via:
+//
+//          HeaderFieldInvokeResponseArray{ HeaderFieldInvokeResponseArgs{...} }
+type HeaderFieldInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToHeaderFieldInvokeResponseArrayOutput() HeaderFieldInvokeResponseArrayOutput
+	ToHeaderFieldInvokeResponseArrayOutputWithContext(context.Context) HeaderFieldInvokeResponseArrayOutput
+}
+
+type HeaderFieldInvokeResponseArray []HeaderFieldInvokeResponseInput
+
+func (HeaderFieldInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HeaderFieldInvokeResponse)(nil)).Elem()
+}
+
+func (i HeaderFieldInvokeResponseArray) ToHeaderFieldInvokeResponseArrayOutput() HeaderFieldInvokeResponseArrayOutput {
+	return i.ToHeaderFieldInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HeaderFieldInvokeResponseArray) ToHeaderFieldInvokeResponseArrayOutputWithContext(ctx context.Context) HeaderFieldInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HeaderFieldInvokeResponseArrayOutput)
+}
+
+// A header to add to the WebTest.
+type HeaderFieldInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HeaderFieldInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HeaderFieldInvokeResponse)(nil)).Elem()
+}
+
+func (o HeaderFieldInvokeResponseOutput) ToHeaderFieldInvokeResponseOutput() HeaderFieldInvokeResponseOutput {
+	return o
+}
+
+func (o HeaderFieldInvokeResponseOutput) ToHeaderFieldInvokeResponseOutputWithContext(ctx context.Context) HeaderFieldInvokeResponseOutput {
+	return o
+}
+
+// The name of the header.
+func (o HeaderFieldInvokeResponseOutput) HeaderFieldName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HeaderFieldInvokeResponse) *string { return v.HeaderFieldName }).(pulumi.StringPtrOutput)
+}
+
+// The value of the header.
+func (o HeaderFieldInvokeResponseOutput) HeaderFieldValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HeaderFieldInvokeResponse) *string { return v.HeaderFieldValue }).(pulumi.StringPtrOutput)
+}
+
+type HeaderFieldInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HeaderFieldInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HeaderFieldInvokeResponse)(nil)).Elem()
+}
+
+func (o HeaderFieldInvokeResponseArrayOutput) ToHeaderFieldInvokeResponseArrayOutput() HeaderFieldInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HeaderFieldInvokeResponseArrayOutput) ToHeaderFieldInvokeResponseArrayOutputWithContext(ctx context.Context) HeaderFieldInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HeaderFieldInvokeResponseArrayOutput) Index(i pulumi.IntInput) HeaderFieldInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HeaderFieldInvokeResponse {
+		return vs[0].([]HeaderFieldInvokeResponse)[vs[1].(int)]
+	}).(HeaderFieldInvokeResponseOutput)
+}
+
+// A header to add to the WebTest.
 type HeaderFieldResponse struct {
 	// The name of the header.
 	HeaderFieldName *string `pulumi:"headerFieldName"`
@@ -326,6 +435,106 @@ func (o WebTestGeolocationArrayOutput) Index(i pulumi.IntInput) WebTestGeolocati
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebTestGeolocation {
 		return vs[0].([]WebTestGeolocation)[vs[1].(int)]
 	}).(WebTestGeolocationOutput)
+}
+
+// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
+type WebTestGeolocationInvokeResponse struct {
+	// Location ID for the WebTest to run from.
+	Location *string `pulumi:"location"`
+}
+
+// WebTestGeolocationInvokeResponseInput is an input type that accepts WebTestGeolocationInvokeResponseArgs and WebTestGeolocationInvokeResponseOutput values.
+// You can construct a concrete instance of `WebTestGeolocationInvokeResponseInput` via:
+//
+//          WebTestGeolocationInvokeResponseArgs{...}
+type WebTestGeolocationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWebTestGeolocationInvokeResponseOutput() WebTestGeolocationInvokeResponseOutput
+	ToWebTestGeolocationInvokeResponseOutputWithContext(context.Context) WebTestGeolocationInvokeResponseOutput
+}
+
+// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
+type WebTestGeolocationInvokeResponseArgs struct {
+	// Location ID for the WebTest to run from.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+}
+
+func (WebTestGeolocationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestGeolocationInvokeResponse)(nil)).Elem()
+}
+
+func (i WebTestGeolocationInvokeResponseArgs) ToWebTestGeolocationInvokeResponseOutput() WebTestGeolocationInvokeResponseOutput {
+	return i.ToWebTestGeolocationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WebTestGeolocationInvokeResponseArgs) ToWebTestGeolocationInvokeResponseOutputWithContext(ctx context.Context) WebTestGeolocationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationInvokeResponseOutput)
+}
+
+// WebTestGeolocationInvokeResponseArrayInput is an input type that accepts WebTestGeolocationInvokeResponseArray and WebTestGeolocationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `WebTestGeolocationInvokeResponseArrayInput` via:
+//
+//          WebTestGeolocationInvokeResponseArray{ WebTestGeolocationInvokeResponseArgs{...} }
+type WebTestGeolocationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToWebTestGeolocationInvokeResponseArrayOutput() WebTestGeolocationInvokeResponseArrayOutput
+	ToWebTestGeolocationInvokeResponseArrayOutputWithContext(context.Context) WebTestGeolocationInvokeResponseArrayOutput
+}
+
+type WebTestGeolocationInvokeResponseArray []WebTestGeolocationInvokeResponseInput
+
+func (WebTestGeolocationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebTestGeolocationInvokeResponse)(nil)).Elem()
+}
+
+func (i WebTestGeolocationInvokeResponseArray) ToWebTestGeolocationInvokeResponseArrayOutput() WebTestGeolocationInvokeResponseArrayOutput {
+	return i.ToWebTestGeolocationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WebTestGeolocationInvokeResponseArray) ToWebTestGeolocationInvokeResponseArrayOutputWithContext(ctx context.Context) WebTestGeolocationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationInvokeResponseArrayOutput)
+}
+
+// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
+type WebTestGeolocationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WebTestGeolocationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestGeolocationInvokeResponse)(nil)).Elem()
+}
+
+func (o WebTestGeolocationInvokeResponseOutput) ToWebTestGeolocationInvokeResponseOutput() WebTestGeolocationInvokeResponseOutput {
+	return o
+}
+
+func (o WebTestGeolocationInvokeResponseOutput) ToWebTestGeolocationInvokeResponseOutputWithContext(ctx context.Context) WebTestGeolocationInvokeResponseOutput {
+	return o
+}
+
+// Location ID for the WebTest to run from.
+func (o WebTestGeolocationInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestGeolocationInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+type WebTestGeolocationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WebTestGeolocationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebTestGeolocationInvokeResponse)(nil)).Elem()
+}
+
+func (o WebTestGeolocationInvokeResponseArrayOutput) ToWebTestGeolocationInvokeResponseArrayOutput() WebTestGeolocationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WebTestGeolocationInvokeResponseArrayOutput) ToWebTestGeolocationInvokeResponseArrayOutputWithContext(ctx context.Context) WebTestGeolocationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WebTestGeolocationInvokeResponseArrayOutput) Index(i pulumi.IntInput) WebTestGeolocationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebTestGeolocationInvokeResponse {
+		return vs[0].([]WebTestGeolocationInvokeResponse)[vs[1].(int)]
+	}).(WebTestGeolocationInvokeResponseOutput)
 }
 
 // Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
@@ -732,6 +941,234 @@ func (o WebTestPropertiesContentValidationPtrOutput) PassIfTextFound() pulumi.Bo
 		}
 		return v.PassIfTextFound
 	}).(pulumi.BoolPtrOutput)
+}
+
+// An XML configuration specification for a WebTest.
+type WebTestPropertiesInvokeResponseConfiguration struct {
+	// The XML specification of a WebTest to run against an application.
+	WebTest *string `pulumi:"webTest"`
+}
+
+// WebTestPropertiesInvokeResponseConfigurationInput is an input type that accepts WebTestPropertiesInvokeResponseConfigurationArgs and WebTestPropertiesInvokeResponseConfigurationOutput values.
+// You can construct a concrete instance of `WebTestPropertiesInvokeResponseConfigurationInput` via:
+//
+//          WebTestPropertiesInvokeResponseConfigurationArgs{...}
+type WebTestPropertiesInvokeResponseConfigurationInput interface {
+	pulumi.Input
+
+	ToWebTestPropertiesInvokeResponseConfigurationOutput() WebTestPropertiesInvokeResponseConfigurationOutput
+	ToWebTestPropertiesInvokeResponseConfigurationOutputWithContext(context.Context) WebTestPropertiesInvokeResponseConfigurationOutput
+}
+
+// An XML configuration specification for a WebTest.
+type WebTestPropertiesInvokeResponseConfigurationArgs struct {
+	// The XML specification of a WebTest to run against an application.
+	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
+}
+
+func (WebTestPropertiesInvokeResponseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesInvokeResponseConfiguration)(nil)).Elem()
+}
+
+func (i WebTestPropertiesInvokeResponseConfigurationArgs) ToWebTestPropertiesInvokeResponseConfigurationOutput() WebTestPropertiesInvokeResponseConfigurationOutput {
+	return i.ToWebTestPropertiesInvokeResponseConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebTestPropertiesInvokeResponseConfigurationArgs) ToWebTestPropertiesInvokeResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesInvokeResponseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesInvokeResponseConfigurationOutput)
+}
+
+// An XML configuration specification for a WebTest.
+type WebTestPropertiesInvokeResponseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebTestPropertiesInvokeResponseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesInvokeResponseConfiguration)(nil)).Elem()
+}
+
+func (o WebTestPropertiesInvokeResponseConfigurationOutput) ToWebTestPropertiesInvokeResponseConfigurationOutput() WebTestPropertiesInvokeResponseConfigurationOutput {
+	return o
+}
+
+func (o WebTestPropertiesInvokeResponseConfigurationOutput) ToWebTestPropertiesInvokeResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesInvokeResponseConfigurationOutput {
+	return o
+}
+
+// The XML specification of a WebTest to run against an application.
+func (o WebTestPropertiesInvokeResponseConfigurationOutput) WebTest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
+}
+
+// The collection of content validation properties
+type WebTestPropertiesInvokeResponseContentValidation struct {
+	// Content to look for in the return of the WebTest.
+	ContentMatch *string `pulumi:"contentMatch"`
+	// When set, this value makes the ContentMatch validation case insensitive.
+	IgnoreCase *bool `pulumi:"ignoreCase"`
+	// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+	PassIfTextFound *bool `pulumi:"passIfTextFound"`
+}
+
+// WebTestPropertiesInvokeResponseContentValidationInput is an input type that accepts WebTestPropertiesInvokeResponseContentValidationArgs and WebTestPropertiesInvokeResponseContentValidationOutput values.
+// You can construct a concrete instance of `WebTestPropertiesInvokeResponseContentValidationInput` via:
+//
+//          WebTestPropertiesInvokeResponseContentValidationArgs{...}
+type WebTestPropertiesInvokeResponseContentValidationInput interface {
+	pulumi.Input
+
+	ToWebTestPropertiesInvokeResponseContentValidationOutput() WebTestPropertiesInvokeResponseContentValidationOutput
+	ToWebTestPropertiesInvokeResponseContentValidationOutputWithContext(context.Context) WebTestPropertiesInvokeResponseContentValidationOutput
+}
+
+// The collection of content validation properties
+type WebTestPropertiesInvokeResponseContentValidationArgs struct {
+	// Content to look for in the return of the WebTest.
+	ContentMatch pulumi.StringPtrInput `pulumi:"contentMatch"`
+	// When set, this value makes the ContentMatch validation case insensitive.
+	IgnoreCase pulumi.BoolPtrInput `pulumi:"ignoreCase"`
+	// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+	PassIfTextFound pulumi.BoolPtrInput `pulumi:"passIfTextFound"`
+}
+
+func (WebTestPropertiesInvokeResponseContentValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesInvokeResponseContentValidation)(nil)).Elem()
+}
+
+func (i WebTestPropertiesInvokeResponseContentValidationArgs) ToWebTestPropertiesInvokeResponseContentValidationOutput() WebTestPropertiesInvokeResponseContentValidationOutput {
+	return i.ToWebTestPropertiesInvokeResponseContentValidationOutputWithContext(context.Background())
+}
+
+func (i WebTestPropertiesInvokeResponseContentValidationArgs) ToWebTestPropertiesInvokeResponseContentValidationOutputWithContext(ctx context.Context) WebTestPropertiesInvokeResponseContentValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesInvokeResponseContentValidationOutput)
+}
+
+// The collection of content validation properties
+type WebTestPropertiesInvokeResponseContentValidationOutput struct{ *pulumi.OutputState }
+
+func (WebTestPropertiesInvokeResponseContentValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesInvokeResponseContentValidation)(nil)).Elem()
+}
+
+func (o WebTestPropertiesInvokeResponseContentValidationOutput) ToWebTestPropertiesInvokeResponseContentValidationOutput() WebTestPropertiesInvokeResponseContentValidationOutput {
+	return o
+}
+
+func (o WebTestPropertiesInvokeResponseContentValidationOutput) ToWebTestPropertiesInvokeResponseContentValidationOutputWithContext(ctx context.Context) WebTestPropertiesInvokeResponseContentValidationOutput {
+	return o
+}
+
+// Content to look for in the return of the WebTest.
+func (o WebTestPropertiesInvokeResponseContentValidationOutput) ContentMatch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseContentValidation) *string { return v.ContentMatch }).(pulumi.StringPtrOutput)
+}
+
+// When set, this value makes the ContentMatch validation case insensitive.
+func (o WebTestPropertiesInvokeResponseContentValidationOutput) IgnoreCase() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseContentValidation) *bool { return v.IgnoreCase }).(pulumi.BoolPtrOutput)
+}
+
+// When true, validation will pass if there is a match for the ContentMatch string.  If false, validation will fail if there is a match
+func (o WebTestPropertiesInvokeResponseContentValidationOutput) PassIfTextFound() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseContentValidation) *bool { return v.PassIfTextFound }).(pulumi.BoolPtrOutput)
+}
+
+// The collection of request properties
+type WebTestPropertiesInvokeResponseRequest struct {
+	// Follow redirects for this web test.
+	FollowRedirects *bool `pulumi:"followRedirects"`
+	// List of headers and their values to add to the WebTest call.
+	Headers []HeaderFieldInvokeResponse `pulumi:"headers"`
+	// Http verb to use for this web test.
+	HttpVerb *string `pulumi:"httpVerb"`
+	// Parse Dependent request for this WebTest.
+	ParseDependentRequests *bool `pulumi:"parseDependentRequests"`
+	// Base64 encoded string body to send with this web test.
+	RequestBody *string `pulumi:"requestBody"`
+	// Url location to test.
+	RequestUrl *string `pulumi:"requestUrl"`
+}
+
+// WebTestPropertiesInvokeResponseRequestInput is an input type that accepts WebTestPropertiesInvokeResponseRequestArgs and WebTestPropertiesInvokeResponseRequestOutput values.
+// You can construct a concrete instance of `WebTestPropertiesInvokeResponseRequestInput` via:
+//
+//          WebTestPropertiesInvokeResponseRequestArgs{...}
+type WebTestPropertiesInvokeResponseRequestInput interface {
+	pulumi.Input
+
+	ToWebTestPropertiesInvokeResponseRequestOutput() WebTestPropertiesInvokeResponseRequestOutput
+	ToWebTestPropertiesInvokeResponseRequestOutputWithContext(context.Context) WebTestPropertiesInvokeResponseRequestOutput
+}
+
+// The collection of request properties
+type WebTestPropertiesInvokeResponseRequestArgs struct {
+	// Follow redirects for this web test.
+	FollowRedirects pulumi.BoolPtrInput `pulumi:"followRedirects"`
+	// List of headers and their values to add to the WebTest call.
+	Headers HeaderFieldInvokeResponseArrayInput `pulumi:"headers"`
+	// Http verb to use for this web test.
+	HttpVerb pulumi.StringPtrInput `pulumi:"httpVerb"`
+	// Parse Dependent request for this WebTest.
+	ParseDependentRequests pulumi.BoolPtrInput `pulumi:"parseDependentRequests"`
+	// Base64 encoded string body to send with this web test.
+	RequestBody pulumi.StringPtrInput `pulumi:"requestBody"`
+	// Url location to test.
+	RequestUrl pulumi.StringPtrInput `pulumi:"requestUrl"`
+}
+
+func (WebTestPropertiesInvokeResponseRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesInvokeResponseRequest)(nil)).Elem()
+}
+
+func (i WebTestPropertiesInvokeResponseRequestArgs) ToWebTestPropertiesInvokeResponseRequestOutput() WebTestPropertiesInvokeResponseRequestOutput {
+	return i.ToWebTestPropertiesInvokeResponseRequestOutputWithContext(context.Background())
+}
+
+func (i WebTestPropertiesInvokeResponseRequestArgs) ToWebTestPropertiesInvokeResponseRequestOutputWithContext(ctx context.Context) WebTestPropertiesInvokeResponseRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesInvokeResponseRequestOutput)
+}
+
+// The collection of request properties
+type WebTestPropertiesInvokeResponseRequestOutput struct{ *pulumi.OutputState }
+
+func (WebTestPropertiesInvokeResponseRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesInvokeResponseRequest)(nil)).Elem()
+}
+
+func (o WebTestPropertiesInvokeResponseRequestOutput) ToWebTestPropertiesInvokeResponseRequestOutput() WebTestPropertiesInvokeResponseRequestOutput {
+	return o
+}
+
+func (o WebTestPropertiesInvokeResponseRequestOutput) ToWebTestPropertiesInvokeResponseRequestOutputWithContext(ctx context.Context) WebTestPropertiesInvokeResponseRequestOutput {
+	return o
+}
+
+// Follow redirects for this web test.
+func (o WebTestPropertiesInvokeResponseRequestOutput) FollowRedirects() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseRequest) *bool { return v.FollowRedirects }).(pulumi.BoolPtrOutput)
+}
+
+// List of headers and their values to add to the WebTest call.
+func (o WebTestPropertiesInvokeResponseRequestOutput) Headers() HeaderFieldInvokeResponseArrayOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseRequest) []HeaderFieldInvokeResponse { return v.Headers }).(HeaderFieldInvokeResponseArrayOutput)
+}
+
+// Http verb to use for this web test.
+func (o WebTestPropertiesInvokeResponseRequestOutput) HttpVerb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseRequest) *string { return v.HttpVerb }).(pulumi.StringPtrOutput)
+}
+
+// Parse Dependent request for this WebTest.
+func (o WebTestPropertiesInvokeResponseRequestOutput) ParseDependentRequests() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseRequest) *bool { return v.ParseDependentRequests }).(pulumi.BoolPtrOutput)
+}
+
+// Base64 encoded string body to send with this web test.
+func (o WebTestPropertiesInvokeResponseRequestOutput) RequestBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseRequest) *string { return v.RequestBody }).(pulumi.StringPtrOutput)
+}
+
+// Url location to test.
+func (o WebTestPropertiesInvokeResponseRequestOutput) RequestUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseRequest) *string { return v.RequestUrl }).(pulumi.StringPtrOutput)
 }
 
 // The collection of request properties
@@ -1503,16 +1940,23 @@ func (o WebTestPropertiesResponseRequestPtrOutput) RequestUrl() pulumi.StringPtr
 func init() {
 	pulumi.RegisterOutputType(HeaderFieldOutput{})
 	pulumi.RegisterOutputType(HeaderFieldArrayOutput{})
+	pulumi.RegisterOutputType(HeaderFieldInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HeaderFieldInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(HeaderFieldResponseOutput{})
 	pulumi.RegisterOutputType(HeaderFieldResponseArrayOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationArrayOutput{})
+	pulumi.RegisterOutputType(WebTestGeolocationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WebTestGeolocationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationResponseOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationResponseArrayOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesConfigurationOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesContentValidationOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesContentValidationPtrOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesInvokeResponseConfigurationOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesInvokeResponseContentValidationOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesInvokeResponseRequestOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesRequestOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesRequestPtrOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesResponseConfigurationOutput{})

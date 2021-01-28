@@ -30,13 +30,13 @@ type LookupRecordSetArgs struct {
 // Describes a DNS record set (a collection of DNS records with the same name and type).
 type LookupRecordSetResult struct {
 	// The list of A records in the record set.
-	ARecords []ARecordResponse `pulumi:"aRecords"`
+	ARecords []ARecordInvokeResponse `pulumi:"aRecords"`
 	// The list of AAAA records in the record set.
-	AaaaRecords []AaaaRecordResponse `pulumi:"aaaaRecords"`
+	AaaaRecords []AaaaRecordInvokeResponse `pulumi:"aaaaRecords"`
 	// The list of CAA records in the record set.
-	CaaRecords []CaaRecordResponse `pulumi:"caaRecords"`
+	CaaRecords []CaaRecordInvokeResponse `pulumi:"caaRecords"`
 	// The CNAME record in the  record set.
-	CnameRecord *CnameRecordResponse `pulumi:"cnameRecord"`
+	CnameRecord *CnameRecordInvokeResponse `pulumi:"cnameRecord"`
 	// The etag of the record set.
 	Etag *string `pulumi:"etag"`
 	// Fully qualified domain name of the record set.
@@ -46,25 +46,25 @@ type LookupRecordSetResult struct {
 	// The metadata attached to the record set.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The list of MX records in the record set.
-	MxRecords []MxRecordResponse `pulumi:"mxRecords"`
+	MxRecords []MxRecordInvokeResponse `pulumi:"mxRecords"`
 	// The name of the record set.
 	Name string `pulumi:"name"`
 	// The list of NS records in the record set.
-	NsRecords []NsRecordResponse `pulumi:"nsRecords"`
+	NsRecords []NsRecordInvokeResponse `pulumi:"nsRecords"`
 	// provisioning State of the record set.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The list of PTR records in the record set.
-	PtrRecords []PtrRecordResponse `pulumi:"ptrRecords"`
+	PtrRecords []PtrRecordInvokeResponse `pulumi:"ptrRecords"`
 	// The SOA record in the record set.
-	SoaRecord *SoaRecordResponse `pulumi:"soaRecord"`
+	SoaRecord *SoaRecordInvokeResponse `pulumi:"soaRecord"`
 	// The list of SRV records in the record set.
-	SrvRecords []SrvRecordResponse `pulumi:"srvRecords"`
+	SrvRecords []SrvRecordInvokeResponse `pulumi:"srvRecords"`
 	// A reference to an azure resource from where the dns resource value is taken.
-	TargetResource *SubResourceResponse `pulumi:"targetResource"`
+	TargetResource *SubResourceInvokeResponse `pulumi:"targetResource"`
 	// The TTL (time-to-live) of the records in the record set.
 	Ttl *float64 `pulumi:"ttl"`
 	// The list of TXT records in the record set.
-	TxtRecords []TxtRecordResponse `pulumi:"txtRecords"`
+	TxtRecords []TxtRecordInvokeResponse `pulumi:"txtRecords"`
 	// The type of the record set.
 	Type string `pulumi:"type"`
 }

@@ -28,5 +28,5 @@ type ListTransactionNodeApiKeysArgs struct {
 // Collection of the API key payload which is exposed in the response of the resource provider.
 type ListTransactionNodeApiKeysResult struct {
 	// Gets or sets the collection of API key.
-	Keys []ApiKeyResponse `pulumi:"keys"`
+	Keys []ApiKeyInvokeResponse `pulumi:"keys"`
 }

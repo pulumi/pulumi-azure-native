@@ -35,7 +35,7 @@ type LookupRuleSetResult struct {
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Read only system data
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

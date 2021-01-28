@@ -32,16 +32,16 @@ type LookupP2sVpnServerConfigurationResult struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
-	Name           *string               `pulumi:"name"`
-	P2SVpnGateways []SubResourceResponse `pulumi:"p2SVpnGateways"`
+	Name           *string                     `pulumi:"name"`
+	P2SVpnGateways []SubResourceInvokeResponse `pulumi:"p2SVpnGateways"`
 	// Radius client root certificate of P2SVpnServerConfiguration.
-	P2SVpnServerConfigRadiusClientRootCertificates []P2SVpnServerConfigRadiusClientRootCertificateResponse `pulumi:"p2SVpnServerConfigRadiusClientRootCertificates"`
+	P2SVpnServerConfigRadiusClientRootCertificates []P2SVpnServerConfigRadiusClientRootCertificateInvokeResponse `pulumi:"p2SVpnServerConfigRadiusClientRootCertificates"`
 	// Radius Server root certificate of P2SVpnServerConfiguration.
-	P2SVpnServerConfigRadiusServerRootCertificates []P2SVpnServerConfigRadiusServerRootCertificateResponse `pulumi:"p2SVpnServerConfigRadiusServerRootCertificates"`
+	P2SVpnServerConfigRadiusServerRootCertificates []P2SVpnServerConfigRadiusServerRootCertificateInvokeResponse `pulumi:"p2SVpnServerConfigRadiusServerRootCertificates"`
 	// VPN client revoked certificate of P2SVpnServerConfiguration.
-	P2SVpnServerConfigVpnClientRevokedCertificates []P2SVpnServerConfigVpnClientRevokedCertificateResponse `pulumi:"p2SVpnServerConfigVpnClientRevokedCertificates"`
+	P2SVpnServerConfigVpnClientRevokedCertificates []P2SVpnServerConfigVpnClientRevokedCertificateInvokeResponse `pulumi:"p2SVpnServerConfigVpnClientRevokedCertificates"`
 	// VPN client root certificate of P2SVpnServerConfiguration.
-	P2SVpnServerConfigVpnClientRootCertificates []P2SVpnServerConfigVpnClientRootCertificateResponse `pulumi:"p2SVpnServerConfigVpnClientRootCertificates"`
+	P2SVpnServerConfigVpnClientRootCertificates []P2SVpnServerConfigVpnClientRootCertificateInvokeResponse `pulumi:"p2SVpnServerConfigVpnClientRootCertificates"`
 	// The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
@@ -49,7 +49,7 @@ type LookupP2sVpnServerConfigurationResult struct {
 	// The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
 	RadiusServerSecret *string `pulumi:"radiusServerSecret"`
 	// VpnClientIpsecPolicies for P2SVpnServerConfiguration.
-	VpnClientIpsecPolicies []IpsecPolicyResponse `pulumi:"vpnClientIpsecPolicies"`
+	VpnClientIpsecPolicies []IpsecPolicyInvokeResponse `pulumi:"vpnClientIpsecPolicies"`
 	// VPN protocols for the P2SVpnServerConfiguration.
 	VpnProtocols []string `pulumi:"vpnProtocols"`
 }

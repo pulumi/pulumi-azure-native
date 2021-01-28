@@ -34,7 +34,7 @@ type LookupPolicyAssignmentResult struct {
 	// The ID of the policy assignment.
 	Id string `pulumi:"id"`
 	// The managed identity associated with the policy assignment.
-	Identity *IdentityResponse `pulumi:"identity"`
+	Identity *IdentityInvokeResponse `pulumi:"identity"`
 	// The location of the policy assignment. Only required when utilizing managed identity.
 	Location *string `pulumi:"location"`
 	// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
@@ -42,11 +42,11 @@ type LookupPolicyAssignmentResult struct {
 	// The name of the policy assignment.
 	Name string `pulumi:"name"`
 	// The messages that describe why a resource is non-compliant with the policy.
-	NonComplianceMessages []NonComplianceMessageResponse `pulumi:"nonComplianceMessages"`
+	NonComplianceMessages []NonComplianceMessageInvokeResponse `pulumi:"nonComplianceMessages"`
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
-	Parameters map[string]ParameterValuesValueResponse `pulumi:"parameters"`
+	Parameters map[string]ParameterValuesValueInvokeResponse `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.

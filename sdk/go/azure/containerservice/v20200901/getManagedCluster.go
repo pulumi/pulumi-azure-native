@@ -26,15 +26,15 @@ type LookupManagedClusterArgs struct {
 // Managed cluster.
 type LookupManagedClusterResult struct {
 	// Profile of Azure Active Directory configuration.
-	AadProfile *ManagedClusterAADProfileResponse `pulumi:"aadProfile"`
+	AadProfile *ManagedClusterAADProfileInvokeResponse `pulumi:"aadProfile"`
 	// Profile of managed cluster add-on.
-	AddonProfiles map[string]ManagedClusterAddonProfileResponse `pulumi:"addonProfiles"`
+	AddonProfiles map[string]ManagedClusterAddonProfileInvokeResponse `pulumi:"addonProfiles"`
 	// Properties of the agent pool.
-	AgentPoolProfiles []ManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
+	AgentPoolProfiles []ManagedClusterAgentPoolProfileInvokeResponse `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
-	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfileResponse `pulumi:"apiServerAccessProfile"`
+	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfileInvokeResponse `pulumi:"apiServerAccessProfile"`
 	// Parameters to be applied to the cluster-autoscaler when enabled
-	AutoScalerProfile *ManagedClusterPropertiesResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
+	AutoScalerProfile *ManagedClusterPropertiesInvokeResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -48,13 +48,13 @@ type LookupManagedClusterResult struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The identity of the managed cluster, if configured.
-	Identity *ManagedClusterIdentityResponse `pulumi:"identity"`
+	Identity *ManagedClusterIdentityInvokeResponse `pulumi:"identity"`
 	// Identities associated with the cluster.
-	IdentityProfile map[string]ManagedClusterPropertiesResponseIdentityProfile `pulumi:"identityProfile"`
+	IdentityProfile map[string]ManagedClusterPropertiesInvokeResponseIdentityProfile `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
-	LinuxProfile *ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
+	LinuxProfile *ContainerServiceLinuxProfileInvokeResponse `pulumi:"linuxProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The max number of agent pools for the managed cluster.
@@ -62,23 +62,23 @@ type LookupManagedClusterResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Profile of network configuration.
-	NetworkProfile *ContainerServiceNetworkProfileResponse `pulumi:"networkProfile"`
+	NetworkProfile *ContainerServiceNetworkProfileInvokeResponse `pulumi:"networkProfile"`
 	// Name of the resource group containing agent pool nodes.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// Represents the Power State of the cluster
-	PowerState PowerStateResponse `pulumi:"powerState"`
+	PowerState PowerStateInvokeResponse `pulumi:"powerState"`
 	// FQDN of private cluster.
 	PrivateFQDN string `pulumi:"privateFQDN"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
-	ServicePrincipalProfile *ManagedClusterServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
+	ServicePrincipalProfile *ManagedClusterServicePrincipalProfileInvokeResponse `pulumi:"servicePrincipalProfile"`
 	// The managed cluster SKU.
-	Sku *ManagedClusterSKUResponse `pulumi:"sku"`
+	Sku *ManagedClusterSKUInvokeResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// Profile for Windows VMs in the container service cluster.
-	WindowsProfile *ManagedClusterWindowsProfileResponse `pulumi:"windowsProfile"`
+	WindowsProfile *ManagedClusterWindowsProfileInvokeResponse `pulumi:"windowsProfile"`
 }

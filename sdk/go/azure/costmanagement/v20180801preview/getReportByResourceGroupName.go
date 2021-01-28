@@ -26,9 +26,9 @@ type LookupReportByResourceGroupNameArgs struct {
 // A report resource.
 type LookupReportByResourceGroupNameResult struct {
 	// Has definition for the report.
-	Definition ReportDefinitionResponse `pulumi:"definition"`
+	Definition ReportDefinitionInvokeResponse `pulumi:"definition"`
 	// Has delivery information for the report.
-	DeliveryInfo ReportDeliveryInfoResponse `pulumi:"deliveryInfo"`
+	DeliveryInfo ReportDeliveryInfoInvokeResponse `pulumi:"deliveryInfo"`
 	// The format of the report being delivered.
 	Format *string `pulumi:"format"`
 	// Resource Id.
@@ -36,7 +36,7 @@ type LookupReportByResourceGroupNameResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Has schedule information for the report.
-	Schedule *ReportScheduleResponse `pulumi:"schedule"`
+	Schedule *ReportScheduleInvokeResponse `pulumi:"schedule"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -26,13 +26,13 @@ type LookupConnectionArgs struct {
 // API Connection
 type LookupConnectionResult struct {
 	// expanded connection provider name
-	Api *ExpandedParentApiEntityResponse `pulumi:"api"`
+	Api *ExpandedParentApiEntityInvokeResponse `pulumi:"api"`
 	// Timestamp of last connection change.
 	ChangedTime *string `pulumi:"changedTime"`
 	// Timestamp of the connection creation
 	CreatedTime *string `pulumi:"createdTime"`
 	// Custom login setting values.
-	CustomParameterValues map[string]ParameterCustomLoginSettingValuesResponse `pulumi:"customParameterValues"`
+	CustomParameterValues map[string]ParameterCustomLoginSettingValuesInvokeResponse `pulumi:"customParameterValues"`
 	// display name
 	DisplayName *string `pulumi:"displayName"`
 	// Time in UTC when the first expiration of OAuth tokens
@@ -53,7 +53,7 @@ type LookupConnectionResult struct {
 	// Tokens/Claim
 	ParameterValues map[string]interface{} `pulumi:"parameterValues"`
 	// Status of the connection
-	Statuses []ConnectionStatusResponse `pulumi:"statuses"`
+	Statuses []ConnectionStatusInvokeResponse `pulumi:"statuses"`
 	// Resource tags
 	Tags     map[string]string `pulumi:"tags"`
 	TenantId *string           `pulumi:"tenantId"`

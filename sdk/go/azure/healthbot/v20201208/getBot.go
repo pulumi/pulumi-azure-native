@@ -32,11 +32,11 @@ type LookupBotResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The set of properties specific to Healthbot resource.
-	Properties HealthBotPropertiesResponse `pulumi:"properties"`
+	Properties HealthBotPropertiesInvokeResponse `pulumi:"properties"`
 	// SKU of the HealthBot.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

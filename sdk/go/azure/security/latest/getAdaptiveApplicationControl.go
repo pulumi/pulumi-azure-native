@@ -29,20 +29,20 @@ type LookupAdaptiveApplicationControlResult struct {
 	// The application control policy enforcement/protection mode of the machine group
 	EnforcementMode *string `pulumi:"enforcementMode"`
 	// Resource Id
-	Id     string                                           `pulumi:"id"`
-	Issues []AdaptiveApplicationControlIssueSummaryResponse `pulumi:"issues"`
+	Id     string                                                 `pulumi:"id"`
+	Issues []AdaptiveApplicationControlIssueSummaryInvokeResponse `pulumi:"issues"`
 	// Location where the resource is stored
 	Location string `pulumi:"location"`
 	// Resource name
-	Name                string                       `pulumi:"name"`
-	PathRecommendations []PathRecommendationResponse `pulumi:"pathRecommendations"`
+	Name                string                             `pulumi:"name"`
+	PathRecommendations []PathRecommendationInvokeResponse `pulumi:"pathRecommendations"`
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
-	ProtectionMode *ProtectionModeResponse `pulumi:"protectionMode"`
+	ProtectionMode *ProtectionModeInvokeResponse `pulumi:"protectionMode"`
 	// The initial recommendation status of the machine group or machine
 	RecommendationStatus string `pulumi:"recommendationStatus"`
 	// The source type of the machine group
 	SourceSystem string `pulumi:"sourceSystem"`
 	// Resource type
-	Type              string                     `pulumi:"type"`
-	VmRecommendations []VmRecommendationResponse `pulumi:"vmRecommendations"`
+	Type              string                           `pulumi:"type"`
+	VmRecommendations []VmRecommendationInvokeResponse `pulumi:"vmRecommendations"`
 }

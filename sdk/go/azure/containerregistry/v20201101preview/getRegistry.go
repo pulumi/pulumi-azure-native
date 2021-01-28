@@ -34,11 +34,11 @@ type LookupRegistryResult struct {
 	// List of host names that will serve data when dataEndpointEnabled is true.
 	DataEndpointHostNames []string `pulumi:"dataEndpointHostNames"`
 	// The encryption settings of container registry.
-	Encryption *EncryptionPropertyResponse `pulumi:"encryption"`
+	Encryption *EncryptionPropertyInvokeResponse `pulumi:"encryption"`
 	// The resource ID.
 	Id string `pulumi:"id"`
 	// The identity of the container registry.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	Identity *IdentityPropertiesInvokeResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
@@ -48,23 +48,23 @@ type LookupRegistryResult struct {
 	// Whether to allow trusted Azure services to access a network restricted registry.
 	NetworkRuleBypassOptions *string `pulumi:"networkRuleBypassOptions"`
 	// The network rule set for a container registry.
-	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
+	NetworkRuleSet *NetworkRuleSetInvokeResponse `pulumi:"networkRuleSet"`
 	// The policies for a container registry.
-	Policies *PoliciesResponse `pulumi:"policies"`
+	Policies *PoliciesInvokeResponse `pulumi:"policies"`
 	// List of private endpoint connections for a container registry.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state of the container registry at the time the operation was called.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Whether or not public network access is allowed for the container registry.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The SKU of the container registry.
-	Sku SkuResponse `pulumi:"sku"`
+	Sku SkuInvokeResponse `pulumi:"sku"`
 	// The status of the container registry at the time the operation was called.
-	Status StatusResponse `pulumi:"status"`
+	Status StatusInvokeResponse `pulumi:"status"`
 	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
+	StorageAccount *StorageAccountPropertiesInvokeResponse `pulumi:"storageAccount"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

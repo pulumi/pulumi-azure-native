@@ -36,17 +36,17 @@ type LookupManagedNetworkGroupResult struct {
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The collection of management groups covered by the Managed Network
-	ManagementGroups []ResourceIdResponse `pulumi:"managementGroups"`
+	ManagementGroups []ResourceIdInvokeResponse `pulumi:"managementGroups"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Provisioning state of the ManagedNetwork resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The collection of  subnets covered by the Managed Network
-	Subnets []ResourceIdResponse `pulumi:"subnets"`
+	Subnets []ResourceIdInvokeResponse `pulumi:"subnets"`
 	// The collection of subscriptions covered by the Managed Network
-	Subscriptions []ResourceIdResponse `pulumi:"subscriptions"`
+	Subscriptions []ResourceIdInvokeResponse `pulumi:"subscriptions"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks []ResourceIdResponse `pulumi:"virtualNetworks"`
+	VirtualNetworks []ResourceIdInvokeResponse `pulumi:"virtualNetworks"`
 }

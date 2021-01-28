@@ -38,9 +38,9 @@ type LookupPrivateLinkServicePrivateEndpointConnectionResult struct {
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	PrivateEndpoint PrivateEndpointInvokeResponse `pulumi:"privateEndpoint"`
 	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateInvokeResponse `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource type.

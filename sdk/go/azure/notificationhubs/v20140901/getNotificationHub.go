@@ -34,7 +34,7 @@ type LookupNotificationHubResult struct {
 	// Gets or sets name of the NotificationHub.
 	Name *string `pulumi:"name"`
 	// Gets or sets properties of the NotificationHub.
-	Properties NotificationHubPropertiesResponse `pulumi:"properties"`
+	Properties NotificationHubPropertiesInvokeResponse `pulumi:"properties"`
 	// Gets or sets tags of the NotificationHub.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets resource type of the NotificationHub.

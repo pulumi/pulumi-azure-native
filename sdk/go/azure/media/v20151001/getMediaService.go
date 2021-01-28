@@ -26,7 +26,7 @@ type LookupMediaServiceArgs struct {
 // The properties of a Media Service resource.
 type LookupMediaServiceResult struct {
 	// Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
-	ApiEndpoints []ApiEndpointResponse `pulumi:"apiEndpoints"`
+	ApiEndpoints []ApiEndpointInvokeResponse `pulumi:"apiEndpoints"`
 	// The id of the resource.
 	Id string `pulumi:"id"`
 	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
@@ -34,7 +34,7 @@ type LookupMediaServiceResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The storage accounts for this resource.
-	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
+	StorageAccounts []StorageAccountInvokeResponse `pulumi:"storageAccounts"`
 	// Tags to help categorize the resource in the Azure portal.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource

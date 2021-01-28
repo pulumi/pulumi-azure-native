@@ -30,15 +30,15 @@ type LookupIotDpsResourceResult struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// The managed identities for the IotDps instance.
-	Identity *ArmIdentityResponse `pulumi:"identity"`
+	Identity *ArmIdentityInvokeResponse `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// Service specific properties for a provisioning service
-	Properties IotDpsPropertiesDescriptionResponse `pulumi:"properties"`
+	Properties IotDpsPropertiesDescriptionInvokeResponse `pulumi:"properties"`
 	// Sku info for a provisioning Service.
-	Sku IotDpsSkuInfoResponse `pulumi:"sku"`
+	Sku IotDpsSkuInfoInvokeResponse `pulumi:"sku"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

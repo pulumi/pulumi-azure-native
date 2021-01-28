@@ -34,7 +34,7 @@ type LookupChapSettingResult struct {
 	// The name.
 	Name string `pulumi:"name"`
 	// The chap password.
-	Password AsymmetricEncryptedSecretResponse `pulumi:"password"`
+	Password AsymmetricEncryptedSecretInvokeResponse `pulumi:"password"`
 	// The type.
 	Type string `pulumi:"type"`
 }

@@ -183,6 +183,79 @@ func (o AzureActiveDirectoryPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The settings to enable AAD authentication on the cluster
+type AzureActiveDirectoryInvokeResponse struct {
+	// Azure active directory client application id
+	ClientApplication *string `pulumi:"clientApplication"`
+	// Azure active directory cluster application id
+	ClusterApplication *string `pulumi:"clusterApplication"`
+	// Azure active directory tenant id
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// AzureActiveDirectoryInvokeResponseInput is an input type that accepts AzureActiveDirectoryInvokeResponseArgs and AzureActiveDirectoryInvokeResponseOutput values.
+// You can construct a concrete instance of `AzureActiveDirectoryInvokeResponseInput` via:
+//
+//          AzureActiveDirectoryInvokeResponseArgs{...}
+type AzureActiveDirectoryInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAzureActiveDirectoryInvokeResponseOutput() AzureActiveDirectoryInvokeResponseOutput
+	ToAzureActiveDirectoryInvokeResponseOutputWithContext(context.Context) AzureActiveDirectoryInvokeResponseOutput
+}
+
+// The settings to enable AAD authentication on the cluster
+type AzureActiveDirectoryInvokeResponseArgs struct {
+	// Azure active directory client application id
+	ClientApplication pulumi.StringPtrInput `pulumi:"clientApplication"`
+	// Azure active directory cluster application id
+	ClusterApplication pulumi.StringPtrInput `pulumi:"clusterApplication"`
+	// Azure active directory tenant id
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (AzureActiveDirectoryInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureActiveDirectoryInvokeResponse)(nil)).Elem()
+}
+
+func (i AzureActiveDirectoryInvokeResponseArgs) ToAzureActiveDirectoryInvokeResponseOutput() AzureActiveDirectoryInvokeResponseOutput {
+	return i.ToAzureActiveDirectoryInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AzureActiveDirectoryInvokeResponseArgs) ToAzureActiveDirectoryInvokeResponseOutputWithContext(ctx context.Context) AzureActiveDirectoryInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryInvokeResponseOutput)
+}
+
+// The settings to enable AAD authentication on the cluster
+type AzureActiveDirectoryInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureActiveDirectoryInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureActiveDirectoryInvokeResponse)(nil)).Elem()
+}
+
+func (o AzureActiveDirectoryInvokeResponseOutput) ToAzureActiveDirectoryInvokeResponseOutput() AzureActiveDirectoryInvokeResponseOutput {
+	return o
+}
+
+func (o AzureActiveDirectoryInvokeResponseOutput) ToAzureActiveDirectoryInvokeResponseOutputWithContext(ctx context.Context) AzureActiveDirectoryInvokeResponseOutput {
+	return o
+}
+
+// Azure active directory client application id
+func (o AzureActiveDirectoryInvokeResponseOutput) ClientApplication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureActiveDirectoryInvokeResponse) *string { return v.ClientApplication }).(pulumi.StringPtrOutput)
+}
+
+// Azure active directory cluster application id
+func (o AzureActiveDirectoryInvokeResponseOutput) ClusterApplication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureActiveDirectoryInvokeResponse) *string { return v.ClusterApplication }).(pulumi.StringPtrOutput)
+}
+
+// Azure active directory tenant id
+func (o AzureActiveDirectoryInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureActiveDirectoryInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The settings to enable AAD authentication on the cluster
 type AzureActiveDirectoryResponse struct {
 	// Azure active directory client application id
 	ClientApplication *string `pulumi:"clientApplication"`
@@ -527,6 +600,79 @@ func (o CertificateDescriptionPtrOutput) X509StoreName() pulumi.StringPtrOutput 
 }
 
 // Certificate details
+type CertificateDescriptionInvokeResponse struct {
+	// Thumbprint of the primary certificate
+	Thumbprint string `pulumi:"thumbprint"`
+	// Thumbprint of the secondary certificate
+	ThumbprintSecondary *string `pulumi:"thumbprintSecondary"`
+	// The local certificate store location
+	X509StoreName *string `pulumi:"x509StoreName"`
+}
+
+// CertificateDescriptionInvokeResponseInput is an input type that accepts CertificateDescriptionInvokeResponseArgs and CertificateDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `CertificateDescriptionInvokeResponseInput` via:
+//
+//          CertificateDescriptionInvokeResponseArgs{...}
+type CertificateDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCertificateDescriptionInvokeResponseOutput() CertificateDescriptionInvokeResponseOutput
+	ToCertificateDescriptionInvokeResponseOutputWithContext(context.Context) CertificateDescriptionInvokeResponseOutput
+}
+
+// Certificate details
+type CertificateDescriptionInvokeResponseArgs struct {
+	// Thumbprint of the primary certificate
+	Thumbprint pulumi.StringInput `pulumi:"thumbprint"`
+	// Thumbprint of the secondary certificate
+	ThumbprintSecondary pulumi.StringPtrInput `pulumi:"thumbprintSecondary"`
+	// The local certificate store location
+	X509StoreName pulumi.StringPtrInput `pulumi:"x509StoreName"`
+}
+
+func (CertificateDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i CertificateDescriptionInvokeResponseArgs) ToCertificateDescriptionInvokeResponseOutput() CertificateDescriptionInvokeResponseOutput {
+	return i.ToCertificateDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CertificateDescriptionInvokeResponseArgs) ToCertificateDescriptionInvokeResponseOutputWithContext(ctx context.Context) CertificateDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateDescriptionInvokeResponseOutput)
+}
+
+// Certificate details
+type CertificateDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CertificateDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o CertificateDescriptionInvokeResponseOutput) ToCertificateDescriptionInvokeResponseOutput() CertificateDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o CertificateDescriptionInvokeResponseOutput) ToCertificateDescriptionInvokeResponseOutputWithContext(ctx context.Context) CertificateDescriptionInvokeResponseOutput {
+	return o
+}
+
+// Thumbprint of the primary certificate
+func (o CertificateDescriptionInvokeResponseOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateDescriptionInvokeResponse) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the secondary certificate
+func (o CertificateDescriptionInvokeResponseOutput) ThumbprintSecondary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDescriptionInvokeResponse) *string { return v.ThumbprintSecondary }).(pulumi.StringPtrOutput)
+}
+
+// The local certificate store location
+func (o CertificateDescriptionInvokeResponseOutput) X509StoreName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDescriptionInvokeResponse) *string { return v.X509StoreName }).(pulumi.StringPtrOutput)
+}
+
+// Certificate details
 type CertificateDescriptionResponse struct {
 	// Thumbprint of the primary certificate
 	Thumbprint string `pulumi:"thumbprint"`
@@ -817,6 +963,124 @@ func (o ClientCertificateCommonNameArrayOutput) Index(i pulumi.IntInput) ClientC
 }
 
 // Client certificate details using common name
+type ClientCertificateCommonNameInvokeResponse struct {
+	// Certificate common name to be granted access; be careful using wild card common names
+	CertificateCommonName string `pulumi:"certificateCommonName"`
+	// Certificate issuer thumbprint
+	CertificateIssuerThumbprint string `pulumi:"certificateIssuerThumbprint"`
+	// Is this certificate used for admin access from the client, if false , it is used or query only access
+	IsAdmin bool `pulumi:"isAdmin"`
+}
+
+// ClientCertificateCommonNameInvokeResponseInput is an input type that accepts ClientCertificateCommonNameInvokeResponseArgs and ClientCertificateCommonNameInvokeResponseOutput values.
+// You can construct a concrete instance of `ClientCertificateCommonNameInvokeResponseInput` via:
+//
+//          ClientCertificateCommonNameInvokeResponseArgs{...}
+type ClientCertificateCommonNameInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClientCertificateCommonNameInvokeResponseOutput() ClientCertificateCommonNameInvokeResponseOutput
+	ToClientCertificateCommonNameInvokeResponseOutputWithContext(context.Context) ClientCertificateCommonNameInvokeResponseOutput
+}
+
+// Client certificate details using common name
+type ClientCertificateCommonNameInvokeResponseArgs struct {
+	// Certificate common name to be granted access; be careful using wild card common names
+	CertificateCommonName pulumi.StringInput `pulumi:"certificateCommonName"`
+	// Certificate issuer thumbprint
+	CertificateIssuerThumbprint pulumi.StringInput `pulumi:"certificateIssuerThumbprint"`
+	// Is this certificate used for admin access from the client, if false , it is used or query only access
+	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
+}
+
+func (ClientCertificateCommonNameInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificateCommonNameInvokeResponse)(nil)).Elem()
+}
+
+func (i ClientCertificateCommonNameInvokeResponseArgs) ToClientCertificateCommonNameInvokeResponseOutput() ClientCertificateCommonNameInvokeResponseOutput {
+	return i.ToClientCertificateCommonNameInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateCommonNameInvokeResponseArgs) ToClientCertificateCommonNameInvokeResponseOutputWithContext(ctx context.Context) ClientCertificateCommonNameInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateCommonNameInvokeResponseOutput)
+}
+
+// ClientCertificateCommonNameInvokeResponseArrayInput is an input type that accepts ClientCertificateCommonNameInvokeResponseArray and ClientCertificateCommonNameInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ClientCertificateCommonNameInvokeResponseArrayInput` via:
+//
+//          ClientCertificateCommonNameInvokeResponseArray{ ClientCertificateCommonNameInvokeResponseArgs{...} }
+type ClientCertificateCommonNameInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToClientCertificateCommonNameInvokeResponseArrayOutput() ClientCertificateCommonNameInvokeResponseArrayOutput
+	ToClientCertificateCommonNameInvokeResponseArrayOutputWithContext(context.Context) ClientCertificateCommonNameInvokeResponseArrayOutput
+}
+
+type ClientCertificateCommonNameInvokeResponseArray []ClientCertificateCommonNameInvokeResponseInput
+
+func (ClientCertificateCommonNameInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificateCommonNameInvokeResponse)(nil)).Elem()
+}
+
+func (i ClientCertificateCommonNameInvokeResponseArray) ToClientCertificateCommonNameInvokeResponseArrayOutput() ClientCertificateCommonNameInvokeResponseArrayOutput {
+	return i.ToClientCertificateCommonNameInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateCommonNameInvokeResponseArray) ToClientCertificateCommonNameInvokeResponseArrayOutputWithContext(ctx context.Context) ClientCertificateCommonNameInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateCommonNameInvokeResponseArrayOutput)
+}
+
+// Client certificate details using common name
+type ClientCertificateCommonNameInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateCommonNameInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificateCommonNameInvokeResponse)(nil)).Elem()
+}
+
+func (o ClientCertificateCommonNameInvokeResponseOutput) ToClientCertificateCommonNameInvokeResponseOutput() ClientCertificateCommonNameInvokeResponseOutput {
+	return o
+}
+
+func (o ClientCertificateCommonNameInvokeResponseOutput) ToClientCertificateCommonNameInvokeResponseOutputWithContext(ctx context.Context) ClientCertificateCommonNameInvokeResponseOutput {
+	return o
+}
+
+// Certificate common name to be granted access; be careful using wild card common names
+func (o ClientCertificateCommonNameInvokeResponseOutput) CertificateCommonName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientCertificateCommonNameInvokeResponse) string { return v.CertificateCommonName }).(pulumi.StringOutput)
+}
+
+// Certificate issuer thumbprint
+func (o ClientCertificateCommonNameInvokeResponseOutput) CertificateIssuerThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientCertificateCommonNameInvokeResponse) string { return v.CertificateIssuerThumbprint }).(pulumi.StringOutput)
+}
+
+// Is this certificate used for admin access from the client, if false , it is used or query only access
+func (o ClientCertificateCommonNameInvokeResponseOutput) IsAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientCertificateCommonNameInvokeResponse) bool { return v.IsAdmin }).(pulumi.BoolOutput)
+}
+
+type ClientCertificateCommonNameInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateCommonNameInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificateCommonNameInvokeResponse)(nil)).Elem()
+}
+
+func (o ClientCertificateCommonNameInvokeResponseArrayOutput) ToClientCertificateCommonNameInvokeResponseArrayOutput() ClientCertificateCommonNameInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClientCertificateCommonNameInvokeResponseArrayOutput) ToClientCertificateCommonNameInvokeResponseArrayOutputWithContext(ctx context.Context) ClientCertificateCommonNameInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClientCertificateCommonNameInvokeResponseArrayOutput) Index(i pulumi.IntInput) ClientCertificateCommonNameInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateCommonNameInvokeResponse {
+		return vs[0].([]ClientCertificateCommonNameInvokeResponse)[vs[1].(int)]
+	}).(ClientCertificateCommonNameInvokeResponseOutput)
+}
+
+// Client certificate details using common name
 type ClientCertificateCommonNameResponse struct {
 	// Certificate common name to be granted access; be careful using wild card common names
 	CertificateCommonName string `pulumi:"certificateCommonName"`
@@ -1041,6 +1305,115 @@ func (o ClientCertificateThumbprintArrayOutput) Index(i pulumi.IntInput) ClientC
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateThumbprint {
 		return vs[0].([]ClientCertificateThumbprint)[vs[1].(int)]
 	}).(ClientCertificateThumbprintOutput)
+}
+
+// Client certificate details using thumbprint
+type ClientCertificateThumbprintInvokeResponse struct {
+	// Certificate thumbprint
+	CertificateThumbprint string `pulumi:"certificateThumbprint"`
+	// Is this certificate used for admin access from the client, if false, it is used or query only access
+	IsAdmin bool `pulumi:"isAdmin"`
+}
+
+// ClientCertificateThumbprintInvokeResponseInput is an input type that accepts ClientCertificateThumbprintInvokeResponseArgs and ClientCertificateThumbprintInvokeResponseOutput values.
+// You can construct a concrete instance of `ClientCertificateThumbprintInvokeResponseInput` via:
+//
+//          ClientCertificateThumbprintInvokeResponseArgs{...}
+type ClientCertificateThumbprintInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClientCertificateThumbprintInvokeResponseOutput() ClientCertificateThumbprintInvokeResponseOutput
+	ToClientCertificateThumbprintInvokeResponseOutputWithContext(context.Context) ClientCertificateThumbprintInvokeResponseOutput
+}
+
+// Client certificate details using thumbprint
+type ClientCertificateThumbprintInvokeResponseArgs struct {
+	// Certificate thumbprint
+	CertificateThumbprint pulumi.StringInput `pulumi:"certificateThumbprint"`
+	// Is this certificate used for admin access from the client, if false, it is used or query only access
+	IsAdmin pulumi.BoolInput `pulumi:"isAdmin"`
+}
+
+func (ClientCertificateThumbprintInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificateThumbprintInvokeResponse)(nil)).Elem()
+}
+
+func (i ClientCertificateThumbprintInvokeResponseArgs) ToClientCertificateThumbprintInvokeResponseOutput() ClientCertificateThumbprintInvokeResponseOutput {
+	return i.ToClientCertificateThumbprintInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateThumbprintInvokeResponseArgs) ToClientCertificateThumbprintInvokeResponseOutputWithContext(ctx context.Context) ClientCertificateThumbprintInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateThumbprintInvokeResponseOutput)
+}
+
+// ClientCertificateThumbprintInvokeResponseArrayInput is an input type that accepts ClientCertificateThumbprintInvokeResponseArray and ClientCertificateThumbprintInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ClientCertificateThumbprintInvokeResponseArrayInput` via:
+//
+//          ClientCertificateThumbprintInvokeResponseArray{ ClientCertificateThumbprintInvokeResponseArgs{...} }
+type ClientCertificateThumbprintInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToClientCertificateThumbprintInvokeResponseArrayOutput() ClientCertificateThumbprintInvokeResponseArrayOutput
+	ToClientCertificateThumbprintInvokeResponseArrayOutputWithContext(context.Context) ClientCertificateThumbprintInvokeResponseArrayOutput
+}
+
+type ClientCertificateThumbprintInvokeResponseArray []ClientCertificateThumbprintInvokeResponseInput
+
+func (ClientCertificateThumbprintInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificateThumbprintInvokeResponse)(nil)).Elem()
+}
+
+func (i ClientCertificateThumbprintInvokeResponseArray) ToClientCertificateThumbprintInvokeResponseArrayOutput() ClientCertificateThumbprintInvokeResponseArrayOutput {
+	return i.ToClientCertificateThumbprintInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateThumbprintInvokeResponseArray) ToClientCertificateThumbprintInvokeResponseArrayOutputWithContext(ctx context.Context) ClientCertificateThumbprintInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateThumbprintInvokeResponseArrayOutput)
+}
+
+// Client certificate details using thumbprint
+type ClientCertificateThumbprintInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateThumbprintInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificateThumbprintInvokeResponse)(nil)).Elem()
+}
+
+func (o ClientCertificateThumbprintInvokeResponseOutput) ToClientCertificateThumbprintInvokeResponseOutput() ClientCertificateThumbprintInvokeResponseOutput {
+	return o
+}
+
+func (o ClientCertificateThumbprintInvokeResponseOutput) ToClientCertificateThumbprintInvokeResponseOutputWithContext(ctx context.Context) ClientCertificateThumbprintInvokeResponseOutput {
+	return o
+}
+
+// Certificate thumbprint
+func (o ClientCertificateThumbprintInvokeResponseOutput) CertificateThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientCertificateThumbprintInvokeResponse) string { return v.CertificateThumbprint }).(pulumi.StringOutput)
+}
+
+// Is this certificate used for admin access from the client, if false, it is used or query only access
+func (o ClientCertificateThumbprintInvokeResponseOutput) IsAdmin() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientCertificateThumbprintInvokeResponse) bool { return v.IsAdmin }).(pulumi.BoolOutput)
+}
+
+type ClientCertificateThumbprintInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateThumbprintInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificateThumbprintInvokeResponse)(nil)).Elem()
+}
+
+func (o ClientCertificateThumbprintInvokeResponseArrayOutput) ToClientCertificateThumbprintInvokeResponseArrayOutput() ClientCertificateThumbprintInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClientCertificateThumbprintInvokeResponseArrayOutput) ToClientCertificateThumbprintInvokeResponseArrayOutputWithContext(ctx context.Context) ClientCertificateThumbprintInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClientCertificateThumbprintInvokeResponseArrayOutput) Index(i pulumi.IntInput) ClientCertificateThumbprintInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateThumbprintInvokeResponse {
+		return vs[0].([]ClientCertificateThumbprintInvokeResponse)[vs[1].(int)]
+	}).(ClientCertificateThumbprintInvokeResponseOutput)
 }
 
 // Client certificate details using thumbprint
@@ -1303,6 +1676,70 @@ func (o ClusterHealthPolicyPtrOutput) MaxPercentUnhealthyNodes() pulumi.IntPtrOu
 		}
 		return v.MaxPercentUnhealthyNodes
 	}).(pulumi.IntPtrOutput)
+}
+
+// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+type ClusterHealthPolicyInvokeResponse struct {
+	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+	MaxPercentUnhealthyApplications *int `pulumi:"maxPercentUnhealthyApplications"`
+	// The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+	MaxPercentUnhealthyNodes *int `pulumi:"maxPercentUnhealthyNodes"`
+}
+
+// ClusterHealthPolicyInvokeResponseInput is an input type that accepts ClusterHealthPolicyInvokeResponseArgs and ClusterHealthPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterHealthPolicyInvokeResponseInput` via:
+//
+//          ClusterHealthPolicyInvokeResponseArgs{...}
+type ClusterHealthPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterHealthPolicyInvokeResponseOutput() ClusterHealthPolicyInvokeResponseOutput
+	ToClusterHealthPolicyInvokeResponseOutputWithContext(context.Context) ClusterHealthPolicyInvokeResponseOutput
+}
+
+// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+type ClusterHealthPolicyInvokeResponseArgs struct {
+	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+	MaxPercentUnhealthyApplications pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyApplications"`
+	// The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+	MaxPercentUnhealthyNodes pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyNodes"`
+}
+
+func (ClusterHealthPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterHealthPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterHealthPolicyInvokeResponseArgs) ToClusterHealthPolicyInvokeResponseOutput() ClusterHealthPolicyInvokeResponseOutput {
+	return i.ToClusterHealthPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterHealthPolicyInvokeResponseArgs) ToClusterHealthPolicyInvokeResponseOutputWithContext(ctx context.Context) ClusterHealthPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterHealthPolicyInvokeResponseOutput)
+}
+
+// Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+type ClusterHealthPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterHealthPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterHealthPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterHealthPolicyInvokeResponseOutput) ToClusterHealthPolicyInvokeResponseOutput() ClusterHealthPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterHealthPolicyInvokeResponseOutput) ToClusterHealthPolicyInvokeResponseOutputWithContext(ctx context.Context) ClusterHealthPolicyInvokeResponseOutput {
+	return o
+}
+
+// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+func (o ClusterHealthPolicyInvokeResponseOutput) MaxPercentUnhealthyApplications() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterHealthPolicyInvokeResponse) *int { return v.MaxPercentUnhealthyApplications }).(pulumi.IntPtrOutput)
+}
+
+// The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+func (o ClusterHealthPolicyInvokeResponseOutput) MaxPercentUnhealthyNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterHealthPolicyInvokeResponse) *int { return v.MaxPercentUnhealthyNodes }).(pulumi.IntPtrOutput)
 }
 
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
@@ -1623,6 +2060,184 @@ func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) MaxPercentDeltaUnhealthyNodes(
 // Additional unhealthy nodes percentage per upgrade domain
 func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) MaxPercentUpgradeDomainDeltaUnhealthyNodes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPercentUpgradeDomainDeltaUnhealthyNodes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Delta health policy for the cluster
+type ClusterUpgradeDeltaHealthPolicyInvokeResponse struct {
+	// Additional unhealthy applications percentage
+	MaxPercentDeltaUnhealthyApplications int `pulumi:"maxPercentDeltaUnhealthyApplications"`
+	// Additional unhealthy nodes percentage
+	MaxPercentDeltaUnhealthyNodes int `pulumi:"maxPercentDeltaUnhealthyNodes"`
+	// Additional unhealthy nodes percentage per upgrade domain
+	MaxPercentUpgradeDomainDeltaUnhealthyNodes int `pulumi:"maxPercentUpgradeDomainDeltaUnhealthyNodes"`
+}
+
+// ClusterUpgradeDeltaHealthPolicyInvokeResponseInput is an input type that accepts ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs and ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterUpgradeDeltaHealthPolicyInvokeResponseInput` via:
+//
+//          ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs{...}
+type ClusterUpgradeDeltaHealthPolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterUpgradeDeltaHealthPolicyInvokeResponseOutput() ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput
+	ToClusterUpgradeDeltaHealthPolicyInvokeResponseOutputWithContext(context.Context) ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput
+}
+
+// Delta health policy for the cluster
+type ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs struct {
+	// Additional unhealthy applications percentage
+	MaxPercentDeltaUnhealthyApplications pulumi.IntInput `pulumi:"maxPercentDeltaUnhealthyApplications"`
+	// Additional unhealthy nodes percentage
+	MaxPercentDeltaUnhealthyNodes pulumi.IntInput `pulumi:"maxPercentDeltaUnhealthyNodes"`
+	// Additional unhealthy nodes percentage per upgrade domain
+	MaxPercentUpgradeDomainDeltaUnhealthyNodes pulumi.IntInput `pulumi:"maxPercentUpgradeDomainDeltaUnhealthyNodes"`
+}
+
+func (ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradeDeltaHealthPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs) ToClusterUpgradeDeltaHealthPolicyInvokeResponseOutput() ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput {
+	return i.ToClusterUpgradeDeltaHealthPolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs) ToClusterUpgradeDeltaHealthPolicyInvokeResponseOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput)
+}
+
+func (i ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs) ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput() ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput {
+	return i.ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs) ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput).ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrInput is an input type that accepts ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs, ClusterUpgradeDeltaHealthPolicyInvokeResponsePtr and ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrInput` via:
+//
+//          ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput() ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput
+	ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutputWithContext(context.Context) ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput
+}
+
+type clusterUpgradeDeltaHealthPolicyInvokeResponsePtrType ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs
+
+func ClusterUpgradeDeltaHealthPolicyInvokeResponsePtr(v *ClusterUpgradeDeltaHealthPolicyInvokeResponseArgs) ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrInput {
+	return (*clusterUpgradeDeltaHealthPolicyInvokeResponsePtrType)(v)
+}
+
+func (*clusterUpgradeDeltaHealthPolicyInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradeDeltaHealthPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i *clusterUpgradeDeltaHealthPolicyInvokeResponsePtrType) ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput() ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput {
+	return i.ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterUpgradeDeltaHealthPolicyInvokeResponsePtrType) ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput)
+}
+
+// Delta health policy for the cluster
+type ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradeDeltaHealthPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput) ToClusterUpgradeDeltaHealthPolicyInvokeResponseOutput() ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput) ToClusterUpgradeDeltaHealthPolicyInvokeResponseOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput) ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput() ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput {
+	return o.ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput) ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyInvokeResponse) *ClusterUpgradeDeltaHealthPolicyInvokeResponse {
+		return &v
+	}).(ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput)
+}
+
+// Additional unhealthy applications percentage
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput) MaxPercentDeltaUnhealthyApplications() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyInvokeResponse) int {
+		return v.MaxPercentDeltaUnhealthyApplications
+	}).(pulumi.IntOutput)
+}
+
+// Additional unhealthy nodes percentage
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput) MaxPercentDeltaUnhealthyNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyInvokeResponse) int { return v.MaxPercentDeltaUnhealthyNodes }).(pulumi.IntOutput)
+}
+
+// Additional unhealthy nodes percentage per upgrade domain
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput) MaxPercentUpgradeDomainDeltaUnhealthyNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyInvokeResponse) int {
+		return v.MaxPercentUpgradeDomainDeltaUnhealthyNodes
+	}).(pulumi.IntOutput)
+}
+
+type ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUpgradeDeltaHealthPolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput) ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput() ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput) ToClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput {
+	return o
+}
+
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput) Elem() ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput {
+	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyInvokeResponse) ClusterUpgradeDeltaHealthPolicyInvokeResponse {
+		return *v
+	}).(ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput)
+}
+
+// Additional unhealthy applications percentage
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput) MaxPercentDeltaUnhealthyApplications() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPercentDeltaUnhealthyApplications
+	}).(pulumi.IntPtrOutput)
+}
+
+// Additional unhealthy nodes percentage
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput) MaxPercentDeltaUnhealthyNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPercentDeltaUnhealthyNodes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Additional unhealthy nodes percentage per upgrade domain
+func (o ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput) MaxPercentUpgradeDomainDeltaUnhealthyNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyInvokeResponse) *int {
 		if v == nil {
 			return nil
 		}
@@ -2110,6 +2725,144 @@ func (o ClusterUpgradePolicyPtrOutput) UpgradeTimeout() pulumi.StringPtrOutput {
 }
 
 // Cluster upgrade policy
+type ClusterUpgradePolicyInvokeResponse struct {
+	// Delta health policy
+	DeltaHealthPolicy *ClusterUpgradeDeltaHealthPolicyInvokeResponse `pulumi:"deltaHealthPolicy"`
+	// Force node to restart or not
+	ForceRestart *bool `pulumi:"forceRestart"`
+	// The length of time that health checks can fail continuously,it represents .Net TimeSpan
+	HealthCheckRetryTimeout string `pulumi:"healthCheckRetryTimeout"`
+	// The length of time that health checks must pass continuously,it represents .Net TimeSpan
+	HealthCheckStableDuration string `pulumi:"healthCheckStableDuration"`
+	// The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan
+	HealthCheckWaitDuration string `pulumi:"healthCheckWaitDuration"`
+	// Cluster health Policy
+	HealthPolicy ClusterHealthPolicyInvokeResponse `pulumi:"healthPolicy"`
+	// Use the user defined upgrade policy or not
+	OverrideUserUpgradePolicy *bool `pulumi:"overrideUserUpgradePolicy"`
+	// The timeout for any upgrade domain,it represents .Net TimeSpan
+	UpgradeDomainTimeout string `pulumi:"upgradeDomainTimeout"`
+	// Timeout for replica set upgrade to complete,it represents .Net TimeSpan
+	UpgradeReplicaSetCheckTimeout string `pulumi:"upgradeReplicaSetCheckTimeout"`
+	// The upgrade timeout,it represents .Net TimeSpan
+	UpgradeTimeout string `pulumi:"upgradeTimeout"`
+}
+
+// ClusterUpgradePolicyInvokeResponseInput is an input type that accepts ClusterUpgradePolicyInvokeResponseArgs and ClusterUpgradePolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterUpgradePolicyInvokeResponseInput` via:
+//
+//          ClusterUpgradePolicyInvokeResponseArgs{...}
+type ClusterUpgradePolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterUpgradePolicyInvokeResponseOutput() ClusterUpgradePolicyInvokeResponseOutput
+	ToClusterUpgradePolicyInvokeResponseOutputWithContext(context.Context) ClusterUpgradePolicyInvokeResponseOutput
+}
+
+// Cluster upgrade policy
+type ClusterUpgradePolicyInvokeResponseArgs struct {
+	// Delta health policy
+	DeltaHealthPolicy ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrInput `pulumi:"deltaHealthPolicy"`
+	// Force node to restart or not
+	ForceRestart pulumi.BoolPtrInput `pulumi:"forceRestart"`
+	// The length of time that health checks can fail continuously,it represents .Net TimeSpan
+	HealthCheckRetryTimeout pulumi.StringInput `pulumi:"healthCheckRetryTimeout"`
+	// The length of time that health checks must pass continuously,it represents .Net TimeSpan
+	HealthCheckStableDuration pulumi.StringInput `pulumi:"healthCheckStableDuration"`
+	// The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan
+	HealthCheckWaitDuration pulumi.StringInput `pulumi:"healthCheckWaitDuration"`
+	// Cluster health Policy
+	HealthPolicy ClusterHealthPolicyInvokeResponseInput `pulumi:"healthPolicy"`
+	// Use the user defined upgrade policy or not
+	OverrideUserUpgradePolicy pulumi.BoolPtrInput `pulumi:"overrideUserUpgradePolicy"`
+	// The timeout for any upgrade domain,it represents .Net TimeSpan
+	UpgradeDomainTimeout pulumi.StringInput `pulumi:"upgradeDomainTimeout"`
+	// Timeout for replica set upgrade to complete,it represents .Net TimeSpan
+	UpgradeReplicaSetCheckTimeout pulumi.StringInput `pulumi:"upgradeReplicaSetCheckTimeout"`
+	// The upgrade timeout,it represents .Net TimeSpan
+	UpgradeTimeout pulumi.StringInput `pulumi:"upgradeTimeout"`
+}
+
+func (ClusterUpgradePolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterUpgradePolicyInvokeResponseArgs) ToClusterUpgradePolicyInvokeResponseOutput() ClusterUpgradePolicyInvokeResponseOutput {
+	return i.ToClusterUpgradePolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterUpgradePolicyInvokeResponseArgs) ToClusterUpgradePolicyInvokeResponseOutputWithContext(ctx context.Context) ClusterUpgradePolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyInvokeResponseOutput)
+}
+
+// Cluster upgrade policy
+type ClusterUpgradePolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterUpgradePolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUpgradePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterUpgradePolicyInvokeResponseOutput) ToClusterUpgradePolicyInvokeResponseOutput() ClusterUpgradePolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterUpgradePolicyInvokeResponseOutput) ToClusterUpgradePolicyInvokeResponseOutputWithContext(ctx context.Context) ClusterUpgradePolicyInvokeResponseOutput {
+	return o
+}
+
+// Delta health policy
+func (o ClusterUpgradePolicyInvokeResponseOutput) DeltaHealthPolicy() ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyInvokeResponse) *ClusterUpgradeDeltaHealthPolicyInvokeResponse {
+		return v.DeltaHealthPolicy
+	}).(ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput)
+}
+
+// Force node to restart or not
+func (o ClusterUpgradePolicyInvokeResponseOutput) ForceRestart() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyInvokeResponse) *bool { return v.ForceRestart }).(pulumi.BoolPtrOutput)
+}
+
+// The length of time that health checks can fail continuously,it represents .Net TimeSpan
+func (o ClusterUpgradePolicyInvokeResponseOutput) HealthCheckRetryTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyInvokeResponse) string { return v.HealthCheckRetryTimeout }).(pulumi.StringOutput)
+}
+
+// The length of time that health checks must pass continuously,it represents .Net TimeSpan
+func (o ClusterUpgradePolicyInvokeResponseOutput) HealthCheckStableDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyInvokeResponse) string { return v.HealthCheckStableDuration }).(pulumi.StringOutput)
+}
+
+// The length of time to wait after completing an upgrade domain before performing health checks, it represents .Net TimeSpan
+func (o ClusterUpgradePolicyInvokeResponseOutput) HealthCheckWaitDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyInvokeResponse) string { return v.HealthCheckWaitDuration }).(pulumi.StringOutput)
+}
+
+// Cluster health Policy
+func (o ClusterUpgradePolicyInvokeResponseOutput) HealthPolicy() ClusterHealthPolicyInvokeResponseOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyInvokeResponse) ClusterHealthPolicyInvokeResponse { return v.HealthPolicy }).(ClusterHealthPolicyInvokeResponseOutput)
+}
+
+// Use the user defined upgrade policy or not
+func (o ClusterUpgradePolicyInvokeResponseOutput) OverrideUserUpgradePolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyInvokeResponse) *bool { return v.OverrideUserUpgradePolicy }).(pulumi.BoolPtrOutput)
+}
+
+// The timeout for any upgrade domain,it represents .Net TimeSpan
+func (o ClusterUpgradePolicyInvokeResponseOutput) UpgradeDomainTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyInvokeResponse) string { return v.UpgradeDomainTimeout }).(pulumi.StringOutput)
+}
+
+// Timeout for replica set upgrade to complete,it represents .Net TimeSpan
+func (o ClusterUpgradePolicyInvokeResponseOutput) UpgradeReplicaSetCheckTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyInvokeResponse) string { return v.UpgradeReplicaSetCheckTimeout }).(pulumi.StringOutput)
+}
+
+// The upgrade timeout,it represents .Net TimeSpan
+func (o ClusterUpgradePolicyInvokeResponseOutput) UpgradeTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterUpgradePolicyInvokeResponse) string { return v.UpgradeTimeout }).(pulumi.StringOutput)
+}
+
+// Cluster upgrade policy
 type ClusterUpgradePolicyResponse struct {
 	// Delta health policy
 	DeltaHealthPolicy *ClusterUpgradeDeltaHealthPolicyResponse `pulumi:"deltaHealthPolicy"`
@@ -2414,6 +3167,124 @@ func (o ClusterUpgradePolicyResponsePtrOutput) UpgradeTimeout() pulumi.StringPtr
 		}
 		return &v.UpgradeTimeout
 	}).(pulumi.StringPtrOutput)
+}
+
+// The detail of the ServiceFabric runtime version result
+type ClusterVersionDetailsInvokeResponse struct {
+	// The ServiceFabric runtime version of the cluster
+	CodeVersion *string `pulumi:"codeVersion"`
+	// Cluster operating system
+	Environment *string `pulumi:"environment"`
+	// The date of expiry of support of the version
+	SupportExpiryUtc *string `pulumi:"supportExpiryUtc"`
+}
+
+// ClusterVersionDetailsInvokeResponseInput is an input type that accepts ClusterVersionDetailsInvokeResponseArgs and ClusterVersionDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `ClusterVersionDetailsInvokeResponseInput` via:
+//
+//          ClusterVersionDetailsInvokeResponseArgs{...}
+type ClusterVersionDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToClusterVersionDetailsInvokeResponseOutput() ClusterVersionDetailsInvokeResponseOutput
+	ToClusterVersionDetailsInvokeResponseOutputWithContext(context.Context) ClusterVersionDetailsInvokeResponseOutput
+}
+
+// The detail of the ServiceFabric runtime version result
+type ClusterVersionDetailsInvokeResponseArgs struct {
+	// The ServiceFabric runtime version of the cluster
+	CodeVersion pulumi.StringPtrInput `pulumi:"codeVersion"`
+	// Cluster operating system
+	Environment pulumi.StringPtrInput `pulumi:"environment"`
+	// The date of expiry of support of the version
+	SupportExpiryUtc pulumi.StringPtrInput `pulumi:"supportExpiryUtc"`
+}
+
+func (ClusterVersionDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVersionDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterVersionDetailsInvokeResponseArgs) ToClusterVersionDetailsInvokeResponseOutput() ClusterVersionDetailsInvokeResponseOutput {
+	return i.ToClusterVersionDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterVersionDetailsInvokeResponseArgs) ToClusterVersionDetailsInvokeResponseOutputWithContext(ctx context.Context) ClusterVersionDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVersionDetailsInvokeResponseOutput)
+}
+
+// ClusterVersionDetailsInvokeResponseArrayInput is an input type that accepts ClusterVersionDetailsInvokeResponseArray and ClusterVersionDetailsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ClusterVersionDetailsInvokeResponseArrayInput` via:
+//
+//          ClusterVersionDetailsInvokeResponseArray{ ClusterVersionDetailsInvokeResponseArgs{...} }
+type ClusterVersionDetailsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToClusterVersionDetailsInvokeResponseArrayOutput() ClusterVersionDetailsInvokeResponseArrayOutput
+	ToClusterVersionDetailsInvokeResponseArrayOutputWithContext(context.Context) ClusterVersionDetailsInvokeResponseArrayOutput
+}
+
+type ClusterVersionDetailsInvokeResponseArray []ClusterVersionDetailsInvokeResponseInput
+
+func (ClusterVersionDetailsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterVersionDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i ClusterVersionDetailsInvokeResponseArray) ToClusterVersionDetailsInvokeResponseArrayOutput() ClusterVersionDetailsInvokeResponseArrayOutput {
+	return i.ToClusterVersionDetailsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterVersionDetailsInvokeResponseArray) ToClusterVersionDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) ClusterVersionDetailsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVersionDetailsInvokeResponseArrayOutput)
+}
+
+// The detail of the ServiceFabric runtime version result
+type ClusterVersionDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterVersionDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVersionDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterVersionDetailsInvokeResponseOutput) ToClusterVersionDetailsInvokeResponseOutput() ClusterVersionDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o ClusterVersionDetailsInvokeResponseOutput) ToClusterVersionDetailsInvokeResponseOutputWithContext(ctx context.Context) ClusterVersionDetailsInvokeResponseOutput {
+	return o
+}
+
+// The ServiceFabric runtime version of the cluster
+func (o ClusterVersionDetailsInvokeResponseOutput) CodeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterVersionDetailsInvokeResponse) *string { return v.CodeVersion }).(pulumi.StringPtrOutput)
+}
+
+// Cluster operating system
+func (o ClusterVersionDetailsInvokeResponseOutput) Environment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterVersionDetailsInvokeResponse) *string { return v.Environment }).(pulumi.StringPtrOutput)
+}
+
+// The date of expiry of support of the version
+func (o ClusterVersionDetailsInvokeResponseOutput) SupportExpiryUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterVersionDetailsInvokeResponse) *string { return v.SupportExpiryUtc }).(pulumi.StringPtrOutput)
+}
+
+type ClusterVersionDetailsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterVersionDetailsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterVersionDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o ClusterVersionDetailsInvokeResponseArrayOutput) ToClusterVersionDetailsInvokeResponseArrayOutput() ClusterVersionDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClusterVersionDetailsInvokeResponseArrayOutput) ToClusterVersionDetailsInvokeResponseArrayOutputWithContext(ctx context.Context) ClusterVersionDetailsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ClusterVersionDetailsInvokeResponseArrayOutput) Index(i pulumi.IntInput) ClusterVersionDetailsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterVersionDetailsInvokeResponse {
+		return vs[0].([]ClusterVersionDetailsInvokeResponse)[vs[1].(int)]
+	}).(ClusterVersionDetailsInvokeResponseOutput)
 }
 
 // The detail of the ServiceFabric runtime version result
@@ -2742,6 +3613,97 @@ func (o DiagnosticsStorageAccountConfigPtrOutput) TableEndpoint() pulumi.StringP
 		}
 		return &v.TableEndpoint
 	}).(pulumi.StringPtrOutput)
+}
+
+// Diagnostics storage account config
+type DiagnosticsStorageAccountConfigInvokeResponse struct {
+	// Diagnostics storage account blob endpoint
+	BlobEndpoint string `pulumi:"blobEndpoint"`
+	// Protected Diagnostics storage key name
+	ProtectedAccountKeyName string `pulumi:"protectedAccountKeyName"`
+	// Diagnostics storage account queue endpoint
+	QueueEndpoint string `pulumi:"queueEndpoint"`
+	// Diagnostics storage account name
+	StorageAccountName string `pulumi:"storageAccountName"`
+	// Diagnostics storage account table endpoint
+	TableEndpoint string `pulumi:"tableEndpoint"`
+}
+
+// DiagnosticsStorageAccountConfigInvokeResponseInput is an input type that accepts DiagnosticsStorageAccountConfigInvokeResponseArgs and DiagnosticsStorageAccountConfigInvokeResponseOutput values.
+// You can construct a concrete instance of `DiagnosticsStorageAccountConfigInvokeResponseInput` via:
+//
+//          DiagnosticsStorageAccountConfigInvokeResponseArgs{...}
+type DiagnosticsStorageAccountConfigInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDiagnosticsStorageAccountConfigInvokeResponseOutput() DiagnosticsStorageAccountConfigInvokeResponseOutput
+	ToDiagnosticsStorageAccountConfigInvokeResponseOutputWithContext(context.Context) DiagnosticsStorageAccountConfigInvokeResponseOutput
+}
+
+// Diagnostics storage account config
+type DiagnosticsStorageAccountConfigInvokeResponseArgs struct {
+	// Diagnostics storage account blob endpoint
+	BlobEndpoint pulumi.StringInput `pulumi:"blobEndpoint"`
+	// Protected Diagnostics storage key name
+	ProtectedAccountKeyName pulumi.StringInput `pulumi:"protectedAccountKeyName"`
+	// Diagnostics storage account queue endpoint
+	QueueEndpoint pulumi.StringInput `pulumi:"queueEndpoint"`
+	// Diagnostics storage account name
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	// Diagnostics storage account table endpoint
+	TableEndpoint pulumi.StringInput `pulumi:"tableEndpoint"`
+}
+
+func (DiagnosticsStorageAccountConfigInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticsStorageAccountConfigInvokeResponse)(nil)).Elem()
+}
+
+func (i DiagnosticsStorageAccountConfigInvokeResponseArgs) ToDiagnosticsStorageAccountConfigInvokeResponseOutput() DiagnosticsStorageAccountConfigInvokeResponseOutput {
+	return i.ToDiagnosticsStorageAccountConfigInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DiagnosticsStorageAccountConfigInvokeResponseArgs) ToDiagnosticsStorageAccountConfigInvokeResponseOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsStorageAccountConfigInvokeResponseOutput)
+}
+
+// Diagnostics storage account config
+type DiagnosticsStorageAccountConfigInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DiagnosticsStorageAccountConfigInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DiagnosticsStorageAccountConfigInvokeResponse)(nil)).Elem()
+}
+
+func (o DiagnosticsStorageAccountConfigInvokeResponseOutput) ToDiagnosticsStorageAccountConfigInvokeResponseOutput() DiagnosticsStorageAccountConfigInvokeResponseOutput {
+	return o
+}
+
+func (o DiagnosticsStorageAccountConfigInvokeResponseOutput) ToDiagnosticsStorageAccountConfigInvokeResponseOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigInvokeResponseOutput {
+	return o
+}
+
+// Diagnostics storage account blob endpoint
+func (o DiagnosticsStorageAccountConfigInvokeResponseOutput) BlobEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticsStorageAccountConfigInvokeResponse) string { return v.BlobEndpoint }).(pulumi.StringOutput)
+}
+
+// Protected Diagnostics storage key name
+func (o DiagnosticsStorageAccountConfigInvokeResponseOutput) ProtectedAccountKeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticsStorageAccountConfigInvokeResponse) string { return v.ProtectedAccountKeyName }).(pulumi.StringOutput)
+}
+
+// Diagnostics storage account queue endpoint
+func (o DiagnosticsStorageAccountConfigInvokeResponseOutput) QueueEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticsStorageAccountConfigInvokeResponse) string { return v.QueueEndpoint }).(pulumi.StringOutput)
+}
+
+// Diagnostics storage account name
+func (o DiagnosticsStorageAccountConfigInvokeResponseOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticsStorageAccountConfigInvokeResponse) string { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Diagnostics storage account table endpoint
+func (o DiagnosticsStorageAccountConfigInvokeResponseOutput) TableEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DiagnosticsStorageAccountConfigInvokeResponse) string { return v.TableEndpoint }).(pulumi.StringOutput)
 }
 
 // Diagnostics storage account config
@@ -3108,6 +4070,159 @@ func (o EndpointRangeDescriptionPtrOutput) StartPort() pulumi.IntPtrOutput {
 }
 
 // Port range details
+type EndpointRangeDescriptionInvokeResponse struct {
+	// End port of a range of ports
+	EndPort int `pulumi:"endPort"`
+	// Starting port of a range of ports
+	StartPort int `pulumi:"startPort"`
+}
+
+// EndpointRangeDescriptionInvokeResponseInput is an input type that accepts EndpointRangeDescriptionInvokeResponseArgs and EndpointRangeDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `EndpointRangeDescriptionInvokeResponseInput` via:
+//
+//          EndpointRangeDescriptionInvokeResponseArgs{...}
+type EndpointRangeDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToEndpointRangeDescriptionInvokeResponseOutput() EndpointRangeDescriptionInvokeResponseOutput
+	ToEndpointRangeDescriptionInvokeResponseOutputWithContext(context.Context) EndpointRangeDescriptionInvokeResponseOutput
+}
+
+// Port range details
+type EndpointRangeDescriptionInvokeResponseArgs struct {
+	// End port of a range of ports
+	EndPort pulumi.IntInput `pulumi:"endPort"`
+	// Starting port of a range of ports
+	StartPort pulumi.IntInput `pulumi:"startPort"`
+}
+
+func (EndpointRangeDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRangeDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i EndpointRangeDescriptionInvokeResponseArgs) ToEndpointRangeDescriptionInvokeResponseOutput() EndpointRangeDescriptionInvokeResponseOutput {
+	return i.ToEndpointRangeDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i EndpointRangeDescriptionInvokeResponseArgs) ToEndpointRangeDescriptionInvokeResponseOutputWithContext(ctx context.Context) EndpointRangeDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionInvokeResponseOutput)
+}
+
+func (i EndpointRangeDescriptionInvokeResponseArgs) ToEndpointRangeDescriptionInvokeResponsePtrOutput() EndpointRangeDescriptionInvokeResponsePtrOutput {
+	return i.ToEndpointRangeDescriptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EndpointRangeDescriptionInvokeResponseArgs) ToEndpointRangeDescriptionInvokeResponsePtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionInvokeResponseOutput).ToEndpointRangeDescriptionInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// EndpointRangeDescriptionInvokeResponsePtrInput is an input type that accepts EndpointRangeDescriptionInvokeResponseArgs, EndpointRangeDescriptionInvokeResponsePtr and EndpointRangeDescriptionInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `EndpointRangeDescriptionInvokeResponsePtrInput` via:
+//
+//          EndpointRangeDescriptionInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointRangeDescriptionInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToEndpointRangeDescriptionInvokeResponsePtrOutput() EndpointRangeDescriptionInvokeResponsePtrOutput
+	ToEndpointRangeDescriptionInvokeResponsePtrOutputWithContext(context.Context) EndpointRangeDescriptionInvokeResponsePtrOutput
+}
+
+type endpointRangeDescriptionInvokeResponsePtrType EndpointRangeDescriptionInvokeResponseArgs
+
+func EndpointRangeDescriptionInvokeResponsePtr(v *EndpointRangeDescriptionInvokeResponseArgs) EndpointRangeDescriptionInvokeResponsePtrInput {
+	return (*endpointRangeDescriptionInvokeResponsePtrType)(v)
+}
+
+func (*endpointRangeDescriptionInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRangeDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i *endpointRangeDescriptionInvokeResponsePtrType) ToEndpointRangeDescriptionInvokeResponsePtrOutput() EndpointRangeDescriptionInvokeResponsePtrOutput {
+	return i.ToEndpointRangeDescriptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *endpointRangeDescriptionInvokeResponsePtrType) ToEndpointRangeDescriptionInvokeResponsePtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionInvokeResponsePtrOutput)
+}
+
+// Port range details
+type EndpointRangeDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (EndpointRangeDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRangeDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o EndpointRangeDescriptionInvokeResponseOutput) ToEndpointRangeDescriptionInvokeResponseOutput() EndpointRangeDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o EndpointRangeDescriptionInvokeResponseOutput) ToEndpointRangeDescriptionInvokeResponseOutputWithContext(ctx context.Context) EndpointRangeDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o EndpointRangeDescriptionInvokeResponseOutput) ToEndpointRangeDescriptionInvokeResponsePtrOutput() EndpointRangeDescriptionInvokeResponsePtrOutput {
+	return o.ToEndpointRangeDescriptionInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EndpointRangeDescriptionInvokeResponseOutput) ToEndpointRangeDescriptionInvokeResponsePtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v EndpointRangeDescriptionInvokeResponse) *EndpointRangeDescriptionInvokeResponse {
+		return &v
+	}).(EndpointRangeDescriptionInvokeResponsePtrOutput)
+}
+
+// End port of a range of ports
+func (o EndpointRangeDescriptionInvokeResponseOutput) EndPort() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointRangeDescriptionInvokeResponse) int { return v.EndPort }).(pulumi.IntOutput)
+}
+
+// Starting port of a range of ports
+func (o EndpointRangeDescriptionInvokeResponseOutput) StartPort() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointRangeDescriptionInvokeResponse) int { return v.StartPort }).(pulumi.IntOutput)
+}
+
+type EndpointRangeDescriptionInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointRangeDescriptionInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRangeDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o EndpointRangeDescriptionInvokeResponsePtrOutput) ToEndpointRangeDescriptionInvokeResponsePtrOutput() EndpointRangeDescriptionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EndpointRangeDescriptionInvokeResponsePtrOutput) ToEndpointRangeDescriptionInvokeResponsePtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionInvokeResponsePtrOutput {
+	return o
+}
+
+func (o EndpointRangeDescriptionInvokeResponsePtrOutput) Elem() EndpointRangeDescriptionInvokeResponseOutput {
+	return o.ApplyT(func(v *EndpointRangeDescriptionInvokeResponse) EndpointRangeDescriptionInvokeResponse { return *v }).(EndpointRangeDescriptionInvokeResponseOutput)
+}
+
+// End port of a range of ports
+func (o EndpointRangeDescriptionInvokeResponsePtrOutput) EndPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRangeDescriptionInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.EndPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// Starting port of a range of ports
+func (o EndpointRangeDescriptionInvokeResponsePtrOutput) StartPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRangeDescriptionInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StartPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// Port range details
 type EndpointRangeDescriptionResponse struct {
 	// End port of a range of ports
 	EndPort int `pulumi:"endPort"`
@@ -3451,6 +4566,200 @@ func (o NodeTypeDescriptionArrayOutput) Index(i pulumi.IntInput) NodeTypeDescrip
 }
 
 // Describes a node type in the cluster, each node type represents sub set of nodes in the cluster
+type NodeTypeDescriptionInvokeResponse struct {
+	// Ports used by applications
+	ApplicationPorts *EndpointRangeDescriptionInvokeResponse `pulumi:"applicationPorts"`
+	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
+	Capacities map[string]string `pulumi:"capacities"`
+	// The TCP cluster management endpoint port
+	ClientConnectionEndpointPort int `pulumi:"clientConnectionEndpointPort"`
+	// Node type durability Level
+	DurabilityLevel *string `pulumi:"durabilityLevel"`
+	// System assigned application ports
+	EphemeralPorts *EndpointRangeDescriptionInvokeResponse `pulumi:"ephemeralPorts"`
+	// The HTTP cluster management endpoint port
+	HttpGatewayEndpointPort int `pulumi:"httpGatewayEndpointPort"`
+	// Mark this as the primary node type
+	IsPrimary bool `pulumi:"isPrimary"`
+	// Name of the node type
+	Name string `pulumi:"name"`
+	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
+	PlacementProperties map[string]string `pulumi:"placementProperties"`
+	// Endpoint used by reverse proxy
+	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
+	// The number of node instances in the node type
+	VmInstanceCount int `pulumi:"vmInstanceCount"`
+}
+
+// NodeTypeDescriptionInvokeResponseInput is an input type that accepts NodeTypeDescriptionInvokeResponseArgs and NodeTypeDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `NodeTypeDescriptionInvokeResponseInput` via:
+//
+//          NodeTypeDescriptionInvokeResponseArgs{...}
+type NodeTypeDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNodeTypeDescriptionInvokeResponseOutput() NodeTypeDescriptionInvokeResponseOutput
+	ToNodeTypeDescriptionInvokeResponseOutputWithContext(context.Context) NodeTypeDescriptionInvokeResponseOutput
+}
+
+// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster
+type NodeTypeDescriptionInvokeResponseArgs struct {
+	// Ports used by applications
+	ApplicationPorts EndpointRangeDescriptionInvokeResponsePtrInput `pulumi:"applicationPorts"`
+	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
+	Capacities pulumi.StringMapInput `pulumi:"capacities"`
+	// The TCP cluster management endpoint port
+	ClientConnectionEndpointPort pulumi.IntInput `pulumi:"clientConnectionEndpointPort"`
+	// Node type durability Level
+	DurabilityLevel pulumi.StringPtrInput `pulumi:"durabilityLevel"`
+	// System assigned application ports
+	EphemeralPorts EndpointRangeDescriptionInvokeResponsePtrInput `pulumi:"ephemeralPorts"`
+	// The HTTP cluster management endpoint port
+	HttpGatewayEndpointPort pulumi.IntInput `pulumi:"httpGatewayEndpointPort"`
+	// Mark this as the primary node type
+	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
+	// Name of the node type
+	Name pulumi.StringInput `pulumi:"name"`
+	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
+	PlacementProperties pulumi.StringMapInput `pulumi:"placementProperties"`
+	// Endpoint used by reverse proxy
+	ReverseProxyEndpointPort pulumi.IntPtrInput `pulumi:"reverseProxyEndpointPort"`
+	// The number of node instances in the node type
+	VmInstanceCount pulumi.IntInput `pulumi:"vmInstanceCount"`
+}
+
+func (NodeTypeDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeTypeDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i NodeTypeDescriptionInvokeResponseArgs) ToNodeTypeDescriptionInvokeResponseOutput() NodeTypeDescriptionInvokeResponseOutput {
+	return i.ToNodeTypeDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NodeTypeDescriptionInvokeResponseArgs) ToNodeTypeDescriptionInvokeResponseOutputWithContext(ctx context.Context) NodeTypeDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeDescriptionInvokeResponseOutput)
+}
+
+// NodeTypeDescriptionInvokeResponseArrayInput is an input type that accepts NodeTypeDescriptionInvokeResponseArray and NodeTypeDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NodeTypeDescriptionInvokeResponseArrayInput` via:
+//
+//          NodeTypeDescriptionInvokeResponseArray{ NodeTypeDescriptionInvokeResponseArgs{...} }
+type NodeTypeDescriptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNodeTypeDescriptionInvokeResponseArrayOutput() NodeTypeDescriptionInvokeResponseArrayOutput
+	ToNodeTypeDescriptionInvokeResponseArrayOutputWithContext(context.Context) NodeTypeDescriptionInvokeResponseArrayOutput
+}
+
+type NodeTypeDescriptionInvokeResponseArray []NodeTypeDescriptionInvokeResponseInput
+
+func (NodeTypeDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeTypeDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i NodeTypeDescriptionInvokeResponseArray) ToNodeTypeDescriptionInvokeResponseArrayOutput() NodeTypeDescriptionInvokeResponseArrayOutput {
+	return i.ToNodeTypeDescriptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NodeTypeDescriptionInvokeResponseArray) ToNodeTypeDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) NodeTypeDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeDescriptionInvokeResponseArrayOutput)
+}
+
+// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster
+type NodeTypeDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NodeTypeDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeTypeDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o NodeTypeDescriptionInvokeResponseOutput) ToNodeTypeDescriptionInvokeResponseOutput() NodeTypeDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o NodeTypeDescriptionInvokeResponseOutput) ToNodeTypeDescriptionInvokeResponseOutputWithContext(ctx context.Context) NodeTypeDescriptionInvokeResponseOutput {
+	return o
+}
+
+// Ports used by applications
+func (o NodeTypeDescriptionInvokeResponseOutput) ApplicationPorts() EndpointRangeDescriptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) *EndpointRangeDescriptionInvokeResponse {
+		return v.ApplicationPorts
+	}).(EndpointRangeDescriptionInvokeResponsePtrOutput)
+}
+
+// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much of a resource a node has
+func (o NodeTypeDescriptionInvokeResponseOutput) Capacities() pulumi.StringMapOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) map[string]string { return v.Capacities }).(pulumi.StringMapOutput)
+}
+
+// The TCP cluster management endpoint port
+func (o NodeTypeDescriptionInvokeResponseOutput) ClientConnectionEndpointPort() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) int { return v.ClientConnectionEndpointPort }).(pulumi.IntOutput)
+}
+
+// Node type durability Level
+func (o NodeTypeDescriptionInvokeResponseOutput) DurabilityLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) *string { return v.DurabilityLevel }).(pulumi.StringPtrOutput)
+}
+
+// System assigned application ports
+func (o NodeTypeDescriptionInvokeResponseOutput) EphemeralPorts() EndpointRangeDescriptionInvokeResponsePtrOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) *EndpointRangeDescriptionInvokeResponse {
+		return v.EphemeralPorts
+	}).(EndpointRangeDescriptionInvokeResponsePtrOutput)
+}
+
+// The HTTP cluster management endpoint port
+func (o NodeTypeDescriptionInvokeResponseOutput) HttpGatewayEndpointPort() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) int { return v.HttpGatewayEndpointPort }).(pulumi.IntOutput)
+}
+
+// Mark this as the primary node type
+func (o NodeTypeDescriptionInvokeResponseOutput) IsPrimary() pulumi.BoolOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) bool { return v.IsPrimary }).(pulumi.BoolOutput)
+}
+
+// Name of the node type
+func (o NodeTypeDescriptionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run
+func (o NodeTypeDescriptionInvokeResponseOutput) PlacementProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) map[string]string { return v.PlacementProperties }).(pulumi.StringMapOutput)
+}
+
+// Endpoint used by reverse proxy
+func (o NodeTypeDescriptionInvokeResponseOutput) ReverseProxyEndpointPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) *int { return v.ReverseProxyEndpointPort }).(pulumi.IntPtrOutput)
+}
+
+// The number of node instances in the node type
+func (o NodeTypeDescriptionInvokeResponseOutput) VmInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v NodeTypeDescriptionInvokeResponse) int { return v.VmInstanceCount }).(pulumi.IntOutput)
+}
+
+type NodeTypeDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NodeTypeDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeTypeDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o NodeTypeDescriptionInvokeResponseArrayOutput) ToNodeTypeDescriptionInvokeResponseArrayOutput() NodeTypeDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NodeTypeDescriptionInvokeResponseArrayOutput) ToNodeTypeDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) NodeTypeDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NodeTypeDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) NodeTypeDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeTypeDescriptionInvokeResponse {
+		return vs[0].([]NodeTypeDescriptionInvokeResponse)[vs[1].(int)]
+	}).(NodeTypeDescriptionInvokeResponseOutput)
+}
+
+// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster
 type NodeTypeDescriptionResponse struct {
 	// Ports used by applications
 	ApplicationPorts *EndpointRangeDescriptionResponse `pulumi:"applicationPorts"`
@@ -3750,6 +5059,115 @@ func (o SettingsParameterDescriptionArrayOutput) Index(i pulumi.IntInput) Settin
 }
 
 // ServiceFabric settings under sections
+type SettingsParameterDescriptionInvokeResponse struct {
+	// The name of settings property
+	Name string `pulumi:"name"`
+	// The value of the property
+	Value string `pulumi:"value"`
+}
+
+// SettingsParameterDescriptionInvokeResponseInput is an input type that accepts SettingsParameterDescriptionInvokeResponseArgs and SettingsParameterDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `SettingsParameterDescriptionInvokeResponseInput` via:
+//
+//          SettingsParameterDescriptionInvokeResponseArgs{...}
+type SettingsParameterDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSettingsParameterDescriptionInvokeResponseOutput() SettingsParameterDescriptionInvokeResponseOutput
+	ToSettingsParameterDescriptionInvokeResponseOutputWithContext(context.Context) SettingsParameterDescriptionInvokeResponseOutput
+}
+
+// ServiceFabric settings under sections
+type SettingsParameterDescriptionInvokeResponseArgs struct {
+	// The name of settings property
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the property
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SettingsParameterDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsParameterDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SettingsParameterDescriptionInvokeResponseArgs) ToSettingsParameterDescriptionInvokeResponseOutput() SettingsParameterDescriptionInvokeResponseOutput {
+	return i.ToSettingsParameterDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SettingsParameterDescriptionInvokeResponseArgs) ToSettingsParameterDescriptionInvokeResponseOutputWithContext(ctx context.Context) SettingsParameterDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsParameterDescriptionInvokeResponseOutput)
+}
+
+// SettingsParameterDescriptionInvokeResponseArrayInput is an input type that accepts SettingsParameterDescriptionInvokeResponseArray and SettingsParameterDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SettingsParameterDescriptionInvokeResponseArrayInput` via:
+//
+//          SettingsParameterDescriptionInvokeResponseArray{ SettingsParameterDescriptionInvokeResponseArgs{...} }
+type SettingsParameterDescriptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSettingsParameterDescriptionInvokeResponseArrayOutput() SettingsParameterDescriptionInvokeResponseArrayOutput
+	ToSettingsParameterDescriptionInvokeResponseArrayOutputWithContext(context.Context) SettingsParameterDescriptionInvokeResponseArrayOutput
+}
+
+type SettingsParameterDescriptionInvokeResponseArray []SettingsParameterDescriptionInvokeResponseInput
+
+func (SettingsParameterDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsParameterDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SettingsParameterDescriptionInvokeResponseArray) ToSettingsParameterDescriptionInvokeResponseArrayOutput() SettingsParameterDescriptionInvokeResponseArrayOutput {
+	return i.ToSettingsParameterDescriptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SettingsParameterDescriptionInvokeResponseArray) ToSettingsParameterDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SettingsParameterDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsParameterDescriptionInvokeResponseArrayOutput)
+}
+
+// ServiceFabric settings under sections
+type SettingsParameterDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SettingsParameterDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsParameterDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SettingsParameterDescriptionInvokeResponseOutput) ToSettingsParameterDescriptionInvokeResponseOutput() SettingsParameterDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o SettingsParameterDescriptionInvokeResponseOutput) ToSettingsParameterDescriptionInvokeResponseOutputWithContext(ctx context.Context) SettingsParameterDescriptionInvokeResponseOutput {
+	return o
+}
+
+// The name of settings property
+func (o SettingsParameterDescriptionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsParameterDescriptionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the property
+func (o SettingsParameterDescriptionInvokeResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsParameterDescriptionInvokeResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SettingsParameterDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SettingsParameterDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsParameterDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SettingsParameterDescriptionInvokeResponseArrayOutput) ToSettingsParameterDescriptionInvokeResponseArrayOutput() SettingsParameterDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SettingsParameterDescriptionInvokeResponseArrayOutput) ToSettingsParameterDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SettingsParameterDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SettingsParameterDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) SettingsParameterDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SettingsParameterDescriptionInvokeResponse {
+		return vs[0].([]SettingsParameterDescriptionInvokeResponse)[vs[1].(int)]
+	}).(SettingsParameterDescriptionInvokeResponseOutput)
+}
+
+// ServiceFabric settings under sections
 type SettingsParameterDescriptionResponse struct {
 	// The name of settings property
 	Name string `pulumi:"name"`
@@ -3968,6 +5386,117 @@ func (o SettingsSectionDescriptionArrayOutput) Index(i pulumi.IntInput) Settings
 }
 
 // ServiceFabric section settings
+type SettingsSectionDescriptionInvokeResponse struct {
+	// The name of settings section
+	Name string `pulumi:"name"`
+	// Collection of settings in the section, each setting is a tuple consisting of setting name and value
+	Parameters []SettingsParameterDescriptionInvokeResponse `pulumi:"parameters"`
+}
+
+// SettingsSectionDescriptionInvokeResponseInput is an input type that accepts SettingsSectionDescriptionInvokeResponseArgs and SettingsSectionDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `SettingsSectionDescriptionInvokeResponseInput` via:
+//
+//          SettingsSectionDescriptionInvokeResponseArgs{...}
+type SettingsSectionDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSettingsSectionDescriptionInvokeResponseOutput() SettingsSectionDescriptionInvokeResponseOutput
+	ToSettingsSectionDescriptionInvokeResponseOutputWithContext(context.Context) SettingsSectionDescriptionInvokeResponseOutput
+}
+
+// ServiceFabric section settings
+type SettingsSectionDescriptionInvokeResponseArgs struct {
+	// The name of settings section
+	Name pulumi.StringInput `pulumi:"name"`
+	// Collection of settings in the section, each setting is a tuple consisting of setting name and value
+	Parameters SettingsParameterDescriptionInvokeResponseArrayInput `pulumi:"parameters"`
+}
+
+func (SettingsSectionDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsSectionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SettingsSectionDescriptionInvokeResponseArgs) ToSettingsSectionDescriptionInvokeResponseOutput() SettingsSectionDescriptionInvokeResponseOutput {
+	return i.ToSettingsSectionDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SettingsSectionDescriptionInvokeResponseArgs) ToSettingsSectionDescriptionInvokeResponseOutputWithContext(ctx context.Context) SettingsSectionDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsSectionDescriptionInvokeResponseOutput)
+}
+
+// SettingsSectionDescriptionInvokeResponseArrayInput is an input type that accepts SettingsSectionDescriptionInvokeResponseArray and SettingsSectionDescriptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SettingsSectionDescriptionInvokeResponseArrayInput` via:
+//
+//          SettingsSectionDescriptionInvokeResponseArray{ SettingsSectionDescriptionInvokeResponseArgs{...} }
+type SettingsSectionDescriptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSettingsSectionDescriptionInvokeResponseArrayOutput() SettingsSectionDescriptionInvokeResponseArrayOutput
+	ToSettingsSectionDescriptionInvokeResponseArrayOutputWithContext(context.Context) SettingsSectionDescriptionInvokeResponseArrayOutput
+}
+
+type SettingsSectionDescriptionInvokeResponseArray []SettingsSectionDescriptionInvokeResponseInput
+
+func (SettingsSectionDescriptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsSectionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SettingsSectionDescriptionInvokeResponseArray) ToSettingsSectionDescriptionInvokeResponseArrayOutput() SettingsSectionDescriptionInvokeResponseArrayOutput {
+	return i.ToSettingsSectionDescriptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SettingsSectionDescriptionInvokeResponseArray) ToSettingsSectionDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SettingsSectionDescriptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsSectionDescriptionInvokeResponseArrayOutput)
+}
+
+// ServiceFabric section settings
+type SettingsSectionDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SettingsSectionDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsSectionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SettingsSectionDescriptionInvokeResponseOutput) ToSettingsSectionDescriptionInvokeResponseOutput() SettingsSectionDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o SettingsSectionDescriptionInvokeResponseOutput) ToSettingsSectionDescriptionInvokeResponseOutputWithContext(ctx context.Context) SettingsSectionDescriptionInvokeResponseOutput {
+	return o
+}
+
+// The name of settings section
+func (o SettingsSectionDescriptionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsSectionDescriptionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Collection of settings in the section, each setting is a tuple consisting of setting name and value
+func (o SettingsSectionDescriptionInvokeResponseOutput) Parameters() SettingsParameterDescriptionInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SettingsSectionDescriptionInvokeResponse) []SettingsParameterDescriptionInvokeResponse {
+		return v.Parameters
+	}).(SettingsParameterDescriptionInvokeResponseArrayOutput)
+}
+
+type SettingsSectionDescriptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SettingsSectionDescriptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SettingsSectionDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SettingsSectionDescriptionInvokeResponseArrayOutput) ToSettingsSectionDescriptionInvokeResponseArrayOutput() SettingsSectionDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SettingsSectionDescriptionInvokeResponseArrayOutput) ToSettingsSectionDescriptionInvokeResponseArrayOutputWithContext(ctx context.Context) SettingsSectionDescriptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SettingsSectionDescriptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) SettingsSectionDescriptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SettingsSectionDescriptionInvokeResponse {
+		return vs[0].([]SettingsSectionDescriptionInvokeResponse)[vs[1].(int)]
+	}).(SettingsSectionDescriptionInvokeResponseOutput)
+}
+
+// ServiceFabric section settings
 type SettingsSectionDescriptionResponse struct {
 	// The name of settings section
 	Name string `pulumi:"name"`
@@ -4079,52 +5608,73 @@ func (o SettingsSectionDescriptionResponseArrayOutput) Index(i pulumi.IntInput) 
 func init() {
 	pulumi.RegisterOutputType(AzureActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(AzureActiveDirectoryInvokeResponseOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryResponseOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryResponsePtrOutput{})
 	pulumi.RegisterOutputType(CertificateDescriptionOutput{})
 	pulumi.RegisterOutputType(CertificateDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(CertificateDescriptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(CertificateDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(CertificateDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClientCertificateCommonNameOutput{})
 	pulumi.RegisterOutputType(ClientCertificateCommonNameArrayOutput{})
+	pulumi.RegisterOutputType(ClientCertificateCommonNameInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ClientCertificateCommonNameInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateCommonNameResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertificateCommonNameResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintArrayOutput{})
+	pulumi.RegisterOutputType(ClientCertificateThumbprintInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ClientCertificateThumbprintInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterHealthPolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradeDeltaHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradeDeltaHealthPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradeDeltaHealthPolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradeDeltaHealthPolicyInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradeDeltaHealthPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradeDeltaHealthPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyPtrOutput{})
+	pulumi.RegisterOutputType(ClusterUpgradePolicyInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyResponseOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ClusterVersionDetailsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ClusterVersionDetailsInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ClusterVersionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ClusterVersionDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigOutput{})
 	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigPtrOutput{})
+	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigInvokeResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(EndpointRangeDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(EndpointRangeDescriptionInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(EndpointRangeDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(NodeTypeDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NodeTypeDescriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(SettingsParameterDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SettingsParameterDescriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(SettingsSectionDescriptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SettingsSectionDescriptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionResponseArrayOutput{})
 }

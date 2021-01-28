@@ -221,6 +221,97 @@ func (o ExtensionResourcePlanPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 // Plan data for an extension resource.
+type ExtensionResourcePlanInvokeResponse struct {
+	// Name of the plan.
+	Name *string `pulumi:"name"`
+	// Product name.
+	Product *string `pulumi:"product"`
+	// Optional: the promotion code associated with the plan.
+	PromotionCode *string `pulumi:"promotionCode"`
+	// Name of the extension publisher.
+	Publisher *string `pulumi:"publisher"`
+	// A string that uniquely identifies the plan version.
+	Version *string `pulumi:"version"`
+}
+
+// ExtensionResourcePlanInvokeResponseInput is an input type that accepts ExtensionResourcePlanInvokeResponseArgs and ExtensionResourcePlanInvokeResponseOutput values.
+// You can construct a concrete instance of `ExtensionResourcePlanInvokeResponseInput` via:
+//
+//          ExtensionResourcePlanInvokeResponseArgs{...}
+type ExtensionResourcePlanInvokeResponseInput interface {
+	pulumi.Input
+
+	ToExtensionResourcePlanInvokeResponseOutput() ExtensionResourcePlanInvokeResponseOutput
+	ToExtensionResourcePlanInvokeResponseOutputWithContext(context.Context) ExtensionResourcePlanInvokeResponseOutput
+}
+
+// Plan data for an extension resource.
+type ExtensionResourcePlanInvokeResponseArgs struct {
+	// Name of the plan.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Product name.
+	Product pulumi.StringPtrInput `pulumi:"product"`
+	// Optional: the promotion code associated with the plan.
+	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
+	// Name of the extension publisher.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// A string that uniquely identifies the plan version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ExtensionResourcePlanInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionResourcePlanInvokeResponse)(nil)).Elem()
+}
+
+func (i ExtensionResourcePlanInvokeResponseArgs) ToExtensionResourcePlanInvokeResponseOutput() ExtensionResourcePlanInvokeResponseOutput {
+	return i.ToExtensionResourcePlanInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ExtensionResourcePlanInvokeResponseArgs) ToExtensionResourcePlanInvokeResponseOutputWithContext(ctx context.Context) ExtensionResourcePlanInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResourcePlanInvokeResponseOutput)
+}
+
+// Plan data for an extension resource.
+type ExtensionResourcePlanInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ExtensionResourcePlanInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExtensionResourcePlanInvokeResponse)(nil)).Elem()
+}
+
+func (o ExtensionResourcePlanInvokeResponseOutput) ToExtensionResourcePlanInvokeResponseOutput() ExtensionResourcePlanInvokeResponseOutput {
+	return o
+}
+
+func (o ExtensionResourcePlanInvokeResponseOutput) ToExtensionResourcePlanInvokeResponseOutputWithContext(ctx context.Context) ExtensionResourcePlanInvokeResponseOutput {
+	return o
+}
+
+// Name of the plan.
+func (o ExtensionResourcePlanInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionResourcePlanInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Product name.
+func (o ExtensionResourcePlanInvokeResponseOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionResourcePlanInvokeResponse) *string { return v.Product }).(pulumi.StringPtrOutput)
+}
+
+// Optional: the promotion code associated with the plan.
+func (o ExtensionResourcePlanInvokeResponseOutput) PromotionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionResourcePlanInvokeResponse) *string { return v.PromotionCode }).(pulumi.StringPtrOutput)
+}
+
+// Name of the extension publisher.
+func (o ExtensionResourcePlanInvokeResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionResourcePlanInvokeResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// A string that uniquely identifies the plan version.
+func (o ExtensionResourcePlanInvokeResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtensionResourcePlanInvokeResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// Plan data for an extension resource.
 type ExtensionResourcePlanResponse struct {
 	// Name of the plan.
 	Name *string `pulumi:"name"`
@@ -433,6 +524,7 @@ func (o ExtensionResourcePlanResponsePtrOutput) Version() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(ExtensionResourcePlanOutput{})
 	pulumi.RegisterOutputType(ExtensionResourcePlanPtrOutput{})
+	pulumi.RegisterOutputType(ExtensionResourcePlanInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ExtensionResourcePlanResponseOutput{})
 	pulumi.RegisterOutputType(ExtensionResourcePlanResponsePtrOutput{})
 }

@@ -32,7 +32,7 @@ type LookupDatabaseAccountMongoDBCollectionResult struct {
 	// The unique resource identifier of the database account.
 	Id string `pulumi:"id"`
 	// List of index keys
-	Indexes []MongoIndexResponse `pulumi:"indexes"`
+	Indexes []MongoIndexInvokeResponse `pulumi:"indexes"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the database account.

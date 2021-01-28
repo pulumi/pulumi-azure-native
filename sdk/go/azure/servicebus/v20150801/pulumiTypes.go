@@ -11,6 +11,97 @@ import (
 )
 
 // Message Count Details.
+type MessageCountDetailsInvokeResponse struct {
+	// Number of active messages in the queue, topic, or subscription.
+	ActiveMessageCount float64 `pulumi:"activeMessageCount"`
+	// Number of messages that are dead lettered.
+	DeadLetterMessageCount float64 `pulumi:"deadLetterMessageCount"`
+	// Number of scheduled messages.
+	ScheduledMessageCount float64 `pulumi:"scheduledMessageCount"`
+	// Number of messages transferred into dead letters.
+	TransferDeadLetterMessageCount float64 `pulumi:"transferDeadLetterMessageCount"`
+	// Number of messages transferred to another queue, topic, or subscription.
+	TransferMessageCount float64 `pulumi:"transferMessageCount"`
+}
+
+// MessageCountDetailsInvokeResponseInput is an input type that accepts MessageCountDetailsInvokeResponseArgs and MessageCountDetailsInvokeResponseOutput values.
+// You can construct a concrete instance of `MessageCountDetailsInvokeResponseInput` via:
+//
+//          MessageCountDetailsInvokeResponseArgs{...}
+type MessageCountDetailsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMessageCountDetailsInvokeResponseOutput() MessageCountDetailsInvokeResponseOutput
+	ToMessageCountDetailsInvokeResponseOutputWithContext(context.Context) MessageCountDetailsInvokeResponseOutput
+}
+
+// Message Count Details.
+type MessageCountDetailsInvokeResponseArgs struct {
+	// Number of active messages in the queue, topic, or subscription.
+	ActiveMessageCount pulumi.Float64Input `pulumi:"activeMessageCount"`
+	// Number of messages that are dead lettered.
+	DeadLetterMessageCount pulumi.Float64Input `pulumi:"deadLetterMessageCount"`
+	// Number of scheduled messages.
+	ScheduledMessageCount pulumi.Float64Input `pulumi:"scheduledMessageCount"`
+	// Number of messages transferred into dead letters.
+	TransferDeadLetterMessageCount pulumi.Float64Input `pulumi:"transferDeadLetterMessageCount"`
+	// Number of messages transferred to another queue, topic, or subscription.
+	TransferMessageCount pulumi.Float64Input `pulumi:"transferMessageCount"`
+}
+
+func (MessageCountDetailsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageCountDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (i MessageCountDetailsInvokeResponseArgs) ToMessageCountDetailsInvokeResponseOutput() MessageCountDetailsInvokeResponseOutput {
+	return i.ToMessageCountDetailsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MessageCountDetailsInvokeResponseArgs) ToMessageCountDetailsInvokeResponseOutputWithContext(ctx context.Context) MessageCountDetailsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageCountDetailsInvokeResponseOutput)
+}
+
+// Message Count Details.
+type MessageCountDetailsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MessageCountDetailsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageCountDetailsInvokeResponse)(nil)).Elem()
+}
+
+func (o MessageCountDetailsInvokeResponseOutput) ToMessageCountDetailsInvokeResponseOutput() MessageCountDetailsInvokeResponseOutput {
+	return o
+}
+
+func (o MessageCountDetailsInvokeResponseOutput) ToMessageCountDetailsInvokeResponseOutputWithContext(ctx context.Context) MessageCountDetailsInvokeResponseOutput {
+	return o
+}
+
+// Number of active messages in the queue, topic, or subscription.
+func (o MessageCountDetailsInvokeResponseOutput) ActiveMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsInvokeResponse) float64 { return v.ActiveMessageCount }).(pulumi.Float64Output)
+}
+
+// Number of messages that are dead lettered.
+func (o MessageCountDetailsInvokeResponseOutput) DeadLetterMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsInvokeResponse) float64 { return v.DeadLetterMessageCount }).(pulumi.Float64Output)
+}
+
+// Number of scheduled messages.
+func (o MessageCountDetailsInvokeResponseOutput) ScheduledMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsInvokeResponse) float64 { return v.ScheduledMessageCount }).(pulumi.Float64Output)
+}
+
+// Number of messages transferred into dead letters.
+func (o MessageCountDetailsInvokeResponseOutput) TransferDeadLetterMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsInvokeResponse) float64 { return v.TransferDeadLetterMessageCount }).(pulumi.Float64Output)
+}
+
+// Number of messages transferred to another queue, topic, or subscription.
+func (o MessageCountDetailsInvokeResponseOutput) TransferMessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v MessageCountDetailsInvokeResponse) float64 { return v.TransferMessageCount }).(pulumi.Float64Output)
+}
+
+// Message Count Details.
 type MessageCountDetailsResponse struct {
 	// Number of active messages in the queue, topic, or subscription.
 	ActiveMessageCount float64 `pulumi:"activeMessageCount"`
@@ -393,6 +484,79 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // SKU of the namespace.
+type SkuInvokeResponse struct {
+	// The specified messaging units for the tier.
+	Capacity *int `pulumi:"capacity"`
+	// Name of this SKU.
+	Name *string `pulumi:"name"`
+	// The billing tier of this particular SKU.
+	Tier string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// SKU of the namespace.
+type SkuInvokeResponseArgs struct {
+	// The specified messaging units for the tier.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Name of this SKU.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The billing tier of this particular SKU.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// SKU of the namespace.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The specified messaging units for the tier.
+func (o SkuInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Name of this SKU.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The billing tier of this particular SKU.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+// SKU of the namespace.
 type SkuResponse struct {
 	// The specified messaging units for the tier.
 	Capacity *int `pulumi:"capacity"`
@@ -565,10 +729,12 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(MessageCountDetailsInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MessageCountDetailsResponseOutput{})
 	pulumi.RegisterOutputType(MessageCountDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 }

@@ -26,7 +26,7 @@ type LookupIotSecuritySolutionArgs struct {
 // IoT Security solution configuration and resource information.
 type LookupIotSecuritySolutionResult struct {
 	// List of additional workspaces
-	AdditionalWorkspaces []AdditionalWorkspacesPropertiesResponse `pulumi:"additionalWorkspaces"`
+	AdditionalWorkspaces []AdditionalWorkspacesPropertiesInvokeResponse `pulumi:"additionalWorkspaces"`
 	// List of resources that were automatically discovered as relevant to the security solution.
 	AutoDiscoveredResources []string `pulumi:"autoDiscoveredResources"`
 	// Disabled data sources. Disabling these data sources compromises the system.
@@ -44,11 +44,11 @@ type LookupIotSecuritySolutionResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// List of the configuration status for each recommendation type.
-	RecommendationsConfiguration []RecommendationConfigurationPropertiesResponse `pulumi:"recommendationsConfiguration"`
+	RecommendationsConfiguration []RecommendationConfigurationPropertiesInvokeResponse `pulumi:"recommendationsConfiguration"`
 	// Status of the IoT Security solution.
 	Status *string `pulumi:"status"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -56,7 +56,7 @@ type LookupIotSecuritySolutionResult struct {
 	// Unmasked IP address logging status
 	UnmaskedIpLoggingStatus *string `pulumi:"unmaskedIpLoggingStatus"`
 	// Properties of the IoT Security solution's user defined resources.
-	UserDefinedResources *UserDefinedResourcesPropertiesResponse `pulumi:"userDefinedResources"`
+	UserDefinedResources *UserDefinedResourcesPropertiesInvokeResponse `pulumi:"userDefinedResources"`
 	// Workspace resource ID
 	Workspace *string `pulumi:"workspace"`
 }

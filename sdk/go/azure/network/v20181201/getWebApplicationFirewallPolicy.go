@@ -26,9 +26,9 @@ type LookupWebApplicationFirewallPolicyArgs struct {
 // Defines web application firewall policy.
 type LookupWebApplicationFirewallPolicyResult struct {
 	// A collection of references to application gateways.
-	ApplicationGateways []ApplicationGatewayResponse `pulumi:"applicationGateways"`
+	ApplicationGateways []ApplicationGatewayInvokeResponse `pulumi:"applicationGateways"`
 	// Describes custom rules inside the policy
-	CustomRules []WebApplicationFirewallCustomRuleResponse `pulumi:"customRules"`
+	CustomRules []WebApplicationFirewallCustomRuleInvokeResponse `pulumi:"customRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
@@ -38,7 +38,7 @@ type LookupWebApplicationFirewallPolicyResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Describes  policySettings for policy
-	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
+	PolicySettings *PolicySettingsInvokeResponse `pulumi:"policySettings"`
 	// Provisioning state of the WebApplicationFirewallPolicy.
 	ProvisioningState string `pulumi:"provisioningState"`
 	ResourceState     string `pulumi:"resourceState"`

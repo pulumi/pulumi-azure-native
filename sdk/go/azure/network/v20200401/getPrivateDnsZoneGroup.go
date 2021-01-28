@@ -34,7 +34,7 @@ type LookupPrivateDnsZoneGroupResult struct {
 	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// A collection of private dns zone configurations of the private dns zone group.
-	PrivateDnsZoneConfigs []PrivateDnsZoneConfigResponse `pulumi:"privateDnsZoneConfigs"`
+	PrivateDnsZoneConfigs []PrivateDnsZoneConfigInvokeResponse `pulumi:"privateDnsZoneConfigs"`
 	// The provisioning state of the private dns zone group resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 }

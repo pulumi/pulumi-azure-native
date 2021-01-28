@@ -238,6 +238,160 @@ func (o AddStorageAccountWithAccountParametersArrayOutput) Index(i pulumi.IntInp
 }
 
 // Data Lake Analytics compute policy information.
+type ComputePolicyInvokeResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The maximum degree of parallelism per job this user can use to submit jobs.
+	MaxDegreeOfParallelismPerJob int `pulumi:"maxDegreeOfParallelismPerJob"`
+	// The minimum priority per job this user can use to submit jobs.
+	MinPriorityPerJob int `pulumi:"minPriorityPerJob"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The AAD object identifier for the entity to create a policy for.
+	ObjectId string `pulumi:"objectId"`
+	// The type of AAD object the object identifier refers to.
+	ObjectType string `pulumi:"objectType"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// ComputePolicyInvokeResponseInput is an input type that accepts ComputePolicyInvokeResponseArgs and ComputePolicyInvokeResponseOutput values.
+// You can construct a concrete instance of `ComputePolicyInvokeResponseInput` via:
+//
+//          ComputePolicyInvokeResponseArgs{...}
+type ComputePolicyInvokeResponseInput interface {
+	pulumi.Input
+
+	ToComputePolicyInvokeResponseOutput() ComputePolicyInvokeResponseOutput
+	ToComputePolicyInvokeResponseOutputWithContext(context.Context) ComputePolicyInvokeResponseOutput
+}
+
+// Data Lake Analytics compute policy information.
+type ComputePolicyInvokeResponseArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The maximum degree of parallelism per job this user can use to submit jobs.
+	MaxDegreeOfParallelismPerJob pulumi.IntInput `pulumi:"maxDegreeOfParallelismPerJob"`
+	// The minimum priority per job this user can use to submit jobs.
+	MinPriorityPerJob pulumi.IntInput `pulumi:"minPriorityPerJob"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The AAD object identifier for the entity to create a policy for.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The type of AAD object the object identifier refers to.
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ComputePolicyInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ComputePolicyInvokeResponseArgs) ToComputePolicyInvokeResponseOutput() ComputePolicyInvokeResponseOutput {
+	return i.ToComputePolicyInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ComputePolicyInvokeResponseArgs) ToComputePolicyInvokeResponseOutputWithContext(ctx context.Context) ComputePolicyInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyInvokeResponseOutput)
+}
+
+// ComputePolicyInvokeResponseArrayInput is an input type that accepts ComputePolicyInvokeResponseArray and ComputePolicyInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ComputePolicyInvokeResponseArrayInput` via:
+//
+//          ComputePolicyInvokeResponseArray{ ComputePolicyInvokeResponseArgs{...} }
+type ComputePolicyInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToComputePolicyInvokeResponseArrayOutput() ComputePolicyInvokeResponseArrayOutput
+	ToComputePolicyInvokeResponseArrayOutputWithContext(context.Context) ComputePolicyInvokeResponseArrayOutput
+}
+
+type ComputePolicyInvokeResponseArray []ComputePolicyInvokeResponseInput
+
+func (ComputePolicyInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (i ComputePolicyInvokeResponseArray) ToComputePolicyInvokeResponseArrayOutput() ComputePolicyInvokeResponseArrayOutput {
+	return i.ToComputePolicyInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ComputePolicyInvokeResponseArray) ToComputePolicyInvokeResponseArrayOutputWithContext(ctx context.Context) ComputePolicyInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyInvokeResponseArrayOutput)
+}
+
+// Data Lake Analytics compute policy information.
+type ComputePolicyInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ComputePolicyInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ComputePolicyInvokeResponseOutput) ToComputePolicyInvokeResponseOutput() ComputePolicyInvokeResponseOutput {
+	return o
+}
+
+func (o ComputePolicyInvokeResponseOutput) ToComputePolicyInvokeResponseOutputWithContext(ctx context.Context) ComputePolicyInvokeResponseOutput {
+	return o
+}
+
+// The resource identifier.
+func (o ComputePolicyInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputePolicyInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The maximum degree of parallelism per job this user can use to submit jobs.
+func (o ComputePolicyInvokeResponseOutput) MaxDegreeOfParallelismPerJob() pulumi.IntOutput {
+	return o.ApplyT(func(v ComputePolicyInvokeResponse) int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntOutput)
+}
+
+// The minimum priority per job this user can use to submit jobs.
+func (o ComputePolicyInvokeResponseOutput) MinPriorityPerJob() pulumi.IntOutput {
+	return o.ApplyT(func(v ComputePolicyInvokeResponse) int { return v.MinPriorityPerJob }).(pulumi.IntOutput)
+}
+
+// The resource name.
+func (o ComputePolicyInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputePolicyInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AAD object identifier for the entity to create a policy for.
+func (o ComputePolicyInvokeResponseOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputePolicyInvokeResponse) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The type of AAD object the object identifier refers to.
+func (o ComputePolicyInvokeResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputePolicyInvokeResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o ComputePolicyInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ComputePolicyInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ComputePolicyInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ComputePolicyInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputePolicyInvokeResponse)(nil)).Elem()
+}
+
+func (o ComputePolicyInvokeResponseArrayOutput) ToComputePolicyInvokeResponseArrayOutput() ComputePolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ComputePolicyInvokeResponseArrayOutput) ToComputePolicyInvokeResponseArrayOutputWithContext(ctx context.Context) ComputePolicyInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ComputePolicyInvokeResponseArrayOutput) Index(i pulumi.IntInput) ComputePolicyInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputePolicyInvokeResponse {
+		return vs[0].([]ComputePolicyInvokeResponse)[vs[1].(int)]
+	}).(ComputePolicyInvokeResponseOutput)
+}
+
+// Data Lake Analytics compute policy information.
 type ComputePolicyResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
@@ -646,6 +800,133 @@ func (o CreateFirewallRuleWithAccountParametersArrayOutput) Index(i pulumi.IntIn
 }
 
 // Data Lake Store account information.
+type DataLakeStoreAccountInformationInvokeResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The optional suffix for the Data Lake Store account.
+	Suffix string `pulumi:"suffix"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// DataLakeStoreAccountInformationInvokeResponseInput is an input type that accepts DataLakeStoreAccountInformationInvokeResponseArgs and DataLakeStoreAccountInformationInvokeResponseOutput values.
+// You can construct a concrete instance of `DataLakeStoreAccountInformationInvokeResponseInput` via:
+//
+//          DataLakeStoreAccountInformationInvokeResponseArgs{...}
+type DataLakeStoreAccountInformationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDataLakeStoreAccountInformationInvokeResponseOutput() DataLakeStoreAccountInformationInvokeResponseOutput
+	ToDataLakeStoreAccountInformationInvokeResponseOutputWithContext(context.Context) DataLakeStoreAccountInformationInvokeResponseOutput
+}
+
+// Data Lake Store account information.
+type DataLakeStoreAccountInformationInvokeResponseArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The optional suffix for the Data Lake Store account.
+	Suffix pulumi.StringInput `pulumi:"suffix"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DataLakeStoreAccountInformationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeStoreAccountInformationInvokeResponse)(nil)).Elem()
+}
+
+func (i DataLakeStoreAccountInformationInvokeResponseArgs) ToDataLakeStoreAccountInformationInvokeResponseOutput() DataLakeStoreAccountInformationInvokeResponseOutput {
+	return i.ToDataLakeStoreAccountInformationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DataLakeStoreAccountInformationInvokeResponseArgs) ToDataLakeStoreAccountInformationInvokeResponseOutputWithContext(ctx context.Context) DataLakeStoreAccountInformationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeStoreAccountInformationInvokeResponseOutput)
+}
+
+// DataLakeStoreAccountInformationInvokeResponseArrayInput is an input type that accepts DataLakeStoreAccountInformationInvokeResponseArray and DataLakeStoreAccountInformationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DataLakeStoreAccountInformationInvokeResponseArrayInput` via:
+//
+//          DataLakeStoreAccountInformationInvokeResponseArray{ DataLakeStoreAccountInformationInvokeResponseArgs{...} }
+type DataLakeStoreAccountInformationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDataLakeStoreAccountInformationInvokeResponseArrayOutput() DataLakeStoreAccountInformationInvokeResponseArrayOutput
+	ToDataLakeStoreAccountInformationInvokeResponseArrayOutputWithContext(context.Context) DataLakeStoreAccountInformationInvokeResponseArrayOutput
+}
+
+type DataLakeStoreAccountInformationInvokeResponseArray []DataLakeStoreAccountInformationInvokeResponseInput
+
+func (DataLakeStoreAccountInformationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeStoreAccountInformationInvokeResponse)(nil)).Elem()
+}
+
+func (i DataLakeStoreAccountInformationInvokeResponseArray) ToDataLakeStoreAccountInformationInvokeResponseArrayOutput() DataLakeStoreAccountInformationInvokeResponseArrayOutput {
+	return i.ToDataLakeStoreAccountInformationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DataLakeStoreAccountInformationInvokeResponseArray) ToDataLakeStoreAccountInformationInvokeResponseArrayOutputWithContext(ctx context.Context) DataLakeStoreAccountInformationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataLakeStoreAccountInformationInvokeResponseArrayOutput)
+}
+
+// Data Lake Store account information.
+type DataLakeStoreAccountInformationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DataLakeStoreAccountInformationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataLakeStoreAccountInformationInvokeResponse)(nil)).Elem()
+}
+
+func (o DataLakeStoreAccountInformationInvokeResponseOutput) ToDataLakeStoreAccountInformationInvokeResponseOutput() DataLakeStoreAccountInformationInvokeResponseOutput {
+	return o
+}
+
+func (o DataLakeStoreAccountInformationInvokeResponseOutput) ToDataLakeStoreAccountInformationInvokeResponseOutputWithContext(ctx context.Context) DataLakeStoreAccountInformationInvokeResponseOutput {
+	return o
+}
+
+// The resource identifier.
+func (o DataLakeStoreAccountInformationInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeStoreAccountInformationInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o DataLakeStoreAccountInformationInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeStoreAccountInformationInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The optional suffix for the Data Lake Store account.
+func (o DataLakeStoreAccountInformationInvokeResponseOutput) Suffix() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeStoreAccountInformationInvokeResponse) string { return v.Suffix }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o DataLakeStoreAccountInformationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DataLakeStoreAccountInformationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DataLakeStoreAccountInformationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataLakeStoreAccountInformationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataLakeStoreAccountInformationInvokeResponse)(nil)).Elem()
+}
+
+func (o DataLakeStoreAccountInformationInvokeResponseArrayOutput) ToDataLakeStoreAccountInformationInvokeResponseArrayOutput() DataLakeStoreAccountInformationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataLakeStoreAccountInformationInvokeResponseArrayOutput) ToDataLakeStoreAccountInformationInvokeResponseArrayOutputWithContext(ctx context.Context) DataLakeStoreAccountInformationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DataLakeStoreAccountInformationInvokeResponseArrayOutput) Index(i pulumi.IntInput) DataLakeStoreAccountInformationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeStoreAccountInformationInvokeResponse {
+		return vs[0].([]DataLakeStoreAccountInformationInvokeResponse)[vs[1].(int)]
+	}).(DataLakeStoreAccountInformationInvokeResponseOutput)
+}
+
+// Data Lake Store account information.
 type DataLakeStoreAccountInformationResponse struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
@@ -770,6 +1051,142 @@ func (o DataLakeStoreAccountInformationResponseArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataLakeStoreAccountInformationResponse {
 		return vs[0].([]DataLakeStoreAccountInformationResponse)[vs[1].(int)]
 	}).(DataLakeStoreAccountInformationResponseOutput)
+}
+
+// Data Lake Analytics firewall rule information.
+type FirewallRuleInvokeResponse struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress string `pulumi:"endIpAddress"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress string `pulumi:"startIpAddress"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// FirewallRuleInvokeResponseInput is an input type that accepts FirewallRuleInvokeResponseArgs and FirewallRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `FirewallRuleInvokeResponseInput` via:
+//
+//          FirewallRuleInvokeResponseArgs{...}
+type FirewallRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToFirewallRuleInvokeResponseOutput() FirewallRuleInvokeResponseOutput
+	ToFirewallRuleInvokeResponseOutputWithContext(context.Context) FirewallRuleInvokeResponseOutput
+}
+
+// Data Lake Analytics firewall rule information.
+type FirewallRuleInvokeResponseArgs struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirewallRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i FirewallRuleInvokeResponseArgs) ToFirewallRuleInvokeResponseOutput() FirewallRuleInvokeResponseOutput {
+	return i.ToFirewallRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleInvokeResponseArgs) ToFirewallRuleInvokeResponseOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleInvokeResponseOutput)
+}
+
+// FirewallRuleInvokeResponseArrayInput is an input type that accepts FirewallRuleInvokeResponseArray and FirewallRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `FirewallRuleInvokeResponseArrayInput` via:
+//
+//          FirewallRuleInvokeResponseArray{ FirewallRuleInvokeResponseArgs{...} }
+type FirewallRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToFirewallRuleInvokeResponseArrayOutput() FirewallRuleInvokeResponseArrayOutput
+	ToFirewallRuleInvokeResponseArrayOutputWithContext(context.Context) FirewallRuleInvokeResponseArrayOutput
+}
+
+type FirewallRuleInvokeResponseArray []FirewallRuleInvokeResponseInput
+
+func (FirewallRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i FirewallRuleInvokeResponseArray) ToFirewallRuleInvokeResponseArrayOutput() FirewallRuleInvokeResponseArrayOutput {
+	return i.ToFirewallRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleInvokeResponseArray) ToFirewallRuleInvokeResponseArrayOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleInvokeResponseArrayOutput)
+}
+
+// Data Lake Analytics firewall rule information.
+type FirewallRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o FirewallRuleInvokeResponseOutput) ToFirewallRuleInvokeResponseOutput() FirewallRuleInvokeResponseOutput {
+	return o
+}
+
+func (o FirewallRuleInvokeResponseOutput) ToFirewallRuleInvokeResponseOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseOutput {
+	return o
+}
+
+// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o FirewallRuleInvokeResponseOutput) EndIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) string { return v.EndIpAddress }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o FirewallRuleInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o FirewallRuleInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o FirewallRuleInvokeResponseOutput) StartIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) string { return v.StartIpAddress }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o FirewallRuleInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FirewallRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o FirewallRuleInvokeResponseArrayOutput) ToFirewallRuleInvokeResponseArrayOutput() FirewallRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FirewallRuleInvokeResponseArrayOutput) ToFirewallRuleInvokeResponseArrayOutputWithContext(ctx context.Context) FirewallRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o FirewallRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) FirewallRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallRuleInvokeResponse {
+		return vs[0].([]FirewallRuleInvokeResponse)[vs[1].(int)]
+	}).(FirewallRuleInvokeResponseOutput)
 }
 
 // Data Lake Analytics firewall rule information.
@@ -906,6 +1323,175 @@ func (o FirewallRuleResponseArrayOutput) Index(i pulumi.IntInput) FirewallRuleRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallRuleResponse {
 		return vs[0].([]FirewallRuleResponse)[vs[1].(int)]
 	}).(FirewallRuleResponseOutput)
+}
+
+type HiveMetastoreInvokeResponse struct {
+	// The databaseName for the Hive MetaStore
+	DatabaseName string `pulumi:"databaseName"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The current state of the NestedResource
+	NestedResourceProvisioningState string `pulumi:"nestedResourceProvisioningState"`
+	// The password for the Hive MetaStore
+	Password string `pulumi:"password"`
+	// The runtimeVersion for the Hive MetaStore
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+	// The serverUri for the Hive MetaStore
+	ServerUri string `pulumi:"serverUri"`
+	// The resource type.
+	Type string `pulumi:"type"`
+	// The userName for the Hive MetaStore
+	UserName string `pulumi:"userName"`
+}
+
+// HiveMetastoreInvokeResponseInput is an input type that accepts HiveMetastoreInvokeResponseArgs and HiveMetastoreInvokeResponseOutput values.
+// You can construct a concrete instance of `HiveMetastoreInvokeResponseInput` via:
+//
+//          HiveMetastoreInvokeResponseArgs{...}
+type HiveMetastoreInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHiveMetastoreInvokeResponseOutput() HiveMetastoreInvokeResponseOutput
+	ToHiveMetastoreInvokeResponseOutputWithContext(context.Context) HiveMetastoreInvokeResponseOutput
+}
+
+type HiveMetastoreInvokeResponseArgs struct {
+	// The databaseName for the Hive MetaStore
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The current state of the NestedResource
+	NestedResourceProvisioningState pulumi.StringInput `pulumi:"nestedResourceProvisioningState"`
+	// The password for the Hive MetaStore
+	Password pulumi.StringInput `pulumi:"password"`
+	// The runtimeVersion for the Hive MetaStore
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+	// The serverUri for the Hive MetaStore
+	ServerUri pulumi.StringInput `pulumi:"serverUri"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The userName for the Hive MetaStore
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (HiveMetastoreInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HiveMetastoreInvokeResponse)(nil)).Elem()
+}
+
+func (i HiveMetastoreInvokeResponseArgs) ToHiveMetastoreInvokeResponseOutput() HiveMetastoreInvokeResponseOutput {
+	return i.ToHiveMetastoreInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HiveMetastoreInvokeResponseArgs) ToHiveMetastoreInvokeResponseOutputWithContext(ctx context.Context) HiveMetastoreInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HiveMetastoreInvokeResponseOutput)
+}
+
+// HiveMetastoreInvokeResponseArrayInput is an input type that accepts HiveMetastoreInvokeResponseArray and HiveMetastoreInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `HiveMetastoreInvokeResponseArrayInput` via:
+//
+//          HiveMetastoreInvokeResponseArray{ HiveMetastoreInvokeResponseArgs{...} }
+type HiveMetastoreInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToHiveMetastoreInvokeResponseArrayOutput() HiveMetastoreInvokeResponseArrayOutput
+	ToHiveMetastoreInvokeResponseArrayOutputWithContext(context.Context) HiveMetastoreInvokeResponseArrayOutput
+}
+
+type HiveMetastoreInvokeResponseArray []HiveMetastoreInvokeResponseInput
+
+func (HiveMetastoreInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HiveMetastoreInvokeResponse)(nil)).Elem()
+}
+
+func (i HiveMetastoreInvokeResponseArray) ToHiveMetastoreInvokeResponseArrayOutput() HiveMetastoreInvokeResponseArrayOutput {
+	return i.ToHiveMetastoreInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i HiveMetastoreInvokeResponseArray) ToHiveMetastoreInvokeResponseArrayOutputWithContext(ctx context.Context) HiveMetastoreInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HiveMetastoreInvokeResponseArrayOutput)
+}
+
+type HiveMetastoreInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HiveMetastoreInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HiveMetastoreInvokeResponse)(nil)).Elem()
+}
+
+func (o HiveMetastoreInvokeResponseOutput) ToHiveMetastoreInvokeResponseOutput() HiveMetastoreInvokeResponseOutput {
+	return o
+}
+
+func (o HiveMetastoreInvokeResponseOutput) ToHiveMetastoreInvokeResponseOutputWithContext(ctx context.Context) HiveMetastoreInvokeResponseOutput {
+	return o
+}
+
+// The databaseName for the Hive MetaStore
+func (o HiveMetastoreInvokeResponseOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreInvokeResponse) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The resource identifier.
+func (o HiveMetastoreInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o HiveMetastoreInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current state of the NestedResource
+func (o HiveMetastoreInvokeResponseOutput) NestedResourceProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreInvokeResponse) string { return v.NestedResourceProvisioningState }).(pulumi.StringOutput)
+}
+
+// The password for the Hive MetaStore
+func (o HiveMetastoreInvokeResponseOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreInvokeResponse) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The runtimeVersion for the Hive MetaStore
+func (o HiveMetastoreInvokeResponseOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreInvokeResponse) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+// The serverUri for the Hive MetaStore
+func (o HiveMetastoreInvokeResponseOutput) ServerUri() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreInvokeResponse) string { return v.ServerUri }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o HiveMetastoreInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The userName for the Hive MetaStore
+func (o HiveMetastoreInvokeResponseOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v HiveMetastoreInvokeResponse) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type HiveMetastoreInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HiveMetastoreInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HiveMetastoreInvokeResponse)(nil)).Elem()
+}
+
+func (o HiveMetastoreInvokeResponseArrayOutput) ToHiveMetastoreInvokeResponseArrayOutput() HiveMetastoreInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HiveMetastoreInvokeResponseArrayOutput) ToHiveMetastoreInvokeResponseArrayOutputWithContext(ctx context.Context) HiveMetastoreInvokeResponseArrayOutput {
+	return o
+}
+
+func (o HiveMetastoreInvokeResponseArrayOutput) Index(i pulumi.IntInput) HiveMetastoreInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HiveMetastoreInvokeResponse {
+		return vs[0].([]HiveMetastoreInvokeResponse)[vs[1].(int)]
+	}).(HiveMetastoreInvokeResponseOutput)
 }
 
 type HiveMetastoreResponse struct {
@@ -1078,103 +1664,230 @@ func (o HiveMetastoreResponseArrayOutput) Index(i pulumi.IntInput) HiveMetastore
 }
 
 // SAS token information.
-type SasTokenInformationResponse struct {
+type SasTokenInformationInvokeResponse struct {
 	// The access token for the associated Azure Storage Container.
 	AccessToken string `pulumi:"accessToken"`
 }
 
-// SasTokenInformationResponseInput is an input type that accepts SasTokenInformationResponseArgs and SasTokenInformationResponseOutput values.
-// You can construct a concrete instance of `SasTokenInformationResponseInput` via:
+// SasTokenInformationInvokeResponseInput is an input type that accepts SasTokenInformationInvokeResponseArgs and SasTokenInformationInvokeResponseOutput values.
+// You can construct a concrete instance of `SasTokenInformationInvokeResponseInput` via:
 //
-//          SasTokenInformationResponseArgs{...}
-type SasTokenInformationResponseInput interface {
+//          SasTokenInformationInvokeResponseArgs{...}
+type SasTokenInformationInvokeResponseInput interface {
 	pulumi.Input
 
-	ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput
-	ToSasTokenInformationResponseOutputWithContext(context.Context) SasTokenInformationResponseOutput
+	ToSasTokenInformationInvokeResponseOutput() SasTokenInformationInvokeResponseOutput
+	ToSasTokenInformationInvokeResponseOutputWithContext(context.Context) SasTokenInformationInvokeResponseOutput
 }
 
 // SAS token information.
-type SasTokenInformationResponseArgs struct {
+type SasTokenInformationInvokeResponseArgs struct {
 	// The access token for the associated Azure Storage Container.
 	AccessToken pulumi.StringInput `pulumi:"accessToken"`
 }
 
-func (SasTokenInformationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SasTokenInformationResponse)(nil)).Elem()
+func (SasTokenInformationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasTokenInformationInvokeResponse)(nil)).Elem()
 }
 
-func (i SasTokenInformationResponseArgs) ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput {
-	return i.ToSasTokenInformationResponseOutputWithContext(context.Background())
+func (i SasTokenInformationInvokeResponseArgs) ToSasTokenInformationInvokeResponseOutput() SasTokenInformationInvokeResponseOutput {
+	return i.ToSasTokenInformationInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i SasTokenInformationResponseArgs) ToSasTokenInformationResponseOutputWithContext(ctx context.Context) SasTokenInformationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationResponseOutput)
+func (i SasTokenInformationInvokeResponseArgs) ToSasTokenInformationInvokeResponseOutputWithContext(ctx context.Context) SasTokenInformationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationInvokeResponseOutput)
 }
 
-// SasTokenInformationResponseArrayInput is an input type that accepts SasTokenInformationResponseArray and SasTokenInformationResponseArrayOutput values.
-// You can construct a concrete instance of `SasTokenInformationResponseArrayInput` via:
+// SasTokenInformationInvokeResponseArrayInput is an input type that accepts SasTokenInformationInvokeResponseArray and SasTokenInformationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SasTokenInformationInvokeResponseArrayInput` via:
 //
-//          SasTokenInformationResponseArray{ SasTokenInformationResponseArgs{...} }
-type SasTokenInformationResponseArrayInput interface {
+//          SasTokenInformationInvokeResponseArray{ SasTokenInformationInvokeResponseArgs{...} }
+type SasTokenInformationInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput
-	ToSasTokenInformationResponseArrayOutputWithContext(context.Context) SasTokenInformationResponseArrayOutput
+	ToSasTokenInformationInvokeResponseArrayOutput() SasTokenInformationInvokeResponseArrayOutput
+	ToSasTokenInformationInvokeResponseArrayOutputWithContext(context.Context) SasTokenInformationInvokeResponseArrayOutput
 }
 
-type SasTokenInformationResponseArray []SasTokenInformationResponseInput
+type SasTokenInformationInvokeResponseArray []SasTokenInformationInvokeResponseInput
 
-func (SasTokenInformationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SasTokenInformationResponse)(nil)).Elem()
+func (SasTokenInformationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SasTokenInformationInvokeResponse)(nil)).Elem()
 }
 
-func (i SasTokenInformationResponseArray) ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput {
-	return i.ToSasTokenInformationResponseArrayOutputWithContext(context.Background())
+func (i SasTokenInformationInvokeResponseArray) ToSasTokenInformationInvokeResponseArrayOutput() SasTokenInformationInvokeResponseArrayOutput {
+	return i.ToSasTokenInformationInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i SasTokenInformationResponseArray) ToSasTokenInformationResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationResponseArrayOutput)
+func (i SasTokenInformationInvokeResponseArray) ToSasTokenInformationInvokeResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationInvokeResponseArrayOutput)
 }
 
 // SAS token information.
-type SasTokenInformationResponseOutput struct{ *pulumi.OutputState }
+type SasTokenInformationInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (SasTokenInformationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SasTokenInformationResponse)(nil)).Elem()
+func (SasTokenInformationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SasTokenInformationInvokeResponse)(nil)).Elem()
 }
 
-func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput {
+func (o SasTokenInformationInvokeResponseOutput) ToSasTokenInformationInvokeResponseOutput() SasTokenInformationInvokeResponseOutput {
 	return o
 }
 
-func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutputWithContext(ctx context.Context) SasTokenInformationResponseOutput {
+func (o SasTokenInformationInvokeResponseOutput) ToSasTokenInformationInvokeResponseOutputWithContext(ctx context.Context) SasTokenInformationInvokeResponseOutput {
 	return o
 }
 
 // The access token for the associated Azure Storage Container.
-func (o SasTokenInformationResponseOutput) AccessToken() pulumi.StringOutput {
-	return o.ApplyT(func(v SasTokenInformationResponse) string { return v.AccessToken }).(pulumi.StringOutput)
+func (o SasTokenInformationInvokeResponseOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v SasTokenInformationInvokeResponse) string { return v.AccessToken }).(pulumi.StringOutput)
 }
 
-type SasTokenInformationResponseArrayOutput struct{ *pulumi.OutputState }
+type SasTokenInformationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (SasTokenInformationResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SasTokenInformationResponse)(nil)).Elem()
+func (SasTokenInformationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SasTokenInformationInvokeResponse)(nil)).Elem()
 }
 
-func (o SasTokenInformationResponseArrayOutput) ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput {
+func (o SasTokenInformationInvokeResponseArrayOutput) ToSasTokenInformationInvokeResponseArrayOutput() SasTokenInformationInvokeResponseArrayOutput {
 	return o
 }
 
-func (o SasTokenInformationResponseArrayOutput) ToSasTokenInformationResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationResponseArrayOutput {
+func (o SasTokenInformationInvokeResponseArrayOutput) ToSasTokenInformationInvokeResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationInvokeResponseArrayOutput {
 	return o
 }
 
-func (o SasTokenInformationResponseArrayOutput) Index(i pulumi.IntInput) SasTokenInformationResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SasTokenInformationResponse {
-		return vs[0].([]SasTokenInformationResponse)[vs[1].(int)]
-	}).(SasTokenInformationResponseOutput)
+func (o SasTokenInformationInvokeResponseArrayOutput) Index(i pulumi.IntInput) SasTokenInformationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SasTokenInformationInvokeResponse {
+		return vs[0].([]SasTokenInformationInvokeResponse)[vs[1].(int)]
+	}).(SasTokenInformationInvokeResponseOutput)
+}
+
+// Azure Storage account information.
+type StorageAccountInformationInvokeResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The optional suffix for the storage account.
+	Suffix string `pulumi:"suffix"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// StorageAccountInformationInvokeResponseInput is an input type that accepts StorageAccountInformationInvokeResponseArgs and StorageAccountInformationInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountInformationInvokeResponseInput` via:
+//
+//          StorageAccountInformationInvokeResponseArgs{...}
+type StorageAccountInformationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountInformationInvokeResponseOutput() StorageAccountInformationInvokeResponseOutput
+	ToStorageAccountInformationInvokeResponseOutputWithContext(context.Context) StorageAccountInformationInvokeResponseOutput
+}
+
+// Azure Storage account information.
+type StorageAccountInformationInvokeResponseArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The optional suffix for the storage account.
+	Suffix pulumi.StringInput `pulumi:"suffix"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StorageAccountInformationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountInformationInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountInformationInvokeResponseArgs) ToStorageAccountInformationInvokeResponseOutput() StorageAccountInformationInvokeResponseOutput {
+	return i.ToStorageAccountInformationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountInformationInvokeResponseArgs) ToStorageAccountInformationInvokeResponseOutputWithContext(ctx context.Context) StorageAccountInformationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInformationInvokeResponseOutput)
+}
+
+// StorageAccountInformationInvokeResponseArrayInput is an input type that accepts StorageAccountInformationInvokeResponseArray and StorageAccountInformationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `StorageAccountInformationInvokeResponseArrayInput` via:
+//
+//          StorageAccountInformationInvokeResponseArray{ StorageAccountInformationInvokeResponseArgs{...} }
+type StorageAccountInformationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToStorageAccountInformationInvokeResponseArrayOutput() StorageAccountInformationInvokeResponseArrayOutput
+	ToStorageAccountInformationInvokeResponseArrayOutputWithContext(context.Context) StorageAccountInformationInvokeResponseArrayOutput
+}
+
+type StorageAccountInformationInvokeResponseArray []StorageAccountInformationInvokeResponseInput
+
+func (StorageAccountInformationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountInformationInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountInformationInvokeResponseArray) ToStorageAccountInformationInvokeResponseArrayOutput() StorageAccountInformationInvokeResponseArrayOutput {
+	return i.ToStorageAccountInformationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StorageAccountInformationInvokeResponseArray) ToStorageAccountInformationInvokeResponseArrayOutputWithContext(ctx context.Context) StorageAccountInformationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInformationInvokeResponseArrayOutput)
+}
+
+// Azure Storage account information.
+type StorageAccountInformationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountInformationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountInformationInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountInformationInvokeResponseOutput) ToStorageAccountInformationInvokeResponseOutput() StorageAccountInformationInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountInformationInvokeResponseOutput) ToStorageAccountInformationInvokeResponseOutputWithContext(ctx context.Context) StorageAccountInformationInvokeResponseOutput {
+	return o
+}
+
+// The resource identifier.
+func (o StorageAccountInformationInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountInformationInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o StorageAccountInformationInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountInformationInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The optional suffix for the storage account.
+func (o StorageAccountInformationInvokeResponseOutput) Suffix() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountInformationInvokeResponse) string { return v.Suffix }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o StorageAccountInformationInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountInformationInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type StorageAccountInformationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountInformationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountInformationInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountInformationInvokeResponseArrayOutput) ToStorageAccountInformationInvokeResponseArrayOutput() StorageAccountInformationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountInformationInvokeResponseArrayOutput) ToStorageAccountInformationInvokeResponseArrayOutputWithContext(ctx context.Context) StorageAccountInformationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountInformationInvokeResponseArrayOutput) Index(i pulumi.IntInput) StorageAccountInformationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountInformationInvokeResponse {
+		return vs[0].([]StorageAccountInformationInvokeResponse)[vs[1].(int)]
+	}).(StorageAccountInformationInvokeResponseOutput)
 }
 
 // Azure Storage account information.
@@ -1302,6 +2015,142 @@ func (o StorageAccountInformationResponseArrayOutput) Index(i pulumi.IntInput) S
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountInformationResponse {
 		return vs[0].([]StorageAccountInformationResponse)[vs[1].(int)]
 	}).(StorageAccountInformationResponseOutput)
+}
+
+// Data Lake Analytics  VirtualNetwork Rule information.
+type VirtualNetworkRuleInvokeResponse struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
+	// The resource name.
+	Name string `pulumi:"name"`
+	// The resource identifier for the subnet
+	SubnetId string `pulumi:"subnetId"`
+	// The resource type.
+	Type string `pulumi:"type"`
+	// The current state of the VirtualNetwork Rule
+	VirtualNetworkRuleState string `pulumi:"virtualNetworkRuleState"`
+}
+
+// VirtualNetworkRuleInvokeResponseInput is an input type that accepts VirtualNetworkRuleInvokeResponseArgs and VirtualNetworkRuleInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualNetworkRuleInvokeResponseInput` via:
+//
+//          VirtualNetworkRuleInvokeResponseArgs{...}
+type VirtualNetworkRuleInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput
+	ToVirtualNetworkRuleInvokeResponseOutputWithContext(context.Context) VirtualNetworkRuleInvokeResponseOutput
+}
+
+// Data Lake Analytics  VirtualNetwork Rule information.
+type VirtualNetworkRuleInvokeResponseArgs struct {
+	// The resource identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource identifier for the subnet
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The current state of the VirtualNetwork Rule
+	VirtualNetworkRuleState pulumi.StringInput `pulumi:"virtualNetworkRuleState"`
+}
+
+func (VirtualNetworkRuleInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkRuleInvokeResponseArgs) ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput {
+	return i.ToVirtualNetworkRuleInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRuleInvokeResponseArgs) ToVirtualNetworkRuleInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleInvokeResponseOutput)
+}
+
+// VirtualNetworkRuleInvokeResponseArrayInput is an input type that accepts VirtualNetworkRuleInvokeResponseArray and VirtualNetworkRuleInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkRuleInvokeResponseArrayInput` via:
+//
+//          VirtualNetworkRuleInvokeResponseArray{ VirtualNetworkRuleInvokeResponseArgs{...} }
+type VirtualNetworkRuleInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput
+	ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(context.Context) VirtualNetworkRuleInvokeResponseArrayOutput
+}
+
+type VirtualNetworkRuleInvokeResponseArray []VirtualNetworkRuleInvokeResponseInput
+
+func (VirtualNetworkRuleInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkRuleInvokeResponseArray) ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput {
+	return i.ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkRuleInvokeResponseArray) ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleInvokeResponseArrayOutput)
+}
+
+// Data Lake Analytics  VirtualNetwork Rule information.
+type VirtualNetworkRuleInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkRuleInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleInvokeResponseOutput) ToVirtualNetworkRuleInvokeResponseOutput() VirtualNetworkRuleInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseOutput) ToVirtualNetworkRuleInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseOutput {
+	return o
+}
+
+// The resource identifier.
+func (o VirtualNetworkRuleInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o VirtualNetworkRuleInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource identifier for the subnet
+func (o VirtualNetworkRuleInvokeResponseOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o VirtualNetworkRuleInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The current state of the VirtualNetwork Rule
+func (o VirtualNetworkRuleInvokeResponseOutput) VirtualNetworkRuleState() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkRuleInvokeResponse) string { return v.VirtualNetworkRuleState }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkRuleInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkRuleInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkRuleInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) ToVirtualNetworkRuleInvokeResponseArrayOutput() VirtualNetworkRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) ToVirtualNetworkRuleInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkRuleInvokeResponseArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRuleInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkRuleInvokeResponse {
+		return vs[0].([]VirtualNetworkRuleInvokeResponse)[vs[1].(int)]
+	}).(VirtualNetworkRuleInvokeResponseOutput)
 }
 
 // Data Lake Analytics  VirtualNetwork Rule information.
@@ -1445,22 +2294,34 @@ func init() {
 	pulumi.RegisterOutputType(AddDataLakeStoreWithAccountParametersArrayOutput{})
 	pulumi.RegisterOutputType(AddStorageAccountWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(AddStorageAccountWithAccountParametersArrayOutput{})
+	pulumi.RegisterOutputType(ComputePolicyInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ComputePolicyInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ComputePolicyResponseOutput{})
 	pulumi.RegisterOutputType(ComputePolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CreateComputePolicyWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(CreateComputePolicyWithAccountParametersArrayOutput{})
 	pulumi.RegisterOutputType(CreateFirewallRuleWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(CreateFirewallRuleWithAccountParametersArrayOutput{})
+	pulumi.RegisterOutputType(DataLakeStoreAccountInformationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DataLakeStoreAccountInformationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeStoreAccountInformationResponseOutput{})
 	pulumi.RegisterOutputType(DataLakeStoreAccountInformationResponseArrayOutput{})
+	pulumi.RegisterOutputType(FirewallRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(FirewallRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(HiveMetastoreInvokeResponseOutput{})
+	pulumi.RegisterOutputType(HiveMetastoreInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(HiveMetastoreResponseOutput{})
 	pulumi.RegisterOutputType(HiveMetastoreResponseArrayOutput{})
-	pulumi.RegisterOutputType(SasTokenInformationResponseOutput{})
-	pulumi.RegisterOutputType(SasTokenInformationResponseArrayOutput{})
+	pulumi.RegisterOutputType(SasTokenInformationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SasTokenInformationInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(StorageAccountInformationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountInformationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkRuleInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkRuleInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseArrayOutput{})
 }

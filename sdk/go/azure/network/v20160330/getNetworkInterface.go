@@ -28,7 +28,7 @@ type LookupNetworkInterfaceArgs struct {
 // A NetworkInterface in a resource group
 type LookupNetworkInterfaceResult struct {
 	// Gets or sets DNS Settings in  NetworkInterface
-	DnsSettings *NetworkInterfaceDnsSettingsResponse `pulumi:"dnsSettings"`
+	DnsSettings *NetworkInterfaceDnsSettingsInvokeResponse `pulumi:"dnsSettings"`
 	// Gets or sets whether IPForwarding is enabled on the NIC
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// Gets a unique read-only string that changes whenever the resource is updated
@@ -36,7 +36,7 @@ type LookupNetworkInterfaceResult struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Gets or sets list of IPConfigurations of the NetworkInterface
-	IpConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
+	IpConfigurations []NetworkInterfaceIPConfigurationInvokeResponse `pulumi:"ipConfigurations"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Gets the MAC Address of the network interface
@@ -44,7 +44,7 @@ type LookupNetworkInterfaceResult struct {
 	// Resource name
 	Name string `pulumi:"name"`
 	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
+	NetworkSecurityGroup *NetworkSecurityGroupInvokeResponse `pulumi:"networkSecurityGroup"`
 	// Gets whether this is a primary NIC on a virtual machine
 	Primary *bool `pulumi:"primary"`
 	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
@@ -56,5 +56,5 @@ type LookupNetworkInterfaceResult struct {
 	// Resource type
 	Type string `pulumi:"type"`
 	// Gets or sets the reference of a VirtualMachine
-	VirtualMachine *SubResourceResponse `pulumi:"virtualMachine"`
+	VirtualMachine *SubResourceInvokeResponse `pulumi:"virtualMachine"`
 }

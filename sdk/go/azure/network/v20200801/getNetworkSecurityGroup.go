@@ -28,11 +28,11 @@ type LookupNetworkSecurityGroupArgs struct {
 // NetworkSecurityGroup resource.
 type LookupNetworkSecurityGroupResult struct {
 	// The default security rules of network security group.
-	DefaultSecurityRules []SecurityRuleResponse `pulumi:"defaultSecurityRules"`
+	DefaultSecurityRules []SecurityRuleInvokeResponse `pulumi:"defaultSecurityRules"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// A collection of references to flow log resources.
-	FlowLogs []FlowLogResponse `pulumi:"flowLogs"`
+	FlowLogs []FlowLogInvokeResponse `pulumi:"flowLogs"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -40,15 +40,15 @@ type LookupNetworkSecurityGroupResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// A collection of references to network interfaces.
-	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	NetworkInterfaces []NetworkInterfaceInvokeResponse `pulumi:"networkInterfaces"`
 	// The provisioning state of the network security group resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource GUID property of the network security group resource.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// A collection of security rules of the network security group.
-	SecurityRules []SecurityRuleResponse `pulumi:"securityRules"`
+	SecurityRules []SecurityRuleInvokeResponse `pulumi:"securityRules"`
 	// A collection of references to subnets.
-	Subnets []SubnetResponse `pulumi:"subnets"`
+	Subnets []SubnetInvokeResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -32,13 +32,13 @@ type LookupAppResult struct {
 	// Fully qualified resource Id for the resource.
 	Id string `pulumi:"id"`
 	// The Managed Identity type of the app resource
-	Identity *ManagedIdentityPropertiesResponse `pulumi:"identity"`
+	Identity *ManagedIdentityPropertiesInvokeResponse `pulumi:"identity"`
 	// The GEO location of the application, always the same with its parent resource
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Properties of the App resource
-	Properties AppResourcePropertiesResponse `pulumi:"properties"`
+	Properties AppResourcePropertiesInvokeResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

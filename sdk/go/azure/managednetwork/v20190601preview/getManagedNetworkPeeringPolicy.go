@@ -34,7 +34,7 @@ type LookupManagedNetworkPeeringPolicyResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Gets or sets the properties of a Managed Network Policy
-	Properties ManagedNetworkPeeringPolicyPropertiesResponse `pulumi:"properties"`
+	Properties ManagedNetworkPeeringPolicyPropertiesInvokeResponse `pulumi:"properties"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

@@ -40,7 +40,7 @@ type LookupServiceResult struct {
 	// The public key of the service, used to encrypt secrets sent to the service
 	PublicKey *string `pulumi:"publicKey"`
 	// Service SKU
-	Sku *ServiceSkuResponse `pulumi:"sku"`
+	Sku *ServiceSkuInvokeResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

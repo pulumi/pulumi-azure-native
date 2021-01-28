@@ -147,6 +147,63 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) FunctionAl
 }
 
 // A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+type ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponse struct {
+	// A function alias, used when the type of the item is Function
+	FunctionAlias *string `pulumi:"functionAlias"`
+}
+
+// ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseInput is an input type that accepts ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseArgs and ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseInput` via:
+//
+//          ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseArgs{...}
+type ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput() ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput
+	ToApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutputWithContext(context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput
+}
+
+// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+type ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseArgs struct {
+	// A function alias, used when the type of the item is Function
+	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
+}
+
+func (ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseArgs) ToApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput() ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput {
+	return i.ToApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseArgs) ToApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput)
+}
+
+// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+type ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput() ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput {
+	return o
+}
+
+// A function alias, used when the type of the item is Function
+func (o ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput) FunctionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponse) *string {
+		return v.FunctionAlias
+	}).(pulumi.StringPtrOutput)
+}
+
+// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
 type ApplicationInsightsComponentAnalyticsItemPropertiesResponse struct {
 	// A function alias, used when the type of the item is Function
 	FunctionAlias *string `pulumi:"functionAlias"`
@@ -476,6 +533,110 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) WarningThreshold() p
 }
 
 // An Application Insights component daily data volume cap
+type ApplicationInsightsComponentDataVolumeCapInvokeResponse struct {
+	// Daily data volume cap in GB.
+	Cap *float64 `pulumi:"cap"`
+	// Maximum daily data volume cap that the user can set for this component.
+	MaxHistoryCap float64 `pulumi:"maxHistoryCap"`
+	// Daily data volume cap UTC reset hour.
+	ResetTime int `pulumi:"resetTime"`
+	// Do not send a notification email when the daily data volume cap is met.
+	StopSendNotificationWhenHitCap *bool `pulumi:"stopSendNotificationWhenHitCap"`
+	// Reserved, not used for now.
+	StopSendNotificationWhenHitThreshold *bool `pulumi:"stopSendNotificationWhenHitThreshold"`
+	// Reserved, not used for now.
+	WarningThreshold *int `pulumi:"warningThreshold"`
+}
+
+// ApplicationInsightsComponentDataVolumeCapInvokeResponseInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapInvokeResponseArgs and ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput values.
+// You can construct a concrete instance of `ApplicationInsightsComponentDataVolumeCapInvokeResponseInput` via:
+//
+//          ApplicationInsightsComponentDataVolumeCapInvokeResponseArgs{...}
+type ApplicationInsightsComponentDataVolumeCapInvokeResponseInput interface {
+	pulumi.Input
+
+	ToApplicationInsightsComponentDataVolumeCapInvokeResponseOutput() ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput
+	ToApplicationInsightsComponentDataVolumeCapInvokeResponseOutputWithContext(context.Context) ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput
+}
+
+// An Application Insights component daily data volume cap
+type ApplicationInsightsComponentDataVolumeCapInvokeResponseArgs struct {
+	// Daily data volume cap in GB.
+	Cap pulumi.Float64PtrInput `pulumi:"cap"`
+	// Maximum daily data volume cap that the user can set for this component.
+	MaxHistoryCap pulumi.Float64Input `pulumi:"maxHistoryCap"`
+	// Daily data volume cap UTC reset hour.
+	ResetTime pulumi.IntInput `pulumi:"resetTime"`
+	// Do not send a notification email when the daily data volume cap is met.
+	StopSendNotificationWhenHitCap pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitCap"`
+	// Reserved, not used for now.
+	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitThreshold"`
+	// Reserved, not used for now.
+	WarningThreshold pulumi.IntPtrInput `pulumi:"warningThreshold"`
+}
+
+func (ApplicationInsightsComponentDataVolumeCapInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentDataVolumeCapInvokeResponse)(nil)).Elem()
+}
+
+func (i ApplicationInsightsComponentDataVolumeCapInvokeResponseArgs) ToApplicationInsightsComponentDataVolumeCapInvokeResponseOutput() ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput {
+	return i.ToApplicationInsightsComponentDataVolumeCapInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationInsightsComponentDataVolumeCapInvokeResponseArgs) ToApplicationInsightsComponentDataVolumeCapInvokeResponseOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput)
+}
+
+// An Application Insights component daily data volume cap
+type ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentDataVolumeCapInvokeResponse)(nil)).Elem()
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput) ToApplicationInsightsComponentDataVolumeCapInvokeResponseOutput() ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput) ToApplicationInsightsComponentDataVolumeCapInvokeResponseOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput {
+	return o
+}
+
+// Daily data volume cap in GB.
+func (o ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput) Cap() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapInvokeResponse) *float64 { return v.Cap }).(pulumi.Float64PtrOutput)
+}
+
+// Maximum daily data volume cap that the user can set for this component.
+func (o ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput) MaxHistoryCap() pulumi.Float64Output {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapInvokeResponse) float64 { return v.MaxHistoryCap }).(pulumi.Float64Output)
+}
+
+// Daily data volume cap UTC reset hour.
+func (o ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput) ResetTime() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapInvokeResponse) int { return v.ResetTime }).(pulumi.IntOutput)
+}
+
+// Do not send a notification email when the daily data volume cap is met.
+func (o ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapInvokeResponse) *bool {
+		return v.StopSendNotificationWhenHitCap
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Reserved, not used for now.
+func (o ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapInvokeResponse) *bool {
+		return v.StopSendNotificationWhenHitThreshold
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Reserved, not used for now.
+func (o ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput) WarningThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapInvokeResponse) *int { return v.WarningThreshold }).(pulumi.IntPtrOutput)
+}
+
+// An Application Insights component daily data volume cap
 type ApplicationInsightsComponentDataVolumeCapResponse struct {
 	// Daily data volume cap in GB.
 	Cap *float64 `pulumi:"cap"`
@@ -711,6 +872,115 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) WarningThres
 }
 
 // The private link scope resource reference.
+type PrivateLinkScopedResourceInvokeResponse struct {
+	// The full resource Id of the private link scope resource.
+	ResourceId *string `pulumi:"resourceId"`
+	// The private link scope unique Identifier.
+	ScopeId *string `pulumi:"scopeId"`
+}
+
+// PrivateLinkScopedResourceInvokeResponseInput is an input type that accepts PrivateLinkScopedResourceInvokeResponseArgs and PrivateLinkScopedResourceInvokeResponseOutput values.
+// You can construct a concrete instance of `PrivateLinkScopedResourceInvokeResponseInput` via:
+//
+//          PrivateLinkScopedResourceInvokeResponseArgs{...}
+type PrivateLinkScopedResourceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkScopedResourceInvokeResponseOutput() PrivateLinkScopedResourceInvokeResponseOutput
+	ToPrivateLinkScopedResourceInvokeResponseOutputWithContext(context.Context) PrivateLinkScopedResourceInvokeResponseOutput
+}
+
+// The private link scope resource reference.
+type PrivateLinkScopedResourceInvokeResponseArgs struct {
+	// The full resource Id of the private link scope resource.
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+	// The private link scope unique Identifier.
+	ScopeId pulumi.StringPtrInput `pulumi:"scopeId"`
+}
+
+func (PrivateLinkScopedResourceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkScopedResourceInvokeResponseArgs) ToPrivateLinkScopedResourceInvokeResponseOutput() PrivateLinkScopedResourceInvokeResponseOutput {
+	return i.ToPrivateLinkScopedResourceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkScopedResourceInvokeResponseArgs) ToPrivateLinkScopedResourceInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkScopedResourceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceInvokeResponseOutput)
+}
+
+// PrivateLinkScopedResourceInvokeResponseArrayInput is an input type that accepts PrivateLinkScopedResourceInvokeResponseArray and PrivateLinkScopedResourceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateLinkScopedResourceInvokeResponseArrayInput` via:
+//
+//          PrivateLinkScopedResourceInvokeResponseArray{ PrivateLinkScopedResourceInvokeResponseArgs{...} }
+type PrivateLinkScopedResourceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateLinkScopedResourceInvokeResponseArrayOutput() PrivateLinkScopedResourceInvokeResponseArrayOutput
+	ToPrivateLinkScopedResourceInvokeResponseArrayOutputWithContext(context.Context) PrivateLinkScopedResourceInvokeResponseArrayOutput
+}
+
+type PrivateLinkScopedResourceInvokeResponseArray []PrivateLinkScopedResourceInvokeResponseInput
+
+func (PrivateLinkScopedResourceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkScopedResourceInvokeResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkScopedResourceInvokeResponseArray) ToPrivateLinkScopedResourceInvokeResponseArrayOutput() PrivateLinkScopedResourceInvokeResponseArrayOutput {
+	return i.ToPrivateLinkScopedResourceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkScopedResourceInvokeResponseArray) ToPrivateLinkScopedResourceInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateLinkScopedResourceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceInvokeResponseArrayOutput)
+}
+
+// The private link scope resource reference.
+type PrivateLinkScopedResourceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkScopedResourceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkScopedResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkScopedResourceInvokeResponseOutput) ToPrivateLinkScopedResourceInvokeResponseOutput() PrivateLinkScopedResourceInvokeResponseOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceInvokeResponseOutput) ToPrivateLinkScopedResourceInvokeResponseOutputWithContext(ctx context.Context) PrivateLinkScopedResourceInvokeResponseOutput {
+	return o
+}
+
+// The full resource Id of the private link scope resource.
+func (o PrivateLinkScopedResourceInvokeResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkScopedResourceInvokeResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The private link scope unique Identifier.
+func (o PrivateLinkScopedResourceInvokeResponseOutput) ScopeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkScopedResourceInvokeResponse) *string { return v.ScopeId }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkScopedResourceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkScopedResourceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateLinkScopedResourceInvokeResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkScopedResourceInvokeResponseArrayOutput) ToPrivateLinkScopedResourceInvokeResponseArrayOutput() PrivateLinkScopedResourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceInvokeResponseArrayOutput) ToPrivateLinkScopedResourceInvokeResponseArrayOutputWithContext(ctx context.Context) PrivateLinkScopedResourceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o PrivateLinkScopedResourceInvokeResponseArrayOutput) Index(i pulumi.IntInput) PrivateLinkScopedResourceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkScopedResourceInvokeResponse {
+		return vs[0].([]PrivateLinkScopedResourceInvokeResponse)[vs[1].(int)]
+	}).(PrivateLinkScopedResourceInvokeResponseOutput)
+}
+
+// The private link scope resource reference.
 type PrivateLinkScopedResourceResponse struct {
 	// The full resource Id of the private link scope resource.
 	ResourceId *string `pulumi:"resourceId"`
@@ -917,6 +1187,106 @@ func (o WebTestGeolocationArrayOutput) Index(i pulumi.IntInput) WebTestGeolocati
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebTestGeolocation {
 		return vs[0].([]WebTestGeolocation)[vs[1].(int)]
 	}).(WebTestGeolocationOutput)
+}
+
+// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
+type WebTestGeolocationInvokeResponse struct {
+	// Location ID for the webtest to run from.
+	Location *string `pulumi:"location"`
+}
+
+// WebTestGeolocationInvokeResponseInput is an input type that accepts WebTestGeolocationInvokeResponseArgs and WebTestGeolocationInvokeResponseOutput values.
+// You can construct a concrete instance of `WebTestGeolocationInvokeResponseInput` via:
+//
+//          WebTestGeolocationInvokeResponseArgs{...}
+type WebTestGeolocationInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWebTestGeolocationInvokeResponseOutput() WebTestGeolocationInvokeResponseOutput
+	ToWebTestGeolocationInvokeResponseOutputWithContext(context.Context) WebTestGeolocationInvokeResponseOutput
+}
+
+// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
+type WebTestGeolocationInvokeResponseArgs struct {
+	// Location ID for the webtest to run from.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+}
+
+func (WebTestGeolocationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestGeolocationInvokeResponse)(nil)).Elem()
+}
+
+func (i WebTestGeolocationInvokeResponseArgs) ToWebTestGeolocationInvokeResponseOutput() WebTestGeolocationInvokeResponseOutput {
+	return i.ToWebTestGeolocationInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WebTestGeolocationInvokeResponseArgs) ToWebTestGeolocationInvokeResponseOutputWithContext(ctx context.Context) WebTestGeolocationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationInvokeResponseOutput)
+}
+
+// WebTestGeolocationInvokeResponseArrayInput is an input type that accepts WebTestGeolocationInvokeResponseArray and WebTestGeolocationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `WebTestGeolocationInvokeResponseArrayInput` via:
+//
+//          WebTestGeolocationInvokeResponseArray{ WebTestGeolocationInvokeResponseArgs{...} }
+type WebTestGeolocationInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToWebTestGeolocationInvokeResponseArrayOutput() WebTestGeolocationInvokeResponseArrayOutput
+	ToWebTestGeolocationInvokeResponseArrayOutputWithContext(context.Context) WebTestGeolocationInvokeResponseArrayOutput
+}
+
+type WebTestGeolocationInvokeResponseArray []WebTestGeolocationInvokeResponseInput
+
+func (WebTestGeolocationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebTestGeolocationInvokeResponse)(nil)).Elem()
+}
+
+func (i WebTestGeolocationInvokeResponseArray) ToWebTestGeolocationInvokeResponseArrayOutput() WebTestGeolocationInvokeResponseArrayOutput {
+	return i.ToWebTestGeolocationInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WebTestGeolocationInvokeResponseArray) ToWebTestGeolocationInvokeResponseArrayOutputWithContext(ctx context.Context) WebTestGeolocationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationInvokeResponseArrayOutput)
+}
+
+// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
+type WebTestGeolocationInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WebTestGeolocationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestGeolocationInvokeResponse)(nil)).Elem()
+}
+
+func (o WebTestGeolocationInvokeResponseOutput) ToWebTestGeolocationInvokeResponseOutput() WebTestGeolocationInvokeResponseOutput {
+	return o
+}
+
+func (o WebTestGeolocationInvokeResponseOutput) ToWebTestGeolocationInvokeResponseOutputWithContext(ctx context.Context) WebTestGeolocationInvokeResponseOutput {
+	return o
+}
+
+// Location ID for the webtest to run from.
+func (o WebTestGeolocationInvokeResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestGeolocationInvokeResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+type WebTestGeolocationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WebTestGeolocationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebTestGeolocationInvokeResponse)(nil)).Elem()
+}
+
+func (o WebTestGeolocationInvokeResponseArrayOutput) ToWebTestGeolocationInvokeResponseArrayOutput() WebTestGeolocationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WebTestGeolocationInvokeResponseArrayOutput) ToWebTestGeolocationInvokeResponseArrayOutputWithContext(ctx context.Context) WebTestGeolocationInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WebTestGeolocationInvokeResponseArrayOutput) Index(i pulumi.IntInput) WebTestGeolocationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebTestGeolocationInvokeResponse {
+		return vs[0].([]WebTestGeolocationInvokeResponse)[vs[1].(int)]
+	}).(WebTestGeolocationInvokeResponseOutput)
 }
 
 // Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
@@ -1154,6 +1524,61 @@ func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutpu
 }
 
 // An XML configuration specification for a WebTest.
+type WebTestPropertiesInvokeResponseConfiguration struct {
+	// The XML specification of a WebTest to run against an application.
+	WebTest *string `pulumi:"webTest"`
+}
+
+// WebTestPropertiesInvokeResponseConfigurationInput is an input type that accepts WebTestPropertiesInvokeResponseConfigurationArgs and WebTestPropertiesInvokeResponseConfigurationOutput values.
+// You can construct a concrete instance of `WebTestPropertiesInvokeResponseConfigurationInput` via:
+//
+//          WebTestPropertiesInvokeResponseConfigurationArgs{...}
+type WebTestPropertiesInvokeResponseConfigurationInput interface {
+	pulumi.Input
+
+	ToWebTestPropertiesInvokeResponseConfigurationOutput() WebTestPropertiesInvokeResponseConfigurationOutput
+	ToWebTestPropertiesInvokeResponseConfigurationOutputWithContext(context.Context) WebTestPropertiesInvokeResponseConfigurationOutput
+}
+
+// An XML configuration specification for a WebTest.
+type WebTestPropertiesInvokeResponseConfigurationArgs struct {
+	// The XML specification of a WebTest to run against an application.
+	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
+}
+
+func (WebTestPropertiesInvokeResponseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesInvokeResponseConfiguration)(nil)).Elem()
+}
+
+func (i WebTestPropertiesInvokeResponseConfigurationArgs) ToWebTestPropertiesInvokeResponseConfigurationOutput() WebTestPropertiesInvokeResponseConfigurationOutput {
+	return i.ToWebTestPropertiesInvokeResponseConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebTestPropertiesInvokeResponseConfigurationArgs) ToWebTestPropertiesInvokeResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesInvokeResponseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesInvokeResponseConfigurationOutput)
+}
+
+// An XML configuration specification for a WebTest.
+type WebTestPropertiesInvokeResponseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebTestPropertiesInvokeResponseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesInvokeResponseConfiguration)(nil)).Elem()
+}
+
+func (o WebTestPropertiesInvokeResponseConfigurationOutput) ToWebTestPropertiesInvokeResponseConfigurationOutput() WebTestPropertiesInvokeResponseConfigurationOutput {
+	return o
+}
+
+func (o WebTestPropertiesInvokeResponseConfigurationOutput) ToWebTestPropertiesInvokeResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesInvokeResponseConfigurationOutput {
+	return o
+}
+
+// The XML specification of a WebTest to run against an application.
+func (o WebTestPropertiesInvokeResponseConfigurationOutput) WebTest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesInvokeResponseConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
+}
+
+// An XML configuration specification for a WebTest.
 type WebTestPropertiesResponseConfiguration struct {
 	// The XML specification of a WebTest to run against an application.
 	WebTest *string `pulumi:"webTest"`
@@ -1290,20 +1715,27 @@ func (o WebTestPropertiesResponseConfigurationPtrOutput) WebTest() pulumi.String
 func init() {
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapInvokeResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkScopedResourceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkScopedResourceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationArrayOutput{})
+	pulumi.RegisterOutputType(WebTestGeolocationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WebTestGeolocationInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationResponseOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationResponseArrayOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesConfigurationOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesInvokeResponseConfigurationOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesResponseConfigurationOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesResponseConfigurationPtrOutput{})
 }

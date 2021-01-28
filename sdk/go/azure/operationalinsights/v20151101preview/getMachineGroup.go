@@ -45,7 +45,7 @@ type LookupMachineGroupResult struct {
 	// Expected value is 'machineGroup'.
 	Kind string `pulumi:"kind"`
 	// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
-	Machines []MachineReferenceWithHintsResponse `pulumi:"machines"`
+	Machines []MachineReferenceWithHintsInvokeResponse `pulumi:"machines"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type.

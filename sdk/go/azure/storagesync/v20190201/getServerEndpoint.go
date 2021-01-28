@@ -56,7 +56,7 @@ type LookupServerEndpointResult struct {
 	// Server Resource Id.
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Server Endpoint sync status
-	SyncStatus ServerEndpointSyncStatusResponse `pulumi:"syncStatus"`
+	SyncStatus ServerEndpointSyncStatusInvokeResponse `pulumi:"syncStatus"`
 	// Tier files older than days.
 	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

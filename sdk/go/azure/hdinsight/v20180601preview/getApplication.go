@@ -34,7 +34,7 @@ type LookupApplicationResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The properties of the application.
-	Properties ApplicationPropertiesResponse `pulumi:"properties"`
+	Properties ApplicationPropertiesInvokeResponse `pulumi:"properties"`
 	// The tags for the application.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

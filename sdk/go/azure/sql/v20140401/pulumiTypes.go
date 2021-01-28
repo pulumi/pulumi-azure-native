@@ -11,6 +11,133 @@ import (
 )
 
 // The impact of an operation, both in absolute and relative terms.
+type OperationImpactInvokeResponse struct {
+	// The absolute impact to dimension.
+	ChangeValueAbsolute float64 `pulumi:"changeValueAbsolute"`
+	// The relative impact to dimension (null if not applicable)
+	ChangeValueRelative float64 `pulumi:"changeValueRelative"`
+	// The name of the impact dimension.
+	Name string `pulumi:"name"`
+	// The unit in which estimated impact to dimension is measured.
+	Unit string `pulumi:"unit"`
+}
+
+// OperationImpactInvokeResponseInput is an input type that accepts OperationImpactInvokeResponseArgs and OperationImpactInvokeResponseOutput values.
+// You can construct a concrete instance of `OperationImpactInvokeResponseInput` via:
+//
+//          OperationImpactInvokeResponseArgs{...}
+type OperationImpactInvokeResponseInput interface {
+	pulumi.Input
+
+	ToOperationImpactInvokeResponseOutput() OperationImpactInvokeResponseOutput
+	ToOperationImpactInvokeResponseOutputWithContext(context.Context) OperationImpactInvokeResponseOutput
+}
+
+// The impact of an operation, both in absolute and relative terms.
+type OperationImpactInvokeResponseArgs struct {
+	// The absolute impact to dimension.
+	ChangeValueAbsolute pulumi.Float64Input `pulumi:"changeValueAbsolute"`
+	// The relative impact to dimension (null if not applicable)
+	ChangeValueRelative pulumi.Float64Input `pulumi:"changeValueRelative"`
+	// The name of the impact dimension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The unit in which estimated impact to dimension is measured.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (OperationImpactInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationImpactInvokeResponse)(nil)).Elem()
+}
+
+func (i OperationImpactInvokeResponseArgs) ToOperationImpactInvokeResponseOutput() OperationImpactInvokeResponseOutput {
+	return i.ToOperationImpactInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i OperationImpactInvokeResponseArgs) ToOperationImpactInvokeResponseOutputWithContext(ctx context.Context) OperationImpactInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OperationImpactInvokeResponseOutput)
+}
+
+// OperationImpactInvokeResponseArrayInput is an input type that accepts OperationImpactInvokeResponseArray and OperationImpactInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `OperationImpactInvokeResponseArrayInput` via:
+//
+//          OperationImpactInvokeResponseArray{ OperationImpactInvokeResponseArgs{...} }
+type OperationImpactInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToOperationImpactInvokeResponseArrayOutput() OperationImpactInvokeResponseArrayOutput
+	ToOperationImpactInvokeResponseArrayOutputWithContext(context.Context) OperationImpactInvokeResponseArrayOutput
+}
+
+type OperationImpactInvokeResponseArray []OperationImpactInvokeResponseInput
+
+func (OperationImpactInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OperationImpactInvokeResponse)(nil)).Elem()
+}
+
+func (i OperationImpactInvokeResponseArray) ToOperationImpactInvokeResponseArrayOutput() OperationImpactInvokeResponseArrayOutput {
+	return i.ToOperationImpactInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i OperationImpactInvokeResponseArray) ToOperationImpactInvokeResponseArrayOutputWithContext(ctx context.Context) OperationImpactInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OperationImpactInvokeResponseArrayOutput)
+}
+
+// The impact of an operation, both in absolute and relative terms.
+type OperationImpactInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (OperationImpactInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OperationImpactInvokeResponse)(nil)).Elem()
+}
+
+func (o OperationImpactInvokeResponseOutput) ToOperationImpactInvokeResponseOutput() OperationImpactInvokeResponseOutput {
+	return o
+}
+
+func (o OperationImpactInvokeResponseOutput) ToOperationImpactInvokeResponseOutputWithContext(ctx context.Context) OperationImpactInvokeResponseOutput {
+	return o
+}
+
+// The absolute impact to dimension.
+func (o OperationImpactInvokeResponseOutput) ChangeValueAbsolute() pulumi.Float64Output {
+	return o.ApplyT(func(v OperationImpactInvokeResponse) float64 { return v.ChangeValueAbsolute }).(pulumi.Float64Output)
+}
+
+// The relative impact to dimension (null if not applicable)
+func (o OperationImpactInvokeResponseOutput) ChangeValueRelative() pulumi.Float64Output {
+	return o.ApplyT(func(v OperationImpactInvokeResponse) float64 { return v.ChangeValueRelative }).(pulumi.Float64Output)
+}
+
+// The name of the impact dimension.
+func (o OperationImpactInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OperationImpactInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The unit in which estimated impact to dimension is measured.
+func (o OperationImpactInvokeResponseOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v OperationImpactInvokeResponse) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type OperationImpactInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (OperationImpactInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OperationImpactInvokeResponse)(nil)).Elem()
+}
+
+func (o OperationImpactInvokeResponseArrayOutput) ToOperationImpactInvokeResponseArrayOutput() OperationImpactInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OperationImpactInvokeResponseArrayOutput) ToOperationImpactInvokeResponseArrayOutputWithContext(ctx context.Context) OperationImpactInvokeResponseArrayOutput {
+	return o
+}
+
+func (o OperationImpactInvokeResponseArrayOutput) Index(i pulumi.IntInput) OperationImpactInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OperationImpactInvokeResponse {
+		return vs[0].([]OperationImpactInvokeResponse)[vs[1].(int)]
+	}).(OperationImpactInvokeResponseOutput)
+}
+
+// The impact of an operation, both in absolute and relative terms.
 type OperationImpactResponse struct {
 	// The absolute impact to dimension.
 	ChangeValueAbsolute float64 `pulumi:"changeValueAbsolute"`
@@ -135,6 +262,232 @@ func (o OperationImpactResponseArrayOutput) Index(i pulumi.IntInput) OperationIm
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OperationImpactResponse {
 		return vs[0].([]OperationImpactResponse)[vs[1].(int)]
 	}).(OperationImpactResponseOutput)
+}
+
+// Represents a database recommended index.
+type RecommendedIndexInvokeResponse struct {
+	// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
+	Action string `pulumi:"action"`
+	// Columns over which to build index
+	Columns []string `pulumi:"columns"`
+	// The UTC datetime showing when this resource was created (ISO8601 format).
+	Created string `pulumi:"created"`
+	// The estimated impact of doing recommended index action.
+	EstimatedImpact []OperationImpactInvokeResponse `pulumi:"estimatedImpact"`
+	// Resource ID.
+	Id string `pulumi:"id"`
+	// The list of column names to be included in the index
+	IncludedColumns []string `pulumi:"includedColumns"`
+	// The full build index script
+	IndexScript string `pulumi:"indexScript"`
+	// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
+	IndexType string `pulumi:"indexType"`
+	// The UTC datetime of when was this resource last changed (ISO8601 format).
+	LastModified string `pulumi:"lastModified"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The values reported after index action is complete.
+	ReportedImpact []OperationImpactInvokeResponse `pulumi:"reportedImpact"`
+	// The schema where table to build index over resides
+	Schema string `pulumi:"schema"`
+	// The current recommendation state.
+	State string `pulumi:"state"`
+	// The table on which to build index.
+	Table string `pulumi:"table"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// RecommendedIndexInvokeResponseInput is an input type that accepts RecommendedIndexInvokeResponseArgs and RecommendedIndexInvokeResponseOutput values.
+// You can construct a concrete instance of `RecommendedIndexInvokeResponseInput` via:
+//
+//          RecommendedIndexInvokeResponseArgs{...}
+type RecommendedIndexInvokeResponseInput interface {
+	pulumi.Input
+
+	ToRecommendedIndexInvokeResponseOutput() RecommendedIndexInvokeResponseOutput
+	ToRecommendedIndexInvokeResponseOutputWithContext(context.Context) RecommendedIndexInvokeResponseOutput
+}
+
+// Represents a database recommended index.
+type RecommendedIndexInvokeResponseArgs struct {
+	// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Columns over which to build index
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// The UTC datetime showing when this resource was created (ISO8601 format).
+	Created pulumi.StringInput `pulumi:"created"`
+	// The estimated impact of doing recommended index action.
+	EstimatedImpact OperationImpactInvokeResponseArrayInput `pulumi:"estimatedImpact"`
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The list of column names to be included in the index
+	IncludedColumns pulumi.StringArrayInput `pulumi:"includedColumns"`
+	// The full build index script
+	IndexScript pulumi.StringInput `pulumi:"indexScript"`
+	// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
+	IndexType pulumi.StringInput `pulumi:"indexType"`
+	// The UTC datetime of when was this resource last changed (ISO8601 format).
+	LastModified pulumi.StringInput `pulumi:"lastModified"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The values reported after index action is complete.
+	ReportedImpact OperationImpactInvokeResponseArrayInput `pulumi:"reportedImpact"`
+	// The schema where table to build index over resides
+	Schema pulumi.StringInput `pulumi:"schema"`
+	// The current recommendation state.
+	State pulumi.StringInput `pulumi:"state"`
+	// The table on which to build index.
+	Table pulumi.StringInput `pulumi:"table"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RecommendedIndexInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedIndexInvokeResponse)(nil)).Elem()
+}
+
+func (i RecommendedIndexInvokeResponseArgs) ToRecommendedIndexInvokeResponseOutput() RecommendedIndexInvokeResponseOutput {
+	return i.ToRecommendedIndexInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i RecommendedIndexInvokeResponseArgs) ToRecommendedIndexInvokeResponseOutputWithContext(ctx context.Context) RecommendedIndexInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedIndexInvokeResponseOutput)
+}
+
+// RecommendedIndexInvokeResponseArrayInput is an input type that accepts RecommendedIndexInvokeResponseArray and RecommendedIndexInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `RecommendedIndexInvokeResponseArrayInput` via:
+//
+//          RecommendedIndexInvokeResponseArray{ RecommendedIndexInvokeResponseArgs{...} }
+type RecommendedIndexInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToRecommendedIndexInvokeResponseArrayOutput() RecommendedIndexInvokeResponseArrayOutput
+	ToRecommendedIndexInvokeResponseArrayOutputWithContext(context.Context) RecommendedIndexInvokeResponseArrayOutput
+}
+
+type RecommendedIndexInvokeResponseArray []RecommendedIndexInvokeResponseInput
+
+func (RecommendedIndexInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendedIndexInvokeResponse)(nil)).Elem()
+}
+
+func (i RecommendedIndexInvokeResponseArray) ToRecommendedIndexInvokeResponseArrayOutput() RecommendedIndexInvokeResponseArrayOutput {
+	return i.ToRecommendedIndexInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RecommendedIndexInvokeResponseArray) ToRecommendedIndexInvokeResponseArrayOutputWithContext(ctx context.Context) RecommendedIndexInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendedIndexInvokeResponseArrayOutput)
+}
+
+// Represents a database recommended index.
+type RecommendedIndexInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (RecommendedIndexInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendedIndexInvokeResponse)(nil)).Elem()
+}
+
+func (o RecommendedIndexInvokeResponseOutput) ToRecommendedIndexInvokeResponseOutput() RecommendedIndexInvokeResponseOutput {
+	return o
+}
+
+func (o RecommendedIndexInvokeResponseOutput) ToRecommendedIndexInvokeResponseOutputWithContext(ctx context.Context) RecommendedIndexInvokeResponseOutput {
+	return o
+}
+
+// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
+func (o RecommendedIndexInvokeResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Columns over which to build index
+func (o RecommendedIndexInvokeResponseOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// The UTC datetime showing when this resource was created (ISO8601 format).
+func (o RecommendedIndexInvokeResponseOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.Created }).(pulumi.StringOutput)
+}
+
+// The estimated impact of doing recommended index action.
+func (o RecommendedIndexInvokeResponseOutput) EstimatedImpact() OperationImpactInvokeResponseArrayOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) []OperationImpactInvokeResponse { return v.EstimatedImpact }).(OperationImpactInvokeResponseArrayOutput)
+}
+
+// Resource ID.
+func (o RecommendedIndexInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The list of column names to be included in the index
+func (o RecommendedIndexInvokeResponseOutput) IncludedColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) []string { return v.IncludedColumns }).(pulumi.StringArrayOutput)
+}
+
+// The full build index script
+func (o RecommendedIndexInvokeResponseOutput) IndexScript() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.IndexScript }).(pulumi.StringOutput)
+}
+
+// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
+func (o RecommendedIndexInvokeResponseOutput) IndexType() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.IndexType }).(pulumi.StringOutput)
+}
+
+// The UTC datetime of when was this resource last changed (ISO8601 format).
+func (o RecommendedIndexInvokeResponseOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o RecommendedIndexInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The values reported after index action is complete.
+func (o RecommendedIndexInvokeResponseOutput) ReportedImpact() OperationImpactInvokeResponseArrayOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) []OperationImpactInvokeResponse { return v.ReportedImpact }).(OperationImpactInvokeResponseArrayOutput)
+}
+
+// The schema where table to build index over resides
+func (o RecommendedIndexInvokeResponseOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+// The current recommendation state.
+func (o RecommendedIndexInvokeResponseOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The table on which to build index.
+func (o RecommendedIndexInvokeResponseOutput) Table() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.Table }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o RecommendedIndexInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendedIndexInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RecommendedIndexInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RecommendedIndexInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendedIndexInvokeResponse)(nil)).Elem()
+}
+
+func (o RecommendedIndexInvokeResponseArrayOutput) ToRecommendedIndexInvokeResponseArrayOutput() RecommendedIndexInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RecommendedIndexInvokeResponseArrayOutput) ToRecommendedIndexInvokeResponseArrayOutputWithContext(ctx context.Context) RecommendedIndexInvokeResponseArrayOutput {
+	return o
+}
+
+func (o RecommendedIndexInvokeResponseArrayOutput) Index(i pulumi.IntInput) RecommendedIndexInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendedIndexInvokeResponse {
+		return vs[0].([]RecommendedIndexInvokeResponse)[vs[1].(int)]
+	}).(RecommendedIndexInvokeResponseOutput)
 }
 
 // Represents a database recommended index.
@@ -361,6 +714,309 @@ func (o RecommendedIndexResponseArrayOutput) Index(i pulumi.IntInput) Recommende
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendedIndexResponse {
 		return vs[0].([]RecommendedIndexResponse)[vs[1].(int)]
 	}).(RecommendedIndexResponseOutput)
+}
+
+// Represents a Service Tier Advisor.
+type ServiceTierAdvisorInvokeResponse struct {
+	// The activeTimeRatio for service tier advisor.
+	ActiveTimeRatio float64 `pulumi:"activeTimeRatio"`
+	// Gets or sets avgDtu for service tier advisor.
+	AvgDtu float64 `pulumi:"avgDtu"`
+	// Gets or sets confidence for service tier advisor.
+	Confidence float64 `pulumi:"confidence"`
+	// Gets or sets currentServiceLevelObjective for service tier advisor.
+	CurrentServiceLevelObjective string `pulumi:"currentServiceLevelObjective"`
+	// Gets or sets currentServiceLevelObjectiveId for service tier advisor.
+	CurrentServiceLevelObjectiveId string `pulumi:"currentServiceLevelObjectiveId"`
+	// Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor.
+	DatabaseSizeBasedRecommendationServiceLevelObjective string `pulumi:"databaseSizeBasedRecommendationServiceLevelObjective"`
+	// Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+	DatabaseSizeBasedRecommendationServiceLevelObjectiveId string `pulumi:"databaseSizeBasedRecommendationServiceLevelObjectiveId"`
+	// Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor.
+	DisasterPlanBasedRecommendationServiceLevelObjective string `pulumi:"disasterPlanBasedRecommendationServiceLevelObjective"`
+	// Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+	DisasterPlanBasedRecommendationServiceLevelObjectiveId string `pulumi:"disasterPlanBasedRecommendationServiceLevelObjectiveId"`
+	// Resource ID.
+	Id string `pulumi:"id"`
+	// Gets or sets maxDtu for service tier advisor.
+	MaxDtu float64 `pulumi:"maxDtu"`
+	// Gets or sets maxSizeInGB for service tier advisor.
+	MaxSizeInGB float64 `pulumi:"maxSizeInGB"`
+	// Gets or sets minDtu for service tier advisor.
+	MinDtu float64 `pulumi:"minDtu"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The observation period start (ISO8601 format).
+	ObservationPeriodEnd string `pulumi:"observationPeriodEnd"`
+	// The observation period start (ISO8601 format).
+	ObservationPeriodStart string `pulumi:"observationPeriodStart"`
+	// Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
+	OverallRecommendationServiceLevelObjective string `pulumi:"overallRecommendationServiceLevelObjective"`
+	// Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
+	OverallRecommendationServiceLevelObjectiveId string `pulumi:"overallRecommendationServiceLevelObjectiveId"`
+	// Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
+	ServiceLevelObjectiveUsageMetrics []SloUsageMetricInvokeResponse `pulumi:"serviceLevelObjectiveUsageMetrics"`
+	// Resource type.
+	Type string `pulumi:"type"`
+	// Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
+	UsageBasedRecommendationServiceLevelObjective string `pulumi:"usageBasedRecommendationServiceLevelObjective"`
+	// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+	UsageBasedRecommendationServiceLevelObjectiveId string `pulumi:"usageBasedRecommendationServiceLevelObjectiveId"`
+}
+
+// ServiceTierAdvisorInvokeResponseInput is an input type that accepts ServiceTierAdvisorInvokeResponseArgs and ServiceTierAdvisorInvokeResponseOutput values.
+// You can construct a concrete instance of `ServiceTierAdvisorInvokeResponseInput` via:
+//
+//          ServiceTierAdvisorInvokeResponseArgs{...}
+type ServiceTierAdvisorInvokeResponseInput interface {
+	pulumi.Input
+
+	ToServiceTierAdvisorInvokeResponseOutput() ServiceTierAdvisorInvokeResponseOutput
+	ToServiceTierAdvisorInvokeResponseOutputWithContext(context.Context) ServiceTierAdvisorInvokeResponseOutput
+}
+
+// Represents a Service Tier Advisor.
+type ServiceTierAdvisorInvokeResponseArgs struct {
+	// The activeTimeRatio for service tier advisor.
+	ActiveTimeRatio pulumi.Float64Input `pulumi:"activeTimeRatio"`
+	// Gets or sets avgDtu for service tier advisor.
+	AvgDtu pulumi.Float64Input `pulumi:"avgDtu"`
+	// Gets or sets confidence for service tier advisor.
+	Confidence pulumi.Float64Input `pulumi:"confidence"`
+	// Gets or sets currentServiceLevelObjective for service tier advisor.
+	CurrentServiceLevelObjective pulumi.StringInput `pulumi:"currentServiceLevelObjective"`
+	// Gets or sets currentServiceLevelObjectiveId for service tier advisor.
+	CurrentServiceLevelObjectiveId pulumi.StringInput `pulumi:"currentServiceLevelObjectiveId"`
+	// Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor.
+	DatabaseSizeBasedRecommendationServiceLevelObjective pulumi.StringInput `pulumi:"databaseSizeBasedRecommendationServiceLevelObjective"`
+	// Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+	DatabaseSizeBasedRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"databaseSizeBasedRecommendationServiceLevelObjectiveId"`
+	// Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor.
+	DisasterPlanBasedRecommendationServiceLevelObjective pulumi.StringInput `pulumi:"disasterPlanBasedRecommendationServiceLevelObjective"`
+	// Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+	DisasterPlanBasedRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"disasterPlanBasedRecommendationServiceLevelObjectiveId"`
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Gets or sets maxDtu for service tier advisor.
+	MaxDtu pulumi.Float64Input `pulumi:"maxDtu"`
+	// Gets or sets maxSizeInGB for service tier advisor.
+	MaxSizeInGB pulumi.Float64Input `pulumi:"maxSizeInGB"`
+	// Gets or sets minDtu for service tier advisor.
+	MinDtu pulumi.Float64Input `pulumi:"minDtu"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The observation period start (ISO8601 format).
+	ObservationPeriodEnd pulumi.StringInput `pulumi:"observationPeriodEnd"`
+	// The observation period start (ISO8601 format).
+	ObservationPeriodStart pulumi.StringInput `pulumi:"observationPeriodStart"`
+	// Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
+	OverallRecommendationServiceLevelObjective pulumi.StringInput `pulumi:"overallRecommendationServiceLevelObjective"`
+	// Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
+	OverallRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"overallRecommendationServiceLevelObjectiveId"`
+	// Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
+	ServiceLevelObjectiveUsageMetrics SloUsageMetricInvokeResponseArrayInput `pulumi:"serviceLevelObjectiveUsageMetrics"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
+	UsageBasedRecommendationServiceLevelObjective pulumi.StringInput `pulumi:"usageBasedRecommendationServiceLevelObjective"`
+	// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+	UsageBasedRecommendationServiceLevelObjectiveId pulumi.StringInput `pulumi:"usageBasedRecommendationServiceLevelObjectiveId"`
+}
+
+func (ServiceTierAdvisorInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTierAdvisorInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceTierAdvisorInvokeResponseArgs) ToServiceTierAdvisorInvokeResponseOutput() ServiceTierAdvisorInvokeResponseOutput {
+	return i.ToServiceTierAdvisorInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceTierAdvisorInvokeResponseArgs) ToServiceTierAdvisorInvokeResponseOutputWithContext(ctx context.Context) ServiceTierAdvisorInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTierAdvisorInvokeResponseOutput)
+}
+
+// ServiceTierAdvisorInvokeResponseArrayInput is an input type that accepts ServiceTierAdvisorInvokeResponseArray and ServiceTierAdvisorInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ServiceTierAdvisorInvokeResponseArrayInput` via:
+//
+//          ServiceTierAdvisorInvokeResponseArray{ ServiceTierAdvisorInvokeResponseArgs{...} }
+type ServiceTierAdvisorInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToServiceTierAdvisorInvokeResponseArrayOutput() ServiceTierAdvisorInvokeResponseArrayOutput
+	ToServiceTierAdvisorInvokeResponseArrayOutputWithContext(context.Context) ServiceTierAdvisorInvokeResponseArrayOutput
+}
+
+type ServiceTierAdvisorInvokeResponseArray []ServiceTierAdvisorInvokeResponseInput
+
+func (ServiceTierAdvisorInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceTierAdvisorInvokeResponse)(nil)).Elem()
+}
+
+func (i ServiceTierAdvisorInvokeResponseArray) ToServiceTierAdvisorInvokeResponseArrayOutput() ServiceTierAdvisorInvokeResponseArrayOutput {
+	return i.ToServiceTierAdvisorInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceTierAdvisorInvokeResponseArray) ToServiceTierAdvisorInvokeResponseArrayOutputWithContext(ctx context.Context) ServiceTierAdvisorInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTierAdvisorInvokeResponseArrayOutput)
+}
+
+// Represents a Service Tier Advisor.
+type ServiceTierAdvisorInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceTierAdvisorInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTierAdvisorInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceTierAdvisorInvokeResponseOutput) ToServiceTierAdvisorInvokeResponseOutput() ServiceTierAdvisorInvokeResponseOutput {
+	return o
+}
+
+func (o ServiceTierAdvisorInvokeResponseOutput) ToServiceTierAdvisorInvokeResponseOutputWithContext(ctx context.Context) ServiceTierAdvisorInvokeResponseOutput {
+	return o
+}
+
+// The activeTimeRatio for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) ActiveTimeRatio() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) float64 { return v.ActiveTimeRatio }).(pulumi.Float64Output)
+}
+
+// Gets or sets avgDtu for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) AvgDtu() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) float64 { return v.AvgDtu }).(pulumi.Float64Output)
+}
+
+// Gets or sets confidence for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) Confidence() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) float64 { return v.Confidence }).(pulumi.Float64Output)
+}
+
+// Gets or sets currentServiceLevelObjective for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) CurrentServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string { return v.CurrentServiceLevelObjective }).(pulumi.StringOutput)
+}
+
+// Gets or sets currentServiceLevelObjectiveId for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) CurrentServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string { return v.CurrentServiceLevelObjectiveId }).(pulumi.StringOutput)
+}
+
+// Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) DatabaseSizeBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string {
+		return v.DatabaseSizeBasedRecommendationServiceLevelObjective
+	}).(pulumi.StringOutput)
+}
+
+// Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) DatabaseSizeBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string {
+		return v.DatabaseSizeBasedRecommendationServiceLevelObjectiveId
+	}).(pulumi.StringOutput)
+}
+
+// Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) DisasterPlanBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string {
+		return v.DisasterPlanBasedRecommendationServiceLevelObjective
+	}).(pulumi.StringOutput)
+}
+
+// Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) DisasterPlanBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string {
+		return v.DisasterPlanBasedRecommendationServiceLevelObjectiveId
+	}).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o ServiceTierAdvisorInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Gets or sets maxDtu for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) MaxDtu() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) float64 { return v.MaxDtu }).(pulumi.Float64Output)
+}
+
+// Gets or sets maxSizeInGB for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) MaxSizeInGB() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) float64 { return v.MaxSizeInGB }).(pulumi.Float64Output)
+}
+
+// Gets or sets minDtu for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) MinDtu() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) float64 { return v.MinDtu }).(pulumi.Float64Output)
+}
+
+// Resource name.
+func (o ServiceTierAdvisorInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The observation period start (ISO8601 format).
+func (o ServiceTierAdvisorInvokeResponseOutput) ObservationPeriodEnd() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string { return v.ObservationPeriodEnd }).(pulumi.StringOutput)
+}
+
+// The observation period start (ISO8601 format).
+func (o ServiceTierAdvisorInvokeResponseOutput) ObservationPeriodStart() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string { return v.ObservationPeriodStart }).(pulumi.StringOutput)
+}
+
+// Gets or sets overallRecommendationServiceLevelObjective for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) OverallRecommendationServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string { return v.OverallRecommendationServiceLevelObjective }).(pulumi.StringOutput)
+}
+
+// Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) OverallRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string { return v.OverallRecommendationServiceLevelObjectiveId }).(pulumi.StringOutput)
+}
+
+// Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) ServiceLevelObjectiveUsageMetrics() SloUsageMetricInvokeResponseArrayOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) []SloUsageMetricInvokeResponse {
+		return v.ServiceLevelObjectiveUsageMetrics
+	}).(SloUsageMetricInvokeResponseArrayOutput)
+}
+
+// Resource type.
+func (o ServiceTierAdvisorInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) UsageBasedRecommendationServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string {
+		return v.UsageBasedRecommendationServiceLevelObjective
+	}).(pulumi.StringOutput)
+}
+
+// Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
+func (o ServiceTierAdvisorInvokeResponseOutput) UsageBasedRecommendationServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceTierAdvisorInvokeResponse) string {
+		return v.UsageBasedRecommendationServiceLevelObjectiveId
+	}).(pulumi.StringOutput)
+}
+
+type ServiceTierAdvisorInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceTierAdvisorInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceTierAdvisorInvokeResponse)(nil)).Elem()
+}
+
+func (o ServiceTierAdvisorInvokeResponseArrayOutput) ToServiceTierAdvisorInvokeResponseArrayOutput() ServiceTierAdvisorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServiceTierAdvisorInvokeResponseArrayOutput) ToServiceTierAdvisorInvokeResponseArrayOutputWithContext(ctx context.Context) ServiceTierAdvisorInvokeResponseArrayOutput {
+	return o
+}
+
+func (o ServiceTierAdvisorInvokeResponseArrayOutput) Index(i pulumi.IntInput) ServiceTierAdvisorInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceTierAdvisorInvokeResponse {
+		return vs[0].([]ServiceTierAdvisorInvokeResponse)[vs[1].(int)]
+	}).(ServiceTierAdvisorInvokeResponseOutput)
 }
 
 // Represents a Service Tier Advisor.
@@ -663,6 +1319,124 @@ func (o ServiceTierAdvisorResponseArrayOutput) Index(i pulumi.IntInput) ServiceT
 }
 
 // A Slo Usage Metric.
+type SloUsageMetricInvokeResponse struct {
+	// Gets or sets inRangeTimeRatio for SLO usage metric.
+	InRangeTimeRatio float64 `pulumi:"inRangeTimeRatio"`
+	// The serviceLevelObjective for SLO usage metric.
+	ServiceLevelObjective string `pulumi:"serviceLevelObjective"`
+	// The serviceLevelObjectiveId for SLO usage metric.
+	ServiceLevelObjectiveId string `pulumi:"serviceLevelObjectiveId"`
+}
+
+// SloUsageMetricInvokeResponseInput is an input type that accepts SloUsageMetricInvokeResponseArgs and SloUsageMetricInvokeResponseOutput values.
+// You can construct a concrete instance of `SloUsageMetricInvokeResponseInput` via:
+//
+//          SloUsageMetricInvokeResponseArgs{...}
+type SloUsageMetricInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSloUsageMetricInvokeResponseOutput() SloUsageMetricInvokeResponseOutput
+	ToSloUsageMetricInvokeResponseOutputWithContext(context.Context) SloUsageMetricInvokeResponseOutput
+}
+
+// A Slo Usage Metric.
+type SloUsageMetricInvokeResponseArgs struct {
+	// Gets or sets inRangeTimeRatio for SLO usage metric.
+	InRangeTimeRatio pulumi.Float64Input `pulumi:"inRangeTimeRatio"`
+	// The serviceLevelObjective for SLO usage metric.
+	ServiceLevelObjective pulumi.StringInput `pulumi:"serviceLevelObjective"`
+	// The serviceLevelObjectiveId for SLO usage metric.
+	ServiceLevelObjectiveId pulumi.StringInput `pulumi:"serviceLevelObjectiveId"`
+}
+
+func (SloUsageMetricInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SloUsageMetricInvokeResponse)(nil)).Elem()
+}
+
+func (i SloUsageMetricInvokeResponseArgs) ToSloUsageMetricInvokeResponseOutput() SloUsageMetricInvokeResponseOutput {
+	return i.ToSloUsageMetricInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SloUsageMetricInvokeResponseArgs) ToSloUsageMetricInvokeResponseOutputWithContext(ctx context.Context) SloUsageMetricInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SloUsageMetricInvokeResponseOutput)
+}
+
+// SloUsageMetricInvokeResponseArrayInput is an input type that accepts SloUsageMetricInvokeResponseArray and SloUsageMetricInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `SloUsageMetricInvokeResponseArrayInput` via:
+//
+//          SloUsageMetricInvokeResponseArray{ SloUsageMetricInvokeResponseArgs{...} }
+type SloUsageMetricInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToSloUsageMetricInvokeResponseArrayOutput() SloUsageMetricInvokeResponseArrayOutput
+	ToSloUsageMetricInvokeResponseArrayOutputWithContext(context.Context) SloUsageMetricInvokeResponseArrayOutput
+}
+
+type SloUsageMetricInvokeResponseArray []SloUsageMetricInvokeResponseInput
+
+func (SloUsageMetricInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SloUsageMetricInvokeResponse)(nil)).Elem()
+}
+
+func (i SloUsageMetricInvokeResponseArray) ToSloUsageMetricInvokeResponseArrayOutput() SloUsageMetricInvokeResponseArrayOutput {
+	return i.ToSloUsageMetricInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SloUsageMetricInvokeResponseArray) ToSloUsageMetricInvokeResponseArrayOutputWithContext(ctx context.Context) SloUsageMetricInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SloUsageMetricInvokeResponseArrayOutput)
+}
+
+// A Slo Usage Metric.
+type SloUsageMetricInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SloUsageMetricInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SloUsageMetricInvokeResponse)(nil)).Elem()
+}
+
+func (o SloUsageMetricInvokeResponseOutput) ToSloUsageMetricInvokeResponseOutput() SloUsageMetricInvokeResponseOutput {
+	return o
+}
+
+func (o SloUsageMetricInvokeResponseOutput) ToSloUsageMetricInvokeResponseOutputWithContext(ctx context.Context) SloUsageMetricInvokeResponseOutput {
+	return o
+}
+
+// Gets or sets inRangeTimeRatio for SLO usage metric.
+func (o SloUsageMetricInvokeResponseOutput) InRangeTimeRatio() pulumi.Float64Output {
+	return o.ApplyT(func(v SloUsageMetricInvokeResponse) float64 { return v.InRangeTimeRatio }).(pulumi.Float64Output)
+}
+
+// The serviceLevelObjective for SLO usage metric.
+func (o SloUsageMetricInvokeResponseOutput) ServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v SloUsageMetricInvokeResponse) string { return v.ServiceLevelObjective }).(pulumi.StringOutput)
+}
+
+// The serviceLevelObjectiveId for SLO usage metric.
+func (o SloUsageMetricInvokeResponseOutput) ServiceLevelObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v SloUsageMetricInvokeResponse) string { return v.ServiceLevelObjectiveId }).(pulumi.StringOutput)
+}
+
+type SloUsageMetricInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SloUsageMetricInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SloUsageMetricInvokeResponse)(nil)).Elem()
+}
+
+func (o SloUsageMetricInvokeResponseArrayOutput) ToSloUsageMetricInvokeResponseArrayOutput() SloUsageMetricInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SloUsageMetricInvokeResponseArrayOutput) ToSloUsageMetricInvokeResponseArrayOutputWithContext(ctx context.Context) SloUsageMetricInvokeResponseArrayOutput {
+	return o
+}
+
+func (o SloUsageMetricInvokeResponseArrayOutput) Index(i pulumi.IntInput) SloUsageMetricInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SloUsageMetricInvokeResponse {
+		return vs[0].([]SloUsageMetricInvokeResponse)[vs[1].(int)]
+	}).(SloUsageMetricInvokeResponseOutput)
+}
+
+// A Slo Usage Metric.
 type SloUsageMetricResponse struct {
 	// Gets or sets inRangeTimeRatio for SLO usage metric.
 	InRangeTimeRatio float64 `pulumi:"inRangeTimeRatio"`
@@ -778,6 +1552,142 @@ func (o SloUsageMetricResponseArrayOutput) Index(i pulumi.IntInput) SloUsageMetr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SloUsageMetricResponse {
 		return vs[0].([]SloUsageMetricResponse)[vs[1].(int)]
 	}).(SloUsageMetricResponseOutput)
+}
+
+// Represents a database transparent data encryption configuration.
+type TransparentDataEncryptionInvokeResponse struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
+	// Resource location.
+	Location string `pulumi:"location"`
+	// Resource name.
+	Name string `pulumi:"name"`
+	// The status of the database transparent data encryption.
+	Status *string `pulumi:"status"`
+	// Resource type.
+	Type string `pulumi:"type"`
+}
+
+// TransparentDataEncryptionInvokeResponseInput is an input type that accepts TransparentDataEncryptionInvokeResponseArgs and TransparentDataEncryptionInvokeResponseOutput values.
+// You can construct a concrete instance of `TransparentDataEncryptionInvokeResponseInput` via:
+//
+//          TransparentDataEncryptionInvokeResponseArgs{...}
+type TransparentDataEncryptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToTransparentDataEncryptionInvokeResponseOutput() TransparentDataEncryptionInvokeResponseOutput
+	ToTransparentDataEncryptionInvokeResponseOutputWithContext(context.Context) TransparentDataEncryptionInvokeResponseOutput
+}
+
+// Represents a database transparent data encryption configuration.
+type TransparentDataEncryptionInvokeResponseArgs struct {
+	// Resource ID.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Resource location.
+	Location pulumi.StringInput `pulumi:"location"`
+	// Resource name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of the database transparent data encryption.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TransparentDataEncryptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransparentDataEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i TransparentDataEncryptionInvokeResponseArgs) ToTransparentDataEncryptionInvokeResponseOutput() TransparentDataEncryptionInvokeResponseOutput {
+	return i.ToTransparentDataEncryptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i TransparentDataEncryptionInvokeResponseArgs) ToTransparentDataEncryptionInvokeResponseOutputWithContext(ctx context.Context) TransparentDataEncryptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionInvokeResponseOutput)
+}
+
+// TransparentDataEncryptionInvokeResponseArrayInput is an input type that accepts TransparentDataEncryptionInvokeResponseArray and TransparentDataEncryptionInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `TransparentDataEncryptionInvokeResponseArrayInput` via:
+//
+//          TransparentDataEncryptionInvokeResponseArray{ TransparentDataEncryptionInvokeResponseArgs{...} }
+type TransparentDataEncryptionInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToTransparentDataEncryptionInvokeResponseArrayOutput() TransparentDataEncryptionInvokeResponseArrayOutput
+	ToTransparentDataEncryptionInvokeResponseArrayOutputWithContext(context.Context) TransparentDataEncryptionInvokeResponseArrayOutput
+}
+
+type TransparentDataEncryptionInvokeResponseArray []TransparentDataEncryptionInvokeResponseInput
+
+func (TransparentDataEncryptionInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransparentDataEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (i TransparentDataEncryptionInvokeResponseArray) ToTransparentDataEncryptionInvokeResponseArrayOutput() TransparentDataEncryptionInvokeResponseArrayOutput {
+	return i.ToTransparentDataEncryptionInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TransparentDataEncryptionInvokeResponseArray) ToTransparentDataEncryptionInvokeResponseArrayOutputWithContext(ctx context.Context) TransparentDataEncryptionInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionInvokeResponseArrayOutput)
+}
+
+// Represents a database transparent data encryption configuration.
+type TransparentDataEncryptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (TransparentDataEncryptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransparentDataEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o TransparentDataEncryptionInvokeResponseOutput) ToTransparentDataEncryptionInvokeResponseOutput() TransparentDataEncryptionInvokeResponseOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionInvokeResponseOutput) ToTransparentDataEncryptionInvokeResponseOutputWithContext(ctx context.Context) TransparentDataEncryptionInvokeResponseOutput {
+	return o
+}
+
+// Resource ID.
+func (o TransparentDataEncryptionInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TransparentDataEncryptionInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o TransparentDataEncryptionInvokeResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v TransparentDataEncryptionInvokeResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o TransparentDataEncryptionInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TransparentDataEncryptionInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the database transparent data encryption.
+func (o TransparentDataEncryptionInvokeResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransparentDataEncryptionInvokeResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o TransparentDataEncryptionInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TransparentDataEncryptionInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TransparentDataEncryptionInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TransparentDataEncryptionInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransparentDataEncryptionInvokeResponse)(nil)).Elem()
+}
+
+func (o TransparentDataEncryptionInvokeResponseArrayOutput) ToTransparentDataEncryptionInvokeResponseArrayOutput() TransparentDataEncryptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionInvokeResponseArrayOutput) ToTransparentDataEncryptionInvokeResponseArrayOutputWithContext(ctx context.Context) TransparentDataEncryptionInvokeResponseArrayOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionInvokeResponseArrayOutput) Index(i pulumi.IntInput) TransparentDataEncryptionInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransparentDataEncryptionInvokeResponse {
+		return vs[0].([]TransparentDataEncryptionInvokeResponse)[vs[1].(int)]
+	}).(TransparentDataEncryptionInvokeResponseOutput)
 }
 
 // Represents a database transparent data encryption configuration.
@@ -917,14 +1827,24 @@ func (o TransparentDataEncryptionResponseArrayOutput) Index(i pulumi.IntInput) T
 }
 
 func init() {
+	pulumi.RegisterOutputType(OperationImpactInvokeResponseOutput{})
+	pulumi.RegisterOutputType(OperationImpactInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(OperationImpactResponseOutput{})
 	pulumi.RegisterOutputType(OperationImpactResponseArrayOutput{})
+	pulumi.RegisterOutputType(RecommendedIndexInvokeResponseOutput{})
+	pulumi.RegisterOutputType(RecommendedIndexInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(RecommendedIndexResponseOutput{})
 	pulumi.RegisterOutputType(RecommendedIndexResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServiceTierAdvisorInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ServiceTierAdvisorInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceTierAdvisorResponseOutput{})
 	pulumi.RegisterOutputType(ServiceTierAdvisorResponseArrayOutput{})
+	pulumi.RegisterOutputType(SloUsageMetricInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SloUsageMetricInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(SloUsageMetricResponseOutput{})
 	pulumi.RegisterOutputType(SloUsageMetricResponseArrayOutput{})
+	pulumi.RegisterOutputType(TransparentDataEncryptionInvokeResponseOutput{})
+	pulumi.RegisterOutputType(TransparentDataEncryptionInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(TransparentDataEncryptionResponseOutput{})
 	pulumi.RegisterOutputType(TransparentDataEncryptionResponseArrayOutput{})
 }

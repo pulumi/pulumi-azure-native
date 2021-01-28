@@ -29,18 +29,18 @@ type LookupBatchAccountResult struct {
 	AccountEndpoint              string `pulumi:"accountEndpoint"`
 	ActiveJobAndJobScheduleQuota int    `pulumi:"activeJobAndJobScheduleQuota"`
 	// Contains information about the auto-storage account associated with a Batch account.
-	AutoStorage AutoStoragePropertiesResponse `pulumi:"autoStorage"`
+	AutoStorage AutoStoragePropertiesInvokeResponse `pulumi:"autoStorage"`
 	// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
 	DedicatedCoreQuota int `pulumi:"dedicatedCoreQuota"`
 	// A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
-	DedicatedCoreQuotaPerVMFamily []VirtualMachineFamilyCoreQuotaResponse `pulumi:"dedicatedCoreQuotaPerVMFamily"`
+	DedicatedCoreQuotaPerVMFamily []VirtualMachineFamilyCoreQuotaInvokeResponse `pulumi:"dedicatedCoreQuotaPerVMFamily"`
 	// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
-	DedicatedCoreQuotaPerVMFamilyEnforced bool                         `pulumi:"dedicatedCoreQuotaPerVMFamilyEnforced"`
-	Encryption                            EncryptionPropertiesResponse `pulumi:"encryption"`
+	DedicatedCoreQuotaPerVMFamilyEnforced bool                               `pulumi:"dedicatedCoreQuotaPerVMFamilyEnforced"`
+	Encryption                            EncryptionPropertiesInvokeResponse `pulumi:"encryption"`
 	// The ID of the resource.
 	Id string `pulumi:"id"`
 	// Identifies the Azure key vault associated with a Batch account.
-	KeyVaultReference KeyVaultReferenceResponse `pulumi:"keyVaultReference"`
+	KeyVaultReference KeyVaultReferenceInvokeResponse `pulumi:"keyVaultReference"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
 	// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
@@ -51,7 +51,7 @@ type LookupBatchAccountResult struct {
 	PoolAllocationMode string `pulumi:"poolAllocationMode"`
 	PoolQuota          int    `pulumi:"poolQuota"`
 	// List of private endpoint connections associated with the Batch account
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	PrivateEndpointConnections []PrivateEndpointConnectionInvokeResponse `pulumi:"privateEndpointConnections"`
 	// The provisioned state of the resource
 	ProvisioningState string `pulumi:"provisioningState"`
 	// If not specified, the default value is 'enabled'.

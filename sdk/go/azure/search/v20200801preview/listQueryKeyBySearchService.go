@@ -28,5 +28,5 @@ type ListQueryKeyBySearchServiceResult struct {
 	// Request URL that can be used to query next page of query keys. Returned when the total number of requested query keys exceed maximum page size.
 	NextLink string `pulumi:"nextLink"`
 	// The query keys for the Azure Cognitive Search service.
-	Value []QueryKeyResponse `pulumi:"value"`
+	Value []QueryKeyInvokeResponse `pulumi:"value"`
 }

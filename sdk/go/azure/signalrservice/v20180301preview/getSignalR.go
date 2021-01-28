@@ -45,7 +45,7 @@ type LookupSignalRResult struct {
 	// The publicly accessibly port of the SignalR service which is designed for customer server side usage.
 	ServerPort int `pulumi:"serverPort"`
 	// SKU of the service.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
+	Sku *ResourceSkuInvokeResponse `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the service - e.g. "Microsoft.SignalRService/SignalR"

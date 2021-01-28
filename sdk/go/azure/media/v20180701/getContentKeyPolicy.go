@@ -38,7 +38,7 @@ type LookupContentKeyPolicyResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The Key Policy options.
-	Options []ContentKeyPolicyOptionResponse `pulumi:"options"`
+	Options []ContentKeyPolicyOptionInvokeResponse `pulumi:"options"`
 	// The legacy Policy ID.
 	PolicyId string `pulumi:"policyId"`
 	// The type of the resource.

@@ -164,6 +164,70 @@ func (o StorageAccountPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The properties of a storage account for a container registry.
+type StorageAccountPropertiesInvokeResponse struct {
+	// The access key to the storage account.
+	AccessKey string `pulumi:"accessKey"`
+	// The name of the storage account.
+	Name string `pulumi:"name"`
+}
+
+// StorageAccountPropertiesInvokeResponseInput is an input type that accepts StorageAccountPropertiesInvokeResponseArgs and StorageAccountPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageAccountPropertiesInvokeResponseInput` via:
+//
+//          StorageAccountPropertiesInvokeResponseArgs{...}
+type StorageAccountPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput
+	ToStorageAccountPropertiesInvokeResponseOutputWithContext(context.Context) StorageAccountPropertiesInvokeResponseOutput
+}
+
+// The properties of a storage account for a container registry.
+type StorageAccountPropertiesInvokeResponseArgs struct {
+	// The access key to the storage account.
+	AccessKey pulumi.StringInput `pulumi:"accessKey"`
+	// The name of the storage account.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (StorageAccountPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageAccountPropertiesInvokeResponseArgs) ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput {
+	return i.ToStorageAccountPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageAccountPropertiesInvokeResponseArgs) ToStorageAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesInvokeResponseOutput)
+}
+
+// The properties of a storage account for a container registry.
+type StorageAccountPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageAccountPropertiesInvokeResponseOutput) ToStorageAccountPropertiesInvokeResponseOutput() StorageAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o StorageAccountPropertiesInvokeResponseOutput) ToStorageAccountPropertiesInvokeResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesInvokeResponseOutput {
+	return o
+}
+
+// The access key to the storage account.
+func (o StorageAccountPropertiesInvokeResponseOutput) AccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesInvokeResponse) string { return v.AccessKey }).(pulumi.StringOutput)
+}
+
+// The name of the storage account.
+func (o StorageAccountPropertiesInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountPropertiesInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a storage account for a container registry.
 type StorageAccountPropertiesResponse struct {
 	// The access key to the storage account.
 	AccessKey string `pulumi:"accessKey"`
@@ -319,6 +383,7 @@ func (o StorageAccountPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput
 func init() {
 	pulumi.RegisterOutputType(StorageAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountPropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
 }

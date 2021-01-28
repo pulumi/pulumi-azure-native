@@ -40,7 +40,7 @@ type LookupDigitalTwinResult struct {
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// This property is reserved for future use, and will be ignored/omitted
-	Sku *DigitalTwinsSkuInfoResponse `pulumi:"sku"`
+	Sku *DigitalTwinsSkuInfoInvokeResponse `pulumi:"sku"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

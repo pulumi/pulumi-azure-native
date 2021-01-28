@@ -11,6 +11,179 @@ import (
 )
 
 // Confluent offer detail
+type OrganizationResourcePropertiesInvokeResponseOfferDetail struct {
+	// Offer Id
+	Id *string `pulumi:"id"`
+	// Offer Plan Id
+	PlanId *string `pulumi:"planId"`
+	// Offer Plan Name
+	PlanName *string `pulumi:"planName"`
+	// Publisher Id
+	PublisherId *string `pulumi:"publisherId"`
+	// SaaS Offer Status
+	Status *string `pulumi:"status"`
+	// Offer Plan Term unit
+	TermUnit *string `pulumi:"termUnit"`
+}
+
+// OrganizationResourcePropertiesInvokeResponseOfferDetailInput is an input type that accepts OrganizationResourcePropertiesInvokeResponseOfferDetailArgs and OrganizationResourcePropertiesInvokeResponseOfferDetailOutput values.
+// You can construct a concrete instance of `OrganizationResourcePropertiesInvokeResponseOfferDetailInput` via:
+//
+//          OrganizationResourcePropertiesInvokeResponseOfferDetailArgs{...}
+type OrganizationResourcePropertiesInvokeResponseOfferDetailInput interface {
+	pulumi.Input
+
+	ToOrganizationResourcePropertiesInvokeResponseOfferDetailOutput() OrganizationResourcePropertiesInvokeResponseOfferDetailOutput
+	ToOrganizationResourcePropertiesInvokeResponseOfferDetailOutputWithContext(context.Context) OrganizationResourcePropertiesInvokeResponseOfferDetailOutput
+}
+
+// Confluent offer detail
+type OrganizationResourcePropertiesInvokeResponseOfferDetailArgs struct {
+	// Offer Id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Offer Plan Id
+	PlanId pulumi.StringPtrInput `pulumi:"planId"`
+	// Offer Plan Name
+	PlanName pulumi.StringPtrInput `pulumi:"planName"`
+	// Publisher Id
+	PublisherId pulumi.StringPtrInput `pulumi:"publisherId"`
+	// SaaS Offer Status
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Offer Plan Term unit
+	TermUnit pulumi.StringPtrInput `pulumi:"termUnit"`
+}
+
+func (OrganizationResourcePropertiesInvokeResponseOfferDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationResourcePropertiesInvokeResponseOfferDetail)(nil)).Elem()
+}
+
+func (i OrganizationResourcePropertiesInvokeResponseOfferDetailArgs) ToOrganizationResourcePropertiesInvokeResponseOfferDetailOutput() OrganizationResourcePropertiesInvokeResponseOfferDetailOutput {
+	return i.ToOrganizationResourcePropertiesInvokeResponseOfferDetailOutputWithContext(context.Background())
+}
+
+func (i OrganizationResourcePropertiesInvokeResponseOfferDetailArgs) ToOrganizationResourcePropertiesInvokeResponseOfferDetailOutputWithContext(ctx context.Context) OrganizationResourcePropertiesInvokeResponseOfferDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesInvokeResponseOfferDetailOutput)
+}
+
+// Confluent offer detail
+type OrganizationResourcePropertiesInvokeResponseOfferDetailOutput struct{ *pulumi.OutputState }
+
+func (OrganizationResourcePropertiesInvokeResponseOfferDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationResourcePropertiesInvokeResponseOfferDetail)(nil)).Elem()
+}
+
+func (o OrganizationResourcePropertiesInvokeResponseOfferDetailOutput) ToOrganizationResourcePropertiesInvokeResponseOfferDetailOutput() OrganizationResourcePropertiesInvokeResponseOfferDetailOutput {
+	return o
+}
+
+func (o OrganizationResourcePropertiesInvokeResponseOfferDetailOutput) ToOrganizationResourcePropertiesInvokeResponseOfferDetailOutputWithContext(ctx context.Context) OrganizationResourcePropertiesInvokeResponseOfferDetailOutput {
+	return o
+}
+
+// Offer Id
+func (o OrganizationResourcePropertiesInvokeResponseOfferDetailOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationResourcePropertiesInvokeResponseOfferDetail) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Offer Plan Id
+func (o OrganizationResourcePropertiesInvokeResponseOfferDetailOutput) PlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationResourcePropertiesInvokeResponseOfferDetail) *string { return v.PlanId }).(pulumi.StringPtrOutput)
+}
+
+// Offer Plan Name
+func (o OrganizationResourcePropertiesInvokeResponseOfferDetailOutput) PlanName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationResourcePropertiesInvokeResponseOfferDetail) *string { return v.PlanName }).(pulumi.StringPtrOutput)
+}
+
+// Publisher Id
+func (o OrganizationResourcePropertiesInvokeResponseOfferDetailOutput) PublisherId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationResourcePropertiesInvokeResponseOfferDetail) *string { return v.PublisherId }).(pulumi.StringPtrOutput)
+}
+
+// SaaS Offer Status
+func (o OrganizationResourcePropertiesInvokeResponseOfferDetailOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationResourcePropertiesInvokeResponseOfferDetail) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Offer Plan Term unit
+func (o OrganizationResourcePropertiesInvokeResponseOfferDetailOutput) TermUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationResourcePropertiesInvokeResponseOfferDetail) *string { return v.TermUnit }).(pulumi.StringPtrOutput)
+}
+
+// Subscriber detail
+type OrganizationResourcePropertiesInvokeResponseUserDetail struct {
+	// Email address
+	EmailAddress *string `pulumi:"emailAddress"`
+	// First name
+	FirstName *string `pulumi:"firstName"`
+	// Last name
+	LastName *string `pulumi:"lastName"`
+}
+
+// OrganizationResourcePropertiesInvokeResponseUserDetailInput is an input type that accepts OrganizationResourcePropertiesInvokeResponseUserDetailArgs and OrganizationResourcePropertiesInvokeResponseUserDetailOutput values.
+// You can construct a concrete instance of `OrganizationResourcePropertiesInvokeResponseUserDetailInput` via:
+//
+//          OrganizationResourcePropertiesInvokeResponseUserDetailArgs{...}
+type OrganizationResourcePropertiesInvokeResponseUserDetailInput interface {
+	pulumi.Input
+
+	ToOrganizationResourcePropertiesInvokeResponseUserDetailOutput() OrganizationResourcePropertiesInvokeResponseUserDetailOutput
+	ToOrganizationResourcePropertiesInvokeResponseUserDetailOutputWithContext(context.Context) OrganizationResourcePropertiesInvokeResponseUserDetailOutput
+}
+
+// Subscriber detail
+type OrganizationResourcePropertiesInvokeResponseUserDetailArgs struct {
+	// Email address
+	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
+	// First name
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// Last name
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+}
+
+func (OrganizationResourcePropertiesInvokeResponseUserDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationResourcePropertiesInvokeResponseUserDetail)(nil)).Elem()
+}
+
+func (i OrganizationResourcePropertiesInvokeResponseUserDetailArgs) ToOrganizationResourcePropertiesInvokeResponseUserDetailOutput() OrganizationResourcePropertiesInvokeResponseUserDetailOutput {
+	return i.ToOrganizationResourcePropertiesInvokeResponseUserDetailOutputWithContext(context.Background())
+}
+
+func (i OrganizationResourcePropertiesInvokeResponseUserDetailArgs) ToOrganizationResourcePropertiesInvokeResponseUserDetailOutputWithContext(ctx context.Context) OrganizationResourcePropertiesInvokeResponseUserDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationResourcePropertiesInvokeResponseUserDetailOutput)
+}
+
+// Subscriber detail
+type OrganizationResourcePropertiesInvokeResponseUserDetailOutput struct{ *pulumi.OutputState }
+
+func (OrganizationResourcePropertiesInvokeResponseUserDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationResourcePropertiesInvokeResponseUserDetail)(nil)).Elem()
+}
+
+func (o OrganizationResourcePropertiesInvokeResponseUserDetailOutput) ToOrganizationResourcePropertiesInvokeResponseUserDetailOutput() OrganizationResourcePropertiesInvokeResponseUserDetailOutput {
+	return o
+}
+
+func (o OrganizationResourcePropertiesInvokeResponseUserDetailOutput) ToOrganizationResourcePropertiesInvokeResponseUserDetailOutputWithContext(ctx context.Context) OrganizationResourcePropertiesInvokeResponseUserDetailOutput {
+	return o
+}
+
+// Email address
+func (o OrganizationResourcePropertiesInvokeResponseUserDetailOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationResourcePropertiesInvokeResponseUserDetail) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
+}
+
+// First name
+func (o OrganizationResourcePropertiesInvokeResponseUserDetailOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationResourcePropertiesInvokeResponseUserDetail) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Last name
+func (o OrganizationResourcePropertiesInvokeResponseUserDetailOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationResourcePropertiesInvokeResponseUserDetail) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// Confluent offer detail
 type OrganizationResourcePropertiesOfferDetail struct {
 	// Offer Id
 	Id *string `pulumi:"id"`
@@ -819,6 +992,8 @@ func (o OrganizationResourcePropertiesUserDetailPtrOutput) LastName() pulumi.Str
 }
 
 func init() {
+	pulumi.RegisterOutputType(OrganizationResourcePropertiesInvokeResponseOfferDetailOutput{})
+	pulumi.RegisterOutputType(OrganizationResourcePropertiesInvokeResponseUserDetailOutput{})
 	pulumi.RegisterOutputType(OrganizationResourcePropertiesOfferDetailOutput{})
 	pulumi.RegisterOutputType(OrganizationResourcePropertiesOfferDetailPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationResourcePropertiesResponseOfferDetailOutput{})

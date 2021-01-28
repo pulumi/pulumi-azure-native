@@ -34,7 +34,7 @@ type LookupOrganizationResult struct {
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Confluent offer detail
-	OfferDetail *OrganizationResourcePropertiesResponseOfferDetail `pulumi:"offerDetail"`
+	OfferDetail *OrganizationResourcePropertiesInvokeResponseOfferDetail `pulumi:"offerDetail"`
 	// Id of the Confluent organization.
 	OrganizationId string `pulumi:"organizationId"`
 	// Provision states for confluent RP
@@ -46,5 +46,5 @@ type LookupOrganizationResult struct {
 	// The type of the resource.
 	Type string `pulumi:"type"`
 	// Subscriber detail
-	UserDetail *OrganizationResourcePropertiesResponseUserDetail `pulumi:"userDetail"`
+	UserDetail *OrganizationResourcePropertiesInvokeResponseUserDetail `pulumi:"userDetail"`
 }

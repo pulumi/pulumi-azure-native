@@ -28,5 +28,5 @@ type ListClusterStreamingJobsResult struct {
 	// The URL to fetch the next set of streaming jobs.
 	NextLink string `pulumi:"nextLink"`
 	// A list of streaming jobs.
-	Value []ClusterJobResponse `pulumi:"value"`
+	Value []ClusterJobInvokeResponse `pulumi:"value"`
 }

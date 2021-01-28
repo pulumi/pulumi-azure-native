@@ -34,9 +34,9 @@ type LookupIotHubResourceResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// IotHub properties
-	Properties IotHubPropertiesResponse `pulumi:"properties"`
+	Properties IotHubPropertiesInvokeResponse `pulumi:"properties"`
 	// IotHub SKU info
-	Sku IotHubSkuInfoResponse `pulumi:"sku"`
+	Sku IotHubSkuInfoInvokeResponse `pulumi:"sku"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.

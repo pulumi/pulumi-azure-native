@@ -34,9 +34,9 @@ type LookupBlobInventoryPolicyResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The storage account blob inventory policy object. It is composed of policy rules.
-	Policy BlobInventoryPolicySchemaResponse `pulumi:"policy"`
+	Policy BlobInventoryPolicySchemaInvokeResponse `pulumi:"policy"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

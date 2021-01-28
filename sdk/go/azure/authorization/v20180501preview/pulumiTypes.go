@@ -120,6 +120,151 @@ func (o AccessReviewInstanceArrayOutput) Index(i pulumi.IntInput) AccessReviewIn
 }
 
 // Access Review Instance.
+type AccessReviewInstanceInvokeResponse struct {
+	// The DateTime when the review instance is scheduled to end.
+	EndDateTime *string `pulumi:"endDateTime"`
+	// The access review instance id.
+	Id string `pulumi:"id"`
+	// The access review instance name.
+	Name string `pulumi:"name"`
+	// The DateTime when the review instance is scheduled to be start.
+	StartDateTime *string `pulumi:"startDateTime"`
+	// This read-only field specifies the status of an access review instance.
+	Status string `pulumi:"status"`
+	// The resource type.
+	Type string `pulumi:"type"`
+}
+
+// AccessReviewInstanceInvokeResponseInput is an input type that accepts AccessReviewInstanceInvokeResponseArgs and AccessReviewInstanceInvokeResponseOutput values.
+// You can construct a concrete instance of `AccessReviewInstanceInvokeResponseInput` via:
+//
+//          AccessReviewInstanceInvokeResponseArgs{...}
+type AccessReviewInstanceInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAccessReviewInstanceInvokeResponseOutput() AccessReviewInstanceInvokeResponseOutput
+	ToAccessReviewInstanceInvokeResponseOutputWithContext(context.Context) AccessReviewInstanceInvokeResponseOutput
+}
+
+// Access Review Instance.
+type AccessReviewInstanceInvokeResponseArgs struct {
+	// The DateTime when the review instance is scheduled to end.
+	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
+	// The access review instance id.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The access review instance name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The DateTime when the review instance is scheduled to be start.
+	StartDateTime pulumi.StringPtrInput `pulumi:"startDateTime"`
+	// This read-only field specifies the status of an access review instance.
+	Status pulumi.StringInput `pulumi:"status"`
+	// The resource type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccessReviewInstanceInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewInstanceInvokeResponse)(nil)).Elem()
+}
+
+func (i AccessReviewInstanceInvokeResponseArgs) ToAccessReviewInstanceInvokeResponseOutput() AccessReviewInstanceInvokeResponseOutput {
+	return i.ToAccessReviewInstanceInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AccessReviewInstanceInvokeResponseArgs) ToAccessReviewInstanceInvokeResponseOutputWithContext(ctx context.Context) AccessReviewInstanceInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewInstanceInvokeResponseOutput)
+}
+
+// AccessReviewInstanceInvokeResponseArrayInput is an input type that accepts AccessReviewInstanceInvokeResponseArray and AccessReviewInstanceInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AccessReviewInstanceInvokeResponseArrayInput` via:
+//
+//          AccessReviewInstanceInvokeResponseArray{ AccessReviewInstanceInvokeResponseArgs{...} }
+type AccessReviewInstanceInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAccessReviewInstanceInvokeResponseArrayOutput() AccessReviewInstanceInvokeResponseArrayOutput
+	ToAccessReviewInstanceInvokeResponseArrayOutputWithContext(context.Context) AccessReviewInstanceInvokeResponseArrayOutput
+}
+
+type AccessReviewInstanceInvokeResponseArray []AccessReviewInstanceInvokeResponseInput
+
+func (AccessReviewInstanceInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessReviewInstanceInvokeResponse)(nil)).Elem()
+}
+
+func (i AccessReviewInstanceInvokeResponseArray) ToAccessReviewInstanceInvokeResponseArrayOutput() AccessReviewInstanceInvokeResponseArrayOutput {
+	return i.ToAccessReviewInstanceInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AccessReviewInstanceInvokeResponseArray) ToAccessReviewInstanceInvokeResponseArrayOutputWithContext(ctx context.Context) AccessReviewInstanceInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewInstanceInvokeResponseArrayOutput)
+}
+
+// Access Review Instance.
+type AccessReviewInstanceInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewInstanceInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewInstanceInvokeResponse)(nil)).Elem()
+}
+
+func (o AccessReviewInstanceInvokeResponseOutput) ToAccessReviewInstanceInvokeResponseOutput() AccessReviewInstanceInvokeResponseOutput {
+	return o
+}
+
+func (o AccessReviewInstanceInvokeResponseOutput) ToAccessReviewInstanceInvokeResponseOutputWithContext(ctx context.Context) AccessReviewInstanceInvokeResponseOutput {
+	return o
+}
+
+// The DateTime when the review instance is scheduled to end.
+func (o AccessReviewInstanceInvokeResponseOutput) EndDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewInstanceInvokeResponse) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
+}
+
+// The access review instance id.
+func (o AccessReviewInstanceInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewInstanceInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The access review instance name.
+func (o AccessReviewInstanceInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewInstanceInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The DateTime when the review instance is scheduled to be start.
+func (o AccessReviewInstanceInvokeResponseOutput) StartDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewInstanceInvokeResponse) *string { return v.StartDateTime }).(pulumi.StringPtrOutput)
+}
+
+// This read-only field specifies the status of an access review instance.
+func (o AccessReviewInstanceInvokeResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewInstanceInvokeResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o AccessReviewInstanceInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewInstanceInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccessReviewInstanceInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewInstanceInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessReviewInstanceInvokeResponse)(nil)).Elem()
+}
+
+func (o AccessReviewInstanceInvokeResponseArrayOutput) ToAccessReviewInstanceInvokeResponseArrayOutput() AccessReviewInstanceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AccessReviewInstanceInvokeResponseArrayOutput) ToAccessReviewInstanceInvokeResponseArrayOutputWithContext(ctx context.Context) AccessReviewInstanceInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AccessReviewInstanceInvokeResponseArrayOutput) Index(i pulumi.IntInput) AccessReviewInstanceInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewInstanceInvokeResponse {
+		return vs[0].([]AccessReviewInstanceInvokeResponse)[vs[1].(int)]
+	}).(AccessReviewInstanceInvokeResponseOutput)
+}
+
+// Access Review Instance.
 type AccessReviewInstanceResponse struct {
 	// The DateTime when the review instance is scheduled to end.
 	EndDateTime *string `pulumi:"endDateTime"`
@@ -365,6 +510,115 @@ func (o AccessReviewReviewerArrayOutput) Index(i pulumi.IntInput) AccessReviewRe
 }
 
 // Descriptor for what needs to be reviewed
+type AccessReviewReviewerInvokeResponse struct {
+	// The id of the reviewer(user/servicePrincipal)
+	PrincipalId *string `pulumi:"principalId"`
+	// The identity type : user/servicePrincipal
+	PrincipalType string `pulumi:"principalType"`
+}
+
+// AccessReviewReviewerInvokeResponseInput is an input type that accepts AccessReviewReviewerInvokeResponseArgs and AccessReviewReviewerInvokeResponseOutput values.
+// You can construct a concrete instance of `AccessReviewReviewerInvokeResponseInput` via:
+//
+//          AccessReviewReviewerInvokeResponseArgs{...}
+type AccessReviewReviewerInvokeResponseInput interface {
+	pulumi.Input
+
+	ToAccessReviewReviewerInvokeResponseOutput() AccessReviewReviewerInvokeResponseOutput
+	ToAccessReviewReviewerInvokeResponseOutputWithContext(context.Context) AccessReviewReviewerInvokeResponseOutput
+}
+
+// Descriptor for what needs to be reviewed
+type AccessReviewReviewerInvokeResponseArgs struct {
+	// The id of the reviewer(user/servicePrincipal)
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The identity type : user/servicePrincipal
+	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+}
+
+func (AccessReviewReviewerInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewReviewerInvokeResponse)(nil)).Elem()
+}
+
+func (i AccessReviewReviewerInvokeResponseArgs) ToAccessReviewReviewerInvokeResponseOutput() AccessReviewReviewerInvokeResponseOutput {
+	return i.ToAccessReviewReviewerInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i AccessReviewReviewerInvokeResponseArgs) ToAccessReviewReviewerInvokeResponseOutputWithContext(ctx context.Context) AccessReviewReviewerInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewReviewerInvokeResponseOutput)
+}
+
+// AccessReviewReviewerInvokeResponseArrayInput is an input type that accepts AccessReviewReviewerInvokeResponseArray and AccessReviewReviewerInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `AccessReviewReviewerInvokeResponseArrayInput` via:
+//
+//          AccessReviewReviewerInvokeResponseArray{ AccessReviewReviewerInvokeResponseArgs{...} }
+type AccessReviewReviewerInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToAccessReviewReviewerInvokeResponseArrayOutput() AccessReviewReviewerInvokeResponseArrayOutput
+	ToAccessReviewReviewerInvokeResponseArrayOutputWithContext(context.Context) AccessReviewReviewerInvokeResponseArrayOutput
+}
+
+type AccessReviewReviewerInvokeResponseArray []AccessReviewReviewerInvokeResponseInput
+
+func (AccessReviewReviewerInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessReviewReviewerInvokeResponse)(nil)).Elem()
+}
+
+func (i AccessReviewReviewerInvokeResponseArray) ToAccessReviewReviewerInvokeResponseArrayOutput() AccessReviewReviewerInvokeResponseArrayOutput {
+	return i.ToAccessReviewReviewerInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AccessReviewReviewerInvokeResponseArray) ToAccessReviewReviewerInvokeResponseArrayOutputWithContext(ctx context.Context) AccessReviewReviewerInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewReviewerInvokeResponseArrayOutput)
+}
+
+// Descriptor for what needs to be reviewed
+type AccessReviewReviewerInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewReviewerInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessReviewReviewerInvokeResponse)(nil)).Elem()
+}
+
+func (o AccessReviewReviewerInvokeResponseOutput) ToAccessReviewReviewerInvokeResponseOutput() AccessReviewReviewerInvokeResponseOutput {
+	return o
+}
+
+func (o AccessReviewReviewerInvokeResponseOutput) ToAccessReviewReviewerInvokeResponseOutputWithContext(ctx context.Context) AccessReviewReviewerInvokeResponseOutput {
+	return o
+}
+
+// The id of the reviewer(user/servicePrincipal)
+func (o AccessReviewReviewerInvokeResponseOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewReviewerInvokeResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The identity type : user/servicePrincipal
+func (o AccessReviewReviewerInvokeResponseOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewReviewerInvokeResponse) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+type AccessReviewReviewerInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessReviewReviewerInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessReviewReviewerInvokeResponse)(nil)).Elem()
+}
+
+func (o AccessReviewReviewerInvokeResponseArrayOutput) ToAccessReviewReviewerInvokeResponseArrayOutput() AccessReviewReviewerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AccessReviewReviewerInvokeResponseArrayOutput) ToAccessReviewReviewerInvokeResponseArrayOutputWithContext(ctx context.Context) AccessReviewReviewerInvokeResponseArrayOutput {
+	return o
+}
+
+func (o AccessReviewReviewerInvokeResponseArrayOutput) Index(i pulumi.IntInput) AccessReviewReviewerInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessReviewReviewerInvokeResponse {
+		return vs[0].([]AccessReviewReviewerInvokeResponse)[vs[1].(int)]
+	}).(AccessReviewReviewerInvokeResponseOutput)
+}
+
+// Descriptor for what needs to be reviewed
 type AccessReviewReviewerResponse struct {
 	// The id of the reviewer(user/servicePrincipal)
 	PrincipalId *string `pulumi:"principalId"`
@@ -476,10 +730,14 @@ func (o AccessReviewReviewerResponseArrayOutput) Index(i pulumi.IntInput) Access
 func init() {
 	pulumi.RegisterOutputType(AccessReviewInstanceOutput{})
 	pulumi.RegisterOutputType(AccessReviewInstanceArrayOutput{})
+	pulumi.RegisterOutputType(AccessReviewInstanceInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AccessReviewInstanceInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AccessReviewInstanceResponseOutput{})
 	pulumi.RegisterOutputType(AccessReviewInstanceResponseArrayOutput{})
 	pulumi.RegisterOutputType(AccessReviewReviewerOutput{})
 	pulumi.RegisterOutputType(AccessReviewReviewerArrayOutput{})
+	pulumi.RegisterOutputType(AccessReviewReviewerInvokeResponseOutput{})
+	pulumi.RegisterOutputType(AccessReviewReviewerInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(AccessReviewReviewerResponseOutput{})
 	pulumi.RegisterOutputType(AccessReviewReviewerResponseArrayOutput{})
 }

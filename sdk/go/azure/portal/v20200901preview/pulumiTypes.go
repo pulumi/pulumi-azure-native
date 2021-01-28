@@ -129,6 +129,124 @@ func (o DashboardLensArrayOutput) Index(i pulumi.IntInput) DashboardLensOutput {
 }
 
 // A dashboard lens.
+type DashboardLensInvokeResponse struct {
+	// The dashboard len's metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
+	// The lens order.
+	Order int `pulumi:"order"`
+	// The dashboard parts.
+	Parts []DashboardPartsInvokeResponse `pulumi:"parts"`
+}
+
+// DashboardLensInvokeResponseInput is an input type that accepts DashboardLensInvokeResponseArgs and DashboardLensInvokeResponseOutput values.
+// You can construct a concrete instance of `DashboardLensInvokeResponseInput` via:
+//
+//          DashboardLensInvokeResponseArgs{...}
+type DashboardLensInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDashboardLensInvokeResponseOutput() DashboardLensInvokeResponseOutput
+	ToDashboardLensInvokeResponseOutputWithContext(context.Context) DashboardLensInvokeResponseOutput
+}
+
+// A dashboard lens.
+type DashboardLensInvokeResponseArgs struct {
+	// The dashboard len's metadata.
+	Metadata pulumi.MapInput `pulumi:"metadata"`
+	// The lens order.
+	Order pulumi.IntInput `pulumi:"order"`
+	// The dashboard parts.
+	Parts DashboardPartsInvokeResponseArrayInput `pulumi:"parts"`
+}
+
+func (DashboardLensInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardLensInvokeResponse)(nil)).Elem()
+}
+
+func (i DashboardLensInvokeResponseArgs) ToDashboardLensInvokeResponseOutput() DashboardLensInvokeResponseOutput {
+	return i.ToDashboardLensInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DashboardLensInvokeResponseArgs) ToDashboardLensInvokeResponseOutputWithContext(ctx context.Context) DashboardLensInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensInvokeResponseOutput)
+}
+
+// DashboardLensInvokeResponseArrayInput is an input type that accepts DashboardLensInvokeResponseArray and DashboardLensInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DashboardLensInvokeResponseArrayInput` via:
+//
+//          DashboardLensInvokeResponseArray{ DashboardLensInvokeResponseArgs{...} }
+type DashboardLensInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDashboardLensInvokeResponseArrayOutput() DashboardLensInvokeResponseArrayOutput
+	ToDashboardLensInvokeResponseArrayOutputWithContext(context.Context) DashboardLensInvokeResponseArrayOutput
+}
+
+type DashboardLensInvokeResponseArray []DashboardLensInvokeResponseInput
+
+func (DashboardLensInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardLensInvokeResponse)(nil)).Elem()
+}
+
+func (i DashboardLensInvokeResponseArray) ToDashboardLensInvokeResponseArrayOutput() DashboardLensInvokeResponseArrayOutput {
+	return i.ToDashboardLensInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardLensInvokeResponseArray) ToDashboardLensInvokeResponseArrayOutputWithContext(ctx context.Context) DashboardLensInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensInvokeResponseArrayOutput)
+}
+
+// A dashboard lens.
+type DashboardLensInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DashboardLensInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardLensInvokeResponse)(nil)).Elem()
+}
+
+func (o DashboardLensInvokeResponseOutput) ToDashboardLensInvokeResponseOutput() DashboardLensInvokeResponseOutput {
+	return o
+}
+
+func (o DashboardLensInvokeResponseOutput) ToDashboardLensInvokeResponseOutputWithContext(ctx context.Context) DashboardLensInvokeResponseOutput {
+	return o
+}
+
+// The dashboard len's metadata.
+func (o DashboardLensInvokeResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardLensInvokeResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+}
+
+// The lens order.
+func (o DashboardLensInvokeResponseOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardLensInvokeResponse) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// The dashboard parts.
+func (o DashboardLensInvokeResponseOutput) Parts() DashboardPartsInvokeResponseArrayOutput {
+	return o.ApplyT(func(v DashboardLensInvokeResponse) []DashboardPartsInvokeResponse { return v.Parts }).(DashboardPartsInvokeResponseArrayOutput)
+}
+
+type DashboardLensInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardLensInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardLensInvokeResponse)(nil)).Elem()
+}
+
+func (o DashboardLensInvokeResponseArrayOutput) ToDashboardLensInvokeResponseArrayOutput() DashboardLensInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DashboardLensInvokeResponseArrayOutput) ToDashboardLensInvokeResponseArrayOutputWithContext(ctx context.Context) DashboardLensInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DashboardLensInvokeResponseArrayOutput) Index(i pulumi.IntInput) DashboardLensInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardLensInvokeResponse {
+		return vs[0].([]DashboardLensInvokeResponse)[vs[1].(int)]
+	}).(DashboardLensInvokeResponseOutput)
+}
+
+// A dashboard lens.
 type DashboardLensResponse struct {
 	// The dashboard len's metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
@@ -353,6 +471,206 @@ func (o DashboardPartsArrayOutput) Index(i pulumi.IntInput) DashboardPartsOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardParts {
 		return vs[0].([]DashboardParts)[vs[1].(int)]
 	}).(DashboardPartsOutput)
+}
+
+// A dashboard part.
+type DashboardPartsInvokeResponse struct {
+	// The dashboard part's metadata.
+	Metadata *MarkdownPartMetadataInvokeResponse `pulumi:"metadata"`
+	// The dashboard's part position.
+	Position DashboardPartsInvokeResponsePosition `pulumi:"position"`
+}
+
+// DashboardPartsInvokeResponseInput is an input type that accepts DashboardPartsInvokeResponseArgs and DashboardPartsInvokeResponseOutput values.
+// You can construct a concrete instance of `DashboardPartsInvokeResponseInput` via:
+//
+//          DashboardPartsInvokeResponseArgs{...}
+type DashboardPartsInvokeResponseInput interface {
+	pulumi.Input
+
+	ToDashboardPartsInvokeResponseOutput() DashboardPartsInvokeResponseOutput
+	ToDashboardPartsInvokeResponseOutputWithContext(context.Context) DashboardPartsInvokeResponseOutput
+}
+
+// A dashboard part.
+type DashboardPartsInvokeResponseArgs struct {
+	// The dashboard part's metadata.
+	Metadata MarkdownPartMetadataInvokeResponsePtrInput `pulumi:"metadata"`
+	// The dashboard's part position.
+	Position DashboardPartsInvokeResponsePositionInput `pulumi:"position"`
+}
+
+func (DashboardPartsInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPartsInvokeResponse)(nil)).Elem()
+}
+
+func (i DashboardPartsInvokeResponseArgs) ToDashboardPartsInvokeResponseOutput() DashboardPartsInvokeResponseOutput {
+	return i.ToDashboardPartsInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i DashboardPartsInvokeResponseArgs) ToDashboardPartsInvokeResponseOutputWithContext(ctx context.Context) DashboardPartsInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsInvokeResponseOutput)
+}
+
+// DashboardPartsInvokeResponseArrayInput is an input type that accepts DashboardPartsInvokeResponseArray and DashboardPartsInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `DashboardPartsInvokeResponseArrayInput` via:
+//
+//          DashboardPartsInvokeResponseArray{ DashboardPartsInvokeResponseArgs{...} }
+type DashboardPartsInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToDashboardPartsInvokeResponseArrayOutput() DashboardPartsInvokeResponseArrayOutput
+	ToDashboardPartsInvokeResponseArrayOutputWithContext(context.Context) DashboardPartsInvokeResponseArrayOutput
+}
+
+type DashboardPartsInvokeResponseArray []DashboardPartsInvokeResponseInput
+
+func (DashboardPartsInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardPartsInvokeResponse)(nil)).Elem()
+}
+
+func (i DashboardPartsInvokeResponseArray) ToDashboardPartsInvokeResponseArrayOutput() DashboardPartsInvokeResponseArrayOutput {
+	return i.ToDashboardPartsInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardPartsInvokeResponseArray) ToDashboardPartsInvokeResponseArrayOutputWithContext(ctx context.Context) DashboardPartsInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsInvokeResponseArrayOutput)
+}
+
+// A dashboard part.
+type DashboardPartsInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (DashboardPartsInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPartsInvokeResponse)(nil)).Elem()
+}
+
+func (o DashboardPartsInvokeResponseOutput) ToDashboardPartsInvokeResponseOutput() DashboardPartsInvokeResponseOutput {
+	return o
+}
+
+func (o DashboardPartsInvokeResponseOutput) ToDashboardPartsInvokeResponseOutputWithContext(ctx context.Context) DashboardPartsInvokeResponseOutput {
+	return o
+}
+
+// The dashboard part's metadata.
+func (o DashboardPartsInvokeResponseOutput) Metadata() MarkdownPartMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v DashboardPartsInvokeResponse) *MarkdownPartMetadataInvokeResponse { return v.Metadata }).(MarkdownPartMetadataInvokeResponsePtrOutput)
+}
+
+// The dashboard's part position.
+func (o DashboardPartsInvokeResponseOutput) Position() DashboardPartsInvokeResponsePositionOutput {
+	return o.ApplyT(func(v DashboardPartsInvokeResponse) DashboardPartsInvokeResponsePosition { return v.Position }).(DashboardPartsInvokeResponsePositionOutput)
+}
+
+type DashboardPartsInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardPartsInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardPartsInvokeResponse)(nil)).Elem()
+}
+
+func (o DashboardPartsInvokeResponseArrayOutput) ToDashboardPartsInvokeResponseArrayOutput() DashboardPartsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DashboardPartsInvokeResponseArrayOutput) ToDashboardPartsInvokeResponseArrayOutputWithContext(ctx context.Context) DashboardPartsInvokeResponseArrayOutput {
+	return o
+}
+
+func (o DashboardPartsInvokeResponseArrayOutput) Index(i pulumi.IntInput) DashboardPartsInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardPartsInvokeResponse {
+		return vs[0].([]DashboardPartsInvokeResponse)[vs[1].(int)]
+	}).(DashboardPartsInvokeResponseOutput)
+}
+
+// The dashboard's part position.
+type DashboardPartsInvokeResponsePosition struct {
+	// The dashboard's part column span.
+	ColSpan int `pulumi:"colSpan"`
+	// The dashboard part's metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
+	// The dashboard's part row span.
+	RowSpan int `pulumi:"rowSpan"`
+	// The dashboard's part x coordinate.
+	X int `pulumi:"x"`
+	// The dashboard's part y coordinate.
+	Y int `pulumi:"y"`
+}
+
+// DashboardPartsInvokeResponsePositionInput is an input type that accepts DashboardPartsInvokeResponsePositionArgs and DashboardPartsInvokeResponsePositionOutput values.
+// You can construct a concrete instance of `DashboardPartsInvokeResponsePositionInput` via:
+//
+//          DashboardPartsInvokeResponsePositionArgs{...}
+type DashboardPartsInvokeResponsePositionInput interface {
+	pulumi.Input
+
+	ToDashboardPartsInvokeResponsePositionOutput() DashboardPartsInvokeResponsePositionOutput
+	ToDashboardPartsInvokeResponsePositionOutputWithContext(context.Context) DashboardPartsInvokeResponsePositionOutput
+}
+
+// The dashboard's part position.
+type DashboardPartsInvokeResponsePositionArgs struct {
+	// The dashboard's part column span.
+	ColSpan pulumi.IntInput `pulumi:"colSpan"`
+	// The dashboard part's metadata.
+	Metadata pulumi.MapInput `pulumi:"metadata"`
+	// The dashboard's part row span.
+	RowSpan pulumi.IntInput `pulumi:"rowSpan"`
+	// The dashboard's part x coordinate.
+	X pulumi.IntInput `pulumi:"x"`
+	// The dashboard's part y coordinate.
+	Y pulumi.IntInput `pulumi:"y"`
+}
+
+func (DashboardPartsInvokeResponsePositionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPartsInvokeResponsePosition)(nil)).Elem()
+}
+
+func (i DashboardPartsInvokeResponsePositionArgs) ToDashboardPartsInvokeResponsePositionOutput() DashboardPartsInvokeResponsePositionOutput {
+	return i.ToDashboardPartsInvokeResponsePositionOutputWithContext(context.Background())
+}
+
+func (i DashboardPartsInvokeResponsePositionArgs) ToDashboardPartsInvokeResponsePositionOutputWithContext(ctx context.Context) DashboardPartsInvokeResponsePositionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsInvokeResponsePositionOutput)
+}
+
+// The dashboard's part position.
+type DashboardPartsInvokeResponsePositionOutput struct{ *pulumi.OutputState }
+
+func (DashboardPartsInvokeResponsePositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPartsInvokeResponsePosition)(nil)).Elem()
+}
+
+func (o DashboardPartsInvokeResponsePositionOutput) ToDashboardPartsInvokeResponsePositionOutput() DashboardPartsInvokeResponsePositionOutput {
+	return o
+}
+
+func (o DashboardPartsInvokeResponsePositionOutput) ToDashboardPartsInvokeResponsePositionOutputWithContext(ctx context.Context) DashboardPartsInvokeResponsePositionOutput {
+	return o
+}
+
+// The dashboard's part column span.
+func (o DashboardPartsInvokeResponsePositionOutput) ColSpan() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardPartsInvokeResponsePosition) int { return v.ColSpan }).(pulumi.IntOutput)
+}
+
+// The dashboard part's metadata.
+func (o DashboardPartsInvokeResponsePositionOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v DashboardPartsInvokeResponsePosition) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+}
+
+// The dashboard's part row span.
+func (o DashboardPartsInvokeResponsePositionOutput) RowSpan() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardPartsInvokeResponsePosition) int { return v.RowSpan }).(pulumi.IntOutput)
+}
+
+// The dashboard's part x coordinate.
+func (o DashboardPartsInvokeResponsePositionOutput) X() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardPartsInvokeResponsePosition) int { return v.X }).(pulumi.IntOutput)
+}
+
+// The dashboard's part y coordinate.
+func (o DashboardPartsInvokeResponsePositionOutput) Y() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardPartsInvokeResponsePosition) int { return v.Y }).(pulumi.IntOutput)
 }
 
 // The dashboard's part position.
@@ -957,6 +1275,460 @@ func (o MarkdownPartMetadataContentPtrOutput) Settings() MarkdownPartMetadataSet
 }
 
 // Markdown part metadata.
+type MarkdownPartMetadataInvokeResponse struct {
+	// Input to dashboard part.
+	Inputs []interface{} `pulumi:"inputs"`
+	// Markdown part settings.
+	Settings *MarkdownPartMetadataInvokeResponseSettings `pulumi:"settings"`
+	// The type of dashboard part.
+	// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
+	Type string `pulumi:"type"`
+}
+
+// MarkdownPartMetadataInvokeResponseInput is an input type that accepts MarkdownPartMetadataInvokeResponseArgs and MarkdownPartMetadataInvokeResponseOutput values.
+// You can construct a concrete instance of `MarkdownPartMetadataInvokeResponseInput` via:
+//
+//          MarkdownPartMetadataInvokeResponseArgs{...}
+type MarkdownPartMetadataInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMarkdownPartMetadataInvokeResponseOutput() MarkdownPartMetadataInvokeResponseOutput
+	ToMarkdownPartMetadataInvokeResponseOutputWithContext(context.Context) MarkdownPartMetadataInvokeResponseOutput
+}
+
+// Markdown part metadata.
+type MarkdownPartMetadataInvokeResponseArgs struct {
+	// Input to dashboard part.
+	Inputs pulumi.ArrayInput `pulumi:"inputs"`
+	// Markdown part settings.
+	Settings MarkdownPartMetadataInvokeResponseSettingsPtrInput `pulumi:"settings"`
+	// The type of dashboard part.
+	// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MarkdownPartMetadataInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MarkdownPartMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i MarkdownPartMetadataInvokeResponseArgs) ToMarkdownPartMetadataInvokeResponseOutput() MarkdownPartMetadataInvokeResponseOutput {
+	return i.ToMarkdownPartMetadataInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MarkdownPartMetadataInvokeResponseArgs) ToMarkdownPartMetadataInvokeResponseOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataInvokeResponseOutput)
+}
+
+func (i MarkdownPartMetadataInvokeResponseArgs) ToMarkdownPartMetadataInvokeResponsePtrOutput() MarkdownPartMetadataInvokeResponsePtrOutput {
+	return i.ToMarkdownPartMetadataInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MarkdownPartMetadataInvokeResponseArgs) ToMarkdownPartMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataInvokeResponseOutput).ToMarkdownPartMetadataInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// MarkdownPartMetadataInvokeResponsePtrInput is an input type that accepts MarkdownPartMetadataInvokeResponseArgs, MarkdownPartMetadataInvokeResponsePtr and MarkdownPartMetadataInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `MarkdownPartMetadataInvokeResponsePtrInput` via:
+//
+//          MarkdownPartMetadataInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MarkdownPartMetadataInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToMarkdownPartMetadataInvokeResponsePtrOutput() MarkdownPartMetadataInvokeResponsePtrOutput
+	ToMarkdownPartMetadataInvokeResponsePtrOutputWithContext(context.Context) MarkdownPartMetadataInvokeResponsePtrOutput
+}
+
+type markdownPartMetadataInvokeResponsePtrType MarkdownPartMetadataInvokeResponseArgs
+
+func MarkdownPartMetadataInvokeResponsePtr(v *MarkdownPartMetadataInvokeResponseArgs) MarkdownPartMetadataInvokeResponsePtrInput {
+	return (*markdownPartMetadataInvokeResponsePtrType)(v)
+}
+
+func (*markdownPartMetadataInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MarkdownPartMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (i *markdownPartMetadataInvokeResponsePtrType) ToMarkdownPartMetadataInvokeResponsePtrOutput() MarkdownPartMetadataInvokeResponsePtrOutput {
+	return i.ToMarkdownPartMetadataInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *markdownPartMetadataInvokeResponsePtrType) ToMarkdownPartMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataInvokeResponsePtrOutput)
+}
+
+// Markdown part metadata.
+type MarkdownPartMetadataInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MarkdownPartMetadataInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MarkdownPartMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (o MarkdownPartMetadataInvokeResponseOutput) ToMarkdownPartMetadataInvokeResponseOutput() MarkdownPartMetadataInvokeResponseOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponseOutput) ToMarkdownPartMetadataInvokeResponseOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponseOutput) ToMarkdownPartMetadataInvokeResponsePtrOutput() MarkdownPartMetadataInvokeResponsePtrOutput {
+	return o.ToMarkdownPartMetadataInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MarkdownPartMetadataInvokeResponseOutput) ToMarkdownPartMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponsePtrOutput {
+	return o.ApplyT(func(v MarkdownPartMetadataInvokeResponse) *MarkdownPartMetadataInvokeResponse {
+		return &v
+	}).(MarkdownPartMetadataInvokeResponsePtrOutput)
+}
+
+// Input to dashboard part.
+func (o MarkdownPartMetadataInvokeResponseOutput) Inputs() pulumi.ArrayOutput {
+	return o.ApplyT(func(v MarkdownPartMetadataInvokeResponse) []interface{} { return v.Inputs }).(pulumi.ArrayOutput)
+}
+
+// Markdown part settings.
+func (o MarkdownPartMetadataInvokeResponseOutput) Settings() MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return o.ApplyT(func(v MarkdownPartMetadataInvokeResponse) *MarkdownPartMetadataInvokeResponseSettings {
+		return v.Settings
+	}).(MarkdownPartMetadataInvokeResponseSettingsPtrOutput)
+}
+
+// The type of dashboard part.
+// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
+func (o MarkdownPartMetadataInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MarkdownPartMetadataInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type MarkdownPartMetadataInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MarkdownPartMetadataInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MarkdownPartMetadataInvokeResponse)(nil)).Elem()
+}
+
+func (o MarkdownPartMetadataInvokeResponsePtrOutput) ToMarkdownPartMetadataInvokeResponsePtrOutput() MarkdownPartMetadataInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponsePtrOutput) ToMarkdownPartMetadataInvokeResponsePtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponsePtrOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponsePtrOutput) Elem() MarkdownPartMetadataInvokeResponseOutput {
+	return o.ApplyT(func(v *MarkdownPartMetadataInvokeResponse) MarkdownPartMetadataInvokeResponse { return *v }).(MarkdownPartMetadataInvokeResponseOutput)
+}
+
+// Input to dashboard part.
+func (o MarkdownPartMetadataInvokeResponsePtrOutput) Inputs() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *MarkdownPartMetadataInvokeResponse) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Inputs
+	}).(pulumi.ArrayOutput)
+}
+
+// Markdown part settings.
+func (o MarkdownPartMetadataInvokeResponsePtrOutput) Settings() MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return o.ApplyT(func(v *MarkdownPartMetadataInvokeResponse) *MarkdownPartMetadataInvokeResponseSettings {
+		if v == nil {
+			return nil
+		}
+		return v.Settings
+	}).(MarkdownPartMetadataInvokeResponseSettingsPtrOutput)
+}
+
+// The type of dashboard part.
+// Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
+func (o MarkdownPartMetadataInvokeResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MarkdownPartMetadataInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of markdown part.
+type MarkdownPartMetadataInvokeResponseContent struct {
+	// The setting of the content of markdown part.
+	Settings *MarkdownPartMetadataInvokeResponseSettings `pulumi:"settings"`
+}
+
+// MarkdownPartMetadataInvokeResponseContentInput is an input type that accepts MarkdownPartMetadataInvokeResponseContentArgs and MarkdownPartMetadataInvokeResponseContentOutput values.
+// You can construct a concrete instance of `MarkdownPartMetadataInvokeResponseContentInput` via:
+//
+//          MarkdownPartMetadataInvokeResponseContentArgs{...}
+type MarkdownPartMetadataInvokeResponseContentInput interface {
+	pulumi.Input
+
+	ToMarkdownPartMetadataInvokeResponseContentOutput() MarkdownPartMetadataInvokeResponseContentOutput
+	ToMarkdownPartMetadataInvokeResponseContentOutputWithContext(context.Context) MarkdownPartMetadataInvokeResponseContentOutput
+}
+
+// The content of markdown part.
+type MarkdownPartMetadataInvokeResponseContentArgs struct {
+	// The setting of the content of markdown part.
+	Settings MarkdownPartMetadataInvokeResponseSettingsPtrInput `pulumi:"settings"`
+}
+
+func (MarkdownPartMetadataInvokeResponseContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MarkdownPartMetadataInvokeResponseContent)(nil)).Elem()
+}
+
+func (i MarkdownPartMetadataInvokeResponseContentArgs) ToMarkdownPartMetadataInvokeResponseContentOutput() MarkdownPartMetadataInvokeResponseContentOutput {
+	return i.ToMarkdownPartMetadataInvokeResponseContentOutputWithContext(context.Background())
+}
+
+func (i MarkdownPartMetadataInvokeResponseContentArgs) ToMarkdownPartMetadataInvokeResponseContentOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataInvokeResponseContentOutput)
+}
+
+func (i MarkdownPartMetadataInvokeResponseContentArgs) ToMarkdownPartMetadataInvokeResponseContentPtrOutput() MarkdownPartMetadataInvokeResponseContentPtrOutput {
+	return i.ToMarkdownPartMetadataInvokeResponseContentPtrOutputWithContext(context.Background())
+}
+
+func (i MarkdownPartMetadataInvokeResponseContentArgs) ToMarkdownPartMetadataInvokeResponseContentPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataInvokeResponseContentOutput).ToMarkdownPartMetadataInvokeResponseContentPtrOutputWithContext(ctx)
+}
+
+// MarkdownPartMetadataInvokeResponseContentPtrInput is an input type that accepts MarkdownPartMetadataInvokeResponseContentArgs, MarkdownPartMetadataInvokeResponseContentPtr and MarkdownPartMetadataInvokeResponseContentPtrOutput values.
+// You can construct a concrete instance of `MarkdownPartMetadataInvokeResponseContentPtrInput` via:
+//
+//          MarkdownPartMetadataInvokeResponseContentArgs{...}
+//
+//  or:
+//
+//          nil
+type MarkdownPartMetadataInvokeResponseContentPtrInput interface {
+	pulumi.Input
+
+	ToMarkdownPartMetadataInvokeResponseContentPtrOutput() MarkdownPartMetadataInvokeResponseContentPtrOutput
+	ToMarkdownPartMetadataInvokeResponseContentPtrOutputWithContext(context.Context) MarkdownPartMetadataInvokeResponseContentPtrOutput
+}
+
+type markdownPartMetadataInvokeResponseContentPtrType MarkdownPartMetadataInvokeResponseContentArgs
+
+func MarkdownPartMetadataInvokeResponseContentPtr(v *MarkdownPartMetadataInvokeResponseContentArgs) MarkdownPartMetadataInvokeResponseContentPtrInput {
+	return (*markdownPartMetadataInvokeResponseContentPtrType)(v)
+}
+
+func (*markdownPartMetadataInvokeResponseContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MarkdownPartMetadataInvokeResponseContent)(nil)).Elem()
+}
+
+func (i *markdownPartMetadataInvokeResponseContentPtrType) ToMarkdownPartMetadataInvokeResponseContentPtrOutput() MarkdownPartMetadataInvokeResponseContentPtrOutput {
+	return i.ToMarkdownPartMetadataInvokeResponseContentPtrOutputWithContext(context.Background())
+}
+
+func (i *markdownPartMetadataInvokeResponseContentPtrType) ToMarkdownPartMetadataInvokeResponseContentPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataInvokeResponseContentPtrOutput)
+}
+
+// The content of markdown part.
+type MarkdownPartMetadataInvokeResponseContentOutput struct{ *pulumi.OutputState }
+
+func (MarkdownPartMetadataInvokeResponseContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MarkdownPartMetadataInvokeResponseContent)(nil)).Elem()
+}
+
+func (o MarkdownPartMetadataInvokeResponseContentOutput) ToMarkdownPartMetadataInvokeResponseContentOutput() MarkdownPartMetadataInvokeResponseContentOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponseContentOutput) ToMarkdownPartMetadataInvokeResponseContentOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseContentOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponseContentOutput) ToMarkdownPartMetadataInvokeResponseContentPtrOutput() MarkdownPartMetadataInvokeResponseContentPtrOutput {
+	return o.ToMarkdownPartMetadataInvokeResponseContentPtrOutputWithContext(context.Background())
+}
+
+func (o MarkdownPartMetadataInvokeResponseContentOutput) ToMarkdownPartMetadataInvokeResponseContentPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseContentPtrOutput {
+	return o.ApplyT(func(v MarkdownPartMetadataInvokeResponseContent) *MarkdownPartMetadataInvokeResponseContent {
+		return &v
+	}).(MarkdownPartMetadataInvokeResponseContentPtrOutput)
+}
+
+// The setting of the content of markdown part.
+func (o MarkdownPartMetadataInvokeResponseContentOutput) Settings() MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return o.ApplyT(func(v MarkdownPartMetadataInvokeResponseContent) *MarkdownPartMetadataInvokeResponseSettings {
+		return v.Settings
+	}).(MarkdownPartMetadataInvokeResponseSettingsPtrOutput)
+}
+
+type MarkdownPartMetadataInvokeResponseContentPtrOutput struct{ *pulumi.OutputState }
+
+func (MarkdownPartMetadataInvokeResponseContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MarkdownPartMetadataInvokeResponseContent)(nil)).Elem()
+}
+
+func (o MarkdownPartMetadataInvokeResponseContentPtrOutput) ToMarkdownPartMetadataInvokeResponseContentPtrOutput() MarkdownPartMetadataInvokeResponseContentPtrOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponseContentPtrOutput) ToMarkdownPartMetadataInvokeResponseContentPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseContentPtrOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponseContentPtrOutput) Elem() MarkdownPartMetadataInvokeResponseContentOutput {
+	return o.ApplyT(func(v *MarkdownPartMetadataInvokeResponseContent) MarkdownPartMetadataInvokeResponseContent {
+		return *v
+	}).(MarkdownPartMetadataInvokeResponseContentOutput)
+}
+
+// The setting of the content of markdown part.
+func (o MarkdownPartMetadataInvokeResponseContentPtrOutput) Settings() MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return o.ApplyT(func(v *MarkdownPartMetadataInvokeResponseContent) *MarkdownPartMetadataInvokeResponseSettings {
+		if v == nil {
+			return nil
+		}
+		return v.Settings
+	}).(MarkdownPartMetadataInvokeResponseSettingsPtrOutput)
+}
+
+// Markdown part settings.
+type MarkdownPartMetadataInvokeResponseSettings struct {
+	// The content of markdown part.
+	Content *MarkdownPartMetadataInvokeResponseContent `pulumi:"content"`
+}
+
+// MarkdownPartMetadataInvokeResponseSettingsInput is an input type that accepts MarkdownPartMetadataInvokeResponseSettingsArgs and MarkdownPartMetadataInvokeResponseSettingsOutput values.
+// You can construct a concrete instance of `MarkdownPartMetadataInvokeResponseSettingsInput` via:
+//
+//          MarkdownPartMetadataInvokeResponseSettingsArgs{...}
+type MarkdownPartMetadataInvokeResponseSettingsInput interface {
+	pulumi.Input
+
+	ToMarkdownPartMetadataInvokeResponseSettingsOutput() MarkdownPartMetadataInvokeResponseSettingsOutput
+	ToMarkdownPartMetadataInvokeResponseSettingsOutputWithContext(context.Context) MarkdownPartMetadataInvokeResponseSettingsOutput
+}
+
+// Markdown part settings.
+type MarkdownPartMetadataInvokeResponseSettingsArgs struct {
+	// The content of markdown part.
+	Content MarkdownPartMetadataInvokeResponseContentPtrInput `pulumi:"content"`
+}
+
+func (MarkdownPartMetadataInvokeResponseSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MarkdownPartMetadataInvokeResponseSettings)(nil)).Elem()
+}
+
+func (i MarkdownPartMetadataInvokeResponseSettingsArgs) ToMarkdownPartMetadataInvokeResponseSettingsOutput() MarkdownPartMetadataInvokeResponseSettingsOutput {
+	return i.ToMarkdownPartMetadataInvokeResponseSettingsOutputWithContext(context.Background())
+}
+
+func (i MarkdownPartMetadataInvokeResponseSettingsArgs) ToMarkdownPartMetadataInvokeResponseSettingsOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataInvokeResponseSettingsOutput)
+}
+
+func (i MarkdownPartMetadataInvokeResponseSettingsArgs) ToMarkdownPartMetadataInvokeResponseSettingsPtrOutput() MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return i.ToMarkdownPartMetadataInvokeResponseSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MarkdownPartMetadataInvokeResponseSettingsArgs) ToMarkdownPartMetadataInvokeResponseSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataInvokeResponseSettingsOutput).ToMarkdownPartMetadataInvokeResponseSettingsPtrOutputWithContext(ctx)
+}
+
+// MarkdownPartMetadataInvokeResponseSettingsPtrInput is an input type that accepts MarkdownPartMetadataInvokeResponseSettingsArgs, MarkdownPartMetadataInvokeResponseSettingsPtr and MarkdownPartMetadataInvokeResponseSettingsPtrOutput values.
+// You can construct a concrete instance of `MarkdownPartMetadataInvokeResponseSettingsPtrInput` via:
+//
+//          MarkdownPartMetadataInvokeResponseSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type MarkdownPartMetadataInvokeResponseSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMarkdownPartMetadataInvokeResponseSettingsPtrOutput() MarkdownPartMetadataInvokeResponseSettingsPtrOutput
+	ToMarkdownPartMetadataInvokeResponseSettingsPtrOutputWithContext(context.Context) MarkdownPartMetadataInvokeResponseSettingsPtrOutput
+}
+
+type markdownPartMetadataInvokeResponseSettingsPtrType MarkdownPartMetadataInvokeResponseSettingsArgs
+
+func MarkdownPartMetadataInvokeResponseSettingsPtr(v *MarkdownPartMetadataInvokeResponseSettingsArgs) MarkdownPartMetadataInvokeResponseSettingsPtrInput {
+	return (*markdownPartMetadataInvokeResponseSettingsPtrType)(v)
+}
+
+func (*markdownPartMetadataInvokeResponseSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MarkdownPartMetadataInvokeResponseSettings)(nil)).Elem()
+}
+
+func (i *markdownPartMetadataInvokeResponseSettingsPtrType) ToMarkdownPartMetadataInvokeResponseSettingsPtrOutput() MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return i.ToMarkdownPartMetadataInvokeResponseSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *markdownPartMetadataInvokeResponseSettingsPtrType) ToMarkdownPartMetadataInvokeResponseSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MarkdownPartMetadataInvokeResponseSettingsPtrOutput)
+}
+
+// Markdown part settings.
+type MarkdownPartMetadataInvokeResponseSettingsOutput struct{ *pulumi.OutputState }
+
+func (MarkdownPartMetadataInvokeResponseSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MarkdownPartMetadataInvokeResponseSettings)(nil)).Elem()
+}
+
+func (o MarkdownPartMetadataInvokeResponseSettingsOutput) ToMarkdownPartMetadataInvokeResponseSettingsOutput() MarkdownPartMetadataInvokeResponseSettingsOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponseSettingsOutput) ToMarkdownPartMetadataInvokeResponseSettingsOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseSettingsOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponseSettingsOutput) ToMarkdownPartMetadataInvokeResponseSettingsPtrOutput() MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return o.ToMarkdownPartMetadataInvokeResponseSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MarkdownPartMetadataInvokeResponseSettingsOutput) ToMarkdownPartMetadataInvokeResponseSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return o.ApplyT(func(v MarkdownPartMetadataInvokeResponseSettings) *MarkdownPartMetadataInvokeResponseSettings {
+		return &v
+	}).(MarkdownPartMetadataInvokeResponseSettingsPtrOutput)
+}
+
+// The content of markdown part.
+func (o MarkdownPartMetadataInvokeResponseSettingsOutput) Content() MarkdownPartMetadataInvokeResponseContentPtrOutput {
+	return o.ApplyT(func(v MarkdownPartMetadataInvokeResponseSettings) *MarkdownPartMetadataInvokeResponseContent {
+		return v.Content
+	}).(MarkdownPartMetadataInvokeResponseContentPtrOutput)
+}
+
+type MarkdownPartMetadataInvokeResponseSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MarkdownPartMetadataInvokeResponseSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MarkdownPartMetadataInvokeResponseSettings)(nil)).Elem()
+}
+
+func (o MarkdownPartMetadataInvokeResponseSettingsPtrOutput) ToMarkdownPartMetadataInvokeResponseSettingsPtrOutput() MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponseSettingsPtrOutput) ToMarkdownPartMetadataInvokeResponseSettingsPtrOutputWithContext(ctx context.Context) MarkdownPartMetadataInvokeResponseSettingsPtrOutput {
+	return o
+}
+
+func (o MarkdownPartMetadataInvokeResponseSettingsPtrOutput) Elem() MarkdownPartMetadataInvokeResponseSettingsOutput {
+	return o.ApplyT(func(v *MarkdownPartMetadataInvokeResponseSettings) MarkdownPartMetadataInvokeResponseSettings {
+		return *v
+	}).(MarkdownPartMetadataInvokeResponseSettingsOutput)
+}
+
+// The content of markdown part.
+func (o MarkdownPartMetadataInvokeResponseSettingsPtrOutput) Content() MarkdownPartMetadataInvokeResponseContentPtrOutput {
+	return o.ApplyT(func(v *MarkdownPartMetadataInvokeResponseSettings) *MarkdownPartMetadataInvokeResponseContent {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(MarkdownPartMetadataInvokeResponseContentPtrOutput)
+}
+
+// Markdown part metadata.
 type MarkdownPartMetadataResponse struct {
 	// Input to dashboard part.
 	Inputs []interface{} `pulumi:"inputs"`
@@ -1535,7 +2307,7 @@ func (o MarkdownPartMetadataSettingsPtrOutput) Content() MarkdownPartMetadataCon
 }
 
 // Violation information.
-type ViolationResponse struct {
+type ViolationInvokeResponse struct {
 	// Error message.
 	ErrorMessage string `pulumi:"errorMessage"`
 	// Id of the item that violates tenant configuration.
@@ -1544,19 +2316,19 @@ type ViolationResponse struct {
 	UserId string `pulumi:"userId"`
 }
 
-// ViolationResponseInput is an input type that accepts ViolationResponseArgs and ViolationResponseOutput values.
-// You can construct a concrete instance of `ViolationResponseInput` via:
+// ViolationInvokeResponseInput is an input type that accepts ViolationInvokeResponseArgs and ViolationInvokeResponseOutput values.
+// You can construct a concrete instance of `ViolationInvokeResponseInput` via:
 //
-//          ViolationResponseArgs{...}
-type ViolationResponseInput interface {
+//          ViolationInvokeResponseArgs{...}
+type ViolationInvokeResponseInput interface {
 	pulumi.Input
 
-	ToViolationResponseOutput() ViolationResponseOutput
-	ToViolationResponseOutputWithContext(context.Context) ViolationResponseOutput
+	ToViolationInvokeResponseOutput() ViolationInvokeResponseOutput
+	ToViolationInvokeResponseOutputWithContext(context.Context) ViolationInvokeResponseOutput
 }
 
 // Violation information.
-type ViolationResponseArgs struct {
+type ViolationInvokeResponseArgs struct {
 	// Error message.
 	ErrorMessage pulumi.StringInput `pulumi:"errorMessage"`
 	// Id of the item that violates tenant configuration.
@@ -1565,100 +2337,105 @@ type ViolationResponseArgs struct {
 	UserId pulumi.StringInput `pulumi:"userId"`
 }
 
-func (ViolationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViolationResponse)(nil)).Elem()
+func (ViolationInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViolationInvokeResponse)(nil)).Elem()
 }
 
-func (i ViolationResponseArgs) ToViolationResponseOutput() ViolationResponseOutput {
-	return i.ToViolationResponseOutputWithContext(context.Background())
+func (i ViolationInvokeResponseArgs) ToViolationInvokeResponseOutput() ViolationInvokeResponseOutput {
+	return i.ToViolationInvokeResponseOutputWithContext(context.Background())
 }
 
-func (i ViolationResponseArgs) ToViolationResponseOutputWithContext(ctx context.Context) ViolationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViolationResponseOutput)
+func (i ViolationInvokeResponseArgs) ToViolationInvokeResponseOutputWithContext(ctx context.Context) ViolationInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViolationInvokeResponseOutput)
 }
 
-// ViolationResponseArrayInput is an input type that accepts ViolationResponseArray and ViolationResponseArrayOutput values.
-// You can construct a concrete instance of `ViolationResponseArrayInput` via:
+// ViolationInvokeResponseArrayInput is an input type that accepts ViolationInvokeResponseArray and ViolationInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `ViolationInvokeResponseArrayInput` via:
 //
-//          ViolationResponseArray{ ViolationResponseArgs{...} }
-type ViolationResponseArrayInput interface {
+//          ViolationInvokeResponseArray{ ViolationInvokeResponseArgs{...} }
+type ViolationInvokeResponseArrayInput interface {
 	pulumi.Input
 
-	ToViolationResponseArrayOutput() ViolationResponseArrayOutput
-	ToViolationResponseArrayOutputWithContext(context.Context) ViolationResponseArrayOutput
+	ToViolationInvokeResponseArrayOutput() ViolationInvokeResponseArrayOutput
+	ToViolationInvokeResponseArrayOutputWithContext(context.Context) ViolationInvokeResponseArrayOutput
 }
 
-type ViolationResponseArray []ViolationResponseInput
+type ViolationInvokeResponseArray []ViolationInvokeResponseInput
 
-func (ViolationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ViolationResponse)(nil)).Elem()
+func (ViolationInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ViolationInvokeResponse)(nil)).Elem()
 }
 
-func (i ViolationResponseArray) ToViolationResponseArrayOutput() ViolationResponseArrayOutput {
-	return i.ToViolationResponseArrayOutputWithContext(context.Background())
+func (i ViolationInvokeResponseArray) ToViolationInvokeResponseArrayOutput() ViolationInvokeResponseArrayOutput {
+	return i.ToViolationInvokeResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ViolationResponseArray) ToViolationResponseArrayOutputWithContext(ctx context.Context) ViolationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViolationResponseArrayOutput)
+func (i ViolationInvokeResponseArray) ToViolationInvokeResponseArrayOutputWithContext(ctx context.Context) ViolationInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViolationInvokeResponseArrayOutput)
 }
 
 // Violation information.
-type ViolationResponseOutput struct{ *pulumi.OutputState }
+type ViolationInvokeResponseOutput struct{ *pulumi.OutputState }
 
-func (ViolationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViolationResponse)(nil)).Elem()
+func (ViolationInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViolationInvokeResponse)(nil)).Elem()
 }
 
-func (o ViolationResponseOutput) ToViolationResponseOutput() ViolationResponseOutput {
+func (o ViolationInvokeResponseOutput) ToViolationInvokeResponseOutput() ViolationInvokeResponseOutput {
 	return o
 }
 
-func (o ViolationResponseOutput) ToViolationResponseOutputWithContext(ctx context.Context) ViolationResponseOutput {
+func (o ViolationInvokeResponseOutput) ToViolationInvokeResponseOutputWithContext(ctx context.Context) ViolationInvokeResponseOutput {
 	return o
 }
 
 // Error message.
-func (o ViolationResponseOutput) ErrorMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v ViolationResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
+func (o ViolationInvokeResponseOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v ViolationInvokeResponse) string { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
 // Id of the item that violates tenant configuration.
-func (o ViolationResponseOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ViolationResponse) string { return v.Id }).(pulumi.StringOutput)
+func (o ViolationInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ViolationInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Id of the user who owns violated item.
-func (o ViolationResponseOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func(v ViolationResponse) string { return v.UserId }).(pulumi.StringOutput)
+func (o ViolationInvokeResponseOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v ViolationInvokeResponse) string { return v.UserId }).(pulumi.StringOutput)
 }
 
-type ViolationResponseArrayOutput struct{ *pulumi.OutputState }
+type ViolationInvokeResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (ViolationResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ViolationResponse)(nil)).Elem()
+func (ViolationInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ViolationInvokeResponse)(nil)).Elem()
 }
 
-func (o ViolationResponseArrayOutput) ToViolationResponseArrayOutput() ViolationResponseArrayOutput {
+func (o ViolationInvokeResponseArrayOutput) ToViolationInvokeResponseArrayOutput() ViolationInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ViolationResponseArrayOutput) ToViolationResponseArrayOutputWithContext(ctx context.Context) ViolationResponseArrayOutput {
+func (o ViolationInvokeResponseArrayOutput) ToViolationInvokeResponseArrayOutputWithContext(ctx context.Context) ViolationInvokeResponseArrayOutput {
 	return o
 }
 
-func (o ViolationResponseArrayOutput) Index(i pulumi.IntInput) ViolationResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ViolationResponse {
-		return vs[0].([]ViolationResponse)[vs[1].(int)]
-	}).(ViolationResponseOutput)
+func (o ViolationInvokeResponseArrayOutput) Index(i pulumi.IntInput) ViolationInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ViolationInvokeResponse {
+		return vs[0].([]ViolationInvokeResponse)[vs[1].(int)]
+	}).(ViolationInvokeResponseOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(DashboardLensOutput{})
 	pulumi.RegisterOutputType(DashboardLensArrayOutput{})
+	pulumi.RegisterOutputType(DashboardLensInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DashboardLensInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(DashboardLensResponseOutput{})
 	pulumi.RegisterOutputType(DashboardLensResponseArrayOutput{})
 	pulumi.RegisterOutputType(DashboardPartsOutput{})
 	pulumi.RegisterOutputType(DashboardPartsArrayOutput{})
+	pulumi.RegisterOutputType(DashboardPartsInvokeResponseOutput{})
+	pulumi.RegisterOutputType(DashboardPartsInvokeResponseArrayOutput{})
+	pulumi.RegisterOutputType(DashboardPartsInvokeResponsePositionOutput{})
 	pulumi.RegisterOutputType(DashboardPartsPositionOutput{})
 	pulumi.RegisterOutputType(DashboardPartsResponseOutput{})
 	pulumi.RegisterOutputType(DashboardPartsResponseArrayOutput{})
@@ -1667,6 +2444,12 @@ func init() {
 	pulumi.RegisterOutputType(MarkdownPartMetadataPtrOutput{})
 	pulumi.RegisterOutputType(MarkdownPartMetadataContentOutput{})
 	pulumi.RegisterOutputType(MarkdownPartMetadataContentPtrOutput{})
+	pulumi.RegisterOutputType(MarkdownPartMetadataInvokeResponseOutput{})
+	pulumi.RegisterOutputType(MarkdownPartMetadataInvokeResponsePtrOutput{})
+	pulumi.RegisterOutputType(MarkdownPartMetadataInvokeResponseContentOutput{})
+	pulumi.RegisterOutputType(MarkdownPartMetadataInvokeResponseContentPtrOutput{})
+	pulumi.RegisterOutputType(MarkdownPartMetadataInvokeResponseSettingsOutput{})
+	pulumi.RegisterOutputType(MarkdownPartMetadataInvokeResponseSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MarkdownPartMetadataResponseOutput{})
 	pulumi.RegisterOutputType(MarkdownPartMetadataResponsePtrOutput{})
 	pulumi.RegisterOutputType(MarkdownPartMetadataResponseContentOutput{})
@@ -1675,6 +2458,6 @@ func init() {
 	pulumi.RegisterOutputType(MarkdownPartMetadataResponseSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MarkdownPartMetadataSettingsOutput{})
 	pulumi.RegisterOutputType(MarkdownPartMetadataSettingsPtrOutput{})
-	pulumi.RegisterOutputType(ViolationResponseOutput{})
-	pulumi.RegisterOutputType(ViolationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ViolationInvokeResponseOutput{})
+	pulumi.RegisterOutputType(ViolationInvokeResponseArrayOutput{})
 }

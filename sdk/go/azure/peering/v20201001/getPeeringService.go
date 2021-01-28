@@ -38,7 +38,7 @@ type LookupPeeringServiceResult struct {
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU that defines the type of the peering service.
-	Sku *PeeringServiceSkuResponse `pulumi:"sku"`
+	Sku *PeeringServiceSkuInvokeResponse `pulumi:"sku"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

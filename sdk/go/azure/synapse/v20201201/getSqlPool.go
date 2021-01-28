@@ -48,7 +48,7 @@ type LookupSqlPoolResult struct {
 	// Snapshot time to restore
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
 	// SQL pool SKU
-	Sku *SkuResponse `pulumi:"sku"`
+	Sku *SkuInvokeResponse `pulumi:"sku"`
 	// Source database to create from
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
 	// Resource status

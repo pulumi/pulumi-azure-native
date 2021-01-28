@@ -42,7 +42,7 @@ type LookupAppServiceCertificateOrderCertificateResult struct {
 	// Status of the Key Vault secret.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The system metadata relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	SystemData SystemDataInvokeResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

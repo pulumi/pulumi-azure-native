@@ -34,9 +34,9 @@ type LookupMachineResult struct {
 	// Specifies the hybrid machine display name.
 	DisplayName string `pulumi:"displayName"`
 	// Details about the error state.
-	ErrorDetails []ErrorDetailResponse `pulumi:"errorDetails"`
+	ErrorDetails []ErrorDetailInvokeResponse `pulumi:"errorDetails"`
 	// Machine Extensions information
-	Extensions []MachineExtensionInstanceViewResponse `pulumi:"extensions"`
+	Extensions []MachineExtensionInstanceViewInvokeResponse `pulumi:"extensions"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// The time of the last status change.
@@ -50,7 +50,7 @@ type LookupMachineResult struct {
 	// The Operating System running on the hybrid machine.
 	OsName *string `pulumi:"osName"`
 	// Specifies the operating system settings for the hybrid machine.
-	OsProfile OSProfileResponse `pulumi:"osProfile"`
+	OsProfile OSProfileInvokeResponse `pulumi:"osProfile"`
 	// The version of Operating System running on the hybrid machine.
 	OsVersion *string `pulumi:"osVersion"`
 	// Resource's Physical Location

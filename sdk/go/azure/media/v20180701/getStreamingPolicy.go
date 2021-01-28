@@ -28,21 +28,21 @@ type LookupStreamingPolicyArgs struct {
 // A Streaming Policy resource
 type LookupStreamingPolicyResult struct {
 	// Configuration of CommonEncryptionCbcs
-	CommonEncryptionCbcs *CommonEncryptionCbcsResponse `pulumi:"commonEncryptionCbcs"`
+	CommonEncryptionCbcs *CommonEncryptionCbcsInvokeResponse `pulumi:"commonEncryptionCbcs"`
 	// Configuration of CommonEncryptionCenc
-	CommonEncryptionCenc *CommonEncryptionCencResponse `pulumi:"commonEncryptionCenc"`
+	CommonEncryptionCenc *CommonEncryptionCencInvokeResponse `pulumi:"commonEncryptionCenc"`
 	// Creation time of Streaming Policy
 	Created string `pulumi:"created"`
 	// Default ContentKey used by current Streaming Policy
 	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
 	// Configuration of EnvelopeEncryption
-	EnvelopeEncryption *EnvelopeEncryptionResponse `pulumi:"envelopeEncryption"`
+	EnvelopeEncryption *EnvelopeEncryptionInvokeResponse `pulumi:"envelopeEncryption"`
 	// Fully qualified resource ID for the resource.
 	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Configurations of NoEncryption
-	NoEncryption *NoEncryptionResponse `pulumi:"noEncryption"`
+	NoEncryption *NoEncryptionInvokeResponse `pulumi:"noEncryption"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

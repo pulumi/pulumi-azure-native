@@ -28,7 +28,7 @@ type LookupStreamingEndpointArgs struct {
 // The StreamingEndpoint.
 type LookupStreamingEndpointResult struct {
 	// The access control definition of the StreamingEndpoint.
-	AccessControl *StreamingEndpointAccessControlResponse `pulumi:"accessControl"`
+	AccessControl *StreamingEndpointAccessControlInvokeResponse `pulumi:"accessControl"`
 	// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
 	AvailabilitySetName *string `pulumi:"availabilitySetName"`
 	// The CDN enabled flag.
@@ -40,7 +40,7 @@ type LookupStreamingEndpointResult struct {
 	// The exact time the StreamingEndpoint was created.
 	Created string `pulumi:"created"`
 	// The StreamingEndpoint access policies.
-	CrossSiteAccessPolicies *CrossSiteAccessPoliciesResponse `pulumi:"crossSiteAccessPolicies"`
+	CrossSiteAccessPolicies *CrossSiteAccessPoliciesInvokeResponse `pulumi:"crossSiteAccessPolicies"`
 	// The custom host names of the StreamingEndpoint
 	CustomHostNames []string `pulumi:"customHostNames"`
 	// The StreamingEndpoint description.

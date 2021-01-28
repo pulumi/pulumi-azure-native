@@ -32,7 +32,7 @@ type LookupPrivateEndpointConnectionResult struct {
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The properties of a private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	Properties PrivateEndpointConnectionPropertiesInvokeResponse `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

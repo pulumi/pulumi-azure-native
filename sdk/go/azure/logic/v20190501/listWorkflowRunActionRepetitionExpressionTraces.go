@@ -31,5 +31,5 @@ type ListWorkflowRunActionRepetitionExpressionTracesArgs struct {
 
 // The expression traces.
 type ListWorkflowRunActionRepetitionExpressionTracesResult struct {
-	Inputs []ExpressionRootResponse `pulumi:"inputs"`
+	Inputs []ExpressionRootInvokeResponse `pulumi:"inputs"`
 }

@@ -183,6 +183,79 @@ func (o MasterSitePropertiesPtrOutput) Sites() pulumi.StringArrayOutput {
 }
 
 // Class for site properties.
+type MasterSitePropertiesInvokeResponse struct {
+	// Value indicating whether multiple sites per site type are allowed.
+	AllowMultipleSites *bool `pulumi:"allowMultipleSites"`
+	// State of public network access.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// List of sites that are a part of Master Site.
+	Sites []string `pulumi:"sites"`
+}
+
+// MasterSitePropertiesInvokeResponseInput is an input type that accepts MasterSitePropertiesInvokeResponseArgs and MasterSitePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `MasterSitePropertiesInvokeResponseInput` via:
+//
+//          MasterSitePropertiesInvokeResponseArgs{...}
+type MasterSitePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMasterSitePropertiesInvokeResponseOutput() MasterSitePropertiesInvokeResponseOutput
+	ToMasterSitePropertiesInvokeResponseOutputWithContext(context.Context) MasterSitePropertiesInvokeResponseOutput
+}
+
+// Class for site properties.
+type MasterSitePropertiesInvokeResponseArgs struct {
+	// Value indicating whether multiple sites per site type are allowed.
+	AllowMultipleSites pulumi.BoolPtrInput `pulumi:"allowMultipleSites"`
+	// State of public network access.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+	// List of sites that are a part of Master Site.
+	Sites pulumi.StringArrayInput `pulumi:"sites"`
+}
+
+func (MasterSitePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MasterSitePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i MasterSitePropertiesInvokeResponseArgs) ToMasterSitePropertiesInvokeResponseOutput() MasterSitePropertiesInvokeResponseOutput {
+	return i.ToMasterSitePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MasterSitePropertiesInvokeResponseArgs) ToMasterSitePropertiesInvokeResponseOutputWithContext(ctx context.Context) MasterSitePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MasterSitePropertiesInvokeResponseOutput)
+}
+
+// Class for site properties.
+type MasterSitePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MasterSitePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MasterSitePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o MasterSitePropertiesInvokeResponseOutput) ToMasterSitePropertiesInvokeResponseOutput() MasterSitePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o MasterSitePropertiesInvokeResponseOutput) ToMasterSitePropertiesInvokeResponseOutputWithContext(ctx context.Context) MasterSitePropertiesInvokeResponseOutput {
+	return o
+}
+
+// Value indicating whether multiple sites per site type are allowed.
+func (o MasterSitePropertiesInvokeResponseOutput) AllowMultipleSites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MasterSitePropertiesInvokeResponse) *bool { return v.AllowMultipleSites }).(pulumi.BoolPtrOutput)
+}
+
+// State of public network access.
+func (o MasterSitePropertiesInvokeResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MasterSitePropertiesInvokeResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// List of sites that are a part of Master Site.
+func (o MasterSitePropertiesInvokeResponseOutput) Sites() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MasterSitePropertiesInvokeResponse) []string { return v.Sites }).(pulumi.StringArrayOutput)
+}
+
+// Class for site properties.
 type MasterSitePropertiesResponse struct {
 	// Value indicating whether multiple sites per site type are allowed.
 	AllowMultipleSites *bool `pulumi:"allowMultipleSites"`
@@ -504,6 +577,216 @@ func (o SiteAgentPropertiesPtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Class for site agent properties.
+type SiteAgentPropertiesInvokeResponse struct {
+	// ID of the agent.
+	Id string `pulumi:"id"`
+	// Key vault ARM Id.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key vault URI.
+	KeyVaultUri *string `pulumi:"keyVaultUri"`
+	// Last heartbeat time of the agent in UTC.
+	LastHeartBeatUtc string `pulumi:"lastHeartBeatUtc"`
+	// Version of the agent.
+	Version string `pulumi:"version"`
+}
+
+// SiteAgentPropertiesInvokeResponseInput is an input type that accepts SiteAgentPropertiesInvokeResponseArgs and SiteAgentPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SiteAgentPropertiesInvokeResponseInput` via:
+//
+//          SiteAgentPropertiesInvokeResponseArgs{...}
+type SiteAgentPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSiteAgentPropertiesInvokeResponseOutput() SiteAgentPropertiesInvokeResponseOutput
+	ToSiteAgentPropertiesInvokeResponseOutputWithContext(context.Context) SiteAgentPropertiesInvokeResponseOutput
+}
+
+// Class for site agent properties.
+type SiteAgentPropertiesInvokeResponseArgs struct {
+	// ID of the agent.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Key vault ARM Id.
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Key vault URI.
+	KeyVaultUri pulumi.StringPtrInput `pulumi:"keyVaultUri"`
+	// Last heartbeat time of the agent in UTC.
+	LastHeartBeatUtc pulumi.StringInput `pulumi:"lastHeartBeatUtc"`
+	// Version of the agent.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (SiteAgentPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteAgentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SiteAgentPropertiesInvokeResponseArgs) ToSiteAgentPropertiesInvokeResponseOutput() SiteAgentPropertiesInvokeResponseOutput {
+	return i.ToSiteAgentPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SiteAgentPropertiesInvokeResponseArgs) ToSiteAgentPropertiesInvokeResponseOutputWithContext(ctx context.Context) SiteAgentPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteAgentPropertiesInvokeResponseOutput)
+}
+
+func (i SiteAgentPropertiesInvokeResponseArgs) ToSiteAgentPropertiesInvokeResponsePtrOutput() SiteAgentPropertiesInvokeResponsePtrOutput {
+	return i.ToSiteAgentPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SiteAgentPropertiesInvokeResponseArgs) ToSiteAgentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SiteAgentPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteAgentPropertiesInvokeResponseOutput).ToSiteAgentPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SiteAgentPropertiesInvokeResponsePtrInput is an input type that accepts SiteAgentPropertiesInvokeResponseArgs, SiteAgentPropertiesInvokeResponsePtr and SiteAgentPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SiteAgentPropertiesInvokeResponsePtrInput` via:
+//
+//          SiteAgentPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SiteAgentPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSiteAgentPropertiesInvokeResponsePtrOutput() SiteAgentPropertiesInvokeResponsePtrOutput
+	ToSiteAgentPropertiesInvokeResponsePtrOutputWithContext(context.Context) SiteAgentPropertiesInvokeResponsePtrOutput
+}
+
+type siteAgentPropertiesInvokeResponsePtrType SiteAgentPropertiesInvokeResponseArgs
+
+func SiteAgentPropertiesInvokeResponsePtr(v *SiteAgentPropertiesInvokeResponseArgs) SiteAgentPropertiesInvokeResponsePtrInput {
+	return (*siteAgentPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*siteAgentPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SiteAgentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *siteAgentPropertiesInvokeResponsePtrType) ToSiteAgentPropertiesInvokeResponsePtrOutput() SiteAgentPropertiesInvokeResponsePtrOutput {
+	return i.ToSiteAgentPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *siteAgentPropertiesInvokeResponsePtrType) ToSiteAgentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SiteAgentPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteAgentPropertiesInvokeResponsePtrOutput)
+}
+
+// Class for site agent properties.
+type SiteAgentPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SiteAgentPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteAgentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SiteAgentPropertiesInvokeResponseOutput) ToSiteAgentPropertiesInvokeResponseOutput() SiteAgentPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SiteAgentPropertiesInvokeResponseOutput) ToSiteAgentPropertiesInvokeResponseOutputWithContext(ctx context.Context) SiteAgentPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SiteAgentPropertiesInvokeResponseOutput) ToSiteAgentPropertiesInvokeResponsePtrOutput() SiteAgentPropertiesInvokeResponsePtrOutput {
+	return o.ToSiteAgentPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SiteAgentPropertiesInvokeResponseOutput) ToSiteAgentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SiteAgentPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SiteAgentPropertiesInvokeResponse) *SiteAgentPropertiesInvokeResponse {
+		return &v
+	}).(SiteAgentPropertiesInvokeResponsePtrOutput)
+}
+
+// ID of the agent.
+func (o SiteAgentPropertiesInvokeResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteAgentPropertiesInvokeResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Key vault ARM Id.
+func (o SiteAgentPropertiesInvokeResponseOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAgentPropertiesInvokeResponse) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Key vault URI.
+func (o SiteAgentPropertiesInvokeResponseOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteAgentPropertiesInvokeResponse) *string { return v.KeyVaultUri }).(pulumi.StringPtrOutput)
+}
+
+// Last heartbeat time of the agent in UTC.
+func (o SiteAgentPropertiesInvokeResponseOutput) LastHeartBeatUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteAgentPropertiesInvokeResponse) string { return v.LastHeartBeatUtc }).(pulumi.StringOutput)
+}
+
+// Version of the agent.
+func (o SiteAgentPropertiesInvokeResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteAgentPropertiesInvokeResponse) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type SiteAgentPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SiteAgentPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SiteAgentPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SiteAgentPropertiesInvokeResponsePtrOutput) ToSiteAgentPropertiesInvokeResponsePtrOutput() SiteAgentPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SiteAgentPropertiesInvokeResponsePtrOutput) ToSiteAgentPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SiteAgentPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SiteAgentPropertiesInvokeResponsePtrOutput) Elem() SiteAgentPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *SiteAgentPropertiesInvokeResponse) SiteAgentPropertiesInvokeResponse { return *v }).(SiteAgentPropertiesInvokeResponseOutput)
+}
+
+// ID of the agent.
+func (o SiteAgentPropertiesInvokeResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteAgentPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key vault ARM Id.
+func (o SiteAgentPropertiesInvokeResponsePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteAgentPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key vault URI.
+func (o SiteAgentPropertiesInvokeResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteAgentPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Last heartbeat time of the agent in UTC.
+func (o SiteAgentPropertiesInvokeResponsePtrOutput) LastHeartBeatUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteAgentPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastHeartBeatUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the agent.
+func (o SiteAgentPropertiesInvokeResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteAgentPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -906,6 +1189,99 @@ func (o SitePropertiesPtrOutput) ServicePrincipalIdentityDetails() SiteSpnProper
 		}
 		return v.ServicePrincipalIdentityDetails
 	}).(SiteSpnPropertiesPtrOutput)
+}
+
+// Class for site properties.
+type SitePropertiesInvokeResponse struct {
+	// On-premises agent details.
+	AgentDetails *SiteAgentPropertiesInvokeResponse `pulumi:"agentDetails"`
+	// Appliance Name.
+	ApplianceName *string `pulumi:"applianceName"`
+	// ARM ID of migration hub solution for SDS.
+	DiscoverySolutionId *string `pulumi:"discoverySolutionId"`
+	// Service endpoint.
+	ServiceEndpoint string `pulumi:"serviceEndpoint"`
+	// Service principal identity details used by agent for communication to the service.
+	ServicePrincipalIdentityDetails *SiteSpnPropertiesInvokeResponse `pulumi:"servicePrincipalIdentityDetails"`
+}
+
+// SitePropertiesInvokeResponseInput is an input type that accepts SitePropertiesInvokeResponseArgs and SitePropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SitePropertiesInvokeResponseInput` via:
+//
+//          SitePropertiesInvokeResponseArgs{...}
+type SitePropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSitePropertiesInvokeResponseOutput() SitePropertiesInvokeResponseOutput
+	ToSitePropertiesInvokeResponseOutputWithContext(context.Context) SitePropertiesInvokeResponseOutput
+}
+
+// Class for site properties.
+type SitePropertiesInvokeResponseArgs struct {
+	// On-premises agent details.
+	AgentDetails SiteAgentPropertiesInvokeResponsePtrInput `pulumi:"agentDetails"`
+	// Appliance Name.
+	ApplianceName pulumi.StringPtrInput `pulumi:"applianceName"`
+	// ARM ID of migration hub solution for SDS.
+	DiscoverySolutionId pulumi.StringPtrInput `pulumi:"discoverySolutionId"`
+	// Service endpoint.
+	ServiceEndpoint pulumi.StringInput `pulumi:"serviceEndpoint"`
+	// Service principal identity details used by agent for communication to the service.
+	ServicePrincipalIdentityDetails SiteSpnPropertiesInvokeResponsePtrInput `pulumi:"servicePrincipalIdentityDetails"`
+}
+
+func (SitePropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SitePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SitePropertiesInvokeResponseArgs) ToSitePropertiesInvokeResponseOutput() SitePropertiesInvokeResponseOutput {
+	return i.ToSitePropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SitePropertiesInvokeResponseArgs) ToSitePropertiesInvokeResponseOutputWithContext(ctx context.Context) SitePropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesInvokeResponseOutput)
+}
+
+// Class for site properties.
+type SitePropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SitePropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SitePropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SitePropertiesInvokeResponseOutput) ToSitePropertiesInvokeResponseOutput() SitePropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SitePropertiesInvokeResponseOutput) ToSitePropertiesInvokeResponseOutputWithContext(ctx context.Context) SitePropertiesInvokeResponseOutput {
+	return o
+}
+
+// On-premises agent details.
+func (o SitePropertiesInvokeResponseOutput) AgentDetails() SiteAgentPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SitePropertiesInvokeResponse) *SiteAgentPropertiesInvokeResponse { return v.AgentDetails }).(SiteAgentPropertiesInvokeResponsePtrOutput)
+}
+
+// Appliance Name.
+func (o SitePropertiesInvokeResponseOutput) ApplianceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SitePropertiesInvokeResponse) *string { return v.ApplianceName }).(pulumi.StringPtrOutput)
+}
+
+// ARM ID of migration hub solution for SDS.
+func (o SitePropertiesInvokeResponseOutput) DiscoverySolutionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SitePropertiesInvokeResponse) *string { return v.DiscoverySolutionId }).(pulumi.StringPtrOutput)
+}
+
+// Service endpoint.
+func (o SitePropertiesInvokeResponseOutput) ServiceEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v SitePropertiesInvokeResponse) string { return v.ServiceEndpoint }).(pulumi.StringOutput)
+}
+
+// Service principal identity details used by agent for communication to the service.
+func (o SitePropertiesInvokeResponseOutput) ServicePrincipalIdentityDetails() SiteSpnPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SitePropertiesInvokeResponse) *SiteSpnPropertiesInvokeResponse {
+		return v.ServicePrincipalIdentityDetails
+	}).(SiteSpnPropertiesInvokeResponsePtrOutput)
 }
 
 // Class for site properties.
@@ -1348,6 +1724,235 @@ func (o SiteSpnPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Class for site properties.
+type SiteSpnPropertiesInvokeResponse struct {
+	// AAD Authority URL which was used to request the token for the service principal.
+	AadAuthority *string `pulumi:"aadAuthority"`
+	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	ApplicationId *string `pulumi:"applicationId"`
+	// Intended audience for the service principal.
+	Audience *string `pulumi:"audience"`
+	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	ObjectId *string `pulumi:"objectId"`
+	// Raw certificate data for building certificate expiry flows.
+	RawCertData *string `pulumi:"rawCertData"`
+	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	TenantId *string `pulumi:"tenantId"`
+}
+
+// SiteSpnPropertiesInvokeResponseInput is an input type that accepts SiteSpnPropertiesInvokeResponseArgs and SiteSpnPropertiesInvokeResponseOutput values.
+// You can construct a concrete instance of `SiteSpnPropertiesInvokeResponseInput` via:
+//
+//          SiteSpnPropertiesInvokeResponseArgs{...}
+type SiteSpnPropertiesInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSiteSpnPropertiesInvokeResponseOutput() SiteSpnPropertiesInvokeResponseOutput
+	ToSiteSpnPropertiesInvokeResponseOutputWithContext(context.Context) SiteSpnPropertiesInvokeResponseOutput
+}
+
+// Class for site properties.
+type SiteSpnPropertiesInvokeResponseArgs struct {
+	// AAD Authority URL which was used to request the token for the service principal.
+	AadAuthority pulumi.StringPtrInput `pulumi:"aadAuthority"`
+	// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// Intended audience for the service principal.
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// Raw certificate data for building certificate expiry flows.
+	RawCertData pulumi.StringPtrInput `pulumi:"rawCertData"`
+	// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+}
+
+func (SiteSpnPropertiesInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteSpnPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i SiteSpnPropertiesInvokeResponseArgs) ToSiteSpnPropertiesInvokeResponseOutput() SiteSpnPropertiesInvokeResponseOutput {
+	return i.ToSiteSpnPropertiesInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SiteSpnPropertiesInvokeResponseArgs) ToSiteSpnPropertiesInvokeResponseOutputWithContext(ctx context.Context) SiteSpnPropertiesInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteSpnPropertiesInvokeResponseOutput)
+}
+
+func (i SiteSpnPropertiesInvokeResponseArgs) ToSiteSpnPropertiesInvokeResponsePtrOutput() SiteSpnPropertiesInvokeResponsePtrOutput {
+	return i.ToSiteSpnPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SiteSpnPropertiesInvokeResponseArgs) ToSiteSpnPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SiteSpnPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteSpnPropertiesInvokeResponseOutput).ToSiteSpnPropertiesInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SiteSpnPropertiesInvokeResponsePtrInput is an input type that accepts SiteSpnPropertiesInvokeResponseArgs, SiteSpnPropertiesInvokeResponsePtr and SiteSpnPropertiesInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SiteSpnPropertiesInvokeResponsePtrInput` via:
+//
+//          SiteSpnPropertiesInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SiteSpnPropertiesInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSiteSpnPropertiesInvokeResponsePtrOutput() SiteSpnPropertiesInvokeResponsePtrOutput
+	ToSiteSpnPropertiesInvokeResponsePtrOutputWithContext(context.Context) SiteSpnPropertiesInvokeResponsePtrOutput
+}
+
+type siteSpnPropertiesInvokeResponsePtrType SiteSpnPropertiesInvokeResponseArgs
+
+func SiteSpnPropertiesInvokeResponsePtr(v *SiteSpnPropertiesInvokeResponseArgs) SiteSpnPropertiesInvokeResponsePtrInput {
+	return (*siteSpnPropertiesInvokeResponsePtrType)(v)
+}
+
+func (*siteSpnPropertiesInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SiteSpnPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (i *siteSpnPropertiesInvokeResponsePtrType) ToSiteSpnPropertiesInvokeResponsePtrOutput() SiteSpnPropertiesInvokeResponsePtrOutput {
+	return i.ToSiteSpnPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *siteSpnPropertiesInvokeResponsePtrType) ToSiteSpnPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SiteSpnPropertiesInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteSpnPropertiesInvokeResponsePtrOutput)
+}
+
+// Class for site properties.
+type SiteSpnPropertiesInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SiteSpnPropertiesInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteSpnPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SiteSpnPropertiesInvokeResponseOutput) ToSiteSpnPropertiesInvokeResponseOutput() SiteSpnPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SiteSpnPropertiesInvokeResponseOutput) ToSiteSpnPropertiesInvokeResponseOutputWithContext(ctx context.Context) SiteSpnPropertiesInvokeResponseOutput {
+	return o
+}
+
+func (o SiteSpnPropertiesInvokeResponseOutput) ToSiteSpnPropertiesInvokeResponsePtrOutput() SiteSpnPropertiesInvokeResponsePtrOutput {
+	return o.ToSiteSpnPropertiesInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SiteSpnPropertiesInvokeResponseOutput) ToSiteSpnPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SiteSpnPropertiesInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SiteSpnPropertiesInvokeResponse) *SiteSpnPropertiesInvokeResponse {
+		return &v
+	}).(SiteSpnPropertiesInvokeResponsePtrOutput)
+}
+
+// AAD Authority URL which was used to request the token for the service principal.
+func (o SiteSpnPropertiesInvokeResponseOutput) AadAuthority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteSpnPropertiesInvokeResponse) *string { return v.AadAuthority }).(pulumi.StringPtrOutput)
+}
+
+// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o SiteSpnPropertiesInvokeResponseOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteSpnPropertiesInvokeResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// Intended audience for the service principal.
+func (o SiteSpnPropertiesInvokeResponseOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteSpnPropertiesInvokeResponse) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o SiteSpnPropertiesInvokeResponseOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteSpnPropertiesInvokeResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Raw certificate data for building certificate expiry flows.
+func (o SiteSpnPropertiesInvokeResponseOutput) RawCertData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteSpnPropertiesInvokeResponse) *string { return v.RawCertData }).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o SiteSpnPropertiesInvokeResponseOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteSpnPropertiesInvokeResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+type SiteSpnPropertiesInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SiteSpnPropertiesInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SiteSpnPropertiesInvokeResponse)(nil)).Elem()
+}
+
+func (o SiteSpnPropertiesInvokeResponsePtrOutput) ToSiteSpnPropertiesInvokeResponsePtrOutput() SiteSpnPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SiteSpnPropertiesInvokeResponsePtrOutput) ToSiteSpnPropertiesInvokeResponsePtrOutputWithContext(ctx context.Context) SiteSpnPropertiesInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SiteSpnPropertiesInvokeResponsePtrOutput) Elem() SiteSpnPropertiesInvokeResponseOutput {
+	return o.ApplyT(func(v *SiteSpnPropertiesInvokeResponse) SiteSpnPropertiesInvokeResponse { return *v }).(SiteSpnPropertiesInvokeResponseOutput)
+}
+
+// AAD Authority URL which was used to request the token for the service principal.
+func (o SiteSpnPropertiesInvokeResponsePtrOutput) AadAuthority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AadAuthority
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o SiteSpnPropertiesInvokeResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Intended audience for the service principal.
+func (o SiteSpnPropertiesInvokeResponsePtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o SiteSpnPropertiesInvokeResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Raw certificate data for building certificate expiry flows.
+func (o SiteSpnPropertiesInvokeResponsePtrOutput) RawCertData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RawCertData
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+func (o SiteSpnPropertiesInvokeResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSpnPropertiesInvokeResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Class for site properties.
 type SiteSpnPropertiesResponse struct {
 	// AAD Authority URL which was used to request the token for the service principal.
 	AadAuthority *string `pulumi:"aadAuthority"`
@@ -1652,18 +2257,24 @@ func (o VCenterPropertiesOutput) RunAsAccountId() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(MasterSitePropertiesOutput{})
 	pulumi.RegisterOutputType(MasterSitePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MasterSitePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MasterSitePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MasterSitePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SiteAgentPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SiteAgentPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SiteAgentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SitePropertiesOutput{})
 	pulumi.RegisterOutputType(SitePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SitePropertiesInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SitePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SitePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SiteSpnPropertiesInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SiteSpnPropertiesInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VCenterPropertiesOutput{})

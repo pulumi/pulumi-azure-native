@@ -26,7 +26,7 @@ type LookupLocalNetworkGatewayArgs struct {
 // A common class for general resource information
 type LookupLocalNetworkGatewayResult struct {
 	// Local network gateway's BGP speaker settings.
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
+	BgpSettings *BgpSettingsInvokeResponse `pulumi:"bgpSettings"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// IP address of local network gateway.
@@ -34,7 +34,7 @@ type LookupLocalNetworkGatewayResult struct {
 	// Resource Identifier.
 	Id *string `pulumi:"id"`
 	// Local network site address space.
-	LocalNetworkAddressSpace *AddressSpaceResponse `pulumi:"localNetworkAddressSpace"`
+	LocalNetworkAddressSpace *AddressSpaceInvokeResponse `pulumi:"localNetworkAddressSpace"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

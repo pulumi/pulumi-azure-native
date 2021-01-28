@@ -28,21 +28,21 @@ type LookupLoadBalancerBackendAddressPoolArgs struct {
 // Pool of backend IP addresses.
 type LookupLoadBalancerBackendAddressPoolResult struct {
 	// An array of references to IP addresses defined in network interfaces.
-	BackendIPConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"backendIPConfigurations"`
+	BackendIPConfigurations []NetworkInterfaceIPConfigurationInvokeResponse `pulumi:"backendIPConfigurations"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// An array of backend addresses.
-	LoadBalancerBackendAddresses []LoadBalancerBackendAddressResponse `pulumi:"loadBalancerBackendAddresses"`
+	LoadBalancerBackendAddresses []LoadBalancerBackendAddressInvokeResponse `pulumi:"loadBalancerBackendAddresses"`
 	// An array of references to load balancing rules that use this backend address pool.
-	LoadBalancingRules []SubResourceResponse `pulumi:"loadBalancingRules"`
+	LoadBalancingRules []SubResourceInvokeResponse `pulumi:"loadBalancingRules"`
 	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// A reference to an outbound rule that uses this backend address pool.
-	OutboundRule SubResourceResponse `pulumi:"outboundRule"`
+	OutboundRule SubResourceInvokeResponse `pulumi:"outboundRule"`
 	// An array of references to outbound rules that use this backend address pool.
-	OutboundRules []SubResourceResponse `pulumi:"outboundRules"`
+	OutboundRules []SubResourceInvokeResponse `pulumi:"outboundRules"`
 	// The provisioning state of the backend address pool resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Type of the resource.

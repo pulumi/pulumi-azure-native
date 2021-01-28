@@ -36,13 +36,13 @@ type LookupLinkResult struct {
 	// The link name.
 	LinkName string `pulumi:"linkName"`
 	// The set of properties mappings between the source and target Types.
-	Mappings []TypePropertiesMappingResponse `pulumi:"mappings"`
+	Mappings []TypePropertiesMappingInvokeResponse `pulumi:"mappings"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
 	OperationType *string `pulumi:"operationType"`
 	// The properties that represent the participating profile.
-	ParticipantPropertyReferences []ParticipantPropertyReferenceResponse `pulumi:"participantPropertyReferences"`
+	ParticipantPropertyReferences []ParticipantPropertyReferenceInvokeResponse `pulumi:"participantPropertyReferences"`
 	// Provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.

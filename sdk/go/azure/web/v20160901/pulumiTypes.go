@@ -129,6 +129,124 @@ func (o CapabilityArrayOutput) Index(i pulumi.IntInput) CapabilityOutput {
 }
 
 // Describes the capabilities/features allowed for a specific SKU.
+type CapabilityInvokeResponse struct {
+	// Name of the SKU capability.
+	Name *string `pulumi:"name"`
+	// Reason of the SKU capability.
+	Reason *string `pulumi:"reason"`
+	// Value of the SKU capability.
+	Value *string `pulumi:"value"`
+}
+
+// CapabilityInvokeResponseInput is an input type that accepts CapabilityInvokeResponseArgs and CapabilityInvokeResponseOutput values.
+// You can construct a concrete instance of `CapabilityInvokeResponseInput` via:
+//
+//          CapabilityInvokeResponseArgs{...}
+type CapabilityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToCapabilityInvokeResponseOutput() CapabilityInvokeResponseOutput
+	ToCapabilityInvokeResponseOutputWithContext(context.Context) CapabilityInvokeResponseOutput
+}
+
+// Describes the capabilities/features allowed for a specific SKU.
+type CapabilityInvokeResponseArgs struct {
+	// Name of the SKU capability.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Reason of the SKU capability.
+	Reason pulumi.StringPtrInput `pulumi:"reason"`
+	// Value of the SKU capability.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (CapabilityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityInvokeResponse)(nil)).Elem()
+}
+
+func (i CapabilityInvokeResponseArgs) ToCapabilityInvokeResponseOutput() CapabilityInvokeResponseOutput {
+	return i.ToCapabilityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i CapabilityInvokeResponseArgs) ToCapabilityInvokeResponseOutputWithContext(ctx context.Context) CapabilityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityInvokeResponseOutput)
+}
+
+// CapabilityInvokeResponseArrayInput is an input type that accepts CapabilityInvokeResponseArray and CapabilityInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `CapabilityInvokeResponseArrayInput` via:
+//
+//          CapabilityInvokeResponseArray{ CapabilityInvokeResponseArgs{...} }
+type CapabilityInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToCapabilityInvokeResponseArrayOutput() CapabilityInvokeResponseArrayOutput
+	ToCapabilityInvokeResponseArrayOutputWithContext(context.Context) CapabilityInvokeResponseArrayOutput
+}
+
+type CapabilityInvokeResponseArray []CapabilityInvokeResponseInput
+
+func (CapabilityInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilityInvokeResponse)(nil)).Elem()
+}
+
+func (i CapabilityInvokeResponseArray) ToCapabilityInvokeResponseArrayOutput() CapabilityInvokeResponseArrayOutput {
+	return i.ToCapabilityInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CapabilityInvokeResponseArray) ToCapabilityInvokeResponseArrayOutputWithContext(ctx context.Context) CapabilityInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityInvokeResponseArrayOutput)
+}
+
+// Describes the capabilities/features allowed for a specific SKU.
+type CapabilityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (CapabilityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityInvokeResponse)(nil)).Elem()
+}
+
+func (o CapabilityInvokeResponseOutput) ToCapabilityInvokeResponseOutput() CapabilityInvokeResponseOutput {
+	return o
+}
+
+func (o CapabilityInvokeResponseOutput) ToCapabilityInvokeResponseOutputWithContext(ctx context.Context) CapabilityInvokeResponseOutput {
+	return o
+}
+
+// Name of the SKU capability.
+func (o CapabilityInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Reason of the SKU capability.
+func (o CapabilityInvokeResponseOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityInvokeResponse) *string { return v.Reason }).(pulumi.StringPtrOutput)
+}
+
+// Value of the SKU capability.
+func (o CapabilityInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type CapabilityInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CapabilityInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilityInvokeResponse)(nil)).Elem()
+}
+
+func (o CapabilityInvokeResponseArrayOutput) ToCapabilityInvokeResponseArrayOutput() CapabilityInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CapabilityInvokeResponseArrayOutput) ToCapabilityInvokeResponseArrayOutputWithContext(ctx context.Context) CapabilityInvokeResponseArrayOutput {
+	return o
+}
+
+func (o CapabilityInvokeResponseArrayOutput) Index(i pulumi.IntInput) CapabilityInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapabilityInvokeResponse {
+		return vs[0].([]CapabilityInvokeResponse)[vs[1].(int)]
+	}).(CapabilityInvokeResponseOutput)
+}
+
+// Describes the capabilities/features allowed for a specific SKU.
 type CapabilityResponse struct {
 	// Name of the SKU capability.
 	Name *string `pulumi:"name"`
@@ -378,6 +496,79 @@ func (o HostingEnvironmentProfilePtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specification for an App Service Environment to use for this resource.
+type HostingEnvironmentProfileInvokeResponse struct {
+	// Resource ID of the App Service Environment.
+	Id *string `pulumi:"id"`
+	// Name of the App Service Environment.
+	Name string `pulumi:"name"`
+	// Resource type of the App Service Environment.
+	Type string `pulumi:"type"`
+}
+
+// HostingEnvironmentProfileInvokeResponseInput is an input type that accepts HostingEnvironmentProfileInvokeResponseArgs and HostingEnvironmentProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `HostingEnvironmentProfileInvokeResponseInput` via:
+//
+//          HostingEnvironmentProfileInvokeResponseArgs{...}
+type HostingEnvironmentProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToHostingEnvironmentProfileInvokeResponseOutput() HostingEnvironmentProfileInvokeResponseOutput
+	ToHostingEnvironmentProfileInvokeResponseOutputWithContext(context.Context) HostingEnvironmentProfileInvokeResponseOutput
+}
+
+// Specification for an App Service Environment to use for this resource.
+type HostingEnvironmentProfileInvokeResponseArgs struct {
+	// Resource ID of the App Service Environment.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the App Service Environment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Resource type of the App Service Environment.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (HostingEnvironmentProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostingEnvironmentProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i HostingEnvironmentProfileInvokeResponseArgs) ToHostingEnvironmentProfileInvokeResponseOutput() HostingEnvironmentProfileInvokeResponseOutput {
+	return i.ToHostingEnvironmentProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i HostingEnvironmentProfileInvokeResponseArgs) ToHostingEnvironmentProfileInvokeResponseOutputWithContext(ctx context.Context) HostingEnvironmentProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentProfileInvokeResponseOutput)
+}
+
+// Specification for an App Service Environment to use for this resource.
+type HostingEnvironmentProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (HostingEnvironmentProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostingEnvironmentProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o HostingEnvironmentProfileInvokeResponseOutput) ToHostingEnvironmentProfileInvokeResponseOutput() HostingEnvironmentProfileInvokeResponseOutput {
+	return o
+}
+
+func (o HostingEnvironmentProfileInvokeResponseOutput) ToHostingEnvironmentProfileInvokeResponseOutputWithContext(ctx context.Context) HostingEnvironmentProfileInvokeResponseOutput {
+	return o
+}
+
+// Resource ID of the App Service Environment.
+func (o HostingEnvironmentProfileInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostingEnvironmentProfileInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the App Service Environment.
+func (o HostingEnvironmentProfileInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HostingEnvironmentProfileInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type of the App Service Environment.
+func (o HostingEnvironmentProfileInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HostingEnvironmentProfileInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Specification for an App Service Environment to use for this resource.
@@ -662,6 +853,115 @@ func (o NameValuePairArrayOutput) Index(i pulumi.IntInput) NameValuePairOutput {
 }
 
 // Name value pair.
+type NameValuePairInvokeResponse struct {
+	// Pair name.
+	Name *string `pulumi:"name"`
+	// Pair value.
+	Value *string `pulumi:"value"`
+}
+
+// NameValuePairInvokeResponseInput is an input type that accepts NameValuePairInvokeResponseArgs and NameValuePairInvokeResponseOutput values.
+// You can construct a concrete instance of `NameValuePairInvokeResponseInput` via:
+//
+//          NameValuePairInvokeResponseArgs{...}
+type NameValuePairInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNameValuePairInvokeResponseOutput() NameValuePairInvokeResponseOutput
+	ToNameValuePairInvokeResponseOutputWithContext(context.Context) NameValuePairInvokeResponseOutput
+}
+
+// Name value pair.
+type NameValuePairInvokeResponseArgs struct {
+	// Pair name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Pair value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (NameValuePairInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NameValuePairInvokeResponse)(nil)).Elem()
+}
+
+func (i NameValuePairInvokeResponseArgs) ToNameValuePairInvokeResponseOutput() NameValuePairInvokeResponseOutput {
+	return i.ToNameValuePairInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NameValuePairInvokeResponseArgs) ToNameValuePairInvokeResponseOutputWithContext(ctx context.Context) NameValuePairInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NameValuePairInvokeResponseOutput)
+}
+
+// NameValuePairInvokeResponseArrayInput is an input type that accepts NameValuePairInvokeResponseArray and NameValuePairInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NameValuePairInvokeResponseArrayInput` via:
+//
+//          NameValuePairInvokeResponseArray{ NameValuePairInvokeResponseArgs{...} }
+type NameValuePairInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNameValuePairInvokeResponseArrayOutput() NameValuePairInvokeResponseArrayOutput
+	ToNameValuePairInvokeResponseArrayOutputWithContext(context.Context) NameValuePairInvokeResponseArrayOutput
+}
+
+type NameValuePairInvokeResponseArray []NameValuePairInvokeResponseInput
+
+func (NameValuePairInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NameValuePairInvokeResponse)(nil)).Elem()
+}
+
+func (i NameValuePairInvokeResponseArray) ToNameValuePairInvokeResponseArrayOutput() NameValuePairInvokeResponseArrayOutput {
+	return i.ToNameValuePairInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NameValuePairInvokeResponseArray) ToNameValuePairInvokeResponseArrayOutputWithContext(ctx context.Context) NameValuePairInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NameValuePairInvokeResponseArrayOutput)
+}
+
+// Name value pair.
+type NameValuePairInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NameValuePairInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NameValuePairInvokeResponse)(nil)).Elem()
+}
+
+func (o NameValuePairInvokeResponseOutput) ToNameValuePairInvokeResponseOutput() NameValuePairInvokeResponseOutput {
+	return o
+}
+
+func (o NameValuePairInvokeResponseOutput) ToNameValuePairInvokeResponseOutputWithContext(ctx context.Context) NameValuePairInvokeResponseOutput {
+	return o
+}
+
+// Pair name.
+func (o NameValuePairInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NameValuePairInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Pair value.
+func (o NameValuePairInvokeResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NameValuePairInvokeResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type NameValuePairInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NameValuePairInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NameValuePairInvokeResponse)(nil)).Elem()
+}
+
+func (o NameValuePairInvokeResponseArrayOutput) ToNameValuePairInvokeResponseArrayOutput() NameValuePairInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NameValuePairInvokeResponseArrayOutput) ToNameValuePairInvokeResponseArrayOutputWithContext(ctx context.Context) NameValuePairInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NameValuePairInvokeResponseArrayOutput) Index(i pulumi.IntInput) NameValuePairInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NameValuePairInvokeResponse {
+		return vs[0].([]NameValuePairInvokeResponse)[vs[1].(int)]
+	}).(NameValuePairInvokeResponseOutput)
+}
+
+// Name value pair.
 type NameValuePairResponse struct {
 	// Pair name.
 	Name *string `pulumi:"name"`
@@ -895,6 +1195,133 @@ func (o NetworkAccessControlEntryArrayOutput) Index(i pulumi.IntInput) NetworkAc
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAccessControlEntry {
 		return vs[0].([]NetworkAccessControlEntry)[vs[1].(int)]
 	}).(NetworkAccessControlEntryOutput)
+}
+
+// Network access control entry.
+type NetworkAccessControlEntryInvokeResponse struct {
+	// Action object.
+	Action *string `pulumi:"action"`
+	// Description of network access control entry.
+	Description *string `pulumi:"description"`
+	// Order of precedence.
+	Order *int `pulumi:"order"`
+	// Remote subnet.
+	RemoteSubnet *string `pulumi:"remoteSubnet"`
+}
+
+// NetworkAccessControlEntryInvokeResponseInput is an input type that accepts NetworkAccessControlEntryInvokeResponseArgs and NetworkAccessControlEntryInvokeResponseOutput values.
+// You can construct a concrete instance of `NetworkAccessControlEntryInvokeResponseInput` via:
+//
+//          NetworkAccessControlEntryInvokeResponseArgs{...}
+type NetworkAccessControlEntryInvokeResponseInput interface {
+	pulumi.Input
+
+	ToNetworkAccessControlEntryInvokeResponseOutput() NetworkAccessControlEntryInvokeResponseOutput
+	ToNetworkAccessControlEntryInvokeResponseOutputWithContext(context.Context) NetworkAccessControlEntryInvokeResponseOutput
+}
+
+// Network access control entry.
+type NetworkAccessControlEntryInvokeResponseArgs struct {
+	// Action object.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Description of network access control entry.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Order of precedence.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// Remote subnet.
+	RemoteSubnet pulumi.StringPtrInput `pulumi:"remoteSubnet"`
+}
+
+func (NetworkAccessControlEntryInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAccessControlEntryInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkAccessControlEntryInvokeResponseArgs) ToNetworkAccessControlEntryInvokeResponseOutput() NetworkAccessControlEntryInvokeResponseOutput {
+	return i.ToNetworkAccessControlEntryInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i NetworkAccessControlEntryInvokeResponseArgs) ToNetworkAccessControlEntryInvokeResponseOutputWithContext(ctx context.Context) NetworkAccessControlEntryInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlEntryInvokeResponseOutput)
+}
+
+// NetworkAccessControlEntryInvokeResponseArrayInput is an input type that accepts NetworkAccessControlEntryInvokeResponseArray and NetworkAccessControlEntryInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `NetworkAccessControlEntryInvokeResponseArrayInput` via:
+//
+//          NetworkAccessControlEntryInvokeResponseArray{ NetworkAccessControlEntryInvokeResponseArgs{...} }
+type NetworkAccessControlEntryInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAccessControlEntryInvokeResponseArrayOutput() NetworkAccessControlEntryInvokeResponseArrayOutput
+	ToNetworkAccessControlEntryInvokeResponseArrayOutputWithContext(context.Context) NetworkAccessControlEntryInvokeResponseArrayOutput
+}
+
+type NetworkAccessControlEntryInvokeResponseArray []NetworkAccessControlEntryInvokeResponseInput
+
+func (NetworkAccessControlEntryInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAccessControlEntryInvokeResponse)(nil)).Elem()
+}
+
+func (i NetworkAccessControlEntryInvokeResponseArray) ToNetworkAccessControlEntryInvokeResponseArrayOutput() NetworkAccessControlEntryInvokeResponseArrayOutput {
+	return i.ToNetworkAccessControlEntryInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAccessControlEntryInvokeResponseArray) ToNetworkAccessControlEntryInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkAccessControlEntryInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAccessControlEntryInvokeResponseArrayOutput)
+}
+
+// Network access control entry.
+type NetworkAccessControlEntryInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkAccessControlEntryInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAccessControlEntryInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkAccessControlEntryInvokeResponseOutput) ToNetworkAccessControlEntryInvokeResponseOutput() NetworkAccessControlEntryInvokeResponseOutput {
+	return o
+}
+
+func (o NetworkAccessControlEntryInvokeResponseOutput) ToNetworkAccessControlEntryInvokeResponseOutputWithContext(ctx context.Context) NetworkAccessControlEntryInvokeResponseOutput {
+	return o
+}
+
+// Action object.
+func (o NetworkAccessControlEntryInvokeResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlEntryInvokeResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// Description of network access control entry.
+func (o NetworkAccessControlEntryInvokeResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlEntryInvokeResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Order of precedence.
+func (o NetworkAccessControlEntryInvokeResponseOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlEntryInvokeResponse) *int { return v.Order }).(pulumi.IntPtrOutput)
+}
+
+// Remote subnet.
+func (o NetworkAccessControlEntryInvokeResponseOutput) RemoteSubnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlEntryInvokeResponse) *string { return v.RemoteSubnet }).(pulumi.StringPtrOutput)
+}
+
+type NetworkAccessControlEntryInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAccessControlEntryInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAccessControlEntryInvokeResponse)(nil)).Elem()
+}
+
+func (o NetworkAccessControlEntryInvokeResponseArrayOutput) ToNetworkAccessControlEntryInvokeResponseArrayOutput() NetworkAccessControlEntryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkAccessControlEntryInvokeResponseArrayOutput) ToNetworkAccessControlEntryInvokeResponseArrayOutputWithContext(ctx context.Context) NetworkAccessControlEntryInvokeResponseArrayOutput {
+	return o
+}
+
+func (o NetworkAccessControlEntryInvokeResponseArrayOutput) Index(i pulumi.IntInput) NetworkAccessControlEntryInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAccessControlEntryInvokeResponse {
+		return vs[0].([]NetworkAccessControlEntryInvokeResponse)[vs[1].(int)]
+	}).(NetworkAccessControlEntryInvokeResponseOutput)
 }
 
 // Network access control entry.
@@ -1208,6 +1635,197 @@ func (o SkuCapacityPtrOutput) Minimum() pulumi.IntPtrOutput {
 // Available scale configurations for an App Service plan.
 func (o SkuCapacityPtrOutput) ScaleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuCapacity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Description of the App Service plan scale options.
+type SkuCapacityInvokeResponse struct {
+	// Default number of workers for this App Service plan SKU.
+	Default *int `pulumi:"default"`
+	// Maximum number of workers for this App Service plan SKU.
+	Maximum *int `pulumi:"maximum"`
+	// Minimum number of workers for this App Service plan SKU.
+	Minimum *int `pulumi:"minimum"`
+	// Available scale configurations for an App Service plan.
+	ScaleType *string `pulumi:"scaleType"`
+}
+
+// SkuCapacityInvokeResponseInput is an input type that accepts SkuCapacityInvokeResponseArgs and SkuCapacityInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuCapacityInvokeResponseInput` via:
+//
+//          SkuCapacityInvokeResponseArgs{...}
+type SkuCapacityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuCapacityInvokeResponseOutput() SkuCapacityInvokeResponseOutput
+	ToSkuCapacityInvokeResponseOutputWithContext(context.Context) SkuCapacityInvokeResponseOutput
+}
+
+// Description of the App Service plan scale options.
+type SkuCapacityInvokeResponseArgs struct {
+	// Default number of workers for this App Service plan SKU.
+	Default pulumi.IntPtrInput `pulumi:"default"`
+	// Maximum number of workers for this App Service plan SKU.
+	Maximum pulumi.IntPtrInput `pulumi:"maximum"`
+	// Minimum number of workers for this App Service plan SKU.
+	Minimum pulumi.IntPtrInput `pulumi:"minimum"`
+	// Available scale configurations for an App Service plan.
+	ScaleType pulumi.StringPtrInput `pulumi:"scaleType"`
+}
+
+func (SkuCapacityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuCapacityInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuCapacityInvokeResponseArgs) ToSkuCapacityInvokeResponseOutput() SkuCapacityInvokeResponseOutput {
+	return i.ToSkuCapacityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuCapacityInvokeResponseArgs) ToSkuCapacityInvokeResponseOutputWithContext(ctx context.Context) SkuCapacityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuCapacityInvokeResponseOutput)
+}
+
+func (i SkuCapacityInvokeResponseArgs) ToSkuCapacityInvokeResponsePtrOutput() SkuCapacityInvokeResponsePtrOutput {
+	return i.ToSkuCapacityInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SkuCapacityInvokeResponseArgs) ToSkuCapacityInvokeResponsePtrOutputWithContext(ctx context.Context) SkuCapacityInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuCapacityInvokeResponseOutput).ToSkuCapacityInvokeResponsePtrOutputWithContext(ctx)
+}
+
+// SkuCapacityInvokeResponsePtrInput is an input type that accepts SkuCapacityInvokeResponseArgs, SkuCapacityInvokeResponsePtr and SkuCapacityInvokeResponsePtrOutput values.
+// You can construct a concrete instance of `SkuCapacityInvokeResponsePtrInput` via:
+//
+//          SkuCapacityInvokeResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SkuCapacityInvokeResponsePtrInput interface {
+	pulumi.Input
+
+	ToSkuCapacityInvokeResponsePtrOutput() SkuCapacityInvokeResponsePtrOutput
+	ToSkuCapacityInvokeResponsePtrOutputWithContext(context.Context) SkuCapacityInvokeResponsePtrOutput
+}
+
+type skuCapacityInvokeResponsePtrType SkuCapacityInvokeResponseArgs
+
+func SkuCapacityInvokeResponsePtr(v *SkuCapacityInvokeResponseArgs) SkuCapacityInvokeResponsePtrInput {
+	return (*skuCapacityInvokeResponsePtrType)(v)
+}
+
+func (*skuCapacityInvokeResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuCapacityInvokeResponse)(nil)).Elem()
+}
+
+func (i *skuCapacityInvokeResponsePtrType) ToSkuCapacityInvokeResponsePtrOutput() SkuCapacityInvokeResponsePtrOutput {
+	return i.ToSkuCapacityInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *skuCapacityInvokeResponsePtrType) ToSkuCapacityInvokeResponsePtrOutputWithContext(ctx context.Context) SkuCapacityInvokeResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuCapacityInvokeResponsePtrOutput)
+}
+
+// Description of the App Service plan scale options.
+type SkuCapacityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuCapacityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuCapacityInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuCapacityInvokeResponseOutput) ToSkuCapacityInvokeResponseOutput() SkuCapacityInvokeResponseOutput {
+	return o
+}
+
+func (o SkuCapacityInvokeResponseOutput) ToSkuCapacityInvokeResponseOutputWithContext(ctx context.Context) SkuCapacityInvokeResponseOutput {
+	return o
+}
+
+func (o SkuCapacityInvokeResponseOutput) ToSkuCapacityInvokeResponsePtrOutput() SkuCapacityInvokeResponsePtrOutput {
+	return o.ToSkuCapacityInvokeResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SkuCapacityInvokeResponseOutput) ToSkuCapacityInvokeResponsePtrOutputWithContext(ctx context.Context) SkuCapacityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SkuCapacityInvokeResponse) *SkuCapacityInvokeResponse {
+		return &v
+	}).(SkuCapacityInvokeResponsePtrOutput)
+}
+
+// Default number of workers for this App Service plan SKU.
+func (o SkuCapacityInvokeResponseOutput) Default() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuCapacityInvokeResponse) *int { return v.Default }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of workers for this App Service plan SKU.
+func (o SkuCapacityInvokeResponseOutput) Maximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuCapacityInvokeResponse) *int { return v.Maximum }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of workers for this App Service plan SKU.
+func (o SkuCapacityInvokeResponseOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuCapacityInvokeResponse) *int { return v.Minimum }).(pulumi.IntPtrOutput)
+}
+
+// Available scale configurations for an App Service plan.
+func (o SkuCapacityInvokeResponseOutput) ScaleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuCapacityInvokeResponse) *string { return v.ScaleType }).(pulumi.StringPtrOutput)
+}
+
+type SkuCapacityInvokeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuCapacityInvokeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuCapacityInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuCapacityInvokeResponsePtrOutput) ToSkuCapacityInvokeResponsePtrOutput() SkuCapacityInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SkuCapacityInvokeResponsePtrOutput) ToSkuCapacityInvokeResponsePtrOutputWithContext(ctx context.Context) SkuCapacityInvokeResponsePtrOutput {
+	return o
+}
+
+func (o SkuCapacityInvokeResponsePtrOutput) Elem() SkuCapacityInvokeResponseOutput {
+	return o.ApplyT(func(v *SkuCapacityInvokeResponse) SkuCapacityInvokeResponse { return *v }).(SkuCapacityInvokeResponseOutput)
+}
+
+// Default number of workers for this App Service plan SKU.
+func (o SkuCapacityInvokeResponsePtrOutput) Default() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SkuCapacityInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Default
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of workers for this App Service plan SKU.
+func (o SkuCapacityInvokeResponsePtrOutput) Maximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SkuCapacityInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Maximum
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of workers for this App Service plan SKU.
+func (o SkuCapacityInvokeResponsePtrOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SkuCapacityInvokeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minimum
+	}).(pulumi.IntPtrOutput)
+}
+
+// Available scale configurations for an App Service plan.
+func (o SkuCapacityInvokeResponsePtrOutput) ScaleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuCapacityInvokeResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -1674,6 +2292,124 @@ func (o SkuDescriptionPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Description of a SKU for a scalable resource.
+type SkuDescriptionInvokeResponse struct {
+	// Capabilities of the SKU, e.g., is traffic manager enabled?
+	Capabilities []CapabilityInvokeResponse `pulumi:"capabilities"`
+	// Current number of instances assigned to the resource.
+	Capacity *int `pulumi:"capacity"`
+	// Family code of the resource SKU.
+	Family *string `pulumi:"family"`
+	// Locations of the SKU.
+	Locations []string `pulumi:"locations"`
+	// Name of the resource SKU.
+	Name *string `pulumi:"name"`
+	// Size specifier of the resource SKU.
+	Size *string `pulumi:"size"`
+	// Min, max, and default scale values of the SKU.
+	SkuCapacity *SkuCapacityInvokeResponse `pulumi:"skuCapacity"`
+	// Service tier of the resource SKU.
+	Tier *string `pulumi:"tier"`
+}
+
+// SkuDescriptionInvokeResponseInput is an input type that accepts SkuDescriptionInvokeResponseArgs and SkuDescriptionInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuDescriptionInvokeResponseInput` via:
+//
+//          SkuDescriptionInvokeResponseArgs{...}
+type SkuDescriptionInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuDescriptionInvokeResponseOutput() SkuDescriptionInvokeResponseOutput
+	ToSkuDescriptionInvokeResponseOutputWithContext(context.Context) SkuDescriptionInvokeResponseOutput
+}
+
+// Description of a SKU for a scalable resource.
+type SkuDescriptionInvokeResponseArgs struct {
+	// Capabilities of the SKU, e.g., is traffic manager enabled?
+	Capabilities CapabilityInvokeResponseArrayInput `pulumi:"capabilities"`
+	// Current number of instances assigned to the resource.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Family code of the resource SKU.
+	Family pulumi.StringPtrInput `pulumi:"family"`
+	// Locations of the SKU.
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
+	// Name of the resource SKU.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Size specifier of the resource SKU.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// Min, max, and default scale values of the SKU.
+	SkuCapacity SkuCapacityInvokeResponsePtrInput `pulumi:"skuCapacity"`
+	// Service tier of the resource SKU.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (SkuDescriptionInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuDescriptionInvokeResponseArgs) ToSkuDescriptionInvokeResponseOutput() SkuDescriptionInvokeResponseOutput {
+	return i.ToSkuDescriptionInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuDescriptionInvokeResponseArgs) ToSkuDescriptionInvokeResponseOutputWithContext(ctx context.Context) SkuDescriptionInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuDescriptionInvokeResponseOutput)
+}
+
+// Description of a SKU for a scalable resource.
+type SkuDescriptionInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuDescriptionInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuDescriptionInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuDescriptionInvokeResponseOutput) ToSkuDescriptionInvokeResponseOutput() SkuDescriptionInvokeResponseOutput {
+	return o
+}
+
+func (o SkuDescriptionInvokeResponseOutput) ToSkuDescriptionInvokeResponseOutputWithContext(ctx context.Context) SkuDescriptionInvokeResponseOutput {
+	return o
+}
+
+// Capabilities of the SKU, e.g., is traffic manager enabled?
+func (o SkuDescriptionInvokeResponseOutput) Capabilities() CapabilityInvokeResponseArrayOutput {
+	return o.ApplyT(func(v SkuDescriptionInvokeResponse) []CapabilityInvokeResponse { return v.Capabilities }).(CapabilityInvokeResponseArrayOutput)
+}
+
+// Current number of instances assigned to the resource.
+func (o SkuDescriptionInvokeResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SkuDescriptionInvokeResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Family code of the resource SKU.
+func (o SkuDescriptionInvokeResponseOutput) Family() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuDescriptionInvokeResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
+}
+
+// Locations of the SKU.
+func (o SkuDescriptionInvokeResponseOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SkuDescriptionInvokeResponse) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// Name of the resource SKU.
+func (o SkuDescriptionInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuDescriptionInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Size specifier of the resource SKU.
+func (o SkuDescriptionInvokeResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuDescriptionInvokeResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// Min, max, and default scale values of the SKU.
+func (o SkuDescriptionInvokeResponseOutput) SkuCapacity() SkuCapacityInvokeResponsePtrOutput {
+	return o.ApplyT(func(v SkuDescriptionInvokeResponse) *SkuCapacityInvokeResponse { return v.SkuCapacity }).(SkuCapacityInvokeResponsePtrOutput)
+}
+
+// Service tier of the resource SKU.
+func (o SkuDescriptionInvokeResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuDescriptionInvokeResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// Description of a SKU for a scalable resource.
 type SkuDescriptionResponse struct {
 	// Capabilities of the SKU, e.g., is traffic manager enabled?
 	Capabilities []CapabilityResponse `pulumi:"capabilities"`
@@ -1941,6 +2677,199 @@ func (o SkuDescriptionResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Stamp capacity information.
+type StampCapacityInvokeResponse struct {
+	// Available capacity (# of machines, bytes of storage etc...).
+	AvailableCapacity *float64 `pulumi:"availableCapacity"`
+	// Shared/dedicated workers.
+	ComputeMode *string `pulumi:"computeMode"`
+	// If <code>true</code>, it includes basic apps.
+	// Basic apps are not used for capacity allocation.
+	ExcludeFromCapacityAllocation *bool `pulumi:"excludeFromCapacityAllocation"`
+	// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
+	IsApplicableForAllComputeModes *bool `pulumi:"isApplicableForAllComputeModes"`
+	// Name of the stamp.
+	Name *string `pulumi:"name"`
+	// Shared or Dedicated.
+	SiteMode *string `pulumi:"siteMode"`
+	// Total capacity (# of machines, bytes of storage etc...).
+	TotalCapacity *float64 `pulumi:"totalCapacity"`
+	// Name of the unit.
+	Unit *string `pulumi:"unit"`
+	// Size of the machines.
+	WorkerSize *string `pulumi:"workerSize"`
+	// Size ID of machines:
+	// 0 - Small
+	// 1 - Medium
+	// 2 - Large
+	WorkerSizeId *int `pulumi:"workerSizeId"`
+}
+
+// StampCapacityInvokeResponseInput is an input type that accepts StampCapacityInvokeResponseArgs and StampCapacityInvokeResponseOutput values.
+// You can construct a concrete instance of `StampCapacityInvokeResponseInput` via:
+//
+//          StampCapacityInvokeResponseArgs{...}
+type StampCapacityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStampCapacityInvokeResponseOutput() StampCapacityInvokeResponseOutput
+	ToStampCapacityInvokeResponseOutputWithContext(context.Context) StampCapacityInvokeResponseOutput
+}
+
+// Stamp capacity information.
+type StampCapacityInvokeResponseArgs struct {
+	// Available capacity (# of machines, bytes of storage etc...).
+	AvailableCapacity pulumi.Float64PtrInput `pulumi:"availableCapacity"`
+	// Shared/dedicated workers.
+	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
+	// If <code>true</code>, it includes basic apps.
+	// Basic apps are not used for capacity allocation.
+	ExcludeFromCapacityAllocation pulumi.BoolPtrInput `pulumi:"excludeFromCapacityAllocation"`
+	// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
+	IsApplicableForAllComputeModes pulumi.BoolPtrInput `pulumi:"isApplicableForAllComputeModes"`
+	// Name of the stamp.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Shared or Dedicated.
+	SiteMode pulumi.StringPtrInput `pulumi:"siteMode"`
+	// Total capacity (# of machines, bytes of storage etc...).
+	TotalCapacity pulumi.Float64PtrInput `pulumi:"totalCapacity"`
+	// Name of the unit.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	// Size of the machines.
+	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
+	// Size ID of machines:
+	// 0 - Small
+	// 1 - Medium
+	// 2 - Large
+	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
+}
+
+func (StampCapacityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StampCapacityInvokeResponse)(nil)).Elem()
+}
+
+func (i StampCapacityInvokeResponseArgs) ToStampCapacityInvokeResponseOutput() StampCapacityInvokeResponseOutput {
+	return i.ToStampCapacityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StampCapacityInvokeResponseArgs) ToStampCapacityInvokeResponseOutputWithContext(ctx context.Context) StampCapacityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StampCapacityInvokeResponseOutput)
+}
+
+// StampCapacityInvokeResponseArrayInput is an input type that accepts StampCapacityInvokeResponseArray and StampCapacityInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `StampCapacityInvokeResponseArrayInput` via:
+//
+//          StampCapacityInvokeResponseArray{ StampCapacityInvokeResponseArgs{...} }
+type StampCapacityInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToStampCapacityInvokeResponseArrayOutput() StampCapacityInvokeResponseArrayOutput
+	ToStampCapacityInvokeResponseArrayOutputWithContext(context.Context) StampCapacityInvokeResponseArrayOutput
+}
+
+type StampCapacityInvokeResponseArray []StampCapacityInvokeResponseInput
+
+func (StampCapacityInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StampCapacityInvokeResponse)(nil)).Elem()
+}
+
+func (i StampCapacityInvokeResponseArray) ToStampCapacityInvokeResponseArrayOutput() StampCapacityInvokeResponseArrayOutput {
+	return i.ToStampCapacityInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StampCapacityInvokeResponseArray) ToStampCapacityInvokeResponseArrayOutputWithContext(ctx context.Context) StampCapacityInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StampCapacityInvokeResponseArrayOutput)
+}
+
+// Stamp capacity information.
+type StampCapacityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StampCapacityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StampCapacityInvokeResponse)(nil)).Elem()
+}
+
+func (o StampCapacityInvokeResponseOutput) ToStampCapacityInvokeResponseOutput() StampCapacityInvokeResponseOutput {
+	return o
+}
+
+func (o StampCapacityInvokeResponseOutput) ToStampCapacityInvokeResponseOutputWithContext(ctx context.Context) StampCapacityInvokeResponseOutput {
+	return o
+}
+
+// Available capacity (# of machines, bytes of storage etc...).
+func (o StampCapacityInvokeResponseOutput) AvailableCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StampCapacityInvokeResponse) *float64 { return v.AvailableCapacity }).(pulumi.Float64PtrOutput)
+}
+
+// Shared/dedicated workers.
+func (o StampCapacityInvokeResponseOutput) ComputeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StampCapacityInvokeResponse) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
+}
+
+// If <code>true</code>, it includes basic apps.
+// Basic apps are not used for capacity allocation.
+func (o StampCapacityInvokeResponseOutput) ExcludeFromCapacityAllocation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StampCapacityInvokeResponse) *bool { return v.ExcludeFromCapacityAllocation }).(pulumi.BoolPtrOutput)
+}
+
+// <code>true</code> if capacity is applicable for all apps; otherwise, <code>false</code>.
+func (o StampCapacityInvokeResponseOutput) IsApplicableForAllComputeModes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StampCapacityInvokeResponse) *bool { return v.IsApplicableForAllComputeModes }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the stamp.
+func (o StampCapacityInvokeResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StampCapacityInvokeResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Shared or Dedicated.
+func (o StampCapacityInvokeResponseOutput) SiteMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StampCapacityInvokeResponse) *string { return v.SiteMode }).(pulumi.StringPtrOutput)
+}
+
+// Total capacity (# of machines, bytes of storage etc...).
+func (o StampCapacityInvokeResponseOutput) TotalCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StampCapacityInvokeResponse) *float64 { return v.TotalCapacity }).(pulumi.Float64PtrOutput)
+}
+
+// Name of the unit.
+func (o StampCapacityInvokeResponseOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StampCapacityInvokeResponse) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+// Size of the machines.
+func (o StampCapacityInvokeResponseOutput) WorkerSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StampCapacityInvokeResponse) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
+}
+
+// Size ID of machines:
+// 0 - Small
+// 1 - Medium
+// 2 - Large
+func (o StampCapacityInvokeResponseOutput) WorkerSizeId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StampCapacityInvokeResponse) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
+}
+
+type StampCapacityInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StampCapacityInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StampCapacityInvokeResponse)(nil)).Elem()
+}
+
+func (o StampCapacityInvokeResponseArrayOutput) ToStampCapacityInvokeResponseArrayOutput() StampCapacityInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StampCapacityInvokeResponseArrayOutput) ToStampCapacityInvokeResponseArrayOutputWithContext(ctx context.Context) StampCapacityInvokeResponseArrayOutput {
+	return o
+}
+
+func (o StampCapacityInvokeResponseArrayOutput) Index(i pulumi.IntInput) StampCapacityInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StampCapacityInvokeResponse {
+		return vs[0].([]StampCapacityInvokeResponse)[vs[1].(int)]
+	}).(StampCapacityInvokeResponseOutput)
+}
+
+// Stamp capacity information.
 type StampCapacityResponse struct {
 	// Available capacity (# of machines, bytes of storage etc...).
 	AvailableCapacity *float64 `pulumi:"availableCapacity"`
@@ -2131,6 +3060,133 @@ func (o StampCapacityResponseArrayOutput) Index(i pulumi.IntInput) StampCapacity
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StampCapacityResponse {
 		return vs[0].([]StampCapacityResponse)[vs[1].(int)]
 	}).(StampCapacityResponseOutput)
+}
+
+// Virtual IP mapping.
+type VirtualIPMappingInvokeResponse struct {
+	// Is virtual IP mapping in use.
+	InUse *bool `pulumi:"inUse"`
+	// Internal HTTP port.
+	InternalHttpPort *int `pulumi:"internalHttpPort"`
+	// Internal HTTPS port.
+	InternalHttpsPort *int `pulumi:"internalHttpsPort"`
+	// Virtual IP address.
+	VirtualIP *string `pulumi:"virtualIP"`
+}
+
+// VirtualIPMappingInvokeResponseInput is an input type that accepts VirtualIPMappingInvokeResponseArgs and VirtualIPMappingInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualIPMappingInvokeResponseInput` via:
+//
+//          VirtualIPMappingInvokeResponseArgs{...}
+type VirtualIPMappingInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualIPMappingInvokeResponseOutput() VirtualIPMappingInvokeResponseOutput
+	ToVirtualIPMappingInvokeResponseOutputWithContext(context.Context) VirtualIPMappingInvokeResponseOutput
+}
+
+// Virtual IP mapping.
+type VirtualIPMappingInvokeResponseArgs struct {
+	// Is virtual IP mapping in use.
+	InUse pulumi.BoolPtrInput `pulumi:"inUse"`
+	// Internal HTTP port.
+	InternalHttpPort pulumi.IntPtrInput `pulumi:"internalHttpPort"`
+	// Internal HTTPS port.
+	InternalHttpsPort pulumi.IntPtrInput `pulumi:"internalHttpsPort"`
+	// Virtual IP address.
+	VirtualIP pulumi.StringPtrInput `pulumi:"virtualIP"`
+}
+
+func (VirtualIPMappingInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualIPMappingInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualIPMappingInvokeResponseArgs) ToVirtualIPMappingInvokeResponseOutput() VirtualIPMappingInvokeResponseOutput {
+	return i.ToVirtualIPMappingInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualIPMappingInvokeResponseArgs) ToVirtualIPMappingInvokeResponseOutputWithContext(ctx context.Context) VirtualIPMappingInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualIPMappingInvokeResponseOutput)
+}
+
+// VirtualIPMappingInvokeResponseArrayInput is an input type that accepts VirtualIPMappingInvokeResponseArray and VirtualIPMappingInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `VirtualIPMappingInvokeResponseArrayInput` via:
+//
+//          VirtualIPMappingInvokeResponseArray{ VirtualIPMappingInvokeResponseArgs{...} }
+type VirtualIPMappingInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToVirtualIPMappingInvokeResponseArrayOutput() VirtualIPMappingInvokeResponseArrayOutput
+	ToVirtualIPMappingInvokeResponseArrayOutputWithContext(context.Context) VirtualIPMappingInvokeResponseArrayOutput
+}
+
+type VirtualIPMappingInvokeResponseArray []VirtualIPMappingInvokeResponseInput
+
+func (VirtualIPMappingInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualIPMappingInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualIPMappingInvokeResponseArray) ToVirtualIPMappingInvokeResponseArrayOutput() VirtualIPMappingInvokeResponseArrayOutput {
+	return i.ToVirtualIPMappingInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualIPMappingInvokeResponseArray) ToVirtualIPMappingInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualIPMappingInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualIPMappingInvokeResponseArrayOutput)
+}
+
+// Virtual IP mapping.
+type VirtualIPMappingInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualIPMappingInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualIPMappingInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualIPMappingInvokeResponseOutput) ToVirtualIPMappingInvokeResponseOutput() VirtualIPMappingInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualIPMappingInvokeResponseOutput) ToVirtualIPMappingInvokeResponseOutputWithContext(ctx context.Context) VirtualIPMappingInvokeResponseOutput {
+	return o
+}
+
+// Is virtual IP mapping in use.
+func (o VirtualIPMappingInvokeResponseOutput) InUse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualIPMappingInvokeResponse) *bool { return v.InUse }).(pulumi.BoolPtrOutput)
+}
+
+// Internal HTTP port.
+func (o VirtualIPMappingInvokeResponseOutput) InternalHttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualIPMappingInvokeResponse) *int { return v.InternalHttpPort }).(pulumi.IntPtrOutput)
+}
+
+// Internal HTTPS port.
+func (o VirtualIPMappingInvokeResponseOutput) InternalHttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualIPMappingInvokeResponse) *int { return v.InternalHttpsPort }).(pulumi.IntPtrOutput)
+}
+
+// Virtual IP address.
+func (o VirtualIPMappingInvokeResponseOutput) VirtualIP() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualIPMappingInvokeResponse) *string { return v.VirtualIP }).(pulumi.StringPtrOutput)
+}
+
+type VirtualIPMappingInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualIPMappingInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualIPMappingInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualIPMappingInvokeResponseArrayOutput) ToVirtualIPMappingInvokeResponseArrayOutput() VirtualIPMappingInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualIPMappingInvokeResponseArrayOutput) ToVirtualIPMappingInvokeResponseArrayOutputWithContext(ctx context.Context) VirtualIPMappingInvokeResponseArrayOutput {
+	return o
+}
+
+func (o VirtualIPMappingInvokeResponseArrayOutput) Index(i pulumi.IntInput) VirtualIPMappingInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualIPMappingInvokeResponse {
+		return vs[0].([]VirtualIPMappingInvokeResponse)[vs[1].(int)]
+	}).(VirtualIPMappingInvokeResponseOutput)
 }
 
 // Virtual IP mapping.
@@ -2411,6 +3467,88 @@ func (o VirtualNetworkProfilePtrOutput) Subnet() pulumi.StringPtrOutput {
 		}
 		return v.Subnet
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specification for using a Virtual Network.
+type VirtualNetworkProfileInvokeResponse struct {
+	// Resource id of the Virtual Network.
+	Id *string `pulumi:"id"`
+	// Name of the Virtual Network (read-only).
+	Name string `pulumi:"name"`
+	// Subnet within the Virtual Network.
+	Subnet *string `pulumi:"subnet"`
+	// Resource type of the Virtual Network (read-only).
+	Type string `pulumi:"type"`
+}
+
+// VirtualNetworkProfileInvokeResponseInput is an input type that accepts VirtualNetworkProfileInvokeResponseArgs and VirtualNetworkProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `VirtualNetworkProfileInvokeResponseInput` via:
+//
+//          VirtualNetworkProfileInvokeResponseArgs{...}
+type VirtualNetworkProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkProfileInvokeResponseOutput() VirtualNetworkProfileInvokeResponseOutput
+	ToVirtualNetworkProfileInvokeResponseOutputWithContext(context.Context) VirtualNetworkProfileInvokeResponseOutput
+}
+
+// Specification for using a Virtual Network.
+type VirtualNetworkProfileInvokeResponseArgs struct {
+	// Resource id of the Virtual Network.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the Virtual Network (read-only).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Subnet within the Virtual Network.
+	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+	// Resource type of the Virtual Network (read-only).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VirtualNetworkProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i VirtualNetworkProfileInvokeResponseArgs) ToVirtualNetworkProfileInvokeResponseOutput() VirtualNetworkProfileInvokeResponseOutput {
+	return i.ToVirtualNetworkProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkProfileInvokeResponseArgs) ToVirtualNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkProfileInvokeResponseOutput)
+}
+
+// Specification for using a Virtual Network.
+type VirtualNetworkProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkProfileInvokeResponseOutput) ToVirtualNetworkProfileInvokeResponseOutput() VirtualNetworkProfileInvokeResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkProfileInvokeResponseOutput) ToVirtualNetworkProfileInvokeResponseOutputWithContext(ctx context.Context) VirtualNetworkProfileInvokeResponseOutput {
+	return o
+}
+
+// Resource id of the Virtual Network.
+func (o VirtualNetworkProfileInvokeResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkProfileInvokeResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Virtual Network (read-only).
+func (o VirtualNetworkProfileInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkProfileInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Subnet within the Virtual Network.
+func (o VirtualNetworkProfileInvokeResponseOutput) Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkProfileInvokeResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
+}
+
+// Resource type of the Virtual Network (read-only).
+func (o VirtualNetworkProfileInvokeResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkProfileInvokeResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Specification for using a Virtual Network.
@@ -2732,6 +3870,142 @@ func (o WorkerPoolArrayOutput) Index(i pulumi.IntInput) WorkerPoolOutput {
 }
 
 // Worker pool of an App Service Environment.
+type WorkerPoolInvokeResponse struct {
+	// Shared or dedicated app hosting.
+	ComputeMode *string `pulumi:"computeMode"`
+	// Names of all instances in the worker pool (read only).
+	InstanceNames []string `pulumi:"instanceNames"`
+	// Number of instances in the worker pool.
+	WorkerCount *int `pulumi:"workerCount"`
+	// VM size of the worker pool instances.
+	WorkerSize *string `pulumi:"workerSize"`
+	// Worker size ID for referencing this worker pool.
+	WorkerSizeId *int `pulumi:"workerSizeId"`
+}
+
+// WorkerPoolInvokeResponseInput is an input type that accepts WorkerPoolInvokeResponseArgs and WorkerPoolInvokeResponseOutput values.
+// You can construct a concrete instance of `WorkerPoolInvokeResponseInput` via:
+//
+//          WorkerPoolInvokeResponseArgs{...}
+type WorkerPoolInvokeResponseInput interface {
+	pulumi.Input
+
+	ToWorkerPoolInvokeResponseOutput() WorkerPoolInvokeResponseOutput
+	ToWorkerPoolInvokeResponseOutputWithContext(context.Context) WorkerPoolInvokeResponseOutput
+}
+
+// Worker pool of an App Service Environment.
+type WorkerPoolInvokeResponseArgs struct {
+	// Shared or dedicated app hosting.
+	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
+	// Names of all instances in the worker pool (read only).
+	InstanceNames pulumi.StringArrayInput `pulumi:"instanceNames"`
+	// Number of instances in the worker pool.
+	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
+	// VM size of the worker pool instances.
+	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
+	// Worker size ID for referencing this worker pool.
+	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
+}
+
+func (WorkerPoolInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkerPoolInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkerPoolInvokeResponseArgs) ToWorkerPoolInvokeResponseOutput() WorkerPoolInvokeResponseOutput {
+	return i.ToWorkerPoolInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i WorkerPoolInvokeResponseArgs) ToWorkerPoolInvokeResponseOutputWithContext(ctx context.Context) WorkerPoolInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolInvokeResponseOutput)
+}
+
+// WorkerPoolInvokeResponseArrayInput is an input type that accepts WorkerPoolInvokeResponseArray and WorkerPoolInvokeResponseArrayOutput values.
+// You can construct a concrete instance of `WorkerPoolInvokeResponseArrayInput` via:
+//
+//          WorkerPoolInvokeResponseArray{ WorkerPoolInvokeResponseArgs{...} }
+type WorkerPoolInvokeResponseArrayInput interface {
+	pulumi.Input
+
+	ToWorkerPoolInvokeResponseArrayOutput() WorkerPoolInvokeResponseArrayOutput
+	ToWorkerPoolInvokeResponseArrayOutputWithContext(context.Context) WorkerPoolInvokeResponseArrayOutput
+}
+
+type WorkerPoolInvokeResponseArray []WorkerPoolInvokeResponseInput
+
+func (WorkerPoolInvokeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkerPoolInvokeResponse)(nil)).Elem()
+}
+
+func (i WorkerPoolInvokeResponseArray) ToWorkerPoolInvokeResponseArrayOutput() WorkerPoolInvokeResponseArrayOutput {
+	return i.ToWorkerPoolInvokeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i WorkerPoolInvokeResponseArray) ToWorkerPoolInvokeResponseArrayOutputWithContext(ctx context.Context) WorkerPoolInvokeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolInvokeResponseArrayOutput)
+}
+
+// Worker pool of an App Service Environment.
+type WorkerPoolInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkerPoolInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkerPoolInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkerPoolInvokeResponseOutput) ToWorkerPoolInvokeResponseOutput() WorkerPoolInvokeResponseOutput {
+	return o
+}
+
+func (o WorkerPoolInvokeResponseOutput) ToWorkerPoolInvokeResponseOutputWithContext(ctx context.Context) WorkerPoolInvokeResponseOutput {
+	return o
+}
+
+// Shared or dedicated app hosting.
+func (o WorkerPoolInvokeResponseOutput) ComputeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerPoolInvokeResponse) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
+}
+
+// Names of all instances in the worker pool (read only).
+func (o WorkerPoolInvokeResponseOutput) InstanceNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkerPoolInvokeResponse) []string { return v.InstanceNames }).(pulumi.StringArrayOutput)
+}
+
+// Number of instances in the worker pool.
+func (o WorkerPoolInvokeResponseOutput) WorkerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkerPoolInvokeResponse) *int { return v.WorkerCount }).(pulumi.IntPtrOutput)
+}
+
+// VM size of the worker pool instances.
+func (o WorkerPoolInvokeResponseOutput) WorkerSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerPoolInvokeResponse) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
+}
+
+// Worker size ID for referencing this worker pool.
+func (o WorkerPoolInvokeResponseOutput) WorkerSizeId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkerPoolInvokeResponse) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
+}
+
+type WorkerPoolInvokeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkerPoolInvokeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkerPoolInvokeResponse)(nil)).Elem()
+}
+
+func (o WorkerPoolInvokeResponseArrayOutput) ToWorkerPoolInvokeResponseArrayOutput() WorkerPoolInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkerPoolInvokeResponseArrayOutput) ToWorkerPoolInvokeResponseArrayOutputWithContext(ctx context.Context) WorkerPoolInvokeResponseArrayOutput {
+	return o
+}
+
+func (o WorkerPoolInvokeResponseArrayOutput) Index(i pulumi.IntInput) WorkerPoolInvokeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkerPoolInvokeResponse {
+		return vs[0].([]WorkerPoolInvokeResponse)[vs[1].(int)]
+	}).(WorkerPoolInvokeResponseOutput)
+}
+
+// Worker pool of an App Service Environment.
 type WorkerPoolResponse struct {
 	// Shared or dedicated app hosting.
 	ComputeMode *string `pulumi:"computeMode"`
@@ -2870,38 +4144,55 @@ func (o WorkerPoolResponseArrayOutput) Index(i pulumi.IntInput) WorkerPoolRespon
 func init() {
 	pulumi.RegisterOutputType(CapabilityOutput{})
 	pulumi.RegisterOutputType(CapabilityArrayOutput{})
+	pulumi.RegisterOutputType(CapabilityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(CapabilityInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CapabilityResponseOutput{})
 	pulumi.RegisterOutputType(CapabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfilePtrOutput{})
+	pulumi.RegisterOutputType(HostingEnvironmentProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponseOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(NameValuePairOutput{})
 	pulumi.RegisterOutputType(NameValuePairArrayOutput{})
+	pulumi.RegisterOutputType(NameValuePairInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NameValuePairInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NameValuePairResponseOutput{})
 	pulumi.RegisterOutputType(NameValuePairResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAccessControlEntryOutput{})
 	pulumi.RegisterOutputType(NetworkAccessControlEntryArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAccessControlEntryInvokeResponseOutput{})
+	pulumi.RegisterOutputType(NetworkAccessControlEntryInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAccessControlEntryResponseOutput{})
 	pulumi.RegisterOutputType(NetworkAccessControlEntryResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuCapacityOutput{})
 	pulumi.RegisterOutputType(SkuCapacityPtrOutput{})
+	pulumi.RegisterOutputType(SkuCapacityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(SkuCapacityInvokeResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuCapacityResponseOutput{})
 	pulumi.RegisterOutputType(SkuCapacityResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuDescriptionOutput{})
 	pulumi.RegisterOutputType(SkuDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(SkuDescriptionInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(SkuDescriptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(StampCapacityInvokeResponseOutput{})
+	pulumi.RegisterOutputType(StampCapacityInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(StampCapacityResponseOutput{})
 	pulumi.RegisterOutputType(StampCapacityResponseArrayOutput{})
+	pulumi.RegisterOutputType(VirtualIPMappingInvokeResponseOutput{})
+	pulumi.RegisterOutputType(VirtualIPMappingInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualIPMappingResponseOutput{})
 	pulumi.RegisterOutputType(VirtualIPMappingResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkerPoolOutput{})
 	pulumi.RegisterOutputType(WorkerPoolArrayOutput{})
+	pulumi.RegisterOutputType(WorkerPoolInvokeResponseOutput{})
+	pulumi.RegisterOutputType(WorkerPoolInvokeResponseArrayOutput{})
 	pulumi.RegisterOutputType(WorkerPoolResponseOutput{})
 	pulumi.RegisterOutputType(WorkerPoolResponseArrayOutput{})
 }

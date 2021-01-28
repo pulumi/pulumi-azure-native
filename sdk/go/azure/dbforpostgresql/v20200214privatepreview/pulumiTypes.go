@@ -145,6 +145,79 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Identity for the resource.
+type IdentityInvokeResponse struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type *string `pulumi:"type"`
+}
+
+// IdentityInvokeResponseInput is an input type that accepts IdentityInvokeResponseArgs and IdentityInvokeResponseOutput values.
+// You can construct a concrete instance of `IdentityInvokeResponseInput` via:
+//
+//          IdentityInvokeResponseArgs{...}
+type IdentityInvokeResponseInput interface {
+	pulumi.Input
+
+	ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput
+	ToIdentityInvokeResponseOutputWithContext(context.Context) IdentityInvokeResponseOutput
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseArgs struct {
+	// The principal ID of resource identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The identity type.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IdentityInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return i.ToIdentityInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i IdentityInvokeResponseArgs) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityInvokeResponseOutput)
+}
+
+// Identity for the resource.
+type IdentityInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityInvokeResponse)(nil)).Elem()
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutput() IdentityInvokeResponseOutput {
+	return o
+}
+
+func (o IdentityInvokeResponseOutput) ToIdentityInvokeResponseOutputWithContext(ctx context.Context) IdentityInvokeResponseOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o IdentityInvokeResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityInvokeResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o IdentityInvokeResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityInvokeResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -508,6 +581,88 @@ func (o MaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 }
 
 // Maintenance window of a server.
+type MaintenanceWindowInvokeResponse struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow *string `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek *int `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour *int `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute *int `pulumi:"startMinute"`
+}
+
+// MaintenanceWindowInvokeResponseInput is an input type that accepts MaintenanceWindowInvokeResponseArgs and MaintenanceWindowInvokeResponseOutput values.
+// You can construct a concrete instance of `MaintenanceWindowInvokeResponseInput` via:
+//
+//          MaintenanceWindowInvokeResponseArgs{...}
+type MaintenanceWindowInvokeResponseInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowInvokeResponseOutput() MaintenanceWindowInvokeResponseOutput
+	ToMaintenanceWindowInvokeResponseOutputWithContext(context.Context) MaintenanceWindowInvokeResponseOutput
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowInvokeResponseArgs struct {
+	// indicates whether custom window is enabled or disabled
+	CustomWindow pulumi.StringPtrInput `pulumi:"customWindow"`
+	// day of week for maintenance window
+	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
+	// start hour for maintenance window
+	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
+	// start minute for maintenance window
+	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+}
+
+func (MaintenanceWindowInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowInvokeResponse)(nil)).Elem()
+}
+
+func (i MaintenanceWindowInvokeResponseArgs) ToMaintenanceWindowInvokeResponseOutput() MaintenanceWindowInvokeResponseOutput {
+	return i.ToMaintenanceWindowInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowInvokeResponseArgs) ToMaintenanceWindowInvokeResponseOutputWithContext(ctx context.Context) MaintenanceWindowInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowInvokeResponseOutput)
+}
+
+// Maintenance window of a server.
+type MaintenanceWindowInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowInvokeResponse)(nil)).Elem()
+}
+
+func (o MaintenanceWindowInvokeResponseOutput) ToMaintenanceWindowInvokeResponseOutput() MaintenanceWindowInvokeResponseOutput {
+	return o
+}
+
+func (o MaintenanceWindowInvokeResponseOutput) ToMaintenanceWindowInvokeResponseOutputWithContext(ctx context.Context) MaintenanceWindowInvokeResponseOutput {
+	return o
+}
+
+// indicates whether custom window is enabled or disabled
+func (o MaintenanceWindowInvokeResponseOutput) CustomWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowInvokeResponse) *string { return v.CustomWindow }).(pulumi.StringPtrOutput)
+}
+
+// day of week for maintenance window
+func (o MaintenanceWindowInvokeResponseOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowInvokeResponse) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
+}
+
+// start hour for maintenance window
+func (o MaintenanceWindowInvokeResponseOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowInvokeResponse) *int { return v.StartHour }).(pulumi.IntPtrOutput)
+}
+
+// start minute for maintenance window
+func (o MaintenanceWindowInvokeResponseOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowInvokeResponse) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
+}
+
+// Maintenance window of a server.
 type MaintenanceWindowResponse struct {
 	// indicates whether custom window is enabled or disabled
 	CustomWindow *string `pulumi:"customWindow"`
@@ -829,6 +984,58 @@ func (o ServerPropertiesDelegatedSubnetArgumentsPtrOutput) SubnetArmResourceId()
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerPropertiesInvokeResponseDelegatedSubnetArguments struct {
+	// delegated subnet arm resource id.
+	SubnetArmResourceId *string `pulumi:"subnetArmResourceId"`
+}
+
+// ServerPropertiesInvokeResponseDelegatedSubnetArgumentsInput is an input type that accepts ServerPropertiesInvokeResponseDelegatedSubnetArgumentsArgs and ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput values.
+// You can construct a concrete instance of `ServerPropertiesInvokeResponseDelegatedSubnetArgumentsInput` via:
+//
+//          ServerPropertiesInvokeResponseDelegatedSubnetArgumentsArgs{...}
+type ServerPropertiesInvokeResponseDelegatedSubnetArgumentsInput interface {
+	pulumi.Input
+
+	ToServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput() ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput
+	ToServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutputWithContext(context.Context) ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput
+}
+
+type ServerPropertiesInvokeResponseDelegatedSubnetArgumentsArgs struct {
+	// delegated subnet arm resource id.
+	SubnetArmResourceId pulumi.StringPtrInput `pulumi:"subnetArmResourceId"`
+}
+
+func (ServerPropertiesInvokeResponseDelegatedSubnetArgumentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPropertiesInvokeResponseDelegatedSubnetArguments)(nil)).Elem()
+}
+
+func (i ServerPropertiesInvokeResponseDelegatedSubnetArgumentsArgs) ToServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput() ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput {
+	return i.ToServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutputWithContext(context.Background())
+}
+
+func (i ServerPropertiesInvokeResponseDelegatedSubnetArgumentsArgs) ToServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutputWithContext(ctx context.Context) ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput)
+}
+
+type ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput struct{ *pulumi.OutputState }
+
+func (ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerPropertiesInvokeResponseDelegatedSubnetArguments)(nil)).Elem()
+}
+
+func (o ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput) ToServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput() ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput {
+	return o
+}
+
+func (o ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput) ToServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutputWithContext(ctx context.Context) ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput {
+	return o
+}
+
+// delegated subnet arm resource id.
+func (o ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput) SubnetArmResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesInvokeResponseDelegatedSubnetArguments) *string { return v.SubnetArmResourceId }).(pulumi.StringPtrOutput)
+}
+
 type ServerPropertiesResponseDelegatedSubnetArguments struct {
 	// delegated subnet arm resource id.
 	SubnetArmResourceId *string `pulumi:"subnetArmResourceId"`
@@ -1113,6 +1320,70 @@ func (o SkuPtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return &v.Tier
 	}).(pulumi.StringPtrOutput)
+}
+
+// Sku information related properties of a server.
+type SkuInvokeResponse struct {
+	// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+	Name string `pulumi:"name"`
+	// The tier of the particular SKU, e.g. Burstable.
+	Tier string `pulumi:"tier"`
+}
+
+// SkuInvokeResponseInput is an input type that accepts SkuInvokeResponseArgs and SkuInvokeResponseOutput values.
+// You can construct a concrete instance of `SkuInvokeResponseInput` via:
+//
+//          SkuInvokeResponseArgs{...}
+type SkuInvokeResponseInput interface {
+	pulumi.Input
+
+	ToSkuInvokeResponseOutput() SkuInvokeResponseOutput
+	ToSkuInvokeResponseOutputWithContext(context.Context) SkuInvokeResponseOutput
+}
+
+// Sku information related properties of a server.
+type SkuInvokeResponseArgs struct {
+	// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The tier of the particular SKU, e.g. Burstable.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (SkuInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return i.ToSkuInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i SkuInvokeResponseArgs) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SkuInvokeResponseOutput)
+}
+
+// Sku information related properties of a server.
+type SkuInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (SkuInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuInvokeResponse)(nil)).Elem()
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutput() SkuInvokeResponseOutput {
+	return o
+}
+
+func (o SkuInvokeResponseOutput) ToSkuInvokeResponseOutputWithContext(ctx context.Context) SkuInvokeResponseOutput {
+	return o
+}
+
+// The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
+func (o SkuInvokeResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tier of the particular SKU, e.g. Burstable.
+func (o SkuInvokeResponseOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v SkuInvokeResponse) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 // Sku information related properties of a server.
@@ -1422,6 +1693,70 @@ func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 }
 
 // Storage Profile properties of a server
+type StorageProfileInvokeResponse struct {
+	// Backup retention days for the server.
+	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
+	// Max storage allowed for a server.
+	StorageMB *int `pulumi:"storageMB"`
+}
+
+// StorageProfileInvokeResponseInput is an input type that accepts StorageProfileInvokeResponseArgs and StorageProfileInvokeResponseOutput values.
+// You can construct a concrete instance of `StorageProfileInvokeResponseInput` via:
+//
+//          StorageProfileInvokeResponseArgs{...}
+type StorageProfileInvokeResponseInput interface {
+	pulumi.Input
+
+	ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput
+	ToStorageProfileInvokeResponseOutputWithContext(context.Context) StorageProfileInvokeResponseOutput
+}
+
+// Storage Profile properties of a server
+type StorageProfileInvokeResponseArgs struct {
+	// Backup retention days for the server.
+	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
+	// Max storage allowed for a server.
+	StorageMB pulumi.IntPtrInput `pulumi:"storageMB"`
+}
+
+func (StorageProfileInvokeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput {
+	return i.ToStorageProfileInvokeResponseOutputWithContext(context.Background())
+}
+
+func (i StorageProfileInvokeResponseArgs) ToStorageProfileInvokeResponseOutputWithContext(ctx context.Context) StorageProfileInvokeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageProfileInvokeResponseOutput)
+}
+
+// Storage Profile properties of a server
+type StorageProfileInvokeResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageProfileInvokeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageProfileInvokeResponse)(nil)).Elem()
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponseOutput() StorageProfileInvokeResponseOutput {
+	return o
+}
+
+func (o StorageProfileInvokeResponseOutput) ToStorageProfileInvokeResponseOutputWithContext(ctx context.Context) StorageProfileInvokeResponseOutput {
+	return o
+}
+
+// Backup retention days for the server.
+func (o StorageProfileInvokeResponseOutput) BackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Max storage allowed for a server.
+func (o StorageProfileInvokeResponseOutput) StorageMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageProfileInvokeResponse) *int { return v.StorageMB }).(pulumi.IntPtrOutput)
+}
+
+// Storage Profile properties of a server
 type StorageProfileResponse struct {
 	// Backup retention days for the server.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
@@ -1577,22 +1912,27 @@ func (o StorageProfileResponsePtrOutput) StorageMB() pulumi.IntPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityInvokeResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowInvokeResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesDelegatedSubnetArgumentsOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesDelegatedSubnetArgumentsPtrOutput{})
+	pulumi.RegisterOutputType(ServerPropertiesInvokeResponseDelegatedSubnetArgumentsOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesResponseDelegatedSubnetArgumentsOutput{})
 	pulumi.RegisterOutputType(ServerPropertiesResponseDelegatedSubnetArgumentsPtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
+	pulumi.RegisterOutputType(SkuInvokeResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileOutput{})
 	pulumi.RegisterOutputType(StorageProfilePtrOutput{})
+	pulumi.RegisterOutputType(StorageProfileInvokeResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponsePtrOutput{})
 }
